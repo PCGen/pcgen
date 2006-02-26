@@ -88,7 +88,7 @@ These files can be renamed and used for releases.
 	<!-- For writing the jar -->
 	<property name="jar.bin.file" value="pcgen.jar" />
 	<property name="jar.extra.jars" value="xercesImpl-2.5.0.jar avalon-framework-cvs-20020806.jar xml-apis.jar xalan-2.5.2.jar batik.jar fop.jar kunststoff.jar skinlf.jar wraplf.jar jep-2.24.jar jdom.jar MRJ141Stubs.jar djep-2.24.jar RngPack-1.1a.jar tracerapi.jar" />
-	<property name="manifest.file" value="manifest" />
+	<property name="manifest.file" value="code/manifest" />
 	<property name="manifest.main.class" value="pcgen.core.Main" />
 	<property name="default.main.class" value="pcgen.gui.pcGenGUI" />
 	<property name="manifest.extra.jars" value="${lib.dir}/xercesImpl-2.5.0.jar ${lib.dir}/avalon-framework-cvs-20020806.jar ${lib.dir}/xml-apis.jar ${lib.dir}/xalan-2.5.2.jar ${lib.dir}/batik.jar ${lib.dir}/fop.jar ${lib.dir}/kunststoff.jar ${lib.dir}/skinlf.jar ${lib.dir}/wraplf.jar ${lib.dir}/jep-2.24.jar ${lib.dir}/jdom.jar ${lib.dir}/MRJ141Stubs.jar ${lib.dir}/djep-2.24.jar ${lib.dir}/RngPack-1.1a.jar ${lib.dir}/tracerapi.jar" />
@@ -129,7 +129,7 @@ These files can be renamed and used for releases.
 
 	<!-- For testing -->
 	<property name="test.jar.file" value="pcgen-tests.jar" />
-	<property name="test.manifest.file" value="manifest-tests" />
+	<property name="test.manifest.file" value="code/manifest-tests" />
 	<property name="test.framework.class" value="AllJUnitTests" />
 	<property name="test.jar.extra.jars" value="${jar.extra.jars} junit.jar xmlunit1.0.jar" />
 	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${lib.dir}/junit.jar ${lib.dir}/xmlunit1.0.jar" />
