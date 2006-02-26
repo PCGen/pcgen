@@ -52,7 +52,7 @@ These files can be renamed and used for releases.
 
 <project name="pcgen" default="main" basedir=".">
 	<property name="bin.dir" value="${basedir}/code/bin" />
-	<property name="build.dir" value="${basedir}/build" />
+	<property name="build.dir" value="${basedir}/code/build" />
 	<property name="build.classes.dir" value="${build.dir}/classes" />
 	<property name="build.testclasses.dir" value="${build.dir}/testclasses" />
 	<property name="build.src.dir" value="${build.dir}/src" />
