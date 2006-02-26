@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 10 12:52:03 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+#Spell names and other proper names from The Book of Eldritch Might are
+#	©2001-2003 Monte J. Cook and are used here with his permission.
+
+
+# Equipment Name		Required Proficiency	Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus
+The Bleeding Sword	PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing		COST:30315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:M	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE,TOHIT|2
+Flayer Flail		PROFICIENCY:Flail		TYPE:Magic.Weapon.Martial.Melee.Bludgeoning	COST:3435	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	SIZE:L	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE,TOHIT|1
+K'Terron Witchblade	PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing		COST:3315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:M	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE,TOHIT|1
+Tentacle Blade		PROFICIENCY:Greatsword	TYPE:Magic.Weapon.Martial.Melee.Slashing		COST:4350	WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	SIZE:L	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE,TOHIT|1

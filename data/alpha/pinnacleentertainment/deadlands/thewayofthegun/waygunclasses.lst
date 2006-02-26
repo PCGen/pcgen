@@ -1,0 +1,130 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri Dec  9 01:33:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun|SOURCESHORT:WayotGun|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Skill
+CLASS:Bounty Hunter	PREATT:6	PRESKILL:1,Gather Information=6	PRESKILL:1,Wilderness Lore=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Gather Information|Gunplay|Hide|Holdout|Intimidate|TYPE.Knowledge|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Speed Load|Wilderness Lore
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
+1												FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|
+###Block: Nomral Progression
+1	SA:Bounty Lore																																																																						FEATAUTO:Track
+2																					ADD:FEAT(Alertness,Ambidexterity,Automatic Weapon Proficiency,Dodge,Dinero,Exotic Weapon Proficiency,Fill Yer Hand,Grim Servant o' Death,Improved Critical,Improved Initiative,Marksman,Mercy Shot,Point Blank Shot,Fannin',Far Shot,Precise Shot,Slip Shot,Quick Draw,Special Draw,Renown,The Stare,Weapon Focus)
+3	SA:Detect Vulnerability +%d6|DetectVulnerability	BONUS:VAR|DetectVulnerability|1	DEFINE:DetectVulnerability|0
+5										BONUS:VAR|DetectVulnerability|1
+6																					ADD:FEAT(Alertness,Ambidexterity,Automatic Weapon Proficiency,Dodge,Dinero,Exotic Weapon Proficiency,Fill Yer Hand,Grim Servant o' Death,Improved Critical,Improved Initiative,Marksman,Mercy Shot,Point Blank Shot,Fannin',Far Shot,Precise Shot,Slip Shot,Quick Draw,Special Draw,Renown,The Stare,Weapon Focus)
+8										BONUS:VAR|DetectVulnerability|1
+9																					ADD:FEAT(Alertness,Ambidexterity,Automatic Weapon Proficiency,Dodge,Dinero,Exotic Weapon Proficiency,Fill Yer Hand,Grim Servant o' Death,Improved Critical,Improved Initiative,Marksman,Mercy Shot,Point Blank Shot,Fannin',Far Shot,Precise Shot,Slip Shot,Quick Draw,Special Draw,Renown,The Stare,Weapon Focus)
+10										BONUS:VAR|DetectVulnerability|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	ABB:Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Skill
+CLASS:Card Sharp	PREATT:4	PRESKILL:1,Bluff=6	PRESKILL:1,Gamblin'=9	PRESKILL:1,Sleight o' Hand=9	PRESKILL:1,Spot=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Card Sharp	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Gamblin'|Gather Information|Holdout|TYPE.Knowledge|Listen|Perform|Pick Pocket|Ridicule|Search|Sense Motive|Sleight o' Hand|Spot|Tale Tellin'
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
+1												FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1	SA:Cheatin' %|Cheating	SA:Card Sense	SA:Detect Tells	BONUS:VAR|Cheating|1	DEFINE:Cheating|0
+2																		ADD:FEAT(Dinero)
+3											BONUS:VAR|Cheating|1
+4	SA:Gambler's Circuit
+5																		ADD:FEAT(Dinero)
+6											BONUS:VAR|Cheating|1
+8																		ADD:FEAT(Dinero)
+10											BONUS:VAR|Cheating|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL		Req. Att.
+CLASS:Crusader	PREALIGN:LG,NG,CG	PREATT:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Gunplay|Holdout|Intimidate|TYPE.Knowledge|TYPE.Profession|Ride|Ridicule|Sense Motive|Speed Load|Spot|Tale Tellin'|Use Rope
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
+1												FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1	SA:Destroyer of Evil %/day|DestroyerEvil	SA:Divine Favor	SA:Fearless	BONUS:VAR|DestroyerEvil|1	DEFINE:DestroyerEvil|0
+2	SA:Bless Guns %/day|BlessGuns								BONUS:VAR|BlessGuns|1		DEFINE:BlessGuns|0
+3	SA:Arcane Shield %/-|ArcaneShield	SA:Stay Down				BONUS:VAR|ArcaneShield|3	DEFINE:ArcaneShield|0
+4													BONUS:VAR|DestroyerEvil|1
+5													BONUS:VAR|BlessGuns|1
+6													BONUS:VAR|ArcaneShield|3
+7													BONUS:VAR|DestroyerEvil|1
+8													BONUS:VAR|BlessGuns|1
+9													BONUS:VAR|ArcaneShield|3
+10													BONUS:VAR|ArcaneShield|3
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Desperado	HD:8		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL			Req. Att.	Required Skill
+CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Ride=6	PRESKILL:1,Wilderness Lore=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Forgery|Gamblin'|Gunplay|Hide|Holdout|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Move Silently|Open Lock|TYPE.Profession|Ride|Search|Speed Load|Wilderness Lore
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1	SA:Mean as a Rattler	SA:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|(CL+2)/3	BONUS:SKILL|Diplomacy|-2	DEFINE:SneakAttack|0
+2	SA:Paunch (%/day)|Paunch						BONUS:VAR|Paunch|1								DEFINE:Paunch|0
+3	SA:Hideout %|Hideout							BONUS:VAR|Hideout|1								DEFINE:Hideout|0
+5											BONUS:VAR|Paunch|1
+6	SA:Gang
+8											BONUS:VAR|Hideout|1
+9											BONUS:VAR|Paunch|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																				Combat bonus
+CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Skill
+CLASS:Gunsmith	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Tinkerin'=9
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE.Craft|Demolitions|Disable Device|TYPE.Drivin'|Gunplay|Holdout|TYPE.Knowledge|Mad Science|Open Lock|TYPE.Profession|Ride|Speak Language|Speed Load|Tinkerin'
+1	SA:Weaponsmithin' +%|WeapSmithin	SA:Mad Science					DEFINE:FieldMs|0	DEFINE:WeapSmithin|1	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+2	SA:Field Modifications %/day|FieldMods							DEFINE:FieldMods|1
+3	SA:Arsenal x%|Arsenal										DEFINE:Arsenal|1
+4										BONUS:VAR|WeapSmithin|1
+5										BONUS:VAR|FieldMs|1
+6										BONUS:VAR|Arsenal|1
+7										BONUS:VAR|WeapSmithin|1
+8										BONUS:VAR|FieldMods|1
+9										BONUS:VAR|Arsenal|1
+10										BONUS:VAR|FieldMods|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Law Dog	HD:8		TYPE:PC.Prestige	ABB:Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL		Req. Att.	Required Skill
+CLASS:Law Dog	PREALIGN:LG,NG,CG	PREATT:6	PRESKILL:1,Diplomacy=4	PRESKILL:1,Gunplay=6	PRESKILL:1,Ride=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Law Dog	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Gamblin'|Gather Information|Gunplay|Holdout|Intimidate|TYPE.Knowledge|TYPE.Profession|Ride|Ridicule|Search|Sense Motive|Speed Load|Spot|Use Rope
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
+1												FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1	SA:Law o'the West							ADD:FEAT(Law Man (County),Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Grim Servant o' Death,Improved Critical,Improved Initiative,Law Man (National),Level-Headed,Steady Shot,Marksman,Mercy Shot,Point Blank Shot,Fannin',Slip Shot,Far Shot,Precise Shot,Quick Draw,Special Draw,Renown,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)	FEATAUTO:Law Man (Town/City)
+2	SA:Outlaw Eye
+3	SA:Call Posse %|CallPosse	DEFINE:CallPosse|CL/3
+4										ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Grim Servant o' Death,Improved Critical,Improved Initiative,Law Man (National),Level-Headed,Steady Shot,Marksman,Mercy Shot,Point Blank Shot,Fannin',Slip Shot,Far Shot,Precise Shot,Quick Draw,Special Draw,Renown,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)
+7										ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Grim Servant o' Death,Improved Critical,Improved Initiative,Law Man (National),Level-Headed,Steady Shot,Marksman,Mercy Shot,Point Blank Shot,Fannin',Slip Shot,Far Shot,Precise Shot,Quick Draw,Special Draw,Renown,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)
+10										ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Grim Servant o' Death,Improved Critical,Improved Initiative,Law Man (National),Level-Headed,Steady Shot,Marksman,Mercy Shot,Point Blank Shot,Fannin',Slip Shot,Far Shot,Precise Shot,Quick Draw,Special Draw,Renown,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																	Combat bonus
+CLASS:Rifleman	HD:8		TYPE:PC.Prestige	ABB:Rfm		MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat
+CLASS:Rifleman	PREATT:8	PREFEAT:1,Firearms Proficiency (Pistol),Firearms Proficiency (Rifle),Firearms Proficiency (Shotgun)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rifleman	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Gunplay|Hide|Intimidate|TYPE.Knowledge|Listen|Move Silently|TYPE.Profession|Ride|Ridicule|Spot|Wilderness Lore|Use Rope
+1																		ADD:FEAT(Marksman,Dead Eye,Grim Servant o' Death,Improved Initiative,Level-Headed,Weapon Focus)	FEATAUTO:Simple Weapon Proficiency
+2	SA:Increased Range
+3	SA:Sneak Attack (% feet)|RifleSneak	BONUS:VAR|RifleSneak|floor(CL/3)*100	DEFINE:RifleSneak|100
+5	SA:Coup de Grace
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																		Combat bonus
+CLASS:Spy		HD:6		TYPE:PC.Prestige	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL			Req. Att.	Required Skill
+CLASS:Spy		PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Ride=6	PRESKILL:1,Wilderness Lore=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Spy		STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Diplomacy|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gamblin'|Gather Information|Hide|Holdout|Innuendo|TYPE.Knowledge|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Sleight o' Hand|Speak Language|Spot
+1	SA:Informants (+%)|Informants	SA:Cover Identity	BONUS:VAR|Informants|(CL+2)/3	BONUS:SKILL|Gather Information|Informants	DEFINE:Informants|0					FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+2	SA:Detect Fist
+3																									ADD:FEAT(Skill Focus)
+6																									ADD:FEAT(Skill Focus)
+9																									ADD:FEAT(Skill Focus)

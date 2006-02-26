@@ -1,0 +1,4 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster|SOURCESHORT:WotHuckster|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name		Required Proficiency				Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Bonus to skill
+Luke Short's Derringer	PROFICIENCY:Derringer (Derringer/SA)	TYPE:Magic.Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing	COST:658	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1	RANGE:15	SIZE:T	SOURCEPAGE:p.51	BONUS:SKILL|Holdout|5

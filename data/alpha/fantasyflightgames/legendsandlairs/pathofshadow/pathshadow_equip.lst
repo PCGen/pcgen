@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jun  6 16:06:11 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Original entry by: Blithwyn
+
+# Equipment Name		Type						Cost		Weight	Source Page
+Burglar's Bane		TYPE:Goods.Tools.Resizable.Thief	COST:10			SOURCEPAGE:Chap.4, The Rogue's Tools
+False Seal			TYPE:Goods.Tools.Thief			COST:75			SOURCEPAGE:Chap.4, The Rogue's Tools
+Gossamer Line (25 ft.)	TYPE:Goods.Tools.Thief			COST:25	WT:1.5	SOURCEPAGE:Chap.4, The Rogue's Tools
+Hanging Man's Harness	TYPE:Goods.Tools.Resizable.Thief	COST:35	WT:5		SOURCEPAGE:Chap.4, The Rogue's Tools
+Listening Cup		TYPE:Goods.Tools.Resizable.Thief	COST:5			SOURCEPAGE:Chap.4, The Rogue's Tools
+Lock Powder			TYPE:Goods.Tools.Resizable.Thief	COST:25	WT:.5		SOURCEPAGE:Chap.4, The Rogue's Tools
+Thief's Perfume		TYPE:Goods.Tools.Resizable.Thief	COST:50			SOURCEPAGE:Chap.4, The Rogue's Tools
+Trace Paper			TYPE:Goods.Tools.Resizable.Thief	COST:40			SOURCEPAGE:Chap.4, The Rogue's Tools

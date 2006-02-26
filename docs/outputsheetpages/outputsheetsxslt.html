@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/outputsheetsxslt.html,v 1.1 2003/12/18 09:55:06 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2003/12/18 09:55:06 $
+		$Revision: 1.1 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H Olafsson - sigurdurDOThDOTolafssonATnyherjiDOTis
+		
+		Description:
+		Provides information on Character Output Sheets: XSLT Versions.
+	-->
+	<head>
+		<title>Character Output Sheets: XSLT Versions</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Character Output Sheets: XSLT Versions</h1>
+		
+		<p class="indent0"><strong>csheet_fantasy_std.xslt</strong></p>
+		<ul class="indent1">
+			<li>xslt sheets are xml based, more dynamic versions of the .fo pdf sheets and will likely 
+			replace the .fo sheets as PCGen evolves.</li>
+			<li>This sheet produces a 2-n page sheet, styled after the csheet_fantasy_std.html sheet.</li>
+			<li>It is dynamic in the way that if the character has a portrait it will be displayed as if in 
+			a csheet_fantasy_picture.fo sheet, but if the character has no picture it will look like 
+			csheet_fantasy_std.fo.</li>
+			<li>If a character is of an spellcasting class, it´s spells and spellbook will be listed.</li> 
+			<li>If the chacter is of an spellcasting class and has not yet recieved any spells, no spell 
+			progression page will be added  (unlike .fo sheets).</li>
+			<li>The Sheet will include a bio page if there is some text contained in the bio field.
+			Feat descriptions are included as in csheet_fantasy_descriptions.fo.</li>
+			<li>The xslt intelligence is contained in the base.xml file in the outputsheets root folder.</li>
+		</ul>  
+		
+		<p></p>
+		<p class="indent0"><strong>csheet_modern_std.xslt</strong></p>
+		<ul class="indent1">
+			<li>Same as the above, only  for the d20 Modern gamemode (Modern).</li>
+		</ul>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/outputsheetsxslt.html,v $ ($Revision: 1.1 $) last updated $Date: 2003/12/18 09:55:06 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

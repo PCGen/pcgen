@@ -1,0 +1,6 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Equipment Name		Type						Cost		Weight	Source Page		Special Property
+Amulet of Dragon Will	TYPE:Magic.Wondrous.Neckgear.Amulet	COST:2000	WT:0		SOURCEPAGE:p.36	SPROP:See text
+Leashadram's Statue	TYPE:Magic.Wondrous			COST:14500	WT:1		SOURCEPAGE:p.36	SPROP:See text

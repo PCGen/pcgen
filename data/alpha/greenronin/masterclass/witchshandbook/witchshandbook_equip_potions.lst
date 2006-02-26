@@ -1,0 +1,37 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec  1 21:27:22 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Ratheof Blithwyn
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+#Potions
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page
+Potion (Animal Tongues)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:500	WT:0		SOURCEPAGE:p.42
+Potion (Awakening)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:p.42
+Potion (Beauty Cream)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.42
+Potion (Blindness/Deafness)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:400	WT:0		SOURCEPAGE:p.42
+Potion (Bravery)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:400	WT:0		SOURCEPAGE:p.42
+Potion (Calming)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1000	WT:0		SOURCEPAGE:p.42
+Potion (Clumsiness)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p.42
+Potion (Concentration)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:p.42
+Potion (Confusion)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:4000	WT:0		SOURCEPAGE:p.42
+Potion (Contagion)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:p.42
+Potion (Craftsmanship)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:p.42
+Potion (Enfeeblement)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p.42
+Potion (Foolishness)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p.42
+Potion (Forgetfulness)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:2800	WT:0		SOURCEPAGE:p.42
+Potion (Final Rest)		OUTPUTNAME:Oil of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.42
+Potion (Flying Ointment)	OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:p.42
+Potion (Gullibility)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p.42
+Potion (Hearing)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:p.42
+Potion (Lycanthropy)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:3200	WT:0		SOURCEPAGE:p.42
+Potion (Lust)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:p.42
+Potion (Madness)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:9800	WT:0		SOURCEPAGE:p.42
+Potion (Memory)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.42
+Potion (Neutralization)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:p.42
+Potion (Polymorph)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:3200	WT:0		SOURCEPAGE:p.42
+Potion (Sleeping Draft)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:500	WT:0		SOURCEPAGE:p.42
+Potion (Slumber)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p.42
+Potion (Terror)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1000	WT:0		SOURCEPAGE:p.42
+Potion (True Seeing)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:9000	WT:0		SOURCEPAGE:p.42
+Potion (Weakness)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:250	WT:0		SOURCEPAGE:p.42
+Potion (Youth)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:15000	WT:0		SOURCEPAGE:p.42
+

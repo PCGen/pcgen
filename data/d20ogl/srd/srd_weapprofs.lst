@@ -1,0 +1,77 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Feb 18 17:52:34 2003 -- reformated by prettylst.pl v1.24 (build 252)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# Mace (Heavy) for Rogue weapon proficiency.  I'll clean it all up when I get more time - Tir Gwaith
+
+# Weapon Name			Type			Nb Hands
+Armor Spikes			TYPE:Martial
+Axe					TYPE:Martial
+Axe (Orc Double)			TYPE:Exotic
+Axe (Throwing)			TYPE:Martial
+Battleaxe				TYPE:Martial
+Blowgun				TYPE:Simple
+Chain (Spiked)			TYPE:Exotic
+Club					TYPE:Simple
+Crossbow (Hand)			TYPE:Exotic		HANDS:1
+Crossbow (Heavy)			TYPE:Simple		HANDS:2
+Crossbow (Light)			TYPE:Simple		HANDS:2
+Crossbow (Repeating)		TYPE:Exotic		HANDS:2
+Dagger				TYPE:Simple
+Dagger (Punching)			TYPE:Simple
+Dart					TYPE:Simple
+Falchion				TYPE:Martial
+Flail (Dire)			TYPE:Exotic
+Flail					TYPE:Martial
+Flail (Light)			TYPE:Martial
+Gauntlet				TYPE:Simple
+Gauntlet (Spiked)			TYPE:Simple
+Glaive				TYPE:Martial
+Greataxe				TYPE:Martial
+Greatclub				TYPE:Martial
+Guisarme				TYPE:Martial
+Halberd				TYPE:Martial
+Halfspear				TYPE:Simple
+Hammer (Light)			TYPE:Martial
+Handaxe				TYPE:Martial
+Javelin				TYPE:Simple
+Kama					TYPE:Exotic
+Katana (Exotic)			TYPE:Exotic
+Katana (Martial)			TYPE:Martial	HANDS:1IFLARGERTHANWEAPON
+Kukri					TYPE:Exotic
+Kusari-gama				TYPE:Martial
+Lance					TYPE:Martial
+Longbow				TYPE:Martial	HANDS:2
+Longbow (Composite)		TYPE:Martial	HANDS:2
+Longspear				TYPE:Martial
+Mace					TYPE:Simple
+Mace (Heavy)			TYPE:Simple
+Morningstar				TYPE:Simple
+Net					TYPE:Exotic
+Nunchaku				TYPE:Exotic
+Pick					TYPE:Martial
+Quarterstaff			TYPE:Simple		HANDS:2
+Ranseur				TYPE:Martial
+Rapier				TYPE:Martial
+Sap					TYPE:Martial
+Scimitar				TYPE:Martial
+Scythe				TYPE:Martial
+Shieldbash				TYPE:Martial	HANDS:0
+Shortbow				TYPE:Martial	HANDS:2
+Shortbow (Composite)		TYPE:Martial	HANDS:2
+Shortspear				TYPE:Simple
+Shuriken				TYPE:Exotic
+Siangham				TYPE:Exotic
+Sickle				TYPE:Simple
+Sling					TYPE:Simple
+Sword (Bastard/Exotic)		TYPE:Exotic
+Sword (Bastard/Martial)		TYPE:Martial	HANDS:1IFLARGERTHANWEAPON
+Greatsword				TYPE:Martial
+Longsword				TYPE:Martial
+Sword (Short)			TYPE:Martial
+Sword (Two-Bladed)		TYPE:Exotic
+Trident				TYPE:Martial
+Unarmed Strike			TYPE:Simple
+Wakizashi				TYPE:Martial
+Waraxe (Dwarven/Exotic)		TYPE:Exotic
+Waraxe (Dwarven/Martial)	TYPE:Martial	HANDS:1IFLARGERTHANWEAPON
+Warhammer				TYPE:Martial
+Whip					TYPE:Exotic

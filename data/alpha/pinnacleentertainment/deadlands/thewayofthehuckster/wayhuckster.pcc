@@ -1,0 +1,21 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $
+CAMPAIGN:PE - Deadlands Supplement - The Way of the Huckster
+GAMEMODE:Deadlands
+TYPE:Pinnacle Entertainment.Deadlands.Supplement
+RANK:3
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster
+SOURCESHORT:WotHuckster
+SOURCEWEB:http://www.peginc.com/index.htm
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Way of the Huckster Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:WayoftheHucksterMagicItemPrices.txt
+
+CLASS:wayhucksterclasses.lst
+EQUIPMENT:wayhucksterequipweapranged.lst
+EQUIPMENT:wayhucksterequipwondrousitems.lst
+FEAT:wayhucksterfeats.lst
+SPELL:wayhucksterspells.lst

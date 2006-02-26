@@ -1,0 +1,22 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 30 22:06:38 2002 -- reformated by prettylst.pl v1.22 (build 243)
+# Race TYPE Switching
+SWITCHRACE:Animal|Demonic Beast
+SWITCHRACE:Beast|Demonic Beast
+
+# Class of the Master		Type				Spell Res.	Special Ability														Define						Combat bonus
+FOLLOWER:Sorcerer,Wizard=1	TYPE:Demonic Familiar			SA:Improved Evasion (Ex)	SA:Empathic Link	SA:Share Spells	SA:Immune to Fire and Poison	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=3	TYPE:Demonic Familiar			SA:Touch	SA:See in Darkness (Including Magical)								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=5	TYPE:Demonic Familiar			SA:Speak with master	SA:Invisibility 1/day									DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=7	TYPE:Demonic Familiar			SA:Speak with animals of its type	SA:Cold and Acid Resist 20						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=9	TYPE:Demonic Familiar			SA:Speak with creatures of it's type Telepathically when Familiar is in contact			DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=11	TYPE:Demonic Familiar	SR:16																		DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=12	TYPE:Demonic Familiar	SR:17
+FOLLOWER:Sorcerer,Wizard=13	TYPE:Demonic Familiar	SR:18		SA:Master can Scry													DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=14	TYPE:Demonic Familiar	SR:19
+FOLLOWER:Sorcerer,Wizard=15	TYPE:Demonic Familiar	SR:20																		DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=16	TYPE:Demonic Familiar	SR:21
+FOLLOWER:Sorcerer,Wizard=17	TYPE:Demonic Familiar	SR:22																		DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=18	TYPE:Demonic Familiar	SR:23
+FOLLOWER:Sorcerer,Wizard=19	TYPE:Demonic Familiar	SR:24																		DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=20	TYPE:Demonic Familiar	SR:25
+

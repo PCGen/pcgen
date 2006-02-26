@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sat Aug 27 19:35:23 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Eddy Anthony
+
+###Block:WargAnimal Companion
+
+# Class of the Master		Type					Hit Dice	Special Ability		Define						Combat bonus						Stat bonus
+FOLLOWER:WargCompLevel=2	TYPE:Warg Animal Companion
+FOLLOWER:WargCompLevel=7	TYPE:Warg Animal Companion	HD:2		SA:Share saving throws	DEFINE:LOCK.INT|6					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargCompLevel=12	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|7	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargCompLevel=16	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargCompLevel=20	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+
+#
+# End
+#

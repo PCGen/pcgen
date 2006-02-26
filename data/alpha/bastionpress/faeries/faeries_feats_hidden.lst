@@ -1,0 +1,91 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Dec  6 06:38:44 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Bastion Press - Faeries|SOURCESHORT:Faeries|SOURCEWEB:http://www.bastionpress.com
+
+
+# Feat Name				Type					Visible	Required Feat				Special Ability									Modify VAR					Source Page
+Improved Uncanny Dodge 2	TYPE:Special.UncannyDodge	VISIBLE:NO	PREFEAT:1,Improved Uncanny Dodge	SA:Improved Uncanny Dodge (+1 to reflex saves to avoid traps)							SOURCEPAGE:p.25
+Racial Trait Cost (0.25 ECL)	TYPE:Special.RacialTraitCost	VISIBLE:NO																		BONUS:VAR|RacialTraitsECL|0.25	SOURCEPAGE:p.7
+Racial Trait Cost (0.5 ECL)	TYPE:Special.RacialTraitCost	VISIBLE:NO																		BONUS:VAR|RacialTraitsECL|0.5		SOURCEPAGE:p.7
+Racial Trait Cost (0.75 ECL)	TYPE:Special.RacialTraitCost	VISIBLE:NO																		BONUS:VAR|RacialTraitsECL|0.75	SOURCEPAGE:p.7
+Racial Trait Cost (1.00 ECL)	TYPE:Special.RacialTraitCost	VISIBLE:NO																		BONUS:VAR|RacialTraitsECL|1		SOURCEPAGE:p.7
+
+###Block: Fey Arts
+# Feat Name			Type			Visible	Special Ability					Spells							Stackable?	Multiple?	Caster level			Cost		Source Page
+Bogan's Fog			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Bogan's Fog) (Sp)										STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
+Gnome Brew			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Gnome Brew) (Sp)											STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
+Grig Fiddle			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Grig Fiddle) (Sp)										STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
+Hanid Hiding		TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Hanid Hiding) (Sp)										STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
+Hob Lick			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Hob Lick) (Sp)											STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.23
+Hybsil Sight		TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Hybsil Sight) (Sp)										STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.24
+Nixie Breath		TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Nixie Breath) (Sp)		SPELLS:Innate|TIMES=3|Water Breathing		STACK:NO	MULT:NO	BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24
+Pixie Invisibility	TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Pixie Invisibility) (Sp)									STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.24
+Satyr Pipe			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Satyr Pipe) (Sp)											STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.24
+Siren Song			TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Siren Song) (Sp)											STACK:NO	MULT:NO						COST:1	SOURCEPAGE:p.24
+Sprite Charm		TYPE:FeyArts	VISIBLE:NO	SA:Fey Arts (Sprite Charm) (Sp)		SPELLS:Innate|TIMES=3|Charm Animal|Charm Person	STACK:NO	MULT:NO	BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24
+
+###Block: Faerie Physical Characteristics
+# Feat Name			Type				Visible	Special Ability							Stackable?	Multiple?	Template					Move			Virtual Feat					Choose a Feat				Combat bonus				BONUS:SIZEMOD		Bonus to skill					Stat bonus		Modify VAR					Vision			Cost		Source Page
+Antennae			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Antennae)					STACK:NO	MULT:NO																																	BONUS:SKILL|Spot|4|TYPE=Racial					BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Body (Snake-like)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Snake-like Body)				STACK:NO	MULT:NO							MOVE:Walk,30														BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Body (Unusual)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Unusual Body)				STACK:NO	MULT:NO																	ADD:FEAT(TYPE=RacialTraitCost)1																															COST:1	SOURCEPAGE:p.7
+Claws				TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Claws)						STACK:NO	MULT:NO	TEMPLATE:Faerie Claws																																							BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Claws (Retractable)	TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Retractable Claws)				STACK:NO	MULT:NO	TEMPLATE:Faerie Retractable Claws																																					BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Ears (Long)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Long Ears)					STACK:NO	MULT:NO																																	BONUS:SKILL|Listen|4|TYPE=Racial					BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Eyes (Big)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Big Eyes)					STACK:NO	MULT:NO																																	BONUS:SKILL|Spot|4|TYPE=Racial					BONUS:VAR|RacialTraitsECL|0.25	VISION:Low=light (90')	COST:1	SOURCEPAGE:p.7
+Eyes (Dark)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Dark Eyes)					STACK:NO	MULT:NO																																											BONUS:VAR|RacialTraitsECL|0.25	VISION:Darkvision (60')	COST:1	SOURCEPAGE:p.7
+Eyes (Distance)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Distance Eyes)				STACK:NO	MULT:NO																																											BONUS:VAR|RacialTraitsECL|0.25	VISION:x2 Range		COST:1	SOURCEPAGE:p.7
+Fangs				TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Fangs)						STACK:NO	MULT:NO	TEMPLATE:Faerie Fangs																																							BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Fangs (Drugged)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Drugged Fangs)				STACK:NO	MULT:NO	TEMPLATE:Faerie Drugged Fangs																																						BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Fangs (Poisoned)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Poisoned Fangs)				STACK:NO	MULT:NO	TEMPLATE:Faerie Poisoned Fangs																																					BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Horns (Blunt)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Blunt Horns)					STACK:NO	MULT:NO	TEMPLATE:Faerie Blunt Horns																																						BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Horns (Sharp)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Sharp Horns)					STACK:NO	MULT:NO	TEMPLATE:Faerie Sharp Horns																																						BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Legs (Goat)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Goat Legs)					STACK:NO	MULT:NO							MOVE:Walk,40	VFEAT:Run	VFEAT:Dodge|PRESIZEGTEQ:S																	BONUS:SKILL|Move Silently|4|TYPE=Racial				BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Legs (Grasshpooer)	TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Grasshopper Legs)				STACK:NO	MULT:NO																																											BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Nose (Long)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Long Nose)					STACK:NO	MULT:NO																																											BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Size (Large)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Large Size)					STACK:NO	MULT:NO																													BONUS:SIZEMOD|NUMBER|1											BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Size (Small)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Small Size)					STACK:NO	MULT:NO																													BONUS:SIZEMOD|NUMBER|-1											BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Size (Tiny)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Tiny Size)					STACK:NO	MULT:NO																													BONUS:SIZEMOD|NUMBER|-2											BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Skin (Furred)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Furred Skin)	SA:Resistance to Cold 5	STACK:NO	MULT:NO																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor															BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Skin (Leafy)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Leafy Skin)					STACK:NO	MULT:NO																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor															BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Tail				TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Tail)						STACK:NO	MULT:NO																																	BONUS:SKILL|Balance|2|TYPE=Racial					BONUS:VAR|RacialTraitsECL|0.25					COST:1	SOURCEPAGE:p.7
+Tail (Prehensile)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Prehensile Tail)				STACK:NO	MULT:NO																																	BONUS:SKILL|Balance|2|TYPE=Racial					BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Wings (Butterfly)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Butterfly Wings)				STACK:NO	MULT:NO							MOVE:Fly,20																																			BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+Wings (Gossamer)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Gossamer Wings)				STACK:NO	MULT:NO							MOVE:Fly,40																																			BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Wings (Bat)			TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Bat Wings)					STACK:NO	MULT:NO							MOVE:Fly,50																																BONUS:STAT|CHA|-2	BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Wings (Bird)		TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Bird Wings)					STACK:NO	MULT:NO							MOVE:Fly,30																																			BONUS:VAR|RacialTraitsECL|0.75					COST:1	SOURCEPAGE:p.7
+Wings (Furred Flaps)	TYPE:FaerieRacialTrait	VISIBLE:NO	SA:Racial Trait (Furred Flaps)				STACK:NO	MULT:NO							MOVE:Glide,10																																		BONUS:VAR|RacialTraitsECL|0.5						COST:1	SOURCEPAGE:p.7
+
+###Block: Spell-like Abilities
+# Feat Name				Type				Visible	Spells									Stackable?	Multiple?	Modify VAR					Damage Reduction	Cost		Source Page
+Acid Fog				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Acid Fog					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Bad Luck				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Bad Luck					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Bad Luck at will			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Bad Luck					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Charm Person			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Charm Person					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Cone of Cold			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Cone of Cold					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Control Water			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Control Water					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Damage Reduction			TYPE:FaerieRacialTrait	VISIBLE:NO											STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1		DR:5/+1		COST:1	SOURCEPAGE:p.7
+Dimension Door 1/day		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Dimension Door				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Dimension Door 3/day		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Dimension Door				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Elemental Swarm			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Elemental Swarm				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
+Faerie Fire				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=5|Faerie Fire					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Fear					TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Fear						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Fly					TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Fly						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Fog Cloud				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Fog Cloud					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
+Good Luck				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Good Luck					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Good Luck at will			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Good Luck					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Horrid Wilting			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Horrid Wilting				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.25				COST:1	SOURCEPAGE:p.7
+Ice Storm				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=1|Ice Storm					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Invisibility			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Invisibility					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
+Invisibility (Improved)		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Improved Invisibility			STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Invisibility (Greater)		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Invisibility (Greater)			STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Invisibility (Natural)		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Invisibility					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
+Irresistible Dance		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Irresistible Dance				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
+Obscuring Mist			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=5|Obscuring Mist				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Polymorph Self			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Polymorph Self				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Polymorph Self at will		TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Polymorph Self				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|2					COST:1	SOURCEPAGE:p.7
+Shrink				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Shrink						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Sleep					TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Sleep						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Slumber				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Slumber					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Speak with Animals or Plants	TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Speak with Animals|Speak with Plants	STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
+Water Breathing			TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=3|Water Breathing				STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
+Water Walk				TYPE:FaerieRacialTrait	VISIBLE:NO	SPELLS:Innate|TIMES=-1|Water Walk					STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7

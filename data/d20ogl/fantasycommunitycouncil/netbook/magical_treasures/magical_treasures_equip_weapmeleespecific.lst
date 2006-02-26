@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 15 16:47:56 2003 -- reformated by prettylst.pl v1.32 (build 339)
+SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
+##Melee Weapons
+# Equipment Name		Required Proficiency	Type											Cost		Weight	Var. Min. Value	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page				Weapon prop. bonus									Special Property
+Antiarch Sword		PROFICIENCY:Longsword	TYPE:Adamantine.Weapon.Martial.Melee.Slashing.Specific.Sword	COST:19315	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	SOURCEPAGE:pg. 14, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement					SPROP:See text
+Exploding Sword		PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword		COST:98315	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	SOURCEPAGE:pg. 15, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement					SPROP:See text
+Feather Sword		PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Piercing.Specific.Sword		COST:48395	WT:2					CRITMULT:x2			CRITRANGE:4			DAMAGE:1d8			SIZE:M	SOURCEPAGE:pg. 15, Weapons	BONUS:WEAPON|TOHIT|2|TYPE=Enhancement	BONUS:WEAPON|DAMAGE|-STR	SPROP:See text
+Pick of the Halfling	PROFICIENCY:Pick		TYPE:Magic.Weapon.Martial.Melee.Piercing.Specific.Pick		COST:72304	WT:3					CRITMULT:x4			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	SOURCEPAGE:pg. 17, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement					SPROP:See text
+Sword of Fiery Thirst	PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword		COST:98315	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	SOURCEPAGE:pg. 17, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement					SPROP:See text
+Sword of Rage		PROFICIENCY:Greatsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword		COST:32350	WT:15		PREVARGTEQ:RAGE,1	CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			SIZE:L	SOURCEPAGE:pg. 18, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement					SPROP:See text
+Sword of Valorous Runes	PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword		COST:14915	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	SOURCEPAGE:pg. 18-20, Weapons													SPROP:See text

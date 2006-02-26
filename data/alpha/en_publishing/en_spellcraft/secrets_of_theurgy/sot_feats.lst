@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  1 23:46:27 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Secrets of Theurgy|SOURCESHORT:SoT|SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
+
+# Feat Name			Output Name				Type				Required Class			Required Feat					Req. Special Ability	Required Skill					Required Stat	Description																											Add Spell Lvl	Bonus to skill				Class Skill			Source Page
+Improved Metamagic						TYPE:Theurgic							PREFEAT:2,TYPE=Metamagic			PRESA:1,Theurgy												DESC:The character has mastered the casting metamagic-enhanced spells																														SOURCEPAGE:12
+Many Sources of Power						TYPE:Theurgic														PRESA:1,Theurgy												DESC:The character has learned to tap all the sources of power available to him in order to prepare and cast spells																						SOURCEPAGE:12
+Planr Ward								TYPE:Theurgic														PRESA:1,Theurgy		PRESKILL:1,Knowledge (The Planes)=10	PRESTAT:1,CHA=15	DESC:The theurge's training in channeling and the esoteric lore of worlds has enabled him to deliver his channeling powers unto outsiders to protect his own world														SOURCEPAGE:12
+Profane Arcana							TYPE:Theurgic.Metamagic						PREFEAT:2,Empower Spell,Rebuke Undead	PRESA:1,Theurgy												DESC:The theurge has the dark blessing of his deity which empowers his spells with profane power, dealing unholy damage to the spell's target					ADDSPELLLEVEL:1											SOURCEPAGE:12
+Sacred Arcana							TYPE:Theurgic.Metamagic						PREFEAT:2,Empower Spell,Turn Undead		PRESA:1,Theurgy												DESC:The theurge has the blessing of his deity which empowers his spells with divine power, dealing holy damage to the spell's target						ADDSPELLLEVEL:1											SOURCEPAGE:12
+Spellcasting Might						TYPE:Theurgic		PRECLASS:1,SPELLCASTER=10	PREFEAT:1,Spell Penetration			PRESA:1,Theurgy												DESC:The character is more accomplished at penetrating spell resistance and countering spells																										SOURCEPAGE:13
+Tap All Magic		OUTPUTNAME:Tap All-Magic	TYPE:Theurgic														PRESA:1,Theurgy												DESC:The theurge's exploration of divine and arcane magic allows him to activate																		BONUS:SKILL|Use Magic Device|2	CSKILL:Use Magic Device	SOURCEPAGE:13

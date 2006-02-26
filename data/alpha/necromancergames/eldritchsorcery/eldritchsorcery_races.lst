@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 09:19:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Eldritch Sorcery|SOURCESHORT:EldSor|SOURCEWEB:http://www.necromancergames.com/
+# Original Entry by: Tir Gwaith
+
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Required AL	Save checks bonus						Combat bonus													Bonus to skill rank													Stat bonus																			Racial HD Class Skills	Virtual Feat		Default Monster Feat	Nb Legs	Special Ability								Define				HITDICE	MONSTERCLASS				Type			CR	Source Page
+Dust Devil	STARTFEATS:1	SIZE:M	MOVE:Fly,100	FACE:5	REACH:5	VISION:Darkvision (60')	PREALIGN:TN	BONUS:CHECKS|BASE.Reflex|3|PREDEFAULTMONSTER:Y	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Listen|2|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Spot|3|PREDEFAULTMONSTER:Y	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-6	BONUS:STAT|DEX,WIS,CHA|1|PREDEFAULTMONSTER:Y	MONCSKILL:Listen|Spot	VFEAT:Weapon Finesse	MFEAT:Flyby Attack	LEGS:0	SA:Air Mastery (Ex)	SA:Whirlwind (Su) DC %|WhirlwindDC	DEFINE:WhirlwindDC|11+STR	HITDICE:2,8	MONSTERCLASS:Elemental (Air/Fire):2	TYPE:Elemental	CR:2	SOURCEPAGE:p.120
+#
+# EoF
+#

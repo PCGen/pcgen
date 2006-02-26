@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Jul  2 19:27:42 2003 -- reformated by prettylst.pl v1.29 (build 288)
+SOURCELONG:Malhavoc Press - Demon God's Fane|SOURCESHORT:DemGodFane|SOURCEWEB:http://www.montecook.com
+
+# Deity Name	Product Identity?	Domains						Clergy AL		Desc is PI?		Desciption of Deity/Title							Holy Item						ALIGN		Source Page
+Gaen			NAMEISPI:YES	DOMAINS:Good,Protection,Strength,Sun	FOLLOWERALIGN:603	DESCISPI:Yes	DESC:People call Gaen, the Goddess of Light, the Darkbreaker.	SYMBOL:A starburst or a burst of light.	ALIGN:NG	SOURCEPAGE:p.

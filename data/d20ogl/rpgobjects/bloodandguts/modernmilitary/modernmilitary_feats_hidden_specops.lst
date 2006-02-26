@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Sun Dec 12 05:22:38 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+###Block: Mental Toughness
+# Feat Name		Type							Visible	Required Feat			Special Ability																															Define		Modify VAR						Source Page
+Cat Nap		TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Mental Toughness	SA:Cat Nap - Instead of -10 on Listen checks while sleeping, the character has a penalty of % to Listen while sleeping|CatNap	SA:Cat Nap - No penalty to Listen while sleeping|PREVARGTEQ:Catnap,0	DEFINE:CatNap|0	BONUS:VAR|CatNap|min(0,(SpecOpsLVL-10))	SOURCEPAGE:p.9
+Mental Toughness	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO						SA:+% to any saving throw to resist fatigue, hunger, torture, brainwashing, fear, combat fatigue and intimidation|SpecOpsLVL																							SOURCEPAGE:p.8
+
+###Block:Silent Kill
+# Feat Name		Type						Visible	Required Feat			Virtual Feat		Modify VAR			Source Page
+Silent Kill 1	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Commando Training	VFEAT:Sneak Attack	BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
+Silent Kill 2	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 1						BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
+Silent Kill 3	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 2						BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
+Silent Kill 4	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 3						BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
+
+###Block: Strategy
+# Feat Name				Type							Visible	Required Feat						Required Skill				Special Ability			Bonus to skill				Source Page
+Ambush				TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Prepare												SA:Ambush										SOURCEPAGE:p.9
+Improvise				TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SA:Improvise									SOURCEPAGE:p.9
+Long Range Reconnaissance	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SA:Long Range Reconnaissance	BONUS:SKILL|Spot|SpecOpsLVL		SOURCEPAGE:p.9
+Prepare				TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SA:Prepare				BONUS:SKILL|Knowledge (Tactics)|2	SOURCEPAGE:p.9
+Psychological Warfare		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Improvise											SA:Psychological Warfare							SOURCEPAGE:p.9

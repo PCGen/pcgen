@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 30 23:39:49 2003 -- reformated by prettylst.pl v1.32 (build 336)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Skill Name			Key Stat	Untrained?		Type
+Drive					KEYSTAT:DEX	USEUNTRAINED:YES	TYPE:Dexterity
+Knowledge (Astronomy)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
+Knowledge (Dungeon Crawl)	KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
+Knowledge (Moster Lore)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
+Knowledge (Sports)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge

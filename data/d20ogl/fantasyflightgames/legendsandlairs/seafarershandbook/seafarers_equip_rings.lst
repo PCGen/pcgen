@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Aug 22 06:41:14 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+# Equipment Name			Type			Cost		Weight	Source Page
+Ring of Aquatic Survival	TYPE:Magic.Ring	COST:130000	WT:0		SOURCEPAGE:p.42
+Ring of Wind Protection		TYPE:Magic.Ring	COST:2000	WT:0		SOURCEPAGE:p.42

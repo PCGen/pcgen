@@ -1,0 +1,19 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:Mongoose - Slayers Guide - Hobgoblins
+GAMEMODE:3e
+TYPE:Mongoose.Accessory.Slayers Guides
+RANK:9
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins
+SOURCESHORT:SGtHobgobl
+SOURCEWEB:http://mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Hobgoblins Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+BIOSET:slayershobgobbiosettings.lst
+LANGUAGE:slayershobgoblanguages.lst
+RACE:slayershobgobraces.lst
+SPELL:slayershobgobspells.lst

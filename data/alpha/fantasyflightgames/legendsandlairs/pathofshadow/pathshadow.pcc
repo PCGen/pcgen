@@ -1,0 +1,51 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $
+CAMPAIGN:FFG - Path of Shadow - Source Book
+GAMEMODE:3e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Fantasy Flight Games.Sourcebook
+RANK:6
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
+SOURCELONG:Path of Shadow
+SOURCESHORT:PathShadow
+SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Path of the Sword Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Tournaments, Fairs, and Taverns, Copyright 2002, Natural 20 Press
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural 20 Press
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Open Game Content from The Tide of Years Copyright 2001, Michelle A. Brown Nephew
+COPYRIGHT:Seafarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Path of Shadow Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for the Path of Shadow Copyright 2003-2004, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn), Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:QA log.txt
+
+CLASS:pathshadow_classes_core.lst
+CLASS:pathshadow_classes_prestige.lst
+FEAT:pathshadow_feats_hidden.lst
+
+EQUIPMENT:pathshadow_equip.lst
+EQUIPMENT:pathshadow_equip_weap_melee.lst
+WEAPONPROF:pathshadow_weaponprofs.lst
+
+FEAT:pathshadow_feats.lst
+SPELL:pathshadow_spells.lst
+SPELL:pathshadow_powers.lst
+SKILL:pathshadow_skills.lst
+TEMPLATE:pathshadow_templates.lst
+
+CLASS:pathshadow_classes_legendary.lst
+FEAT:pathshadow_feats_hidden_legendary.lst
+
+# References to SRD
+#TBD
+#FEAT:@\d20ogl\srd\srdfeatshidden.lst|(INCLUDE:Rebuke Undead|Turn Undead)

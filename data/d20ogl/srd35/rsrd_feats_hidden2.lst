@@ -1,0 +1,94 @@
+# CVS $Revision: 1.34 $ $Author: eddyanthony $ -- Sat Dec 17 11:17:04 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
+
+# This is for works in progress.  I haven't gotten to these.
+# As things get finalized, they will be moved into rsrdfeats.lst  - Tir Gwaith
+
+###Block: Rogue Special Abilities
+# Feat Name		Type					Visible		Special Ability												Description				Stackable?	Multiple?	Choose						Source Page
+Crippling Strike	TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Crippling Strike (Ex)										DESC:Class Special Ability												SOURCEPAGE:ClassesII.rtf
+Defensive Roll	TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Defensive Roll (Ex)											DESC:Class Special Ability												SOURCEPAGE:ClassesII.rtf
+Opportunist		TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character	DESC:Class Special Ability												SOURCEPAGE:ClassesII.rtf
+Slippery Mind	TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Slippery Mind (Ex)											DESC:Class Special Ability												SOURCEPAGE:ClassesII.rtf
+Skill Mastery	TYPE:Special.RogueAbilities	VISIBLE:EXPORT															DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT	SOURCEPAGE:ClassesII.rtf
+
+###Block:Archmage High Arcana Class Abilities
+# Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
+# Feat Name				Type			Visible	Required Class		Req. Spell Type		Special Ability					Define			Stackable?	Multiple?	Choose				Bonus to spell cast/day				Modify VAR			Source Page
+Arcane Fire				TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,9	SA:Arcane Fire											MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1					SOURCEPAGE:prestigeclasses.rtf
+Arcane Reach			TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,7	SA:Arcane Reach											MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:prestigeclasses.rtf
+Mastery of Counterspelling	TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,7	SA:Mastery of Counterspelling									MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:prestigeclasses.rtf
+Mastery of Elements		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,8	SA:Mastery of Elements										MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|-1					SOURCEPAGE:prestigeclasses.rtf
+Mastery of Shaping		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,6	SA:Mastery of Shaping										MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|-1					SOURCEPAGE:prestigeclasses.rtf
+Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell Power +1											MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:prestigeclasses.rtf
+#Needs alot of work -- Needs a way to dynamicly select a spell from spelllist and then get the level and class of the spell for removal of the spell slot
+#This is now set to indicate how many times the ability has been choosen
+Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:Spell-Like Ability	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:prestigeclasses.rtf
+
+###Block: Horizon Walker Terrain Abilities
+# Feat Name			Type			Visible	Special Ability								Add to magical move						Bonus to skill								Source Page
+Aquatic Terrain		TYPE:Terrain	VISIBLE:NO	SA:Aquatic Terrain Mastery																									SOURCEPAGE:prestigeclasses.rtf
+Desert Terrain		TYPE:Terrain	VISIBLE:NO	SA:Desert Terrain Mastery																									SOURCEPAGE:prestigeclasses.rtf
+Forest Terrain		TYPE:Terrain	VISIBLE:NO	SA:Forest Terrain Mastery															BONUS:SKILL|Hide|4|TYPE=Competence					SOURCEPAGE:prestigeclasses.rtf
+Hills Terrain		TYPE:Terrain	VISIBLE:NO	SA:Hills Terrain Mastery															BONUS:SKILL|Listen|4|TYPE=Competence				SOURCEPAGE:prestigeclasses.rtf
+Marsh Terrain		TYPE:Terrain	VISIBLE:NO	SA:Marsh Terrain Mastery															BONUS:SKILL|Move Silently|4|TYPE=Competence			SOURCEPAGE:prestigeclasses.rtf
+Mountain Terrain		TYPE:Terrain	VISIBLE:NO	SA:Mountain Terrain Mastery						BONUS:POSTMOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:SKILL|Climb|4|TYPE=Competence|!PREMOVE:1,Climb=1	SOURCEPAGE:prestigeclasses.rtf
+Plains Terrain		TYPE:Terrain	VISIBLE:NO	SA:Plains Terrain Mastery															BONUS:SKILL|Spot|4|TYPE=Competence					SOURCEPAGE:prestigeclasses.rtf
+Underground Terrain	TYPE:Terrain	VISIBLE:NO	SA:Underground Terrain Mastery																								SOURCEPAGE:prestigeclasses.rtf
+Fiery Planar		TYPE:Planar		VISIBLE:NO	SA:Fiery Planar Terrain Mastery	SA:Fire Resistance 20																				SOURCEPAGE:prestigeclasses.rtf
+Weightless Planar		TYPE:Planar		VISIBLE:NO	SA:Weightless Planar Terrain Mastery																							SOURCEPAGE:prestigeclasses.rtf
+Cold Planar			TYPE:Planar		VISIBLE:NO	SA:Cold Planar Terrain Mastery	SA:Cold Resistance 20																				SOURCEPAGE:prestigeclasses.rtf
+Shifting Planar		TYPE:Planar		VISIBLE:NO	SA:Shifting Planar Terrain Mastery																								SOURCEPAGE:prestigeclasses.rtf
+Aligned Planar		TYPE:Planar		VISIBLE:NO	SA:Aligned Planar Terrain Mastery																								SOURCEPAGE:prestigeclasses.rtf
+Cavernous Planar		TYPE:Planar		VISIBLE:NO	SA:Cavernous Planar Terrain Mastery	SA:Tremorsense 30 ft																				SOURCEPAGE:prestigeclasses.rtf
+Other Planar		TYPE:Planar		VISIBLE:NO	SA:Other Planar Terrain Mastery
+
+###Block: Dragon Disciple Class Features
+# Dragon Disciple
+# Feat Name			Type				Visible	Required Class			Special Ability	Choose												MOVECLONE
+Bonus Spell Slot 1	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 2	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 3	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 4	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 5	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 6	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 7	TYPE:General		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Dragon Wings		TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SA:Wings (Ex)														MOVECLONE:Walk,0,Fly,*1
+
+# Blackguard feats
+# Removed EXPaladin Blackguard feats, implemented in class listing as SA's with PRECLASS tags
+
+###Block: Hierophant Abilities
+# Feat Name				Type			Visible	Required AL		Required Class		Special Ability				Source Page
+Blast Infidel Lawful Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:TN,CE					SA:Blast Infidel (Lawful Good)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Lawful Neutral	TYPE:Hierophant	VISIBLE:NO	PREALIGN:CN						SA:Blast Infidel (Lawful Neutral)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Lawful Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:TN,CG					SA:Blast Infidel (Lawful Evil)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Neutral Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:NE						SA:Blast Infidel (Neutral Good)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Neutral Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:NG						SA:Blast Infidel (Neutral Evil)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Chaotic Good	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LE,TN					SA:Blast Infidel (Chaotic Good)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Chaotic Neutral	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LN						SA:Blast Infidel (Chaotic Neutral)	SOURCEPAGE:prestigeclasses.rtf
+Blast Infidel Chaotic Evil	TYPE:Hierophant	VISIBLE:NO	PREALIGN:LG,TN					SA:Blast Infidel (Chaotic Evil	SOURCEPAGE:prestigeclasses.rtf
+Divine Reach			TYPE:Hierophant	VISIBLE:NO								SA:Divine Reach				SOURCEPAGE:prestigeclasses.rtf
+Faith Healing			TYPE:Hierophant	VISIBLE:NO								SA:Faith Healing				SOURCEPAGE:prestigeclasses.rtf
+Gift of the Divine		TYPE:Hierophant	VISIBLE:NO								SA:Gift of the Divine			SOURCEPAGE:prestigeclasses.rtf
+Mastery of Energy			TYPE:Hierophant	VISIBLE:NO								SA:Mastery of Energy			SOURCEPAGE:prestigeclasses.rtf
+Power of Nature			TYPE:Hierophant	VISIBLE:NO				PRECLASS:1,Druid=1	SA:Power of Nature			SOURCEPAGE:prestigeclasses.rtf
+Hierophant Spell Power		TYPE:Hierophant	VISIBLE:NO								SA:Spell Power +1				SOURCEPAGE:prestigeclasses.rtf
+# Needs alot of work -- Needs a way to choose spell from spell-list and possibly to add metamagic and extra times per day to it...
+#Hierophant Spell-Like Ability	TYPE:Hierophant	VISIBLE:NO	SA:Spell-Like Ability		MULT:YES	STACK:NO	CHOOSE:		SOURCEPAGE:prestigeclasses.rtf
+
+###Block: Loremaster Secrets
+# Feat Name				Type				Visible	Var. Min. Value			Special Ability					Stackable?	Multiple?	Choose																Automaticaly Gained Armor Prof.	Choose a Feat								Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SA:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																																									BONUS:SKILLRANK|LIST|4	SOURCEPAGE:prestigeclasses.rtf
+Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SA:Secret (Secret Health)																																																		BONUS:HP|CURRENTMAX|3					SOURCEPAGE:prestigeclasses.rtf
+Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SA:Secret (Secrets of Inner Strength)																																						BONUS:CHECKS|BASE.Willpower|2														SOURCEPAGE:prestigeclasses.rtf
+The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SA:Secret (The Lore of True Stamina)																																						BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:prestigeclasses.rtf
+Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SA:Secret (Secret Knowledge of Avoidance)																																						BONUS:CHECKS|BASE.Reflex|2														SOURCEPAGE:prestigeclasses.rtf
+Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SA:Secret (Weapon Trick)																																													BONUS:COMBAT|BAB|1										SOURCEPAGE:prestigeclasses.rtf
+Dodge Trick				TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,7		SA:Secret (Dodge Trick)																																														BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:prestigeclasses.rtf
+Applicable Knowledge		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,8		SA:Secret (Applicable Knowledge)																													ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,TYPE=General)																			SOURCEPAGE:prestigeclasses.rtf
+Newfound Arcana			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,9		SA:Secret (Newfound Arcana)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																																			SOURCEPAGE:prestigeclasses.rtf
+More Newfound Arcana		TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,10	SA:Secret (More Newfound Arcana)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																																			SOURCEPAGE:prestigeclasses.rtf
+
+Armor Proficiency (Barding)	TYPE:General		VISIBLE:YES																																		AUTO:ARMORPROF|TYPE.Barding																														SOURCEPAGE:Feats.rtf

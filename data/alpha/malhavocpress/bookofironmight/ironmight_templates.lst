@@ -1,0 +1,43 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 14 14:46:26 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Book of Iron Might|SOURCESHORT:BoIM|SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
+
+###Block: arcane battle mastery
+# Template Name				Source Page		Req. Att.	Required Class Skill							Req. Spell Type		Required Stat	Feat
+Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:Arcane,1,1	PRESTAT:1,INT=13	FEAT:Arcane Battle Mastery
+
+###Block: ironborn
+# Template Name	Visible	Template																																																																							Special Ability				Combat bonus				Bonus to skill
+Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	SA:Immortal	SA:Rust Vulnerability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
+
+###Block: Ironborn Stat Adjustments
+# Template Name				Visible	Template																																							Stat bonus
+Ironborn No Stat Adjustment		VISIBLE:NO
+Ironborn Str Stat Adjustment		VISIBLE:NO	TEMPLATE:CHOOSE:Ironborn Minus Dex|Ironborn Minus Con|Ironborn Minus Int|Ironborn Minus Wis|Ironborn Minus Cha	TEMPLATE:CHOOSE:Ironborn Minus Dex|Ironborn Minus Con|Ironborn Minus Int|Ironborn Minus Wis|Ironborn Minus Cha			BONUS:STAT|STR|2
+Ironborn NonStr Stat Adjustment	VISIBLE:NO	TEMPLATE:CHOOSE:Ironborn Plus Dex|Ironborn Plus Con|Ironborn Plus Int|Ironborn Plus Wis|Ironborn Plus Cha	TEMPLATE:CHOOSE:Ironborn Minus Str|Ironborn Minus Dex|Ironborn Minus Con|Ironborn Minus Int|Ironborn Minus Wis|Ironborn Minus Cha
+Ironborn Minus Str			VISIBLE:NO																																									BONUS:STAT|STR|-2
+Ironborn Minus Dex			VISIBLE:NO																																									BONUS:STAT|DEX|-2
+Ironborn Minus Con			VISIBLE:NO																																									BONUS:STAT|CON|-2
+Ironborn Minus Int			VISIBLE:NO																																									BONUS:STAT|INT|-2
+Ironborn Minus Wis			VISIBLE:NO																																									BONUS:STAT|WIS|-2
+Ironborn Minus Cha			VISIBLE:NO																																									BONUS:STAT|CHA|-2
+Ironborn Plus Dex				VISIBLE:NO																																									BONUS:STAT|DEX|2
+Ironborn Plus Con				VISIBLE:NO																																									BONUS:STAT|CON|2
+Ironborn Plus Int				VISIBLE:NO																																									BONUS:STAT|INT|2
+Ironborn Plus Wis				VISIBLE:NO																																									BONUS:STAT|WIS|2
+Ironborn Plus Cha				VISIBLE:NO																																									BONUS:STAT|CHA|2
+
+###Block: Ironborn Packages
+# Template Name					Visible	Choose a Feat
+Ironborn Acrobat Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Centurion Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Divine Mark Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Iron Heart Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Shadow Friend Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Slayer Ability Package		VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Spellmaster Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+Ironborn Trailblazer Ability Package	VISIBLE:NO	ADD:FEAT(TYPE=IronbornPrimaryAbility)
+
+###Block: Ironborn Secondary Ability (Small Ironborn)
+# Template Name			Visible	Stat bonus		Choose a Feat
+Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	ADD:FEAT(TYPE=IronbornSecondaryAbility)
+Ironborn No Secondary Ability	VISIBLE:NO

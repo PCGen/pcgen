@@ -1,0 +1,48 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Jan 20 05:42:14 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern Dispatch #1 - Alternate Armors|SOURCESHORT:MD01-AA|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3260
+#Original Entry by: Frank Kliewe
+
+# Modifier Name			Output Name					Unique Key					Type			Cost		Visible		Type granted		Keys to replace				Source Page		Required Type			Prohibited Type			Damage Reduction	Combat bonus																																																																																																		Damage reduction					Special Property												Choose
+Damage Reduction Conversion	OUTPUTNAME:DR Conversion		KEY:DR_CONVERSION_MODERN		TYPE:Armor		COST:0	VISIBLE:QUALIFY	ITYPE:DR_CONVERSION							SOURCEPAGE:p.1						!PRETYPE:1,Archaic,Powered	DR:1/-		BONUS:COMBAT|AC|-1|PREMULT:2,[PRETYPE:Light],[!PREFEAT:1,Armor Proficiency (Light)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-1|PREMULT:2,[PRETYPE:Medium],[!PREFEAT:1,Armor Proficiency (Medium)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-2|PREMULT:2,[PRETYPE:Heavy],[!PREFEAT:1,Armor Proficiency (Heavy)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-1*floor(%LIST/2)|PREMULT:1,[PREMULT:2,[PRETYPE:Light],[PREFEAT:1,Armor Proficiency (Light)]],[PREMULT:2,[PRETYPE:Medium],[PREFEAT:1,Armor Proficiency (Medium)]],[PREMULT:2,[PRETYPE:Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]]|TYPE=Equipment.REPLACE	BONUS:DR|-|ceil(%CHOICE/2)-1																	CHOOSE:NUMBER|MIN=1|MAX=12|TITLE=Current Equipment Bonus to Defense
+Damage Reduction Conversion	OUTPUTNAME:DR Conversion		KEY:DR_CONVERSION_POWERED		TYPE:Armor		COST:0	VISIBLE:QUALIFY	ITYPE:DR_CONVERSION							SOURCEPAGE:p.1	PRETYPE:1,Powered								DR:1/-		BONUS:COMBAT|AC|-1|PREMULT:2,[PRETYPE:Light],[!PREFEAT:1,Armor Proficiency (Powered)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-1|PREMULT:2,[PRETYPE:Medium],[!PREFEAT:1,Armor Proficiency (Powered)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-2|PREMULT:2,[PRETYPE:Heavy],[!PREFEAT:1,Armor Proficiency (Powered)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-1*floor(%LIST/2)|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Equipment.REPLACE																												BONUS:DR|-|ceil(%CHOICE/2)-1																	CHOOSE:NUMBER|MIN=1|MAX=12|TITLE=Current Equipment Bonus to Defense
+Damage Reduction Conversion	OUTPUTNAME:DR Conversion		KEY:DR_CONVERSION_ARCHAIC		TYPE:Armor		COST:0	VISIBLE:QUALIFY	ITYPE:DR_CONVERSION							SOURCEPAGE:p.1	PRETYPE:1,Archaic								DR:1/ballistic	BONUS:COMBAT|AC|-1|PREMULT:2,[PRETYPE:Light],[!PREFEAT:1,Armor Proficiency (Light)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-1|PREMULT:2,[PRETYPE:Medium],[!PREFEAT:1,Armor Proficiency (Medium)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-2|PREMULT:2,[PRETYPE:Heavy],[!PREFEAT:1,Armor Proficiency (Heavy)]|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|-1*floor(%LIST/2)|PREMULT:1,[PREMULT:2,[PRETYPE:Light],[PREFEAT:1,Armor Proficiency (Light)]],[PREMULT:2,[PRETYPE:Medium],[PREFEAT:1,Armor Proficiency (Medium)]],[PREMULT:2,[PRETYPE:Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]]|TYPE=Equipment.REPLACE	BONUS:DR|ballistic|ceil(%CHOICE/2)-1															CHOOSE:NUMBER|MIN=1|MAX=12|TITLE=Current Equipment Bonus to Defense
+Armor Penetration									KEY:ARMR_PENETRATION_FIREARM		TYPE:Weapon		COST:0	VISIBLE:QUALIFY											SOURCEPAGE:p.3	PRETYPE:2,Ranged,Firearm																																																																																																																				SPROP:Penetration %CHOICE										CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Divide maximum Weapon Damage by 8
+Armor Penetration									KEY:ARMR_PENETRATION_BLUDGEONING	TYPE:Weapon		COST:0	VISIBLE:QUALIFY											SOURCEPAGE:p.3	PRETYPE:2,Melee,Bludgeoning																																																																																																																				SPROP:Penetration 0|!PREWIELD:1,TwoHanded	SPROP:Penetration 1|PREWIELD:1,TwoHanded
+Armor Penetration									KEY:ARMR_PENETRATION_PIERCING		TYPE:Weapon		COST:0	VISIBLE:QUALIFY											SOURCEPAGE:p.3	PRETYPE:2,Melee,Piercing																																																																																																																				SPROP:Penetration 2|!PREWIELD:1,TwoHanded	SPROP:Penetration 3|PREWIELD:1,TwoHanded
+Armor Penetration									KEY:ARMR_PENETRATION_SLASHING		TYPE:Weapon		COST:0	VISIBLE:QUALIFY											SOURCEPAGE:p.3	PRETYPE:2,Melee,Slashing																																																																																																																				SPROP:Penetration 0|!PREWIELD:1,TwoHanded	SPROP:Penetration 1|PREWIELD:1,TwoHanded
+Armor Penetration									KEY:ARMR_PENETRATION_EXPL0SIVE	TYPE:Explosive	COST:0	VISIBLE:QUALIFY											SOURCEPAGE:p.3																																																																																																																									SPROP:Penetration %CHOICE										CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Divide Number of Damage Dice by 3
+Armor Penetration (Enhanced)							KEY:ARMR_PENETRATION_EXPL0SIVE_ENH	TYPE:Explosive	COST:0	VISIBLE:QUALIFY											SOURCEPAGE:p.3																																																																																																																									SPROP:Enhanced Explosive Penetration %CHOICE							CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Number of Damage Dice
+Armor Penetration (+1)		OUTPUTNAME:[NAME] Armor Penetration	KEY:ARMR_PENETRATION_AMMO_1		TYPE:Ammunition	COST:5	VISIBLE:QUALIFY					REPLACES:ARMR_PENETRATION_AMMO_2	SOURCEPAGE:p.3																																																																																																																									SPROP:+1 to Weapon's Armor Penetration
+Armor Penetration (+2)		OUTPUTNAME:[NAME] Armor Penetration	KEY:ARMR_PENETRATION_AMMO_2		TYPE:Ammunition	COST:10	VISIBLE:QUALIFY					REPLACES:ARMR_PENETRATION_AMMO_1	SOURCEPAGE:p.3																																																																																																																									SPROP:+2 to Weapon's Armor Penetration
+
+###Block:Inserts
+# Modifier Name		Unique Key			Type		Cost		Visible		Source Page		Required Type				Damage reduction	BONUS:EQM			BONUS:EQMARMOR								Special Property															Automaticaly Added to Inventory
+Flexible Trauma Insert	KEY:INSERT_FLEX_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|2	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|ACCHECK|1	SPROP:Flexible Trauma Insert: add DR:+1 vs. Blunt, Lic(+1)
+#COST:add. Purchase DC 13
+
+Steel Trauma Insert	KEY:INSERT_STEEL_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|4	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Steel Trauma Insert: add DR:+2 vs. Blunt, Lic(+1)
+#COST:add. Purchase DC 14
+
+Titanium Trauma Insert	KEY:INSERT_TITAN_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|3	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Titanium Trauma Insert: add DR:+3 vs. Blunt, Lic(+1)
+#COST:add. Purchase DC 15
+
+Anti Stab Insert		KEY:INSERT_ANTI_STAB	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|5	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Anti Stab Insert: add DR:+2 vs. Piercing, Lic(+1)
+#COST:add. Purchase DC 15
+
+Outershell			KEY:OUTERSHELL		TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable																				SPROP:equip Vest (Concealable, w.Outershell) to represent the donned Outershell				AUTO:EQUIP|Vest (Concealable/w.Outershell)
+#COST:add. Purchase DC 17
+
+Tactical Outershell	KEY:TACTICAL_OUTERSHELL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable																				SPROP:equip Vest (Concealable, w.Tactical Outershell) to represent the donned Tactical Outershell	AUTO:EQUIP|Vest (Concealable/w.Tactical Outershell)
+#COST:add. Purchase DC 18
+
+Light Ceramic Insert	KEY:INSERT_LT_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|3	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|ACCHECK|1	SPROP:Light Ceramic Insert: add DR:+1 vs. Ballistic, Lic(+1)
+#COST:add. Purchase DC 15
+
+Medium Ceramic Insert	KEY:INSERT_MED_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|6	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Medium Ceramic Insert: add DR:+2 vs. Ballistic, Lic(+1)
+#COST:add. Purchase DC 16
+
+Heavy Ceramic Insert	KEY:INSERT_HVY_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|8	BONUS:EQMARMOR|MAXDEX|-3	BONUS:EQMARMOR|ACCHECK|3	SPROP:Heavy Ceramic Insert: add DR:+3 vs. Ballistic, Lic(+1)
+#COST:add. Purchase DC 18
+
+Buoyancy Insert		KEY:INSERT_BUOYANCY	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical																		SPROP:allows to stay afloat indefinitely, disregard Armor Check penalty to Swim checks
+#COST:add. Purchase DC 12

@@ -1,0 +1,50 @@
+# CVS $Revision: 1.6 $ $Author: frank_kliewe $ -- Fri Jul 29 13:20:16 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: Paul W. King
+
+###Block: Ammumition
+
+# Equipment Name			Output Name						Type									Cost		Weight	Source Page
+Bullet (5.56mm/20)		OUTPUTNAME:5.56mm Bullets, 20 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (7.62mm/20)		OUTPUTNAME:7.62mm Bullets, 20 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (7.62mmR/20)		OUTPUTNAME:7.62mmR Bullets, 20 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (9mm/50)			OUTPUTNAME:9mm Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (10mm/50)			OUTPUTNAME:10mm Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.22/50)			OUTPUTNAME:.22 Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.32/50)			OUTPUTNAME:.32 Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.38S/50)			OUTPUTNAME:.38S Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.357/50)			OUTPUTNAME:.357 Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.44/50)			OUTPUTNAME:.44 Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.444/20)			OUTPUTNAME:.444 Bullets, 20 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:6	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.45/50)			OUTPUTNAME:.45 Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.50/20)			OUTPUTNAME:.50 Bullets, 20 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:6	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.50AE/50)			OUTPUTNAME:.50AE Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet			COST:6	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (10 ga buckshot/10)	OUTPUTNAME:10 gauge buckshot, 10 pack	TYPE:Ammunition.Standard.Metal.Bullet			COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (12 ga buckshot/10)	OUTPUTNAME:12 gauge buckshot, 10 pack	TYPE:Ammunition.Standard.Metal.Bullet			COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Arrows (12)				OUTPUTNAME:Arrows, 12				TYPE:Ammunition.Standard.Wooden.Arrow			COST:8	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bolts (Crossbow/12)		OUTPUTNAME:Crossbow Bolts, 12			TYPE:Ammunition.Standard.Wooden.Bolt			COST:7	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+
+# Singles
+
+Bullet (5.56mm)			OUTPUTNAME:5.56mm Bullet			TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (7.62mm)			OUTPUTNAME:7.62mm Bullet			TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (7.62mmR)			OUTPUTNAME:7.62mmR Bullet			TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (9mm)			OUTPUTNAME:9mm Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (10mm)			OUTPUTNAME:10mm Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.22)			OUTPUTNAME:.22 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.32)			OUTPUTNAME:.32 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.38S)			OUTPUTNAME:.38S Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.357)			OUTPUTNAME:.357 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.44)			OUTPUTNAME:.44 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.444)			OUTPUTNAME:.444 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:6	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.45)			OUTPUTNAME:.45 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.50)			OUTPUTNAME:.50 Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:6	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (.50AE)			OUTPUTNAME:.50AE Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:6	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (10 ga buckshot)		OUTPUTNAME:Buckshot, 10 ga			TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bullet (12 ga buckshot)		OUTPUTNAME:Buckshot, 12 ga			TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Arrow												TYPE:Ammunition.Standard.Wooden.Arrow.Individual	COST:8	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bolt (Crossbow)			OUTPUTNAME:[NAME] Bolt				TYPE:Ammunition.Standard.Wooden.Bolt.Individual		COST:7	WT:0		SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+
+#
+# End
+#

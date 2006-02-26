@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Jun 29 10:01:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:PBG - Murchad's Legacy - Full Campaign Options
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Murchad's Legacy
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Parent's Basement Games.Campaign.Optional
+SOURCELONG:Murchad's Legacy
+SOURCESHORT:Murchad's Legacy
+SOURCEWEB:http://www.parentsbasementgames.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Murchad's Legacy Copyright 2005 Parent's Basement Games. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for Murchad's Legacy Copyright 2005, PCgen Data team (Including, but not limited to Eddy Anthony (MoSaT))
+
+INFOTEXT:This set will alter the RSRD core data to match the options presented in Murchad's Legacy Campaign Setting, you must also load the RSRD and the Murchad's Legacy Campaign Setting dataset with this set
+
+LANGUAGE:murchadslegacy_languages_alt.lst
+RACE:murchadslegacy_races_alt.lst
+SKILL:murchadslegacy_skills_alt.lst
+
+#
+# End
+#

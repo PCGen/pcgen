@@ -1,0 +1,6 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Wed Feb  9 21:46:57 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
+
+# Equipment Name	Product Identity?	Type					Cost		Weight	Source Page		Special Property
+Stone of Fal	NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:0	WT:0		SOURCEPAGE:p.50	SPROP:Protection from Elements, Minor Golbe of Invulnerability
+

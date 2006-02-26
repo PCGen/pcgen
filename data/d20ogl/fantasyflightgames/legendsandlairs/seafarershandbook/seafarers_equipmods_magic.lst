@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+# Modifier Name				Unique Key			Type				Plus		Cost												Type granted	Choose Naming Option	Source Page		Required Type					Special Property																				Choose
+Waterbane					KEY:WaterbaneWeap		TYPE:Weapon			PLUS:1																				SOURCEPAGE:p.39	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:Ignores all penalties associated with being underwater	SPROP:Ignores damage reduction of creatures with the Water type
+Waterbane					KEY:WaterbaneArm		TYPE:Armor			PLUS:1																				SOURCEPAGE:p.39	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:Ignores all penalties associated with being underwater
+
+|Spell Effect (Single/Completion)	KEY:SE_1COMPLET_WP	TYPE:WaterproofScroll			COST:((25*%SPELLLEVEL*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/2*1.1	ITYPE:Magic		NAMEOPT:SPELL		SOURCEPAGE:p.24																														CHOOSE:EQBUILDER.SPELL
+
+#
+# End
+#

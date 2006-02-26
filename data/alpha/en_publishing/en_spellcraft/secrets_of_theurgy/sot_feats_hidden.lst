@@ -1,0 +1,48 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  1 23:46:27 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Secrets of Theurgy|SOURCESHORT:SoT|SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
+
+###Block: Theurgic Lorewarden Secrets
+# Feat Name			Type		Visible	Var. Min. Value	Special Ability		Spells										Save checks bonus			Add domain number		Bonus to HP			Bonus to skill							Bonus to spell cast/day				Source Page
+Deeper Understanding	TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,1	SA:Deeper Understanding																									BONUS:SKILL|Knowledge (Arcana),Knowledge (Religion)|3								SOURCEPAGE:9
+Secret Health		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,2	SA:Secret Health																						BONUS:HP|CURRENTMAX|3																	SOURCEPAGE:9
+Inner Strength		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,3	SA:Inner Strength													BONUS:CHECKS|BASE.Willpower|2																									SOURCEPAGE:9
+Lost Cantrip		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,4	SA:Lost Cantrip																																			BONUS:SPELLCAST|TYPE=Arcane;LEVEL=0|1	SOURCEPAGE:9
+Ancient Orison		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,5	SA:Ancient Orison																																			BONUS:SPELLCAST|TYPE=Divine;LEVEL=0|1	SOURCEPAGE:9
+True Holy Symbol		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,6	SA:True Holy Symbol																																									SOURCEPAGE:9
+Tricks of Magic		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,7	SA:Tricks of Magic																																									SOURCEPAGE:9
+Greater Lore		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,8	SA:Greater Lore		SPELLS:Theurgic Lorewarden|TIMES=3|Identify																																	SOURCEPAGE:9
+Newfound Arcana		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,9	SA:Newfound Arcana																																									SOURCEPAGE:9
+Ancient Arcana		TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,10	SA:Ancient Arcana																																										SOURCEPAGE:9
+True Lore			TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,11	SA:True Lore		SPELLS:Theurgic Lorewarden|TIMES=1|Legend Lore|Analyze Dweomer																														SOURCEPAGE:9
+Divine Inspiration	TYPE:TLS	VISIBLE:NO	PREVARGTEQ:TLS,12	SA:Divine Inspiration																	BONUS:DOMAIN|NUMBER|1																					SOURCEPAGE:9
+
+###Block: Hierophant Theurge Ability I block
+# Feat Name				Type		Visible	Required Feat				Prohibited Feat								Special Ability			Description							Multiple?	Choose		BONUS:DC			Add domain number		Bonus to skill				Stat bonus					Modify VAR				Source Page
+Channeled Might I			TYPE:HTA1	VISIBLE:NO																	SA:Channeled Might I										MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1																						SOURCEPAGE:11
+Defense of Faith I		TYPE:HTA1	VISIBLE:NO																	SA:Defense of Faith I																																								SOURCEPAGE:11
+Enhanced Charisma I		TYPE:HTA1	VISIBLE:NO																	SA:Enhanced Charisma I																													BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:11
+Enhanced Intelligence I		TYPE:HTA1	VISIBLE:NO																	SA:Enhanced Intelligence I																												BONUS:STAT|INT|1|TYPE=Legendary						SOURCEPAGE:11
+Enhanced Wisdom I			TYPE:HTA1	VISIBLE:NO																	SA:Enhanced Wisdom I																													BONUS:STAT|WIS|1|TYPE=Legendary						SOURCEPAGE:11
+Lore of Faith I			TYPE:HAT1	VISIBLE:NO																	SA:Lore of Faith I																			BONUS:DOMAIN|NUMBER|1																		SOURCEPAGE:11
+Mighty Channel I			TYPE:HTA1	VISIBLE:NO	PREFEAT:1,Turn Undead,Rebuke Undead											SA:Mighty Channel I																																			BONUS:VAR|TurnTimesUndead|3	SOURCEPAGE:11
+The Path of All Magic I		TYPE:HTA1	VISIBLE:NO																	SA:The Path of All Magic I	DESC:Can make unskilled Use Magic Device checks														BONUS:SKILL|Use Magic Device|8												SOURCEPAGE:11
+
+### Hierophant Theurge Ability II block
+Channeled Might II		TYPE:HTA2	VISIBLE:NO							!PREFEAT:1,Channeled Might I						SA:Channeled Might II										MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|2																						SOURCEPAGE:11
+Defense of Faith II		TYPE:HTA2	VISIBLE:NO							!PREFEAT:1,Defense of Faith I						SA:Defense of Faith II																																								SOURCEPAGE:11
+Enhanced Charisma II		TYPE:HTA2	VISIBLE:NO							!PREFEAT:1,Enhanced Charisma I					SA:Enhanced Charisma II																													BONUS:STAT|CHA|2|TYPE=Legendary						SOURCEPAGE:11
+Enhanced Intelligence II	TYPE:HTA2	VISIBLE:NO							!PREFEAT:1,Enhanced Intelligence I					SA:Enhanced Intelligence II																												BONUS:STAT|INT|2|TYPE=Legendary						SOURCEPAGE:11
+Enhanced Wisdom II		TYPE:HTA2	VISIBLE:NO							!PREFEAT:1,Enhanced Wisdom I						SA:Enhanced Wisdom II																													BONUS:STAT|WIS|2|TYPE=Legendary						SOURCEPAGE:11
+Lore of Faith II			TYPE:HAT2	VISIBLE:NO							!PREFEAT:1,Lore of Faith I						SA:Lore of Faith II																			BONUS:DOMAIN|NUMBER|2																		SOURCEPAGE:11
+Mighty Channel II			TYPE:HTA2	VISIBLE:NO	PREFEAT:1,Turn Undead,Rebuke Undead	!PREFEAT:1,Mighty Channel I						SA:Mighty Channel II																																			BONUS:VAR|TurnTimesUndead|6	SOURCEPAGE:11
+The Path of All Magic II	TYPE:HTA2	VISIBLE:NO							!PREFEAT:1,The Path of All Magic I					SA:The Path of All Magic II	DESC:Can make unskilled Use Magic Device checks														BONUS:SKILL|Use Magic Device|16												SOURCEPAGE:11
+
+### Hierophant Theurge Ability III block
+Channeled Might III		TYPE:HTA3	VISIBLE:NO							!PREFEAT:2,Channeled Might I,Channeled Might II			SA:Channeled Might III										MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|3																						SOURCEPAGE:11
+Defense of Faith III		TYPE:HTA3	VISIBLE:NO							!PREFEAT:2,Defense of Faith I,Defense of Faith II		SA:Defense of Faith III																																								SOURCEPAGE:11
+Enhanced Charisma III		TYPE:HTA3	VISIBLE:NO							!PREFEAT:2,Enhanced Charisma I,Enhanced Charisma II		SA:Enhanced Charisma III																												BONUS:STAT|CHA|3|TYPE=Legendary						SOURCEPAGE:11
+Enhanced Intelligence III	TYPE:HTA3	VISIBLE:NO							!PREFEAT:2,Enhanced Intelligence I,Enhanced Intelligence II	SA:Enhanced Intelligence III																												BONUS:STAT|INT|3|TYPE=Legendary						SOURCEPAGE:11
+Enhanced Wisdom III		TYPE:HTA3	VISIBLE:NO							!PREFEAT:2,Enhanced Wisdom I,Enhanced Wisdom II			SA:Enhanced Wisdom III																													BONUS:STAT|WIS|3|TYPE=Legendary						SOURCEPAGE:11
+Lore of Faith III			TYPE:HAT3	VISIBLE:NO							!PREFEAT:2,Lore of Faith I,Lore of Faith II			SA:Lore of Faith III																			BONUS:DOMAIN|NUMBER|3																		SOURCEPAGE:11
+Mighty Channel III		TYPE:HTA3	VISIBLE:NO	PREFEAT:1,Turn Undead,Rebuke Undead	!PREFEAT:2,Mighty Channel I,Mighty Channel II			SA:Mighty Channel III																																			BONUS:VAR|TurnTimesUndead|9	SOURCEPAGE:11
+The Path of All Magic III	TYPE:HTA3	VISIBLE:NO							!PREFEAT:2,The Path of All Magic I,The Path of All Magic II	SA:The Path of All Magic III	DESC:Can make unskilled Use Magic Device checks														BONUS:SKILL|Use Magic Device|24												SOURCEPAGE:11

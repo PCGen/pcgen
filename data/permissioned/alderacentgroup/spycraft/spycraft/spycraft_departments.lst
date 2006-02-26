@@ -1,0 +1,22 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Tue Feb 22 22:14:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Race Name			Product Identity?	Skills/Level		Starting Feats	Size		Move			Reach		Automatic Languages	Bonus Languages	Save checks bonus						Combat bonus							Bonus to HP								Bonus to skill								Stat bonus					Modify VAR																Class Skill			Special Ability										Type			Template									CR		Source Page		Choose a Feat
+D-0 Home Office		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																																											BONUS:VAR|ACTIONDIEBONUS|(TL/4)+1												CSKILL:TYPE.Background	SA:+% to all Action Dice Rolls|ACTIONDIEBONUS					TYPE:Department	TEMPLATE:Agent	TEMPLATE:D-0 Home Office Template		CR:1/2	SOURCEPAGE:p.17	ADD:FEAT(TYPE.Covert,TYPE.Chase)1
+D-1 Power Broker		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																											BONUS:SKILL|Diplomacy,Intimidate|(TL/4)+1|TYPE=Department	BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	BONUS:VAR|GADGETPOINTS|(TL/4)+1	BONUS:VAR|MISSIONBUDGET|(TL/2)+2	BONUS:VAR|BUDGETPOINTS|5	CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.18	ADD:FEAT(TYPE.Style)1
+D-2 Military Operations	NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Fortitude|(TL/4)+1|TYPE=Department																																																				CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent	TEMPLATE:D-2 Military Operations Template	CR:1/2	SOURCEPAGE:p.18	ADD:FEAT(D-2 Stat Bonus)1	ADD:FEAT(D-2 Stat Penalty)1	ADD:FEAT(TYPE.BasicCombat)1
+D-3 Computer Espionage	NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																											BONUS:SKILL|Computers,Electronics|(TL/4)+1|TYPE=Department	BONUS:STAT|INT|2	BONUS:STAT|WIS|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.18	ADD:FEAT(TYPE.Gear)1
+D-4 Urban Assault		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																											BONUS:SKILL|Spot,Hide|(TL/4)+1|TYPE=Department			BONUS:STAT|DEX|2	BONUS:STAT|INT|-2																		CSKILL:TYPE.Background	SA:+% to attack rolls when attacking during a ready action|(TL/4)+1	TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.18	ADD:FEAT(TYPE.RangedCombat)1
+D-5 Black Ops		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																		BONUS:HP|CURRENTMAX|(TL+3)	BONUS:HP|ALTHP|(TL/4)+1											BONUS:STAT|CON|2	BONUS:STAT|DEX|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.MeleeCombat)1
+D-6 Wetworks		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Reflex|(TL/4)+1|TYPE=Department	BONUS:COMBAT|INITIATIVE|(TL/4)+1|TYPE=Department																				BONUS:STAT|STR|2	BONUS:STAT|CON|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.UnarmedCombat)1
+The Basement		NAMEISPI:YES	XTRASKILLPTSPERLVL:1	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Willpower|(TL/4)+1|TYPE=Department																													BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.BasicSkill)1
+
+Standard NPC									STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																																											BONUS:VAR|BUDGETPOINTS|TL													CSKILL:TYPE.Background													TYPE:NPC												CR:1/2	SOURCEPAGE:p.265
+
+#
+# end
+#

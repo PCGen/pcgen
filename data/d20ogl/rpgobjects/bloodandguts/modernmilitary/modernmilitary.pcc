@@ -1,0 +1,46 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Guts - Modern Military
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Blood and Guts
+ISOGL:YES
+SOURCELONG:Blood and Guts - Modern Military
+SOURCESHORT:BnG-MM
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Blood and Guts Copyright 2003, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Blood and Guts: Modern Military Copyright 2004-2005, PCgen Data team including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith), Frank Kliewe
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:modernmilitary_classes_prestige.lst
+
+EQUIPMENT:modernmilitary_equip_personal.lst
+EQUIPMENT:modernmilitary_equip_vehicles_air_fixedwing.lst
+EQUIPMENT:modernmilitary_equip_vehicles_air_helicopters.lst
+EQUIPMENT:modernmilitary_equip_vehicles_land_tracked.lst
+EQUIPMENT:modernmilitary_equip_vehicles_land_wheeled.lst
+EQUIPMENT:modernmilitary_equip_vehicles_ships_submersible.lst
+EQUIPMENT:modernmilitary_equip_vehicles_ships_surface.lst
+EQUIPMENT:modernmilitary_equip_weap.lst
+EQUIPMENT:modernmilitary_equip_weap_ranged_firearms.lst
+EQUIPMENT:modernmilitary_equip_weap_indirectfire.lst
+EQUIPMENT:modernmilitary_equip_weap_vehicle.lst
+WEAPONPROF:modernmilitary_weaponprofs.lst
+
+FEAT:modernmilitary_feats.lst
+FEAT:modernmilitary_feats_advancedtraining.lst
+FEAT:modernmilitary_feats_eliteunits.lst
+FEAT:modernmilitary_feats_hidden.lst
+FEAT:modernmilitary_feats_mod.lst
+FEAT:modernmilitary_feats_hidden_specops.lst
+# Need Sneak Attack from SRD 3.0 for Silent Kill
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Sneak Attack)
+
+SKILL:modernmilitary_skills.lst
+SKILL:modernmilitary_skills_mod.lst
+# Use Rope from SRD.
+SKILL:@/d20ogl/srd/srd_skills.lst|(INCLUDE:Use Rope)

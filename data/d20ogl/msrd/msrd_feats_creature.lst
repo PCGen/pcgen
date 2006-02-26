@@ -1,0 +1,152 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Thu Oct 20 19:56:24 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Multiattack for monsters
+# Feat Name	Type			Min. nb of Hand	Description		Combat bonus
+Multiattack	TYPE:General	PREHANDSGT:2	DESC:See Text	BONUS:COMBAT|TOHIT-SECONDARY|3
+
+###Block: Creature Feats
+
+# Feat Name			Type				Visible	Stackable?	Multiple?	Choose								Bonus to skill rank	Source Page
+High Fiend Knowledge	TYPE:FiendKnowledge	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE.Knowledge|1	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
+Low Fiend Knowledge	TYPE:FiendKnowledge	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Knowledge|1	BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
+
+###Block: Fiend Movement
+
+# Feat Name				Type				Visible	Add to base move			Source Page
+Fiend Movement (Walk 05)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 10)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 15)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 20)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 25)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 30)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 35)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 40)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 45)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 50)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 55)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 60)	TYPE:CreatureMoveLand	VISIBLE:NO	BONUS:MOVEADD|TYPE.Walk|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 05)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 10)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 15)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 20)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 25)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 30)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 35)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 40)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 45)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 50)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 55)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 60)	TYPE:CreatureMoveClimb	VISIBLE:NO	BONUS:MOVEADD|TYPE.Climb|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 05)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 10)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 15)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 20)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 25)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 30)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 35)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 40)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 45)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 50)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 55)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 60)	TYPE:CreatureMoveWater	VISIBLE:NO	BONUS:MOVEADD|TYPE.Swim|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 05)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 10)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 15)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 20)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 25)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 30)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 35)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 40)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 45)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 50)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 55)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 60)		TYPE:CreatureMoveAir	VISIBLE:NO	BONUS:MOVEADD|TYPE.Fly|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 05)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 10)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 15)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 20)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 25)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 30)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 35)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 40)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 45)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 50)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 55)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 60)	TYPE:CreatureMoveEarth	VISIBLE:NO	BONUS:MOVEADD|TYPE.Burrow|60	SOURCEPAGE:msrdcreatures.rtf
+
+###Block: Fiend Immunity
+
+# Feat Name						Type				Visible	Special Ability				Choose a Feat				Source Page
+Fiend Immunity (Acid damage)			TYPE:CreatureImmunity	VISIBLE:NO	SA:Acid Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Cold damage)			TYPE:CreatureImmunity	VISIBLE:NO	SA:Cold Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Sonic/Concussion damage)	TYPE:CreatureImmunity	VISIBLE:NO	SA:Sonic/Concussion Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Electricity damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Electrical Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Fire damage)			TYPE:CreatureImmunity	VISIBLE:NO	SA:Fire Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Radiation damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Radiation Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Poison damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Poison Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Ballistic damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Ballistic Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Bludgeoning damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Bludgeoning Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Piercing damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Piercing Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Slashing damage)		TYPE:CreatureImmunity	VISIBLE:NO	SA:Slashing Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity ( Choose two)			TYPE:CreatureImmunity	VISIBLE:NO							ADD:FEAT(TYPE=CreatureImmunity)2
+
+###Block: Creature Resistance
+
+# Feat Name						Type				Visible	Prohibited Feat							Special Ability					Choose a Feat										Source Page
+Fiend Resistance (Acid 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 20)			SA:Acid Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Acid 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Acid 10)			SA:Acid Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Cold 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 20)			SA:Cold Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Cold 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Cold 10)			SA:Cold Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Sonic/Concussion 10)	TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Sonic/Concussion 20)	SA:Sonic/Concussion Resistance 10 (Ex)													SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Sonic/Concussion 20)	TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Sonic/Concussion 10)	SA:Sonic/Concussion Resistance 20 (Ex)													SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Electrical 10)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Electrical 20)		SA:Electrical Resistance 10 (Ex)														SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Electrical 20)		TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Electrical 10)		SA:Electrical Resistance 20 (Ex)														SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Fire 10)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 20)			SA:Fire Resistance 10 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Fire 20)			TYPE:CreatureResistance	VISIBLE:NO	!PREFEAT:1,Fiend Resistance (Fire 10)			SA:Fire Resistance 20 (Ex)															SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance ( None)			TYPE:CreatureResistance	VISIBLE:NO
+Fiend Resistance ( Choose two)		TYPE:CreatureResistance	VISIBLE:NO																	ADD:FEAT(TYPE=CreatureResistance)1	ADD:FEAT(TYPE=CreatureResistance)1
+
+###Block: Creature DR
+
+# Feat Name						Type			Visible	Damage Reduction	Source Page
+Fiend Damage Reduction ( None)		TYPE:CreatureDR	VISIBLE:NO
+Fiend Damage Reduction (Ballistic 05)	TYPE:CreatureDR	VISIBLE:NO	DR:5/Ballistic	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Ballistic 10)	TYPE:CreatureDR	VISIBLE:NO	DR:10/Ballistic	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Ballistic 20)	TYPE:CreatureDR	VISIBLE:NO	DR:20/Ballistic	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Bludgeoning 05)	TYPE:CreatureDR	VISIBLE:NO	DR:5/Bludgeoning	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Bludgeoning 10)	TYPE:CreatureDR	VISIBLE:NO	DR:10/Bludgeoning	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Bludgeoning 20)	TYPE:CreatureDR	VISIBLE:NO	DR:20/Bludgeoning	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Piercing 05)	TYPE:CreatureDR	VISIBLE:NO	DR:5/Piercing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Piercing 10)	TYPE:CreatureDR	VISIBLE:NO	DR:10/Piercing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Piercing 20)	TYPE:CreatureDR	VISIBLE:NO	DR:20/Piercing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Slashing 05)	TYPE:CreatureDR	VISIBLE:NO	DR:5/Slashing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Slashing 10)	TYPE:CreatureDR	VISIBLE:NO	DR:10/Slashing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Slashing 20)	TYPE:CreatureDR	VISIBLE:NO	DR:20/Slashing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Silver 05)		TYPE:CreatureDR	VISIBLE:NO	DR:5/Silver		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Silver 10)		TYPE:CreatureDR	VISIBLE:NO	DR:10/Silver	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Silver 20)		TYPE:CreatureDR	VISIBLE:NO	DR:20/Silver	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Wood 05)		TYPE:CreatureDR	VISIBLE:NO	DR:5/Wood		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Wood 10)		TYPE:CreatureDR	VISIBLE:NO	DR:10/Wood		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Wood 20)		TYPE:CreatureDR	VISIBLE:NO	DR:20/Wood		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Iron 05)		TYPE:CreatureDR	VISIBLE:NO	DR:5/Iron		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Iron 10)		TYPE:CreatureDR	VISIBLE:NO	DR:10/Iron		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Iron 20)		TYPE:CreatureDR	VISIBLE:NO	DR:20/Iron		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Steel 05)		TYPE:CreatureDR	VISIBLE:NO	DR:5/Steel		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Steel 10)		TYPE:CreatureDR	VISIBLE:NO	DR:10/Steel		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Steel 20)		TYPE:CreatureDR	VISIBLE:NO	DR:20/Steel		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Alloy 05)		TYPE:CreatureDR	VISIBLE:NO	DR:5/Alloy		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Alloy 10)		TYPE:CreatureDR	VISIBLE:NO	DR:10/Alloy		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Alloy 20)		TYPE:CreatureDR	VISIBLE:NO	DR:20/Alloy		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (05 +1)		TYPE:CreatureDR	VISIBLE:NO	DR:5/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (10 +1)		TYPE:CreatureDR	VISIBLE:NO	DR:10/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (15 +1)		TYPE:CreatureDR	VISIBLE:NO	DR:15/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (20 +1)		TYPE:CreatureDR	VISIBLE:NO	DR:20/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (05 +2)		TYPE:CreatureDR	VISIBLE:NO	DR:5/+2		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (10 +2)		TYPE:CreatureDR	VISIBLE:NO	DR:10/+2		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (15 +2)		TYPE:CreatureDR	VISIBLE:NO	DR:15/+2		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (20 +2)		TYPE:CreatureDR	VISIBLE:NO	DR:20/+2		SOURCEPAGE:msrdcreatures.rtf
+
+#
+# End
+#

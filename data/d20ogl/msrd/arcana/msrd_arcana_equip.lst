@@ -1,0 +1,103 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Fri Jul 29 13:55:50 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+
+###Block:Clothing
+# Equipment Name			Output Name				Type				Cost		Weight	Source Page
+Clothing Outfit (Stealth)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing	COST:9	WT:2		SOURCEPAGE:ArcanaEquipment.rtf
+
+###Block: Surveillance Gear
+# Equipment Name				Type					Cost		Weight	Source Page					Special Property
+Bug Sweeper					TYPE:Goods.Tools.Surveillance	COST:21	WT:4.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:+5 equipment bonus on Search checks, when trying to find microtransmitters
+Fiber Optic Camera (3' cable)		TYPE:Goods.Tools.Surveillance	COST:17	WT:3.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:requires a Computer Use check (DC 10)
+Fiber Optic Camera (6' cable)		TYPE:Goods.Tools.Surveillance	COST:18	WT:4.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:requires a Computer Use check (DC 10)
+Fiber Optic Camera (9' cable)		TYPE:Goods.Tools.Surveillance	COST:19	WT:5.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:requires a Computer Use check (DC 10)
+Microphone (Contact)			TYPE:Goods.Tools.Surveillance	COST:12	WT:1		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Listen through up to 6 inches of wall
+Microphone (Laser)			TYPE:Goods.Tools.Surveillance	COST:18	WT:3.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Listen through a glass window from a distance	SPROP:Range 100 ft.
+Microphone (Parabolic)			TYPE:Goods.Tools.Surveillance	COST:14	WT:4.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 50 ft.
+Microphone (Pick Up)			TYPE:Goods.Tools.Surveillance	COST:12	WT:0.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 10 ft.
+Microphone (Shotgun)			TYPE:Goods.Tools.Surveillance	COST:14	WT:3.5	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 100 ft.
+Microtransmitter (Average)		TYPE:Goods.Tools.Surveillance	COST:11	WT:0		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 100 ft.	SPROP:Search vs. Hide check of planting person
+Microtransmitter (Good)			TYPE:Goods.Tools.Surveillance	COST:12	WT:0		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 300 ft.	SPROP:Search vs. Hide check of planting person +2
+Microtransmitter (Amazing)		TYPE:Goods.Tools.Surveillance	COST:14	WT:0		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 1 mile	SPROP:Search vs. Hide check of planting person +4
+Police Scanner				TYPE:Goods.Tools.Surveillance	COST:11	WT:2		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 10 miles
+Video Shades (Black and White)	TYPE:Goods.Tools.Surveillance	COST:23	WT:0		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 150 ft.
+Video Shades (Color)			TYPE:Goods.Tools.Surveillance	COST:24	WT:0		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 150 ft.
+
+###Block: Professional Equipment
+# Equipment Name				Type			Cost		Weight	Base Quantity	Source Page					Special Property
+Breaking and Entering Kit		TYPE:Goods.Tools	COST:20	WT:50					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Ill (+4)
+Capture Kit					TYPE:Goods.Tools	COST:21	WT:57					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
+Chemistry Kit				TYPE:Goods.Tools	COST:13	WT:15					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Lic (+1)
+Compressor (hydraulic)			TYPE:Goods.Tools	COST:13	WT:50					SOURCEPAGE:ArcanaEquipment.rtf
+Concertina Wire (20 ft.)		TYPE:Goods.Tools	COST:11	WT:15					SOURCEPAGE:ArcanaEquipment.rtf
+Fiend Hunter's Kit			TYPE:Goods.Tools	COST:21	WT:40					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
+Forced Entry Kit				TYPE:Goods.Tools	COST:21	WT:135				SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
+Generator (Portable)			TYPE:Goods.Tools	COST:19	WT:125				SOURCEPAGE:ArcanaEquipment.rtf	SPROP:2 gallons of gas power a house for 8 hours
+Glasscutter (circular)			TYPE:Goods.Tools	COST:13	WT:5					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)	SPROP:Dex check (DC 10) to avoid shattering the glass
+Headset (standard)			TYPE:Goods.Tools	COST:13	WT:0					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
+Headset (w/light)				TYPE:Goods.Tools	COST:14	WT:0					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
+Headset (w/camera)			TYPE:Goods.Tools	COST:16	WT:1					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
+Holy Water (flask)			TYPE:Goods.Tools	COST:15	WT:1					SOURCEPAGE:ArcanaEquipment.rtf
+Jaws of Life				TYPE:Goods.Tools	COST:18	WT:40					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:requires a hydraulic compressor to work	SPROP:+10 bonus on Strength checks to open doors
+Liquid Metal Embrittlement Sprayer	TYPE:Goods.Tools	COST:18	WT:50					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 10 ft.	SPROP:reduces the hardness of metal permanently by half after 1d6x10 minutes	SPROP:1 tank filling covers 10 squares  of 1.5m
+Marbles (1 bag)				TYPE:Goods.Toys	COST:3	WT:.5					SOURCEPAGE:ArcanaEquipment.rtf
+Ram (portable)				TYPE:Goods.Tools	COST:12	WT:35					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
+Road Flare (3)				TYPE:Goods.Tools	COST:3	WT:1.5	BASEQTY:3		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
+Vampire Slayer's Kit			TYPE:Goods.Tools	COST:16	WT:20					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
+Winch (portable)				TYPE:Goods.Tools	COST:16	WT:15					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Strength 30, 150 ft. cable (hardness4, hp 5)
+
+###Block: Sports Equipment
+# Equipment Name	Type			Cost		Weight	Source Page					Special Property
+In-line Skates	TYPE:Goods.Sports	COST:11	WT:5		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Speed Increase 20 ft. (level ground), 30 ft. (downward slope)
+Skateboard		TYPE:Goods.Sports	COST:7	WT:3		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Speed Increase 10 ft. (level ground), 20 ft. (downward slope)
+Skis and Poles	TYPE:Goods.Sports	COST:19	WT:10		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Speed Increase 20 ft. (level ground on snow), 30 ft. (downward slope on snow or ice)
+Snowboard		TYPE:Goods.Sports	COST:16	WT:8		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Speed Increase 30 ft. (downward slope on snow or ice)
+
+###TYPE Armored is used for the Ablative Paint Job EQMOD, it marks vehicles with a hardness of 10 or higher
+
+###Block: Civilian Airplanes
+# Equipment Name			Type								Cost		Define																														Modifier		Source Page					Modify VAR
+Ultralight Aircraft		TYPE:Goods.Transportation.Civilian.Aircraft	COST:21	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|50	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|28	BONUS:VAR|vacee|9	BONUS:VAR|vhard|3	BONUS:VAR|vhpee|10	BONUS:VAR|vsize|5
+Maulle M-7-260C (Seaplane)	TYPE:Goods.Transportation.Civilian.Aircraft	COST:37	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|2	BONUS:VAR|vpass|3	BONUS:VAR|vcargo|900	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|90	BONUS:VAR|vacee|6	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|55	BONUS:VAR|vsize|7
+
+###Block: General Purpose Bicycles
+# Equipment Name				Type								Cost		Define																														Modifier		Source Page					Modify VAR
+Diamondback X-20 (mountain bike)	TYPE:Goods.Transportation.Civilian.Bicycle	COST:14	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|0	BONUS:VAR|vcargo|0	BONUS:VAR|vinit|-1	BONUS:VAR|vmaneuver|4	BONUS:VAR|vm_speed|40	BONUS:VAR|vacee|11	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|6	BONUS:VAR|vsize|3
+LeMond Victoire (racing bike)		TYPE:Goods.Transportation.Civilian.Bicycle	COST:21	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|0	BONUS:VAR|vcargo|0	BONUS:VAR|vinit|-1	BONUS:VAR|vmaneuver|4	BONUS:VAR|vm_speed|50	BONUS:VAR|vacee|11	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|5	BONUS:VAR|vsize|3
+Mongoose Fuzz Pro (bmx bike)		TYPE:Goods.Transportation.Civilian.Bicycle	COST:13	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|0	BONUS:VAR|vcargo|0	BONUS:VAR|vinit|-1	BONUS:VAR|vmaneuver|4	BONUS:VAR|vm_speed|30	BONUS:VAR|vacee|11	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|5	BONUS:VAR|vsize|3
+
+###Block: Civilian Cars
+# Equipment Name							Type							Cost		Define																														Modifier		Source Page					Modify VAR
+1967 Chevrolet Camaro (sports coupe)			TYPE:Goods.Transportation.Civilian.Car	COST:28	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|4	BONUS:VAR|vcargo|250	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-1	BONUS:VAR|vm_speed|200	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|36	BONUS:VAR|vsize|6
+Police cruiser							TYPE:Goods.Transportation.Civilian.Car	COST:30	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|4	BONUS:VAR|vcargo|435	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|0	BONUS:VAR|vm_speed|190	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|34	BONUS:VAR|vsize|6
+Dodge Intrepid police interceptor (sports coupe)	TYPE:Goods.Transportation.Civilian.Car	COST:31	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|200	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|1	BONUS:VAR|vm_speed|200	BONUS:VAR|vacee|9	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|34	BONUS:VAR|vsize|5
+
+###Block: Civilian Motorcycles
+# Equipment Name				Type								Cost		Define																														Modifier		Source Page					Modify VAR
+Police motorcycle				TYPE:Goods.Transportation.Civilian.Motorcycle	COST:27	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|0	BONUS:VAR|vcargo|10	BONUS:VAR|vinit|1	BONUS:VAR|vmaneuver|1	BONUS:VAR|vm_speed|290	BONUS:VAR|vacee|9	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|22	BONUS:VAR|vsize|5
+Vespa ET4 (scooter)			TYPE:Goods.Transportation.Civilian.Motorcycle	COST:10	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|0	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|3	BONUS:VAR|vm_speed|22	BONUS:VAR|vacee|10	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|10	BONUS:VAR|vsize|4
+Harley Davidson V-Rod (street bike)	TYPE:Goods.Transportation.Civilian.Motorcycle	COST:27	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|0	BONUS:VAR|vinit|1	BONUS:VAR|vmaneuver|1	BONUS:VAR|vm_speed|300	BONUS:VAR|vacee|9	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|22	BONUS:VAR|vsize|5
+
+###Block: Civilian Trucks
+# Equipment Name					Type							Cost		Define																														Modifier		Source Page					Modify VAR
+Jeep Wrangler (SUV)				TYPE:Goods.Transportation.Civilian.Truck	COST:28	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|3	BONUS:VAR|vcargo|800	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-2	BONUS:VAR|vm_speed|140	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|32	BONUS:VAR|vsize|6
+Ford Ecoline 150 (van)				TYPE:Goods.Transportation.Civilian.Truck	COST:29	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|8	BONUS:VAR|vcargo|4800	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-2	BONUS:VAR|vm_speed|195	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|34	BONUS:VAR|vsize|6
+Peterbilt Model 379 (tractor trailer)	TYPE:Goods.Transportation.Civilian.Truck	COST:33	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|80000	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|50	BONUS:VAR|vacee|6	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|85	BONUS:VAR|vsize|7
+
+###Block: Civilian Water Vehicles
+# Equipment Name			Type							Cost		Define																														Modifier		Source Page					Modify VAR
+Avanti 39 (cigarette boat)	TYPE:Goods.Transportation.Civilian.Boat	COST:35	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|8	BONUS:VAR|vcargo|300	BONUS:VAR|vinit|1	BONUS:VAR|vmaneuver|-2	BONUS:VAR|vm_speed|55	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|50	BONUS:VAR|vsize|6
+Fishing Trawler			TYPE:Goods.Transportation.Civilian.Boat	COST:43	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|9	BONUS:VAR|vpass|2	BONUS:VAR|vcargo|200000	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|7	BONUS:VAR|vacee|6	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|175	BONUS:VAR|vsize|7
+Tug Boat				TYPE:Goods.Transportation.Civilian.Boat	COST:38	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|5	BONUS:VAR|vpass|5	BONUS:VAR|vcargo|50000	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|7	BONUS:VAR|vacee|6	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|150	BONUS:VAR|vsize|7
+
+###Block: Other Civilian Vehicles
+# Equipment Name		Type									Cost		Define																														Modifier		Source Page					Modify VAR
+Emergency Aid Vehicle	TYPE:Goods.Transportation.Civilian.Truck			COST:30	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|2	BONUS:VAR|vpass|2	BONUS:VAR|vcargo|1000	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-2	BONUS:VAR|vm_speed|100	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|34	BONUS:VAR|vsize|6
+Fire Truck			TYPE:Goods.Transportation.Civilian.Truck			COST:35	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|4	BONUS:VAR|vpass|2	BONUS:VAR|vcargo|2500	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|50	BONUS:VAR|vacee|8	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|80	BONUS:VAR|vsize|6
+Police Peacekeeper	TYPE:Goods.Transportation.Civilian.Truck.Armored	COST:40	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|3	BONUS:VAR|vpass|10	BONUS:VAR|vcargo|250	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-2	BONUS:VAR|vm_speed|70	BONUS:VAR|vacee|8	BONUS:VAR|vhard|10	BONUS:VAR|vhpee|48	BONUS:VAR|vsize|6
+Tow Truck			TYPE:Goods.Transportation.Civilian.Truck			COST:31	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vm_speed|0	DEFINE:vacee|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SOURCEPAGE:ArcanaEquipment.rtf	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|50000	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vm_speed|130	BONUS:VAR|vacee|6	BONUS:VAR|vhard|5	BONUS:VAR|vhpee|39	BONUS:VAR|vsize|7
+
+#
+# End
+#

@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
+SOURCELONG:Dawnforge|SOURCESHORT:DF|SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Ratheof Blithwyn
+
+### Regional Feats Chapter One
+# Feat Name				Type				Req. Att.	Required Class			Required Skill				Description																						Stackable?	Multiple?	Choose		Source Page
+Exotic Shield Proficiency	TYPE:General.Fighter	PREATT:1												DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat.	STACK:NO	MULT:YES	CHOOSE:Exotic	SOURCEPAGE:p.87
+#Chooser won't work, waiting for redesign of chooser....
+Craft Magic Pouch			TYPE:ItemCreation				PRECLASS:1,Spellcaster=5							DESC:You can create magic pouches, which carry spells within themselves.																		SOURCEPAGE:p.87
+Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5	DESC:You can create spell fetishes, which carry spells within themselves.																		SOURCEPAGE:p.87

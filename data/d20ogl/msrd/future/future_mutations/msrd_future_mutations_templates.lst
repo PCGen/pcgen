@@ -1,0 +1,59 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Tue Jan 25 02:51:51 2005 -- reformated by prettylst.pl v1.34 (build 455)
+
+SOURCELONG:Future System Reference Document|SOURCESHORT:FSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Mutation Support
+
+# Template Name			Visible	Special Ability								Stat bonus							Choose							Temporary effect description
+Adrenaline Jolt (Strength)	VISIBLE:NO											BONUS:STAT|STR|%CHOICE|TYPE=Jolt|PREAPPLY:PC	CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt	TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.
+Adrenaline Jolt (Dexterity)	VISIBLE:NO											BONUS:STAT|DEX|%CHOICE|TYPE=Jolt|PREAPPLY:PC	CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt	TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.
+
+Resistance (Acid)			VISIBLE:NO	SA:Acid Resistance %|MutantEnergyAbsorption
+Resistance (Cold)			VISIBLE:NO	SA:Cold Resistance %|MutantEnergyAbsorption
+Resistance (Electricity)	VISIBLE:NO	SA:Electricity Resistance %|MutantEnergyAbsorption
+Resistance (Fire)			VISIBLE:NO	SA:Fire Resistance %|MutantEnergyAbsorption
+Resistance (Sonic)		VISIBLE:NO	SA:Sonic/Concussion Resistance %|MutantEnergyAbsorption
+
+Cold Susceptibility		VISIBLE:NO	SA:Cold Susceptibility
+Heat Susceptibility		VISIBLE:NO	SA:Heat Susceptibility
+
+Blood Hunger Penalties		VISIBLE:NO											BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:PC		CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4		TEMPDESC:If you go 24 hours without consuming blood, you take 1d4 points of Constitution damage.
+Poisonous Blood Damage		VISIBLE:NO											BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:PC		CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4		TEMPDESC:If you go 24 hours without taking a dose of antitox you must make a successful Fortitude save (DC 15) or take 1d4 points of Constitution damage.
+
+###Block: Mutation Natural Weapons
+
+# Template Name			Visible	Template														Required Size	Natural Attacks
+Mutant Claw				VISIBLE:NO	TEMPLATE:CHOOSE:Mutant Claw (Small)|Mutant Claw (Medium)|Mutant Claw (Large)
+Mutant Claw (Small)		VISIBLE:NO																PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
+Mutant Claw (Medium)		VISIBLE:NO																PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*1,1d6
+Mutant Claw (Large)		VISIBLE:NO																PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*1,1d8
+
+Mutant Bite				VISIBLE:NO	TEMPLATE:CHOOSE:Mutant Bite (Small)|Mutant Bite (Medium)|Mutant Bite (Large)
+Mutant Bite (Small)		VISIBLE:NO																PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
+Mutant Bite (Medium)		VISIBLE:NO																PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d6
+Mutant Bite (Large)		VISIBLE:NO																PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d8
+
+Mutant Horns			VISIBLE:NO	TEMPLATE:CHOOSE:Mutant Horns (Small)|Mutant Horns (Medium)|Mutant Horns (Large)
+Mutant Horns (Small)		VISIBLE:NO																PRESIZEEQ:S		NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d4
+Mutant Horns (Medium)		VISIBLE:NO																PRESIZEEQ:M		NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d6
+Mutant Horns (Large)		VISIBLE:NO																PRESIZEEQ:L		NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d8
+
+Mutant Stinger			VISIBLE:NO	TEMPLATE:CHOOSE:Mutant Stinger (Small)|Mutant Stinger (Medium)|Mutant Stinger (Large)
+Mutant Stinger (Small)		VISIBLE:NO																PRESIZEEQ:S		NATURALATTACKS:Stinger,Weapon.Natural.Melee.Piercing,*1,1d4
+Mutant Stinger (Medium)		VISIBLE:NO																PRESIZEEQ:M		NATURALATTACKS:Stinger,Weapon.Natural.Melee.Piercing,*1,1d6
+Mutant Stinger (Large)		VISIBLE:NO																PRESIZEEQ:L		NATURALATTACKS:Stinger,Weapon.Natural.Melee.Piercing,*1,1d8
+
+Mutant Tail				VISIBLE:NO	TEMPLATE:CHOOSE:Mutant Tail (Small)|Mutant Tail (Medium)|Mutant Tail (Large)
+Mutant Tail (Small)		VISIBLE:NO																PRESIZEEQ:S		NATURALATTACKS:Tail Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d4
+Mutant Tail (Medium)		VISIBLE:NO																PRESIZEEQ:M		NATURALATTACKS:Tail Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d6
+Mutant Tail (Large)		VISIBLE:NO																PRESIZEEQ:L		NATURALATTACKS:Tail Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d8
+
+
+Mutant Tentacle			VISIBLE:NO	TEMPLATE:CHOOSE:Mutant Tentacle (Small)|Mutant Tentacle (Medium)|Mutant Tentacle (Large)
+Mutant Tentacle (Small)		VISIBLE:NO																PRESIZEEQ:S		NATURALATTACKS:Tentacle Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d4
+Mutant Tentacle (Medium)	VISIBLE:NO																PRESIZEEQ:M		NATURALATTACKS:Tentacle Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d6
+Mutant Tentacle (Large)		VISIBLE:NO																PRESIZEEQ:L		NATURALATTACKS:Tentacle Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d8
+
+#
+# End
+#

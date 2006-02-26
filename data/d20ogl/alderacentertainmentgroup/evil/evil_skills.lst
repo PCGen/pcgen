@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 26 23:55:41 2003 -- reformated by prettylst.pl v1.25 (build 257)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil|SOURCESHORT:Evil|SOURCEWEB:http://alderac.com/d20
+
+# Skill Name			Key Stat	Untrained?		Exclusive?		Type					Source Page
+Bluff (Play Dead)			KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Bluff		SOURCEPAGE:p.56
+Bully					KEYSTAT:STR	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Strength.Intimidate	SOURCEPAGE:p.57
+Craft (Bowyer/Fletcher)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft.Art	SOURCEPAGE:p.69
+Craft (Shoddy Goods)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft		SOURCEPAGE:p.56
+Knowledge (Demonology)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.58
+Knowledge (Humanoid Culture)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.57

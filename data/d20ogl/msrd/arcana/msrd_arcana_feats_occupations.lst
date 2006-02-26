@@ -1,0 +1,116 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jul 25 23:21:33 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Occupations
+# Feat Name				Output Name		Type			Visible		Required Stat		Description																																																							Choose a Feat										Modify VAR			Source Page
+Occupation (Apothecary)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT					DESC:Apothecaries are people who study the science of mixing chemicals, elements, and naturally occurring materials together for predictable results. They often go on to be research scientists, inventors, pharmacists, or alchemists.																		ADD:FEAT(TYPE=Apothecary)	ADD:FEAT(TYPE=Apothecary_Skills)3		BONUS:VAR|WealthBonus|3	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Occupation (Hedge Wizard)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT	PRESTAT:1,INT=10		DESC:A hedge wizard is someone who has spent a great deal of time studying the arcane arts without the benefit of having any formal training or mentoring.																															ADD:FEAT(TYPE=HedgeWizard)	ADD:FEAT(TYPE=Hedge_Wizard_Skills)3		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Occupation (Novitiate)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT	PRESTAT:1,WIS=10		DESC:Novitiates draw quiet strength from their belief in a greater power. They do not necessarily have ties to a specific religion or denomination—their faith is enough. Some novitiates are lay clergy, counselors, motivational speakers, social workers, or any other position involved with helping people who have lost hope and faith.	ADD:FEAT(TYPE=Novitiate)	ADD:FEAT(TYPE=Novitiate_Skills)3		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Occupation (Psychic)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT					DESC:Psychics can be people with innate, low-level psionic abilities or simply con-artists looking to make a buck off those gullible enough to believe their ruses.																													ADD:FEAT(TYPE=Psychic)	ADD:FEAT(TYPE=Psychic_Skills)2			BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Occupation (Shadow Scholar)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT					DESC:Shadow scholars fall into two categories—learned Shadowkind and mundane folk who have spent time studying Shadow culture, magic, and other supernatural occurrences.																												ADD:FEAT(TYPE=ShadowScholar)	ADD:FEAT(TYPE=Shadow_Scholar_Skills)3	BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Occupation (Squire)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:EXPORT	PRESTAT:1,STR=13,DEX=13	DESC:Squires serve as assistants to warriors in hopes of learning the skills they will need to be warriors themselves one day.																																			ADD:FEAT(TYPE=Squire)	ADD:FEAT(TYPE=Squire_Skills)3				BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+###Block: skill choices
+# Feat Name								Type
+Balance(class skill).MOD					TYPE:Squire_Skills
+Balance(+1 to skill).MOD					TYPE:Squire_Skills
+
+Bluff(class skill).MOD						TYPE:Psychic_Skills
+Bluff(+1 to skill).MOD						TYPE:Psychic_Skills
+
+Climb(class skill).MOD						TYPE:Squire_Skills
+Climb(+1 to skill).MOD						TYPE:Squire_Skills
+
+Concentration(class skill).MOD				TYPE:Psychic_Skills.Novitiate_Skills.Hedge_Wizard_Skills
+Concentration(+1 to skill).MOD				TYPE:Psychic_Skills.Novitiate_Skills.Hedge_Wizard_Skills
+
+Craft (Chemical - class skill).MOD				TYPE:Hedge_Wizard_Skills.Apothecary_Skills
+Craft (Chemical - +1 to skill).MOD				TYPE:Hedge_Wizard_Skills.Apothecary_Skills
+
+Craft (Mechanical - class skill).MOD			TYPE:Apothecary_Skills
+Craft (Mechanical - +1 to skill).MOD			TYPE:Apothecary_Skills
+
+Craft (Pharmaceutical - class skill).MOD			TYPE:Apothecary_Skills
+Craft (Pharmaceutical - +1 to skill).MOD			TYPE:Apothecary_Skills
+
+Craft (Writing - class skill).MOD				TYPE:Novitiate_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+Craft (Writing - +1 to skill).MOD				TYPE:Novitiate_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+
+Decipher Script(class skill).MOD				TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills
+Decipher Script(+1 to skill).MOD				TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills
+
+Diplomacy(class skill).MOD					TYPE:Psychic_Skills.Novitiate_Skills
+Diplomacy(+1 to skill).MOD					TYPE:Psychic_Skills.Novitiate_Skills
+
+Disable Device(class skill).MOD				TYPE:Apothecary_Skills
+Disable Device(+1 to skill).MOD				TYPE:Apothecary_Skills
+
+Gather Information(class skill).MOD				TYPE:Shadow_Scholar_Skills.Psychic_Skills.Hedge_Wizard_Skills
+Gather Information(+1 to skill).MOD				TYPE:Shadow_Scholar_Skills.Psychic_Skills.Hedge_Wizard_Skills
+
+Handle Animal(class skill).MOD				TYPE:Squire_Skills
+Handle Animal(+1 to skill).MOD				TYPE:Squire_Skills
+
+Intimidate(class skill).MOD					TYPE:Psychic_Skills
+Intimidate(+1 to skill).MOD					TYPE:Psychic_Skills
+
+Jump(class skill).MOD						TYPE:Squire_Skills
+Jump(+1 to skill).MOD						TYPE:Squire_Skills
+
+Knowledge (Arcane Lore - class skill).MOD			TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+
+Knowledge (Art - class skill).MOD				TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills
+Knowledge (Art - +1 to skill).MOD				TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills
+
+Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Shadow_Scholar_Skills.Psychic_Skills.Novitiate_Skills
+Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Shadow_Scholar_Skills.Psychic_skills.Novitiate_Skills
+
+Knowledge (Current Events - class skill).MOD		TYPE:Psychic_Skills
+Knowledge (Current Events - +1 to skill).MOD		TYPE:Psychic_Skills
+
+Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Shadow_Scholar_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Shadow_Scholar_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+
+Knowledge (History - class skill).MOD			TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+Knowledge (History - +1 to skill).MOD			TYPE:Shadow_Scholar_Skills.Novitiate_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+
+Knowledge (Physical Sciences - class skill).MOD		TYPE:Shadow_Scholar_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+Knowledge (Physical Sciences - +1 to skill).MOD		TYPE:Shadow_Scholar_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+
+Knowledge (Popular Culture - class skill).MOD		TYPE:Psychic_Skills
+Knowledge (Popular Culture - +1 to skill).MOD		TYPE:Psychic_Skills
+
+Knowledge (Streetwise - class skill).MOD			TYPE:Psychic_Skills
+Knowledge (Streetwise - +1 to skill).MOD			TYPE:Psychic_Skills
+
+Knowledge (Tactics - class skill).MOD			TYPE:Shadow_Scholar_Skills
+Knowledge (Tactics - +1 to skill).MOD			TYPE:Shadow_Scholar_Skills
+
+Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Shadow_Scholar_Skills.Novitiate_Skills
+Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Shadow_Scholar_Skills.Novitiate_Skills
+
+Read/Write Language(class skill).MOD			TYPE:Shadow_Scholar_Skills
+Read/Write Language(1 additional language).MOD		TYPE:Shadow_Scholar_Skills
+
+Repair(class skill).MOD						TYPE:Apothecary_Skills
+Repair(+1 to skill).MOD						TYPE:Apothecary_Skills
+
+Research(class skill).MOD					TYPE:Shadow_Scholar_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+Research(+1 to skill).MOD					TYPE:Shadow_Scholar_Skills.Hedge_Wizard_Skills.Apothecary_Skills
+
+Ride(class skill).MOD						TYPE:Squire_Skills
+Ride(+1 to skill).MOD						TYPE:Squire_Skills
+
+Sense Motive(class skill).MOD					TYPE:Psychic_Skills.Novitiate_Skills
+Sense Motive(+1 to skill).MOD					TYPE:Psychic_Skills.Novitiate_Skills
+
+Speak Language(class skill).MOD				TYPE:Shadow_Scholar_Skills
+Speak Language(1 additional language).MOD			TYPE:Shadow_Scholar_Skills
+
+Tumble(class skill).MOD						TYPE:Squire_Skills
+Tumble(+1 to skill).MOD						TYPE:Squire_Skills
+
+#
+# End
+#

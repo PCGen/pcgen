@@ -1,0 +1,68 @@
+#/*****************************************************/
+#/* ORC1.NAM                                          */
+#/* Namnfil f”r orch-f”rnamn                          */
+#/* av Johan Danforth och Tobias Petersson            */
+#/* rader som b”rjar med / „r kommentar-rader         */
+#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/*****************************************************/
+[RULES]
+100	[SYL1]	[SYL2]	[SYL3]
+[FULL]
+[SYL1]
+#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+B
+C
+D
+Er
+F
+G
+Gr
+H
+K
+L
+M
+N
+P
+Pr
+R
+S
+T
+V
+Vr
+[SYL2]
+#/* mittstavelser skall b”rja och sluta med en vokal som a,o,u,i,e,y etc... */
+a
+i
+o
+u
+[SYL3]
+#/* slutstavelser skall b”rja med en konsonant som b,k,t etc... */
+dak
+dash
+dish
+dush
+gak
+gar
+gor
+gdush
+hai
+l
+lo
+lok
+gdish
+k
+kar
+kor
+lg
+mak
+nak
+nai
+ng
+nk
+rag
+rbag
+rg
+rk
+rt
+ruk
+shnak

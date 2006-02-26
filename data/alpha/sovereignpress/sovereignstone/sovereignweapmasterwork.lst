@@ -1,0 +1,96 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+#Simple Weapons Melee			TYPE										Cost		Weight	Weapon Size	Base Damage	Critical Range	Critical Multiplier	Range		Bonuses						Required Proficiency			Alternate Dmg Type	Pre-Required Race	Source Material
+# Equipment Name					Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Weapon prop. bonus
+Battleaxe (Masterwork)				PROFICIENCY:Battleaxe			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:307	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Dagger (Punching/Masterwork)			PROFICIENCY:Dagger			TYPE:Weapon.Simple.Melee.Piercing.Masterwork				COST:302	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4			SIZE:T	BONUS:WEAPON|TOHIT|1
+Falchion (Masterwork)				PROFICIENCY:Falchion			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:380	WT:16		CRITMULT:x2			CRITRANGE:3			DAMAGE:2d4			SIZE:L	BONUS:WEAPON|TOHIT|1
+Flail (Heavy/Masterwork)			PROFICIENCY:Flail				TYPE:Weapon.Martial.Melee.Bludgeoning.Masterwork			COST:314	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10			SIZE:L	BONUS:WEAPON|TOHIT|1
+Flail (Light/Masterwork)			PROFICIENCY:Flail				TYPE:Weapon.Martial.Melee.Bludgeoning.Masterwork			COST:307	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Flensing Blade (Masterwork)			PROFICIENCY:Flensing Blade		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork				COST:320	WT:7		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d10			SIZE:M	BONUS:WEAPON|TOHIT|1
+Gauntlet (Masterwork)				PROFICIENCY:Gauntlet			TYPE:Weapon.Simple.Melee.Unarmed.Bludgeoning.Masterwork		COST:152	WT:2
+Gauntlet (Spiked/Masterwork)			PROFICIENCY:Gauntlet (Spiked)		TYPE:Weapon.Simple.Melee.Piercing.Masterwork				COST:305	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4			SIZE:T	BONUS:WEAPON|TOHIT|1
+Glaive (Masterwork)				PROFICIENCY:Glaive			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:307	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10			SIZE:L	BONUS:WEAPON|TOHIT|1
+Guisarme (Masterwork)				PROFICIENCY:Guisarme			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:310	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4			SIZE:L	BONUS:WEAPON|TOHIT|1
+Halberd (Masterwork)				PROFICIENCY:Halberd			TYPE:Weapon.Martial.Melee.Piercing.Slashing.Masterwork		COST:307	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10			SIZE:L	BONUS:WEAPON|TOHIT|1
+Handaxe (Masterwork)				PROFICIENCY:Handaxe			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
+Lance (Heavy/Masterwork)			PROFICIENCY:Lance				TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:310	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Lance (Light/Masterwork)			PROFICIENCY:Lance				TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:307	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
+Longspear (Masterwork)				PROFICIENCY:Longspear			TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:303	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:L	BONUS:WEAPON|TOHIT|1
+Mace (Heavy/Masterwork)				PROFICIENCY:Mace				TYPE:Weapon.Simple.Melee.Bludgeoning.Masterwork				COST:310	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Mace (Light/Masterwork)				PROFICIENCY:Mace				TYPE:Weapon.Simple.Melee.Bludgeoning.Masterwork				COST:305	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
+Morningstar (Masterwork)			PROFICIENCY:Morningstar			TYPE:Weapon.Simple.Melee.Bludgeoning.Piercing.Masterwork		COST:308	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Pick (Heavy/Masterwork)				PROFICIENCY:Pick				TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:309	WT:6		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d6			SIZE:M	BONUS:WEAPON|TOHIT|1
+Pick (Light/Masterwork)				PROFICIENCY:Pick				TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:304	WT:4		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d4			SIZE:S	BONUS:WEAPON|TOHIT|1
+Quarterstaff (Masterwork)			PROFICIENCY:Quarterstaff		TYPE:Weapon.Simple.Melee.Bludgeoning.Masterwork				COST:601	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:L	BONUS:WEAPON|TOHIT|1
+Ranseur (Masterwork)				PROFICIENCY:Ranseur			TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:312	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4			SIZE:L	BONUS:WEAPON|TOHIT|1
+Rapier (Masterwork)				PROFICIENCY:Rapier			TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:325	WT:3		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6			SIZE:M	BONUS:WEAPON|TOHIT|1
+Sabre (Cavalry/Masterwork)			PROFICIENCY:Sabre (Cavalry)		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork				COST:330	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4			SIZE:M	BONUS:WEAPON|TOHIT|1
+Sap (Masterwork)					PROFICIENCY:Sap				TYPE:Weapon.Martial.Melee.Bludgeoning.Masterwork			COST:301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
+Scimitar (Masterwork)				PROFICIENCY:Scimitar			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:320	WT:4		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6			SIZE:M	BONUS:WEAPON|TOHIT|1
+Sickle (Masterwork)				PROFICIENCY:Sickle			TYPE:Weapon.Simple.Melee.Slashing.Masterwork				COST:306	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
+Greatsword (Masterwork)				PROFICIENCY:Greatsword			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:350	WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			SIZE:L	BONUS:WEAPON|TOHIT|1
+Longsword (Masterwork)				PROFICIENCY:Longsword			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:320	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Sword (Short/Masterwork)			PROFICIENCY:Sword (Short)		TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:310	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
+Trident (Masterwork)				PROFICIENCY:Trident			TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:315	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Warhammer (Masterwork)				PROFICIENCY:Warhammer			TYPE:Weapon.Martial.Melee.Bludgeoning.Masterwork			COST:310	WT:8		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
+Whip (Masterwork)					PROFICIENCY:Whip				TYPE:Weapon.Exotic.Melee.Ranged.Slashing.Masterwork			COST:301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:15	SIZE:S	BONUS:WEAPON|TOHIT|1
+#Ranged Weapons Name				TYPE										Cost		Weight	Weapon Size	Base Damage	Critical Range	Critical Multiplier	Range		Required Proficiency			Bonuses #1				Bonuses #2				# of Attacks
+Crossbow (Heavy/Masterwork)			PROFICIENCY:Crossbow (Heavy)		TYPE:Weapon.Simple.Ranged.Piercing.Masterwork				COST:340	WT:9		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:120	SIZE:M	BONUS:WEAPON|TOHIT|1
+Crossbow (Light/Masterwork)			PROFICIENCY:Crossbow (Light)		TYPE:Weapon.Simple.Ranged.Piercing.Masterwork				COST:320	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	RANGE:80	SIZE:S	BONUS:WEAPON|TOHIT|1
+Dart (Masterwork)					PROFICIENCY:Dart				TYPE:Weapon.Simple.Ranged.Piercing.Thrown.Masterwork			COST:7	WT:0.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|TOHIT|1
+Longbow (Composite/Masterwork)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:380	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SIZE:M	BONUS:WEAPON|TOHIT|1
+Longbow (Masterwork)				PROFICIENCY:Longbow			TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:340	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:100	SIZE:M	BONUS:WEAPON|TOHIT|1
+Longbow (+1 Mighty/Composite/Masterwork)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:500	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SIZE:M	BONUS:WEAPON|DAMAGE|STRMIN1	BONUS:WEAPON|TOHIT|1
+Longbow (+2 Mighty/Composite/Masterwork)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:600	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SIZE:M	BONUS:WEAPON|DAMAGE|STRMIN2	BONUS:WEAPON|TOHIT|1
+Longbow (+3 Mighty/Composite/Masterwork)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:700	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SIZE:M	BONUS:WEAPON|DAMAGE|STRMIN3	BONUS:WEAPON|TOHIT|1
+Longbow (+4 Mighty/Composite/Masterwork)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:800	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SIZE:M	BONUS:WEAPON|DAMAGE|STRMIN4	BONUS:WEAPON|TOHIT|1
+Shortbow (Masterwork)				PROFICIENCY:Shortbow			TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:310	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:60	SIZE:M	BONUS:WEAPON|TOHIT|1
+Shortbow (Composite/Masterwork)		PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:325	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:70	SIZE:M	BONUS:WEAPON|TOHIT|1
+Shortbow (+1 Mighty/Composite/Masterwork)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:450	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:70	SIZE:M	BONUS:WEAPON|DAMAGE|STRMAX1	BONUS:WEAPON|TOHIT|1
+Shortbow (+2 Mighty/Composite/Masterwork)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Piercing.Masterwork				COST:525	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:70	SIZE:M	BONUS:WEAPON|DAMAGE|STRMIN2	BONUS:WEAPON|TOHIT|1
+Sling (Masterwork)				PROFICIENCY:Sling				TYPE:Weapon.Simple.Ranged.Bludgeoning.Masterwork			COST:300	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:50	SIZE:S	BONUS:WEAPON|TOHIT|1
+#Thrown Weapons Name			TYPE											Cost		Weight	Weapon Size	Base Damage	Critical Range	Critical Multiplier	Range		Bonuses						Required Proficiency
+Axe (Throwing/Adamantine)			PROFICIENCY:Axe (Throwing)		TYPE:Weapon.Martial.Melee.Ranged.Slashing.Thrown			COST:3004	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|1
+Axe (Throwing/Masterwork)			PROFICIENCY:Axe (Throwing)		TYPE:Weapon.Martial.Melee.Ranged.Slashing.Thrown.Masterwork		COST:304	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|TOHIT|1
+Axe +1 (Throwing)					PROFICIENCY:Axe (Throwing)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Slashing.Thrown		COST:2304	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|1
+Axe +2 (Throwing)					PROFICIENCY:Axe (Throwing)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Slashing.Thrown		COST:8304	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|2
+Axe +3 (Throwing)					PROFICIENCY:Axe (Throwing)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Slashing.Thrown		COST:18304	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|3
+Axe +4 (Throwing)					PROFICIENCY:Axe (Throwing)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Slashing.Thrown		COST:32304	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|4
+Axe +5 (Throwing)					PROFICIENCY:Axe (Throwing)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Slashing.Thrown		COST:50304	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|5
+Club (Adamantine/Thrown)			PROFICIENCY:Club				TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown			COST:3001	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|1
+Club (Masterwork)					PROFICIENCY:Club				TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown.Masterwork	COST:301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|TOHIT|1
+Club +1 (Thrown)					PROFICIENCY:Club				TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown		COST:2301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|1
+Club +2 (Thrown)					PROFICIENCY:Club				TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown		COST:8301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|2
+Club +3 (Thrown)					PROFICIENCY:Club				TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown		COST:18301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|3
+Club +4 (Thrown)					PROFICIENCY:Club				TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown		COST:32301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|4
+Club +5 (Thrown)					PROFICIENCY:Club				TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown		COST:50301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|5
+Dagger (Adamantine/Thrown)			PROFICIENCY:Dagger			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Thrown				COST:3002	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|DAMAGE,TOHIT|1
+Dagger (Masterwork)				PROFICIENCY:Dagger			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Thrown.Masterwork		COST:302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|TOHIT|1
+Dagger +1 (Thrown)				PROFICIENCY:Dagger			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:2302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|DAMAGE,TOHIT|1
+Dagger +2 (Thrown)				PROFICIENCY:Dagger			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:8302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|DAMAGE,TOHIT|2
+Dagger +3 (Thrown)				PROFICIENCY:Dagger			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:18302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|DAMAGE,TOHIT|3
+Dagger +4 (Thrown)				PROFICIENCY:Dagger			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:32302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|DAMAGE,TOHIT|4
+Dagger +5 (Thrown)				PROFICIENCY:Dagger			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:50302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:10	SIZE:T	BONUS:WEAPON|DAMAGE,TOHIT|5
+Halfspear (Adamantine/Thrown)			PROFICIENCY:Halfspear			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Thrown				COST:3001	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|1
+Halfspear (Masterwork)				PROFICIENCY:Halfspear			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Thrown.Masterwork		COST:301	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|TOHIT|1
+Halfspear +1 (Thrown)				PROFICIENCY:Halfspear			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:2301	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|1
+Halfspear +2 (Thrown)				PROFICIENCY:Halfspear			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:8301	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|2
+Halfspear +3 (Thrown)				PROFICIENCY:Halfspear			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:18301	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|3
+Halfspear +4 (Thrown)				PROFICIENCY:Halfspear			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:32301	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|4
+Halfspear +5 (Thrown)				PROFICIENCY:Halfspear			TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Thrown			COST:50301	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|5
+Hammer (Light/Adamantine)			PROFICIENCY:Hammer (Light)		TYPE:Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown			COST:3001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|1
+Hammer (Light/Masterwork)			PROFICIENCY:Hammer (Light)		TYPE:Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown.Masterwork	COST:301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|TOHIT|1
+Hammer +1 (Light)					PROFICIENCY:Hammer (Light)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown		COST:2301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|1
+Hammer +2 (Light)					PROFICIENCY:Hammer (Light)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown		COST:8301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|2
+Hammer +3 (Light)					PROFICIENCY:Hammer (Light)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown		COST:18301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|3
+Hammer +4 (Light)					PROFICIENCY:Hammer (Light)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown		COST:32301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|4
+Hammer +5 (Light)					PROFICIENCY:Hammer (Light)		TYPE:Magic.Weapon.Martial.Melee.Ranged.Bludgeoning.Thrown		COST:50301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:20	SIZE:S	BONUS:WEAPON|DAMAGE,TOHIT|5
+Javelin (Masterwork)				PROFICIENCY:Javelin			TYPE:Weapon.Simple.Ranged.Piercing.Thrown.Masterwork			COST:301	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:30	SIZE:M	BONUS:WEAPON|TOHIT|1
+Net (Masterwork)					PROFICIENCY:Net				TYPE:Weapon.Exotic.Ranged.Thrown.Masterwork				COST:320	WT:10												RANGE:10	SIZE:M	BONUS:WEAPON|TOHIT|1
+Shortspear (Adamantine/Thrown)		PROFICIENCY:Shortspear			TYPE:Weapon.Simple.Ranged.Piercing.Thrown					COST:9002	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|DAMAGE,TOHIT|2
+Shortspear (Masterwork)				PROFICIENCY:Shortspear			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Thrown.Masterwork		COST:302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|TOHIT|1
+Shortspear +1 (Thrown)				PROFICIENCY:Shortspear			TYPE:Magic.Weapon.Simple.Ranged.Piercing.Thrown				COST:2302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|DAMAGE,TOHIT|1
+Shortspear +2 (Thrown)				PROFICIENCY:Shortspear			TYPE:Magic.Weapon.Simple.Ranged.Piercing.Thrown				COST:8302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|DAMAGE,TOHIT|2
+Shortspear +3 (Thrown)				PROFICIENCY:Shortspear			TYPE:Magic.Weapon.Simple.Ranged.Piercing.Thrown				COST:18302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|DAMAGE,TOHIT|3
+Shortspear +4 (Thrown)				PROFICIENCY:Shortspear			TYPE:Magic.Weapon.Simple.Ranged.Piercing.Thrown				COST:32302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|DAMAGE,TOHIT|4
+Shortspear +5 (Thrown)				PROFICIENCY:Shortspear			TYPE:Magic.Weapon.Simple.Ranged.Piercing.Thrown				COST:50302	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:L	BONUS:WEAPON|DAMAGE,TOHIT|5

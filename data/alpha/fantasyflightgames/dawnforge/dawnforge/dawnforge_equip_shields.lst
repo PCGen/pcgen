@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
+SOURCELONG:Dawnforge|SOURCESHORT:DF|SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Ratheof Blithwyn
+
+
+# Equipment Name	Required Proficiency		Type						Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
+Shield (Breaker)	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Exotic.Standard	COST:20	WT:15		ACCHECK:-3		SOURCEPAGE:p.91	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Shield (Flank)	PROFICIENCY:Shield (Heavy)	TYPE:Shield.Heavy.Exotic.Standard	COST:20	WT:15		ACCHECK:-2		SOURCEPAGE:p.93	SPELLFAILURE:15		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+#AC+2 to mount...
+#

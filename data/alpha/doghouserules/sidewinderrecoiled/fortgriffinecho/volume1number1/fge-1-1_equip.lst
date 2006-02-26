@@ -1,0 +1,8 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Mar  2 20:33:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fort Griffin Echo Vol. 1 No. 1|SOURCESHORT:FGE1-1|SOURCEWEB:http://www.doghouserules.net/echo/index.html
+# Original Entry by: Lone Jedi
+
+# Equipment Name			Type				Cost		Weight	Source Page		Combat bonus
+Cigarillo of Intimidation	TYPE:Goods.Personal	COST:5	WT:0		SOURCEPAGE:p.33
+Poncho of Protection		TYPE:Goods.Clothing	COST:12	WT:4.5	SOURCEPAGE:p.33	BONUS:COMBAT|AC|2|TYPE=Equipment
+Spurs of Silence			TYPE:Goods.Clothing	COST:10	WT:0		SOURCEPAGE:p.33

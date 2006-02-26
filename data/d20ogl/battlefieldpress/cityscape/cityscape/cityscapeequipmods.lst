@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Dec 14 12:23:35 2002 -- reformated by prettylst.pl v1.20 (build 231)
+# Original Entry by: Tir Gwaith
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+
+# Modifier Name	Unique Key	Type		Cost		Type granted	Source Page		Special Property
+Camouflage		KEY:ARMCAM	TYPE:Armor	COST:300	ITYPE:Camouflage	SOURCEPAGE:p.	SPROP:+3 to hide in location designed to emulate
+Reflective		KEY:ARMREF	TYPE:Armor	COST:2000	ITYPE:Reflective	SOURCEPAGE:p.	SPROP:+4 AC against Energy weapons
+Armor Spikes.MOD					COST:300
+Shield Spikes.MOD					COST:75

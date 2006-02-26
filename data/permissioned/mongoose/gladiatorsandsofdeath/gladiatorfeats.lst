@@ -1,0 +1,16 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Tue Dec 13 12:37:31 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death|SOURCESHORT:Gladiators|SOURCEWEB:http://mongoosepublishing.com
+
+# Feat Name				Type			Visible	Req. Att.	Required Class		Required Feat													Required Skill			Required Stat	Var. Min. Value		Description																			Multiple?	Choose																Modify VAR		Cost		Source Page
+Armour Penetration		TYPE:General			PREATT:6																																DESC:You are highly skilled at seeking out the weak points in your opponent's armour.																														SOURCEPAGE:p.40
+#Armour Specialization		SOURCE:p.	TYPE:General			PREATT:2	CHOOSE:FEATLIST|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|1	BONUS:ARMORPROF=%LIST|AC|1			PREFEAT:1,Armor Proficiency (Heavy),Armor Proficiency (Light),Armor Proficiency (Medium)
+Armour Specialisation		TYPE:General			PREATT:2					PREFEAT:1,Armor Proficiency (Heavy),Armor Proficiency (Light),Armor Proficiency (Medium)													DESC:+1 AC with Chosen armour type															MULT:YES	CHOOSE:FEATLIST|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|1						SOURCEPAGE:p.40
+Chariot Control			TYPE:General																								PRESKILL:1,Handle Animal=8								DESC:The control you exhibit over your vehicle defies rational explanation																																SOURCEPAGE:p.40
+Death Move				TYPE:General			PREATT:6																																DESC:After defeating an enemy you may perform a special death move to intimidate other opponants and sway observers.																									SOURCEPAGE:p.40
+Distract				TYPE:General																													PRESTAT:1,CHA=13					DESC:You can throw your opponants off-balance and reduce the effectiveness of their attacks.																													SOURCEPAGE:p.41
+Fame and Glory			TYPE:General																																PREVARGTEQ:Fame,11																																								BONUS:VAR|Fame|10			SOURCEPAGE:p.41
+Fearsome Display			TYPE:General			PREATT:3																				PRESKILL:1,Intimidate=6									DESC:You can spin through a frightening display with your weapons thus reducing the morale of your opponent.																										SOURCEPAGE:p.41
+Improved Chariot Sideswipe	TYPE:General									PREFEAT:1,Chariot Control																							DESC:You have amazing ontrol in performing sideswipes with your chariot																																	SOURCEPAGE:p.41
+Taunt					TYPE:General																																				DESC:You can taunt your opponant into fighting less effectively																																		SOURCEPAGE:p.41
+Slave Weapon			TYPE:Special	VISIBLE:NO			PRECLASS:1,Slave=1																																																MULT:YES	CHOOSE:NUMCHOICES=1|Simple|1																		SOURCEPAGE:p.35
+Slave Skills			TYPE:General																																																								MULT:YES	CHOOSE:NUMCHOICES=1|CCSKILLLIST|LIST|1														COST:0	SOURCEPAGE:p.35

@@ -1,0 +1,48 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jul 14 12:44:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Language			Type			Source Page
+Abyssal			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Abyssal			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Aquan				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Aquan				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Auran				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Auran				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Common			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
+Common			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
+Draconic			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Draconic			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Drow Sign Language	TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
+Dwarven			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Dwarven			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Elven				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Elven				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Giant				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Giant				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Gnome				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Gnome				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Gnoll				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Gnoll				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Goblin			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Goblin			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Halfling			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
+Halfling			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
+Ingan				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Ingan				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Infernal			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Infernal			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Kuo toan			TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
+Kuo toan			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
+Orc				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Orc				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Skunk Ape			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Sylvan			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Sylvan			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Terran			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Terran			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Undertongue			TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Undertongue			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+
+#
+# End
+#

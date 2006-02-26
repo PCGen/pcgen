@@ -1,0 +1,99 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Sat Dec 10 12:26:11 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood|SOURCESHORT:SeasofBlood|SOURCEWEB:http://mongoosepublishing.com
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Buccaneer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Skill				Required Stat
+CLASS:Buccaneer	PREATT:3	PRESKILL:3,Balance,Swim,Tumble=6	PRESTAT:1,CHA=13
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Seamanship)|Move Silently|Sense Motive|Swim|Tumble|Use Rope
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1	SA:Shipboard Climbing
+2	SA:Up Close and Personal
+#		BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2|PREVARGTEQ:COUNT[EQTYPE.MELEE.EQUIPPED.IS.LIGHT],2
+3	SA:Witty Repartee
+4	SA:Superb Seaman %|SuperbSeaman	BONUS:VAR|SuperbSeaman|floor(CL/4)*2	BONUS:SKILL|Knowledge (Seamanship)|SuperbSeaman|TYPE=Competence	DEFINE:SuperbSeaman|0
+5	SA:Swarm Rigging
+6	SA:Superb Balance
+7	SA:Rope Fighting
+9	SA:Sabotage
+10	SA:Acrobatic Defense
+
+# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nvw		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat		Required Skill				Required Spell School
+CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:Divination,1,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Profession (Navigator)|Scry|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Infallible Direction			BONUS:SKILL|Profession (Navigation)|2
+2	ADD:SPELLCASTER(ANY)	SA:Fast Pursuit
+3	ADD:SPELLCASTER(ANY)	SA:Intuitive Seamanship %|IntuitSea	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2
+4	ADD:SPELLCASTER(ANY)	SA:Catch the Wind
+5	ADD:SPELLCASTER(ANY)	SA:True Voyage
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)	SA:Weather Prediction
+8	ADD:SPELLCASTER(ANY)	SA:Ride the Wind
+9	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)	SA:Control Winds
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat						Required Skill
+CLASS:Reaver	PREATT:4	PREFEAT:2,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Knowledge (Seamanship)|Swim|Use Rope
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Progression
+1	SA:Armour Expertise (%)|		BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
+2	SA:Inspire Crew (+%)|InspireCrew	BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0
+3																	ADD:FEAT(Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus)
+4	SA:Instill Fear
+7	SA:Skilled Boarder
+8																	ADD:FEAT(Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus)
+
+# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Sailor	HD:8		TYPE:NPC	ABB:Slr		MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/4	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Seamanship)|Swim|Use Rope
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages		Bonus Languages	Save checks bonus												Combat bonus
+CLASS:Sea Druid	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Aquan	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Sea Druid	PREALIGN:LN,NG,TN,NE,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sea Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
+CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Sea Druid|CL	SPELLLIST:1|Druid
+###Block: Proficiencies
+1	FEATAUTO:Druid Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	CAST:3,1				SA:Nature Sense	SA:Animal Companion
+2	CAST:4,2				SA:Speed of the Fish	SA:Predict the Weather % days in advance|PredictWeather	BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0
+3	CAST:4,2,1				SA:Salt Synthesis
+4	CAST:5,3,2				SA:Resist Nature's Lure
+5	CAST:5,3,2,1			SA:Wildshape %/day|Wildshape										BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0
+6	CAST:5,3,3,2																	BONUS:VAR|Wildshape|1
+7	CAST:6,4,3,2,1																	BONUS:VAR|Wildshape|1
+8	CAST:6,4,3,3,2			SA:Wildshape Large
+9	CAST:6,4,4,3,2,1			SA:Venom Immunity
+10	CAST:6,4,4,3,3,2																	BONUS:VAR|Wildshape|1
+11	CAST:6,5,4,4,3,2,1		SA:Wildshape Tiny
+12	CAST:6,5,4,4,3,3,2		SA:Wildshape Dire
+13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces
+14	CAST:6,5,5,4,4,3,3,2																BONUS:VAR|Wildshape|1
+15	CAST:6,5,5,5,4,4,3,2,1		SA:Wildshape Huge	SA:Timeless Body
+16	CAST:6,5,5,5,4,4,3,3,2		SA:Wildshape (elemental %/day)|EWildshape								BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2															BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4

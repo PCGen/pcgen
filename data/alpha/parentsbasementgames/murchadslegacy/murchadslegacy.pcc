@@ -1,0 +1,42 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Jun 29 10:01:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:PBG - Murchad's Legacy Campaign Setting
+RANK:2
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Murchad's Legacy
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Parent's Basement Games.Campaign
+SOURCELONG:Murchad's Legacy
+SOURCESHORT:Murchad's Legacy
+SOURCEWEB:http://www.parentsbasementgames.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Murchad's Legacy Copyright 2005 Parent's Basement Games. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for Murchad's Legacy Copyright 2005, PCgen Data team (Including, but not limited to Eddy Anthony (MoSaT), Andrew (Tir Gwaith) McDougall)
+
+#INFOTEXT:Murchad's Legacy Campaign Setting
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:user_notes.txt
+
+CLASS:murchadslegacy_classes.lst
+COMPANIONMOD:murchadslegacy_companionmods.lst
+DEITY:murchadslegacy_deities.lst
+DOMAIN:murchadslegacy_domains.lst
+EQUIPMENT:murchadslegacy_equip.lst
+EQUIPMENT:murchadslegacy_equip_magicitems.lst
+FEAT:murchadslegacy_feats.lst
+FEAT:murchadslegacy_feats_hidden.lst
+LANGUAGE:murchadslegacy_languages.lst
+RACE:murchadslegacy_races.lst
+SKILL:murchadslegacy_skills.lst
+SPELL:murchadslegacy_spells.lst
+TEMPLATE:murchadslegacy_templates.lst
+
+#
+# End
+#

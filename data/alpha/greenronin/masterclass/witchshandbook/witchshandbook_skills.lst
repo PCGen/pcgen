@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec  3 03:47:46 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Original Entry by: Beaver
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+# Skill Name			Output Name						Key Stat	Untrained?		Type				Source Page
+Profession (Fortune Teller)	OUTPUTNAME:Profession (Fortune-Teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.30
+Profession (Herbalist)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.30
+
+
+

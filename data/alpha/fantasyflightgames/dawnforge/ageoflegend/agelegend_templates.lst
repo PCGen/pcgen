@@ -1,0 +1,36 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+
+# Template Name						Source Page		Visible?		Removable?		Special Ability			Bonus
+#Vision of Glory Bonus					SOURCEPAGE:p.60	VISIBLE:NO		REMOVABLE:YES						FAVOREDCLASS:Disciple
+#Can't add template from feat:(
+
+###Block: Region Templates
+# Template Name						Visible	Source Page		Removable?
+Region (Stormfells)					VISIBLE:YES	SOURCEPAGE:p.5	REMOVABLE:YES
+Region (Central Sildanyr)				VISIBLE:YES	SOURCEPAGE:p.16	REMOVABLE:YES
+Region (Deep Sildanyr)					VISIBLE:YES	SOURCEPAGE:p.17	REMOVABLE:YES
+Region (Outskirts of Sildanyr)			VISIBLE:YES	SOURCEPAGE:p.18	REMOVABLE:YES
+Region (Subterranean Morningstar Mountains)	VISIBLE:YES	SOURCEPAGE:p.19	REMOVABLE:YES
+Region (Anderland)					VISIBLE:YES	SOURCEPAGE:p.39	REMOVABLE:YES
+Region (Dreaming Isles)					VISIBLE:YES	SOURCEPAGE:p.40	REMOVABLE:YES
+Region (Durning Highlands)				VISIBLE:YES	SOURCEPAGE:p.41	REMOVABLE:YES
+Region (Foothills)					VISIBLE:YES	SOURCEPAGE:p.59	REMOVABLE:YES
+Region (Icehammer Front and the Frostfells)	VISIBLE:YES	SOURCEPAGE:p.60	REMOVABLE:YES
+Region (Skyhome)						VISIBLE:YES	SOURCEPAGE:p.61	REMOVABLE:YES
+Region (Civilized to Savage)				VISIBLE:YES	SOURCEPAGE:p.75	REMOVABLE:YES
+Region (Sunset Reach)					VISIBLE:YES	SOURCEPAGE:p.76	REMOVABLE:YES
+Region (Tamerland)					VISIBLE:YES	SOURCEPAGE:p.76	REMOVABLE:YES
+Region (Faring Folk)					VISIBLE:YES	SOURCEPAGE:p.77	REMOVABLE:YES
+Region (Northern Zangala)				VISIBLE:YES	SOURCEPAGE:p.91	REMOVABLE:YES
+Region (Valhedar Dominion)				VISIBLE:YES	SOURCEPAGE:p.91	REMOVABLE:YES
+Region (Kingsmarch)					VISIBLE:YES	SOURCEPAGE:p.105	REMOVABLE:YES
+Region (Emerlyn)						VISIBLE:YES	SOURCEPAGE:p.105	REMOVABLE:YES
+Region (Valhedar)						VISIBLE:YES	SOURCEPAGE:p.105	REMOVABLE:YES
+
+
+
+###Block: Types templates
+# Template Name	Visible	Source Page				Special Ability																																																														Define							Bonus to HP												Modify VAR								Removable?		Type

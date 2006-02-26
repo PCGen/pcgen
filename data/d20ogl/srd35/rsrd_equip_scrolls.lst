@@ -1,0 +1,824 @@
+# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Sat Dec  3 10:41:27 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Thomas/Chipoulou tjannes@vub.ac.be
+# Commas should not be part of names.  OUTPUTNAME for that.
+# 	Replaced all commas by '/', specified the complete name in OUTPUTNAME. That better ? Thomas/Chipoulou
+# WT:.01 for negligible items for Wizards items per Wizard request. - Tir Gwaith
+
+# Arcane Scrolls
+
+###Block: 0-level Arcane Scrolls
+# Equipment Name				Output Name					Type					Cost		Weight	Source Page
+Scroll (Acid Splash)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Arcane Mark)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dancing Lights)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Daze)										TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Magic/Arcane)		OUTPUTNAME:Scroll (Detect Magic)	TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Poison/Arcane)		OUTPUTNAME:Scroll (Detect Poison)	TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Disrupt Undead)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flare/Arcane)			OUTPUTNAME:Scroll (Flare)		TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ghost Sound)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Know Direction/Arcane)	OUTPUTNAME:Scroll (Know Direction)	TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Light/Arcane)			OUTPUTNAME:Scroll (Light)		TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Lullaby)										TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage Hand)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mending/Arcane)			OUTPUTNAME:Scroll (Mending)		TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Message)										TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Open/Close)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prestidigitation)								TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ray of Frost)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Read Magic/Arcane)		OUTPUTNAME:Scroll (Read Magic)	TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Resistance/Arcane)		OUTPUTNAME:Scroll (Resistance)	TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Instrument)								TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Touch of Fatigue)								TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 1st-level Arcane Scrolls
+# Equipment Name					Output Name							Type					Cost		Weight	Source Page
+Scroll (Alarm/Arcane)				OUTPUTNAME:Scroll (Alarm)				TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Animate Rope)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Burning hands)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cause Fear/Arcane)			OUTPUTNAME:Scroll (Cause Fear)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Charm Person)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Chill Touch)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Color Spray)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Comprehend Languages/Arcane)	OUTPUTNAME:Scroll (Comprehend Languages)		TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Confusion/Lesser)			OUTPUTNAME:Scroll (Confusion, Lesser)		TYPE:Magic.Scroll.Arcane	COST:50	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Light Wounds/Arcane)		OUTPUTNAME:Scroll (Cure Light Wounds)		TYPE:Magic.Scroll.Arcane	COST:50	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Secret Doors)											TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Undead/Arcane)			OUTPUTNAME:Scroll (Detect Undead)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Disguise Self/Lvl 1)			OUTPUTNAME:Scroll (Disguise Self)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Endure Elements/Arcane)		OUTPUTNAME:Scroll (Endure Elements)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Enlarge Person)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Erase)													TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Expeditious Retreat)											TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Feather Fall)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Grease)													TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Portal)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hypnotism)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Identify)													TYPE:Magic.Scroll.Arcane	COST:125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Jump/Arcane)				OUTPUTNAME:Scroll (Jump)				TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage Armor)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Missile)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Weapon/Arcane)			OUTPUTNAME:Scroll (Magic Weapon)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mount)													TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Aura)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Obscuring Mist/Arcane)		OUTPUTNAME:Scroll (Obscuring Mist)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Chaos/Arcane)	OUTPUTNAME:Scroll (Protection from Chaos)		TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Evil/Arcane)	OUTPUTNAME:Scroll (Protection from Evil)		TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Good/Arcane)	OUTPUTNAME:Scroll (Protection from Good)		TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Law/Arcane)		OUTPUTNAME:Scroll (Protection from Law)		TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ray of Enfeeblement)											TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Reduce Person)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Fear/Arcane)			OUTPUTNAME:Scroll (Remove Fear)			TYPE:Magic.Scroll.Arcane	COST:50	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shield)													TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shocking Grasp)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Silent Image)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sleep)													TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster I/Arcane)		OUTPUTNAME:Scroll (Summon Monster I)		TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Floating Disk)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (True Strike)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Undetectable Alignment/Arcane)	OUTPUTNAME:Scroll (Undetectable Alignment)	TYPE:Magic.Scroll.Arcane	COST:50	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Unseen Servant)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ventriloquism)												TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 2nd-level Arcane Scrolls
+# Equipment Name					Output Name						Type					Cost		Weight	Source Page
+Scroll (Animal Messenger/Arcane)		OUTPUTNAME:Scroll (Animal Messenger)	TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Animal Trance/Arcane)			OUTPUTNAME:Scroll (Animal Trance)		TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Arcane Lock)											TYPE:Magic.Scroll.Arcane	COST:175	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bear's Endurance/Arcane)		OUTPUTNAME:Scroll (Bear's Endurance)	TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blindness/Deafness/Arcane)		OUTPUTNAME:Scroll (Blindness/Deafness)	TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blur)												TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bull's Strength/Arcane)		OUTPUTNAME:Scroll (Bull's Strength)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Calm Emotions/Arcane)			OUTPUTNAME:Scroll (Calm Emotions)		TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cat's Grace/Arcane)			OUTPUTNAME:Scroll (Cat's Grace)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Command Undead)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Continual Flame/Arcane)		OUTPUTNAME:Scroll (Continual Flame)		TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Moderate Wounds/Arcane)	OUTPUTNAME:Scroll (Cure Moderate Wounds)	TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Darkness/Arcane)			OUTPUTNAME:Scroll (Darkness)			TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Darkvision/Arcane)			OUTPUTNAME:Scroll (Darkvision)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Daze Monster)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Delay Poison/Arcane)			OUTPUTNAME:Scroll (Delay Poison)		TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Thoughts)										TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Disguise Self/Lvl 2)			OUTPUTNAME:Scroll (Disguise Self)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Eagle's Splendor/Arcane)		OUTPUTNAME:Scroll (Eagle's Splendor)	TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Enthrall/Arcane)			OUTPUTNAME:Scroll (Enthrall)			TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (False Life)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flaming Sphere/Arcane)		OUTPUTNAME:Scroll (Flaming Sphere)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fog Cloud/Arcane)			OUTPUTNAME:Scroll (Fog Cloud)			TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fox's Cunning)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ghoul Touch)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Glitterdust)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gust of Wind/Arcane)			OUTPUTNAME:Scroll (Gust of Wind)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hypnotic Pattern)										TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Invisibility)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Knock)												TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Phantom Trap)											TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Levitate)												TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Locate Object/Arcane)			OUTPUTNAME:Scroll (Locate Object)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Mouth)											TYPE:Magic.Scroll.Arcane	COST:160	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Acid Arrow)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Minor Image)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mirror Image)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Misdirection)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Obscure Object/Arcane)		OUTPUTNAME:Scroll (Obscure Object)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Owl's Wisdom/Arcane)			OUTPUTNAME:Scroll (Owl's Wisdom)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Arrows)									TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Pyrotechnics)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Resist Energy/Arcane)			OUTPUTNAME:Scroll (Resist Energy)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Rope Trick)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scare)												TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scorching Ray)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (See Invisibility)										TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shatter/Arcane)				OUTPUTNAME:Scroll (Shatter)			TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Silence/Arcane)				OUTPUTNAME:Scroll (Silence)			TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sound Burst/Arcane)			OUTPUTNAME:Scroll (Sound Burst)		TYPE:Magic.Scroll.Arcane	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spectral Hand)											TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spider Climb/Arcane)			OUTPUTNAME:Scroll (Spider Climb)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster II/Arcane)		OUTPUTNAME:Scroll (Summon Monster II)	TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Swarm/Arcane)			OUTPUTNAME:Scroll (Summon Swarm)		TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hideous Laughter)										TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Touch of Idiocy)										TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Web)												TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Whispering Wind)										TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 3rd level Arcane Scrolls
+# Equipment Name						Output Name							Type					Cost		Weight	Source Page
+Scroll (Arcane Sight)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blink)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Clairaudience/Clairvoyance)											TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Serious Wounds/Arcane)			OUTPUTNAME:Scroll (Cure Serious Wounds)		TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Daylight/Arcane)				OUTPUTNAME:Scroll (Daylight)				TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Deep Slumber)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Magic/Arcane)				OUTPUTNAME:Scroll (Dispel Magic)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Displacement)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Explosive Runes)												TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fireball)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flame Arrow)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fly)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gaseous Form)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gentle Repose/Arcane)				OUTPUTNAME:Scroll (Gentle Repose)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Glibness)														TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Good Hope)													TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Halt Undead)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Haste)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heroism)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Person/Arcane)				OUTPUTNAME:Scroll (Hold Person)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Illusory Script)												TYPE:Magic.Scroll.Arcane	COST:425	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Invisibility Sphere)												TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Keen Edge)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Tiny Hut)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Lightning Bolt)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Chaos/Arcane)	OUTPUTNAME:Scroll (Magic Circle against Chaos)	TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Evil/Arcane)		OUTPUTNAME:Scroll (Magic Circle against Evil)	TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Good/Arcane)		OUTPUTNAME:Scroll (Magic Circle against Good)	TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Law/Arcane)		OUTPUTNAME:Scroll (Magic Circle against Law)	TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Weapon/Greater/Arcane)		OUTPUTNAME:Scroll (Magic Weapon, Greater)		TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Major Image)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Nondetection/Arcane)				OUTPUTNAME:Scroll (Nondetection)			TYPE:Magic.Scroll.Arcane	COST:425	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Phantom Steed)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Energy)											TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Rage)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ray of Exhaustion)												TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sculpt Sound)													TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Secret Page)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sepia Snake Sigil)												TYPE:Magic.Scroll.Arcane	COST:875	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shrink Item)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sleet Storm/Arcane)				OUTPUTNAME:Scroll (Sleet Storm)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Slow)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Speak with Animals/Arcane)			OUTPUTNAME:Scroll (Speak with Animals)		TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Stinking Cloud)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Suggestion)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster III/Arcane)			OUTPUTNAME:Scroll (Summon Monster III)		TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Tongues)														TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Vampiric Touch)													TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Water Breathing/Arcane)			OUTPUTNAME:Scroll (Water Breathing)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wind Wall/Arcane)				OUTPUTNAME:Scroll (Wind Wall)				TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 4th-level Arcane Scrolls
+# Equipment Name					Output Name								Type					Cost		Weight	Source Page
+Scroll (Animate Dead/Arcane)			OUTPUTNAME:Scroll (Animate Dead)				TYPE:Magic.Scroll.Arcane	COST:1050	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Arcane Eye)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bestow Curse/Arcane)			OUTPUTNAME:Scroll (Bestow Curse)				TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Charm Monster)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Confusion)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Contagion/Arcane)			OUTPUTNAME:Scroll (Contagion)					TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Crushing Despair)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Critical Wounds/Arcane)	OUTPUTNAME:Scroll (Cure Critical Wounds)			TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Scrying)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dimension Door)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dimensional Anchor/Arcane)		OUTPUTNAME:Scroll (Dimensional Anchor)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Enervation)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Enlarge Person/Mass)			OUTPUTNAME:Scroll (Enlarge Person, Mass)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Black Tentacles)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fear)														TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fire Shield)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fire Trap/Arcane)			OUTPUTNAME:Scroll (Fire Trap)					TYPE:Magic.Scroll.Arcane	COST:725	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Freedom of Movement/Arcane)		OUTPUTNAME:Scroll (Freedom of Movement)			TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Geas/Lesser)				OUTPUTNAME:Scroll (Geas, Lesser)				TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Globe of Invulnerability/Lesser)	OUTPUTNAME:Scroll (Globe of Invulnerability, Lesser)	TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hallucinatory Terrain)											TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ice Storm/Arcane)			OUTPUTNAME:Scroll (Ice Storm)					TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Illusory Wall)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Invisibility/Greater)			OUTPUTNAME:Scroll (Invisibility, Greater)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Secure Shelter)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Locate Creature)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Minor Creation)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Modify Memory)													TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Neutralize Poison/Arcane)		OUTPUTNAME:Scroll (Neutralize Poison)			TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Resilient Sphere)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Phantasmal Killer)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Polymorph)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Rainbow Pattern)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mnemonic Enhancer)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Reduce Person/Mass)			OUTPUTNAME:Scroll (Reduce Person, Mass)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Curse/Arcane)			OUTPUTNAME:Scroll (Remove Curse)				TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Repel Vermin/Arcane)			OUTPUTNAME:Scroll (Repel Vermin)				TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scrying/Arcane)				OUTPUTNAME:Scroll (Scrying)					TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shadow Conjuration)												TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shout)														TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Solid Fog)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Speak with Plants/Arcane)		OUTPUTNAME:Scroll (Speak with Plants)			TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Stone Shape)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Stoneskin/Arcane)			OUTPUTNAME:Scroll (Stoneskin)					TYPE:Magic.Scroll.Arcane	COST:950	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster IV/Arcane)		OUTPUTNAME:Scroll (Summon Monster IV)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Fire/Arcane)			OUTPUTNAME:Scroll (Wall of Fire)				TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Ice)													TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Zone of Silence)												TYPE:Magic.Scroll.Arcane	COST:1000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 5th-level Arcane Scrolls
+# Equipment Name						Output Name							Type					Cost		Weight	Source Page
+Scroll (Animal Growth/Arcane)				OUTPUTNAME:Scroll (Animal Growth)			TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Baleful Polymorph/Arcane)			OUTPUTNAME:Scroll (Baleful Polymorph)		TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Interposing Hand)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blight/Arcane)					OUTPUTNAME:Scroll (Blight)				TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Break Enchantment/Arcane)			OUTPUTNAME:Scroll (Break Enchantment)		TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cloudkill)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cone of Cold)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Contact Other Plane)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Light Wounds/Mass/Arcane)		OUTPUTNAME:Scroll (Cure Light Wounds, Mass)	TYPE:Magic.Scroll.Arcane	COST:1625	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dismissal/Arcane)				OUTPUTNAME:Scroll (Dismissal)				TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Magic/Greater/Arcane/Lvl 5)	OUTPUTNAME:Scroll (Dispel Magic, Greater)		TYPE:Magic.Scroll.Arcane	COST:1625	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dominate Person)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dream)														TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fabricate)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (False Vision)													TYPE:Magic.Scroll.Arcane	COST:1375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Feeblemind)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Monster)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Secret Chest)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Jar)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Major Creation)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mind Fog)														TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mirage Arcana)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage's Faithful Hound)											TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage's Private Sanctum)											TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Nightmare)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Overland Flight)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Passwall)														TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Permanency)													TYPE:Magic.Scroll.Arcane	COST:10125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Persistent Image)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Planar Binding/Lesser)			OUTPUTNAME:Scroll (Planar Binding, Lesser)	TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prying Eyes)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Telepathic Bond)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Seeming)														TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sending/Arcane)					OUTPUTNAME:Scroll (Sending)				TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shadow Evocation)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Song of Discord)												TYPE:Magic.Scroll.Arcane	COST:1625	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster V/Arcane)			OUTPUTNAME:Scroll (Summon Monster V)		TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Pain/Arcane)			OUTPUTNAME:Scroll (Symbol of Pain)			TYPE:Magic.Scroll.Arcane	COST:2125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Sleep/Arcane)			OUTPUTNAME:Scroll (Symbol of Sleep)			TYPE:Magic.Scroll.Arcane	COST:2125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Telekinesis)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Teleport)														TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transmute Mud to Rock/Arcane)		OUTPUTNAME:Scroll (Transmute Mud to Rock)		TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transmute Rock to Mud/Arcane)		OUTPUTNAME:Scroll (Transmute Rock to Mud)		TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Force)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Stone)													TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Waves of Fatigue)												TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 6th-level Arcane Scrolls
+# Equipment Name						Output Name							Type					Cost		Weight	Source Page
+Scroll (Acid Fog)														TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Analayze Dweomer)												TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Animate Objects/Arcane)			OUTPUTNAME:Scroll (Animate Objects)			TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Antimagic Field/Arcane)			OUTPUTNAME:Scroll (Antimagic Field)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bear's Endurance/Mass/Arcane)		OUTPUTNAME:Scroll (Bear's Endurance, Mass)	TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Forceful Hand)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bull's Strength/Mass/Arcane)		OUTPUTNAME:Scroll (Bull's Strength, Mass)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cat's Grace/Mass/Arcane)			OUTPUTNAME:Scroll (Cat's Grace, Mass)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Chain Lightning)												TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Circle of Death)												TYPE:Magic.Scroll.Arcane	COST:2150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Contingency)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Weather/Arcane/Lvl 6)		OUTPUTNAME:Scroll (Control Weather)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Create Undead/Arcane)				OUTPUTNAME:Scroll (Create Undead)			TYPE:Magic.Scroll.Arcane	COST:2350	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Moderate Wounds/Mass/Arcane)		OUTPUTNAME:Scroll (Cure Moderate Wounds, Mass)	TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Disintegrate)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Magic/Greater/Arcane/Lvl 6)	OUTPUTNAME:Scroll (Dispel Magic, Greater)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Eagle's Splendor/Mass/Arcane)		OUTPUTNAME:Scroll (Eagle's Splendor, Mass)	TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Eyebite)														TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Find the Path/Arcane)				OUTPUTNAME:Scroll (Find the Path)			TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flesh to Stone)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fox's Cunning/Mass)				OUTPUTNAME:Scroll (Fox's Cunning, Mass)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Geas/Quest/Arcane)				OUTPUTNAME:Scroll (Geas, Quest)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Globe of Invulnerability)											TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Guards and Wards)												TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heroes' Feast/Arcane)				OUTPUTNAME:Scroll (Heroes' Feast)			TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heroism/Greater)				OUTPUTNAME:Scroll (Heroism, Greater)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Legend Lore)													TYPE:Magic.Scroll.Arcane	COST:1900	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mislead)														TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage's Lucubration)												TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Move Earth/Arcane)				OUTPUTNAME:Scroll (Move Earth)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Freezing Sphere)												TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Owl's Wisdom/Mass/Arcane)			OUTPUTNAME:Scroll (Owl's Wisdom, Mass)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Permanent Image)												TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Planar Binding)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Programmed Image)												TYPE:Magic.Scroll.Arcane	COST:1675	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Repulsion/Arcane)				OUTPUTNAME:Scroll (Repulsion)				TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shadow Walk)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Stone to Flesh)													TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Suggestion/Mass)				OUTPUTNAME:Scroll (Suggestion, Mass)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster VI/Arcane)			OUTPUTNAME:Scroll (Summon Monster VI)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Fear/Arcane)			OUTPUTNAME:Scroll (Symbol of Fear)			TYPE:Magic.Scroll.Arcane	COST:2650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Persuasion/Arcane)		OUTPUTNAME:Scroll (Symbol of Persuasion)		TYPE:Magic.Scroll.Arcane	COST:6650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sympathetic Vibration)											TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transformation)													TYPE:Magic.Scroll.Arcane	COST:1950	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (True Seeing/Arcane)				OUTPUTNAME:Scroll (True Seeing)			TYPE:Magic.Scroll.Arcane	COST:1900	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Undeath to Death/Arcane)			OUTPUTNAME:Scroll (Undeath to Death)		TYPE:Magic.Scroll.Arcane	COST:2150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Veil)														TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Iron)													TYPE:Magic.Scroll.Arcane	COST:1700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 7th-level Arcane Scrolls
+# Equipment Name					Output Name							Type					Cost		Weight	Source Page
+Scroll (Arcane Sight/Greater)			OUTPUTNAME:Scroll (Arcane Sight, Greater)		TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Banishement/Arcane)			OUTPUTNAME:Scroll (Banishement)			TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Grasping Hand)												TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Undead)												TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Weather/Arcane/Lvl 7)	OUTPUTNAME:Scroll (Control Weather)			TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Delayed Blast Fireball)										TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Instant Summons)											TYPE:Magic.Scroll.Arcane	COST:3275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ethereal Jaunt/Arcane)		OUTPUTNAME:Scroll (Ethereal Jaunt)			TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Finger of Death/Arcane)		OUTPUTNAME:Scroll (Finger of Death)			TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Forcecage)												TYPE:Magic.Scroll.Arcane	COST:23775	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Person/Mass)			OUTPUTNAME:Scroll (Hold Person, Mass)		TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Insanity)													TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Invisibility/Mass)			OUTPUTNAME:Scroll (Invisibility, Mass)		TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Limited Wish)												TYPE:Magic.Scroll.Arcane	COST:3775	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage's Magnificent Mansion)										TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage's Sword)												TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Phase Door)												TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Plane Shift/Arcane)			OUTPUTNAME:Scroll (Plane Shift)			TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Power Word Blind)											TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prismatic Spray)											TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Project Image)												TYPE:Magic.Scroll.Arcane	COST:2280	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Reverse Gravity/Arcane)		OUTPUTNAME:Scroll (Reverse Gravity)			TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scrying/Greater/Arcane)		OUTPUTNAME:Scroll (Scrying, Greater)		TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sequester)												TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shadow Conjuration/Greater)		OUTPUTNAME:Scroll (Shadow Conjuration, Greater)	TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Simulacrum)												TYPE:Magic.Scroll.Arcane	COST:7275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spell Turning)												TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Statue)													TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster VII/Arcane)		OUTPUTNAME:Scroll (Summon Monster VII)		TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Stunning/Arcane)		OUTPUTNAME:Scroll (Symbol of Stunning)		TYPE:Magic.Scroll.Arcane	COST:7275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Weakness/Arcane)		OUTPUTNAME:Scroll (Symbol of Weakness)		TYPE:Magic.Scroll.Arcane	COST:7275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Teleport Object)											TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Teleport/Greater)			OUTPUTNAME:Scroll (Teleport, Greater)		TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Vision)													TYPE:Magic.Scroll.Arcane	COST:2775	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Waves of Exhaustion)											TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 8th-level Arcane Scrolls
+# Equipment Name					Output Name							Type					Cost		Weight	Source Page
+Scroll (Antipathy/Arcane)			OUTPUTNAME:Scroll (Antipathy)				TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Clenched Fist)												TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Binding)													TYPE:Magic.Scroll.Arcane	COST:8500	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Charm Monster/Mass)			OUTPUTNAME:Scroll (Charm Monster, Mass)		TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Clone)													TYPE:Magic.Scroll.Arcane	COST:4000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Create Greater Undead/Arcane)	OUTPUTNAME:Scroll (Create Greater Undead)		TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Demand)													TYPE:Magic.Scroll.Arcane	COST:3600	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dimensional Lock/Arcane)		OUTPUTNAME:Scroll (Dimensional Lock)		TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Discern Location/Arcane)		OUTPUTNAME:Scroll (Discern Location)		TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Horrid Wilting)												TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Incendiary Cloud)											TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Iron Body)												TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Maze)													TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mind Blank)												TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Moment of Prescience)											TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Telekinetic Sphere)											TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Irresistible Dance)											TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Planar Binding/Greater)		OUTPUTNAME:Scroll (Planar Binding, Greater)	TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Polar Ray)												TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Polymorph Any Object)											TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Power Word Stun)											TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prismatic Wall)												TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Spells)										TYPE:Magic.Scroll.Arcane	COST:3500	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prying Eyes/Greater)			OUTPUTNAME:Scroll (Prying Eyes, Greater)		TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scintillating Pattern)										TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Screen)													TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shadow Evocation/Greater)		OUTPUTNAME:Scroll (Shadow Evocation, Greater)	TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shout/Greater)				OUTPUTNAME:Scroll (Shout, Greater)			TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster VIII/Arcane)		OUTPUTNAME:Scroll (Summon Monster VIII)		TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sunburst/Arcane)			OUTPUTNAME:Scroll (Sunburst)				TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Death/Arcane)		OUTPUTNAME:Scroll (Symbol of Death)			TYPE:Magic.Scroll.Arcane	COST:8000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Insanity/Arcane)		OUTPUTNAME:Scroll (Symbol of Insanity)		TYPE:Magic.Scroll.Arcane	COST:8000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sympathy/Arcane)			OUTPUTNAME:Scroll (Sympathy)				TYPE:Magic.Scroll.Arcane	COST:4500	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Temporal Stasis)											TYPE:Magic.Scroll.Arcane	COST:3500	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Trap the Soul)												TYPE:Magic.Scroll.Arcane	COST:13000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 9th-level Arcane Scrolls
+# Equipment Name				Output Name						Type					Cost		Weight	Source Page
+Scroll (Astral Projection/Arcane)	OUTPUTNAME:Scroll (Astral Projection)	TYPE:Magic.Scroll.Arcane	COST:4870	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Crushing Hand)										TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dominate Monster)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Energy Drain/Arcane)		OUTPUTNAME:Scroll (Energy Drain)		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Etherealness/Arcane)		OUTPUTNAME:Scroll (Etherealness)		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Foresight/Arcane)		OUTPUTNAME:Scroll (Foresight)			TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Freedom)											TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gate)											TYPE:Magic.Scroll.Arcane	COST:8825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Monster/Mass)		OUTPUTNAME:Scroll (Hold Monster, Mass)	TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Imprisonment)										TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Meteor Swarm)										TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mage's Disjunction)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Power Word Kill)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prismatic Sphere)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Refuge/Arcane)			OUTPUTNAME:Scroll (Refuge)			TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shades)											TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shapechange/Arcane)		OUTPUTNAME:Scroll (Shapechange)		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Soul Bind/Arcane)		OUTPUTNAME:Scroll (Soul Bind)			TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster IX)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Teleportation Circle)									TYPE:Magic.Scroll.Arcane	COST:4825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Time Stop)										TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wail of the Banshee)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Weird)											TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wish)											TYPE:Magic.Scroll.Arcane	COST:28825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+# Divine Scrolls
+
+###Block: 0-level Divine Scrolls
+# Equipment Name				Output Name					Type					Cost		Weight	Source Page
+Scroll (Create Water)									TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Minor Wounds)								TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Magic/Divine)		OUTPUTNAME:Scroll (Detect Magic)	TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Poison/Divine)		OUTPUTNAME:Scroll (Detect Poison)	TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flare/Divine)			OUTPUTNAME:Scroll (Flare)		TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Guidance)										TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Minor Wounds)								TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Know Direction/Divine)	OUTPUTNAME:Scroll (Know Direction)	TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Light/Divine)			OUTPUTNAME:Scroll (Light)		TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mending/Divine)			OUTPUTNAME:Scroll (Mending)		TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Purify Food and Drink)							TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Read Magic/Divine)		OUTPUTNAME:Scroll (Read Magic)	TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Resistance/Divine)		OUTPUTNAME:Scroll (Resistance)	TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Virtue)										TYPE:Magic.Scroll.Divine	COST:12.5	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 1st-level Divine Scrolls
+# Equipment Name					Output Name						Type					Cost		Weight	Source Page
+Scroll (Alarm/Divine)				OUTPUTNAME:Scroll (Alarm)			TYPE:Magic.Scroll.Divine	COST:100	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bane)												TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bless)												TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bless Water)											TYPE:Magic.Scroll.Divine	COST:50	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bless Weapon)											TYPE:Magic.Scroll.Divine	COST:100	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Calm Animals)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cause Fear/Divine)			OUTPUTNAME:Scroll (Cause Fear)		TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Charm Animal)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Command)												TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Comprehend Languages/Divine)	OUTPUTNAME:Scroll (Comprehend Languages)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Light Wounds/Divine)		OUTPUTNAME:Scroll (Cure Light Wounds)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Curse Water)											TYPE:Magic.Scroll.Divine	COST:50	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Deathwatch)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Animals or Plants)									TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Chaos)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Evil)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Good)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Law)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Snares and Pits)									TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Detect Undead/Divine)			OUTPUTNAME:Scroll (Detect Undead)		TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Divine Favor)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Doom)												TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Endure Elements/Divine)		OUTPUTNAME:Scroll (Endure Elements)		TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Entangle)												TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Entropic Shield)										TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Faerie Fire)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Goodberry)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hide from Animals)										TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hide from Undead)										TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Light Wounds)										TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Jump/Divine)				OUTPUTNAME:Scroll (Jump)			TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Longstrider)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Fang)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Stone)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Weapon/Divine)			OUTPUTNAME:Scroll (Magic Weapon)		TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Obscuring Mist/Divine)		OUTPUTNAME:Scroll (Obscuring Mist)		TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Pass Without Trace)										TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Produce Flame)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Chaos/Divine)	OUTPUTNAME:Scroll (Protection from Chaos)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Evil/Divine)	OUTPUTNAME:Scroll (Protection from Evil)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Good/Divine)	OUTPUTNAME:Scroll (Protection from Good)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Law/Divine)		OUTPUTNAME:Scroll (Protection from Law)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Fear/Divine)			OUTPUTNAME:Scroll (Remove Fear)		TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sanctuary)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shield of Faith)										TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shillelagh)											TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Speak with Animals/Divine)		OUTPUTNAME:Scroll (Speak with Animals)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster I/Divine)		OUTPUTNAME:Scroll (Summon Monster I)	TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally I)									TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 2nd-level Divine Scrolls
+# Equipment Name					Output Name							Type					Cost		Weight	Source Page
+Scroll (Animal Messenger/Divine)		OUTPUTNAME:Scroll (Animal Messenger)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Animal Trance/Divine)			OUTPUTNAME:Scroll (Animal Trance)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Augury)													TYPE:Magic.Scroll.Divine	COST:175	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Barkskin)													TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bear's Endurance/Divine)		OUTPUTNAME:Scroll (Bear's Endurance)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bull's Strength/Divine)		OUTPUTNAME:Scroll (Bull's Strength)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Calm Emotions/Divine)			OUTPUTNAME:Scroll (Calm Emotions)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cat's Grace/Divine)			OUTPUTNAME:Scroll (Cat's Grace)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Chill Metal)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Consecrate)												TYPE:Magic.Scroll.Divine	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Moderate Wounds/Divine)	OUTPUTNAME:Scroll (Cure Moderate Wounds)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Darkness/Divine)			OUTPUTNAME:Scroll (Darkness)				TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Death Knell)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Delay Poison/Divine)			OUTPUTNAME:Scroll (Delay Poison)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Desecrate)												TYPE:Magic.Scroll.Divine	COST:200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Eagle's Splendor/Divine)		OUTPUTNAME:Scroll (Eagle's Splendor)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Enthrall/Divine)			OUTPUTNAME:Scroll (Enthrall)				TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Find Traps)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fire Trap/Divine)			OUTPUTNAME:Scroll (Fire Trap)				TYPE:Magic.Scroll.Divine	COST:175	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flame Blade)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flaming Sphere/Divine)		OUTPUTNAME:Scroll (Flaming Sphere)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fog Cloud/Divine)			OUTPUTNAME:Scroll (Fog Cloud)				TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gentle Repose/Divine)			OUTPUTNAME:Scroll (Gentle Repose)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gust of Wind/Divine)			OUTPUTNAME:Scroll (Gust of Wind)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heat Metal)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Animal)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hold Person/Divine)			OUTPUTNAME:Scroll (Hold Person)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Moderate Wounds)										TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Make Whole)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Owl's Wisdom/Divine)			OUTPUTNAME:Scroll (Owl's Wisdom)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Reduce Animal)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Paralysis)											TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Resist Energy/Divine)			OUTPUTNAME:Scroll (Resist Energy)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Restoration/Lesser)			OUTPUTNAME:Scroll (Restoration, Lesser)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shatter/Divine)				OUTPUTNAME:Scroll (Shatter)				TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shield Other)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Silence/Divine)				OUTPUTNAME:Scroll (Silence)				TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Snare/Lvl 2)				OUTPUTNAME:Scroll (Snare)				TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Soften Earth and Stone)										TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sound Burst/Divine)			OUTPUTNAME:Scroll (Sound Burst)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Speak with Plants/Divine/Lvl 2)	OUTPUTNAME:Scroll (Speak with Plants)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spider Climb/Divine)			OUTPUTNAME:Scroll (Spider Climb)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spiritual Weapon)											TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Status)													TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster II/Divine)		OUTPUTNAME:Scroll (Summon Monster II)		TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally II)										TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Swarm/Divine)			OUTPUTNAME:Scroll (Summon Swarm)			TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Tree Shape)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Undetectable Alignment/Divine)	OUTPUTNAME:Scroll (Undetectable Alignment)	TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Warp Wood)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wood Shape)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Zone of Truth)												TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 3rd-level Divine Scrolls
+# Equipment Name						Output Name							Type					Cost		Weight	Source Page
+Scroll (Animate Dead/Divine)				OUTPUTNAME:Scroll (Animate Dead)			TYPE:Magic.Scroll.Divine	COST:625	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bestow Curse/Divine)				OUTPUTNAME:Scroll (Bestow Curse)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blindness/Deafness/Divine)			OUTPUTNAME:Scroll (Blindness/Deafness)		TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Call Lightning)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Contagion/Divine)				OUTPUTNAME:Scroll (Contagion)				TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Continual Flame/Divine)			OUTPUTNAME:Scroll (Continual Flame)			TYPE:Magic.Scroll.Divine	COST:425	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Create Food and Water)											TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Serious Wounds/Divine)			OUTPUTNAME:Scroll (Cure Serious Wounds)		TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Darkvision/Divine)				OUTPUTNAME:Scroll (Darkvision)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Daylight/Divine)				OUTPUTNAME:Scroll (Daylight)				TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Deeper Darkness)												TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Diminish Plants)												TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Magic/Divine)				OUTPUTNAME:Scroll (Dispel Magic)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dominate Animal)												TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Glyph of Warding)												TYPE:Magic.Scroll.Divine	COST:575	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heal Mount)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Helping Hand)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Serious Wounds)											TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Invisibility Purge)												TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Locate Object/Divine)				OUTPUTNAME:Scroll (Locate Object)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Chaos/Divine)	OUTPUTNAME:Scroll (Magic Circle against Chaos)	TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Evil/Divine)		OUTPUTNAME:Scroll (Magic Circle against Evil)	TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Good/Divine)		OUTPUTNAME:Scroll (Magic Circle against Good)	TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Circle against Law/Divine)		OUTPUTNAME:Scroll (Magic Circle against Law)	TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Fang/Greater)				OUTPUTNAME:Scroll (Magic Fang, Greater)		TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Vestment)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Meld into Stone)												TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Neutralize Poison/Divine)			OUTPUTNAME:Scroll (Neutralize Poison)		TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Obscure Object/Divine)			OUTPUTNAME:Scroll (Obscure Object)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Plant Growth)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Prayer)														TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Energy)											TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Quench)														TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Blindness/Deafness)											TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Curse/Divine)				OUTPUTNAME:Scroll (Remove Curse)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Remove Disease)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Searing Light)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sleet Storm/Divine)				OUTPUTNAME:Scroll (Sleet Storm)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Snare/Lvl 3)					OUTPUTNAME:Scroll (Snare)				TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Speak with Dead)												TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Speak with Plants/Divine/Lvl 3)		OUTPUTNAME:Scroll (Speak with Plants)		TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spike Growth)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster III/Divine)			OUTPUTNAME:Scroll (Summon Monster III)		TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally III)											TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Water Breathing/Divine)			OUTPUTNAME:Scroll (Water Breathing)			TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Water Walk)													TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wind Wall/Divine)				OUTPUTNAME:Scroll (Wind Wall)				TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 4th level Divine Scrolls
+# Equipment Name					Output Name						Type					Cost		Weight	Source Page
+Scroll (Air Walk)												TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Antiplant Shell)										TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blight/Divine)				OUTPUTNAME:Scroll (Blight)			TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Break Enchantment/Divine/Lvl 4)	OUTPUTNAME:Scroll (Break Enchantment)	TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Command Plants)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Water)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Critical Wounds/Divine)	OUTPUTNAME:Scroll (Cure Critical Wounds)	TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Death Ward)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dimensional Anchor/Divine)		OUTPUTNAME:Scroll (Dimensional Anchor)	TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Disceern Lies)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dismissal/Divine)			OUTPUTNAME:Scroll (Dismissal)			TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Divination)											TYPE:Magic.Scroll.Divine	COST:725	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Divine Power)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Freedom of Movement/Divine)		OUTPUTNAME:Scroll (Freedom of Movement)	TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Giant Vermin)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Holy Sword)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Imbue with Spell Ability)									TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Critical Wounds)									TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Magic Weapon/Greater/Divine)	OUTPUTNAME:Scroll (Magic Weapon, Greater)	TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Nondetection/Divine)			OUTPUTNAME:Scroll (Nondetection)		TYPE:Magic.Scroll.Divine	COST:750	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Planar Ally/Lesser)			OUTPUTNAME:Scroll (Planar Ally, Lesser)	TYPE:Magic.Scroll.Divine	COST:1200	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Poison)												TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Reincarnate)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Repel Vermin/Divine)			OUTPUTNAME:Scroll (Repel Vermin)		TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Restoration)											TYPE:Magic.Scroll.Divine	COST:800	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Rusting Grasp)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sending/Divine)				OUTPUTNAME:Scroll (Sending)			TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spell Immunity)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spike Stones)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster IV/Divine)		OUTPUTNAME:Scroll (Summon Monster IV)	TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally IV)									TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Tongues)												TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Tree Stride)											TYPE:Magic.Scroll.Divine	COST:700	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 5-th level Divine Scrolls
+# Equipment Name					Output Name							Type					Cost		Weight	Source Page
+Scroll (Animal Growth/Divine)			OUTPUTNAME:Scroll (Animal Growth)			TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Atonement)												TYPE:Magic.Scroll.Divine	COST:3625	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Awaken)													TYPE:Magic.Scroll.Divine	COST:2375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Baleful Polymorph/Divine)		OUTPUTNAME:Scroll (Baleful Polymorph)		TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Break Enchantment/Divine/Lvl 5)	OUTPUTNAME:Scroll (Break Enchantment)		TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Call Lightning Storm)											TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Command/Greater)			OUTPUTNAME:Scroll (Command, Greater)		TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Commune)													TYPE:Magic.Scroll.Divine	COST:1625	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Commune with Nature)											TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Winds)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Light Wounds/Mass/Divine)	OUTPUTNAME:Scroll (Cure Light Wounds, Mass)	TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Chaos)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Evil)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Good)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Law)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Disrupting Weapon)											TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Flame Strike)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Hallow)													TYPE:Magic.Scroll.Divine	COST:6125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ice Storm/Divine)			OUTPUTNAME:Scroll (Ice Storm)				TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Light Wounds/Mass)		OUTPUTNAME:Scroll (Inflict Light Wounds, Mass)	TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Insect Plague)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Mark of Justice)											TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Plane Shift/Divine)			OUTPUTNAME:Scroll (Plane Shift)			TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Raise Dead)												TYPE:Magic.Scroll.Divine	COST:6125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Righteous Might)											TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scrying/Divine)				OUTPUTNAME:Scroll (Scrying)				TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Slay Living)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spell Resistance)											TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Stoneskin/Divine)			OUTPUTNAME:Scroll (Stoneskin)				TYPE:Magic.Scroll.Divine	COST:1375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster V/Divine)		OUTPUTNAME:Scroll (Summon Monster V)		TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally V)										TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Pain/Divine)		OUTPUTNAME:Scroll (Symbol of Pain)			TYPE:Magic.Scroll.Divine	COST:2125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Sleep/Divine)		OUTPUTNAME:Scroll (Symbol of Sleep)			TYPE:Magic.Scroll.Divine	COST:2125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transmute Mud to Rock/Divine)	OUTPUTNAME:Scroll (Transmute Mud to Rock)		TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transmute Rock to Mud/Divine)	OUTPUTNAME:Scroll (Transmute Rock to Mud)		TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (True Seeing/Divine)			OUTPUTNAME:Scroll (True Seeing)			TYPE:Magic.Scroll.Divine	COST:1375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Unhallow)													TYPE:Magic.Scroll.Divine	COST:6125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Fire/Divine)			OUTPUTNAME:Scroll (Wall of Fire)			TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Stone)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wall of Thorns)												TYPE:Magic.Scroll.Divine	COST:1125	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 6th-level Divine Scrolls
+# Equipment Name					Output Name								Type					Cost		Weight	Source Page
+Scroll (Animate Objects/Divine)		OUTPUTNAME:Scroll (Animate Objects)				TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Antilife Shell)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Banishment/Divine)			OUTPUTNAME:Scroll (Banishement)				TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bear's Endurance/Mass/Divine)	OUTPUTNAME:Scroll (Bear's Endurance, Mass)		TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blade Barrier)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Bull's Strength/Mass/Divine)	OUTPUTNAME:Scroll (Bull's Strength, Mass)			TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cat's Grace/Mass/Divine)		OUTPUTNAME:Scroll (Cat's Grace, Mass)			TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Create Undead/Divine)			OUTPUTNAME:Scroll (Create Undead)				TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Moderate Wounds/Mass/Divine)	OUTPUTNAME:Scroll (Cure Moderate Wounds, Mass)		TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dispel Magic/Greater/Divine)	OUTPUTNAME:Scroll (Dispel Magic, Greater)			TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Eagle's Splendor/Mass/Divine)	OUTPUTNAME:Scroll (Eagle's Splendor, Mass)		TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Find the Path/Divine)			OUTPUTNAME:Scroll (Find the Path)				TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fire Seeds)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Forbiddance)													TYPE:Magic.Scroll.Divine	COST:4650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Geas/Quest/Divine)												TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Glyph of Warding/Greater)		OUTPUTNAME:Scroll (Glyph of Warding, Greater)		TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Harm)														TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heal)														TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heroes' Feast/Divine)			OUTPUTNAME:Scroll (Heroes' Feast)				TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Moderate Wounds/Mass)	OUTPUTNAME:Scroll (Inflict Moderate Wounds, Mass)	TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ironwood)														TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Liveoak)														TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Move Earth/Divine)			OUTPUTNAME:Scroll (Move Earth)				TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Owl's Wisdom/Mass/Divine)		OUTPUTNAME:Scroll (Owl's Wisdom, Mass)			TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Planar Ally)													TYPE:Magic.Scroll.Divine	COST:2400	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Repel Wood)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spellstaff)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Stone Tell)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster VI/Divine)		OUTPUTNAME:Scroll (Summon Monster VI)			TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally VI)											TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Fear/Divine)		OUTPUTNAME:Scroll (Symbol of Fear)				TYPE:Magic.Scroll.Divine	COST:2650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Persuasion/Divine)	OUTPUTNAME:Scroll (Symbol of Persuasion)			TYPE:Magic.Scroll.Divine	COST:6650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transport via Plants)												TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Undeath to Death/Divine)		OUTPUTNAME:Scroll (Undeath to Death)			TYPE:Magic.Scroll.Divine	COST:2150	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Wind Walk)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Word of Recall)													TYPE:Magic.Scroll.Divine	COST:1650	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 7th-level Divine Scrolls
+# Equipment Name					Output Name								Type					Cost		Weight	Source Page
+Scroll (Animate Plants)													TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Blasphemy)													TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Weather/Divine)		OUTPUTNAME:Scroll (Control Weather)				TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Creeping Doom)													TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Serious Wounds/Mass)		OUTPUTNAME:Scroll (Cure Serious Wounds, Mass)		TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Destruction)													TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dictum)														TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Ethereal Jaunt/Divine)		OUTPUTNAME:Scroll (Ethereal Jaunt)				TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Holy Word)													TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Serious Wounds/Mass)	OUTPUTNAME:Scroll (Inflict Serious Wounds, Mass)	TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Refuge/Divine)				OUTPUTNAME:Scroll (Refuge)					TYPE:Magic.Scroll.Divine	COST:3775	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Regenerate/Lvl 7)			OUTPUTNAME:Scroll (Regenerate)				TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Repulsion/Divine)			OUTPUTNAME:Scroll (Repulsion)					TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Restoration/Greater)			OUTPUTNAME:Scroll (Restoration, Greater)			TYPE:Magic.Scroll.Divine	COST:4775	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Resurrection)													TYPE:Magic.Scroll.Divine	COST:12275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Scrying/Greater/Divine)		OUTPUTNAME:Scroll (Scrying, Greater)			TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster VII/Divine)		OUTPUTNAME:Scroll (Summon Monster VII)			TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally VII)											TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sunbeam)														TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Stunning/Divine)		OUTPUTNAME:Scroll (Symbol of Stunning)			TYPE:Magic.Scroll.Divine	COST:7275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Weakness/Divine)		OUTPUTNAME:Scroll (Symbol of Weakness)			TYPE:Magic.Scroll.Divine	COST:7275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Transmute Metal to Wood)											TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Word of Chaos)													TYPE:Magic.Scroll.Divine	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 8th-level Divine Scrolls
+# Equipment Name					Output Name								Type					Cost		Weight	Source Page
+Scroll (Animal Shapes)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Antimagic Field/Divine)		OUTPUTNAME:Scroll (Antimagic Field)				TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cloak of Chaos)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Control Plants)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Create Greater Undead/Divine)	OUTPUTNAME:Scroll (Create Greater Undead)			TYPE:Magic.Scroll.Divine	COST:3600	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Cure Critical Wounds/Mass)		OUTPUTNAME:Scroll (Cure Critical Wounds, Mass)		TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Dimensional Lock/Divine)		OUTPUTNAME:Scroll (Dimensional Lock)			TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Discern Location/Divine)		OUTPUTNAME:Scroll (Discern Location)			TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Earthquake)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Finger of Death/Divine)		OUTPUTNAME:Scroll (Finger of Death)				TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Fire Storm)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Holy Aura)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Inflict Critical Wounds/Mass)	OUTPUTNAME:Scroll (Inflict Critical Wounds, Mass)	TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Planar Ally/Greater)			OUTPUTNAME:Scroll (Planar Ally, Greater)			TYPE:Magic.Scroll.Divine	COST:5500	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Repel Metal or Stone)												TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Reverse Gravity/Divine)		OUTPUTNAME:Scroll (Reverse Gravity)				TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shield of Law)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Spell Immunity/Greater)		OUTPUTNAME:Scroll (Spell Immunity, Greater)		TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster VIII/Divine)		OUTPUTNAME:Scroll (Summon Monster VIII)			TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally VIII)											TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sunburst/Divine)			OUTPUTNAME:Scroll (Sunburst)					TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Death/Divine)		OUTPUTNAME:Scroll (Symbol of Death)				TYPE:Magic.Scroll.Divine	COST:8000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Symbol of Insanity/Divine)		OUTPUTNAME:Scroll (Symbol of Insanity)			TYPE:Magic.Scroll.Divine	COST:8000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Unholy Aura)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Whirlwind)													TYPE:Magic.Scroll.Divine	COST:3000	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+###Block: 9th-level Divine Scrolls
+# Equipment Name				Output Name						Type					Cost		Weight	Source Page
+Scroll (Antipathy/Divine)		OUTPUTNAME:Scroll (Antipathy)			TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Astral Projection/Divine)	OUTPUTNAME:Scroll (Astral Projection)	TYPE:Magic.Scroll.Divine	COST:4870	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Elemental Swarm)									TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Energy Drain/Divine)		OUTPUTNAME:Scroll (Energy Drain)		TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Etherealness/Divine)		OUTPUTNAME:Scroll (Etherealness)		TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Foresight/Divine)		OUTPUTNAME:Scroll (Foresight)			TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Gate)											TYPE:Magic.Scroll.Divine	COST:8825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Heal/Mass)			OUTPUTNAME:Scroll (Heal, Mass)		TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Implosion)										TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Miracle)											TYPE:Magic.Scroll.Divine	COST:28825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Regenerate/Lvl 9)		OUTPUTNAME:Scroll (Regenerate)		TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shambler)											TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Shapechange/Divine)		OUTPUTNAME:Scroll (Shapechange)		TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Soul Bind/Divine)		OUTPUTNAME:Scroll (Soul Bind)			TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Storm of Vengeance)									TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Monster IX)									TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Summon Nature's Ally IX)								TYPE:Magic.Scroll.Divine	COST:3825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Sympathy/Divine)		OUTPUTNAME:Scroll (Sympathy)			TYPE:Magic.Scroll.Divine	COST:5325	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (True Resurrection)									TYPE:Magic.Scroll.Divine	COST:28825	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+
+#
+# End
+#

@@ -1,0 +1,43 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec  1 21:27:22 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Beaver
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+# Class Name			Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages			Save checks bonus												Combat bonus
+CLASS:Witch (Green Ronin)	OUTPUTNAME:Witch	HD:4		TYPE:Base.PC	ABB:GRWtch		SOURCEPAGE:p.6	LANGAUTO:Literacy		LANGBONUS:Draconic,Giant	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Witch (Green Ronin)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Wilderness Lore
+# Class Name			Spell Stat		Spell Type		Spellbook		Caster level
+CLASS:Witch (Green Ronin)	SPELLSTAT:WIS	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Witch (Green Ronin)|CL
+1	AUTO:WEAPONPROF|TYPE.Simple	FEATAUTO:Simple Weapon Proficiency
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=0|Arcane Mark,Cure Minor Wounds,Dancing Lights,Daze,Detect Magic,Flare,Ghost Sound,Light,Mending,Prestidigitation,Read Magic,Resistance,Virtue
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=1|Cause Fear,Disguise Self,Charm Person,Command,Comprehend Languages,Cure Light Wounds,Doom,Endure Elements,Hypnotism,Identify,Silent Image,Sleep,Ventriloquism
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=2|Alter Self,Blindness/Deafness,Calm Emotions,Cure Moderate Wounds,Delay Poison,Detect Thoughts,Enthrall,Invisibility,Locate Object,Minor Image,Scare,Speak with Animals,Whispering Wind
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=3|Bestow Curse,Clairaudience/Clairvoyance,Contagion,Create Food and Water,Dispel Magic,Geas (Lesser),Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Major Image,Remove Blindness/Deafness,Speak with Plants,Suggestion,Tongues,Water Breathing
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=4|Charm Monster,Confusion,Discern Lies,Divination,Fear,Giant Vermin,Locate Creature,Minor Creation,Neutralize Poison,Polymorph,Scrying
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=5|Animal Growth,Atonement,Break Enchantment,Dream,False Vision,Feeblemind,Command (Greater),Scrying (Greater),Magic Jar,Major Creation,Mirage Arcana,Nightmare,Persistent Image,Seeming,Sending
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=6|Animate Objects,Control Weather,Eyebite,Find the Path,Geas/Quest,Heroes' Feast,Legend Lore,Mass Agony,Suggestion (Mass),Mislead,Project Image,Repulsion,Transformation,True Seeing
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=7|Creeping Doom,Finger of Death,Insanity,Liveoak,Repel Wood,Transport via Plants,Veil
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=8|Antipathy,Discern Location,Horrid Wilting,Polymorph Any Object,Sympathy,Trap the Soul
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=9|Call the Wild Hunt,Earthquake,Foresight,Refuge,Shapechange,Wail of the Banshee,Weird
+###Block: Normal progression
+1	CAST:5,3				SA:Familiar
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4								ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4		SA:A thousand faces
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4						ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4		SA:Timeless Body
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,6					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)

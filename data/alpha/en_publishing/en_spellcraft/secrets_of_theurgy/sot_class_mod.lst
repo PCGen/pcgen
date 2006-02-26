@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  1 23:46:27 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Secrets of Theurgy|SOURCESHORT:SoT|SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
+
+# Class Name			!PRESA
+CLASS:Mystic Theurge.MOD	!PRESA:1,Theurgy
+1	SA:Theurgy

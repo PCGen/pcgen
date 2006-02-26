@@ -1,0 +1,18 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jun  6 04:39:40 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# Original entry by: Ratheof Blithwyn
+
+# Equipment Name			Type					Cost		Weight	Source Page
+Evoker's Robe			TYPE:Magic.Wondrous.Robe	COST:500			SOURCEPAGE:p.54
+Amulet of Burning Tears		TYPE:Magic.Wondrous.Amulet	COST:16200	WT:0		SOURCEPAGE:p.58
+Boots of Steadfastness		TYPE:Magic.Wondrous.Boot	COST:19116	WT:0		SOURCEPAGE:p.58
+Cloak of Bolts			TYPE:Magic.Wondrous.Cape	COST:36000	WT:0		SOURCEPAGE:p.59
+Corrosive Globe			TYPE:Magic.Wondrous		COST:101250	WT:0		SOURCEPAGE:p.59
+Dissolving Book			TYPE:Magic.Wondrous.Book	COST:765	WT:0		SOURCEPAGE:p.60
+Fusing Key				TYPE:Magic.Wondrous		COST:2000	WT:0		SOURCEPAGE:p.60
+Gauntlets of Helping Hands	TYPE:Magic.Wondrous.Glove	COST:240000	WT:0		SOURCEPAGE:p.60
+Lightning Rope			TYPE:Magic.Wondrous		COST:112000	WT:0		SOURCEPAGE:p.60
+Pascali's Peevish Pipe		TYPE:Magic.Wondrous		COST:126000	WT:0		SOURCEPAGE:p.61
+Pouch of Powerlessness		TYPE:Magic.Wondrous		COST:375	WT:0		SOURCEPAGE:p.61
+Traveler's Hearth			TYPE:Magic.Wondrous		COST:40500	WT:0		SOURCEPAGE:p.61
+Turbren's Tool Belt		TYPE:Magic.Wondrous.Belt	COST:80000	WT:0		SOURCEPAGE:p.61

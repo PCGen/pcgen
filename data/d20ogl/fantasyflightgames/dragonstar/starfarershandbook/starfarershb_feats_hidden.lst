@@ -1,0 +1,75 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+#  Robot/Soulmech upgrades
+
+# Feat Name				Type			Visible		Req. Equipement					Prohibited Feat			Required Race		Save checks bonus				Combat bonus						Add to base move			BONUS:SIZEMOD		Stat bonus					Source Page
+Mech Chassis (Tiny)		TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Tiny)		!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|0|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|10	BONUS:SIZEMOD|NUMBER|-2	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	SOURCEPAGE:p116
+Mech Chassis (Small)		TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Small)		!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|0|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|0	BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	SOURCEPAGE:p116
+Mech Chassis (Medium)		TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Medium)		!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|0|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|0	BONUS:SIZEMOD|NUMBER|0	BONUS:STAT|STR|0	BONUS:STAT|DEX|0	SOURCEPAGE:p116
+Mech Chassis (Large)		TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Large)		!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|1|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-10	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|0	BONUS:STAT|DEX|0	SOURCEPAGE:p116
+Mech Chassis (Huge)		TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Huge)		!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|2|	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-10	BONUS:SIZEMOD|NUMBER|2	BONUS:STAT|STR|0	BONUS:STAT|DEX|0	SOURCEPAGE:p116
+Mech Chassis (Gargantuan)	TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Gargantuan)	!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|5|	BONUS:COMBAT|AC|-5|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-20	BONUS:SIZEMOD|NUMBER|3	BONUS:STAT|STR|-8	BONUS:STAT|DEX|0	SOURCEPAGE:p116
+Mech Chassis (Colossal)		TYPE:MechChassis	VISIBLE:DISPLAY	PREEQUIP:1,Robot Chassis (Colossal)		!PREFEAT:2,TYPE=MechChassis	PRERACE:Robot,Soulmech	BONUS:CHECKS|BASE.Fortitude|10	BONUS:COMBAT|AC|-9|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-20	BONUS:SIZEMOD|NUMBER|4	BONUS:STAT|STR|-8	BONUS:STAT|DEX|0	SOURCEPAGE:p116
+
+#2of 2 - this set is for robots and if the STR and Dex for the Soulmech is a preset value delete top set out and use only this set
+#Mech  Chassis (Tiny)		TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|4	DEFINE:BASE.DEX|12						BONUS:CHECKS|BASE.Fortitude|0|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|10	BONUS:SIZEMOD|NUMBER|-2																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Tiny)
+#Mech  Chassis (Small)		TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|8	DEFINE:BASE.DEX|10						BONUS:CHECKS|BASE.Fortitude|0|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|0	BONUS:SIZEMOD|NUMBER|-1																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Small)
+#Mech  Chassis (Medium)		TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|12	DEFINE:BASE.DEX|8						BONUS:CHECKS|BASE.Fortitude|0|	BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|0	BONUS:SIZEMOD|NUMBER|0																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Medium)
+#Mech  Chassis (Large)		TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|20	DEFINE:BASE.DEX|6						BONUS:CHECKS|BASE.Fortitude|1|	BONUS:COMBAT|AC|0||TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|-10	BONUS:SIZEMOD|NUMBER|1																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Large)
+#Mech  Chassis (Huge)		TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|28	DEFINE:BASE.DEX|4						BONUS:CHECKS|BASE.Fortitude|2|	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|-10	BONUS:SIZEMOD|NUMBER|2																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Huge)
+#Mech  Chassis (Gargantuan)	TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|28	DEFINE:BASE.DEX|4						BONUS:CHECKS|BASE.Fortitude|5|	BONUS:COMBAT|AC|-5|TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|-20	BONUS:SIZEMOD|NUMBER|3																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Gargantuan)
+#Mech  Chassis (Colossal)	TYPE:MechChassis	VISIBLE:DISPLAY	PRERACE:Robot,Soulmech																										DEFINE:BASE.STR|36	DEFINE:BASE.DEX|4						BONUS:CHECKS|BASE.Fortitude|10	BONUS:COMBAT|AC|-9|TYPE=NaturalArmor.REPLACE						BONUS:MOVEADD|TYPE=Walk|-20	BONUS:SIZEMOD|NUMBER|4																				SOURCEPAGE:p116	!PREFEAT:2,TYPE=MechChassis																PREEQUIP:1,Robot Chasses (Colossal)
+#Note:Size modification have been taken into account and in some case reduced as the robot/soulmech use a diferent size pattern than the D&D norm
+
+###Block: Soulmech Base Hitpoints
+# Feat Name				Type		Visible	Bonus to HP
+Soulmech Base Hit Points(+ 2)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(2)
+Soulmech Base Hit Points(+ 3)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(3)
+Soulmech Base Hit Points(+ 4)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(4)
+Soulmech Base Hit Points(+ 5)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(5)
+Soulmech Base Hit Points(+ 6)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(6)
+Soulmech Base Hit Points(+ 7)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(7)
+Soulmech Base Hit Points(+ 8)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(8)
+Soulmech Base Hit Points(+ 9)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(9)
+Soulmech Base Hit Points(+10)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(10)
+Soulmech Base Hit Points(+11)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(11)
+Soulmech Base Hit Points(+12)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(12)
+Soulmech Base Hit Points(+13)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(13)
+Soulmech Base Hit Points(+14)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(14)
+Soulmech Base Hit Points(+15)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(15)
+Soulmech Base Hit Points(+16)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(16)
+Soulmech Base Hit Points(+17)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(17)
+Soulmech Base Hit Points(+18)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(18)
+Soulmech Base Hit Points(+19)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(19)
+Soulmech Base Hit Points(+20)	TYPE:MechHP	VISIBLE:NO	BONUS:HP|CURRENTMAX|(20)
+
+
+###Block:Ranger Favored Terrain
+# Feat Name					Type				Visible	Required Class		Required Feat													Prohibited Feat				Minimum Size	Special Ability						Define									Description								Multiple?	Choose																										Automaticaly Gained Weapon Prof.
+Favored Terrain I				TYPE:RangerTerrain	VISIBLE:NO	PRECLASS:1,Ranger=2																!PREFEAT:1,Favored Terrain I					SA:favored Terrain (%CHOICE) +%|FavoredTerrain1	DEFINE:FavoredTerrain1|COUNT[FEATTYPE=RangerTerrain]											MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Aquatic|Desert|Forest|Hill|Marsh|Mountain|Plains|Underground
+Favored Terrain II			TYPE:RangerTerrain	VISIBLE:NO	PRECLASS:1,Ranger=6	PREFEAT:1,Favored Terrain I											!PREFEAT:1,Favored Terrain II					SA:favored Terrain (%CHOICE) +%|FavoredTerrain2	DEFINE:FavoredTerrain2|COUNT[FEATTYPE=RangerTerrain]-1										MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Aquatic|Desert|Forest|Hill|Marsh|Mountain|Plains|Underground
+Favored Terrain III			TYPE:RangerTerrain	VISIBLE:NO	PRECLASS:1,Ranger=10	PREFEAT:2,Favored Terrain I,Favored Terrain II								!PREFEAT:1,Favored Terrain III				SA:favored Terrain (%CHOICE) +%|FavoredTerrain3	DEFINE:FavoredTerrain3|COUNT[FEATTYPE=RangerTerrain]-2										MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Aquatic|Desert|Forest|Hill|Marsh|Mountain|Plains|Underground
+Favored Terrain IV			TYPE:RangerTerrain	VISIBLE:NO	PRECLASS:1,Ranger=14	PREFEAT:3,Favored Terrain I,Favored Terrain II,Favored Terrain III				!PREFEAT:1,Favored Terrain IV					SA:favored Terrain (%CHOICE) +%|FavoredTerrain4	DEFINE:FavoredTerrain4|COUNT[FEATTYPE=RangerTerrain]-3										MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Aquatic|Desert|Forest|Hill|Marsh|Mountain|Plains|Underground
+Favored Terrain V				TYPE:RangerTerrain	VISIBLE:NO	PRECLASS:1,Ranger=18	PREFEAT:4,Favored Terrain I,Favored Terrain II,Favored Terrain III,Favored Terrain IV	!PREFEAT:1,Favored Terrain V					SA:favored Terrain (%CHOICE) +%|FavoredTerrain5	DEFINE:FavoredTerrain5|COUNT[FEATTYPE=RangerTerrain]-4										MULT:YES	CHOOSE:NUMCHOICES=1|Arctic|Aquatic|Desert|Forest|Hill|Marsh|Mountain|Plains|Underground
+
+# Mechanist Favored Tech
+# Feat Name					Type				Visible	Required Class		Required Feat													Prohibited Feat				Minimum Size	Special Ability						Define									Description								Multiple?	Choose																										Automaticaly Gained Weapon Prof.
+Favored Tech I				TYPE:MechTech		VISIBLE:NO	PRECLASS:1,Mechanist=2																!PREFEAT:1,Favored Tech I					SA:favored Tech (%CHOICE) +%|FavoredTech1		DEFINE:FavoredTech1|COUNT[FEATTYPE=MechTech]												MULT:YES	CHOOSE:NUMCHOICES=1|Aircraft|Armor|Ground Vehicles|Electronics|Explosives|Handguns|Heavy Weapons|Machines|Melee Weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech II				TYPE:MechTech		VISIBLE:NO	PRECLASS:1,Mechanist=6	PREFEAT:1,Favored Tech I											!PREFEAT:1,Favored Tech II					SA:favored Tech (%CHOICE) +%|FavoredTech2		DEFINE:FavoredTech2|COUNT[FEATTYPE=MechTech]-1												MULT:YES	CHOOSE:NUMCHOICES=1|Aircraft|Armor|Ground Vehicles|Electronics|Explosives|Handguns|Heavy Weapons|Machines|Melee Weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech III				TYPE:MechTech		VISIBLE:NO	PRECLASS:1,Mechanist=10	PREFEAT:2,Favored Tech I,Favored Tech II									!PREFEAT:1,Favored Tech III					SA:favored Tech (%CHOICE) +%|FavoredTech3		DEFINE:FavoredTech3|COUNT[FEATTYPE=MechTech]-2												MULT:YES	CHOOSE:NUMCHOICES=1|Aircraft|Armor|Ground Vehicles|Electronics|Explosives|Handguns|Heavy Weapons|Machines|Melee Weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech IV				TYPE:MechTech		VISIBLE:NO	PRECLASS:1,Mechanist=14	PREFEAT:3,Favored Tech I,Favored Tech II,Favored Tech III						!PREFEAT:1,Favored Tech IV					SA:favored Tech (%CHOICE) +%|FavoredTech4		DEFINE:FavoredTech4|COUNT[FEATTYPE=MechTech]-3												MULT:YES	CHOOSE:NUMCHOICES=1|Aircraft|Armor|Ground Vehicles|Electronics|Explosives|Handguns|Heavy Weapons|Machines|Melee Weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech V				TYPE:MechTech		VISIBLE:NO	PRECLASS:1,Mechanist=18	PREFEAT:4,Favored Tech I,Favored Tech II,Favored Tech III,Favored Tech IV			!PREFEAT:1,Favored Tech V					SA:favored Tech (%CHOICE) +%|FavoredTech5		DEFINE:FavoredTech5|COUNT[FEATTYPE=MechTech]-4												MULT:YES	CHOOSE:NUMCHOICES=1|Aircraft|Armor|Ground Vehicles|Electronics|Explosives|Handguns|Heavy Weapons|Machines|Melee Weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+
+WeaponThiefSmall				TYPE:ThiefWep		VISIBLE:NO																																																																																					AUTO:WEAPONPROF|Holdout Pistol|Holdout Laser|Light Autopistol|Heavy Autopistol|Laser Pistol|Blaster pistol
+WeaponThiefMedium				TYPE:ThiefWep		VISIBLE:NO																																																																																					AUTO:WEAPONPROF|Blaster Carbine|Automatic Crossbow|Hunting Carbine|Laser Carbine
+
+#Added this hidden feat to allow for Drow weapon choice
+Hand Drawn Bows				TYPE:WeaponSubset		VISIBLE:YES																																																																																					AUTO:WEAPONPROF|TYPE=HandDrawn
+
+#The 1st Level Monk pays for Tech Prof he does not get it free	TYPE:SubtratSlot		VISIBLE:YES																				PRECLASSLEVELMAX:Monk=1
+
+HighTechSimple Weapon Proficiency	TYPE:General		VISIBLE:YES					PREFEAT:1,Technical Proficiency																																					DESC:You are proficient in High-tech simple weapons																														AUTO:WEAPONPROF|TYPE=HighTechSimple
+HighTechMartial Weapon Proficiency	TYPE:General		VISIBLE:YES					PREFEAT:1,Technical Proficiency																																					DESC:You are proficient in High-tech martial weapons																														AUTO:WEAPONPROF|TYPE=HighTechMartial
+
+Ship_Guns					TYPE:ShipWep		VISIBLE:NO																										PRESIZEGTEQ:C

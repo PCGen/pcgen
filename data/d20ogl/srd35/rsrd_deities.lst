@@ -1,0 +1,13 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Fri May  7 21:03:41 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: dlm1065
+
+# Deity Name	Domains	Clergy AL			Desciption of Deity/Title	Holy Item	Source Page
+None			DOMAINS:ALL	FOLLOWERALIGN:012345678	DESC:None				SYMBOL:None	SOURCEPAGE:Non file in RSRD why none
+
+
+
+#For Deities of Nuetral alignment that set weather the cleric turns/commands unded
+# add use the following line as appropriate removing the #
+#Turn (Undead)	DEFINE:PresetUndeadChoiceByDeity|0	BONUS:VAR|PresetUndeadChoiceByDeity|10
+#Rebuke (Undead)	DEFINE:PresetUndeadChoiceByDeity|0	BONUS:VAR|PresetUndeadChoiceByDeity|20

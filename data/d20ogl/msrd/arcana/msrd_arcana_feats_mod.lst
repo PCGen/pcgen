@@ -1,0 +1,103 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jul 14 12:44:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name					Type
+Acrobatic.MOD				TYPE:ShadowkindHuman
+Advanced Firearms Proficiency.MOD	TYPE:StreetWarrior
+Advanced Two-Weapon Fighting.MOD	TYPE:ArchaicWeaponmaster
+Alertness.MOD				TYPE:Glamourist.Mystic.Shadowjack.Thrasher.ShadowkindHuman
+Animal Affinity.MOD			TYPE:Wildlord
+Arcane Skills.MOD				TYPE:ArcaneArranger.Shadowjack.ShadowScholar.Apothecary
+Archaic Weapons Proficiency.MOD	TYPE:Mystic.ShadowkindHuman.Squire
+Armor Proficiency (Light).MOD		TYPE:ArcaneArranger.Mystic.ShadowHunter.StreetWarrior.TechnoMage.Squire
+Armor Proficiency (Medium).MOD	TYPE:ShadowHunter
+Athletic.MOD				TYPE:Wildlord.PsionicAgent.ShadowkindHuman
+Attentive.MOD				TYPE:ArcaneArranger.Glamourist.Mystic.ShadowkindHuman
+Blind-Fight.MOD				TYPE:ArchaicWeaponmaster.Swashbuckler.Thrasher.PsionicAgent
+Brawl.MOD					TYPE:ShadowHunter.SpeedDemon.Thrasher
+Builder.MOD					TYPE:ArcaneArranger.Glamourist.Shadowjack.SpeedDemon.TechnoMage.ShadowkindHuman
+Cautious.MOD				TYPE:Shadowjack.ShadowkindHuman
+Cleave.MOD					TYPE:ArchaicWeaponmaster.Thrasher.PsionicAgent
+Combat Expertise.MOD			TYPE:ArcaneArranger.ArchaicWeaponmaster.Swashbuckler.Thrasher
+Combat Reflexes.MOD			TYPE:ArchaicWeaponmaster.Swashbuckler.PsionicAgent
+Combat Throw.MOD				TYPE:StreetWarrior
+Confident.MOD				TYPE:Glamourist.ShadowkindHuman
+Creative.MOD				TYPE:Glamourist.Mystic.ShadowkindHuman
+Dead Aim.MOD				TYPE:ArchaicWeaponmaster
+Deceptive.MOD				TYPE:Glamourist.ShadowkindHuman
+Defensive Martial Arts.MOD		TYPE:StreetWarrior
+Divine Heritage.MOD			TYPE:ShadowkindHuman.Novitiate
+Dodge.MOD					TYPE:Mystic.SpeedDemon.Swashbuckler.Wildlord
+Double Tap.MOD				TYPE:PsionicAgent
+Drive-By Attack.MOD			TYPE:SpeedDemon
+Educated.MOD				TYPE:ArcaneArranger.Mystic.Shadowjack.TechnoMage.ShadowkindHuman.ShadowScholar.Apothecary
+Elusive Target.MOD			TYPE:StreetWarrior
+Empower Spell.MOD				TYPE:Artificer
+Empower Turning.MOD			TYPE:Mystic
+Endurance.MOD				TYPE:Wildlord
+Enlarge Spell.MOD				TYPE:Artificer
+Eschew Materials.MOD			TYPE:Artificer
+Exotic Melee Weapon Proficiency.MOD	TYPE:ArchaicWeaponmaster.Swashbuckler.PsionicAgent.ShadowkindHuman
+Far Shot.MOD				TYPE:ArchaicWeaponmaster.Thrasher
+Focused.MOD					TYPE:Thrasher.PsionicAgent.ShadowkindHuman
+Force Stop.MOD				TYPE:SpeedDemon
+Gearhead.MOD				TYPE:ArcaneArranger.Shadowjack.SpeedDemon.TechnoMage.ShadowkindHuman
+Great Cleave.MOD				TYPE:ArchaicWeaponmaster.Thrasher
+Greater Spell Focus.MOD			TYPE:Mystic.TechnoMage
+Greater Spell Penetration.MOD		TYPE:Mystic.TechnoMage
+Guide.MOD					TYPE:ShadowkindHuman
+Heighten Spell.MOD			TYPE:Artificer
+Improved Brawl.MOD			TYPE:ShadowHunter.SpeedDemon.StreetWarrior.Thrasher
+Improved Bull Rush.MOD			TYPE:ArchaicWeaponmaster
+Improved Combat Throw.MOD		TYPE:StreetWarrior
+Improved Damage Threshold.MOD		TYPE:Swashbuckler
+Improved Disarm.MOD			TYPE:ArcaneArranger.Swashbuckler
+Improved Feint.MOD			TYPE:ShadowHunter.StreetWarrior
+Improved Initiative.MOD			TYPE:Glamourist
+Improved Grapple.MOD			TYPE:ShadowHunter
+Improved Knockout Punch			TYPE:ShadowHunter.StreetWarrior.Thrasher
+Improved Trip.MOD				TYPE:ArchaicWeaponmaster.Swashbuckler.Thrasher
+Improved Turning.MOD			TYPE:Mystic
+Improved Two-Weapon Fighting.MOD	TYPE:ArchaicWeaponmaster
+Iron Will.MOD				TYPE:Glamourist.Psychic
+Jack of all Trades.MOD			TYPE:ArcaneArranger
+Knockout Punch.MOD			TYPE:ShadowHunter.StreetWarrior.Thrasher
+Lightning Reflexes.MOD			TYPE:Shadowjack
+Low Profile.MOD				TYPE:Glamourist.Shadowjack
+Magical Affinity.MOD			TYPE:Novitiate.HedgeWizard
+Magical Heritage.MOD			TYPE:ShadowkindHuman.HedgeWizard
+Medical Expert.MOD			TYPE:ShadowkindHuman
+Meticulous.MOD				TYPE:Shadowjack.ShadowkindHuman
+Mobility.MOD				TYPE:Swashbuckler
+Nimble.MOD					TYPE:ShadowkindHuman
+Nonlethal Spell.MOD			TYPE:Artificer
+Personal Firearms Proficiency.MOD	TYPE:StreetWarrior.TechnoMage.Wildlord
+Point Blank Shot.MOD			TYPE:PsionicAgent
+Power Attack.MOD				TYPE:ArchaicWeaponmaster.Thrasher
+Precise Shot.MOD				TYPE:PsionicAgent
+Reach Spell.MOD				TYPE:Artificer
+Renown.MOD					TYPE:ArcaneArranger.Glamourist.Mystic.Shadowjack.SpeedDemon.Wildlord
+Sacred Spell.MOD				TYPE:Artificer
+Shadowbane Spell.MOD			TYPE:Artificer
+Shot on the Run.MOD			TYPE:PsionicAgent
+Skip Shot.MOD				TYPE:PsionicAgent
+Spell Focus.MOD				TYPE:Mystic.TechnoMage
+Spell Penetration.MOD			TYPE:Mystic.TechnoMage
+Spring Attack.MOD				TYPE:Swashbuckler
+Stealthy.MOD				TYPE:Wildlord.ShadowkindHuman
+Streetfighting.MOD			TYPE:ShadowHunter.SpeedDemon
+Studious.MOD				TYPE:ArcaneArranger.Shadowjack.TechnoMage.ShadowkindHuman
+Sunder.MOD					TYPE:ArchaicWeaponmaster
+Trustworthy.MOD				TYPE:ArcaneArranger.Glamourist.Mystic.ShadowkindHuman
+Two-Weapon Fighting.MOD			TYPE:ArchaicWeaponmaster
+Unbalance Opponent.MOD			TYPE:StreetWarrior
+Vehicle Dodge.MOD				TYPE:SpeedDemon
+Vehicle Specialization.MOD		TYPE:SpeedDemon
+Weapon Focus.MOD				TYPE:ArchaicWeaponmaster.StreetWarrior.PsionicAgent
+Whirlwind Attack.MOD			TYPE:Swashbuckler
+Wild Talent.MOD				TYPE:Psychic
+Windfall.MOD				TYPE:ArcaneArranger.Glamourist.Mystic.Shadowjack.TechnoMage
+
+#
+# End
+#

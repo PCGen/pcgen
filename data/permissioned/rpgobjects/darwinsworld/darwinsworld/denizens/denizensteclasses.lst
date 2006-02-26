@@ -1,0 +1,196 @@
+# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Sat Dec 10 05:25:45 2005 -- reformated by prettylst.pl v1.35 (build 553)
+#Orginal entry by wizofice2001
+SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth|SOURCESHORT:DenizensTE|SOURCEWEB:http://www.darwinrpg.com
+
+# CHAMPION: Pre-Reqs: Any background except FERAL is allowed.  Using [Feral ] - needs to be tested.
+# FORCE MASTER: Pre-Reqs: Character PRE's one Neural Mutation
+# FORCE MASTER: 7th Level: Focus Sword: Added to EQUIPMELEE.LST for this weapon TYPE includes FORCE
+# FORCE MASTER: 9th Level: Major Precognition: Cannot be flanked (not programmable yet, but might be in future for DMs tools)
+# FORCE MASTER: 10th Level: Free Neural Mutation needs to be CHOOSE'd
+# RANGER (DARWIN'S WORLD): 3rd Level: Feel for Weapon feat, must be weapon in Ranger's possession (as with the feat).  I think this works, not sure.
+# SYMBIOT: Pre-Reqs: Nature Sense (Scav 1st Level) OR Mutation Neural Empathy (How to implement?)
+# SYMBIOT: 1st Level: receives Animal Companion (Symbiotic Partner) (see EQUIP)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Brethren Follower	HD:12		TYPE:PC.Prestige	ABB:BrF		MAXLEVEL:10	SOURCEPAGE:p.108,109	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat			Required Skill					Required Template
+CLASS:Brethren Follower	PREALIGN:CG,CN,CE	PREATT:3	PREFEAT:1,Great Fortitude	PRESKILL:1,Knowledge (Mutant Lore)=4	PRETEMPLATE:Feral%|Primitive|Radical|Resentful%|Ritual Preservationist%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge (Nature)|Move Silently|Wilderness Lore
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Rage
+1	BONUS:VAR|RageTimes|CL/4+1	DEFINE:RageTimes|0	VFEAT:Rage
+###Block: Normal level progression
+1	SA:Experience Bonus																																		FEATAUTO:Improved Unarmed Strike
+2	SA:Trap-Making %d6 (DC%)|TrapMaking|TrapMakingDC	BONUS:VAR|TrapMaking|(CL-1)/4+1	BONUS:VAR|TrapMakingDC|floor((CL-1)/4)*3+16	DEFINE:TrapMaking|0	DEFINE:TrapMakingDC|0
+4																								DEFINE:WeapSpecQualify|1				ADD:FEAT(Weapon Specialization)
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Cartel Trade Master	HD:6		TYPE:PC.Prestige	ABB:CTM		MAXLEVEL:5	SOURCEPAGE:p. 25, 26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required AL			Required Language	Req. Special Ability	Required Skill			Required Stat
+CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit Polish	PRESKILL:2,Bluff,Diplomacy=7	PRESTAT:1,CHA=15
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Sense Motive|Speak Language
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1																FEATAUTO:Skill Focus(Diplomacy)
+2	SA:Make a Deal
+3	SA:Wise Man Speaks
+4	SA:Peacemaker		BONUS:SKILL|Bluff,Diplomacy,Innuendo,Intimidate,Sense Motive|8
+5																FEATAUTO:Sandwalker
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Champion	HD:12		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill		Prohibited Template
+CLASS:Champion	PREATT:10	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEMPLATE:Feral - 1GM-Human|Feral - 2GM-3GM
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|Sense Motive|Spot|Tumble
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Rallying Cry
+3	SA:Study Foe
+5	SA:Reputation
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Demolitions Expert	HD:6		TYPE:PC.Prestige	ABB:DXP		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required Feat					Required Skill						Required Stat
+CLASS:Demolitions Expert	PREFEAT:1,Skill Focus(Craft (Tinker))	PRESKILL:2,Craft (Tinker),Disable Device=8	PRESTAT:1,DEX=13
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Device|Hide|Listen|Move Silently|Search|Tumble
+###Block: Proficiencies
+1	FEATAUTO:Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Eye for Safety	SA:Keen Eye	SA:Trap Making (DC %)|DETrapMakingDC	BONUS:VAR|DETrapMakingDC|floor((CL-1)/3)*3+16	DEFINE:DETrapMakingDC|0
+2	SA:Grenadier +%|Grenadier								BONUS:VAR|Grenadier|(CL+1)/3				DEFINE:Grenadier|0
+6	SA:Make Explosives
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Force Master	HD:8		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat		Required Race											Required Skill			Required Template
+CLASS:Force Master	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Iron Will	PRERACE:1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant	PRESKILL:1,Concentration=8	PRETEMPLATE:Ritual Preservationist|Visionary Reinventor
+
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Focus Master	STARTSKILLPTS:2	CSKILL:Animal Empathy|Decipher Script|Heal|Knowledge (Ancient Lore)|Perform|Sense Motive|Speak Language
+1	SA:Radiation Immunity	SA:Willpower
+2	SA:Manipulation
+3	SA:Telekinetic Shield
+5	SA:Minor Precognition				BONUS:COMBAT|INITIATIVE|4|TYPE=Enhancement
+7	SA:Focus Sword
+9	SA:Major Precognition												BONUS:SKILL|Listen,Spot|2|TYPE=Enhancement
+10	SA:Free Neural Mutation
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL		Req. Att.	Required Skill					Required Stat	Required Template
+CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:Advanced|Guardian|Resurrector|Ritual Preservationist|Visionary Reinventor
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Knowledge (Ancient Lore)|Knowledge (Vehicle Operations)|Ride
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Martial Weapon Proficiencies|All Exotic Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+###Block: Normal Level Progression
+1	SA:Ancient Lore									ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus)
+3	SA:Command %|Command	BONUS:VAR|Command|3	DEFINE:Command|0
+4												ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus)
+5					BONUS:VAR|Command|2
+6	SA:Heroic Direction
+7					BONUS:VAR|Command|2				ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus)
+9					BONUS:VAR|Command|2
+10					BONUS:VAR|Command|1				ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p. 30, 31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat													Required Skill
+CLASS:Juju Doctor	PREFEAT:3,Brew Potion,Skill Focus(Knowledge (Medicine)),Skill Focus(Knowledge (Pharmacy))	PRESKILL:3,Heal,Knowledge (Medicine),Knowledge (Pharmacy)=9
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Juju Doctor	STARTSKILLPTS:2	CSKILL:Decipher Script|Heal|Knowledge (Ancient Lore)|Knowledge (Medicine)|Knowledge (Mutant Lore)|Knowledge (Pathology)|Knowledge (Pharmacy)|Perform|Profession (Herbalist)|Sense Motive|Speak Language
+1	SA:Doctor's Know-How	SA:Herbal Medicine (Minor)
+2	SA:Canny Defense
+3	SA:Herbal Medicine (Moderate)
+4	SA:Improved First Aid
+5	SA:Bedside Manner +%|BedsideManner	SA:Herbal Medicine (Major)	BONUS:VAR|BedsideManner|2	DEFINE:BedsideManner|0
+7	SA:Neutralize Poison
+8	SA:Witch
+9												BONUS:VAR|BedsideManner|2
+10	SA:Cure Disease
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Mech		HD:4		TYPE:PC.Prestige	ABB:Mec		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat											Required Language		Required Skill											Required Template
+CLASS:Mech		PREFEAT:1,Skill Focus(Craft (Mechanics)),Skill Focus(Knowledge (Technology))	PRELANG:1,Computer	PRESKILL:3,Craft (Mechanics),Craft (Technician),Knowledge (Technology)=8	PRETEMPLATE:Advanced|Guardian|Resurrector|Ritual Preservationist|Visionary Reinventor
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mech		STARTSKILLPTS:4	CSKILL:TYPE.Craft|Decipher Script|Disable Device|Knowledge (Ancient Lore)|Knowledge (Computers)|Knowledge (Technology)|Open Lock|TYPE.Profession
+1	SA:Repair Mechanical Damage
+2	SA:Growing Toolkit +%|GrowingToolkit	BONUS:VAR|GrowingToolkit|5*floor((CL+2)/4)	BONUS:SKILL|TYPE.Craft|min(5*floor((CL+2)/4),15)|TYPE=Competence	DEFINE:GrowingToolkit|0
+3	SA:Identify
+4	SA:Artifice (%000 cp max)|Artifice		BONUS:VAR|Artifice|8																DEFINE:Artifice|0
+5	SA:Minor Helper
+7								BONUS:VAR|Artifice|8
+9	SA:Major Helper
+10								BONUS:VAR|Artifice|16
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL		Req. Att.	Required Feat			Required Stat
+CLASS:Ranger (DW)	PREALIGN:LG,LN	PREATT:7	PREFEAT:2,Iron Will,Toughness	PRESTAT:1,CON=15
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Listen|Move Silently|Ride|Sense Motive|Speak Language|Spot|Use Rope|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+###Block: Normal Level Progression
+1	SA:Rigorous Training
+2	SA:Wanderer's Reputation +%|WanderersReputation	BONUS:VAR|WanderersReputation|2	BONUS:SKILL|Diplomacy,Intimidate|CL)	DEFINE:WanderersReputation|CL
+3																											FEAT:Feel for Weapon
+4	SA:Do It with Eyes Closed
+5	SA:Leave No One Behind
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat		Required Item		Required Skill
+CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics),Knowledge (Vehicle Operations)=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Boarding Party	SA:Offensive Driving
+2	SA:Defensive Driving
+3	SA:Vehicular Dodge
+4	SA:Master Mechanic				BONUS:SKILL|Craft (Mechanics)|2|TYPE=Competence
+5	SA:Improved Defensive Driving
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Sister of the Desert	HD:8		TYPE:PC.Prestige	ABB:SoD		MAXLEVEL:5	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Feat
+CLASS:Sister of the Desert	PREATT:5	PREFEAT:2,Concubine,Endurance
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Sister of the Desert	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Escape Artist|Handle Animal|Hide|Move Silently|Ride|Sense Motive|Tumble|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Fascinate
+2	SA:Natural Healing
+3	SA:Good with Animals
+4	SA:Go for the Eyes
+5	SA:Leave No One Behind	SA:Superior Camo
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Symbiot	HD:8		TYPE:PC.Prestige	ABB:Sym		MAXLEVEL:5	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat		Required Skill
+CLASS:Symbiot	PREFEAT:1,Forsaken	PRESKILL:2,Animal Empathy,Wilderness Lore=8	PRESKILL:2,Handle Animal,Sense Motive=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Symbiot	STARTSKILLPTS:2	CSKILL:Animal Empathy|Handle Animal|Heal|Innuendo|Intuit Direction|Knowledge (Nature)|Listen|Ride|Sense Motive|Spot|Wilderness Lore
+1	SA:Animal Partner
+2	SA:Opportunist
+3	SA:Reliance
+4	SA:Bond of Friendship
+5	SA:Inspire Skill	SA:Ranged Opportunist

@@ -1,0 +1,43 @@
+# CVS $Revision: 1.29 $ $Author: eddyanthony $ -- Thu Sep  1 00:47:28 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+###Block: Masterwork
+
+# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Choose Naming Option	Source Page				Required Type			Prohibited Type						BONUS:EQMARMOR					Modify the item cost									Weapon prop. bonus				Apply to both heads
+Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+Masterwork		KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																				ASSIGNTOALL:YES
+Masterwork		KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																											ASSIGNTOALL:YES
+Masterwork		KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Thief|20															ASSIGNTOALL:YES
+
+###Block: Base Materials
+
+# Modifier Name	Unique Key	Type														Cost		Visible		Type granted	Choose Naming Option	Source Page				Prohibited Type						Apply to both heads
+Wood			KEY:WOOD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal	ASSIGNTOALL:YES
+Steel			KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
+
+###Block: Strength Bow
+
+# Modifier Name	Unique Key	Type				Cost		Visible		Choose Naming Option	Source Page				Required Type	Modify the item cost																	Weapon prop. bonus												Special Property			Choose				Apply to both heads
+Bow_STR		KEY:BOWSTR	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage	CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
+
+#Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage			CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
+#Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage of %|%CHOICE	CHOOSE:STR mod|MIN=-5|MAX=20	ASSIGNTOALL:YES
+
+###Block: Armor Accesories
+
+# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		BONUS:EQM			BONUS:EQMWEAPON			Special Property	Automaticaly Added to Inventory
+Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor	BONUS:EQM|WEIGHTADD|10						SPROP:Spiked	AUTO:EQUIP|Armor Spikes
+Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor	BONUS:EQM|WEIGHTADD|5	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf									BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5						SPROP:Locked
+Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
+
+###Block: Thrown Ammunition workaround
+# This is for the Shuriken which is a weapon that calculates costs as if it were ammunition.
+# This adjusts the cost for Masterwork, Adamantine, Silver, Mithral, Cold Iron and Plus 1 - 5
+# Special magical enhancments are not covered by this
+
+# Modifier Name	Unique Key		Cost		Visible	Modify the item cost
+Thrown Ammunition	KEY:THROWN_AMMO	COST:0	VISIBLE:NO	BONUS:ITEMCOST|TYPE.Masterwork|-294	BONUS:ITEMCOST|TYPE.Adamantine|-2646	BONUS:ITEMCOST|TYPE.Silver|-868	BONUS:ITEMCOST|TYPE.Mithral|319	BONUS:ITEMCOST|TYPE.ColdIron|-1960|PRETYPE:Enhancement	BONUS:ITEMCOST|TYPE.Plus1|-1960	BONUS:ITEMCOST|TYPE.Plus2|-7840	BONUS:ITEMCOST|TYPE.Plus3|-17640	BONUS:ITEMCOST|TYPE.Plus4|-31360	BONUS:ITEMCOST|TYPE.Plus5|-49000
+
+# Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0														NAMEOPT:NONAME		SOURCEPAGE:p.																																																																												CHOOSE:Select desired TYPE(s)|TYPE=ALL

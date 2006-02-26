@@ -1,0 +1,94 @@
+# CVS $Revision: 1.5 $ $Author: frank_kliewe $ -- Sun Feb  5 00:06:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name				Type							Visible	Required Skill							Special Ability																																Define																																												Multiple?	Choose																																							Add Spell Lvl	Weapon prof. bonus
+Craft Wand				TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Mechanical)=1				SA:Craft Wand
+Empower Spell			TYPE:Special					VISIBLE:NO																																																																																																																																			ADDSPELLLEVEL:2
+Find the Mark			TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Finesse|1																																							BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|Type=NonStackingCrit
+Greater Weapon Specialization	TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Specialization|1																																						BONUS:WEAPONPROF=%LIST|DAMAGE|2
+Improved Brew Potion		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Chemical)=1					SA:Improved Brew Potion
+Improved Scribe Scroll		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Writing)=1					SA:Improved Scribe Scroll
+Improved Scribe Tattoo		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Visual Art)=1				SA:Improved Scribe Tattoo
+Increased Weapon Critical	TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Specialization|1																																						BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|Type=NonStackingCrit
+Magic Mastercraft			TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:2,Craft (Chemical),Craft (Mechanical)=1	SA:Magic Mastercraft
+Quicken Spell			TYPE:Special					VISIBLE:NO																																																																																																																																			ADDSPELLLEVEL:4
+Turn/Rebuke Animals		TYPE:Special.Turn/Rebuke.Animals		VISIBLE:NO										SA:Turn/Rebuke Animals (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesAnimals|TurnLevelAnimals|TurnDiceAnimals|TurnDieSizeAnimals|TurnDamagePlusAnimals								DEFINE:TurnTimesAnimals|TurnTimes	DEFINE:TurnLevelAnimals|TurnLevel	DEFINE:TurnDiceAnimals|TurnDice	DEFINE:TurnDieSizeAnimals|TurnDieSize	DEFINE:TurnDamagePlusAnimals|TurnDamagePlus	DEFINE:TurnCheckAnimals|TurnCheck
+Turn/Rebuke Humans		TYPE:Special.Turn/Rebuke.Humans		VISIBLE:NO										SA:Turn/Rebuke Humans (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesHumans|TurnLevelHumans|TurnDiceHumans|TurnDieSizeHumans|TurnDamagePlusHumans									DEFINE:TurnTimesHumans|TurnTimes	DEFINE:TurnLevelHumans|TurnLevel	DEFINE:TurnDiceHumans|TurnDice	DEFINE:TurnDieSizeHumans|TurnDieSize	DEFINE:TurnDamagePlusHumans|TurnDamagePlus	DEFINE:TurnCheckHumans|TurnCheck
+Turn/Rebuke Magical Beasts	TYPE:Special.Turn/Rebuke.MagicalBeasts	VISIBLE:NO										SA:Turn/Rebuke Magical Beasts (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesMagicalBeasts|TurnLevelMagicalBeasts|TurnDiceMagicalBeasts|TurnDieSizeMagicalBeasts|TurnDamagePlusMagicalBeasts	DEFINE:TurnTimesMagicalBeasts|TurnTimes	DEFINE:TurnLevelMagicalBeasts|TurnLevel	DEFINE:TurnDiceMagicalBeasts|TurnDice	DEFINE:TurnDieSizeMagicalBeasts|TurnDieSize	DEFINE:TurnDamagePlusMagicalBeasts|TurnDamagePlus	DEFINE:TurnCheckMagicalBeasts|TurnCheck
+Wildlord Skill Mastery		TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
+
+###Block:Dragon spell-like abilities
+# Feat Name						Type						Visible	Spells
+Dragon Daze						TYPE:DragonSpellLikeYoung		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Daze,10+INT
+Dragon Detect Magical Aura			TYPE:DragonSpellLikeYoung		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Detect Magical Aura,10+INT
+Dragon Sleep					TYPE:DragonSpellLikeJuvenile		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Sleep,11+INT
+Dragon True Strike				TYPE:DragonSpellLikeJuvenile		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|True Strike,11+INT
+Dragon Locate Object				TYPE:DragonSpellLikeYoungAdult	VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Locate Object,12+INT
+Dragon Zone of Truth				TYPE:DragonSpellLikeYoungAdult	VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Zone of Truth,12+INT
+Dragon Protection from Arrows/Bullets	TYPE:DragonSpellLikeAdult		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Protection from Arrows/Bullets,12+INT
+Dragon Resist Energy				TYPE:DragonSpellLikeAdult		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Resist Energy,12+INT
+Dragon Blur						TYPE:DragonSpellLikeMature		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Blur,12+INT
+Dragon Invisibility				TYPE:DragonSpellLikeMature		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Invisibility,12+INT
+Dragon Tongues					TYPE:DragonSpellLikeOld			VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Tongues,12+INT
+Dragon Water Breathing				TYPE:DragonSpellLikeOld			VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Water Breathing,12+INT
+Dragon Arcane Eye					TYPE:DragonSpellLikeVeryOld		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Arcane Eye,12+INT
+Dragon Minor Globe of Invulnerability	TYPE:DragonSpellLikeVeryOld		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Minor Globe of Invulnerability,12+INT
+Dragon Confusion					TYPE:DragonSpellLikeAncient		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Confusion,14+INT
+Dragon Freedom of Movement			TYPE:DragonSpellLikeAncient		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Freedom of Movement,14+INT
+Dragon Break Enchantment			TYPE:DragonSpellLikeKing		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Break Enchantment,14+INT
+Dragon True Seeing				TYPE:DragonSpellLikeKing		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|True Seeing,14+INT
+Dragon Cloudkill					TYPE:DragonSpellLikeEmperor		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Cloudkill,15+INT
+Dragon Telekinesis				TYPE:DragonSpellLikeEmperor		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Telekinesis,15+INT
+
+###Block: Craft skills
+# Feat Name			Type			Visible	Multiple?	Choose					Bonus to skill rank
+One Craft Skill (+7)	TYPE:OneCraft7	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1	BONUS:SKILLRANK|LIST|7|PREDEFAULTMONSTER:Y
+
+###Block: Knowledge skills
+# Feat Name				Type				Visible	Multiple?	Choose					Bonus to skill rank
+One Knowledge Skill (+10)	TYPE:OneKnowledge10	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1	BONUS:SKILLRANK|LIST|10|PREDEFAULTMONSTER:Y
+One Knowledge Skill (+24)	TYPE:OneKnowledge24	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft|1	BONUS:SKILLRANK|LIST|24|PREDEFAULTMONSTER:Y
+
+###Block: Perform skills
+# Feat Name			Type			Visible	Multiple?	Choose					Bonus to skill rank
+One Perform Skill (+8)	TYPE:OnePerform8	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Perform|1	BONUS:SKILLRANK|LIST|7|PREDEFAULTMONSTER:Y
+
+###Block: Rage
+# Feat Name	Type			Visible	Special Ability																															Define																										Combat bonus						Stat bonus													Modify VAR
+Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SA:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC
+
+###Block: Vivilor swap table
+# Feat Name	Type			Visible	Multiple?	Choose			Choose a Feat
+Vivilor 2 A	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor A	ADD:FEAT(TYPE=VivA)2
+Vivilor 1 B	TYPE:VivSwap1	VISIBLE:NO	MULT:YES	CHOOSE:2 from Vivilor B	ADD:FEAT(TYPE=VivB)
+
+###Block: Vivilor A
+# Feat Name						Type		Visible	Prohibited Feat							Special Ability					Move			Combat bonus					Add to base move			Stat bonus
+Vivilor Aquatic					TYPE:VivA	VISIBLE:NO																	MOVE:Swim,60
+Vivilor Bat Wings					TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Feathered Wings											MOVE:Fly,60
+Vivilor Acid Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Acid Resistance 15			SA:Acid Resistance 5 (Ex)
+Vivilor Cold Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Cold Resistance 15			SA:Cold Resistance 5 (Ex)
+Vivilor Electricity Resistance 5		TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Electricity Resistance 15		SA:Electricty Resistance 5 (Ex)
+Vivilor Fire Resistance 5			TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Fire Resistance 15			SA:Fire Resistance 5 (Ex)
+Vivilor Sonic/Concussion Resistance 5	TYPE:VivA	VISIBLE:NO	!PREFEAT:1,Vivilor Sonic/Concussion Resistance 15	SA:Sonic/Concussion Resistance 5 (Ex)
+Vivilor Improved Ability Scores		TYPE:VivA																																		BONUS:STAT|STR,CON|2
+Vivilor Quadrupedal				TYPE:VivA																													BONUS:MOVEADD|TYPE=Walk|20
+Vivilor Tentacles					TYPE:VivA			!PREFEAT:1,Vivilor Grasping Tentacles													BONUS:COMBAT|REACH|10
+Vivilor Tougher Skin				TYPE:VivA			!PREFEAT:1,Vivilor Metallic Skin														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+
+###Block: Vivilor B
+# Feat Name						Type		Visible	Prohibited Feat							Special Ability									Move		Combat bonus
+Vivilor Amorphous					TYPE:VivB												SA:Immune to critical hits and massive damage, can't be flanked
+Vivilor Acid Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Acid Resistance 5			SA:Acid Resistance 5 (Ex)
+Vivilor Cold Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Cold Resistance 5			SA:Cold Resistance 5 (Ex)
+Vivilor Electricity Resistance 15		TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Electricity Resistance 5		SA:Electricty Resistance 5 (Ex)
+Vivilor Fire Resistance 15			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Fire Resistance 5			SA:Fire Resistance 5 (Ex)
+Vivilor Sonic/Concussion Resistance 15	TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Sonic/Concussion Resistance 5	SA:Sonic/Concussion Resistance 5 (Ex)
+Vivilor Feathered Wings				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Bat Wings																MOVE:Fly,90
+Vivilor Grasping Tentacles			TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Tentacles
+Vivilor Metallic Skin				TYPE:VivB	VISIBLE:NO	!PREFEAT:1,Vivilor Tougher Skin																	BONUS:COMBAT|AC|4|TYPE.NaturalArmor.STACK
+Vivilor Serpentine				TYPE:VivB	VISIBLE:NO										SA:Double slam damage
+
+#
+# End
+#

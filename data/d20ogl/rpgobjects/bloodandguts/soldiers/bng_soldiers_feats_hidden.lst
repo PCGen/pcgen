@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Thu Jan 27 02:14:04 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Guts - Soldiers|SOURCESHORT:BnG-S|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+
+# Feat Name				Type				Visible	Special Ability				Multiple?	Choose				Save checks bonus
+Smart Resilience (Fortitude)	TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Fortitude)								BONUS:CHECKS|Fortitude|INT
+Smart Resilience (Reflex)	TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Reflex)									BONUS:CHECKS|Reflex|INT
+Smart Resilience (Willpower)	TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Willpower)								BONUS:CHECKS|Willpower|INT
+
+Speed of the Essence		TYPE:Special		VISIBLE:NO	SA:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILLSNAMED|ALL|1

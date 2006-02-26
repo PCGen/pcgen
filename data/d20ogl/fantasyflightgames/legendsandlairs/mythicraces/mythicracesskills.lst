@@ -1,0 +1,10 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Sun Oct  2 11:24:37 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Skill Name		Key Stat	Untrained?		Exclusive?		Classes		Type				Required Class			Required Race			Source Page
+Perform (Chant)		KEYSTAT:CHA							CLASSES:Bard	TYPE:Charisma.Perform											SOURCEPAGE:p.8
+Herald's Intuition	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES				TYPE:Wisdom.Rhonian	PRECLASS:1,Rhonian Emissary=1						SOURCEPAGE:p.113
+
+# Changed Skills
+Control Shape.MOD																						PRERACE:Mhuinntir,Rezurbek
+Perform.MOD														TYPE:Charisma.Perform

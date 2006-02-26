@@ -1,0 +1,51 @@
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+# Template Name		Hit Dice Size	CR	Visible	Level Adjustment	Template																																										Source Page		Special Ability											Required AL	Combat bonus						Add to vision			Stat bonus											Removable?		Vision
+# Half-dragon done as .MOD of SRD.
+# Added favored class, corrected alignment prereqs, leveladjustment, and languages
+# Not able to code hitdie increase
+# Not able to code claw/bite
+# Currently unable to add star and space variety due to double CHOOSE statement (awaiting fix from Tir)
+
+# Template Name			Visible	Level Adjustment	Source Page		Clear SAs	Special Ability												Clear Prereq.	Required AL				Prohibited Race	Combat bonus						Stat bonus		FAVOREDCLASS		Automatic Languages			Removable?
+Half-Dragon.MOD					LEVELADJUSTMENT:3	SOURCEPAGE:p.28																	PRE:.CLEAR		PREALIGN:LG,LN,LE,CG,CN,CE	!PRERACE:Dragon%												FAVOREDCLASS:Sorcerer	LANGAUTO:Common,Draconic
+
+# Half-dragon (XXX) done as .MOD of SRD.
+# Added DCs to breathweapon
+
+Half-Dragon (Black).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Acid	SA:60 foot Line of Acid 1/day (Dam 6d4/DC 17)
+Half-Dragon (Blue).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Electricity	SA:60 foot Line of Lightning 1/day (Dam 6d8/DC 18)
+Half-Dragon (Green).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Acid	SA:30 foot Cone of Gas 1/day (Dam 6d6/DC 17)
+Half-Dragon (Red).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Fire	SA:30 foot Cone of Fire 1/day (Dam 6d10/DC 19)
+Half-Dragon (White).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Cold	SA:30 foot Cone of Cold 1/day (Dam 3d6/DC 16)
+Half-Dragon (Brass).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Fire	SA:60 foot Line of Fire 1/day (Dam 3d6/DC 17)
+Half-Dragon (Bronze).MOD						SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Electricity	SA:60 foot Line of Lightning 1/day (Dam 6d6/DC 18)
+Half-Dragon (Copper).MOD						SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Acid	SA:60 foot Line of Acid 1/day (Dam 6d4/DC 17)
+Half-Dragon (Gold).MOD							SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Fire	SA:30 foot Cone of Fire 1/day (Dam 6d10/DC 20)
+Half-Dragon (Silver).MOD						SOURCEPAGE:p.28	SA:.CLEAR	SA:Immune to Cold	SA:30 foot Cone of Cold 1/day (6d8/DC 18)
+
+# Star and Space dragon are new subspecies.
+
+Half-Dragon (Space)		VISIBLE:NO				SOURCEPAGE:p.28			SA:Immune to Cold	SA:30 foot Cone of Space 1/day (6d10/DC 19)							PREALIGN:LN							BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
+Half-Dragon (Star)		VISIBLE:NO				SOURCEPAGE:p.28			SA:Immune to Fire	SA:30 foot Line of Radiation 1/day (6d10/dc 20)							PREALIGN:CN							BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE								LANGAUTO:Draconic Sign Language	REMOVABLE:YES
+#Mod version of SRD male/female templates
+
+Drow Male.MOD								SOURCEPAGE:p.27																																				BONUS:STAT|CHA|2	FAVOREDCLASS:Sorcerer
+Drow Female.MOD								SOURCEPAGE:p.27																																				BONUS:STAT|CHA|-2
+
+###Block: Regions
+# Template Name	Visible	Template						Source Page		REGION
+DS Regions		VISIBLE:NO	TEMPLATE:CHOOSE:Dragon Empire|Outlands	SOURCEPAGE:p.
+Dragon Empire	VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes
+Outlands		VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes
+
+###Block: Robots/Soulmechs
+# Template Name	Visible	Special Ability																																																																																										Vision
+Robot			VISIBLE:YES	SA:Does not eat, drink, breathe, or sleep	SA:Does not heal damage on their own or through divine magic, though can be repaired like any object or with arcane magic	SA:Immune to any effect that requires a Fortitude save unless it effects objects also	SA:Cannot be raised or resurrected, but is effectively immortal since it does not age	SA:Cannot increase physical ability scores but can increase mental	SA:Not subject to subdual damage, or death from massive damage	SA:Immune to poison, sleep, paralysis, stunning, and disease	VISION:Low-light
+
+###Block: Vehicle
+# Template Name	Visible	Define																						Feat			Automaticaly Gained Weapon Prof.
+Vehicle		VISIBLE:YES	DEFINE:LOCK.STR|10	DEFINE:LOCK.DEX|1	DEFINE:LOCK.CON|10	DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|10	DEFINE:LOCK.CHA|10	FEAT:Ship_Guns	AUTO:WEAPONPROF|TYPE=ShipWeapon
+
+#EOF

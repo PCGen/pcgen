@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Jan  8 20:57:52 2003 -- reformated by prettylst.pl v1.23 (build 247)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+# Deity Name	Domains						Clergy AL			Desciption of Deity/Title					Holy Item							Deity Weapon		ALIGN		PANTHEON			Source Page
+Esmia			DOMAINS:Healing,Good,Law			FOLLOWERALIGN:013467	DESC:Goddess of Healing,The Lady of Unfettered Tears	SYMBOL:Tear-Drop shaped Amulet			DEITYWEAP:Unarmed		ALIGN:LG	PANTHEON:Eldorian		SOURCEPAGE:p.80
+Ormocea		DOMAINS:Good,Law,Protection			FOLLOWERALIGN:013467	DESC:God of Law,The Law Giver					SYMBOL:Balance						DEITYWEAP:Club		ALIGN:LG	PANTHEON:Eldorian		SOURCEPAGE:p.80
+Phelltar		DOMAINS:Knowledge,Protection,Law		FOLLOWERALIGN:012345678	DESC:God of Sentience,The Maker				SYMBOL:Small Miror					DEITYWEAP:Dagger		ALIGN:LN	PANTHEON:Eldorian|Elven	SOURCEPAGE:p.80
+Sirrith		DOMAINS:Death,Evil,Knowledge			FOLLOWERALIGN:258		DESC:Goddess of Death						SYMBOL:Upside down humanoid				DEITYWEAP:Scythe		ALIGN:NE	PANTHEON:Eldorian		SOURCEPAGE:-
+Tarimth		DOMAINS:Air,Knowledge,Luck			FOLLOWERALIGN:012345678	DESC:God of the Moon and Stars,The Emperor of Stars	SYMBOL:Winked Ebony Disk				DEITYWEAP:Short Bow	ALIGN:LN	PANTHEON:Eldorian|Elven	SOURCEPAGE:p.80
+Theydori		DOMAINS:Knowledge,Trickery,Magic,Travel	FOLLOWERALIGN:012345678	DESC:God of Knowledge,The Keeper of Hidden Knowledge	SYMBOL:Black Cube w/ White hand displayed on it	DEITYWEAP:Staff		ALIGN:NG	PANTHEON:Eldorian		SOURCEPAGE:p.80

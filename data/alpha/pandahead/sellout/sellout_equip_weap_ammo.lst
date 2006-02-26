@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Thu Jan 29 06:16:09 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Equipment Name		Output Name				Type									Cost		Weight	Source Page
+Arrow (Barbed)		OUTPUTNAME:Arrow, [NAME]	TYPE:Ammunition.Standard.Wooden.Arrow.Piercing		COST:2.05	WT:.15	SOURCEPAGE:94
+Arrow (Linemaster)	OUTPUTNAME:Arrow, [NAME]	TYPE:Ammunition.Standard.Wooden.Arrow.Special		COST:30	WT:.15	SOURCEPAGE:94
+Arrow (Skyfire)		OUTPUTNAME:Arrow, [NAME]	TYPE:Ammunition.Standard.Wooden.Arrow.Incindiary	COST:60	WT:.15	SOURCEPAGE:94
+Arrow (Stunner)		OUTPUTNAME:Arrow, [NAME]	TYPE:Ammunition.Standard.Wooden.Arrow.Bludgeoning	COST:3	WT:.15	SOURCEPAGE:94

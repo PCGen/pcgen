@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Jul 15 18:20:18 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Weapon Name	Type			Nb Hands
+Feybow		TYPE:Exotic		HANDS:2
+Reedstaff		TYPE:Exotic
+Extended Claw	TYPE:Natural

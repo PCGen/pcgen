@@ -1,0 +1,573 @@
+[RULES]
+25	[FULL]
+100	[SYL1]	[SYL2]	[SYL3]
+[FULL]
+[PREMULT:2,[PREGENDER:M],[PRERACE:Dwarf]]
+Slim
+Garflin
+Forsythe
+Stumpwater Jack
+Dunbar Brasstwister
+Ollom Hammersong
+Maur Deeperdown
+Vallan Durinheart
+Barent Lockerhelm
+Borgazdin Broadham
+Dnulper
+Guter Jeweleye
+Hanks Ironhelm
+Rask Delvedeep
+[PREMULT:2,[PREGENDER:F],[PRERACE:Dwarf]]
+Marda Lockerhelm
+Ninc Farsil
+Kwin Hammerknell
+Brigit Stoneheart
+Muaga Undercliff
+Braga Goldstore
+Rastl Deeperdown
+Tudra Coppereye
+Migan Linkchain
+Durra Fundril
+[PREMULT:2,[PREGENDER:M],[PRERACE:Elf]]
+Semere Liif
+Thaleles Darkshine
+Bayne
+Vall Woodshadow
+Elec Mournbringer
+Mazithra Liadon
+Falin M'or
+Maalvi Siannodel
+Malhavoc Shadowlord
+Pujol Nevi
+Merolen Amakiir
+Nameroc Shimeran
+[PREMULT:2,[PREGENDER:F],[PRERACE:Elf]]
+Lyssiah Stormwhisper
+Mere Kahain
+Hiola Meliamne
+Thonalya Amastacia
+Nyphistra Silvertree
+Arwen Falohuil
+Phae Talla
+Wilwarin Afolon
+Aedia Ilphukiir
+Anilla Liadon
+Khaira Swanwing
+[PREMULT:2,[PREGENDER:M],[PRERACE:Gnome]]
+Widdle Lentach
+Bromsby Tarken
+Waddy of the Waddykins
+Snumpkin
+Festus Ghent
+Mazun Vetwor
+Jerro Laseten
+Rostick Daddle
+Nagreous Wockle
+Arwkin Delance
+Eliad Pelgrin
+Pomerol Petan
+Menson Parts
+[PREMULT:2,[PREGENDER:F],[PRERACE:Gnome]]
+Lassl Morkin
+Waywocket Beren
+Imay Abbelan
+Way Wherrymere
+Merrin Pomperol
+Aleaha Delance
+Kastlin Wens
+Cheery Tarken
+Engelime Maddan
+Gappy Monkard
+Ribail Goald
+Ramzena Moar
+[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Elf]]
+Namwob Brown
+Aegelleo Lopas
+Wynn Rabanall
+Falza
+Kaleb
+Jack Daft
+Vexander Sangreal
+Suleidan Kithkani
+Nyther Darken
+Willem
+Druga Entierdahl
+Breygon
+Jherrith
+Berryman
+Kent Zonestar
+The Royston Crow
+Huron Blackheart
+Phadian Gess
+Loki
+Menon Balacazar
+Kirian Ylestos
+Sinjin Grinigog
+Thallion Steed
+Abesh Runihan
+Klasandral Susidian
+[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Elf]]
+Diesa
+Forrin
+Melianthe
+Vadania
+Duroll
+Keriann
+Sheva Callister
+Lelenia
+Jevicca Nor
+Krishena
+Phon Quartermoon
+Talia
+Danira
+Jangave Lesh
+Hruda
+Lia
+Leleanne
+Jallarzi
+Felosial
+Tarsheva Longreach
+Valanthe Liadon
+[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Orc]]
+[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Orc]]
+[PREMULT:2,[PREGENDER:M],[PRERACE:Halfling]]
+Avery Tosscobble
+Jarvis Crookrows
+Milo Windby
+Biggen Gurble
+Howther Wakkier
+Shem Whistler
+Maxim Glendower
+Humphrey
+Eldane Grimmond
+Caruthers Willowby
+Ratheof Blithwyn
+[PREMULT:2,[PREGENDER:F],[PRERACE:Halfling]]
+Georgia Buttons
+Demelza Highroad
+Mirande Potter
+Mins Delacourt
+Jalie Squarefoot
+Nora Fencemend
+Carram Blindeye
+Glynese Shrubfire
+Eustace Crookrows
+Morwenna Pastepot
+[PREMULT:2,[PREGENDER:M],[PRERACE:Human]]
+Andrinor
+Japheth Marvel
+Surya
+The Master Hu Li
+Cromwell
+Alain of Broewende
+Blackjack
+Bigby
+Jeremiah Tansden
+Dim the Latent
+Jozan
+Phelps
+Seebor
+Bilun Gandil
+Percivilis L'Enfant
+Magnus
+Ashimar
+Whitefire
+Semaj
+Gregory LeBlaque
+Joshua Tansden
+Gorin Zachian
+Calim Russale
+Burne
+Cedric Quezada
+Endrin
+Cebo
+Tsignotchka
+Artimus Sendant
+Tyro
+Ian McLaren
+Huerney White-eye
+Fletcher Green
+[PREMULT:2,[PREGENDER:F],[PRERACE:Human]]
+Sheva Callister
+Larissa
+Leleanne
+Lelenia
+Lia
+Fanshen
+Valanthe Liadon
+Phae
+Jallarzi
+Tarsheva Longreach
+Serena
+Tara
+Triste Templeton
+Keriann
+Krishena
+[/PRE]
+[SYL1]
+[PREMULT:2,[PREGENDER:M],[PRERACE:Dwarf]]
+Veit
+Tordek
+Barendd
+Eberk
+Rurik
+Einkill
+Taklinn
+Oskar
+Ulfgar
+Traubon
+Brottor
+[PREMULT:2,[PREGENDER:F],[PRERACE:Dwarf]]
+Sannl
+Liftrasa
+Ilde
+Hlin
+Gunnloda
+Diesa
+Dagnal
+Audhild
+Torgga
+Artin
+[PREMULT:2,[PREGENDER:M],[PRERACE:Elf]]
+Ivellios
+Sovellis
+Aramil
+Aust
+Enialis
+Himo
+Tharivol
+Thamior
+Quarion
+Laucian
+Heian
+[PREMULT:2,[PREGENDER:F],[PRERACE:Elf]]
+Felosial
+Lelenia
+Qillathe
+Antinua
+Anastrianna
+Xanaphia
+Drusilia
+Valanthe
+Lia
+Mialee
+Evandele
+Silaqui
+Elfarran
+[PREMULT:2,[PREGENDER:M],[PRERACE:Gnome]]
+Gerbo
+Roondar
+Zook
+Jebeddo
+Glim
+Fonkin
+Dimple
+Boddynock
+Nebin
+Namfoodle
+Seebo
+[PREMULT:2,[PREGENDER:F],[PRERACE:Gnome]]
+Shamil
+Caramip
+Mardnab
+Ellywick
+Ellyjobell
+Loopmottin
+Bimpnottin
+Waywocket
+Duvamil
+Roywyn
+[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Elf]]
+Tharivol
+Sargen
+Terjon
+Himo
+Quarion
+Melubb
+Laucian
+Ivellios
+Heian
+Gremag
+Furnok
+Enialis
+Calmert
+Aust
+Ashrem
+Rannos
+Jaer
+Thamior
+Devis
+Ostler
+Aramil
+[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Elf]]
+Darley
+Astrianna
+Jallarzi
+Drusilia
+Yolande
+Felosial
+Fanshen
+Pearl
+Larissa
+Lia
+Qillathe
+Xanaphia
+Valanthe
+Lelenia
+Diesa
+Dala
+Silaqui
+Ilde
+Hruda
+Antinua
+[PREMULT:2,[PREGENDER:M],[PRERACE:Half-Orc]]
+Krusk
+Unglar
+Shump
+Gimp
+Thokk
+Groob
+Grikk
+Ront
+Blarth
+Fug
+Daka
+Spek
+Henk
+Feng
+Berk
+Imsh
+Holg
+Derk
+Gell
+Dench
+Plakk
+Keth
+Grognard
+[PREMULT:2,[PREGENDER:F],[PRERACE:Half-Orc]]
+Neega
+Ovak
+Volen
+Vola
+Parse
+Ownka
+Yrl
+Nella
+Shautha
+Delde
+Mel
+Letan
+Vex
+Emen
+Pilga
+Myev
+Engong
+Baggi
+Saggi
+Lyrev
+Orfa-mell
+[PREMULT:2,[PREGENDER:M],[PRERACE:Halfling]]
+Lyle
+Roscoe
+Alton
+Beau
+Cade
+Shane
+Garret
+Osborn
+Welby
+Eldon
+Milo
+[PREMULT:2,[PREGENDER:F],[PRERACE:Halfling]]
+Jillian
+Charmaine
+Lavinia
+Amaryllis
+Euphemia
+Lidda
+Seraphina
+Portia
+Verna
+Cora
+Merla
+Kerith
+Sargen
+Kerrick
+Gaspar
+Ulfgar
+Tateland
+Ashrem
+Aramil
+Terjon
+Jaer
+Singol
+Rannos
+Ostler
+Oskar
+Melubb
+Kobort
+Calmert
+Furnok
+Gremag
+Hennet
+Coop
+[PREMULT:2,[PREGENDER:M],[PRERACE:Human]]
+Andrinor
+Japheth
+Surya
+Cromwell
+Alain
+Blackjack
+Bigby
+Jeremiah
+Dim
+Jozan
+Phelps
+Seebor
+Bilun
+Gandil
+Percivilis
+Magnus
+Ashimar
+Whitefire
+Semaj
+Gregory
+LeBlaque
+Joshua
+Tansden
+Gorin
+Zachian
+Calim
+Russale
+Burne
+Cedric
+Quezada
+Endrin
+Cebo
+Tsignotchka
+Artimus
+Sendant
+Tyro
+Ian McLaren
+Huerney
+Fletcher
+[PREMULT:2,[PREGENDER:F],[PRERACE:Human]]
+Ilde
+Duroll
+Ember
+Alhandra
+Felosial
+Forrin
+Fanshen
+Hruda
+Darley
+Dala
+Whisper
+Liliana
+Melianthe
+Melody
+Nadira
+Pearl
+Talia
+Tish
+Valanthe
+Yolande
+Diesa
+Danira
+[/PRE]
+[SYL2]
+[SYL3]
+#Male & Female Dwarfs have the same last names
+[PRERACE:Dwarf]
+ Rumnaheim
+ Balderk
+ Gorunn
+ Dankill
+ Holderhek
+ Torunn
+ Lutgehr
+ Ungart
+ Strakeln
+ Loderr
+#Male and Female Elves have the same last names
+[PRERACE:Elf]
+ Xiloscient
+ Amastacia
+ Siannodel
+ Ilphukiir
+ Nailo
+ Liadon
+ Holimion
+ Amakiir
+ Galanodel
+ Meliamne
+#Male and Female Gnomes have the same last names
+[PRERACE:Gnome]
+ Beren
+ Daergel
+ Nackle
+ Turen
+ Scheppen
+ Raulnor
+ Murnig
+ Garrick
+ Folkor
+ Ningel
+#Male and Female Half-Elves have the same last names
+[PRERACE:Half-Elf]
+ of Axewood
+ of Dreadwood
+ of Onnwall
+ Amastacia
+ of Blackmoor
+ of Celene
+ Amakiir
+ Siannodel
+ of the Pomarj
+ of Ket
+ Galanodel
+ of Dyvers
+ of Highfolk
+ Xiloscient
+ of Tusmit
+ of Hornwood
+ Holimion
+ Meliamne
+ of Nyrond
+ of Rel Astra
+ Nailo
+ of Greyhawk
+ of Flinty Hills
+ Liadon
+ Ilphukiir
+#Male & Female Half-Orcs have the same last names
+[PRERACE:Half-Orc]
+#Male & Female Halflings have the same last names
+[PRERACE:Halfling]
+ Highhill
+ Thorngage
+ Goodbarrel
+ Greenbottle
+ Tealeaf
+ Tosscobble
+ Underbough
+ Hilltopple
+ Leagallow
+ Brushgather
+#Male & Female Humans have the same last names
+[PRERACE:Human]
+ of Blackmoor
+ of Dyvers
+ of Ket
+ of the Pomarj
+ of Flinty Hills
+ of Celene
+ of the Rushmoors
+ of Hornwood
+ of Highfolk
+ of Nyrond
+ of Onnwall
+ of Rel Astra
+ of Tusmit
+ of Dreadwood
+ of Greyhawk

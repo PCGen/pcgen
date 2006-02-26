@@ -1,0 +1,47 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Mon Nov 18 04:21:56 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 213)
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+CAMPAIGN:BP - Oathbound - Domains of the Forge - Source Book
+RANK:7
+GAMEMODE:3e
+TYPE:Bastion Press.Sourcebook.Oathbound
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge
+SOURCESHORT:Oathbound
+SOURCEWEB:http://www.bastionpress.com
+ISLICENSED:YES
+LICENSE:FILE=data\d20ogl\bastionpress\oathbound\oathboundpermission.htm
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Oathbound: Domains of the Forge Copyright 2002, Bastion Press, Inc.
+COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for the Oathbound: Domains of the Forge Copyright 2003-2005, PCGen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Jonathan Weisman (bd), John Sussenberger, Paul W. King, Paul Grosse, Hugo Perez (Emperorfranz), Patryk Adamski (Ruemere))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:oathboundpermission.htm
+#EXTRAFILE:UPDATE.txt
+#EXTRAFILE:UPDATE2003-11-09-ruemere.TXT
+
+SKILL:oathbound_skills.lst
+FEAT:oathbound_feats.lst
+FEAT:oathbound_feats_30.lst
+FEAT:oathbound_feats_hidden.lst
+CLASS:oathbound_classes.lst
+SPELL:oathbound_spells.lst
+
+RACE:oathbound_races.lst
+TEMPLATE:oathbound_templates.lst
+BIOSET:oathbound_biosettings.lst
+LANGUAGE:oathbound_languages.lst
+
+EQUIPMENT:oathbound_equip_weap_ammo.lst
+EQUIPMENT:oathbound_equip_weap_melee.lst
+EQUIPMENT:oathbound_equip_weap_ranged.lst
+EQUIPMENT:oathbound_equip_magicitems.lst
+EQUIPMENT:oathbound_equip.lst
+EQUIPMENT:oathbound_equip_goods.lst
+EQUIPMENT:oathbound_equip_armorshields.lst
+EQUIPMENT:oathbound_equip_potionsscrolls.lst
+EQUIPMENT:oathbound_equip_rodsstaffswands.lst
+EQUIPMOD:oathbound_equipmods.lst
+WEAPONPROF:oathbound_weaponprofs.lst

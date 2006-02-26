@@ -1,0 +1,24 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Sep 28 00:18:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# Author: Andargor <andargor@yahoo.com>
+CAMPAIGN:3.5 RSRD Epic Psionics
+RANK:2
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:RSRD
+SETTING:RSRD
+TYPE:RSRD.Partial
+SOURCELONG:RSRD Epic Psionics
+SOURCESHORT:RSRDEpicPsionics
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones)
+
+INFOTEXT:RSRD Epic Psionics portions only.
+
+# Epic
+FEAT:rsrd_feats_psionic_epic.lst
+CLASS:rsrd_classes_psionic_epic.lst
+CLASS:rsrd_classes_psionic_prestige_epic.lst
+SKILL:rsrd_skills_psionic_epic.lst

@@ -1,0 +1,18 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Dec  1 19:46:56 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Tir Gwaith
+
+# Weapon Name	Type
+Armspike		TYPE:Natural
+Bite			TYPE:Natural
+Claw			TYPE:Natural
+Energy Claw		TYPE:Natural
+Gore			TYPE:Natural
+Incorporeal Touch	TYPE:Natural
+Pincer		TYPE:Natural
+Shock Touch		TYPE:Natural
+Slam			TYPE:Natural
+Strand		TYPE:Natural
+Tail Slap		TYPE:Natural
+Tentacle		TYPE:Natural
+Tentacle Rake	TYPE:Natural

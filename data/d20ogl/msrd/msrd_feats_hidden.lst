@@ -1,0 +1,140 @@
+# CVS $Revision: 1.27 $ $Author: frank_kliewe $ -- Thu Dec  1 00:25:20 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Barak & Hugo & Tir Gwaith
+
+# Linguist Talent
+# This works fine after first level. At first level pcgen does not allow the Talent to
+# be shown because the feat popup occurs at levelup before skills have been chosen.
+# This problem is an old ticket at sourceforge # 518999. The normal work around would be
+# to close the popup and choose it in the feats tab after skill points had been assigned.
+# Because Talents are hidden, this workaround is not possible.
+# Ideas anyone????? Should I open a new bug ticket since the old workaround doesn't work?
+# It might be good to have Linguist Talent VISIBLE:DISPLAY for now. -- Tir Gwaith
+
+
+# Feat Name		Type			Visible	Special Ability																							Define			Save checks bonus							Combat bonus				Bonus to skill																		Source Page
+Negative Levels	TYPE:Special	VISIBLE:NO	SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Willpower|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities.rtf
+
+
+###Block: Wealth Bonus
+# Feat Name		Type				Visible	Special Ability								Define			Modify VAR				Source Page
+Starting Wealth	TYPE:StartingWealth	VISIBLE:NO	SA:Wealth Bonus % (Current) % (Starting)|Wealth|WealthBonus	DEFINE:WealthBonus|0	BONUS:VAR|Wealth|WealthBonus	SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 2	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|2		SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 3	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|3		SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 4	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|4		SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 5	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|5		SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 6	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|6		SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 7	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|7		SOURCEPAGE:msrdbasicclasses.rtf
+Wealth Roll of 8	TYPE:WealthRoll		VISIBLE:NO															BONUS:VAR|WealthBonus|8		SOURCEPAGE:msrdbasicclasses.rtf
+
+
+###Block: Talents
+# Strong Talents
+# Feat Name				Type							Visible		Required Feat																Total Skill Points Req.						Special Ability						Define				Stackable?	Multiple?	Choose																									Combat bonus			Damage reduction				Bonus to HP				Add to base move							Bonus to skill			Modify VAR					Damage Reduction	Source Page
+Extreme Effort			TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:NO																													SA:Extreme Effort																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Improved Extreme Effort		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:NO		PREFEAT:1,Extreme Effort																							SA:Improved Extreme Effort																																																																														SOURCEPAGE:msrdbasicclasses.rtf
+Advanced Extreme Effort		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:NO		PREFEAT:2,Extreme Effort,Improved Extreme Effort																			SA:Advanced Extreme Effort																																																																														SOURCEPAGE:msrdbasicclasses.rtf
+Ignore Hardness			TYPE:Talent.StrongTalent.IgnoreHardness	VISIBLE:NO																													SA:Ignore Hardness																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Improved Ignore Hardness	TYPE:Talent.StrongTalent.IgnoreHardness	VISIBLE:NO		PREFEAT:1,Ignore Hardness																							SA:Improved Ignore Hardness																																																																														SOURCEPAGE:msrdbasicclasses.rtf
+Advanced Ignore Hardness	TYPE:Talent.StrongTalent.IgnoreHardness	VISIBLE:NO		PREFEAT:2,Ignore Hardness,Improved Ignore Hardness																			SA:Advanced Ignore Hardness																																																																														SOURCEPAGE:msrdbasicclasses.rtf
+Melee Smash				TYPE:Talent.StrongTalent.MeleeSmash		VISIBLE:NO																													SA:Melee Smash																																									BONUS:COMBAT|DAMAGE.Melee|1																																			SOURCEPAGE:msrdbasicclasses.rtf
+Improved Melee Smash		TYPE:Talent.StrongTalent.MeleeSmash		VISIBLE:NO		PREFEAT:1,Melee Smash																								SA:Improved Melee Smash																																								BONUS:COMBAT|DAMAGE.Melee|1																																			SOURCEPAGE:msrdbasicclasses.rtf
+Advanced Melee Smash		TYPE:Talent.StrongTalent.MeleeSmash		VISIBLE:NO		PREFEAT:2,Melee Smash,Improved Melee Smash																				SA:Advanced Melee Smash																																								BONUS:COMBAT|DAMAGE.Melee|1																																			SOURCEPAGE:msrdbasicclasses.rtf
+
+#Fast Talents
+Evasion				TYPE:Talent.FastTalent.Defensive		VISIBLE:NO																													SA:Evasion																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Uncanny Dodge I			TYPE:Talent.FastTalent.Defensive		VISIBLE:NO		PREFEAT:1,Evasion																									SA:Uncanny Dodge I																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Uncanny Dodge II			TYPE:Talent.FastTalent.Defensive		VISIBLE:NO		PREFEAT:2,Evasion,Uncanny Dodge I																						SA:Uncanny Dodge II																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Defensive Roll			TYPE:Talent.FastTalent.Defensive		VISIBLE:NO		PREFEAT:2,Evasion,Uncanny Dodge I																						SA:Defensive Roll																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Opportunist				TYPE:Talent.FastTalent.Defensive		VISIBLE:NO		PREFEAT:1,Evasion																									SA:Opportunist																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Increased Speed			TYPE:Talent.FastTalent.IncreasedSpeed	VISIBLE:NO																													SA:Increased Speed																																																								BONUS:MOVEADD|TYPE=Walk|5|TYPE=IncreasedSpeed.REPLACE															SOURCEPAGE:msrdbasicclasses.rtf
+Improved Increased Speed	TYPE:Talent.FastTalent.IncreasedSpeed	VISIBLE:NO		PREFEAT:1,Increased Speed																							SA:Improved Increased Speed																																																							BONUS:MOVEADD|TYPE=Walk|5|TYPE=IncreasedSpeed.REPLACE															SOURCEPAGE:msrdbasicclasses.rtf
+Advanced Increased Speed	TYPE:Talent.FastTalent.IncreasedSpeed	VISIBLE:NO		PREFEAT:2,Increased Speed,Improved Increased Speed																			SA:Advanced Increased Speed																																																							BONUS:MOVEADD|TYPE=Walk|5|TYPE=IncreasedSpeed.REPLACE															SOURCEPAGE:msrdbasicclasses.rtf
+
+#Tough Talents
+Damage Reduction I		TYPE:Talent.ToughTalent.DamageReduction	VISIBLE:NO		PREFEAT:1,TYPE=Unbreakable,TYPE=EnergyResistance																			SA:Damage Reduction %/-|ToughDamageReduction	DEFINE:ToughDamageReduction|0																																				BONUS:DR|-|(ToughDamageReduction-1)																				BONUS:VAR|ToughDamageReduction|1	DR:1/-		SOURCEPAGE:msrdbasicclasses.rtf
+Damage Reduction II		TYPE:Talent.ToughTalent.DamageReduction	VISIBLE:NO		PREFEAT:1,TYPE=Unbreakable,TYPE=EnergyResistance	PREFEAT:1,Damage Reduction I																																																																																							BONUS:VAR|ToughDamageReduction|1				SOURCEPAGE:msrdbasicclasses.rtf
+Damage Reduction III		TYPE:Talent.ToughTalent.DamageReduction	VISIBLE:NO		PREFEAT:1,TYPE=Unbreakable,TYPE=EnergyResistance	PREFEAT:2,Damage Reduction I,Damage Reduction II																																																																																			BONUS:VAR|ToughDamageReduction|1				SOURCEPAGE:msrdbasicclasses.rtf
+Acid Resistance			TYPE:Talent.ToughTalent.EnergyResistance	VISIBLE:NO																													SA:Acid Resistance																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Cold Resistance			TYPE:Talent.ToughTalent.EnergyResistance	VISIBLE:NO																													SA:Cold Resistance																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Electricity Resistance		TYPE:Talent.ToughTalent.EnergyResistance	VISIBLE:NO																													SA:Electricity Resistance																																																																														SOURCEPAGE:msrdbasicclasses.rtf
+Fire Resistance			TYPE:Talent.ToughTalent.EnergyResistance	VISIBLE:NO																													SA:Fire Resistance																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Sonic/Concussion Resistance	TYPE:Talent.ToughTalent.EnergyResistance	VISIBLE:NO																													SA:Sonic/Concussion Resistance																																																																													SOURCEPAGE:msrdbasicclasses.rtf
+Remain Conscious			TYPE:Talent.ToughTalent.Unbreakable		VISIBLE:NO																													SA:Remain Concious																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Robust				TYPE:Talent.ToughTalent.Unbreakable		VISIBLE:NO																													SA:Robust																																																					BONUS:HP|CURRENTMAX|CL=Tough																								SOURCEPAGE:msrdbasicclasses.rtf
+Second Wind				TYPE:Talent.ToughTalent.Unbreakable		VISIBLE:NO																													SA:Second Wind																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Stamina				TYPE:Talent.ToughTalent.Unbreakable		VISIBLE:NO		PREFEAT:1,Robust																									SA:Stamina																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+
+#Smart Talents
+Savant				TYPE:Talent.SmartTalent.Research		VISIBLE:NO																													SA:Savant (%CHOICE)										STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|Computer Use|TYPE.Craft|Decipher Script|Demolitions|Disable Device|Forgery|Investigate|TYPE.Knowledge|Navigate|Repair|Research|Search|1																										BONUS:SKILL|LIST|CL=Smart										SOURCEPAGE:msrdbasiclasses.rtf
+Linguist				TYPE:Talent.SmartTalent.Research		VISIBLE:DISPLAY																			PRESKILLTOT:Read/Write Language,Speak Language=3	SA:Linguist																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Exploit Weakness			TYPE:Talent.SmartTalent.Strategy		VISIBLE:NO		PREFEAT:1,TYPE=Research																								SA:Exploit Weakness																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+Plan					TYPE:Talent.SmartTalent.Strategy		VISIBLE:NO		PREFEAT:1,TYPE=Research																								SA:Plan																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Trick					TYPE:Talent.SmartTalent.Strategy		VISIBLE:NO		PREFEAT:1,TYPE=Research																								SA:Trick																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+
+#Dedicated Talents
+Empathy				TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO																													SA:Empathy																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Improved Aid Another		TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO		PREFEAT:1,Empathy																									SA:Improved Aid Another %|ImprovedAid		DEFINE:ImprovedAid|0		STACK:YES	MULT:YES	CHOOSE:Improved Aid Another																																																				BONUS:VAR|ImprovedAid|1						SOURCEPAGE:msrdbasicclasses.rtf
+Intuition				TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO		PREFEAT:1,Empathy																									SA:Intuition																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Healing Knack			TYPE:Talent.DedicatedTalent.Healing		VISIBLE:NO																													SA:Healing Knack																																																																		BONUS:SKILL|Treat Injury|2										SOURCEPAGE:msrdbasicclasses.rtf
+Healing Touch I			TYPE:Talent.DedicatedTalent.Healing		VISIBLE:NO		PREFEAT:1,Healing Knack																								SA:Healing Touch																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Healing Touch II			TYPE:Talent.DedicatedTalent.Healing		VISIBLE:NO		PREFEAT:2,Healing Knack,Healing Touch I																					SA:Healing Touch																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Skill Emphasis			TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:NO																													SA:Skill Emphasis (%CHOICE)											MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1																															BONUS:SKILL|LIST|3											SOURCEPAGE:msrdbasicclasses.rtf
+Aware					TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:NO		PREFEAT:1,Skill Emphasis																							SA:Aware																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Faith					TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:NO		PREFEAT:1,Skill Emphasis																							SA:Faith																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Cool Under Pressure		TYPE:Talent.DedicatedTalent.Insightful	VISIBLE:NO		PREFEAT:1,Skill Emphasis	PREFEAT:1,Faith,Aware																			SA:Cool Under Pressure																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+
+#Charismatic Talents
+Charm					TYPE:Talent.CharismaticTalent.Charm		VISIBLE:NO																													SA:Charm (%CHOICE)												MULT:YES	CHOOSE:NUMCHOICES=1|Male|Female																																																												SOURCEPAGE:msrdbasicclasses.rtf
+Favor					TYPE:Talent.CharismaticTalent.Charm		VISIBLE:NO		PREFEAT:1,Charm																									SA:Favor																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Captivate				TYPE:Talent.CharismaticTalent.Charm		VISIBLE:NO		PREFEAT:2,Charm,Favor																								SA:Captivate																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Fast-Talk				TYPE:Talent.CharismaticTalent.FastTalk	VISIBLE:NO																													SA:Fast-Talk																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Dazzle				TYPE:Talent.CharismaticTalent.FastTalk	VISIBLE:NO		PREFEAT:1,Fast-Talk																								SA:Dazzle																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Taunt					TYPE:Talent.CharismaticTalent.FastTalk	VISIBLE:NO		PREFEAT:2,Fast-Talk,Dazzle																							SA:Taunt																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
+Coordinate				TYPE:Talent.CharismaticTalent.Leadership	VISIBLE:NO																													SA:Coordinate																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Inspiration				TYPE:Talent.CharismaticTalent.Leadership	VISIBLE:NO		PREFEAT:1,Coordinate																								SA:Inspiration																																																																																SOURCEPAGE:msrdbasicclasses.rtf
+Greater Inspiration		TYPE:Talent.CharismaticTalent.Leadership	VISIBLE:NO		PREFEAT:2,Coordinate,Inspiration																						SA:Greater Inspiration																																																																															SOURCEPAGE:msrdbasicclasses.rtf
+
+###Block: Techie Mastercraft
+# Feat Name			Type				Visible	Required Class		Special Ability						Define				Stackable?	Multiple?	Choose	Modify VAR				Source Page
+Electronic Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:+1	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Mechanical Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:+1	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
+
+###Block: Soldier and Gunslinger pseudofeats
+# Feat Name				Type			Visible	Required Feat						Var. Min. Value			Special Ability						Description		Multiple?	Choose					Weapon prof. bonus				Source Page
+Weapon Specialization		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus					PREVARGTEQ:WeapSpecQualify,1	SA:Weapon Specialization (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus|1		BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Specialization	TYPE:Special	VISIBLE:NO	PREFEAT:2,Weapon Focus,Weapon Specialization						SA:Greater Weapon Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
+Improved Critical			TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Specialization								SA:Improved Critical (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Focus		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus										SA:Greater Weapon Focus (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus|1		BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:msrdadvancedclasses.rtf
+
+###Block: Creature Feats
+# Feat Name			Type			Visible	Description		Stackable?	Multiple?	Choose								Bonus to skill rank	Source Page
+HighFiendKnowledge	TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE.Knowledge|1	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
+LowFiendKnowledge		TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Knowledge|1	BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
+
+###Block:Shadow Slayer Favored Enemies
+# Feat Name		Type			Visible	Required Class			Required Feat			Prohibited Feat			Special Ability			Multiple?	Choose
+Shadow Enemy I	TYPE:ShadowEnemy	VISIBLE:NO	PRECLASS:1,Shadow Slayer=5						!PREFEAT:1,Shadow Enemy I	SA:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
+Shadow Enemy II	TYPE:ShadowEnemy	VISIBLE:NO	PRECLASS:1,Shadow Slayer=7	PREFEAT:1,Shadow Enemy I	!PREFEAT:1,Shadow Enemy II	SA:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
+
+###Block:Familiar Temp Bonuses
+# Feat Name			Type			Visible	Bonus to skill							Source Page						Temporary effect description
+Hawk Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
+Owl Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+
+###Block:Turning
+# Feat Name			Type						Visible	Special Ability																								Define
+Base Turn			TYPE:Special.Turn/Rebuke		VISIBLE:NO																											DEFINE:TurnTimes|0	DEFINE:TurnLevel|0	DEFINE:TurnDice|2	DEFINE:TurnDieSize|6	DEFINE:TurnDamagePlus|CHA	DEFINE:TurnCheck|0
+Turn/Rebuke Undead	TYPE:Special.Turn/Rebuke.Undead	VISIBLE:NO	SA:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
+
+###Block: Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
+# Feat Name		Type			Visible	Special Ability																					Define																						Modify VAR
+PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoints	SA:Bonus Power Points (%)|BonusPowerPoints	SA:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+
+###Block: All Proficiencies (for referencing)
+# Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
+All Exotic Firearms Proficiency		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
+All Exotic Melee Weapons Proficiency	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
+#
+# EOF
+#

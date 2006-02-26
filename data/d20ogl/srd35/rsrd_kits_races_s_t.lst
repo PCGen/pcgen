@@ -1,0 +1,598 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Wed Dec 28 00:33:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Sahuagin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sahuagin]
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+RACE:Sahuagin	!PRERACE:%
+NAME:Sahuagin
+SKILL:Handle Animal	RANK:5
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+FEAT:Great Fortitude
+GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
+GEAR:Trident		SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Salamander (Average)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Salamander (Average)]
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+RACE:Salamander (Average)	!PRERACE:%
+NAME:Salamander (Average)
+SKILL:Listen			RANK:4
+SKILL:Spot				RANK:4
+SKILL:Bluff				RANK:10
+SKILL:Hide				RANK:10
+SKILL:Move Silently		RANK:10
+SKILL:Search			RANK:10
+SKILL:Craft (Blacksmithing)	RANK:12
+FEAT:Alertness
+FEAT:Multiattack
+FEAT:Power Attack
+GEAR:Spear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Salamander (Flamebrother)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Salamander (Flamebrother)]
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+RACE:Salamander (Flamebrother)	!PRERACE:%
+NAME:Salamander (Flamebrother)
+SKILL:Craft (Blacksmithing)	RANK:2
+SKILL:Hide				RANK:7
+SKILL:Listen			RANK:7
+SKILL:Spot				RANK:7
+SKILL:Move Silently		RANK:5
+FEAT:Alertness
+FEAT:Multiattack
+GEAR:Spear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Salamander (Noble)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Salamander (Noble)]
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+RACE:Salamander (Noble)	!PRERACE:%
+NAME:Salamander (Noble)
+SKILL:Craft (Blacksmithing)	RANK:15
+SKILL:Hide				RANK:18
+SKILL:Move Silently		RANK:16
+SKILL:Listen			RANK:9
+SKILL:Spot				RANK:9
+SKILL:Bluff				RANK:17
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus(Craft (Blacksmithing))
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W
+
+STARTPACK:Default Satyr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Satyr]
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+RACE:Satyr	!PRERACE:%
+NAME:Satyr
+SKILL:Bluff					RANK:8
+SKILL:Hide					RANK:8
+SKILL:Knowledge (Nature)		RANK:8
+SKILL:Listen				RANK:8
+SKILL:Move Silently			RANK:8
+SKILL:Perform (Wind Instruments)	RANK:8
+SKILL:Spot					RANK:8
+SKILL:Diplomacy				RANK:2
+SKILL:Intimidate				RANK:2
+FEAT:Dodge
+FEAT:Mobility
+GEAR:Dagger		SIZE:PC	LOCATION:Carried
+GEAR:Shortbow	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Sea Cat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sea Cat]
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+RACE:Sea Cat	!PRERACE:%
+NAME:Sea Cat
+ALIGN:TN
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:5
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Iron Will
+
+STARTPACK:Default Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shadow]
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+RACE:Shadow	!PRERACE:%
+NAME:Shadow
+ALIGN:CE
+SKILL:Hide		RANK:6
+SKILL:Listen	RANK:2
+SKILL:Search	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Dodge
+
+STARTPACK:Default Shadow Mastiff	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shadow Mastiff]
+STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
+RACE:Shadow Mastiff	!PRERACE:%
+NAME:Shadow Mastiff
+ALIGN:NE
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+SKILL:Survival		RANK:7
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Track
+
+STARTPACK:Default Shambling Mound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shambling Mound]
+STAT:STR=11|CON=11|INT=11|CHA=11|DEX=10|WIS=10
+RACE:Shambling Mound	!PRERACE:%
+NAME:Shambling Mound
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Hide			RANK:3
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Weapon Focus(Slam)
+
+STARTPACK:Default Shield Guardian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shield Guardian]
+RACE:Shield Guardian	!PRERACE:%
+NAME:Shield Guardian
+ALIGN:TN
+
+STARTPACK:Default Shocker Lizard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shocker Lizard]
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+RACE:Shocker Lizard	!PRERACE:%
+NAME:Shocker Lizard
+ALIGN:TN
+SKILL:Climb		RANK:1
+SKILL:Hide		RANK:1
+SKILL:Jump		RANK:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Improved Initiative
+
+STARTPACK:Default Skeleton (Human Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Human Warrior)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Human Warrior)	!PRERACE:%
+NAME:Skeleton (Human Warrior)
+ALIGN:NE
+FEAT:Improved Initiative
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Scimitar			SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Skeleton (Wolf)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Wolf)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Wolf)	!PRERACE:%
+NAME:Skeleton (Wolf)
+ALIGN:NE
+FEAT:Improved Initiative
+
+STARTPACK:Default Skeleton (Owlbear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Owlbear)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Owlbear)	!PRERACE:%
+NAME:Skeleton (Owlbear)
+ALIGN:NE
+FEAT:Improved Initiative
+
+STARTPACK:Default Skeleton (Troll)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Troll)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Troll)	!PRERACE:%
+NAME:Skeleton (Troll)
+ALIGN:NE
+FEAT:Improved Initiative
+
+STARTPACK:Default Skeleton (Chimera)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Chimera)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Chimera)	!PRERACE:%
+NAME:Skeleton (Chimera)
+ALIGN:NE
+FEAT:Improved Initiative
+
+STARTPACK:Default Skeleton (Ettin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Ettin)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Ettin)	!PRERACE:%
+NAME:Skeleton (Ettin)
+ALIGN:NE
+FEAT:Improved Initiative
+GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin	QTY:2	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Skeleton (Advanced Megaraptor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Advanced Megaraptor)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Advanced Megaraptor)	!PRERACE:%
+NAME:Skeleton (Advanced Megaraptor)
+ALIGN:NE
+FEAT:Improved Initiative
+
+STARTPACK:Default Skeleton (Cloud Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Cloud Giant)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Cloud Giant)	!PRERACE:%
+NAME:Skeleton (Cloud Giant)
+ALIGN:NE
+FEAT:Improved Initiative
+GEAR:Morningstar	SIZE:G	LOCATION:Both Hands
+
+STARTPACK:Default Skeleton (Young Adult Red Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skeleton (Young Adult Red Dragon)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Skeleton (Young Adult Red Dragon)	!PRERACE:%
+NAME:Skeleton (Young Adult Red Dragon)
+ALIGN:NE
+FEAT:Improved Initiative
+
+STARTPACK:Default Skum	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skum]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Skum	!PRERACE:%
+NAME:Skum
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5	FREE:YES
+SKILL:Spot			RANK:5	FREE:YES
+FEAT:Alertness
+
+STARTPACK:Default Spectre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spectre]
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+RACE:Spectre	!PRERACE:%
+NAME:Spectre
+ALIGN:LE
+SKILL:Hide				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Religion)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Search			RANK:10
+SKILL:Spot				RANK:10
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Improved Initiative
+
+STARTPACK:Default Sphinx (Androsphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sphinx (Androsphinx)]
+STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
+RACE:Sphinx (Androsphinx)	!PRERACE:%
+NAME:Sphinx (Androsphinx)
+ALIGN:CG
+SKILL:Listen		RANK:13
+SKILL:Spot			RANK:13
+SKILL:Survival		RANK:15
+SKILL:Intimidate		RANK:14
+SKILL:TYPE=Knowledge	RANK:15
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Power Attack
+FEAT:Track		FREE:YES
+DEITY:None	DOMAIN:Good|Healing
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength|Cure Minor Wounds|Cure Serious Wounds|Daylight|Detect Magic|Divine Favor|Guidance|Invisibility Purge|Light|Protection from Evil|Remove Fear|Remove Paralysis|Resist Energy|Resistance|Searing Light|Shield Other|Shield of Faith|Summon Monster I|Summon Monster II
+
+STARTPACK:Default Sphinx (Criosphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sphinx (Criosphinx)]
+STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
+RACE:Sphinx (Criosphinx)	!PRERACE:%
+NAME:Sphinx (Criosphinx)
+ALIGN:TN
+SKILL:Intimidate	RANK:8
+SKILL:Listen	RANK:9
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Power Attack
+
+STARTPACK:Default Sphinx (Gynosphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sphinx (Gynosphinx)]
+STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
+RACE:Sphinx (Gynosphinx)	!PRERACE:%
+NAME:Sphinx (Gynosphinx)
+ALIGN:TN
+SKILL:Bluff			RANK:11
+SKILL:Concentration	RANK:11
+SKILL:Sense Motive	RANK:11
+SKILL:Listen		RANK:11
+SKILL:Spot			RANK:11
+SKILL:Intimidate		RANK:7
+FEAT:Combat Casting
+FEAT:Improved Initiative
+FEAT:Iron Will
+
+STARTPACK:Default Sphinx (Hieracosphinx)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sphinx (Hieracosphinx)]
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+RACE:Sphinx (Hieracosphinx)	!PRERACE:%
+NAME:Sphinx (Hieracosphinx)
+ALIGN:CE
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Power Attack
+
+STARTPACK:Default Spider Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spider Eater]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Spider Eater	!PRERACE:%
+NAME:Spider Eater
+ALIGN:TN
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:3
+FEAT:Alertness
+FEAT:Dodge
+
+STARTPACK:Default Sprite (Grig)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sprite (Grig)]
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+RACE:Sprite (Grig)	!PRERACE:%
+NAME:Sprite (Grig)
+ALIGN:NG
+SKILL:TYPE=Craft				RANK:4
+SKILL:Escape Artist			RANK:4
+SKILL:Hide					RANK:4
+SKILL:Move Silently			RANK:4
+SKILL:Jump					RANK:4
+SKILL:Perform (String Instruments)	RANK:4
+FEAT:Weapon Finesse
+GEAR:Longbow		SIZE:PC	LOCATION:Carried
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Sprite (Nixie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sprite (Nixie)]
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+RACE:Sprite (Nixie)	!PRERACE:%
+NAME:Sprite (Nixie)
+ALIGN:TN
+SKILL:Bluff			RANK:4
+SKILL:Handle Animal	RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Escape Artist	RANK:3
+SKILL:Perform (Sing)	RANK:3
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+SKILL:TYPE=Craft		RANK:4
+FEAT:Weapon Finesse
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Sprite (Pixie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sprite (Pixie)]
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+RACE:Sprite (Pixie)	!PRERACE:%
+NAME:Sprite (Pixie)
+ALIGN:NG
+SKILL:Bluff			RANK:4
+SKILL:Concentration	RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Ride			RANK:4
+SKILL:Search		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Weapon Finesse
+FEAT:Dodge
+GEAR:Longbow		SIZE:PC	LOCATION:Carried
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Stirge	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stirge]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Stirge	!PRERACE:%
+NAME:Stirge
+ALIGN:TN
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+SKILL:Hide		RANK:2
+FEAT:Alertness
+
+STARTPACK:Default Swarm (Bat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Bat)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Bat)	!PRERACE:%
+NAME:Swarm (Bat)
+ALIGN:TN
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Swarm (Centipede)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Centipede)]
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Centipede)	!PRERACE:%
+NAME:Swarm (Centipede)
+ALIGN:TN
+
+STARTPACK:Default Swarm (Hellwasp)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Hellwasp)]
+STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
+RACE:Swarm (Hellwasp)	!PRERACE:%
+NAME:Swarm (Hellwasp)
+ALIGN:LE
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Ability Focus(Poison)
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Toughness
+
+STARTPACK:Default Swarm (Locust)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Locust)]
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Locust)	!PRERACE:%
+NAME:Swarm (Locust)
+ALIGN:TN
+
+STARTPACK:Default Swarm (Rat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Rat)]
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Rat)	!PRERACE:%
+NAME:Swarm (Rat)
+ALIGN:TN
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:3
+FEAT:Weapon Finesse
+FEAT:Alertness
+
+STARTPACK:Default Swarm (Spider)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Swarm (Spider)]
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Spider)	!PRERACE:%
+NAME:Swarm (Spider)
+ALIGN:TN
+SKILL:Listen	RANK:4
+
+STARTPACK:Default Tarrasque	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tarrasque]
+STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
+RACE:Tarrasque	!PRERACE:%
+NAME:Tarrasque
+ALIGN:TN
+SKILL:Search	RANK:13
+SKILL:Survival	RANK:12
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Awesome Blow
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Toughness(6)
+
+STARTPACK:Default Tendriculos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tendriculos]
+STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
+RACE:Tendriculos	!PRERACE:%
+NAME:Tendriculos
+ALIGN:TN
+SKILL:Hide	RANK:12
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Stealthy
+
+STARTPACK:Default Thoqqua	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thoqqua]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Thoqqua	!PRERACE:%
+NAME:Thoqqua
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Survival		RANK:2
+FEAT:Alertness
+FEAT:Track
+
+STARTPACK:Default Titan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Titan]
+STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
+RACE:Titan	!PRERACE:%
+NAME:Titan
+ALIGN:CG|CN|CE
+SKILL:Jump			RANK:23
+SKILL:Intimidate		RANK:23
+SKILL:Balance		RANK:12
+SKILL:Climb			RANK:12
+SKILL:Heal			RANK:11
+SKILL:Concentration	RANK:23
+SKILL:Listen		RANK:23
+SKILL:Perform (Oratory)	RANK:23
+SKILL:Search		RANK:23
+SKILL:Sense Motive	RANK:23
+SKILL:Spot			RANK:23
+SKILL:Bluff			RANK:12
+SKILL:Spellcraft		RANK:12
+SKILL:Swim			RANK:12
+SKILL:TYPE=Knowledge	RANK:23
+SKILL:TYPE=Craft		RANK:23
+FEAT:Awesome Blow
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Sunder
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability(Chain Lightning)
+GEAR:Javelin	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS3W
+GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS4A
+GEAR:Warhammer	SIZE:G	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.ADAMANT_WEAP
+
+STARTPACK:Default Tojanida (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tojanida (Adult)]
+STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
+RACE:Tojanida (Adult)	!PRERACE:%
+NAME:Tojanida (Adult)
+ALIGN:TN
+SKILL:Knowledge (The Planes)	RANK:6
+SKILL:Escape Artist		RANK:10
+SKILL:Hide				RANK:10
+SKILL:Listen			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Search			RANK:10
+SKILL:Spot				RANK:10
+FEAT:Blind Fight
+FEAT:Dodge
+FEAT:Power Attack
+
+STARTPACK:Default Tojanida (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tojanida (Elder)]
+STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
+RACE:Tojanida (Elder)	!PRERACE:%
+NAME:Tojanida (Elder)
+ALIGN:TN
+SKILL:Search			RANK:18
+SKILL:Spot				RANK:18
+SKILL:Escape Artist		RANK:18
+SKILL:Hide				RANK:18
+SKILL:Knowledge (The Planes)	RANK:18
+SKILL:Listen			RANK:18
+SKILL:Sense Motive		RANK:16
+SKILL:Intimidate			RANK:18
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Improved Sunder
+FEAT:Power Attack
+
+STARTPACK:Default Tojanida (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tojanida (Juvenile)]
+STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
+RACE:Tojanida (Juvenile)	!PRERACE:%
+NAME:Tojanida (Juvenile)
+ALIGN:TN
+SKILL:Spot				RANK:4
+SKILL:Escape Artist		RANK:6
+SKILL:Hide				RANK:6
+SKILL:Knowledge (The Planes)	RANK:6
+SKILL:Listen			RANK:6
+SKILL:Search			RANK:2
+SKILL:Sense Motive		RANK:6
+FEAT:Blind Fight
+FEAT:Dodge
+
+STARTPACK:Default Treant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Treant]
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+RACE:Treant	!PRERACE:%
+NAME:Treant
+SKILL:Intimidate			RANK:5
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Listen			RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Spot				RANK:5
+SKILL:Survival			RANK:5
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+
+STARTPACK:Default Triton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Triton]
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+RACE:Triton	!PRERACE:%
+NAME:Triton
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Ride			RANK:6
+SKILL:Search		RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Survival		RANK:6
+SKILL:TYPE=Craft		RANK:6
+FEAT:Mounted Combat
+FEAT:Ride By Attack
+GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
+GEAR:Trident		SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Troglodyte	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troglodyte]
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Troglodyte	!PRERACE:%
+NAME:Troglodyte
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:3
+FEAT:Weapon Focus(Javelin)
+GEAR:Club		SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll]
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+ALIGN:CE
+RACE:Troll	!PRERACE:%
+NAME:Troll
+SKILL:Spot		RANK:5
+SKILL:Listen	RANK:4
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Track

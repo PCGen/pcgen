@@ -1,0 +1,5 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Dec 13 19:15:53 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+
+# Domain Name	Feat							Source Page		Description		List of Domain Spells by Level
+Secrets		FEAT:Skill Focus(Knowledge (Arcana))	SOURCEPAGE:p.42	DESC:Secrets	SPELLLEVEL:DOMAIN|Secrets=1|Identify|Secrets=2|Locate Object|Secrets=3|Obscure Object|Secrets=4|Illusory Wall|Secrets=5|Secret Chest|Secrets=6|Legend Lore|Secrets=7|Vision|Secrets=8|Discern Location|Secrets=9|Screen

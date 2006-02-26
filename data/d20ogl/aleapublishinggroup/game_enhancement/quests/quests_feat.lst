@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Feb  9 01:20:37 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Quests|SOURCESHORT:Quests|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+
+# Feat Name	Type			Required Skill				Stackable?	Multiple?	Choose		Source Page
+Quest		TYPE:General	PRESKILL:1,Knowledge (Local)=8	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.5

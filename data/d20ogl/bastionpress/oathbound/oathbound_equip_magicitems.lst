@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+# Equipment Name					Output Name				Required Proficiency	Type												Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Size		Source Page		Spells								Bonus to skill						Weapon prop. bonus					Special Property
+Badge of Allegiance													TYPE:Badge.Brooch.Magic.Wondrous.Headgear											COST:5400	WT:0																	SOURCEPAGE:p.325
+Bag of People Holding													TYPE:Artifact.Bag.Magic.Wondrous												COST:0	WT:1																	SOURCEPAGE:p.325
+Bag of Pigeon Holding													TYPE:Artifact.Bag.Magic.Wondrous												COST:0	WT:0.5																SOURCEPAGE:p.325
+Chessboard of Wagers													TYPE:Chessboard.Magic.Wondrous												COST:69525	WT:3																	SOURCEPAGE:p.325
+Chessboard of Wagers													TYPE:Chessboard.Magic.Wondrous												COST:69525	WT:3																	SOURCEPAGE:p.325
+Collar of Attachment													TYPE:Collar.Magic.Wondrous.Headgear												COST:56000	WT:1																	SOURCEPAGE:p.325
+Enchiridion of Memnos													TYPE:Magic.Wondrous.Book													COST:77640	WT:5																	SOURCEPAGE:p.325
+Enchiridion of Memnos (unlimited use)										TYPE:Magic.Wondrous.Book													COST:328200	WT:5																	SOURCEPAGE:p.325
+Globe of Teleportation													TYPE:Magic.Wondrous														COST:4550	WT:0																	SOURCEPAGE:p.326
+Immaculate Harness													TYPE:Magic.Wondrous														COST:56000	WT:2																	SOURCEPAGE:p.326																										SPROP:The harness takes up one jewelry slot
+Knock Gauntlets														TYPE:Magic.Wondrous.Glove													COST:0	WT:1																	SOURCEPAGE:p.326
+Mask of Binding														TYPE:Artifact.Mask.Magic.Wondrous												COST:0	WT:1																	SOURCEPAGE:p.326
+Protean Map (Greater)													TYPE:Map.Magic.Wondrous														COST:76125	WT:0																	SOURCEPAGE:p.326
+Protean Map (Lesser)													TYPE:Map.Magic.Wondrous														COST:66000	WT:0																	SOURCEPAGE:p.326
+Rafter's Compass														TYPE:Compass.Magic.Wondrous													COST:133450	WT:0.5																SOURCEPAGE:p.326																										SPROP:+2 competence bonus to notice unusual stonework or to intuit direction underground
+Ring (Impulsiveness)				OUTPUTNAME:Ring of [NAME]					TYPE:Magic.Ring															COST:700	WT:0																	SOURCEPAGE:p.326
+Ring (Misdirection)				OUTPUTNAME:Ring of [NAME]					TYPE:Magic.Ring															COST:1704	WT:0																	SOURCEPAGE:p.327	SPELLS:Ring of Misdirection|TIMES=1|Prestidigitation	BONUS:SKILL|Bluff,Pick Pocket|4|TYPE=Competence
+Scabbard of Return													TYPE:Container.Magic.Scabbard.Wondrous						CONTAINS:-1|Total=1|Weapon=1	COST:54000	WT:1																	SOURCEPAGE:p.327
+Spiderblade											PROFICIENCY:Longsword	TYPE:Finesseable.Magic.Weapon.Martial.Melee.Slashing.Specific.Sword						COST:36765	WT:1		CRITMULT:x2			CRITRANGE:4			DAMAGE:1d8	EQMOD:KEEN		SIZE:M	SOURCEPAGE:p.327	SPELLS:Sword (Spiderblade)|TIMES=1|Insect Plague									BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:+3 luck vs poison
+Sword of Ghosts										PROFICIENCY:Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword								COST:44315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:GHOST_M	SIZE:M	SOURCEPAGE:p.327																		BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:slain creatures cannot be animated
+Unbreakable Helm														TYPE:Magic.Wondrous.Headgear													COST:56000	WT:4																	SOURCEPAGE:p.327
+

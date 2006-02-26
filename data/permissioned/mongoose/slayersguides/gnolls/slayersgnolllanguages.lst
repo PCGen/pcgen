@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Nov 16 11:08:45 2002 -- reformated by prettylst.pl v1.19 (build 214)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Gnolls|SOURCESHORT:SGtGnolls|SOURCEWEB:http://mongoosepublishing.com
+
+# Goblinoid and Troll only mentioned in Racial entries.
+# MM monsters do not speak that language.
+# Entered to allow LANGBONUS in slayersgnollraces.lst.
+# --------------------------
+# Éric Beaudoin - 2002.11.16
+
+# Language	Type
+Goblinoid	TYPE:Spoken
+Troll		TYPE:Spoken

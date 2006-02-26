@@ -1,0 +1,893 @@
+// Irish Gaelic Male Names
+//
+// Bynames are a descriptive of the person, such as:
+//
+// an Eich Gil ("[of] the bright steed")
+// Catha an Dúna ("[of] the battle of Down")
+// Canóne ("of the canon")
+// Crobderg ("of the Wine-red hand")
+// Damán ("little stag, little ox")
+// Donn ("brown, brown-haired")
+// Finn ("fair, bright white, light-hued")
+// Flann ("bright red, blood red")
+// Mainistrech ("monastery, abbey")
+// Rúanaid ("champion, strong man")
+// Sotal ("the arrogant")
+// ó
+
+[RULES]
+10	[GIVEN]
+20	[GIVEN]	[BYNAME]
+30	[GIVEN]	[O]	[GENITIVE]
+40	[GIVEN]	[BYNAME]	[O]	[GENITIVE]
+50	[GIVEN]	[MAC]	[GENITIVE]
+55	[GIVEN]	[BYNAME]	[MAC]	[GENITIVE]
+60	[GIVEN]	[BYNAME]	[MAC]	[GENITIVELENITED]
+65	[GIVEN]	[MAC]	[GENITIVE]	[MHIC]	[GENITIVELENITEDNOC]
+70	[GIVEN]	[MAC]	[GENITIVELENITED]	[MHIC]	[GENITIVELENITEDNOC]
+75	[GIVEN]	[BYNAME]	[MAC]	[GENITIVE]	[MHIC]	[GENITIVELENITEDNOC]
+80	[GIVEN]	[BYNAME]	[MAC]	[GENITIVELENITED]	[MHIC]	[GENITIVELENITEDNOC]
+85	[GIVEN]	[MAC]	[GENITIVE]	[UI]	[GENITIVELENITED]
+90	[GIVEN]	[MAC]	[GENITIVELENITED]	[UI]	[GENITIVELENITED]
+95	[GIVEN]	[BYNAME]	[MAC]	[GENITIVE]	[UI]	[GENITIVELENITED]
+100	[GIVEN]	[BYNAME]	[MAC]	[GENITIVELENITED]	[UI]	[GENITIVELENITED]
+
+[MAC]
+ mac
+
+[O]
+ ó
+
+[UI]
+ uí
+ toísech clainne
+
+[MHIC]
+ mhic
+ mec
+
+[GIVEN]
+Abél
+Adomnán
+Aedc
+Affiath
+Ailchú
+Ailerán
+Ailill
+Aindíles
+Ainmere
+Airard
+Airbertach
+Amalgaid
+Amlaíb
+Anfudán
+Anmchaid
+Artt
+Artúr
+Assíd
+Augustín
+Awley
+Baiscend
+Banbán
+Beollán
+Blathmac
+Bran
+Bresalc
+Bressa
+Bressal
+Brianc
+Briccéne
+Brotchú
+Bróccan
+Báethchellach
+Báethgalach
+Báethíne
+Báetán
+Bécc
+Búadachán
+Caicher
+Cailte
+Cairbre
+Cairpre
+Cano
+Carthach
+Catha
+Cathal
+Cathassach
+Causantín
+Caílte
+Cellach
+Cellachc
+Cellachán
+Cenn
+Cenn-fáelad
+Cennétig
+Cerball
+Cernach
+Cett
+Cian
+Cillíne
+Cináed
+Clemens
+Cobthach
+Colcu
+Colmán
+Columb
+Conaing
+Conall
+Conchobar
+Conchobor
+Condlae
+Congal
+Congalach
+Congalachc
+Conlae
+Connlac
+Corcc
+Cormac
+Cormacán
+Coscrach
+Crimthann
+Crinán
+Crundmáel
+Cuilén
+Cuindles
+Cummascach
+Cáirthenn
+Cú
+Cúán
+Daniél
+Demmán
+Diarmait
+Domnall
+Domnallc
+Donnchad
+Donnchadc
+Donndubán
+Donngal
+Dub
+Dubthach
+Duinechaid
+Dunchad
+Dáire
+Dálach
+Dícuill
+Díglach
+Dímmae
+Dínertach
+Dúnchad
+Dúngal
+Dúngalc
+Dúnlang
+Echmhílidh
+Eochaid
+Eochaidc
+Eochu
+Ercc
+Failge
+Faílbe
+Fechtnach
+Fedacch
+Fedelmid
+Feradach
+Feradachc
+Ferchertne
+Ferdomnach
+Ferdorcha
+Fergal
+Fergus
+Fiachna
+Fiachnac
+Fiachra
+Fiachu
+Find
+Findchad
+Finguine
+Finnchad
+Finnchú
+Fintan
+Finán
+Flaithbertach
+Flaithem
+Flaithrí
+Fland
+Fland, Flann
+Flann
+Flannacán
+Fogartach
+Forannán
+Forbassach
+Fothad
+Fothud
+Fáelad
+Fáelán
+Fínghin
+Fíngin
+Fínnechta
+Gadra
+Garalt
+Gerald
+Geralt
+Geróitin
+Gilla Brénainn
+Gilla Comgaill
+Gilla Mochutu
+Gilla Pátraic
+Gilla na Náem
+Glassán
+Gormgilla
+Gormán
+Guaire
+Gáethínec
+Gébennach
+Imchad
+Indrechtach
+Labraid
+Lachtnán
+Lennán
+Liber
+Loingsech
+Lorccán
+Luachra
+Lugaid
+Lóegaire
+Mac Bethad
+Mac Laisre
+Magnus
+Maine
+Malachy
+Mara
+Marcán
+Martan
+Matheus
+Mathgamain
+Morand
+Moriartogh
+Morrann
+Mugrón
+Muirchertach
+Muirchertachc
+Muiredach
+Muirgius
+Murchad
+Máel Dúinc
+Máel Mithig
+Máel Muad
+Máel Ruanaid
+Máel Sechnaill
+Máel Ísu
+Máel-dúin
+Máel-ruanaid
+Máel-tuili
+Máelodor
+Máelán
+Máenach
+Móenach
+Nath-í
+Niall
+Nicholas
+Nuadu
+Odar
+Oisséne
+Olibhéar
+Orthanach
+Oscar
+Paitín
+Patrick
+Petrán
+Piarag
+Ragallach
+Ragnall
+Rebachán
+Rechtabra
+Rechtabrac
+Robartach
+Rosa
+Rossa
+Roí
+Ruaidrí
+Ruissíne
+Rumann
+Rígbarddán
+Rónán
+Scandal
+Scandlán
+Scothíne
+Sechnassach
+Selbach
+Senach
+Senchán
+Siacas
+Sitric
+Sleimhne
+Suibne
+Sáerbrethach
+Séigíne
+Sétnae
+Tadc
+Tairdelbach
+Tanaide
+Tigernach
+Tigernánc
+Tipraite
+Toimicín
+Toimilin
+Tomag
+Tomás
+Tressach
+Trian
+Tuathal
+TuathalAbner
+Uaithne
+Uillec
+Ádam
+Áed
+Áedgen
+Áengus
+Éicnechán
+Énnae
+Énri
+Éogan
+Érennach
+Óengus
+Óenucán
+Ólchobar
+
+[GENITIVE]
+ Ailella
+ Airt
+ Amalgada
+ Arcill
+ Batín
+ Beicce
+ Blaithmeic
+ Brain
+ Bressail
+ Broccáin
+ Báetáin
+ Caennaig
+ Caerill
+ Cainnaig
+ Cairpri
+ Cannech
+ Carthaich
+ Carthaig
+ Cathail
+ Celaig
+ Cellaich
+ Cennédig
+ Cerbaill
+ Cernaich
+ Cernaig
+ Cillíni
+ Cinaeda
+ Cinatha
+ Cinn-fáelad
+ Cináeda
+ Cobthaich
+ Cobthaig
+ Colgan
+ Colmáin
+ Coluimb
+ Conaill
+ Conchobair
+ Conchobuir
+ Condlae
+ Congaile
+ Congalaich
+ Conlae
+ Cormaic
+ Crimthaind
+ Crimthainn
+ Crundmaíl
+ Crunnmaíl
+ Cuircc
+ Culéoin
+ Culéon
+ Cummascaich
+ Cummascaig
+ Cáirthind
+ Cáirthinn
+ Cúáin
+ Dauíd
+ Diarmata
+ Domnaill
+ Donnchada
+ Donnchaid
+ Donnchid
+ Donngaile
+ Dubthaig
+ Duinechda
+ Dáire
+ Dímmai
+ Dúnchda
+ Dúngaile
+ Dúnlaing
+ Dúnlainge
+ Echach
+ Echuid
+ Eircc
+ Eochada
+ Faílbe
+ Feideilmid
+ Feidelmid
+ Feidlimid
+ Feradaig
+ Ferdomnaig
+ Fergaile
+ Fergusa
+ Fiachach
+ Fiachnae
+ Fiachrach
+ Find
+ Findchada
+ Finguni
+ Finnachta
+ Fintain
+ Fináin
+ Flaind
+ Flainn
+ Flaithbertaich
+ Flaithbertaig
+ Fogartaich
+ Fogartaig
+ Forannáin
+ Fothaid
+ Fáeláin
+ Garnait
+ Gille-Mícael
+ Gille-Míchéil
+ Gille-Míchél
+ Giric
+ Guaire
+ Hidid
+ Idid
+ Imchada
+ Indrechtaich
+ Indrechtaig
+ Lugdach
+ Luloig
+ Láegaire
+ Lóegairi
+ Maili-tuile
+ Maine
+ Mal-Colaim
+ Matni
+ Maíl-Bricín
+ Mal-Bricín
+ Maíl-Brigte
+ Maíl-Choluim
+ Mec-Bead
+ Meic-Dobarchon
+ Meic-Dobarcon
+ Meic-Dubbacín
+ Molíne
+ Morcunn
+ Morcunt
+ Morgainn
+ Moíl-Brigte
+ Muirchertaig
+ Muiredaich
+ Muiredaig
+ Murchada
+ Muredig
+ Muridaig
+ Máel-duin
+ Máel-ruanaid
+ Máeludir
+ Móenaig
+ Nath-í
+ Néill
+ Rechtabrat
+ Ruadrí
+ Ruaidrí
+ Rónáin
+ Scandláin
+ Sechnassaich
+ Sechnassaig
+ Senaich
+ Senaig
+ Suibne
+ Sétna
+ Sétnae
+ Síthig
+ Taidc
+ Tigernaich
+ Tigernaig
+ Tipraite
+ Trena
+ Treno
+ Triain
+ Trálín
+ Tuathail
+ Áeda
+ Áengusa
+ Éda
+ Énnai
+ Éogain
+ Óengusa
+
+[GENITIVELENITED]
+ Ailella
+ Airt
+ Amalgada
+ Arcill
+ Batín
+ Beicce
+ Blaithmeic
+ Brain
+ Bressail
+ Broccáin
+ Báetáin
+ Chaennaig
+ Chaerill
+ Chainnaig
+ Chairpri
+ Channech
+ Charthaich
+ Charthaig
+ Chathail
+ Chelaig
+ Chellaich
+ Chennédig
+ Cherbaill
+ Chernaich
+ Chernaig
+ Chillíni
+ Chinaeda
+ Chinatha
+ Chinn-fáelad
+ Chináeda
+ Chobthaich
+ Chobthaig
+ Cholgan
+ Cholmáin
+ Choluimb
+ Chonaill
+ Chonchobair
+ Chonchobuir
+ Chondlae
+ Chongaile
+ Chongalaich
+ Chonlae
+ Chormaic
+ Chrimthaind
+ Chrimthainn
+ Chrundmaíl
+ Chrunnmaíl
+ Chuircc
+ Chuléoin
+ Chuléon
+ Chummascaich
+ Chummascaig
+ Cháirthind
+ Cháirthinn
+ Chúáin
+ Dhauíd
+ Dhiarmata
+ Dhomnaill
+ Dhonnchada
+ Dhonnchaid
+ Dhonnchid
+ Dhonngaile
+ Dhubthaig
+ Dhuinechda
+ Dháire
+ Dhímmai
+ Dhúnchda
+ Dhúngaile
+ Dhúnlaing
+ Dhúnlainge
+ Echach
+ Echuid
+ Eircc
+ Eochada
+ Fhaílbe
+ Fheideilmid
+ Fheidelmid
+ Fheidlimid
+ Fheradaig
+ Fherdomnaig
+ Fhergaile
+ Fhergusa
+ Fhiachach
+ Fhiachnae
+ Fhiachrach
+ Fhind
+ Fhindchada
+ Fhinguni
+ Fhinnachta
+ Fhintain
+ Fhináin
+ Fhlaind
+ Fhlainn
+ Fhlaithbertaich
+ Fhlaithbertaig
+ Fhogartaich
+ Fhogartaig
+ Fhorannáin
+ Fhothaid
+ Fháeláin
+ Gharnait
+ Ghille-Mícael
+ Ghille-Míchéil
+ Ghille-Míchél
+ Ghiric
+ Ghuaire
+ Hidid
+ Idid
+ Imchada
+ Indrechtaich
+ Indrechtaig
+ Lugdach
+ Luloig
+ Láegaire
+ Lóegairi
+ Mhaili-tuile
+ Mhaine
+ Mhal-Colaim
+ Mhatni
+ Mhaíl-Bricín
+ Mhal-Bricín
+ Mhaíl-Brigte
+ Mhaíl-Choluim
+ Mhec-Bead
+ Mheic-Dobarchon
+ Mheic-Dobarcon
+ Mheic-Dubbacín
+ Mholíne
+ Mhorcunn
+ Mhorcunt
+ Mhorgainn
+ Mhoíl-Brigte
+ Mhuirchertaig
+ Mhuiredaich
+ Mhuiredaig
+ Mhurchada
+ Mhuredig
+ Mhuridaig
+ Mháel-duin
+ Mháel-ruanaid
+ Mháeludir
+ Mhóenaig
+ Nath-í
+ Néill
+ Rechtabrat
+ Ruadrí
+ Ruaidrí
+ Rónáin
+ Scandláin
+ Shechnassaich
+ Shechnassaig
+ Shenaich
+ Shenaig
+ Shuibne
+ Shétna
+ Shétnae
+ Shíthig
+ Thaidc
+ Thigernaich
+ Thigernaig
+ Thipraite
+ Threna
+ Threno
+ Thriain
+ Thrálín
+ Thuathail
+ Áeda
+ Áengusa
+ Éda
+ Énnai
+ Éogain
+ Óengusa
+
+[GENITIVELENITEDNOC]
+ Ailella
+ Airt
+ Amalgada
+ Arcill
+ Batín
+ Beicce
+ Blaithmeic
+ Brain
+ Bressail
+ Broccáin
+ Báetáin
+ Caennaig
+ Caerill
+ Cainnaig
+ Cairpri
+ Cannech
+ Carthaich
+ Carthaig
+ Cathail
+ Celaig
+ Cellaich
+ Cennédig
+ Cerbaill
+ Cernaich
+ Cernaig
+ Cillíni
+ Cinaeda
+ Cinatha
+ Cinn-fáelad
+ Cináeda
+ Cobthaich
+ Cobthaig
+ Colgan
+ Colmáin
+ Coluimb
+ Conaill
+ Conchobair
+ Conchobuir
+ Condlae
+ Congaile
+ Congalaich
+ Conlae
+ Cormaic
+ Crimthaind
+ Crimthainn
+ Crundmaíl
+ Crunnmaíl
+ Cuircc
+ Culéoin
+ Culéon
+ Cummascaich
+ Cummascaig
+ Cáirthind
+ Cáirthinn
+ Cúáin
+ Dhauíd
+ Dhiarmata
+ Dhomnaill
+ Dhonnchada
+ Dhonnchaid
+ Dhonnchid
+ Dhonngaile
+ Dhubthaig
+ Dhuinechda
+ Dháire
+ Dhímmai
+ Dhúnchda
+ Dhúngaile
+ Dhúnlaing
+ Dhúnlainge
+ Echach
+ Echuid
+ Eircc
+ Eochada
+ Fhaílbe
+ Fheideilmid
+ Fheidelmid
+ Fheidlimid
+ Fheradaig
+ Fherdomnaig
+ Fhergaile
+ Fhergusa
+ Fhiachach
+ Fhiachnae
+ Fhiachrach
+ Fhind
+ Fhindchada
+ Fhinguni
+ Fhinnachta
+ Fhintain
+ Fhináin
+ Fhlaind
+ Fhlainn
+ Fhlaithbertaich
+ Fhlaithbertaig
+ Fhogartaich
+ Fhogartaig
+ Fhorannáin
+ Fhothaid
+ Fháeláin
+ Gharnait
+ Ghille-Mícael
+ Ghille-Míchéil
+ Ghille-Míchél
+ Ghiric
+ Ghuaire
+ Hidid
+ Idid
+ Imchada
+ Indrechtaich
+ Indrechtaig
+ Lugdach
+ Luloig
+ Láegaire
+ Lóegairi
+ Mhaili-tuile
+ Mhaine
+ Mhal-Colaim
+ Mhatni
+ Mhaíl-Bricín
+ Mhal-Bricín
+ Mhaíl-Brigte
+ Mhaíl-Choluim
+ Mhec-Bead
+ Mheic-Dobarchon
+ Mheic-Dobarcon
+ Mheic-Dubbacín
+ Mholíne
+ Mhorcunn
+ Mhorcunt
+ Mhorgainn
+ Mhoíl-Brigte
+ Mhuirchertaig
+ Mhuiredaich
+ Mhuiredaig
+ Mhurchada
+ Mhuredig
+ Mhuridaig
+ Mháel-duin
+ Mháel-ruanaid
+ Mháeludir
+ Mhóenaig
+ Nath-í
+ Néill
+ Rechtabrat
+ Ruadrí
+ Ruaidrí
+ Rónáin
+ Scandláin
+ Shechnassaich
+ Shechnassaig
+ Shenaich
+ Shenaig
+ Shuibne
+ Shétna
+ Shétnae
+ Shíthig
+ Thaidc
+ Thigernaich
+ Thigernaig
+ Thipraite
+ Threna
+ Threno
+ Thriain
+ Thrálín
+ Thuathail
+ Áeda
+ Áengusa
+ Éda
+ Énnai
+ Éogain
+ Óengusa
+
+[BYNAME]
+ Allán
+ Bennán
+ Boru
+ Brithem
+ Bán
+ Caille
+ Canóne
+ Catha an Dúna
+ Cennmagair
+ Crobderg
+ Cualann
+ Cáech
+ Damán
+ Donn
+ Feórna
+ Finn
+ Finnliath
+ Fland
+ Flann
+ Fledach
+ Frassach
+ Glúndub
+ Mainistrech
+ Menn
+ Mide
+ Muillethan
+ Máelgarb
+ Ornide
+ Rúanaid
+ Sacart
+ Sinna
+ Sláne
+ Sotal
+ an Eich Gil
+ na Saide Buide

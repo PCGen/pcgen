@@ -1,0 +1,22 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Thu Sep 29 13:06:07 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+# 0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE, 6=CG, 7=CN, 8=CE
+
+# Deity Name	Product Identity?	Domains																							Clergy AL			Desciption of Deity/Title	Holy Item	Deity Weapon		ALIGN		PANTHEON			Source Page
+The Destroyer	NAMEISPI:NO		DOMAINS:Chaos,Evil,Destruction,Death,War																		FOLLOWERALIGN:012345678	DESC:The Destroyer		SYMBOL:None	DEITYWEAP:Morningstar	ALIGN:CE	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Father		NAMEISPI:NO		DOMAINS:Good,Healing,Law,Knowledge,War																		FOLLOWERALIGN:012345678	DESC:The Father			SYMBOL:None	DEITYWEAP:Mace		ALIGN:LG	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Judge		NAMEISPI:NO		DOMAINS:Good,Destruction,Knowledge,Law,Protection																FOLLOWERALIGN:012345678	DESC:The Judge			SYMBOL:None	DEITYWEAP:Hammer		ALIGN:LG	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Lover		NAMEISPI:NO		DOMAINS:Animal,Good,Healing,Protection,Water																	FOLLOWERALIGN:012345678	DESC:The Lover			SYMBOL:None	DEITYWEAP:Dagger		ALIGN:NG	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Magus		NAMEISPI:NO		DOMAINS:Knowledge,Luck,Magic,Protection,Trickery																FOLLOWERALIGN:012345678	DESC:The Magus			SYMBOL:None	DEITYWEAP:Quarterstaff	ALIGN:TN	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Merchant	NAMEISPI:NO		DOMAINS:Knowledge,Law,Luck,Travel,Trickery																	FOLLOWERALIGN:012345678	DESC:The Merchant			SYMBOL:None	DEITYWEAP:Shortspear	ALIGN:LN	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Mother		NAMEISPI:NO		DOMAINS:Animal,Good,Earth,Protection,Plant																	FOLLOWERALIGN:012345678	DESC:The Mother			SYMBOL:None	DEITYWEAP:Sickle		ALIGN:CG	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Reaper		NAMEISPI:NO		DOMAINS:Death,Earth,Evil,Law,Trickery																		FOLLOWERALIGN:012345678	DESC:The Reaper			SYMBOL:None	DEITYWEAP:Scythe		ALIGN:LE	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Stormlord	NAMEISPI:NO		DOMAINS:Air,Chaos,Destruction,Travel,Water																	FOLLOWERALIGN:012345678	DESC:The Stormlord		SYMBOL:None	DEITYWEAP:Trident		ALIGN:CN	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Smith		NAMEISPI:NO		DOMAINS:Fire,Knowledge,Magic,Strength,Water																	FOLLOWERALIGN:012345678	DESC:The Smith			SYMBOL:None	DEITYWEAP:Warhammer	ALIGN:TN	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Trickster	NAMEISPI:NO		DOMAINS:Chaos,Knowledge,Luck,Magic,Trickery																	FOLLOWERALIGN:012345678	DESC:The Trickster		SYMBOL:None	DEITYWEAP:Sword (Short)	ALIGN:CN	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Warrior		NAMEISPI:NO		DOMAINS:Law,Luck,Magic,Strength,War																			FOLLOWERALIGN:012345678	DESC:The Warrior			SYMBOL:None	DEITYWEAP:Greatsword	ALIGN:LN	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+
+Dualist		NAMEISPI:NO		DOMAINS:ALL																							FOLLOWERALIGN:345		DESC:Dualist			SYMBOL:None	DEITYWEAP:None				PANTHEON:Dragonstar	SOURCEPAGE:p.39
+
+The Creator		NAMEISPI:NO		DOMAINS:Air,Animal,Death,Destruction,Earth,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water	FOLLOWERALIGN:0134	DESC:The Creator			SYMBOL:None	DEITYWEAP:Hammer		ALIGN:LG	PANTHEON:Dragonstar	SOURCEPAGE:p.39
+The Adversary	NAMEISPI:NO		DOMAINS:Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Healing,Knowledge,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water	FOLLOWERALIGN:4578	DESC:The Adversary		SYMBOL:None	DEITYWEAP:Flail		ALIGN:CE	PANTHEON:Dragonstar	SOURCEPAGE:p.39

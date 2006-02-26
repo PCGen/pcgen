@@ -1,0 +1,92 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Dec 30 01:04:38 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name					Type
+Acrobatic.MOD				TYPE:SpaceMonkey
+Advanced Combat Martial Arts.MOD	TYPE:Dreadnought.HelixWarrior.Tracer
+Advanced Firearms Proficiency.MOD	TYPE:Dreadnought.FieldOfficer.HelixWarrior.SpaceMonkey.Tracer
+Advanced Two-Weapon Fighting.MOD	TYPE:Dreadnought.Explorer
+Aircraft Operation(Spacecraft).MOD	TYPE:Engineer.Explorer.SpaceMonkey.Astronaut_Trainee.Tracer
+Alertness.MOD				TYPE:Tracer
+Archaic Weapons Proficiency.MOD	TYPE:Explorer.SpaceMonkey
+Armor Proficiency (Light).MOD		TYPE:Dreadnought.FieldOfficer.HelixWarrior.SpaceMonkey.Technosavant.Tracer
+Armor Proficiency (Heavy).MOD		TYPE:Dreadnought.FieldOfficer.HelixWarrior.SpaceMonkey
+Armor Proficiency (Medium).MOD	TYPE:Dreadnought.FieldOfficer.HelixWarrior.SpaceMonkey.Technosavant.Tracer
+Athletic.MOD				TYPE:Dreadnought.HelixWarrior.SpaceMonkey.Tracer
+Attentive.MOD				TYPE:Ambassador.Explorer
+Blind-Fight.MOD				TYPE:Dogfighter.HelixWarrior.SpaceMonkey.Swindler
+Brawl.MOD					TYPE:Dogfighter.Dreadnought.Explorer.SpaceMonkey.Gladiator
+Builder.MOD					TYPE:Engineer.SpaceMonkey.Colonist.Technosavant
+Burst Fire.MOD				TYPE:Dreadnought
+Cautious.MOD				TYPE:Engineer
+Cleave.MOD					TYPE:Dreadnought
+Combat Expertise.MOD			TYPE:Dreadnought.FieldOfficer.HelixWarrior
+Combat Martial Arts.MOD			TYPE:Dreadnought.Gladiator
+Combat Reflexes.MOD			TYPE:Dreadnought.HelixWarrior.SpaceMonkey.Xenophile
+Combat Throw.MOD				TYPE:HelixWarrior.Tracer
+Confident.MOD				TYPE:Swindler
+Dead Aim.MOD				TYPE:HelixWarrior.Tracer
+Deceptive.MOD				TYPE:Swindler
+Defensive Martial Arts.MOD		TYPE:Ambassador.HelixWarrior
+Dodge.MOD					TYPE:Ambassador.Explorer.FieldOfficer.Xenophile
+Double Tap.MOD				TYPE:Tracer
+Educated.MOD				TYPE:Ambassador.Explorer.Heir.Swindler.Xenophile
+Elusive Target.MOD			TYPE:HelixWarrior.Swindler.Tracer
+Endurance.MOD				TYPE:Dreadnought.Explorer
+Exotic Firearms Proficiency.MOD	TYPE:Explorer.HelixWarrior.Technosavant
+Exotic Melee Weapon Proficiency.MOD	TYPE:Explorer.Technosavant
+Far Shot.MOD				TYPE:HelixWarrior.Tracer
+Force Stop.MOD				TYPE:SpaceMonkey
+Frightful Presence.MOD			TYPE:Dreadnought
+Gearhead.MOD				TYPE:Dogfighter.Engineer.SpaceMonkey.Technosavant
+Great Cleave.MOD				TYPE:Dreadnought
+Great Fortitude.MOD			TYPE:HelixWarrior
+Guide.MOD					TYPE:Colonist
+Heroic Surge.MOD				TYPE:Explorer
+Improved Brawl.MOD			TYPE:Dogfighter.Dreadnought.SpaceMonkey
+Improved Bull Rush.MOD			TYPE:Dreadnought.SpaceMonkey
+Improved Combat Martial Arts.MOD	TYPE:Dreadnought.HelixWarrior.Tracer
+Improved Combat Throw.MOD		TYPE:Dreadnought.HelixWarrior.Tracer
+Improved Disarm.MOD			TYPE:Dreadnought.HelixWarrior
+Improved Feint.MOD			TYPE:Dogfighter.Explorer.SpaceMonkey
+Improved Initiative.MOD			TYPE:Ambassador.FieldOfficer.Tracer
+Improved Knockout Punch.MOD		TYPE:Dreadnought.Explorer.SpaceMonkey
+Improved Trip.MOD				TYPE:Dreadnought.HelixWarrior
+Improved Two-Weapon Fighting.MOD	TYPE:Dreadnought
+Iron Will.MOD				TYPE:FieldOfficer.HelixWarrior
+Jack of All Trades.MOD			TYPE:Explorer
+Knockout Punch.MOD			TYPE:Dreadnought.Explorer.SpaceMonkey
+Lightning Reflexes.MOD			TYPE:HelixWarrior
+Low Profile.MOD				TYPE:Ambassador.Swindler.Tracer
+Medical Expert.MOD			TYPE:Xenophile
+Mobility.MOD				TYPE:Dreadnought.Explorer.FieldOfficer.Xenophile
+Nimble.MOD					TYPE:Explorer.Swindler
+Oathbound.MOD				TYPE:Ambassador
+Power Attack.MOD				TYPE:Dreadnought.SpaceMonkey
+Precise Shot.MOD				TYPE:FieldOfficer.Tracer
+Quick Draw.MOD				TYPE:FieldOfficer
+Renown.MOD					TYPE:Ambassador.Explorer.FieldOfficer.Swindler
+Run.MOD					TYPE:Dreadnought.SpaceMonkey
+Shot on the Run.MOD			TYPE:FieldOfficer.Tracer
+Skip Shot.MOD				TYPE:Tracer
+Spring Attack.MOD				TYPE:Dreadnought
+Stealthy.MOD				TYPE:Tracer
+Strafe.MOD					TYPE:Dreadnought
+Streetfighting.MOD			TYPE:Dreadnought.Explorer.SpaceMonkey
+Studious.MOD				TYPE:Explorer.Xenophile
+Sunder.MOD					TYPE:Dreadnought
+Surface Vehicle Operation.MOD		TYPE:Engineer.HelixWarrior
+Surgery.MOD					TYPE:Xenophile
+Toughness.MOD				TYPE:Dreadnought.SpaceMonkey
+Track.MOD					TYPE:Explorer
+Trustworthy.MOD				TYPE:Ambassador.Swindler.Tracer
+Two-Weapon Fighting.MOD			TYPE:Dreadnought.Explorer
+Unbalance Opponent.MOD			TYPE:Tracer
+Vehicle Dodge.MOD				TYPE:SpaceMonkey
+Vehicle Expert.MOD			TYPE:Engineer.Explorer.Transporter.Technosavant
+Weapon Focus.MOD				TYPE:HelixWarrior.SpaceMonkey.Xenophile
+Whirlwind Attack.MOD			TYPE:HelixWarrior
+
+#
+# End
+#

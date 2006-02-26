@@ -1,0 +1,334 @@
+// Pictish (Medieval) Male Names
+//
+
+[RULES]
+25	[GIVEN]
+30	[GIVEN]	[BYNAME]
+35	[GIVEN]	[FRATER]	[GENITIVE]
+40	[GIVEN]	[BYNAME-TRIBAL-NOM-ADJ]
+45	[GIVEN]	[BYNAME-TRIBAL-NOM-PL]
+60	[GIVEN]	[MAC]	[GENITIVE]
+65	[GIVEN]	[NATIONIS]	[BYNAME-TRIBAL-GENITIVE]
+70	[GIVEN]	[NATIONE]	[BYNAME-TRIBAL-NOM-ADJ]
+80	[GIVEN]	[BYNAME-TOWN]
+90	[GIVEN]	[FILIUS]	[GENITIVE]
+100	[GIVEN]	[NEPOS]	[GENITIVE]
+
+
+[NATIONIS]
+ nationis
+
+[NATIONE]
+ natione
+
+[NEPOS]
+ nepos
+
+[FILIUS]
+ filius
+
+[NEPTIS]
+ neptis
+
+[FILIA]
+ filia
+
+[FRATER]
+ frater
+
+[MAC]
+ mac
+ map
+
+[GIVEN]
+Alpin
+Alpinos
+Ambicatos
+Artbranan
+Artobranagnos
+Bliesblituth
+Bredei
+Brude
+Caeltigern
+Cailotigernacos
+Cal
+Canaul
+Canutulachama
+Carvorst
+Cemoyth
+Cimoiod
+Cimoit
+Cimoitos
+Cind
+Cinid
+Cinidos
+Cint
+Cintos
+Denbecan
+Denbechan
+Deo
+Deoardivois
+Deocilunon
+Deoord
+Deototreic
+Diu
+Dn becan
+Dn becanos
+Dnbecan
+Dnbecanos
+Don becan
+Don becanos
+Donbecan
+Donbecanos
+Drest
+Drost
+Drosten
+Druisten
+Drust
+Drustagnos
+Drustos
+Edarnan
+Elpin
+Emcad
+Emcat
+Emcath
+Etharnan
+Fechir
+Fecir
+Fed
+Fet
+Galam
+Galanan
+Gant
+Gart
+Gartnait
+Gartnaith
+Gede
+Gest
+Gilgidi
+Gnith
+Grid
+Grit
+Gritos
+Guib
+Guidid
+Guist
+Gurcich
+Gust
+Gustos
+Leo
+Maroleo
+Morleo
+Mund
+Naiton
+Nechtan
+Nectanos
+Oinogustos
+Olfinecta
+Ongust
+Onnuist
+Ougenos
+Pant
+Ru
+Talorc
+Talorcagnos
+Talorcan
+Talorcos
+Talorg
+Talorgen
+Taran
+Taranos
+Udrost
+Uen
+Uepos
+Uip
+Uirolec
+Uist
+Unuist
+Urochan
+Uroican
+Usconbuts
+Uuen
+Uuidid
+Uurad
+Uuradec
+Uurat
+Uurcich
+Uuredeg
+Uurguist
+Uurgust
+Uurlech
+Uust
+Vepogenos
+Vipog
+Viratos
+Virocagnos
+Virogustos
+Virolectos
+Virotacos
+Wdrost
+Wrad
+Wradech
+Wrguist
+Wroican
+
+[GENITIVE]
+ Achivir
+ Aniel
+ Artcois
+ Artocoxos
+ Bargoit
+ Belinos
+ Bili
+ Buthud
+ Buthut
+ Derelei
+ Donnel
+ Dumnovellos
+ Enfidich
+ Enfret
+ Entifidich
+ Girom
+ Gyrom
+ Lugutrinos
+ Lutrin
+ Maglocunos
+ Mailcon
+ Muircholach
+ Munait
+ Uerb
+ Uerp
+ Uuid
+ Uuthoil
+ Wid
+ Wirp
+ Wthoil
+
+[BYNAME-TRIBAL-NOM-PL]
+ Caereni
+ Caledonii
+ Cornavii
+ Decantae
+ Epidii
+ Lugi
+ Smertae
+ Taezali
+ Vacomagi
+ Venicones
+
+[BYNAME-TRIBAL-GENITIVE]
+ Caerenorum
+ Caledoniorum
+ Cornaviorum
+ Decantarum
+ Epidiorum
+ Lugorum
+ Smertarum
+ Taezalorum
+ Vacomagorum
+ Veniconum
+
+[BYNAME-TRIBAL-NOM-ADJ]
+ Caerenacus
+ Caerenus
+ Caledoniacus
+ Caledonius
+ Cornaviacus
+ Cornavius
+ Decantacus
+ Decantus
+ Epidiacus
+ Epidius
+ Lugiacus
+ Lugus
+ Smertacus
+ Smertus
+ Taezalacus
+ Taezalus
+ Vacomagacus
+ Vacomagus
+ Veniconacus
+ Veniconis
+
+[BYNAME-TOWN]
+ Alauna 
+ Alaunae 
+ Alaunanus 
+ Alaunensis
+ Bannatia 
+ Bannatiae 
+ Bannatianus 
+ Bannatiensis
+ Carnonacae 
+ Carnonacanus
+ Carnonacarum 
+ Carnonacensis
+ Creones 
+ Creonianus 
+ Creoniensis
+ Creoninus 
+ Creonium 
+ Creonum 
+ Devana 
+ Devanae 
+ Devananus 
+ Devanensis
+ Dumna 
+ Dumnae 
+ Dumnanus 
+ Dumnensis
+ Epidianus 
+ Epidiensis
+ Epidii 
+ Epidium 
+ Malaianus 
+ Malaiensis
+ Malaii 
+ Malaius 
+ Orcades 
+ Orcadianus 
+ Orcadiensis
+ Orcadinus
+ Orcadium 
+ Orcadum 
+ Orrea 
+ Orreae 
+ Orreanus 
+ Scetianus 
+ Scetiensis
+ Scetinus 
+ Scetis 
+ Tamia 
+ Tamiae 
+ Tamianus 
+ Tamiensis
+ Tarvedanus 
+ Tarvedensis
+ Tarvedi 
+ Tarvedum 
+ Tuesianus 
+ Tuesiensis
+ Tuesinus 
+ Tuesis 
+ Verubianus
+ Verubiensis
+ Verubii 
+ Verubium 
+ Virvedranus 
+ Virvedrensis
+ Virvedri 
+ Virvedrum 
+
+[BYNAME]
+ Diuberr
+ Erilich
+ Erilith
+ Gaed brechach
+ Gurthinmoch
+ Ini
+ Loc
+ Mor
+ Morbet
+ Olgudach
+ Uecla
+ Uetla

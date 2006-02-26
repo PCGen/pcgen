@@ -1,0 +1,29 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Sun Jun 20 16:02:08 2004 -- reformated by prettylst.pl v1.32 (build 363)
+CAMPAIGN:Avalanche - Vlad the Impaler
+GAMEMODE:3e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Avalanche Press.Supplement
+RANK:9
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia
+SOURCESHORT:Vlad
+SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Vlad the Impaler:Blood Prince of Wallachia copyright 2002, Avalanche Press, Ltd.
+COPYRIGHT:PCGen dataset conversion for Vlad the Impaler:Blood Prince of Wallachia Copyright 2003-2004, PCgen Data team including, but not limited to, Emily Smirle, Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+CLASS:vlad_classes.lst
+FEAT:vlad_feats.lst
+EQUIPMENT:vlad_weapons.lst
+WEAPONPROF:vlad_weaponprofs.lst
+RACE:vlad_races.lst
+TEMPLATE:vlad_templates.lst
+
+# Added because Lautar class lists as a class skill
+SKILL:vlad_skills.lst

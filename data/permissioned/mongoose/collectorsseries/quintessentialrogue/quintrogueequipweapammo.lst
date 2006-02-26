@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue|SOURCESHORT:QuintRogue|SOURCEWEB:http://mongoosepublishing.com
+
+# Equipment Name	Type				Cost		Weight	Base Quantity	Source Page
+Needle		TYPE:Ammunition.Needle	COST:.1	WT:0					SOURCEPAGE:p.54
+Needles (10)	TYPE:Ammunition.Needle	COST:1	WT:0		BASEQTY:10		SOURCEPAGE:p.54

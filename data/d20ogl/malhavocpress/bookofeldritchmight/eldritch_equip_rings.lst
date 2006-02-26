@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 10 12:52:03 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+#Spell names and other proper names from The Book of Eldritch Might are
+#	©2001-2003 Monte J. Cook and are used here with his permission.
+
+
+# Equipment Name		Type			Cost		Weight	Source Page
+Ring of Blue Conjures	TYPE:Magic.Ring	COST:42000	WT:0		SOURCEPAGE:p.23
+Ring of Ebony Bolts	TYPE:Magic.Ring	COST:86000	WT:0		SOURCEPAGE:p.23
+Ring of Holy Spells	TYPE:Magic.Ring	COST:25000	WT:0		SOURCEPAGE:p.24
+Ring of Red Conjures	TYPE:Magic.Ring	COST:14000	WT:0		SOURCEPAGE:p.24
+Ring of Silence		TYPE:Magic.Ring	COST:7000	WT:0		SOURCEPAGE:p.24

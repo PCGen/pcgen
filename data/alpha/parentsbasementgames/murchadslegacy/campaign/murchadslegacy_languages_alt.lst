@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu May 12 17:47:51 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Language
+Common.FORGET
+Dwarven.FORGET
+Elven.FORGET
+Gnome.FORGET
+Halfling.FORGET
+Orc.FORGET
+Undercommon.FORGET
+
+#
+# End
+#

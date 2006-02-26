@@ -1,0 +1,40 @@
+# CVS $Revision: 1.22 $ $Author: eddyanthony $ -- Sat Dec 10 01:36:13 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+## Original entry by: Thaldorf
+
+###Block: Specific Armors
+
+# Equipment Name			Type								Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page				% of Spell Failure	Virtual Feat		Damage Reduction	Spells								Combat bonus					Bonus to skill						Modify VAR									Special Property																		Automaticaly Added to Inventory
+Adamantine Breastplate		TYPE:Armor.Medium.Suit.Specific			COST:200	WT:30		ACCHECK:-4		EQMOD:ADAMANT_ARMR_MED					MAXDEX:3		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:25						DR:2/-											BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Banded Mail of Luck		TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:250	WT:35		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS3A.MAGIC_COST|9500		MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35																		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE																			SPROP:Allows the wearer to reroll one attack against him 1/week
+Breastplate of Command		TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:200	WT:30		ACCHECK:-4		EQMOD:STEEL.MWORKA.PLUS2A.MAGIC_COST|21050	MAXDEX:3		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:25																		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE	BONUS:SKILL|TYPE=Charisma|2|TYPE=Competence	BONUS:VAR|LeadershipScore,TurnCheckBase|2|TYPE=Competence
+Celestial Armor			TYPE:Enhancement.Armor.Light.Suit.Specific	COST:150	WT:20		ACCHECK:-3		EQMOD:STEEL.MWORKA.PLUS3A.MAGIC_COST|13100	MAXDEX:8		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:15									SPELLS:Celestial Armor|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE																			SPROP:Allows the wearer to fly on command once per day
+Demon Armor				TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS4A.MAGIC_COST|34610	MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35		VFEAT:Negative Levels													BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE									BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7			SPROP:Allows the wearer to appear like a demon, may use a claw attack as +1 and 1d10 dam and afflict contagion (DC14)	AUTO:EQUIP|Demon Armor Claw Attack
+Dragonhide Plate			TYPE:Armor.Heavy.Suit.Specific			COST:1500	WT:50		ACCHECK:-6		EQMOD:DRACO							MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35																		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE																			SPROP:Suit of non metal plate made of dragon hides, could be used by druids
+Dwarven Plate			TYPE:Armor.Heavy.Suit.Specific			COST:1500	WT:50		ACCHECK:-6		EQMOD:ADAMANT_ARMR_HVY					MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35						DR:3/-											BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Elven Chain				TYPE:Armor.Light.Suit.Specific			COST:150	WT:40		ACCHECK:-5		EQMOD:MITHRAL_ARMR_MED					MAXDEX:2		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:30																		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Mithral Full Plate of Speed	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:MITHRAL_ARMR_HVY.PLUS1A.MAGIC_COST|15000	MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35																		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE																			SPROP:Allows the wearer to activate haste as a free action up to 10 rounds per day
+Mithral Shirt			TYPE:Armor.Light.Suit.Specific			COST:100	WT:20		ACCHECK:-2		EQMOD:MITHRAL_ARMR_LT					MAXDEX:4		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:20																		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Plate Armor of the Deep		TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS1A.MAGIC_COST|22000	MAXDEX:1		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:35																		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE																			SPROP:Allows the wearer to swim as unarmored, to breathe under water, and to comunicate with waterbreathing creatures
+Rhino Hide				TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:15	WT:25		ACCHECK:-3		EQMOD:MWORKA.PLUS2A.MAGIC_COST|1000			MAXDEX:4		SOURCEPAGE:MagicItemsII.rtf	SPELLFAILURE:20																		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE																			SPROP:Allows the wearer to deal 2d6 add damage on any successful charge attack
+
+###Block: Specific Shields
+
+# Equipment Name		Type								Cost		Weight	Modifier							Source Page				Spells								Combat bonus																					Special Property
+Absorbing Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|49000	SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
+Caster's Shield		TYPE:Enhancement.Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.MWORKA.PLUS1S.MAGIC_COST|2000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE																	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
+Darkwood Buckler		TYPE:Shield.Buckler.Specific.Nonmetal		COST:15	WT:4		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Darkwood Shield		TYPE:Shield.Light.Specific.Nonmetal			COST:7	WT:10		EQMOD:DARK							SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Lion's Shield		TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS2S.MAGIC_COST|5000		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
+Mithral Heavy Shield	TYPE:Shield.Heavy.Specific				COST:20	WT:15		EQMOD:MITHRAL_SHLD					SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Spined Shield		TYPE:Enhancement.Heavy.Shield.Specific		COST:20	WT:15		EQMOD:STEEL.MWORKA.PLUS1S.MAGIC_COST|4410		SOURCEPAGE:MagicItemsII.rtf										BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
+Winged Shield		TYPE:Enhancement.Heavy.Shield.Specific.Nonmetal	COST:7	WT:10		EQMOD:WOOD.MWORKA.PLUS3S.MAGIC_COST|8100		SOURCEPAGE:MagicItemsII.rtf	SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE																	SPROP:Allows the wearer to fly on command once per day
+
+###Block: Virtual weapons
+
+# Equipment Name		Required Proficiency		Type									Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size
+Demon Armor Claw Attack	PROFICIENCY:Unarmed Strike	TYPE:Weapon.Melee.Simple.Unarmed.Piercing.Slashing	COST:-2300	WT:0		ACCHECK:-6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:STEEL.MWORKW.PLUS1W	WIELD:Light		SIZE:M
+
+#
+# End
+#

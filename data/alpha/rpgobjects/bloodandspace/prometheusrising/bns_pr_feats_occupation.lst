@@ -1,0 +1,72 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Thu Mar 24 23:08:50 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Space - Prometheus Rising|SOURCESHORT:BnS-PR|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+
+###Block: Occupations
+
+# Feat Name					Output Name		Type			Visible	Required Feat			Prohibited Race						Choose a Feat																			Modify VAR							Source Page
+Occupation (Asteroid Prospector)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Asteroid_Prospector_Skills)2														BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Occupation (Corporate Employee)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Corporate_Employee_Skills)															BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.12
+Occupation (Gambler)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Gambler_Skills)2	ADD:FEAT(Action Boost)												BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Occupation (Hauler)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(Salvage,Spacer,Starship Operation(Light))	ADD:FEAT(TYPE=Hauler_Skills)2								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Occupation (Pirate)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO						!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(Salvage,Starship Operation(Ultralight),Starship Operation(Light),Zero G Training)	ADD:FEAT(TYPE=Pirate_Skills)	BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.13
+Occupation (Psychic)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PREFEAT:1,TYPE=BasePsionic	!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=Psychic_Skills)2	ADD:FEAT(TYPE=EuroPreferredOccupation)									BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.13
+
+###Block: Occupation benefit MODs
+
+# Feat Name								Type
+Bluff(class skill).MOD						TYPE:Corporate_Employee_Skills.Gambler_Skills.Pirate_Skills.Psychic_Skills
+Bluff(+1 to skill).MOD						TYPE:Corporate_Employee_Skills.Gambler_Skills.Pirate_Skills.Psychic_Skills
+Computer Use(class skill).MOD					TYPE:Asteroid_Prospector_Skills.Corporate_Employee_Skills.Hauler_Skills.Pirate_Skills
+Computer Use(+1 to skill).MOD					TYPE:Asteroid_Prospector_Skills.Corporate_Employee_Skills.Hauler_Skills.Pirate_Skills
+Concentration(class skill).MOD				TYPE:Psychic_Skills
+Concentration(+1 to skill).MOD				TYPE:Psychic_Skills
+Craft (Chemical - class skill).MOD				TYPE:Asteroid_Prospector_Skills
+Craft (Chemical - +1 to skill).MOD				TYPE:Asteroid_Prospector_Skills
+Demolitions(class skill).MOD					TYPE:Asteroid_Prospector_Skills
+Demolitions(+1 to skill).MOD					TYPE:Asteroid_Prospector_Skills
+Diplomacy(class skill).MOD					TYPE:Corporate_Employee_Skills.Gambler_Skills.Hauler_Skills.Psychic_Skills
+Diplomacy(+1 to skill).MOD					TYPE:Corporate_Employee_Skills.Gambler_Skills.Hauler_Skills.Psychic_Skills
+Forgery(class skill).MOD					TYPE:Gambler_Skills
+Forgery(+1 to skill).MOD					TYPE:Gambler_Skills
+Gamble(class skill).MOD						TYPE:Corporate_Employee_Skills.Gambler_Skills
+Gamble(+1 to skill).MOD						TYPE:Corporate_Employee_Skills.Gambler_Skills
+Gather Information(class skill).MOD				TYPE:Corporate_Employee_Skills
+Gather Information(+1 to skill).MOD				TYPE:Corporate_Employee_Skills
+Intimidate(class skill).MOD					TYPE:Pirate_Skills.Psychic_Skills
+Intimidate(+1 to skill).MOD					TYPE:Pirate_Skills.Psychic_Skills
+Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Corporate_Employee_Skills.Psychic_Skills
+Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Corporate_Employee_Skills.Psychic_Skills
+Knowledge (Business - class skill).MOD			TYPE:Corporate_Employee_Skills.Hauler_Skills
+Knowledge (Business - +1 to skill).MOD			TYPE:Corporate_Employee_Skills.Hauler_Skills
+Knowledge (Civics - class skill).MOD			TYPE:Corporate_Employee_Skills
+Knowledge (Civics - +1 to skill).MOD			TYPE:Corporate_Employee_Skills
+Knowledge (Current Events - class skill).MOD		TYPE:Asteroid_Prospector_Skills.Corporate_Employee_Skills.Hauler_Skills
+Knowledge (Current Events - +1 to skill).MOD		TYPE:Asteroid_Prospector_Skills.Corporate_Employee_Skills.Hauler_Skills
+Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Asteroid_Prospector_Skills
+Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Asteroid_Prospector_Skills
+Knowledge (Popular Culture - class skill).MOD		TYPE:Corporate_Employee_Skills.Hauler_Skills
+Knowledge (Popular Culture - +1 to skill).MOD		TYPE:Corporate_Employee_Skills.Hauler_Skills
+Knowledge (Streetwise - class skill).MOD			TYPE:Gambler_Skills.Pirate_Skills
+Knowledge (Streetwise - +1 to skill).MOD			TYPE:Gambler_Skills.Pirate_Skills
+Navigate(class skill).MOD					TYPE:Asteroid_Prospector_Skills.Hauler_Skills.Pirate_Skills.Psychic_Skills
+Navigate(+1 to skill).MOD					TYPE:Asteroid_Prospector_Skills.Hauler_Skills.Pirate_Skills.Psychic_Skills
+Pilot(class skill).MOD						TYPE:Asteroid_Prospector_Skills.Hauler_Skills.Pirate_Skills
+Pilot(+1 to skill).MOD						TYPE:Asteroid_Prospector_Skills.Hauler_Skills.Pirate_Skills
+Repair(class skill).MOD						TYPE:Hauler_Skills.Pirate_Skills
+Repair(+1 to skill).MOD						TYPE:Hauler_Skills.Pirate_Skills
+Search(class skill).MOD						TYPE:Asteroid_Prospector_Skills.Pirate_Skills
+Search(+1 to skill).MOD						TYPE:Asteroid_Prospector_Skills.Pirate_Skills
+Sense Motive(class skill).MOD					TYPE:Corporate_Employee_Skills.Gambler_Skills.Psychic_Skills
+Sense Motive(+1 to skill).MOD					TYPE:Corporate_Employee_Skills.Gambler_Skills.Psychic_Skills
+Sleight of Hand(class skill).MOD				TYPE:Gambler_Skills
+Sleight of Hand(+1 to skill).MOD				TYPE:Gambler_Skills
+Spot(class skill).MOD						TYPE:Gambler_Skills
+Spot(+1 to skill).MOD						TYPE:Gambler_Skills
+Treat Injury(class skill).MOD					TYPE:Psychic_Skills
+Treat Injury(+1 to skill).MOD					TYPE:Psychic_Skills
+Tumble(class skill).MOD						TYPE:Hauler_Skills
+Tumble(+1 to skill).MOD						TYPE:Hauler_Skills
+
+#
+# End
+#

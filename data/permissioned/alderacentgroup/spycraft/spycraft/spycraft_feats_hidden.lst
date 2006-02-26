@@ -1,0 +1,156 @@
+# CVS $Revision: 1.13 $ $Author: tir-gwaith $ -- Thu Jan  6 15:17:42 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+
+###Block: Department Abilities
+
+# Feat Name		Type			Visible	Stackable?	Multiple?	Choose					Bonus to skill			Stat bonus										Class Skill	Cost
+D-0 Class Skills	TYPE:Department	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																	CSKILL:LIST	COST:0
+
+D-2 Stat Bonus	TYPE:Department	VISIBLE:NO			MULT:YES	CHOOSE:NUMCHOICES=1|STAT|1							BONUS:STAT|LIST|2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|-2
+D-2 Stat Penalty	TYPE:Department	VISIBLE:NO			MULT:YES	CHOOSE:NUMCHOICES=1|STAT|1							BONUS:STAT|LIST|-2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2
+D-2 Skill Bonus	TYPE:DepartmentD2	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS|1		BONUS:SKILL|LIST|(TL/4)+1														COST:0
+
+### Class Abilities
+
+###Block:  Core Class Abilities
+
+# Feat Name			Type			Visible	Var. Max. Value	Special Ability						Define
+Faceman Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Adaptable
+Fixer Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Dexterous
+Pointman Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Generous
+Snoop Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Astute
+Soldier Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Accurate
+Wheelman Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SA:Lucky	SA:Custom Ride (% BP)|CustomRide	DEFINE:CustomRide|(CL/4)+4
+
+###Block:  Fixer Abilities
+
+# Feat Name			Type					Visible	Special Ability																																			Define											Stackable?	Multiple?	Choose				Choose a Feat			Add to base move													Modify VAR
+Sneak Attack		TYPE:Special			VISIBLE:NO	SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie																														DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6
+Uncanny Dodge		TYPE:Special			VISIBLE:NO	SA:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	SA:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	SA:Uncanny Dodge (can't be flanked, +% against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3	DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|max((UncannyDodge-2),0)
+Evasion			TYPE:Special			VISIBLE:NO	SA:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	SA:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	SA:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3							DEFINE:EvasionFactor|0
+
+Fast Movement		TYPE:FixerSpecialAbility	VISIBLE:NO																																																																BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
+Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:Once per session																						BONUS:VAR|FixerImprovisation|1
+Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:Once per session																						BONUS:VAR|FixerMasterThief|1
+Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:NO	MULT:YES						ADD:FEAT(Skill Mastery)3
+Skill Mastery		TYPE:SpecialAbility		VISIBLE:NO	SA:Skill Mastery (%CHOICE)																																													STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL|1
+Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SA:Stash It
+
+###Block:  Pointman Abilities
+
+# Feat Name						Type					Visible	Required Feat				Special Ability						Define				Stackable?	Multiple?	Choose					Choose a Feat												ADD:Language			Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
+Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																				STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																																									CSKILL:LIST
+
+Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES																					ADD:Language(TYPE=Spoken)1
+Faceman Cold Read					TYPE:CrossClassAbility		VISIBLE:NO							SA:Cold Read (1/session)									STACK:NO	MULT:NO
+Faceman Quick Change				TYPE:CrossClassAbility		VISIBLE:NO							SA:Quick Change (%/session)|PointmanQuickChange	DEFINE:PointmanQuickChange|1	STACK:NO	MULT:NO
+Faceman Quick Change (additional session)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Faceman Quick Change														STACK:NO	MULT:NO																																									BONUS:VAR|PointmanQuickChange|1
+Faceman Backup					TYPE:CrossClassAbility		VISIBLE:NO							SA:Backup (1/session)										STACK:NO	MULT:NO
+
+Fixer Procure					TYPE:CrossClassAbility		VISIBLE:NO							SA:Procure												STACK:NO	MULT:NO
+Fixer Evasion					TYPE:CrossClassAbility		VISIBLE:NO							SA:Evasion (no damage on save)								STACK:NO	MULT:NO
+Fixer Uncanny Dodge				TYPE:CrossClassAbility		VISIBLE:NO							SA:Uncanny Dodge (Dex bonus to Defense)							STACK:NO	MULT:NO
+Fixer Sneak Attack				TYPE:CrossClassAbility		VISIBLE:NO							SA:Sneak Attack %d6|PMSneakAttack			DEFINE:PMSneakAttack|1		STACK:NO	MULT:NO
+Fixer Sneak Attack (Additional Attack)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Fixer Sneak Attack															STACK:NO	MULT:NO																																									BONUS:VAR|PMSneakAttack|1
+
+Snoop Flawless search				TYPE:CrossClassAbility		VISIBLE:NO							SA:Flawless search										STACK:NO	MULT:NO
+Snoop Intuition					TYPE:CrossClassAbility		VISIBLE:NO							SA:Intuition (1/session)									STACK:NO	MULT:NO
+Snoop Back Door					TYPE:CrossClassAbility		VISIBLE:NO							SA:Back Door (1 system)										STACK:NO	MULT:NO
+Snoop Jury-rig					TYPE:CrossClassAbility		VISIBLE:NO							SA:Jury-rig +%|PointmanJuryrig			DEFINE:PointmanJuryrig|2	STACK:NO	MULT:NO
+Snoop Jury-rig +1					TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Snoop Jury-rig															STACK:NO	MULT:NO																																									BONUS:VAR|PointmanJuryrig|1
+
+Soldier Bonus Feat x1				TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO							ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+Soldier Bonus Feat x2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Soldier Bonus Feat x1														STACK:NO	MULT:NO							ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+Soldier Damage Reduction			TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO																																																	DR:1/-
+Soldier Armor Use					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:NO	MULT:NO																										BONUS:COMBAT|AC|1|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCCHECK|-1|PREEQUIP:1,TYPE=Armor
+
+Wheelman Daredevil				TYPE:CrossClassAbility		VISIBLE:NO							SA:Daredevil											STACK:NO	MULT:NO
+Wheelman Kick Start				TYPE:CrossClassAbility		VISIBLE:NO							SA:Kick Start (1/session)									STACK:NO	MULT:NO
+Wheelman Familiarity +1				TYPE:CrossClassAbility		VISIBLE:NO							SA:Familiarity +%|PointmanFamiliarity		DEFINE:PointmanFamiliarity|1	STACK:NO	MULT:NO
+Wheelman Familiarity +2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Wheelman Familiarity +1														STACK:NO	MULT:NO																																									BONUS:VAR|PointmanFamiliarity|1
+
+###Block:  Snoop Abilities
+
+# Feat Name							Type			Visible	Required Feat				Special Ability									Define					Stackable?	Multiple?	Choose a Feat			Modify VAR
+Comb the Streets						TYPE:SnoopAbility	VISIBLE:NO							SA:Comb the Streets (%/session)|CombtheStreets				DEFINE:CombtheStreets|1			STACK:NO	MULT:NO
+Comb the Streets (additional sessions)		TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Comb the Streets																			STACK:NO	MULT:YES						BONUS:VAR|CombtheStreets|1
+
+Intercept Communication					TYPE:SnoopAbility	VISIBLE:NO							SA:Intercept Communication (%/session)|InterceptCommunication	DEFINE:InterceptCommunication|1	STACK:NO	MULT:NO
+Intercept Communication (additional sessions)	TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Intercept Communication																		STACK:NO	MULT:YES						BONUS:VAR|InterceptCommunication|1
+
+Intelligence Analysis					TYPE:SnoopAbility	VISIBLE:NO							SA:Intelligence Analysis													STACK:NO	MULT:NO
+Electronics Familiarity					TYPE:SnoopAbility	VISIBLE:NO							SA:Electronics Familiarity													STACK:NO	MULT:NO
+Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STACK:NO	MULT:YES	ADD:FEAT(Skill Mastery)3+INT
+
+###Block:  Soldier Abilities
+
+# Feat Name			Type				Visible	Required Class		Stackable?	Multiple?	Choose			Weapon prof. bonus
+Weapon Specialization	TYPE:SoldierAbility	VISIBLE:NO	PRECLASS:1,Soldier=6	STACK:YES	MULT:YES	CHOOSE:WEAPONPROF|1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2
+
+###Block:  Minion Abilities
+
+# Feat Name	Type				Visible	Bonus to HP			Modify VAR
+Minion d4	TYPE:MinionVitality	VISIBLE:NO					BONUS:VAR|MinionVitalityDice|0
+Minion d6	TYPE:MinionVitality	VISIBLE:NO	BONUS:HP|CURRENTMAX|2	BONUS:VAR|MinionVitalityDice|2
+Minion d8	TYPE:MinionVitality	VISIBLE:NO	BONUS:HP|CURRENTMAX|4	BONUS:VAR|MinionVitalityDice|4
+
+###Block: Nationalities
+
+# Feat Name		Type					Visible	Special Ability			Template					Automatic Languages
+American		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - American	LANGAUTO:English
+Apache		TYPE:StartingNationality	VISIBLE:NO	SA:Native American (Apache)	TEMPLATE:Nationality - American	LANGAUTO:Apache
+Assyrian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Assyrian	LANGAUTO:Assyrian
+Australian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Australian	LANGAUTO:English
+Austrian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Austrian	LANGAUTO:German
+Bantu			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Bantu		LANGAUTO:Bantu
+Bosnian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Bosnian	LANGAUTO:Bosnian
+Brazilian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Brazilian	LANGAUTO:Spanish
+Canadian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Canadian	LANGAUTO:French
+Cherokee		TYPE:StartingNationality	VISIBLE:NO	SA:Native American (Cherokee)	TEMPLATE:Nationality - American	LANGAUTO:Cherokee
+Cheyenne		TYPE:StartingNationality	VISIBLE:NO	SA:Native American (Cheyenne)	TEMPLATE:Nationality - American	LANGAUTO:Cheyenne
+Chinese		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Chinese	LANGAUTO:Chinese
+Croatian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Croatian	LANGAUTO:Croatian
+Czech			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Czech		LANGAUTO:Czech
+Danish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Danish		LANGAUTO:Danish
+Dutch			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Dutch		LANGAUTO:Dutch
+English		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - British	LANGAUTO:English
+Egyptian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Egyptian	LANGAUTO:Arabic (Egyptian)
+Finnnish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Finnnish	LANGAUTO:Finnnish
+French		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - French		LANGAUTO:French
+Georian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Georian	LANGAUTO:Georian
+German		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - German		LANGAUTO:German
+Greek			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Greek		LANGAUTO:Greek (Modern)
+Haitian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Haitian	LANGAUTO:Haitian
+Hungarian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Hungarian	LANGAUTO:Hungarian
+Icelandic		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Icelandic	LANGAUTO:Icelandic
+Inodnesian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Inodnesian	LANGAUTO:Inodnesian
+Irish			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - British	LANGAUTO:Gaelic
+Isreali		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Isreali	LANGAUTO:Hebrew
+Italian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Italian	LANGAUTO:Italian
+Japanese		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Japanese	LANGAUTO:Japanese
+Mexican		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Mexican	LANGAUTO:Spanish
+Navajo		TYPE:StartingNationality	VISIBLE:NO	SA:Native American (Navajo)	TEMPLATE:Nationality - American	LANGAUTO:Navajo
+New Zealand		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - New Zealand	LANGAUTO:English
+North Korean	TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - North Korean	LANGAUTO:Korean
+Norwegian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Norwegian	LANGAUTO:Norwegian
+Polish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Polish		LANGAUTO:Polish
+Portuguese		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Portuguese	LANGAUTO:Portuguese
+Romanian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Romanian	LANGAUTO:Romanian
+Russian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Russian	LANGAUTO:Russian
+Saudi			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Saudi Arabia	LANGAUTO:Arabic (Modern)
+Serbian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Serbian	LANGAUTO:Serbian
+South Korean	TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - South Korean	LANGAUTO:Korean
+Spanish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Spanish	LANGAUTO:Spanish
+Scottish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - British	LANGAUTO:English
+Swedish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Swedish	LANGAUTO:Swedish
+Thai			TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Thai		LANGAUTO:Thai
+Turkish		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Turkish	LANGAUTO:Turkish
+Ukranian		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Ukranian	LANGAUTO:Ukranian
+Vietnamese		TYPE:StartingNationality	VISIBLE:NO						TEMPLATE:Nationality - Vietnamese	LANGAUTO:Vietnamese
+
+#
+# End
+#

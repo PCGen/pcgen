@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jun  6 04:39:40 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# Original entry by: Ratheof Blithwyn
+
+# Equipment Name			Type							Cost		Weight	Source Page		Weapon prop. bonus
+Arrows of Lightning Wood +1	TYPE:Magic.Ammunition.Specific.Arrow	COST:360	WT:0		SOURCEPAGE:p.56	BONUS:WEAPON|DAMAGE,TOHIT|1
+Flame Circle Bolt			TYPE:Magic.Ammunition.Specific.Bolt		COST:1343	WT:0		SOURCEPAGE:p.56	BONUS:WEAPON|DAMAGE,TOHIT|1
+Sonic Bolt				TYPE:Magic.Ammunition.Specific.Bolt		COST:257	WT:0		SOURCEPAGE:p.56	BONUS:WEAPON|DAMAGE,TOHIT|1

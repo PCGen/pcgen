@@ -1,0 +1,18 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $
+CAMPAIGN:RPGObjects - Darwin's World - Complete World Rules
+GAMEMODE:3e
+TYPE:RPGObjects.Core.Darwin's World
+RANK:1
+SOURCELONG:RPGObjects - Darwin's World - Complete World Rules
+SOURCESHORT:DarwinWrld
+SOURCEWEB:http://www.darwinrpg.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Darwins World Copyright 2001, RPGObjects; Authors Dominic Covey and Chris Davis.
+
+INFOTEXT:All the Dwarwin's World Combined Rules.
+
+PCC:worldrules\worldrules.pcc
+PCC:denizens\denizenste.pcc
+PCC:artifacts\artifactsoa.pcc

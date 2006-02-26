@@ -1,0 +1,16 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Sat Oct  1 23:34:32 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# General:  Using a DEFINE instead of LEVELADJUSTMENT beacuse how ECLs work with Races and Backgrounds (TEMPLATES)
+# 1GM: Receive 0-4 points Mutations and equal no. of Defects (min. 1 point Defects)
+# 2GM: Receive 0-10 points Mutations and equal no. of Defects (min. 1 point Defects)
+# 3GM: Receive 16 points Mutations and 10 points of Defects
+# Movement: Stacking and changing with Mutations/Defects
+
+
+# Race Name			Skills/Level		Starting Feats	Size		Move			Face/Space	Class Skill			Feat				Special Ability				Define																												Type			Template																			Source Page
+1st Generation Mutant					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	CSKILL:Concentration					SA:Medical Incompatibility		DEFINE:RacialAdjust|0	DEFINE:MPoints|4	DEFINE:MPointsTotal|4	DEFINE:MPointsSpent|0	DEFINE:DPoints|4	DEFINE:DPointsTotal|4	DEFINE:DPointsSpent|0	DEFINE:CMove|30	TYPE:Humanoid	TEMPLATE:CHOOSE:Degenerate|Feral|Primitive|Radical|Resentful|Resurrector|Ritual Preservationist|Visionary Reinventor	SOURCEPAGE:p.8
+2nd Generation Mutant					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	CSKILL:Concentration					SA:Medical Incompatibility (-2)	DEFINE:RacialAdjust|1	DEFINE:MPoints|10	DEFINE:MPointsTotal|10	DEFINE:MPointsSpent|0	DEFINE:DPoints|10	DEFINE:DPointsTotal|10	DEFINE:DPointsSpent|0	DEFINE:CMove|30	TYPE:Humanoid	TEMPLATE:CHOOSE:Feral|Primitive|Radical|Resentful|Resurrector|Ritual Preservationist|Visionary Reinventor			SOURCEPAGE:p.9
+3rd Generation Mutant					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	CSKILL:Concentration					SA:Medical Incompatibility (-6)	DEFINE:RacialAdjust|2	DEFINE:MPoints|16	DEFINE:MPointsSpent|16	DEFINE:MPointsSpent|0	DEFINE:DPoints|10	DEFINE:DPointsTotal|10	DEFINE:DPointsSpent|0	DEFINE:CMove|30	TYPE:Humanoid	TEMPLATE:CHOOSE:Advanced|Feral|Radical|Resentful|Resurrector|Visionary Reinventor							SOURCEPAGE:p.10
+Human (DW)			XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5					FEAT:Fertile Potent	SA:Medical Compatibility		DEFINE:RacialAdjust|0	DEFINE:CMove|30																							TYPE:Humanoid	TEMPLATE:CHOOSE:Advanced|Degenerate|Feral|Guardian|Hedonist|Resurrector									SOURCEPAGE:p.7

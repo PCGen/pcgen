@@ -1,0 +1,26 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+
+# Language	Type
+Dunkrass	TYPE:Spoken
+Elder Speak	TYPE:Spoken
+Fae		TYPE:Spoken
+Fringrese	TYPE:Spoken
+Karna		TYPE:Spoken
+Naru		TYPE:Spoken
+Naru-Toma	TYPE:Spoken
+Pharn'lan	TYPE:Spoken
+Sanki		TYPE:Spoken
+Tirniv	TYPE:Spoken
+Tomagai	TYPE:Spoken
+Twithil	TYPE:Spoken
+
+# Bahk was added to allow a reference in LANGBONUS
+# of the Human (SS) to work. Since I do not have
+# the source book, I can't verify if it is a
+# real language or a typo.
+# --------------------------
+# Éric Beaudoin - 2002.11.16
+
+# Language	Type
+Bahk		TYPE:Spoken

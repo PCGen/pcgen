@@ -1,0 +1,73 @@
+	XSLT Standard Library
+
+	Version 1.1
+
+The XSLT Standard Library is a collection of commonly-used
+templates written purely in XSLT.
+
+This initial release is to promote the library, establish
+the engineering standards for the library and also acts
+as a Call For Participation.  Anyone who has useful XSLT
+templates that feels that they may be of use to a wide
+range of XSLT developers and applications is invited
+to submit their templates for inclusion in the library.
+
+  USAGE
+  =====
+
+Method 1: Unpack the distribution (see below) and 
+include or import either the main stylesheet, stdlib.xsl, 
+into your own stylesheet or include/import individual stylesheets 
+as needed.
+
+Method 2: Import or include the main stylesheet, or an
+individual stylesheet, directly from the project website.
+Main stylesheet: http://xsltsl.sourceforge.net/xsl/stdlib.xsl
+
+See http://xsltsl.sourceforge.net/ for further instructions.
+
+xsltsl uses XML Namespaces, so there's no need to worry about 
+clashing template names.
+
+  DOWNLOAD
+  ========
+
+Gzipped tarball:	http://prdownloads.sourceforge.net/xsltsl/xsltsl-1.1.tar.gz
+Zip archive:		http://prdownloads.sourceforge.net/xsltsl/xsltsl-1.1.zip
+
+  GETTING INVOLVED
+  ================
+
+xsltsl is a SourceForge project.  Contributions are welcome.
+Any contributed code must use the LGPL license to be accepted
+into the library.
+
+Project Page: http://sourceforge.net/projects/xsltsl/
+
+Project Web Page: http://xsltsl.sourceforge.net/
+
+There are three mailing lists for the project:
+
+  xsltsl-users@lists.sourceforge.net
+	Discussion of the use of xsltsl.
+  xsltsl-devel@lists.sourceforge.net
+	Discussion of the development of xsltsl.
+  xsltsl-announce@lists.sourceforge.net
+	Project announcements.
+
+Bug reports are most welcome, and these may be submitted via the project Web page.
+
+  LICENSE
+  =======
+
+xsltsl is LGPL'd.
+
+  ACKNOWLEDGEMENTS
+  ================
+
+Project Manager:	Steve Ball, Zveno.  Steve.Ball@zveno.com
+Developers:		Stuart Hungerford, Zveno.  Stuart.Hungerford@zveno.com
+			Leo Monus, Zveno.  Leo.Monus@zveno.com
+			Jason Diamond.  jason@injektilo.org
+			Reinout van Rees.  R.vanRees@ct.tudelft.nl
+

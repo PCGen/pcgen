@@ -1,0 +1,177 @@
+# CVS $Revision: 1.22 $ $Author: eddyanthony $ -- Tue Aug 23 01:12:13 2005 -- reformated by prettylst.pl v1.35 (build 469)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+### Faceman -------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																Combat bonus																											Modify VAR
+CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		SOURCEPAGE:p.22	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(((CL+3)*2)/5)-(CL==15)-(CL==17)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|TYPE.Language|Open Lock|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
+
+1																												FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1	SA:Linguist +%|FaceLinguist							DEFINE:FaceLinguist|(CL/4)+2	ADD:FEAT(Faceman Core Ability)1	ADD:Language(TYPE=Spoken)2
+2	SA:Cold Read (%/session)|ColdRead						DEFINE:ColdRead|1
+3	SA:Quick Change (%/session)|QuickChange					DEFINE:QuickChange|(CL-1)/2
+4	SA:Backup (%/session)|Backup							DEFINE:Backup|CL/4								ADD:Language(TYPE=Spoken)
+6	SA:Fake it (%/session)|Fakeit							DEFINE:Fakeit|(CL-3)/3
+8																							ADD:Language(TYPE=Spoken)
+10	SA:1,000 Faces (%/session)|ThousandFaces					DEFINE:ThousandFaces|CL/10
+11								BONUS:VAR|ColdRead|1
+12																							ADD:Language(TYPE=Spoken)
+14	SA:Bald-Faced Lie (1/session)
+16																							ADD:Language(TYPE=Spoken)
+19								BONUS:VAR|ColdRead|1
+20																							ADD:Language(TYPE=Spoken)
+
+### Fixer ---------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																														Modify VAR
+CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		SOURCEPAGE:p.24	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE.Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE.Hobby|Innuendo|Jump|TYPE.Knowledge|Languages|TYPE.Language|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble
+
+1	SA:Procure																																	ADD:FEAT(Fixer Core Ability)1						FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+2																	BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)																					FEATAUTO:Evasion
+3																	BONUS:VAR|SneakAttack|(CL-1)/2																							FEATAUTO:Sneak Attack
+4																	BONUS:VAR|UncannyDodge|CL/4																								FEATAUTO:Uncanny Dodge
+5	SA:Improvisation (%/session)|FixerImprovisation	SA:Master Thief (%/session)|FixerMasterThief									DEFINE:FixerImprovisation|0	DEFINE:FixerMasterThief|0
+6																																			ADD:FEAT(TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert)
+9																																			ADD:FEAT(TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert)
+10	SA:Defensive Roll (%/session)|DefensiveRoll																	DEFINE:DefensiveRoll|CL/10
+12																																			ADD:FEAT(TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert)
+14	SA:Wildcard Gadget (1/session)
+15																																			ADD:FEAT(TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert)
+18																																			ADD:FEAT(TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert)
+
+### Pointman ------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus															Combat bonus																													Modify VAR
+CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		SOURCEPAGE:p.26	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE.Craft|Diplomacy|Driver|First Aid|TYPE.Knowledge|TYPE.Profession|Sense Motive|TYPE.Sport
+
+1																																																								FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1																										ADD:FEAT(Pointman Core Ability)1	ADD:FEAT(Versatility)1	ADD:FEAT(Versatility)1	ADD:FEAT(Versatility)1	ADD:FEAT(Versatility)1	ADD:FEAT(Versatility)1	ADD:FEAT(Versatility)1
+2	SA:Assistance (1/% time)|Assistance											DEFINE:Assistance|2
+3	SA:Lead (%/session)|PointmanLead											DEFINE:PointmanLead|(CL-1)/2					ADD:FEAT(Versatility)1
+4	SA:Tactics (+% bonus %/session)|TacticsBonus|TacticsPerSession						DEFINE:TacticsBonus|1	DEFINE:TacticsPerSession|CL/4
+5
+6																										ADD:FEAT(TYPE.CrossClassAbility)1	ADD:FEAT(Versatility)1
+7
+8												BONUS:VAR|TacticsBonus|1
+9																										ADD:FEAT(TYPE.CrossClassAbility)1	ADD:FEAT(Versatility)1
+10	SA:Serendipity (%/session)|Serendipity										DEFINE:Serendipity|CL/10
+11												BONUS:VAR|Assistance|2
+12																										ADD:FEAT(TYPE.CrossClassAbility)1	ADD:FEAT(Versatility)1
+13
+14	SA:Strategy (1/session)
+15																										ADD:FEAT(TYPE.CrossClassAbility)1	ADD:FEAT(Versatility)1
+16												BONUS:VAR|TacticsBonus|1
+17
+18																										ADD:FEAT(TYPE.CrossClassAbility)1	ADD:FEAT(Versatility)1
+19												BONUS:VAR|Assistance|6
+20
+
+### Snoop ---------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus														Combat bonus																									Modify VAR
+CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		SOURCEPAGE:p.28	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|First Aid|Gather Information|Hide|TYPE.Hobby|TYPE.Knowledge|Languages|TYPE.Language|Listen|Mechanics|Move Silently|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Surveillance
+
+1	SA:Flawless Search														ADD:FEAT(Snoop Core Ability)1									FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
+2	SA:Intuition (%/session)|Intuition							DEFINE:Intuition|1
+3	SA:Jury-rig (+%)|Juryrig								DEFINE:Juryrig|(CL+1)/2
+4	SA:Back Door (% systems)|BackDoor							DEFINE:BackDoor|CL/4
+5
+6																		ADD:FEAT(TYPE.SnoopAbility,TYPE.Gear,TYPE.BasicSkill,TYPE.AdvancedSkill)1
+7
+8
+9																		ADD:FEAT(TYPE.SnoopAbility,TYPE.Gear,TYPE.BasicSkill,TYPE.AdvancedSkill)1
+10	SA:Master Cracker (%/session)|MasterCracker					DEFINE:MasterCracker|CL/10
+11									BONUS:VAR|Intuition|1
+12																		ADD:FEAT(TYPE.SnoopAbility,TYPE.Gear,TYPE.BasicSkill,TYPE.AdvancedSkill)1
+13
+14	SA:Global Search (1/session)
+15																		ADD:FEAT(TYPE.SnoopAbility,TYPE.Gear,TYPE.BasicSkill,TYPE.AdvancedSkill)1
+16
+17
+18																		ADD:FEAT(TYPE.SnoopAbility,TYPE.Gear,TYPE.BasicSkill,TYPE.AdvancedSkill)1
+19									BONUS:VAR|Intuition|1
+20
+
+
+### Soldier -------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																													Modify VAR
+CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.30	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
+
+1																																																												FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1																																								ADD:FEAT(Soldier Core Ability)1	ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+2	DR:1/-
+3																																								ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+4			SA:Armor Use +%|ArmorUse									BONUS:COMBAT|AC|ArmorUse|PREEQUIP:1,TYPE=Armor				BONUS:MISC|ACCCHECK|0-ArmorUse|PREEQUIP:1,TYPE=Armor	DEFINE:ArmorUse|CL/4
+5																																								ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+6																																								ADD:FEAT(Weapon Specialization)
+7																																								ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+8
+9																																								ADD:FEAT(Weapon Specialization)	ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+10			SA:Portable Cover (1/% cover)|PortableCover																										DEFINE:PortableCover|4
+11																								BONUS:DR|-|1														ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+12																																								ADD:FEAT(Weapon Specialization)
+13																																								ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+14			SA:One in a Million (1/session)
+15																																								ADD:FEAT(Weapon Specialization)	ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+16
+17																																								ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+18																																								ADD:FEAT(Weapon Specialization)
+19																								BONUS:DR|-|1														ADD:FEAT(TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat)
+20											BONUS:VAR|PortableCover|-2
+
+### Wheelman ------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus																						Modify VAR
+CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE.Craft|Demolitions|Disguise|Driver|Escape Artist|Handle Animal|Intimidate|Jump|Mechanics|Open Lock|Perform|Pilot|TYPE.Profession|TYPE.Sport|Spot|Surveillance|Survival|Swim
+
+1																									FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1	SA:Daredevil																ADD:FEAT(Wheelman Core Ability)1
+2	SA:Kick Start (%/session)|KickStart						DEFINE:KickStart|1
+3																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+4	SA:Familiarity +%|Familiarity							DEFINE:Familiarity|CL/4
+5																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+6	SA:Elbow Grease +%|ElbowGrease						DEFINE:ElbowGrease|(floor((CL-3)/3))*2
+7																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+8
+9																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+10	SA:Soup Her Up (% percent)|SoupHerUp					DEFINE:SoupHerUp|(floor(CL/10))*25
+11								BONUS:VAR|KickStart|1								ADD:FEAT(Speed Demon,TYPE.Chase)1
+12
+13																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+14	SA:That's Impossible (1/session)
+15																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+16
+17																			ADD:FEAT(Speed Demon,TYPE.Chase)1
+18
+19								BONUS:VAR|KickStart|1								ADD:FEAT(Speed Demon,TYPE.Chase)1
+20
+
+### Non-Player Classes ------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus
+CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		SOURCEPAGE:p.244	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
+
+1	BONUS:HD|MAX|MinionVitalityDice	DEFINE:MinionVitalityDice|0	ADD:FEAT(TYPE.MinionVitality)1	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+
+#
+# End
+#

@@ -1,0 +1,23 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Oct 22 22:16:15 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Future - Cybernetics
+RANK:3
+GAMEMODE:Modern
+TYPE:MSRD.Partial.Future
+ISOGL:YES
+SOURCELONG:Future System Reference Document
+SOURCESHORT:FSRD
+SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker,  based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
+COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2005, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones.
+
+INFOTEXT:This set loads the Cybernetics options from the Future section of the MSRD.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:msrd_future_cybernetics_implants.lst
+EQUIPMOD:msrd_future_cybernetics_equipmods.lst
+FEAT:msrd_future_cybernetics_feats_hidden.lst
+WEAPONPROF:msrd_future_cybernetics_weaponprof.lst

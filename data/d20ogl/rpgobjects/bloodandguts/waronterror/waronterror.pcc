@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Guts - War on Terror
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Blood and Guts
+ISOGL:YES
+SOURCELONG:Blood and Guts - War on Terror
+SOURCESHORT:BnG-WoT
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:War on Terror Copyright 2003, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Blood and Guts: War on Terror Copyright 2004-2005, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Frank Kliewe.
+
+INFOTEXT:Requires the use of Blood and Guts: Modern Military
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:waronterror_class.lst
+FEAT:waronterror_feats.lst
+FEAT:waronterror_feats_hidden.lst
+FEAT:waronterror_feats_mod.lst

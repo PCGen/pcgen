@@ -1,0 +1,36 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 30 23:39:49 2003 -- reformated by prettylst.pl v1.32 (build 336)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Weapon Name		Type
+.25 pistol			TYPE:Pistol
+.35 pistol			TYPE:Pistol
+.45 pistol			TYPE:Pistol
+.55 pistol			TYPE:Pistol
+.25 rifle			TYPE:Rifle
+.45 rifle			TYPE:Rifle
+20GA Scattergun		TYPE:Rifle
+10GA Scattergun		TYPE:Rifle
+Bringdown Launcher	TYPE:Firearms
+Arrow (boffer)		TYPE:Martial
+Arrow (tranquilizer)	TYPE:Exotic
+Baseball			TYPE:Sport
+Bat (aluminum)		TYPE:Sport
+Bowling ball		TYPE:Sport
+Brass Knuckles		TYPE:Simple
+Buckler (throwing)	TYPE:Martial
+Chain (fighting)		TYPE:Martial
+Chainsaw			TYPE:Exotic
+Club (boffer)		TYPE:Simple
+Flying disc (combat)	TYPE:Sport
+Golf club			TYPE:Sport
+Hockey Stick		TYPE:Sport
+Ice Pick (combat)		TYPE:Martial
+Knife (boffer)		TYPE:Simple
+Mace (double-headed)	TYPE:Exotic
+Machete			TYPE:Simple
+Pitchfork			TYPE:Simple
+Shiv				TYPE:Simple
+Slingshot			TYPE:Simple
+Sword (boffer)		TYPE:Simple
+Wrist Blade			TYPE:Martial
+Wrist Blade (double)	TYPE:Martial

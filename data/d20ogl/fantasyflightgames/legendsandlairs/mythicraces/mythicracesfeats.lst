@@ -1,0 +1,16 @@
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Feat Name					Type					Req. Att.	Required Class			Required Feat				Req. nb of Hand	Min. nb of Hand	Required Race		Required Skill	Required Stat	Description																	Stackable?	Multiple?	Choose				ADD:WEAPONPROFS		Combat bonus						Class Skill			Source Page
+Craft Anaema Tool (MR)			TYPE:Special.ItemCreation			PRECLASS:1,Spellcaster=1													PRERACE:Anaema								DESC:Character can create spirit tools with which anaema and humans may each interact normally.																												SOURCEPAGE:p.81
+Turn Resistance (MR)			TYPE:Special																						PRERACE:Eleti%								DESC:+3 to class levels to resist turn attempts.										STACK:YES	MULT:YES	CHOOSE:+3 Turn Resistance																	SOURCEPAGE:p.
+Purifying Light (MR)			TYPE:Special																						PRERACE:Luminous								DESC:As a Luminous you can use your energies to aid allies from the harmful effects of poisons.																												SOURCEPAGE:p.
+Unyielding Aura (MR)			TYPE:Special																						PRERACE:Luminous								DESC:By carefully controlling and manifesting your energies, you can aid and inspire your allies in battle.																										SOURCEPAGE:p.
+Improved Multiweapon Fighting (MR)	TYPE:General			PREATT:9						PREFEAT:1,Multiweapon Fighting	PREHANDSEQ:4														DESC:The character is an expert in fighting with multiple weapons.																																SOURCEPAGE:p.
+Multidexterity (MR)			TYPE:General																			PREHANDSGT:2								PRESTAT:1,DEX=15	DESC:A creature with this feat is adept at using all its hands in combat.																			BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4					SOURCEPAGE:MM p.11 (Wotc)
+Multiweapon Fighting (MR)		TYPE:General.Fighter																		PREHANDSGT:2											DESC:A creature with this feat can fight with a weapon in each hand.																				BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2					SOURCEPAGE:MM p.11 (WotC)
+Improved Control Shape (MR)		TYPE:Special																						PRERACE:Human,Rezurbek							DESC:Can voluntarily control his or her shape.																																CSKILL:Control Shape	SOURCEPAGE:p.77
+Multiattack (MR)				TYPE:Mhuinntir																			PREHANDSGT:2	PRERACE:Mhuinntir								DESC:A creatire with this feat is adept at using all its natural weapons at once.																		BONUS:COMBAT|TOHIT-SECONDARY|2							SOURCEPAGE:p.77
+Improved Grab (MR)			TYPE:General.Fighter																												PRESTAT:1,STR=13	DESC:Character deals a more devastating grapple attack.																																		SOURCEPAGE:p.77
+Pounce (MR)					TYPE:Mhuinntir																						PRERACE:Mhuinntir		PRESKILL:1,Jump=4	PRESTAT:1,DEX=13	DESC:Mhuinntir has learned to jump and attack in animal form																																	SOURCEPAGE:p.77
+Rake (MR)					TYPE:Mhuinntir			PREATT:4																		PRERACE:Mhuinntir					PRESTAT:1,DEX=13	DESC:Mhuinntir gains the natural attack Rake, and does 1d3 damage with rear claws.														ADD:WEAPONPROFS|Rake													SOURCEPAGE:p.77

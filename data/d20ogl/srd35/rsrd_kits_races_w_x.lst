@@ -1,0 +1,168 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Wight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wight]
+RACE:Wight	!PRERACE:%
+NAME:Wight
+ALIGN:LE
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Hide			RANK:7
+SKILL:Move Silently	RANK:7
+FEAT:Alertness
+FEAT:Blind Fight
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Default Will o Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Will o Wisp]
+RACE:Will o Wisp	!PRERACE:%
+NAME:Will o Wisp
+ALIGN:CE
+SKILL:Bluff		RANK:12
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|INT=11|STR=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Winter Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Winter Wolf]
+RACE:Winter Wolf	!PRERACE:%
+NAME:Winter Wolf
+ALIGN:NE
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+SKILL:Move Silently	RANK:5
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Track
+STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
+
+STARTPACK:Default Worg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Worg]
+RACE:Worg	!PRERACE:%
+NAME:Worg
+ALIGN:NE
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+SKILL:Move Silently	RANK:3
+FEAT:Alertness
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Wraith	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wraith]
+RACE:Wraith	!PRERACE:%
+NAME:Wraith
+ALIGN:LE
+SKILL:Sense Motive	RANK:6
+SKILL:Hide			RANK:8
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:8
+SKILL:Search		RANK:8
+SKILL:Spot			RANK:8
+SKILL:Diplomacy		RANK:4
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Wraith (Dread)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wraith (Dread)]
+RACE:Wraith (Dread)	!PRERACE:%
+NAME:Wraith (Dread)
+ALIGN:LE
+SKILL:Hide				RANK:19
+SKILL:Intimidate			RANK:19
+SKILL:Knowledge (Religion)	RANK:19
+SKILL:Listen			RANK:19
+SKILL:Search			RANK:19
+SKILL:Sense Motive		RANK:19
+SKILL:Spot				RANK:19
+SKILL:Diplomacy			RANK:2
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Natural Attack(Incorporeal Touch)
+FEAT:Mobility
+FEAT:Spring Attack
+STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Wyvern	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wyvern]
+RACE:Wyvern	!PRERACE:%
+NAME:Wyvern
+SKILL:Hide			RANK:10
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:10
+SKILL:Spot			RANK:10
+FEAT:Ability Focus(Poison)
+FEAT:Alertness
+FEAT:Flyby Attack
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+
+STARTPACK:Default Xill	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Xill]
+RACE:Xill	!PRERACE:%
+NAME:Xill
+ALIGN:LE
+SKILL:Climb			RANK:8
+SKILL:Escape Artist	RANK:8
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:8
+SKILL:Tumble		RANK:8
+SKILL:Sense Motive	RANK:7
+SKILL:Balance		RANK:8
+FEAT:Improved Initiative
+FEAT:Multiweapon Fighting
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+GEAR:Longbow		QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Secondary Hand
+
+STARTPACK:Default Xorn (Minor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Xorn (Minor)]
+RACE:Xorn (Minor)	!PRERACE:%
+NAME:Xorn (Minor)
+SKILL:Spot					RANK:4
+SKILL:Hide					RANK:6
+SKILL:Knowledge (Dungeoneering)	RANK:6
+SKILL:Listen				RANK:6
+SKILL:Search				RANK:2
+SKILL:Survival				RANK:6
+SKILL:Intimidate				RANK:3
+SKILL:Move Silently			RANK:3
+FEAT:Multiattack
+FEAT:Toughness
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Xorn (Average)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Xorn (Average)]
+RACE:Xorn (Average)	!PRERACE:%
+NAME:Xorn (Average)
+SKILL:Hide					RANK:10
+SKILL:Intimidate				RANK:10
+SKILL:Knowledge (Dungeoneering)	RANK:10
+SKILL:Listen				RANK:10
+SKILL:Move Silently			RANK:10
+SKILL:Search				RANK:6
+SKILL:Spot					RANK:6
+SKILL:Survival				RANK:10
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Xorn (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Xorn (Elder)]
+RACE:Xorn (Elder)	!PRERACE:%
+NAME:Xorn (Elder)
+SKILL:Search				RANK:18
+SKILL:Spot					RANK:18
+SKILL:Hide					RANK:18
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Dungeoneering)	RANK:18
+SKILL:Listen				RANK:18
+SKILL:Move Silently			RANK:18
+SKILL:Survival				RANK:18
+FEAT:Awesome Blow
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10

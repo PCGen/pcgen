@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 19 18:47:10 2002 -- reformated by prettylst.pl v1.20 (build 236)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin|SOURCESHORT:Assassin|SOURCEWEB:http//www.mongoosepublishing.com
+# Original Entry by: Tir Gwaith
+
+# Weapon Name		Type		Nb Hands
+Finger Razors		TYPE:Exotic
+Garrote			TYPE:Exotic
+Wire Garrote		TYPE:Exotic
+Stiletto			TYPE:Exotic
+Estoc				TYPE:Exotic
+Blowgun (Mong)		TYPE:Exotic	HANDS:1
+Crossbow (Sniper's)	TYPE:Exotic	HANDS:2
+

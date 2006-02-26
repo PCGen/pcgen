@@ -1,0 +1,203 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Mon Dec  5 20:28:37 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Bastion Press - Faeries|SOURCESHORT:Faeries|SOURCEWEB:http://www.bastionpress.com
+#
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus					Deity
+CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEITY:None (Faemancer)
+# Class Name	Required AL		Required Feat		Required Skill					Required Text
+CLASS:Faemancer	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy,Knowledge (Fey)=8	PRETEXT:The character must have been chosen by the fey to become a faemancer.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Faemancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Fey)|Sense Motive|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level				Use Spell List
+CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Faemancer|CL	SPELLLIST:Wizard
+1	CAST:0,1		SA:Fey Companion (Grig)	SA:Life Bond (Su)
+2	CAST:0,2,0		SA:Fey Friend (Ex)	SA:Fey Companion Advancement (Ex)
+3	CAST:0,2,1		SA:Luck of the Fey (Ex)							BONUS:DOMAIN|NUMBER|1
+4	CAST:0,3,2,0	SA:Fey Companion (Pixie)
+5	CAST:0,3,2,1	SA:Spirit Bond (Su)
+6	CAST:0,3,3,2,0	SA:Fey Companion Advancement (Ex)
+7	CAST:0,4,3,2,1											BONUS:DOMAIN|NUMBER|1
+8	CAST:0,4,3,3,2	SA:Fey Companion Advancement (Ex)
+9	CAST:0,4,4,3,2											BONUS:DOMAIN|NUMBER|1
+10	CAST:0,4,4,3,3	SA:Mutual Bond (Su)
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Faerie Hunter	HD:10		TYPE:PC.Prestige	ABB:FHt		SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat							Required Skill
+CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:3,Mite Fighter,Point Blank Shot,Precise Shot	PRESKILL:1,Knowledge (Fey)=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Faerie Hunter	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Hide|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Faerie Hunter|CL
+1	CAST:0,0		SA:Fey Wary +% (Su)|FeyWary									BONUS:VAR|SneakAttack|1						DEFINE:FeyWary|1						FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2	CAST:0,1		SA:FaerieFighter +% (Ex)|FaerieFighter	SA:Fey Hunter +% (Ex)|FeyHunter										DEFINE:FaerieFighter|1	DEFINE:FeyHunter|1
+3	CAST:0,1,0		SA:Smite Fey (Su) 1/day
+4	CAST:0,1,1															BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
+5	CAST:0,1,1,0														BONUS:VAR|SneakAttack|1	BONUS:VAR|FaerieFighter|1
+6	CAST:0,1,1,1	SA:Anchor (Sp)											BONUS:VAR|FeyHunter|1
+7	CAST:0,2,1,1,0	SA:Slippery Mind (Ex)										BONUS:VAR|FeyWary|1
+8	CAST:0,2,1,1,1	SA:Craft Blood Item (Ex)									BONUS:VAR|FeyHunter|1
+9	CAST:0,2,2,1,1	SA:Destroy Doorway (Su)
+10	CAST:0,2,2,2,1														BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feat		Required Language	Multiple Requirements																											Maximum Size	Required Skill
+CLASS:Faerier	PREFEAT:1,Alertness	PRELANG:1,Fae	PREMULT:2,[PREMULT:1,[PRESKILL:1,Knowledge (Fey),Knowledge (Nature)=8],[PREVARGTEQ:BardicKnowledge,6]],[PREMULT:1,[PRESKILL:1,Use Magic Device=1],[PRESPELLTYPE:Arcane|Divine,1,1]]	PRESIZELTEQ:M	PRESKILL:3,Diplomacy,TYPE.Perform,Sense Motive=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
+1	SA:Fey Sense (Su)				ADD:FEAT(TYPE.FeyArts)1
+2	SA:Fey Friend (Ex)
+3	SA:Detect Doorways (Su)			ADD:FEAT(TYPE.FeyArts)1
+4	SA:Create Doorways & Backroad (Sp)
+5	SA:Fey Form (Su)				ADD:FEAT(TYPE.FeyArts)1
+6							ADD:FEAT(TYPE.FeyArts)1
+7	SA:Timeless Body (Ex)
+8							ADD:FEAT(TYPE.FeyArts)1
+9	SA:True Fey Form (Su)
+10	SA:Create Doorway & Sideroad (Sp)	ADD:FEAT(TYPE.FeyArts)1
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL		Req. Att.	Required Feat					Required Skill
+CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently,Hide,Knowledge (Fey)=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
+1				SA:Step Sideways % (Su)|StepSideways						DEFINE:StepSideways|1	ADD:FEAT(Evasion)
+2	VISION:Low-light																	ADD:FEAT(Uncanny Dodge)
+3				SA:Slippery Mind (Ex)
+4				SA:Fae-walk % ft. (Sp)|FaeWalk							DEFINE:FaeWalk|15
+5											BONUS:VAR|StepSideways|1					ADD:FEAT(Improved Uncanny Dodge)
+6				SA:Defensive Jaunt (Su)				BONUS:VAR|FaeWalk|15
+7											BONUS:VAR|StepSideways|1
+8											BONUS:VAR|FaeWalk|30
+9																				ADD:FEAT(Improved Evasion)	ADD:FEAT(Improved Uncanny Dodge 2)
+10				SA:Stray (Su)					BONUS:VAR|FaeWalk|60
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat							Required Skill													Req. Spell Type
+CLASS:Fey Guardian	PREFEAT:3,Fey Magic,TYPE.Metamagic,TYPE.Metamagic	PRESKILL:1,Knowledge (Religion)=5	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=12	PRESPELLTYPE:Divine,1,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Fey)|Knowledge (Nature)|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Luck of the Fey (Ex)	SA:Will of the Fey (Ex)
+2	ADD:SPELLCASTER(ANY)									SPELLS:ClassAbility|TIMES=3|Polymorph Other
+3	ADD:SPELLCASTER(ANY)	SA:Mote Form (Su)
+4	ADD:SPELLCASTER(ANY)	SA:Transfer (Sp)
+5	ADD:SPELLCASTER(ANY)									SPELLS:ClassAbility|TIMES=1|Permanency
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)									SPELLS:ClassAbility|TIMES=1|Limited Wish
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)									SPELLS:ClassAbility|TIMES=3|Polymorph Any Object
+10	ADD:SPELLCASTER(ANY)									SPELLS:ClassAbility|TIMES=1|Wish
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*2/3|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat					Required Skill											Req. Spell Type
+CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:1,Concentration=5	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=4	PRESPELLTYPE:Arcane,1,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Fey Prankster	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Fey Prankster|CL
+###Block: Spell list
+1	SPELLLIST:CLASS|Fey Prankster=1|Bad Luck,Change Self,Charm Person,Comprehend Languages,Faerie's Gold,Good Luck,Trinket
+1	SPELLLIST:CLASS|Fey Prankster=2|Detect Thoughts,Disrobe,Fool's Gold,Glob of Sap,See Invisibile
+1	SPELLLIST:CLASS|Fey Prankster=3|Bestow Curse,Blink,Charm Monster,Displacement,Fey Mask,Inflict Serious Wounds,Luck of the Fey,Suggestion
+1	SPELLLIST:CLASS|Fey Prankster=4|Cure Serious Wounds,Discern Route,Dismiss Fey,Fitful Sleep,Laughing Gas,Nondetection
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Progression
+1	CAST:0,1								SPELLS:ClassAbility|TIMES=3|Prestidigitation
+2	CAST:0,2,0								SPELLS:ClassAbility|TIMES=(CL+1)/3|Fey Mask
+3	CAST:0,2,1		SA:Luck of the Fey (Ex) 1/day
+4	CAST:0,3,2,0
+5	CAST:0,3,2,1
+6	CAST:0,3,3,2,0	SA:Luck of the True Fey (Ex) 2/day
+7	CAST:0,4,3,2,1	SA:Slippery Mind (Ex)
+8	CAST:0,4,3,3,2
+9	CAST:0,4,4,3,2
+10	CAST:0,4,4,3,3	SA:Destined (Ex)
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat			Required Skill			Prohibited Type
+CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	PRESKILL:1,Knowledge (Fey)=5	!PRETYPE:Fey
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
+1	VISION:Low-light	SA:Fey Sense (Su)												FEATAUTO:Simple Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2										SPELLS:ClassAbility|TIMES=3|Prestidigitation
+3				SA:Luck of the Fey (Ex) 1/day
+4				SA:Fey Friend (Ex)
+5
+6				SA:Luck of the True Fey (Ex) 2/day
+7				SA:Slippery Mind (Ex)
+8				SA:Timeless Body (Ex)
+9				SA:Destined (Ex)
+10				SA:Soul of Ages (Ex)
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL			Req. Att.	Required Feat												Required Skill														Required Type
+CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:2,Diplomacy,Ride=4	PRESKILL:2,Knowledge (Fey),Knowledge (Nobility and Royalty)=5	PRETYPE:Fey
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Fey)|Knowledge (Nobility and Royalty)|Ride|Spot
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+###Block: Normal Progression
+1	SA:Shining Beacon																					ADD:FEAT(Blind Fight)
+2	SA:Lucky Hit +% damage %/day|LuckyHitDamage|LuckyHitTimes	BONUS:VAR|LuckyHitDamage|CL	DEFINE:LuckyHitDamage|0	DEFINE:LuckyHitTimes|1
+3	SA:Luck of the Fey (Ex) 1/day
+4
+5	SA:Call Knight of the Fey (Su)
+6											BONUS:VAR|LuckyHitTimes|1
+7	SA:Luck of the True Fey (Ex) 2/day
+8
+9											BONUS:VAR|LuckyHitTimes|1
+10	SA:Destined (Ex)
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Mage of the Circle	HD:4		TYPE:PC.Prestige	ABB:MoC		SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Feat							Required Skill						Req. Spell Type
+CLASS:Mage of the Circle	PREFEAT:3,Fey Magic,Craft Wondrous Item,Scribe Scroll	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=8	PRESPELLTYPE:Arcane,1,3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Fey)|Knowledge (Nature)|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Encircle %|Encircle	BONUS:VAR|Encircle|(CL+2)/3	DEFINE:Encircle|0
+2	ADD:SPELLCASTER(ANY)	SA:Sand Circles
+3	ADD:SPELLCASTER(ANY)
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)	SA:Extra Slot
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)	SA:Extra Slot
+10	ADD:SPELLCASTER(ANY)	SA:Circle Mastery
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat								Required Skill							Required Type
+CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRESKILL:2,Knowledge (Fey),Knowledge (Folk Tales)=8	PRETYPE:Fey
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mortal Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mortal Slayer|CL
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Favored Enemies setup
+1	BONUS:VAR|SlayerFavoredEnemyLVL|CL				DEFINE:SlayerFavoredEnemyLVL|0	FEATAUTO:Basic Favored Enemy
+1	BONUS:VAR|SlayerEnemies|SlayerFavoredEnemyLVL/5+1	DEFINE:SlayerEnemies|0
+1	BONUS:VAR|SlayerEBonuses|SlayerFavoredEnemyLVL/5	DEFINE:SlayerEBonuses|0
+###Block: Normal Progression
+1	CAST:0,0																																							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+2	CAST:0,1
+3	CAST:0,1,0																BONUS:VAR|SneakAttack|CL/3
+4	CAST:0,1,1																																							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0																																						ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+8	CAST:0,2,1,1,1	SA:Unfurl the Mortal Coil (Sp) DC % %/week|UnfurlMortalCoilDC|UnfurlMortalCoilTimes	BONUS:VAR|UnfurlMortalCoilDC|15+CL	BONUS:VAR|UnfurlMortalCoilTimes|1	DEFINE:UnfurlMortalCoilDC|0	DEFINE:UnfurlMortalCoilTimes|0
+9	CAST:0,2,2,1,1	SA:Fey Glade (Su)
+10	CAST:0,2,2,2,1															BONUS:VAR|UnfurlMortalCoilTimes|1																		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)

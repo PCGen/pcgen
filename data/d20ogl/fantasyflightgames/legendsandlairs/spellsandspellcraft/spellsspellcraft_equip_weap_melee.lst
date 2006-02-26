@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+#Original entry by: Knightcrawler
+SOURCELONG:Fantasy Flight Games - Spells and Spellcraft|SOURCESHORT:Spellcraft|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Equipment Name	Required Proficiency	Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus					Special Property
+Stormbrand		PROFICIENCY:Greatsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific	COST:77300	WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	SIZE:L	SOURCEPAGE:p.167	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:Acts as a +5 bane vs. electricity subtype, glows when within 60' of them, +4 to wieldiers saving throws against electricity and electricity resistance of 10

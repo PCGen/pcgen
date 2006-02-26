@@ -1,0 +1,22 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:56:34 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# Original entry by: Ratheof Blithwyn
+
+
+# Feat Name					Type			Required Class			Multiple Requirements								Req. Special Ability	Required Spell School		Required Sub-school				Req. Spell Type		Description																							Source Page
+Concentrate Spell				TYPE:Metamagic																					PRESPELLSCHOOL:Evocation,1,1												DESC:You can cause your spells to penetrate energy resistance by concentrating and strengthening them.							SOURCEPAGE:p.23
+Energy Familiar				TYPE:General	PRECLASS:1,SPELLCASTER=12												PRESA:1,Summon Familiar						PRESPELLSCHOOLSUB:Energy Construct,3,1					DESC:Your familiar is now composed of force energy, and is immune to most forms of harm.										SOURCEPAGE:p.23
+Enhanced Resistance			TYPE:General																																					DESC:One of your energy resistances is now more powerful.															SOURCEPAGE:p.23
+#Evocation Library			TYPE:General					PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	MULT:YES	STACK:NO		CHOOSE:FEATADD|TYPE=EvocationLibrary	SOURCEPAGE:p.23
+Evocation Library Acid			TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Cold			TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Energy Construct	TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Electricity		TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Fire			TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Force			TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Light			TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Evocation Library Sound			TYPE:General						PREMULT:1,[PRESUBCLASS:1,Evoker],[PRECLASS:1,Devoted Evoker=1]																					DESC:You have access to all spells from a certain discipline of evocation and can add them to your spellbook once you're high enough level.	SOURCEPAGE:p.23
+Opposed Spell				TYPE:General																																	PRESPELLTYPE:Arcane,1,1	DESC:You can cast a spell from a school of magic normally not available to you.											SOURCEPAGE:p.23
+
+# Haven't found a way to code Opposed Spell
+# Enhanced Resistance ???how is energy resistances coded???

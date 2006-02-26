@@ -1,0 +1,10 @@
+# CVS $Revision: 1.4 $ $Author: kingpaul $ -- Wed Jan 26 22:35:27 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name		Type			Visible	Req. Spellbook	Special Ability								Define			Description																											Multiple?	Choose			Add Spell Lvl	Source Page
+Brew Potion		TYPE:Special	VISIBLE:NO														DEFINE:BrewLevel|3	DESC:Brew a potion, level is set at time of creation...																												SOURCEPAGE:msrdadvancedclassesII.rtf
+Maximize Spell	TYPE:Special	VISIBLE:NO																		DESC:All variable,numeric effects of a spell automatically achieve their maximum values; treat any spell this is a pplied to as three higher for memorization purposes							ADDSPELLLEVEL:3	SOURCEPAGE:msrdadvancedclassesII.rtf
+Scribe Scroll	TYPE:Special	VISIBLE:NO																		DESC:Create a scroll, level is set at time of creation...																												SOURCEPAGE:msrdadvancedclassesII.rtf
+Scribe Tattoo	TYPE:Special	VISIBLE:NO																		DESC:Create a tattoo, level is set at time of creation...																												SOURCEPAGE:msrdadvancedclassesII.rtf
+Spell Mastery	TYPE:Special	VISIBLE:NO	PRESPELLBOOK:YES															DESC:Choose a number of spells equal to your Intelligence modifier, those spells may be prepared without a spell book									MULT:YES	CHOOSE:SPELLLIST|1				SOURCEPAGE:msrdadvancedclassesII.rtf
+Wild Talent		TYPE:General						SA:one 0-LEVEL psionic power useable 3x per 24 hour period					DESC::one 0-Level psionic power useable 3x per 24 hour period																											SOURCEPAGE:msrdFXbasics.rtf

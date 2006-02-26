@@ -1,0 +1,7 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Sun Oct  2 00:36:46 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Green Ronin Publishing  - Jade Dragons and Hungry Ghosts|SOURCESHORT:JadeDaHG|SOURCEWEB:http://www.greenronin.com
+
+# Race Name		Favored Class	Starting Feats	Size		Move			Face/Space	Vision					Automatic Languages	Bonus Languages							Combat bonus						Bonus to skill									Stat bonus														Automaticaly Gained Weapon Prof.												Feat				Nb Legs	Special Ability																								Source Page
+Elf (Bamboo)	FAVCLASS:Ranger	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	VISION:Low-light|Darkvision (30')	LANGAUTO:Common,Elven	LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan									BONUS:SKILL|Listen,Search,Spot,Wilderness Lore|2|TYPE=Racial	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	BONUS:STAT|CHA|2							AUTO:WEAPONPROF|Shortbow|Longbow|Longbow (Composite)|Shortbow (Composite)|Scimitar|Sword (Bastard)					LEGS:2	SA:Immunity to sleep	SA:save +2 vs enchantment spells	SA:Automatic Search check if within 5' of secret/concealed door	SA:Ambush	SA:Shooting Stars	SOURCEPAGE:p.4
+Tanuki		FAVCLASS:Bard	STARTFEATS:1	SIZE:S	MOVE:Walk,30	FACE:5,5	VISION:Low-light				LANGAUTO:Common,Tanuki	LANGBONUS:ALL							BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE												BONUS:STAT|STR|1	BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|1																		FEAT:Great Fortitude	LEGS:2	SA:Rage	SA:Scent	SA:Ferocity	SA:Mean Drunk																		SOURCEPAGE:p.48
+

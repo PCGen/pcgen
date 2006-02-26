@@ -1,0 +1,21 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Dec 17 14:38:55 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+
+
+# Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose		Bonus to skill			Stat bonus
+Aura of Knighthood	TYPE:Special	VISIBLE:NO	SA:Aura of Knighthood (Ex)	STACK:NO	MULT:NO				BONUS:SKILL|Intimidate|NOB/2
+
+CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:STR|CON						BONUS:STAT|LIST|2
+
+###Block: Power Source
+# Feat Name						Type			Visible	Prohibited Class					Special Ability
+Power Source (Crusaders)			TYPE:Special	VISIBLE:NO	!PRECLASS:1,Crusader=1				SA:Power Source (Crusaders)
+Power Source (Druids/Minstrels)		TYPE:Special	VISIBLE:NO	!PRECLASS:2,Druid,Minstrel=1			SA:Power Source (Druids/Minstrels)
+Power Source (Hedge Mage/Enchantress)	TYPE:Special	VISIBLE:NO	!PRECLASS:2,Hedge Mage,Enchantress=1	SA:Power Source (Hedge Mage/Enchantress)
+Power Source (Hermits)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Hermit=1				SA:Power Source (Hermits)
+Power Source (Priest)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Priest=1				SA:Power Source (Priest)
+
+###Block: Minstrel stuff
+# Feat Name		Type			Visible	Special Ability																																																																																																																																	Define																					Spells																																												Modify VAR
+Minstrel Lore	TYPE:Special	VISIBLE:NO	SA:Lore (+%)|MinstrelLore																																																																																																																															DEFINE:MinstrelLore|0																																																																BONUS:VAR|MinstrelLore|INT
+Minstrel Music	TYPE:Special	VISIBLE:NO	SA:Minstrel music %/day|MinstrelMusicTimes	SA:Countersong (Su)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SA:Fascinate (Sp) - can effect % creature|MinstrelFascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SA:Inspire Courage (Su) +%|InspireCourage	SA:Inspire Competence (Su)|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:MinstrelMusicLevel,3	SA:Suggestion (Sp)|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SA:Inspire Greatness (Su) - can affect % people|InspireGreat	SA:Song of Freedom (Su)|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:MinstrelMusicLevel,12	SA:Inspire Heroics (Su) - can affect % people|InspireHeroics|PREVARGTEQ:MinstrelMusicLevel,15	SA:Mass Suggestion (Sp)|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	DEFINE:MinstrelMusicTimes|0	DEFINE:MinstrelFascinate|0	DEFINE:InspireCourage|0	DEFINE:InspireGreat|0	DEFINE:InspireHeroics|0	SPELLS:Minstrel|TIMES=-1|CASTERLEVEL=cl("Minstrel")|Suggestion,12+CHA|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SPELLS:Minstrel|TIMES=-1|CASTERLEVEL=cl("Minstrel")|Suggestion (Mass),15+CHA|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	BONUS:VAR|MinstrelFascinate|(MinstrelMusicLevel+2)/3	BONUS:VAR|InspireCourage|max(floor((MinstrelMusicLevel+4)/6),1)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	BONUS:VAR|InspireGreat|(MinstrelMusicLevel-6)/3|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:MinstrelMusicLevel,9	BONUS:VAR|InspireHeroics|(MinstrelMusicLevel-12)/3|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:MinstrelMusicLevel,15

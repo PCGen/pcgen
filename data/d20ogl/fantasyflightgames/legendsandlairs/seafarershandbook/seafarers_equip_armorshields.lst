@@ -1,0 +1,18 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Aug 22 03:11:59 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+#Light Armor
+# Equipment Name	Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Soft Kelp		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:7	WT:7		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.26	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Stiffened Kelp	TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:15	WT:10		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.26	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Light Scale		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:30	WT:8		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.27	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Bone Mail		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:30	WT:10		ACCHECK:-1		MAXDEX:5		SOURCEPAGE:p.26	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+
+#Medium Armor
+Medium Scale	TYPE:Armor.Medium.Suit.Standard.Nonmetal.Aquatic	COST:75	WT:15		ACCHECK:-2		MAXDEX:5		SOURCEPAGE:p.27	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Small Shell		TYPE:Armor.Medium.Suit.Standard.Nonmetal.Aquatic	COST:60	WT:20		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:p.26	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+
+#Heavy Armor
+Large Shell		TYPE:Armor.Heavy.Suit.Standard.Nonmetal.Aquatic		COST:500	WT:30		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.27	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Heavy Scale		TYPE:Armor.Heavy.Suit.Standard.Nonmetal.Aquatic		COST:2000	WT:25		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:p.27	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE

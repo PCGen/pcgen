@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 26 23:37:50 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Circuits|SOURCESHORT:BNC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+
+# Weapon Name	Type
+Disk Blade		TYPE:Exotic
+Pipe Rifle		TYPE:Simple
+X Blaster Pistol	TYPE:PersonalFirearm
+X Blaster Rifle	TYPE:PersonalFirearm

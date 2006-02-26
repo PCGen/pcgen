@@ -1,0 +1,146 @@
+# CVS $Revision: 1.18 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+#Original Author: kingpaul, Updated by Beaver and Tir Gwaith
+
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+
+# Class Name		Output Name			Hit Dice	Type			Abbreviation	Ex Class			Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Paladin (BoHM)	OUTPUTNAME:Paladin	HD:10		TYPE:Base.PC	ABB:HMP		EXCLASS:Ex Paladin	SOURCEPAGE:p.10	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required AL
+CLASS:Paladin (BoHM)	PREALIGN:LG
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Paladin (BoHM)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE.Profession|Ride
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
+CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin (BoHM)|CL/2|PRECLASS:1,Paladin (BoHM)=4
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Paladin (BoHM)=1|Bless,Bless Water,Bless Weapon,Burning Hands,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Evil,Read Magic,Resistance,Virtue
+1	SPELLLEVEL:CLASS|Paladin (BoHM)=2|Delay Poison,Remove Paralysis,Resist Elements,Shield Other,Undetectable Alignment
+1	SPELLLEVEL:CLASS|Paladin (BoHM)=3|Cure Moderate Wounds,Discern Lies,Dispel Magic,Greater Magic Weapon,Heal Mount,Magic Circle against Evil,Prayer
+1	SPELLLEVEL:CLASS|Paladin (BoHM)=4|Cure Serious Wounds,Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Neutralize Poison,Remove Blindness/Deafness
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Turn Undead stuff
+3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	FEATAUTO:Turn Undead|Basic Turning
+3	BONUS:VAR|TurnLevelBase|CL-2				DEFINE:AllowExtraTurning|1
+3	BONUS:VAR|TurnDamagePlusBase|CL-2
+3	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Normal level progression
+1				SA:Detect Evil	SA:Divine Grace	SA:Divine Health	SA:Lay on Hands % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Willpower|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
+2				SA:Aura of Courage																																				FEATAUTO:Smite Evil
+3				SA:Remove Disease %/week|RemoveDisease									BONUS:VAR|RemoveDisease|CL/3											DEFINE:RemoveDisease|0
+4	CAST:0,0
+5	CAST:0,0		SA:Special Mount
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1																	BONUS:VAR|SmiteEvil|1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	SA:Special Weapon
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:Special Weapon becomes bane weapon
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1																BONUS:VAR|SmiteEvil|1
+17	CAST:0,2,2,2,1	SA:Special Weapon becomes holy
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:Blessed Aura
+
+# Class Name		Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus																Combat bonus
+CLASS:Ranger (BoHM)	HD:10		ABB:HMR		SOURCEPAGE:p.9	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Ranger (BoHM)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Use Rope|Search|Spot|Swim|Wilderness Lore
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
+CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ranger (BoHM)|CL
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Ranger (BoHM)=1|Alarm,Animal Friendship,Burning Brand,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Entangle,Magic Fang,Pass without Trace,Read Magic,Resist Elements,Speak with Animals,Summon Nature's Ally I
+1	SPELLLEVEL:CLASS|Ranger (BoHM)=2|Animal Messenger,Blight Enemy,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Hold Animal,Protection from Elements,Sleep,Snare,Speak with Plants,Summon Nature's Ally II,Wild Stealth
+1	SPELLLEVEL:CLASS|Ranger (BoHM)=3|Control Plants,Cure Moderate Wounds,Diminish Plants,Greater Magic Fang,Neutralize Poison,Plant Growth,Remove Disease,Summon Nature's Ally III,Tree Shape,Water Walk
+1	SPELLLEVEL:CLASS|Ranger (BoHM)=4|Aeonian Lantern,Cure Serious Wounds,Freedom of Movement,Nondetection,Polymorph Self,Summon Nature's Ally IV,Tree Stride,Unite Allies,Wind Wall
+###Block: Normal level progression
+1				ADD:FEAT(TYPE=RangerFavored)																																																																	FEATAUTO:Track
+4	CAST:0,0		ADD:FEAT(Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting)
+5	CAST:0,0		ADD:FEAT(TYPE=RangerFavored)
+6	CAST:0,1
+7	CAST:0,1,0
+8	CAST:0,1,0		ADD:FEAT(Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting)
+9	CAST:0,1,1
+10	CAST:0,1,1,0	ADD:FEAT(TYPE=RangerFavored)
+11	CAST:0,2,1,0
+12	CAST:0,2,1,1	ADD:FEAT(Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting)
+13	CAST:0,2,1,1,0
+14	CAST:0,2,2,1,0
+15	CAST:0,2,2,1,1	ADD:FEAT(TYPE=RangerFavored)
+16	CAST:0,3,2,2,1	ADD:FEAT(Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting)
+17	CAST:0,3,3,2,1
+18	CAST:0,3,3,2,2
+19	CAST:0,3,3,3,2
+20	CAST:0,4,3,3,3	ADD:FEAT(TYPE=RangerFavored)	ADD:FEAT(Alertness,Ambidexterity,Blind-Fight,Dodge,Mobility,Spring Attack,Endurance,Expertise,Improved Disarm,Improved Trip,Favored Enemy Critical Strike,Favored Enemy Strike,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Quick Draw,Skill Focus,Two-Weapon Fighting,Improved Two-Weapon Fighting)
+
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
+CLASS:Blessed Prelate	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BPr		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required AL		Required Feat								Required Skill
+CLASS:Blessed Prelate	PREALIGN:LG,NG,CG	PREFEAT:3,Devout Faith,Vow of Obedience,Vow of Stability	PRESKILL:1,Knowledge (Religion)=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Blessed Prelate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
+1	ADD:SPELLCASTER(ANY)																							ADD:FEAT(Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence)
+2	ADD:SPELLCASTER(ANY)	SA:Blessed Child (Dayod)
+3																											ADD:FEAT(Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence)
+4	ADD:SPELLCASTER(ANY)	SA:Enlightened State						BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2
+5																											ADD:FEAT(Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence)
+6	ADD:SPELLCASTER(ANY)	SA:Blessed Child (Fealom)
+7																											ADD:FEAT(Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence)
+8	ADD:SPELLCASTER(ANY)	SA:Greater Enlightened State					BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2
+9																											ADD:FEAT(Accolade,Adoubement,Brew Potion,Call Down Divine Wrath,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Extra Turning,Forge Ring,Redeeming Grace,Reform,Redeem,Scribe Scroll,Skill Focus,Swear an Oath,Oath of Magic,Vow of Chastity,Vow of Fidelity,Vow of Poverty,Vow of Silence)
+10	ADD:SPELLCASTER(ANY)	SA:Blessed Child (Hallas)	SA:Touch of Purity
+
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Hallowed Mage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:HMa		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name		Required AL		Required Feat					Required Skill							Req. Spell Type
+CLASS:Hallowed Mage	PREALIGN:LG,NG,CG	PREFEAT:2,Devout Faith,Vow of Obedience	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=8	PRESPELLTYPE:Arcane,1,3	PRESPELLTYPE:Divine,1,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Hallowed Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
+CLASS:Hallowed Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Hallowed Mage|CL
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Hallowed Mage=4|Confusion,Cure Critical Wounds,Detect Scrying,Dimension Door,Dimensional Anchor,Ethereal Prison,Halo of Glory,Ice Storm,Minor Creation,Solid Fog,Summon Monster IV,Truth's Wings,Wall of Fire,Wall of Ice
+1	SPELLLEVEL:CLASS|Hallowed Mage=5|Cone of Cold,Fabricate,Hallow,Halo of Shelter,Hold Monster,Improved Invisibility,Major Creation,Polymorph Other,Polymorph Self,Scrying,Shield of Light,Summon Monster V,Telekinesis,Wall of Stone
+1	SPELLLEVEL:CLASS|Hallowed Mage=6|Angel's Redoubt,Banishment,Blazing Light,Chain Lightning,Contingency,Control Water,Eyebite,Greater Dispelling,Light of the Earth,Permanency,Return and Avenge,Spell Resistance,Stone to Flesh,Summon Monster VI,Teleport,True Seeing
+1	SPELLLEVEL:CLASS|Hallowed Mage=7|Greater Scrying,Holy Word,Phase Door,Plane Shift,Power Word (Stun),Redemption from Evil Power,Resurrection,Reverse Gravity,Spell Turning,Summon Monster VII,Vengeful Spell Resistance,Watery Prison,Waves of Light
+1	SPELLLEVEL:CLASS|Hallowed Mage=8|Antimagic Field,Arathan's Spiritual Soldier,Discern Location,Etherealness,Greater Planar Ally,Holy Shout,Mass Heal,Mind Blank,Polymorph Any Object,Power Word (Blind),Prismatic Wall,Summon Monster VIII,Symbol
+1	SPELLLEVEL:CLASS|Hallowed Mage=9|Confutation of the Demon,Foresight,Gate,Meteor Swarm,Miracle,Prismatic Sphere,Refuge,Storm of Vengeance,Summon Monster IX,Temporal Stasis,True Resurrection,Wellspring of Soul's Light
+###Block: Normal level progression
+1	CAST:0,0,0,0,2
+2	CAST:0,0,0,0,2,1			SA:Hallowed arcana
+3	CAST:0,0,0,0,3,2			SA:Divine-arcane fusion I
+4	CAST:0,0,0,0,3,2,1
+5	CAST:0,0,0,0,4,3,2		SA:Bless spell
+6	CAST:0,0,0,0,4,3,2,1
+7	CAST:0,0,0,0,4,4,3,2		SA:Purify spell
+8	CAST:0,0,0,0,5,4,3,2,1
+9	CAST:0,0,0,0,5,4,4,3,2		SA:Sanctify spell
+10	CAST:0,0,0,0,5,5,4,3,2,1	SA:Divine-arcane fusion II
+
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Knight of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:KoP		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name			Required AL			Req. Att.	Required Feat		Required Skill
+CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PREATT:7	PREFEAT:1,Devout Faith	PRESKILL:1,Knowledge (Religion)=4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Pale	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE.Profession|Sense Motive|Spot
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Suite of St Chausle
+3	SA:Suite of St Gustav
+5	SA:Suite of St Yessid
+7	SA:Suite of St Daris
+8	SA:Holy Avenger
+9	SA:Suite of St Feldin
+10	SA:Suite of Lothian

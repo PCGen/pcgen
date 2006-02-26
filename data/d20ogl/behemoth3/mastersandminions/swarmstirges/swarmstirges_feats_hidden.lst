@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 20 18:40:03 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:A Swarm of Stirges|SOURCESHORT:ASoS|SOURCEWEB:http://www.behemoth3.com/
+#Original Entry by: Eddy Anthony
+
+###Block: Wing Jockey support
+# Feat Name						Visible	Define					Virtual Feat								Combat bonus								Bonus to skill									Modify VAR									Source Page		Temporary effect description
+Wing Jockey (Mount Affinity)			VISIBLE:NO																											BONUS:SKILL|Handle Animal,Ride|2|TYPE=MountAffinity|PREAPPLY:PC											SOURCEPAGE:p.21	TEMPDESC:A Wing Jockey chooses to develop a special affinity for one type of flying creature. She gains a +2 bonus on all Handle Animal checks and Ride checks related to her chosen creature.
+
+Wing Jockey (Mounted Defense)			VISIBLE:NO	DEFINE:MountedDefenseAC|1												BONUS:COMBAT|AC|MountedDefenseAC|TYPE=Insight|PREAPPLY:PC																						SOURCEPAGE:p.21	TEMPDESC:When a Wing Jockey is riding a mount with which she has established an empathic link they both gain a +1 insight bonus to their ACs.
+Wing Jockey (Mounted Defense II)		VISIBLE:NO																																						BONUS:VAR|MountedDefenseAC|1|TYPE=Temporary|PREAPPLY:PC	SOURCEPAGE:p.21	TEMPDESC:At 4th level both the wing jockey and her mount gain an additional gain a +1 insight bonus to their ACs.
+
+Wing Jockey (Riding Style/Mount)		VISIBLE:NO	DEFINE:WingoverQualify|0		VFEAT:Wingover|PREVARGTEQ:WingoverQualify,1																								BONUS:VAR|WingoverQualify|1|PREAPPLY:PC				SOURCEPAGE:p.21	TEMPDESC:At 3rd level a Wing Jockey's mount is treated as having the Wingover feat, even if it does not have the normal prerequisites for that feat.
+Wing Jockey (Riding Style/Rider)		VISIBLE:NO	DEFINE:MountedArcheryQualify|0	VFEAT:Mounted Archery|PREVARGTEQ:MountedArcheryQualify,1																						BONUS:VAR|MountedArcheryQualify|1|PREAPPLY:PC			SOURCEPAGE:p.21	TEMPDESC:At 3rd level Wing Jockey is treated as having the Mounted Archery feat, even if it does not have the normal prerequisites for that feat.
+
+Wing Jockey (Riding Style Mastery/Mount)	VISIBLE:NO	DEFINE:HoverQualify|0			VFEAT:Hover|PREVARGTEQ:HoverQualify,1																									BONUS:VAR|HoverQualify|1|PREAPPLY:PC				SOURCEPAGE:p.22	TEMPDESC:At 5th level a Wing Jockey's mount is treated as having the Hover feat, even if it does not have the normal prerequisites for that feat.
+Wing Jockey (Riding Style Mastery/Rider)	VISIBLE:NO	DEFINE:RideByAttackQualify|0		VFEAT:Ride By Attack|PREVARGTEQ:RideByAttackQualify,1																							BONUS:VAR|RideByAttackQualify|1|PREAPPLY:PC			SOURCEPAGE:p.22	TEMPDESC:At 5th level Wing Jockey is treated as having the Ride By Attack feat, even if it does not have the normal prerequisites for that feat.

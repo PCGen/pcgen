@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Dec  1 00:01:26 2003 -- reformated by prettylst.pl v1.32 (build 336)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+###Block:Simple weapons-melee
+# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size
+Brass Knuckles						PROFICIENCY:Brass Knuckles	TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Metal	COST:8	WT:0.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:2	SIZE:S
+Club (boffer)	OUTPUTNAME:Club, boffer		PROFICIENCY:Club (boffer)	TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Boffer	COST:10	WT:2		CRITMULT:1pt		CRITRANGE:1			DAMAGE:0	RANGE:0	SIZE:M
+Knife (boffer)	OUTPUTNAME:Knife, boffer	PROFICIENCY:Knife (boffer)	TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Boffer	COST:5	WT:1		CRITMULT:1pt		CRITRANGE:1			DAMAGE:0	RANGE:5	SIZE:S
+Machete							PROFICIENCY:Machete		TYPE:Weapon.Simple.Melee.Standard.Slashing.Metal	COST:4	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:M
+Pitchfork							PROFICIENCY:Pitchfork		TYPE:Weapon.Simple.Melee.Standard.Piercing.Metal	COST:5	WT:7		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d4			SIZE:L
+Shiv								PROFICIENCY:Shiv			TYPE:Weapon.Simple.Melee.Standard.Piercing.Metal	COST:0	WT:0.25	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3			SIZE:S
+Sword (boffer)	OUTPUTNAME:Sword, boffer	PROFICIENCY:Sword (boffer)	TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Boffer	COST:10	WT:2		CRITMULT:1pt		CRITRANGE:1			DAMAGE:0	RANGE:0	SIZE:M
+
+###Block:Martial weapons-melee
+# Equipment Name		Output Name					Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size
+Chain (fighting)		OUTPUTNAME:Chain, fighting		PROFICIENCY:Chaing (fighting)		TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Metal	COST:4	WT:5		CRITMULT:X2			CRITRANGE:1			DAMAGE:1d6	SIZE:L
+Ice Pick (combat)		OUTPUTNAME:Ice Pick, combat		PROFICIENCY:Ice Pick (combat)		TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal	COST:15	WT:3		CRITMULT:X4			CRITRANGE:1			DAMAGE:1d4	SIZE:S
+Wrist Blade									PROFICIENCY:Wrist Blade			TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal	COST:45	WT:4		CRITMULT:X2			CRITRANGE:2			DAMAGE:1d4	SIZE:S
+Wrist Blade (double)	OUTPUTNAME:Wrist Blade, double	PROFICIENCY:Wrist Blade (double)	TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal	COST:60	WT:5		CRITMULT:X2			CRITRANGE:2			DAMAGE:1d6	SIZE:M
+
+###Block:Exotic weapons-melee
+# Equipment Name		Output Name					Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size
+Chainsaw									PROFICIENCY:Chainsaw			TYPE:Weapon.Exotic.Melee.Standard.Slashing.Metal	COST:35	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:3d8					SIZE:M
+Mace (double-headed)	OUTPUTNAME:Mace, double-headed	PROFICIENCY:Mace (double-headed)	TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Metal	COST:50	WT:25		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		SIZE:M
+
+###Block:Sports weapons-melee
+# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size
+Bat (aluminum)	OUTPUTNAME:Bat, aluminum	PROFICIENCY:Bat (aluminum)	TYPE:Weapon.Sport.Melee.Standard.Bludgeoning.Metal	COST:15	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	SIZE:M
+Hockey Stick						PROFICIENCY:Hockey Stick	TYPE:Weapon.Sport.Melee.Standard.Bludgeoning.Wooden	COST:10	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:L
+Golf club							PROFICIENCY:Golf Club		TYPE:Weapon.Sport.Melee.Standard.Bludgeoning.Wooden	COST:20	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:M

@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+
+###Block:Knight's Mount
+# Class of the Master	Type			Hit Dice	Special Ability	Define			Combat bonus						Add to base move			Modify VAR
+FOLLOWER:KnightLevel=1	TYPE:KnightMount						DEFINE:BonusTricks|1
+FOLLOWER:KnightLevel=3	TYPE:KnightMount	HD:2		SA:Improved Speed					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:VAR|BonusTricks|1
+FOLLOWER:KnightLevel=5	TYPE:KnightMount	HD:2		SA:Devotion						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:VAR|BonusTricks|1
+FOLLOWER:KnightLevel=7	TYPE:KnightMount	HD:2									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:VAR|BonusTricks|1

@@ -1,0 +1,22 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Jan 27 04:40:55 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Equipment Name			Output Name					Required Proficiency				Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
+##Simple
+# Equipment Name			Output Name					Required Proficiency				Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
+Cane (Fighting)			OUTPUTNAME:Cane, Fighting		PROFICIENCY:Cane (Fighting)			TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Wood			COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:M	SOURCEPAGE:94
+Cestus (Impression)		OUTPUTNAME:Cestus, Impression		PROFICIENCY:Cestus (Impression)		TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Metal			COST:120	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:94
+Canteen (Combat)			OUTPUTNAME:Canteen, Combat		PROFICIENCY:Canteen (Combat)			TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Metal			COST:20	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:94
+Bayonet (Wand)			OUTPUTNAME:Bayonet, Wand		PROFICIENCY:Bayonet (Wand)			TYPE:Weapon.Simple.Melee.Standard.Piercing.Metal			COST:50	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d3	SIZE:T	SOURCEPAGE:94
+Trench Knife									PROFICIENCY:Trench Knife			TYPE:Weapon.Simple.Melee.Standard.Slashing.Bludgeoning.Metal	COST:10	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:94
+Truncheon (Spring Loaded)	OUTPUTNAME:Truncheon (Sping Loaded)	PROFICIENCY:Truncheon (Spring Loaded)	TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Metal			COST:15	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:94
+
+##Martial
+Cane (Rapier)			OUTPUTNAME:Cane, Rapier			PROFICIENCY:Cane (Rapier)			TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal			COST:70	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	SIZE:M	SOURCEPAGE:94
+Helmet (Horned)			OUTPUTNAME:Helmet, Horned		PROFICIENCY:Helmet (Horned)			TYPE:Weapon.Martial.Melee.Standard.Pierciing.Metal.Headgear		COST:75	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	SIZE:S	SOURCEPAGE:94
+Helmet (Smash)			OUTPUTNAME:Helmet, Smash		PROFICIENCY:Helmet (Smash)			TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Metal.Headgear	COST:60	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:S	SOURCEPAGE:94
+
+##Exotic
+Knife (Sacrificial)		OUTPUTNAME:Knife, Sacrificial		PROFICIENCY:Knife (Sacrificial)		TYPE:Weapon.Exotic.Melee.Standard.Slashing.Metal			COST:200	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	SIZE:T	SOURCEPAGE:94
+Saw Edge Buckler									PROFICIENCY:Saw Edge Buckler			TYPE:Weapon.Exotic.Melee.Standard.Slashing.Metal.Shield		COST:175	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:S	SOURCEPAGE:94
+Smash Buckler									PROFICIENCY:Smash Buckler			TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Metal.Shield		COST:40	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	SIZE:S	SOURCEPAGE:94

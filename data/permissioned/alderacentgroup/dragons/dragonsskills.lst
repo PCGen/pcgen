@@ -1,0 +1,25 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Wed Apr 23 14:43:01 2003 -- reformated by prettylst.pl v1.27 (build 277)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+
+# Skill Name				Product Identity?	Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type						Bonus to skill																											Source Page			Choose
+Alchemy (Organ Harvesting)		NAMEISPI:NO		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Alchemy																															SOURCEPAGE:p.26
+Bluff (Flattery)				NAMEISPI:NO		KEYSTAT:CHA											TYPE:Charisma.Bluff																																SOURCEPAGE:p.26
+Climb (Swarm Huge Monster)		NAMEISPI:NO		KEYSTAT:STR				ACHECK:YES						TYPE:Strength.Climb																																SOURCEPAGE:p.26-27
+Craft (Dragonsmithing)			NAMEISPI:NO		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																SOURCEPAGE:p.27
+Decipher Script (Create Cipher)	NAMEISPI:NO		KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence.Decipher Script																														SOURCEPAGE:p.27
+Diplomacy (Dragon Protocol)		NAMEISPI:NO		KEYSTAT:CHA											TYPE:Charisma.Diplomacy			BONUS:SKILL|Diplomacy (Dragon Protocol)|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy (Dragon Protocol)|2|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK	SOURCEPAGE:p.27-28
+Jump (Leap into the Saddle)		NAMEISPI:NO		KEYSTAT:STR				ACHECK:YES						TYPE:Strength.Jump			BONUS:SKILL|Jump (Leap into the Saddle)|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK																SOURCEPAGE:p.28
+Pick Pocket (Plant Object)		NAMEISPI:NO		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity.Pick Pocket		BONUS:SKILL|Pick Pocket (Plant Object)|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK																SOURCEPAGE:p.28
+Search (Stash Item)			NAMEISPI:NO		KEYSTAT:INT											TYPE:Intelligence.Search																															SOURCEPAGE:p.28
+Speak Language (Speak Dialect)	NAMEISPI:NO				USEUNTRAINED:NO								TYPE:None.Language																																SOURCEPAGE:p.28		CHOOSE:Language(Spoken)
+
+###Block:Type .MODs
+# Skill Name		Type
+Alchemy.MOD			TYPE:Intelligence.Alchemy
+Bluff.MOD			TYPE:Charisma.Bluff
+Climb.MOD			TYPE:Strength.Climb
+Decipher Script.MOD	TYPE:Intelligence.Decipher Script
+Diplomacy.MOD		TYPE:Charisma.Diplomacy
+Jump.MOD			TYPE:Strength.Jump
+Pick Pocket.MOD		TYPE:Dexterity.Pick Pocket
+Search.MOD			TYPE:Intelligence.Search

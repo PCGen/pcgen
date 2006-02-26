@@ -1,0 +1,62 @@
+# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
+CLASS:Adept		HD:6		TYPE:Base.NPC	ABB:Adp		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Adept		STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
+CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL
+1	SPELLLEVEL:CLASS|Adept=0|Create Water,Cure Minor Wounds,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Touch of Fatigue
+1	SPELLLEVEL:CLASS|Adept=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
+1	SPELLLEVEL:CLASS|Adept=2|Aid,Animal Trance,Bear's Endurance,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Delay Poison,Invisibility,Mirror Image,Resist Energy,Scorching Ray,See Invisibility,Web
+1	SPELLLEVEL:CLASS|Adept=3|Animate Dead,Bestow Curse,Contagion,Continual Flame,Cure Serious Wounds,Daylight,Deeper Darkness,Lightning Bolt,Neutralize Poison,Remove Curse,Remove Disease,Tongues
+1	SPELLLEVEL:CLASS|Adept=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
+1	SPELLLEVEL:CLASS|Adept=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
+###Block Normal Level progression
+1	CAST:3,1						FEATAUTO:Simple Weapon Proficiency
+2	CAST:3,1		SA:Summon Familiar
+3	CAST:3,2
+4	CAST:3,2,0
+5	CAST:3,2,1
+6	CAST:3,2,1
+7	CAST:3,3,2
+8	CAST:3,3,2,0
+9	CAST:3,3,2,1
+10	CAST:3,3,2,1
+11	CAST:3,3,3,2
+12	CAST:3,3,3,2,0
+13	CAST:3,3,3,2,1
+14	CAST:3,3,3,2,1
+15	CAST:3,3,3,3,2
+16	CAST:3,3,3,3,2,0
+17	CAST:3,3,3,3,2,1
+18	CAST:3,3,3,3,2,1
+19	CAST:3,3,3,3,3,2
+20	CAST:3,3,3,3,3,2
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
+CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE.Knowledge|Listen|TYPE.Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Survival
+1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Optionnal Weapon Prof.	Save checks bonus								Combat bonus
+CLASS:Commoner	HD:4		TYPE:Base.NPC	ABB:Com		SOURCEPAGE:NPCClasses.rtf	WEAPONBONUS:TYPE.Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Use Rope
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
+CLASS:Expert	HD:6		TYPE:Base.NPC	ABB:Exp		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Expert	STARTSKILLPTS:6
+1	ADD:CLASSSKILLS(ANY)10	VFEAT:Armor Proficiency (Light)	FEATAUTO:Simple Weapon Proficiency
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
+CLASS:Warrior	HD:8		TYPE:Base.NPC	ABB:War		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
+1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency

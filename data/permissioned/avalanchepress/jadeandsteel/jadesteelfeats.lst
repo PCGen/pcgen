@@ -1,0 +1,13 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Jul 15 20:21:53 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Avalanche Press - Jade and Steel|SOURCESHORT:JadeSteel|SOURCEWEB:http://www.avalanchepress.com
+
+# Feat Name				Type				Req. Att.	Required Feat											Required Skill				Required Stat	Description																	Source Page
+Dual Weapon Attack		TYPE:General.Fighter			PREFEAT:3,Ambidexterity,Two-Weapon Fighting,Improved Two-Weapon Fighting										DESC:Now do full STR bonus with off-handed weapons										SOURCEPAGE:p.21
+Grappling Finesse			TYPE:General.Fighter			PREFEAT:2,Improved Unarmed Strike,Weapon Finesse (Unarmed)				PRESKILL:1,Knowledge (Necrology)=4				DESC:May substitute DEX bonus for STR when making Grapple and Trip checks						SOURCEPAGE:p.21
+Improved Grapple (JS)		TYPE:General.Fighter			PREFEAT:2,Improved Unarmed Strike,Improved Trip						PRESKILL:1,Knowledge (Necrology)=8				DESC:May take a move equivalent action to start a grapple that does not provoke an attack of opportunity	SOURCEPAGE:p.21
+Leap of The Monkey		TYPE:General.Fighter																PRESKILL:2,Jump,Climb=5						DESC:Character does not loose DEX bonus to AC when climbing as long as climb last only a single round		SOURCEPAGE:p.21
+Sticking				TYPE:General.Fighter			PREFEAT:2,Improved Grapple (JS),Improved Trip															DESC:Martial artists can stick to oponent receiving +2 to Disarm, Grapple and Trip					SOURCEPAGE:p.21
+Superior Two-Weapon Fighting	TYPE:General.Fighter			PREFEAT:2,Two-Weapon Fighting,Improved Two-Weapon Fighting										PRESTAT:1,STR=15	DESC:Suffers only -2 penalty when fighting with two non-light weapons							SOURCEPAGE:p.21
+Typhoon Attack			TYPE:General.Fighter																PRESKILL:1,Jump=5							DESC:Allows a second attack on a new opponent after a successful charge							SOURCEPAGE:p.22
+Whirlwind Kick			TYPE:General.Fighter	PREATT:3	PREFEAT:1,Improved Unarmed Strike														PRESTAT:1,DEX=15	DESC:Kick can strike multiple Oponents												SOURCEPAGE:p.22
+Willow Step				TYPE:General.Fighter																PRESKILL:1,Tumble=5			PRESTAT:1,DEX=15	DESC:Successful Tumble Check (DC20) allows continued movement in a straight line after a charge			SOURCEPAGE:p.22

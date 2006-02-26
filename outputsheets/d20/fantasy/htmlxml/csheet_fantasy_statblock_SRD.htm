@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME|, |GENDER.LONG| |RACE|</title>
+<!--
+
+	*** Addapted from csheet_fantasy_statblock1.htm by Eddy Anthony ***
+		
+	Designed to match the RSRD text as close as possible.
+	The look and feel is secifically designed to match 
+	the html version of the RSRD created by Andargor 
+	available at http://www.andargor.com/
+
+$Revision: 1.2 $
+$Author: eddyanthony $
+$Date: 2006/01/17 02:12:57 $
+
+-->
+<style type="text/css">
+	body  { font-family:arial; font-size:10pt; text-align:left; color:black; background:#FFEEA4; font-weight:normal; margin: 0px; padding: 0px; }
+	.header { display:block; font-size:7pt; text-align:center; }
+</style>
+</head>
+<body>
+<blockquote> <em><font size="+2" color="#500000"><strong>|NAME|</strong><br />
+  </font></em> </b></p> 
+  <table width="100%" border="1" cellpadding="1" cellspacing="2" bordercolor="#666666" bgcolor="FFFFC4" summary="Character Info Table">
+    <tr valign="top">
+      <td width="25%" bordercolor="#999999"></td>
+    <td width="75%"><strong>|RACE|</strong>
+|FOR,%class,0,COUNT[CLASSES]-1,1,1|
+|IIF(CLASS.%class.TYPE:Monster)|
+|ELSE|
+|IIF(CLASS.%class.LEVEL:N/A)|
+|ELSE|
+, 
+|CLASS.%class.LEVEL|
+|IIF(CLASS.%class.LEVEL:1.OR.CLASS.%class.LEVEL:21)|
+st
+|ELSE|
+|IIF(CLASS.%class.LEVEL:2.OR.CLASS.%class.LEVEL:22)|
+nd
+|ELSE|
+|IIF(CLASS.%class.LEVEL:3.OR.CLASS.%class.LEVEL:23)|
+rd
+|ELSE|
+th
+|ENDIF|<!--rd-->
+|ENDIF|<!--nd-->
+|ENDIF|<!--st-->
+-Level |CLASS.%class|
+|ENDIF|
+|ENDIF|<!--TYPE != Monster-->
+|ENDFOR|
+</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"></td>
+    <td width="75%">|SIZELONG| 
+|IIF(RACETYPE:None)|
+|TYPE| 
+|ELSE|
+|RACETYPE| 
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+|ELSE|
+(
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|RACESUBTYPE.%subtype|, 
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|RACESUBTYPE.%subtype|
+|ENDFOR|
+)
+|ENDIF|
+</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Hit Dice: </b></td>
+    <td width="75%">|HITDICE|  (|HP| hp)</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Initiative: </b></td>
+    <td width="75%">|INITIATIVEMOD| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Speed: </b></td>
+    <td width="75%">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|IIF(MOVE.0.NAME:Walk)|
+|IIF(MOVE.%movement.NAME:Walk)|
+|MOVE.%movement.RATE| (|MOVE.%movement.SQUARES| squares)
+|ELSE|
+|MOVE.%movement.NAME| |MOVE.%movement.RATE|
+|ENDIF|
+|ELSE|
+|MOVE.%movement.NAME| |MOVE.%movement.RATE| (|MOVE.%movement.SQUARES| squares)
+|ENDIF|
+, 
+|ENDFOR|
+
+</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Armor Class: </b></td>
+    <td width="75%">|AC.Total| (
+|IIF(AC.Size:0)|
+|ELSE|
+|AC.Size.SIGN| size, 
+|ENDIF|
+|IIF(AC.Ability:0)|
+|ELSE|
+|AC.Ability.SIGN| Dex, 
+|ENDIF|
+|IIF(AC.NaturalArmor:0)|
+|ELSE|
+|AC.NaturalArmor.SIGN| natural, 
+|ENDIF|
+|IIF(AC.Misc:0)|
+|ELSE|
+|AC.Misc.SIGN| misc
+|ENDIF|
+|IIF(AC.Armor:0)|
+|ELSE|
+|AC.Armor.SIGN| |EQ.IS.ARMOR.0.NAME|, 
+|ENDIF|
+|IIF(AC.Shield:0)|
+|ELSE|
+|AC.Shield.SIGN| 
+|IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
+Heavy Shield, 
+|ELSE|
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:LIGHT)|
+Light Shield, 
+|ELSE|
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:BUCKLER)|
+Buckler, 
+|ELSE|
+|ENDIF|
+|IIF(EQ.IS.SHIELD.0.TYPE:TOWER)|
+Tower Shield, 
+|ELSE|
+|ENDIF|
+|ENDIF|
+) touch |AC.Touch|, flatfooted |AC.Flatfooted|</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Base Attack/Grapple: </b></td>
+    <td width="75%">|VAR.BAB.INTVAL.SIGN|/
+|IIF(VAR.IF(var("CanNotGrapple")==0;1;0):1)|
+|VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|
+|ELSE|
+ - 
+|ENDIF|   
+    </td>
+  </tr>
+
+  <tr valign="top">
+    <td width="25%"><b>Attacks: </b></td>
+    <td width="75%">
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
+<strong>|WEAPON.%weap.NAME| </strong>
+|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+(two handed) |WEAPON.%weap.THHIT| melee ((two handed) |WEAPON.%weap.THDAMAGE|
+|FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
+|IIF(%CritTest:2)|
+|ELSE|
+/|WEAPON.%weap.CRIT|
+|ENDIF|
+|ENDFOR|
+|IIF(WEAPON.%weap.MULT:2)|
+|ELSE|
+/x|WEAPON.%weap.MULT|
+|ENDIF|
+);<br />
+|ELSE|
+|WEAPON.%weap.TOTALHIT| 
+|IIF(WEAPON.%weap.ISTYPE.Ranged)|
+ranged
+|ELSE|
+melee
+|ENDIF|
+ (
+|IIF(WEAPON.%weap.ISTYPE.Ranged)|
+|WEAPON.%weap.RANGELIST.0.DAMAGE|
+|ELSE|
+|WEAPON.%weap.DAMAGE|
+|ENDIF|
+|FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
+|IIF(%CritTest:2)|
+|ELSE|
+/|WEAPON.%weap.CRIT|
+|ENDIF|
+|ENDFOR|
+|IIF(WEAPON.%weap.MULT:2)|
+|ELSE|
+/x|WEAPON.%weap.MULT|
+|ENDIF|
+)<br />
+|ENDIF|
+|ENDFOR|
+    </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Face/Reach: </b></td>
+    <td width="75%">|FACE|/|REACH| </td>
+  </tr>
+  
+  <tr valign="top">
+    <td width="25%"><b>Special Attacks/Qualities: </b></td>
+    <td width="75%"> 
+|FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|
+|IIF(%DRtest:0)|
+|ELSE|
+Damage Reduction |DR|, 
+|ENDIF|
+|ENDFOR|
+|IIF(SR:0)|
+|ELSE|
+Spell Resistance |SR|, 
+|ENDIF|
+|FOR,%vision,0,COUNT[VISION]-1,1,0|
+|VISION.%vision|, 
+|ENDFOR|
+|SPECIALLIST|
+</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Saves: </b></td>
+    <td width="75%">
+|FOR,%checks,0,COUNT[CHECKS]-2,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort: 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref: 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will: 
+|ELSE|
+|CHECK.%checks.NAME|: 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|, 
+|ENDFOR|
+|FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort: 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref: 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will: 
+|ELSE|
+|CHECK.%checks.NAME|: 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|
+|ENDFOR|
+    </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Abilities: </b></td>
+    <td width="75%">
+Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.5|
+     </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Skills: </b></td>
+    	<td width="75%">
+
+<!--   Trouble-shooting stuff   
+|FOR.0,COUNT[SKILLS],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
+-->
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
+|IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
+|ELSE|
+<font color="#FF6600">|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; </font>
+|ENDIF|
+|ELSE|
+|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
+|ENDIF|
+|ENDFOR|
+
+	</td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Feats: </b></td>
+    <td width="75%">|FEATLIST| <br /><font color="#FF6600">|FEATAUTOLIST|</font>
+<!-- 
+|FOR,%feat,0,COUNT[FEATS]-2,1,0|
+|FEAT.VISIBLE.%feat|, 
+|ENDFOR|
+|FOR,%feat,COUNT[FEATS]-1,COUNT[FEATS]-1,1,0|
+|FEAT.VISIBLE.%feat|
+|ENDFOR|
+ -->
+ </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Challenge Rating: </b></td>
+    <td width="75%">|CR| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Alignment: </b></td>
+    <td width="75%">|ALIGNMENT| </td>
+  </tr>
+  <tr valign="top">
+    <td width="25%"><b>Level Adjustment: </b></td>
+    <td width="75%">
+|IIF(VAR.IF(var("ECL-TL")==0;1;0):1)|
+-
+|ELSE|
++|VAR.ECL-TL.INTVAL|
+|ENDIF|
+</td>
+  </tr>
+</table>
+|%REGION|<p> Region: |REGION| </p>|%|
+<p><b>Possessions: </b>|FOR.0,COUNT[EQUIPMENT.Not.Natural],100,\EQ.%.NAME\; , , ,0|
+</p>
+|%DOMAIN.1|
+Deity: |DEITY| <i>Domains</i>: |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\(\DOMAIN.%.POWER\), ,NONE,2|
+<br />
+|%|
+|%SPELLLISTCLASS.0|
+<i>Spells:</i><br />
+|%|
+
+|%SPELLLISTBOOK.0.0.1|
+<b>Innate:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK0.1.0]-2,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK0.1.0]-1,COUNT[SPELLSINBOOK0.1.0]-1,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|
+|ENDFOR|
+<br />
+|%|
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
+|%SPELLLISTCLASS.%class|
+Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)<br />
+<b>|SPELLLISTCLASS.%class| - Known: </b><br />
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|%SPELLLISTBOOK.%class.%level.0|
+<b>Level |%level|:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|
+|ENDFOR|
+<br />
+|%| 
+|ENDFOR| 
+|ENDFOR| 
+|%| 
+
+<!--   Trouble-shooting stuff   -->
+ 
+<hr>
+
+|IIF(VAR.IF(var("FEATPOINTS")==0;1;0):1)|
+|ELSE|
+<font color="#FF0000" size="+1"><strong>Unspent Feat Points: |FEATPOINTS.INTVAL|</strong></font>
+|ENDIF|
+
+|IIF(VAR.IF(var("SKILLPOINTS.UNUSED")==0;1;0):1)|
+|ELSE|
+  <br /><font color="#FF0000" size="+1"><strong>Unspent Skill Points: |SKILLPOINTS.UNUSED.INTVAL|</strong></font>  
+|ENDIF|
+
+
+<p>Skill Breakdown</p>
+<p>
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
+|IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
+|ELSE|
+<font color="#FF6600"><b>|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN| =</b> |SKILL.%skill.EXPLAIN_LONG| </font><br />
+|ENDIF|
+|ELSE|
+<b>|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN| =</b> |SKILL.%skill.RANK.INTVAL.SIGN|[RANK] |SKILL.%skill.EXPLAIN_LONG| <br />
+|ENDIF|
+|ENDFOR|
+</p>
+<font size="-2">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE| </font>
+
+
+<!--   End Trouble-shooting stuff   -->
+
+</blockquote>
+</body>
+</html>
+

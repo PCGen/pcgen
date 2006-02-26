@@ -1,0 +1,76 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 26 23:36:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Guts - Soldiers|SOURCESHORT:BnG-S|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+
+# Feat Name							Type												Clear Prereq.	Required Feat
+Advanced Amphibious Training.MOD			TYPE:LeatherneckTerrain
+Advanced Firearms Proficiency.MOD			TYPE:Grunt
+Advanced Jungle/Swamp Training.MOD			TYPE:LeatherneckTerrain
+Air Traffic Control Expert.MOD			TYPE:Specialist
+Alertness.MOD						TYPE:Airman
+Armor Proficiency (Heavy).MOD				TYPE:Grunt.Leatherneck
+Armor Proficiency (Light).MOD				TYPE:Grunt.Leatherneck
+Armor Proficiency (Medium).MOD			TYPE:Grunt.Leatherneck
+Black Market.MOD						TYPE:SupplyFeat
+Builder.MOD							TYPE:Grunt
+Burst Fire.MOD						TYPE:Grunt.Leatherneck
+Combat Pilot.MOD						TYPE:Airman
+Combat Reflexes.MOD					TYPE:Grunt.Leatherneck
+Commando Training.MOD					TYPE:Grunt.Leatherneck
+Conviction.MOD						TYPE:Airman.Grunt.Leatherneck.ReligiousFeat
+Creative.MOD						TYPE:AdministrativeFeat
+Cryptographer.MOD						TYPE:Specialist
+Deceptive.MOD						TYPE:LegalServicesFeat
+Defense Language Institute.MOD			TYPE:Specialist
+Desk Jockey.MOD						TYPE:AdministrativeFeat.RecruitingFeat.SupplyFeat
+Educated.MOD						TYPE:AdministrativeFeat.LegalServicesFeat.RecruitingFeat.ReligiousFeat
+Electronic Warfare.MOD					TYPE:Specialist
+Evasive Maneuvers.MOD					TYPE:Airman
+Fighter Escort.MOD					TYPE:Airman
+Formation Flying.MOD					TYPE:Airman
+Grenadier.MOD						TYPE:Grunt.Leatherneck
+Guide.MOD							TYPE:Leatherneck
+Hawkeye.MOD							TYPE:Airman
+Improved Initiative.MOD					TYPE:Airman
+Interrogation.MOD						TYPE:Specialist
+Lightning Reflexes.MOD					TYPE:Airman
+Marksman.MOD						TYPE:Grunt.Leatherneck
+MOS Armor 1.MOD																		PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Aviation 1.MOD					TYPE:Airman											PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Aviation 2.MOD					TYPE:Airman
+MOS Aviation 3.MOD					TYPE:Airman
+MOS Aviation 4.MOD					TYPE:Airman
+MOS Aviation 5.MOD					TYPE:Airman
+MOS Combat Engineering 1.MOD																PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Diver 1.MOD																		PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Field Artillery 1.MOD																PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Infantry/Rifleman 1.MOD																PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Intelligence 1.MOD																	PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Law Enforcement 1.MOD																PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Maintenance 1.MOD																	PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Mastery.MOD						TYPE:Grunt.Leatherneck.Specialist
+MOS Medical 1.MOD																		PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS NBC 1.MOD																		PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Pilot 1.MOD						TYPE:Airman											PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+MOS Pilot 2.MOD						TYPE:Airman
+MOS Pilot 3.MOD						TYPE:Airman
+MOS Pilot 4.MOD						TYPE:Airman
+MOS Pilot 5.MOD						TYPE:Airman
+MOS Signals 1.MOD																		PRE:.CLEAR		PREFEAT:1,Occupation (Military),Basic Training
+NBC.MOD							TYPE:Grunt.Leatherneck.Specialist
+Psychotherapy.MOD						TYPE:Specialist.ReligiousFeat
+Radar Operation.MOD					TYPE:Airman.Specialist.AirDefenseFeat
+Renown.MOD							TYPE:Airman.Grunt.Leatherneck
+Sonar Operation.MOD					TYPE:Specialist
+Stealthy.MOD						TYPE:Leatherneck
+Strafe.MOD							TYPE:Grunt.Leatherneck
+Studious.MOD						TYPE:LegalServicesFeat.ReligiousFeat
+Surface Vehicle Operation.MOD				TYPE:Grunt.Leatherneck
+Surface Vehicle Operation(Heavy Wheeled).MOD	TYPE:AirDefenseFeat
+Surface Vehicle Operation(Tracked).MOD		TYPE:AirDefenseFeat
+Tank/APC Weapons.MOD					TYPE:AirDefenseFeat
+Teamwork.MOD						TYPE:Airman.Grunt.Leatherneck.AirDefenseFeat
+Trustworthy.MOD						TYPE:LegalServicesFeat.RecruitingFeat.ReligiousFeat
+Vehicle Expert.MOD					TYPE:Airman
+War Profiteer.MOD						TYPE:SupplyFeat
+Weapon Focus.MOD						TYPE:Grunt.Leatherneck
+Wingman.MOD							TYPE:Airman

@@ -1,0 +1,45 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Thu Dec  9 21:57:04 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Need to figure out how to .MOD Surface Vehicle Operation to accept a new item in the CHOOSE
+
+# Feat Name										Type
+Advanced Firearms Proficiency.MOD						TYPE:InfantryFeat.CombatControllers.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Alertness.MOD									TYPE:LawEnforcementFeat.CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Armor Proficiency (Heavy).MOD							TYPE:CombatControllers.Pararescue.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Armor Proficiency (Light).MOD							TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Armor Proficiency (Medium).MOD						TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Athletic.MOD									TYPE:CombatControllers.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Builder.MOD										TYPE:IntelligenceSpecialist
+Burst Fire.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Cautious.MOD									TYPE:SpecialBoat
+Combat Martial Arts.MOD								TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Combat Reflexes.MOD								TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.Sniper.IntelligenceSpecialist.MedicalSergeant
+Cover Fire.MOD									TYPE:Ranger.WeaponsSergeant.SOAR.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Dead Aim.MOD									TYPE:CombatControllers.Pararescue
+Double Tap.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Endurance.MOD									TYPE:DiverFeat.CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Exotic Firearms Proficiency.MOD						TYPE:Ranger.WeaponsSergeant.DeltaForce.ForceRecon.SEAL.SpecialBoat.Sniper
+Far Shot.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Gearhead.MOD									TYPE:MaintenanceFeat
+Guide.MOD										TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Heroic Surge.MOD									TYPE:CombatControllers.Pararescue
+Improved Damage Threshold.MOD							TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.Deltaforce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Medical Expert.MOD								TYPE:MedicalFeat.MedicalSergeant
+Point Blank Shot.MOD								TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Precise Shot.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Quick Draw.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Quick Reload.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Renown.MOD										TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Stealthy.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Strafe.MOD										TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Surface Vehicle Operation.MOD							TYPE:CombatControllers.Pararescue
+Surface Vehilce Operation(Heavy Earth Movers and Bridgelayers)	TYPE:CombatEngineeringFeat
+Surface Vehicle Operation(Heavy Wheeled).MOD				TYPE:ArmorFeat
+Surface Vehicle Operation(Sailboat).MOD					TYPE:SEAL.SpecialBoat
+Surface Vehicle Operation(Ship).MOD						TYPE:SEAL.SpecialBoat
+Surface Vehicle Operation(Tracked).MOD					TYPE:ArmorFeat
+Toughness.MOD									TYPE:CombatControllers.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.Sniper.IntelligenceSpecialist.MedicalSergeant
+Track.MOD										TYPE:Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+Weapon Focus.MOD									TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.SOAR.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant

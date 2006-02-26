@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jul  9 09:08:51 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# Original Entry by: Tir Gwaith
+
+# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+All Exotic Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic

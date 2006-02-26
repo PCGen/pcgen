@@ -1,0 +1,13 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+# Skill Name					Key Stat	Untrained?		Type						Source Page
+Knowledge (History - Llan)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History	SOURCEPAGE:p.69
+Knowledge (History - Elven)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History	SOURCEPAGE:p.69
+Knowledge (BT History)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History	SOURCEPAGE:p.72
+Knowledge (Local - Llan)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.69
+
+Profession (Archeologist)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			SOURCEPAGE:p.69
+Profession (Pilot)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			SOURCEPAGE:p.70
+Profession (Laborer)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			SOURCEPAGE:p.71
+Profession (Fortune Telling/Divining)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			SOURCEPAGE:p.72

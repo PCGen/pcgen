@@ -1,0 +1,48 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Fri Jul 18 19:27:41 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+# Equipment Name				Type									Cost		Weight	Base Quantity	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property
+Microcell (15) (Holdout Laser)	TYPE:Ammunition.Standard.Firearm.Handgun.Fire		COST:10	WT:.5		BASEQTY:15																	SOURCEPAGE:p.
+Magazine (10) (Holdout Pistol)	TYPE:Ammunition.Standard.Firearm.Handgun.Piercing	COST:5	WT:.5		BASEQTY:10																	SOURCEPAGE:p.
+Magazine (15) (Taser Pistol)		TYPE:Ammunition.Standard.Firearm.Handgun.Electrical	COST:10	WT:.5		BASEQTY:15																	SOURCEPAGE:p.
+
+Minicell (30) (Blaster Pistol)	TYPE:Ammunition.Standard.Firearm.Handgun.Electrical	COST:15	WT:.5		BASEQTY:30																	SOURCEPAGE:p.
+Minicell (30) (Laser Pistol)		TYPE:Ammunition.Standard.Firearm.Handgun.Fire		COST:15	WT:.5		BASEQTY:30																	SOURCEPAGE:p.
+Magazine (25) (Light Autopistol)	TYPE:Ammunition.Standard.Firearm.Handgun.Piercing	COST:10	WT:.5		BASEQTY:25																	SOURCEPAGE:p.
+Magazine (20) (Heavy Autopistol)	TYPE:Ammunition.Standard.Firearm.Handgun.Piercing	COST:15	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+Minicell (30) (Screamer Pistol)	TYPE:Ammunition.Standard.Firearm.Handgun.Sonic		COST:15	WT:.5		BASEQTY:30																	SOURCEPAGE:p.
+
+Minicell (25) (Blaster Carbine)	TYPE:Ammunition.Standard.Firearm.Rifle.Electrical	COST:15	WT:.5		BASEQTY:25																	SOURCEPAGE:p.
+Bolts (10) (Automatic Crossbow)	TYPE:Ammunition.Standard.Piercing.Bolt			COST:5	WT:1		BASEQTY:10																	SOURCEPAGE:p.
+Magazine (20) (Hunting Carbine)	TYPE:Ammunition.Standard.Firearm.Rifle.Piercing		COST:15	WT:1		BASEQTY:20																	SOURCEPAGE:p.
+Minicell (25) (Laser Carbine)		TYPE:Ammunition.Standard.Firearm.Rifle.Fire		COST:15	WT:.5		BASEQTY:25																	SOURCEPAGE:p.
+
+Minicell (20) (Blaster Rifle)		TYPE:Ammunition.Standard.Firearm.Rifle.Electrical	COST:15	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+Magazine (30) (Hunting Rifle)		TYPE:Ammunition.Standard.Firearm.Rifle.Piercing		COST:20	WT:1		BASEQTY:30																	SOURCEPAGE:p.
+Arrows (20) (Compound Longbow)	TYPE:Ammunition.Standard.Piercing.Arrow			COST:5	WT:1		BASEQTY:20																	SOURCEPAGE:p.
+Minicell (20) (Laser Rifle)		TYPE:Ammunition.Standard.Firearm.Rifle.Fire		COST:15	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+Minicell (20) (Screamer Rifle)	TYPE:Ammunition.Standard.Firearm.Rifle.Sonic		COST:15	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+Magazine (15) (Shotgun)			TYPE:Ammunition.Standard.Firearm.Shotgun.Piercing	COST:15	WT:1.5	BASEQTY:15																	SOURCEPAGE:p.
+
+Magazine (50) (Assault Carbine)	TYPE:Ammunition.Standard.Firearm.Machinegun.Piercing	COST:25	WT:1		BASEQTY:50																	SOURCEPAGE:p.
+Magazine (50) (Assault Rifle)		TYPE:Ammunition.Standard.Firearm.Machinegun.Piercing	COST:25	WT:1		BASEQTY:50																	SOURCEPAGE:p.
+Magazine (50) (Submachine gun)	TYPE:Ammunition.Standard.Firearm.Machinegun.Piercing	COST:25	WT:.5		BASEQTY:50																	SOURCEPAGE:p.
+
+Minicell (20) (Assault Blaster)	TYPE:Ammunition.Standard.Firearm.Assault.Electrical	COST:15	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+Minicell (20) (Assault Laser)		TYPE:Ammunition.Standard.Firearm.Assault.Fire		COST:15	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+Fuel Pack (10) (Flamethrower)		TYPE:Ammunition.Standard.Firearm.Flamethrower.Fire	COST:25	WT:.5		BASEQTY:10																	SOURCEPAGE:p.
+Magazine (100) (Light Machinegun)	TYPE:Ammunition.Standard.Firearm.Machinegun.Piercing	COST:75	WT:3		BASEQTY:100																	SOURCEPAGE:p.
+Heavy Cell (20) (Plasma Rifle)	TYPE:Ammunition.Standard.Firearm.Rifle.Fire		COST:50	WT:5		BASEQTY:20																	SOURCEPAGE:p.
+Magazine (30) (Sniper Rifle)		TYPE:Ammunition.Standard.Firearm.Rifle.Piercing		COST:20	WT:.5		BASEQTY:20																	SOURCEPAGE:p.
+
+Heavy Cell (10) (Blaster Cannon)	TYPE:Ammunition.Standard.Electrical.Cannon		COST:50	WT:5		BASEQTY:10																	SOURCEPAGE:p.
+Magazine (100) (Heavy Machinegun)	TYPE:Ammunition.Standard.Firearm.Machinegun.Piercing	COST:75	WT:5		BASEQTY:100																	SOURCEPAGE:p.
+Heavy Cell (15) (Laser Cannon)	TYPE:Ammunition.Standard.Fire.Cannon			COST:50	WT:5		BASEQTY:15																	SOURCEPAGE:p.
+
+Missle (HE)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:500	WT:5		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:1250	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(20) 2500 second round
+Missle (HEAP)				TYPE:Ammunition.Standard.Firearm.Explosive		COST:750	WT:7		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:1250	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(20) 50% fire/piercing 2500ft
+Missle (AA)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:1000	WT:10		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:-	SIZE:S	SOURCEPAGE:p.100	SPROP:Guidance(25) 50% fire/bludgeoning 2500ft
+Rocket (HE)					TYPE:Ammunition.Standard.Firearm.Explosive		COST:250	WT:3		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d8		RANGE:10	SIZE:S	SOURCEPAGE:p.100	SPROP:50% fire/piercing
+Rocket (HEAP)				TYPE:Ammunition.Standard.Firearm.Explosive		COST:400	WT:4		BASEQTY:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d8		RANGE:10	SIZE:S	SOURCEPAGE:p.100	SPROP:50% fire/piercing
+
+#EOF

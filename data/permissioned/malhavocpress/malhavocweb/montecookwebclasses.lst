@@ -1,0 +1,32 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Sat Jul  9 11:10:52 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - Web Enhancements|SOURCESHORT:MalhavocWb|SOURCEWEB:http://www.montecook.com
+
+# Class Name			Hit Dice	Type			Abbreviation	Source URI					Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Ranger (Monte Cook's)	HD:8		TYPE:Base.PC	ABB:MCR		SOURCEWEB:http://www.montecook.com	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ranger (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Use Rope|Search|Spot|Swim|Wilderness Lore
+# Class Name			Spell Stat		Spell Type		Craft Level Mult.	Caster level
+CLASS:Ranger (Monte Cook's)	SPELLSTAT:WIS	SPELLTYPE:Divine	ITEMCREATE:.5	BONUS:CASTERLEVEL|Ranger (Monte Cook's)|CL/2
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1				ADD:FEAT(TYPE=Fighter,TYPE=Ranger)	ADD:FEAT(TYPE=RangerFavored)	FEATAUTO:Track
+4	CAST:0,0		ADD:FEAT(TYPE=Fighter,TYPE=Ranger)
+5	CAST:0,0		ADD:FEAT(TYPE=RangerFavored)
+6	CAST:0,1
+7	CAST:0,1,0		ADD:FEAT(TYPE=Fighter,TYPE=Ranger)
+8	CAST:0,1,0
+9	CAST:0,1,1
+10	CAST:0,1,1,0	ADD:FEAT(TYPE=Fighter,TYPE=Ranger)	ADD:FEAT(TYPE=RangerFavored)
+11	CAST:0,2,1,0
+12	CAST:0,2,1,1
+13	CAST:0,2,1,1,0	ADD:FEAT(TYPE=Fighter,TYPE=Ranger)
+14	CAST:0,2,2,1,0
+15	CAST:0,2,2,1,1	ADD:FEAT(TYPE=RangerFavored)
+16	CAST:0,3,2,2,1	ADD:FEAT(TYPE=Fighter,TYPE=Ranger)
+17	CAST:0,3,3,2,1
+18	CAST:0,3,3,2,2
+19	CAST:0,3,3,3,2	ADD:FEAT(TYPE=Fighter,TYPE=Ranger)
+20	CAST:0,4,3,3,3	ADD:FEAT(TYPE=RangerFavored)

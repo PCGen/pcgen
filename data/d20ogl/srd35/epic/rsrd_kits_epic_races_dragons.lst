@@ -1,0 +1,1032 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Dragon (Force Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Wyrmling)]
+RACE:Dragon (Force Wyrmling)	!PRERACE:%
+NAME:Dragon (Force Wyrmling)
+SKILL:Listen		RANK:23
+SKILL:Search		RANK:23
+SKILL:Spot			RANK:23
+SKILL:Escape Artist	RANK:19
+SKILL:Intimidate		RANK:19
+SKILL:Sense Motive	RANK:19
+SKILL:Use Magic Device	RANK:19
+SKILL:Diplomacy		RANK:17
+SKILL:Concentration	RANK:20
+FEAT:Alertness
+FEAT:Empower Spell
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Very Young)]
+RACE:Dragon (Force Very Young)	!PRERACE:%
+NAME:Dragon (Force Very Young)
+SKILL:Concentration	RANK:28
+SKILL:Escape Artist	RANK:28
+SKILL:Intimidate		RANK:28
+SKILL:Listen		RANK:28
+SKILL:Search		RANK:28
+SKILL:Sense Motive	RANK:28
+SKILL:Spot			RANK:28
+SKILL:Use Magic Device	RANK:28
+SKILL:Diplomacy		RANK:26
+FEAT:Alertness
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Young)]
+RACE:Dragon (Force Young)	!PRERACE:%
+NAME:Dragon (Force Young)
+SKILL:Concentration	RANK:33
+SKILL:Escape Artist	RANK:33
+SKILL:Intimidate		RANK:33
+SKILL:Listen		RANK:33
+SKILL:Search		RANK:33
+SKILL:Sense Motive	RANK:33
+SKILL:Spot			RANK:33
+SKILL:Use Magic Device	RANK:33
+SKILL:Diplomacy		RANK:31
+FEAT:Alertness
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Juvenile)]
+RACE:Dragon (Force Juvenile)	!PRERACE:%
+NAME:Dragon (Force Juvenile)
+SKILL:Concentration	RANK:38
+SKILL:Escape Artist	RANK:38
+SKILL:Intimidate		RANK:38
+SKILL:Listen		RANK:38
+SKILL:Search		RANK:38
+SKILL:Sense Motive	RANK:38
+SKILL:Spot			RANK:38
+SKILL:Use Magic Device	RANK:38
+SKILL:Diplomacy		RANK:36
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Young Adult)]
+RACE:Dragon (Force Young Adult)	!PRERACE:%
+NAME:Dragon (Force Young Adult)
+SKILL:Concentration	RANK:43
+SKILL:Escape Artist	RANK:43
+SKILL:Intimidate		RANK:43
+SKILL:Listen		RANK:43
+SKILL:Search		RANK:43
+SKILL:Sense Motive	RANK:43
+SKILL:Spot			RANK:43
+SKILL:Use Magic Device	RANK:43
+SKILL:Diplomacy		RANK:41
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Adult)]
+RACE:Dragon (Force Adult)	!PRERACE:%
+NAME:Dragon (Force Adult)
+SKILL:Appraise			RANK:4
+SKILL:Bluff				RANK:4
+SKILL:Craft (Alchemy)		RANK:4
+SKILL:Disable Device		RANK:4
+SKILL:Gather Information	RANK:4
+SKILL:Heal				RANK:4
+SKILL:Hide				RANK:4
+SKILL:Move Silently		RANK:4
+SKILL:Open Lock			RANK:4
+SKILL:Spellcraft			RANK:4
+SKILL:Survival			RANK:4
+SKILL:Tumble			RANK:4
+SKILL:Diplomacy			RANK:46
+SKILL:Concentration		RANK:48
+SKILL:Escape Artist		RANK:48
+SKILL:Intimidate			RANK:48
+SKILL:Listen			RANK:48
+SKILL:Search			RANK:48
+SKILL:Sense Motive		RANK:48
+SKILL:Spot				RANK:48
+SKILL:Use Magic Device		RANK:48
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Mature Adult)]
+RACE:Dragon (Force Mature Adult)	!PRERACE:%
+NAME:Dragon (Force Mature Adult)
+SKILL:Concentration		RANK:53
+SKILL:Escape Artist		RANK:53
+SKILL:Listen			RANK:53
+SKILL:Search			RANK:53
+SKILL:Sense Motive		RANK:53
+SKILL:Spot				RANK:53
+SKILL:Use Magic Device		RANK:53
+SKILL:Diplomacy			RANK:49
+SKILL:Intimidate			RANK:51
+SKILL:Appraise			RANK:9
+SKILL:Bluff				RANK:9
+SKILL:Craft (Alchemy)		RANK:9
+SKILL:Disable Device		RANK:9
+SKILL:Gather Information	RANK:9
+SKILL:Heal				RANK:9
+SKILL:Hide				RANK:9
+SKILL:Move Silently		RANK:9
+SKILL:Open Lock			RANK:9
+SKILL:Spellcraft			RANK:9
+SKILL:Survival			RANK:9
+SKILL:Tumble			RANK:9
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Old)]
+RACE:Dragon (Force Old)	!PRERACE:%
+NAME:Dragon (Force Old)
+SKILL:Intimidate			RANK:56
+SKILL:Concentration		RANK:58
+SKILL:Escape Artist		RANK:58
+SKILL:Listen			RANK:58
+SKILL:Search			RANK:58
+SKILL:Sense Motive		RANK:58
+SKILL:Spot				RANK:58
+SKILL:Use Magic Device		RANK:58
+SKILL:Diplomacy			RANK:54
+SKILL:Appraise			RANK:14
+SKILL:Bluff				RANK:14
+SKILL:Craft (Alchemy)		RANK:14
+SKILL:Disable Device		RANK:14
+SKILL:Gather Information	RANK:14
+SKILL:Heal				RANK:14
+SKILL:Hide				RANK:14
+SKILL:Move Silently		RANK:14
+SKILL:Open Lock			RANK:14
+SKILL:Spellcraft			RANK:14
+SKILL:Survival			RANK:14
+SKILL:Tumble			RANK:14
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Very Old)]
+RACE:Dragon (Force Very Old)	!PRERACE:%
+NAME:Dragon (Force Very Old)
+SKILL:Jump				RANK:6
+SKILL:Diplomacy			RANK:59
+SKILL:Tumble			RANK:18
+SKILL:Concentration		RANK:63
+SKILL:Escape Artist		RANK:63
+SKILL:Listen			RANK:63
+SKILL:Search			RANK:63
+SKILL:Sense Motive		RANK:63
+SKILL:Spot				RANK:63
+SKILL:Use Magic Device		RANK:63
+SKILL:Intimidate			RANK:61
+SKILL:Appraise			RANK:20
+SKILL:Bluff				RANK:20
+SKILL:Craft (Alchemy)		RANK:20
+SKILL:Disable Device		RANK:20
+SKILL:Gather Information	RANK:20
+SKILL:Heal				RANK:20
+SKILL:Hide				RANK:20
+SKILL:Move Silently		RANK:20
+SKILL:Open Lock			RANK:20
+SKILL:Spellcraft			RANK:20
+SKILL:Survival			RANK:20
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Ancient)]
+RACE:Dragon (Force Ancient)	!PRERACE:%
+NAME:Dragon (Force Ancient)
+SKILL:Tumble			RANK:25
+SKILL:Appraise			RANK:27
+SKILL:Bluff				RANK:27
+SKILL:Craft (Alchemy)		RANK:27
+SKILL:Disable Device		RANK:27
+SKILL:Gather Information	RANK:27
+SKILL:Heal				RANK:27
+SKILL:Hide				RANK:27
+SKILL:Move Silently		RANK:27
+SKILL:Open Lock			RANK:27
+SKILL:Spellcraft			RANK:27
+SKILL:Survival			RANK:27
+SKILL:Diplomacy			RANK:64
+SKILL:Intimidate			RANK:66
+SKILL:Jump				RANK:13
+SKILL:Concentration		RANK:68
+SKILL:Escape Artist		RANK:68
+SKILL:Listen			RANK:68
+SKILL:Search			RANK:68
+SKILL:Sense Motive		RANK:68
+SKILL:Spot				RANK:68
+SKILL:Use Magic Device		RANK:68
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Wyrm)]
+RACE:Dragon (Force Wyrm)	!PRERACE:%
+NAME:Dragon (Force Wyrm)
+SKILL:Diplomacy			RANK:69
+SKILL:Tumble			RANK:32
+SKILL:Hide				RANK:18
+SKILL:Appraise			RANK:34
+SKILL:Bluff				RANK:34
+SKILL:Craft (Alchemy)		RANK:34
+SKILL:Disable Device		RANK:34
+SKILL:Gather Information	RANK:34
+SKILL:Heal				RANK:34
+SKILL:Move Silently		RANK:34
+SKILL:Open Lock			RANK:34
+SKILL:Spellcraft			RANK:34
+SKILL:Survival			RANK:34
+SKILL:Intimidate			RANK:71
+SKILL:Concentration		RANK:73
+SKILL:Escape Artist		RANK:73
+SKILL:Listen			RANK:73
+SKILL:Search			RANK:73
+SKILL:Sense Motive		RANK:73
+SKILL:Spot				RANK:73
+SKILL:Use Magic Device		RANK:73
+SKILL:Jump				RANK:20
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Force Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Great Wyrm)]
+RACE:Dragon (Force Great Wyrm)	!PRERACE:%
+NAME:Dragon (Force Great Wyrm)
+SKILL:Jump				RANK:25
+SKILL:Diplomacy			RANK:74
+SKILL:Appraise			RANK:39
+SKILL:Bluff				RANK:39
+SKILL:Craft (Alchemy)		RANK:39
+SKILL:Disable Device		RANK:39
+SKILL:Gather Information	RANK:39
+SKILL:Heal				RANK:39
+SKILL:Move Silently		RANK:39
+SKILL:Open Lock			RANK:39
+SKILL:Spellcraft			RANK:39
+SKILL:Survival			RANK:39
+SKILL:Tumble			RANK:37
+SKILL:Hide				RANK:23
+SKILL:Intimidate			RANK:76
+SKILL:Concentration		RANK:78
+SKILL:Escape Artist		RANK:78
+SKILL:Listen			RANK:78
+SKILL:Search			RANK:78
+SKILL:Sense Motive		RANK:78
+SKILL:Spot				RANK:78
+SKILL:Use Magic Device		RANK:78
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Sample Dragon (Force Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Force Adult)]
+RACE:Dragon (Force Adult)	!PRERACE:%
+NAME:Sample Force Dragon, Adult
+ALIGN:TN
+SKILL:Appraise						RANK:36
+SKILL:Bluff							RANK:48
+SKILL:Concentration					RANK:48
+SKILL:Craft (Alchemy)					RANK:36
+SKILL:Diplomacy						RANK:44
+SKILL:Escape Artist					RANK:48
+SKILL:Gather Information				RANK:2
+SKILL:Intimidate						RANK:48
+SKILL:Knowledge (Arcana)				RANK:42
+SKILL:Knowledge (Architecture and Engineering)	RANK:42
+SKILL:Knowledge (Dungeoneering)			RANK:42
+SKILL:Knowledge (Geography)				RANK:42
+SKILL:Knowledge (History)				RANK:42
+SKILL:Knowledge (Local)					RANK:42
+SKILL:Knowledge (Nature)				RANK:44
+SKILL:Knowledge (Nobility and Royalty)		RANK:42
+SKILL:Knowledge (Religion)				RANK:42
+SKILL:Knowledge (The Planes)				RANK:42
+SKILL:Listen						RANK:48
+SKILL:Search						RANK:44
+SKILL:Sense Motive					RANK:36
+SKILL:Spellcraft						RANK:48
+SKILL:Spot							RANK:48
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell Like Ability
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Critical (Bite)
+FEAT:Improved Critical (Claw)
+FEAT:Improved Critical (Wing)
+FEAT:Improved Critical (Tail Slap)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell Like Ability
+FEAT:Power Attack
+FEAT:Spell Knowledge (Sorcerer 5,Sorcerer 6)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Dancing Lights|Detect Magic|Flare|Ghost Sound|Light|Mending|Open/Close|Read Magic|Disguise Self|Comprehend Languages|Detect Secret Doors|Magic Missile|True Strike|Bull's Strength|Cat's Grace|Darkness|Locate Object|Mirror Image|Clairaudience/Clairvoyance|Fireball|Haste|Lightning Bolt|Charm Monster|Invisibility (Greater)|Scrying|Stoneskin|Contact Other Plane|Dream|Hold Monster|Teleport|Analyze Dweomer|Dispel Magic (Greater)|True Seeing|Forcecage|Spell Turning|Summon Monster VII|Polymorph Any Object|Protection from Spells|Time Stop
+GEAR:Crystal Ball (True Seeing)	LOCATION:Not Carried
+GEAR:Pearl of Power (7th Level)	LOCATION:Equipped
+GEAR:Coin (Gold)				QTY:8000	LOCATION:Not Carried
+GEAR:Circlet of Eyes			LOCATION:Equipped
+
+STARTPACK:Default Dragon (Prismatic Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Wyrmling)]
+RACE:Dragon (Prismatic Wyrmling)	!PRERACE:%
+NAME:Dragon (Prismatic Wyrmling)
+SKILL:Concentration	RANK:25
+SKILL:Escape Artist	RANK:25
+SKILL:Intimidate		RANK:25
+SKILL:Sense Motive	RANK:25
+SKILL:Use Magic Device	RANK:25
+SKILL:Diplomacy		RANK:23
+SKILL:Listen		RANK:26
+SKILL:Search		RANK:26
+SKILL:Spot			RANK:26
+FEAT:Alertness
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Very Young)]
+RACE:Dragon (Prismatic Very Young)	!PRERACE:%
+NAME:Dragon (Prismatic Very Young)
+SKILL:Diplomacy		RANK:29
+SKILL:Concentration	RANK:31
+SKILL:Escape Artist	RANK:31
+SKILL:Intimidate		RANK:31
+SKILL:Listen		RANK:31
+SKILL:Search		RANK:31
+SKILL:Sense Motive	RANK:31
+SKILL:Spot			RANK:31
+SKILL:Use Magic Device	RANK:31
+FEAT:Alertness
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Young)]
+RACE:Dragon (Prismatic Young)	!PRERACE:%
+NAME:Dragon (Prismatic Young)
+SKILL:Diplomacy		RANK:34
+SKILL:Concentration	RANK:36
+SKILL:Escape Artist	RANK:36
+SKILL:Intimidate		RANK:36
+SKILL:Listen		RANK:36
+SKILL:Search		RANK:36
+SKILL:Sense Motive	RANK:36
+SKILL:Spot			RANK:36
+SKILL:Use Magic Device	RANK:36
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Juvenile)]
+RACE:Dragon (Prismatic Juvenile)	!PRERACE:%
+NAME:Dragon (Prismatic Juvenile)
+SKILL:Diplomacy		RANK:39
+SKILL:Concentration	RANK:41
+SKILL:Escape Artist	RANK:41
+SKILL:Intimidate		RANK:41
+SKILL:Listen		RANK:41
+SKILL:Search		RANK:41
+SKILL:Sense Motive	RANK:41
+SKILL:Spot			RANK:41
+SKILL:Use Magic Device	RANK:41
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Young Adult)]
+RACE:Dragon (Prismatic Young Adult)	!PRERACE:%
+NAME:Dragon (Prismatic Young Adult)
+SKILL:Concentration		RANK:46
+SKILL:Escape Artist		RANK:46
+SKILL:Intimidate			RANK:46
+SKILL:Listen			RANK:46
+SKILL:Search			RANK:46
+SKILL:Sense Motive		RANK:46
+SKILL:Spot				RANK:46
+SKILL:Use Magic Device		RANK:46
+SKILL:Diplomacy			RANK:44
+SKILL:Appraise			RANK:2
+SKILL:Bluff				RANK:2
+SKILL:Craft (Alchemy)		RANK:2
+SKILL:Disable Device		RANK:2
+SKILL:Gather Information	RANK:2
+SKILL:Heal				RANK:2
+SKILL:Hide				RANK:2
+SKILL:Move Silently		RANK:2
+SKILL:Open Lock			RANK:2
+SKILL:Spellcraft			RANK:2
+SKILL:Survival			RANK:2
+SKILL:Tumble			RANK:2
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Adult)]
+RACE:Dragon (Prismatic Adult)	!PRERACE:%
+NAME:Dragon (Prismatic Adult)
+SKILL:Appraise			RANK:6
+SKILL:Bluff				RANK:6
+SKILL:Craft (Alchemy)		RANK:6
+SKILL:Disable Device		RANK:6
+SKILL:Gather Information	RANK:6
+SKILL:Heal				RANK:6
+SKILL:Hide				RANK:6
+SKILL:Move Silently		RANK:6
+SKILL:Open Lock			RANK:6
+SKILL:Spellcraft			RANK:6
+SKILL:Survival			RANK:6
+SKILL:Tumble			RANK:6
+SKILL:Intimidate			RANK:49
+SKILL:Concentration		RANK:51
+SKILL:Escape Artist		RANK:51
+SKILL:Listen			RANK:51
+SKILL:Search			RANK:51
+SKILL:Sense Motive		RANK:51
+SKILL:Spot				RANK:51
+SKILL:Use Magic Device		RANK:51
+SKILL:Diplomacy			RANK:47
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Mature Adult)]
+RACE:Dragon (Prismatic Mature Adult)	!PRERACE:%
+NAME:Dragon (Prismatic Mature Adult)
+SKILL:Diplomacy			RANK:52
+SKILL:Appraise			RANK:11
+SKILL:Bluff				RANK:11
+SKILL:Craft (Alchemy)		RANK:11
+SKILL:Disable Device		RANK:11
+SKILL:Gather Information	RANK:11
+SKILL:Heal				RANK:11
+SKILL:Hide				RANK:11
+SKILL:Move Silently		RANK:11
+SKILL:Open Lock			RANK:11
+SKILL:Spellcraft			RANK:11
+SKILL:Survival			RANK:11
+SKILL:Tumble			RANK:11
+SKILL:Concentration		RANK:56
+SKILL:Escape Artist		RANK:56
+SKILL:Listen			RANK:56
+SKILL:Search			RANK:56
+SKILL:Sense Motive		RANK:56
+SKILL:Spot				RANK:56
+SKILL:Use Magic Device		RANK:56
+SKILL:Intimidate			RANK:54
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Old)]
+RACE:Dragon (Prismatic Old)	!PRERACE:%
+NAME:Dragon (Prismatic Old)
+SKILL:Intimidate			RANK:59
+SKILL:Jump				RANK:3
+SKILL:Diplomacy			RANK:57
+SKILL:Concentration		RANK:61
+SKILL:Escape Artist		RANK:61
+SKILL:Listen			RANK:61
+SKILL:Search			RANK:61
+SKILL:Sense Motive		RANK:61
+SKILL:Spot				RANK:61
+SKILL:Use Magic Device		RANK:61
+SKILL:Appraise			RANK:17
+SKILL:Bluff				RANK:17
+SKILL:Craft (Alchemy)		RANK:17
+SKILL:Disable Device		RANK:17
+SKILL:Gather Information	RANK:17
+SKILL:Heal				RANK:17
+SKILL:Hide				RANK:17
+SKILL:Move Silently		RANK:17
+SKILL:Open Lock			RANK:17
+SKILL:Spellcraft			RANK:17
+SKILL:Survival			RANK:17
+SKILL:Tumble			RANK:15
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Very Old)]
+RACE:Dragon (Prismatic Very Old)	!PRERACE:%
+NAME:Dragon (Prismatic Very Old)
+SKILL:Tumble			RANK:21
+SKILL:Intimidate			RANK:64
+SKILL:Concentration		RANK:66
+SKILL:Escape Artist		RANK:66
+SKILL:Listen			RANK:66
+SKILL:Search			RANK:66
+SKILL:Sense Motive		RANK:66
+SKILL:Spot				RANK:66
+SKILL:Use Magic Device		RANK:66
+SKILL:Jump				RANK:9
+SKILL:Appraise			RANK:23
+SKILL:Bluff				RANK:23
+SKILL:Craft (Alchemy)		RANK:23
+SKILL:Disable Device		RANK:23
+SKILL:Gather Information	RANK:23
+SKILL:Heal				RANK:23
+SKILL:Hide				RANK:23
+SKILL:Move Silently		RANK:23
+SKILL:Open Lock			RANK:23
+SKILL:Spellcraft			RANK:23
+SKILL:Survival			RANK:23
+SKILL:Diplomacy			RANK:62
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Ancient)]
+RACE:Dragon (Prismatic Ancient)	!PRERACE:%
+NAME:Dragon (Prismatic Ancient)
+SKILL:Intimidate			RANK:69
+SKILL:Diplomacy			RANK:67
+SKILL:Tumble			RANK:28
+SKILL:Concentration		RANK:71
+SKILL:Escape Artist		RANK:71
+SKILL:Listen			RANK:71
+SKILL:Search			RANK:71
+SKILL:Sense Motive		RANK:71
+SKILL:Spot				RANK:71
+SKILL:Use Magic Device		RANK:71
+SKILL:Appraise			RANK:30
+SKILL:Bluff				RANK:30
+SKILL:Craft (Alchemy)		RANK:30
+SKILL:Disable Device		RANK:30
+SKILL:Gather Information	RANK:30
+SKILL:Heal				RANK:30
+SKILL:Move Silently		RANK:30
+SKILL:Open Lock			RANK:30
+SKILL:Spellcraft			RANK:30
+SKILL:Survival			RANK:30
+SKILL:Jump				RANK:16
+SKILL:Hide				RANK:14
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Wyrm)]
+RACE:Dragon (Prismatic Wyrm)	!PRERACE:%
+NAME:Dragon (Prismatic Wyrm)
+SKILL:Hide				RANK:22
+SKILL:Intimidate			RANK:74
+SKILL:Appraise			RANK:38
+SKILL:Bluff				RANK:38
+SKILL:Craft (Alchemy)		RANK:38
+SKILL:Disable Device		RANK:38
+SKILL:Gather Information	RANK:38
+SKILL:Heal				RANK:38
+SKILL:Move Silently		RANK:38
+SKILL:Open Lock			RANK:38
+SKILL:Spellcraft			RANK:38
+SKILL:Survival			RANK:38
+SKILL:Tumble			RANK:36
+SKILL:Diplomacy			RANK:72
+SKILL:Jump				RANK:24
+SKILL:Concentration		RANK:76
+SKILL:Escape Artist		RANK:76
+SKILL:Listen			RANK:76
+SKILL:Search			RANK:76
+SKILL:Sense Motive		RANK:76
+SKILL:Spot				RANK:76
+SKILL:Use Magic Device		RANK:76
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragon (Prismatic Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Great Wyrm)]
+RACE:Dragon (Prismatic Great Wyrm)	!PRERACE:%
+NAME:Dragon (Prismatic Great Wyrm)
+SKILL:Jump				RANK:27
+SKILL:Hide				RANK:25
+SKILL:Concentration		RANK:81
+SKILL:Escape Artist		RANK:81
+SKILL:Listen			RANK:81
+SKILL:Search			RANK:81
+SKILL:Sense Motive		RANK:81
+SKILL:Spot				RANK:81
+SKILL:Use Magic Device		RANK:81
+SKILL:Tumble			RANK:39
+SKILL:Diplomacy			RANK:77
+SKILL:Appraise			RANK:41
+SKILL:Bluff				RANK:41
+SKILL:Craft (Alchemy)		RANK:41
+SKILL:Disable Device		RANK:41
+SKILL:Gather Information	RANK:41
+SKILL:Heal				RANK:41
+SKILL:Move Silently		RANK:41
+SKILL:Open Lock			RANK:41
+SKILL:Spellcraft			RANK:41
+SKILL:Survival			RANK:41
+SKILL:Intimidate			RANK:79
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Empower Spell
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Hover
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claws)
+FEAT:Improved Critical(Wings)
+FEAT:Improved Initiative
+FEAT:Improved Spell Capacity
+FEAT:Improved Sunder
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+FEAT:Wingover
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Sample Dragon (Prismatic Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Prismatic Old)]
+RACE:Dragon (Prismatic Old)	!PRERACE:%
+NAME:Sample Prismatic Dragon, Old
+SKILL:Balance						RANK:61
+SKILL:Bluff							RANK:61
+SKILL:Climb							RANK:61
+SKILL:Concentration					RANK:61
+SKILL:Diplomacy						RANK:61
+SKILL:Disable Device					RANK:61
+SKILL:Escape Artist					RANK:61
+SKILL:Gather Information				RANK:61
+SKILL:Heal							RANK:61
+SKILL:Intimidate						RANK:61
+SKILL:Jump							RANK:61
+SKILL:Knowledge (Arcana)				RANK:61
+SKILL:Knowledge (Architecture and Engineering)	RANK:61
+SKILL:Knowledge (Dungeoneering)			RANK:61
+SKILL:Knowledge (Geography)				RANK:61
+SKILL:Knowledge (History)				RANK:61
+SKILL:Knowledge (Local)					RANK:61
+SKILL:Knowledge (Nature)				RANK:61
+SKILL:Knowledge (Nobility and Royalty)		RANK:61
+SKILL:Knowledge (Religion)				RANK:61
+SKILL:Knowledge (The Planes)				RANK:61
+SKILL:Listen						RANK:61
+SKILL:Move Silently					RANK:61
+SKILL:Open Lock						RANK:61
+SKILL:TYPE=Perform					RANK:61
+SKILL:TYPE=Perform					RANK:61
+SKILL:Search						RANK:61
+SKILL:Sense Motive					RANK:61
+SKILL:Spellcraft						RANK:61
+SKILL:Spot							RANK:61
+SKILL:Survival						RANK:61
+SKILL:Tumble						RANK:61
+SKILL:Use Magic Device					RANK:61
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Great Cleave
+FEAT:Improved Critical(Bite)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Improved Spell Capacity
+FEAT:Improved Spell Capacity
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability
+FEAT:Snatch
+FEAT:Spell Knowledge
+FEAT:Spell Knowledge
+FEAT:Spell Knowledge
+FEAT:Spell Knowledge
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Claw)
+FEAT:Weapon Focus(Tail Slap)
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Daze|Detect Magic|Ghost Sound|Light|Prestidigitation|Ray of Frost|Read Magic|Resistance|Enlarge Person|Mage Armor|Magic Missile|Shield|True Strike|Unseen Servant|Alter Self|Blur|Darkness|Detect Thoughts|Levitate|Blink|Fireball|Magic Weapon (Greater)|Haste|Tongues|Wind Wall|Confusion|Polymorph|Scrying|Stoneskin|Baleful Polymorph|Dismissal|Fabricate|Passwall|Wall of Force|Antimagic Field|Dispel Magic (Greater)|True Seeing|Forcecage|Sequester|Spell Turning|Teleport (Greater)|Planar Binding (Greater)|Charm Monster (Mass)|Symbol of Death|Temporal Stasis|Dominate Monster|Gate|Imprisonment|Time Stop|Wish
+GEAR:Staff (Cosmos)		LOCATION:Equipped
+GEAR:Ring (Regeneration)	LOCATION:Equipped
+GEAR:Coin (Gold)			QTY:15563	LOCATION:Not Carried

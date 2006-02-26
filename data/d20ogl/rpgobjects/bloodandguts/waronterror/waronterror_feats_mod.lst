@@ -1,0 +1,65 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Thu Jan 27 02:14:04 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Guts - War on Terror|SOURCESHORT:BnG-WoT|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
+
+# Feat Name					Type
+Advanced Firearms Proficiency.MOD	TYPE:Guerilla.Terrorist.Y12SRT
+Aircraft Operation.MOD			TYPE:Terrorist
+Alertness.MOD				TYPE:Demagogue.Guerilla.Psyop.SWAT.Y12SRT.Zealot
+Antithesis.MOD				TYPE:Demagogue
+Armor Proficiency (Heavy).MOD		TYPE:SWAT.Y12SRT
+Armor Proficiency (Light).MOD		TYPE:Guerilla.Psyop.SWAT.Terrorist.Y12SRT.Zealot
+Armor Proficiency (Medium).MOD	TYPE:Psyop.SWAT.Terrorist.Y12SRT
+Athletic.MOD				TYPE:Psyop.Terrorist.Y12SRT
+Attentive.MOD				TYPE:Demagogue.Psyop
+Blind-Fight.MOD				TYPE:Terrorist
+Burst Fire.MOD				TYPE:Guerilla.Terrorist.Y12SRT
+Cautious.MOD				TYPE:Terrorist.Zealot
+Combat Expertise.MOD			TYPE:Terrorist
+Combat Martial Arts.MOD			TYPE:Y12SRT.Zealot
+Combat Reflexes.MOD			TYPE:Terrorist.Y12SRT
+Confident.MOD				TYPE:Demagogue
+Conviction.MOD				TYPE:Demagogue.Zealot
+Creative.MOD				TYPE:Demagogue
+Dead Aim.MOD				TYPE:Y12SRT
+Deceptive.MOD				TYPE:Demagogue.Psyop.Terrorist.Zealot
+Defensive Martial Arts.MOD		TYPE:Terrorist
+Dodge.MOD					TYPE:Guerilla
+Double Tap.MOD				TYPE:Y12SRT
+Drive-By Attack.MOD			TYPE:Zealot
+Educated.MOD				TYPE:Demagogue.Organizer
+Endurance.MOD				TYPE:Y12SRT
+Enemy.MOD					TYPE:Demagogue.Guerilla.Organizer.Zealot
+Exotic Firearms Proficiency.MOD	TYPE:Terrorist
+Far Shot.MOD				TYPE:Y12SRT
+Force Stop.MOD				TYPE:SWAT
+Frightful Presence.MOD			TYPE:Demagogue.Terrorist
+Guide.MOD					TYPE:Y12SRT
+Heroic Surge.MOD				TYPE:Y12SRT
+Home Turf.MOD				TYPE:Demagogue.Organizer.Zealot
+Improved Damage Threshold.MOD		TYPE:Y12SRT
+Improved Initiative.MOD			TYPE:Terrorist
+Information Network.MOD			TYPE:Organizer
+Iron Will.MOD				TYPE:Psyop
+Low Profile.MOD				TYPE:Guerilla.Psyop.Terrorist.Zealot
+Mobility.MOD				TYPE:Guerilla
+Personal Firearms Proficiency.MOD	TYPE:Guerilla.Zealot
+Point Blank Shot.MOD			TYPE:Guerilla.SWAT.Terrorist.Y12SRT.Zealot
+Precise Shot.MOD				TYPE:SWAT.Y12SRT
+Quick Draw.MOD				TYPE:Y12SRT
+Quick Reload.MOD				TYPE:Y12SRT
+Renown.MOD					TYPE:Demagogue.Guerilla.Organizer.Terrorist.Y12SRT.Zealot
+Shot on the Run.MOD			TYPE:Guerilla.Terrorist
+Stealthy.MOD				TYPE:Guerilla.Terrorist.Y12SRT.Zealot
+Strafe.MOD					TYPE:Guerilla.Y12SRT
+Surface Vehicle Operation.MOD		TYPE:SWAT.Terrorist.Y12SRT
+Tactician.MOD				TYPE:Y12SRT
+Tactician (Platoon).MOD			TYPE:Y12SRT
+Tactician (Company).MOD			TYPE:Y12SRT
+Tactician (Battalion).MOD		TYPE:Y12SRT
+Teamwork.MOD				TYPE:Guerilla.Zealot
+Toughness.MOD				TYPE:Y12SRT
+Track.MOD					TYPE:Y12SRT
+Trustworthy.MOD				TYPE:Demagogue.Organizer.Psyop
+Vehicle Expert.MOD			TYPE:SWAT
+Weapon Focus.MOD				TYPE:Guerilla.SWAT.Y12SRT.Zealot
+Windfall.MOD				TYPE:Demagogue.Zealot

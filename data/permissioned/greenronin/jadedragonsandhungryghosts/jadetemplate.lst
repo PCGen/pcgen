@@ -1,0 +1,5 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Green Ronin Publishing  - Jade Dragons and Hungry Ghosts|SOURCESHORT:JadeDaHG|SOURCEWEB:http://www.greenronin.com
+
+# Template Name	CR	Level Adjustment	Source Page		Special Ability																																									Required AL		Stat bonus		Removable?
+Sennin		CR:2	LEVELADJUSTMENT:3	SOURCEPAGE:p.	SA:Behavior Restrictions	SA:Burning Hands/Gust of Wind/Chill Touch/Obscuring Mist all 1/day	SA:Immortal	SA:Cloudwalking	SA:Cure Disease 1/day	SA:Elemental Immunity	SA:Speak w/Animals at will	SA:Transfer Wounds	SA:True Seeing at will	PREALIGN:LG,NG,CG	BONUS:STAT|WIS|2	REMOVABLE:YES

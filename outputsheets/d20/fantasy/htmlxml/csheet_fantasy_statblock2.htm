@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME| - |PLAYERNAME| (|POOL.COST| Points) in Statblock Format</title>
+<!--
+	This format was requested by one of the people in my group.
+	It's designed to match the official WotC Statblock style.
+	~~~ arcady 11/10/2001
+
+       Barak helped me (basically, he told me what to do!) update this.  Changes include:
+       modifying the spellbook so it conforms with WotC style better by listing the
+       number of times a spell is memorized, listing multiple spellbooks, listing only
+       chosen feats (not class feats or virtual feats, as WotC statblocks do not do this
+       either), correcting some syntax for 4.x.x, and a few other minor format changes.
+       ~~~ Zach (zach@zachshuford.com) 10/29/2002
+
+	*** Updated 7/5/2004 - Chuck Pint ***
+		Added FACE to stat block
+		Updated to use Style sheet & XHTML 1.0
+		Fixed loops to not put out empties
+
+	*** Updated 7/27/2004 - Chuck Pint ***
+		Fixed some badly formed SPELLSINBOOK tags
+
+$Revision: 1.13 $
+$Author: eddyanthony $
+$Date: 2006/01/17 02:12:57 $
+
+-->
+<style type="text/css">
+	body  { font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 0px; }
+	div { font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px 50px; padding: 0px; }
+	.header { display:block; font-size:7pt; text-align:center; }
+</style>
+</head>
+<body>
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+<p><b>|NAME|, |GENDER| |RACE||%REGION| From |REGION|.|%| |CLASSLIST|</b>&nbsp;
+CR |CR|; Size: |SIZE| Face: |FACE.SHORT| Type 
+|IIF(RACETYPE:None)|
+|TYPE|
+|ELSE|
+|RACETYPE|
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+; 
+|ELSE|
+ (
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|RACESUBTYPE.%subtype|, 
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|RACESUBTYPE.%subtype|
+|ENDFOR|
+); 
+|ENDIF|
+HD |HITDICE|; 
+|IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
+hp |HP|;
+|ELSE|
+vp |HP|; wp |ALTHP|;
+|ENDIF|
+Init |INITIATIVEMOD| 
+(|STAT.1.MOD| Dex, |INITIATIVEBONUS| Misc); Spd |MOVEMENT|; AC 
+|AC.Total| (flatfooted |AC.Flatfooted|, touch
+|AC.Touch|), 
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-2,1,1|
+|WEAPON.%weap.NAME| |WEAPON.%weap.TOTALHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|) or 
+|ENDFOR|
+|FOR,%weap,COUNT[EQTYPE.WEAPON]-1,COUNT[EQTYPE.WEAPON]-1,1,1|
+|WEAPON.%weap.NAME| |WEAPON.%weap.TOTALHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|); 
+|ENDFOR|
+SA: |SPECIALLIST|; Vision: |VISION| AL: |ALIGNMENT.SHORT|; Sv: 
+|FOR,%checks,0,COUNT[CHECKS]-2,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will 
+|ELSE|
+|CHECK.%checks.NAME| 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|, 
+|ENDFOR|
+|FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will 
+|ELSE|
+|CHECK.%checks.NAME| 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|; 
+|ENDFOR|
+|FOR,%stat,0,COUNT[STATS]-2,1,1|
+|STAT.%stat.NAME|&nbsp;|STAT.%stat|, 
+|ENDFOR|
+|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
+|STAT.%stat.NAME|&nbsp;|STAT.%stat| 
+|ENDFOR|
+</p>
+<div><i>Skills and Feats</i>:&nbsp; |SKILLLISTMODS|;
+|FEATLIST|
+<br />
+<i>Possessions</i>:&nbsp;
+|FOR,%equip,0,COUNT[EQUIPMENT]-2,1,0|
+&nbsp;|EQ.%equip.QTY|&nbsp;|EQ.%equip.NAME|,
+|ENDFOR|
+|FOR,%equip,COUNT[EQUIPMENT]-1,COUNT[EQUIPMENT]-1,1,0|
+&nbsp;|EQ.%equip.QTY|&nbsp;|EQ.%equip.NAME|
+|ENDFOR|
+<br />
+|%DOMAIN.1|
+Deity: |DEITY| <i>Domains</i>:&nbsp;
+|FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\(\DOMAIN.%.POWER\), ,NONE,0|
+<br />
+|%|
+|%SPELLLISTBOOK.0.0.1|
+<b>Innate:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.0.1.0]-2,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.0.1.0]-1,COUNT[SPELLSINBOOK.0.1.0]-1,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|
+|ENDFOR|
+<br />
+|%|
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
+|%SPELLLISTCLASS.%class|
+Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)<br />
+<b>|SPELLLISTCLASS.%class| - Known: </b><br />
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|%SPELLLISTBOOK.%class.%level.0|
+<b>Level |%level|:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|
+|ENDFOR|
+<br />
+|%|
+|ENDFOR|
+|ENDFOR|
+<p>&nbsp;&nbsp;&nbsp; </p>
+</div>
+</body>
+</html>

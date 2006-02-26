@@ -1,0 +1,63 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Sun Dec 26 07:03:51 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Feat Name								Type																											Visible	Required Feat					Prohibited Feat							Special Ability																Define							Stackable?	Multiple?	Choose		Choose a Feat		Modify VAR					Class Skill
+Sneak Attack							TYPE:Special																									VISIBLE:NO																	SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie											DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0
+
+### MOS skills
+Air Traffic Control(class skill)				TYPE:AviationSkills.Pilotskills																						VISIBLE:NO								!PREFEAT:1,Air Traffic Control(class skill)																																													CSKILL:Air Traffic Control
+Climb(class skill).MOD						TYPE:InfantrySkills
+Communication Operations(class skill)			TYPE:ArmorSkills.AviationSkills.SignalsSkills.MaintenanceSkills.IntelligenceSkills														VISIBLE:NO								!PREFEAT:1,Communication Operations(class skill)																																												CSKILL:Communication Operations
+Computer Use(class skill).MOD					TYPE:IntelligenceSkills
+Craft (Chemical - class skill).MOD				TYPE:CombatEngineeringSkills.DiverSkills.NBCSkills.MedicalSkills
+Craft (Electronic - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.DiverSkills.SignalsSkills.PilotSkills.NBCSkills.MaintenanceSkills
+Craft (Mechanical - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.SignalsSkills.PilotSkills.MaintenanceSkills
+Craft (Pharmaceutical - class skill).MOD			TYPE:MedicalSkills
+Craft (Structural - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.FieldArtillerySkills.InfantrySkills.MaintenanceSkills.MaintenanceSkills
+Decipher Script(class skill).MOD				TYPE:IntelligenceSkills
+Demolitions(class skill).MOD					TYPE:ArmorSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.InfantrySkills
+Diplomacy(class skill).MOD					TYPE:SignalsSkills.NBCSkills.Medicalskills.LawEnforcementSkills.IntelligenceSkills
+Disable Device(class skill).MOD				TYPE:ArmorSkills.CombatEngineeringSkills.Diverskills.FieldArtillerySkills.InfantrySkills.NBCSkills
+Drive(class skill).MOD						TYPE:ArmorSkills.CombatEngineeringSkills.FieldArtillerySkills.InfantrySkills.LawEnforcementSkills.MaintenanceSkills
+Forgery(class skill).MOD					TYPE:IntelligenceSkills
+Gather Information(class skill).MOD				TYPE:IntelligenceSkills
+Handle Animal(class skill).MOD				TYPE:LawEnforcementSkills
+Hide(class skill).MOD						TYPE:ArmorSkills.FieldArtillerySkills.InfantrySkills
+Intimidate(class skill).MOD					TYPE:InfantrySkills.LawEnforcementSkills.IntelligenceSkills
+Investigate(class skill).MOD					TYPE:LawEnforcementSkills
+Knowledge (Behavioral Sciences - class skill).MOD	TYPE:MedicalSkills
+Knowledge (Civics - class skill).MOD			TYPE:LawEnforcementSkills
+Knowledge (Tactics - class skill).MOD			TYPE:ArmorSkills.FieldArtillerySkills.InfantrySkills.PilotSkills
+Knowledge (Technology - class skill).MOD			TYPE:ArmorSkills.AviationSkills.CombatEngineeringSkills.DiverSkills.SignalsSkills.NBCSkills.MedicalSkills.MaintenanceSkills
+Navigate(class skill).MOD					TYPE:ArmorSkills.CombatEngineeringSkills.InfantrySkills
+Pilot(class skill).MOD						TYPE:PilotSkills
+Profession(class skill).MOD					TYPE:DiverSkills
+Repair(class skill).MOD						TYPE:ArmorSkills.AviationSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.SignalsSkills.PilotSkills.NBCSkills.MedicalSkills.MaintenanceSkills
+Research(class skill).MOD					TYPE:NBCSkills.MedicalSkills.IntelligenceSkills
+Search(class skill).MOD						TYPE:CombatEngineeringSkills.DiverSkills.InfantrySkills
+Sense Motive(class skill).MOD					TYPE:LawEnforcementSkills.IntelligenceSkills
+Spot(class skill).MOD						TYPE:InfantrySkills.LawEnforcementSkills
+Swim(class skill).MOD						TYPE:DiverSkills
+Survival(class skill).MOD					TYPE:CombatEngineeringSkills.InfantrySkills
+Treat Injury(class skill).MOD					TYPE:NBCSkills.MedicalSkills
+
+
+Psychotherapy Qualify						TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																																												ADD:FEAT(Psychotherapy)
+Surgery Qualify							TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																																												ADD:FEAT(Surgery)
+
+Advanced Amphibious Training					TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Amphibious Assault Training																																				STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|AmphibiousTraining|1
+Advanced Arctic Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Arctic Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|ArcticTraining|1
+Advanced Desert Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Desert Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|DesertTraining|1
+Advanced Jungle/Swamp Training				TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College																																				STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|JungleTraining|1
+Advanced Mountain Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Mountain Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|MountainTraining|1
+Advanced Urban Training						TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Urban Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|UrbanTraining|1
+
+Air Superiority							TYPE:Special																									VISIBLE:NO																	SA:Air Superiority +%|AirSuperiority												DEFINE:AirSuperiority|0
+Strafing								TYPE:Special																									VISIBLE:NO																	SA:SA:Strafing +%|Strafing														DEFINE:Strafing|0
+
+Hostage Rescue							TYPE:Special																									VISIBLE:NO																	SA:Hostage Rescue|PREVARLT:HostageRescue,6	SA:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
+
+Hasty Construction						TYPE:Special																									VISIBLE:NO																	SA:Hasty Construction % pct|HastyConstruction											DEFINE:HastyConstruction|100
+
+Semper Fi								TYPE:Special																									VISIBLE:NO																	SA:Semper Fi

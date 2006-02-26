@@ -1,0 +1,90 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+# Template Name		Template																																									Source Page				Required Class	Required Race	Removable?		Type
+Val Bloodlines		TEMPLATE:CHOOSE:Abebi|Assante|Borda|Dellenov|Inares|Ishi|Mehan|Mordane|Ossan|Sheem|Tensen|Virdan																																		PRERACE:Val		REMOVABLE:NO	TYPE:Val
+Elorii Subraces		TEMPLATE:CHOOSE:Marokene|Osalikene|Kelekene|Berokene|Ardakene																																								PRERACE:Elorii	REMOVABLE:NO
+Arcanis Regions		TEMPLATE:CHOOSE:Altheria|Milandir|Elonbe|Hinterlands|Canceri|Coryani Empire|League of Princes|Unden|Kion|Dwarven Enclave|Myrantia|Ymandragore|Entaris																													REMOVABLE:NO
+Secret Socities		TEMPLATE:CHOOSE:Orthodoxy|Azure Way|Emerald Society|Hawk|Shield|Mourners in Silence																																								REMOVABLE:YES
+Monastic Orders		TEMPLATE:CHOOSE:Order of the Iron Soul|Order of the Blade|Order of the Perfect Union|Brotherhood of Man|Order of the Bronze Sepulcer|Order of the Incandescent Path|Order of the Pearl Maidens|Contemplation of the Elements|Order of the Iridescent Scales	SOURCEPAGE:Codex Compendium	PRECLASS:1,Monk=1				REMOVABLE:YES
+Ss'ressen Clutches	TEMPLATE:CHOOSE:Black Talon|Barbed Tail|Flaming Tongue|Venomous Scale																																							PRERACE:Ss'ressen
+
+###Block: Bloodlines
+# Template Name	Output Name			Visible		FAVOREDCLASS			Removable?		SUBRACE
+Abebi			OUTPUTNAME:val'Abebi	VISIBLE:EXPORT	FAVOREDCLASS:Wizard		REMOVABLE:NO	SUBRACE:Abebi
+Assante		OUTPUTNAME:val'Assante	VISIBLE:EXPORT	FAVOREDCLASS:Paladin		REMOVABLE:NO	SUBRACE:Assante
+Borda			OUTPUTNAME:val'Borta	VISIBLE:EXPORT	FAVOREDCLASS:Bard			REMOVABLE:NO	SUBRACE:Borda
+Dellenov		OUTPUTNAME:val'Dellenov	VISIBLE:EXPORT	FAVOREDCLASS:Druid		REMOVABLE:NO	SUBRACE:Dellenov
+Inares		OUTPUTNAME:val'Inares	VISIBLE:EXPORT	FAVOREDCLASS:Monk			REMOVABLE:NO	SUBRACE:Inares
+Ishi			OUTPUTNAME:val'Ishi	VISIBLE:EXPORT	FAVOREDCLASS:Cleric		REMOVABLE:NO	SUBRACE:Ishi
+Mehan			OUTPUTNAME:val'Mehan	VISIBLE:EXPORT	FAVOREDCLASS:Sorcerer		REMOVABLE:NO	SUBRACE:Mehan
+Mordane		OUTPUTNAME:val'Mordane	VISIBLE:EXPORT	FAVOREDCLASS:Necromancer	REMOVABLE:NO	SUBRACE:Mordane
+Ossan			OUTPUTNAME:val'Ossan	VISIBLE:EXPORT	FAVOREDCLASS:Barbarian		REMOVABLE:NO	SUBRACE:Ossan
+Sheem			OUTPUTNAME:val'Sheem	VISIBLE:EXPORT	FAVOREDCLASS:Rogue		REMOVABLE:NO	SUBRACE:Sheem
+Tensen		OUTPUTNAME:val'Tensen	VISIBLE:EXPORT	FAVOREDCLASS:Ranger		REMOVABLE:NO	SUBRACE:Tensen
+Virdan		OUTPUTNAME:val'Virdan	VISIBLE:EXPORT	FAVOREDCLASS:Fighter		REMOVABLE:NO	SUBRACE:Virdan
+
+###Block: Regions
+# Template Name	Visible		Template											Required Race	Automatic Languages	REGION					SUBRACE
+Altheria		VISIBLE:EXPORT																LANGAUTO:Altherin		REGION:Altheria
+Elonbe		VISIBLE:EXPORT													PRERACE:Elorii					REGION:Elonbe
+Hinterlands		VISIBLE:EXPORT																LANGAUTO:Yhing Hir	REGION:Hinterlands
+Milandir		VISIBLE:EXPORT																LANGAUTO:Milandisian	REGION:Milandir
+Canceri		VISIBLE:EXPORT																LANGAUTO:Cancerese	REGION:Canceri
+Coryani Empire	VISIBLE:EXPORT																LANGAUTO:Low Coryani	REGION:Coryani Empire
+Unden			VISIBLE:EXPORT																LANGAUTO:Unden		REGION:League of Princes (Unden)	SUBRACE:Unden
+Kion			VISIBLE:EXPORT																LANGAUTO:Kion		REGION:League of Princes (Kion)	SUBRACE:Kion
+League of Princes	VISIBLE:EXPORT																LANGAUTO:Low Coryani	REGION:League of Princes
+Myrantia		VISIBLE:EXPORT																LANGAUTO:Myrantian	REGION:Myrantia
+Ymandragore		VISIBLE:EXPORT																LANGAUTO:Ymandrake	REGION:Ymandragore
+Dwarven Enclave				TEMPLATE:CHOOSE:Generic Enclave|Solaros Mor|Encali|Tir Betoq|Entaris
+Generic Enclave	VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Dwarven Enclave
+Solanos Mor		VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Solanos Mor
+Encali		VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Encali
+Tir Betoq		VISIBLE:EXPORT													PRERACE:Dwarf%					REGION:Tir Betoq
+
+#Elorii Region
+Entaris		VISIBLE:EXPORT													PRERACE:Elorii					REGION:Entaris
+
+###Block: Elorii Subraces
+# Template Name	Visible	Source Page		Special Ability												Bonus to skill					Stat bonus														FAVOREDCLASS		Automatic Languages	Move			Removable?		SUBRACE
+Marokene		VISIBLE:NO	SOURCEPAGE:p.161	SA:+2 bonus to spot and search checks in regards to traps in natural surroundings								BONUS:STAT|STR|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|-2							FAVOREDCLASS:Fighter	LANGAUTO:Terran					REMOVABLE:NO	SUBRACE:Marokene
+Osalikene		VISIBLE:NO	SOURCEPAGE:p.161															BONUS:SKILL|Tumble,Jump|2			BONUS:STAT|DEX|2	BONUS:STAT|CHA|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|-2				FAVOREDCLASS:Bard		LANGAUTO:Auran					REMOVABLE:NO	SUBRACE:Osalikene
+Kelekene		VISIBLE:NO	SOURCEPAGE:p.161															BONUS:SKILL|Intimidate|2			BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|-2				FAVOREDCLASS:Wizard	LANGAUTO:Ignan					REMOVABLE:NO	SUBRACE:Kelekene
+Berokene		VISIBLE:NO																		BONUS:SKILL|Profession (Sailor),Balance|2	BONUS:STAT|DEX|2	BONUS:STAT|WIS|2	BONUS:STAT|CON|-2	BONUS:STAT|INT|-2				FAVOREDCLASS:Rogue	LANGAUTO:Aquan		MOVE:Swim,30	REMOVABLE:NO	SUBRACE:Berokene
+Ardakene		VISIBLE:NO				SA:Voice of the Mother											BONUS:SKILL|Heal,Wilderness Lore|2		BONUS:STAT|DEX|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	BONUS:STAT|CON|-2	FAVOREDCLASS:Cleric								REMOVABLE:NO	SUBRACE:Ardakene
+
+
+###Block: Secret Socities
+# Template Name		Visible
+Orthodoxy			VISIBLE:EXPORT
+Azure Way			VISIBLE:EXPORT
+Emerald Society		VISIBLE:EXPORT
+Hawk				VISIBLE:EXPORT
+Shield			VISIBLE:EXPORT
+Mourners in Silence	VISIBLE:EXPORT
+
+
+###Block: Monastic Orders
+# Template Name				Visible		Special Ability																	Save checks bonus							Combat bonus					Add to base move			Bonus to skill			Class Skill								Automaticaly Gained Weapon Prof.	Cross-class Skill
+Order of the Iron Soul			VISIBLE:EXPORT																				BONUS:CHECKS|Willpower|2	BONUS:CHECKS|Reflex|-1
+Order of the Blade			VISIBLE:EXPORT	SA:Longsword as Monk Weapon																																																		AUTO:WEAPONPROF|Longsword
+Order of the Perfect Union		VISIBLE:EXPORT	SA:+2 save vs Mind Affecting spells/powers	SA:-2 save vs. Fear spells/powers	SA:Undead Vulnerability +2
+Brotherhood of Man			VISIBLE:EXPORT	SA:Wisdom bonus to Unarmed Damage vs Vals (loses Wis AC)
+Order of the Bronze Sepulcer		VISIBLE:EXPORT	SA:+2 save vs Fear spells/powers																																			BONUS:SKILL|Diplomacy|-5
+Order of the Incandescent Path	VISIBLE:EXPORT	SA:Cannot use Ranged Weapons																								BONUS:COMBAT|AC|1|TYPE=Natural.REPLACE
+Order of the Pearl Maidens		VISIBLE:EXPORT																																														CSKILL:Knowledge (Sailing)|Knowledge (Navigation)	AUTO:WEAPONPROF|Longbow			CCSKILL:Diplomacy|Perform
+Contemplation of the Elements		VISIBLE:EXPORT
+Order of the Iridescent Scales	VISIBLE:EXPORT	SA:AoOs against PC are at -2																															BONUS:MOVEADD|TYPE.Walk|10
+
+###Block: Ss'ressen Clutches
+# Template Name	Visible		Restricted AL
+Black Talon		VISIBLE:EXPORT	!PREALIGN:LE,NE,CE
+Barbed Tail		VISIBLE:EXPORT	!PREALIGN:LG,NG,CG
+Flaming Tongue	VISIBLE:EXPORT	!PREALIGN:LG,NG,CG
+Venomous Scale	VISIBLE:EXPORT	!PREALIGN:LG,NG,CG
+
+#
+# End
+#

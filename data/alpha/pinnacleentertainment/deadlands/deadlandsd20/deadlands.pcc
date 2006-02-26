@@ -1,0 +1,43 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $
+CAMPAIGN:PE - Deadlands Core Rulebook - Deadlands D20
+RANK:1
+GAMEMODE:Deadlands
+TYPE:Pinnacle Entertainment.Deadlands.Core Rules
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook
+SOURCESHORT:Deadlands
+SOURCEWEB:http://www.peginc.com/index.htm
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Deadlands D20 Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King, wizoffice2001, Eddy Anthony (MoSaT))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:DLMagicItemPrices.txt
+
+CLASS:deadlandsclasses.lst
+CLASS:deadlandsmonclasses.lst
+EQUIPMENT:deadlandsequiparmorshields.lst
+EQUIPMENT:deadlandsequip.lst
+EQUIPMENT:deadlandsequipcoins.lst
+EQUIPMENT:deadlandsequipwondrousitems.lst
+EQUIPMENT:deadlandsequipweapammo.lst
+EQUIPMENT:deadlandsequipweapmelee.lst
+EQUIPMENT:deadlandsequipweapranged.lst
+FEAT:deadlandsfeats.lst
+FEAT:deadlandsmonfeats.lst
+RACE:deadlandsraces.lst
+RACE:deadlandsmonraces.lst
+SKILL:deadlandsskills.lst
+SPELL:deadlandsspells.lst
+TEMPLATE:deadlandsmontemplates.lst
+TEMPLATE:deadlandstemplates.lst
+WEAPONPROF:deadlandsweapprofs.lst
+WEAPONPROF:deadlandsmonweapprofs.lst
+LANGUAGE:deadlandslanguages.lst
+EQUIPMOD:deadlandsequipmods.lst
+
+# For the Evasion and Improved Evasion pseudo-feats
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Uncanny Dodge)
+FEAT:@/d20ogl/srd/srd_feats.lst|(EXCLUDE:Brew Potion|Craft Magic Arms and Armor|Craft Rod|Craft Staff|Craft Wand|Craft Wondrous Item|Forge Ring|Scribe Scroll)
+SPELL:@/d20ogl/srd/srd_spells.lst
+SKILL:@/d20ogl/srd/srd_skills.lst

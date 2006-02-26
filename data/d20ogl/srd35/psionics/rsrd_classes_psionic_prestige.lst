@@ -1,0 +1,199 @@
+# CVS $Revision: 1.12 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: Arknight
+#     Variables - HasPsionics, ManifesterLvl
+# updated: TaluronIscandar
+# removed HasPsionics, ManifesterLvl - not needed
+
+# All prestige classes need ABB tag filled in.
+# Slayer need to be able to choose what type of psionic creature as Favored Enemy
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name		Required Skill							Req. Spell Type
+CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana),Knowledge (Psionics)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Psionic,1,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Psionics)|TYPE.Profession|Psicraft|Spellcraft
+###Block: Class Info
+1	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+2	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+3	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+4	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+5	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+6	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+7	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+8	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+9	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+10	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Psionic)
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name	Req. Att.	Required Feat				Required Skill			Req. Spell Type
+CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentration=8	PRESPELLTYPE:Psionic,1,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
+###Block: Psionic Variables
+###Block: Class Info
+1	ADD:SPELLCASTER(Psionic)	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																																												FEATAUTO:Sidestep Charge
+2						SA:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
+3	ADD:SPELLCASTER(Psionic)	SA:Dimension Step (Su)																																				SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
+4	ADD:SPELLCASTER(Psionic)	SA:Flanker (designate adjacent square to be determination for flanking)(Ex)
+5																					BONUS:VAR|OpportunisticStrike|2
+6	ADD:SPELLCASTER(Psionic)	SA:Transporter (Psionic Teleport & Psionic Plane Shift become known powers)(Ex)													CHOOSE:SPELLLEVEL|1|TYPE=Psionic|3|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=3|1]																		SPELLLEVEL:CLASS|%=3|Teleport (Psionic)
+6																																CHOOSE:SPELLLEVEL|1|TYPE=Psionic|3|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=3|1]																		SPELLLEVEL:CLASS|%=3|Plane Shift (Psionic)
+7	ADD:SPELLCASTER(Psionic)	SA:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)
+8																					BONUS:VAR|OpportunisticStrike|2
+9	ADD:SPELLCASTER(Psionic)	SA:Dimension Spring Attack (Su)(1x/day)
+10	ADD:SPELLCASTER(Psionic)	SA:Accelerated Action (Su)
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name		Req. Att.	Required Feat		Req. Special Ability	Required Skill
+CLASS:Psionic Fist	PREATT:4	PREFEAT:1,Wild Talent	PRESA:1,Still Mind (Ex)	PRESKILL:1,Concentration=9
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Fist|CL	SPELLLIST:1|Psychic Warrior
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	BONUS:VAR|PsionicFistML|CL	BONUS:VAR|PsionicFistML|var("BL=Psionic Fist")																												DEFINE:PsionicFistML|0	TEMPLATE:Psionic
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsionicFistML,2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsionicFistML,3	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionicFistML,4
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionicFistML,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicFistML,6	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicFistML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionicFistML,8
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionicFistML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionicFistML,10
+1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
+
+###Block:Monk Abilities
+1	BONUS:VAR|MonkACLvl|CL							FEATAUTO:Monk AC
+1	BONUS:VAR|MonkMoveLvl|CL						FEATAUTO:Monk Movement
+1						BONUS:UDAM|CLASS.Monk|CL
+###Block: Class Info
+1	KNOWN:0,1		SA:Monk Abilities
+2	KNOWN:0,2
+3	KNOWN:0,2,1
+4	KNOWN:0,2,2
+5	KNOWN:0,2,2,1				ADD:FEAT(TYPE=Psionic)
+6	KNOWN:0,2,2,2
+7	KNOWN:0,2,2,2,1
+8	KNOWN:0,2,2,2,2
+9	KNOWN:0,2,2,2,2,1
+10	KNOWN:0,2,2,2,2,2				ADD:FEAT(TYPE=Psionic)
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name	Req. Att.	Required Feat	Required Skill					Required Template
+CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+###Block: Class Info
+1						SA:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy	SA:Sense Favored Enemy (60')(Su)	BONUS:VAR|SlayerFavoredEnemy|2	DEFINE:SlayerFavoredEnemy|0
+2	ADD:SPELLCASTER(Psionic)	SA:Brain Nausea (Will Save DC:%)(Su)|BrainNausea											BONUS:VAR|BrainNausea|15+CL		DEFINE:BrainNausea|0
+3	ADD:SPELLCASTER(Psionic)	SA:Lucid Buffer (+4 Save vs. Compulsions, Mind-affecting effects)(Ex)
+4	ADD:SPELLCASTER(Psionic)																				BONUS:VAR|SlayerFavoredEnemy|2
+5	ADD:SPELLCASTER(Psionic)
+6	ADD:SPELLCASTER(Psionic)	SA:Cerebral Blind (Su) (Protection from location detection as long as psionically focused)
+7	ADD:SPELLCASTER(Psionic)																				BONUS:VAR|SlayerFavoredEnemy|2
+8	ADD:SPELLCASTER(Psionic)	SA:Breech Power Resistance (Su)
+9	ADD:SPELLCASTER(Psionic)	SA:Cerebral Immunity (Su) (Immune to mind influencing effects as long as psionically focused)
+10	ADD:SPELLCASTER(Psionic)	SA:Blast Feedback (Su)																BONUS:VAR|SlayerFavoredEnemy|2
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name	Required Class				Required Feat			Required Skill
+CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
+###Block: Class Info
+1						SA:Free Manifesting - 1st Level Powers (3x/day)
+2	ADD:SPELLCASTER(Psionic)	SA:Cognizance Psicrystal (% points)|CogPsiCrystal	BONUS:VAR|CogPsiCrystal|5	DEFINE:CogPsiCrystal|0
+3						SA:Free Manifesting - 2nd Level Powers (3x/day)
+4	ADD:SPELLCASTER(Psionic)										BONUS:VAR|CogPsiCrystal|2
+5						SA:Free Manifesting - 3rd Level Powers (1x/day)
+6	ADD:SPELLCASTER(Psionic)										BONUS:VAR|CogPsiCrystal|2
+7						SA:Free Manifesting - 4th Level Powers (1x/day)
+8	ADD:SPELLCASTER(Psionic)										BONUS:VAR|CogPsiCrystal|2
+9						SA:Free Manifesting - 5th Level Powers (1x/day)
+10	ADD:SPELLCASTER(Psionic)	SA:Font of Power
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name		Required Feat		Required Skill						Req. Spell Type
+CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=8	PRESPELLTYPE:Psionic,1,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
+###Block: Class Info
+1						SA:Uncarnate Armor (Su)	SA:Incorporeal Touch %d6 (3x/day) (Su)|IncorporealTouch			BONUS:VAR|IncorporealTouch|1				DEFINE:IncorporealTouch|0
+2	ADD:SPELLCASTER(Psionic)	SA:Shed Body (Su) (%x/day)|ShedBody											BONUS:VAR|ShedBody|1					DEFINE:ShedBody|0
+3	ADD:SPELLCASTER(Psionic)	SA:Assume Equipment (Su)
+4						SA:Assume Likeness (Su)
+5	ADD:SPELLCASTER(Psionic)																	BONUS:VAR|IncorporealTouch|1
+6	ADD:SPELLCASTER(Psionic)																	BONUS:VAR|ShedBody|1
+7						SA:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	BONUS:VAR|TelekineticForceDC|(14+SPELLSTATMOD)	DEFINE:TelekineticForceDC|0
+8	ADD:SPELLCASTER(Psionic)	SA:Uncarnate Bridge (Su)
+9	ADD:SPELLCASTER(Psionic)																	BONUS:VAR|IncorporealTouch|1
+10						SA:Uncarnate (Ex)																											TEMPLATE:Incorporeal
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name		Required AL		Required Skill										Required Template
+CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:Psionic
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|Jump|Psicraft
+###Block: Psionic Variables
+###Block: Class Info
+1																		SA:Fire Lash (Ps)
+2																		SA:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)	SA:Fire Adaptation (Ex) (+4 vs fire,heat effects)	SA:Resistance to Energy (fire) 10
+3																		SA:Bolt of Fire (Ps) (60' Ranged Touch; %d6 damage)|BoltFire															BONUS:VAR|BoltFire|CL			DEFINE:BoltFire|0
+4																		SA:Weapon Afire (Ps) (+2d6 Fire damage with weapon)
+5																		SA:Nimbus (Ps) (1x/day for up to % minutes)|NimbusDuration																BONUS:VAR|NimbusDuration|CL		DEFINE:NimbusDuration|0
+6																		SA:Firewalk (Su)
+7	SA:.CLEAR..Fire Adaptation (Ex) (+4 vs fire,heat effects)	SA:.CLEAR..Resistance to Energy (fire) 10	SA:Fear No Fire (Ex) (+8 vs fire,heat effects)	SA:Resistance to Energy (fire) 20
+8																		SA:Greater Weapon Afire (Ps) (+2d6 additional with Afire abilities)
+9																		SA:Heat Death (Ps) (1 creature within 30'; Fortitude save (DC:%), die if fail, 4d8 fire if save)|HeatDeathDC							BONUS:VAR|HeatDeath|14+CHA		DEFINE:HeatDeathDC|0
+10																		SA:Conflagration (Ps) (1x/day; 30'burst dealing 15d6 Fire, Reflex save (DC:%) for half + if fail, Fortitude save or die)|ConflagrationDC			BONUS:VAR|ConflagrationDC|15+CHA	DEFINE:ConflagrationDC|0
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
+CLASS:Thrallherd	HD:4		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Class				Required Feat		Required Skill						Req. Known Spell
+CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Inquisitor	PRESKILL:2,Knowledge (Psionics)=8,Diplomacy=4	PRESPELL:1,Mindlink
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Psionics)|Psicraft|Sense Motive
+###Block: Class Info
+1						SA:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
+2	ADD:SPELLCASTER(Psionic)
+3	ADD:SPELLCASTER(Psionic)	SA:Psionic Charm (Ex)																			CHOOSE:SPELLLEVEL|1|TYPE=Psionic|3|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=3|1]	SPELLLEVEL:CLASS|%=3|Charm (Psionic)
+4	ADD:SPELLCASTER(Psionic)
+5	ADD:SPELLCASTER(Psionic)	SA:Psionic Dominate (Ex)																		CHOOSE:SPELLLEVEL|1|TYPE=Psionic|5|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=5|1]	SPELLLEVEL:CLASS|%=5|Dominate (Psionic)
+6	ADD:SPELLCASTER(Psionic)
+7	ADD:SPELLCASTER(Psionic)	SA:Greater Dominate (Ex)
+8	ADD:SPELLCASTER(Psionic)
+9	ADD:SPELLCASTER(Psionic)	SA:Superior Dominate (Ex)
+10						SA:Twofold Master (Ex)
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Modify VAR
+CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+# Class Name	Restricted AL		Req. Att.	Required Skill								Required Template
+CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|Intimidate|Knowledge (History)|Knowledge (Psionics)|Psicraft
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
+CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War Mind|CL	SPELLLIST:1|Psychic Warrior
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	BONUS:VAR|WarMindML|CL	BONUS:VAR|WarMindML|var("BL=War Mind")																										DEFINE:WarMindML|0	TEMPLATE:Psionic
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:WarMindML,2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WarMindML,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WarMindML,4
+1	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:WarMindML,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:WarMindML,6	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:WarMindML,7	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:WarMindML,8
+1	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:WarMindML,9	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:WarMindML,10
+1	BONUS:VAR|BonusPowerPoints|(WIS*WarMindML)/2|TYPE=WarMindBonusPP
+
+###Block: Class Info
+1	KNOWN:0,1				SA:Chain of Personal Superiority (Ex) (+%)|SuperiorityChain	BONUS:VAR|SuperiorityChain|2				DEFINE:SuperiorityChain|0
+2	KNOWN:0,2				SA:Chain of Defensive Posture (Ex) (+%)|DefensivePosture	BONUS:VAR|DefensivePosture|2				DEFINE:DefensivePosture|0
+3	KNOWN:0,2		DR:1/-	SA:Enduring Body (Ex)
+4	KNOWN:0,2,1
+5	KNOWN:0,2,1				SA:Sweeping Strike (Ex)
+6	KNOWN:0,2,1,1																		BONUS:DR|-|1
+7	KNOWN:0,2.1.1													BONUS:VAR|SuperiorityChain|2
+8	KNOWN:0,2,1,1,1													BONUS:VAR|DefensivePosture|2
+9	KNOWN:0,2,1,1,1																		BONUS:DR|-|1
+10	KNOWN:0,2,1,1,1,1			SA:Chain of Overwhelming Force (Su) (1x/day)

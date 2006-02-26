@@ -1,0 +1,29 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# Original entry by: Ratheof Blithwyn
+
+###Block: Proficiencies
+# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+Devoted Evoker Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Order of Akmon Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Hammer (Light)|Warhammer
+
+###Block: Discipline mastery for the Devoted Evoker
+# Feat Name					Type				Visible	Special Ability
+EvocationMasteryAcid			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Acid
+EvocationMasteryCold			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Cold
+EvocationMasteryEnergyConstruct	TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Energy Construct
+EvocationMasteryElectricity		TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Electricity
+EvocationMasteryFire			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Fire
+EvocationMasteryForce			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Force
+EvocationMasteryLight			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Light
+EvocationMasterySound			TYPE:EvocationMastery	VISIBLE:NO	SA:Discipline Mastery Sound
+
+# Hidden feat: Evocation Library
+#Library Acid			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Acid)
+#Library Cold			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Cold)
+#Library Energy Construct	TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Energy Construct)
+#Library Electricity		TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Electricity)
+#Library Fire			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Fire)
+#Library Force			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Force)
+#Library Light			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Light)
+#Library Sound			TYPE:EvocationLibrary	VISIBLE:NO	SA:Evocation Library (Sound)

@@ -1,0 +1,30 @@
+# CVS $Revision: 1.5 $ $Author: ericbeaudoin $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+#Original Author: kingpaul, Updated by Beaver
+
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+
+# Fixed Crystal's ACCHECK, removed erroneous comment lines. - Tir Gwaith
+
+###Block: Armor and Shield special qualities
+# Modifier Name	Unique Key		Type			Plus		Source Page		Required Type		BONUS:EQMARMOR			Special Property
+Absolute Courage	KEY:BOHMASABCOUR	TYPE:Armor.Shield	PLUS:3	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Grants wearer complete immunity to fear-based attacks
+Absolute Purity	KEY:BOHMASABPUR	TYPE:Armor.Shield	PLUS:5	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Grants wearer complete immunity from spells with the evil descriptor
+Charity		KEY:BOHMASCHAR	TYPE:Shield		PLUS:2	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Can extend its enhancement bonus to all allies within 10 ft.
+Courage		KEY:BOHMASCOUR	TYPE:Armor.Shield	PLUS:1	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Grants wearer +4 morale bonus to saving throws against fear based attacks
+Crystal		KEY:BOHMASCRYS	TYPE:Armor		PLUS:3	SOURCEPAGE:p.40	PRETYPE:Enhancement	BONUS:EQMARMOR|ACCHECK|-1	SPROP:Can absorb and store energy from a ray attack
+Deathward		KEY:BOHMASDWARD	TYPE:Armor.Shield	PLUS:6	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Grants wearer complete immunity to spells with the death descriptor
+Faith			KEY:BOHMASFAITH	TYPE:Armor.Shield	PLUS:1	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Can transfer item's Armor Class enhancement  bonus to a luck bonus to saving throws
+Gold			KEY:BOHMASGOLD	TYPE:Armor.Shield	PLUS:1	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Wearer gains a +5 resistance bonus to any saving throw made against a breath weapon attack
+Platinum		KEY:BOHMASPLAT	TYPE:Armor		PLUS:1	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:Increase wearers speed by +10 feet
+Purity		KEY:BOHMASPUR	TYPE:Armor		PLUS:1	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:+4 resistance bonus against saves with the evil descriptor
+Silver		KEY:BOHMASSILV	TYPE:Armor		PLUS:1	SOURCEPAGE:p.40	PRETYPE:Enhancement						SPROP:+2 resistance bonus to all saving throws against spells, spell-like abilities, or supernatural abilities (all magic)
+
+
+###Block:Weapon
+# Modifier Name		Unique Key				Type					Plus		Required Type					Bonus				Keys to replace	Special Property																								Source Page
+# Equipment Name	Type					Required Type					Source Page				Special Property																							KEY			PLUS
+# Modifier Name	Unique Key		Type					Plus		Source Page		Required Type		Special Property
+Crystal		KEY:BOHMWEAPCRYS	TYPE:WEAPON.Melee.Ranged	PLUS:3	SOURCEPAGE:p.41	PRETYPE:Enhancement	SPROP:Can absorb and store energy from a ray attack
+Gold			KEY:BOHMWEAPGLD	TYPE:WEAPON.Melee.Ranged	PLUS:1	SOURCEPAGE:p.41	PRETYPE:Enhancement	SPROP:Wielder gains a +5 resistance bonus to any saving throw made against gaze attacks
+Platinum		KEY:BOHMWEAPPLAT	TYPE:WEAPON.Melee.Ranged	PLUS:1	SOURCEPAGE:p.41	PRETYPE:Enhancement	SPROP:Increase wearers speed by +10 feet
+Silver		KEY:BOHMWEAPSILV	TYPE:WEAPON.Melee.Ranged	PLUS:1	SOURCEPAGE:p.41	PRETYPE:Enhancement	SPROP:+2 better vs. against creatures that use spells, or use spell-like abilities, or supernatural abilities (all magic) and does +2d6 bonus damage

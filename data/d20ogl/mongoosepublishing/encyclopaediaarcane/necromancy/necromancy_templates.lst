@@ -1,0 +1,5 @@
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:27:07 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy|SOURCESHORT:Necromancy|SOURCEWEB:http://www.mongoosepublishing.com
+
+# Template Name	Hit Dice Size	Source Page		Special Ability																																										Define			Combat bonus						Stat bonus								Removable?		Vision
+Undead		HITDIE:12		SOURCEPAGE:p.37	SA:Immune to mind-influencing effects/poison/sleep/paralysis/stunning/disease	SA:Not subject to critical hits/subdual damage/ability damage/energy drain/death from massive damage	SA:No longer required to make Negative Energy Checks when using Necromantic Feats	DEFINE:LOCK.CON|10	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|-1	BONUS:STAT|CHA|-2	REMOVABLE:YES	VISION:Darkvision (60')

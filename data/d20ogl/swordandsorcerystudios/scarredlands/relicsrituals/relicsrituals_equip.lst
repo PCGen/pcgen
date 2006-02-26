@@ -1,0 +1,136 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Aug  6 19:18:34 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+###Block: Tattoos
+# Equipment Name		Product Identity?	Output Name				Type					Cost		Weight	Source Page			Class Skill
+Belsameth's Servant	NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:48600	WT:0		SOURCEPAGE:198-199	CSKILL:Control Shape
+Chardun's Might		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:3500	WT:0		SOURCEPAGE:199
+Corean's Forge		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:6300	WT:0		SOURCEPAGE:199
+Denev's Sending		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:1400	WT:0		SOURCEPAGE:199
+Dragon			NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:8000	WT:0		SOURCEPAGE:199
+Elder Rod			NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:6000	WT:0		SOURCEPAGE:199
+Enkili's Blessing		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:2160	WT:0		SOURCEPAGE:199
+Hedrada's Insight		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:1200	WT:0		SOURCEPAGE:199
+Lethene's Touch		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:10800	WT:0		SOURCEPAGE:199-200
+Madriel's Light		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:2500	WT:0		SOURCEPAGE:200
+Muskhorn			NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:7000	WT:0		SOURCEPAGE:200
+Observer's Shawl		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:5000	WT:0		SOURCEPAGE:200
+Tanil's Grace		NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:6000	WT:0		SOURCEPAGE:200
+Tar Dragon			NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:70000	WT:0		SOURCEPAGE:200
+Titanspawn			NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:2500	WT:0		SOURCEPAGE:200
+Wraith Hand			NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo			COST:4320	WT:0		SOURCEPAGE:200
+Mark of the Kinslayer	NAMEISPI:YES	OUTPUTNAME:[NAME] (Tattoo)	TYPE:Magic.Tattoo.Cursed	COST:20000	WT:0		SOURCEPAGE:200
+
+###Block: Spell Components as per the desc of each spell
+# Equipment Name							Output Name					Type					Cost		Weight	Source Page
+Adamantine Filings						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bile/Vial								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Blindfold								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Blood/Dead Hero/Horrible Death/Vial				OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Blood/Dead Man/Vial						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Blood/Vial								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Blood/Virgin/Vial							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bone/Dead Man's Skull/Powdered				OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bone/Dragon/Powdered						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bone/Outsider/Powdered						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bone/Piece								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bone/Powdered							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bone/Undead/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bracken								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Bread/Moldy/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Buckle/Platinum							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Carrot Juice/Vial							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Catapillar/Cocooned						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Charcoal/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Claw									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Clay/Lump								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Cloth/Silk/Black							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Cloth/Used Shroud/Strip						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Cloth/Velvet/Black						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Cloth/Woven/Piece/Small						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Cylinder/Metal/Magnitized/Small				OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Diamond/Powdered							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Building Debris (Destroyed by Storm/Natural Disaster)	OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Dirt/Graveyard/Pinch						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Dust/Adamantine/Pinch						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Dust/Silver/Pinch							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Eye/Creature with Gaze Attack					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Eye/Glass/Miniature						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Eyeball/Jade							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Eyeball/Telepathic Creature/Preserved			OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Feather								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Feathers/Owl							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Figurine/Glass/Masterwork					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:2		SOURCEPAGE:Per Spell Desc
+Figurine/Owl/Small						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Finger/Professional Archer/Severed				OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Severed Finger of a Professional Assassin			OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Foot/Rabbit's							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Frog									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Tuft of Black Cat Fur						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Tuft of Rodent Fur						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Tuft of Animal Fur						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Gauze/Piece								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Glands/Viper/Poison						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Raw Gemstones (1,000gp Value)					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:1000	WT:0		SOURCEPAGE:Per Spell Desc
+Glass/Smoked/Piece						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Gorget/Cloth							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Hair/Elderly Person/Lock					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Hair/Lock								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Humanoid Corpse							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Living Humanoid							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Honey/Vial								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Iron Filings/1 Lb.						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:10		SOURCEPAGE:Per Spell Desc
+Iron Filings/Pinch						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Iron/Piece								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Key/Small								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Lantern/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Leaf/Sacred Grove							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Lichen								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Magnet/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Small Piece of Magnetized Metal				OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Meat/Dried								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Melons								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Mercury/Vial							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Mirror/Platinum/Diamond Studded/Masterwork		OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:5		SOURCEPAGE:Per Spell Desc
+Mirror/Shard							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Small Mirror							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Mold/Graveyard/Piece						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Moss/Phosphorescent/Piece					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Net/Palm-Sized							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Parchment/Black/Piece						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Pepper/Pinch							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Pinesap/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Pitch									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Pure Grain Alcohol/Vial						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Relic/Hero								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Ring/White Gold/Black Adamantine/Dual-Helix		OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Rod/Glass								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Roots/Bundle							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Rope/Small Length							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:3		SOURCEPAGE:Per Spell Desc
+Sawdust/Pinch							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Scale									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Scales/Set/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Seaweed/Small Length						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Shell/Conch/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Shield/Tin/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Sick Living Creature						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Silk/Square/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Skin/Flayed/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Spear/Wooden/Miniature						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Stick/Forked							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Sticks/Pile/Small							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:10		SOURCEPAGE:Per Spell Desc
+Stone/With Hole							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+String/Wax Coated/Small Length				OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Sulfer/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Sulfur/Pinch							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Tail/Lizard								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Tar/Vial								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Token/Sun/Wooden							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Tooth									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Twine/Small Length						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
+Water/Pure/Vial							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Water/Vial								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Wine									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:.6		SOURCEPAGE:Per Spell Desc
+Wood/Dark/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Wood/Sacred Grove/Piece						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
+Zombie Flesh/Handful						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc

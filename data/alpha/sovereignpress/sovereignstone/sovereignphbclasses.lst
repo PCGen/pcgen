@@ -1,0 +1,80 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# Players Handbook Classes modified for use in Sovereign Stone d20.
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# This NEEDS to be changed to .MODs.  -- Tir Gwaith
+
+# Class Name	Hit Dice	Abbreviation	Source Page			Save checks bonus												Combat bonus
+CLASS:Barbarian	HD:12		ABB:Bbn		SOURCEPAGE:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Barbarian	STARTSKILLPTS:4
+#  Barbarian Rage variables, for stacking with other classes in any which way...  - Tir Gwaith
+#	BarbRageTimesLVL	For if a class stacks its levels with levels of Barbarian for Rages / day
+#	BarbRagePowerLVL	For if a class stacks its levels with levels of Barbarian for Mighty Rage, Greater Rage, etc.
+#	GreaterRage		For if a class grants Greater Rage at a particular level (doesn't consider Barbarian levels or not)
+#	TirelessRage	For if a class grants "No longer winded after rage" at a particular level (doesn't consider Barbarian levels or not)
+#	MightyRage		For if a class grants Mighty Rage at a particular level (doesn't consider Barbarian levels or not)
+#	RageTimes		For if a class has it's own Rage / day progression.  This is a straight 'Rage / day' variable.
+###Block: Rage variables
+1	BONUS:VAR|BarbRageTimesLVL|CL=Barbarian				DEFINE:BarbRageTimesLVL|0
+1	BONUS:VAR|BarbRagePowerLVL|CL=Barbarian				DEFINE:BarbRagePowerLVL|0
+1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL|15	DEFINE:GreaterRage|0
+1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL|20	DEFINE:TirelessRage|0
+1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|
+1	FEATAUTO:Shield Proficiency
+###Block: Level Progression
+1								BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2|TYPE=FastMovement
+2			BONUS:VAR|UncannyDodge|1													FEATAUTO:Uncanny Dodge
+5			BONUS:VAR|UncannyDodge|1
+10			BONUS:VAR|UncannyDodge|1
+11	DR:1/-
+13			BONUS:VAR|UncannyDodge|1
+14	DR:2/-
+16			BONUS:VAR|UncannyDodge|1
+17	DR:3/-
+19			BONUS:VAR|UncannyDodge|1
+20	DR:4/-
+
+# Class Name	Hit Dice	Abbreviation	Source URI			Save checks bonus												Combat bonus
+CLASS:Fighter	HD:10		ABB:Ftr		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Fighter	STARTSKILLPTS:2
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Level progression
+1						ADD:FEAT(TYPE=Fighter)
+2						ADD:FEAT(TYPE=Fighter)
+4	DEFINE:WeapSpecQualify|1	ADD:FEAT(TYPE=Fighter)
+6						ADD:FEAT(TYPE=Fighter)
+8						ADD:FEAT(TYPE=Fighter)
+10						ADD:FEAT(TYPE=Fighter)
+12						ADD:FEAT(TYPE=Fighter)
+14						ADD:FEAT(TYPE=Fighter)
+16						ADD:FEAT(TYPE=Fighter)
+18						ADD:FEAT(TYPE=Fighter)
+20						ADD:FEAT(TYPE=Fighter)
+
+# Class Name	Hit Dice	Abbreviation	Source URI			Save checks bonus												Combat bonus
+CLASS:Rogue		HD:6		ABB:Rog		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Rogue		STARTSKILLPTS:8
+###Block:Proficiencies
+1	FEATAUTO:Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+1	BONUS:VAR|SneakAttack|(CL+1)/2																							FEATAUTO:Sneak Attack
+2																										VFEAT:Evasion
+3	BONUS:VAR|UncannyDodge|1																								FEATAUTO:Uncanny Dodge
+6	BONUS:VAR|UncannyDodge|1
+10							ADD:SPECIAL(Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat)
+11	BONUS:VAR|UncannyDodge|1
+13							ADD:SPECIAL(Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat)
+14	BONUS:VAR|UncannyDodge|1
+16							ADD:SPECIAL(Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat)
+17	BONUS:VAR|UncannyDodge|1
+19							ADD:SPECIAL(Crippling Strike,Defensive Roll,Improved Evasion,Opportunist,Skill Mastery,Slippery Mind,Free Feat)
+20	BONUS:VAR|UncannyDodge|1

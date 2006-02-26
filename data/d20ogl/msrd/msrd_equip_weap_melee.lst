@@ -1,0 +1,39 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Wed Jan 26 22:35:27 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+#	Simple Weapons Melee
+# Equipment Name		Required Proficiency			Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	MODS		Range		Size		Source Page
+Unarmed Strike		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Simple.Unarmed.Melee.Bludgeoning.Standard										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					MODS:NO			SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Brass Knuckles		PROFICIENCY:Brass Knuckles		TYPE:Weapon.Simple.Melee.Bludgeoning												COST:5	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1									SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Cleaver			PROFICIENCY:Cleaver			TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal										COST:5	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Club				PROFICIENCY:Club				TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden									COST:4	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Knife				PROFICIENCY:Knife				TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal									COST:7	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4							RANGE:10	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Metal Baton			PROFICIENCY:Metal Baton			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal										COST:8	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6									SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Pistol Whip			PROFICIENCY:Pistol Whip			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Rifle Butt			PROFICIENCY:Rifle Butt			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6									SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Sap				PROFICIENCY:Sap				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Wooden										COST:2	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Stun gun			PROFICIENCY:Stun Gun			TYPE:Weapon.Simple.Melee.Electricity												COST:5	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3									SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Tonfa				PROFICIENCY:Tonfa				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal										COST:6	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4									SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+
+
+#	Archaic Melee Weapons
+# Equipment Name		Required Proficiency			Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	MODS		Range		Size		Source Page
+Bayonet (Fixed)		PROFICIENCY:Fixed Bayonet		TYPE:Weapon.Archaic.Melee.Standard.Piercing.Double.Metal			ALTTYPE:Weapon.Melee.Piercing		COST:7	WT:1		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d4	ALTDAMAGE:1d6						SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Hatchet			PROFICIENCY:Hatchet			TYPE:Weapon.Archaic.Melee.Ranged.Standard.Slashing.Metal									COST:4	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							RANGE:10	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Longsword			PROFICIENCY:Longsword			TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword									COST:11	WT:4		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8									SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Machete			PROFICIENCY:Machete			TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal										COST:5	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Rapier			PROFICIENCY:Rapier			TYPE:Weapon.Archaic.Melee.Standard.Piercing.Metal.Finesseable.Sword							COST:10	WT:3		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6									SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Spear				PROFICIENCY:Spear				TYPE:Weapon.Archaic.Melee.Standard.Piercing.Wooden										COST:6	WT:9		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8									SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Straight Razor		PROFICIENCY:Straight Razor		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal										COST:4	WT:.5		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4									SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Sword Cane			PROFICIENCY:Sword Cane			TYPE:Weapon.Archaic.Melee.Piercing.Standard.Metal.Sword									COST:9	WT:3		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6									SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+
+
+#	Exotic Melee Weapons
+# Equipment Name		Required Proficiency			Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	MODS		Range		Size		Source Page
+Chain				PROFICIENCY:Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal.Finessable	ALTTYPE:Weapon.Melee.Bludgeoning	COST:5	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6						SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Chain Saw			PROFICIENCY:Chain Saw			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal										COST:9	WT:10		CRITMULT:x2			CRITRANGE:1												DAMAGE:3d6									SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Kama				PROFICIENCY:Kama				TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal										COST:5	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Katana			PROFICIENCY:Katana			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Katana									COST:12	WT:6		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6									SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Kukri				PROFICIENCY:Kukri				TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal										COST:5	WT:1		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d4									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Nunchaku			PROFICIENCY:Nunchaku			TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden										COST:3	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6									SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Three-Section Staff	PROFICIENCY:Three-Section Staff	TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal			ALTTYPE:Weapon.Melee.Bludgeoning	COST:4	WT:3		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d10	ALTDAMAGE:1d10						SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf

@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $
+CAMPAIGN:Mongoose - Slayers Guide - Minotaurs
+GAMEMODE:3e
+TYPE:Mongoose.Accessory.Slayers Guides
+RANK:9
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs
+SOURCESHORT:SGtM
+SOURCEWEB:http://mongoosepublishing.com
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Minotaurs Copyright 2004, PCGen Data team including, but not limited to, Emily Smirle, Eddy Anthony (MoSaT) and Joshua Nelson (DJ_Chair).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+BIOSET:slayersminotaurbiosettings.lst
+LANGUAGE:slayersminotaurlanguages.lst
+RACE:slayersminotaurraces.lst
+FEAT:slayersminotaurfeats.lst
+SKILL:slayersminotaurskills.lst
+SPELL:slayersminotaurspells.lst
+EQUIPMENT:slayersminotaurequip.lst

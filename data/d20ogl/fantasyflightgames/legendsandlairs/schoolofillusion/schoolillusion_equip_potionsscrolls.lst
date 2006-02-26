@@ -1,0 +1,92 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Mar 18 14:22:42 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# Original entry by: Paul "Yes, that Paul" Grosse
+
+#Potion Name				Output name			Type			Cost		Weight		Sourcepage
+# Equipment Name				Output Name				Type			Cost		Weight	Source Page
+Potion (Awakened Fears)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.33
+Potion (Burst of Magic)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.34
+Potion (Cloak of Fears)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.34
+Potion (Conceal)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.34
+Potion (Crawling Skin)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.35
+Potion (Deadly Darkness)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.35
+Potion (Dim)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.37
+Potion (Distract)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.38
+Potion (Face in the Crowd)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.38
+Potion (Faceless)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.38
+Potion (False Appraisal)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.38
+Potion (False Thoughts)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.39
+Potion (Illusory Whisper)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.40
+Potion (Limited Invisibility)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.42
+Potion (Lure)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.43
+Potion (Obscured Script)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.46
+Potion (Phantasmal Swarm)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.47
+Potion (Selective Invisibilty)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.48
+Potion (Shadow Claws)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.49
+Potion (Shadowskin)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.49
+Potion (Stolen Sight)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.50
+Potion (Unnatural Charm)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.50
+Potion (Write)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.51
+
+###Block: Scrolls
+# Equipment Name					Type					Cost		Weight	Source Page
+Scroll (Apocalypse)				TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.33
+Scroll (Area Invisbility)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.33
+Scroll (Awakened Fears)				TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.33
+Scroll (Burst of Magic)				TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.34
+Scroll (Cloak of Fears)				TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.34
+Scroll (Conceal)					TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.34
+Scroll (Crawling Skin)				TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.35
+Scroll (Deadly Darkness)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.35
+Scroll (Deadly Mark)				TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.35
+Scroll (Deadly Pattern)				TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.36
+Scroll (Decoy)					TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.36
+Scroll (Delayed Dream)				TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:p.36
+Scroll (Dim)					TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.37
+Scroll (Disguise Trap)				TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.37
+Scroll (Distan Image)				TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.37
+Scroll (Distract)					TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.38
+Scroll (Face in the Crowd)			TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.38
+Scroll (Faceless)					TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.38
+Scroll (False Appraisal)			TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.38
+Scroll (False Lore)				TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.39
+Scroll (False Thoughts)				TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.39
+Scroll (Greater Madness)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.39
+Scroll (Greater Ventriloquism)		TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.40
+Scroll (Illusory Whisper)			TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.40
+Scroll (Impersonate)				TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.41
+Scroll (Improved Invisibility Sphere)	TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.41
+Scroll (Independent Illusion)			TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.41
+Scroll (Invisible Dwelling)			TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.41
+Scroll (Lesser Simulacrum)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.42
+Scroll (Limited Invisibility)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.42
+Scroll (Living Knowledge)			TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:p.42
+Scroll (Living Words)				TYPE:Magic.Scroll.Arcane	COST:525	WT:.01	SOURCEPAGE:p.42
+Scroll (Lure)					TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.43
+Scroll (Madness)					TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.43
+Scroll (Maelstrom of Color)			TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.44
+Scroll (Magical Blindness)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.44
+Scroll (Magical Deafness)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.44
+Scroll (Mass Change)				TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.45
+Scroll (Mass Improved Invisibility)		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.45
+Scroll (Massive Image)				TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.45
+Scroll (Misleading Image)			TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.45
+Scroll (Night Horrors)				TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.45
+Scroll (Obsession)				TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.46
+Scroll (Obscured Script)			TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.46
+Scroll (Perfect Illusion)			TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.46
+Scroll (Perfect Impersonation)		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.47
+Scroll (Permanent Invisibility)		TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.47
+Scroll (Phantasmal Hunter)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.47
+Scroll (Phantasmal Swarm)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.47
+Scroll (Selective Invisibilty)		TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.48
+Scroll (Serial Dream)				TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.48
+Scroll (Shadow Claws)				TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.49
+Scroll (Shadowform)				TYPE:Magic.Scroll.Arcane	COST:2400	WT:.01	SOURCEPAGE:p.49
+Scroll (Shadowskin)				TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.49
+Scroll (Somnolent Pattern)			TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.49
+Scroll (Stolen Sight)				TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.50
+Scroll (Torrent of Color)			TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.50
+Scroll (Unnatural Charm)			TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.50
+Scroll (Visitation)				TYPE:Magic.Scroll.Arcane	COST:1625	WT:.01	SOURCEPAGE:p.51
+Scroll (Write)					TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.51

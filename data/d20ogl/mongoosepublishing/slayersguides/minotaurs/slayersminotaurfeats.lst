@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Mar  1 22:07:04 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs|SOURCESHORT:SGtM|SOURCEWEB:http://mongoosepublishing.com
+
+# Feat Name		Type			Req. Att.	Required Feat				Required Stat	Description													Source Page
+Juggernaut		TYPE:Minotaur			PREFEAT:2,Improved Bull Rush,Run				DESC:You cannot be stopped while you are moving.						SOURCEPAGE:p.20
+Nose Breaker	TYPE:Minotaur	PREATT:3							PRESTAT:1,STR=13	DESC:You know how to use your skull to your best advantage while grappling.		SOURCEPAGE:p.20
+Running Tackle	TYPE:Minotaur	PREATT:3	PREFEAT:1,Improved Trip						DESC:You can throw your enemy to the ground by using your own weight and momentum.	SOURCEPAGE:p.20
+Stranglehold	TYPE:Minotaur									PRESTAT:1,STR=14	DESC:You possess a powerful, effective, grappling technique.				SOURCEPAGE:p.20
+Toss Aside		TYPE:Minotaur									PRESTAT:1,STR=16	DESC:You can throw enemies aside with your horns.						SOURCEPAGE:p.20

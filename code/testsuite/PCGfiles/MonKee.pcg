@@ -1,0 +1,120 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:3.0 SRD
+VERSION:5.6.0-1
+ROLLMETHOD:1|EXPRESSION:roll(4,6,[2,3,4])
+PURCHASEPOINTS:N|TYPE:
+POOLPOINTS:2
+GAMEMODE:3e
+TABLABEL:0
+AUTOSPELLS:Y
+LOADCOMPANIONS:N
+USETEMPMODS:N
+AUTOSORTGEAR:Y
+AUTOSORTSKILLS:Y
+
+# Character Bio
+CHARACTERNAME:MonKee
+TABNAME:
+PLAYERNAME:
+HEIGHT:64
+WEIGHT:150
+AGE:22
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:13
+STAT:DEX|SCORE:9
+STAT:CON|SCORE:8
+STAT:INT|SCORE:11
+STAT:WIS|SCORE:15
+STAT:CHA|SCORE:13
+ALIGN:LG
+RACE:Human
+
+# Character Class(es)
+CLASS:Monk|SUBCLASS:None|LEVEL:8|SKILLPOOL:0|PROHIBITED:None
+CLASSABILITIESLEVEL:Monk=1|HITPOINTS:8|SKILLSGAINED:20
+CLASSABILITIESLEVEL:Monk=2|HITPOINTS:1|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Monk=3|HITPOINTS:1|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Monk=4|HITPOINTS:2|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Monk=5|HITPOINTS:2|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Monk=6|HITPOINTS:3|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Monk=7|HITPOINTS:4|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Monk=8|HITPOINTS:8|SKILLSGAINED:5
+
+# Character Experience
+EXPERIENCE:0
+
+# Character Templates
+
+# Character Region
+
+# Character Skills
+SKILL:Climb|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:Monk|RANKS:11.0|COST:1|CLASSSKILL:Y]
+SKILL:Listen|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Monk|RANKS:11.0|COST:1|CLASSSKILL:Y]
+SKILL:Search|OUTPUTORDER:5|CLASSBOUGHT:[CLASS:Monk|RANKS:5.5|COST:2|CLASSSKILL:N]
+SKILL:Craft (Gemcutting)|OUTPUTORDER:2|CLASSBOUGHT:[CLASS:Monk|RANKS:11.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Nature)|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Monk|RANKS:5.5|COST:2|CLASSSKILL:N]
+
+# Character Languages
+LANGUAGE:Common
+
+# Character Feats
+FEAT:Alertness|TYPE:GENERAL|DESC:The character gets a +2 bonus on all Listen checks and Spot checks.
+FEAT:Combat Reflexes|TYPE:GENERAL.FIGHTER|DESC:When foes leave themselves open, the character may make a number of additional attacks of opportunity equal to the character's Dexterity modifier.
+FEAT:Leadership|TYPE:GENERAL|DESC:Having this feat enables the character to attract loyal companions and devoted followers, subordinates who assist her.
+FEAT:Maximize Spell|TYPE:METAMAGIC|DESC:All variable, numeric effects of a maximized spell are maximized.
+FEATPOOL:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Handaxe|WEAPON:Javelin|WEAPON:Kama|WEAPON:Nunchaku|WEAPON:Quarterstaff|WEAPON:Shuriken]
+WEAPONPROF:[WEAPON:Siangham|WEAPON:Sling|WEAPON:Unarmed Strike]
+
+# Character Equipment
+MONEY:0.00
+EQUIPSET:Default Set|ID:0.1
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+
+# Character Master/Follower
+
+# Character Notes Tab
+NOTE:New Item|ID:0|PARENTID:-1|VALUE:New Value
+
+# Kits
+
+# Chosen Armor Profs
+
+# Age Set Selections
+AGESET:0:0:0:0:0:0:0:0:0:0

@@ -1,0 +1,85 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat May  3 18:58:54 2003 -- reformated by prettylst.pl v1.28 (build 284)
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+# Original Entry by: Mynex & Tir Gwaith
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Clear Prereq.	Required Class		Bonus to skill																							Source Page		Choose
+Alchemy					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Computer Use				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Conceal Object				KEYSTAT:DEX											TYPE:Dexterity																																			SOURCEPAGE:p.
+Craft (Chemical)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Cybernetics)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Electronics)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Mechanical)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Chemical)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Pharmaceutical)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Poisonmaking)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Structural)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Visual Art)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Writing)				KEYSTAT:INT	USEUNTRAINED:YES								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+Craft (Tattoo)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft																																		SOURCEPAGE:p.
+# Craft Tatoo not mentioned in skill section
+Criminology					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Demolitions					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence										BONUS:SKILL|Demolitions|2|PREFEAT:1,Cautious|TYPE=Synergy																SOURCEPAGE:p.
+# in case Dragonstar is loaded
+Demolitions.MOD																					PRE:.CLEAR
+
+Drive						KEYSTAT:DEX											TYPE:Dexterity																																			SOURCEPAGE:p.
+Freefall					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity																																			SOURCEPAGE:Errata
+Fly						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity																																			SOURCEPAGE:p.
+Forgery					KEYSTAT:INT											TYPE:Intelligence																																			SOURCEPAGE:p.
+Forward Observer				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Gamble					KEYSTAT:INT											TYPE:Wisdom																																				SOURCEPAGE:p.
+Gunslinging					KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity																																			SOURCEPAGE:p.
+Invention					KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence																																			SOURCEPAGE:p.
+Investigation				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Knowledge (Agriculture)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Bureaucracy)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+# mentioned around The Black Market - purchasing items, under Restricted items
+Knowledge (Anatomy)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								BONUS:SKILL|Knowledge (Anatomy)|2|PRESKILL:1,Heal=5|TYPE=Synergy.STACK														SOURCEPAGE:p.
+Knowledge (Arcane Lore)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Archeology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Art)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Astrology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Biology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Botany)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								BONUS:SKILL|Knowledge (Botany)|2|PRESKILL:1,Craft (Poisonmaking)=5|TYPE=Synergy.STACK											SOURCEPAGE:p.
+Knowldege (Business)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Chemistry)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Current Events)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Earth Sciences)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Data World)			KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence.Knowledge				PRECLASS:1,Dataman=1																										SOURCEPAGE:p.
+Knowledge (Epistemology)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								BONUS:SKILL|TYPE=Knowledge|2|PRESKILL:1,Knowledge (Epistemology)=5	BONUS:SKILL|Knowledge (Epistemology)|-2|PRESKILL:1,Knowledge (Epistemology)=5	SOURCEPAGE:p.
+Knowledge (Geology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (History)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Law)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Mathematics)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Physics)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Political Science)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Popular Culture)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Psionics)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Streetwise)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Technology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Temporal Mechanics)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Theology and Philosophy)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Knowledge (Zoology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.
+Linguistics					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Medical (First Aid)			KEYSTAT:INT											TYPE:Intelligence.Medical																																	SOURCEPAGE:p.
+Medical (Medical Doctor)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Medical																																	SOURCEPAGE:p.
+Medical (Paramedic)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Medical																																	SOURCEPAGE:p.
+Medical (Psychology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Medical																																	SOURCEPAGE:p.
+Mesmerism					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Photography					KEYSTAT:INT											TYPE:Intelligence																																			SOURCEPAGE:p.
+Pilot						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot																																		SOURCEPAGE:p.
+Pilot (Airship)				KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot																																		SOURCEPAGE:p.
+Pilot (Aircraft/Small)			KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot																																		SOURCEPAGE:p.
+Pilot (Aircraft/Large)			KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot																																		SOURCEPAGE:p.
+Pilot (Spacecraft/Small)		KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot																																		SOURCEPAGE:p.
+Profession (Gunsmith)			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession																																		SOURCEPAGE:p.
+Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language																																		SOURCEPAGE:p.	CHOOSE:Language(Written)
+Repair					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																			SOURCEPAGE:p.
+Research					KEYSTAT:INT											TYPE:Intelligence																																			SOURCEPAGE:p.
+Ritual Casting				KEYSTAT:CON	USEUNTRAINED:NO	ACHECK:YES						TYPE:Constitution										BONUS:SKILL|Ritual Casting|2|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK													SOURCEPAGE:p.
+Savoir Faire				KEYSTAT:CHA											TYPE:Charisma																																			SOURCEPAGE:p.
+Seduction					KEYSTAT:CHA											TYPE:Charisma																																			SOURCEPAGE:p.
+Scent/Taste					KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution																																			SOURCEPAGE:p.
+Weird Science!				KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence																																			SOURCEPAGE:Errata

@@ -1,0 +1,18 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Thu Mar  3 04:37:14 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: sjpadbury
+# reworked by dlm1065
+
+# Equipment Name			Output Name							Type								Cost		Weight	Base Quantity	Modifier		MODS		Source Page
+Arrows (20)												TYPE:Ammunition.Standard.Arrow			COST:1	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bolts (Crossbow/10)		OUTPUTNAME:Bolts, Crossbow (10)			TYPE:Ammunition.Standard.Bolt				COST:1	WT:1		BASEQTY:10		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bolts (Crossbow/Repeating/5)	OUTPUTNAME:Bolts, Repeating, Crossbow (5)		TYPE:Ammunition.Standard.Bolt				COST:1	WT:1		BASEQTY:5		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bullets (Sling/10)		OUTPUTNAME:Bullets, Sling (10)			TYPE:Ammunition.Standard.SlingStone			COST:0.1	WT:5		BASEQTY:10		EQMOD:STEEL		MODS:YES	SOURCEPAGE:Equipment.rtf
+Arrow													TYPE:Ammunition.Standard.Arrow.Individual		COST:.05	WT:.15	BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bolt (Crossbow)			OUTPUTNAME:Bolt, [NAME]					TYPE:Ammunition.Standard.Bolt.Individual		COST:.1	WT:.1		BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bolt (Crossbow/Repeating)	OUTPUTNAME:Bolt, [NAME]					TYPE:Ammunition.Standard.Bolt.Individual		COST:.2	WT:.2		BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bullet (Sling)			OUTPUTNAME:Bullet, [NAME]				TYPE:Ammunition.Standard.SlingStone.Individual	COST:0.01	WT:.5		BASEQTY:1		EQMOD:STEEL		MODS:YES	SOURCEPAGE:Equipment.rtf
+Arrows (50)												TYPE:Ammunition.Standard.Arrow.Bundle		COST:2.5	WT:7.5	BASEQTY:50		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bolts (Crossbow/50)		OUTPUTNAME:Bolts, Crossbow (50)			TYPE:Ammunition.Standard.Bolt.Bundle		COST:5	WT:5		BASEQTY:50		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bolts (Crossbow/Repeating/50)	OUTPUTNAME:Bolts, Repeating, Crossbow (50)	TYPE:Ammunition.Standard.Bolt.Bundle		COST:10	WT:10		BASEQTY:50		EQMOD:STEEL.WOOD	MODS:YES	SOURCEPAGE:Equipment.rtf
+Bullets (Sling/50)		OUTPUTNAME:Bullets, Sling (50)			TYPE:Ammunition.Standard.SlingStone.Bundle	COST:0.5	WT:25		BASEQTY:50		EQMOD:STEEL		MODS:YES	SOURCEPAGE:Equipment.rtf

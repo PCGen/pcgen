@@ -1,0 +1,19 @@
+# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+#Original Entry By: Knightcrawler
+SOURCELONG:Bastion Press - Alchemy and Herbalists|SOURCESHORT:AlchemyHrb|SOURCEWEB:www.bastionpress.com
+# Feat Name				Type			Required Class			Required Feat										Required Skill											Var. Min. Value			Description																			Bonus to skill													Source Page
+Bodily Awareness			TYPE:General																		PRESKILL:1,Alchemy,Profession (Herbalist)=5											DESC:Your training provides you the ability to discern how substances will react with the bodies of people and animals.	BONUS:SKILL|Heal|2|TYPE=Synergy	BONUS:SKILL|Profession (Apothecary)|2|TYPE=Synergy	SOURCEPAGE:p.44
+Brew Ingestibles			TYPE:ItemCreation																															PREVARGTEQ:AlchemyFeat,3	DESC:Craft any ingestible																															SOURCEPAGE:p.44
+Craft Chymicals			TYPE:ItemCreation						PREFEAT:1,Skill Focus(Alchemy)							PRESKILL:1,Alchemy=5															DESC:Craft any chymicals, acids and other miscellaneous compounds																									SOURCEPAGE:p.44
+Craft Herbal Restoratives	TYPE:ItemCreation																															PREVARGTEQ:ApothecaryFeat,1																																				SOURCEPAGE:p.44
+Craft Powders and Dusts		TYPE:ItemCreation						PREFEAT:1,Skill Focus(Alchemy),Skill Focus(Profession (Herbalist))														PREVARGTEQ:AlchemyFeat,1																																				SOURCEPAGE:p.44
+Craft Toxins			TYPE:ItemCreation						PREFEAT:1,Great Fortitude																					PREVARGTEQ:AlchemyFeat,2																																				SOURCEPAGE:p.45
+Craft Unguents			TYPE:ItemCreation						PREFEAT:1,Craft Powders and Dusts																				PREVARGTEQ:AlchemyFeat,3																																				SOURCEPAGE:p.45
+Create Alchana			TYPE:ItemCreation						PREFEAT:3,Endurance,Craft Chymicals,Craft Wondrous Item			PRESKILL:1,Alchemy=9																																																		SOURCEPAGE:p.45
+Create Erlcana			TYPE:ItemCreation						PREFEAT:1,Grow Swathe									PRESKILL:1,Profession (Herbalist)=16	PRESKILL:1,Knowledge (Nature)=5																																									SOURCEPAGE:.p.45
+Create Greater Alchana		TYPE:ItemCreation						PREFEAT:2,Perfect Materials,Create Alchana					PRESKILL:1,Alchemy=16																																																		SOURCEPAGE:p.45
+Crisis Creation			TYPE:ItemCreation						PREFEAT:3,Concentration,Skill Focus(Alchemy),TYPE=ItemCreation																																																							SOURCEPAGE:p.45
+Diagnosis				TYPE:ItemCreation																		PRESKILL:2,Heal,Profession (Apothecary)=5																																															SOURCEPAGE:p.45
+Flourish Spell			TYPE:Metamagic	PRECLASS:1,Spellcaster=4													PRESKILL:1,Profession (Herbalist)=12																																															SOURCEPAGE:p.45
+Grow Swathe				TYPE:ItemCreation	PRECLASS:1,Spellcaster=5	PREFEAT:1,Craft Powders and Dusts							PRESKILL:1,Profession (Herbalist)=12																																															SOURCEPAGE:p.46
+Perfect Materials			TYPE:ItemCreation	PRECLASS:1,Spellcaster=7	PREFEAT:1,Create Alchana																																																													SOURCEPAGE:p.46

@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Space - High Flyers and Ground Pounders
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Blood and Space
+ISOGL:YES
+SOURCELONG:Blood and Space - High Flyers and Ground Pounders
+SOURCESHORT:BnS-HFnGP
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Blood and Space Copyright 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Blood and Space: High Flyers and Ground Pounders Copyright 2004, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Frank Kliewe.
+
+INFOTEXT:This dataset requires the use of the MSRD Future dataset
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:bns_hfngp_classes_advanced.lst
+FEAT:bns_hfngp_feats.lst
+FEAT:bns_hfngp_feats_advanced_training.lst
+FEAT:bns_hfngp_feats_mod.lst

@@ -1,0 +1,147 @@
+# CVS $Revision: 1.40 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:3.5 RSRD
+RANK:1
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:RSRD
+SETTING:RSRD
+TYPE:RSRD.Complete
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky)
+INFOTEXT:The Core Rules for the 3.5 revised edition
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Basics
+DEITY:rsrd_deities.lst
+FEAT:rsrd_feats_hidden.lst
+FEAT:rsrd_feats_hidden2.lst
+FEAT:rsrd_feats_monster.lst
+TEMPLATE:rsrd_templates_types.lst
+
+CLASS:rsrd_classes_base.lst
+CLASS:rsrd_classes_npc.lst
+CLASS:rsrd_classes_prestige.lst
+DOMAIN:rsrd_domains.lst
+LANGUAGE:rsrd_languages.lst
+FEAT:rsrd_feats.lst
+RACE:rsrd_races__base.lst
+SKILL:rsrd_skills.lst
+SPELL:rsrd_spells.lst
+WEAPONPROF:rsrd_weaponprofs.lst
+WEAPONPROF:rsrd_weaponprofs_natural.lst
+######KIT:rsrd_startingkits.lst
+
+# Stuff for Companions and Followers
+COMPANIONMOD:rsrd_companionmods.lst
+
+# Equipment
+EQUIPMOD:rsrd_equipmods_base.lst
+EQUIPMOD:rsrd_equipmods_enhancing.lst
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
+
+EQUIPMENT:rsrd_equip.lst
+EQUIPMENT:rsrd_equip_basetypes.lst
+EQUIPMENT:rsrd_equip_coinsgems.lst
+
+EQUIPMENT:rsrd_equip_wondrousitems.lst
+EQUIPMENT:rsrd_equip_rodsstaffswands.lst
+EQUIPMENT:rsrd_equip_rings.lst
+EQUIPMENT:rsrd_equip_scrolls.lst
+EQUIPMENT:rsrd_equip_potions.lst
+EQUIPMENT:rsrd_equip_poisons.lst
+
+EQUIPMENT:rsrd_equip_armorshields.lst
+EQUIPMENT:rsrd_equip_armorshields_specific.lst
+
+EQUIPMENT:rsrd_equip_weap_melee.lst
+EQUIPMENT:rsrd_equip_weap_melee_specific.lst
+EQUIPMENT:rsrd_equip_weap_natural.lst
+EQUIPMENT:rsrd_equip_weap_ranged.lst
+EQUIPMENT:rsrd_equip_weap_ranged_specific.lst
+EQUIPMENT:rsrd_equip_weap_ammo.lst
+EQUIPMENT:rsrd_equip_weap_ammo_specific.lst
+#EQUIPMENT:rsrd_equip_weap_natural.lst
+
+
+### Monster Races
+CLASS:rsrd_classes_monsters.lst
+CLASS:rsrd_classes_monsters_specific.lst
+CLASS:rsrd_classes_monsters_dragons.lst
+TEMPLATE:rsrd_templates_monsters.lst
+########CLASS:rsrdclassesdragon.lst
+
+TEMPLATE:rsrd_templates.lst
+TEMPLATE:rsrd_templates_tempmods.lst
+FEAT:rsrd_feats_templates.lst
+
+
+RACE:rsrd_races_a_b.lst
+RACE:rsrd_races_c_d.lst
+RACE:rsrd_races_e_f.lst
+RACE:rsrd_races_g_h.lst
+RACE:rsrd_races_i_j.lst
+RACE:rsrd_races_k_l.lst
+RACE:rsrd_races_m_n.lst
+RACE:rsrd_races_o_p.lst
+RACE:rsrd_races_q_r.lst
+RACE:rsrd_races_s_t.lst
+RACE:rsrd_races_u_v.lst
+RACE:rsrd_races_w_x.lst
+RACE:rsrd_races_y_z.lst
+RACE:rsrd_races__animals.lst
+RACE:rsrd_races__base.lst
+RACE:rsrd_races__dragons.lst
+RACE:rsrd_races__vermin.lst
+
+########TEMPLATE:rsrdtemplates.lst
+########TEMPLATE:rsrdtemplatescreatures.lst
+########TEMPLATE:rsrdtemplatestypes.lst
+########WEAPONPROF:rsrdweapprofsnatural.lst
+
+# Psionics
+PCC:@/d20ogl/srd35/psionics/rsrd_psionics.pcc
+
+# Epic
+PCC:@/d20ogl/srd35/epic/rsrd_epic.pcc
+PCC:@/d20ogl/srd35/epic_psionics/rsrd_epic_psionics.pcc
+
+# Default Monster Kits
+KIT:rsrd_kits_races__animals.lst
+KIT:rsrd_kits_races__base.lst
+KIT:rsrd_kits_races__dragons.lst
+KIT:rsrd_kits_races__vermin.lst
+KIT:rsrd_kits_races_a_b.lst
+KIT:rsrd_kits_races_a_b_extras.lst
+KIT:rsrd_kits_races_c_d.lst
+KIT:rsrd_kits_races_e_f.lst
+KIT:rsrd_kits_races_g_h.lst
+KIT:rsrd_kits_races_g_h_extras.lst
+KIT:rsrd_kits_races_i_j.lst
+KIT:rsrd_kits_races_k_l.lst
+KIT:rsrd_kits_races_k_l_extras.lst
+KIT:rsrd_kits_races_m_n.lst
+KIT:rsrd_kits_races_m_n_extras.lst
+KIT:rsrd_kits_races_o_p.lst
+KIT:rsrd_kits_races_o_p_extras.lst
+KIT:rsrd_kits_races_q_r.lst
+KIT:rsrd_kits_races_s_t.lst
+KIT:rsrd_kits_races_s_t_extras.lst
+KIT:rsrd_kits_races_u_v.lst
+KIT:rsrd_kits_races_u_v_extras.lst
+KIT:rsrd_kits_races_w_x.lst
+KIT:rsrd_kits_races_y_z.lst
+
+#
+# End
+#

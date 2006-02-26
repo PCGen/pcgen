@@ -1,0 +1,46 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Mar  2 20:15:46 2005 -- reformated by prettylst.pl v1.34 (build 455)
+CAMPAIGN:Sidewinder: Recoiled
+RANK:1
+GAMEMODE:Sidewinder
+TYPE:Sidewinder
+ISOGL:YES
+SOURCELONG:Sidewinder: Recoiled
+SOURCESHORT:S:R
+SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+COPYRIGHT:Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002,Wizards of the Coast,Inc.;Authors Bill Slavicsek,Jeff Grubb,Rich Redman, Charles Ryan,based on material by Jonathan Tweet,Monte Cook,Skip Williams,Richard Baker,Peter Adkison,Bruce R. Cordell,John Tynes,Andy Collins,and JD Wiker
+COPYRIGHT:Modern Player's Companion (Print), Copyright © 2003, The Game Mechanics, Inc.; Author: Stan!
+COPYRIGHT:T20-The Traveller's Handbook, Copyright 2002, QuickLink Interactive, Inc.
+COPYRIGHT:Sidewinder: Recoiled, Copyright © 2003 by Dog House Rules.
+COPYRIGHT:Sidewinder: Wild West Adventure, Copyright © 2002 by Citizen Games.
+COPYRIGHT:PCGen dataset conversion for Sidewinder: Recoiled Copyright 2004, PCGen Data team including, but not limited to, Jason Buchanan (Lone Jedi), Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony.
+
+SKILL:sr_skills.lst
+CLASS:sr_classes_base.lst
+CLASS:sr_classes_advanced.lst
+EQUIPMENT:sr_equip_armor.lst
+EQUIPMENT:sr_equip_weap_ammo.lst
+EQUIPMENT:sr_equip_weap_melee.lst
+EQUIPMENT:sr_equip_weap_ranged.lst
+EQUIPMENT:sr_equip_conveyance.lst
+EQUIPMENT:sr_equip_services.lst
+EQUIPMENT:sr_equip.lst
+EQUIPMOD:sr_equipmods.lst
+FEAT:sr_feats.lst
+FEAT:sr_feats_hidden.lst
+FEAT:sr_feats_occupations.lst
+RACE:sr_races.lst
+WEAPONPROF:sr_weaponprofs.lst
+LANGUAGE:sr_languages.lst
+TEMPLATE:sr_templates.lst
+
+# Stuff Imported from the MSRD
+
+TEMPLATE:@\d20ogl\msrd\msrd_templates.lst
+FEAT:@\d20ogl\msrd\msrd_feats_hidden.lst
+FEAT:@\d20ogl\msrd\msrd_feats_occupations.lst
+FEAT:@\d20ogl\msrd\msrd_feats.lst
+SKILL:@\d20ogl\msrd\msrd_skills.lst
+CLASS:@\d20ogl\msrd\msrd_classes_pc.lst
+EQUIPMOD:@\d20ogl\msrd\msrd_equipmods.lst

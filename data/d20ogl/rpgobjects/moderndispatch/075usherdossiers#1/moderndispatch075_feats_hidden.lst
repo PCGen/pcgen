@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 30 19:48:21 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1|SOURCESHORT:MD75-USHER#1|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198
+# Original Entry by: Paul W. King
+
+# Feat Name			Type			Visible	Special Ability										Define							Bonus to skill						Source Page
+Sneak Attack		TYPE:Special	VISIBLE:NO	SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie					DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0									SOURCEPAGE:ClassesII.rtf
+Tactical Expertise	TYPE:ClassAbility	VISIBLE:NO	SA:Tactical Expertise, can command up to % characters|2*min(CHA,0)									BONUS:SKILL|Knowledge (Tactics)|Reputation
+

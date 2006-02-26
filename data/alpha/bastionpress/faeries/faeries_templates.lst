@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# Faerie Natural Attacks
+# Template Name			Visible	Special Ability				Natural Attacks
+Faerie Claws			VISIBLE:NO							NATURALATTACKS:Faerie Claws,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6
+Faerie Retractable Claws	VISIBLE:NO							NATURALATTACKS:Faerie Retractable Claws,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4
+Faerie Fangs			VISIBLE:NO							NATURALATTACKS:Faerie Fangs,Weapon.Natural.Melee.Piercing,*1,1d4
+Faerie Drugged Fangs		VISIBLE:NO	SA:Sleep					NATURALATTACKS:Faerie Drugged Fangs,Weapon.Natural.Melee.Piercing,*1,1d4
+Faerie Poisoned Fangs		VISIBLE:NO	SA:Poison DC 14 0/1d4 Str + 1d3 Wis	NATURALATTACKS:Faerie Poisoned Fangs,Weapon.Natural.Melee.Piercing,*1,1d4
+Faerie Blunt Horns		VISIBLE:NO							NATURALATTACKS:Faerie Blunt Horns,Weapon.Natural.Melee.Bludgeoning,*1,1d6
+Faerie Sharp Horns		VISIBLE:NO							NATURALATTACKS:Faerie Sharp Horns,Weapon.Natural.Melee.Piercing.Slashing,*1,1d6

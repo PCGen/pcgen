@@ -1,0 +1,54 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Dec 30 01:04:38 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+### Charismatic Hero talents
+# Feat Name				Type
+Captivate.MOD			TYPE:CharismaticPlus
+Dazzle.MOD				TYPE:CharismaticPlus
+Favor.MOD				TYPE:CharismaticPlus
+Greater Inspiration.MOD		TYPE:CharismaticPlus
+Inspiration.MOD			TYPE:CharismaticPlus
+Taunt.MOD				TYPE:CharismaticPlus
+
+### Dedicated Hero talents
+Aware.MOD				TYPE:DedicatedPlus
+Cool Under Pressure.MOD		TYPE:DedicatedPlus
+Faith.MOD				TYPE:DedicatedPlus
+Healing Touch I.MOD		TYPE:DedicatedPlus
+Healing Touch II.MOD		TYPE:DedicatedPlus
+Improved Aid Another.MOD	TYPE:DedicatedPlus
+Intuition.MOD			TYPE:DedicatedPlus
+
+### Fast Hero talents
+Advanced Increased Speed.MOD	TYPE:FastPlus
+Defensive Roll.MOD		TYPE:FastPlus
+Improved Increased Speed.MOD	TYPE:FastPlus
+Opportunist.MOD			TYPE:FastPlus
+Uncanny Dodge I.MOD		TYPE:FastPlus
+Uncanny Dodge II.MOD		TYPE:FastPlus
+
+### Smart Hero talents
+Exploit Weakness.MOD		TYPE:SmartPlus
+Linguist.MOD			TYPE:SmartPlus
+Plan.MOD				TYPE:SmartPlus
+Savant.MOD				TYPE:SmartPlus
+Trick.MOD				TYPE:SmartPlus
+
+### Strong Hero talents
+Advanced Extreme Effort.MOD	TYPE:StrongPlus
+Advanced Ignore Hardness.MOD	TYPE:StrongPlus
+Advanced Melee Smash.MOD	TYPE:StrongPlus
+Improved Extreme Effort.MOD	TYPE:StrongPlus
+Improved Ignore Hardness.MOD	TYPE:StrongPlus
+Improved Melee Smash.MOD	TYPE:StrongPlus
+
+### Tough Hero
+Damage Reduction II.MOD		TYPE:ToughPlus
+Damage Reduction III.MOD	TYPE:ToughPlus
+Remain Conscious.MOD		TYPE:ToughPlus
+Second Wind.MOD			TYPE:ToughPlus
+Stamina.MOD				TYPE:ToughPlus
+
+#
+# End
+#

@@ -1,0 +1,368 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kobold]
+RACE:Kobold	!PRERACE:%
+NAME:Kobold
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:LE
+CLASS:Warrior	LEVEL:1
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+GEAR:Leather	SIZE:PC	LOCATION:Equipped
+GEAR:Spear		SIZE:PC	LOCATION:Equipped
+GEAR:Sling		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Kraken	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kraken]
+RACE:Kraken	!PRERACE:%
+NAME:Kraken
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Nature)	RANK:11
+SKILL:Use Magic Device		RANK:11
+SKILL:Listen			RANK:23
+SKILL:Search			RANK:23
+SKILL:Spot				RANK:23
+SKILL:Concentration		RANK:12
+SKILL:Hide				RANK:12
+SKILL:Knowledge (Geography)	RANK:12
+SKILL:Sense Motive		RANK:12
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Combat Expertise
+FEAT:Improved Critical(Tentacle)
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Iron Will
+STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Krenshar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Krenshar]
+RACE:Krenshar	!PRERACE:%
+NAME:Krenshar
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Jump		RANK:5
+FEAT:Multiattack
+FEAT:Track
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+
+STARTPACK:Default Lamia	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lamia]
+RACE:Lamia	!PRERACE:%
+NAME:Lamia
+SKILL:Bluff			RANK:9
+SKILL:Concentration	RANK:9
+SKILL:Hide			RANK:9
+SKILL:Spot			RANK:9
+SKILL:Diplomacy		RANK:2
+SKILL:Intimidate		RANK:2
+FEAT:Dodge
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Spring Attack
+STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Lammasu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lammasu]
+RACE:Lammasu	!PRERACE:%
+NAME:Lammasu
+ALIGN:LG
+SKILL:Concentration		RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+SKILL:Diplomacy			RANK:2
+FEAT:Blind Fight
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+DEITY:None	DOMAIN:Good|Healing
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Bear's Endurance|Bless=2|Bull's Strength|Daylight|Detect Evil|Detect Magic|Dispel Magic|Divine Favor|Entropic Shield|Guidance=2|Holy Smite|Light|Magic Circle against Evil|Neutralize Poison|Protection from Evil|Read Magic|Remove Curse|Resist Energy|Resistance|Restoration (Lesser)
+
+STARTPACK:Default Leonal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Leonal]
+RACE:Leonal	!PRERACE:%
+NAME:Leonal
+ALIGN:NG
+SKILL:Jump			RANK:15
+SKILL:Intimidate		RANK:8
+SKILL:Concentration	RANK:7
+SKILL:Balance		RANK:15
+SKILL:Hide			RANK:15
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spot			RANK:15
+SKILL:Survival		RANK:15
+FEAT:Ability Focus(Roar)
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Spring Attack
+FEAT:Track
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Lillend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lillend]
+RACE:Lillend	!PRERACE:%
+NAME:Lillend
+ALIGN:CG
+SKILL:Appraise			RANK:10
+SKILL:Concentration		RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+SKILL:Survival			RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Spellcraft			RANK:10
+SKILL:TYPE=Perform		RANK:10
+FEAT:Combat Casting
+FEAT:Extend Spell
+FEAT:Lightning Reflexes
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person|Cure Light Wounds|Dancing Lights|Daze|Detect Magic|Hold Person|Identify|Invisibility|Lullaby|Mage Hand|Read Magic|Sleep|Sound Burst
+
+STARTPACK:Default Lizardfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lizardfolk]
+RACE:Lizardfolk	!PRERACE:%
+NAME:Lizardfolk
+STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
+ALIGN:TN
+SKILL:Balance	RANK:2
+SKILL:Jump		RANK:2
+SKILL:Swim		RANK:1
+FEAT:Multiattack
+GEAR:Shield (Heavy/Wood)	SIZE:PC	LOCATION:Equipped
+GEAR:Club				SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Locathah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Locathah]
+RACE:Locathah	!PRERACE:%
+NAME:Locathah
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+SKILL:TYPE=Craft	RANK:5
+FEAT:Weapon Focus(Longspear)
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+GEAR:Longspear		SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Werebear Levels	VISIBLE:NO
+CLASS:Lycanthrope (Werebear)	LEVEL:6
+
+STARTPACK:Wereboar Levels	VISIBLE:NO
+CLASS:Lycanthrope (Wereboar)	LEVEL:3
+
+STARTPACK:Wererat Levels	VISIBLE:NO
+CLASS:Lycanthrope (Wererat)	LEVEL:1
+
+STARTPACK:Weretiger Levels	VISIBLE:NO
+CLASS:Lycanthrope (Weretiger)	LEVEL:6
+
+STARTPACK:Werewolf Levels	VISIBLE:NO
+CLASS:Lycanthrope (Werewolf)	LEVEL:2
+
+STARTPACK:Dire Werewolf Levels	VISIBLE:NO
+CLASS:Lycanthrope (Dire Werewolf)	LEVEL:6
+
+STARTPACK:Dire Wereboar Levels	VISIBLE:NO
+CLASS:Lycanthrope (Dire Wereboar)	LEVEL:7
+
+STARTPACK:Default Lycanthrope (Werebear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Werebear
+RACE:Human	!PRERACE:%
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:LG
+CLASS:Warrior	LEVEL:1
+TEMPLATE:Natural Lycanthrope1|Werebear
+SKILL:Handle Animal	RANK:4
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Swim			RANK:4
+FEAT:Power Attack
+FEAT:Multiattack
+GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
+GEAR:Greataxe		SIZE:M	LOCATION:Both Hands
+GEAR:Axe (Throwing)	SIZE:M	LOCATION:Carried
+
+STARTPACK:Default Lycanthrope (Werebear Bear Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Werebear)
+NAME:Werebear, Bear Form
+TEMPLATE:Werebear (Bear Form)
+
+STARTPACK:Default Lycanthrope (Werebear Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Werebear)
+NAME:Werebear, Hybrid Form
+TEMPLATE:Werebear (Hybrid Form)
+
+STARTPACK:Default Lycanthrope (Wereboar Boar Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Wereboar)
+NAME:Wereboar, Boar Form
+TEMPLATE:Wereboar (Boar Form)
+
+STARTPACK:Default Lycanthrope (Wereboar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Wereboar
+ALIGN:TN
+RACE:Human	!PRERACE:%
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+FEAT:Power Attack
+FEAT:Improved Bull Rush
+TEMPLATE:Natural Lycanthrope1|Wereboar
+SKILL:Handle Animal	RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:2
+GEAR:Battleaxe			SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Lycanthrope (Wereboar Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Wereboar)
+NAME:Wereboar, Hybrid Form
+TEMPLATE:Wereboar (Hybrid Form)
+
+STARTPACK:Default Lycanthrope (Wererat Dire Rat Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Wererat)
+NAME:Wererat, Dire Rat Form
+TEMPLATE:Wererat (Dire Rat Form)
+
+STARTPACK:Default Lycanthrope (Wererat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Wererat
+ALIGN:LE
+RACE:Human	!PRERACE:%
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+FEAT:Alertness
+FEAT:Dodge
+TEMPLATE:Natural Lycanthrope1|Wererat
+SKILL:Hide			RANK:1
+SKILL:Handle Animal	RANK:4
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+GEAR:Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Buckler		SIZE:PC	LOCATION:Equipped
+GEAR:Rapier			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Lycanthrope (Wererat Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Wererat)
+NAME:Wererat, Hybrid Form
+TEMPLATE:Wererat (Hybrid Form)
+
+STARTPACK:Default Lycanthrope (Weretiger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Weretiger
+ALIGN:TN
+RACE:Human	!PRERACE:%
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+TEMPLATE:Natural Lycanthrope1|Weretiger
+SKILL:Handle Animal	RANK:4
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
+GEAR:Glaive				SIZE:PC	LOCATION:Both Hands
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|1
+
+STARTPACK:Default Lycanthrope (Weretiger Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Weretiger)
+NAME:Weretiger, Hybrid Form
+TEMPLATE:Weretiger (Hybrid Form)
+
+STARTPACK:Default Lycanthrope (Weretiger Tiger Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Weretiger)
+NAME:Weretiger, Tiger Form
+TEMPLATE:Weretiger (Tiger Form)
+
+STARTPACK:Default Lycanthrope (Werewolf)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Werewolf
+ALIGN:CE
+RACE:Human	!PRERACE:%
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+FEAT:Improved Initiative
+FEAT:Stealthy
+TEMPLATE:Natural Lycanthrope1|Werewolf
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+SKILL:Handle Animal	RANK:2
+SKILL:Survival		RANK:2
+
+STARTPACK:Default Lycanthrope (Werewolf Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Werewolf)
+NAME:Werewolf, Hybrid Form
+TEMPLATE:Werewolf (Hybrid Form)
+
+STARTPACK:Default Lycanthrope (Werewolf Wolf Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+KIT:Default Lycanthrope (Werewolf)
+NAME:Werewolf, Wolf Form
+TEMPLATE:Werewolf (Wolf Form)
+
+STARTPACK:Default Lycanthrope (Hill Giant Dire Wereboar Dire Boar Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Hill)]
+KIT:Default Lycanthrope (Hill Giant Dire Wereboar)
+NAME:Hill Giant Dire Wereboar, Dire Boar Form
+TEMPLATE:Dire Wereboar (Dire Boar Form)
+
+STARTPACK:Default Lycanthrope (Hill Giant Dire Wereboar Giant Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Hill)]
+NAME:Hill Giant Dire Wereboar
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+ALIGN:TN
+RACE:Giant (Hill)	!PRERACE:%
+TEMPLATE:Natural Lycanthrope1|Dire Wereboar
+SKILL:Climb		RANK:3
+SKILL:Jump		RANK:3
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:9
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Weapon Focus(Greatclub)
+FEAT:Improved Bull Rush
+FEAT:Improved Sunder
+
+STARTPACK:Default Lycanthrope (Hill Giant Dire Wereboar Hybrid Boar Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Hill)]
+KIT:Default Lycanthrope (Hill Giant Dire Wereboar)
+NAME:Hill Giant Dire Wereboar, Hybrid Boar Form
+TEMPLATE:Dire Wereboar (Hybrid Boar Form)
+
+STARTPACK:Default Lycanthrope (Werewolf Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Werewolf Lord
+STAT:STR=16|DEX=14|CON=14|INT=10|WIS=10|CHA=12
+ALIGN:CE
+RACE:Human	!PRERACE:%
+CLASS:Fighter	LEVEL:1
+FEAT:Power Attack
+FEAT:Exotic Weapon Proficiency(Sword (Bastard/Exotic))
+FEAT:Weapon Focus (Sword (Bastard/Exotic))
+TEMPLATE:Natural Lycanthrope1|Dire Werewolf
+CLASS:Fighter	LEVEL:9
+SKILL:Handle Animal	RANK:3
+SKILL:Hide			RANK:2
+SKILL:Survival		RANK:4
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:10
+FEAT:Combat Reflexes
+FEAT:Cleave
+FEAT:Improved Critical(Sword (Bastard/Exotic))
+FEAT:Improved Critical(Bite)
+FEAT:Improved Natural Armor
+FEAT:Improved Natural Attack (Bite)
+FEAT:Stealthy
+FEAT:Weapon Specialization (Sword (Bastard/Exotic))
+GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped	EQMOD:MITHRAL_ARMR_LT.PLUS2A
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3S
+GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Equipped	EQMOD:MWORKW.PLUS2W
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.BOWSTR|4
+
+STARTPACK:Default Lycanthrope (Werewolf Lord Dire Wolf Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Werewolf Lord, Dire Wolf Form
+KIT:Default Lycanthrope (Werewolf Lord)
+TEMPLATE:Dire Werewolf (Dire Wolf Form)
+
+STARTPACK:Default Lycanthrope (Werewolf Lord Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
+NAME:Werewolf Lord, Hybrid Form
+KIT:Default Lycanthrope (Werewolf Lord)
+TEMPLATE:Dire Werewolf (Hybrid Form)

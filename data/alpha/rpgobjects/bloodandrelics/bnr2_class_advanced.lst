@@ -1,0 +1,121 @@
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Sat Dec 17 10:24:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Blood and Relics 2nd Edition|SOURCESHORT:BnR2|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
+CLASS:Believer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat								Required Skill							Required Text
+CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Higher Power Allegiance
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Treat Injury
+###Block: Turning
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
+1	BONUS:VAR|TurnDamagePlus|CL
+1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
+###Block: Standard block
+1	SA:Turn Undead
+2	SA:Lay on Hands %d8|LayOnHands				BONUS:VAR|LayOnHands|CL/5+1	DEFINE:LayOnHands|0
+3																			ADD:FEAT(TYPE=SacredRitual)
+4	SA:Lay on Hands (Blindness and Disease)
+6	SA:Spiritual Fortitude (Doubt)													ADD:FEAT(TYPE=SacredRitual)
+7	SA:Immune to Poison	SA:Lay on Hands (Poison)
+8	SA:Turn Fiends
+9	SA:Spiritual Fortitude (All)														ADD:FEAT(TYPE=SacredRitual)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat						Required Skill					Required Text
+CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (Arcane Lore)=6	PRETEXT:The character’s first allegiance must be to a Dark Power.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Speak Language|Research
+###Block: Turning
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
+1	BONUS:VAR|TurnDamagePlus|CL
+1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
+###Block: Standard block
+1					SA:Control Undead	SA:True Magic
+2											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+3					SA:Dark Initiate
+4											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+5	VISION:Darkvision (60')	SA:Darkness' Embrace
+6											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+7					SA:Dark Familiar
+8											ADD:FEAT(TYPE=Cultist,TYPE=ProfaneRitual)
+9					SA:Dark Longevity
+10					SA:Perdition's Legion
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Dark Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat						Required Skill		Required Text
+CLASS:Dark Warrior	PREATT:2	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Streetwise)|Knowledge (Tactics)|Survival|Swim|Treat Injury
+1	SA:Hatred %/day|Hatred								BONUS:VAR|Hatred|CL/6+1						DEFINE:Hatred|0
+2																														ADD:FEAT(TYPE=DarkWarrior)
+3	SA:Willing Manifestation (Contortions)
+4																														ADD:FEAT(TYPE=DarkWarrior)
+5	SA:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration	BONUS:VAR|BloodBondDuration|CL*10				DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|1
+7																														ADD:FEAT(TYPE=DarkWarrior)
+8	SA:Blood Oath									BONUS:VAR|BloodBondTime|1		BONUS:STAT|STR|2
+9	SA:Willing Manifestation (Poltergeist)
+10	SA:Legion																BONUS:STAT|CON|2
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																	Combat bonus					Modify VAR
+CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat				Required Skill			Required Text
+CLASS:Grave Robber	PREATT:1	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff,Forgery=6	PRETEXT:Avarice Allegiance
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Intimidate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (History)|Knowledge (Streetwise)|Move Silently|Navigate|Search
+1	SA:Ends Justify the Means %/day|EndsJustify	BONUS:VAR|EndsJustify|(CL+3)/4	DEFINE:EndsJustify|0
+2	SA:Contact (Low-level)
+3	SA:Henchmen
+4	SA:Cannon Fodder %/day|CannonFodder			BONUS:VAR|CannonFodder|(CL-1)/3	DEFINE:CannonFodder|0
+6	SA:Contact (Mid-level)
+8	SA:Contact (High-level)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Monitor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat									Required Skill							Required Text
+CLASS:Monitor	PREATT:2	PREFEAT:2,Archaic Weapons Proficiency,Conviction (Higher Power)	PRESKILL:1,Knowledge (Theology and Philosophy)=3	PRETEXT:Allegiance to one group devoted to protecting the past (such as the Knights Templar), Higher Power.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Listen|Ride|Sense Motive|Spot
+1	SA:Monitor's Wrath +%|MonitorsWrath	BONUS:VAR|MonitorsWrath|(CL+2)/3	DEFINE:MonitorsWrath|0
+2	SA:Divine Health
+3																	ADD:FEAT(TYPE=Monitor)
+5	SA:Aura of Courage
+6																	ADD:FEAT(TYPE=Monitor)
+8	SA:Immortal
+9																	ADD:FEAT(TYPE=Monitor)
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																	Combat bonus					Modify VAR
+CLASS:Relic Seeker	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Required Feat		Required Skill
+CLASS:Relic Seeker	PREFEAT:1,Studious	PRESKILL:3,Knowledge (Arcane Lore),Knowledge (Art),Knowledge (History)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable Device|Escape Artist|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Listen|Move Silently|Navigate|Research|Ride|Search|Spot|Survival|Swim|Tumble
+1	SA:Evasion
+2	SA:Improved Tools
+3	SA:Uncanny Dodge (Dex bonus to AC)
+4	SA:Improvised Weapons
+5	SA:Uncanny Dodge (can't be flanked)
+6											ADD:FEAT(TYPE=RelicSeeker)
+7	SA:Uncanny Dodge (+1 vs traps)
+8											ADD:FEAT(TYPE=RelicSeeker)
+9	SA:Uncanny Dodge (+2 vs traps)	SA:Miraculous Escape
+10	SA:Improved Evasion
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
+CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat		Required Skill
+CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical),Knowledge (Arcane Lore)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Sense Motive|Spot|Survival|Treat Injury
+1				SA:Summon Familiar
+2				SA:Herbal Lore
+3				SA:Darkshape %/day|Darkshape					BONUS:VAR|Darkshape|CL/3	DEFINE:Darkshape|0
+4																						FEATAUTO:Brew Potion
+5	VISION:Low-light	SA:Creature of the Night - heals 1 hp/hour at night
+7				SA:Witch's Brew
+8				SA:Witch's Delight
+10				SA:Object of Desire

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqsubmittingafeaturerequest.html,v 1.2 2004/01/03 21:27:42 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2004/01/03 21:27:42 $
+		$Revision: 1.2 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		
+		Description:
+		PCGen FAQ Submitting Feature Requests.
+	-->
+	<head>
+		<title>Submitting a Feature Request for PCGen</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Submitting a Feature Request for PCGen</h1>
+		
+		<p>The purpose of this document is to provide a walk through of how to properly submit a feature request at Source Forge for PCGen.
+		Please read the <a href="faqsubmittingabugreport.html">Bug vs. Feature</a> to make sure that what you want to submit is a feature request.</p>
+		
+		<p>Before you attempt to submit a feature request, visit the PCGen Yahoo Group message boards<br />
+		(<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a>),<br />
+		and describe your feature request. Feature Requests are often referred to as FREQs on the board. This way others can help you refine 
+		the request or tell you that it's already been entered as a FREQ or even point out that the FREQ would be useful for another book as 
+		well. Once the FREQ has been kicked about and refined you can then submit it.</p>
+		
+		<h2>Submitting your Feature Request</h2>
+		
+		<ol>
+			<li><p>Go to <a href="http://sourceforge.net/projects/pcgen/" style="color: blue; text-decoration: underline; text-underline: single">
+			http://sourceforge.net/projects/pcgen/</a> and go to Tracker (Either at the top of the screen or scroll down slightly to see &quot;Tracker&quot;).</p></li>
+			
+			<li><p>Click on Feature Requests if you want to request a feature, or Output Request if it's a request related to a character sheet.</p></li>
+			
+			<li><p>Search through the listed features, making sure that Assignee, Category, and Group are set to &quot;Any&quot;, that Status is set to &quot;Open&quot;, 
+			and that Sort By is set to &quot;ID&quot;, to see if your problem is already submitted. If it is, add a message at the bottom of the feature request 
+			detailing your information as well. This will give the developer who takes on this request as much information as possible to best resolve 
+			the issue to everyone's satisfaction.</p></li>
+			
+			<li><p>If it does not exist, select &quot;Submit New&quot;. Make sure you select the appropriate category, Group, and make a concise summary of the request.</p></li>
+			
+			<li><p>In the Detailed Description use the following:</p>
+					<p><strong>TITLE:</strong><br />
+					A _meaningful_ title, for example the LST syntax you are affecting, or the benefit to PCGEN you are providing.<br />
+					<br />
+					<strong>BENEFIT FOR USER:</strong><br />
+					Often our freqs are in code/lst speak, we also need to know, _what_ is this actually providing to the user of PCGEN.<br />
+					<br />
+					<strong>LST SYNTAX:</strong><br />
+					The complete LST Syntax if appropriate.<br />
+					<br />
+					<strong>OS SYNTAX:</strong><br />
+					The complete OS Syntax if appropriate.<br />
+					<br />
+					<strong>DESCRIPTION:</strong><br />
+					The rest<br />
+					</p>
+
+					<p><strong>So for example:</strong><br />
+					<br />
+					<strong>TITLE:</strong><br />
+					Add BONUS:SPELL (Calculate spell range).<br />
+					<br />
+					<strong>BENEFIT FOR USER:</strong><br />
+					This freq will allow users to view the range of a spell they cast on an OS Sheet.<br />
+					It will calculate the range correctly using the appropriate caster levels.<br />
+					<br />
+					<strong>LST SYNTAX:</strong><br />
+					BONUS:SPELL=name|RANGE|formula where formula could equal something like = 5*CL+100 (where CL = Class Level)<br />
+					<br />
+					<strong>OS SYNTAX:</strong><br />
+					SPELL.RANGE<br />
+					<br />
+					<strong>DESCRIPTION:</strong><br />
+					The Range could be evaluated - something like BONUS:SPELL=name|RANGE|formula for spell's range 
+					(something like 5*CL+100 since CL gets the class level). This would require adding RANGEEVAL to the 
+					SPELLMEM tokens, and for that token return getTotalBonusTo("SPELL="+aSpell.name()","RANGE",true)
+					</p>
+			</li>
+
+			<li><p>If your feature request involves new tags or syntax, it's always helpful to suggest the name and syntax of the tag. When the developer looks 
+			at it they may not go with what you suggest exactly, but it's always helpful to have a suggestion to get the creative juices flowing. :)</p></li>
+			
+			<li><p>Finally, hit submit.</p></li>
+		</ol>
+		
+		
+		<h2>Tracking your Feature Request</h2>
+		
+		<p>You can go and visit your happy little item any time you please and check on its status. Note that the item may very well have been moved, 
+		either to a different tracker group within pcgen (say maybe to bugs) or to our sub project pcgendm. If it has been moved to pcgendm your item 
+		will have been deleted in pcgen (just select deleted as a filter when searching) but there will be a message stating what Tracker and 
+		Number the item has been moved to in the pcgendm project. The pcgendm project is at:<br /> 
+		<a href="http://sourceforge.net/projects/pcgendm/">http://sourceforge.net/projects/pcgendm/</a></p>
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqsubmittingafeaturerequest.html,v $ ($Revision: 1.2 $) last updated $Date: 2004/01/03 21:27:42 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

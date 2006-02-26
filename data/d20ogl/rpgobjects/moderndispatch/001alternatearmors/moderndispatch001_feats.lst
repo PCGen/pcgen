@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Jan 20 04:08:00 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern Dispatch #1 - Alternate Armors|SOURCESHORT:MD01-AA|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3260
+#Original Entry by: Frank Kliewe
+
+# Feat Name		Type			Required Feat				Required Stat	Special Ability							Description																	Stackable?	Multiple?	Choose				BONUS:EQMARMOR																																						Source Page
+Armor Familiarity	TYPE:General	PREFEAT:1,Armor Proficiency (Light)	PRESTAT:1,STR=13										DESC:You have a growing familiarity with your armor.										STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:MISC|ACCHECK|-1|PREMULT:1,[PREEQUIP:2,TYPE=Armor,TYPE=Light],[PREMULT:2,[PREEQUIP:2,TYPE=Armor,TYPE=Medium],[PREFEAT:1,Armor Proficiency (Medium)]],[PREMULT:2,[PREEQUIP:2,TYPE=Armor,TYPE=Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]]	SOURCEPAGE:p.5
+Armor Tolerance	TYPE:General	PREFEAT:1,Armor Proficiency (Light)													DESC:Even the heaviest armor feels light and natural to you									STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:MISC|MAXDEX|-1|PREMULT:1,[PREEQUIP:2,TYPE=Armor,TYPE=Light],[PREMULT:2,[PREEQUIP:2,TYPE=Armor,TYPE=Medium],[PREFEAT:1,Armor Proficiency (Medium)]],[PREMULT:2,[PREEQUIP:2,TYPE=Armor,TYPE=Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]]	SOURCEPAGE:p.5
+Brute Force		TYPE:General							PRESTAT:1,STR=13	SA:+1 bonus to armor penetration with melee weapons	DESC:You are skilled at using hand-to-hand weapons to penetrate armor, using strength to your advantage.																																																		SOURCEPAGE:p.5
+Targeting Finesse	TYPE:General	PREFEAT:1,Weapon Finesse														DESC:You are skilled enough to bypass armor when using light weapons.							STACK:NO	MULT:YES	CHOOSE:FEAT=Weapon Finesse																																									SOURCEPAGE:p.5

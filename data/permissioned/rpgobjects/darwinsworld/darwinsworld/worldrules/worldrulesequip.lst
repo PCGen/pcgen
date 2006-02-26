@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Jul 16 22:54:31 2002 -- reformated by prettylst.pl v1.16 (build 169)
+SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# Equipment Name	Type			Cost		Weight	Source Page
+
+# Equipment Name	Type			Cost		Weight	Source Page
+Corium (Per Lb.)	TYPE:Goods.Trade	COST:50	WT:1		SOURCEPAGE:p.47

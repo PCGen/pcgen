@@ -1,0 +1,70 @@
+# CVS $Revision: 1.6 $ $Author: frank_kliewe $ -- Sat Dec 17 10:44:13 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers|SOURCESHORT:BnS-MPS|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Mercenary	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat											Required Skill
+CLASS:Mercenary	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PREFEAT:1,Brawl,Combat Martial Arts	PRESKILL:1,Knowledge (Tactics)=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|Read/Write Language|Speak Language|Spot|Survival|Swim
+###Block: Rage variables
+1	BONUS:VAR|BarbRageTimesLVL|CL					DEFINE:BarbRageTimesLVL|0
+1	BONUS:VAR|BarbRagePowerLVL|CL					DEFINE:BarbRagePowerLVL|0
+1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,8	DEFINE:GreaterRage|0
+1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1		DEFINE:RageTimes|0		FEATAUTO:Rage
+###Block: Level Progression
+2	SA:Tough Image
+3					ADD:FEAT(TYPE=Mercenary)
+5	SA:Manhandle
+6					ADD:FEAT(TYPE=Mercenary)
+7	SA:Improved Tough Image
+9					ADD:FEAT(TYPE=Mercenary)
+10	SA:Soldier of Fortune
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Merchant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat		Required Skill
+CLASS:Merchant	PREFEAT:1,Trustworthy	PRESKILL:2,Bluff,Diplomacy=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE.Perform|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language
+1	SA:1st Market
+2	SA:Ear to the Ground
+3						ADD:FEAT(TYPE=Merchant)
+4	SA:2nd Market
+5	SA:Money Talks
+6						ADD:FEAT(TYPE=Merchant)
+7	SA:Distribution Network
+8	SA:3rd Market
+9						ADD:FEAT(TYPE=Merchant)
+10	SA:Starship	SA:Maket Leverage
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Pirate	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat						Required Skill
+CLASS:Pirate	PREATT:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pilot,Tumble=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|Read/Write Language|Speak Language|Tumble
+###Block:Sneak Attack
+1	BONUS:VAR|SneakAttack|CL/4+1	FEATAUTO:Sneak Attack
+###Block:Normal Progression
+2	SA:Black Sail	BONUS:VAR|LeadershipScore|CL					FEATAUTO:Henchmen
+3									ADD:FEAT(TYPE=Pirate)
+5	SA:Black Flag
+6									ADD:FEAT(TYPE=Pirate)
+7	SA:Pirate Lord										FEATAUTO:Sidekick
+9									ADD:FEAT(TYPE=Pirate)
+10	SA:Pirate King
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Smuggler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat			Required Skill
+CLASS:Smuggler	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot,Knowledge (Streetwise)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Smuggler	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Disguise|Forgery|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Navigate|Pilot|Sense Motive
+1	SA:Concealed Cargo
+2	SA:Blockade Runner +%|BlockadeRunner	BONUS:VAR|BlockadeRunner|floor(CL/2)*2	DEFINE:BlockadeRunner|0
+3																			ADD:FEAT(TYPE=Smuggler)
+5	SA:Hunk of Junk
+6																			ADD:FEAT(TYPE=Smuggler)
+7	SA:Black Market
+9																			ADD:FEAT(TYPE=Smuggler)

@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+
+# Class Name		Automatic Languages
+CLASS:Barbarian.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
+# Class Name		Clear Prereq.
+CLASS:Barbarian.MOD	PRE:.CLEAR
+
+# Class Name	Automatic Languages
+CLASS:Fighter.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]
+
+# Class Name	Automatic Languages
+CLASS:Rogue.MOD	LANGAUTO:.CLEAR	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]

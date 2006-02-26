@@ -1,0 +1,5 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Equipment Name	Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus					Special Property
+Dragon Dagger	PROFICIENCY:Dagger	TYPE:Magic.Weapon.Simple.Melee.Piercing.Specific.Dagger	COST:2302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	SIZE:T	SOURCEPAGE:p.31	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:See text

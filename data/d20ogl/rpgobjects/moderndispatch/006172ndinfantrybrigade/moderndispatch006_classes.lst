@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 21 23:33:33 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade [Sep]|SOURCESHORT:MD06-172nd|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990
+#Original Entry by: Frank Kliewe
+
+# Class Name				Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Arctic Warfare Specialist	HD:10		TYPE:PC.Advanced	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name				Req. Att.	Required Feat						Required Skill
+CLASS:Arctic Warfare Specialist	PREATT:2	PREFEAT:2,Arctic Warfare College,Endurance	PRESKILL:1,Survival=6	PRESKILL:1,Drive=4
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Arctic Warfare Specialist	STARTSKILLPTS:5	CSKILL:Balance|Climb|Demolitions|Drive|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Navigate|Spot|Survival
+1	SA:Combat Skiing	SA:Snow Leopard +%|SnowLeopard	BONUS:VAR|SnowLeopard|floor(CL/5)*5+5						DEFINE:SnowLeopard|0
+2	SA:Arctic Warrior +%|ArcticWarrior				BONUS:VAR|ArcticWarrior|CL/2	BONUS:VAR|ArcticTraining|ArcticWarrior	DEFINE:ArcticWarrior|0
+3																										ADD:FEAT(TYPE.MOS)
+5	SA:Snow Ghost
+6																										ADD:FEAT(TYPE.MOS)
+7	SA:Snow Blind
+9																										ADD:FEAT(TYPE.MOS)

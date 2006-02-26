@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <pomVersion>3</pomVersion>
+    <id>pcgen</id>
+    <name>PCGen</name>
+    <currentVersion>5.9.4</currentVersion>
+    <organization>
+        <name>PCGen</name>
+        <url>http://pcgen.sourceforge.net/</url>
+    </organization>
+    <inceptionYear>2003</inceptionYear>
+    <package>pcgen</package>
+    <logo>http://maven.apache.org/images/maven.jpg</logo>
+
+    <description>PCGen RPG character generator.</description>
+    <shortDescription>PCGen PRG character generator.</shortDescription>
+
+    <repository>
+        <connection>scm:cvs:ext:cvs.sourceforge.net:/cvsroot/pcgen:.</connection>
+        <url>http://cvs.sourceforge.net/viewcvs.py/pcgen/</url>
+    </repository>
+
+    <developers>
+        <developer>
+            <name>Bryan McRoberts</name>
+            <id>merton_monk</id>
+            <email>merton_monk@yahoo.com</email>
+            <organization>PCGen</organization>
+            <roles>
+                <role>Benevolent Dictator</role>
+            </roles>
+            <url>http://pcgen.sourceforge.net/</url>
+            <timezone>-7</timezone>
+        </developer>
+        <developer>
+            <name>B. K. Oxley (binkley)</name>
+            <id>binkley</id>
+            <email>binkley@alumni.rice.edu</email>
+            <organization>PCGen</organization>
+            <roles>
+                <role>Itinerant Sourcerer</role>
+            </roles>
+            <url>http://binkley.blogspot.com/</url>
+            <timezone>-6</timezone>
+        </developer>
+        <developer>
+            <name>Greg Bingleman</name>
+            <id>byngl</id>
+            <email>byngl@hotmail.com</email>
+            <organization>PCGen</organization>
+            <roles>
+                <role>X-Terminator (Mark II)</role>
+            </roles>
+            <url>http://www.byngl2.homestead.com/</url>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <name>Martijn Verburg (karianna)</name>
+            <id>karianna</id>
+            <email>karianna@clear.net.nz</email>
+            <organization>PCGen</organization>
+            <roles>
+                <role>TM SB, Soul Reaper and Lemur*</role>
+            </roles>
+            <url>http://www.rageon.org</url>
+            <timezone>0</timezone>
+        </developer>
+        <developer>
+            <name>Stefan Radermacher</name>
+            <id>Zaister</id>
+            <email>radermacher@netcologne.de</email>
+            <organization>PCGen</organization>
+            <roles>
+                <role>Code Tamarin</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <name>James Dempsey</name>
+            <id>jdempsey</id>
+            <email>jdempsey@users.sourceforge.net</email>
+            <organization>PCGen</organization>
+            <roles>
+                <role>Code Gibbon</role>
+            </roles>
+            <url>http://perrenland.org</url>
+            <timezone>+11</timezone>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <!-- Compiling -->
+        <dependency>
+            <groupId>mrj</groupId>
+            <artifactId>MRJ141Stubs</artifactId>
+            <version>0</version>
+        </dependency>
+        <dependency>
+            <groupId>skinlf</groupId>
+            <artifactId>skinlf</artifactId>
+            <version>1.2.3</version>
+            <url>http://www.l2fprod.com/</url>
+        </dependency>
+        <dependency>
+            <groupId>wraplf</groupId>
+            <artifactId>wraplf</artifactId>
+            <version>0.2</version>
+            <url>https://wraplf.dev.java.net/</url>
+        </dependency>
+        <dependency>
+            <groupId>fop</groupId>
+            <artifactId>fop</artifactId>
+            <version>0.20.5</version>
+            <url>http://xml.apache.org/fop/</url>
+        </dependency>
+        <dependency>
+            <groupId>jep</groupId>
+            <artifactId>jep</artifactId>
+            <version>2.24</version>
+            <url>http://www.singularsys.com/jep/</url>
+        </dependency>
+        <dependency>
+            <groupId>jep</groupId>
+            <artifactId>djep</artifactId>
+            <version>2.24</version>
+            <url>http://www.singsurf.org/djep/</url>
+        </dependency>
+        <dependency>
+            <groupId>jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.0b8</version>
+            <url>http://www.jdom.org/</url>
+        </dependency>
+        <dependency>
+            <groupId>xalan</groupId>
+            <artifactId>xalan</artifactId>
+            <version>2.6.0</version>
+            <url>http://xml.apache.org/xalan-j/</url>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xmlParserAPIs</artifactId>
+            <version>2.6.2</version>
+            <url>http://xml.apache.org/xerces-j/</url>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.6.2</version>
+            <url>http://xml.apache.org/xerces-j/</url>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>1.1</version>
+            <url>http://www.easymock.org/</url>
+        </dependency>
+        <dependency>
+            <groupId>easymock</groupId>
+            <artifactId>easymockclassextension</artifactId>
+            <version>1.1</version>
+            <url>http://www.easymock.org/</url>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <url>http://www.junit.org/</url>
+        </dependency>
+        <dependency>
+            <groupId>xmlunit</groupId>
+            <artifactId>xmlunit</artifactId>
+            <version>1.0</version>
+            <url>http://xmlunit.sourceforge.net/</url>
+        </dependency>
+        <dependency>
+            <groupId>emma</groupId>
+            <artifactId>maven-emma-plugin</artifactId>
+            <version>0.6</version>
+            <type>plugin</type>
+            <url>http://emma.sourceforge.net/maven-emma-plugin/</url>
+        </dependency>
+<!--
+        <dependency>
+            <groupId>maven-plugins</groupId>
+            <artifactId>maven-findbugs-plugin</artifactId>
+            <version>0.8.4</version>
+            <type>plugin</type>
+            <url>http://maven-plugins.sourceforge.net/findbugs/</url>
+        </dependency>
+-->
+    </dependencies>
+
+    <reports>
+        <report>maven-changelog-plugin</report>
+        <report>maven-changes-plugin</report>
+        <!-- Runs slower'n molassas -->
+        <!-- <report>maven-checkstyle-plugin</report> -->
+        <report>maven-developer-activity-plugin</report>
+        <report>maven-emma-plugin</report>
+        <report>maven-file-activity-plugin</report>
+        <report>maven-javadoc-plugin</report>
+        <report>maven-jdepend-plugin</report>
+        <report>maven-junit-report-plugin</report>
+        <report>maven-jxr-plugin</report>
+        <report>maven-license-plugin</report>
+        <!-- Another slow'un -->
+        <!-- <report>maven-linkcheck-plugin</report> -->
+        <report>maven-pmd-plugin</report>
+        <report>maven-simian-plugin</report>
+        <report>maven-tasklist-plugin</report>
+    </reports>
+
+    <build>
+        <sourceDirectory>src/java</sourceDirectory>
+        <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
+        <unitTest>
+            <includes>
+                <include>**/*Test.java</include>
+            </includes>
+        </unitTest>
+        <resources>
+            <resource>
+                <!-- The resources are in the same place as the sources. -->
+                <directory>src/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>

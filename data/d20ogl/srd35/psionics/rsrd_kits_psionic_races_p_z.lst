@@ -1,0 +1,236 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Psicrystal (Artiste)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Artiste)]
+RACE:Psicrystal (Artiste)	!PRERACE:%
+NAME:Psicrystal (Artiste)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Bully)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Bully)]
+RACE:Psicrystal (Bully)	!PRERACE:%
+NAME:Psicrystal (Bully)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Coward)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Coward)]
+RACE:Psicrystal (Coward)	!PRERACE:%
+NAME:Psicrystal (Coward)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Friendly)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Friendly)]
+RACE:Psicrystal (Friendly)	!PRERACE:%
+NAME:Psicrystal (Friendly)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Hero)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Hero)]
+RACE:Psicrystal (Hero)	!PRERACE:%
+NAME:Psicrystal (Hero)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Liar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Liar)]
+RACE:Psicrystal (Liar)	!PRERACE:%
+NAME:Psicrystal (Liar)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Meticulous)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Meticulous)]
+RACE:Psicrystal (Meticulous)	!PRERACE:%
+NAME:Psicrystal (Meticulous)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Nimble)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Nimble)]
+RACE:Psicrystal (Nimble)	!PRERACE:%
+NAME:Psicrystal (Nimble)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Observant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Observant)]
+RACE:Psicrystal (Observant)	!PRERACE:%
+NAME:Psicrystal (Observant)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Poised)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Poised)]
+RACE:Psicrystal (Poised)	!PRERACE:%
+NAME:Psicrystal (Poised)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Resolved)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Resolved)]
+RACE:Psicrystal (Resolved)	!PRERACE:%
+NAME:Psicrystal (Resolved)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Sage)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Sage)]
+RACE:Psicrystal (Sage)	!PRERACE:%
+NAME:Psicrystal (Sage)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Single Minded)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Single Minded)]
+RACE:Psicrystal (Single Minded)	!PRERACE:%
+NAME:Psicrystal (Single Minded)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Sneaky)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Sneaky)]
+RACE:Psicrystal (Sneaky)	!PRERACE:%
+NAME:Psicrystal (Sneaky)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psicrystal (Sympathetic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Sympathetic)]
+RACE:Psicrystal (Sympathetic)	!PRERACE:%
+NAME:Psicrystal (Sympathetic)
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:4
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Phthisic	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phthisic]
+RACE:Phthisic	!PRERACE:%
+NAME:Phthisic
+ALIGN:CE
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Psion Killer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psion Killer]
+RACE:Psion Killer	!PRERACE:%
+NAME:Psion Killer
+ALIGN:TN
+STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Puppeteer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Puppeteer]
+RACE:Puppeteer	!PRERACE:%
+NAME:Puppeteer
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Iron Will
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Puppeteer (Flesh Harrower)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Puppeteer (Flesh Harrower)]
+RACE:Puppeteer (Flesh Harrower)	!PRERACE:%
+NAME:Puppeteer (Flesh Harrower)
+ALIGN:TN
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Iron Will
+STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
+
+STARTPACK:Default Temporal Filcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Temporal Filcher]
+RACE:Temporal Filcher	!PRERACE:%
+NAME:Temporal Filcher
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Tumble	RANK:3
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Thought Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thought Eater]
+RACE:Thought Eater	!PRERACE:%
+NAME:Thought Eater
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Improved Initiative
+STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Thought Slayer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thought Slayer]
+RACE:Thought Slayer	!PRERACE:%
+NAME:Thought Slayer
+SKILL:Climb		RANK:4
+SKILL:Jump		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Default Udoroot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Udoroot]
+RACE:Udoroot	!PRERACE:%
+NAME:Udoroot
+ALIGN:TN
+SKILL:Listen	RANK:9
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Unbodied	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unbodied]
+RACE:Unbodied	!PRERACE:%
+NAME:Unbodied
+SKILL:Bluff			RANK:4
+SKILL:Diplomacy		RANK:4
+SKILL:Disguise		RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Overchannel
+FEAT:Wild Talent
+STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Psion|Detect Psionics|Empty Mind|Mind Thrust|Charm (Psionic)|Brain Lock|Cloud Mind|Energy Push|Read Thoughts

@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jul 27 23:26:03 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Legends of the Ancients - Macedon|SOURCESHORT:LoAM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=BASE.Replace
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
+###Block: proficiencies
+1	AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1						FEATAUTO:Shield Proficiency
+###Block: standard
+1	SA:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|CL/4+1						DEFINE:MountedCombat|0	VFEAT:Mounted Combat
+2	SA:Mounted Mobility	SA:Saddle Leap
+3	SA:Cavalry Mount	SA:Spur +%|CavalrySpur			BONUS:VAR|CavalrySpur|min(30,(10*floor(var("CL=Cavalry")/3)))	DEFINE:CavalrySpur|0
+5	SA:Harry +%|CavalryHarry					BONUS:VAR|CavalryHarry|CL/5							DEFINE:CavalryHarry|0	VFEAT:Ride By Attack
+7	SA:Spur (nonlethal damage)	SA:Mounted Endurance
+9																									VFEAT:Spirited Charge
+10	SA:Mounted Agility
+11	SA:Like the Wind +%|LikeTheWind				BONUS:VAR|LikeTheWind|(CL-8)/3						DEFINE:LikeTheWind|0
+13	SA:Tall in the saddle
+18	SA:Lightning Attack
+19	SA:Companion Mount

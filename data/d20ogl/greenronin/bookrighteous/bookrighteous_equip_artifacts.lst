@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 17 04:10:24 2004 -- reformated by prettylst.pl v1.32 (build 339)
+SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
+# Original Entry by: Beaver
+
+# Minor Artifacts
+# Equipment Name		Type									Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
+Celetstial Quill		TYPE:Magic.MinorArtifact					WT:0					SOURCEPAGE:p.265
+Leaf of Eliwyn		TYPE:Magic.MinorArtifact					WT:0					SOURCEPAGE:p.265
+Shield of the Fathers	TYPE:Magic.MinorAtifact.Shield.Standard.Specific	WT:15		ACCHECK:-1		SOURCEPAGE:p.266	SPELLFAILURE:15		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+
+# Major Artifacts
+The Ark of Magic		TYPE:Magic.MajorArtifact					WT:0					SOURCEPAGE:p.267
+The Flail of Rontra	TYPE:Magic.MajorArtifact					WT:0					SOURCEPAGE:p.267

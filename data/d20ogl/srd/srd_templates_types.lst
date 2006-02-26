@@ -1,0 +1,64 @@
+# CVS $Revision: 1.11 $ $Author: eddyanthony $ -- Sun Sep  4 18:04:34 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+#
+# This File is for all "standard" templates used in multiple sources.
+#
+# - Tir Gwaith
+# Template Name	Visible	Source Page					Special Ability																																							Define			Combat bonus								Bonus to HP											Stat bonus		Feat							Removable?		Type		Vision
+Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Immune to Mind-influencing effects	SA:Immune to poison/disease and similar effects	SA:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage.								DEFINE:LOCK.CON|10																																	REMOVABLE:YES
+# Added all dragons skills to keep the race files down in size.
+Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Sleep Immunity(Ex)	SA:Paralysis Immunity(Ex)																																																																					REMOVABLE:YES	TYPE:Dragon
+Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Immune to poison/sleep/paralysis/stunning	SA:Not subject to critical hits																																																																REMOVABLE:YES
+Familiar				SOURCEPAGE:srdNPCsFamMntsComps.rtf	SA:Share Spells	SA:Empathic Link																																								BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.REPLACE													BONUS:STAT|INT|6	FEAT:Alertness	FEAT:Improved Evasion	REMOVABLE:YES
+Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:attacks pass through armor	SA:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																										REMOVABLE:YES
+Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Immune to mind influencing effects/poison/sleep/paralysis/stunning/polymorphing	SA:Not subject to critical hits																						DEFINE:LOCK.INT|10											BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|(SIZE-6)MAX0*5											REMOVABLE:YES
+Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ polymorphing	SA:Not subject to critical hits																																																									REMOVABLE:YES
+Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease	SA:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage										DEFINE:LOCK.CON|10																																	REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
+Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	SA:Vermin	SA:Immune to mind-influencing effects																																	DEFINE:LOCK.INT|10																																	REMOVABLE:YES	TYPE:Vermin
+
+###Block: For races which only have one gender - Satyr, Succubi, Dryads, and so on.
+# Template Name	Visible	GENDERLOCK
+Male			VISIBLE:NO	GENDERLOCK:Male
+Female		VISIBLE:NO	GENDERLOCK:Female
+
+#	###########
+#	WORKAROUNDS
+#	###########
+#	Below are workarounds until further functionality is available.
+#
+###Block:Workarounds
+# Template Name	Output Name			Visible		Damage Reduction	Source Page						Type
+Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasiccharacterclassesi.rtf	TYPE:Outsider
+
+###Block: Temporary Bonus Templates
+# Template Name			Visible	Source Page					Bonus to skill															Temporary effect description
+Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
+
+###Block: Conditional Templates
+# Template Name				Visible	Source Page					Save checks bonus										Combat bonus									Bonus to skill																					Stat bonus							Choose								Temporary effect description
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|INT|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|WIS|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|CHA|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points
+Blinded					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC	BONUS:SKILL|STAT.STR,STAT.DEX|-4|PREAPPLY:ANYPC																																	TEMPDESC:You cannot see
+Cowering					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																									TEMPDESC:You are frozen in fear and can take no actions
+Dazzled					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|TOHIT|-1|PREAPPLY:ANYPC					BONUS:SKILL|Search,Spot|-1|PREAPPLY:ANYPC																																		TEMPDESC:You are unable to see well because of overstimulation of the eyes
+Deafened					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|INITIATIVE|-4|PREAPPLY:ANYPC																																													TEMPDESC:You cannot hear
+Energy Drained				VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|-1*%CHOICE|PREAPPLY:ANYPC		BONUS:COMBAT|TOHIT|-1*%CHOICE|PREAPPLY:ANYPC				BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*%CHOICE|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Negative Levels	TEMPDESC:You have gained one or more negative levels
+Entangled					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC																												BONUS:STAT|DEX|-4|PREAPPLY:ANYPC												TEMPDESC:You are ensnared
+Exhausted					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|DEX,STR|-6|PREAPPLY:ANYPC											TEMPDESC:You are exhausted
+Fatigued					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf																																															BONUS:STAT|DEX,STR|-2|PREAPPLY:ANYPC											TEMPDESC:You are fatigued
+Frightened					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|-2|TYPE=Morale|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|-2|TYPE=Morale|PREAPPLY:ANYPC			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|TYPE=Morale|PREAPPLY:ANYPC																		TEMPDESC:You are frightened
+Invisible					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|TOHIT|2|TYPE=Invisibility|PREAPPLY:ANYPC																																											TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)
+Panicked					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|-2|TYPE=Morale|PREAPPLY:ANYPC												BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																				TEMPDESC:You are panicked and must drop anything you hold and flee at top speed from the source of your fear
+Prone						VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|TOHIT.MELEE|-4|PREAPPLY:ANYPC																																												TEMPDESC:You are on the ground
+Shaken					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|-2|TYPE=Morale|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC					BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																				TEMPDESC:You are shaken
+Stunned					VISIBLE:NO	SOURCEPAGE:srdconditionsummary.rtf													BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																									TEMPDESC:You are stunned, you drop everything held, and cannot take actions
+
+###Block: Combat Templates
+# Template Name		Visible	Source Page					Combat bonus					Modify VAR																													Temporary effect description
+Fighting Defensively	VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC	TEMPDESC:You are fighting defensively when attacking
+Total Defense		VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action

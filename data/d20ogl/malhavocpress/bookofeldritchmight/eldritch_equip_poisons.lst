@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Mar  4 17:04:13 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+
+###Block: Poisons
+# Equipment Name		Product Identity?	Output Name		Type			Cost		Weight	Source Page
+Poison (Coldheart)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:900	WT:0		SOURCEPAGE:p.29
+Poison (Crippling Doom)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:120	WT:0		SOURCEPAGE:p.30
+Poison (Darkmind)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:4700	WT:0		SOURCEPAGE:p.30
+Poison (Delusion)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:1500	WT:0		SOURCEPAGE:p.30
+Poison (Demonseed)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:3000	WT:0		SOURCEPAGE:p.30
+Poison (Denial)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:4500	WT:0		SOURCEPAGE:p.30
+Poison (Fear)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:1600	WT:0		SOURCEPAGE:p.30
+Poison (Fireheart)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:900	WT:0		SOURCEPAGE:p.30
+Poison (Heartthief)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:4000	WT:0		SOURCEPAGE:p.30
+Poison (Longnight)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:9000	WT:0		SOURCEPAGE:p.30
+Poison (Madness)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:5400	WT:0		SOURCEPAGE:p.30
+Poison (Memory Key)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:1500	WT:0		SOURCEPAGE:p.30
+Poison (Shrivelsoul)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:3500	WT:0		SOURCEPAGE:p.30
+Poison (Sleep)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:180	WT:0		SOURCEPAGE:p.30
+Poison (Slow)		NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:1100	WT:0		SOURCEPAGE:p.31
+Poison (Swarmdeath)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:2700	WT:0		SOURCEPAGE:p.31
+Poison (Truesleep)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:2700	WT:0		SOURCEPAGE:p.31
+Poison (Weakening)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:1200	WT:0		SOURCEPAGE:p.31
+Poison (Wraithsong)	NAMEISPI:NO		OUTPUTNAME:[NAME]	TYPE:Magic.Poison	COST:1600	WT:0		SOURCEPAGE:p.31

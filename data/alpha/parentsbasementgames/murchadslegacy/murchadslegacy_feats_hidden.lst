@@ -1,0 +1,80 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jul 10 11:20:17 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+###Block: Feat Support --------------------------------------------------------------------------------
+
+# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special Ability					Stackable?	Multiple?	Choose															Automaticaly Gained Weapon Prof.	Choose a Feat		Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
+Military Longsword Proficiency	TYPE:MilitaryWeapon	VISIBLE:NO								!PREWEAPONPROF:1,Longsword																													AUTO:WEAPONPROF|Longsword
+Military Shortsword Proficiency	TYPE:MilitaryWeapon	VISIBLE:NO								!PREWEAPONPROF:1,Sword (Short)																												AUTO:WEAPONPROF|Sword (Short)
+Military Longsword Competence		TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																								BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
+Military Shortsword Competence	TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																								BONUS:WEAPONPROF=Sword (Short)|DAMAGE|1|TYPE=Competence
+
+Tutored Knowledge				TYPE:BackgroundSupport	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Knowledge|1																						BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+Tutored Craft				TYPE:BackgroundSupport	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Craft|1																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+
+Speaks Homish				TYPE:HomeLanguage		VISIBLE:NO																																																			LANGAUTO:Homish
+Does not speak Homish			TYPE:HomeLanguage		VISIBLE:NO
+
+Fame - Standard Usage			TYPE:FameSupport		VISIBLE:NO														SA:+1 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai															BONUS:SKILL|TYPE=Social|1|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
+Fame - Optional Usage			TYPE:FameSupport		VISIBLE:NO														SA:+2 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai							ADD:FEAT(Infamous)1					BONUS:SKILL|TYPE=Social|2|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
+Infamous					TYPE:Special		VISIBLE:NO														SA:-1 to Charisma checks when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai
+
+###Block: Support for Reward Feats --------------------------------------------------------------------
+
+# Feat support for - Triumphant Hero of Launhym
+# Feat Name					Type				Visible		Description												Stackable?	Multiple?	Choose						Caster level				Bonus to skill		Stat bonus
+Triumphant Hero Ability Score Bonus	TYPE:Special		VISIBLE:NO															STACK:NO	MULT:YES	CHOOSE:STR|DEX|CON|INT|WIS|CHA												BONUS:STAT|LIST|1
+
+# Feat support for - Damnation (aka Ylviuss' Wish)
+Damnation - Skill Mastery		TYPE:DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|ALL|1							BONUS:SKILL|LIST|5
+Damnation - Arcane Power		TYPE:DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1					BONUS:CASTERLEVEL|SCHOOL.%LIST|1
+Damnation - Might				TYPE:DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:STR|DEX|CON														BONUS:STAT|LIST|2
+Damnation (Mystic Forces)		TYPE:DamnationReward	VISIBLE:EXPORT	DESC:You may cast one arcane or divine spell once as a caster of 20th level.
+
+###Block: Racial Abilties --------------------------------------------------------------------------------
+
+## - Since this is an RSRD ability, this needs to be defined in RSRD set, and called from this set.
+## - Tir Gwaith
+
+# Feat Name			Type						Visible	Special Ability		Save checks bonus								Combat bonus				Bonus to skill																		Temporary effect description
+Light Blindness (Ex)	TYPE:SpecialQual.Extraordinary	VISIBLE:NO	SA:Light Blindness (Ex)	BONUS:CHECKS|Fortitude,Reflex,Willpower|-1|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-1|PREAPPLY:PC	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1|PREAPPLY:PC	TEMPDESC:Dark Elves suffer a -1 circumstance penalty to attack rolls, skill checks, and saving throws while in bright light.
+
+###Block: Class Abilities --------------------------------------------------------------------------------
+
+###Block: Homefront Guardian
+# Feat Name					Type			Visible	Stackable?	Multiple?	Choose													Bonus to skill
+Homefront Guardian Skill Bonus	TYPE:ClassFeature	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Alchemy|Bluff|Climb|Forgery|Hide|Sneak|Open Lock|1	BONUS:SKILL|LIST|2|TYPE=Class
+
+###Block: Knight of Pure Heart
+# Feat Name				Type				Visible	Required Feat					Special Ability							Define				Combat bonus									Stat bonus										Modify VAR					Temporary effect description
+Passion (King of Calisia)	TYPE:Special.Passion	VISIBLE:NO								SA:Passion (Ex) - King of Calisia +%|PassionKingBonus	DEFINE:PassionKingBonus|0	BONUS:COMBAT|AC|PassionKingBonus|TYPE=Passion|PREAPPLY:PC		BONUS:STAT|STR,CON|PassionKingBonus|TYPE=Passion|PREAPPLY:PC	BONUS:VAR|PassionKingBonus|2		TEMPDESC:Whenever the knight chooses he or she may dedicate an action to the King of Calisia.
+Passion (Calisia)			TYPE:Special.Passion	VISIBLE:NO								SA:Passion (Ex) - Calisia +%|PassionCalisiaBonus	DEFINE:PassionCalisiaBonus|0	BONUS:COMBAT|AC|PassionCalisiaBonus|TYPE=Passion|PREAPPLY:PC	BONUS:STAT|STR,CON|PassionCalisiaBonus|TYPE=Passion|PREAPPLY:PC	BONUS:VAR|PassionCalisiaBonus|2	TEMPDESC:Whenever the knight chooses he or she may dedicate an action to Calisia.
+Passion (Paramour)		TYPE:Special.Passion	VISIBLE:NO								SA:Passion (Ex) - Paramour +%|PassionParamourBonus	DEFINE:PassionParamourBonus|0	BONUS:COMBAT|AC|PassionParamourBonus|TYPE=Passion|PREAPPLY:PC	BONUS:STAT|STR,CON|PassionParamourBonus|TYPE=Passion|PREAPPLY:PC	BONUS:VAR|PassionParamourBonus|2	TEMPDESC:Whenever the knight chooses he or she may dedicate an action to his Paramour.
+Passion (King of Calisia +2)	TYPE:Special.Passion	VISIBLE:NO	PREFEAT:1,Passion (King of Calisia)																																						BONUS:VAR|PassionKingBonus|2
+Passion (Calisia +2)		TYPE:Special.Passion	VISIBLE:NO	PREFEAT:1,Passion (Calisia)																																							BONUS:VAR|PassionCalisiaBonus|2
+Passion (Paramour +2)		TYPE:Special.Passion	VISIBLE:NO	PREFEAT:1,Passion (Paramour)																																							BONUS:VAR|PassionParamourBonus|2
+Passion (King of Calisia +3)	TYPE:Special.Passion	VISIBLE:NO	PREFEAT:1,Passion (King of Calisia +2)																																					BONUS:VAR|PassionKingBonus|1
+Passion (Calisia +3)		TYPE:Special.Passion	VISIBLE:NO	PREFEAT:1,Passion (Calisia +2)																																						BONUS:VAR|PassionCalisiaBonus|1
+Passion (Paramour +3)		TYPE:Special.Passion	VISIBLE:NO	PREFEAT:1,Passion (Paramour +2)																																						BONUS:VAR|PassionParamourBonus|1
+
+###Block: Stargazer
+# Feat Name					Type				Visible	Special Ability																	Define				Bonus to skill							Modify VAR
+Star Sign (Bonfire)			TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) %d6 (Reflex save for half, DC %) for % minutes 1/day|SSBonfireLvl|SSBonfireLvl+10|SSBonfireLvl	DEFINE:SSBonfireLvl|0											BONUS:VAR|SSBonfireLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Rainbow Dragon)		TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) % rounds 1/day|SSRainbowDragonLvl											DEFINE:SSRainbowDragonLvl|0										BONUS:VAR|SSRainbowDragonLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (The Faceless)		TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) % square feet for % minutes 1/day|SSFacelessLvl*5|var("CLASSLEVEL=Stargazer")				DEFINE:SSFacelessLvl|0											BONUS:VAR|SSFacelessLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (The Guide)			TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) % minutes 1/day|SSGuideLvl*10												DEFINE:SSGuideLvl|0											BONUS:VAR|SSGuideLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (The Blacksmith)		TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su)																	DEFINE:SSBlacksmithLvl|0	BONUS:SKILL|TYPE=Craft|max(0,(SSBlacksmithLvl-6))	BONUS:VAR|SSBlacksmithLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Forgotten Child)		TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) % rounds (Will save to negate, DC %) 1/day|SSForgottenLvl|SSForgottenLvl+10				DEFINE:SSForgottenLvl|0											BONUS:VAR|SSForgottenLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Polaris)			TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) 1/week															DEFINE:SSPolarisLvl|0											BONUS:VAR|SSPolarisLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Imaginos the Grand)	TYPE:Special.StarSign	VISIBLE:NO	SA:Star Sign (Su) % square feet for % minutes 1/day|SSImaginosLvl*100|SSImaginosLvl						DEFINE:SSImaginosLvl|0											BONUS:VAR|SSImaginosLvl|var("SKILLRANK=Knowledge {Astronomy}")
+
+###Block: Steadfast Knight
+# Feat Name				Type			Visible	Define				Choose										Save checks bonus					Combat bonus					Bonus to HP										Stat bonus													Temporary effect description
+Oath (Active)			TYPE:Special	VISIBLE:NO	DEFINE:SteadfastHitPoints|0																										BONUS:HP|CURRENTMAX|SteadfastHitPoints|TYPE=Oath|PREAPPLY:PC															TEMPDESC:While an Oath is active the Steadfast Knight gains temporary hit points
+Oath (Direct Action)		TYPE:Special	VISIBLE:NO																	BONUS:CHECKS|ALL|2|TYPE=Oath|PREAPPLY:PC	BONUS:COMBAT|AC|1|TYPE=Dodge|PREAPPLY:PC												BONUS:STAT|STR|1|TYPE=Oath|PREAPPLY:PC								TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.
+Blood Oath (Active)		TYPE:Special	VISIBLE:NO						CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Temporarily Lost Hit Points															BONUS:HP|CURRENTMAX|-1*(%CHOICE)|PREAPPLY:PC																		TEMPDESC:The Steadfast Knight loses one hit point per week until the Oath is fulfilled
+Blood Oath (Direct Action)	TYPE:Special	VISIBLE:NO																								BONUS:COMBAT|AC|2|TYPE=Oath|PREAPPLY:PC												BONUS:STAT|STR|4|TYPE=Oath|PREAPPLY:PC	BONUS:STAT|DEX|2|TYPE=Oath|PREAPPLY:PC	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.
+#
+# End
+#

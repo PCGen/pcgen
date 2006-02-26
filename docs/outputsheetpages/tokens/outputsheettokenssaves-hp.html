@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokenssaves-hp.html,v 1.5 2005/12/01 11:50:30 karianna Exp $
+		$Author: karianna $
+		$Date: 2005/12/01 11:50:30 $
+		$Revision: 1.5 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H. Olafsson - shoATtnDOTis
+		
+		Description:
+		Provides information on the use of Output Sheet Tokens: Saves &amp; Hit Points.
+	-->
+	<head>
+			<title>Saves &amp; Hit Points Output Sheet Tokens</title>
+			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Saves &amp; Hit Points Output Sheet Tokens</h1>
+
+		<p></p><a name="CHECK"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> CHECK.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Save Type).</p>
+		<ul class="indent2">
+			<li>FORTITUDE - Use Fortitude save Check.</li>
+			<li>REFLEX - Use Reflex save Check.</li>
+			<li>WILLPOWER - Use Willpower save Check.</li>
+		</ul>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Save Filter).</p>
+		<ul class="indent2">
+			<li>BASE - Displays only the class-based adjustment to the saving throw in question.</li>
+			<li>EPIC - Displays Epic bonuses to the saving throw in question (TYPE=EPIC).</li>
+			<li>MISC - Displays class, domain, luck, magical, racial, etc, bonuses to the saving throw in question.</li>
+			<li>TOTAL - Displays grand total for the saving throw in question.</li>
+		</ul>
+		<p class="indent2"><br>The following variables can be used on their own:</p>
+		<ul class="indent2">
+			<li>MAGIC - Displays only the bonuses from magic to the saving throw in question.</li>
+			<li>FEATS - Displays only the bonuses from feats to the saving throw in question.</li>
+			<li>RACE - Displays any racial bonuses to the saving throw in question.</li>
+			<li>STATMOD - Displays any stat bonuses to the saving throw in question.</li>
+		</ul>
+		<p class="indent2">OR as adjustments to BASE, EPIC, MISC or TOTAL</p>
+		<ul class="indent2">
+			<li>MAGIC - Adds the bonuses from Magic.</li>
+			<li>FEATS - Adds the bonuses from Feats.</li>
+			<li>RACE - Adds the bonuses from Race.</li>
+			<li>STATMOD - Adds the bonuses from Stats.</li>
+		</ul>
+		<p class="indent2"><br>The following variables are only applied to BASE, EPIC, MISC or TOTAL</p>
+		<ul class="indent2">
+			<li>NOMAGIC - Removes the bonuses from Magic.</li>
+			<li>NOFEATS - Removes the bonuses from Feats.</li>
+			<li>NORACE - Removes the bonuses from Race.</li>
+			<li>NOSTAT - Removes the bonuses from Stats.</li>
+			<li>NOSTATMOD - Removes the bonuses from Stats. (same as NOSTAT)</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the characters saving throws.</li>
+			<li>Any check defined in <em>statsandchecks.lst</em> can be used by this tag.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHECK.REFLEX.FEATS</code></p>
+		<p class="indent3">Would display only the bonuses from feats to the Reflex saving throw.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHECK.REFLEX.BASE.NOSTAT.EPIC</code></p>
+		<p class="indent3">Would display the Base Reflex, minus any bonuses from Stats, plus any bonuses from Epic.</p>
+
+		<p></p><a name="HP"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> HP</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the characters maximum hit points.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HP</code></p>
+		<p class="indent3">Would display the characters maximum hit points.</p>
+
+		<p></p><a name="HPROLL"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> HPROLL.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (The level of the HP award).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>None - Displays the number entered by the player for the x-th level HP roll.</li>
+			<li>STAT - Displays the bonus due to stat modifier for the x-th level HP roll.</li>
+			<li>TOTAL - Displays the total hp gained for the x-th level.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the characters hit point information.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HPROLL.0</code></p>
+		<p class="indent3">Displays the number entered by the player for the 1<sup>st</sup> level HP roll.</p>
+		<p class="indent2"><code>HPROLL.0.STAT</code></p>
+		<p class="indent3">Displays the bonus due to stat modifier for the 1st level HP roll.</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokenssaves-hp.html,v $ ($Revision: 1.5 $) last updated $Date: 2005/12/01 11:50:30 $ by $Author: karianna $</p> -->
+	</body>
+
+</html>

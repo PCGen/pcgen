@@ -1,0 +1,28 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:Future - Basics
+RANK:3
+GAMEMODE:Modern
+TYPE:MSRD.Partial.Future
+ISOGL:YES
+SOURCELONG:Modern System Reference Document
+SOURCESHORT:MSRD
+SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker,  based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
+COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2005, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones.
+
+INFOTEXT:This set loads the Basic options from the Future section of the MSRD including Classes, Feats, Skills, Occupations and Settings.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:msrd_future_classes_advanced.lst
+FEAT:msrd_future_feats.lst
+FEAT:msrd_future_feats_hidden.lst
+FEAT:msrd_future_feats_hidden_mod.lst
+FEAT:msrd_future_feats_mod.lst
+FEAT:msrd_future_feats_occupations.lst
+TEMPLATE:msrd_future_templates.lst
+TEMPLATE:msrd_future_templates_hidden.lst
+TEMPLATE:msrd_future_templates_environments.lst

@@ -1,0 +1,24 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Wed Nov 30 22:40:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #47 - New Tortuga|SOURCESHORT:MD47-NT|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Psychic Healer	HD:4		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/4)+2	BONUS:VAR|Action|CL*7
+# Class Name		Required Feat			Required Skill
+CLASS:Psychic Healer	PREFEAT:2,Surgery,Telepathy	PRESKILL:2,Concentration,Treat Injury=10
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psychic Healer	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Sense Motive|Spot|Treat Injury
+1	SA:Natural Endorphins	BONUS:VAR|EmpathicSurgery|(CL+1)/2	FEATAUTO:Empathic Surgery
+2					BONUS:VAR|Psyche|CL/2
+3	SA:Natural Stim Dose
+5	SA:Mind Heals the Body
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Psychic Pilot	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(CL+2)/2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL/4)+2	BONUS:VAR|Action|CL*7
+# Class Name		Required Feat								Required Skill
+CLASS:Psychic Pilot	PREFEAT:2,Precognition,Starship Operation (Ultralight)	PRESKILL:2,Concentration,Pilot=10
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psychic Pilot	STARTSKILLPTS:2	CSKILL:Bluff|Computer Use|Concentration|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Pilot|Sense Motive|Spot
+1	SA:Zen Piloting
+2						BONUS:VAR|Psyche|CL/2
+3	SA:Empathic Dog Fighting
+5	SA:Empathic Evasion

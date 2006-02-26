@@ -1,0 +1,102 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Bard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive
+
+# Class Name	Class Skill
+CLASS:Cleric.MOD	CSKILL:Drive|Perform
+
+# Class Name	Class Skill
+CLASS:Fighter.MOD	CSKILL:Drive|Perform
+
+# Class Name	Class Skill
+CLASS:Paladin.MOD	CSKILL:Drive
+
+# Class Name	Class Skill
+CLASS:Ranger.MOD	CSKILL:Drive
+
+# Class Name	Class Skill
+CLASS:Rogue.MOD	CSKILL:Drive|Perform
+
+# Class Name		Multiple Requirements		Required Skill														Required Stat
+#CLASS:Sorcerer.MOD	PREMULT:1,[PRELEVELMAX:1	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESKILL:2,Alchemy,Knowledge (Astronomy)=2]	PRESTAT:1,INT=12],[PRELEVEL:2
+
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Sorcerer.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|TYPE.Knowledge|Perform
+
+# Class Name	Multiple Requirements		Required Skill														Required Stat
+#CLASS:Wizard.MOD	PREMULT:1,[PRELEVELMAX:1	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESKILL:2,Alchemy,Knowledge (Astronomy)=2]	PRESTAT:1,INT=12],[PRELEVEL:2
+
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Wizard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|Perform
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|floor((CL+2)*2/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Sport	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Constant Training	SA:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT(TYPE=Athlete)
+4																			ADD:FEAT(TYPE=Athlete)
+7																			ADD:FEAT(TYPE=Athlete)
+10																			ADD:FEAT(TYPE=Athlete)
+13																			ADD:FEAT(TYPE=Athlete)
+16																			ADD:FEAT(TYPE=Athlete)
+19																			ADD:FEAT(TYPE=Athlete)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
+CLASS:Master Celebrity	HD:4		TYPE:PC.Prestige	ABB:MCe		MAXLEVEL:5	SOURCEPAGE:138	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|(CL+4)/3|TYPE=Base.REPLACE
+# Class Name		Required Skill
+CLASS:Master Celebrity	PRESKILL:2,Perform,Sense Motive=10	PRESKILL:1,Bluff=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Innuendo|Intimidate|Perform|TYPE.Profession|Sense Motive
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Dagger|TYPE.Pistol	FEATAUTO:All Automatic Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Make It Look Natural	SA:Eminence
+2	SA:Work the Media
+3	SA:Therefore I Am				BONUS:SKILL|LIST|4	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1
+4	SA:Crossover
+5	SA:Reinvention
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat	Required Skill
+CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:1,Handle Animal=6	PRESKILL:1,Knowledge (Monster Lore)=4	PRESKILL:2,Move Silently,Wilderness Lore=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|Net|Tranquilizer Rifle	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Subdual Specialist	SA:Favored Prey
+2	SA:Scent	SA:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT(Exotic Weapon Proficiency)1
+3	SA:Scentless
+4								BONUS:VAR|EW|1			ADD:FEAT(Exotic Weapon Proficiency)1
+5	SA:Favored Prey
+6	SA:Eyes in the Back of Your Head
+7	SA:Bond With Region
+8								BONUS:VAR|EW|1			ADD:FEAT(Exotic Weapon Proficiency)1
+9	SA:Think Like a Monster
+10	SA:Favored Prey
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=10	PRESKILL:1,Knowledge (Dungeon Crawl)=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Guild DJ	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Knowledge (Dungeon Crawl)|Perform|Sense Motive
+###Block: Proficiencies
+1	FEATAUTO:All Martial Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Mastery %|GDJM	SA:Poker Face	SA:Creature Language	BONUS:VAR|GDJM|(CL+1)/2	DEFINE:GDJM|0	ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)
+2																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)	ADD:FEAT(Skill Focus)1
+3																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)
+4	SA:DJ's Blessing																																			ADD:FEAT(Skill Focus)1
+5																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)
+6																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)	ADD:FEAT(Skill Focus)1
+7																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)
+8																																						ADD:FEAT(Skill Focus)1
+9																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)
+10																		ADD:LANGUAGE(Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon)	ADD:FEAT(Skill Focus)1

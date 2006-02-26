@@ -1,0 +1,47 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# Original entry by: Ratheof Blithwyn
+
+###Block: Proficiencies
+# Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
+Devoted Illusionist Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+
+###Block: Hidden feats: Discipline mastery for the Devoted Illusionist
+# Feat Name				Type				Visible	Required Class				Special Ability
+IllusionMasteryAvoidance	TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Avoidance
+IllusionMasteryDeception	TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Deception
+IllusionMasteryDisguise		TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Disguise
+IllusionMasteryFascination	TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Fascination
+IllusionMasteryInvisibility	TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Invisibility
+IllusionMasteryMessage		TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Message
+IllusionMasteryShadow		TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Shadow
+IllusionMasteryTerror		TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery Terror
+IllusionMasteryTrueIllusion	TYPE:IllusionMastery	VISIBLE:NO	PRECLASS:1,Devoted Illusionist=1	SA:Discipline Mastery True Illusion
+
+
+###Block: Hidden feats: Special abilities for the Master of the Ruse
+# Feat Name			Type						Visible	Required Class				Special Ability
+Artful Diversion		TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1	SA:Artful Diversion
+Exploit Distractions	TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1	SA:Exploit Distractions
+Artful Feint		TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1	SA:Artful Feint
+Disrupt Concentration	TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1	SA:Disrupt Concentration
+Enhanced Likeness		TYPE:MasterRuseSpecialAbilities	VISIBLE:NO	PRECLASS:1,Master of the Ruse=1	SA:Enhanced Likeness
+
+###Block: Hidden feats: Hue for the Mind Master
+# Feat Name	Type				Visible	Required Class			Special Ability
+Squamous	TYPE:MindMasterHue	VISIBLE:NO	PRECLASS:1,Mind Master=1	SA:Hue (Squamous)
+Octarine	TYPE:MindMasterHue	VISIBLE:NO	PRECLASS:1,Mind Master=1	SA:Hue (Octarine)
+Shriek	TYPE:MindMasterHue	VISIBLE:NO	PRECLASS:1,Mind Master=1	SA:Hue (Shriek)
+Pristine	TYPE:MindMasterHue	VISIBLE:NO	PRECLASS:1,Mind Master=1	SA:Hue (Pristine)
+Shine		TYPE:MindMasterHue	VISIBLE:NO	PRECLASS:1,Mind Master=1	SA:Hue (Shine)
+Maddening	TYPE:MindMasterHue	VISIBLE:NO	PRECLASS:1,Mind Master=1	SA:Hue (Maddening)
+
+
+###Block: Hidden feats: Special abilities for the Unseen Master
+# Feat Name			Type						Visible	Required Class			Special Ability
+Extra Invisibilty		TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2	SA:Extra Invisibilty
+Greater Invisibilty	TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2	SA:Greater Invisibilty
+Invisible Familiar	TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2	SA:Invisible Familiar
+Scentless			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2	SA:Scentless
+Silent			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2	SA:Silent
+Unseen Eye			TYPE:UnseenMasterSpecialAbility	VISIBLE:NO	PRECLASS:1,Unseen Master=2	SA:Unseen Eye

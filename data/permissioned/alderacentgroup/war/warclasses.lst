@@ -1,0 +1,345 @@
+# CVS $Revision: 1.18 $ $Author: tir-gwaith $ -- Wed Dec 14 14:16:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Alderac Entertainment Group - War|SOURCESHORT:War|SOURCEWEB:http://alderac.com/d20
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																				Combat bonus
+CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2|PRECLASS:1,Beast Handler=3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat										Required Skill
+CLASS:Beast Handler	PREATT:4	PREFEAT:2,Exotic Weapon Proficiency (Whip),Skill Focus (Handle Animal)	PRESKILL:1,Handle Animal=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL	SPELLLIST:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Alley II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1							SA:Ward Animal
+2	CAST:0		KNOWN:2		SA:Animal Training (% total)|AnimalTraining	BONUS:VAR|AnimalTraining|CL-1	DEFINE:AnimalTraining|0
+3	CAST:1		KNOWN:3
+4	CAST:2,0		KNOWN:3,2
+5	CAST:3,1		KNOWN:4,3		SA:Rally Beast
+6	CAST:3,2		KNOWN:4,3
+7	CAST:3,2,0		KNOWN:4,4,2
+8	CAST:3,3,1		KNOWN:4,4,3
+9	CAST:3,3,2		KNOWN:4,4,3
+10	CAST:3,3,2,0	KNOWN:4,4,3,2	SA:Special Mount
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Brute		HD:10		TYPE:PC.Prestige	ABB:Brt		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat				Required Skill
+CLASS:Brute		PREATT:7	PREFEAT:2,Power Attack,Toughness	PRESKILL:1,Intimidate=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Brute		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Ride|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Improved Power Attack										FEATAUTO:Toughness
+2	SA:Battle Cry %/day|BattleCry	BONUS:VAR|BattleCry|(CL+2)/4	DEFINE:BattleCry|0
+3	SA:Shield Breaker
+4															FEATAUTO:Toughness
+5	SA:Relentless Assault
+6	SA:Onslaught
+7															FEATAUTO:Toughness
+8	SA:Batter Foe
+9	SA:Batter Steel
+10	SA:Brutal Assault
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	ABB:ETr		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat				Required Race		Required Skill
+CLASS:Elf Treerunner	PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Wilderness Lore=4	PRESKILL:2,Jump,Balance=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Swim|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1									SA:Treewalking (Ex)
+2									SA:Trackless Step
+3					SA:.CLEAR.Treewalking	SA:Treewalking (Su)
+4									SA:Speak with Plants %/day|SpeakPlants	BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
+5									SA:Arboreal Ally (Su)
+6									SA:Arboreal Ambush (Su)
+7	VISION:Darkvision (60')
+8									SA:Arboreal Gate (1d6 rounds)
+9					SA:.CLEAR.Arboreal Gate	SA:Arboreal Gate (1d4 rounds)
+10					SA:.CLEAR.Arboreal Gate	SA:Arboreal Gate (1 round)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Prohibited Class		Required Feat						Required Skill
+CLASS:Epic Athlete	PREATT:5	!PRECLASS:1,Monk=1	PREFEAT:3,Improved Unarmed Strike,Run,Toughness	PRESKILL:1,Jump=8	PRESKILL:2,Balance,Tumble=4	PRESKILL:2,Climb,Swim=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|Perform|Ride|Spot|Swim|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+###Block: Normal Level Progression
+1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																																									BONUS:SKILL|STAT=CHA|2|TYPE=Competence
+2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																							BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:Far Throw
+4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SA:Grappler
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:HD|MIN|2
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																								BONUS:SKILL|Jump|4|TYPE=Competence
+7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Giant Killer
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Bear Hug																	BONUS:HD|MIN|1
+9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Hearty Constitution
+10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Immunity to disease and poison	SA:Regeneration (Ex) % HP/ Hour|Regen	BONUS:VAR|Regen|max(CON,0)																													DEFINE:Regen|0
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat			Maximum Size
+CLASS:Footman	PREATT:3	PREFEAT:2,Dodge,Expertise	PRESIZELTEQ:S
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Footman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|TYPE.Profession|Ride|Swim|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Shield Ally	SA:Support Ally	SA:Coordinated Strike +%|Coordinated	DEFINE:Coordinated|(CL+1)/2
+2	SA:Protect Ally
+4	SA:Defend Ally
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Gutter Fighter	HD:10		TYPE:PC.Prestige	ABB:Gtr		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat			Maximum Size	Required Skill
+CLASS:Gutter Fighter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:1,Weapon Finesse	PRESIZELTEQ:S	PRESKILL:2,Intimidate,Hide=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Gutter Fighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Pick Pocket|TYPE.Profession|Search|Spot|Swim|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Dirty Blow
+2	SA:Strike and Fade
+3					BONUS:VAR|SneakAttack|CL/3									FEATAUTO:Sneak Attack
+4										BONUS:COMBAT|AC|1|TYPE=Dodge|PREFEAT:1,Dodge	FEATAUTO:Dodge
+5	SA:Scaling the Mountain
+6										BONUS:COMBAT|AC|CL/3|TYPE=NaturalArmor.REPLACE
+7	SA:Hobbling Strike
+8					BONUS:VAR|UncannyDodge|1									FEATAUTO:Uncanny Dodge
+10	SA:Agonizing Strike
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Knight Chaplain	HD:8		TYPE:PC.Prestige	ABB:KCh		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat			Required Skill
+CLASS:Knight Chaplain	PREATT:5	PREFEAT:1,Skill Focus(Heal)	PRESKILL:2,Concentration,Heal=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Knight Chaplain	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Listen|Ride|Search|Spot
+# Class Name		Spell Stat		Spell Type		Memorize		Caster level
+CLASS:Knight Chaplain	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLEVEL|Knight Chaplain|CL
+###Block: Spell List
+1	SPELLLEVEL:CLASS|Knight Chaplain=0|Create Water,Cure Minor Wounds,Detect Poison,Light,Mage Hand,Mending,Resistance
+1	SPELLLEVEL:CLASS|Knight Chaplain=1|Alarm,Bless,Cure Light Wounds,Deathwatch,Enlarge,Entropic Shield,Expeditious Retreat,Message,Obscuring Mist,Reduce,Sanctuary,Shield,Unseen Servant
+1	SPELLLEVEL:CLASS|Knight Chaplain=2|Aid,Blur,Calm Emotions,Cure Moderate Wounds,Delay Poison,Endurance,Gentle Repose,Lesser Restoration,Protection from Arrows,Remove Paralysis,Shield Other,Whispering Wind
+1	SPELLLEVEL:CLASS|Knight Chaplain=3|Create Food and Water,Cure Serious Wounds,Displacement,Fly,Negative Energy Protection,Remove Blindness/Deafness,Remove Disease,Slow,Speak with Dead
+1	SPELLLEVEL:CLASS|Knight Chaplain=4|Cure Critical Wounds,Death Ward,Freedom of Movement,Locate Creature,Minor Globe of Invulnerability,Neutralize Poison,Status
+1	SPELLLEVEL:CLASS|Knight Chaplain=5|Break Enchantment,Healing Circle,Prying Eyes,Raise Dead,Remove Curse,Sending,Spell Resistance
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Protection
+1	CAST:3,1										FEATAUTO:Combat Casting|Skill Focus(Concentration)
+2	CAST:4,2		SA:Healing Focus
+3	CAST:4,2,1						ADD:FEAT(TYPE=Fighter)
+4	CAST:5,3,2		SA:Field Medic
+5	CAST:5,3,2,1	SA:Healing Under Fire
+6	CAST:5,3,3,2					ADD:FEAT(TYPE=Fighter)
+7	CAST:6,4,3,2,1	SA:Healing Touch
+8	CAST:6,4,3,3,2	SA:Last Rites (Su)
+9	CAST:6,4,4,3,2,1					ADD:FEAT(TYPE=Fighter)
+10	CAST:6,4,4,3,3,2	SA:Combat Healing
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Lancer	HD:10		TYPE:PC.Prestige	ABB:Lnc		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat																											Required Skill
+CLASS:Lancer	PREATT:6	PREFEAT:1,Weapon Focus(Longspear),Weapon Focus(Glaive),Weapon Focus(Guisarme),Weapon Focus(Ranseur),Weapon Focus(Lance%)	PREFEAT:3,Dodge,Mobility,Skill Focus(Jump)	PRESKILL:2,Jump,Tumble=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lancer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1	SA:Close Combat
+2	SA:Pole-Vault
+3	SA:Extra Critical +%|ExtraCritical	DEFINE:ExtraCritical|(CL+2)/5
+4	SA:Defensive Spin
+5	SA:Extended Reach
+6	SA:Set for Blood
+7	SA:Double Attack									VFEAT:Ambidexterity|Two-Weapon Fighting
+9	SA:Spearpoint
+10	SA:Spin Attack
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Mercenary Captain	HD:10		TYPE:PC.Prestige	ABB:MCp		MAXLEVEL:10	SOURCEPAGE:p.67	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL+2)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat											Required Skill
+CLASS:Mercenary Captain	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:4,Improved Initiative,Leadership,Weapon Focus,Weapon Specialization	PRESKILL:1,Intimidate=6	PRESKILL:3,Bluff,Ride,Sense Motive=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mercenary Captain	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Innuendo|Intimidate|Listen|Perform|Ride|Search|Sense Motive|Spot
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Grizzled	SA:War Cry
+2	SA:Attack Drill %/day|Drill					DEFINE:Drill|CL/2
+3	SA:Battle Music %|BattleMusic	BONUS:VAR|BattleMusic|1	DEFINE:BattleMusic|0
+4	SA:Tactical Superiority
+5						BONUS:VAR|BattleMusic|1
+6	SA:Strategic Mastery
+7	SA:Without Hesitation
+8						BONUS:VAR|BattleMusic|1
+9	SA:Battle Brother
+10	SA:Battle Master
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Rake		HD:6		TYPE:PC.Prestige	ABB:Rak		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Rake		PREATT:4	PREFEAT:1,Expertise	PRESKILL:2,Bluff,Intimidate=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuendo|Intimidate|Jump|Perform|Pick Pocket|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1											BONUS:VAR|SneakAttack|(CL+1)/2					FEATAUTO:Sneak Attack
+2				SA:Taunt (Intimidate)
+3																	ADD:FEAT(TYPE=Fighter)
+4	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage)
+6				SA:Humiliating Strike										ADD:FEAT(TYPE=Fighter)
+8	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun)
+9																	ADD:FEAT(TYPE=Fighter)
+10	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun/Rally)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat
+CLASS:Sharpshooter	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Weapon Focus (Shortbow%),Weapon Focus (Longbow%),Weapon Focus (Crossbow%)	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Sharpshooter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Ride|Swim
+1	SA:Eagle Eye Shot % x DEX|Eagle				DEFINE:Eagle|2
+2	SA:Low-light Vision
+3	SA:Disarming Shot
+4													ADD:FEAT(Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Mounted Archery,Quick Draw,Rapid Shot,Shot on the Run,Weapon Focus)
+5	SA:Stumbling Shot
+6	SA:Intimidating Shot			BONUS:VAR|Eagle|1
+7	SA:Covering Fire
+8													ADD:FEAT(Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Mounted Archery,Quick Draw,Rapid Shot,Shot on the Run,Weapon Focus)
+9	SA:Immobilizing Shot
+10	SA:Killing Shot
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat
+CLASS:Shieldbearer	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Lightning Reflexes
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shieldbearer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Handle Animal|Jump|Ride|Spot|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Shield Another %|ShieldAnother	DEFINE:ShieldAnother|(CL+4)/5
+2												ADD:FEAT(TYPE=Fighter)
+3	SA:Hinder Enemy
+4	SA:Shield Push
+5												ADD:FEAT(TYPE=Fighter)
+6	SA:Stand Ground
+7	SA:Defend
+8	SA:Retributive Strike
+9												ADD:FEAT(TYPE=Fighter)
+10	SA:Fortify
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
+CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Race	Required Skill
+CLASS:Spellbreaker	PREATT:5	PRERACE:Dwarf%	PRESKILL:2,Knowledge (Arcana),Spellcraft=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Knowledge (Arcana)|Ride|Spellcraft|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Neutralize Magic %/day|Neutralize			BONUS:VAR|Neutralize|(CL+1)/2	DEFINE:Neutralize|0
+2	SA:Disrupt Spellcaster
+4	SA:Empty Mind %/day|EmptyMind					BONUS:VAR|EmptyMind|CL/4	DEFINE:EmptyMind|0
+6	SA:Disruptive Strike
+8	SA:Disruptive Fist
+10	SA:Empty Mind (10' radius)	SA:Shattering Strike
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Wandering Squire	HD:10		TYPE:PC.Prestige	ABB:WSq		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat
+CLASS:Wandering Squire	PREATT:5	PREFEAT:3,Dodge,Two-Weapon Fighting,Weapon Focus(Quarterstaff)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Wandering Squire	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Gather Information|Heal|Intimidate|Jump|Listen|TYPE.Profession|Ride|Spot|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Staff Expert															FEATAUTO:Expertise
+2	SA:Stunning Attack %/day|Stun	BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:Stun|1
+3														ADD:FEAT(TYPE=Fighter)
+4	SA:Deflect Arrows
+5						BONUS:COMBAT|AC|1|TYPE=Dodge
+6	SA:Defensive Stance
+7														ADD:FEAT(TYPE=Fighter)
+8						BONUS:COMBAT|AC|1|TYPE=Dodge
+9	SA:Warding Attack
+10	SA:Staff Mastery			BONUS:COMBAT|AC|1|TYPE=Dodge
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Warleader	HD:10		TYPE:PC.Prestige	ABB:Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Warleader	PREATT:6	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Warleader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|Intimidate|TYPE.Profession|Ride|Sense Motive|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Lead Counsel
+2	SA:Inspire Bravery
+3																		ADD:FEAT(TYPE=Fighter)
+4	SA:Concerted Attack
+5												BONUS:STAT|CHA|2
+6																		ADD:FEAT(TYPE=Fighter)
+7	SA:Snap to Attention
+8	SA:Motivate the Troops %/day|Motivate	BONUS:VAR|Motivate|1				DEFINE:Motivate|0
+9								BONUS:VAR|Motivate|1							ADD:FEAT(TYPE=Fighter)
+10	SA:Rally the Troops				BONUS:VAR|Motivate|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Warmage	HD:6		TYPE:PC.Prestige	ABB:WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat									Required Skill									Req. Spell Type
+CLASS:Warmage	PREFEAT:1,TYPE=Metamagic	PREFEAT:2,Combat Casting,Dodge	PRESKILL:1,Concentration=8	PRESKILL:1,Knowledge (Arcana)=6	PRESPELLTYPE:Arcane,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1					SA:Arcane Accuracy +1 / level
+2	ADD:SPELLCASTER(Arcane)	SA:Armored Mage: -% Failure Chance|ArmoredMage	BONUS:VAR|ArmoredMage|5																						DEFINE:ArmoredMage|0
+3																	BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:COMBAT|AC|2|PREFEAT:1,Dodge|TYPE=Dodge
+4	ADD:SPELLCASTER(Arcane)									BONUS:VAR|ArmoredMage|5
+5																														BONUS:SKILL|Concentration|4|TYPE=Competence
+6	ADD:SPELLCASTER(Arcane)									BONUS:VAR|ArmoredMage|5
+7					SA:Dodge Missile Fire +1
+8	ADD:SPELLCASTER(Arcane)									BONUS:VAR|ArmoredMage|5
+9					SA:Arcane Tactician
+10	ADD:SPELLCASTER(Arcane)	SA:Arcane Warrior
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	ABB:Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat					Required Skill										Var. Min. Value
+CLASS:Wild Rider	PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:1,Ride=8	PRESKILL:3,Animal Empathy,Heal,Wilderness Lore=6	PREVARGTEQ:RageTimes,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wild Rider	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|TYPE.Profession|Ride|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Improved Mounted Archery
+2	SA:Inspired Horsemanship
+3	SA:Wild Rider
+4	SA:Furious Fire
+5	SA:Spirited Mount +%HD|Spirited	DEFINE:Spirited|(CL-1)/4
+6	SA:Incite Rage
+7	SA:Exotic Mount %|ExoticMount		DEFINE:ExoticMount|(CL-4)/3
+8	SA:Ride Like the Wind
+10	SA:Ferocious Charge

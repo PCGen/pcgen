@@ -1,0 +1,18 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Mar 18 13:59:18 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+#Potion Name			Output name			Type			Cost		Weight		Sourcepage
+# Equipment Name				Output Name				Type					Cost		Weight	Source Page
+Potion (True Filch)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.53
+Potion (Detect Traps)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.53
+Potion (Distraction)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:25	WT:0		SOURCEPAGE:p.56
+Potion (Invisible Object)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.56
+
+#Scroll name				Type				Cost		Weight		Source Page
+Scroll (True Filch)								TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:p.53
+Scroll (Detect Traps)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.53
+Scroll (Greater Knock)								TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.54
+Scroll (Distraction)								TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.56
+Scroll (Invisible Object)							TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.56
+Scroll (Flesh To Shaped Stone)						TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.155

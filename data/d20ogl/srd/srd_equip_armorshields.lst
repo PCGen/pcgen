@@ -1,0 +1,50 @@
+# CVS $Revision: 1.21 $ $Author: eddyanthony $ -- Sat Dec 10 00:12:16 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+#Light Weight -------------------------------------------------------------------------------------------------------------
+# Equipment Name		Output Name				Required Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier	Nb Hands	Maximum DEX Bonus	Source Page				% of Spell Failure	Combat bonus																					Special Property
+Padded												TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:5	WT:10		ACCHECK:0						MAXDEX:8		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Leather												TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:10	WT:15		ACCHECK:0						MAXDEX:6		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Studded Leather											TYPE:Armor.Light.Suit.Standard		COST:25	WT:20		ACCHECK:-1		EQMOD:STEEL			MAXDEX:5		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Chain Shirt												TYPE:Armor.Light.Suit.Standard		COST:100	WT:25		ACCHECK:-2		EQMOD:STEEL			MAXDEX:4		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+
+#Medium Weight ---------------------------------------------------------------------------			----------------------------------
+Hide													TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:15	WT:25		ACCHECK:-3						MAXDEX:4		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Scale Mail												TYPE:Armor.Medium.Suit.Standard		COST:50	WT:30		ACCHECK:-4		EQMOD:STEEL			MAXDEX:3		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Chainmail												TYPE:Armor.Medium.Suit.Standard		COST:150	WT:40		ACCHECK:-5		EQMOD:STEEL			MAXDEX:2		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Breastplate												TYPE:Armor.Medium.Suit.Standard		COST:200	WT:30		ACCHECK:-4		EQMOD:STEEL			MAXDEX:3		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+
+#Heavy Weight ----------------------------------------------------------------------------			---------------------------------
+Splint Mail												TYPE:Armor.Heavy.Suit.Standard		COST:200	WT:45		ACCHECK:-7		EQMOD:STEEL			MAXDEX:0		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Banded Mail												TYPE:Armor.Heavy.Suit.Standard		COST:250	WT:35		ACCHECK:-6		EQMOD:STEEL			MAXDEX:1		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Half-Plate												TYPE:Armor.Heavy.Suit.Standard		COST:600	WT:50		ACCHECK:-7		EQMOD:STEEL			MAXDEX:0		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Full Plate												TYPE:Armor.Heavy.Suit.Standard		COST:1500	WT:50		ACCHECK:-6		EQMOD:STEEL			MAXDEX:1		SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+
+#Shields ---------------------------------------------------------------------------------			----------------------------
+Buckler								PROFICIENCY:Shield	TYPE:Shield.Buckler.Standard			COST:15	WT:5		ACCHECK:-1		EQMOD:STEEL	HANDS:0				SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Shield (Small/Metal)	OUTPUTNAME:Shield, Small	PROFICIENCY:Shield	TYPE:Shield.Light.Standard			COST:9	WT:6		ACCHECK:-1		EQMOD:STEEL						SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Shield (Small/Wood)	OUTPUTNAME:Shield, Small	PROFICIENCY:Shield	TYPE:Shield.Light.Standard			COST:3	WT:5		ACCHECK:-1		EQMOD:WOOD						SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Shield (Large/Metal)	OUTPUTNAME:Shield, Large	PROFICIENCY:Shield	TYPE:Shield.Heavy.Standard			COST:20	WT:15		ACCHECK:-2		EQMOD:STEEL						SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Shield (Large/Wood)	OUTPUTNAME:Shield, Large	PROFICIENCY:Shield	TYPE:Shield.Heavy.Standard			COST:7	WT:10		ACCHECK:-2		EQMOD:WOOD						SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Shield (Tower/Wood)	OUTPUTNAME:Shield, Tower	PROFICIENCY:Shield	TYPE:Shield.Standard.Nonmetal			COST:30	WT:45		ACCHECK:-10		EQMOD:WOOD						SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:50																									SPROP:Tower shields grant cover
+
+###Block: Barding
+#Medium Weight ---------------------------------------------------------------------------			--------------------------------
+# Equipment Name			Type									Cost		Weight	AC Penalty Check	Modifier	Maximum DEX Bonus	Source Page				% of Spell Failure	Combat bonus
+Barding (Padded)			TYPE:Armor.Light.Standard.Nonmetal.Barding.Mount	COST:10	WT:10		ACCHECK:0				MAXDEX:8		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Barding (Leather)			TYPE:Armor.Light.Standard.Nonmetal.Barding.Mount	COST:20	WT:15		ACCHECK:0				MAXDEX:6		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Barding (Studded Leather)	TYPE:Armor.Light.Standard.Barding.Mount			COST:50	WT:20		ACCHECK:-1		EQMOD:STEEL	MAXDEX:5		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Barding (Chain Shirt)		TYPE:Armor.Light.Standard.Barding.Mount			COST:200	WT:25		ACCHECK:-2		EQMOD:STEEL	MAXDEX:4		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+
+#Medium Weight ---------------------------------------------------------------------------			----------------------------------
+Barding (Hide)			TYPE:Armor.Medium.Standard.Nonmetal.Barding.Mount	COST:30	WT:25		ACCHECK:-3				MAXDEX:4		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Barding (Scale Mail)		TYPE:Armor.Medium.Standard.Barding.Mount			COST:100	WT:30		ACCHECK:-4		EQMOD:STEEL	MAXDEX:3		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Barding (Chainmail)		TYPE:Armor.Medium.Standard.Barding.Mount			COST:300	WT:40		ACCHECK:-5		EQMOD:STEEL	MAXDEX:2		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Barding (Breastplate)		TYPE:Armor.Medium.Standard.Barding.Mount			COST:400	WT:30		ACCHECK:-4		EQMOD:STEEL	MAXDEX:3		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+
+#Heavy Weight ----------------------------------------------------------------------------			---------------------------------
+Barding (Splint Mail)		TYPE:Armor.Heavy.Standard.Barding.Mount			COST:400	WT:45		ACCHECK:-7		EQMOD:STEEL	MAXDEX:0		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Barding (Banded Mail)		TYPE:Armor.Heavy.Standard.Barding.Mount			COST:500	WT:35		ACCHECK:-6		EQMOD:STEEL	MAXDEX:1		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Barding (Half-Plate)		TYPE:Armor.Heavy.Standard.Barding.Mount			COST:1200	WT:50		ACCHECK:-7		EQMOD:STEEL	MAXDEX:0		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Barding (Full Plate)		TYPE:Armor.Heavy.Standard.Barding.Mount			COST:3000	WT:50		ACCHECK:-6		EQMOD:STEEL	MAXDEX:1		SOURCEPAGE:SRDEquipmentII.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+

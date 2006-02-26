@@ -1,0 +1,7 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops|SOURCESHORT:Backdrops|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+#Original Entry by: Tir Gwaith
+
+# Race Name				Output Name						Size		Move			Face/Space	Reach		Vision		Required AL	Save checks bonus																		Combat bonus																Bonus to skill rank																Stat bonus																		Racial HD Class Skills						Feat			Nb Legs	Natural Attacks									Special Ability																HITDICE	MONSTERCLASS		Type		CR	Source Page
+Horse (Light Noble/Kuzyaka)	OUTPUTNAME:Kuzyaka (Light Noble Horse)	SIZE:L	MOVE:Walk,60	FACE:5,10	REACH:5	VISION:Low-light	PREALIGN:TN	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|3|PREDEFAULTMONSTER:Y	BONUS:CHECKS|BASE.Willpower|1|PREDEFAULTMONSTER:Y	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|2|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE	BONUS:SKILLRANK|Intuit Direction|3|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Listen,Spot|5|PREDEFAULTMONSTER:Y	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:STAT|CON|15|	BONUS:STAT|INT|-6	BONUS:STAT|WIS|4	BONUS:STAT|CHA|2	MONCSKILL:Intuit Direction|Listen|Spot|Sense Motive	FEAT:Iron Will	LEGS:4	NATURALATTACKS:Hooves,Weapon.Natural.Melee.Bludgeoning,*1,1d4	SA:Discern Lies (Sp)	SA:Scent (Ex)	SA:+8 racial bonus on Sense Motive checks to detect enchantment.	HITDICE:3,8	MONSTERCLASS:Animal:3	TYPE:Animal	CR:1	SOURCEPAGE:p.31
+

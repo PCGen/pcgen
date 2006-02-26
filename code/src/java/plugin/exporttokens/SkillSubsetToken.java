@@ -1,0 +1,138 @@
+/*
+ * SkillToken.java
+ * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on Aug 5, 2004
+ *
+ * $Id: SkillSubsetToken.java,v 1.7 2006/02/07 15:40:51 karianna Exp $
+ *
+ */
+package plugin.exporttokens;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.SkillToken;
+import pcgen.util.Logging;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * <code>SkillSubsetToken</code> outputs the value of the Skill at
+ * position x in a subset of character's skill list. The format
+ * for this tag is SKILLSUBSET.pos.subname.property
+ * eg SKILLSUBSET.2.KNOWLEDGE.RANK
+ *
+ * Last Editor: $Author: karianna $
+ * Last Edited: $Date: 2006/02/07 15:40:51 $
+ *
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision: 1.7 $
+ */
+
+// SKILLSUBSET
+public class SkillSubsetToken extends SkillToken
+{
+	/** token name */
+	public static final String TOKEN_NAME = "SKILLSUBSET";
+
+	/**
+	 * @see pcgen.io.exporttoken.Token#getTokenName()
+	 */
+	public String getTokenName()
+	{
+		return TOKEN_NAME;
+	}
+
+	/**
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 */
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+		SkillDetails details = buildSkillDetails(tokenSource);
+
+		if (details.getProperties().length < 2)
+		{
+			return "";
+		}
+
+		Skill aSkill = getSkill(tokenSource, pc, details, eh);
+
+		return getSkillProperty(aSkill, details.getProperties()[1], pc);
+	}
+
+	/**
+	 * Select the target skill based on the supplied critieria. Searches
+	 * through the characters skill list selecting those that start with
+	 * the value in details.properties[0] and then uses the index in
+	 * details.skillId to select the skill.
+	 *
+	 * @param tokenSource The token being processed. Used for error reporting.
+	 * @param pc The character being processed.
+	 * @param details The parsed details of the token.
+	 * @param eh The ExportHandler
+	 * @return The matching skill, or null if none match.
+	 */
+	private Skill getSkill(String tokenSource, PlayerCharacter pc,
+		SkillDetails details, ExportHandler eh)
+	{
+		int skillIndex;
+
+		// Get the index
+		try
+		{
+			skillIndex = Integer.parseInt(details.getSkillId());
+		}
+		catch (NumberFormatException exc)
+		{
+			Logging.errorPrint("Error replacing SKILLSUBSET." + tokenSource,
+				exc);
+			return null;
+		}
+
+		// Build the list of matching skills
+		String skillPrefix = details.getProperties()[0].toUpperCase();
+		List skillSubset = new ArrayList();
+		for (Iterator iter = pc.getSkillListInOutputOrder(
+			pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY)).iterator(); iter
+			.hasNext();)
+		{
+			Skill bSkill = (Skill) iter.next();
+
+			if (bSkill.getName().toUpperCase().startsWith(skillPrefix))
+			{
+				skillSubset.add(bSkill);
+			}
+		}
+
+		// Select the skill
+		if ((skillIndex >= (skillSubset.size() - 1)) && eh != null
+			&& eh.getExistsOnly())
+		{
+			eh.setNoMoreItems(true);
+		}
+
+		Skill aSkill = null;
+		if (skillIndex <= (skillSubset.size() - 1))
+		{
+			aSkill = (Skill) skillSubset.get(skillIndex);
+		}
+		return aSkill;
+	}
+}

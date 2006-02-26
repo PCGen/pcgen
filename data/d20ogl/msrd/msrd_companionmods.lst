@@ -1,0 +1,33 @@
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Thu Oct 14 23:10:58 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block:Familiar
+# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP		USEMASTERSKILL		Special Ability									Define						Combat bonus						SWITCHRACE
+FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast
+FOLLOWER:FMLevel=3	TYPE:Familiar																			SA:Deliver touch spells								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=5	TYPE:Familiar																			SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=7	TYPE:Familiar																			SA:Speak with animals of its kind						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=9	TYPE:Familiar																														DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																													DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																		SA:Scry on familiar								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																													DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																													DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																													DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
+#
+
+###Block:Familiar Bonuses to Master
+# Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Bat			TYPE:Familiar										BONUS:SKILL|Listen|3
+MASTERBONUSRACE:Cat			TYPE:Familiar										BONUS:SKILL|Move Silently|3
+MASTERBONUSRACE:Ferret			TYPE:Familiar	BONUS:CHECKS|Reflex|2
+MASTERBONUSRACE:Hawk			TYPE:Familiar															VFEAT:Hawk Familiar Bonuses
+MASTERBONUSRACE:Owl			TYPE:Familiar															VFEAT:Owl Familiar Bonuses
+MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2
+MASTERBONUSRACE:Snake (Tiny/Viper)	TYPE:Familiar										BONUS:SKILL|Bluff|3
+MASTERBONUSRACE:Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3
+#

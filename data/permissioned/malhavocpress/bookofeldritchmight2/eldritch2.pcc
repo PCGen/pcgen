@@ -1,0 +1,39 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Tue Jun  4 18:21:03 2002 -- reformated by prettylst.pl v1.13
+CAMPAIGN:MP - Book of Eldritch Might II - Source Book
+GAMEMODE:3e
+TYPE:Malhavoc Press.Supplement
+RANK:9
+SOURCELONG:Malhavoc Press - Book of Eldritch Might II
+SOURCESHORT:BoEM2
+SOURCEWEB:http://www.montecook.com
+ISOGL:YES
+ISLICENSED:YES
+LICENSE:Proper names from The Book of Eldritch Might II are ©2001-2004 Monte J. Cook and are used here with his permission.
+INFOTEXT:Proper names from The Book of Eldritch Might II are ©2001-2004 Monte J. Cook and are used here with his permission.
+COPYRIGHT:The Book of Eldritch Might Copyright 2002, 2001 Monte J. Cook. All rights reserved.
+COPYRIGHT:The Book of Eldritch Might II: Songs and Souls of Power Copyright 2002, 2001 Monte J. Cook. All rights reserved.
+COPYRIGHT:The Banewarrens Copyright 2002, 2001 Monte J. Cook. All rights reserved.
+COPYRIGHT:Requiem for a God Copyright 2002, 2001 Monte J. Cook. All rights reserved.
+COPYRIGHT:The Book of Eldritch Might III: The Nexus Copyright 2002, 2001 Monte J. Cook. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for Book of Eldritch Might II: Songs and Souls of Power Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+
+INFOTEXT:This set uses Spells from the Book of Eldritch Might which should be loaded with this set for full functionality
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+# Missing Monsters
+
+CLASS:eldritch2classes.lst
+DEITY:eldritch2deities.lst
+DOMAIN:eldritch2domain.lst
+EQUIPMOD:eldritch2equipmods.lst
+EQUIPMENT:eldritch2equiprings.lst
+EQUIPMENT:eldritch2equiprodstaffwands.lst
+EQUIPMENT:eldritch2equipwondrousitems.lst
+FEAT:eldritch2feats.lst
+SPELL:eldritch2spells.lst
+
+# For the Evasion and Improved Evasion pseudo-feats
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion)

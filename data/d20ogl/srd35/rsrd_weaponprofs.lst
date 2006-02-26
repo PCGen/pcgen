@@ -1,0 +1,111 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Fri May  7 21:03:41 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: abernat
+
+# The crossbows can all be fired 1-handed at a penalty. We should do something about this.
+
+# Laid out to match RSRD ordering
+# Weapon Name			Type			Nb Hands
+# SIMPLE WEAPONS
+# -- unarmed
+# Weapon Name			Type			Nb Hands
+Gauntlet				TYPE:Simple
+Unarmed Strike			TYPE:Simple
+
+#Spells(Energy Missile)		TYPE:Simple
+Spells(Ray)				TYPE:Simple
+#Spells(Touch)			TYPE:Simple
+
+
+# -- light melee
+Dagger				TYPE:Simple
+Dagger (Punching)			TYPE:Simple
+Gauntlet (Spiked)			TYPE:Simple
+Mace (Light)			TYPE:Simple
+Sickle				TYPE:Simple
+# -- 1-handers
+Club					TYPE:Simple
+Mace (Heavy)			TYPE:Simple
+Morningstar				TYPE:Simple
+Shortspear				TYPE:Simple
+# -- 2-handers
+Longspear				TYPE:Simple		HANDS:2
+Quarterstaff			TYPE:Simple		HANDS:2
+Spear					TYPE:Simple		HANDS:2
+# -- Ranged
+Crossbow (Heavy)			TYPE:Simple		HANDS:2
+Crossbow (Light)			TYPE:Simple		HANDS:2
+Dart					TYPE:Simple
+Javelin				TYPE:Simple
+Sling					TYPE:Simple
+
+# MARTIAL
+# -- light
+Axe (Throwing)			TYPE:Martial
+Hammer (Light)			TYPE:Martial
+Handaxe				TYPE:Martial
+Kukri					TYPE:Martial
+Pick (Light)			TYPE:Martial
+Sap					TYPE:Martial
+Shieldbash (Light)		TYPE:Martial
+Spiked Armor			TYPE:Martial
+Sword (Short)			TYPE:Martial
+
+# 1-handers
+Battleaxe				TYPE:Martial
+Flail					TYPE:Martial
+Longsword				TYPE:Martial
+Pick (Heavy)			TYPE:Martial
+Rapier				TYPE:Martial
+Scimitar				TYPE:Martial
+Shieldbash (Heavy)		TYPE:Martial
+Trident				TYPE:Martial
+Warhammer				TYPE:Martial
+
+# 2-handers
+Falchion				TYPE:Martial	HANDS:2
+Glaive				TYPE:Martial	HANDS:2
+Greataxe				TYPE:Martial	HANDS:2
+Greatclub				TYPE:Martial	HANDS:2
+Flail (Heavy)			TYPE:Martial	HANDS:2
+Greatsword				TYPE:Martial	HANDS:2
+Guisarme				TYPE:Martial	HANDS:2
+Halberd				TYPE:Martial	HANDS:2
+Lance					TYPE:Martial	HANDS:2
+Ranseur				TYPE:Martial	HANDS:2
+Scythe				TYPE:Martial	HANDS:2
+Sword (Bastard/Martial)		TYPE:Martial	HANDS:2
+Waraxe (Dwarven/Martial)	TYPE:Martial	HANDS:2
+
+# --ranged
+Longbow				TYPE:Martial	HANDS:2
+Shortbow				TYPE:Martial	HANDS:2
+
+# EXOTIC
+# -- light
+Kama					TYPE:Exotic
+Nunchaku				TYPE:Exotic
+Sai					TYPE:Exotic
+Siangham				TYPE:Exotic
+
+
+# -- 1-handers
+Sword (Bastard/Exotic)		TYPE:Exotic
+Waraxe (Dwarven/Exotic)		TYPE:Exotic
+Whip					TYPE:Exotic
+
+# -- 2-handers
+Axe (Orc Double)			TYPE:Exotic		HANDS:2
+Chain (Spiked)			TYPE:Exotic		HANDS:2
+Flail (Dire)			TYPE:Exotic		HANDS:2
+Hammer (Gnome Hooked)		TYPE:Exotic		HANDS:2
+Sword (Two-Bladed)		TYPE:Exotic		HANDS:2
+Urgrosh (Dwarven)			TYPE:Exotic		HANDS:2
+
+# -- ranged
+Bolas					TYPE:Exotic
+Crossbow (Hand)			TYPE:Exotic
+Crossbow (Repeating Heavy)	TYPE:Exotic		HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic		HANDS:2
+Net					TYPE:Exotic		HANDS:2
+Shuriken				TYPE:Exotic

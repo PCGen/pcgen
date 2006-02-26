@@ -1,0 +1,27 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Fri Apr  8 22:19:48 2005 -- reformated by prettylst.pl v1.35 (build 469)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+# Static Charge Attacks
+# Equipment Name	Required Proficiency		Type					Cost		Weight	Critical Hit Range	Fumble Range	Damage		Nb Hands	Range		Size		Source Page		Special Property
+Lightning Attack	PROFICIENCY:Static Charge	TYPE:Psionic.Weapon.Ranged	COST:0	WT:0		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:2d4		HANDS:0	RANGE:25	SIZE:T	SOURCEPAGE:p.185	SPROP:+%d4 Damage|PSIONLEVEL/3
+Scramble Attack	PROFICIENCY:Static Charge	TYPE:Psionic.Weapon.Ranged	COST:0	WT:0		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:Special	HANDS:0	RANGE:5	SIZE:T	SOURCEPAGE:p.185	SPROP:target must make a Will save (DC %) or be unable to act for 1d3 rounds|PSIONLEVEL+10
+
+#Cryokinesis Attacks
+Ice Attack		PROFICIENCY:Cryokinesis		TYPE:Psionic.Weapon.Ranged	COST:0	WT:0		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:2d4		HANDS:0	RANGE:15	SIZE:T	SOURCEPAGE:p.185	SPROP:+%d4+% Damage|PSIONLEVEL/2|CHA
+
+#Photokinesis Attacks
+Laser Attack	PROFICIENCY:Photokinesis	TYPE:Psionic.Weapon.Ranged	COST:0	WT:0		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:2d4		HANDS:0	RANGE:30	SIZE:T	SOURCEPAGE:p.186	SPROP:+%d4+% Damage|PSIONLEVEL/2|WIS
+
+#Pyrokinesis Attacks
+Fire Attack		PROFICIENCY:Pyrokinesis		TYPE:Psionic.Weapon.Ranged	COST:0	WT:0		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:2d6		HANDS:0	RANGE:10	SIZE:T	SOURCEPAGE:p.187	SPROP:+%d6+% Damage|PSIONLEVEL/2|CHA
+
+#Poltergeist Attacks
+Debris Attack	PROFICIENCY:Poltergeist		TYPE:Psionic.Weapon.Ranged	COST:0	WT:0		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:2d6		HANDS:0	RANGE:20	SIZE:T	SOURCEPAGE:p.185	SPROP:+%d6+% Damage|PSIONLEVEL/3|DEX
+
+#
+# End
+#

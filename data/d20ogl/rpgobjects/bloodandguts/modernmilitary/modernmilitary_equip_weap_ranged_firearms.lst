@@ -1,0 +1,15 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Dec 30 02:55:50 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Equipment Name			Required Proficiency		Type																			Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property				Rate of Fire
+M4/203				PROFICIENCY:M4/203		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile.Double	CONTAINS:1|Bullet=30	COST:20	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 30 box, Mil (+3)	RATEOFFIRE:S,A
+M16/203				PROFICIENCY:M16/203		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile.Double	CONTAINS:1|Bullet=30	COST:20	WT:13		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:80	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 30 box, Mil (+3)	RATEOFFIRE:S,A
+M24 Sniper (7.62mm)		PROFICIENCY:M24 Sniper		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile				CONTAINS:1|Bullet=5	COST:22	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:140	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 5 box, Mil (+3)	RATEOFFIRE:S
+M40A1 Sniper (7.62mm)		PROFICIENCY:M40A1 Sniper	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile				CONTAINS:1|Bullet=5	COST:24	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:160	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 5 box, Mil (+3)	RATEOFFIRE:S
+M1014 (12 gauge Shotgun)	PROFICIENCY:M1014			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile				CONTAINS:1|Bullet=6	COST:18	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:40	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 6 box, Res (+2)	RATEOFFIRE:S
+
+M203					PROFICIENCY:M203			TYPE:Weapon.Ranged.Standard.Firearm.GrenadeLauncher.Container.Exotic								CONTAINS:1|40mm=1		COST:18	WT:6												RANGE:80	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 1 interal, Mil (+3)	RATEOFFIRE:1
+M249 SAW (5.56mm)			PROFICIENCY:M249 SAW		TYPE:Weapon.Ranged.Standard.Ballistic.LMG.Container.Exotic.Projectile								CONTAINS:1|Bullet=100	COST:25	WT:16		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:90	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 100 box, Mil (+3)	RATEOFFIRE:A
+M240 (7.62mm)			PROFICIENCY:M240			TYPE:Weapon.Ranged.Standard.Ballistic.HMG.Container.Exotic.Projectile								CONTAINS:1|Bullet=100	COST:30	WT:28		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:120	SIZE:L	SOURCEPAGE:p.64	SPROP:Linked, Mil (+3)			RATEOFFIRE:A
+Stinger				PROFICIENCY:Stinger		TYPE:Weapon.Ranged.Standard.Ballistic.Missile.Exotic															COST:15	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6	RANGE:150	SIZE:H	SOURCEPAGE:p.64	SPROP:Varies, Mil (+3)			RATEOFFIRE:1

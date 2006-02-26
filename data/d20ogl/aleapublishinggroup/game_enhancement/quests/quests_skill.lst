@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Feb  9 01:12:14 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Quests|SOURCESHORT:Quests|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Profession (Soldier)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.5

@@ -1,0 +1,11 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Equipment Name	Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Virtual Feat		Modify VAR						Weapon prop. bonus					Special Property
+Hypnotist's Watch	TYPE:Magic.Wondrous					COST:36000	WT:.1														SOURCEPAGE:p.139																				SPROP:If held in hand grants the user free use of the Spell Focus and Spell Penetration Feats for Spells of the Enchantment School
+Painjector		TYPE:Magic.Weapon.Simple.Melee.Piercing.Metal	COST:120000	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	SIZE:S	SOURCEPAGE:p.139	VFEAT:Negative Levels	BONUS:VAR|NegLevels|1|PREALIGN:0,3,6	BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement	SPROP:If damage is inflicted user may inject contents into target as a free action. An injection with the Evil descriptor is Maximized (as the Metamagic Feat). Wounds inflicted bleed for 1 point of damage per round until heal (DC 15) or any cure spell, +2d6 unholy damage vs. good,1 negative level bestowed to good wielder
+
+#
+# end
+#

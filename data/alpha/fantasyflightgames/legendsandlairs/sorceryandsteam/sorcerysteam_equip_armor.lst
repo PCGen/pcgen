@@ -1,0 +1,22 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Equipment Name			Type							Cost		Weight	Slot Needed	Required Text				Define					AC Penalty Check	Nb Hands	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Add to base move			Bonus to skill									Stat bonus					Special Property
+Steamcraft Armor (+10)		TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:2000	WT:100									DEFINE:SteamcraftArmorAcheck|7	ACCHECK:-7				MAXDEX:1		SOURCEPAGE:p.134	SPELLFAILURE:40		BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE=Walk|30	BONUS:SKILL|Listen|-2
+Steamcraft Armor (+11)		TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:3000	WT:100									DEFINE:SteamcraftArmorAcheck|8	ACCHECK:-8				MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:45		BONUS:COMBAT|AC|11|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE=Walk|0	BONUS:SKILL|Listen|-2
+Steamcraft Armor (+12)		TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:6000	WT:100									DEFINE:SteamcraftArmorAcheck|9	ACCHECK:-9				MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:50		BONUS:COMBAT|AC|12|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-5	BONUS:SKILL|Listen|-2
+Steamcraft Armor (+13)		TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:11000	WT:100									DEFINE:SteamcraftArmorAcheck|10	ACCHECK:-10				MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:55		BONUS:COMBAT|AC|13|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-5	BONUS:SKILL|Listen|-2
+Steamcraft Armor (+14)		TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:18000	WT:100									DEFINE:SteamcraftArmorAcheck|12	ACCHECK:-12				MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:65		BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-10	BONUS:SKILL|Listen|-2
+Steamcraft Armor (+15)		TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:27000	WT:100									DEFINE:SteamcraftArmorAcheck|15	ACCHECK:-15				MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:80		BONUS:COMBAT|AC|15|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE=Walk|-10	BONUS:SKILL|Listen|-2
+
+Buckler Glove			TYPE:Shield.Steamcraft.Metal			COST:300	WT:8																ACCHECK:-1		HANDS:0				SOURCEPAGE:p.130	SPELLFAILURE:15		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE																							SPROP:Spell Failure and Armor Check 0 when retracted
+Gauntlet of the Iron Ogre	TYPE:Armor.Steamcraft.Metal.Glove		COST:800	WT:30		SLOTS:1													ACCHECK:0							SOURCEPAGE:p.130	SPELLFAILURE:10		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE						BONUS:SKILL|Disable Device,Escape Artist,Jump,Pick Pocket,Swim|-4	BONUS:STAT|STR|4|TYPE=Circumstance
+
+# Steamcraft Armor Options---------------------
+Snap Shield				TYPE:Shield.Steamcraft.Metal			COST:1000	WT:15				PRETEXT:Steamcraft Armor Option							ACCHECK:-2		HANDS:0				SOURCEPAGE:p.134	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE																							SPROP:Spell Failure and Armor Check 0 when retracted
+
+#
+# end
+#
+

@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Dec  8 11:36:30 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Calling Use Rope from SRD.
+
+# Skill Name			Key Stat	Untrained?		Skill Penalty Apply	Type																Source Page
+Air Traffic Control		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.AviationSkills.PilotSkills									SOURCEPAGE:p.31
+Communication Operations	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.ArmorSkills.AviationSkills.SignalsSkills.MaintenanceSkills.IntelligenceSkills	SOURCEPAGE:p.31
+Paradrop				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity														SOURCEPAGE:p.34
+#Use Rope				KEYSTAT:DEX								TYPE:Dexterity														SOURCEPAGE:p.35

@@ -1,0 +1,238 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Mar 24 23:05:17 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by Barak & Tir Gwaith)
+
+
+###Block: Sidewinder Occupations
+
+# Feat Name				Output Name		Type			Visible	Required Stat	Required Text	Choose a Feat																					Modify VAR							Source Page
+Occupation (Artisan)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,DEX=13				ADD:FEAT(TYPE=Artisan_Skills)2	ADD:FEAT(Builder,Creative,Mechanical)											BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
+Occupation (Artist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Artist_Skills)3																			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
+Occupation (Clergy)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 23	ADD:FEAT(TYPE=Clergy_Skills)3																			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 45
+Occupation (Engineer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 23	ADD:FEAT(TYPE=Engineer_Skills)3																		BONUS:VAR|WealthBonus|3					SOURCEPAGE:p. 45
+Occupation (Entertainer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Entertainer_Skills)1																		BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 45
+Occupation (Greenhorn)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 16	ADD:FEAT(TYPE=Greenhorn_Skills)2																		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 46
+Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Hunter_Skills)2	ADD:FEAT(Far Shot,Personal Firearms Proficiency)										BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46
+Occupation (Idle Rich)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 18	ADD:FEAT(TYPE=Idle_Rich_Skills)1																		BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 46
+Occupation (Laborer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 14	ADD:FEAT(TYPE=Laborer_Skills)3																		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46
+Occupation (Mariner)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 14	ADD:FEAT(TYPE=Mariner_Skills)2	ADD:FEAT(Acrobatic,Focused,Vehicle Proficiency (Sailing Ships),Vehicle Proficiency (Steamships))	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
+Occupation (Merchant)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 20	ADD:FEAT(TYPE=Merchant_Skills)2																		BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 47
+Occupation (Outlaw)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Outlaw_Skills)2	ADD:FEAT(Brawl,Personal Firearms Proficiency)											BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
+Occupation (Politician)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	PRETEXT:Age 21	ADD:FEAT(TYPE=Politician_Skills)2	ADD:FEAT(Renown,Trustworthy,Windfall)											BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 48
+Occupation (Prospector)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Prospector_Skills)2	ADD:FEAT(Endurance,Personal Firearms Proficiency)									BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Ranch_Hand_Skills)2	ADD:FEAT(Animal Affinity,Exotic Ranged Weapon Proficiency (Lasso),Personal Firearms Proficiency)	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Sodbuster)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 15	ADD:FEAT(TYPE=Sodbuster_Skills)2	ADD:FEAT(Home Ground,Personal Firearms Proficiency)									BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
+Occupation (Tribal)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				PRETEXT:Age 13	ADD:FEAT(TYPE=Tribal_Skills)3	ADD:FEAT(Archaic Weapons Proficiency,Athletic)											BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 49
+
+###Block: MSRD Imported occupations
+
+# Feat Name						Required Stat		Required Text
+Occupation (Academic).MOD							PRETEXT:Age 18
+Occupation (Adventurer).FORGET
+Occupation (Athlete).MOD			PRESTAT:1,STR=13|DEX=13
+Occupation (Blue Collar).FORGET
+Occupation (Celebrity).FORGET
+Occupation (Creative).FORGET
+Occupation (Criminal).FORGET
+Occupation (Dilettante).FORGET
+Occupation (Doctor).MOD								PRETEXT:Age 25
+Occupation (Emergency Services).FORGET
+Occupation (Entrepreneur).FORGET
+Occupation (Investigative).FORGET
+Occupation (Law Enforcement).MOD						PRETEXT:Age 20
+Occupation (Military).MOD							PRETEXT:Age 15
+Occupation (Religious).FORGET
+Occupation (Rural).FORGET
+Occupation (Student).FORGET
+Occupation (Technician).FORGET
+Occupation (White Collar).FORGET
+
+###Block: Sidewinder Skill Feats
+
+# Feat Name							Type									Visible	Prohibited Class									Bonus to skill									Class Skill
+Operate Vehicle (Aircraft - class skill)		TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:NO	!PRECLASS:1,Smart=1																			CSKILL:Operate Vehicle (Aircraft)
+Operate Vehicle (Aircraft - +1 to skill)		TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:NO	!PRECLASS:1,Charismatic=1,Dedicated=1,Fast=1,Strong=1,Tough=1	BONUS:SKILL|Operate Vehicle (Aircraft)|1|TYPE=Competance
+
+Operate Vehicle (Ground Vehicles - class skill)	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:NO	!PRECLASS:1,Smart=1																			CSKILL:Operate Vehicle (Ground Vehicles)
+Operate Vehicle (Ground Vehicles - +1 to skill)	TYPE:Engineer_Skills.Idle_Rich_Skills			VISIBLE:NO	!PRECLASS:1,Charismatic=1,Dedicated=1,Fast=1,Strong=1,Tough=1	BONUS:SKILL|Operate Vehicle (Ground Vehicles)|1|TYPE=Competance
+
+Operate Vehicle (Watercraft - class skill)	TYPE:Engineer_Skills.Idle_Rich_Skills.Mariner_Skills	VISIBLE:NO	!PRECLASS:1,Fast=1,Smart=1,Strong=1,Tough=1															CSKILL:Operate Vehicle (Watercraft)
+Operate Vehicle (Watercraft - +1 to skill)	TYPE:Engineer_Skills.Idle_Rich_Skills.Mariner_Skills	VISIBLE:NO	!PRECLASS:1,Charismatic=1,Dedicated=1					BONUS:SKILL|Operate Vehicle (Watercraft)|1|TYPE=Competance
+
+###Block: MSRD Skill Feat MODs
+
+# Feat Name								Type
+Balance(class skill).MOD					TYPE:Hunter_Skills.Mariner_Skills.Ranch_Hand_Skills.Tribal_Skills
+Balance(+1 to skill).MOD					TYPE:Hunter_Skills.Mariner_Skills.Ranch_Hand_Skills.Tribal_Skills
+
+Bluff(class skill).MOD						TYPE:Artist_Skills.Entertainer_Skills.Merchant_Skills.Politician_Skills
+Bluff(+1 to skill).MOD						TYPE:Artist_Skills.Entertainer_Skills.Merchant_Skills.Politician_Skills
+
+Climb(class skill).MOD						TYPE:Hunter_Skills.Laborer_Skills.Mariner_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills
+Climb(+1 to skill).MOD						TYPE:Hunter_Skills.Laborer_Skills.Mariner_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills
+
+Craft (Chemical - class skill).MOD				TYPE:Artisan_Skills
+Craft (Chemical - +1 to skill).MOD				TYPE:Artisan_Skills
+
+Craft (Electronic - class skill).MOD			TYPE:Artisan_Skills.Engineer_Skills
+Craft (Electronic - +1 to skill).MOD			TYPE:Artisan_Skills.Engineer_Skills
+
+Craft (Mechanical - class skill).MOD			TYPE:Artisan_Skills.Engineer_Skills.Laborer_Skills
+Craft (Mechanical - +1 to skill).MOD			TYPE:Artisan_Skills.Engineer_Skills.Laborer_Skills
+
+Craft (Pharmaceutical - class skill).MOD			TYPE:Artisan_Skills
+Craft (Pharmaceutical - +1 to skill).MOD			TYPE:Artisan_Skills
+
+Craft (Structural - class skill).MOD			TYPE:Artisan_Skills.Engineer_Skills.Laborer_Skills.Mariner_Skills.Tribal_Skills
+Craft (Structural - +1 to skill).MOD			TYPE:Artisan_Skills.Engineer_Skills.Laborer_Skills.Mariner_Skills.Tribal_Skills
+
+Craft (Visual Art - class skill).MOD			TYPE:Artisan_Skills.Artist_Skills.Entertainer_Skills.Tribal_Skills
+Craft (Visual Art - +1 to skill).MOD			TYPE:Artisan_Skills.Artist_Skills.Entertainer_Skills.Tribal_Skills
+
+Craft (Writing - class skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+Craft (Writing - +1 to skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+
+Decipher Script(class skill).MOD				TYPE:Clergy_Skills
+Decipher Script(+1 to skill).MOD				TYPE:Clergy_Skills
+
+Demolitions(class skill).MOD					TYPE:Laborer_Skills.Prospector_Skills
+Demolitions(+1 to skill).MOD					TYPE:Laborer_Skills.Prospector_Skills
+
+Diplomacy(class skill).MOD					TYPE:Clergy_Skills.Entertainer_Skills.Greenhorn_Skills.Merchant_Skills.Politician_Skills
+Diplomacy(+1 to skill).MOD					TYPE:Clergy_Skills.Entertainer_Skills.Greenhorn_Skills.Merchant_Skills.Politician_Skills
+
+Disable Device(class skill).MOD				TYPE:Artisan_Skills.Outlaw_Skills
+Disable Device(+1 to skill).MOD				TYPE:Artisan_Skills.Outlaw_Skills
+
+Disguise(class skill).MOD					TYPE:Artist_Skills.Entertainer_Skills.Outlaw_Skills
+Disguise(+1 to skill).MOD					TYPE:Artist_Skills.Entertainer_Skills.Outlaw_Skills
+
+Forgery(class skill).MOD					TYPE:Artist_Skills.Outlaw_Skills
+Forgery(+1 to skill).MOD					TYPE:Artist_Skills.Outlaw_Skills
+
+Gamble(class skill).MOD						TYPE:Idle_Rich_Skills.Mariner_Skills.Merchant_Skills.Outlaw_Skills
+Gamble(+1 to skill).MOD						TYPE:Idle_Rich_Skills.Mariner_Skills.Merchant_Skills.Outlaw_Skills
+
+Gather Information(class skill).MOD				TYPE:Greenhorn_Skills.Politician_Skills
+Gather Information(+1 to skill).MOD				TYPE:Greenhorn_Skills.Politician_Skills
+
+Handle Animal(class skill).MOD				TYPE:Hunter_Skills.Laborer_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+Handle Animal(+1 to skill).MOD				TYPE:Hunter_Skills.Laborer_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+
+Hide(class skill).MOD						TYPE:Hunter_Skills.Outlaw_Skills.Tribal_Skills
+Hide(+1 to skill).MOD						TYPE:Hunter_Skills.Outlaw_Skills.Tribal_Skills
+
+Intimidate(class skill).MOD					TYPE:Idle_Rich_Skills.Laborer_Skills.Politician_Skills.Tribal_Skills
+Intimidate(+1 to skill).MOD					TYPE:Idle_Rich_Skills.Laborer_Skills.Politician_Skills.Tribal_Skills
+
+Knowledge (Arcane Lore - class skill).MOD			TYPE:Artist_Skills.Clergy_Skills
+Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Artist_Skills.Clergy_Skills
+
+Knowledge (Art - class skill).MOD				TYPE:Artisan_Skills.Artisan_Skills.Clergy_Skills.Greenhorn_Skills
+Knowledge (Art - +1 to skill).MOD				TYPE:Artisan_Skills.Artisan_Skills.Clergy_Skills.Greenhorn_Skills
+
+Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Clergy_Skills.Politician_Skills
+Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Clergy_Skills.Politician_Skills
+
+Knowledge (Business - class skill).MOD			TYPE:Engineer_Skills.Greenhorn_Skills.Idle_Rich_Skills.Merchant_Skills
+Knowledge (Business - +1 to skill).MOD			TYPE:Engineer_Skills.Greenhorn_Skills.Idle_Rich_Skills.Merchant_Skills
+
+Knowledge (Civics - class skill).MOD			TYPE:Greenhorn_Skills.Idle_Rich_Skills.Politician_Skills
+Knowledge (Civics - +1 to skill).MOD			TYPE:Greenhorn_Skills.Idle_Rich_Skills.Politician_Skills
+
+Knowledge (Current Events - class skill).MOD		TYPE:Greenhorn_Skills.Idle_Rich_Skills.Merchant_Skills.Politician_Skills
+Knowledge (Current Events - +1 to skill).MOD		TYPE:Greenhorn_Skills.Idle_Rich_Skills.Merchant_Skills.Politician_Skills
+
+Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Greenhorn_Skills.Prospector_Skills
+Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Greenhorn_Skills.Prospector_Skills
+
+Knowledge (History - class skill).MOD			TYPE:Clergy_Skills.Greenhorn_Skills.Politician_Skills
+Knowledge (History - +1 to skill).MOD			TYPE:Clergy_Skills.Greenhorn_Skills.Politician_Skills
+
+Knowledge (Physical Sciences - class skill).MOD		TYPE:Artisan_Skills.Engineer_Skills.Greenhorn_Skills.Prospector_Skills
+Knowledge (Physical Sciences - +1 to skill).MOD		TYPE:Artisan_Skills.Engineer_Skills.Greenhorn_Skills.Prospector_Skills
+
+Knowledge (Popular Culture - class skill).MOD		TYPE:Artisan_Skills.Greenhorn_Skills.Idle_Rich_Skills.Politician_Skills
+Knowledge (Popular Culture - +1 to skill).MOD		TYPE:Artisan_Skills.Greenhorn_Skills.Idle_Rich_Skills.Politician_Skills
+
+Knowledge (Streetwise - class skill).MOD			TYPE:Outlaw_Skills
+Knowledge (Streetwise - +1 to skill).MOD			TYPE:Outlaw_Skills
+
+Knowledge (Technology - class skill).MOD			TYPE:Artisan_Skills.Engineer_Skills.Greenhorn_Skills.Merchant_Skills
+Knowledge (Technology - +1 to skill).MOD			TYPE:Artisan_Skills.Engineer_Skills.Greenhorn_Skills.Merchant_Skills
+
+Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Clergy_Skills.Politician_Skills
+Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Clergy_Skills.Politician_Skills
+
+Jump(class skill).MOD						TYPE:Mariner_Skills
+Jump(+1 to skill).MOD						TYPE:Mariner_Skills
+
+Listen(class skill).MOD						TYPE:Artist_Skills.Clergy_Skills.Politician_Skills.Tribal_Skills
+Listen(+1 to skill).MOD						TYPE:Artist_Skills.Clergy_Skills.Politician_Skills.Tribal_Skills
+
+Move Silently(class skill).MOD				TYPE:Outlaw_Skills.Tribal_Skills
+Move Silently(+1 to skill).MOD				TYPE:Outlaw_Skills.Tribal_Skills
+
+Navigate(class skill).MOD					TYPE:Mariner_Skills.Tribal_Skills
+Navigate(+1 to skill).MOD					TYPE:Mariner_Skills.Tribal_Skills
+
+Perform (Act - class skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+Perform (Act - +1 to skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+
+Perform (Dance - class skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+Perform (Dance - +1 to skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+
+Perform (Keyboards - class skill).MOD			TYPE:Artist_Skills.Entertainer_Skills
+Perform (Keyboards - +1 to skill).MOD			TYPE:Artist_Skills.Entertainer_Skills
+
+Perform (Percussion Instruments - class skill).MOD	TYPE:Artist_Skills.Entertainer_Skills
+Perform (Percussion Instruments - +1 to skill).MOD	TYPE:Artist_Skills.Entertainer_Skills
+
+Perform (Sing - class skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+Perform (Sing - +1 to skill).MOD				TYPE:Artist_Skills.Entertainer_Skills
+
+Perform (Stand-Up - class skill).MOD			TYPE:Entertainer_Skills
+Perform (Stand-Up - +1 to skill).MOD			TYPE:Entertainer_Skills
+
+Perform (Stringed Instruments - class skill).MOD	TYPE:Artist_Skills.Entertainer_Skills
+Perform (Stringed Instruments - +1 to skill).MOD	TYPE:Artist_Skills.Entertainer_Skills
+
+Perform (Wind Instruments - class skill).MOD		TYPE:Artist_Skills.Entertainer_Skills
+Perform (Wind Instruments - +1 to skill).MOD		TYPE:Artist_Skills.Entertainer_Skills
+
+Read/Write Language(class skill).MOD			TYPE:Politician_Skills
+Read/Write Language(1 additional language).MOD		TYPE:Politician_Skills
+
+Repair(class skill).MOD						TYPE:Artisan_Skills.Engineer_Skills.Laborer_Skills.Sodbuster_Skills
+Repair(+1 to skill).MOD						TYPE:Artisan_Skills.Engineer_Skills.Laborer_Skills.Sodbuster_Skills
+
+Research(class skill).MOD					TYPE:Artisan_Skills.Engineer_Skills.Greenhorn_Skills.Politician_Skills
+Research(+1 to skill).MOD					TYPE:Artisan_Skills.Engineer_Skills.Greenhorn_Skills.Politician_Skills
+
+Ride(class skill).MOD						TYPE:Hunter_Skills.Idle_Rich_Skills.Laborer_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+Ride(+1 to skill).MOD						TYPE:Hunter_Skills.Idle_Rich_Skills.Laborer_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+
+Search(class skill).MOD						TYPE:Prospector_Skills
+Search(+1 to skill).MOD						TYPE:Prospector_Skills
+
+Sense Motive(class skill).MOD					TYPE:Clergy_Skills.Merchant_Skills.Politician_Skills
+Sense Motive(+1 to skill).MOD					TYPE:Clergy_Skills.Merchant_Skills.Politician_Skills
+
+Sleight of Hand(class skill).MOD				TYPE:Outlaw_Skills
+Sleight of Hand(+1 to skill).MOD				TYPE:Outlaw_Skills
+
+Speak Language(class skill).MOD				TYPE:Idle_Rich_Skills.Mariner_Skills.Politician_Skills
+Speak Language(1 additional language).MOD			TYPE:Idle_Rich_Skills.Mariner_Skills.Politician_Skills
+
+Spot(class skill).MOD						TYPE:Artist_Skills.Tribal_Skills
+Spot(+1 to skill).MOD						TYPE:Artist_Skills.Tribal_Skills
+
+Survival(class skill).MOD					TYPE:Hunter_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+Survival(+1 to skill).MOD					TYPE:Hunter_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+
+Swim(class skill).MOD						TYPE:Hunter_Skills.Mariner_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+Swim(+1 to skill).MOD						TYPE:Hunter_Skills.Mariner_Skills.Prospector_Skills.Ranch_Hand_Skills.Sodbuster_Skills.Tribal_Skills
+
+#
+# End
+#

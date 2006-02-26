@@ -1,0 +1,48 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Thu Aug  7 00:29:20 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+###Block:Armor
+# Modifier Name	Type		Cost		Visible		Source Page		Required Type	Bonus to skill		Apply to both heads
+Camouflage		TYPE:Armor	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.104	PRETYPE:Armor	BONUS:SKILL|Hide|2	ASSIGNTOALL:Y
+
+###Block:Weapon
+# Modifier Name	Type		Cost		Visible		Source Page		Required Type					BONUS:EQM			BONUS:EQMWEAPON			Weapon prop. bonus				Special Property									Apply to both heads
+Electronic Scope	TYPE:Weapon	COST:300	VISIBLE:QUALIFY	SOURCEPAGE:p.97	PRETYPE:Cannon|Firearm|Machinegun		BONUS:EQM|WEIGHTADD|1	BONUS:EQMWEAPON|RANGEMULT|2								SPROP:Ignore penalties for poor lighting, 10x mag for Spot checks	ASSIGNTOALL:Y
+Laser Sight		TYPE:Weapon	COST:100	VISIBLE:QUALIFY	SOURCEPAGE:p.101	PRETYPE:Bow|Cannon|Firearm|Machinegun	BONUS:EQM|WEIGHTADD|1						BONUS:WEAPON|TOHIT|1|TYPE=CIRCUMSTANCE	SPROP:+1 circumstance bonus to attack rolls				ASSIGNTOALL:Y
+Silencer		TYPE:Weapon	COST:50	VISIBLE:QUALIFY	SOURCEPAGE:p.101	PRETYPE:Firearm,Piercing			BONUS:EQM|WEIGHTADD|1													SPROP:+10 to Listen DC to hear weapon fire				ASSIGNTOALL:Y
+
+###Block:Keenblades
+# Modifier Name	Unique Key		Type			Cost			Visible		Type granted	Source Page		Required Type			BONUS:EQMWEAPON				Weapon prop. bonus			Apply to both heads
+Keenblade		KEY:WEAPKNBL	TYPE:Weapon		COST:BASECOST*4	VISIBLE:QUALIFY	ITYPE:Keenblade	SOURCEPAGE:p.100	PRETYPE:Piercing|Slashing	BONUS:EQMWEAPON|CRITRANGEDOUBLE|1	BONUS:WEAPON|TOHIT|1|TYPE=KEENBLADE	ASSIGNTOALL:Y
+Keenblade		KEY:AMMOKNBL	TYPE:Ammunition	COST:BASECOST*4	VISIBLE:QUALIFY	ITYPE:Keenblade	SOURCEPAGE:p.100	PRETYPE:Piercing|Slashing	BONUS:EQMWEAPON|CRITRANGEDOUBLE|1	BONUS:WEAPON|TOHIT|1|TYPE=KEENBLADE	ASSIGNTOALL:Y
+
+###Block:CommGear
+# Modifier Name		Unique Key		Type			Cost				Visible		Type granted			Choose Naming Option					Source Page			Required Type	Prohibited Type	Bonus to skill							Special Property												Choose
+Program			KEY:SF_Data		TYPE:Datapad	COST:0			VISIBLE:QUALIFY														SOURCEPAGE:p.106					!PRETYPE:Spells	BONUS:SKILL|%CHOICE|2																				CHOOSE:SKILL|TYPE=All
+Spellware_1st_lev		KEY:SF_Spl1		TYPE:Spells		COST:(200*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 2*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_2nd_lev		KEY:SF_Spl2		TYPE:Spells		COST:(400*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 4*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_3rd_lev		KEY:SF_Spl3		TYPE:Spells		COST:(600*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 6*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_4th_lev		KEY:SF_Spl4		TYPE:Spells		COST:(800*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 8*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_5th_lev		KEY:SF_Spl5		TYPE:Spells		COST:(1000*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 10*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_6th_lev		KEY:SF_Spl6		TYPE:Spells		COST:(1200*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 12*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_7th_lev		KEY:SF_Spl7		TYPE:Spells		COST:(1400*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 14*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_8th_lev		KEY:SF_Spl8		TYPE:Spells		COST:(1600*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 16*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Spellware_9th_lev		KEY:SF_Spl9		TYPE:Spells		COST:(1800*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Spells													SPROP:user gets 18*%Choice number of page in spellbook software				CHOOSE:Number of Spells|MIN=1|MAX=99
+Sevurity Upgrade		KEY:SF_Sec		TYPE:Datapad	COST:(500*%CHOICE)	VISIBLE:QUALIFY														SOURCEPAGE:p.106		PRETYPE:Datapad													SPROP:Datapad DC is upgraded from a 30 to (30+%Choice)					CHOOSE:Amount to increase datapad security DC|MIN=1|MAX=99
+
+
+
+
+
+Normal			KEY:SF_TOOLSNM	TYPE:Tools		COST:100						ITYPE:SkillTool			NAMEOPT:%CHOICE toolkit					SOURCEPAGE:p.112-115							BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools					CHOOSE:SKILL|TYPE=STRENGTH|TYPE=DEXTERITY|TYPE=CONSTITUTION|TYPE=INTELLIGENCE|TYPE=WISDOM|TYPE=CHARISMA
+Masterwork			KEY:SF_TOOLSMW	TYPE:Tools		COST:300						ITYPE:Masterwork			NAMEOPT:masterwork %CHOICE toolkit			SOURCEPAGE:p.112-115							BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools/ applies +2 skill bonus	CHOOSE:SKILL|TYPE=STRENGTH|TYPE=DEXTERITY|TYPE=CONSTITUTION|TYPE=INTELLIGENCE|TYPE=WISDOM|TYPE=CHARISMA
+Specialized			KEY:SF_TOOLSSP	TYPE:Tools		COST:400						ITYPE:Specialized			NAMEOPT:specialized %CHOICE toolkit			SOURCEPAGE:p.112-115							BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools					CHOOSE:SKILL|Craft (Electronics)|Craft (Mechanics)|Craft (Robotics)
+Specialized Masterwork	KEY:SF_TOOLSSPM	TYPE:Tools		COST:1000						ITYPE:Specialized Masterwork	NAMEOPT:specialized masterwork %CHOICE toolkit	SOURCEPAGE:p.112-115							BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools/applies +2 skill bonus	CHOOSE:SKILL|Craft (Electronics)|Craft (Mechanics)|Craft (Robotics)
+
+
+
+
+###Block:EXCLUDEEQ: Any item with the properties listed will not be allowed to be edited
+# Modifier Name	Visible	Type granted
+EXCLUDEEQ_SFHB	VISIBLE:NO	ITYPE:Spellware
+

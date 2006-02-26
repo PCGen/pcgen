@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec  1 21:27:22 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Ratheof Blithwyn
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+# This is equipment is erratad for 3.5 and is placed here to avoid duplicate data between the 3.0 and 3.5
+
+# Equipment Name			Output Name						Type				Cost		Weight	Source Page
+Mask of the Hunter									TYPE:Magic.Wondrous	COST:3750	WT:0		SOURCEPAGE:p.46
+Mask of the Hunter (Improved)	OUTPUTNAME:Improved Mask of the Hunter	TYPE:Magic.Wondrous	COST:15000	WT:0		SOURCEPAGE:p.46
+

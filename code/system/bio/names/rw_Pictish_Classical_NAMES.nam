@@ -1,0 +1,331 @@
+// Pictish (Classical) Male Names
+//
+
+[RULES]
+20	[GIVEN]
+25	[GIVEN]	[BYNAME]
+30	[GIVEN]	[FRATER]	[GENITIVE]
+35	[GIVEN]	[BYNAME-TRIBAL-NOM-ADJ]
+40	[GIVEN]	[BYNAME-TRIBAL-NOM-PL]
+50	[GIVEN]	[NATIONIS]	[BYNAME-TRIBAL-GENITIVE]
+60	[GIVEN]	[NATIONE]	[BYNAME-TRIBAL-NOM-ADJ]
+70	[GIVEN]	[BYNAME-TOWN]
+75	[GIVEN]	[FILIA]	[FGENITIVE]
+80	[GIVEN]	[NEPTIS]	[FGENITIVE]
+90	[GIVEN]	[FILIUS]	[GENITIVE]
+100	[GIVEN]	[NEPOS]	[GENITIVE]
+
+[NATIONIS]
+ nationis
+
+[NATIONE]
+ natione
+
+[NEPOS]
+ nepos
+
+[FILIUS]
+ filius
+
+[NEPTIS]
+ neptis
+
+[FILIA]
+ filia
+
+[FRATER]
+ frater
+
+[GIVEN]
+[PREGENDER:M]
+Calgacus
+Argentocoxus
+Lossio
+Uepogenus
+Adcobrovatus
+Amminius
+Amminius
+Apullius
+Arviragus
+Bodiccius
+Brigomaglos
+Cacumattus
+Caranacus
+Caratacus
+Cassivellaunus
+Catavignus
+Ceanatis
+Cingetorix
+Cintugnatus
+Cintusmus
+Cistumucus
+Cogidubnos
+Commius
+Crotus
+Cunittus
+Cunobarrus
+Cunobelinus
+Cunomorus
+Cunopectus
+Cunovindus
+Dubnovellaunus
+Dumnocoveros
+Dumnovellaunos
+Enemnogenus
+Enestinus
+Ivomagus
+Litugenus
+Lugotorix
+Mandubracius
+Maslorius
+Maglorius
+Matugenus
+Melisus
+Morirex
+Motius
+Nectovelius
+Prasutagus
+Rianorix
+Sacc(i)us
+Segovax
+Senaculus
+Sennianus
+Senorix
+Setibogius
+Tamesubugus
+Tancorix
+Tasciovanus
+Taximagulus
+Tincommius
+Togodumnus
+Vellocatus
+Venutius
+Vindex
+Vindomorucius
+Virssuccius
+[PREGENDER:F]
+Bodicca
+Barita
+Cartimandua
+Cunoarda
+Cunovinda
+Cvinda
+Huctia
+Tancorix
+Verctissa
+Verica
+[/PRE]
+
+[GENITIVE]
+ Calgaci
+ Argentocoxi
+ Lossi
+ Uepogeni
+ Adcobrovati
+ Ammini
+ Ammini
+ Apulli
+ Arviragi
+ Bodicci
+ Brigomagli
+ Cacumatti
+ Caranaci
+ Carataci
+ Cassivellauni
+ Catavigni
+ Ceanatis
+ Cingetorigis
+ Cintugnati
+ Cintusmi
+ Cistumuci
+ Cogidubni
+ Commii
+ Croti
+ Cunitti
+ Cunobarri
+ Cunobelini
+ Cunomori
+ Cunopecti
+ Cunovindi
+ Dubnovellauni
+ Dumnocoveri
+ Dumnovellauni
+ Enemnogeni
+ Enestini
+ Ivomagi
+ Litugeni
+ Lugotorigis
+ Mandubraci
+ Maslori
+ Maglori
+ Matugeni
+ Melisi
+ Moriregis
+ Moti
+ Nectoveli
+ Prasutagi
+ Rianorigis
+ Sacci
+ Segovagis
+ Senaculi
+ Senniani
+ Senorigis
+ Setibogi
+ Tamesubugi
+ Tancorigis
+ Tasciovani
+ Taximaguli
+ Tincommi
+ Togodumni
+ Vellocati
+ Venuti
+ Vindegis
+ Vindomoruci
+ Virssucci
+
+[FGENITIVE]
+ Bodiccae
+ Baritae
+ Cartimanduae
+ Cunoardae
+ Cunovindae
+ Cvindae
+ Huctiae
+ Tancorigis
+ Verctissae
+ Vericae
+
+
+[BYNAME-TRIBAL-NOM-PL]
+ Caereni
+ Caledonii
+ Cornavii
+ Decantae
+ Epidii
+ Lugi
+ Smertae
+ Taezali
+ Vacomagi
+ Venicones
+
+[BYNAME-TRIBAL-GENITIVE]
+ Caerenorum
+ Caledoniorum
+ Cornaviorum
+ Decantarum
+ Epidiorum
+ Lugorum
+ Smertarum
+ Taezalorum
+ Vacomagorum
+ Veniconum
+
+[BYNAME-TRIBAL-NOM-ADJ]
+ Caerenacus
+ Caerenus
+ Caledoniacus
+ Caledonius
+ Cornaviacus
+ Cornavius
+ Decantacus
+ Decantus
+ Epidiacus
+ Epidius
+ Lugiacus
+ Lugus
+ Smertacus
+ Smertus
+ Taezalacus
+ Taezalus
+ Vacomagacus
+ Vacomagus
+ Veniconacus
+ Veniconis
+
+[BYNAME-TOWN]
+ Alauna 
+ Alaunae 
+ Alaunanus 
+ Alaunensis
+ Bannatia 
+ Bannatiae 
+ Bannatianus 
+ Bannatiensis
+ Carnonacae 
+ Carnonacanus
+ Carnonacarum 
+ Carnonacensis
+ Creones 
+ Creonianus 
+ Creoniensis
+ Creoninus 
+ Creonium 
+ Creonum 
+ Devana 
+ Devanae 
+ Devananus 
+ Devanensis
+ Dumna 
+ Dumnae 
+ Dumnanus 
+ Dumnensis
+ Epidianus 
+ Epidiensis
+ Epidii 
+ Epidium 
+ Malaianus 
+ Malaiensis
+ Malaii 
+ Malaius 
+ Orcades 
+ Orcadianus 
+ Orcadiensis
+ Orcadinus
+ Orcadium 
+ Orcadum 
+ Orrea 
+ Orreae 
+ Orreanus 
+ Scetianus 
+ Scetiensis
+ Scetinus 
+ Scetis 
+ Tamia 
+ Tamiae 
+ Tamianus 
+ Tamiensis
+ Tarvedanus 
+ Tarvedensis
+ Tarvedi 
+ Tarvedum 
+ Tuesianus 
+ Tuesiensis
+ Tuesinus 
+ Tuesis 
+ Verubianus
+ Verubiensis
+ Verubii 
+ Verubium 
+ Virvedranus 
+ Virvedrensis
+ Virvedri 
+ Virvedrum 
+
+[BYNAME]
+ Diuberr
+ Erilich
+ Erilith
+ Gaed brechach
+ Gurthinmoch
+ Ini
+ Loc
+ Mor
+ Morbet
+ Olgudach
+ Uecla
+ Uetla
+
+
+
+
+

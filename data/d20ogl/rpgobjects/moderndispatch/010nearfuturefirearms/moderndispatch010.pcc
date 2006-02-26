@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 22 22:41:02 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Modern Dispatch - #10 - Near-Future Firearms
+GAMEMODE:Modern
+TYPE:RPGObjects.Modern Dispatch
+RANK:6
+GENRE:Modern
+BOOKTYPE:Magazine
+SETTING:Generic
+SOURCELONG:Modern Dispatch #10 - Near-Future Firearms
+SOURCESHORT:MD10-NFF
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3994
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Dispatch #10 2004, RPGObjects; Author David S. Gallant
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #10 Copyright 2006, PCGen Data team, including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:moderndispatch010_equip_weap_ammo.lst
+EQUIPMENT:moderndispatch010_equip_weap_ranged_firearms.lst
+EQUIPMOD:moderndispatch010_equipmods.lst
+WEAPONPROF:moderndispatch010_weaponprofs.lst

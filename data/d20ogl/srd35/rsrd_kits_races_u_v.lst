@@ -1,0 +1,42 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unicorn]
+RACE:Unicorn	!PRERACE:%
+NAME:Unicorn
+ALIGN:CG
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Jump			RANK:4
+SKILL:Move Silently	RANK:4
+FEAT:Alertness
+FEAT:Skill Focus(Survival)
+STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
+
+STARTPACK:Default Vampire Spawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire Spawn]
+RACE:Vampire Spawn	!PRERACE:%
+NAME:Vampire Spawn
+ALIGN:LE|NE|CE
+SKILL:Sense Motive	RANK:6
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+SKILL:Search		RANK:3
+SKILL:Climb			RANK:5
+SKILL:Jump			RANK:7
+FEAT:Toughness
+FEAT:Skill Focus
+STAT:INT=11|WIS=11|STR=10|DEX=10|CON=10|CHA=10
+
+STARTPACK:Default Vargouille	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vargouille]
+RACE:Vargouille	!PRERACE:%
+NAME:Vargouille
+ALIGN:NE
+SKILL:Hide			RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Weapon Finesse
+STAT:DEX=11|INT=11|STR=10|CON=10|WIS=10|CHA=10

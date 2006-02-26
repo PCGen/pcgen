@@ -1,0 +1,31 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Feat Name				Type				Req. Att.	Required Class		Required Feat					Required Lvl	Required Skill		Required Stat	Description											Automaticaly Gained Weapon Prof.	Weapon prof. bonus
+Alertness.MOD			TYPE:Athlete
+Dodge.MOD				TYPE:Athlete
+Endurance.MOD			TYPE:Athlete
+Great Fortitude.MOD		TYPE:Athlete
+Improved Initiative.MOD		TYPE:Athlete
+Improved Unarmed Strike.MOD	TYPE:Athlete
+Iron Will.MOD			TYPE:Athlete
+Leadership.MOD			TYPE:Athlete
+Lightning Reflexes.MOD		TYPE:Athlete
+Mobility.MOD			TYPE:Athlete
+Run.MOD				TYPE:Athlete
+Skill Focus.MOD			TYPE:Athlete
+Spring Attack.MOD			TYPE:Athlete
+Stunning Fist.MOD			TYPE:Athlete
+Toughness.MOD			TYPE:Athlete
+
+Automatic Weapon Proficiency	TYPE:General																																					AUTO:WEAPONPROF|TYPE=LightAuto
+Crowd Favorite			TYPE:General																		PRESKILL:1,Perform=4	PRESTAT:1,CHA=16	DESC:You gaina +4 to all rolls to motivate the crowd or grandstanding
+Curveball				TYPE:General.Athlete			PRECLASS:1,Athlete=1																																				BONUS:WEAPONPROF=Baseball|TOHIT|2	BONUS:WEAPONPROF=Baseball|TOHIT-SHORTRANGE|-2
+Doubleshot				TYPE:General		PREATT:6					PREFEAT:2,Point Blank Shot,Rapid Shot
+Extra Signature Move		TYPE:General
+Pistol Proficiency		TYPE:General																																					AUTO:WEAPONPROF|TYPE=Pistol
+The Profile				TYPE:General																		PRESKILL:1,Perform=4	PRESTAT:1,CHA=16
+Rifle Proficiency			TYPE:General																																					AUTO:WEAPONPROF|TYPE=Rifle
+Rally					TYPE:General.Athlete														PRELEVEL:5						PRESTAT:1,CHA=16
+Serpentine				TYPE:General								PREFEAT:1,Dodge
+Two-Fisted Healing		TYPE:General								PREFEAT:1,Extra Turning

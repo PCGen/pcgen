@@ -1,0 +1,15 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jun  5 21:12:35 2004 -- reformated by prettylst.pl v1.32 (build 353)
+# Original entry by: Ratheof Blithwyn
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+
+#
+# Fireworks mod
+#
+# Modifier Name	Unique Key	Type			Cost			Type granted	Source Page
+Masterwork		KEY:FIREWRK	TYPE:Firework	COST:(BASECOST*4)	ITYPE:Masterwork	SOURCEPAGE:p.52
+
+
+
+
+
+

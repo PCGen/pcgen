@@ -1,0 +1,60 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Mods to set Brawler, Musketeer and Watchman Bonus Feat Lists
+
+# Feat Name					Type
+Alertness.MOD				TYPE:Musketeer
+Ambidexterity.MOD				TYPE:Musketeer.Brawler
+Blind-Fight.MOD				TYPE:Musketeer.Brawler.Watchman
+Combat Climbing.MOD			TYPE:Musketeer
+Combat Reflexes.MOD			TYPE:Musketeer.Brawler.Watchman
+Combat Reload.MOD				TYPE:Musketeer
+Dodge.MOD					TYPE:Musketeer.Brawler.Watchman
+Duelist.MOD					TYPE:Musketeer
+Endurance.MOD				TYPE:Brawler
+Exotic Weapon Proficiency.MOD		TYPE:Musketeer
+Expertise.MOD				TYPE:Musketeer.Brawler.Watchman
+Explosives Expert.MOD			TYPE:Musketeer
+Far Shot.MOD				TYPE:Musketeer.Watchman
+Grenadier.MOD				TYPE:Musketeer
+Improved Bull Rush.MOD			TYPE:Brawler.Watchman
+Improved Critical.MOD			TYPE:Musketeer.Brawler.Watchman
+Improved Disarm.MOD			TYPE:Musketeer.Brawler.Watchman
+Improved Initiative.MOD			TYPE:Musketeer.Brawler.Watchman
+Improved Parry.MOD			TYPE:Musketeer
+Improved Trip.MOD				TYPE:Musketeer.Brawler.Watchman
+Improved Two-Weapon Fighting.MOD	TYPE:Brawler
+Lightning Reflexes.MOD			TYPE:Musketeer.Brawler
+Main-Gauche.MOD				TYPE:Musketeer
+Mobility.MOD				TYPE:Musketeer.Brawler.Watchman
+Mounted Combat.MOD			TYPE:Watchman
+Musketeer Skill Focus.MOD		TYPE:Musketeer
+Parry.MOD					TYPE:Musketeer
+Point Blank Shot.MOD			TYPE:Musketeer.Watchman
+Power Attack.MOD				TYPE:Brawler.Watchman
+Precise Shot.MOD				TYPE:Musketeer.Watchman
+Quick Draw.MOD				TYPE:Musketeer.Brawler.Watchman
+Rapid Shot.MOD				TYPE:Musketeer
+Ride-By Attack.MOD			TYPE:Watchman
+Riposte.MOD					TYPE:Musketeer
+Shot on the Run.MOD			TYPE:Musketeer.Watchman
+Spirited Charge.MOD			TYPE:Watchman
+Spring Attack.MOD				TYPE:Musketeer.Brawler.Watchman
+Stunning Fist.MOD				TYPE:Brawler
+Sunder.MOD					TYPE:Brawler.Watchman
+Swing-By Attack.MOD			TYPE:Musketeer
+Toughness.MOD				TYPE:Brawler
+Trample.MOD					TYPE:Watchman
+Trick Shot.MOD				TYPE:Musketeer
+Two Guns Blazing.MOD			TYPE:Musketeer
+Two-Weapon Fighting.MOD			TYPE:Brawler
+Weapon Finesse.MOD			TYPE:Musketeer.Brawler.Watchman
+Weapon Focus.MOD				TYPE:Musketeer.Brawler
+Weapons of Opportunity.MOD		TYPE:Musketeer
+Whirlwind Attack.MOD			TYPE:Musketeer.Brawler.Watchman
+
+#
+# end
+#

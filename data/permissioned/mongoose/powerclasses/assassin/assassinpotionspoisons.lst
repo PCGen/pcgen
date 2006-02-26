@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Dec 16 23:11:14 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin|SOURCESHORT:Assassin|SOURCEWEB:http//www.mongoosepublishing.com
+# Original Entry by: Mynex
+
+# Equipment Name				Output Name		Type		Cost		Weight	Source Page
+Loyalty Stone							TYPE:Poison	COST:50000	WT:-		SOURCEPAGE:6-8
+Poison (Mock Blinding Sickness)	OUTPUTNAME:[NAME]	TYPE:Poison	COST:198	WT:-		SOURCEPAGE:6-7,10
+Poison (Mock Cackle Fever)		OUTPUTNAME:[NAME]	TYPE:Poison	COST:108	WT:-		SOURCEPAGE:6-7,10
+Poison (Mock Filth fever)		OUTPUTNAME:[NAME]	TYPE:Poison	COST:270	WT:-		SOURCEPAGE:6-7,10
+Poison (Mock Mindfire)			OUTPUTNAME:[NAME]	TYPE:Poison	COST:108	WT:-		SOURCEPAGE:6-7,10
+Poison (Mock Red Ache)			OUTPUTNAME:[NAME]	TYPE:Poison	COST:180	WT:-		SOURCEPAGE:6-7,10
+Poison (Mock Shakes)			OUTPUTNAME:[NAME]	TYPE:Poison	COST:228	WT:-		SOURCEPAGE:6-7,10
+Poison (Mock Slimey Doom)		OUTPUTNAME:[NAME]	TYPE:Poison	COST:162	WT:-		SOURCEPAGE:6-7,10

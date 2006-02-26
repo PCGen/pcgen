@@ -1,0 +1,51 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 26 23:37:50 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Circuits|SOURCESHORT:BNC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+
+# Feat Name								Type
+Advanced Armor Design.MOD					TYPE:Armorer.Inventor
+Advanced Weapon Design.MOD					TYPE:Inventor
+Armory.MOD								TYPE:Armorer
+Armor Proficiency (Heavy).MOD					TYPE:Armorer
+Armor Proficiency (Light).MOD					TYPE:CombatEngineer.Gadgeteer.GreaseMonkey.Inventor
+Armor Proficiency (Medium).MOD				TYPE:Armorer.CombatEngineer.Gadgeteer.GreaseMonkey
+
+### This feat is in Future
+Armor Proficiency (Powered).MOD				TYPE:Armorer
+
+Builder.MOD								TYPE:Armorer.Arsenal.GreaseMonkey.Inventor
+Combat Expertise.MOD						TYPE:Gadgeteer
+Dead Aim.MOD							TYPE:Arsenal
+Double Tap.MOD							TYPE:Arsenal
+Drive-By Attack.MOD						TYPE:GreaseMonkey
+Educated.MOD							TYPE:Gadgeteer
+Endurance.MOD							TYPE:CombatEngineer
+Exotic Firearms Proficiency.MOD				TYPE:Arsenal
+
+### PL doesn't like this feat because Grenade Launcher is not in the choose for the feat
+Exotic Firearms Proficiency(Grenade Launcher).MOD	TYPE:CombatEngineer
+
+Far Shot.MOD							TYPE:Arsenal
+Force Stop.MOD							TYPE:GreaseMonkey
+Gearhead.MOD							TYPE:GreaseMonkey.Inventor
+Great Fortitude.MOD						TYPE:Armorer
+Handyman.MOD							TYPE:Gadgeteer.GreaseMonkey
+Improved Damage Threshold.MOD					TYPE:Armorer
+Mass Production.MOD						TYPE:GreaseMonkey
+Perfectionist.MOD							TYPE:Inventor
+Personal Firearms Proficiency.MOD				TYPE:CombatEngineer.Gadgeteer.Inventor
+Point Blank Shot.MOD						TYPE:Arsenal
+Quick Draw.MOD							TYPE:Arsenal
+Quick Reload.MOD							TYPE:Arsenal
+Renown.MOD								TYPE:Gadgeteer.Inventor
+Surface Vehicle Operation.MOD					TYPE:GreaseMonkey
+Surface Vehicle Operation(Heavy Wheeled).MOD		TYPE:CombatEngineer
+Surface Vehicle Operation(Tracked).MOD			TYPE:CombatEngineer
+
+### This is a Blood and Guts: Modern Military feat
+Tank/APC Weapons.MOD						TYPE:GreaseMonkey
+
+Toughness.MOD							TYPE:Armorer
+Vehicle Dodge.MOD							TYPE:GreaseMonkey
+Weapon Finesse.MOD						TYPE:Arsenal
+Weapon Focus.MOD							TYPE:Arsenal
+Windfall.MOD							TYPE:Gadgeteer.Inventor

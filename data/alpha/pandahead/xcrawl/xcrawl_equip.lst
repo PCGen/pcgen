@@ -1,0 +1,36 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 30 23:39:49 2003 -- reformated by prettylst.pl v1.32 (build 336)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Equipment Name				Output Name							Type								Contains			Cost		Weight
+Backpack (waterproof)			OUTPUTNAME:Backpack, waterproof			TYPE:Goods.Container.Resizable.AdventureGear	CONTAINS:100|Any:100	COST:15	WT:2
+Compass													TYPE:Goods.AdventureGear								COST:20	WT:0
+Knife (survival)				OUTPUTNAME:Knife, survival				TYPE:Goods.AdventureGear								COST:5	WT:1
+Knife (multipurpose)			OUTPUTNAME:Knife, multipurpose			TYPE:Goods.AdventureGear								COST:20	WT:0
+Knife (Gnomish Third Hand)		OUTPUTNAME:Knife, Gnomis Third Hand			TYPE:Goods.AdventureGear								COST:60	WT:1
+Flashlight (headset)			OUTPUTNAME:Flashlight, headset			TYPE:Goods.AdventureGear								COST:25	WT:1
+Flashlight (Light)			OUTPUTNAME:Flashlight, Light				TYPE:Goods.AdventureGear								COST:5	WT:1
+Flashlight (Heavy)			OUTPUTNAME:Flashlight, Heavy				TYPE:Goods.AdventureGear								COST:20	WT:5
+Goggles (protective)			OUTPUTNAME:Goggles, protective			TYPE:Goods.AdventureGear								COST:12	WT:0
+Goggles (underwater)			OUTPUTNAME:Goggles, underwater			TYPE:Goods.AdventureGear								COST:15	WT:0
+Lighter (masterwork)			OUTPUTNAME:Lighter, masterwork			TYPE:Goods.AdventureGear								COST:7	WT:0
+Pen (good/10)				OUTPUTNAME:Pen, good (10)				TYPE:Goods.AdventureGear								COST:1	WT:0
+Rope (modern/50 ft)			OUTPUTNAME:Rope, modern (50 ft)			TYPE:Goods.AdventureGear								COST:20	WT:5
+Scope (bow or crossbow)			OUTPUTNAME:Scope, bow or crossbow			TYPE:Goods.AdventureGear								COST:80	WT:1
+Watch (sports)				OUTPUTNAME:Watch, sports				TYPE:Goods.AdventureGear								COST:15	WT:0
+
+Healers Kit (Modern)			OUTPUTNAME:Healers Kit, Modern			TYPE:Goods.Tools										COST:100	WT:3
+Thieves Tools (Modern)			OUTPUTNAME:Thieves Tools, Modern			TYPE:Goods.Tools.Thief									COST:120	WT:2
+Spellbook (Waterproof)			OUTPUTNAME:Spellbook, Waterproof			TYPE:Goods.Tools.Resizable								COST:110	WT:3
+Spellbook (Puzzlelock)			OUTPUTNAME:Spellbook, Puzzlelock			TYPE:Goods.Tools.Resizable								COST:200	WT:3
+
+Adventurers Outfit (modern)		OUTPUTNAME:Adventurers Outfit, Modern		TYPE:Goods.Clothing.Resizable								COST:60	WT:10
+Business outfit												TYPE:Goods.Clothing.Resizable								COST:50	WT:8
+Street Clothes												TYPE:Goods.Clothing.Resizable								COST:15	WT:8
+Fine Clothes												TYPE:Goods.Clothing.Resizable								COST:100	WT:8
+
+Hotel Stay (per day)											TYPE:Goods.Lodging.Resizable								COST:25	WT:0
+Hotel Stay (four star/per day)	OUTPUTNAME:Hotel stay, four star (per day)	TYPE:Goods.Lodging.Resizable								COST:100	WT:0
+Hotel Stay (resort/per day)		OUTPUTNAME:Hotel stay, resort (per day)		TYPE:Goods.Lodging.Resizable								COST:200	WT:0
+Motel Stay (per day)											TYPE:Goods.Lodging.Resizable								COST:15	WT:0
+
+Meals (MRE/per day)											TYPE:Goods.Food.Resizable								COST:6	WT:1

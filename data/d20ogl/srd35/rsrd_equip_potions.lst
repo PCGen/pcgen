@@ -1,0 +1,117 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri May  7 21:03:41 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Thomas/Chipoulou tjannes@vub.ac.be
+
+# Changed OUTPUTNAME for Oils, removed the Potion of
+
+#Potions
+# Equipment Name						Output Name				Type			Cost		Weight	Source Page
+Potion (Cure Light Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Endure Elements)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Hide from Animals)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Hide from Undead)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Jump)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Mage Armor)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Magic Fang)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Oil of Magic Stone										TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Oil of Magic Weapon										TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Pass without Trace)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Chaos)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Evil)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Good)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Law)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Remove Fear)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Sanctuary)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Shield of Faith +2)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Oil of Shillelagh											TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Oil of Bless Weapon										TYPE:Magic.Potion	COST:100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Enlarge Person)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:250	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Reduce Person)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:250	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Aid)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Barkskin +2)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Bear's Endurance)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Blur)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Bull's Strength)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Cat's Grace)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Cure Moderate Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Darkness)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Darkness)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Delay Poison)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Eagle's Splendor)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Fox's Cunning)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Invisibility)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Invisibility)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Lesser Restoration)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Levitate)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Levitate)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Misdirection)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Owl's Wisdom)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Arrows 10/magic)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Remove Paralysis)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 10/Acid)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 10/Cold)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 10/Electricity)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 10/Fire)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 10/Sonic)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Shield of Faith +3)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Spider Climb)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Undetectable Alignment)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Barkskin +3)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:600	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Shield of Faith +4)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:600	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 20/Acid)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:700	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 20/Cold)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:700	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 20/Electricity)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:700	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 20/Fire)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:700	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 20/Sonic)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:700	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Cure Serious Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Daylight)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Displacement)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Flame Arrow)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Fly)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Gaseous Form)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Greater Magic Fang +1)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Greater Magic Weapon +1)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Haste)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Heroism)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Keen Edge)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Magic Circle against Chaos)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Magic Circle against Evil)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Magic Circle against Good)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Magic Circle against Law)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Vestment +1)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Neutralize Poison)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Nondetection)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Energy/Acid)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Energy/Cold)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Energy/Electricity)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Energy/Fire)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Energy/Sonic)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Rage)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Remove Blindness/Deafness)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Remove Curse)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Remove Disease)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Tongues)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Water Breathing)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Water Walk)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Barkskin +4)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Shield of Faith +5)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Good Hope)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1050	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 30/Acid)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 30/Cold)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 30/Electricity)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 30/Fire)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Resist Energy 30/Sonic)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Barkskin +5)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Greater Magic Fang +2)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Greater Magic Weapon +2)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Vestment +2)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Arrows 15/Magic)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1500	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Greater Magic Fang +3)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Greater Magic Weapon +3)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:1800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Vestment +3)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:1800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Greater Magic Fang +4)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:2400	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Greater Magic Weapon +4)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:2400	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Vestment +4)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:2400	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Greater Magic Fang +5)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:3000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Greater Magic Weapon +5)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:3000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Vestment +5)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:3000	WT:0		SOURCEPAGE:MagicItemsIII.rtf

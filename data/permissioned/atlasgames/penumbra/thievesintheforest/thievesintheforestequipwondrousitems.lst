@@ -1,0 +1,5 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Atlas Games - Penumbra - Modules - Thieve's in the Forest|SOURCESHORT:ThievesitF|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Equipment Name			Type				Cost		Weight	Source Page
+Candle of Healthy Restoration	TYPE:Magic.Wondrous	COST:700	WT:0.25	SOURCEPAGE:p.23

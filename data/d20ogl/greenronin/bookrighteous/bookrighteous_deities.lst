@@ -1,0 +1,30 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Jan 17 01:55:50 2004 -- reformated by prettylst.pl v1.32 (build 339)
+# Original Entry by: Beaver
+SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
+
+# Deity Name	Product Identity?	Output Name		Domains																	Clergy AL			Desciption of Deity/Title							Holy Item							Deity Weapon							ALIGN		Source Page
+Anwyn			NAMEISPI:YES				DOMAINS:Fire,Good,Home,Law,Protection												FOLLOWERALIGN:013		DESC:Godess of Home, Hearth and Servants					SYMBOL:Flame rising from a flattened Circle	DEITYWEAP:Quarterstaff						ALIGN:LG	SOURCEPAGE:p.170
+Asmodeus		NAMEISPI:YES				DOMAINS:Evil,Fire,Law,Trickery													FOLLOWERALIGN:215		DESC:God of Lies, Power and Fire						SYMBOL:Burning Tree					DEITYWEAP:Dagger|Sword (Great)				ALIGN:LE	SOURCEPAGE:p.208
+Aymara		NAMEISPI:YES				DOMAINS:Beauty,Chaos,Good,Inspiration												FOLLOWERALIGN:673		DESC:Godess of Love and the Arts						SYMBOL:None							DEITYWEAP:Rapier							ALIGN:CG	SOURCEPAGE:p.147
+Canelle		NAMEISPI:YES				DOMAINS:Chaos,Good,Luck,Strength													FOLLOWERALIGN:673		DESC:Godess of Victory and Strength						SYMBOL:Wreath of leaves					DEITYWEAP:Longspear|Shortspear				ALIGN:CG	SOURCEPAGE:p.193
+Carnarak		NAMEISPI:YES				DOMAINS:Chaos,Destruction,Evil,War,Water												FOLLOWERALIGN:875		DESC:God of Destruction, Violence and Rage				SYMBOL:None							DEITYWEAP:Falchion|Kukri|Scimitar				ALIGN:CE	SOURCEPAGE:p.210
+Darmon		NAMEISPI:YES				DOMAINS:Chaos,Good,Knowledge,Luck,Travel,Trickery										FOLLOWERALIGN:673		DESC:God of Travel, Wealth and Joy						SYMBOL:None							DEITYWEAP:Sword (Short)						ALIGN:CG	SOURCEPAGE:p.136
+Korak			NAMEISPI:YES				DOMAINS:Earth,Fire,Good,The Forge													FOLLOWERALIGN:6043	DESC:God of the Forge and Artisans						SYMBOL:Hammer and Anvil					DEITYWEAP:Hammer (Light)					ALIGN:NG	SOURCEPAGE:p.159
+Maal			NAMEISPI:YES				DOMAINS:Justice,Law,Protection,The Dead												FOLLOWERALIGN:2014	DESC:God of Law and Jutice							SYMBOL:Silver sword 'Justice'				DEITYWEAP:Sword (Long)						ALIGN:LN	SOURCEPAGE:p.126
+Mormekar		NAMEISPI:YES				DOMAINS:Destruction,Protection,The Dead												FOLLOWERALIGN:71453	DESC:God of Death and Rebirth							SYMBOL:Charred Staff					DEITYWEAP:Quarterstaff						ALIGN:TN	SOURCEPAGE:p.117
+Morwyn		NAMEISPI:YES				DOMAINS:Good,Healing,Knowledge,Protection												FOLLOWERALIGN:013		DESC:Godess of Healing and Wisdom						SYMBOL:Crystal Tear					DEITYWEAP:Quarterstaff						ALIGN:LG	SOURCEPAGE:p.73
+Naran			NAMEISPI:YES				DOMAINS:Earth,Evil,Knowledge,Law,Water												FOLLOWERALIGN:215		DESC:God of Tyranny, Pride and Cunning					SYMBOL:Metal collar attached to a black chain	DEITYWEAP:Flail (Dire)|Flail (Heavy)|Flail (Light)	ALIGN:LE	SOURCEPAGE:p.214
+Naryne		NAMEISPI:YES				DOMAINS:Knowledge,Law,Protection													FOLLOWERALIGN:2014	DESC:Godess of Nobility								SYMBOL:Golden Crown					DEITYWEAP:Mace (Heavy)|Mace (Light)				ALIGN:LN	SOURCEPAGE:p.187
+Rontra		NAMEISPI:YES				DOMAINS:Earth,Good,Healing,Law,Plant												FOLLOWERALIGN:013		DESC:Grandmother, the Earth Mother						SYMBOL:Mountain on a field of White			DEITYWEAP:Flail (Heavy)|Flail (Light)			ALIGN:LG	SOURCEPAGE:p.45
+Shalimyr		NAMEISPI:YES				DOMAINS:Chaos,Destruction,Water													FOLLOWERALIGN:8674	DESC:God of the Water								SYMBOL:Blue Wave						DEITYWEAP:Falchion						ALIGN:CN	SOURCEPAGE:p.57
+Terak (LG)		NAMEISPI:YES	OUTPUTNAME:Terak	DOMAINS:Good,Law,Protection,Strength,War,Holy Warrior (Body),Holy Warrior (Leadership),Holy Warrior (Might)	FOLLOWERALIGN:013		DESC:Marshal of the Gods							SYMBOL:Bronze Axe						DEITYWEAP:Battleaxe						ALIGN:LG	SOURCEPAGE:p.83
+Terak (LN)		NAMEISPI:YES	OUTPUTNAME:Terak	DOMAINS:Law,Protection,Strength,War,Holy Warrior (Body),Holy Warrior (Leadership),Holy Warrior (Might)	FOLLOWERALIGN:2014	DESC:Marshal of the Gods							SYMBOL:Bronze Axe						DEITYWEAP:Battleaxe						ALIGN:LN	SOURCEPAGE:p.83
+The Conspiracy	NAMEISPI:YES				DOMAINS:Evil,Fire,Law,Protection,Trickery												FOLLOWERALIGN:215		DESC:None										SYMBOL:None																ALIGN:LE	SOURCEPAGE:p.312
+The Great Church	NAMEISPI:YES				DOMAINS:ALL																	FOLLOWERALIGN:013		DESC:Lords of Heaven								SYMBOL:The Tree						DEITYWEAP:Club							ALIGN:LG	SOURCEPAGE:p.24
+Thellos		NAMEISPI:YES				DOMAINS:Air,Evil,Travel,Trickery													FOLLOWERALIGN:8245	DESC:God of Greed, Gluttony, and Desire					SYMBOL:Depiction of a fat old man			DEITYWEAP:Club|Quarterstaff					ALIGN:NE	SOURCEPAGE:p.212
+Thellyne		NAMEISPI:YES				DOMAINS:Animal,Good,Plant,Protection												FOLLOWERALIGN:6043	DESC:Golden Sister, Godess of Woodcraft, Nature and the Hunt	SYMBOL:Pair of great, white horns			DEITYWEAP:Longbow							ALIGN:NG	SOURCEPAGE:p.198
+Tinel (CG)		NAMEISPI:YES	OUTPUTNAME:Tinel	DOMAINS:Chaos,Good,Knowledge,Magic,Truth												FOLLOWERALIGN:673		DESC:God of Magic Knowledge, and Truth					SYMBOL:Golden Key						DEITYWEAP:Dagger							ALIGN:CG	SOURCEPAGE:p.105
+Tinel (TN)		NAMEISPI:YES	OUTPUTNAME:Tinel	DOMAINS:Knowledge,Magic,Truth														FOLLOWERALIGN:71453	DESC:God of Magic Knowledge, and Truth					SYMBOL:Golden Key						DEITYWEAP:Dagger							ALIGN:TN	SOURCEPAGE:p.105
+Urian			NAMEISPI:YES				DOMAINS:Air,Good,Night,Sun,Holy Warrior (Champion),Holy Warrior (Air),Holy Warrior (Freedom)			FOLLOWERALIGN:6043	DESC:God of the Air and Sky							SYMBOL:Half gold, Half Silver Orb			DEITYWEAP:Javelin|Whip						ALIGN:NG	SOURCEPAGE:p.36
+Zheenkeef		NAMEISPI:YES				DOMAINS:Chaos,Inspiration,Oracle,Trickery												FOLLOWERALIGN:8674	DESC:Godess of Wine, Madness and Inspiration				SYMBOL:Cluster of Grapes				DEITYWEAP:Morningstar						ALIGN:CN	SOURCEPAGE:p.95
+

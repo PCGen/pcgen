@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: dmcmill $ -- Fri Dec 12 16:43:31 2003 -- reformated by prettylst.pl v1.32 (build 339)
+#Original Author: kingpaul, Updated by Beaver
+
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+
+# Domain Name	Product Identity?	Source Page		Description									List of Domain Spells by Level
+Light			NAMEISPI:NO		SOURCEPAGE:p.27	DESC:With a touch, you can infuse a creature with light.	SPELLLEVEL:DOMAIN|Light=1|Illuminated Weapon|Light=2|Heartglow|Light=3|Searing Light|Light=4|Shield of Light|Light=5|Blazing Light|Light=6|Waves of Light|Light=7|Sunbeam|Light=8|Sunfire Tomb|Light=9|Wellspring of Soul's Light

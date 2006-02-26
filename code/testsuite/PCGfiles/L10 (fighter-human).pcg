@@ -1,0 +1,206 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:3.5 RSRD
+VERSION:5.6.0
+ROLLMETHOD:1|EXPRESSION:roll(4,6,[2,3,4])
+PURCHASEPOINTS:N|TYPE:
+POOLPOINTS:2
+GAMEMODE:35e
+TABLABEL:0
+AUTOSPELLS:Y
+LOADCOMPANIONS:N
+USETEMPMODS:N
+AUTOSORTGEAR:Y
+AUTOSORTSKILLS:Y
+
+# Character Bio
+CHARACTERNAME:Gulak Kurgar
+TABNAME:
+PLAYERNAME:
+HEIGHT:76
+WEIGHT:228
+AGE:20
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:24
+STAT:DEX|SCORE:18
+STAT:CON|SCORE:20
+STAT:INT|SCORE:14
+STAT:WIS|SCORE:16
+STAT:CHA|SCORE:19
+ALIGN:CN
+RACE:Human
+
+# Character Class(es)
+CLASS:Fighter|SUBCLASS:None|LEVEL:10|SKILLPOOL:0|PROHIBITED:None
+CLASSABILITIESLEVEL:Fighter=1|HITPOINTS:10|SKILLSGAINED:20
+CLASSABILITIESLEVEL:Fighter=2|HITPOINTS:9|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=3|HITPOINTS:4|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=4|HITPOINTS:9|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=5|HITPOINTS:5|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=6|HITPOINTS:3|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=7|HITPOINTS:6|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=8|HITPOINTS:5|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=9|HITPOINTS:9|SKILLSGAINED:5
+CLASSABILITIESLEVEL:Fighter=10|HITPOINTS:4|SKILLSGAINED:5
+
+# Character Experience
+EXPERIENCE:48255
+
+# Character Templates
+
+# Character Region
+
+# Character Skills
+SKILL:Appraise|OUTPUTORDER:1|
+SKILL:Balance|OUTPUTORDER:2|
+SKILL:Bluff|OUTPUTORDER:3|
+SKILL:Climb|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Fighter|RANKS:13.0|COST:1|CLASSSKILL:Y]
+SKILL:Concentration|OUTPUTORDER:5|
+SKILL:Craft (Untrained)|OUTPUTORDER:6|
+SKILL:Diplomacy|OUTPUTORDER:7|
+SKILL:Disguise|OUTPUTORDER:8|
+SKILL:Escape Artist|OUTPUTORDER:9|
+SKILL:Forgery|OUTPUTORDER:10|
+SKILL:Gather Information|OUTPUTORDER:11|
+SKILL:Heal|OUTPUTORDER:13|
+SKILL:Hide|OUTPUTORDER:14|
+SKILL:Intimidate|OUTPUTORDER:15|CLASSBOUGHT:[CLASS:Fighter|RANKS:13.0|COST:1|CLASSSKILL:Y]
+SKILL:Jump|OUTPUTORDER:16|CLASSBOUGHT:[CLASS:Fighter|RANKS:13.0|COST:1|CLASSSKILL:Y]
+SKILL:Listen|OUTPUTORDER:17|
+SKILL:Move Silently|OUTPUTORDER:18|
+SKILL:Ride|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Fighter|RANKS:8.0|COST:1|CLASSSKILL:Y]
+SKILL:Search|OUTPUTORDER:20|
+SKILL:Sense Motive|OUTPUTORDER:21|
+SKILL:Spot|OUTPUTORDER:22|
+SKILL:Survival|OUTPUTORDER:23|
+SKILL:Swim|OUTPUTORDER:24|CLASSBOUGHT:[CLASS:Fighter|RANKS:13.0|COST:1|CLASSSKILL:Y]
+SKILL:Use Rope|OUTPUTORDER:25|
+SKILL:Handle Animal|OUTPUTORDER:12|CLASSBOUGHT:[CLASS:Fighter|RANKS:5.0|COST:1|CLASSSKILL:Y]
+
+# Character Languages
+LANGUAGE:Abyssal|LANGUAGE:Common|LANGUAGE:Undercommon
+
+# Character Feats
+FEAT:Dodge|TYPE:GENERAL.FIGHTER|DESC:During your action, you designate an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
+FEAT:Power Attack|TYPE:GENERAL.FIGHTER|DESC:On your action, before making attack rolls for a round, you may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed your base attack bonus.
+FEAT:Weapon Focus|APPLIEDTO:Morningstar|TYPE:GENERAL.FIGHTER|DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon.
+FEAT:Quick Draw|TYPE:GENERAL.FIGHTER|DESC:You can draw a weapon as a free action instead of as a move action. You can draw a hidden weapon as a move action. A character who has selected this feat may throw weapons at his full normal rate of attacks (much like a character with a bow).
+FEAT:Cleave|TYPE:GENERAL.FIGHTER|DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
+FEAT:Great Cleave|TYPE:GENERAL.FIGHTER|DESC:This feat works like Cleave, except that there is no limit to the number of times you can use it per round.
+FEAT:Mobility|TYPE:GENERAL.FIGHTER|DESC:You get a +4 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area.
+FEAT:Weapon Specialization|APPLIEDTO:Morningstar|TYPE:SPECIAL.FIGHTER|DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon.
+FEAT:Combat Reflexes|TYPE:GENERAL.FIGHTER|DESC:You may make a number of additional attacks of opportunity equal to your Dexterity bonus.
+FEAT:Greater Weapon Focus|APPLIEDTO:Morningstar|TYPE:GENERAL.FIGHTER|DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including the one from Weapon Focus.
+FEATPOOL:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Axe (Throwing)|WEAPON:Battleaxe|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Falchion|WEAPON:Flail]
+WEAPONPROF:[WEAPON:Flail (Heavy)|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Glaive|WEAPON:Greataxe|WEAPON:Greatclub|WEAPON:Greatsword|WEAPON:Guisarme|WEAPON:Halberd|WEAPON:Hammer (Light)]
+WEAPONPROF:[WEAPON:Handaxe|WEAPON:Javelin|WEAPON:Kukri|WEAPON:Lance|WEAPON:Longbow|WEAPON:Longspear|WEAPON:Longsword|WEAPON:Mace (Heavy)|WEAPON:Mace (Light)|WEAPON:Mind-blade]
+WEAPONPROF:[WEAPON:Morningstar|WEAPON:Pick (Heavy)|WEAPON:Pick (Light)|WEAPON:Quarterstaff|WEAPON:Ranseur|WEAPON:Rapier|WEAPON:Sap|WEAPON:Scimitar|WEAPON:Scythe|WEAPON:Shieldbash (Heavy)]
+WEAPONPROF:[WEAPON:Shieldbash (Light)|WEAPON:Shortbow|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Spear|WEAPON:Spells(Energy Missile)|WEAPON:Spells(Ray)|WEAPON:Spells(Touch)|WEAPON:Spiked Armor]
+WEAPONPROF:[WEAPON:Sword (Bastard/Martial)|WEAPON:Sword (Short)|WEAPON:Trident|WEAPON:Unarmed Strike|WEAPON:Waraxe (Dwarven/Martial)|WEAPON:Warhammer]
+
+# Character Equipment
+MONEY:0.00
+EQUIPNAME:Arrows (20)|OUTPUTORDER:4|COST:1.0|WT:3.0|QUANTITY:2.0|CUSTOMIZATION:[BASEITEM:Arrows (20)|DATA:NAME=Arrows (20)$EQMOD=STEEL.WOOD]
+EQUIPNAME:Backpack|OUTPUTORDER:5|COST:2|WT:2.0|QUANTITY:1.0
+EQUIPNAME:Boots of Striding and Springing|OUTPUTORDER:6|COST:5500|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Climber's Kit|OUTPUTORDER:7|COST:80|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Cloak of the Bat|OUTPUTORDER:8|COST:26000|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Coin (Gold)|OUTPUTORDER:9|COST:1|WT:0.02|QUANTITY:10775.0
+EQUIPNAME:Dagger|OUTPUTORDER:11|COST:2.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Dagger|DATA:NAME=Dagger$EQMOD=STEEL]
+EQUIPNAME:Figurine of Wondrous Power (Onyx Dog)|OUTPUTORDER:12|COST:15500|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Flint and Steel|OUTPUTORDER:13|COST:1|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Healer's Kit|OUTPUTORDER:14|COST:50|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Ioun Stone (Pink and Green)|OUTPUTORDER:15|COST:8000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Necklace of Adaptation|OUTPUTORDER:16|COST:9000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Oil (1 Pt. Flask)|OUTPUTORDER:17|COST:0.1|WT:1.0|QUANTITY:2.0
+EQUIPNAME:Outfit (Cold Weather)|OUTPUTORDER:18|COST:0|WT:7.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Outfit (Cold Weather)|DATA:NAME=Outfit (Cold Weather)$COSTMOD=-8]
+EQUIPNAME:Piton|OUTPUTORDER:19|COST:0.1|WT:0.5|QUANTITY:5.0
+EQUIPNAME:Pouch (Belt)|OUTPUTORDER:21|COST:1|WT:0.5|QUANTITY:3.0
+EQUIPNAME:Rations (Trail/Per Day)|OUTPUTORDER:22|COST:0.5|WT:1.0|QUANTITY:7.0
+EQUIPNAME:Ring (Freedom of Movement)|OUTPUTORDER:24|COST:40000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Rope (Silk/50 Ft.)|OUTPUTORDER:25|COST:10|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Waterskin|OUTPUTORDER:26|COST:1|WT:4.0|QUANTITY:1.0
+EQUIPNAME:+3 morningstar|OUTPUTORDER:2|COST:18308.0|WT:6.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Morningstar|DATA:NAME=+3 morningstar$EQMOD=MWORKW.PLUS3W.STEEL$SPROP=(Morningstar (Masterwork/+3 (Enhancement to Weapon or Ammunition)))]
+EQUIPNAME:+4 full plate|OUTPUTORDER:3|COST:17650.0|WT:50.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Full Plate|DATA:NAME=+4 full plate$EQMOD=MWORKA.PLUS4A.STEEL$SPROP=(Full Plate (Masterwork/+4 (Enhancement to Armor)))]
+EQUIPNAME:composite longbow (+4 Str)|OUTPUTORDER:10|COST:500.0|WT:3.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Longbow (Composite)|DATA:NAME=composite longbow (+4 Str)$EQMOD=BOWSTR&pipe;+4.WOOD$SPROP=(Longbow (Composite/+4))]
+EQUIPNAME:Ring (Elemental Command)|OUTPUTORDER:23|COST:200000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:+3 heavy steel shield|OUTPUTORDER:1|COST:18170.0|WT:15.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Shield (Heavy/Metal)|DATA:NAME=+3 heavy steel shield$EQMOD=MWORKA.PLUS3S.STEEL$SPROP=(Shield (Heavy/Metal/Masterwork/+3 (Enhancement to Shield)))]
+EQUIPNAME:Potion (Eagle's Splendor)|OUTPUTORDER:1|COST:300|WT:0.0|QUANTITY:1.0
+EQUIPSET:Default Set|ID:0.1
+EQUIPSET:Equipped|ID:0.1.1|VALUE:Backpack|QUANTITY:1.0
+EQUIPSET:Backpack|ID:0.1.1.1|VALUE:Rations (Trail/Per Day)|QUANTITY:7.0
+EQUIPSET:Backpack|ID:0.1.1.2|VALUE:Waterskin|QUANTITY:1.0
+EQUIPSET:Backpack|ID:0.1.1.3|VALUE:Rope (Silk/50 Ft.)|QUANTITY:1.0
+EQUIPSET:Backpack|ID:0.1.1.4|VALUE:Piton|QUANTITY:5.0
+EQUIPSET:Neck|ID:0.1.11|VALUE:Necklace of Adaptation|QUANTITY:1.0
+EQUIPSET:Torso|ID:0.1.12|VALUE:Outfit (Cold Weather)|QUANTITY:1.0
+EQUIPSET:Fingers|ID:0.1.14|VALUE:Ring (Freedom of Movement)|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.16|VALUE:Pouch (Belt)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.16.1|VALUE:Figurine of Wondrous Power (Onyx Dog)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.16.2|VALUE:Potion (Eagle's Splendor)|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.17|VALUE:Pouch (Belt)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.17.1|VALUE:Oil (1 Pt. Flask)|QUANTITY:2.0
+EQUIPSET:Pouch (Belt)|ID:0.1.17.2|VALUE:Flint and Steel|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.18|VALUE:Pouch (Belt)|QUANTITY:1.0
+EQUIPSET:Carried|ID:0.1.19|VALUE:Arrows (20)|QUANTITY:2.0
+EQUIPSET:Foot|ID:0.1.2|VALUE:Boots of Striding and Springing|QUANTITY:1.0
+EQUIPSET:Not Carried|ID:0.1.20|VALUE:Coin (Gold)|QUANTITY:14829.0
+EQUIPSET:Primary Hand|ID:0.1.21|VALUE:+3 morningstar|QUANTITY:1.0
+EQUIPSET:Armor|ID:0.1.22|VALUE:+4 full plate|QUANTITY:1.0
+EQUIPSET:Carried|ID:0.1.23|VALUE:composite longbow (+4 Str)|QUANTITY:1.0
+EQUIPSET:Shield|ID:0.1.24|VALUE:+3 heavy steel shield|QUANTITY:1.0
+EQUIPSET:Fingers|ID:0.1.25|VALUE:Ring (Elemental Command)|QUANTITY:1.0|NOTE:Air
+EQUIPSET:Equipped|ID:0.1.3|VALUE:Climber's Kit|QUANTITY:1.0
+EQUIPSET:Back|ID:0.1.4|VALUE:Cloak of the Bat|QUANTITY:1.0
+EQUIPSET:Carried|ID:0.1.5|VALUE:Dagger|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.7|VALUE:Healer's Kit|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.8|VALUE:Ioun Stone (Pink and Green)|QUANTITY:1.0
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:Tempus|DEITYDOMAINS:[DOMAIN:Chaos|DOMAIN:Protection|DOMAIN:Strength|DOMAIN:War]|ALIGNALLOW:867|DESC:Clerics pray for spells just before noon|HOLYITEM:A blazing silver sword on a blood-red shield|DEITYFAVWEAP:[WEAPON:Battleaxe]|DEITYALIGN:CN
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:Ring of Elemental Command &lbracket;Air&rbracket;&nl;• Feather fall (unlimited use, wearer only)&nl;• Resist energy (electricity) (unlimited use, wearer only)&nl;• Gust of wind (twice per day)&nl;• Wind wall (unlimited use)&nl;• Air walk (once per day, wearer only)&nl;• Chain lightning (once per week)&nl;&nl;Morning star&colon; &lbracket;INT 17, WIS 8, CHA 15, EGO 11; speaks Common, Abyssal, Undercommon, Infernal; locate object in a 120' radius; heal 1/day&rbracket;
+
+# Character Master/Follower
+
+# Character Notes Tab
+
+# Kits
+
+# Chosen Armor Profs
+
+# Age Set Selections
+AGESET:1:0:0:0:0:0:0:0:0:0

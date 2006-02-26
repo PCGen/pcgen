@@ -1,0 +1,26 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Beaver
+
+###Block: Dwarven clans
+# Template Name	Visible	Source Page		Automatic Languages	SUBRACE
+Clan Thedron	VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Thedron		SUBRACE:Yes
+Clan Fodrin		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Fodrin		SUBRACE:Yes
+Clan Durgis		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Durgis		SUBRACE:Yes
+Clan Gorand		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Gorand		SUBRACE:Yes
+Clan Black Blood	VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Black Blood	SUBRACE:Yes
+
+###Block: Halfling cultures
+# Template Name	Visible	Source Page		Special Ability										Bonus to skill						SUBRACE
+Nomadic Halfling	VISIBLE:NO	SOURCEPAGE:p.24	SA:+2 racial bonus on Wilderness Lore checks in plains and grasslands	BONUS:SKILL|Handle Animal,Ride|2|TYPE=Racial	SUBRACE:Nomadic
+Agrarian Halfling	VISIBLE:NO	SOURCEPAGE:p.24	SA:+2 racial bonus on all non-metal and non-wood Craft checks		BONUS:SKILL|Heal|2|TYPE=Racial			SUBRACE:Agrarian
+
+###Block:Dwarrow raisings
+# Template Name		Visible	Source Page		Special Ability																																																																				Bonus to skill												Class Skill						ADD:Language																				FAVOREDCLASS		Change Weapon Prof. Category		Automatic Languages				Bonus Languages
+Raised among Dwarves	VISIBLE:NO	SOURCEPAGE:p.30	SA:Stonecunning	SA:+1 dodge bonus to Armor Class against orcs	SA:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items	SA:+2 racial bonus on Wilderness Lore checks in mountains and dwarven holdfasts																															BONUS:SKILL|Climb|2											CSKILL:Knowledge (Kaladrun Mountains)	ADD:Language(TYPE=ClanDialect)																	FAVOREDCLASS:Fighter	CHANGEPROF:DwarvenExotic=Martial	LANGAUTO:Old Dwarven Pidgen,Orc Pidgen	LANGBONUS:Old Dwarven,Orcish,TYPE=ClanDialect,Trader's Tongue
+Raised among Gnomes	VISIBLE:NO	SOURCEPAGE:p.30	SA:Can hold breath for % rounds|3*(CONSCORE)	SA:+2 racial bonus on Wilderness Lore checks when on rivers	SA:+2 racial bonus on Appraise, Bluff, Diplomacy, and Profession checks when made during trading activities	SA:+2 racial bonus on Bluff, Forgery, and Gather Information checks when made during smuggling activities	SA:+2 racial bonus on Perform checks for singing, storytelling, or playing musical instruments	BONUS:SKILL|Profession (Boater),Profession (Sailor),Swim,Use Rope|2|TYPE=Racial	CSKILL:Knowledge (Eren River Valley)	ADD:Language(Colonial Pidgen,Erenlander Pidgen,Halfling Pidgen,High Elven Pidgen,Norther Pidgen,Old Dwarven Pidgen,Orcish Pidgen)	FAVOREDCLASS:Rogue	CHANGEPROF:GnomeExotic=Martial	LANGAUTO:Trader's Tongue			LANGBONUS:ALL
+
+###Block:Elfling raisings
+# Template Name	Visible	Source Page		Special Ability								Class Skill
+Raised in Forests	VISIBLE:NO	SOURCEPAGE:p.32	SA:+2 racial bonus on Wilderness Lore checks in forests	CSKILL:Knowledge (Aruun)
+Raised on Plains	VISIBLE:NO	SOURCEPAGE:p.32	SA:+2 racial bonus on Wilderness Lore checks in plains	CSKILL:Knowledge (Central Erenland)

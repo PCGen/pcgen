@@ -1,0 +1,42 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Sep 28 00:04:33 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+#Alherin AKA Ancient Imperial
+# Language			Type
+Altherin			TYPE:Spoken.Written
+Ancient Milandisian	TYPE:Spoken.Written
+Auxunite			TYPE:Spoken.Written
+Cancerese			TYPE:Spoken.Written
+Chauni			TYPE:Spoken.Written
+Druidic			TYPE:Spoken.Written
+Dwarven			TYPE:Spoken.Written
+Eloran			TYPE:Spoken.Written
+Gnollish			TYPE:Spoken
+Golic				TYPE:Spoken.Written
+Harnen			TYPE:Spoken.Written
+High Coryani		TYPE:Spoken.Written
+High Khitani		TYPE:Spoken.Written
+Infernal			TYPE:Spoken.Written
+Kion				TYPE:Spoken.Written
+Low Coryani			TYPE:Spoken.Written
+Low Khitani			TYPE:Spoken.Written
+Milandisian			TYPE:Spoken.Written
+Myrantian			TYPE:Spoken.Written
+Orcan				TYPE:Spoken
+Ss'ressen			TYPE:Spoken.Written
+Ssethric			TYPE:Spoken.Written
+Tenecian			TYPE:Spoken.Written
+Unden				TYPE:Spoken.Written
+Yhing Hir			TYPE:Spoken.Written
+Ymandrake			TYPE:Spoken.Written
+
+#Elemental Languages
+#Auran			TYPE:Spoken
+#Aquan			TYPE:Spoken
+#Ignan			TYPE:Spoken
+#Terran			TYPE:Spoken
+
+#
+# End
+#

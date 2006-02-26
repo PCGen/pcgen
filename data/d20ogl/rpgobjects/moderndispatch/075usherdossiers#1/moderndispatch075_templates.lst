@@ -1,0 +1,20 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 30 19:48:21 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1|SOURCESHORT:MD75-USHER#1|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198
+# Original Entry by: Paul W. King
+
+###Block: organizations
+# Template Name	Product Identity?	Source Page		Required Feat	Required Text
+Medusa		NAMEISPI:YES	SOURCEPAGE:p.3	PREFEAT:1,Enemy	PRETEXT:Must have allegiance to Medusan and USHER as an enemy
+
+
+###Block: membership benefits
+# Template Name		Product Identity?	Source Page		Special Ability		Required Template					Bonus to skill
+Medusa Special Access 1	NAMEISPI:YES	SOURCEPAGE:p.3					PRETEMPLATE:1,Medusa				BONUS:SKILL|Computer Use,Knowledge (Technology)|2|TYPE=Competence
+Medusa Special Access 2	NAMEISPI:YES	SOURCEPAGE:p.3	SA:Ghost in the Machine	PRETEMPLATE:1,Medusa Special Access 1
+Medusa Special Access 3	NAMEISPI:YES	SOURCEPAGE:p.3	SA:Medusa Protocol 1	PRETEMPLATE:1,Medusa Special Access 2
+Medusa Special Access 4	NAMEISPI:YES	SOURCEPAGE:p.3	SA:Cutting Edge		PRETEMPLATE:1,Medusa Special Access 3
+Medusa Special Access 5	NAMEISPI:YES	SOURCEPAGE:p.4	SA:Medusa Protocol 2	PRETEMPLATE:1,Medusa Special Access 4
+
+###Block: special units
+# Template Name	Product Identity?	Source Page		Required Feat															Required Skill						Required Template		Bonus to skill						Modify VAR
+Shadow Soldiers	NAMEISPI:YES	SOURCEPAGE:p.4	PREFEAT:5,Armor Proficiency (Light),Personal Firearms Proficiency,Stealthy,Commando 1,Commando 2	PRESKILL:3,Computer Use,Hide,Move Silently=10	PRETEMPLATE:1,Medusa	BONUS:SKILL|Computer Use,Hide|4|TYPE=Competence	BONUS:VAR|Commando|1

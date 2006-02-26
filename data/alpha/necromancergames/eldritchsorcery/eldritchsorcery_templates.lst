@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 09:19:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Eldritch Sorcery|SOURCESHORT:EldSor|SOURCEWEB:http://www.necromancergames.com/
+# Original Entry by: Tir Gwaith
+
+# Template Name	Hit Dice Size	Template		Source Page		Special Ability										Combat bonus						Add to vision			Modify VAR						Virtual Feat			Spell Res.	Type		Vision			Hit Dice																Spells
+Plant Imbued	HITDIE:8		TEMPLATE:Plant	SOURCEPAGE:p.97	SA:Fast Healing (Ex) 5	SA:Acute Senses (Ex)	SA:Woodland Stride (Ex)	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:VISION|Darkvision|30	BONUS:VAR|UncannyDodgeFlankingLevel|TL	VFEAT:Improved Uncanny Dodge	SR:10+TL	TYPE:Plant	VISION:Darkvision (30')	HD:1-5:DR:5/Magic	HD:6-10:DR:10/Magic	HD:11-15:DR:15/Magic	HD:16+:DR:15/Magic and Cold Iron	SPELLS:Innate|TIMES=-1|CASTERLEVEL=9|Freedom of Movement,14+WIS	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Entangle,11+WIS|Magic Fang,11+WIS	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Sunburst,18+WIS|Tree Stride,15+WIS

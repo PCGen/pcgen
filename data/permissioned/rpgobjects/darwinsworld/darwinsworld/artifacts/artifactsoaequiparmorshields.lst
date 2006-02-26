@@ -1,0 +1,28 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients|SOURCESHORT:ArtifactsA|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# Several armors come with weapons and other EQUIP
+
+#Armor and Shields
+#Medium Weight -------------------------------------------------------------------------------------------------------------
+# Equipment Name		Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			Combat bonus
+Ballistic Nylon		TYPE:Armor.Medium.Suit.Standard.Plastic		COST:16400	WT:20		ACCHECK:-5		MAXDEX:3		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Metal Insert		TYPE:Armor.Medium.Suit.Standard.Metal		COST:9400	WT:30		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Military Combat Suit	TYPE:Armor.Medium.Suit.Standard.Plastic		COST:20400	WT:20		ACCHECK:-5		MAXDEX:3		SOURCEPAGE:p.85,87	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+
+#Heavy Weight -------------------------------------------------------------------------------------------------------------
+Advanced Metal		TYPE:Armor.Heavy.Suit.Standard.Metal		COST:5800	WT:50		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE
+Civil Security Suit	TYPE:Armor.Heavy.Suit.Standard.Plastic		COST:5500	WT:25		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85-87	BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+LazAb				TYPE:Armor.Heavy.Suit.Standard.Metal		COST:16500	WT:50		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Mk1 Ares Armor		TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:67400	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,87	BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE
+Mk2 Ares Armor		TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:73300	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,87	BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE
+Mk2 Hermes Armor		TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:106800	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,87,88	BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE
+Mk3 Hermes Armor		TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:183800	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,88	BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE
+NBC Suit			TYPE:Armor.Heavy.Suit.Standard.Metal		COST:21800	WT:50		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Plastex			TYPE:Armor.Heavy.Suit.Standard.Plastic		COST:9900	WT:30		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE
+Plastic Plate		TYPE:Armor.Heavy.Suit.Standard.Plastic		COST:4900	WT:25		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Powered Armor		TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:50800	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE
+Scout Armor			TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:37800	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|12|TYPE=Armor.REPLACE
+Special Security Suit	TYPE:Armor.Heavy.Suit.Standard.Plastic		COST:17000	WT:25		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,88	BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Zeus Suit			TYPE:Armor.Heavy.Suit.Standard.Powered.Metal	COST:294800	WT:0		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.85,88	BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE

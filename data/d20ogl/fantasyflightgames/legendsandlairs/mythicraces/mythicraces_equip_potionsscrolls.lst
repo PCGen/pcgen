@@ -1,0 +1,15 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Mar  1 21:09:32 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Potions
+
+# Equipment Name			Output Name				Type					Cost		Weight	Source Page
+Potion (Fatal Error)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p. 170
+Potion (Misaligned Aura)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p. 169
+Potion (Rewrite)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p. 169
+
+# Scrolls
+
+Scroll (Fatal Error)							TYPE:Magic.Scroll.Divine	COST:375	WT:.01	SOURCEPAGE:p. 170
+Scroll (Misaligned Aura)						TYPE:Magic.Scroll.Divine	COST:25	WT:.01	SOURCEPAGE:p. 169
+Scroll (Rewrite)								TYPE:Magic.Scroll.Divine	COST:150	WT:.01	SOURCEPAGE:p. 169

@@ -1,0 +1,431 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Magmin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Magmin]
+RACE:Magmin	!PRERACE:%
+NAME:Magmin
+ALIGN:CN
+SKILL:Spot	RANK:3
+SKILL:Climb	RANK:2
+FEAT:Great Fortitude
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Manticore	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Manticore]
+RACE:Manticore	!PRERACE:%
+NAME:Manticore
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:4
+FEAT:Flyby Attack
+FEAT:Multiattack
+FEAT:Weapon Focus(Spikes)
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Default Medusa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Medusa]
+RACE:Medusa	!PRERACE:%
+NAME:Medusa
+SKILL:Move Silently	RANK:6
+SKILL:Bluff			RANK:7
+SKILL:Disguise		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Diplomacy		RANK:2
+SKILL:Intimidate		RANK:2
+FEAT:Point Blank Shot
+FEAT:Precise Shot
+FEAT:Weapon Finesse
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+GEAR:Dagger		SIZE:PC	LOCATION:Carried
+GEAR:Shortbow	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Mephit (Air)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Air)]
+RACE:Mephit (Air)	!PRERACE:%
+NAME:Mephit (Air)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+SKILL:Intimidate		RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Mephit (Dust)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Dust)]
+RACE:Mephit (Dust)	!PRERACE:%
+NAME:Mephit (Dust)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+SKILL:Intimidate		RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Mephit (Earth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Earth)]
+RACE:Mephit (Earth)	!PRERACE:%
+NAME:Mephit (Earth)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+SKILL:Intimidate		RANK:2
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
+
+STARTPACK:Default Mephit (Fire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Fire)]
+RACE:Mephit (Fire)	!PRERACE:%
+NAME:Mephit (Fire)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Mephit (Ice)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Ice)]
+RACE:Mephit (Ice)	!PRERACE:%
+NAME:Mephit (Ice)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Mephit (Magma)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Magma)]
+RACE:Mephit (Magma)	!PRERACE:%
+NAME:Mephit (Magma)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Mephit (Ooze)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Ooze)]
+RACE:Mephit (Ooze)	!PRERACE:%
+NAME:Mephit (Ooze)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Power Attack
+FEAT:Toughness
+STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
+
+STARTPACK:Default Mephit (Salt)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Salt)]
+RACE:Mephit (Salt)	!PRERACE:%
+NAME:Mephit (Salt)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
+
+STARTPACK:Default Mephit (Steam)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Steam)]
+RACE:Mephit (Steam)	!PRERACE:%
+NAME:Mephit (Steam)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Mephit (Water)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mephit (Water)]
+RACE:Mephit (Water)	!PRERACE:%
+NAME:Mephit (Water)
+SKILL:Bluff			RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+FEAT:Power Attack
+FEAT:Toughness
+STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
+
+STARTPACK:Default Merfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Merfolk]
+RACE:Merfolk	!PRERACE:%
+NAME:Merfolk
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+GEAR:Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Trident		SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Mimic	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mimic]
+RACE:Mimic	!PRERACE:%
+NAME:Mimic
+SKILL:Climb		RANK:5
+SKILL:Disguise	RANK:5
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus(Slam)
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Minotaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Minotaur]
+RACE:Minotaur	!PRERACE:%
+NAME:Minotaur
+SKILL:Intimidate	RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Great Fortitude
+FEAT:Power Attack
+FEAT:Track
+STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
+GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Mohrg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mohrg]
+RACE:Mohrg	!PRERACE:%
+NAME:Mohrg
+ALIGN:CE
+SKILL:Climb			RANK:8
+SKILL:Swim			RANK:4
+SKILL:Spot			RANK:13
+SKILL:Listen		RANK:9
+SKILL:Hide			RANK:17
+SKILL:Move Silently	RANK:17
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy]
+RACE:Mummy	!PRERACE:%
+NAME:Mummy
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Hide			RANK:7
+SKILL:Move Silently	RANK:7
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Toughness
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Naga (Dark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Naga (Dark)]
+RACE:Naga (Dark)	!PRERACE:%
+NAME:Naga (Dark)
+SKILL:Bluff			RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Concentration	RANK:11
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Spellcraft		RANK:9
+SKILL:Disguise		RANK:2
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Dodge
+FEAT:Lightning Reflexes
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Daze|Detect Magic|Displacement|Expeditious Retreat|Invisibility|Light|Lightning Bolt|Mage Hand|Magic Missile|Open/Close|Ray of Enfeeblement|Ray of Frost|Read Magic|Scorching Ray|Shield|Silent Image
+
+STARTPACK:Default Naga (Guardian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Naga (Guardian)]
+RACE:Naga (Guardian)	!PRERACE:%
+NAME:Naga (Guardian)
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Concentration	RANK:14
+SKILL:Bluff			RANK:14
+SKILL:Sense Motive	RANK:14
+SKILL:Spellcraft		RANK:14
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Dodge
+FEAT:Lightning Reflexes
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Light Wounds|Cure Minor Wounds|Cure Serious Wounds|Daze|Detect Magic|Detect Thoughts|Dispel Magic|Divine Favor|Divine Power|Expeditious Retreat|Invisibility (Greater)|Light|Lightning Bolt|Mage Armor|Mage Hand|Magic Missile|Open/Close|Ray of Frost|Read Magic|Restoration (Lesser)|Scorching Ray|See Invisibility
+
+STARTPACK:Default Naga (Spirit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Naga (Spirit)]
+RACE:Naga (Spirit)	!PRERACE:%
+NAME:Naga (Spirit)
+SKILL:Concentration	RANK:9
+SKILL:Listen		RANK:9
+SKILL:Spellcraft		RANK:9
+SKILL:Spot			RANK:9
+FEAT:Ability Focus(Charming Gaze)
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Lightning Reflexes
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+DEITY:None	DOMAIN:Chaos|Evil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Charm Person|Cure Light Wounds|Cure Minor Wounds|Daze|Detect Magic|Displacement|Divine Favor|Fireball|Invisibility|Mage Hand|Magic Missile|Open/Close|Ray of Frost|Read Magic|Shield of Faith|Summon Swarm
+
+STARTPACK:Default Naga (Water)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Naga (Water)]
+RACE:Naga (Water)	!PRERACE:%
+NAME:Naga (Water)
+SKILL:Concentration	RANK:8
+SKILL:Spellcraft		RANK:8
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Lightning Reflexes
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow|Acid Splash|Daze|Detect Magic|Expeditious Retreat|Invisibility|Light|Mage Hand|Magic Missile|Mirror Image|Obscuring Mist|Open/Close|Protection from Energy|Read Magic|Shield|Suggestion|True Strike
+
+STARTPACK:Default Night Hag	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Night Hag]
+RACE:Night Hag	!PRERACE:%
+NAME:Night Hag
+ALIGN:NE
+SKILL:Bluff			RANK:11
+SKILL:Concentration	RANK:11
+SKILL:Listen		RANK:11
+SKILL:Ride			RANK:11
+SKILL:Sense Motive	RANK:11
+SKILL:Spellcraft		RANK:11
+SKILL:Spot			RANK:11
+SKILL:Intimidate		RANK:11
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Mounted Combat
+GEAR:Periapt of the Night Hag (Heartstone)	LOCATION:Equipped
+STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
+
+STARTPACK:Default Nightmare	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nightmare]
+RACE:Nightmare	!PRERACE:%
+NAME:Nightmare
+ALIGN:NE
+SKILL:Concentration		RANK:9
+SKILL:Intimidate			RANK:9
+SKILL:Knowledge (The Planes)	RANK:9
+SKILL:Listen			RANK:9
+SKILL:Move Silently		RANK:9
+SKILL:Search			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Survival			RANK:9
+SKILL:Diplomacy			RANK:2
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Run
+STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
+
+STARTPACK:Default Nightshade (Nightcrawler)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nightshade (Nightcrawler)]
+STAT:DEX=10|INT=10|WIS=10|STR=10|CON=10|CHA=10
+RACE:Nightshade (Nightcrawler)	!PRERACE:%
+NAME:Nightshade (Nightcrawler)
+ALIGN:CE
+SKILL:Concentration		RANK:28
+SKILL:Sense Motive		RANK:18
+SKILL:Hide				RANK:28
+SKILL:Knowledge (Arcana)	RANK:28
+SKILL:Listen			RANK:28
+SKILL:Move Silently		RANK:28
+SKILL:Search			RANK:28
+SKILL:Spot				RANK:28
+SKILL:Spellcraft			RANK:26
+FEAT:Blind Fight
+FEAT:Combat Casting
+FEAT:Great Fortitude
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Sting)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability(Cone Of Cold)
+
+STARTPACK:Default Nightshade (Nightwalker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nightshade (Nightwalker)]
+STAT:DEX=10|INT=10|WIS=10|STR=10|CON=10|CHA=10
+RACE:Nightshade (Nightwalker)	!PRERACE:%
+NAME:Nightshade (Nightwalker)
+ALIGN:CE
+SKILL:Concentration		RANK:24
+SKILL:Hide				RANK:24
+SKILL:Knowledge (Arcana)	RANK:24
+SKILL:Listen			RANK:24
+SKILL:Move Silently		RANK:24
+SKILL:Search			RANK:24
+SKILL:Sense Motive		RANK:24
+SKILL:Spot				RANK:24
+SKILL:Spellcraft			RANK:24
+FEAT:Cleave
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Great Fortitude
+FEAT:Improved Disarm
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability(Unholy Blight)
+
+STARTPACK:Default Nightshade (Nightwing)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nightshade (Nightwing)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Nightshade (Nightwing)	!PRERACE:%
+NAME:Nightshade (Nightwing)
+ALIGN:CE
+SKILL:Concentration	RANK:20
+SKILL:Hide			RANK:20
+SKILL:Listen		RANK:20
+SKILL:Move Silently	RANK:20
+SKILL:Search		RANK:20
+SKILL:Sense Motive	RANK:20
+SKILL:Spellcraft		RANK:20
+SKILL:Spot			RANK:20
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Great Fortitude
+FEAT:Improved Critical(Bite)
+FEAT:Improved Initiative
+
+STARTPACK:Default Nymph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nymph]
+RACE:Nymph	!PRERACE:%
+NAME:Nymph
+SKILL:Concentration	RANK:9
+SKILL:Escape Artist	RANK:9
+SKILL:Handle Animal	RANK:9
+SKILL:Heal			RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+SKILL:Diplomacy		RANK:2
+SKILL:Ride			RANK:2
+FEAT:Combat Casting
+FEAT:Dodge
+FEAT:Weapon Finesse
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Call Lightning|Cure Light Wounds|Cure Minor Wounds|Cure Moderate Wounds|Detect Magic|Entangle|Flare|Guidance|Heat Metal|Light|Longstrider|Protection from Energy|Resistance|Restoration (Lesser)|Rusting Grasp|Speak with Animals|Tree Shape

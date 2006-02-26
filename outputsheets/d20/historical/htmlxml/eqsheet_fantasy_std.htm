@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!--
+PCGen Character Sheet for Equipment Sets
+========================================
+
+Author by: Jayme Cox
+Email: jaymecox@netscape.net
+
+$Revision: 1.1 $
+$Author: frank_kliewe $
+$Date: 2005/09/16 21:58:33 $
+
+-->
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME|    (|EXPORT.DATE| |EXPORT.TIME|)</title>
+<style type="text/css">
+
+<!--
+	each syle type consists of the following:
+	first : alignment type first is hozontal, second is vertical (c=center, l=left, r=right, b=bottom, t=top, m=middle)
+	second : number is always the font size
+	third : border type (m=no border s=1pt border, b=bottom border, t=top border r=right border, l=left border, g=light gray thick border, d=thick solid border)
+	fourth : color changes (missing=black on white, w=white on black, g=black on light gray, l=black on light blue)
+	a "l5" on the end is for left padding of 5pts
+	a "B" on the end is for bold fonts.
+	a "I" on the end is for Italic fonts.
+	a "U" on the end is for Underline fonts.
+-->
+
+	body { font-family:Arial; font-size:6pt; font-weight:normal; background-color:white; color:black;  margin:0px; padding:0px; }
+	table { font-family:Arial; font-size:6pt; font-weight:normal; background-color:white; color:black; border:0px black none; cell-spacing:0px; }
+
+	.c6mwB   { font-size:6pt;  text-align:center; background-color:black;   color:white; font-weight:bold; }
+	.c6sw    { font-size:6pt;  text-align:center; background-color:black;   color:white; border-color:black; }
+	.c6swB   { font-size:6pt;  text-align:center; background-color:black;   color:white; border-color:black; font-weight:bold; }
+	.c7mwB   { font-size:7pt;  text-align:center; background-color:black;   color:white; font-weight:bold; }
+	.c8mgB   { font-size:8pt;  text-align:center; background-color:#D0D0D0; color:black; font-weight:bold; }
+	.c8swB   { font-size:8pt;  text-align:center; background-color:black;   color:white; border:1px solid black; font-weight:bold; }
+	.l8mwB   { font-size:8pt;  text-align:left;   background-color:black;   color:white; font-weight:bold; }
+	.l8swB   { font-size:8pt;  text-align:left;   background-color:black;   color:white; border:1px solid black; font-weight:bold; }
+	.l8mgB   { font-size:8pt;  text-align:left;   background-color:#D0D0D0; color:black; font-weight:bold; }
+	.l8mgl5B { font-size:8pt;  text-align:left;   background-color:#D0D0D0; color:black; padding-left:5pt; font-weight:bold; }
+	.cb9mg   { font-size:9pt;  text-align:center; background-color:#D0D0D0; color:black; vertical-align:bottom; }
+	.l10l5   { font-size:10pt; text-align:left;   padding-left:5pt; }
+	.c12mw   { font-size:12pt; text-align:center; background-color:black;   color:white; font-weight:bold; }
+	.c16     { font-size:16pt; text-align:center; }
+
+
+.border {
+		border: 1px solid black;
+	}
+
+TABLE
+  {
+  border: 0px black none;
+  cell-spacing: 0px;
+  }
+
+THEAD TR TH
+  {
+  background-color: black;
+  border-color: black;
+  color: white;
+  text-align: center;
+  font-size: 6pt;
+  }
+
+THEAD TR TH.first
+  {
+  font-size: 10pt;
+  text-align: left;
+  padding-left: 5pt;
+  }
+
+THEAD TR TH.eqSetTitle
+  {
+  font-size: 16pt;
+  text-align: center;
+  }
+
+TBODY TR TD
+  {
+  text-align: center;
+  font-size:8pt;
+  }
+
+TBODY TR TD.firstItem
+  {
+  text-align: left;
+  background-color:#D0D0D0;
+  padding-left: 5pt;
+  }
+  .gbbl
+    {
+    }
+  .gbb
+    {
+    }
+  .gbb-red
+    {
+    }
+  .gbb-bold
+    {
+    font-weight: bold;
+    }
+  .gbbr
+    {
+    }
+
+  .gborder
+    {
+    text-transform: capitalize;
+    }
+
+  .gborderFirst
+    {
+    text-transform: capitalize;
+    padding-left: 5pt;
+    }
+
+  -->
+	div { page-break-after: always; }
+	.header { display:block; font-size:7pt; text-align:center; }
+
+</style>
+</head>
+
+<body>
+<!-- The next line tells the eqsheet template parser where to start looping -->
+|EQSET.START|
+<!-- everything below this line will get output once for each Equipment Set -->
+
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+<div>
+<table width="100%" summary="Master Equipment Table">
+	<thead>
+		<tr>
+			<th colspan="2" class="c16">Equipment Set:  |EQSET.NAME|</th>
+		</tr>
+	</thead>
+		<tr>
+			<td width="60%">
+<table width="100%" summary="Weapons Title">
+<tr><td width="100%" class="c12mwB">WEAPONS</td></tr>
+</table>
+
+<!-- Start Weapon Section -->
+|FOR,%num,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%num.CATEGORY:Ranged)|
+				<table COLS="7" width="100%" summary="Weapons Table">
+				<thead>
+					<tr>
+						<th COLSPAN="2" width="25%" class="l10l5">WEAPON</th>
+					    <th width="15%" class="c6sw">RANGE</th>
+					    <th width="15%" class="c6sw">HAND</th>
+					    <th width="15%" class="c6sw" >TYPE</th>
+					    <th width="15%" class="c6sw" >SIZE</th>
+					    <th width="15%" class="c6swB">CRIT</th>
+				    </tr>
+				</thead>
+					<tr class="c8mgB">
+						<td colspan="2" class="l8mgl5B">|WEAPON.%num.NAME|</td>
+						<td class="c8mgB" >|WEAPON.%num.RANGE|</td>
+				        <td class="c8mgB" >|WEAPON.%num.HAND|</td>
+				        <td class="c8mgB" >|WEAPON.%num.TYPE|</td>
+				        <td class="c8mgB">|WEAPON.%num.SIZE|</td>
+				        <td class="c8mgB">|WEAPON.%num.CRIT|/x|WEAPON.%num.MULT|
+				     </tr>
+|IIF(WEAPON.%num.AMMUNITION:0)|
+					<tr><td class="c7mwB" height="15" width="10%">RANGE</td>
+|FOR,%range,0,5,1,0|
+						<td class="c8swB">|WEAPON.%num.RANGELIST.%range|<br /></td>
+|ENDFOR|
+					</tr>
+					<tr><td class="l8swB">Attack Bonus</td>
+|FOR,%range1,0,5,1,0|
+				        <td class="c8mgB">|WEAPON.%num.RANGELIST.%range1.TOTALHIT|<br /></td>
+|ENDFOR|
+					</tr>
+					<tr><td class="l8swB">Damage</td>
+|FOR,%range2,0,5,1,0|
+					     <td class="c8mgB">|WEAPON.%num.RANGELIST.%range2.DAMAGE|</td>
+|ENDFOR|
+					</tr>
+					<tr>
+						<td class="l8swB" colspan="2">Ammunition Used<br /></td>
+						<td class="cb9mg" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+					</tr>
+|ELSE|
+|FOR,%ammo,0,WEAPON.%num.AMMUNITION-1,1,0|
+					<tr><td colspan="7" class="l8mwB" height="15">&nbsp;&nbsp;AMMUNITION:  |WEAPON.%num.AMMUNITION.%ammo|
+|IIF(WEAPON.%num.AMMUNITION.%ammo.SPROP: )|
+(|WEAPON.%num.AMMUNITION.%ammo.SPROP|)
+|ENDIF|
+					</td>
+					<tr><td class="c7mwB" height="15" width="10%">RANGE</td>
+|FOR,%range,0,5,1,0|
+						<td class="c8swB">|WEAPON.%num.RANGELIST.%range|<br /></td>
+|ENDFOR|
+					</tr>
+					<tr><td class="l8swB">Attack Bonus</td>
+|FOR,%range1,0,5,1,0|
+				        <td class="c8mgB">|WEAPON.%num.RANGELIST.%range1.AMMUNITION.%ammo.TOTALHIT|<br /></td>
+|ENDFOR|
+					</tr>
+					<tr><td class="l8swB">Damage</td>
+|FOR,%range2,0,5,1,0|
+					    <td class="c8mgB">|WEAPON.%num.RANGELIST.%range2.AMMUNITION.%ammo.DAMAGE|</td>
+|ENDFOR|
+					</tr>
+					<tr>
+						<td class="l8swB" colspan="2">Ammunition Used<br /></td>
+						<td class="cb9mg" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+					</tr>
+|ENDFOR|
+|ENDIF|
+					<tr>
+						<td class="l8swB" colspan="2">Weapon Special Properties<br /></td>
+						<td class="l8mgB" colspan="5">|WEAPON.%num.SPROP|<br /></td>
+					</tr>
+				</table>
+				<br />
+|ELSE|
+|IIF(WEAPON.%num.CATEGORY:Exotic)|
+				<table COLS="7" width="100%" cellspacing="0" cellpadding="0" summary="Weapons Table">
+				<thead>
+					<tr>
+						<th COLSPAN="2" width="25%" class="l10l5">WEAPON</th>
+					    <th width="15%" class="c6sw">RANGE</th>
+					    <th width="15%" class="c6sw">HAND</th>
+					    <th width="15%" class="c6sw" >TYPE</th>
+					    <th width="15%" class="c6sw" >SIZE</th>
+					    <th width="15%" class="c6swB">CRIT</th>
+				    </tr>
+				</thead>
+					<tr class="c8mgB">
+						<td colspan="2" class="l8mgl5B">|WEAPON.%num.NAME|</td>
+						<td class="c8mgB" >|WEAPON.%num.RANGE|</td>
+				        <td class="c8mgB" >|WEAPON.%num.HAND|</td>
+				        <td class="c8mgB" >|WEAPON.%num.TYPE|</td>
+				        <td class="c8mgB">|WEAPON.%num.SIZE|</td>
+				        <td class="c8mgB">|WEAPON.%num.CRIT|/x|WEAPON.%num.MULT|
+				     </tr>
+</table>
+<table cols="4">
+<tr>
+	<td class="c6mwB" width="15%" height="15">ATTACK BONUS</td>
+	<td class="c6mwB" width="15%" height="15">DAMAGE</td>
+	<td class="c6mwB" width="70%" height="15" colspan="2">SPECIAL PROPERTIES</td>
+</tr>
+<tr>
+	<td class="c8mgB">|WEAPON.%num.TOTALHIT|<br /></td>
+	<td class="c8mgB">|WEAPON.%num.DAMAGE|<br /></td>
+	<td class="c8mgB" colspan="2">|WEAPON.%num.SPROP|<br /></td>
+</tr>
+</table>
+|ELSE|
+				<table COLS="7" width="100%" summary="Weapons Table">
+				<thead>
+					<tr>
+						<th COLSPAN="2" width="25%" class="l10l5">WEAPON</th>
+					    <th width="15%" class="c6sw">RANGE</th>
+					    <th width="15%" class="c6sw">HAND</th>
+					    <th width="15%" class="c6sw" >TYPE</th>
+					    <th width="15%" class="c6sw" >SIZE</th>
+					    <th width="15%" class="c6swB">CRIT</th>
+				    </tr>
+				</thead>
+					<tr class="c8mgB">
+						<td colspan="2" class="l8mgl5B">|WEAPON.%num.NAME|</td>
+						<td class="c8mgB" >|WEAPON.%num.RANGE|</td>
+				        <td class="c8mgB" >|WEAPON.%num.HAND|</td>
+				        <td class="c8mgB" >|WEAPON.%num.TYPE|</td>
+				        <td class="c8mgB">|WEAPON.%num.SIZE|</td>
+				        <td class="c8mgB">|WEAPON.%num.CRIT|/x|WEAPON.%num.MULT|
+				     </tr>
+				     <tr class="c6mwB">
+				     	<td class="c6mwB"></td>
+				     	<td class="c6mwB">PRIMARY</td>
+				     	<td class="c6mwB">OFF</td>
+				     	<td class="c6mwB">TWO HAND</td>
+				     	<td class="c6mwB">TWO/PRIM. (H)</td>
+				     	<td class="c6mwB">TWO/PRIM. (L)</td>
+				     	<td class="c6mwB">TWO/OFF</td>
+				     </tr>
+					 <tr>
+					 	<td align="left" bgcolor="black"><font style="font-size:8pt" color="white"><b>Attack Bonus</b></font></td>
+					 	<td style="background-color:#D0D0D0;" ><font style="font-size:8pt" color="black"><b>|WEAPON.%num.BASEHIT|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.OHHIT|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.THHIT|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.TWPHITH|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.TWPHITL|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.TWOHIT|<br /></b></font></td>
+					 </tr>
+					 <tr>
+					 	<td align="left" bgcolor="black"><font style="font-size:8pt" color="white"><b>Damage</b></font></td>
+					 	<td style="background-color:#D0D0D0;" ><font style="font-size:8pt" color="black"><b>|WEAPON.%num.BASICDAMAGE|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.OHDAMAGE|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.THDAMAGE|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.BASICDAMAGE|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.BASICDAMAGE|<br /></b></font></td>
+					 	<td style="background-color:#D0D0D0;"><font style="font-size:8pt" color="black"><b>|WEAPON.%num.OHDAMAGE|<br /></b></font></td>
+					 </tr>
+					 <tr>
+					 	<td align="left" colspan="2" bgcolor="black"><font style="font-size:8pt" color="white"><b>Special Prop.</b></font></td>
+					 	<td colspan="5" style="font-size:8pt; background-color:#D0D0D0;" ><font color="black"><b>|WEAPON.%num.SPROP|<br /></b></font></td>
+					 </tr>
+				</table>
+				<br />
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+
+<!-- end Weapon section -->
+<br />
+<table width="100%" summary="Armor Title">
+<tr><td width="100%" bgcolor="black"><font style="font-size:12pt" color="white"><b>ARMOR</b></font></td></tr>
+</table>
+
+<!-- start Armor section -->
+|%ARMOR1|
+<table COLS="6" summary="Armor Table">
+  <thead>
+    <tr>
+    <th width="25%" class="first">ARMOR</th>
+    <th width="15%">AC BONUS</th>
+    <th width="15%">MAX DEX</th>
+    <th width="15%">SKILL CHECK</th>
+    <th width="15%">SPELL FAILURE</th>
+    <th width="15%">TYPE</th>
+    </tr>
+    </thead>
+  <tbody>
+|FOR,%num,0,COUNT[EQTYPE.ARMOR]-1,1,1|
+  <tr style="background-color:#D0D0D0;">
+    <td style="text-align:left; padding-left: 5pt; font-weight: bold;">|ARMOR.Armor.EQUIPPED.%num.NAME|</td>
+    <td class="gbb-bold">|ARMOR.Armor.EQUIPPED.%num.TOTALAC|</td>
+    <td class="gbb-bold">|ARMOR.Armor.EQUIPPED.%num.MAXDEX|</td>
+    <td class="gbb">|ARMOR.Armor.EQUIPPED.%num.ACCHECK|</td>
+    <td class="gbb">|ARMOR.Armor.EQUIPPED.%num.SPELLFAIL|%</td>
+    <td class="gbbr">|ARMOR.Armor.EQUIPPED.%num.TYPE|</td>
+    </tr>
+|ENDFOR|
+    </tbody>
+  </table>
+|%|
+
+<!-- end Armor section -->
+
+<!-- Start Shield Section -->
+
+|%ARMOR.SHIELD1|
+<table COLS="5" summary="Shield Tabnle">
+  <thead>
+    <tr style="font-weight: bold;">
+      <th width="20%" class="first">SHIELD</th>
+      <th width="20%">AC BONUS</th>
+      <th width="20%">SKILL CHECK</th>
+      <th width="20%">SPELL FAILURE</th>
+      <th width="20%" style="font-weight: none;">TYPE</th>
+      </tr>
+    </thead>
+
+  <tbody>
+|FOR,%num,0,COUNT[EQTYPE.SHIELD]-1,1,1|
+    <tr style="background-color:#D0D0D0;">
+      <td style="text-align:left; padding-left: 5pt; font-weight: bold;">|ARMOR.SHIELD.EQUIPPED.%num.NAME|</td>
+      <td class="gbb-bold">|ARMOR.SHIELD.EQUIPPED.%num.TOTALAC|</td>
+      <td class="gbb-bold">|ARMOR.SHIELD.EQUIPPED.%num.ACCHECK|</td>
+      <td class="gbb-bold">|ARMOR.SHIELD.EQUIPPED.%num.SPELLFAIL|%</td>
+      <td class="gbbr">|ARMOR.SHIELD.EQUIPPED.%num.TYPE|</td>
+      </tr>
+|ENDFOR|
+    </tbody>
+  </table>
+|%|
+
+<!-- end Shield Section -->
+
+<!-- Start AC Item Section -->
+|%ARMOR.ITEM1|
+  <table COLS="3" summary="AC Item Table">
+    <thead>
+    <tr>
+      <th width="30%" class="first">PROTECTIVE ITEMS</th>
+      <th width="10%" style="font-weight: bold;">AC BONUS</th>
+      <th width="60%" style="text-align:left">Special Properties</th>
+      </tr>
+      </thead>
+
+    <tbody>
+|FOR,%num,0,COUNT[EQTYPE.ACITEM]-1,1,0|
+    <tr style="font-weight: bold">
+      <td class="firstItem">|ARMOR.ACITEM.EQUIPPED.%num.NAME|</td>
+      <td bgcolor="#D0D0D0"  align="center">|ARMOR.ACITEM.EQUIPPED.%num.TOTALAC|</td>
+      <td class="firstItem">|ARMOR.ACITEM.EQUIPPED.%num.SPROP|</td>
+     </tr>
+|ENDFOR|
+    </tbody>
+  </table>
+|%|
+</td>
+<!-- end AC Item Section -->
+
+<!-- start other items Section -->
+<td WIDTH="40%" valign="top">
+  <table COLS="4" summary="Euipment Table">
+    <thead>
+    <tr>
+      <th colspan="4" align="center"><font style="font-size:12pt">EQUIPMENT</font></th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr style="font-weight: bold">
+      <td width="70%" class="gborderFirst">item</td>
+      <td width="10%" class="gborder"  >quantity</td>
+      <td width="10%" class="gborder"  >weight</td>
+      <td width="10%" class="gborder"  >cost</td>
+      </tr>
+
+|FOR,%num,0,COUNT[EQUIPMENT]-1,1,0|
+|IIF(EVEN:%num)|
+    <tr style="background-color:#D0D0D0;">
+|ELSE|
+    <tr>
+|ENDIF|
+      <td style="text-align: left;">
+        |EQ.%num.NAME.MAGIC~<b>~</b>|
+        <span style="font-size: 6pt; text-align:right">(|EQ.%num.LOCATION|)</span>
+        <br>
+        <span style="font-size: 6pt;">|EQ.%num.SPROP||EQ.%num.NOTE||EQ.%num.CONTENTS|</span>
+        </td>
+      <td>|EQ.%num.QTY|</td>
+      <td>|EQ.%num.WT|</td>
+      <td>|EQ.%num.COST|</td>
+      </tr>
+|ENDFOR|
+    <tr>
+      <td class="gborder" align="right"  colspan="2">TOTAL WEIGHT CARRIED</td>
+      <td class="gborder" align="center">|TOTAL.WEIGHT|</td>
+      <td class="gborder">&nbsp;</td>
+      </tr>
+   </tbody>
+ </table>
+</td>
+</tr>
+</table>
+<!-- end other items Section -->
+</div>
+<!-- The next line tells the eqsheet template parser where to stop looping -->
+|EQSET.END|

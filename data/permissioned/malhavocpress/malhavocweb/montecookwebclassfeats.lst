@@ -1,0 +1,8 @@
+# CVS $Revision: 1.3 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+
+# Feat Name			Clear Prereq.	Required Class						Required Feat											Prohibited Feat
+Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=1															!PREFEAT:1,Favored Enemy I
+Favored Enemy II.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=5		PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
+Favored Enemy III.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
+Favored Enemy IV.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
+Favored Enemy V.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V

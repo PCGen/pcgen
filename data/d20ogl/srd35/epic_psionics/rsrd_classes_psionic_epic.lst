@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Oct 20 21:53:35 2005 -- reformated by prettylst.pl v1.35 (build 478)
+SOURCELONG:RSRD Epic Psionics|SOURCESHORT:RSRDEpicPsionics|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name	Max Level
+CLASS:Psion.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+
+
+# Class Name			Max Level
+CLASS:Psychic Warrior.MOD	MAXLEVEL:100
+21	REPEATLEVEL:3	ADD:FEAT(TYPE=Fighter,TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+
+
+# Class Name		Max Level
+CLASS:Soulknife.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(TYPE=Epic,TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)

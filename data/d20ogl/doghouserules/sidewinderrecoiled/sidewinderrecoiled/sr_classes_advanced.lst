@@ -1,0 +1,327 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 21:46:50 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by Barak)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus					Modify VAR
+CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bhr		MAXLEVEL:10	SOURCEPAGE:p. 165	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/3+1	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name		Req. Att.	Required Feat	Required Skill
+CLASS:Bounty Hunter	PREATT:2	PREFEAT:1,Track	PRESKILL:1,Gather Information=3	PRESKILL:1,Survival=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Search|Sense Motive|Speak Language|Survival|Treat Injury
+1	SA:Nowhere to Run
+2	SA:Hogtying
+3						ADD:FEAT(TYPE=BountyHunter)
+4	SA:Nonlethal Force
+5	SA:Leave 'em Empty Handed
+6						ADD:FEAT(TYPE=BountyHunter)
+7	SA:Fast Track
+8	SA:Draw a Bead
+9						ADD:FEAT(TYPE=BountyHunter)
+10	SA:Ranged Disarm
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus					Modify VAR
+CLASS:Brave		HD:10		TYPE:PC.Prestige	ABB:Brv		MAXLEVEL:10	SOURCEPAGE:p. 167	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+6)*2/5-1	BONUS:CHECKS|BASE.Willpower|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+6)*2/5-1
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Brave		PREATT:2	PREFEAT:2,Great Fortitude,Indian Lore	PRESKILL:1,Survival=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Brave		STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (Tactics)|Listen|Move Silently|Navigate|Profession|Ride|Spot|Survival|Swim
+1	SA:Tribal Chant (Blessing)
+2	SA:Feral Senses				BONUS:SKILL|Listen|CL/2	BONUS:SKILL|Spot|CL/2
+3															ADD:FEAT(TYPE=Brave)
+4	SA:Hardy
+5	SA:Counting Coup
+6															ADD:FEAT(TYPE=Brave)
+7	SA:Tribal Chant (Battle Heart)
+8	SA:Storied Bravery
+9															ADD:FEAT(TYPE=Brave)
+10	SA:Tribal Chant (Battle Cry)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Desperado	HD:10		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p. 169	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/3	BONUS:VAR|ClassDefense|(CL+6)*2/5-1
+# Class Name	Req. Att.	Required Feat			Required Skill
+CLASS:Desperado	PREATT:2	PREFEAT:2,Confident,Toughness	PRESKILL:1,Intimidate=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Desperado	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Demolitions|Gamble|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Ride|Speak Language|Survival
+1			SA:Fearless
+2	DR:1/-	SA:Ornery			BONUS:VAR|ToughDamageReduction|1
+3																			ADD:FEAT(TYPE=Desperado)
+4			SA:Fearsome									BONUS:SKILL|Intimidate|Reputation
+5			SA:Rowdy
+6																			ADD:FEAT(TYPE=Desperado)
+7			SA:Frightful Reputation
+8			SA:Tough as Nails		BONUS:VAR|DamageThreshold|3
+9																			ADD:FEAT(TYPE=Desperado)
+10			SA:No Time to Bleed
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																		Combat bonus					Modify VAR
+CLASS:Grifter	HD:6		TYPE:PC.Prestige	ABB:Gft		MAXLEVEL:10	SOURCEPAGE:p. 171	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|(CL+6)*2/5-1	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+6)*2/5-1
+# Class Name	Required Feat		Required Skill
+CLASS:Grifter	PREFEAT:1,Deceptive	PRESKILL:2,Bluff,Diplomacy=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Grifter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Hide|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot
+1	SA:Work the Crowd
+2	SA:Silver Tongue		BONUS:SKILL|Bluff|CL/2	BONUS:SKILL|Diplomacy|CL/2
+3														ADD:FEAT(TYPE=Grifter)
+4	SA:Cut and Run		BONUS:SKILL|Hide|CL/2
+5	SA:Bait and Switch
+6														ADD:FEAT(TYPE=Grifter)
+7	SA:Sow Distrust
+8	SA:Slippery
+9														ADD:FEAT(TYPE=Grifter)
+10	SA:Elaborate Scheme
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Gunslinger	HD:10		TYPE:PC.Prestige	ABB:Gns		MAXLEVEL:10	SOURCEPAGE:p. 173	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/3	BONUS:VAR|ClassDefense|(CL-1)/2+1
+# Class Name	Req. Att.	Required Feat							Required Skill
+CLASS:Gunslinger	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,Quick Draw	PRESKILL:1,Sleight of Hand=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Balance|Escape Artist|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Tumble
+1	SA:Greased Lightning	BONUS:COMBAT|INITIATIVE|(CL-1)/2+1
+2											ADD:FEAT(Weapon Focus)
+3											ADD:FEAT(TYPE=Gunslinger)
+4	SA:Close Combat Shot
+5	SA:Lightning Shot
+6											ADD:FEAT(TYPE=Gunslinger)
+7	SA:Steel-Eyed
+8											ADD:FEAT(Greater Weapon Focus)
+9											ADD:FEAT(TYPE=Gunslinger)
+10	SA:Bullseye
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Maverick	HD:8		TYPE:PC.Prestige	ABB:Mvk		MAXLEVEL:10	SOURCEPAGE:p. 175	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)*2/3
+# Class Name	Required Feat		Required Skill
+CLASS:Maverick	PREFEAT:1,Card Sharp	PRESKILL:1,Gamble=6	PRESKILL:1,Sleight of Hand=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Maverick	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot
+1	SA:Poker Face
+2	SA:Ace in the Hole
+3					ADD:FEAT(TYPE=Maverick)
+4	SA:Wild Card		ADD:FEAT(TYPE=Talent)
+5	SA:Improved Evasion					VFEAT:Evasion
+6					ADD:FEAT(TYPE=Maverick)
+7	SA:Nothing Up My Sleeve
+8	SA:Lady Luck
+9					ADD:FEAT(TYPE=Maverick)
+10	SA:Hear the Footsteps
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Mountain Man	HD:12		TYPE:PC.Prestige	ABB:Mmn		MAXLEVEL:10	SOURCEPAGE:p. 177	BONUS:CHECKS|BASE.Fortitude|(CL+4)/2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name		Req. Att.	Required Feat					Required Skill
+CLASS:Mountain Man	PREATT:2	PREFEAT:2,Improved Bull Rush,Power Attack	PRESKILL:1,Survival=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mountain Man	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Handle Animal|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Listen|Move Silently|Navigate|Profession|Read/Write Language|Ride|Search|Spot|Survival|Swim|Treat Injury
+1	SA:Favored Prey (%CHOICE)						CHOOSE:NUMCHOICES=1|Beavers|Buffaloes|Coyotes
+2	SA:Ram Charge
+3						ADD:FEAT(TYPE=MountainMan)
+4	SA:Prey Sense
+5	SA:Hustle
+6						ADD:FEAT(TYPE=MountainMan)
+7	SA:The Beast Within
+8	SA:Wild Heart
+9						ADD:FEAT(TYPE=MountainMan)
+10	SA:Knock Back
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Pony Soldier	HD:10		TYPE:PC.Prestige	ABB:Psl		MAXLEVEL:10	SOURCEPAGE:p. 179	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name		Req. Att.	Required Feat								Required Skill
+CLASS:Pony Soldier	PREATT:2	PREFEAT:2,Defensive Riding,Personal Firearms Proficiency	PRESKILL:1,Ride=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pony Soldier	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Demolitions|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Search|Speak Language|Spot
+1	SA:Born in the Saddle +%|BornInTheSaddle						DEFINE:BornInTheSaddle|2
+2	SA:Effortless Control
+3																		ADD:FEAT(TYPE=PonySoldier)
+4	SA:Cavalry Charge
+5	SA:Expert Charge
+6																		ADD:FEAT(TYPE=PonySoldier)
+7	SA:Battlefield Savvy
+8								BONUS:VAR|BornInTheSaddle|1
+9																		ADD:FEAT(TYPE=PonySoldier)
+10	SA:Domino Charge
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus					Modify VAR
+CLASS:Preacher	HD:6		TYPE:PC.Prestige	ABB:Pre		MAXLEVEL:10	SOURCEPAGE:p. 180	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/3
+# Class Name	Required Feat		Required Skill
+CLASS:Preacher	PREFEAT:1,Trustworthy	PRESKILL:2,Knowledge (Theology and Philosophy),Sense Motive=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Preacher	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Handle Animal|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
+1								SA:Sermon
+2								SA:Righteous Fury
+3														ADD:FEAT(TYPE=Preacher)
+4								SA:Talk Down (One Target)
+5								SA:Divine Favor
+6														ADD:FEAT(TYPE=Preacher)
+7	SA:.CLEAR.Talk Down (One Target)		SA:Talk Down (Several Targets)
+8								SA:Motivate the Flock
+9														ADD:FEAT(TYPE=Preacher)
+10	SA:.CLEAR.Talk Down (Several Targets)	SA:Talk Down (All Targets)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus					Modify VAR
+CLASS:Professor	HD:6		TYPE:PC.Prestige	ABB:Pro		MAXLEVEL:10	SOURCEPAGE:p. 182	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/3	BONUS:VAR|ClassDefense|(CL+1)/3
+# Class Name	Required Feat		Required Skill
+CLASS:Professor	PREFEAT:1,Educated	PRESKILL:1,Research=6	PRESKILL:1,Craft (Chemical),Craft (Electric),Craft (Mechanical),Craft (Writing)=6	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Earth and Life Sciences),Knowledge (History),Knowledge (Physical Sciences),Knowledge (Technology)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Professor	STARTSKILLPTS:8	CSKILL:Craft (Chemical)|Craft (Electric)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Operate Vehicle (Aircraft)|Operate Vehicle (Ground Vehicles)|Operate Vehicle (Watercraft)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
+1	SA:Smart Defense				BONUS:COMBAT|AC|INT|TYPE=ClassFeature
+2	SA:Quick Wits
+3																			ADD:FEAT(TYPE=Professor)
+4	SA:Skill Mastery (%CHOICE)																			CHOOSE:NUMCHOICES=3|SKILLSNAMED|Craft (Chemical)|Craft (Electric)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|TYPE.OperateVehicle|Profession|Repair|Research|Search|1
+#Choices need to be 3 + INT modifier
+5	SA:Book Learnin'											BONUS:SKILL|TYPE.Knowledge|4
+6																			ADD:FEAT(TYPE=Professor)
+7	SA:Academic Breakthrough (%CHOICE)																		CHOOSE:NUMCHOICES=1|SKILLSNAMED|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)||Knowledge (Physical Sciences)||Knowledge (Technology)
+8	SA:Smart Weapon (%CHOICE)																			CHOOSE:WEAPONPROF
+9																			ADD:FEAT(TYPE=Professor)
+10	SA:Real-World Applications
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Pugilist	HD:10		TYPE:PC.Prestige	ABB:Pug		MAXLEVEL:10	SOURCEPAGE:p. 183	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+6)*2/5-1	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+1)*2/3
+# Class Name	Req. Att.	Required Feat
+CLASS:Pugilist	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pugilist	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Dance)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Tumble
+1								SA:Bruiser 1d%|BruiserDie						DEFINE:BruiserDie|6
+2								SA:Dukes Up
+3																						ADD:FEAT(TYPE=Pugilist)
+4														BONUS:VAR|BruiserDie|2
+5								SA:Knuckle Buster (One Attack)
+6																						ADD:FEAT(TYPE=Pugilist)
+7								SA:Combination
+8														BONUS:VAR|BruiserDie|2
+9																						ADD:FEAT(TYPE=Pugilist)
+10	SA:.CLEAR.Knuckle Buster (One Attack)	SA:Knuckle Buster (All Attacks)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Rifleman	HD:10		TYPE:PC.Prestige	ABB:Rif		MAXLEVEL:10	SOURCEPAGE:p. 185	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name	Req. Att.	Required Feat								Required Skill
+CLASS:Rifleman	PREATT:2	PREFEAT:3,Far Shot,Gunplay,Personal Firearms Proficiency	PRESKILL:1,Sleight of Hand=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rifleman	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot
+1	SA:Powder Burns
+2					ADD:FEAT(Weapon Focus)
+3					ADD:FEAT(TYPE=Rifleman)
+4	SA:Steel Grip
+5	SA:Clear Line
+6					ADD:FEAT(TYPE=Rifleman)
+7	SA:Rifle Spin
+8	SA:Dead Eye
+9					ADD:FEAT(TYPE=Rifleman)
+10	SA:Improved Steel Grip
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Rustler	HD:8		TYPE:PC.Prestige	ABB:Rus		MAXLEVEL:10	SOURCEPAGE:p. 187	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)*2/3
+# Class Name	Req. Att.	Required Feat	Required Skill
+CLASS:Rustler	PREATT:2	PREFEAT:1,Dodge	PRESKILL:2,Hide,Move Silently=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rustler	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Escape Artist|Handle Animal|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Tumble
+1	SA:Sweep
+2	SA:High-Tail It
+3					ADD:FEAT(TYPE=Rustler)
+4	SA:Low Blow
+5	SA:Sneaky Varmint
+6					ADD:FEAT(TYPE=Rustler)
+7	SA:Shifty
+8	SA:Improved Sweep
+9					ADD:FEAT(TYPE=Rustler)
+10	SA:Without a Trace
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus					Modify VAR
+CLASS:Sawbones	HD:6		TYPE:PC.Prestige	ABB:Saw		MAXLEVEL:10	SOURCEPAGE:p. 189	BONUS:CHECKS|BASE.Fortitude|(CL+4)/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name	Required Feat	Required Skill
+CLASS:Sawbones	PREFEAT:1,Surgery	PRESKILL:2,Craft (Pharmaceutical),Treat Injury=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sawbones	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Handle Animal|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Read/Write Language|Research|Ride|Search|Speak Language|Treat Injury
+1	SA:Patch 'em Up			BONUS:SKILL|Treat Injury|CL/2
+2	SA:Expert Healer
+3											ADD:FEAT(TYPE=Sawbones)
+4	SA:Medical Mastery
+5	SA:Expert Druggist
+6											ADD:FEAT(TYPE=Sawbones)
+7	SA:Minor Medical Miracle
+8	SA:Whiskey Kills Anything
+9											ADD:FEAT(TYPE=Sawbones)
+10	SA:Medical Miracle
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Scout		HD:10		TYPE:PC.Prestige	ABB:Sco		MAXLEVEL:10	SOURCEPAGE:p. 190	BONUS:CHECKS|BASE.Fortitude|(CL+4)/2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/3	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name	Req. Att.	Required Feat	Required Skill
+CLASS:Scout		PREATT:2	PREFEAT:1,Track	PRESKILL:2,Spot,Survival=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival|Swim
+1					ADD:FEAT(Terrain Specialization)
+2	SA:Hard to Follow
+3					ADD:FEAT(TYPE=Scout)
+4	SA:Terrain Awareness
+5	SA:Fast Track
+6					ADD:FEAT(TYPE=Scout)
+7					ADD:FEAT(Terrain Specialization)
+8	SA:Snake in the Grass
+9					ADD:FEAT(TYPE=Scout)
+10	SA:Ear to the Ground
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																		Combat bonus					Modify VAR
+CLASS:Showman	HD:6		TYPE:PC.Prestige	ABB:Sho		MAXLEVEL:10	SOURCEPAGE:p. 192	BONUS:CHECKS|BASE.Willpower|(CL+6)*2/5-1	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|ClassDefense|(CL+1)/3
+# Class Name	Required Feat	Required Skill
+CLASS:Showman	PREFEAT:1,Renown	PRESKILL:2,Diplomacy,TYPE.Perform=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Showman	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disguise|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|Speak Language
+1							SA:Notoriety
+2																															ADD:CLASSSKILLS(NONEXCLUSIVE)3
+3																																					ADD:FEAT(TYPE=Showman)
+4							SA:The Greatest Show on Earth				BONUS:SKILL|Diplomacy|CL/2	BONUS:SKILL|Gather Information|CL/2	BONUS:SKILL|TYPE.Perform|CL/2
+5							SA:Winning Smile
+6																																					ADD:FEAT(TYPE=Showman)
+7							SA:Compelling Performance
+8	SA:.CLEAR.Winning Smile			SA:Winning Smile (Multiple Targets)
+9																																					ADD:FEAT(TYPE=Showman)
+10	SA:.CLEAR.Compelling Performance	SA:Compelling Performance (Multiple Targets)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Soldier	HD:10		TYPE:PC.Prestige	ABB:Sol		MAXLEVEL:10	SOURCEPAGE:p. 194	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL-1)/2+1
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Handle Animal|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival|Swim
+1																			ADD:FEAT(Weapon Focus)
+2									BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT(Weapon Specialization)
+3									BONUS:VAR|WeapSpecQualify|-1						ADD:FEAT(TYPE=Soldier)
+4	SA:Formation Fighting +%|FormationFighting						DEFINE:FormationFighting|1
+5																			ADD:FEAT(Improved Critical)
+6																			ADD:FEAT(TYPE=Soldier)
+7	SA:Tactical Aid						BONUS:VAR|FormationFighting|1
+8																			ADD:FEAT(Greater Weapon Specialization)
+9																			ADD:FEAT(TYPE=Soldier)
+10	SA:Critical Strike
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Tin Star	HD:10		TYPE:PC.Prestige	ABB:Tin		MAXLEVEL:10	SOURCEPAGE:p. 196	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Tin Star	PREATT:3	PREFEAT:1,Trustworthy	PRESKILL:3,Diplomacy,Investigate,Knowledge (Civics)=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tin Star	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Profession|Read/Write Language|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Treat Injury
+1	SA:Flash the Badge	BONUS:SKILL|Diplomacy|Reputation	BONUS:SKILL|Gather Information|Reputation
+2	SA:Posse
+3																		ADD:FEAT(TYPE=TinStar)
+4	SA:Nonlethal Force
+5	SA:Deputy
+6																		ADD:FEAT(TYPE=TinStar)
+7	SA:Discern Lie
+8	SA:Watchful Eye
+9																		ADD:FEAT(TYPE=TinStar)
+10	SA:Inspire Posse
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus					Modify VAR
+CLASS:Wrangler	HD:8		TYPE:PC.Prestige	ABB:Wrg		MAXLEVEL:10	SOURCEPAGE:p. 198	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ClassDefense|(CL+1)/2
+# Class Name	Req. Att.	Required Feat						Required Skill
+CLASS:Wrangler	PREATT:2	PREFEAT:2,Animal Affinity,Defensive Riding	PRESKILL:1,Handle Animal=3	PRESKILL:1,Ride=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wrangler	STARTSKILLPTS:4	CSKILL:Craft (Structural)|Handle Animal|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Listen|Perform (Sing)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival|Swim
+1	SA:Bronco Bustin'
+2	SA:Bareback Riding
+3					ADD:FEAT(TYPE=Wrangler)
+4	SA:Cool in the Saddle
+5	SA:Quick Turn
+6					ADD:FEAT(TYPE=Wrangler)
+7	SA:Ride Like the Wind
+8	SA:Horse Whisperer
+9					ADD:FEAT(TYPE=Wrangler)
+10	SA:Saddle Sweep

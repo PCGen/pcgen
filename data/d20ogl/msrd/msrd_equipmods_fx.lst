@@ -1,0 +1,77 @@
+# CVS $Revision: 1.14 $ $Author: frank_kliewe $ -- Sun Feb  5 00:06:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: Ian Dale
+
+#
+# Magic/Psionic +1/+2/+3 mods don't assume Mastercraft has been taken. User can take Mastercraft (+N),
+#	but all it'll do is add to their Purchase DC. Would like to make Mastercraft no longer qualify,
+#	but might not be a big deal.
+# Also, I split up the +1/+2/+3 to allow the user to have either a magic or psionic weapon.
+# -- Ian
+
+# As per the source an item may be get an enhancment from magic or psionic since they do not stack having
+# a seperate entry for each just adds complexity to the situation so I am merging them back together
+# if users end up wanting an entry I did this on (2/16-17/2004) so before that the entry is split
+
+# I've made the Weapon enhancments add the Masterwork Type since they are always Masterwork
+# The user can still add Masterwork +N to the item since it is possible to have a Magic +1/Masterwork +2 item
+# In that case the Masterwork bonus will override the magic bonus. -Eddy
+
+
+###Block: FX Armor and Weapon Enhancements
+
+# Modifier Name			Unique Key	Type		Cost		Visible		Type granted					Keys to replace					Source Page				Required Type			Combat bonus			BONUS:EQMARMOR							Weapon prop. bonus					Apply to both heads
++1 (Enhancement to Weapon)	KEY:PLUS1W	TYPE:Weapon	COST:10	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	REPLACES:PLUS2W,PLUS3W,PLUS4W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO
++2 (Enhancement to Weapon)	KEY:PLUS2W	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus2	REPLACES:PLUS1W,PLUS3W,PLUS4W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	ASSIGNTOALL:NO
++3 (Enhancement to Weapon)	KEY:PLUS3W	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus3	REPLACES:PLUS1W,PLUS2W,PLUS4W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	ASSIGNTOALL:NO
++4 (Enhancement to Weapon)	KEY:PLUS4W	TYPE:Weapon			VISIBLE:NO		ITYPE:Masterwork.Enhancement.Magic.Plus4	REPLACES:PLUS1W,PLUS2W,PLUS3W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement	ASSIGNTOALL:NO
++5 (Enhancement to Weapon)	KEY:PLUS5W	TYPE:Weapon			VISIBLE:NO		ITYPE:Masterwork.Enhancement.Magic.Plus5	REPLACES:PLUS1W,PLUS2W,PLUS3W,PLUS4W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	ASSIGNTOALL:NO
+
++1 (Enhancement to Armor)	KEY:PLUS1A	TYPE:Armor	COST:8	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Plus1			REPLACES:PLUS2A,PLUS3A,PLUS4A,PLUS5A	SOURCEPAGE:msrdfxitems.rtf						BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement.REPLACE
++2 (Enhancement to Armor)	KEY:PLUS2A	TYPE:Armor	COST:13	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Plus2			REPLACES:PLUS1A,PLUS3A,PLUS4A,PLUS5A	SOURCEPAGE:msrdfxitems.rtf						BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement.REPLACE
++3 (Enhancement to Armor)	KEY:PLUS3A	TYPE:Armor	COST:18	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Plus3			REPLACES:PLUS1A,PLUS2A,PLUS4A,PLUS5A	SOURCEPAGE:msrdfxitems.rtf						BONUS:COMBAT|AC|3|TYPE=Armor	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement.REPLACE
++4 (Enhancement to Armor)	KEY:PLUS4A	TYPE:Armor			VISIBLE:NO		ITYPE:Enhancement.Magic.Plus4			REPLACES:PLUS1A,PLUS2A,PLUS3A,PLUS5A	SOURCEPAGE:msrdfxitems.rtf						BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement.REPLACE
++5 (Enhancement to Armor)	KEY:PLUS5A	TYPE:Armor			VISIBLE:NO		ITYPE:Enhancement.Magic.Plus5			REPLACES:PLUS1A,PLUS2A,PLUS3A,PLUS4A	SOURCEPAGE:msrdfxitems.rtf						BONUS:COMBAT|AC|5|TYPE=Armor	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement.REPLACE
+
++1 (Enhancement to Shield)	KEY:PLUS1S	TYPE:Shield	COST:8	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Plus1			REPLACES:PLUS2S,PLUS3S,PLUS4S,PLUS5S	SOURCEPAGE:msrdfxitems.rtf	PRETYPE:Shield			BONUS:COMBAT|AC|1|TYPE=Shield
++2 (Enhancement to Shield)	KEY:PLUS2S	TYPE:Shield	COST:13	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Plus2			REPLACES:PLUS1S,PLUS3S,PLUS4S,PLUS5S	SOURCEPAGE:msrdfxitems.rtf	PRETYPE:Shield			BONUS:COMBAT|AC|2|TYPE=Shield
++3 (Enhancement to Shield)	KEY:PLUS3S	TYPE:Shield	COST:18	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Plus3			REPLACES:PLUS1S,PLUS2S,PLUS4S,PLUS5S	SOURCEPAGE:msrdfxitems.rtf	PRETYPE:Shield			BONUS:COMBAT|AC|3|TYPE=Shield
++4 (Enhancement to Shield)	KEY:PLUS4S	TYPE:Shield			VISIBLE:NO		ITYPE:Enhancement.Magic.Plus4			REPLACES:PLUS1S,PLUS2S,PLUS3S,PLUS5S	SOURCEPAGE:msrdfxitems.rtf	PRETYPE:Masterwork,Shield	BONUS:COMBAT|AC|4|TYPE=Shield
++5 (Enhancement to Shield)	KEY:PLUS5S	TYPE:Shield			VISIBLE:NO		ITYPE:Enhancement.Magic.Plus5			REPLACES:PLUS1S,PLUS2S,PLUS3S,PLUS4S	SOURCEPAGE:msrdfxitems.rtf	PRETYPE:Masterwork,Shield	BONUS:COMBAT|AC|5|TYPE=Shield
+
+###Block: Spell Effect
+
+# Modifier Name					Unique Key			Type			Cost								Visible		Type granted				Choose Naming Option	Source Page				Prohibited Type	Choose					Nb of Charges
+|Spell Effect (50 Charges/Spell Trigger)	KEY:SPL_CHRG		TYPE:Wand.Staff	COST:24+(%SPELLLEVEL)-((%CHARGES<26)*2)		VISIBLE:QUALIFY	ITYPE:Enhancement.Magic			NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf				CHOOSE:EQBUILDER.SPELL			CHARGES:1|50
+|Spell Effect (Single Use/Use Activated)	KEY:SPL_1USE		TYPE:Potion		COST:17+%SPELLLEVEL+%CASTERLEVEL			VISIBLE:QUALIFY	ITYPE:Enhancement.Magic			NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf				CHOOSE:EQBUILDER.SPELL
+|Spell Effect (Use Activated Ring)		KEY:SPL_ACT_RING		TYPE:Ring		COST:25+%CASTERLEVEL					VISIBLE:QUALIFY	ITYPE:Enhancement.Magic			NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf				CHOOSE:EQBUILDER.SPELL
+|Spell Effect (Arcane Scroll)			KEY:SCROLL_ARCANE		TYPE:Scroll		COST:15+%SPELLLEVEL+%CASTERLEVEL			VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Arcane	NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf	!PRETYPE:Divine	CHOOSE:EQBUILDER.SPELL|Arcane|0|9
+|Spell Effect (Divine Scroll)			KEY:SCROLL_DIVINE		TYPE:Scroll		COST:15+%SPELLLEVEL+%CASTERLEVEL			VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Divine	NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf	!PRETYPE:Arcane	CHOOSE:EQBUILDER.SPELL|Divine|0|9
+|Power Effect (Psionic Tattoo)		KEY:TATTOO_PSIONIC	TYPE:Tattoo		COST:ceil((15+%SPELLLEVEL+%CASTERLEVEL)/2)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Psionic	NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf				CHOOSE:EQBUILDER.SPELL|Psionic|0|9
+|Spell Effect (Arcane Tattoo)			KEY:TATTOO_ARCANE		TYPE:Tattoo		COST:ceil((15+%SPELLLEVEL+%CASTERLEVEL)/2)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Arcane	NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf				CHOOSE:EQBUILDER.SPELL|Arcane|0|9
+|Spell Effect (Divine Tattoo)			KEY:TATTOO_DIVINE		TYPE:Tattoo		COST:ceil((15+%SPELLLEVEL+%CASTERLEVEL)/2)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Divine	NAMEOPT:SPELL		SOURCEPAGE:msrdfxitems.rtf				CHOOSE:EQBUILDER.SPELL|Divine|0|9
+
+###Block: Charged items
+
+# Modifier Name	Unique Key			Visible	Choose			Nb of Charges
+Charges (3)		KEY:CHARGED_ITEM_3	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|3
+Charges (5)		KEY:CHARGED_ITEM_5	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|5
+Charges (10)	KEY:CHARGED_ITEM_10	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|10
+Charges (50)	KEY:CHARGED_ITEM_50	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|50
+
+# Specific versions - 12 is for Scarab of protection, 14 if for Duct Tape of Repair, 36 is for Cube of Force, 101 is for Brooch of Shielding
+Charges (12)	KEY:CHARGED_ITEM_12	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|12
+Charges (14)	KEY:CHARGED_ITEM_14	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|14
+Charges (36)	KEY:CHARGED_ITEM_36	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|36
+Charges (101)	KEY:CHARGED_ITEM_101	VISIBLE:NO	CHOOSE:EQBUILDER|1	CHARGES:1|101
+
+# These EQMODs are used for adding charges to items which are not associated with a spell effect.
+# Its set to VISIBLE:NO because this would only be called from an item and so should not be available in the customizer.
+# There is a CHOOSE tag in the line because I found that the checkboxes would not display on the OS unless its there.
+# The NAMEOPT:SPELL prevents the number of charges from being tacked on to the name of the item unless there is less than the maximum number of charges.
+# With this EQMOD in place one only needs to add this line to any item which needs 10 charges:
+
+# EQMOD:CHARGED_ITEM_10|CHARGES[10]
+#
+# End
+#

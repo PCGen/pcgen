@@ -1,0 +1,38 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Feb 18 17:52:34 2003 -- reformated by prettylst.pl v1.24 (build 252)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# This file is for all Natural Type Weapon Profs
+#	This is so other .PCC's can easily grab the MM standard Weaponprofs
+# Weapon Name	Type
+Antennae		TYPE:Natural
+Arm			TYPE:Natural
+Bite			TYPE:Natural
+Butt			TYPE:Natural
+Charge		TYPE:Natural
+Chain Rake		TYPE:Natural
+Claw			TYPE:Natural
+Claws			TYPE:Natural
+Crush			TYPE:Natural
+Gore			TYPE:Natural
+Hoof			TYPE:Natural
+Horn			TYPE:Natural
+Pincer		TYPE:Natural
+Quill			TYPE:Natural
+Rake			TYPE:Natural
+Ranged Touch	TYPE:Natural
+Ray			TYPE:Natural
+Slam			TYPE:Natural
+Slap			TYPE:Natural
+Snakes		TYPE:Natural
+Spikes		TYPE:Natural
+Sting			TYPE:Natural
+Strand		TYPE:Natural
+Sweep			TYPE:Natural
+Tail			TYPE:Natural
+Tail Slap		TYPE:Natural
+Tendril		TYPE:Natural
+Tentacle		TYPE:Natural
+Tentacle Slap	TYPE:Natural
+Tentacle Rake	TYPE:Natural
+Touch			TYPE:Natural
+Web			TYPE:Natural
+Wing			TYPE:Natural

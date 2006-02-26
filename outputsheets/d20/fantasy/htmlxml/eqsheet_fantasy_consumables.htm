@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!--
+PCGen Consumable Equipment Sheet Template
+==============================
+Author: Steven Gilroy
+Email: sgilroy2@woh.rr.com
+Original Date: 02/28/2003
+Modifications by:
+Email:
+Revisions: Barak 04/10/03
+Email:
+
+$Revision: 1.4 $
+$Author: chuckpint $
+$Date: 2004/12/21 12:53:16 $
+
+-->
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME| [|POOL.COST| Points]</title>
+<style TYPE="text/css">
+	.h { font-family: Arial; font-size:8pt; vertical-align: bottom; }
+	.ab { font-family: Arial; font-size:10pt; text-align:center; color:white; background:black; }
+	.abb { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 1px solid black;}
+	.abt { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid lightgray;}
+	.sptab { font-family: Arial; vertical-align:top; text-align:center;font-size:8pt;}
+	.sptab1 { font-family: Arial; vertical-align:top; text-align:left;font-size:8pt;}
+	.notetab { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:left;font-size:8pt;}
+	.skl { font-family: Arial; font-size: 9pt; font-weight:bold; text-align:center; vertical-align:middle; border: 4px solid black;}
+	.spname { font-family: Arial; vertical-align:top; text-align:left;font-size:8pt;}
+	.sptop { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:center;font-size:8pt; color:white;}
+	.splevel {  font-family: Arial; background:black; text-align:center;font-size:9pt; color:white;}
+	.sphead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
+	.notehead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
+	.biodata { font-family: Arial; vertical-align:bottom; text-align:left;font-size:9pt;}
+		.topline {
+		border-top-width:1px;
+		border-top: 1pt solid black;
+	}
+	.border {
+		border: 1px solid black;
+	}
+	.tempborder {
+		border: 5px solid lightgray;
+	}
+	.borderbottom {
+		border-bottom-width:1px;
+		border-bottom: 1pt solid black;
+	}
+
+</style>
+</head>
+<body>
+<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center><br>
+<center>
+<h2>Consumable Equipment Sheet</h2>
+</center>
+
+<!-- START Ammunition Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Ammo Table"> <!-- Master Ammunition Table -->
+    <tr>
+     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>AMMUNITION</b></font></td>
+    </tr>
+<!-- Start Ammunition Table -->
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Ammunition Table left pane"> <!-- Ammunition Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.IS.Ammunition]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Ammunition.%equip1.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Ammunition.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Ammunition.%equip1.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Ammunition.%equip1.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Ammunition.%equip1.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip1.QTY,1,EQ.IS.Ammunition.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip1.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip1.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip1.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip1.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Ammunition Table right pane"> <!-- Ammunition Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.IS.Ammunition]-1)/2)+1,COUNT[EQUIPMENT.IS.Ammunition]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Ammunition.%equip2.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Ammunition.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Ammunition.%equip2.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Ammunition.%equip2.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Ammunition.%equip2.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip2.,1,EQ.IS.Ammunition.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip2.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip2.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip2.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Ammunition.%equip2.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+		</table>
+<!-- End Ammunition Table -->
+     </td>
+    </tr>
+   </table>
+<!-- STOP Ammunition Table -->
+
+<br>
+
+<!-- START Potion/Poison Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Potion/Poison Table"> <!-- Master Potion/Poison Table -->
+    <tr>
+     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>POTIONS &amp; POISONS</b></font></td>
+    </tr>
+<!-- Start Potion/Poison Table -->
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Potion/Poison Table left pane"> <!-- Potion/Poison Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.IS.Potion.ADD.Poison]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Potion.ADD.Poison.%equip1.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Potion.ADD.Poison.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Potion.ADD.Poison.%equip1.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Potion.ADD.Poison.%equip1.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Potion.ADD.Poison.%equip1.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip1.QTY,1,EQ.IS.Potion.ADD.Poison.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip1.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip1.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip1.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip1.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Potion/Poison Table right pane"> <!-- Potion/Poison Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.IS.Potion.ADD.Poison]-1)/2)+1,COUNT[EQUIPMENT.IS.Potion.ADD.Poison]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Potion.ADD.Poison.%equip2.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Potion.ADD.Poison.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Potion.ADD.Poison.%equip2.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Potion.ADD.Poison.%equip2.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Potion.ADD.Poison.%equip2.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip2.,1,EQ.IS.Potion.ADD.Poison.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip2.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip2.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip2.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Potion.ADD.Poison.%equip2.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+		</table>
+<!-- End Potion/Poison Table -->
+     </td>
+    </tr>
+   </table>
+<!-- STOP Potion/Poison Table -->
+
+<br>
+
+<!-- START Scroll Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Scroll Table"> <!-- Master Scroll Table -->
+    <tr>
+     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>SCROLLS</b></font></td>
+    </tr>
+<!-- Start Scroll Table -->
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Scroll Table left pane"> <!-- Scroll Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.IS.Scroll]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Scroll.%equip1.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Scroll.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Scroll.%equip1.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Scroll.%equip1.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Scroll.%equip1.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip1.QTY,1,EQ.IS.Scroll.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip1.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip1.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip1.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip1.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Scroll Table right pane"> <!-- Scroll Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.IS.Scroll]-1)/2)+1,COUNT[EQUIPMENT.IS.Scroll]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Scroll.%equip2.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Scroll.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Scroll.%equip2.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Scroll.%equip2.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Scroll.%equip2.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip2.,1,EQ.IS.Scroll.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip2.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip2.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip2.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Scroll.%equip2.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+		</table>
+<!-- End Scroll Table -->
+     </td>
+    </tr>
+   </table>
+<!-- STOP Scroll Table -->
+
+<br>
+
+<!-- START Wand/Staff/Rod Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Rod/Staff/Wand Table"> <!-- Master Wand/Staff/Rod Table -->
+    <tr>
+     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>WANDS, STAVES, &amp; RODS</b></font></td>
+    </tr>
+<!-- Start Wand/Staff/Rod Table -->
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Rod/Staff/Wand Table left pane"> <!-- Wand/Staff/Rod Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.IS.Wand.ADD.Rod.ADD.Staff]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.NOTE|)</font><br />
+|ENDIF|
+|FOR,%charges,1,EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.CHARGES,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip1.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Rod/Staff/Wand Table right pane"> <!-- Wand/Staff/Rod Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.IS.Wand.ADD.Rod.ADD.Staff]-1)/2)+1,COUNT[EQUIPMENT.IS.Wand.ADD.Rod.ADD.Staff]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.NOTE|)</font><br />
+|ENDIF|
+|FOR,%charges,1,EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.CHARGES,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Wand.ADD.Rod.ADD.Staff.%equip2.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+		</table>
+<!-- End Wand/Staff/Rod Table -->
+     </td>
+    </tr>
+   </table>
+<!-- STOP Wand/Staff/Rod Table -->
+
+<br>
+
+<!-- START Vial Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Vial Table"> <!-- Master Vial Table -->
+    <tr>
+     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>VIALS (MISC.)</b></font></td>
+    </tr>
+<!-- Start Vial Table -->
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Vial Table left pane"> <!-- Vial Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.IS.Vial]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Vial.%equip1.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Vial.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Vial.%equip1.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Vial.%equip1.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Vial.%equip1.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip1.QTY,1,EQ.IS.Vial.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip1.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip1.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip1.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip1.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Vial Table right pane"> <!-- Vial Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.IS.Vial]-1)/2)+1,COUNT[EQUIPMENT.IS.Vial]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Vial.%equip2.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Vial.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Vial.%equip2.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Vial.%equip2.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Vial.%equip2.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip2.,1,EQ.IS.Vial.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip2.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip2.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip2.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Vial.%equip2.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+		</table>
+<!-- End Vial Table -->
+     </td>
+    </tr>
+   </table>
+<!-- STOP Vial Table -->
+
+<br>
+
+<!-- START Food Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Food Table"> <!-- Master Food Table -->
+    <tr>
+     <td bgcolor="black" align="center" colspan="10"><font color="white" style="font-size: 9pt"><b>FOOD AND DRINK</b></font></td>
+    </tr>
+<!-- Start Food Table -->
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Food Table left pane"> <!-- Food Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.IS.Food]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Food.%equip1.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Food.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Food.%equip1.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Food.%equip1.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Food.%equip1.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip1.QTY,1,EQ.IS.Food.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip1.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip1.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip1.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip1.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Food Table right pane"> <!-- Food Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border"><font style="font-size: 8pt"><b>ITEM</b></font></td>
+        <td valign="top" width="12%" class="border" align="center"><font style="font-size: 8pt"><b>LOCATION</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>QTY</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>WT.</b></font></td>
+        <td valign="top" width="6%" class="border" align="center"><font style="font-size: 8pt"><b>GP COST</b></font></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.IS.Food]-1)/2)+1,COUNT[EQUIPMENT.IS.Food]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+        <td valign="top" class="border"><font style="font-size: 8pt">&nbsp;|EQ.IS.Food.%equip2.NAME.MAGIC~<b>~</b>|</font><br />
+|IIF(EQ.IS.Food.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.IS.Food.%equip2.SPROP|)</font><br />
+|ENDIF|
+|IIF(EQ.IS.Food.%equip2.NOTE: )|
+        <font style="font-size: 5pt">(|EQ.IS.Food.%equip2.NOTE|)</font><br />
+|ENDIF|
+|FOR,%equip2.,1,EQ.IS.Food.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+        </td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip2.LOCATION|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip2.QTY|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip2.WT|<br /></font></td>
+        <td valign="top" class="border" align="center"><font style="font-size: 8pt">|EQ.IS.Food.%equip2.COST|<br /></font></td>
+       </tr>
+|ENDFOR|
+		</table>
+<!-- End Food Table -->
+     </td>
+    </tr>
+   </table>
+<!-- STOP Food Table -->
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+# CVS $Revision: 1.2 $ $Author: dmcmill $ -- Sat Feb 21 20:57:11 2004 -- reformated by prettylst.pl v1.32 (build 350)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+#Specific
+
+# Equipment Name		Output Name					Type								Cost		Weight	Modifier		Source Page					Weapon prop. bonus
+Screaming Bolt								TYPE:Enhancement.Ammunition.Specific.Bolt		COST:257	WT:0		EQMOD:STEEL.WOOD	SOURCEPAGE:srdmagicitemsweapons.rtf	BONUS:WEAPON|DAMAGE,TOHIT|2
+Slaying Arrow								TYPE:Enhancement.Ammunition.Specific.Arrow	COST:2282	WT:0		EQMOD:STEEL.WOOD	SOURCEPAGE:srdmagicitemsweapons.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1
+Slaying Arrow (Greater)	OUTPUTNAME:Slaying Arrow, [NAME]	TYPE:Enhancement.Ammunition.Specific.Arrow	COST:4057	WT:0		EQMOD:STEEL.WOOD	SOURCEPAGE:srdmagicitemsweapons.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1
+Sleep Arrow									TYPE:Enhancement.Ammunition.Specific.Arrow	COST:132	WT:0		EQMOD:STEEL.WOOD	SOURCEPAGE:srdmagicitemsweapons.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1

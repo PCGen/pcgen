@@ -1,0 +1,5 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+
+# Template Name	Hit Dice Size	CR	Template		Source Page		Special Ability																																																							Define			Required AL		Combat bonus						Bonus to skill											Stat bonus				Modify VAR						Removable?		Spell Res.
+Psionic Lich	HITDIE:12		CR:2	TEMPLATE:Undead	SOURCEPAGE:p.36	SA:Touch Attack (Ex) ~ Negative Energy 1d8+5 DC%|LichAbilityDC	SA:Life-Draining Touch (Su) ~ DC%|LichAbilityDC	SA:Arcane Spell Bane (Su) ~ Concentration within 30ft DC%|LichAbilityDC	SA:Power Point Boost (Ex)	SA:Turn Resistance +4 (Ex)	SA:Power Resistance (Level + 5)	SA:Fast Healing 3	SA:Immune to cold/ electricity/ polymorph	DEFINE:LichAbilityDC|0	PREALIGN:LE,NE,CE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|2	BONUS:VAR|LichAbilityDC|10+(HD/2)+CHA	REMOVABLE:YES	SR:5+TL

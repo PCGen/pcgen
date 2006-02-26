@@ -1,0 +1,167 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# Original entry by: Blithwyn
+SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+#
+# Shadow Schools
+#
+
+# Template Name				Visible		Source Page		Special Ability			Required Feat							Required Skill					Required Stat	Required Template					Removable?
+Blade Dancer - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Blade Dancer's Stance																	PRESTAT:1,DEX=13								REMOVABLE:NO
+Blade Dancer - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Superior Dodge																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 1		REMOVABLE:NO
+Blade Dancer - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Tumbling Attack																		PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 2		REMOVABLE:NO
+Blade Dancer - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Burst of Speed																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 3		REMOVABLE:NO
+Blade Dancer - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Improved Superior Dodge																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 4		REMOVABLE:NO
+Blade Dancer - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Agile Attack																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 5		REMOVABLE:NO
+Blade Dancer - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Improved Burst of Speed																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 6		REMOVABLE:NO
+Blade Dancer - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Ultimate Dodge																			PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 7		REMOVABLE:NO
+Blade Dancer - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Vorpal Hurricane																		PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 8		REMOVABLE:NO
+Blade Dancer - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.144	SA:Ultimate Spring Attack																	PRESTAT:1,DEX=13	PRETEMPLATE:Blade Dancer - Lesson 9		REMOVABLE:NO
+
+Confidence Man - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Sharp Bargainer																												REMOVABLE:NO
+Confidence Man - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Convincing Liar																					PRETEMPLATE:Confidence Man - Lesson 1	REMOVABLE:NO
+Confidence Man - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Energetic Presence																					PRETEMPLATE:Confidence Man - Lesson 2	REMOVABLE:NO
+Confidence Man - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Masterful Bargainer																					PRETEMPLATE:Confidence Man - Lesson 3	REMOVABLE:NO
+Confidence Man - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Tangled Twist of Words																				PRETEMPLATE:Confidence Man - Lesson 4	REMOVABLE:NO
+Confidence Man - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.146	SA:Rumor Monger																						PRETEMPLATE:Confidence Man - Lesson 5	REMOVABLE:NO
+Confidence Man - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Master Trader																						PRETEMPLATE:Confidence Man - Lesson 6	REMOVABLE:NO
+Confidence Man - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Supreme Confidence																					PRETEMPLATE:Confidence Man - Lesson 7	REMOVABLE:NO
+Confidence Man - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Verbal Bull Rush																					PRETEMPLATE:Confidence Man - Lesson 8	REMOVABLE:NO
+Confidence Man - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.147	SA:Sell the Moon																						PRETEMPLATE:Confidence Man - Lesson 9	REMOVABLE:NO
+
+Master of Disguise - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Master of Speech																												REMOVABLE:NO
+Master of Disguise - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Superior Disguise																					PRETEMPLATE:Master of Disguise - Lesson 1	REMOVABLE:NO
+Master of Disguise - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Clever Improvisation																					PRETEMPLATE:Master of Disguise - Lesson 2	REMOVABLE:NO
+Master of Disguise - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Master of Words																					PRETEMPLATE:Master of Disguise - Lesson 3	REMOVABLE:NO
+Master of Disguise - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.148	SA:Mimic																							PRETEMPLATE:Master of Disguise - Lesson 4	REMOVABLE:NO
+Master of Disguise - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Cloak Nature																						PRETEMPLATE:Master of Disguise - Lesson 5	REMOVABLE:NO
+Master of Disguise - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Masterful Linguist																					PRETEMPLATE:Master of Disguise - Lesson 6	REMOVABLE:NO
+Master of Disguise - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Magical Alertness																					PRETEMPLATE:Master of Disguise - Lesson 7	REMOVABLE:NO
+Master of Disguise - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Alias																							PRETEMPLATE:Master of Disguise - Lesson 8	REMOVABLE:NO
+Master of Disguise - Lesson 10	VISIBLE:DISPLAY	SOURCEPAGE:p.149	SA:Perfect Disguise																					PRETEMPLATE:Master of Disguise - Lesson 9	REMOVABLE:NO
+
+Master of Venoms - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Venom Handler																													REMOVABLE:NO
+Master of Venoms - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Venom Merchants																					PRETEMPLATE:Master of Venoms - Lesson 1	REMOVABLE:NO
+Master of Venoms - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Weapon Handler																						PRETEMPLATE:Master of Venoms - Lesson 2	REMOVABLE:NO
+Master of Venoms - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Harvest Poisons																					PRETEMPLATE:Master of Venoms - Lesson 3	REMOVABLE:NO
+Master of Venoms - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Poison Craftsman																					PRETEMPLATE:Master of Venoms - Lesson 4	REMOVABLE:NO
+Master of Venoms - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.150	SA:Poison Dealer																						PRETEMPLATE:Master of Venoms - Lesson 5	REMOVABLE:NO
+Master of Venoms - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Strengthen Poison																					PRETEMPLATE:Master of Venoms - Lesson 6	REMOVABLE:NO
+Master of Venoms - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Expert Craftsman																					PRETEMPLATE:Master of Venoms - Lesson 7	REMOVABLE:NO
+Master of Venoms - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Venomous Strike																					PRETEMPLATE:Master of Venoms - Lesson 8	REMOVABLE:NO
+Master of Venoms - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SA:Deadly Injection																					PRETEMPLATE:Master of Venoms - Lesson 9	REMOVABLE:NO
+
+Razorfiend - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Swift Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)																		REMOVABLE:NO
+Razorfiend - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Stinging Cut			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 1		REMOVABLE:NO
+Razorfiend - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Flurry of Cuts			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 2		REMOVABLE:NO
+Razorfiend - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Quickest Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 3		REMOVABLE:NO
+Razorfiend - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Tendon Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 4		REMOVABLE:NO
+Razorfiend - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SA:Precise Blow			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 5		REMOVABLE:NO
+Razorfiend - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Hurricane of Cuts		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 6		REMOVABLE:NO
+Razorfiend - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Lightning Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 7		REMOVABLE:NO
+Razorfiend - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Deadeye Strike			PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 8		REMOVABLE:NO
+Razorfiend - Lesson 10			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SA:Hobbling Strike		PREFEAT:2,Weapon Focus(Dagger),Weapon Finesse(Dagger)											PRETEMPLATE:Razorfiend - Lesson 9		REMOVABLE:NO
+
+Shadowlurker - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Information Network																												REMOVABLE:NO
+Shadowlurker - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Face in the Crowd																					PRETEMPLATE:Shadowlurker - Lesson 1		REMOVABLE:NO
+Shadowlurker - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Scout Location																						PRETEMPLATE:Shadowlurker - Lesson 2		REMOVABLE:NO
+Shadowlurker - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Connections																						PRETEMPLATE:Shadowlurker - Lesson 3		REMOVABLE:NO
+Shadowlurker - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Escape Route																						PRETEMPLATE:Shadowlurker - Lesson 4		REMOVABLE:NO
+Shadowlurker - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Silent Killer																						PRETEMPLATE:Shadowlurker - Lesson 5		REMOVABLE:NO
+Shadowlurker - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Sniper																							PRETEMPLATE:Shadowlurker - Lesson 6		REMOVABLE:NO
+Shadowlurker - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SA:Contacts and Informants																				PRETEMPLATE:Shadowlurker - Lesson 7		REMOVABLE:NO
+Shadowlurker - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Devious Escape																						PRETEMPLATE:Shadowlurker - Lesson 8		REMOVABLE:NO
+Shadowlurker - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Surprise Attack																					PRETEMPLATE:Shadowlurker - Lesson 9		REMOVABLE:NO
+
+Trapspringer - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Trap Lore																													REMOVABLE:NO
+Trapspringer - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.155	SA:Trap Placement																						PRETEMPLATE:Trapspringer - Lesson 1		REMOVABLE:NO
+Trapspringer - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Know the Trap																						PRETEMPLATE:Trapspringer - Lesson 2		REMOVABLE:NO
+Trapspringer - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Analyze Trap																						PRETEMPLATE:Trapspringer - Lesson 3		REMOVABLE:NO
+Trapspringer - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Dodge Trap																						PRETEMPLATE:Trapspringer - Lesson 4		REMOVABLE:NO
+Trapspringer - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Magic Trap Lore																					PRETEMPLATE:Trapspringer - Lesson 5		REMOVABLE:NO
+Trapspringer - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Foil Trap																						PRETEMPLATE:Trapspringer - Lesson 6		REMOVABLE:NO
+Trapspringer - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Analyze Magic Trap																					PRETEMPLATE:Trapspringer - Lesson 7		REMOVABLE:NO
+Trapspringer - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Predict Trap																						PRETEMPLATE:Trapspringer - Lesson 8		REMOVABLE:NO
+Trapspringer - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.156	SA:Trap Sense																						PRETEMPLATE:Trapspringer - Lesson 9		REMOVABLE:NO
+
+Unfettered Falcon - Lesson 1		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Conceal Tools												PRESKILL:2,Escape Artist,Open Lock=4											REMOVABLE:NO
+Unfettered Falcon - Lesson 2		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Rapid Escape												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 1	REMOVABLE:NO
+Unfettered Falcon - Lesson 3		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Rapid Lock Picking											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 2	REMOVABLE:NO
+Unfettered Falcon - Lesson 4		VISIBLE:DISPLAY	SOURCEPAGE:p.157	SA:Improvise Tools											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 3	REMOVABLE:NO
+Unfettered Falcon - Lesson 5		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Lock Knowledge												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 4	REMOVABLE:NO
+Unfettered Falcon - Lesson 6		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Contortionist												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 5	REMOVABLE:NO
+Unfettered Falcon - Lesson 7		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Lock Sense												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 6	REMOVABLE:NO
+Unfettered Falcon - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Lock Master												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 7	REMOVABLE:NO
+Unfettered Falcon - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Multitask												PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 8	REMOVABLE:NO
+Unfettered Falcon - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SA:Ligtning Escape											PRESKILL:2,Escape Artist,Open Lock=4				PRETEMPLATE:Unfettered Falcon - Lesson 9	REMOVABLE:NO
+
+
+#
+# Shadow Organizations
+#
+
+###Block: Organizations
+# Template Name										Visible	Source Page		Required AL				Req. Att.	Required Feat	Required Lvl	Required Skill																!PRESKILL			Required Template												Bonus to skill							Feat											Removable?		Spells
+Assassin's Guild - Rank 1 - Bravo							VISIBLE:YES	SOURCEPAGE:p.158																																																																						REMOVABLE:YES
+Assassin's Guild - Rank 2 - Executioner						VISIBLE:YES	SOURCEPAGE:p.158						PREATT:2							PRESKILL:1,Disguise=1	PRESKILL:1,Hide,Move Silently=3													PRETEMPLATE:Assassin's Guild - Rank 1 - Bravo																											REMOVABLE:YES
+Assassin's Guild - Rank 3 - Assassin						VISIBLE:YES	SOURCEPAGE:p.158						PREATT:4							PRESKILL:1,Disguise=3	PRESKILL:1,Hide,Move Silently=5													PRETEMPLATE:Assassin's Guild - Rank 2 - Executioner																										REMOVABLE:YES
+Assassin's Guild - Rank 4 - Expert Assassin					VISIBLE:YES	SOURCEPAGE:p.158						PREATT:6							PRESKILL:1,Disguise=5	PRESKILL:1,Hide,Move Silently=7													PRETEMPLATE:Assassin's Guild - Rank 3 - Assassin																										REMOVABLE:YES
+Assassin's Guild - Rank 5 - Senior Assassin					VISIBLE:YES	SOURCEPAGE:p.158						PREATT:8							PRESKILL:1,Disguise=7	PRESKILL:1,Hide,Move Silently=9													PRETEMPLATE:Assassin's Guild - Rank 4 - Expert Assassin																									REMOVABLE:YES
+Assassin's Guild - Rank 6 - Guildmaster						VISIBLE:YES	SOURCEPAGE:p.158						PREATT:8							PRESKILL:1,Disguise=7	PRESKILL:1,Hide,Move Silently=9													PRETEMPLATE:Assassin's Guild - Rank 5 - Senior Assassin																									REMOVABLE:YES
+
+Hermod's Traveling Exhibition of Wonders - Rank 1				VISIBLE:YES	SOURCEPAGE:p.160														PRESKILL:1,Balance,Escape Artist,Handle Animal,Performance,Tumble=3																																													REMOVABLE:YES
+Hermod's Traveling Exhibition of Wonders - Rank 2				VISIBLE:YES	SOURCEPAGE:p.160														PRESKILL:2,Balance,Escape Artist,Handle Animal,Performance,Tumble=5											PRETEMPLATE:Hermod's Traveling Exhibition of Wonders - Rank 1																								REMOVABLE:YES
+Hermod's Traveling Exhibition of Wonders - Rank 3				VISIBLE:YES	SOURCEPAGE:p.160														PRESKILL:2,Balance,Escape Artist,Handle Animal,Performance,Tumble=7											PRETEMPLATE:Hermod's Traveling Exhibition of Wonders - Rank 2																								REMOVABLE:YES
+Hermod's Traveling Exhibition of Wonders - Rank 4				VISIBLE:YES	SOURCEPAGE:p.160														PRESKILL:3,Balance,Escape Artist,Handle Animal,Performance,Tumble=7											PRETEMPLATE:Hermod's Traveling Exhibition of Wonders - Rank 3																								REMOVABLE:YES
+Hermod's Traveling Exhibition of Wonders - Rank 5				VISIBLE:YES	SOURCEPAGE:p.160														PRESKILL:3,Balance,Escape Artist,Handle Animal,Performance,Tumble=9											PRETEMPLATE:Hermod's Traveling Exhibition of Wonders - Rank 4																								REMOVABLE:YES
+
+League of Bounty Hunters - Rank 1 - Apprentice Hunter				VISIBLE:YES	SOURCEPAGE:p.161								PREFEAT:1,Track				PRESKILL:1,Gather Information=1																																																			REMOVABLE:YES
+League of Bounty Hunters - Rank 2 - Journeyman Hunter				VISIBLE:YES	SOURCEPAGE:p.161														PRESKILL:1,Intimidate=1	PRESKILL:1,Gather Information=3													PRETEMPLATE:League of Bounty Hunters - Rank 1 - Apprentice Hunter																								REMOVABLE:YES
+League of Bounty Hunters - Rank 3 - Hunter					VISIBLE:YES	SOURCEPAGE:p.161														PRESKILL:1,Spot=1	PRESKILL:1,Intimidate=3	PRESKILL:1,Gather Information=5										PRETEMPLATE:League of Bounty Hunters - Rank 2 - Journeyman Hunter																								REMOVABLE:YES
+League of Bounty Hunters - Rank 4 - Eminent Hunter				VISIBLE:YES	SOURCEPAGE:p.161														PRESKILL:1,Spot=3	PRESKILL:1,Intimidate=5	PRESKILL:1,Gather Information=7										PRETEMPLATE:League of Bounty Hunters - Rank 3 - Hunter																									REMOVABLE:YES
+League of Bounty Hunters - Rank 5 - Master Hunter				VISIBLE:YES	SOURCEPAGE:p.161														PRESKILL:1,Spot=5	PRESKILL:1,Intimidate=7	PRESKILL:1,Gather Information=9										PRETEMPLATE:League of Bounty Hunters - Rank 4 - Eminent Hunter																								REMOVABLE:YES
+
+Penitents - Rank 1 - Novice								VISIBLE:YES	SOURCEPAGE:p.162	PREALIGN:LG,NG,CG											PRESKILL:2,Hide,Move Silently=1																																																			REMOVABLE:YES
+Penitents - Rank 2 - Acolyte								VISIBLE:YES	SOURCEPAGE:p.162	PREALIGN:LG,NG,CG											PRESKILL:1,Knowledge (Religion)=1	PRESKILL:2,Hide,Move Silently=3											PRETEMPLATE:Penitents - Rank 1 - Novice																												REMOVABLE:YES
+Penitents - Rank 3 - Penitent								VISIBLE:YES	SOURCEPAGE:p.162	PREALIGN:LG,NG,CG											PRESKILL:1,Open Lock=1	PRESKILL:1,Knowledge (Religion)=3	PRESKILL:2,Hide,Move Silently=5							PRETEMPLATE:Penitents - Rank 2 - Acolyte																												REMOVABLE:YES
+Penitents - Rank 4 - Adept								VISIBLE:YES	SOURCEPAGE:p.162	PREALIGN:LG,NG,CG											PRESKILL:1,Open Lock=3	PRESKILL:1,Knowledge (Religion)=5	PRESKILL:2,Hide,Move Silently=7							PRETEMPLATE:Penitents - Rank 3 - Penitent																												REMOVABLE:YES
+Penitents - Rank 5 - Champion								VISIBLE:YES	SOURCEPAGE:p.162	PREALIGN:LG,NG,CG											PRESKILL:1,Open Lock=5	PRESKILL:1,Knowledge (Religion)=7	PRESKILL:2,Hide,Move Silently=9							PRETEMPLATE:Penitents - Rank 4 - Adept																												REMOVABLE:YES	SPELLS:Penitents|TIMES=1|Bless
+
+Pickpockets' Alliance - Rank 1							VISIBLE:YES	SOURCEPAGE:p.164														PRESKILL:1,Gather Information,Pick Pocket,Search=1																																																REMOVABLE:YES
+Pickpockets' Alliance - Rank 2							VISIBLE:YES	SOURCEPAGE:p.164														PRESKILL:1,Gather Information,Pick Pocket,Search=3														PRETEMPLATE:Pickpockets' Alliance - Rank 1																											REMOVABLE:YES
+Pickpockets' Alliance - Rank 3							VISIBLE:YES	SOURCEPAGE:p.164														PRESKILL:1,Gather Information,Pick Pocket,Search=5														PRETEMPLATE:Pickpockets' Alliance - Rank 2																											REMOVABLE:YES
+Pickpockets' Alliance - Rank 4							VISIBLE:YES	SOURCEPAGE:p.164														PRESKILL:1,Gather Information,Pick Pocket,Search=7	PRESKILL:3,Gather Information,Pick Pocket,Search=3					PRETEMPLATE:Pickpockets' Alliance - Rank 3																											REMOVABLE:YES
+Pickpockets' Alliance - Rank 5							VISIBLE:YES	SOURCEPAGE:p.164														PRESKILL:1,Gather Information,Pick Pocket,Search=9	PRESKILL:3,Gather Information,Pick Pocket,Search=5					PRETEMPLATE:Pickpockets' Alliance - Rank 4																											REMOVABLE:YES
+# zzz possible to add bonus??
+
+Rodrik's Band - Rank 1 - Recruit							VISIBLE:YES	SOURCEPAGE:p.165														PRESKILL:1,Use Rope=1															!PRESKILL:1,Swim=1																																			REMOVABLE:YES
+Rodrik's Band - Rank 2 - Swab								VISIBLE:YES	SOURCEPAGE:p.165														PRESKILL:1,Climb=1	PRESKILL:1,Use Rope=3															PRETEMPLATE:Rodrik's Band - Rank 1 - Recruit																FEAT:Martial Weapon Proficiency|All Martial Weapon Proficiencies	REMOVABLE:YES
+Rodrik's Band - Rank 3 - Crewman							VISIBLE:YES	SOURCEPAGE:p.165														PRESKILL:1,Climb=3	PRESKILL:1,Use Rope=5															PRETEMPLATE:Rodrik's Band - Rank 2 - Swab																												REMOVABLE:YES
+Rodrik's Band - Rank 4 - First Mate							VISIBLE:YES	SOURCEPAGE:p.165											PRELEVEL:7		PRESKILL:2,Climb,Intimidate=5	PRESKILL:1,Use Rope=7														PRETEMPLATE:Rodrik's Band - Rank 3 - Crewman																											REMOVABLE:YES
+Rodrik's Band - Rank 5 - Captain							VISIBLE:YES	SOURCEPAGE:p.165											PRELEVEL:7		PRESKILL:2,Climb,Intimidate=5	PRESKILL:1,Use Rope=7														PRETEMPLATE:Rodrik's Band - Rank 4 - First Mate																											REMOVABLE:YES
+
+Royal Society of Explorers and Antiquarians - Rank 1 - Apprentice		VISIBLE:YES	SOURCEPAGE:p.166														PRESKILL:1,Knowledge (History)=3	PRESKILL:1,Disable Device,Open Lock,Search=3																																											REMOVABLE:YES
+Royal Society of Explorers and Antiquarians - Rank 2 - Initiate		VISIBLE:YES	SOURCEPAGE:p.166														PRESKILL:1,Knowledge (History)=5	PRESKILL:1,Disable Device,Open Lock,Search=5									PRETEMPLATE:Royal Society of Explorers and Antiquarians - Rank 1 - Apprentice		BONUS:SKILL|Knowledge (History)|2|TYPE=Circumstance												REMOVABLE:YES
+Royal Society of Explorers and Antiquarians - Rank 3 - Junior Fellow	VISIBLE:YES	SOURCEPAGE:p.166														PRESKILL:1,Knowledge (History)=7	PRESKILL:1,Disable Device,Open Lock,Search=7									PRETEMPLATE:Royal Society of Explorers and Antiquarians - Rank 2 - Initiate																						REMOVABLE:YES
+Royal Society of Explorers and Antiquarians - Rank 4 - Senoir Fellow	VISIBLE:YES	SOURCEPAGE:p.166														PRESKILL:1,Knowledge (History)=9	PRESKILL:1,Disable Device,Open Lock,Search=9									PRETEMPLATE:Royal Society of Explorers and Antiquarians - Rank 3 - Junior Fellow																					REMOVABLE:YES
+Royal Society of Explorers and Antiquarians - Rank 5 - Master		VISIBLE:YES	SOURCEPAGE:p.166														PRESKILL:1,Knowledge (History)=11	PRESKILL:1,Disable Device,Open Lock,Search=11									PRETEMPLATE:Royal Society of Explorers and Antiquarians - Rank 4 - Senoir Fellow																					REMOVABLE:YES
+
+Thief Catchers - Rank 1 - Neophyte							VISIBLE:YES	SOURCEPAGE:p.168														PRESKILL:1,Disable Device,Hide,Open Lock=1	PRESKILL:1,Sense Motive=3																																												REMOVABLE:YES
+Thief Catchers - Rank 2 - Apprentice						VISIBLE:YES	SOURCEPAGE:p.168														PRESKILL:1,Disable Device,Hide,Open Lock=3	PRESKILL:1,Sense Motive=5										PRETEMPLATE:Thief Catchers - Rank 1 - Neophyte							BONUS:SKILL|Sense Motive|1|TYPE=Competence													REMOVABLE:YES
+Thief Catchers - Rank 3 - Thief Catcher						VISIBLE:YES	SOURCEPAGE:p.168														PRESKILL:2,Disable Device,Hide,Open Lock=3	PRESKILL:1,Sense Motive=7										PRETEMPLATE:Thief Catchers - Rank 2 - Apprentice																										REMOVABLE:YES
+Thief Catchers - Rank 4 - Expert Thief Catcher					VISIBLE:YES	SOURCEPAGE:p.168														PRESKILL:2,Disable Device,Hide,Open Lock=5	PRESKILL:1,Sense Motive=9										PRETEMPLATE:Thief Catchers - Rank 3 - Thief Catcher						BONUS:SKILL|Sense Motive|2|TYPE=Competence													REMOVABLE:YES
+Thief Catchers - Rank 5 - Master Thief Catcher					VISIBLE:YES	SOURCEPAGE:p.168														PRESKILL:3,Disable Device,Hide,Open Lock=7	PRESKILL:1,Sense Motive=11										PRETEMPLATE:Thief Catchers - Rank 4 - Expert Thief Catcher					BONUS:SKILL|Sense Motive|3|TYPE=Competence													REMOVABLE:YES
+
+Thieves' Guild - Rank 1 - Footpad							VISIBLE:YES	SOURCEPAGE:p.169											PRELEVEL:2																																																										REMOVABLE:YES
+Thieves' Guild - Rank 2 - Cutpurse							VISIBLE:YES	SOURCEPAGE:p.169														PRESKILL:1,Climb=1	PRESKILL:3,Hide,Move Silently,Open Lock=3												PRETEMPLATE:Thieves' Guild - Rank 1 - Footpad																											REMOVABLE:YES
+Thieves' Guild - Rank 3 - Footpad							VISIBLE:YES	SOURCEPAGE:p.169											PRELEVEL:5		PRESKILL:1,Disable Device=1	PRESKILL:1,Climb=3	PRESKILL:3,Hide,Move Silently,Open Lock=5							PRETEMPLATE:Thieves' Guild - Rank 2 - Cutpurse																											REMOVABLE:YES
+Thieves' Guild - Rank 4 - Thief							VISIBLE:YES	SOURCEPAGE:p.169														PRESKILL:1,Disable Device=3	PRESKILL:1,Climb=5	PRESKILL:3,Hide,Move Silently,Open Lock=7							PRETEMPLATE:Thieves' Guild - Rank 3 - Footpad																											REMOVABLE:YES
+Thieves' Guild - Rank 5 - Master Thief						VISIBLE:YES	SOURCEPAGE:p.169											PRELEVEL:8		PRESKILL:1,Disable Device=5	PRESKILL:1,Climb=7	PRESKILL:3,Hide,Move Silently,Open Lock=9							PRETEMPLATE:Thieves' Guild - Rank 4 - Thief																											REMOVABLE:YES
+Thieves' Guild - Rank 6 - Guildmaster						VISIBLE:YES	SOURCEPAGE:p.169											PRELEVEL:12																								PRETEMPLATE:Thieves' Guild - Rank 5 - Master Thief																										REMOVABLE:YES
+# (Error in book: same title for rank 1 and 3)
+
+Web of Lies - Rank 1 - Informant							VISIBLE:YES	SOURCEPAGE:p.171	PREALIGN:LN,LE,TN,NE,CN,CE									PRESKILL:1,Gather Information=3																																																			REMOVABLE:YES
+Web of Lies - Rank 2 - Observer							VISIBLE:YES	SOURCEPAGE:p.171	PREALIGN:LN,LE,TN,NE,CN,CE									PRESKILL:1,Bluff,Disguise=1	PRESKILL:1,Spot,Search=3	PRESKILL:1,Gather Information=5							PRETEMPLATE:Web of Lies - Rank 1 - Informant							BONUS:SKILL|Gather Information|1|TYPE=Competence												REMOVABLE:YES
+Web of Lies - Rank 3 - Spy								VISIBLE:YES	SOURCEPAGE:p.171	PREALIGN:LN,LE,TN,NE,CN,CE									PRESKILL:1,Bluff,Disguise=3	PRESKILL:1,Spot,Search=5	PRESKILL:1,Gather Information=7							PRETEMPLATE:Web of Lies - Rank 2 - Observer							BONUS:SKILL|Gather Information|2|TYPE=Competence												REMOVABLE:YES	SPELLS:Web of Lies|TIMES=1|Undetectable Alignment
+Web of Lies - Rank 4 - Senior Spy							VISIBLE:YES	SOURCEPAGE:p.171	PREALIGN:LN,LE,TN,NE,CN,CE									PRESKILL:1,Bluff,Disguise=5	PRESKILL:1,Spot,Search=7	PRESKILL:1,Gather Information=9							PRETEMPLATE:Web of Lies - Rank 3 - Spy								BONUS:SKILL|Gather Information|3|TYPE=Competence												REMOVABLE:YES
+Web of Lies - Rank 5 - Spymaster							VISIBLE:YES	SOURCEPAGE:p.171	PREALIGN:LN,LE,TN,NE,CN,CE									PRESKILL:1,Bluff,Disguise=7	PRESKILL:1,Spot,Search=9	PRESKILL:1,Gather Information=12							PRETEMPLATE:Web of Lies - Rank 4 - Senior Spy							BONUS:SKILL|Gather Information|4|TYPE=Competence												REMOVABLE:YES

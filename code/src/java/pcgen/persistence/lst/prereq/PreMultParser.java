@@ -1,0 +1,117 @@
+/*
+ * PreMultParser.java
+ *
+ * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.       See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 18-Dec-2003
+ *
+ * Current Ver: $Revision: 1.9 $
+ *
+ * Last Editor: $Author: binkley $
+ *
+ * Last Edited: $Date: 2005/10/18 20:23:57 $
+ *
+ */
+package pcgen.persistence.lst.prereq;
+
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.persistence.PersistenceLayerException;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * @author wardc
+ *
+ */
+public class PreMultParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+{
+	public String[] kindsHandled()
+	{
+		return new String[]{ "MULT" };
+	}
+
+	public Prerequisite parse(String kind,
+														String formula,
+														boolean invertResult, boolean overrideQualify) throws PersistenceLayerException {
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		prereq.setKind(null);
+
+		int commaIndex = formula.indexOf(",");
+
+		if (commaIndex > 0)
+		{
+			String minFormula = formula.substring(0, commaIndex);
+			formula = formula.substring(commaIndex + 1);
+			prereq.setOperator(PrerequisiteOperator.GTEQ);
+			prereq.setOperand(minFormula);
+		}
+
+		// [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+		List subList = splitOnTopLevelToken(formula, '[', ']');
+		Iterator itr = subList.iterator();
+
+		while (itr.hasNext())
+		{
+			PreParser parser = new PreParser();
+			prereq.addPrerequisite(parser.parse((String) itr.next()));
+		}
+
+		if (invertResult) {
+			prereq.setOperator( prereq.getOperator().invert());
+		}
+		return prereq;
+	}
+
+	protected List splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
+	{
+		int nesting = 0;
+		int startIndex = 0;
+		int currIndex = 0;
+		List subList = new ArrayList();
+
+		for (currIndex = 0; currIndex < input.length(); currIndex++)
+		{
+			char currChar = input.charAt(currIndex);
+
+			if ((currChar == ',') && (nesting == 0))
+			{
+				String subPre = input.substring(startIndex + 1, currIndex - 1);
+				startIndex = currIndex + 1;
+
+				// subPre = PREARMORPROF:1,TYPE.Medium
+				subList.add(subPre);
+			}
+
+			if (currChar == startDelimiter)
+			{
+				nesting++;
+			}
+
+			if (currChar == endDelimiter)
+			{
+				nesting--;
+			}
+		}
+
+		subList.add(input.substring(startIndex + 1, currIndex - 1));
+
+		return subList;
+	}
+}

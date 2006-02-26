@@ -1,0 +1,319 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri Dec  9 14:41:41 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# Original Entry by: Tir Gwaith
+
+# Class Name	Hit Dice	Type			Subclass?		Save checks bonus												Combat bonus					Modify VAR					Template
+CLASS:Channeler	HD:6		TYPE:PC.Base	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Channeler	STARTSKILLPTS:6	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
+# Class Name	Spell Type		Spellbook		Caster level
+CLASS:Channeler	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Channeler|CL
+
+SUBCLASS:Hermetic Channeler		COST:0	SPELLSTAT:INT
+SUBCLASSLEVEL:1	SA:Lorebook +% (% pages)|LorebookCheck|LorebookPages						BONUS:VAR|LorebookCheck|CL+INT	BONUS:VAR|LorebookPages|max(INT,0)*5*(CL)	DEFINE:LorebookCheck|0	DEFINE:LorebookPages|0			FEATAUTO:Magecraft (Hermetic)
+SUBCLASS:Spiritual Channeler		COST:0	SPELLSTAT:WIS
+SUBCLASSLEVEL:1																																						FEATAUTO:Magecraft (Spiritual)
+SUBCLASS:Charismatic Channeler	COST:0	SPELLSTAT:CHA
+SUBCLASSLEVEL:1	SA:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	FEATAUTO:Magecraft (Charismatic)
+1	CAST:1,1								ADD:FEAT(Spellcasting (Transmutation))	ADD:FEAT(TYPE=Spellcasting)
+2	CAST:1,1				SA:Summon Familiar
+3	CAST:1,1,1
+4	CAST:1,1,1								ADD:FEAT(TYPE=Spellcasting)
+5	CAST:1,1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1,1
+8	CAST:1,1,1,1,1							ADD:FEAT(TYPE=Spellcasting)
+9	CAST:1,1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1						ADD:FEAT(TYPE=Spellcasting)
+13	CAST:1,1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1						ADD:FEAT(TYPE=Spellcasting)
+17	CAST:1,1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1					ADD:FEAT(TYPE=Spellcasting)
+
+# Class Name	Hit Dice	Type			Save checks bonus												Combat bonus
+CLASS:Defender	HD:8		TYPE:PC.Base	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Profession|Sense Motive|Swim|Tumble
+###Block: Weapon and Armor Proficiencies
+1	AUTO:WEAPONPROF|Club|Dagger|Hammer (Light)|Pick (Light)|Quarterstaff|Sickle|Axe (Throwing)|Sling|Sling (Great)	FEATAUTO:Improved Unarmed Strike
+###Block: Normal Level Progression
+1														BONUS:COMBAT|AC|(CL+1)/2|TYPE=Defender|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0																																	FEATAUTO:Stunning Attack
+2																																																						ADD:FEAT(TYPE=DefenderAbility)
+4																												BONUS:MOVEADD|TYPE=Walk|floor((CL+2)/6)*10|PREVARLTEQ:ENCUMBERANCE,1,COUNT[EQTYPE.ARMOR.EQUIPPED],0|TYPE=FastMovement.REPLACE
+5																																																						ADD:FEAT(TYPE=DefenderAbility)
+6	SA:Precise Strike (+%)|PreciseStrike	BONUS:VAR|PreciseStrike|CL/6																																					DEFINE:PreciseStrike|0
+7	SA:Masterful Strike +%d6|MasterfulStrike	BONUS:VAR|MasterfulStrike|(CL-1)/6																																				DEFINE:MasterfulStrike|0
+8																																																						ADD:FEAT(TYPE=DefenderAbility)
+11																																																						ADD:FEAT(TYPE=DefenderAbility)
+14																																																						ADD:FEAT(TYPE=DefenderAbility)
+17																																																						ADD:FEAT(TYPE=DefenderAbility)
+20																																																						ADD:FEAT(TYPE=DefenderAbility)
+
+# Class Name	Hit Dice	Source Page		Define				Save checks bonus												Combat bonus					Add domain number		Modify VAR					Template
+CLASS:Legate	HD:8		SOURCEPAGE:p.42	DEFINE:UnlimitedSpells|1	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
+# Class Name	Required AL
+CLASS:Legate	PREALIGN:LE,TN,NE,CE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Legate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Scry|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level			Use Spell List
+CLASS:Legate	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Legate|CL	SPELLLIST:1|Cleric
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+###Block: Turn Undead stuff
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						FEATAUTO:Basic Turning|Rebuke Undead
+1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Progression
+1	CAST:3,1				SA:Spontaneous Casting		TEMPLATE:Maximum Spell Level
+2	CAST:4,2				SA:Astirax Companion (Ex)
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+
+# Class Name	Hit Dice	Type			Save checks bonus												Combat bonus
+CLASS:Wildlander	HD:8		TYPE:PC.Base	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
+# Need to do Danger Sense like Uncanny Dodge....
+# Need to enter WildlanderTrait hidden feats.
+# Smite as hidden feat, possibly with PREAPPLY:PC or something.. :)
+# - Tir Gwaith
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1																													ADD:FEAT(TYPE.WildlanderTrait)
+2																													ADD:FEAT(TYPE.WildlanderTrait)
+3	SA:Danger Sense (Ex) (bonus to spot enemies)
+4	SA:Smite (%/day +% damage)|SmiteTimes|SmiteDamage		BONUS:VAR|SmiteTimes|(CL+2)/6	BONUS:VAR|SmiteDamage|CL	DEFINE:SmiteTimes|0	DEFINE:SmiteDamage|0
+5																													ADD:FEAT(TYPE.WildlanderTrait)
+6	SA:Danger Sense (Ex) (never surprised)
+8																													ADD:FEAT(TYPE.WildlanderTrait)
+9	SA:Danger Sense (Ex) (+% to initiative)|DangerSenseInit	BONUS:VAR|DangerSenseInit|CL/3-2					DEFINE:DangerSenseInit|0
+11																													ADD:FEAT(TYPE.WildlanderTrait)
+14																													ADD:FEAT(TYPE.WildlanderTrait)
+17																													ADD:FEAT(TYPE.WildlanderTrait)
+20																													ADD:FEAT(TYPE.WildlanderTrait)
+
+# Class Name		Output Name		Hit Dice	Type			Max Level	Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Druid (Midnight)	OUTPUTNAME:Druid	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	LANGAUTO:Druidic		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat				Required Skill						Req. Known Spell
+CLASS:Druid (Midnight)	PREFEAT:1,Magecraft (Spiritual)	PRESKILL:2,Knowledge (Nature),Wilderness Lore=8	PRESPELL:1,Animal Friendship
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+# Druids and Channeler stack for the bonus spells thing.
+# Master of two worlds - Druid levels stack w/Channeler Spiritual
+1	SA:Druidcraft	SA:Nature Sense (Ex)																									AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
+2	SA:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
+3	SA:Woodland Stride (Ex)
+4	SA:Trackless Step (Ex)
+6	SA:Venom Immunity (Ex)
+8	SA:Fey Friend
+
+# Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
+CLASS:Freerider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Race	Required Skill						Required Text
+CLASS:Freerider	PREFEAT:2,Mounted Combat,Track	PRERACE:Human%	PRESKILL:1,Ride=8	PRESKILL:1,Wilderness Lore=4	PRETEXT:The character must be human from Eredane and must be decended from either a noble or one who followed a freerider.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intuit Direction|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Wilderness Lore
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1						SA:Horse Lord																																												FEATAUTO:Leadership
+2						SA:Loyal Companions
+3																									ADD:FEAT(Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance))
+4						SA:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
+5						SA:Whispering Step (Ex) (+5 DC)
+6																									ADD:FEAT(Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance))
+7						SA:Spur (Ex)
+9																									ADD:FEAT(Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(TYPE.Lance))
+10	SA:.CLEAR.Whispering Step	SA:Whispering Step (Ex) (full speed)
+
+# Class Name		Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
+CLASS:Insurgent Spy	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat		Required Skill											Required Text
+CLASS:Insurgent Spy	PREFEAT:1,Inconspicuous	PRESKILL:2,Bluff,Gather Information=8	PRESKILL:2,Diplomacy,Sense Motive=5	PRETEXT:The character must have contacts within the armies of the Night Kings, whether on a local or greater scale.  Even good relations with a local captain and some of his guards is sufficient to satisfy this requirement.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Insurgent Spy	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Conceal Magic (Su) (% items)|ConcealMagic	SA:Shadow Contact (minor)	BONUS:VAR|ConcealMagic|CL		DEFINE:ConcealMagic|0
+2	SA:Shadow Speak (+%)|ShadowSpeak								BONUS:VAR|ShadowSpeak|CL/2		DEFINE:ShadowSpeak|0
+3	SA:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					FEATAUTO:Sneak Attack
+5	SA:Shadow Contact (incredible)
+
+# Class Name		Output Name		Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
+CLASS:Wizard (Midnight)	OUTPUTNAME:Wizard	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat														Required Skill						Req. Spell Type
+CLASS:Wizard (Midnight)	PREFEAT:1,TYPE.Metamagic	PREFEAT:1,TYPE.ItemCreation	PREFEAT:1,Magecraft (Hermetic)	PRESKILL:2,Knowledge (Arcana),Spellcraft=8	PRESPELLTYPE:Arcane,13,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Wizard (Midnight)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+# CL bonus EPs.
+# CL Stacks with Channeler for advanced spells known
+# Lorebook stacks with Channeler
+1	SA:Art of Magic (% percent reduction)|ArtMagicItemCreation	SA:Improved Spellcasting	SA:Spell Preparation (% spells)|SpellPreparation	SA:Spellbook	BONUS:VAR|ArtMagicItemCreation|(floor(CL/5)+1)*10	BONUS:VAR|SpellPreparation|CL*3	DEFINE:ArtMagicItemCreation|0	DEFINE:SpellPreparation|0														AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+2																																																					ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic)
+3																																																					ADD:FEAT(TYPE=Spellcasting)
+4																																																					ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic)
+6																																																					ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic)	ADD:FEAT(TYPE=Spellcasting)
+8																																																					ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic)
+9																																																					ADD:FEAT(TYPE=Spellcasting)
+10																																																					ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic)
+
+###Block: Class MODs and additions for the magic system
+
+# Class Name		Template
+CLASS:Defender.MOD	TEMPLATE:Maximum Spell Level
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level			Use Spell List
+CLASS:Defender.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Defender|TL	SPELLLIST:1|Channeler
+1	CAST:1
+2	CAST:1,1
+3	CAST:1,1
+4	CAST:1,1,1
+5	CAST:1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1
+8	CAST:1,1,1,1,1
+9	CAST:1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1
+13	CAST:1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1
+
+# Class Name		Template
+CLASS:Wildlander.MOD	TEMPLATE:Maximum Spell Level
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level				Use Spell List
+CLASS:Wildlander.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Wildlander|TL	SPELLLIST:1|Channeler
+1	CAST:1
+2	CAST:1,1
+3	CAST:1,1
+4	CAST:1,1,1
+5	CAST:1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1
+8	CAST:1,1,1,1,1
+9	CAST:1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1
+13	CAST:1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1
+
+# Class Name		Template
+CLASS:Barbarian.MOD	TEMPLATE:Maximum Spell Level
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level				Use Spell List
+CLASS:Barbarian.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Barbarian|TL	SPELLLIST:1|Channeler
+1	CAST:1
+2	CAST:1,1
+3	CAST:1,1
+4	CAST:1,1,1
+5	CAST:1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1
+8	CAST:1,1,1,1,1
+9	CAST:1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1
+13	CAST:1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1
+
+# Class Name	Template
+CLASS:Fighter.MOD	TEMPLATE:Maximum Spell Level
+# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level			Use Spell List
+CLASS:Fighter.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Fighter|TL	SPELLLIST:1|Channeler
+1	CAST:1
+2	CAST:1,1
+3	CAST:1,1
+4	CAST:1,1,1
+5	CAST:1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1
+8	CAST:1,1,1,1,1
+9	CAST:1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1
+13	CAST:1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1
+
+# Class Name	Template
+CLASS:Rogue.MOD	TEMPLATE:Maximum Spell Level
+# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level			Use Spell List
+CLASS:Rogue.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Rogue|TL	SPELLLIST:1|Channeler
+1	CAST:1
+2	CAST:1,1
+3	CAST:1,1
+4	CAST:1,1,1
+5	CAST:1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1
+8	CAST:1,1,1,1,1
+9	CAST:1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1
+13	CAST:1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1

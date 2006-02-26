@@ -1,0 +1,128 @@
+# CVS $Revision: 1.24 $ $Author: frank_kliewe $ -- Fri Feb  3 02:17:01 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: Paul King, Barak
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Strong	HD:8		TYPE:Base.PC	ABB:Stron		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Strong	STARTSKILLPTS:2	CSKILL:Climb|Craft (Structural)|Handle Animal|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Profession|Read/Write Language|Repair|Speak Language|Swim
+SUBCLASS:Strong Ordinary	COST:0
+SUBCLASSLEVEL:1																			TEMPLATE:Ordinary CR
+SUBCLASS:Strong Hero		COST:0
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor(TL/2*TL/2)|TYPE=NonStackingAP	ADD:FEAT(TYPE=StrongTalent)
+SUBCLASSLEVEL:2														ADD:FEAT(TYPE=Strong)
+SUBCLASSLEVEL:3														ADD:FEAT(TYPE=StrongTalent)
+SUBCLASSLEVEL:4														ADD:FEAT(TYPE=Strong)
+SUBCLASSLEVEL:5														ADD:FEAT(TYPE=StrongTalent)
+SUBCLASSLEVEL:6														ADD:FEAT(TYPE=Strong)
+SUBCLASSLEVEL:7														ADD:FEAT(TYPE=StrongTalent)
+SUBCLASSLEVEL:8														ADD:FEAT(TYPE=Strong)
+SUBCLASSLEVEL:9														ADD:FEAT(TYPE=StrongTalent)
+SUBCLASSLEVEL:10														ADD:FEAT(TYPE=Strong)
+#
+1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	FEATAUTO:Simple Weapons Proficiency	FEATAUTO:Starting Wealth
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																Combat bonus			Modify VAR
+CLASS:Fast		HD:8		TYPE:Base.PC	ABB:Fast		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL/2)+3	BONUS:VAR|Reputation|CL/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fast		STARTSKILLPTS:4	CSKILL:Balance|Craft (Mechanical)|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Pilot|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Tumble
+SUBCLASS:Fast Ordinary	COST:0
+SUBCLASSLEVEL:1																			TEMPLATE:Ordinary CR
+SUBCLASS:Fast Hero	COST:0
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor(TL/2*TL/2)|TYPE=NonStackingAP	ADD:FEAT(TYPE=FastTalent)
+SUBCLASSLEVEL:2														ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:3														ADD:FEAT(TYPE=FastTalent)
+SUBCLASSLEVEL:4														ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:5														ADD:FEAT(TYPE=FastTalent)
+SUBCLASSLEVEL:6														ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:7														ADD:FEAT(TYPE=FastTalent)
+SUBCLASSLEVEL:8														ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:9														ADD:FEAT(TYPE=FastTalent)
+SUBCLASSLEVEL:10														ADD:FEAT(TYPE=Fast)
+#
+1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	FEATAUTO:Simple Weapons Proficiency	FEATAUTO:Starting Wealth
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																Combat bonus			Modify VAR
+CLASS:Tough		HD:10		TYPE:Base.PC	ABB:Toug		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tough		STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Mechanical)|Craft (Structural)|Drive|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival
+SUBCLASS:Tough Ordinary	COST:0
+SUBCLASSLEVEL:1																			TEMPLATE:Ordinary CR
+SUBCLASS:Tough Hero	COST:0
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor(TL/2*TL/2)|TYPE=NonStackingAP	ADD:FEAT(TYPE=ToughTalent)
+SUBCLASSLEVEL:2														ADD:FEAT(TYPE=Tough)
+SUBCLASSLEVEL:3														ADD:FEAT(TYPE=ToughTalent)
+SUBCLASSLEVEL:4														ADD:FEAT(TYPE=Tough)
+SUBCLASSLEVEL:5														ADD:FEAT(TYPE=ToughTalent)
+SUBCLASSLEVEL:6														ADD:FEAT(TYPE=Tough)
+SUBCLASSLEVEL:7														ADD:FEAT(TYPE=ToughTalent)
+SUBCLASSLEVEL:8														ADD:FEAT(TYPE=Tough)
+SUBCLASSLEVEL:9														ADD:FEAT(TYPE=ToughTalent)
+SUBCLASSLEVEL:10														ADD:FEAT(TYPE=Tough)
+#
+1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	FEATAUTO:Simple Weapons Proficiency	FEATAUTO:Starting Wealth
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Smart		HD:6		TYPE:Base.PC	ABB:Smar		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Smart		STARTSKILLPTS:8	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Forgery|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Profession|Read/Write Language|Repair|Research|Search|Speak Language
+SUBCLASS:Smart Ordinary	COST:0
+SUBCLASSLEVEL:1																			TEMPLATE:Ordinary CR
+SUBCLASS:Smart Hero	COST:0
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor(TL/2*TL/2)|TYPE=NonStackingAP	ADD:FEAT(TYPE=SmartTalent)
+SUBCLASSLEVEL:2														ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:3														ADD:FEAT(TYPE=SmartTalent)
+SUBCLASSLEVEL:4														ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:5														ADD:FEAT(TYPE=SmartTalent)
+SUBCLASSLEVEL:6														ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:7														ADD:FEAT(TYPE=SmartTalent)
+SUBCLASSLEVEL:8														ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:9														ADD:FEAT(TYPE=SmartTalent)
+SUBCLASSLEVEL:10														ADD:FEAT(TYPE=Smart)
+#
+1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	FEATAUTO:Simple Weapons Proficiency	FEATAUTO:Starting Wealth
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																	Combat bonus			Modify VAR
+CLASS:Dedicated	HD:6		TYPE:Base.PC	ABB:Dedi		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dedicated	STARTSKILLPTS:4	CSKILL:Craft (Pharmaceutical)|Craft (Visual Art)|Craft (Writing)|Gamble|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Survival|Treat Injury
+SUBCLASS:Dedicated Ordinary	COST:0
+SUBCLASSLEVEL:1																				TEMPLATE:Ordinary CR
+SUBCLASS:Dedicated Hero		COST:0
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor(TL/2*TL/2)|TYPE=NonStackingAP	ADD:FEAT(TYPE=DedicatedTalent)
+SUBCLASSLEVEL:2														ADD:FEAT(TYPE=Dedicated)
+SUBCLASSLEVEL:3														ADD:FEAT(TYPE=DedicatedTalent)
+SUBCLASSLEVEL:4														ADD:FEAT(TYPE=Dedicated)
+SUBCLASSLEVEL:5														ADD:FEAT(TYPE=DedicatedTalent)
+SUBCLASSLEVEL:6														ADD:FEAT(TYPE=Dedicated)
+SUBCLASSLEVEL:7														ADD:FEAT(TYPE=DedicatedTalent)
+SUBCLASSLEVEL:8														ADD:FEAT(TYPE=Dedicated)
+SUBCLASSLEVEL:9														ADD:FEAT(TYPE=DedicatedTalent)
+SUBCLASSLEVEL:10														ADD:FEAT(TYPE=Dedicated)
+#
+1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	FEATAUTO:Simple Weapons Proficiency	FEATAUTO:Starting Wealth
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Charismatic	HD:6		TYPE:Base.PC	ABB:Char		MAXLEVEL:10	HASSUBCLASS:YES	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(((CL+6)*2)/5)-1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Charismatic	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disguise|Gather Information|Handle Animal|Intimidate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|Speak Language
+SUBCLASS:Charismatic Ordinary	COST:0
+SUBCLASSLEVEL:1																				TEMPLATE:Ordinary CR
+SUBCLASS:Charismatic Hero	COST:0
+SUBCLASSLEVEL:1	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor(TL/2*TL/2)|TYPE=NonStackingAP	ADD:FEAT(TYPE=CharismaticTalent)
+SUBCLASSLEVEL:2														ADD:FEAT(TYPE=Charismatic)
+SUBCLASSLEVEL:3														ADD:FEAT(TYPE=CharismaticTalent)
+SUBCLASSLEVEL:4														ADD:FEAT(TYPE=Charismatic)
+SUBCLASSLEVEL:5														ADD:FEAT(TYPE=CharismaticTalent)
+SUBCLASSLEVEL:6														ADD:FEAT(TYPE=Charismatic)
+SUBCLASSLEVEL:7														ADD:FEAT(TYPE=CharismaticTalent)
+SUBCLASSLEVEL:8														ADD:FEAT(TYPE=Charismatic)
+SUBCLASSLEVEL:9														ADD:FEAT(TYPE=CharismaticTalent)
+SUBCLASSLEVEL:10														ADD:FEAT(TYPE=Charismatic)
+#
+1	TEMPLATE:Starting Benefits	TEMPLATE:Starting Occupation	FEATAUTO:Simple Weapons Proficiency	FEATAUTO:Starting Wealth

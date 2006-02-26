@@ -1,0 +1,38 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Aug 31 18:40:00 2004 -- reformated by prettylst.pl v1.33 (build 421)
+#Orginal Entry: Beaver
+CAMPAIGN:The Witch's Handbook
+GAMEMODE:3e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Green Ronin Publishing.Supplement.Master Class
+RANK:6
+PUBNAMELONG:Green Ronin
+PUBNAMESHORT:Ronin
+PUBNAMEWEB:http://www.greenronin.com
+SOURCELONG:The Witch's Handbook
+SOURCESHORT:witchhandbook
+SOURCEWEB:http://www.greenronin.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arenson
+COPYRIGHT:The Witch's Handbook, Copyright 2002, Green Ronin Publishing;Author Steven Kenson
+COPYRIGHT:Relics & Rituals, Copyright 2001, Clark Peterson
+COPYRIGHT:PCGen dataset conversion for The Witch's Handbook Copyright 2002-2004, Including, but not limited to Michael Beaver, Anders Lindgren (Blithwyn), and Andrew McDougall (Tir-Gwaith)
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:witchshandbook_classes.lst
+CLASS:witchshandbook_classes_prestige.lst
+SPELL:witchshandbook_spells.lst
+FEAT:witchshandbook_feats.lst
+FEAT:witchshandbook_feats_hidden.lst
+SKILL:witchshandbook_skills.lst
+
+EQUIPMENT:witchshandbook_equip_poisons.lst
+EQUIPMENT:witchshandbook_equip_potions.lst
+EQUIPMENT:witchshandbook_equip_rodsstaffswands.lst
+EQUIPMENT:witchshandbook_equip_weap_melee_specific.lst
+EQUIPMENT:witchshandbook_equip_wondrousitems.lst
+EQUIPMENT:witchshandbook_equip_wondrousitems2.lst

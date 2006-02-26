@@ -1,0 +1,8 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Feat Name			Type				Min. nb of Hand	Req. Movement	Required Stat	Description													Combat bonus						Source Page
+Flyby Attack		TYPE:General.Fighter				PREMOVE:1,Fly=1				DESC:A creature with this feat may attack on the wing.													SOURCEPAGE:p.11
+Multidexterity		TYPE:General.Fighter	PREHANDSGT:2				PRESTAT:1,DEX=15	DESC:A creature with this feat is adept at using all its hands in combat.		BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4	SOURCEPAGE:p.11
+Multiweapon Fighting	TYPE:General.Fighter	PREHANDSGT:2							DESC:A creature with this feat can fight with a weapon in each hand.			BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2	SOURCEPAGE:p.11
+Multiattack			TYPE:General.Fighter	PREHANDSGT:2							DESC:A creatire with this feat is adept at using all its natural weapons at once.	BONUS:COMBAT|TOHIT-SECONDARY|3			SOURCEPAGE:p.11

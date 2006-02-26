@@ -1,0 +1,40 @@
+# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Tue Jan 18 13:34:00 2005 -- reformated by prettylst.pl v1.34 (build 451)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# The Usual Refinements - Vehicular Gadgets
+
+# Modifier Name				Unique Key					Type			Cost		Source Page		Modify VAR															Special Property
+Autopilot					KEY:AUTOPILOT				TYPE:Vehicle	COST:1	SOURCEPAGE:p.151	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Autopilot
+Auto-tint					KEY:AUTO_TINT				TYPE:Vehicle	COST:1	SOURCEPAGE:p.151	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Auto-tint
+Black headlights				KEY:BLACK_HEADLIGHTS			TYPE:Vehicle	COST:1	SOURCEPAGE:p.151	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Black headlights
+Concealed machine gun			KEY:CONCEALED_MACHINE_GUN		TYPE:Vehicle	COST:3	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Concealed machine gun
+Ejection seats				KEY:EJECTION_SEATS			TYPE:Vehicle	COST:1	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Ejection seats
+Electrified frame				KEY:ELECTRIFIED_FRAME			TYPE:Vehicle	COST:1	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Electrified frame
+Extra armor					KEY:EXTRA_ARMOR				TYPE:Vehicle	COST:1	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1	BONUS:VAR|VEHICLEHARDNESS|5						SPROP:Extra armor
+Heads Up Display				KEY:HEADS_UP_DISPLAY			TYPE:Vehicle	COST:1	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Heads Up Display
+Hidden compartment			KEY:HIDDEN_COMPARTMENT			TYPE:Vehicle	COST:1	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1	BONUS:VAR|MAXVEHICLEMODS|(VEHICLEWOUNDPOINTS/40)		SPROP:Hidden compartment
+Improved handling				KEY:IMPROVED_HANDLING			TYPE:Vehicle	COST:1	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1	BONUS:VAR|VEHICLEHANDLING|2						SPROP:Improved handling
+Laser mount					KEY:LASER_MOUNT				TYPE:Vehicle	COST:3	SOURCEPAGE:p.152	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Laser mount
+Nitrous oxide system			KEY:NITROUS_OXIDE_SYSTEM		TYPE:Vehicle	COST:2	SOURCEPAGE:p.153	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Nitrous oxide system
+Oil slick					KEY:OIL_SLICK				TYPE:Vehicle	COST:1	SOURCEPAGE:p.153	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Oil slick
+Pop-up shield				KEY:POP_UP_SHIELD				TYPE:Vehicle	COST:1	SOURCEPAGE:p.153	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Pop-up shield
+Proteus package				KEY:PROTEUS_PACKAGE			TYPE:Vehicle	COST:4	SOURCEPAGE:p.153	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Proteus package
+Reinforced tires				KEY:REINFORCED_TIRES			TYPE:Vehicle	COST:1	SOURCEPAGE:p.153	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Reinforced tires
+Remote control				KEY:REMOTE_CONTROL			TYPE:Vehicle	COST:1	SOURCEPAGE:p.153	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Remote control
+Revolving license plate			KEY:REVOLVING_LICENSE_PLATE		TYPE:Vehicle	COST:1	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Revolving license plate
+Rocket launcher				KEY:ROCKET_LAUNCHER			TYPE:Vehicle	COST:4	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Rocket launcher
+Smoke screen				KEY:SMOKE_SCREEN				TYPE:Vehicle	COST:1	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Smoke screen
+Spike dropper				KEY:SPIKE_DROPPER				TYPE:Vehicle	COST:1	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Spike dropper
+Tire slasher				KEY:TIRE_SLASHER				TYPE:Vehicle	COST:1	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Tire slasher
+Voice Activated Command System	KEY:VOICE_ACTIVATED_COMMAND		TYPE:Vehicle	COST:2	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1											SPROP:Voice Activated Command System
+Tubular space frame			KEY:TUBULAR_SPACE_FRAME			TYPE:Vehicle	COST:4	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1	BONUS:VAR|VEHICLEHARDNESS|1	BONUS:VAR|VEHICLEHANDLING|1	SPROP:Tubular space frame (+10%% of original WP and top speed)
+Wind resistance reduction (+1)	KEY:WIND_RESISTANCE_REDUCTION_1	TYPE:Vehicle	COST:2	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1	BONUS:VAR|VEHICLEHANDLING|1						SPROP:Wind resistance reduction (+10%% of original top speed)
+Wind resistance reduction (+2)	KEY:WIND_RESISTANCE_REDUCTION_2	TYPE:Vehicle	COST:2	SOURCEPAGE:p.154	BONUS:VAR|CURRENTVEHICLEMODS|1	BONUS:VAR|VEHICLEHANDLING|2						SPROP:Wind resistance reduction (+25%% of original top speed)
+
+#
+# End
+#

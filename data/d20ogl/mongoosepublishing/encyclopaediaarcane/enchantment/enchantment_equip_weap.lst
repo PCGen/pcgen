@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  9 02:07:47 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment|SOURCESHORT:Enchantment|SOURCEWEB:http://mongoosepublishing.com
+
+#Specific
+# Equipment Name				Output Name			Required Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Range		Size		Source Page		Virtual Feat			Weapon prop. bonus		Special Property
+Bolts of Enchantment (Lesser)											TYPE:Magic.Ammunition.Specific.Bolt									COST:2410	WT:0																				SOURCEPAGE:p.51						BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:Carries one 0 or 1st level enchantment
+Bolts of Enchantment (Greater)										TYPE:Magic.Ammunition.Specific.Bolt									COST:4820	WT:0																				SOURCEPAGE:p.51						BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:Carries one 0 or 1st level enchantment (+2 DC)
+Sword (Heartbreaker)			OUTPUTNAME:Heartbreaker	PROFICIENCY:Greatsword		TYPE:Magic.Artifact.Major												WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6							SIZE:L	SOURCEPAGE:p.52	VFEAT:Cleave|Combat Reflexes	BONUS:WEAPON|DAMAGE,TOHIT|5	SPROP:Unholy Greatsword of Wounding +5 (I 19, W 16, CH 20, Ego 32, AL CE), Detect Good/Evil
+Lash of Languishing (as whip)						PROFICIENCY:Whip			TYPE:Magic.Weapon.Exotic.Ranged.Slashing.Standard.Whip					COST:72000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2					RANGE:15	SIZE:S	SOURCEPAGE:p.53						BONUS:WEAPON|DAMAGE,TOHIT|3	SPROP:Icy Burst Whip +3
+Lash of Languishing (as dagger)					PROFICIENCY:Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Standard.Bone.Thrown.Dagger		COST:72000	WT:2		CRITMULT:x2			CRITRANGE:4			DAMAGE:1d4					RANGE:10	SIZE:S	SOURCEPAGE:p.53						BONUS:WEAPON|DAMAGE,TOHIT|3	SPROP:Keen Icy Dagger +3
+Staff of Mindmastery							PROFICIENCY:Quarterstaff	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Wooden.Quarterstaff	COST:165000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6				SIZE:L	SOURCEPAGE:p.54

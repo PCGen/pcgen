@@ -1,0 +1,210 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Thu Dec 29 17:34:38 2005 -- reformated by prettylst.pl v1.35 (build 542)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ogre]
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+ALIGN:CE
+RACE:Ogre	!PRERACE:%
+NAME:Ogre
+SKILL:Climb		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Toughness
+FEAT:Weapon Focus(Greatclub)
+GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
+GEAR:Hide		SIZE:PC	LOCATION:Equipped
+GEAR:Javelin	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Ogre Mage	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ogre Mage]
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+RACE:Ogre Mage	!PRERACE:%
+NAME:Ogre Mage
+SKILL:Concentration	RANK:8
+SKILL:Listen		RANK:8
+SKILL:Spellcraft		RANK:8
+SKILL:Spot			RANK:8
+FEAT:Combat Expertise
+FEAT:Improved Initiative
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
+GEAR:Longbow	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Ooze (Black Pudding)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ooze (Black Pudding)]
+STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
+RACE:Ooze (Black Pudding)	!PRERACE:%
+NAME:Ooze (Black Pudding)
+ALIGN:TN
+
+STARTPACK:Default Ooze (Gelatinous Cube)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ooze (Gelatinous Cube)]
+STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
+RACE:Ooze (Gelatinous Cube)	!PRERACE:%
+NAME:Ooze (Gelatinous Cube)
+ALIGN:TN
+
+STARTPACK:Default Ooze (Gray)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ooze (Gray)]
+STAT:CON=11|STR=10|DEX=10|WIS=10|CHA=10
+RACE:Ooze (Gray)	!PRERACE:%
+NAME:Ooze (Gray)
+ALIGN:TN
+
+STARTPACK:Default Ooze (Ochre Jelly)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ooze (Ochre Jelly)]
+STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
+RACE:Ooze (Ochre Jelly)	!PRERACE:%
+NAME:Ooze (Ochre Jelly)
+ALIGN:TN
+
+STARTPACK:Default Otyugh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Otyugh]
+STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
+RACE:Otyugh	!PRERACE:%
+NAME:Otyugh
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Toughness
+FEAT:Weapon Focus(Tentacle)
+
+STARTPACK:Default Owl (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Owl (Giant)]
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Owl (Giant)	!PRERACE:%
+NAME:Owl (Giant)
+SKILL:Knowledge (Nature)	RANK:2
+SKILL:Spot				RANK:2
+SKILL:Listen			RANK:5
+SKILL:Move Silently		RANK:5
+FEAT:Alertness
+FEAT:Wingover
+
+STARTPACK:Default Owlbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Owlbear]
+RACE:Owlbear	!PRERACE:%
+NAME:Owlbear
+ALIGN:TN
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:3
+SKILL:Spot		RANK:2	FREE:YES
+FEAT:Alertness
+FEAT:Track
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Pegasus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pegasus]
+RACE:Pegasus	!PRERACE:%
+NAME:Pegasus
+SKILL:Sense Motive	RANK:7
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+FEAT:Flyby Attack
+FEAT:Iron Will
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Phantom Fungus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phantom Fungus]
+RACE:Phantom Fungus	!PRERACE:%
+NAME:Phantom Fungus
+ALIGN:TN
+SKILL:Move Silently	RANK:1
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
+
+STARTPACK:Default Phase Spider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phase Spider]
+RACE:Phase Spider	!PRERACE:%
+NAME:Phase Spider
+ALIGN:TN
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:3	FREE:YES
+FEAT:Ability Focus(Poison)
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|INT=11|WIS=11|CON=10|CHA=10
+
+STARTPACK:Default Phasm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phasm]
+RACE:Phasm	!PRERACE:%
+NAME:Phasm
+SKILL:Listen		RANK:8
+SKILL:Spot			RANK:8
+SKILL:Climb			RANK:6
+SKILL:Bluff			RANK:18
+SKILL:Disguise		RANK:18
+SKILL:Diplomacy		RANK:8
+SKILL:TYPE=Craft		RANK:9
+SKILL:TYPE=Knowledge	RANK:15
+SKILL:Survival		RANK:6	FREE:YES
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
+
+STARTPACK:Default Pseudodragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pseudodragon]
+RACE:Pseudodragon	!PRERACE:%
+NAME:Pseudodragon
+ALIGN:NG
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Search		RANK:5
+SKILL:Sense Motive	RANK:5
+SKILL:Spot			RANK:5
+FEAT:Weapon Finesse
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Purple Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Purple Worm]
+RACE:Purple Worm	!PRERACE:%
+NAME:Purple Worm
+ALIGN:TN
+SKILL:Listen	RANK:19
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+FEAT:Weapon Focus(Sting)
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Orc	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Orc]
+RACE:Orc	!PRERACE:%
+NAME:Orc
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:CE
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Alertness
+GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
+GEAR:Falchion		SIZE:PC	LOCATION:Both Hands
+GEAR:Javelin		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Planetouched (Aasimar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Planetouched (Aasimar)]
+TEMPLATE:Default Aasimar
+RACE:Planetouched (Aasimar)	!PRERACE:%
+NAME:Aasimar
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:LG|NG|CG
+CLASS:Warrior	LEVEL:1
+SKILL:Heal				RANK:4
+SKILL:Knowledge (Religion)	RANK:1
+SKILL:Listen			RANK:1
+SKILL:Ride				RANK:1
+SKILL:Spot				RANK:1
+FEAT:Improved Initiative
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Planetouched (Tiefling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Planetouched (Tiefling)]
+TEMPLATE:Default Tiefling
+RACE:Planetouched (Tiefling)	!PRERACE:%
+NAME:Tiefling
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:LE|NE|CE
+CLASS:Warrior	LEVEL:1
+SKILL:Bluff			RANK:4
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:2
+SKILL:Sleight of Hand	RANK:2
+FEAT:Weapon Focus (Rapier)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Rapier				SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried

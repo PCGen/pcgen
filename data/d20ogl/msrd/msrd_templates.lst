@@ -1,0 +1,61 @@
+# CVS $Revision: 1.24 $ $Author: frank_kliewe $ -- Wed Jan  4 18:09:18 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Tir Gwaith and Doug McMillan, Temporary Bonus Templates by Eddy Anthony
+
+###Block: Starting Benefits
+# Template Name		Visible	Special Ability			Choose a Feat			ADD:Language
+Starting Benefits		VISIBLE:NO	SA:Reputation %|Reputation	ADD:FEAT(TYPE=WealthRoll)1	ADD:Language(TYPE=Spoken)1
+Starting Occupation	VISIBLE:NO						ADD:FEAT(TYPE=Occupation)1
+
+###Block: Temporary Bonus Templates
+# Template Name			Visible	Bonus to skill															Temporary effect description
+Familiar within arms reach	VISIBLE:NO	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
+
+###Block: Conditional Templates
+# Template Name				Visible	Source Page					Save checks bonus								Combat bonus															Bonus to skill																			Stat bonus							Choose								Temporary effect description
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|INT|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|WIS|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|CHA|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points
+Blinded					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																												BONUS:SKILL|Search,STAT.STR,STAT.DEX|-4|PREAPPLY:ANYPC												BONUS:STAT|DEX|-1*(DEXSCORE-3)|PREAPPLY:ANYPC										TEMPDESC:You cannot see
+Cowering					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf											BONUS:COMBAT|AC|-2|PREAPPLY:ANYPC	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																							TEMPDESC:You are frozen in fear and can take no actions
+Deafened					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf											BONUS:COMBAT|INITIATIVE|-4|PREAPPLY:ANYPC																																																	TEMPDESC:You cannot hear
+Entangled					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf											BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC																																BONUS:STAT|DEX|-4|PREAPPLY:ANYPC												TEMPDESC:You are ensnared
+Exhausted					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|DEX,STR|-6|PREAPPLY:ANYPC											TEMPDESC:You are exhausted
+Fatigued					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																	BONUS:STAT|DEX,STR|-2|PREAPPLY:ANYPC											TEMPDESC:You are fatigued
+Frightened					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|-2|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC											BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																		TEMPDESC:You are frightened
+Invisible					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf											BONUS:COMBAT|TOHIT|2|TYPE=Invisibility|PREAPPLY:ANYPC																																															TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)
+Prone						VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf											BONUS:COMBAT|TOHIT.MELEE|-4|PREAPPLY:ANYPC																																																TEMPDESC:You are on the ground
+Shaken					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|-2|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC											BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																		TEMPDESC:You are shaken
+Stunned					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf											BONUS:COMBAT|AC|-2|PREAPPLY:ANYPC	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																							TEMPDESC:You are stunned, you drop everything held, and cannot take actions
+
+###Block: Combat Templates
+# Template Name		Visible	Source Page				Combat bonus					Modify VAR																													Temporary effect description
+Fighting Defensively	VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC	TEMPDESC:You are fighting defensively when attacking
+Total Defense		VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
+
+###Block: Tracker Templates
+
+# Template Name		Visible	Source Page					Var. Min. Value			Modify VAR							Choose											Temporary effect description
+Wealth Adjustment		VISIBLE:NO	SOURCEPAGE:msrdwealth.rtf							BONUS:VAR|Wealth|%CHOICE|PREAPPLY:ANYPC		CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Adjust Wealth Score by this much	TEMPDESC:Over the course of play, the hero's Wealth bonus will decrease as the hero purchases expensive items and increase as the hero gains levels.
+Bonus Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf						BONUS:VAR|Action|%CHOICE|PREAPPLY:ANYPC		CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Bonus Action Points				TEMPDESC:This can be used to give Bonus Action Points to a character. If you have more than 10 this can be applied multiple times.
+Used Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf	PREVARGTEQ:ActionRemain,1	BONUS:VAR|ActionUsed|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=min(10,ActionRemain)|TITLE=Used Action Points	TEMPDESC:Use this to record the Action Points that the character spent. If you have more than 10 this can be applied multiple times.
+
+###Block: CR adjuster for Ordinary base classes
+
+# Template Name	CR	Visible
+Ordinary CR		CR:-1	VISIBLE:NO
+
+###Block: Unarmed Lethal Strike
+# Template Name			Visible	Source Page				Weapon prof. bonus																										Natural Attacks
+Unarmed Lethal Strike		VISIBLE:YES	SOURCEPAGE:msrdcombat.rtf	BONUS:WEAPONPROF=Unarmed Lethal Strike|DAMAGESIZE|SIZE-4|!PREFEAT:1,Combat Martial Arts	BONUS:WEAPONPROF=Unarmed Lethal Strike|TOHIT|-4|!PREFEAT:1,Combat Martial Arts	NATURALATTACKS:Unarmed Lethal Strike,Weapon.Natural.Melee.Bludgeoning,*1,1d3
+Unarmed Damage Advancement	VISIBLE:NO						BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|1	BONUS:WEAPONPROF=Unarmed Lethal Strike|DAMAGESIZE|1|!PREFEAT:1,Combat Martial Arts
+#the ULS template is needed for the Combat Martial Arts / Brawl feat combo, where lethal and nonlethal damage from an unarmed strike can differ.
+#I made it visible, as it can be used without the CMA feat at a -4 to-hit. the UDA template is to be used with creatures that have an unarmed
+#damage die 1 category larger than their size would usually grant them. It will adjust UDAM and ULS accordingly.  	        -- Frank Kliewe
+
+#
+# End
+#

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE lookuptable SYSTEM "../encounter.dtd" >
+<lookuptable name="Environments">
+	<!-- Header -->
+	<row>
+		<item>Environment</item>
+		<item>File</item>
+	</row>  
+	        
+	<row>
+		<!-- Environment -->
+		<item>Level 1 Dungeon</item>
+		<!-- File -->
+		<item>[environments/dungeon1]</item>
+	</row>  
+	<row>
+		<!-- Environment -->
+		<item>Level 2 Dungeon</item>
+		<!-- File -->
+		<item>[environments/dungeon2]</item>
+	</row>  
+
+
+</lookuptable>

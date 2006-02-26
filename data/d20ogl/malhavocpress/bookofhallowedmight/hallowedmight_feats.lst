@@ -1,0 +1,29 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# $Author: tir-gwaith $
+#Original Entry by King Paul, Updated by Beaver
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+
+# Feat Name				Type			Required AL		Required Class			Required Feat					Req. Special Ability	Required Stat	Description
+Accolade				TYPE:General
+Adoubement				TYPE:General									PREFEAT:1,Accolade
+Favored Enemy Strike		TYPE:General																PRESA:1,Favored Enemy				DESC:Inflict +1d6 bonus damage against favored enemies
+Favored Enemy Critical Strike	TYPE:General																PRESA:1,Favored Enemy				DESC:Inflict +1d10 bonus damage with critical hits on favored enemies
+Redeem				TYPE:General	PREALIGN:LG,NG,CG						PREFEAT:1,Reform									PRESTAT:1,CHA=15
+Reform				TYPE:General	PREALIGN:LG,NG,CG																	PRESTAT:1,CHA=15
+Tempt					TYPE:General	PREALIGN:LE,NE,CE																	PRESTAT:1,CHA=15
+
+Call Down Divine Wrath		TYPE:Blessed				PRECLASS:1,SPELLCASTER=9	PREFEAT:1,Devout Faith				PRESA:1,Turn undead	PRESTAT:1,WIS=18
+Devout Faith			TYPE:Blessed
+Redeeming Grace			TYPE:Blessed									PREFEAT:1,Devout Faith				PRESA:1,Turn undead
+Vow of Chastity			TYPE:Blessed									PREFEAT:1,Devout Faith
+Vow of Fidelity			TYPE:Blessed									PREFEAT:1,Devout Faith
+Vow of Obedience			TYPE:Blessed									PREFEAT:1,Devout Faith
+Vow of Poverty			TYPE:Blessed									PREFEAT:1,Devout Faith
+Vow of Silence			TYPE:Blessed									PREFEAT:1,Devout Faith
+Vow of Stability			TYPE:Blessed									PREFEAT:2,Devout Faith,Vow of Obedience	PRESA:1,Turn undead
+
+Oath of Combat			TYPE:Oath										PREFEAT:1,Swear an Oath								PRESTAT:1,WIS=15
+Oath of Magic			TYPE:Oath										PREFEAT:1,Swear an Oath								PRESTAT:1,WIS=15
+Swear an Oath			TYPE:Oath																					PRESTAT:1,WIS=15
+
+

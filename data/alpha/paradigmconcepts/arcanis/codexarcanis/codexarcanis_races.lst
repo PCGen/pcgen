@@ -1,0 +1,20 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Sep 27 02:21:08 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+# Race Name	Product Identity?	Favored Class				Starting Feats	Size		Move			Vision			Automatic Languages			Bonus Languages				Optionnal Weapon Prof.		Save checks bonus			Combat bonus				Bonus to skill							Stat bonus											Automaticaly Gained Weapon Prof.												Virtual Feat			Feat			Natural Attacks									Special Ability																				Define			Type			Template				Source Page
+Elorii	NAMEISPI:YES	FAVCLASS:None				STARTFEATS:1	SIZE:M	MOVE:Walk,30	VISION:Low-light		LANGAUTO:Eloran,Low Coryani		LANGBONUS:High Coryani,Altherin	WEAPONBONUS:Rapier|Longsword	BONUS:CHECKS|Willpower|2																												AUTO:WEAPONPROF|Longsword|Sword (Short)|Shortbow|Longbow|Longbow (Composite)|Shortbow (Composite)																				SA:Immunity to sleep and non-magical disease,do not appear to age after reaching maturity and in fact cannot die from old age						TYPE:Humanoid	TEMPLATE:Elorii Subraces	SOURCEPAGE:p.161
+Dark-Kin	NAMEISPI:YES	FAVCLASS:Barbarian			STARTFEATS:1	SIZE:M	MOVE:Walk,30	VISION:Darkvision (60')	LANGAUTO:Low Coryani			LANGBONUS:Infernal,High Coryani																	BONUS:SKILL|Ride|-2	BONUS:SKILL|Animal Empathy|-5	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2																																					SA:Immunity to charm spells,Darkness spells have no effect upon Dark-kin,Animals become uneasy around Dark-kin	SA:Human Blood					TYPE:Humanoid						SOURCEPAGE:p.162
+Ss'ressen	NAMEISPI:YES	FAVCLASS:Ranger				STARTFEATS:1	SIZE:M	MOVE:Walk,30	VISION:Low-light		LANGAUTO:Ss'ressen,Milandisian	LANGBONUS:Low Coryani													BONUS:COMBAT|AC|2|TYPE=Natural	BONUS:SKILL|Balance,Jump,Swim|2				BONUS:STAT|DEX|2	BONUS:STAT|INT|-2																								VFEAT:Improved Unarmed Strike				NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,1,1d4	SA:Cold vulnerability [-4 penalty to all Dex checks and Dex based skills and attack rolls when < 40 F (Will save DC 12 for half)]					TYPE:Humanoid						SOURCEPAGE:p.162
+Val		NAMEISPI:YES	FAVCLASS:Psion|Psychic Warrior	STARTFEATS:1	SIZE:M	MOVE:Walk,30	VISION:Normal		LANGAUTO:High Coryani			LANGBONUS:ALL																																																															FEAT:Bloodrank 1												SA:Val Bloodlines	SA:Human Blood																	DEFINE:ValBloodrank|0	TYPE:Humanoid	TEMPLATE:Val Bloodlines		SOURCEPAGE:p.162
+
+###Block: SRD Race MODs
+
+# Race Name	Automatic Languages					Bonus Languages	Special Ability
+Human.MOD	LANGAUTO:.CLEAR	LANGAUTO:Low Coryani		LANGBONUS:ALL
+Gnome.MOD	LANGAUTO:.CLEAR	LANGAUTO:Low Coryani,Gnome	LANGBONUS:ALL
+Dwarf.MOD	LANGAUTO:.CLEAR	LANGAUTO:Low Coryani,Giant	LANGBONUS:ALL	SA:Cannot be raised through the use of Reincarnation, but can be brought back from the dead if the body is completely healed within 24 hours	SA:When using the craft or any Item Creation feat items take 1/3 as long to create, and is always a masterpiece; add 100gp per day spent on creating the item to the final worth of the item
+
+#
+# End
+#

@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 30 15:24:43 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #9 - Talking 'bout my Reputation|SOURCESHORT:MD09-TBMR|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3993
+#Original Entry by: Frank Kliewe
+
+# Feat Name		Output Name				Type					Required Feat				Required Skill			Required Text					Var. Min. Value						Special Ability													Description																											Bonus to skill				Source Page
+Black Market						TYPE:General.Charismatic												PRETEXT:at least 1 Supply ally		PREVARGTEQ:Reputation,6																				DESC:You are able to acquire illegal or restricted items more easily through your allies.																				SOURCEPAGE:p.3
+Fixer								TYPE:General.Charismatic	PREFEAT:2,Speed Dial,Well Connected													PREVARGTEQ:Reputation,9																				DESC:If the most powerful person is the one with the most friends then you are a powerful person indeed.																	SOURCEPAGE:p.3
+Midas Touch							TYPE:General.Charismatic												PRETEXT:at least 1 Influence ally		PREVARGTEQ:Reputation,6	PREVARGTEQ:Wealth,6	SA:An Influence ally may be used to grant a +% bonus to Purchase checks|Reputation/2	DESC:Your Reputation for skillful business dealings makes others much more willing to support your ventures.																SOURCEPAGE:p.3
+Miracle Worker						TYPE:General.Dedicated								PRESKILL:1,Treat Injury=6								PREVARGTEQ:Reputation,6																				DESC:Your reputation for being a flawless doctor actually causes you to be a better doctor since your patients' faith in you enhances their bodies' ability to heal.	BONUS:SKILL|Treat Injury|Reputation	SOURCEPAGE:p.3
+Rumor Monger						TYPE:General.Charismatic												PRETEXT:at least 1 Influence ally		PREVARGTEQ:Reputation,6																				DESC:Your friends have keen ears and tend to pass along useful bits of information they come across to you.																	SOURCEPAGE:p.3
+Speed Dial							TYPE:General.Charismatic	PREFEAT:1,Well Connected														PREVARGTEQ:Reputation,9																				DESC:People don't just return your calls, they drop everything to return your calls.																				SOURCEPAGE:p.3
+Tough Customer						TYPE:General.Charismatic																			PREVARGTEQ:Reputation,6																				DESC:Your reputation makes others tread lightly around you.																			BONUS:SKILL|Intimidate|Reputation	SOURCEPAGE:p.3
+Trusted Associate						TYPE:General.Charismatic																			PREVARGTEQ:Reputation,6																				DESC:You are very highly regarded by a single Allegiance and they are much more willing to help you then normal.																SOURCEPAGE:p.3
+Well Connected	OUTPUTNAME:Well-Connected	TYPE:General.Charismatic												PRETEXT:at least 2 allies of any type	PREVARGTEQ:Reputation,6																				DESC:Your allegiances think very highly of you and are willing to help you much more often.																			SOURCEPAGE:p.3
+
+###Block:Bonus Feats
+# Feat Name					Type
+Acrobatic.MOD				TYPE:MysteryMan
+Advanced Martial Arts.MOD		TYPE:MysteryMan
+Alertness.MOD				TYPE:MysteryMan
+Blind-Fight.MOD				TYPE:MysteryMan
+Combat Expertise.MOD			TYPE:MysteryMan
+Combat Martial Arts.MOD			TYPE:MysteryMan
+Combat Reflexes.MOD			TYPE:MysteryMan
+Deceptive.MOD				TYPE:MysteryMan
+Defensive Martial Arts.MOD		TYPE:MysteryMan
+Dodge.MOD					TYPE:MysteryMan
+Improved Combat Martial Arts.MOD	TYPE:MysteryMan
+Mobility.MOD				TYPE:MysteryMan
+Spring Attack.MOD				TYPE:MysteryMan

@@ -1,0 +1,87 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Dec  4 11:24:26 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+###Block: The Night Hunters Night Gift
+# Feat Name		Type				Visible	Special Ability							Define			Combat bonus											Bonus to skill				Modify VAR			Source Page
+Ferret's Cunning	TYPE:NightHunterGift	VISIBLE:NO	SA:Ferret's Cunning	SA:Trapsense +%|Trapsense	DEFINE:Trapsense|0														BONUS:SKILL|Craft (Trapmaking)|2	BONUS:VAR|Trapsense|2	SOURCEPAGE:p.30
+Owl's Hearing	TYPE:NightHunterGift	VISIBLE:NO	SA:Owl's Hearing																								BONUS:SKILL|Listen|2							SOURCEPAGE:p.30
+Puma's Grace	TYPE:NightHunterGift	VISIBLE:NO	SA:Puma's Grace											BONUS:COMBAT|AC|1|TYPE=Dodge|!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy	BONUS:SKILL|Balance|4							SOURCEPAGE:p.30
+Snake's Speed	TYPE:NightHunterGift	VISIBLE:NO	SA:Snake's Speed																																		SOURCEPAGE:p.30
+Spider's Dance	TYPE:NightHunterGift	VISIBLE:NO	SA:Spider's Dance																								BONUS:SKILL|Jump|4							SOURCEPAGE:p.30
+Wolf's Senses	TYPE:NightHunterGift	VISIBLE:NO	SA:Wolf's Senses	SA:Scent																																SOURCEPAGE:p.30
+#Trapsense???
+
+
+###Block: The Fey Traveler's Choice
+# Feat Name				Type				Visible	Required Feat			Special Ability				Source Page
+Companion Charm			TYPE:FeyTravelerChoice	VISIBLE:NO						SA:Companion Charm			SOURCEPAGE:p.36
+Greater Wondrous Item Charm	TYPE:FeyTravelerChoice	VISIBLE:NO	PREFEAT:1,Wondrous Item Charm	SA:Greater Wondrous Item Charm	SOURCEPAGE:p.36
+Greater Weapon Charm		TYPE:FeyTravelerChoice	VISIBLE:NO	PREFEAT:1,Weapon Charm		SA:Greater Weapon Charm			SOURCEPAGE:p.36
+Wondrous Item Charm		TYPE:FeyTravelerChoice	VISIBLE:NO						SA:Wondrous Item Charm			SOURCEPAGE:p.36
+Weapon Charm			TYPE:FeyTravelerChoice	VISIBLE:NO						SA:Weapon Charm				SOURCEPAGE:p.36
+
+
+###Block: Brother of the Panthic Order
+# Feat Name				Type			Visible	Special Ability			Multiple?	Choose										Source Page
+Panthic Order First Guide	TYPE:Special	VISIBLE:NO	SA:First Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+Panthic Order Second Guide	TYPE:Special	VISIBLE:NO	SA:Second Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+Panthic Order Third Guide	TYPE:Special	VISIBLE:NO	SA:Third Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+Panthic Order Fourth Guide	TYPE:Special	VISIBLE:NO	SA:Fourth Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+
+
+###Block: Disciple of Mystery's Disciplines
+# Feat Name				Type						Visible	Required Race	Special Ability			Multiple?	Choose											Source Page
+Clear Body				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Clear Body																	SOURCEPAGE:p.56
+Clear Mind				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Clear Mind																	SOURCEPAGE:p.56
+Clear Spirit			TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Clear Spirit																	SOURCEPAGE:p.56
+Extend Body				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Extend Body																	SOURCEPAGE:p.56
+Extend Mind				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Extend Mind																	SOURCEPAGE:p.56
+Extend Spirit			TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Extend Spirit																	SOURCEPAGE:p.56
+Focus Self				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Focus Self																	SOURCEPAGE:p.56
+
+
+Orc Adapter Cultural Study	TYPE:Special				VISIBLE:NO	PRERACE:Orc (DF)	SA:Cultural Study (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Doppelganger|Dwarf|Dawn Elf|Ghost Elf|Wood Elf|	SOURCEPAGE:p.70
+
+
+###Block: Circle Walker's Gift
+# Feat Name			Type				Visible	Special Ability				Modify VAR			Source Page
+Dreams of Truth		TYPE:CircleWalkerGift	VISIBLE:NO	SA:Dreams of Truth							SOURCEPAGE:p.80
+Harmony of the Stars	TYPE:CircleWalkerGift	VISIBLE:NO	SA:Harmony of the Stars							SOURCEPAGE:p.80
+Infuse with Power		TYPE:CircleWalkerGift	VISIBLE:NO	SA:Infuse with Power							SOURCEPAGE:p.80
+Steps of the Gods		TYPE:CircleWalkerGift	VISIBLE:NO	SA:Steps of the Gods							SOURCEPAGE:p.80
+True Believers		TYPE:CircleWalkerGift	VISIBLE:NO	SA:True Believers								SOURCEPAGE:p.80
+
+Black Circle		TYPE:CircleWalkerChoice	VISIBLE:NO	SA:Smite Good (Su) %/day|SmiteGood	BONUS:VAR|SmiteGood|1	SOURCEPAGE:p.80
+White Circle		TYPE:CircleWalkerChoice	VISIBLE:NO	SA:Smite Evil (Su) %/day|SmiteEvil	BONUS:VAR|SmiteEvil|1	SOURCEPAGE:p.80
+#These choices should also set alignment....
+
+
+###Block: Wilderness Guide's Gift
+# Feat Name			Type					Visible	Special Ability		Bonus to skill			Bonus to spell known/L																									Stat bonus									Source Page
+Gift of Bounds		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Bounds																																													SOURCEPAGE:p.88
+Gift of Compassion	TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Compassion																																												SOURCEPAGE:p.88
+Gift of Healing		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Healing																																												SOURCEPAGE:p.88
+Gift of Mercy		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Mercy																																													SOURCEPAGE:p.88
+Gift of Power		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Power																																			BONUS:STAT|BASESPELLKNOWNSTAT:Class=Wilderness Guide|4	SOURCEPAGE:p.88
+Gift of Sight		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Sight		BONUS:SKILL|Listen,Spot|2																																							SOURCEPAGE:p.88
+Gift of Swiftness		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Swiftness																																												SOURCEPAGE:p.88
+Gift of Wisdom		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Wisdom							BONUS:SPELLKNOWN|CLASS=Wilderness Guide;LEVEL=1|1|PREVARGT:CL=Wilderness Guide,1	BONUS:SPELLKNOWN|CLASS=Wilderness Guide;LEVEL=2|1|PREVARGT:CL=Wilderness Guide,3											SOURCEPAGE:p.88
+#zzcheck Gift of Power, not sure if the bonus does what I want....
+#TODO:Check if Gift of Wisdom PREs work, if yes add the rest...plus pre for charisma...
+
+###Block: Unbroken's Resistance
+# Feat Name				Type				Visible	Required Feat									Special Ability												Define					Multiple?	Choose		Virtual Feat		Modify VAR													Damage Reduction	Source Page
+Toxin Resistance			TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Toxin Resistance																																									SOURCEPAGE:p.117
+Weather Hardened Acid		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AcidResistance|COUNT[FEATNAME=Weather Hardened Acid.ALL]*5						SOURCEPAGE:p.117
+Weather Hardened Cold		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ColdResistance|COUNT[FEATNAME=Weather Hardened Cold.ALL]*5						SOURCEPAGE:p.117
+Weather Hardened Electricity	TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ElectricityResistance|COUNT[FEATNAME=Weather Hardened Electricity.ALL]*5				SOURCEPAGE:p.117
+Weather Hardened Fire		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|FireResistance|COUNT[FEATNAME=Weather Hardened Fire.ALL]*5						SOURCEPAGE:p.117
+Weather Hardened Sonic		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|SonicResistance|COUNT[FEATNAME=Weather Hardened Sonic.ALL]*5						SOURCEPAGE:p.117
+Battle Hardened			TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Battle Hardened																																						DR:2/-		SOURCEPAGE:p.117
+Battle Hardened II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Battle Hardened																																																		DR:3/-		SOURCEPAGE:p.117
+Battle Hardened III		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:2,Battle Hardened II,Battle Hardened																																															DR:4/-		SOURCEPAGE:p.117
+Battle Hardened IV		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:3,Battle Hardened III,Battle Hardened II,Battle Hardened																																												DR:5/-		SOURCEPAGE:p.117
+Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Survival Instincts																			VFEAT:Evasion																			SOURCEPAGE:p.117
+Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																VFEAT:Improved Evasion																		SOURCEPAGE:p.117
+

@@ -1,0 +1,69 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:3.5 RSRD Advanced, No Races
+RANK:2
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:RSRD
+SETTING:RSRD
+TYPE:RSRD.Partial
+SOURCELONG:RSRD Adv. no races
+SOURCESHORT:RSRDAdvnorac
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky)
+
+INFOTEXT:This will load the Advanced RSRD options such as Prestige Classes and Magic Items (no races.)
+
+
+CLASS:@/d20ogl/srd35/rsrd_classes_npc.lst
+CLASS:@/d20ogl/srd35/rsrd_classes_prestige.lst
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
+
+# Equipment
+EQUIPMOD:@/d20ogl/srd35/rsrd_equipmods_base.lst
+EQUIPMOD:@/d20ogl/srd35/rsrd_equipmods_enhancing.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_basetypes.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_coinsgems.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_wondrousitems.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_rodsstaffswands.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_rings.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_scrolls.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_potions.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_poisons.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_armorshields_specific.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_melee_specific.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_ranged.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_ranged_specific.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_ammo_specific.lst
+
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden.lst
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden2.lst
+#### find out from Tir reason for this in old srd
+FEAT:@/d20ogl/srd35/rsrd_feats.lst|(INCLUDE:Leadership)
+###########EQUIPMENT:@/d20ogl/srd35/rsrd_equip_artifacts.lst
+
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden.lst
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden2.lst
+########### FEAT:@/d20ogl/srd35/rsrd_feats.lst|(INCLUDE:Leadership)
+########### WEAPONPROF:@/d20ogl/srd35/rsrd_weapprofs.lst|(INCLUDE:Blowgun|Katana (Exotic)|Katana (Martial)|Kusari-gama|Wakizashi)
+#EQUIPMOD:@/d20ogl/srd35/rsrd_equipmod_enhancing.lst
+
+# Stuff for Companions and Followers
+##########COMPANIONMOD:@/d20ogl/srd35/rsrd_companionmods.lst
+
+# base equipment types that *must* be "customized"
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_basetypes.lst
+
+# New SPELL file created for the convertion of the CLASSSPELL
+SPELL:@/d20ogl/srd35/rsrd_spells.lst
+

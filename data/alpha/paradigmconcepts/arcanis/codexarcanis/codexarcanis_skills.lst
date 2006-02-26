@@ -1,0 +1,118 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Wed Sep  7 23:14:49 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+# Skill Name					Key Stat	Untrained?		Exclusive?		Type					Source Page
+Examine Technique					KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom				SOURCEPAGE:p.165
+Knowledge (Disease)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.165
+Knowledge (Planar Species)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.165
+Knowledge (Thanatology)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.165
+#Knowledge (Nation-<Nation>)
+Knowledge (Nation-Altheria)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Khitani Empire)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Milandir)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Elonbe)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Hinterlands)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Canceri)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Coryani Empire)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-League of Princes)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Dwarven Enclaves)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Solanos Mor)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Encali)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Nation-Freeport)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Onnara)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+Knowledge (Race-Elorii)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Elorii-Marokene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Elorii-Osalikene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Elorii-Kelekene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Elorii-Berokene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Elorii-Ardakene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Ancient History)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Onnara)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii-Marokene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii-Osalikene)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii-Kelekene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii-Berokene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii-Ardakene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+Knowledge (Race-Val)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Abebi)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Assante)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Borda)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Dellenov)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Inares)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Ishi)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Mehan)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Mordane)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Ossan)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Sheem)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Tensen)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Val-Val'Virdan)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+Knowledge (Race-Human)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Dwarves)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Half Orc)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Half Hobgoblin)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Race-Ss'ressen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+Knowledge (Religion-Anshar)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Althares)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Belisarda)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Beltine)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Cadic)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Fire Drake)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Illir)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Larrisa)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Neroth)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Nier)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Saluwe)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Sarish)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Religion-Yarris)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+Knowledge (Torture)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Sailing)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Navigation)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History of War)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Tactics)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+#Knowledge (History-<Country>)
+
+Knowledge (History-Altheria)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Khitani Empire)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Milandir)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elonbe)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Hinterlands)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Canceri)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Coryani Empire)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-League of Princes)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Dwarven Enclave)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Solanos Mor)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Encali)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Freeport)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Ymandragore)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+
+
+#Knowledge (History-<Race>)
+Knowledge (History-Human)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Dwarves)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Half Orc)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Half Hobgoblin)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Ss'ressen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Elorii)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Val)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (Harvesters)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+
+
+
+Knowledge (Heraldry)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (Metallurgy)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (Poison)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+
+Profession (Pilot)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession		SOURCEPAGE:
+Profession (Courtesan)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession		SOURCEPAGE:
+
+#
+# End
+#

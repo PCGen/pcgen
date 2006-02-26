@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun May 26 01:36:16 2002 -- reformated by prettylst.pl v1.13
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Equipment Name		Type				Cost		Weight	Source Page
+Drops (Acid)		TYPE:Goods.Alchemical	COST:25	WT:0		SOURCEPAGE:p.39
+Drops (Night)		TYPE:Goods.Alchemical	COST:40	WT:0		SOURCEPAGE:p.39
+Paper (Honey)		TYPE:Goods.Tools		COST:2	WT:0		SOURCEPAGE:p.39
+Iron Backbone		TYPE:Goods.Tools		COST:8	WT:4		SOURCEPAGE:p.39
+Ladder (Box)		TYPE:Goods.Tools		COST:150	WT:10		SOURCEPAGE:p.39
+Ladder (Staff)		TYPE:Goods.Tools		COST:75	WT:10		SOURCEPAGE:p.39
+Drill (One-Handed)	TYPE:Goods.Tools		COST:75	WT:3		SOURCEPAGE:p.40
+Pick (Shingle)		TYPE:Goods.Tools		COST:75	WT:0		SOURCEPAGE:p.39

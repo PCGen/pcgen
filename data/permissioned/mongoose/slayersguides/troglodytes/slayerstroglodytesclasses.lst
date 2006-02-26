@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Jun 25 23:14:28 2002 -- reformated by prettylst.pl v1.15 (build 168)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Troglodytes|SOURCESHORT:SGtTroglod|SOURCEWEB:http://mongoosepublishing.com
+# only info currently in is Class skills
+
+#Crafter
+#CLASS:Crafter	CSKILL:Animal Empathy|TYPE.Craft|Handle Animal|Hide|Listen|TYPE.Profession|Ride
+

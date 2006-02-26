@@ -1,0 +1,65 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Fri Dec  2 00:43:05 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Paul King
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Archmage	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+# Class Name	Required Skill									Req. Casting Type
+CLASS:Archmage	PRESKILL:3,Knowledge (Arcane Lore),Concentration,Spellcraft=12	PRESPELLCAST:TYPE=Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Archmage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Speak Language|Spellcraft
+1																SA:Total Spellcasting											BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1
+2																SA:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)
+3																SA:Gifted Incantations
+4	SA:.CLEAR.Increased Spells/Day (base number of arcane spells increase by 1/2 round down)	SA:Increased Spells/Day (double base number of arcane spells)
+5																SA:Granted Incantations
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Artificer	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+# Class Name	Required Skill										Req. Spell Type
+CLASS:Artificer	PRESKILL:2,Knowledge (Arcane Lore),Spellcraft=9	PRESKILL:1,TYPE.Craft=9	PRESPELLTYPE:Arcane,1,2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Artificer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Structural)|Decipher Script|Disable Device|Drive|Forgery|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
+1	ADD:FEAT(TYPE=CraftArtifice)
+2	ADD:FEAT(TYPE=Artificer)	ADD:FEAT(TYPE=CraftArtifice)
+3	ADD:FEAT(TYPE=CraftArtifice)
+4	ADD:FEAT(TYPE=Artificer)	ADD:FEAT(TYPE=CraftArtifice)
+5	ADD:FEAT(TYPE=CraftArtifice)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+# Class Name	Required Feat		Required Skill											Req. Casting Type
+CLASS:Ecclesiarch	PREFEAT:1,Base Turn	PRESKILL:3,Concentration,Knowledge (Theology and Philosophy),Spellcraft=10	PRESPELLCAST:TYPE=Divine
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ecclesiarch	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spellcraft|Survival|Treat Injury
+1																SA:Total Spellcasting											BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1
+2																SA:Increased Spells/Day (base number of divine spells increase by 1/2 round down)
+3																SA:Total Turning
+4	SA:.CLEAR.Increased Spells/Day (base number of divine spells increase by 1/2 round down)	SA:Increased Spells/Day (double base number of divine spells)
+5																SA:Innovative Turning
+
+# Class Name			Hit Dice	Type			Max Level	Source Page						Modify VAR
+CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+# Class Name			Req. Att.	Required Feat		Required Skill
+CLASS:Holy Unholy Knight	PREATT:8	PREFEAT:1,Weapon Focus	PRESKILL:2,Diplomacy,Gather Information=9	PRESKILL:1,TYPE.Knowledge=9
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Holy Unholy Knight	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Ride|Sense Motive|Speak Language|Treat Injury
+# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
+CLASS:Holy Unholy Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Holy Unholy Knight|CL
+###Block: Turning
+5	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat				DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+5	BONUS:VAR|TurnLevel|var("CL=Holy Unholy Knight")	DEFINE:ExtraTurningQual|1
+5	BONUS:VAR|TurnDamagePlus|var("CL=Holy Unholy Knight")
+5	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
+###Block: Spells
+1	SPELLLEVEL:CLASS|Holy Unholy Knight=0|Create Water,Cure Minor Wounds,Detect Magical Aura,Inflict Minor Wounds,Light,Read Magic,Resistance,Virtue|Holy Unholy Knight=1|Bane,Bless,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Inflict Light Wounds,Magic Weapon,Remove Fear,Shield of Faith|Holy Unholy Knight=2|Aid,Augury,Cure Moderate Wounds,Delay Poison,Enhance Ability,Hold Person,Inflict Moderate Wounds,Lesser Restoration,Remove Paralysis,Resist Energy,Silence,Spider Climb,Zone of Truth|Holy Unholy Knight=3|Animate Dead,Bestow Curse,Cure Serious Wounds,Dispel Magic,Glyph of Warding,Inflict Serious Wounds,Locate Object,Prayer,Remove Curse,Remove Disease,Searing Light,Status,Water Breathing
+###Block: Standard block
+1	CAST:2,1		SA:Divine Grace		BONUS:CHECKS|Fortitude,Reflex,Willpower|CHA|PRESTAT:1,CHA=12
+2	CAST:3,2		SA:Sense Allegiance
+3	CAST:3,2,1		SA:Smite Allegiance
+4	CAST:4,3,2		SA:Divine Touch
+5	CAST:4,3,2,1
+
+#
+# End
+#

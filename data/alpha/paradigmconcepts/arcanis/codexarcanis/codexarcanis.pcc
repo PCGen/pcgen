@@ -1,0 +1,31 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Oct  4 19:12:44 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Paradigm Concepts - Codex Arcanis
+GAMEMODE:3e
+RANK:5
+TYPE:Paradigm Concepts.Arcanis
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis
+SOURCESHORT:Codex Arcanis
+SOURCEWEB:http://www.paradigmconcepts.com
+SETTING:Arcanis
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Codex Arcanis Copyright 2001, Paradigm Concepts, Inc.
+COPYRIGHT:PCGen dataset conversion for the Codex Arcanis Copyright 2005, PCGen Data team (Including, but not limited to Greg G (Phantom of Krankor), Eddy Anthony)
+
+BIOSET:codexarcanis_bioset.lst
+CLASS:codexarcanis_classes.lst
+DEITY:codexarcanis_deities.lst
+DOMAIN:codexarcanis_domains.lst
+EQUIPMENT:codexarcanis_equip.lst
+EQUIPMOD:codexarcanis_equipmods.lst
+FEAT:codexarcanis_feats.lst
+FEAT:codexarcanis_feats_val.lst
+LANGUAGE:codexarcanis_language.lst
+RACE:codexarcanis_races.lst
+SKILL:codexarcanis_skills.lst
+SPELL:codexarcanis_spells.lst
+TEMPLATE:codexarcanis_templates.lst
+WEAPONPROF:codexarcanis_weapprofs.lst
+
+#
+# End
+#

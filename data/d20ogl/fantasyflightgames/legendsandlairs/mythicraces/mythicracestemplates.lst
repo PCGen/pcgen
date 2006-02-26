@@ -1,0 +1,61 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Template Name			Visible	Damage Reduction	Source Page		Special Ability																														Required AL				Required Race	Save checks bonus					Combat bonus						Bonus to skill				Stat bonus														Class Skill			FAVOREDCLASS		Feat					Automaticaly Gained Weapon Prof.	Move				MOVEA			Removable?		SUBRACE
+Fur					VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Fur)	SA:+4 to saving throws vs. Cold																											PRERACE:Animan%																																																																		SUBRACE:Yes
+Inhuman Grace			VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Inhuman Grace)																																PRERACE:Animan%	BONUS:CHECKS|Reflex|2|TYPE=Racial																																																												SUBRACE:Yes
+Steadfastness			VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Steadfastness)																																PRERACE:Animan%	BONUS:CHECKS|Fortitude|2|TYPE=Racial																																																											SUBRACE:Yes
+Orneriness				VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Orneriness)																																PRERACE:Animan%	BONUS:CHECKS|Willpower|2|TYPE=Racial																																																											SUBRACE:Yes
+Blood of the Hunter		VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Blood of the Hunter)																															PRERACE:Animan%																																													FEAT:Track																				SUBRACE:Yes
+Animal Acuity (Listen)		VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Listen Animal Acuity)																														PRERACE:Animan%																BONUS:SKILL|Listen|2|TYPE=Racial																																													SUBRACE:Animal Acuity
+Animal Acuity (Spot)		VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Spot Animal Acuity)																															PRERACE:Animan%																BONUS:SKILL|Spot|2|TYPE=Racial																																													SUBRACE:Animal Acuity
+Waterborn				VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Waterborn)																																PRERACE:Animan%																BONUS:SKILL|Swim|2|TYPE=Racial																																													SUBRACE:Yes
+Bounder				VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Bounder)																																	PRERACE:Animan%																BONUS:SKILL|Jump|2|TYPE=Racial																																													SUBRACE:Yes
+Fleet					VISIBLE:NO				SOURCEPAGE:p.20	SA:Bestial Heritage (Fleet)																																	PRERACE:Animan%																																																												MOVEA:Walk,10				SUBRACE:Yes
+Mongrel				VISIBLE:NO				SOURCEPAGE:p.26																																						PRERACE:Artathi																																									FAVOREDCLASS:Barbarian																						SUBRACE:Yes
+Letathen				VISIBLE:NO				SOURCEPAGE:p.26																																						PRERACE:Artathi																																									FAVOREDCLASS:Barbarian																						SUBRACE:Yes
+Il'artathi				VISIBLE:NO				SOURCEPAGE:p.26																																						PRERACE:Artathi																						BONUS:STAT|STR|2	BONUS:STAT|DEX|-4	BONUS:STAT|CON|2											FAVOREDCLASS:Paladin																						SUBRACE:Yes
+Tal'artathi				VISIBLE:NO				SOURCEPAGE:p.26																																						PRERACE:Artathi																																									FAVOREDCLASS:Cleric																						SUBRACE:Yes
+Ahl'artathi				VISIBLE:NO				SOURCEPAGE:p.26																																						PRERACE:Artathi																						BONUS:STAT|DEX|-2	BONUS:STAT|INT|2	BONUS:STAT|CHA|2											FAVOREDCLASS:Sorcerer																						SUBRACE:Yes
+Htak'artathi			VISIBLE:NO				SOURCEPAGE:p.26																																						PRERACE:Artathi																																									FAVOREDCLASS:Ranger																						SUBRACE:Yes
+Sal'artathi				VISIBLE:NO				SOURCEPAGE:p.27	SA:Base move of 40																																		PRERACE:Artathi																						BONUS:STAT|STR|-2	BONUS:STAT|DEX|2														FAVOREDCLASS:Monk													MOVE:Walk,40								SUBRACE:Yes
+Dal'artathi				VISIBLE:NO				SOURCEPAGE:p.27																																						PRERACE:Artathi																																									FAVOREDCLASS:Rogue																						SUBRACE:Yes
+Vyk'artathi				VISIBLE:NO				SOURCEPAGE:p.27																																						PRERACE:Artathi																						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2					FAVOREDCLASS:Fighter																						SUBRACE:Yes
+Snow Leopard			VISIBLE:NO				SOURCEPAGE:p.27																																						PRERACE:Artathi																						BONUS:STAT|STR|2	BONUS:STAT|DEX|-4	BONUS:STAT|CON|2											FAVOREDCLASS:Barbarian																						SUBRACE:Yes
+Cleric Favored			VISIBLE:NO				SOURCEPAGE:p.39																																						PRERACE:Coivald																																									FAVOREDCLASS:Cleric
+Druid Favored			VISIBLE:NO				SOURCEPAGE:p.39																																						PRERACE:Coivald																																									FAVOREDCLASS:Druid
+Mhuinntir				VISIBLE:NO				SOURCEPAGE:p.76																																						PRERACE:Mhuinntir																																					CSKILL:Control Shape
+Jaguar Form				VISIBLE:YES				SOURCEPAGE:p.76	SA:Mhuinntir Animal Form (Jaguar)																																PRERACE:Mhuinntir								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:STAT|STR|4	BONUS:STAT|DEX|6	BONUS:STAT|CON|4															FEAT:Improved Unarmed Strike							MOVE:Walk,40,Climb,20				REMOVABLE:YES
+Pevishan (Abjuration)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Abjuration magic	SA:+4 to saves vs. Abjuration magic	SA:Spell like abilities (Resistance/Shield/Endure Elements) Cha mod times per day										PRERACE:Pevishan																																																																		SUBRACE:Abjuration
+Pevishan (Conjuration)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Conjuration magic	SA:+4 to saves vs. Conjuration magic	SA:Spell like abilities (Ray of Frost/Mount/Summon Monster I) Cha mod times per day									PRERACE:Pevishan																																																																		SUBRACE:Conjuration
+Pevishan (Divination)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Divination magic	SA:+4 to saves vs. Divination magic	SA:Spell like abilities (Detect Poison/Comprehend Languages/Detect Secret Doors) Cha mod times per day						PRERACE:Pevishan																																																																		SUBRACE:Divination
+Pevishan (Enchantment)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Enchantment magic	SA:+4 to saves vs. Enchantment magic	SA:Spell like abilities (Daze/Sleep/Hypnotism) Cha mod times per day											PRERACE:Pevishan																																																																		SUBRACE:Enchantment
+Pevishan (Evocation)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Evocation magic	SA:+4 to saves vs. Evocation magic	SA:Spell like abilities (Light/Flare/Magic Missile) Cha mod times per day											PRERACE:Pevishan																																																																		SUBRACE:Evocation
+Pevishan (Illusion)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Illusion magic	SA:+4 to saves vs. Illusion magic	SA:Spell like abilities (Ghost Sound/Change Self/Ventriloquism) Cha mod times per day									PRERACE:Pevishan																																																																		SUBRACE:Illusion
+Pevishan (Necromancy)		VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Necromancy magic	SA:+4 to saves vs. Necromancy magic	SA:Spell like abilities (Disrupt Undead/Cause Fear/Chill Touch) Cha mod times per										PRERACE:Pevishan																																																																		SUBRACE:Necromancy
+Pevishan (Transmutation)	VISIBLE:NO				SOURCEPAGE:p.94	SA:+4 to spellcraft checks on Transmutation magic	SA:+4 to saves vs. Transmutation magic	SA:Spell like abilities (Detect Magic/Expeditious Retreat/Message) Cha mod times per day							PRERACE:Pevishan																																																																		SUBRACE:Transmutation
+F(Seelie)				VISIBLE:NO				SOURCEPAGE:p.56	SA:Faerie Fire	SA:Spell like abilities 2/day (bless/detect evil/dispel magic/daylight/dancing lights/sleep/obscuring mist/wood shape)										PREALIGN:LG,LN,NG,TN,CG,CN	PRERACE:Fairy																																																																		SUBRACE:Seelie
+F(Unseelie)				VISIBLE:NO				SOURCEPAGE:p.56	SA:Dark Faerie Fire	SA:Faerie Fire when use spell like ability	SA:Spell like abilities 2/day (bane/detect good/dispel magic/darkness/dancing lights/sleep/obscuring mist/chill touch)	PREALIGN:LN,LE,TN,NE,CN,CE	PRERACE:Fairy																																																																		SUBRACE:Unseelie
+Buerin				VISIBLE:YES	DR:15/Silver	SOURCEPAGE:p.105	SA:Alternate Form	SA:Damage Reduction 15/Silver in animal or hybrid form	SA:Animal Empathy	SA:Sacred Lycanthropy	SA:Ferocity	SA:Scent														PRERACE:Rezurbek	BONUS:CHECKS|Fortitude,Willpower|2		BONUS:COMBAT|AC|8|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Search,Spot,Listen|4	BONUS:STAT|STR|4	BONUS:STAT|CON|6																		FEAT:Improved Control Shape	AUTO:WEAPONPROF|Gore			MOVE:Walk,40					REMOVABLE:YES
+
+###Block: Verminous Traits chooser template
+
+# Template Name	Visible	Template																																												Source Page
+Verminous Traits	VISIBLE:NO	TEMPLATE:CHOOSE:Verminous Trait (Mandibles)|Verminous Trait (Chitin)|Verminous Trait (Scurry)|Verminous Trait (Survivor)|Verminous Trait (Poison)|Verminous Trait (Extreme Revulsion)|Verminous Trait (Web)|Verminous Trait (Wallcrawler)|Verminous Trait (Hard to Kill)	SOURCEPAGE:p.167
+
+###Block: Verminous Traits
+
+# Template Name				Visible	Source Page		Special Ability													Save checks bonus					Combat bonus				Bonus to skill				MOVECLONE				Spells									Natural Attacks
+Verminous Trait (Mandibles)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Mandibles																																															NATURALATTACKS:Mandibles,Weapon.Natural.Melee.Piercing,*1,1d4
+Verminous Trait (Chitin)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Chitin																					BONUS:COMBAT|AC|2|TYPE=Toughness
+Verminous Trait (Scurry)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Scurry														BONUS:CHECKS|Reflex|2|TYPE=Racial
+Verminous Trait (Survivor)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Survivor														BONUS:CHECKS|Fortitude|2|TYPE=Racial
+Verminous Trait (Poison)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Spit Poison up to 10ft 1/day (DC % for 1d4+%/1d4+% CON Damage)|10+(TL/2)+CON|TL/4|TL/4
+Verminous Trait (Extreme Revulsion)	VISIBLE:NO	SOURCEPAGE:p.167	SA:Extreme Revulsion
+Verminous Trait (Web)			VISIBLE:NO	SOURCEPAGE:p.167	SA:Web																																						SPELLS:Vermen|TIMES=1|CASTERLEVEL=min(TL,8)|Web,12+INT
+Verminous Trait (Wallcrawler)		VISIBLE:NO	SOURCEPAGE:p.167	SA:Wallcrawler																										BONUS:SKILL|Climb|8|TYPE=Racial	MOVECLONE:Walk,0,Climb,/2
+Verminous Trait (Hard to Kill)	VISIBLE:NO	SOURCEPAGE:p.167	SA:Hard to Kill
+
+#
+# End
+#

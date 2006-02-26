@@ -1,0 +1,67 @@
+# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Malhavoc Press - Web Enhancements|SOURCESHORT:MalhavocWb|SOURCEWEB:http://www.montecook.com
+
+# Spell Name		Classes of caster				School			Sub-School			Spell Descriptors				Type		Components	Casting Time	Range			Target Area						Duration				Save Info						Spell Resistance		Description		Source Page
+Blight Enemy		CLASSES:Ranger (Monte Cook's)=2	SCHOOL:Evocation												TYPE:Divine	COMPS:V S	CASTTIME:1 action	RANGE:Close		TARGETAREA:One favored enemy			DURATION:Instantaneous		SAVEINFO:Fortitude negates			SPELLRES:Yes		DESC:See text	SOURCEPAGE:Web
+Unite Allies		CLASSES:Ranger (Monte Cook's)=4	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting		TYPE:Divine	COMPS:V S	CASTTIME:1 action	RANGE:50 feet	TARGETAREA:All allies within 50'		DURATION:1 minute/level		SAVEINFO:None					SPELLRES:Yes (Harmless)	DESC:See text	SOURCEPAGE:Web
+Wild Stealth		CLASSES:Ranger (Monte Cook's)=3	SCHOOL:Transmutation											TYPE:Divine	COMPS:S	CASTTIME:1 action	RANGE:Personal	TARGETAREA:You					DURATION:10 minutes/level	SAVEINFO:None					SPELLRES:No			DESC:See text	SOURCEPAGE:Web
+
+#Spell Notes
+Personal Knowledge	CLASSES:Bard (Monte Cook's)=1		SCHOOL:Divination		SUBSCHOOL:Sonic								TYPE:Arcane	COMPS:V	CASTTIME:1 move	RANGE:Touch		TARGETAREA:One living creature		DURATION:Instantaneous		SAVEINFO:Will negates (DC 11+CHR bonus)	SPELLRES:No			DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+True Language		CLASSES:Bard (Monte Cook's)=1		SCHOOL:Divination		SUBSCHOOL:Sonic								TYPE:Arcane	COMPS:V	CASTTIME:1 move	RANGE:Touch		TARGETAREA:You					DURATION:1 round/level		SAVEINFO:None					SPELLRES:No			DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+
+#Spell Chords
+Sense Auras			CLASSES:Bard (Monte Cook's)=3		SCHOOL:Divination		SUBSCHOOL:Sonic								TYPE:Arcane	COMPS:V	CASTTIME:1 action	RANGE:60 feet	TARGETAREA:Quarter circle			DURATION:1 round/level		SAVEINFO:None					SPELLRES:No			DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+Sense Lies			CLASSES:Bard (Monte Cook's)=3		SCHOOL:Divination		SUBSCHOOL:Sonic								TYPE:Arcane	COMPS:V	CASTTIME:1 action	RANGE:60 feet	TARGETAREA:One creature/level, >30' apart	DURATION:1 round/level (C)	SAVEINFO:Will negates (DC 13+CHR bonus)	SPELLRES:No			DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+Oathchord			CLASSES:Bard (Monte Cook's)=3		SCHOOL:Enchantment	SUBSCHOOL:Charm		DESCRIPTOR:Mind-Affecting|Sonic	TYPE:Arcane	COMPS:V	CASTTIME:1 action	RANGE:Touch		TARGETAREA:One willing creature/level	DURATION:Instantaneous		SAVEINFO:None					SPELLRES:No			DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+
+#Spell Melodies
+Find Creature		CLASSES:Bard (Monte Cook's)=5		SCHOOL:Divination												TYPE:Arcane	COMPS:V	CASTTIME:1 round	RANGE:Unlimited	TARGETAREA:One creature				DURATION:Instantaneous		SAVEINFO:Will negates (DC 15+CHR bonus)	SPELLRES:Yes		DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+Song of Vitrification	CLASSES:Bard (Monte Cook's)=5		SCHOOL:Transmutation											TYPE:Arcane	COMPS:V	CASTTIME:1 round	RANGE:Touch		TARGETAREA:One creature				DURATION:Instantaneous		SAVEINFO:Fort negates (DC 15+CHR bonus)	SPELLRES:Yes		DESC:See text	SOURCEPAGE:Eldritch Might Enhancement
+
+###Block:SPELL.MOD generated from the old CLASSSPELL files
+# Spell Name			Classes of caster
+Alarm.MOD				CLASSES:Ranger (Monte Cook's)=1
+Animal Friendship.MOD		CLASSES:Ranger (Monte Cook's)=1
+Animal Messenger.MOD		CLASSES:Ranger (Monte Cook's)=2
+Barkskin.MOD			CLASSES:Ranger (Monte Cook's)=2
+Commune with Nature.MOD		CLASSES:Ranger (Monte Cook's)=4
+Control Plants.MOD		CLASSES:Ranger (Monte Cook's)=3
+Cure Light Wounds.MOD		CLASSES:Ranger (Monte Cook's)=2
+Cure Moderate Wounds.MOD	CLASSES:Ranger (Monte Cook's)=3
+Cure Serious Wounds.MOD		CLASSES:Ranger (Monte Cook's)=4
+Delay Poison.MOD			CLASSES:Ranger (Monte Cook's)=1
+Detect Animals or Plants.MOD	CLASSES:Ranger (Monte Cook's)=1
+Detect Chaos.MOD			CLASSES:Ranger (Monte Cook's)=2
+Detect Evil.MOD			CLASSES:Ranger (Monte Cook's)=2
+Detect Good.MOD			CLASSES:Ranger (Monte Cook's)=2
+Detect Law.MOD			CLASSES:Ranger (Monte Cook's)=2
+Detect Snares and Pits.MOD	CLASSES:Ranger (Monte Cook's)=1
+Diminish Plants.MOD		CLASSES:Ranger (Monte Cook's)=3
+Entangle.MOD			CLASSES:Ranger (Monte Cook's)=1
+Freedom of Movement.MOD		CLASSES:Ranger (Monte Cook's)=4
+Greater Magic Fang.MOD		CLASSES:Ranger (Monte Cook's)=3
+Hold Animal.MOD			CLASSES:Ranger (Monte Cook's)=2
+Magic Fang.MOD			CLASSES:Ranger (Monte Cook's)=1
+Neutralize Poison.MOD		CLASSES:Ranger (Monte Cook's)=3
+Nondetection.MOD			CLASSES:Ranger (Monte Cook's)=4
+Pass without Trace.MOD		CLASSES:Ranger (Monte Cook's)=1
+Plant Growth.MOD			CLASSES:Ranger (Monte Cook's)=3
+Polymorph Self.MOD		CLASSES:Ranger (Monte Cook's)=4
+Protection from Elements.MOD	CLASSES:Ranger (Monte Cook's)=2
+Read Magic.MOD			CLASSES:Ranger (Monte Cook's)=1
+Remove Disease.MOD		CLASSES:Ranger (Monte Cook's)=3
+Resist Elements.MOD		CLASSES:Ranger (Monte Cook's)=1
+Sleep.MOD				CLASSES:Ranger (Monte Cook's)=2
+Snare.MOD				CLASSES:Ranger (Monte Cook's)=2
+Speak with Animals.MOD		CLASSES:Ranger (Monte Cook's)=1
+Speak with Plants.MOD		CLASSES:Ranger (Monte Cook's)=2
+Summon Nature's Ally I.MOD	CLASSES:Ranger (Monte Cook's)=1
+Summon Nature's Ally II.MOD	CLASSES:Ranger (Monte Cook's)=2
+Summon Nature's Ally III.MOD	CLASSES:Ranger (Monte Cook's)=3
+Summon Nature's Ally IV.MOD	CLASSES:Ranger (Monte Cook's)=4
+Tree Shape.MOD			CLASSES:Ranger (Monte Cook's)=3
+Tree Stride.MOD			CLASSES:Ranger (Monte Cook's)=4
+Wall of Thorns.MOD		CLASSES:Ranger (Monte Cook's)=4
+Water Walk.MOD			CLASSES:Ranger (Monte Cook's)=3
+Wind Wall.MOD			CLASSES:Ranger (Monte Cook's)=4

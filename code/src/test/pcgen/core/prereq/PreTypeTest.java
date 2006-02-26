@@ -1,0 +1,136 @@
+/*
+ * PreTypeTest.java
+ *
+ * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 12-Jul-2004
+ *
+ * Current Ver: $Revision: 1.5 $
+ *
+ * Last Editor: $Author: byngl $
+ *
+ * Last Edited: $Date: 2005/10/03 13:56:33 $
+ *
+ */
+package pcgen.core.prereq;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import pcgen.AbstractCharacterTestCase;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+
+public class PreTypeTest extends AbstractCharacterTestCase {
+	public static void main(final String[] args)
+	{
+		junit.swingui.TestRunner.run(PreTypeTest.class);
+	}
+
+	/**
+	 * @return Test
+	 */
+	public static Test suite()
+	{
+		return new TestSuite(PreTypeTest.class);
+	}
+
+
+    /**
+     * Ensure a character with a template correctly passes
+     * PRETEMPLATE
+     */
+    public void test996803_1() {
+		final PlayerCharacter character = getCharacter();
+
+		final PCTemplate template = new PCTemplate();
+		template.setName("Half-Celestial");
+		template.setTypeInfo("Outsider");
+		character.addTemplate(template);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("type");
+		prereq.setKey("Outsider");
+		prereq.setOperand("1");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+    }
+
+
+    /**
+     * Ensure a character with a template correctly passes
+     * PRETEMPLATE
+     */
+    public void test996803_2() {
+		final PlayerCharacter character = getCharacter();
+
+		final PCTemplate template = new PCTemplate();
+		template.setName("Half-Celestial");
+		template.setTypeInfo("Outsider");
+		character.addTemplate(template);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("type");
+		prereq.setKey("Outsider");
+		prereq.setOperand("1");
+		prereq.setOperator(PrerequisiteOperator.NEQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+    }
+
+    public void test996803_3() {
+		final PlayerCharacter character = getCharacter();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("type");
+		prereq.setKey("Outsider");
+		prereq.setOperand("1");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+    }
+
+
+    public void test996803_4() {
+		final PlayerCharacter character = getCharacter();
+
+		final PCTemplate template = new PCTemplate();
+		template.setName("Fiendish");
+		template.setTypeInfo("Magical-Beast");
+		character.addTemplate(template);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("type");
+		prereq.setKey("Outsider");
+		prereq.setOperand("1");
+		prereq.setOperator(PrerequisiteOperator.NEQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+    }
+
+
+    public void testKindHandled() {
+        final PreType preType = new PreType();
+
+        assertEquals("TYPE", preType.kindHandled());
+    }
+
+}

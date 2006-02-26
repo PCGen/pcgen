@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE lookuptable SYSTEM "../../encounter.dtd" >
+<lookuptable name="Dingy Dungeon level 2">
+	<!-- Header -->
+	<row>
+		<item>d%</item>
+		<item>Number</item>
+		<item>Monster</item>
+	</row>
+	
+	<!-- 01-30% -->
+	<row>
+		<item>30</item>
+		<item>1d4</item>
+		<item>Ettercap</item>
+	</row>
+	<!-- 31-54% -->
+	<row>
+		<item>54</item>
+		<item>2d3</item>
+		<item>Orc</item>
+	</row>
+	<!-- 55-70% -->
+	<row>
+		<item>70</item>
+		<item>1</item>
+		<item>Ogre</item>
+	</row>
+	<!-- 71-100% -->
+	<row>
+		<item>100</item>
+		<item>1d3</item>
+		<item>Lizard (Giant)</item>
+	</row>
+		
+
+</lookuptable>

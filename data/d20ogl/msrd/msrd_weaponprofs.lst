@@ -1,0 +1,122 @@
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Sun Aug  7 16:46:37 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original entry bD_92
+
+# Weapon Name		Type				Nb Hands
+Flamethrower		TYPE:Simple
+Pepper Spray		TYPE:Simple
+Shuriken			TYPE:Archaic
+Taser				TYPE:Simple
+Whip				TYPE:Simple
+Crossbow			TYPE:Simple
+Javelin			TYPE:Simple
+Compound Bow		TYPE:Archaic
+
+Beretta 92F			TYPE:PersonalFirearm
+Beretta 93R			TYPE:PersonalFirearm
+Colt Double Eagle		TYPE:PersonalFirearm
+Colt M1911			TYPE:PersonalFirearm
+Colt Python			TYPE:PersonalFirearm
+Derringer			TYPE:PersonalFirearm
+Desert Eagle		TYPE:PersonalFirearm
+Glock 17			TYPE:PersonalFirearm
+Glock 20			TYPE:PersonalFirearm
+MAC Ingram M10		TYPE:PersonalFirearm
+Pathfinder			TYPE:PersonalFirearm
+Ruger Service-Six		TYPE:PersonalFirearm
+S and W M29			TYPE:PersonalFirearm
+SITES M9			TYPE:PersonalFirearm
+Skorpion			TYPE:PersonalFirearm
+TEC-9				TYPE:PersonalFirearm
+Walther PPK			TYPE:PersonalFirearm
+
+AKM/AK-47			TYPE:PersonalFirearm	HANDS:2
+Barrett Light Fifty	TYPE:PersonalFirearm	HANDS:2
+Benelli 121 M1		TYPE:PersonalFirearm	HANDS:2
+Beretta M3P			TYPE:PersonalFirearm	HANDS:2
+Browning BPS		TYPE:PersonalFirearm	HANDS:2
+HK G3				TYPE:PersonalFirearm	HANDS:2
+HK MP5			TYPE:PersonalFirearm	HANDS:2
+HK MP5K			TYPE:PersonalFirearm	HANDS:2
+HK PSG1			TYPE:PersonalFirearm	HANDS:2
+M16A2				TYPE:PersonalFirearm	HANDS:2
+M4 Carbine			TYPE:PersonalFirearm	HANDS:2
+M-60				TYPE:PersonalFirearm	HANDS:2
+Mossberg			TYPE:PersonalFirearm	HANDS:2
+Remington 700		TYPE:PersonalFirearm	HANDS:2
+Sawed-Off Shotgun		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG			TYPE:PersonalFirearm	HANDS:2
+Uzi				TYPE:PersonalFirearm	HANDS:2
+Winchester 94		TYPE:PersonalFirearm	HANDS:2
+
+# Exotic Firearms
+Cannon			TYPE:ExoticFirearms
+Heavy Machine Gun		TYPE:ExoticFirearms
+Grenade Launcher		TYPE:ExoticFirearms
+Rocket Launcher		TYPE:ExoticFirearms
+
+#Melee
+Kukri				TYPE:Exotic
+Kama				TYPE:Exotic
+Nunchaku			TYPE:Exotic
+Chain				TYPE:Exotic
+Chain Saw			TYPE:Exotic
+Three-Section Staff	TYPE:Exotic
+Katana			TYPE:Exotic
+Sap				TYPE:Simple
+Hatchet			TYPE:Archaic
+Machete			TYPE:Archaic
+Straight Razor		TYPE:Archaic
+Longsword			TYPE:Archaic
+Rapier			TYPE:Archaic
+Sword Cane			TYPE:Archaic
+Fixed Bayonet		TYPE:Archaic
+Spear				TYPE:Archaic
+Brass Knuckles		TYPE:Simple
+Knife				TYPE:Simple
+Stun Gun			TYPE:Simple
+Cleaver			TYPE:Simple
+Pistol Whip			TYPE:Simple
+Sap				TYPE:Simple
+Club				TYPE:Simple
+Metal Baton			TYPE:Simple
+Tonfa				TYPE:Simple
+Rifle Butt			TYPE:Simple
+Unarmed Strike		TYPE:Simple
+
+###Block: Natural Weapons
+# Weapon Name		Type
+Antennae			TYPE:Natural
+Arm				TYPE:Natural
+Bite				TYPE:Natural
+Butt				TYPE:Natural
+Charge			TYPE:Natural
+Chain Rake			TYPE:Natural
+Claw				TYPE:Natural
+Claws				TYPE:Natural
+Crush				TYPE:Natural
+Gore				TYPE:Natural
+Hoof				TYPE:Natural
+Horn				TYPE:Natural
+Pincer			TYPE:Natural
+Quill				TYPE:Natural
+Rake				TYPE:Natural
+Ranged Touch		TYPE:Natural
+Ray				TYPE:Natural
+Slam				TYPE:Natural
+Slap				TYPE:Natural
+Snakes			TYPE:Natural
+Spikes			TYPE:Natural
+Sting				TYPE:Natural
+Strand			TYPE:Natural
+Sweep				TYPE:Natural
+Tail				TYPE:Natural
+Tail Slap			TYPE:Natural
+Tendril			TYPE:Natural
+Tentacle			TYPE:Natural
+Tentacle Slap		TYPE:Natural
+Tentacle Rake		TYPE:Natural
+Touch				TYPE:Natural
+Unarmed Lethal Strike	TYPE:Natural
+Web				TYPE:Natural
+Wing				TYPE:Natural

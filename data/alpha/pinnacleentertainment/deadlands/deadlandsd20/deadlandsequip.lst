@@ -1,0 +1,87 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name				Type					Contains			Cost		Weight	Source Page
+Backpack					TYPE:Goods.General		CONTAINS:100|Any=100	COST:2	WT:2		SOURCEPAGE:p.71
+Barbed Wire (30 ft.)			TYPE:Goods.General						COST:.5	WT:2.5	SOURCEPAGE:p.71
+Camera					TYPE:Goods.General						COST:3	WT:5		SOURCEPAGE:p.71
+Canteen (1 qt.)				TYPE:Goods.General		CONTAINS:1|Liquid=1	COST:1	WT:5		SOURCEPAGE:p.71
+Drill (Hand)				TYPE:Goods.General						COST:2	WT:2		SOURCEPAGE:p.71
+File						TYPE:Goods.General						COST:.5	WT:1		SOURCEPAGE:p.71
+Guitar					TYPE:Goods.General						COST:8	WT:6		SOURCEPAGE:p.71
+Gun belt					TYPE:Goods.General						COST:2	WT:1		SOURCEPAGE:p.71
+Hammer					TYPE:Goods.General						COST:.5	WT:2		SOURCEPAGE:p.71
+Handcuffs					TYPE:Goods.General						COST:3.5	WT:3		SOURCEPAGE:p.71
+Hatchet					TYPE:Goods.General						COST:1	WT:2.5	SOURCEPAGE:p.71
+Holster					TYPE:Goods.General		CONTAINS:4|Any=4		COST:3	WT:1		SOURCEPAGE:p.71
+Holster (Quick-draw)			TYPE:Goods.General		CONTAINS:4|Any=4		COST:11	WT:11		SOURCEPAGE:p.71
+Iron skillet				TYPE:Goods.General						COST:.5	WT:5		SOURCEPAGE:p.71
+Lantern					TYPE:Goods.General						COST:2.5	WT:4		SOURCEPAGE:p.71
+Lantern Oil (1 gallon)			TYPE:Goods.General						COST:.1	WT:6		SOURCEPAGE:p.71
+Matches (100)				TYPE:Goods.General						COST:.5	WT:.25	SOURCEPAGE:p.71
+Mess kit					TYPE:Goods.General						COST:2	WT:3		SOURCEPAGE:p.71
+Paper (Sheet)				TYPE:Goods.General.Paper					COST:.4	WT:0		SOURCEPAGE:p.71
+Photographic plate			TYPE:Goods.General						COST:1	WT:.5		SOURCEPAGE:p.71
+Pick						TYPE:Goods.General						COST:2	WT:12		SOURCEPAGE:p.71
+Pipe (Smoking)				TYPE:Goods.General						COST:2	WT:.75	SOURCEPAGE:p.71
+Playing cards				TYPE:Goods.General						COST:.25	WT:0		SOURCEPAGE:p.71
+Playing cards (marked)			TYPE:Goods.General						COST:2	WT:0		SOURCEPAGE:p.71
+Rifle scabbard				TYPE:Goods.General		CONTAINS:12|Any=12	COST:3	WT:.5		SOURCEPAGE:p.71
+Rope (50 ft)				TYPE:Goods.General						COST:5	WT:8		SOURCEPAGE:p.71
+Shotgun thong				TYPE:Goods.General						COST:0.25	WT:0		SOURCEPAGE:p.71
+Speed-load cylinder			TYPE:Goods.General						COST:3	WT:1		SOURCEPAGE:p.71
+Shovel					TYPE:Goods.General						COST:1.5	WT:4.5	SOURCEPAGE:p.71
+Spectacles					TYPE:Goods.General						COST:5	WT:0		SOURCEPAGE:p.71
+Tobacco (Chewing/tin)			TYPE:Goods.General						COST:.5	WT:1		SOURCEPAGE:p.71
+Tobacco (Smoking/pouch)			TYPE:Goods.General						COST:.5	WT:1		SOURCEPAGE:p.71
+Watch (Standard)				TYPE:Goods.General						COST:2.5	WT:.5		SOURCEPAGE:p.71
+Watch (Gold)				TYPE:Goods.General						COST:10	WT:.5		SOURCEPAGE:p.71
+Doctor's Bag				TYPE:Goods.Tools							COST:25	WT:15		SOURCEPAGE:p.71
+Blouse (Fancy)				TYPE:Goods.Clothing						COST:3	WT:1		SOURCEPAGE:p.71
+Blouse					TYPE:Goods.Clothing						COST:1	WT:1		SOURCEPAGE:p.71
+Bonnet					TYPE:Goods.Clothing						COST:2	WT:0		SOURCEPAGE:p.71
+Boots						TYPE:Goods.Clothing						COST:8	WT:4		SOURCEPAGE:p.71
+Chaps						TYPE:Goods.Clothing						COST:4	WT:6		SOURCEPAGE:p.71
+Cowboy hat					TYPE:Goods.Clothing						COST:3	WT:1		SOURCEPAGE:p.71
+Derby						TYPE:Goods.Clothing						COST:1.5	WT:.5		SOURCEPAGE:p.71
+Dress (Fancy)				TYPE:Goods.Clothing						COST:15	WT:6		SOURCEPAGE:p.71
+Dress						TYPE:Goods.Clothing						COST:5	WT:6		SOURCEPAGE:p.71
+Duster					TYPE:Goods.Clothing						COST:10	WT:4		SOURCEPAGE:p.71
+Longjohns					TYPE:Goods.Clothing						COST:2	WT:2		SOURCEPAGE:p.71
+Moccasins					TYPE:Goods.Clothing						COST:.5	WT:.5		SOURCEPAGE:p.71
+Shirt (Fancy)				TYPE:Goods.Clothing						COST:3	WT:1		SOURCEPAGE:p.71
+Shirt						TYPE:Goods.Clothing						COST:1	WT:1		SOURCEPAGE:p.71
+Silk stockings				TYPE:Goods.Clothing						COST:1	WT:0		SOURCEPAGE:p.71
+Shoes						TYPE:Goods.Clothing						COST:2	WT:1		SOURCEPAGE:p.71
+Skirt						TYPE:Goods.Clothing						COST:2	WT:2		SOURCEPAGE:p.71
+Sombrero					TYPE:Goods.Clothing						COST:3.5	WT:3		SOURCEPAGE:p.71
+Stetson					TYPE:Goods.Clothing						COST:15	WT:1.5	SOURCEPAGE:p.71
+Suit						TYPE:Goods.Clothing						COST:15	WT:6		SOURCEPAGE:p.71
+Trousers					TYPE:Goods.Clothing						COST:2	WT:2		SOURCEPAGE:p.71
+Winter coat					TYPE:Goods.Clothing						COST:15	WT:3		SOURCEPAGE:p.71
+Bacon (per pound)				TYPE:Goods.Food							COST:.15	WT:1		SOURCEPAGE:p.71
+Beer (Glass)				TYPE:Goods.Liquid							COST:.05	WT:0		SOURCEPAGE:p.71
+Coffee (per pound)			TYPE:Goods.Food							COST:.25	WT:1		SOURCEPAGE:p.71
+Liquor (Bottle/Cheap)			TYPE:Goods.Liquid							COST:2	WT:2.5	SOURCEPAGE:p.71
+Liquor (Bottle/Good)			TYPE:Goods.Liquid							COST:5	WT:2.5	SOURCEPAGE:p.71
+Meal (Restaurant/Cheap)			TYPE:Goods.Food							COST:.25	WT:0		SOURCEPAGE:p.71
+Meal (Restaurant/Good)			TYPE:Goods.Food							COST:1	WT:0		SOURCEPAGE:p.71
+Blasting cap				TYPE:Goods.Special						COST:1	WT:0		SOURCEPAGE:p.71
+Detonator (Plunger)			TYPE:Goods.Special						COST:10	WT:10		SOURCEPAGE:p.71
+Detonation wire (50 ft.)		TYPE:Goods.Special						COST:2.5	WT:1		SOURCEPAGE:p.71
+Epitaph Camera				TYPE:Goods.Special						COST:1600	WT:12		SOURCEPAGE:p.71
+Gatling Gun cylinder			TYPE:Goods.Special						COST:200	WT:1		SOURCEPAGE:p.71
+Photographic Plate (Epitaph Camera)	TYPE:Goods.Special						COST:5	WT:.5		SOURCEPAGE:p.71
+Fuse (per foot)				TYPE:Goods.Special						COST:.05	WT:0		SOURCEPAGE:p.71
+Rocket Pack					TYPE:Goods.Special						COST:2100	WT:110	SOURCEPAGE:p.71
+
+#Mounts and Tack
+Buckboard					TYPE:Goods.Mount			CONTAINS:500|Any=50	COST:75	WT:350	SOURCEPAGE:p.71
+Buggy or Cab				TYPE:Goods.Mount							COST:200	WT:350	SOURCEPAGE:p.71
+Conestoga wagon				TYPE:Goods.Mount			CONTAINS:1000|Any=50	COST:200	WT:1000	SOURCEPAGE:p.71
+Horse (Draft)				TYPE:Goods.Mount							COST:75			SOURCEPAGE:p.71
+Horse (Riding)				TYPE:Goods.Mount							COST:150			SOURCEPAGE:p.71
+Mule						TYPE:Goods.Mount							COST:50			SOURCEPAGE:p.71
+Saddle (Western)				TYPE:Goods.Mount							COST:25	WT:30		SOURCEPAGE:p.71
+Saddle blanket				TYPE:Goods.Mount							COST:0.5	WT:1		SOURCEPAGE:p.71
+Saddlebags					TYPE:Goods.Mount			CONTAINS:300|Any=50	COST:8	WT:4		SOURCEPAGE:p.71
+Steam Wagon					TYPE:Goods.Mount			CONTAINS:300|Any=50	COST:1500	WT:600	SOURCEPAGE:p.71

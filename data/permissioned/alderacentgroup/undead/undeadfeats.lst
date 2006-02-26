@@ -1,0 +1,10 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead|SOURCESHORT:Undead|SOURCEWEB:http://alderac.com/d20
+
+# Feat Name		Product Identity?	Type			Required AL		Required Feat		Required Stat	Description																										Source Page
+Death Angel		NAMEISPI:YES	TYPE:General				PREFEAT:1,Stout Hearted	PRESTAT:1,CHA=13	DESC:You can inflict critical hits and sneak attacks on undead.																	SOURCEPAGE:p.28
+Pure Hearted	NAMEISPI:YES	TYPE:General	PREALIGN:LG,NG,CG	PREFEAT:1,Stout Hearted				DESC:You are extremely resistant to negative energy attacks.																	SOURCEPAGE:p.28
+Show of Faith	NAMEISPI:YES	TYPE:General	PREALIGN:LG,NG,CG					PRESTAT:1,WIS=13	DESC:Your faith keeps the legions of undead away from you.																		SOURCEPAGE:p.28
+Sixth Sense		NAMEISPI:YES	TYPE:General				PREFEAT:1,Alertness				DESC:You have an uncanny sense for detecting invisible or non-corporeal creatures.														SOURCEPAGE:p.28
+Stout Hearted	NAMEISPI:YES	TYPE:General	PREALIGN:LG,NG,CG					PRESTAT:1,WIS=14	DESC:You gain a +4 competence bonus on saves to shrug off the permanent effects of gaining a negative level and to resist any spells that deal negative levels.	SOURCEPAGE:p.28

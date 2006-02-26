@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Template Name		Visible	Source Page		Special Ability														Level																																																												Removable?
+Harrowed (at odd CL)	VISIBLE:YES	SOURCEPAGE:p.94	SA:Harrowed(Su),Death wounds(Su),Decay(Ex),Regeneration(Sp),Sleep(Ex),Nightmares(Su),Grit(Ex)	LEVEL:11:FEAT:1,(TYPE=Harrowed)	LEVEL:13:FEAT:1,(TYPE=Harrowed)	LEVEL:15:FEAT:1,(TYPE=Harrowed)	LEVEL:17:FEAT:1,(TYPE=Harrowed)	LEVEL:19:FEAT:1,(TYPE=Harrowed)	LEVEL:1:FEAT:1,(TYPE=Harrowed)	LEVEL:3:FEAT:1,(TYPE=Harrowed)	LEVEL:5:FEAT:1,(TYPE=Harrowed)	LEVEL:7:FEAT:1,(TYPE=Harrowed)	LEVEL:9:FEAT:1,(TYPE=Harrowed)	REMOVABLE:YES
+Harrowed (at even CL)	VISIBLE:YES	SOURCEPAGE:p.94	SA:Harrowed(Su),Death wounds(Su),Decay(Ex),Regeneration(Sp),Sleep(Ex),Nightmares(Su),Grit(Ex)	LEVEL:10:FEAT:1,(TYPE=Harrowed)	LEVEL:12:FEAT:1,(TYPE=Harrowed)	LEVEL:14:FEAT:1,(TYPE=Harrowed)	LEVEL:16:FEAT:1,(TYPE=Harrowed)	LEVEL:18:FEAT:1,(TYPE=Harrowed)	LEVEL:20:FEAT:1,(TYPE=Harrowed)	LEVEL:2:FEAT:1,(TYPE=Harrowed)	LEVEL:4:FEAT:1,(TYPE=Harrowed)	LEVEL:6:FEAT:1,(TYPE=Harrowed)	LEVEL:8:FEAT:1,(TYPE=Harrowed)	REMOVABLE:YES

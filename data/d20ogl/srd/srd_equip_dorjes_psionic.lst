@@ -1,0 +1,282 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Wed Jan  5 12:53:43 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+#Level 0
+# Equipment Name						Type				Weight	Base Item for EQMOD	Modifier																Source Page
+Dorje (Bolt)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Bolt]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Burst)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Burst]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Catfall)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Catfall]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Shadow)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Shadow]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Daze)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Daze]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Detect Psionics)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Detect Psionics]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Distract)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Distract]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Elfsight)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Elfsight]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Far Hand)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Far Hand]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Far Punch)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Far Punch]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Finger of Fire)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Finger of Fire]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Float)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Float]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Inkling)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Inkling]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Know Direction)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Know Direction]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Lesser Natural Armor)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Lesser Natural Armor]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Missive)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Missive]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (My Light)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[My Light]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Talons)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Talons]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Telempathic Projection)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Telempathic Projection]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Trinket)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Trinket]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Verve)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Verve]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+#Level 1
+Dorje (Astral Construct I)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct I]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Attraction)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Attraction]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Biocurrent)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Biocurrent]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Biofeedback)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Biofeedback]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Bite of the Wolf)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Bite of the Wolf]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Call Weaponry)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Call Weaponry]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Charm Person)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Combat Precognition)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Combat Precognition]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Compression)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Compression]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Conceal Thoughts)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Conceal Thoughts]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Light)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Light]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Object)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Object]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Create Sound)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Create Sound]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Demoralize)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Demoralize]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Destiny Dissonance)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Destiny Dissonance]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Disable)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Disable]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dissipating Touch)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dissipating Touch]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Empathic Transfer)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Empathic Transfer]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Empathy)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Empathy]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Expanded Vision)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Expanded Vision]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Feather Fall)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Feather Fall]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Feel Light)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Feel Light]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Feel Sound)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Feel Sound]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Firefall)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Firefall]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Grease)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Grease]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Hammer)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Hammer]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Hear Light)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Hear Light]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Identify)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Identify]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Know Location)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Know Location]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Lesser Body Adjustment)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Lesser Body Adjustment]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Lesser Concussion)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Lesser Concussion]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Lesser Metaphysical Weapon)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Lesser Metaphysical Weapon]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Lesser Mindlink)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Lesser Mindlink]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Matter Agitation)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Matter Agitation]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Minor Creation)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Minor Creation]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Object Reading)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Object Reading]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Psycholuminescence)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Psycholuminescence]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (See Sound)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[See Sound]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sense Link)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sense Link]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Skate)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Skate]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Spider Climb)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Spider Climb]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Steadfast Gaze)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Steadfast Gaze]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Stomp)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Stomp]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Vigor)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Vigor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+#Level 2
+Dorje (Animal Affinity)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Animal Affinity]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Construct II)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct II]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Augury)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Augury]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Aversion)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Aversion]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Body Adjustment)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Body Adjustment]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Body Equilibrium)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Body Equilibrium]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Brain Lock)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Brain Lock]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Burning Ray)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Burning Ray]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Chameleon)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Chameleon]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Clairaudience/Clairvoyance)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Clairaudience/Clairvoyance]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]		SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Claws of the Bear)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Claws of the Bear]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Combat Prescience)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Combat Prescience]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Concussion)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Concussion]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Air)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Air]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Body)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Body]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Flames)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Flames]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Darkvision)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Darkvision]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Detect Thoughts)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Detect Thoughts]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ecto Puppet)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ecto Puppet]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ectoplasmic Cocoon)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ectoplasmic Cocoon]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Expansion)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Expansion]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Glide)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Glide]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Inflict Pain)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Inflict Pain]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Intrusive Sense Link)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Intrusive Sense Link]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Invisibility)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Invisibility]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Knock)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Knock]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Levitate)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Levitate]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Painful Touch)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Painful Touch]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Psionic Lock)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Psionic Lock]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Recall Pain)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Recall Pain]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (See Invisibility)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[See Invisibility]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sense Psychoportation)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sense Psychoportation]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sensitivity to Psychic Impressions)	TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sensitivity to Psychic Impressions]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]	SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sever the Tie)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sever the Tie]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sudden Minor Creation)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sudden Minor Creation]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Suggestion)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Suggestion]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sustenance)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sustenance]SPELLLEVEL[2]CASTERLEVEL[4]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+#Level 3
+Dorje (Astral Construct III)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct III]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Steed)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Steed]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Bite of the Tiger)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Bite of the Tiger]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Charm Monster)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Charm Monster]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Claws of the Vampire)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Claws of the Vampire]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Cone of Sound)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Cone of Sound]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Control Sound)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Control Sound]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Create Food and Water)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Create Food and Water]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Crisis of Breath)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Crisis of Breath]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Danger Sense)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Danger Sense]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dimension Slide)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dimension Slide]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Displacement)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Displacement]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Duodimensional Hand)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Duodimensional Hand]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ectoplasmic Form)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ectoplasmic Form]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (False Sensory Input)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[False Sensory Input]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Fate Link)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Fate Link]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Fly)							TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Fly]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Greater Concussion)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Greater Concussion]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Biofeedback)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Biofeedback]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Invisibility Purge)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Invisibility Purge]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Lesser Domination)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Lesser Domination]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Metaphysical Weapon)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Metaphysical Weapon]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mindlink)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mindlink]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Negate Psionics)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Negate Psionics]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Nondetection)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Nondetection]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Poison Sense)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Poison Sense]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Rejuvenation)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Rejuvenation]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Remote Viewing)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Remote Viewing]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Schism)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Schism]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Time Hop)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Time Hop]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ubiquitous Vision)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ubiquitous Vision]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Undead Sense)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Undead Sense]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Whitefire)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Whitefire]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+#Level 4
+Dorje (Amplified Invisibility)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Amplified Invisibility]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Anchored Navigation)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Anchored Navigation]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Construct IV)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct IV]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Aura Sight)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Aura Sight]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Detect Remote Viewing)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Detect Remote Viewing]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dimension Door)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dimension Door]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dimensional Anchor)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dimensional Anchor]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dismiss Ectoplasm)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dismiss Ectoplasm]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dismissal)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dismissal]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dissolving Touch)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dissolving Touch]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Divination)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Divination]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Domination)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Domination]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Fabricate)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Fabricate]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Fatal Attraction)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Fatal Attraction]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Fate of One)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Fate of One]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Forced Mindlink)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Forced Mindlink]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Freedom of Movement)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Freedom of Movement]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Immovability)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Immovability]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Inertial Barrier)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Inertial Barrier]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mass Concussion)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mass Concussion]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mindwipe)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mindwipe]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Natural Armor)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Natural Armor]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Polymorph Self)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Polymorph Self]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Psychofeedback)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Psychofeedback]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Quintessence)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Quintessence]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Tailor Memory)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Tailor Memory]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Telekinesis)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Telekinesis]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Wall of Ectoplasm)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Wall of Ectoplasm]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+#Level 5
+Dorje (Adapt Body)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Adapt Body]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Construct V)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct V]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Baleful Teleport)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Baleful Teleport]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Brilliant Blast)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Brilliant Blast]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Catapsi)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Catapsi]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Clairtangency)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Clairtangency]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ectoplasmic Armor)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ectoplasmic Armor]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ectoplasmic Shambler)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ectoplasmic Shambler]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Energy Barrier)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Energy Barrier]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Graft Weapon)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Graft Weapon]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Greater Domination)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Greater Domination]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Incarnate)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Incarnate]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Major Creation)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Major Creation]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Matter Rearrangement)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Matter Rearrangement]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Metaconcert)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Metaconcert]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Metamorphosis)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Metamorphosis]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mind Probe)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mind Probe]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Power Resistance)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Power Resistance]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Psychic Vampire)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Psychic Vampire]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Recall Agony)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Recall Agony]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sending)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sending]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sense Psionics)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sense Psionics]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Teleport)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Teleport]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Teleport Trigger)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Teleport Trigger]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (True Seeing)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[True Seeing]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+#Level 6
+Dorje (Ablating)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ablating]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Construct VI)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct VI]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Aura Alteration)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Aura Alteration]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Banishment)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Banishment]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Breath of the Dragon)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Breath of the Dragon]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Disintegrate)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Disintegrate]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ethereal Jaunt)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ethereal Jaunt]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Flaming Shroud)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Flaming Shroud]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Greater Biocurrent)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Greater Biocurrent]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Fabricate)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Fabricate]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Fly)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Fly]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Vigor)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Vigor]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mass Suggestion)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mass Suggestion]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mind Switch)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mind Switch]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Null Psionics Field)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Null Psionics Field]SPELLLEVEL[5]CASTERLEVEL[10]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Precognition)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Precognition]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Remote View Trap)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Remote View Trap]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Retrieve)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Retrieve]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Shield of Prudence)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Shield of Prudence]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Suspend Life)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Suspend Life]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Trace Teleport)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Trace Teleport]SPELLLEVEL[6]CASTERLEVEL[12]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+#Level 7
+Dorje (Astral Construct VII)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct VII]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Contingency)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Contingency]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Divert Teleport)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Divert Teleport]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Emulate Power)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Emulate Power]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Energy Conversion)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Energy Conversion]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Etherealness)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Etherealness]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Fission)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Fission]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Anchored Navigation)		TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Anchored Navigation]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]		SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Telekinesis)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Telekinesis]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Insanity)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Insanity]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mass Cocoon)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mass Cocoon]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mass Domination)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mass Domination]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Oak Body)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Oak Body]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Phase Door)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Phase Door]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Plane Shift)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Plane Shift]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Power Turning)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Power Turning]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Reddopsi)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Reddopsi]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Sequester)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Sequester]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Teleport Without Error)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Teleport Without Error]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (True Concussion)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[True Concussion]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Ultrablast)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Ultrablast]SPELLLEVEL[7]CASTERLEVEL[14]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+#Level 8
+Dorje (Astral Construct VIII)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct VIII]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dream Travel)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dream Travel]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Foresight)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Foresight]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Hypercognition)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Hypercognition]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Clairtangency)			TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Clairtangency]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Improved Etherealness)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Improved Etherealness]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Iron Body)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Iron Body]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Matter Manipulation)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Matter Manipulation]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mind Blank)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mind Blank]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mind Seed)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mind Seed]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Mind Store)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Mind Store]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Recall Death)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Recall Death]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Shadow Body)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Shadow Body]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Telekinetic Sphere)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Telekinetic Sphere]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Teleportation Circle)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Teleportation Circle]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Temporal Acceleration)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Temporal Acceleration]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (True Creation)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[True Creation]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (True Domination)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[True Domination]SPELLLEVEL[8]CASTERLEVEL[16]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+#Level 9
+Dorje (Affinity Field)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Affinity Field]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Apopsi)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Apopsi]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Construct IX)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Construct IX]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]			SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Astral Projection)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Astral Projection]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Confidante)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Confidante]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Detonation)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Detonation]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Dissolution)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Dissolution]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Genesis)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Genesis]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Greater Emulation)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Greater Emulation]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Metafaculty)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Metafaculty]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Microcosm)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Microcosm]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Monster Domination)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Monster Domination]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Probability Travel)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Probability Travel]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Psychic Chirurgery)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Psychic Chirurgery]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Shapechange)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Shapechange]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]					SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Temporal Velocity)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Temporal Velocity]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Thrall)						TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Thrall]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]						SOURCEPAGE:srdpsionicitems.rtf
+Dorje (Time Regression)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[Time Regression]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (True Metabolism)					TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[True Metabolism]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf
+Dorje (True Telekinesis)				TYPE:Psionic.Dorje	WT:0		BASEITEM:Dorje		EQMOD:SPL_CHRG|SPELLNAME[True Telekinesis]SPELLLEVEL[9]CASTERLEVEL[18]CHARGES[50]				SOURCEPAGE:srdpsionicitems.rtf

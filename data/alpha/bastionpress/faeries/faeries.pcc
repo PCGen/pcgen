@@ -1,0 +1,33 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# Input by darkon_turas, email: darkon_turas@netzero.net
+CAMPAIGN:BP - Faeries
+RANK:7
+GAMEMODE:3e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Bastion Press.Sourcebook.Faeries
+SOURCELONG:Bastion Press - Faeries
+SOURCESHORT:Faeries
+SOURCEWEB:http://www.bastionpress.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Faeries Copyright 2003, Bastion Press, Inc.
+COPYRIGHT:PCGen dataset conversion for Faeries Copyright 2004-2005, PCGen Data Team including, but not limited to, Darkon Turas, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:faeries_classes.lst
+DEITY:faeries_deities.lst
+DOMAIN:faeries_domains.lst
+FEAT:faeries_feats.lst
+FEAT:faeries_feats_hidden.lst
+FEAT:faeries_feats_aspects.lst
+LANGUAGE:faeries_languages.lst
+RACE:faeries_races.lst
+SKILL:faeries_skills.lst
+SPELL:faeries_spells.lst
+TEMPLATE:faeries_templates.lst
+TEMPLATE:faeries_templates_aspects.lst
+TEMPLATE:faeries_templates_focus.lst

@@ -1,0 +1,34 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+# HITDICESIZE only changes future HDs. Should it affect previous HDs as well?
+# Miss a PREHITDICESIZE for the Magical Construct
+
+#Name
+# Template Name			Product Identity?	Hit Dice Size	CR	Visible	REMOVEABLE		Damage Reduction	Level Adjustment	Template															Source Page		Special Ability																																																Define																						Required AL			Combat bonus									Bonus to HP											Multiply base more													Bonus to skill						Stat bonus												Choose a Feat					Move		Type			Vision					Hit Dice
+Arcane Angel										VISIBLE:NO	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Summon Celestial Monsters (Sp)
+Celestial Qualities									VISIBLE:NO	REMOVEABLE:NO																							SOURCEPAGE:p.190	SA:Aura of Menace (Su)	SA:Protective Aura (Su)	SA:Teleport (Su)	SA:Tongues (Su)	SA:Immunities (Ex)	SA:Resistances (Ex)	SA:Keen Vision (Ex)																																																																																																																												VISION:Low-light|Darkvision (60')
+Extraplanar											VISIBLE:YES	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Not native to the material plane
+Energy Resistance										VISIBLE:NO	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Resistances (Acid %, Cold %, Electricity %, Fire %, Sonic %)|AcidResistance|ColdResistance|ElectricityResistance|FireResistance|SonicResistance																										DEFINE:AcidResistance|0	DEFINE:ColdResistance|0	DEFINE:ElectricityResistance|0	DEFINE:FireResistance|0	DEFINE:SonicResistance|0
+D'Stradi Demon										VISIBLE:NO	REMOVEABLE:NO							TEMPLATE:Energy Resistance												SOURCEPAGE:p.194	SA:Summon Demons (Sp)	SA:Immunity to Poison (Ex)	SA:Immunity to Electricity (Ex)	SA:Telepathy 100' (Su)																																DEFINE:AcidResistance|10	DEFINE:ColdResistance|10	DEFINE:FireResistance|10
+
+Creature of the Mist		NAMEISPI:YES				CR:1	VISIBLE:YES				DR:10/magic		LEVELADJUSTMENT:2	TEMPLATE:Air	TEMPLATE:CofM Remove Natural Armor								SOURCEPAGE:p.192	SA:Choke (Ex) (DC %)|10+TL/2+CON	SA:Blind (Ex)	SA:Mist Form (Su)																																																																		BONUS:COMBAT|AC|TL/2|TYPE=Deflection																																	BONUS:SKILL|Hide,Move Silently|10|TYPE=Racial	BONUS:STAT|STR|-4	BONUS:STAT|DEX|8	BONUS:STAT|CON|-2												MOVE:Fly,30
+CofM Remove Natural Armor								VISIBLE:NO																																																																															DEFINE:NaturalArmorAdjustment|BONUS.COMBAT.AC.NATURALARMOR																		BONUS:COMBAT|AC|-NaturalArmorAdjustment|TYPE=NaturalArmor.STACK
+
+Magical Construct			NAMEISPI:YES					VISIBLE:YES										TEMPLATE:CHOOSE:Magical Construct (Stone)|Magical Construct (Metal)	TEMPLATE:Construct	SOURCEPAGE:p.200	SA:Immune to mind-affecting effects/ poison/ disease/ death effects/ paralysis/ stunning/ sleep and similar effects	SA:Not subject to critical hits/ nonlethal damage/ ability damage/ energy drain/ or death from massive damage	SA:Destroyed when reduced to 0 hp, cannot be raised/resurrected	DEFINE:LOCK.CON|10	DEFINE:LOCK.INT|10																PREALIGN:LN,NG,TN,NE,CN												BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*10	BONUS:HP|CURRENTMAX|(SIZE-6)MAX0*10	BONUS:MOVEMULT|TYPE.Walk,TYPE.Climb,TYPE.Swim,TYPE.Burrow|3/4	BONUS:MOVEMULT|TYPE.Fly|1/2									BONUS:STAT|STR|10	BONUS:STAT|DEX|-4	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-10	ADD:FEAT(MCBreathWeapon,MCSlow,MCHaste)1			TYPE:Construct	VISION:Darkvision (60')
+Magical Construct (Stone)								VISIBLE:NO										TEMPLATE:Magical Construct (<12)																																																																																											BONUS:COMBAT|AC|8|TYPE=NaturalArmor.STACK																																																																								HD:1-10:CR:3	HD:11-100:CR:2
+Magical Construct (Metal)								VISIBLE:NO										TEMPLATE:Magical Construct (<12)																																																																																											BONUS:COMBAT|AC|12|TYPE=NaturalArmor.STACK																																																																							HD:1-10:CR:4	HD:11-100:CR:3
+#Can't be applied if the creature has d12 HD
+Magical Construct (<12)					HITDIE:10			VISIBLE:NO
+#!PREHITDICESIZE:12
+
+Good												VISIBLE:YES	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Always affected by spells and abilities as if good, wielded and natural weapons act as if good aligned
+Lawful											VISIBLE:YES	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Always affected by spells and abilities as if lawful, wielded and natural weapons act as if lawful aligned
+Chaotic											VISIBLE:YES	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Always affected by spells and abilities as if chaotic, wielded and natural weapons act as if chaotic aligned
+Evil												VISIBLE:YES	REMOVEABLE:NO																							SOURCEPAGE:p.189	SA:Always affected by spells and abilities as if evil, wielded and natural weapons act as if evil aligned
+
+#Fire												VISIBLE:YES	REMOVEABLE:NO							TEMPLATE:Vulnerability (Cold)																		SOURCEPAGE:p.189	SA:Immunity to Fire
+#Cold												VISIBLE:YES	REMOVEABLE:NO							TEMPLATE:Vulnerability (Fire)																		SOURCEPAGE:p.189	SA:Immunity to Cold
+Air												VISIBLE:YES	REMOVEABLE:NO																							SOURCEPAGE:p.189
+#Earth											VISIBLE:YES	REMOVEABLE:NO																													SOURCEPAGE:p.189

@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue|SOURCESHORT:QuintRogue|SOURCEWEB:http://mongoosepublishing.com
+
+# Skill Name			Key Stat	Untrained?		Type					Source Page
+Craft (Poison)			KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Craft		SOURCEPAGE:p.
+Knowledge (Antiques)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.39
+Knowledge (Court Protocol)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.21
+Knowledge (Crime Lore)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.39
+Knowledge (Law)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.39
+Knowledge (Streetwise)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.39
+Knowledge (Traps)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.39
+Knowledge (Underearth)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.26

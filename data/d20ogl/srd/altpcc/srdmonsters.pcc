@@ -1,0 +1,51 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $
+CAMPAIGN:3.0 SRD Monsters
+RANK:3
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:SRD
+TYPE:SRD.Partial
+SOURCELONG:SRD Monsters
+SOURCESHORT:SRDMonster
+SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Sigurdur H. Olafsson)
+
+INFOTEXT:SRD Monsters
+
+#BIOSET:mmbiosettings.lst
+CLASS:@/d20ogl/srd/srd_classes_dragon.lst
+CLASS:@/d20ogl/srd/srd_classes_creature_specific.lst
+CLASS:@/d20ogl/srd/srd_classes_creature_types.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_wondrousitems.lst|(INCLUDE:Hag Eye (Ring)|Hag Eye (Brooch)|Hag Eye (Amulet)|Heartstone|Phylactery)
+EQUIPMENT:@/d20ogl/srd/srd_equip.lst|(INCLUDE:Camel|Elephant|Giant Eagle|Giant Owl|Griffon|Hippogriff|Nightmare|Pegasus|Spider Eater|Worg)
+FEAT:@/d20ogl/srd/srd_feats.lst|(INCLUDE:Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)
+LANGUAGE:@/d20ogl/srd/srd_languages.lst|(INCLUDE:Drow)
+RACE:@/d20ogl/srd/srd_races__animals.lst
+RACE:@/d20ogl/srd/srd_races__dragons.lst
+RACE:@/d20ogl/srd/srd_races__vermin.lst
+RACE:@/d20ogl/srd/srd_races_abc.lst
+RACE:@/d20ogl/srd/srd_races_d.lst
+RACE:@/d20ogl/srd/srd_races_ef.lst
+RACE:@/d20ogl/srd/srd_races_gh.lst
+RACE:@/d20ogl/srd/srd_races_ikl.lst
+RACE:@/d20ogl/srd/srd_races_mn.lst
+RACE:@/d20ogl/srd/srd_races_opr.lst
+RACE:@/d20ogl/srd/srd_races_st.lst
+RACE:@/d20ogl/srd/srd_races_uvw.lst
+RACE:@/d20ogl/srd/srd_races_xyz.lst
+
+SKILL:@/d20ogl/srd/srd_skills.lst|(INCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
+TEMPLATE:@/d20ogl/srd/srd_templates_creatures.lst
+TEMPLATE:@/d20ogl/srd/srd_templates.lst
+TEMPLATE:@/d20ogl/srd/srd_templates_types.lst
+WEAPONPROF:@/d20ogl/srd/srd_weapprofs_natural.lst
+
+# Mounts also in the PHB
+EQUIPMENT:@/d20ogl/srd/srd_equip.lst|(INCLUDE:Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
+
+# For the Evasion and Improved Evasion pseudo-feats
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion)

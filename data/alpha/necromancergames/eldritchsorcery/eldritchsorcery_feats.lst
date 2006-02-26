@@ -1,0 +1,42 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 12:08:11 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Eldritch Sorcery|SOURCESHORT:EldSor|SOURCEWEB:http://www.necromancergames.com/
+# Original Entry by: Tir Gwaith
+
+# Guessing on the Arcane/Divine Affinity feat CHOOSEr
+# Domain Affinity not enabled
+# Not sure how to implement Lunar Magic and Seasonal Magic.
+# Anchored Spell - variable spell level slot increase, put in minimum.
+
+###Block: General Feats
+# Feat Name				Type			Required Class							Required Deity	Required Feat				Req. Spell Type		Required Stat	Required Text								Var. Min. Value					Description																	Stackable?	Multiple?	Choose									Caster level					Save checks bonus			BONUS:DC				Bonus to skill				Modify VAR										Source Page
+Arcane Affinity			TYPE:General																																											DESC:You have a knack for learning the mysteries of arcane magic.								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLCLASSES|TYPE.Arcane																																					SOURCEPAGE:p.7
+Atheist				TYPE:General										PREDEITY:N																																DESC:You disbelieve the existence of all gods to the point that divine magic has little effect on you.																																																	SOURCEPAGE:p.7
+Augment Undead			TYPE:General													PREFEAT:1,Spell Focus(Necromancy)																									DESC:Your created or animated undead are more powerful than normal																																																							SOURCEPAGE:p.7
+Ceremonial Turning		TYPE:General													PREFEAT:1,Turn Undead,Rebuke Undead																									DESC:You and several others can combine your turning attempts for greater effect.																																																					SOURCEPAGE:p.7
+Disciplined				TYPE:General																																											DESC:You have a strong mind and determination.  You are difficult to distract from your task.																								BONUS:CHECKS|Willpower|1						BONUS:SKILL|Concentration|2													SOURCEPAGE:p.7
+Divine Affinity			TYPE:General																																											DESC:You have a knack for learning the mysteries of divine magic.								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLCLASSES|TYPE.Divine																																					SOURCEPAGE:p.7
+Divine Focus			TYPE:General													PREFEAT:1,Turn Undead							PRESTAT:1,CHA=13																		DESC:You are in tune with your deity and can affect undead more easily.																																												BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|2|TYPE=Sacred	SOURCEPAGE:p.8
+Domain Affinity			TYPE:General										PREDEITY:Y															PRETEXT:Must have alignment within one step of your deity.								DESC:You are in tune with the aspects of your patron deity, even if you are not a divine spellcaster.																																																		SOURCEPAGE:p.8
+Elemental Focus			TYPE:General																																											DESC:Your spells with the chosen elemental descriptor are more potent than usual.					STACK:NO	MULT:YES	CHOOSE:Air|Earth|Fire|Water|1																		BONUS:DC|DESCRIPTOR.LIST|2																		SOURCEPAGE:p.8
+Essence Magic			TYPE:General													PREFEAT:1,Eschew Materials																										DESC:You can cast spells without relying on material components.																																																								SOURCEPAGE:p.8
+Herbalist				TYPE:General																																											DESC:You easily identify rare herbs used in healing and potion creation.																																					BONUS:SKILL|Heal,Craft (Alchemy)|2												SOURCEPAGE:p.9
+Lunar Magic				TYPE:General	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																																		DESC:Your magic is enhanced during one phase of the moon											MULT:YES	CHOOSE:NUMCHOICES=1|New|First Quarter|Full|Last Quarter|1																																			SOURCEPAGE:p.9
+Maximize Undead Creation	TYPE:General													PREFEAT:1,Spell Focus(Necromancy)																									DESC:Your animated or created undead have maximum hit points.																																																								SOURCEPAGE:p.9
+Power Turning			TYPE:General													PREFEAT:1,Turn Undead							PRESTAT:1,CHA=13																		DESC:You can make exceptionally powerful turning checks.																																																									SOURCEPAGE:p.9
+Scorn of the Death God		TYPE:General													PREFEAT:1,Turn Undead,Rebuke Undead	PRESPELLTYPE:Divine,1,4	PRESTAT:1,CHA=13	PRETEXT:Worshipper of the god of death											DESC:You can channel energy to turn or rebuke creatures that have cheated death.																																																					SOURCEPAGE:p.9
+Seasonal Magic			TYPE:General	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																																		DESC:Your magic is enhanced during one season of the year											MULT:YES	CHOOSE:NUMCHOICES=1|Spring|Summer|Fall|Winter|1																																					SOURCEPAGE:p.9
+Seductive Magic			TYPE:General													PREFEAT:1,Spell Focus(Enchantment)					PRESTAT:1,CHA=15																		DESC:You use your charming ways to make your compulsion spells harder to resist																			BONUS:CASTERLEVEL|SUBSCHOOL.Compulsion|2																												SOURCEPAGE:p.9
+Shape Master			TYPE:General													PREFEAT:1,Natural Spell																				PREVARGTEQ:WildShapeElementalTimes,1	DESC:Your training allows you to wild shape faster than usual																																																								SOURCEPAGE:p.9
+
+###Block:Item Creation Feats
+# Feat Name			Type			Required Class							Required Feat				Required Skill			Req. Spell Type				Required Stat		Description																											Source Page
+Craft Magic Candle	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic candles that hold spells until triggered [by burning out on their own or being snuffed out].  Magic candles function similar to potions.	SOURCEPAGE:p.10
+Craft Magic Talisman	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic fetishes [also called charms] that hold spells until triggered.  A talisman is a single use magic item and functions like a scroll.		SOURCEPAGE:p.10
+Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:Arcane|Divine,1,4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.													SOURCEPAGE:p.10
+
+###Block: Metamagic Feats
+# Feat Name		Required Class							Req. Casting Type		Required Spell School		Req. Spell Type		Required Stat	Description													Add Spell Lvl	Source Page
+Anchored Spell										PRESPELLCAST:MEMORIZE=Y													DESC:You can cast spells without material components by scribing them on your body.	ADDSPELLLEVEL:1	SOURCEPAGE:p.10
+Colorize Spell														PRESPELLSCHOOL:Illusion,1,1					PRESTAT:1,INT=13	DESC:You can add color to or change the colors of any visible spell effect.		ADDSPELLLEVEL:0	SOURCEPAGE:p.10
+Sacramental Magic																			PRESPELLTYPE:Divine,1,1				DESC:You imbue your damaging spells with divine essence.					ADDSPELLLEVEL:1	SOURCEPAGE:p.11
+Sympathetic Magic	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																	DESC:Your spells are harder to resist if you have a bit of the target's substance.	ADDSPELLLEVEL:0	SOURCEPAGE:p.11

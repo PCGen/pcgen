@@ -1,0 +1,34 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $
+CAMPAIGN:Mongoose - Encyclopaedia Divine - Fey Magic
+GAMEMODE:3e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Mongoose.Supplement.Encyclopaedia Divine
+RANK:9
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic
+SOURCESHORT:Fey Magic
+SOURCEWEB:http://mongoosepublishing.com
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
+GENRE:Fantasy
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from Encyclopaedia Divine - Fey Magic Copyright 2002, Mongoose Publishing
+COPYRIGHT:PCGen dataset conversion for Encyclopaedia Divine - Fey Magic, Copyright 2004, PCGen Data Team (including, but not limited to: Darkon Turas, Andrew (Tir Gwaith) McDougal)
+
+CLASS:fey_classes.lst
+DOMAIN:fey_domains.lst
+EQUIPMENT:fey_equip_armor.lst
+EQUIPMENT:fey_equip_weap.lst
+EQUIPMENT:fey_equip_wondrous_items.lst
+EQUIPMENT:fey_equip_artifacts.lst
+EQUIPMOD:fey_equip_mod.lst
+FEAT:fey_feats.lst
+SKILL:fey_skills.lst
+SPELL:fey_spells.lst
+TEMPLATE:fey_templates.lst
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt

@@ -1,0 +1,95 @@
+# CVS $Revision: 1.2 $ $Author: dmcmill $ -- Sat Nov 22 22:19:20 2003 -- reformated by prettylst.pl v1.31 (build 327)
+#Original Entry By: Paul Grosse 11/13/03
+SOURCELONG:Bastion Press - Alchemy and Herbalists|SOURCESHORT:AlchemyHrb|SOURCEWEB:www.bastionpress.com
+
+# Herb Name			Type			Cost		Weight		Source Page
+# Equipment Name			Type			Cost		Weight	Source Page
+Acacia (dried flowers)		TYPE:Goods.Herb	COST:4	WT:.0625	SOURCEPAGE:p.31
+Acacia (dried leaves)		TYPE:Goods.Herb	COST:4	WT:.0625	SOURCEPAGE:p.31
+Acacia (sap)			TYPE:Goods.Herb	COST:6	WT:.0625	SOURCEPAGE:p.31
+Acacia (chips)			TYPE:Goods.Herb	COST:10	WT:1		SOURCEPAGE:p.31
+Aconite (sprig)			TYPE:Goods.Herb	COST:.5	WT:0		SOURCEPAGE:p.31
+Aconite (syrup)			TYPE:Goods.Herb	COST:1	WT:0		SOURCEPAGE:p.31
+Agrimony				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.31
+Aletris				TYPE:Goods.Herb	COST:2	WT:.0625	SOURCEPAGE:p.31
+Amaranth				TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.31
+Balm of Gilead (root)		TYPE:Goods.Herb	COST:4	WT:.0625	SOURCEPAGE:p.32
+Balm of Gilead (bark)		TYPE:Goods.Herb	COST:4	WT:.0625	SOURCEPAGE:p.32
+Balm of Gilead (bulb)		TYPE:Goods.Herb	COST:4	WT:0		SOURCEPAGE:p.32
+Balm of Gilead (seed)		TYPE:Goods.Herb	COST:4	WT:0		SOURCEPAGE:p.32
+Balm of Gilead (resin)		TYPE:Goods.Herb	COST:4	WT:.0625	SOURCEPAGE:p.32
+Barley				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.32
+Basil					TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.32
+Belladonna				TYPE:Goods.Herb	COST:5	WT:.0625	SOURCEPAGE:p.32
+Betony				TYPE:Goods.Herb	COST:.05	WT:0		SOURCEPAGE:p.32
+Blackthorn (berries)		TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.32
+Blackthorn (bark)			TYPE:Goods.Herb	COST:.5	WT:.125	SOURCEPAGE:p.32
+Blackthorn (stick)		TYPE:Goods.Herb	COST:1	WT:.125	SOURCEPAGE:p.32
+Borage				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.33
+Breeam				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.33
+Byrony (9 berries)		TYPE:Goods.Herb	COST:.5	WT:0		SOURCEPAGE:p.33
+Bucha					TYPE:Goods.Herb	COST:5	WT:.0625	SOURCEPAGE:p.33
+Caranator (dried root)		TYPE:Goods.Herb	COST:12	WT:.0625	SOURCEPAGE:p.34
+Caranator (whole root)		TYPE:Goods.Herb	COST:20	WT:.0625	SOURCEPAGE:p.34
+Cloth of Gold			TYPE:Goods.Herb	COST:5	WT:.0625	SOURCEPAGE:p.34
+Coriander				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.34
+Cowslip				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.34
+Damiana				TYPE:Goods.Herb	COST:6	WT:.0625	SOURCEPAGE:p.34
+Dittany (of Crete)		TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.35
+Dobhran				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.35
+Dragon's Blood (liquid resin)	TYPE:Goods.Herb	COST:6	WT:.0625	SOURCEPAGE:p.35
+Dragon's Blood (dried resin)	TYPE:Goods.Herb	COST:6	WT:.0625	SOURCEPAGE:p.35
+Dragon's Blood (dried bark)	TYPE:Goods.Herb	COST:6	WT:.125	SOURCEPAGE:p.35
+Dryad's Tears (berries)		TYPE:Goods.Herb	COST:.5	WT:1		SOURCEPAGE:p.35
+Dryad's Tears (leaves)		TYPE:Goods.Herb	COST:.5	WT:.25	SOURCEPAGE:p.35
+Dryad's Tears (wine)		TYPE:Goods.Herb	COST:1	WT:1		SOURCEPAGE:p.35
+Echinarea				TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.35
+Euphorbia (milk)			TYPE:Goods.Herb	COST:1.5	WT:.0625	SOURCEPAGE:p.36
+Euphorbia (leaves)		TYPE:Goods.Herb	COST:1.5	WT:.125	SOURCEPAGE:p.36
+Eyebright				TYPE:Goods.Herb	COST:.0	WT:.0625	SOURCEPAGE:p.36
+Firesnap				TYPE:Goods.Herb	COST:3	WT:.0625	SOURCEPAGE:p.36
+Fool's Weed				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.36
+Galangal				TYPE:Goods.Herb	COST:3	WT:.0625	SOURCEPAGE:p.36
+Hawthorn (dried blossoms)	TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.37
+Hawthorn (twigs)			TYPE:Goods.Herb	COST:.05	WT:.125	SOURCEPAGE:p.37
+Hemlock (juice)			TYPE:Goods.Herb	COST:1.5	WT:.0625	SOURCEPAGE:p.37
+Hemlock (dried leaves)		TYPE:Goods.Herb	COST:1.5	WT:.25	SOURCEPAGE:p.37
+Holly					TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.37
+Hops					TYPE:Goods.Herb	COST:.01	WT:0		SOURCEPAGE:p.37
+Hysop (leaves)			TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.37
+Hysop (stalks)			TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.37
+Hysop (flowers)			TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.37
+Juniper (juice)			TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.38
+Juniper (berries)			TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.38
+Juniper (bark)			TYPE:Goods.Herb	COST:.05	WT:.125	SOURCEPAGE:p.38
+Karan (dried resin)		TYPE:Goods.Herb	COST:2	WT:.125	SOURCEPAGE:p.38
+Karan (dried wood)		TYPE:Goods.Herb	COST:2	WT:.25	SOURCEPAGE:p.38
+Larkspur (flowers)		TYPE:Goods.Herb	COST:.7	WT:.0625	SOURCEPAGE:p.38
+Larkspur (seeds)			TYPE:Goods.Herb	COST:.7	WT:0		SOURCEPAGE:p.38
+Magirosa (rosebud)		TYPE:Goods.Herb	COST:15	WT:0		SOURCEPAGE:p.38
+Magirosa (petal)			TYPE:Goods.Herb	COST:1	WT:0		SOURCEPAGE:p.38
+Magirosa (dried thorns)		TYPE:Goods.Herb	COST:1	WT:.0625	SOURCEPAGE:p.38
+Maguey				TYPE:Goods.Herb	COST:5	WT:.0625	SOURCEPAGE:p.38
+Mandrake				TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.39
+Mantle Sage				TYPE:Goods.Herb	COST:2	WT:.0625	SOURCEPAGE:p.39
+Mastic (leaves)			TYPE:Goods.Herb	COST:2	WT:0		SOURCEPAGE:p.39
+Mastic (oil)			TYPE:Goods.Herb	COST:2	WT:.0625	SOURCEPAGE:p.39
+Mistletoe				TYPE:Goods.Herb	COST:.1	WT:.0625	SOURCEPAGE:p.39
+Mugwort				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.39
+Mullien				TYPE:Goods.Herb	COST:.3	WT:.0625	SOURCEPAGE:p.40
+Olibanus (Frankincense)		TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.40
+Orris					TYPE:Goods.Herb	COST:2	WT:.0625	SOURCEPAGE:p.40
+Rowan					TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.40
+Sukake (Citron)			TYPE:Goods.Herb	COST:50	WT:0		SOURCEPAGE:p.40
+Sweetspire				TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.41
+Tallquill (8 stalks)		TYPE:Goods.Herb	COST:.04	WT:0		SOURCEPAGE:p.41
+Tallquill (ground seeds)	TYPE:Goods.Herb	COST:.04	WT:.0625	SOURCEPAGE:p.41
+Tallquill (paper)			TYPE:Goods.Herb	COST:.2	WT:.0625	SOURCEPAGE:p.41
+Tamarisk				TYPE:Goods.Herb	COST:5	WT:1		SOURCEPAGE:p.41
+Tumeric (oil)			TYPE:Goods.Herb	COST:2	WT:.0625	SOURCEPAGE:p.41
+Tumeric (leaves)			TYPE:Goods.Herb	COST:2	WT:.125	SOURCEPAGE:p.41
+Valerian				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.41
+Vervain				TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.42
+Wormwood				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.42
+Yarrow				TYPE:Goods.Herb	COST:.05	WT:.0625	SOURCEPAGE:p.42
+Yucca					TYPE:Goods.Herb	COST:.5	WT:.0625	SOURCEPAGE:p.43

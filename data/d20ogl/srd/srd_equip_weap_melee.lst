@@ -1,0 +1,104 @@
+# CVS $Revision: 1.13 $ $Author: eddyanthony $ -- Mon Feb 28 13:29:40 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# Hammer (Gnome Hooked)    -- REMOVED - NOT in SRD.
+# Urgrosh (Dwarven)    -- REMOVED - NOT in SRD.
+
+# Now need to take Armor Spikes/Shield spikes for weight and cost.
+#Armor Extra
+# Equipment Name		Output Name				Required Proficiency				Type												Alternative Type				Cost		Weight	Slot Needed	Var. Min. Value			Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier			Alternative Modifier	MODS		Range		Size		Source Page						Weapon prop. bonus					Special Property
+Armor Spikes							PROFICIENCY:Armor Spikes			TYPE:Weapon.Martial.Melee.Standard.Piercing.Unarmed.Accessories								COST:0	WT:0		SLOTS:0						CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL													SOURCEPAGE:SRDEquipmentI.rtf											SPROP:deals extra piercing damage on a successful grapple attack
+#Exotic Melee Weapons
+#TINY ----------------------------------------------------------------------------------------------------------
+Kama (Halfling)		OUTPUTNAME:Kama, Halfling	PROFICIENCY:Kama					TYPE:Weapon.Exotic.Melee.Slashing.Standard.Monk											COST:2	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Kukri									PROFICIENCY:Kukri					TYPE:Weapon.Exotic.Melee.Slashing.Standard.Dagger										COST:8	WT:3									CRITMULT:x2			CRITRANGE:3												DAMAGE:1d4					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Nunchaku (Halfling)	OUTPUTNAME:Nunchaku, Halfling	PROFICIENCY:Nunchaku				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Monk										COST:2	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:WOOD											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Siangham (Halfling)	OUTPUTNAME:Siangham, Halfling	PROFICIENCY:Siangham				TYPE:Weapon.Exotic.Melee.Piercing.Standard.Monk											COST:2	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Kama									PROFICIENCY:Kama					TYPE:Weapon.Exotic.Melee.Slashing.Standard.Monk											COST:2	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Nunchaku								PROFICIENCY:Nunchaku				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Monk										COST:2	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Siangham								PROFICIENCY:Siangham				TYPE:Weapon.Exotic.Melee.Piercing.Standard.Monk											COST:3	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+
+#MEDIUM --------------------------------------------------------------------------------------------------------
+Sword (Bastard)		OUTPUTNAME:Sword, Bastard	PROFICIENCY:Sword (Bastard/[Hands])		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Sword										COST:35	WT:10									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Waraxe (Dwarven)		OUTPUTNAME:Waraxe, Dwarven	PROFICIENCY:Waraxe (Dwarven/[Hands])	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Axe											COST:30	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Axe (Orc Double)		OUTPUTNAME:Axe, Orc Double	PROFICIENCY:Axe (Orc Double)			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Axe				ALTTYPE:Weapon.Melee.Slashing		COST:60	WT:25									CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL			ALTEQMOD:STEEL						SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Chain (Spiked)		OUTPUTNAME:Chain, Spiked	PROFICIENCY:Chain (Spiked)			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Finesseable									COST:25	WT:15									CRITMULT:x2			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Flail (Dire)		OUTPUTNAME:Flail, Dire		PROFICIENCY:Flail (Dire)			TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Flail			ALTTYPE:Weapon.Melee.Bludgeoning	COST:90	WT:20									CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL			ALTEQMOD:STEEL						SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Sword (Two-Bladed)	OUTPUTNAME:Sword, Two-Bladed	PROFICIENCY:Sword (Two-Bladed)		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Sword			ALTTYPE:Weapon.Melee.Slashing		COST:100	WT:30									CRITMULT:x2			CRITRANGE:2			ALTCRITICAL:x2		ALTCRITRANGE:2			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL			ALTEQMOD:STEEL						SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+
+#Martial Melee Weapons
+#SMALL ----------------------------------------------------------------------------------------------------------
+Axe (Throwing)		OUTPUTNAME:Axe, Throwing	PROFICIENCY:Axe (Throwing)			TYPE:Weapon.Martial.Melee.Ranged.Standard.Slashing.Thrown.Axe								COST:8	WT:4									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL									RANGE:10	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Hammer (Light)		OUTPUTNAME:Hammer, Light	PROFICIENCY:Hammer (Light)			TYPE:Weapon.Martial.Melee.Ranged.Standard.Bludgeoning.Thrown.Hammer							COST:1	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL									RANGE:20	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Handaxe								PROFICIENCY:Handaxe				TYPE:Weapon.Martial.Melee.Standard.Slashing.Axe											COST:6	WT:5									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Lance (Light)		OUTPUTNAME:Lance, Light		PROFICIENCY:Lance					TYPE:Weapon.Martial.Melee.Standard.Piercing.Lance										COST:6	WT:5									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Pick (Light)		OUTPUTNAME:Pick, Light		PROFICIENCY:Pick					TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick										COST:4	WT:4									CRITMULT:x4			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Sap									PROFICIENCY:Sap					TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Subdual									COST:1	WT:3									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6																	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Sword (Short)		OUTPUTNAME:Sword, Short		PROFICIENCY:Sword (Short)			TYPE:Weapon.Martial.Melee.Standard.Piercing.Sword										COST:10	WT:3									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+
+
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Battleaxe								PROFICIENCY:Battleaxe				TYPE:Weapon.Martial.Melee.Standard.Slashing.Axe											COST:10	WT:7									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Flail (Light)		OUTPUTNAME:Flail, Light		PROFICIENCY:Flail (Light)			TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Flail										COST:8	WT:5									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Lance (Heavy)		OUTPUTNAME:Lance, Heavy		PROFICIENCY:Lance					TYPE:Weapon.Martial.Melee.Standard.Piercing.Lance										COST:10	WT:10									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Pick (Heavy)		OUTPUTNAME:Pick, Heavy		PROFICIENCY:Pick					TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick										COST:8	WT:6									CRITMULT:x4			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Rapier								PROFICIENCY:Rapier				TYPE:Weapon.Martial.Melee.Standard.Piercing.Finesseable.Sword								COST:20	WT:3									CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Scimitar								PROFICIENCY:Scimitar				TYPE:Weapon.Martial.Melee.Standard.Slashing.Sword										COST:15	WT:4									CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Longsword								PROFICIENCY:Longsword				TYPE:Weapon.Martial.Melee.Standard.Slashing.Sword										COST:15	WT:4									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Trident								PROFICIENCY:Trident				TYPE:Weapon.Martial.Melee.Ranged.Standard.Piercing.Thrown.Trident								COST:15	WT:5									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL									RANGE:10	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Warhammer								PROFICIENCY:Warhammer				TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Hammer										COST:12	WT:8									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Falchion								PROFICIENCY:Falchion				TYPE:Weapon.Martial.Melee.Standard.Slashing.Sword										COST:75	WT:16									CRITMULT:x2			CRITRANGE:3												DAMAGE:2d4					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Flail (Heavy)		OUTPUTNAME:Flail, [NAME]	PROFICIENCY:Flail					TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Flail										COST:15	WT:20									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Glaive								PROFICIENCY:Glaive				TYPE:Weapon.Martial.Melee.Standard.Slashing.Polearm										COST:8	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Greataxe								PROFICIENCY:Greataxe				TYPE:Weapon.Martial.Melee.Standard.Slashing.Axe											COST:20	WT:20									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d12					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Greatclub								PROFICIENCY:Greatclub				TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Club										COST:5	WT:10									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d10					EQMOD:WOOD											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Guisarme								PROFICIENCY:Guisarme				TYPE:Weapon.Martial.Melee.Standard.Slashing.Polearm										COST:9	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Halberd								PROFICIENCY:Halberd				TYPE:Weapon.Martial.Melee.Standard.Piercing.Slashing.Polearm								COST:10	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Longspear								PROFICIENCY:Longspear				TYPE:Weapon.Martial.Melee.Standard.Piercing.Spear										COST:5	WT:9									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Ranseur								PROFICIENCY:Ranseur				TYPE:Weapon.Martial.Melee.Standard.Piercing.Polearm										COST:10	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Scythe								PROFICIENCY:Scythe				TYPE:Weapon.Martial.Melee.Standard.Piercing.Slashing										COST:18	WT:12									CRITMULT:x4			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Greatsword								PROFICIENCY:Greatsword				TYPE:Weapon.Martial.Melee.Standard.Slashing.Sword										COST:50	WT:15									CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+
+#Simple Weapons Melee
+#UNARMED ----------------------------------------------------------------------------------------------------------
+Unarmed Strike							PROFICIENCY:Unarmed Strike			TYPE:Weapon.Unarmed.Melee.Bludgeoning.Standard.Monk										COST:0	WT:0																										DAMAGE:1d3													MODS:NO			SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Gauntlet								PROFICIENCY:Gauntlet				TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:2	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Gauntlet (Locked)							PROFICIENCY:Gauntlet				TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:8	WT:5									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf											SPROP:+10 vs. disarm
+Shieldbash (Light)						PROFICIENCY:Shieldbash				TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																	SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf											SPROP:Shieldbash attacks are considered to be offhanded attacks
+Shieldbash (Heavy)						PROFICIENCY:Shieldbash				TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4																	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf											SPROP:Shieldbash attacks are considered to be offhanded attacks
+
+#TINY ----------------------------------------------------------------------------------------------------------
+Dagger								PROFICIENCY:Dagger				TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Dagger								COST:2	WT:1									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL									RANGE:10	SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Dagger (Punching)		OUTPUTNAME:Dagger, [NAME]	PROFICIENCY:Dagger (Punching)			TYPE:Weapon.Simple.Melee.Piercing.Standard.Dagger										COST:2	WT:1									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Gauntlet (Spiked)		OUTPUTNAME:Gauntlet, [NAME]	PROFICIENCY:Gauntlet (Spiked)			TYPE:Weapon.Unarmed.Simple.Melee.Piercing.Standard.Gauntlet									COST:5	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL											SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Mace (Light)		OUTPUTNAME:Mace, Light		PROFICIENCY:Mace					TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Mace										COST:5	WT:6									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Sickle								PROFICIENCY:Sickle				TYPE:Weapon.Simple.Melee.Slashing.Standard											COST:6	WT:3									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Club									PROFICIENCY:Club					TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Thrown.Club								COST:0	WT:3									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD									RANGE:10	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Halfspear								PROFICIENCY:Halfspear				TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Spear								COST:1	WT:3									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD									RANGE:20	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Mace (Heavy)		OUTPUTNAME:Mace, [NAME]		PROFICIENCY:Mace (Heavy)			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Mace										COST:12	WT:12									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Morningstar								PROFICIENCY:Morningstar				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Piercing.Mace									COST:8	WT:8									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Quarterstaff							PROFICIENCY:Quarterstaff			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff		ALTTYPE:Weapon.Melee.Bludgeoning	COST:0	WT:4									CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD			ALTEQMOD:WOOD						SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Shortspear								PROFICIENCY:Shortspear				TYPE:Weapon.Simple.Melee.Ranged.Standard.Piercing.Thrown.Spear								COST:2	WT:5									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD									RANGE:20	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+
+#Special
+Flurry of Blows							PROFICIENCY:Unarmed Strike			TYPE:Weapon.Natural.Unarmed.Melee.Bludgeoning.Monk										COST:0	WT:0				PREVARGTEQ:FlurryOfBlows,1																		DAMAGE:1d3													MODS:NO			SIZE:T	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:WEAPON|ATTACKS|1	BONUS:WEAPON|TOHIT|-2
+# This workaround is here until we can get it to work w/o equipment,
+#	or we redo Natural Attacks and Unarmed attacks. - Tir Gwaith
+
+# Asian Weapons from DMG
+Katana								PROFICIENCY:Katana ([Hands])			TYPE:Weapon.Exotic.Melee.Medium.Slashing.Asian.Sword										COST:100	WT:6									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL.MWORKW									SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Kusari-gama								PROFICIENCY:Kusari-gama				TYPE:Weapon.Martial.Melee.Bludgeoning.Slashing.Asian										COST:10	WT:3									CRITMULT:x2																DAMAGE:1d6					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
+Wakizashi								PROFICIENCY:Wakizashi				TYPE:Weapon.Martial.Melee.Slashing.Asian.Sword											COST:0	WT:3									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL.MWORKW									SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf

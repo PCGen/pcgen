@@ -1,0 +1,82 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Wed Jan 26 23:37:50 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Circuits|SOURCESHORT:BNC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Armorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat				Required Skill
+CLASS:Armorer	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:3,Craft (Mechanical),Knowledge (Physical Sciences),Knowledge (Technology)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Armorer	STARTSKILLPTS:4	CSKILL:Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Intimidate|Knowledge (Business)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Repair|Research
+1	SA:Armor Affinity +%|ArmorAffinity		BONUS:VAR|ArmorAffinity|CL/5+1	DEFINE:ArmorAffinity|0
+2	SA:Bug Hunter (Armor) +%|BugHunterArmor	BONUS:VAR|BugHunterArmor|CL/2		DEFINE:BugHunterArmor|0
+3																		ADD:FEAT(TYPE=Armorer)
+6																		ADD:FEAT(TYPE=Armorer)
+7	SA:Man in the Iron Mask
+9																		ADD:FEAT(TYPE=Armorer)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Arsenal	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat					Required Skill
+CLASS:Arsenal	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:3,Craft (Mechanical),Knowledge (Physical Sciences),Knowledge (Technology)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Arsenal	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Repair|Research|Spot
+1	SA:Weapon Affinity +%|WeaponAffinity		BONUS:VAR|WeaponAffinity|CL/5+1								DEFINE:WeaponAffinity|0
+2	SA:Bug Hunter (Firearms) +%|BugHunterFirearms	BONUS:VAR|BugHunterFirearms|CL/2								DEFINE:BugHunterFirearms|0
+3																											ADD:FEAT(TYPE=Arsenal)
+6																											ADD:FEAT(TYPE=Arsenal)
+7	SA:Deadeye													BONUS:SKILL|Craft (Mechanical)|Reputation
+9																											ADD:FEAT(TYPE=Arsenal)
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Combat Engineer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Required Feat	Required Skill
+CLASS:Combat Engineer	PREFEAT:1,Builder	PRESKILL:3,Craft (Chemical),Craft (Structural),Demolitions=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Combat Engineer	STARTSKILLPTS:4	CSKILL:Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Repair|Research|Survival|Swim
+1	SA:Hasty Construction (Combat Engineer) +%d6|HastyConstructionCE	BONUS:VAR|HastyConstructionCE|CL/5+1	DEFINE:HastyConstructionCE|0
+2	SA:Bug Hunter (Structures and Explosives) +%|BugHunterStructure	BONUS:VAR|BugHunterStructure|CL/2		DEFINE:BugHunterStructure|0
+3																								ADD:FEAT(TYPE=CombatEngineer)
+6																								ADD:FEAT(TYPE=CombatEngineer)
+7	SA:Brick House
+9																								ADD:FEAT(TYPE=CombatEngineer)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Gadgeteer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat	Required Skill
+CLASS:Gadgeteer	PREFEAT:1,Builder	PRESKILL:2,TYPE.Craft=6	PRESKILL:1,TYPE.Knowledge=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gadgeteer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Forgery|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|Sleight of Hand
+1	SA:Mother of Invention % points|MotherOfInvention	BONUS:VAR|MotherOfInvention|50						DEFINE:MotherOfInvention|0
+2	SA:Stone Knives and Bear Skins +%|StoneKnives		BONUS:VAR|StoneKnives|CL/2							DEFINE:StoneKnives|0
+3																										ADD:FEAT(TYPE=Gadgeteer)
+5										BONUS:VAR|MotherOfInvention|200
+6																										ADD:FEAT(TYPE=Gadgeteer)
+7	SA:Technobabble													BONUS:SKILL|Bluff,Forgery|CL
+9																										ADD:FEAT(TYPE=Gadgeteer)
+10										BONUS:VAR|MotherOfInvention|250
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Grease Monkey	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Required Feat			Required Skill
+CLASS:Grease Monkey	PREFEAT:1,Combat Driving	PRESKILL:2,Craft (Mechanical),Drive=6	PRESKILL:1,Knowledge (Physical Sciences)=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Grease Monkey	STARTSKILLPTS:4	CSKILL:Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Intimidate|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Repair|Research
+1	SA:Vehicle Affinity +%|VehicleAffinity		BONUS:VAR|VehicleAffinity|CL/5+1	DEFINE:VehicleAffinity|0
+2	SA:Bug Hunter (Vehicles) +%|BugHunterVehicle	BONUS:VAR|BugHunterVehicle|CL/2	DEFINE:BugHunterVehicle|0
+3																				ADD:FEAT(TYPE=GreaseMonkey)
+6																				ADD:FEAT(TYPE=GreaseMonkey)
+7	SA:Juiced
+9																				ADD:FEAT(TYPE=GreaseMonkey)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Inventor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat		Required Skill
+CLASS:Inventor	PREFEAT:1,Educated	PRESKILL:1,TYPE.Craft=6	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Inventor	STARTSKILLPTS:8	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Pilot|Repair|Research
+1	SA:Magnum Opus +%|MagnumOpus		BONUS:VAR|MagnumOpus|CL/5+1							DEFINE:MagnumOpus|0
+2	SA:Bug Hunter (All) +%|BugHunterAll	BONUS:VAR|BugHunterAll|CL/2							DEFINE:BugHunterAll|0
+3																						ADD:FEAT(TYPE=Inventor)
+6																						ADD:FEAT(TYPE=Inventor)
+7	SA:Master Inventor								BONUS:SKILL|TYPE.Craft|Reputation
+9																						ADD:FEAT(TYPE=Inventor)

@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Apr 23 14:29:08 2003 -- reformated by prettylst.pl v1.27 (build 277)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+
+#Potions
+# Equipment Name				Product Identity?	Output Name				Type			Cost		Weight	Source Page
+Potion (Oil of Dragon's Blood)	NAMEISPI:YES	OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:10000	WT:1		SOURCEPAGE:p.65
+Potion (Draconic Might)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1200	WT:1		SOURCEPAGE:p.66

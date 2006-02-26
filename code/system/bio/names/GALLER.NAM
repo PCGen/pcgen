@@ -1,0 +1,85 @@
+#/*****************************************************/
+#/* GALLER.NAM                                        */
+#/* Namnfil f”r namn fr†n Gallien                     */
+#/* av Johan Danforth                                 */
+#/* rader som b”rjar med / „r kommentar-rader         */
+#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/*****************************************************/
+[RULES]
+100	[SYL1]	[SYL2]	[SYL3]
+[FULL]
+[SYL1]
+#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+A
+Ab
+Ac
+Ad
+Af
+Ast
+Al
+Adw
+Adr
+Ar
+B
+Br
+C
+Cr
+D
+Dr
+Ed
+Et
+Er
+El
+F
+Fr
+G
+Gr
+Gal
+Gl
+H
+Hal
+Ib
+Id
+J
+K
+Ka
+Ked
+L
+Lar
+Leg
+M
+Maj
+Mir
+N
+Ol
+Oc
+On
+P
+Pr
+R
+S
+Sl
+T
+Tr
+Ul
+V
+Y
+Yb
+Z
+W
+[SYL2]
+#/* mittstavelser skall b”rja och sluta med en vokal som a,o,u,i,e,y etc... */
+aku
+e
+eli
+eri
+o
+uba
+[SYL3]
+#/* slutstavelser skall b”rja med en konsonant som b,k,t etc... */
+dix
+fax
+fix
+lix
+rix
+stix

@@ -1,0 +1,47 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Mon Jan  9 22:54:42 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+#
+# Spell Name		Classes of caster				School		Type		Components	Casting Time			Range		Target Area					Duration									Save Info		Spell Resistance	Description						Source Page		Item
+Locate Infernal Gateway	CLASSES:Cleric,Sorcerer,Wizard=2	SCHOOL:Divination	TYPE:Arcane	COMPS:V, S	CASTTIME:1 standard action	RANGE:Long	TARGETAREA:Cone-shaped emanation	DURATION:Concentration, up to (CASTERLEVEL*10) min. (D)	SAVEINFO:None	SPELLRES:No		DESC:You can detect an infernal gateway.	SOURCEPAGE:p.96	ITEM:Potion
+
+###Block: mod spells for Circle Walker class
+# Spell Name				Classes of caster
+Animate Rope.MOD				CLASSES:Circle Walker=1
+Cause Fear.MOD				CLASSES:Circle Walker=1
+Disguise Self.MOD				CLASSES:Circle Walker=1
+Ghost Sound.MOD				CLASSES:Circle Walker=1
+Magic Aura.MOD				CLASSES:Circle Walker=1
+Obscuring Mist.MOD			CLASSES:Circle Walker=1
+Silent Image.MOD				CLASSES:Circle Walker=1
+Ventriloquism.MOD				CLASSES:Circle Walker=1
+
+Cat's Grace.MOD				CLASSES:Circle Walker=2
+Darkness.MOD				CLASSES:Circle Walker=2
+Detect Thoughts.MOD			CLASSES:Circle Walker=2
+Hypnotic Pattern.MOD			CLASSES:Circle Walker=2
+Invisibility.MOD				CLASSES:Circle Walker=2
+Minor Image.MOD				CLASSES:Circle Walker=2
+Misdirection.MOD				CLASSES:Circle Walker=2
+Obscure Object.MOD			CLASSES:Circle Walker=2
+Rope Trick.MOD				CLASSES:Circle Walker=2
+
+Dispel Magic.MOD				CLASSES:Circle Walker=3
+Invisibility Sphere.MOD			CLASSES:Circle Walker=3
+Magic Circle against Chaos.MOD	CLASSES:Circle Walker=3
+Magic Circle against Evil.MOD		CLASSES:Circle Walker=3
+Magic Circle against Good.MOD		CLASSES:Circle Walker=3
+Magic Circle against Law.MOD		CLASSES:Circle Walker=3
+Major Image.MOD				CLASSES:Circle Walker=3
+Nondetection.MOD				CLASSES:Circle Walker=3
+Suggestion.MOD				CLASSES:Circle Walker=3
+
+Dimension Door.MOD			CLASSES:Circle Walker=4
+Detect Scrying.MOD			CLASSES:Circle Walker=4
+Invisibility (Greater).MOD		CLASSES:Circle Walker=4
+Hallucinatory Terrain.MOD		CLASSES:Circle Walker=4
+Illusory Wall.MOD				CLASSES:Circle Walker=4
+Polymorph.MOD				CLASSES:Circle Walker=4
+Scrying.MOD					CLASSES:Circle Walker=4
+

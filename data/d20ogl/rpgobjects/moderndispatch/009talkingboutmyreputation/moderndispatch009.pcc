@@ -1,0 +1,26 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 22 04:43:36 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Modern Dispatch - #9 - Talking 'bout my Reputation
+GAMEMODE:Modern
+TYPE:RPGObjects.Modern Dispatch
+RANK:6
+GENRE:Modern
+BOOKTYPE:Magazine
+SETTING:Generic
+SOURCELONG:Modern Dispatch #9 - Talking 'bout my Reputation
+SOURCESHORT:MD09-TBMR
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3993
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Dispatch #9 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast; Author Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:Mutants & Masterminds Copyright 2003, Green Ronin Publishing
+COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #9 Copyright 2006, PCGen Data team, including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+INFOTEXT:Load this with Modern Dispatch #2 - Investigating NPCs
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:moderndispatch009_classes.lst
+FEAT:moderndispatch009_feats.lst

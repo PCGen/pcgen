@@ -1,0 +1,4 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Fri Jun 17 22:50:14 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# Race Name	Favored Class	Skills/Level		Starting Feats	Size		Move			Bonus Languages																																																	Type			Source Page
+Human		FAVCLASS:Any	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	LANGBONUS:Algonquin,Arabic,Athabaskan,Bantu,Caddoan,Creole,Chinese,Danish,Dutch,Egyptian,English,Finnish,French,Gaelic,German,Greek,Haitian,Hebrew,Hieroglyphics,Hindi,Hokan,Indian Sign,Italian,Japanese,Latin,Magyar,Maori,Norwegian,Polish,Portuguese,Romanian,Russian,Siouan,Spanish,Swahili,Swedish,Zulu	TYPE:Humaniod	SOURCEPAGE:p.20

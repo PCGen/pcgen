@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin|SOURCESHORT:Assassin|SOURCEWEB:http//www.mongoosepublishing.com
+# Original Entry by: Mynex
+
+# Equipment Name		Output Name				Required Proficiency		Type									Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Blowgun (Mong)		OUTPUTNAME:Blowgun							TYPE:Weapon.Exotic.Ranged.Piercing.Wooden.Container	CONTAINS:-1|Needle=1	COST:10	WT:2		CRITMULT:x2							DAMAGE:1	RANGE:5	SIZE:M	SOURCEPAGE:p.11,14-15
+Crossbow (Sniper's)	OUTPUTNAME:[NAME] Crossbow	PROFICIENCY:Crossbow (Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Metal.Container	CONTAINS:-1|Bolt=1	COST:335	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.11,14-15

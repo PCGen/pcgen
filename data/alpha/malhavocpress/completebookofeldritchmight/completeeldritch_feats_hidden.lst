@@ -1,0 +1,48 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block: Rituals of Potency
+# Feat Name						Type				Visible		Var. Min. Value					Special Ability										Define			Spells						Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
+Ritual of Potency (Sense Magic)		TYPE:RitualofPotency	VISIBLE:EXPORT																								SPELLS:Class Ability|TIMES=1|Detect Magic			MULT:NO																																				SOURCEPAGE:p.28
+Ritual of Potency (Darksight)			TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),3																										MULT:NO																																VISION:Darkvision|30	SOURCEPAGE:p.28
+Ritual of Potency (The Sparkling Shield)	TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),5																										MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
+Ritual of Potency (Arcane Puissance)	TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),7																								STACK:NO	MULT:YES	CHOOSE:Ability|STR|DEX|CON													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
+Ritual of Potency (Speed of Magic)		TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),9																										MULT:NO													BONUS:MOVEADD|TYPE.Walk|10																			SOURCEPAGE:p.28
+Ritual of Potency (Slice Through Wards)	TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),10	SA:Ignore all magical protections of foes (% times/day)|SliceWards	DEFINE:SliceWards|0										MULT:NO																								BONUS:VAR|SliceWards|cl("Eldritch Warrior")					SOURCEPAGE:p.28
+Ritual of Potency (Destroy Spell)		TYPE:RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+cl("Eldritch Warrior"),11	SA:Dispel Magic with melee weapon strike (1 times/day)																MULT:NO																																				SOURCEPAGE:p.28
+
+###Block: Tattoos of Power
+# Feat Name					Type				Visible	Var. Min. Value				Special Ability					Spells												Multiple?	Combat bonus					Misc bonus					Bonus to skill							Stat bonus					Damage Reduction	Source Page
+Tattoo of Power (Endurance)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),1	SA:Tattoo of Power (Endurance)(Su)															MULT:NO																							BONUS:STAT|CON|2|TYPE=Enhancement				SOURCEPAGE:p.33
+Tattoo of Power (Strength)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),2	SA:Tattoo of Power (Strength)(Su)															MULT:NO																							BONUS:STAT|STR|2|TYPE=Enhancement				SOURCEPAGE:p.33
+Tattoo of Power (Dexterity)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),3	SA:Tattoo of Power (Dexterity)(Su)															MULT:NO																							BONUS:STAT|DEX|2|TYPE=Enhancement				SOURCEPAGE:p.33
+Tattoo of Power (Defense)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),4	SA:Tattoo of Power (Defense)(Su)															MULT:NO	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK																									SOURCEPAGE:p.33
+Tattoo of Power (Silent Shadow)	TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),5	SA:Tattoo of Power (Silent Shadow)(Su)														MULT:NO														BONUS:SKILL|Move Silently,Hide|10|TYPE=Enhancement										SOURCEPAGE:p.33
+Tattoo of Power (Fortification)	TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),6	SA:Tattoo of Power (Fortification)(Su)														MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Disguise Self)	TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),7	SA:Tattoo of Power (Disguise Self)(Su)	SPELLS:Graven One|TIMES=1|CASTERLEVEL=cl("Graven One")|Disguise Self,11+INT	MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Wounding)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),8	SA:Tattoo of Power (Wounding)(Su)															MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Holy)			TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),9	SA:Tattoo of Power (Holy)(Su)																MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Unholy)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),9	SA:Tattoo of Power (Unholy)(Su)															MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Lawful)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),10	SA:Tattoo of Power (Lawful)(Su)															MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Chaotic)		TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),10	SA:Tattoo of Power (Chaotic)(Su)															MULT:NO																																SOURCEPAGE:p.33
+Tattoo of Power (Spell Resistance)	TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),11	SA:Tattoo of Power (Spell Resistance)(Su)														MULT:NO								BONUS:MISC|SR|11+cl("Graven One")																			SOURCEPAGE:p.33
+Tattoo of Power (Damage Reduction)	TYPE:TattooofPower	VISIBLE:NO	PREVARGTEQ:INT+cl("Graven One"),12	SA:Tattoo of Power (Damage Reduction)(Su)														MULT:NO																													DR:10/Magic		SOURCEPAGE:p.33
+
+###Block: Imbue Vibration
+# Feat Name			Type				Visible	Var. Min. Value						Special Ability		Multiple?	Source Page
+Imbue Vibration I		TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),2	SA:Imbue Vibration I	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration II	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),3	SA:Imbue Vibration II	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration III	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),5	SA:Imbue Vibration III	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration IV	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),7	SA:Imbue Vibration IV	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration V		TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),8	SA:Imbue Vibration V	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration VI	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),9	SA:Imbue Vibration VI	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration VII	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),10	SA:Imbue Vibration VII	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration VIII	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),11	SA:Imbue Vibration VIII	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration IX	TYPE:ImbueVibration	VISIBLE:NO	PREVARGTEQ:CHA+cl("Knight of the Chord"),12	SA:Imbue Vibration IX	MULT:NO	SOURCEPAGE:p.35
+
+###Block: Magical Construct Abilities
+# Feat Name		Type						Visible	Special Ability		Source Page
+MCBreathWeapon	TYPE:MagicalConstructAbilities	VISIBLE:NO	SA:Breath Weapon (Su)	SOURCEPAGE:p.200
+MCSlow		TYPE:MagicalConstructAbilities	VISIBLE:NO	SA:Slow (Su)		SOURCEPAGE:p.200
+MCHaste		TYPE:MagicalConstructAbilities	VISIBLE:NO	SA:Haste (Su)		SOURCEPAGE:p.200

@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Jan 30 22:55:37 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+# Feat Name			Output Name			Type			Required Class			Required Skill			Description																				Add Spell Lvl	Source Page
+Inscribe Magical Tattoo					TYPE:ItemCreation	PRECLASS:1,Spellcaster=3	PRESKILL:1,Craft (Tattoo)=1	DESC:Infuse mundane tattoos with powerful magic, allowing the wearer of the tattoo to cast spells and access magical effects.				SOURCEPAGE:p.198
+Chain Spell (RR)		OUTPUTNAME:Chain Spell	TYPE:Metamagic											DESC:Ray or Cone spells can be used as a Ray that then divides to new targets at a lesser strength (repeats).			ADDSPELLLEVEL:3	SOURCEPAGE:p.25
+Hide Spell							TYPE:Metamagic											DESC:Effects of spell are silent and invisible.														ADDSPELLLEVEL:2	SOURCEPAGE:p.25

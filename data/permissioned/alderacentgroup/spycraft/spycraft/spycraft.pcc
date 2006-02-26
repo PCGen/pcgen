@@ -1,0 +1,51 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Thu Jun 10 06:35:40 2004 -- reformated by prettylst.pl v1.32 (build 353)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+CAMPAIGN:Spycraft Espionage Handbook
+GAMEMODE:Spycraft
+TYPE:Alderac Entertainment Group.Spycraft.Core Rules
+RANK:1
+SOURCELONG:AEG Spycraft
+SOURCESHORT:Spycraft
+SOURCEWEB:http://www.spycraftrpg.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for AEG Copyright 2003-2005, PCgen Data Team including, but not limited to, Eddy Anthony, Bryan McRoberts, and Andrew (Tir Gwaith) McDougall.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:help_spycraft.html
+
+BIOSET:spycraft_biosettings.lst
+CLASS:spycraft_classes.lst
+RACE:spycraft_departments.lst
+FEAT:spycraft_feats.lst
+FEAT:spycraft_feats_hidden.lst
+LANGUAGE:spycraft_languages.lst
+SKILL:spycraft_skills.lst
+SKILL:spycraft_skills_languages.lst
+TEMPLATE:spycraft_templates.lst
+WEAPONPROF:spycraft_weaponprofs.lst
+
+EQUIPMENT:spycraft_gadgets.lst
+EQUIPMENT:spycraft_gear_ammunition.lst
+EQUIPMENT:spycraft_gear_exotic_weapons.lst
+EQUIPMENT:spycraft_gear_firearms.lst
+EQUIPMENT:spycraft_gear_hurled_weapons.lst
+EQUIPMENT:spycraft_gear_melee_weapons.lst
+EQUIPMENT:spycraft_gear_other.lst
+EQUIPMENT:spycraft_gear_protective.lst
+EQUIPMENT:spycraft_gear_tactical.lst
+
+EQUIPMOD:spycraft_gadget_mods.lst
+
+EQUIPMENT:spycraft_vehicles.lst
+EQUIPMOD:spycraft_vehicle_mods.lst
+
+HELP:data/permissioned/alderacentgroup/spycraft/spycraft/help_spycraft.html
+
+#
+# End
+#

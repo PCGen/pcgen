@@ -1,0 +1,60 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Mummy Lord	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy]
+STAT:STR=12|DEX=12|INT=12|WIS=16|CHA=13
+RACE:Mummy	!PRERACE:%
+NAME:Mummy Lord
+ALIGN:LE
+SKILL:Listen			RANK:11
+SKILL:Move Silently		RANK:10
+SKILL:Spot				RANK:11
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+CLASS:Cleric	LEVEL:10
+DEITY:None	DOMAIN:Death|Protection
+SKILL:Knowledge (Religion)	RANK:5
+SKILL:Concentration		RANK:5
+FEAT:Combat Casting
+FEAT:Weapon Focus (Slam)
+FEAT:Improved Critical (Slam)
+GEAR:Half-Plate					SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
+GEAR:Cloak of Resistance +2			LOCATION:Equipped
+GEAR:Ring (Energy Resistance/Fire/Minor)	LOCATION:Equipped
+GEAR:Brooch of Shielding			LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic=2|Guidance|Read Magic|Resistance|Virtue|Bane|Command|Deathwatch|Divine Favor|Doom|Sanctuary|Shield of Faith|Bull's Strength|Death Knell|Hold Person|Resist Energy|Silence|Spiritual Weapon|Animate Dead|Deeper Darkness|Dispel Magic|Invisibility Purge|Searing Light|Air Walk|Dismissal|Divine Power|Giant Vermin|Spell Immunity|Insect Plague|Slay Living|Spell Resistance|Symbol of Pain
+
+STARTPACK:Nightmare (Cauchemar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nightmare]
+STAT:STR=15|DEX=12|CON=14|INT=14|WIS=10|CHA=10
+TEMPLATE:Default Cauchemar Nightmare
+RACE:Nightmare	!PRERACE:%
+NAME:Nightmare, Cauchemar
+ALIGN:NE
+SKILL:Concentration		RANK:9
+SKILL:Intimidate			RANK:9
+SKILL:Knowledge (The Planes)	RANK:9
+SKILL:Listen			RANK:9
+SKILL:Move Silently		RANK:9
+SKILL:Search			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Survival			RANK:9
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Run
+CLASS:Outsider	LEVEL:9
+SKILL:Bluff				RANK:18
+SKILL:Knowledge (Arcana)	RANK:18
+SKILL:Knowledge (The Planes)	RANK:9
+SKILL:Concentration		RANK:9
+SKILL:Intimidate			RANK:9
+SKILL:Listen			RANK:9
+SKILL:Move Silently		RANK:9
+SKILL:Search			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Survival			RANK:9
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Track

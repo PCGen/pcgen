@@ -1,0 +1,19 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Sep  6 13:17:21 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia|SOURCESHORT:Vlad|SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+# Original Entry by: Jerril
+
+
+#NOTES, ISSUES (jerril 2003-08-01):
+#Behead:
+#         Behead requires Weapon Focus in an edged weapon.
+#         Currently PCGen can support weapon focus in a specific weapon,
+#         or any kind of weapon focus. Weapon types are not yet supported.
+#         I'm leaving this as requiring a generic weapon focus untill the code changes.
+
+
+
+# Feat Name			Type			Req. Att.	Required Feat									Required Skill	Description																											Automaticaly Gained Weapon Prof.	Weapon prof. bonus					Source Page
+Amputate			TYPE:General														PRESKILL:1,Heal=8	DESC:This is the brutal but often necessary task of removing a shattered or sevearly injured limb either because it is ruined or to prevent the onset of gangrene.															SOURCEPAGE:p.33
+Behead			TYPE:General	PREATT:4	PREFEAT:1,Power Attack	PREFEAT:1,Weapon Focus(TYPE.Slashing)				DESC:See Text																																								SOURCEPAGE:p.33
+Firearms Proficiency	TYPE:General																	DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE.Arquebuse	BONUS:WEAPONPROF=Cannon|TOHIT|-2|GunneryPenalty	SOURCEPAGE:p.33
+Gunnery			TYPE:General																	DESC:The character is trained in the use of field cannon for sieges.																	AUTO:WEAPONPROF|TYPE.Cannon		BONUS:WEAPONPROF=Cannon|TOHIT|0|GunneryPenalty	SOURCEPAGE:p.33

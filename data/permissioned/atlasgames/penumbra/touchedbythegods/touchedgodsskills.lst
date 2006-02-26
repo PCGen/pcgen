@@ -1,0 +1,14 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 26 23:55:41 2003 -- reformated by prettylst.pl v1.25 (build 257)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods|SOURCESHORT:TouchbtG|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Skill Name				Key Stat	Untrained?		Type					Required Feat			Source Page
+Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft							SOURCEPAGE:p.
+Craft (Jeweler)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Art						SOURCEPAGE:p.
+Divine Sight				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				PREFEAT:1,Divine Perception	SOURCEPAGE:p.
+Knowledge (Golems and Artifacts)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
+Knowledge (Philosophy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
+Knowledge (Trade Routes)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
+Knowledge (Demonology)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
+Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
+Profession (Courtesan)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession							SOURCEPAGE:p.
+Profession (Merchant)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession							SOURCEPAGE:p.

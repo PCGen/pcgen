@@ -1,0 +1,81 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Jul  9 15:00:18 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus													Combat bonus
+CLASS:Animal Lord	HD:10		TYPE:Base.PC	ABB:AnL		SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Swim|Wilderness Lore
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+###Block: Animal Lord Skill....
+1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1	DEFINE:AnimalLordSkill1|0	ADD:Home Environment (Underground,Plains,Marshes,Forest,Hills,Desert,Mountains) +4 Track when in Home Environment
+1										DEFINE:ALSkillBonus|CL
+1										DEFINE:AnimalLordSkill5|0
+1										DEFINE:AnimalLordSkill9|0
+1										DEFINE:AnimalLordSkill13|0
+1										DEFINE:AnimalLordSkill17|0
+###Block: Normal Level Progression
+1	SA:Animal Companion	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild															DEFINE:MasteroftheWild|1	ADD:FEAT(TYPE=AnimalLordTotem)	ADD:FEAT(TYPE=AnimalLordAbility)	FEATAUTO:Feral Child
+2																																													FEATAUTO:Track
+3																																													FEATAUTO:Uncanny Dodge
+4																																													FEATAUTO:Feral Athleticism
+5																			BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill5,1						ADD:FEAT(TYPE=AnimalLordAbility)
+6														BONUS:VAR|UncannyDodge|1
+7														BONUS:VAR|MasteroftheWild|1
+8																																													FEATAUTO:Feral Voice
+9																			BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill9,1						ADD:FEAT(TYPE=AnimalLordAbility)
+11														BONUS:VAR|UncannyDodge|1
+12																																													FEATAUTO:Feral Senses
+13														BONUS:VAR|MasteroftheWild|1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill13,1						ADD:FEAT(TYPE=AnimalLordAbility)
+16														BONUS:VAR|UncannyDodge|1
+17																			BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill17,1						ADD:FEAT(TYPE=AnimalLordAbility)
+19														BONUS:VAR|MasteroftheWild|1
+20														BONUS:VAR|UncannyDodge|1
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																Combat bonus
+CLASS:Artificer	HD:6		TYPE:Base.PC	ABB:Art		SOURCEPAGE:p.41	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|TYPE.Tech|Use Rope|Use Steamcraft Device
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)																						FEATAUTO:Feral Child
+2																								ADD:FEAT(Artificer Skill Focus)
+5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:Steamcraft Focus (Weapons,Armor,Vehicles,General)
+8																								ADD:FEAT(Artificer Skill Focus)
+12															ADD:Steamcraft Focus (Weapons,Armor,Vehicles,General)
+14																								ADD:FEAT(Artificer Skill Focus)
+19															ADD:Steamcraft Focus (Weapons,Armor,Vehicles,General)
+20																								ADD:FEAT(Artificer Skill Focus)
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Musketeer	HD:8		TYPE:Base.PC	ABB:Msk		SOURCEPAGE:p.44	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device
+1	FEATAUTO:Musketeer Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1																						FEATAUTO:Combat Reload|Rapid Reload (Firearms)
+2																						FEATAUTO:Reload on the Run
+3	SA:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|1
+4	SA: Move and I'll Shoot (Ex)
+5																	ADD:FEAT(TYPE=Musketeer)1
+6									BONUS:VAR|AvoidFire|1
+7	SA:Take Cover (Ex)
+8																	ADD:FEAT(TYPE=Musketeer)1
+10	SA:Crack Shot (Ex)					BONUS:VAR|AvoidFire|1
+11																	ADD:FEAT(TYPE=Musketeer)1
+13	SA:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim					DEFINE:DeadlyAim|1
+14																	ADD:FEAT(TYPE=Musketeer)1
+15									BONUS:VAR|AvoidFire|1
+16									BONUS:VAR|DeadlyAim|1
+17																	ADD:FEAT(TYPE=Musketeer)1
+19									BONUS:VAR|DeadlyAim|1
+20																	ADD:FEAT(TYPE=Musketeer)1
+
+#
+# end
+#

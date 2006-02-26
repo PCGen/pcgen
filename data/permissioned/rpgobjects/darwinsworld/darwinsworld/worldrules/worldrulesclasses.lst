@@ -1,0 +1,106 @@
+# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Sat Dec 10 03:56:43 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# Original entry by wizofice2001
+SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+
+# GUARDIAN: Called Shot SA: Gains 1d6 to Ranged attacks against creatures with discernable anatomies
+# RAIDER: Chains and Chaps SA: Should add EQUIP, a possession bestowing BONUS:COMBAT|AC|1+(1*CL/10)
+# SCAV: Canny Defense SA: IF in light or no armor, BONUS:COMBAT|AC|WIS (not flatfooted, as DEX)
+# THINKER: Secret Lore SA: Can purchase Exclusive skills as Cross-Class skills.  Used FEATAUTO:Secret Lore (sets Animal Empathy and Read Lips to CCSKILL)
+# THINKER: Skill Focus does not prompt for skill.
+# TRADER: Bonus Language: Must exchange one Background language for Language(Trade)
+
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
+CLASS:Guardian	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Grd		SOURCEPAGE:pp.17-19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidate|Knowledge (Vehicle Operations)|Listen|Ride|Sense Motive|Spot
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Defender																							ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)	ADD:FEAT(Primitive Craft Class Skill,Skill Focus Advanced)
+2																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+4																	DEFINE:WeapSpecQualify|1				ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+5	SA:Called Shot +%d%|CalledShot|CalledShotDie	BONUS:VAR|CalledShot|(cl("Guardian")-5)/4 +1	DEFINE:CalledShotDie|6	DEFINE:CalledShot|0
+6																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+8																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+10																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+12																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+14																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+16																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+18																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+20	SA:Shoot to Kill																						ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
+
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
+CLASS:Raider	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Rdr		SOURCEPAGE:pp.19-21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Raider	PREALIGN:LE,NE,CE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Vehicle Operations)|Ride|Spot
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1	SA:Chains and Chaps +%|ChainsChaps	DEFINE:ChainsChaps|CL/10+1	ADD:FEAT(Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced)
+2												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+3	SA:Boarding Party
+5												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+7	SA:Slaver
+8												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+10	SA:Bloodthirsty Cry
+11												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+12	SA:No Survivors
+14												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+17												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+18	SA:Terrifying Presence
+20												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
+CLASS:Scav		HD:8		TYPE:Base.PC	ABB:Scv		SOURCEPAGE:pp.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Scav		PREALIGN:LN,NG,TN,NE,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|Forgery|Gather Information|Hide|Intuit Direction|Move Silently|Open Lock|Pick Pocket|Search|Spot|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																									ADD:FEAT(Primitive Craft Skill Bonus,Skill Focus Advanced)	FEATAUTO:Sneak Attack
+4	SA:Radiation Sense
+8	SA:Canny Defense (%)|WIS									BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement	DEFINE:LowArmor|COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]
+12	SA:Feign Death (% rounds)|FeignDeathRounds																DEFINE:FeignDeathRounds|CL*10
+16	SA:Shadow in the Open
+
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
+CLASS:Thinker	HD:4		XTRAFEATS:0		TYPE:Base.PC	ABB:Thn		SOURCEPAGE:pp.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Heal|TYPE.Knowledge|Open Lock|TYPE.Profession
+1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Normal Level Progression
+1																			ADD:FEAT(Skill Focus)	ADD:FEAT(Primitive Craft Skill Bonus,Skill Focus Advanced)
+2	SA:Thinker Knowledge (+%)|ThinkerKnowledge	BONUS:VAR|ThinkerKnowledge|CL	DEFINE:ThinkerKnowledge|INT
+5	SA:Dirty Fighter																ADD:FEAT(Skill Focus)
+6																			ADD:FEAT(Exotic Weapon Proficiency)
+8	SA:Inspire Skill
+9	SA:Identify	SA:Secret Lore																												FEATAUTO:Secret Lore
+10	SA:Confusing Tirade															ADD:FEAT(Skill Focus)
+12																			ADD:FEAT(Exotic Weapon Proficiency)
+15	SA:Protected by Code															ADD:FEAT(Skill Focus)
+18																			ADD:FEAT(Exotic Weapon Proficiency)
+20																			ADD:FEAT(Skill Focus)
+
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
+CLASS:Trader	HD:6		XTRAFEATS:0		TYPE:Base.PC	ABB:Trd		SOURCEPAGE:pp.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|Intuit Direction|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Protector																																					ADD:FEAT(Liked by All,Silver Tongue,Vulture)	ADD:FEAT(Primitive Craft Class Skill,Skill Focus Advanced)	ADD:Language(Trade)
+2	SA:Spit Polish													BONUS:SKILL|Bluff,Diplomacy,Forgery|2|TYPE=Morale
+3	SA:Ear to the Ground												BONUS:SKILL|Appraise|2|TYPE=Competence	BONUS:SKILL|Gather Information|4|TYPE=Competence
+4	SA:Money Talks
+5	SA:Going Once x%.%|GoingOnce1|GoingOnce2																									DEFINE:GoingOnce1|1	DEFINE:GoingOnce2|5
+10	SA:Sucker Every Minute				BONUS:VAR|GoingOnce1|1	BONUS:VAR|GoingOnce2|-5
+12	SA:Read the Signs
+15																																																														FEATAUTO:Leadership
+18	SA:Professional Courtesy
+20								BONUS:VAR|GoingOnce1|1

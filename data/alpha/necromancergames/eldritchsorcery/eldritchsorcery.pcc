@@ -1,0 +1,32 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 12:08:11 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Eldritch Sorcery
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Core
+TYPE:Necromancer Games.Supplement
+SOURCELONG:Eldritch Sorcery
+SOURCESHORT:EldSor
+SOURCEWEB:http://www.necromancergames.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Open Spell Name Compendium Copyright 2002 Clark Peterson; based on NPC-named spells from the Player's Handbook that were renamed in the System Reference Document.  The Compendium can be found on the legal page of www.necromancergames.com.
+COPYRIGHT:Eldritch Sorcery Copyright 2005, Necromancer Games, Inc; Authors Patrick Lawinger, Scott Greene, and David Mannes, with Erica Balsley, Chris Bernhardt, Casey W. Christofferson, Bill Collins, Jim Collins, Chad Coulter, Patrick Goulah, Skeeter Green, Jeff Harkness, Lance Hawvermale, Travic Hawvermale, Richard Hughes, Robert Hunter, Al Krombach, Rob Mason, Matt McGee, Clark Peterson, Michael Pronteau, Greg Ragland, Gary Schotter, Joe Walmsley, and Bill Webb.
+COPYRIGHT:PCGen dataset conversion for Eldritch Sorcery Copyright 2005, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Eddy Anthony (MoSaT))
+#INFOTEXT:
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+FEAT:eldritchsorcery_feats.lst
+FEAT:eldritchsorcery_feats_hidden.lst
+
+DOMAIN:eldritchsorcery_domains.lst
+SPELL:eldritchsorcery_spells.lst
+
+RACE:eldritchsorcery_races.lst
+TEMPLATE:eldritchsorcery_templates.lst
+
+EQUIPMOD:eldritchsorcery_equipmods.lst

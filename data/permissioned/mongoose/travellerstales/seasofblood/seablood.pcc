@@ -1,0 +1,28 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:Mongoose - Traveller's Tales - Seas of Blood
+RANK:9
+GAMEMODE:3e
+TYPE:Mongoose.Supplement.Travellers Tales
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood
+SOURCESHORT:SeasofBlood
+SOURCEWEB:http://mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from Seas of Blood - Fantasy on the High Seas Copyright 2001, Mongoose Publishing.
+COPYRIGHT:PCGen dataset conversion for Seas of Blood - Fantasy on the High Seas Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:seabloodclasses.lst
+EQUIPMENT:seabloodequip.lst
+EQUIPMENT:seabloodequiprodstaffwands.lst
+EQUIPMENT:seabloodequipwondrousitems.lst
+EQUIPMENT:seabloodequipweapmelee.lst
+EQUIPMENT:seabloodequipweapranged.lst
+EQUIPMENT:seabloodequipweapammo.lst
+FEAT:seabloodfeats.lst
+SKILL:seabloodskills.lst
+SPELL:seabloodspells.lst
+WEAPONPROF:seabloodweapprofs.lst

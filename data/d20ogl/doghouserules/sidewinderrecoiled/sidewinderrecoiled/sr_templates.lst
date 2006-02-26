@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 14:59:42 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by Tir Gwaith and Doug McMillan)
+
+###Starting Occupation as template face - no longer needed
+# Template Name		Choose a Feat
+#Starting Occupation	ADD:FEAT(TYPE=Occupation)1

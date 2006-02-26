@@ -1,0 +1,9 @@
+# CVS $Revision: 1.2 $ $Author: mhgj $ -- Thu Jun 16 22:06:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: Arknight
+
+### Soulknife's Mind Blade
+# Equipment Name		Output Name						Required Proficiency	Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Size
+Mind Blade (Short)	OUTPUTNAME:Mind Blade, Short Sword		PROFICIENCY:Mind Blade	TYPE:Weapon.Melee.Finesseable.Piercing.MindBlade	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PSIBLADE	WIELD:Light		SIZE:M
+Mind Blade (Long)		OUTPUTNAME:Mind Blade, Long Sword		PROFICIENCY:Mind Blade	TYPE:Weapon.Melee.Slashing.MindBlade			COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:PSIBLADE	WIELD:OneHanded	SIZE:M
+Mind Blade (Bastard)	OUTPUTNAME:Mind Blade, Bastard Sword	PROFICIENCY:Mind Blade	TYPE:Weapon.Melee.Slashing.MindBlade			COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	WIELD:TwoHanded	SIZE:M

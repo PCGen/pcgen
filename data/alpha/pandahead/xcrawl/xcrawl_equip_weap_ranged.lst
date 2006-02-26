@@ -1,0 +1,29 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Nov 30 23:39:49 2003 -- reformated by prettylst.pl v1.32 (build 336)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+##Block:Simple weapons-ranged
+# Equipment Name		Output Name					Required Proficiency			Type										Contains				Cost		Weight	Required Stat	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size
+Slingshot									PROFICIENCY:Slingshot			TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Projectile	CONTAINS:-1|SlingStone=1	COST:10	WT:2					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:30	SIZE:S
+
+##Block:Martial weapons-ranged
+Arrows (boffer) (20)	OUTPUTNAME:Arrows, boffer		PROFICIENCY:Arrow (boffer)		TYPE:Weapon.Martial.Ranged.Standard.Bludgeoning.Boffer						COST:2	WT:3					CRITMULT:1pt		CRITRANGE:1			DAMAGE:0	RANGE:20	SIZE:S
+Buckler (throwing)	OUTPUTNAME:Buckler, throwing		PROFICIENCY:Buckler (throwing)	TYPE:Weapon.Martial.Ranged.Standard.Bludgeoning.Metal							COST:45	WT:5					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M
+
+##Block:Sports weapons-ranged
+Baseball									PROFICIENCY:Baseball			TYPE:Weapon.Sport.Ranged.Standard.Bludgeoning								COST:2	WT:1					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:50	SIZE:S
+Flying disc (combat)	OUTPUTNAME:Flying disc, combat	PROFICIENCY:Flying disc (combat)	TYPE:Weapon.Sport.Ranged.Standard.Bludgeoning								COST:13	WT:1					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:60	SIZE:S
+Bowling ball								PROFICIENCY:Bowling ball		TYPE:Weapon.Sport.Ranged.Standard.Bludgeoning								COST:15	WT:15					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M
+
+##Block:Exotic weapons-ranged
+Arrow (tranquilizer)	OUTPUTNAME:Arrow, tranquilizer	PROFICIENCY:Arrow (tranquilizer)	TYPE:Weapon.Exotic.Ranged.STandard.Piercing								COST:15	WT:0.25				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:50	SIZE:S
+
+##Block:Martial weapons-firearms
+.25 pistol									PROFICIENCY:.25 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=10		COST:300	WT:2		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:S
+.35 pistol									PROFICIENCY:.35 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=10		COST:400	WT:2		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S
+.45 pistol									PROFICIENCY:.45 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=8		COST:600	WT:4		PRESTAT:1,STR=14	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d12	RANGE:50	SIZE:S
+.55 pistol									PROFICIENCY:.55 pistol			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=5		COST:1000	WT:6		PRESTAT:1,STR=16	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:S
+.25 rifle									PROFICIENCY:.25 rifle			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=5		COST:300	WT:5		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d4	RANGE:90	SIZE:M
+.45 rifle									PROFICIENCY:.45 rifle			TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=5		COST:700	WT:6		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d6	RANGE:120	SIZE:M
+20GA Scattergun								PROFICIENCY:20GA Scattergun		TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=5		COST:500	WT:5		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:2			DAMAGE:2d6	RANGE:20	SIZE:M
+10GA Scattergun								PROFICIENCY:10GA Scattergun		TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=5		COST:1100	WT:5		PRESTAT:1,STR=14	CRITMULT:X3			CRITRANGE:2			DAMAGE:4d6	RANGE:20	SIZE:M
+Bringdown Launcher							PROFICIENCY:Bringdown Launcher	TYPE:Weapon.Firearms.Standard.Ranged				CONTAINS:-1|Bullet=3		COST:500	WT:8		PRESTAT:1,STR=12	CRITMULT:X2			CRITRANGE:1			DAMAGE:5d6	RANGE:20	SIZE:M

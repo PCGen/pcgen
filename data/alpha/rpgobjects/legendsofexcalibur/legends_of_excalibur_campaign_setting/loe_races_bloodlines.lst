@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+
+# These bloodlines impact a character's starting nobility, which isn't treated like the standard stats.
+#   Not sure how to code that atm.
+# Also, bloodline determines what you're starting gold is, which I also don't know ow to code.
+
+# Race Name			Favored Class		Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Automatic Languages		Bonus to skill							Stat bonus					Special Ability								Type			Source Page		Choose a Feat
+Base/Criminal		FAVCLASS:Rogue						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|Search,Spot,Survival|2|TYPE=Bloodline	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2	SA:Illiterate	SA:Survivor (Ex)					TYPE:Humanoid	SOURCEPAGE:p5	ADD:FEAT(TYPE=BaseCriminal)
+# starting nobility is 10+1d10
+# starting gold is 2d6 * nobility
+
+Common/Serf			FAVCLASS:Any						STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English			BONUS:SKILL|TYPE.Craft|2|TYPE=Bloodline			BONUS:STAT|INT|-2				SA:Illiterate	SA:Worker (Ex)	SA:Fealty (Ex)		TYPE:Humanoid	SOURCEPAGE:p6	ADD:FEAT(TYPE=CommonSerf)	ADD:FEAT(CSStatBonus)
+# starting nobility is 20+1d10
+# starting gold is 3d6 * nobility
+
+Middle Class		FAVCLASS:Any		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Diplomacy|2|TYPE=Bloodline									SA:Stuck in the Middle With You (Ex)	SA:Fealty (Ex)	TYPE:Humanoid	SOURCEPAGE:p7
+# starting nobility is 30+1d10
+# starting gold is 3d6 * nobility
+
+Lesser Nobility/Peerage	FAVCLASS:Priest|Knight					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Ride|2|TYPE=Bloodline				BONUS:STAT|CON|2				SA:Bred to the Saddle (Ex)	SA:Fealty (Ex)			TYPE:Humanoid	SOURCEPAGE:p8
+# starting nobility is 40+1d10
+# starting gold is 5d6 * nobility
+
+Nobility/Royalty		FAVCLASS:Noble						STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGAUTO:English,Literacy	BONUS:SKILL|Intimidate|2|TYPE=Bloodline			BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	SA:Voice of Command (Ex)	SA:Noblesse Oblige (Ex)		TYPE:Humanoid	SOURCEPAGE:p9
+# starting nobility is 50+1d10
+# starting gold is 7d6 * nobility

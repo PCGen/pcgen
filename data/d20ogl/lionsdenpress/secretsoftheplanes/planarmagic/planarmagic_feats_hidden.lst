@@ -1,0 +1,21 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Sep  7 18:42:40 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Secretes of the Planes - Planar Magic|SOURCESHORT:PlanarMagic|SOURCEWEB:http://www.lionsdenpress.com/
+# Original Entry by: Tir Gwaith
+
+# Feat Name		Type						Visible	Special Ability																							Define																																									Source Page
+Planar Turning	TYPE:Special.Turning.TurnPlanar	VISIBLE:NO	SA:Turn Planar (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	DEFINE:TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|TurnCheckBase	SOURCEPAGE:p.7
+
+###Block: Planar Attunement
+# Feat Name		Type					Visible	Required AL				ADD:SPELLCASTER
+Elemental Air	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Elemental Air)
+Elemental Earth	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Elemental Earth)
+Elemental Fire	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Elemental Fire)
+Elemental Water	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Elemental Water)
+Ethereal		TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Ethereal)
+Negative Plane	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Negative Plane)
+Positive Plane	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Positive Plane)
+Plane of Shadow	TYPE:Special.PlanarAttunement	VISIBLE:NO						ADD:SPELLCASTER(Plane of Shadow)
+Lower Planes	TYPE:Special.PlanarAttunement	VISIBLE:NO	PREALIGN:LN,LE,TN,NE,CN,CE	ADD:SPELLCASTER(Lower Planes)
+Planes of Discord	TYPE:Special.PlanarAttunement	VISIBLE:NO	PREALIGN:NG,TN,NE,NG,CN,CE	ADD:SPELLCASTER(Planes of Discord)
+Planes of Order	TYPE:Special.PlanarAttunement	VISIBLE:NO	PREALIGN:LG,LN,LE,NG,TN,NE	ADD:SPELLCASTER(Planes of Order)
+Upper Planes	TYPE:Special.PlanarAttunement	VISIBLE:NO	PREALIGN:LG,LN,NG,TN,CG,CN	ADD:SPELLCASTER(Upper Planes)

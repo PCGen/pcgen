@@ -1,0 +1,197 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Astral Construct (1st Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (1st Level)]
+RACE:Astral Construct (1st Level)	!PRERACE:%
+NAME:Astral Construct (1st Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (2nd Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (2nd Level)]
+RACE:Astral Construct (2nd Level)	!PRERACE:%
+NAME:Astral Construct (2nd Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (3rd Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (3rd Level)]
+RACE:Astral Construct (3rd Level)	!PRERACE:%
+NAME:Astral Construct (3rd Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (4th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (4th Level)]
+RACE:Astral Construct (4th Level)	!PRERACE:%
+NAME:Astral Construct (4th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (5th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (5th Level)]
+RACE:Astral Construct (5th Level)	!PRERACE:%
+NAME:Astral Construct (5th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (6th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (6th Level)]
+RACE:Astral Construct (6th Level)	!PRERACE:%
+NAME:Astral Construct (6th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (7th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (7th Level)]
+RACE:Astral Construct (7th Level)	!PRERACE:%
+NAME:Astral Construct (7th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (8th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (8th Level)]
+RACE:Astral Construct (8th Level)	!PRERACE:%
+NAME:Astral Construct (8th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Astral Construct (9th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (9th Level)]
+RACE:Astral Construct (9th Level)	!PRERACE:%
+NAME:Astral Construct (9th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Aboleth (Psionic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aboleth (Psionic)]
+RACE:Aboleth (Psionic)	!PRERACE:%
+NAME:Aboleth (Psionic)
+SKILL:Concentration	RANK:11
+SKILL:Listen		RANK:11
+SKILL:Spot			RANK:11
+FEAT:Alertness
+FEAT:Combat Manifestation
+FEAT:Iron Will
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Default Blue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blue]
+NAME:Blue
+STAT:STR=8|DEX=11|CON=12|INT=13|WIS=10|CHA=9
+ALIGN:NE
+RACE:Blue	!PRERACE:%
+CLASS:Psion	LEVEL:1	SUBCLASS:Telepath
+SKILL:Concentration	RANK:4
+SKILL:Hide			RANK:2
+SKILL:Psicraft		RANK:4
+SKILL:Spot			RANK:2
+FEAT:Psionic Body
+GEAR:Quarterstaff		SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+SPELLS:SPELLBOOK=Known Spells|CLASS=Psion|Inertial Armor|Mind Thrust|Charm (Psionic)
+
+STARTPACK:Default Brain Mole	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Brain Mole]
+RACE:Brain Mole	!PRERACE:%
+NAME:Brain Mole
+ALIGN:TN
+SKILL:Hide			RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Listen		RANK:2
+FEAT:Alertness
+STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
+
+STARTPACK:Default Caller in Darkness	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Caller in Darkness]
+RACE:Caller in Darkness	!PRERACE:%
+NAME:Caller in Darkness
+ALIGN:CE
+SKILL:Psicraft			RANK:8
+SKILL:Hide				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Psionics)	RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Listen			RANK:12
+SKILL:Spot				RANK:12
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Cerebrilith	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cerebrilith]
+RACE:Cerebrilith	!PRERACE:%
+NAME:Cerebrilith
+ALIGN:CE
+SKILL:Psicraft			RANK:8
+SKILL:Concentration		RANK:10
+SKILL:Hide				RANK:10
+SKILL:Jump				RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Knowledge (Psionics)	RANK:10
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Move Silently		RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+FEAT:Power Attack
+FEAT:Psionic Fist
+FEAT:Psionic Meditation
+FEAT:Unavoidable Strike
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Default Couatl (Psionic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Couatl (Psionic)]
+NAME:Couatl (Psionic)
+KIT:Default Couatl
+RACE:Couatl (Psionic)	!PRERACE:%
+
+STARTPACK:Default Crysmal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crysmal]
+RACE:Crysmal	!PRERACE:%
+NAME:Crysmal
+SKILL:Appraise	RANK:3
+SKILL:Climb		RANK:3
+SKILL:Jump		RANK:3
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Folugub	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Folugub]
+RACE:Folugub	!PRERACE:%
+NAME:Folugub
+ALIGN:TN
+SKILL:Move Silently	RANK:1
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Weapon Finesse
+STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
+
+STARTPACK:Default Gray Glutton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gray Glutton]
+RACE:Gray Glutton	!PRERACE:%
+NAME:Gray Glutton
+ALIGN:TN
+SKILL:Spot		RANK:1
+SKILL:Jump		RANK:2
+SKILL:Listen	RANK:5
+FEAT:Closed Mind
+FEAT:Hostile Mind
+FEAT:Iron Will
+FEAT:Psionic Hole
+STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
+
+STARTPACK:Default Intellect Devourer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Intellect Devourer]
+RACE:Intellect Devourer	!PRERACE:%
+NAME:Intellect Devourer
+ALIGN:CE
+SKILL:Move Silently	RANK:3
+SKILL:Concentration	RANK:9
+SKILL:Bluff			RANK:5
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+FEAT:Combat Manifestation
+FEAT:Toughness
+FEAT:Up the Walls
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Neothelid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Neothelid]
+RACE:Neothelid	!PRERACE:%
+NAME:Neothelid
+ALIGN:LE
+SKILL:Climb				RANK:28
+SKILL:Knowledge (Psionics)	RANK:28
+SKILL:Listen			RANK:28
+SKILL:Spot				RANK:28
+SKILL:Psicraft			RANK:26
+FEAT:Cleave
+FEAT:Improved Critical(Tentacle Rake)
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Psionic Endowment
+FEAT:Psionic Fist
+FEAT:Psionic Meditation
+FEAT:Speed of Thought
+FEAT:Wild Talent
+STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10

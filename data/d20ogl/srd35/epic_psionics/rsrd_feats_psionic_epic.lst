@@ -1,0 +1,51 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Sep 28 00:18:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:RSRD Epic Psionics|SOURCESHORT:RSRDEpicPsionics|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: TaluronIscandar
+#     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
+
+###BLOCK: General Feats
+# Feat Name					Type		Required Class				Required Feat				Required Lvl	Required Skill						Req. Spell Type			PRESRGTEQ	Special Ability								Define				Description														Stackable?	Multiple?	Choose						Choose a Feat						Bonus to nb of slots	Modify VAR											Source Page
+Additional Psionic Item Space		TYPE:Epic													PRELEVEL:21																																DESC:See Additional Magic Item Slot										STACK:YES	MULT:YES	CHOOSE:TATTOO													BONUS:SLOTS|LIST|1													SOURCEPAGE:EpicFeats.rtf
+Automatic Quicken Power			TYPE:Epic							PREFEAT:1,Quicken Power			PRELEVEL:21		PRESKILL:1,Psicraft=30					PRESPELLTYPE:Psionic,1,9																		DESC:See Automatic Quicken Spell										STACK:YES	MULT:YES	CHOOSE:+3 levels																													SOURCEPAGE:EpicFeats.rtf
+Efficient Psionic Item Creation	TYPE:Epic							PREFEAT:1,TYPE.ItemCreation		PRELEVEL:21		PRESKILL:2,Knowledge (Psionics),Psicraft=24																							DESC:See Efficient Item Creation										STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=ItemCreation																										SOURCEPAGE:EpicFeats.rtf
+Epic Manifestation			TYPE:Epic													PRELEVEL:21		PRESKILL:2,Knowledge (Psionics),Psicraft=24	PRESPELLTYPE:Psionic,1,9			SA:Can manifest % epic powers per day.|EpicPowerManifest	DEFINE:EpicPowerManifest|0	DESC:See Epic Spellcasting																																		BONUS:VAR|EpicPowerManifest|var("SKILLTOTAL=Knowledge {Psionics}")	SOURCEPAGE:EpicFeats.rtf
+Improved Combat Manifestation		TYPE:Epic							PREFEAT:1,Combat Manifestation	PRELEVEL:21		PRESKILL:1,Concentration=25																										DESC:See Improved Combat Casting																																													SOURCEPAGE:EpicFeats.rtf
+Improved Manifestation			TYPE:Epic													PRELEVEL:21																																DESC:See Text													STACK:YES	MULT:YES	CHOOSE:Add Power Points				ADD:FEAT(Improved Manifestation Power Points)																	SOURCEPAGE:EpicFeats.rtf
+Improved Power Resistance		TYPE:Epic													PRELEVEL:21															PRESRGTEQ:1																DESC:See Improved Spell Resistance										STACK:YES	MULT:YES	CHOOSE:+2 PR					ADD:FEAT(Add 2 Power Resistance)1																			SOURCEPAGE:EpicFeats.rtf
+Manifestation Harrier			TYPE:Epic							PREFEAT:1,Combat Reflexes		PRELEVEL:21																																DESC:See Spellcasting Harrier																																														SOURCEPAGE:EpicFeats.rtf
+Master Dorje				TYPE:Epic							PREFEAT:1,Craft Dorje			PRELEVEL:21		PRESKILL:1,Psicraft=15																											DESC:See Master Wand																																															SOURCEPAGE:EpicFeats.rtf
+Master Psicrown				TYPE:Epic							PREFEAT:1,Craft Psicrown		PRELEVEL:21		PRESKILL:1,Psicraft=15																											DESC:See Master Staff																																															SOURCEPAGE:EpicFeats.rtf
+Multipower					TYPE:Epic							PREFEAT:1,Quicken Power			PRELEVEL:21										PRESPELLTYPE:Psionic,1,9																		DESC:See Multispell												STACK:YES	MULT:YES	CHOOSE:One additional Quickened Power																									SOURCEPAGE:EpicFeats.rtf
+Permanent Power Emanation		TYPE:Epic													PRELEVEL:21		PRESKILL:1,Psicraft=25																											DESC:See Permanent Emanation											STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|1																										SOURCEPAGE:EpicFeats.rtf
+Power Stowaway				TYPE:Epic	PRECLASS:1,SPELLCASTER.Psionic=12							PRELEVEL:21		PRESKILL:1,Psicraft=24																											DESC:See Spell Stowaway												STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|1																										SOURCEPAGE:EpicFeats.rtf
+Suppress Power Displays			TYPE:Epic													PRELEVEL:21		PRESKILL:1,Psicraft=25																											DESC:Take 10 on Concentration checks to supress displays, See Ignore material Components																																				SOURCEPAGE:EpicFeats.rtf
+Tenacious Psionics			TYPE:Epic													PRELEVEL:21		PRESKILL:1,Psicraft=15																											DESC:See Tenacious Magic											STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|1																										SOURCEPAGE:EpicFeats.rtf
+
+###BLOCK: Psionic Feats
+# Feat Name			Type			Required Feat				Required Lvl	Required Skill		Required Template		Description									Stackable?	Multiple?	Choose					Choose a Feat			Source Page
+Epic Psionic Endowment	TYPE:Epic.Psionic	PREFEAT:1,Greater Psionic Endowment	PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Epic Spell Focus, Greater Psionic Endowment																	SOURCEPAGE:EpicFeats.rtf
+Epic Psionic Focus	TYPE:Epic.Psionic							PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:Add additional psionic focus	ADD:FEAT(Add Psionic Focus)	SOURCEPAGE:EpicFeats.rtf
+Epic Power Penetration	TYPE:Epic.Psionic	PREFEAT:1,Greater Power Penetration	PRELEVEL:21						PRETEMPLATE:Psionic	DESC:See Epic Spell Penetration, Greater Power Penetration																SOURCEPAGE:EpicFeats.rtf
+Improved Metapsionics	TYPE:Epic.Psionic	PREFEAT:4,TYPE.Metapsionic		PRELEVEL:21		PRESKILL:1,Psicraft=30	PRETEMPLATE:Psionic	DESC:See Text								STACK:YES	MULT:YES	CHOOSE:Power point reduction		ADD:FEAT(ImpMetapsionics)	SOURCEPAGE:EpicFeats.rtf
+
+###BLOCK: Metapsionics
+# Feat Name		Type				Required Feat					Required Lvl	Required Skill		Required Template		Description								Source Page
+Intensify Power	TYPE:Epic.Metapsionic	PREFEAT:2,Empower Power,Maximize Power	PRELEVEL:21		PRESKILL:1,Psicraft=30	PRETEMPLATE:Psionic	DESC:See Intesify Spell, +12PP, expend psionic focus	SOURCEPAGE:EpicFeats.rtf
+
+###BLOCK: Item Creation
+# Feat Name					Type				Required Feat					Required Lvl	Required Skill						Description						Source Page
+Craft Epic Cognizance Crystal		TYPE:Epic.ItemCreation	PREFEAT:1,Craft Cognizance Crystal		PRELEVEL:21		PRESKILL:2,Psicraft,Knowledge (Psionics)=32	DESC:See Craft Epic Rod				SOURCEPAGE:EpicFeats.rtf
+Craft Epic Psionic Arms and Armor	TYPE:Epic.ItemCreation	PREFEAT:1,Craft Psionic Arms and Armor	PRELEVEL:21		PRESKILL:2,Psicraft,Knowledge (Psionics)=28	DESC:See Craft Epic Magic Arms and Armor	SOURCEPAGE:EpicFeats.rtf
+Craft Epic Psicrown			TYPE:Epic.ItemCreation	PREFEAT:1,Craft Psicrown			PRELEVEL:21		PRESKILL:2,Psicraft,Knowledge (Psionics)=35	DESC:See Craft Epic Staff			SOURCEPAGE:EpicFeats.rtf
+Craft Epic Universal Item		TYPE:Epic.ItemCreation	PREFEAT:1,Craft Universal Item		PRELEVEL:21		PRESKILL:2,Psicraft,Knowledge (Psionics)=26	DESC:See Craft Epic Wondrous Item		SOURCEPAGE:EpicFeats.rtf
+Imprint Epic Stone			TYPE:Epic.ItemCreation	PREFEAT:1,Imprint Stone				PRELEVEL:21		PRESKILL:2,Psicraft,Knowledge (Psionics)=24	DESC:See Scribe Epic Scroll			SOURCEPAGE:EpicFeats.rtf
+
+###BLOCK: Hidden feats
+# Feat Name					Type				Visible	Special Ability																			Define									Misc bonus				Modify VAR																																	Source Page
+Add 2 Power Resistance			TYPE:EpicPsiCountFeat	VISIBLE:NO																						DEFINE:IPRCount|0								BONUS:MISC|SR|(2*IPRCount)	BONUS:VAR|IPRCount|COUNT[FEATNAME=Improved Power Resistance]																								SOURCEPAGE:EpicFeats.rtf
+Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	SA:you can simultaneously use % feats that requires a psionic focus to be expended|PsiFocusCount					DEFINE:PsiFocusCount|1												BONUS:VAR|PsiFocusCount|COUNT[FEATNAME=Add Psionic Focus]																									SOURCEPAGE:EpicFeats.rtf
+Improved Manifestation Power Points	TYPE:ImpManifestPP	VISIBLE:NO																						DEFINE:ImpManifestCount|0	DEFINE:ImpManifestBonus|0						BONUS:VAR|ImpManifestCount|COUNT[FEATNAME=Improved Manifestation Power Points]	BONUS:VAR|ImpManifestBonus|((18+ImpManifestCount)*ImpManifestCount)	BONUS:VAR|BasePowerPoints|ImpManifestBonus	SOURCEPAGE:EpicFeats.rtf
+ImpMetapsionics				TYPE:ImpMetapsionics	VISIBLE:NO	SA:Metapsionic powers you manifest cost % power points less than normal (to a minimum of 1 power point).|ImpMetapsiBonus	DEFINE:ImpMetapsiCount|0	DEFINE:ImpMetapsiBonus|0						BONUS:VAR|ImpMetapsiCount|COUNT[FEATNAME=ImpMetapsionics]	BONUS:VAR|ImpMetapsiBonus|2*ImpMetapsiCount																	SOURCEPAGE:EpicFeats.rtf
+
+###Block: Feat Descriptions
+# Feat Name					Description

@@ -1,0 +1,53 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# Original Entry By: Tir Gwaith
+
+###Block: Erenlander
+# Feat Name				Type			Visible		Required Race			Multiple?	Choose									Bonus to skill rank	Source Page
+Erenlander Craft/Profession	TYPE:Special	VISIBLE:DISPLAY	PRERACE:Human (Erenlander)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|TYPE.Profession	BONUS:SKILLRANK|LIST|4	SOURCEPAGE:p.28
+
+###Block: Defender Abilities
+# Feat Name			Type					Visible	Special Ability			Source Page
+Combat Mastery		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Combat Mastery			SOURCEPAGE:p.41
+Counterattack		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Counterattack			SOURCEPAGE:p.41
+Cover Ally			TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Cover Ally			SOURCEPAGE:p.41
+Debilitating Strike	TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Debilitating Strike		SOURCEPAGE:p.41
+Defensive Mastery		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Defensive Mastery		SOURCEPAGE:p.41
+Devastating Strike	TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Devastating Strike		SOURCEPAGE:p.41
+Flurry Attack		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Flurry Attack			SOURCEPAGE:p.41
+Grappling Disarm		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Grappling Disarm		SOURCEPAGE:p.41
+Hammer Throw		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Hammer Throw			SOURCEPAGE:p.41
+Improved Dodge		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Improved Dodge			SOURCEPAGE:p.42
+Incredible Resilience	TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Incredible Resilience	SOURCEPAGE:p.42
+Masterful Shot		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Masterful Shot			SOURCEPAGE:p.42
+Rapid Strike		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Rapid Strike			SOURCEPAGE:p.42
+Retaliatory Strike	TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Retaliatory Strike		SOURCEPAGE:p.42
+Strike and Hold		TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Strike and Hold		SOURCEPAGE:p.42
+Weapon Trap			TYPE:Special.DefenderAbility	VISIBLE:NO	SA:Weapon Trap			SOURCEPAGE:p.42
+
+###Block: Wildlander traits
+# Feat Name			Type					Visible	Special Ability												Define					Virtual Feat	Add to base move																		Bonus to skill						Modify VAR							Source Page
+Animal Communion		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Animal Communion (Sp) speak with animals 1/day (Caster level %)|AnimalCommunion	DEFINE:AnimalCommunion|0																																	BONUS:VAR|AnimalCommunion|CL("Wildlander")	SOURCEPAGE:p.47
+Bloodhound			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Bloodhound (Ex) +6 competence bonus to Wilderness Lore when tracking																																																SOURCEPAGE:p.47
+Forager (Forest)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Forest terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (Jungle)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Jungle terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (Tundra)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Tundra terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (Desert)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Desert terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (Ocean)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Ocean terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (Plains)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Plains terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (River)		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in River terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Forager (Mountain)	TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Forager (Ex) supply himself and % people in Mountain terrain|Forager			DEFINE:Forager|cl("Wildlander")/3																																								SOURCEPAGE:p.47
+Ghost Walk			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Ghost Walk (Ex)																																								BONUS:SKILL|Move Silently|4|TYPE=Competence									SOURCEPAGE:p.47
+Hawk Eyes			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Hawk Eyes (Ex)																																									BONUS:SKILL|Spot|4|TYPE=Competence											SOURCEPAGE:p.47
+Light Step			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Light Step (Ex)																																																								SOURCEPAGE:p.47
+Master Hunter		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Master Hunter (Ex)																																																								SOURCEPAGE:p.47
+Quick Stride		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Quick Stride (Ex)																				BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],1																	SOURCEPAGE:p.48
+Sense Dark Magic		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Sense Dark Magic (Su) 3/day																																																						SOURCEPAGE:p.48
+Stealthy			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Stealthy (Ex)																																									BONUS:SKILL|Hide|4|TYPE=Competence											SOURCEPAGE:p.48
+Tracking			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Tracking (Ex)																		VFEAT:Track																																						SOURCEPAGE:p.48
+Trap Disarming		TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Trap Disarming (Ex)																																																								SOURCEPAGE:p.48
+Wolf Ears			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Wolf Ears (Ex)																																									BONUS:SKILL|Listen|4|TYPE=Competence										SOURCEPAGE:p.48
+Woodsman			TYPE:Special.WildlanderTrait	VISIBLE:NO	SA:Woodsman (Ex)																																																									SOURCEPAGE:p.48
+
+###Block: Heroic Path support
+

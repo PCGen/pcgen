@@ -1,0 +1,36 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Feb  8 13:35:25 2005 -- reformated by prettylst.pl v1.34 (build 455)
+CAMPAIGN:Behemoth3 - Masters and Minions - Horde Book 1: A Swarm of Stirges
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+TYPE:Behemoth3.Masters and Minions
+SOURCELONG:A Swarm of Stirges
+SOURCESHORT:ASoS
+SOURCEWEB:http://www.behemoth3.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v. 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Masters and Minions Horde Book 1: A Swarm of Stirges Copyright (c) 2004, Behemoth3, Inc.; Author Tavis Allison.
+COPYRIGHT:PCGen dataset conversion for Masters and Minions Horde Book 1: A Swarm of Stirges Copyright 2004-2005, PCGen Data team (Including, but not limited to Eddy Anthony, Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SPELL:swarmstirges_spells.lst
+
+RACE:swarmstirges_races.lst
+TEMPLATE:swarmstirges_templates.lst
+
+CLASS:swarmstirges_classes.lst
+FEAT:swarmstirges_feats_hidden.lst
+
+EQUIPMENT:swarmstirges_equip.lst
+EQUIPMENT:swarmstirges_equip_weap_melee.lst
+EQUIPMENT:swarmstirges_equip_weap_ranged.lst
+EQUIPMENT:swarmstirges_equip_weap_ammo.lst
+
+WEAPONPROF:swarmstirges_weaponprofs.lst
+
+#
+# End
+#

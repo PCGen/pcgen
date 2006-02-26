@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 26 23:37:50 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Circuits|SOURCESHORT:BNC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+
+# Equipment Name		Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																			Stat bonus												Special Property
+Atlas Mk I			TYPE:Armor.Powered.PL6	COST:18	WT:6		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.33	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Equipment.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|STR|1|PREFEAT:1,Armor Proficiency (Powered)
+Atlas Mk II			TYPE:Armor.Powered.PL7	COST:23	WT:14		ACCHECK:2		MAXDEX:4		SOURCEPAGE:p.33	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Equipment.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|STR|3|PREFEAT:1,Armor Proficiency (Powered)
+Atlas Mk III		TYPE:Armor.Powered.PL9	COST:39	WT:34		ACCHECK:7		MAXDEX:0		SOURCEPAGE:p.33	BONUS:COMBAT|AC|3|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Equipment.REPLACE	BONUS:STAT|STR|3	BONUS:STAT|STR|7|PREFEAT:1,Armor Proficiency (Powered)
+Combat SCUBA		TYPE:Armor.Light		COST:19	WT:6		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.33	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE															SPROP:Lic (+1)
+Hazmat Suit			TYPE:Armor.Heavy		COST:13	WT:18		ACCHECK:5		MAXDEX:1		SOURCEPAGE:p.33	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Equipment.REPLACE
+Jet Pack			TYPE:Armor.Heavy.PL6	COST:28	WT:21		ACCHECK:6		MAXDEX:0		SOURCEPAGE:p.33
+Liquid Steel Armor	TYPE:Armor.Light		COST:14	WT:2		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.33	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE															SPROP:Mil (+3)

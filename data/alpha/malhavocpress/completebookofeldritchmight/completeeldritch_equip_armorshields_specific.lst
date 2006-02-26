@@ -1,0 +1,13 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block: Armors
+# Equipment Name	Required Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Spells							Combat bonus					Special Property
+Warded Armor	PROFICIENCY:Chainmail	TYPE:Enhancement.Armor.Light.Suit.Specific	COST:32300	WT:20		ACCHECK:-3		EQMOD:STEEL.MWORKA.PLUS2A	MAXDEX:8		SOURCEPAGE:p.164	SPELLFAILURE:15		SPELLS:Warded Armor|TIMES=3|Warding Globes	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE	SPROP:Armor is imbued with Warding Globes (3/day)
+
+###Block: Shields
+# Equipment Name	Required Proficiency			Type							Cost		Base Item for EQMOD		Modifier				Source Page		Spells														Combat bonus					Special Property
+Angel's Shield	PROFICIENCY:Shield (Heavy/Metal)	TYPE:Enhancement.Shield.Heavy.Specific	COST:56170	BASEITEM:Shield (Heavy/Metal)	EQMOD:MWORKA.PLUS1S.CAST	SOURCEPAGE:p.164	SPELLS:Angel's Shield|TIMES=3|Just Reversal								BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows any wielder to use Jevvica's Just Reversal 3 times / day
+Shield of Stars	PROFICIENCY:Shield (Heavy/Metal)	TYPE:Enhancement.Shield.Heavy.Specific	COST:20170	BASEITEM:Shield (Heavy/Metal)	EQMOD:MWORKA.PLUS1S		SOURCEPAGE:p.164	SPELLS:Shield of Stars|TIMES=3|Darkness	SPELLS:Shield of Stars|TIMES=-1|Dancing Lights	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wielder to cast Darkness 3 times / day and dancing lights at will, and also see in darkness up to 30 feet
+Tentacle Shield	PROFICIENCY:Shield (Heavy/Metal)	TYPE:Enhancement.Shield.Heavy.Specific	COST:35170	BASEITEM:Shield (Heavy/Metal)	EQMOD:MWORKA.PLUS3S		SOURCEPAGE:p.164																BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Two tentacles can make disarm attempts at +10 bonus and 5 foot reach

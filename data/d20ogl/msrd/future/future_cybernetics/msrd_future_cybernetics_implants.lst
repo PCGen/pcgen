@@ -1,0 +1,173 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Sun Jan 30 23:07:31 2005 -- reformated by prettylst.pl v1.35 (build 455)
+
+SOURCELONG:Future System Reference Document|SOURCESHORT:FSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block:REPLACEMENTS
+
+
+# Organ EQMOD need to be prettied up
+# Equipment Name			Type					Cost		Weight	MODS			Source Page					Virtual Feat			Modify VAR
+Artificial Organ			TYPE:Cybernetics.Organ.PL5	COST:19	WT:0		MODS:REQUIRED	SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Prosthetic Arm			TYPE:Cybernetics.PL5		COST:17	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Prosthetic Leg			TYPE:Cybernetics.PL5		COST:17	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Artificial Organ Upgrade	TYPE:Cybernetics.Organ.PL6	COST:21	WT:0		MODS:REQUIRED	SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Prosthetic Arm Upgrade		TYPE:Cybernetics.PL6		COST:19	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Prosthetic Leg Upgrade		TYPE:Cybernetics.PL6		COST:19	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Advanced Artificial Organ	TYPE:Cybernetics.Organ.PL7	COST:24	WT:0		MODS:REQUIRED	SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels
+Advanced Prosthetic Arm		TYPE:Cybernetics.PL7		COST:22	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels
+Advanced Prosthetic Leg		TYPE:Cybernetics.PL7		COST:22	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels
+
+###Block:ENHANCEMENTS
+
+# Equipment Name					Type				Cost		Weight	Source Page					Virtual Feat							Damage Reduction	Combat bonus						Add to magical move		Bonus to skill						Add to vision			Modify VAR										Special Property										Special Ability																		Class Skill
+Anti-Shock Implant				TYPE:Cybernetics.PL6	COST:15	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1	BONUS:VAR|ElectricalVulnerability|1
+External Weapon Mount (Melee)			TYPE:Cybernetics.PL6	COST:15	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+External Weapon Mount (Ranged)		TYPE:Cybernetics.PL6	COST:17	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Identity Chip					TYPE:Cybernetics.PL6	COST:5	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Injector Unit					TYPE:Cybernetics.PL6	COST:15	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Nightvision Optics				TYPE:Cybernetics.PL6	COST:19	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																													BONUS:VISION|DarkVision|60	BONUS:VAR|ImplantTotal|1
+Stabilizer						TYPE:Cybernetics.PL6	COST:22	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Subcutaneous Body Armor (Light)		TYPE:Cybernetics.PL6	COST:15	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																			BONUS:VAR|ImplantTotal|1
+Subcutaneous Body Armor (Medium)		TYPE:Cybernetics.PL6	COST:20	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels								BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE																			BONUS:VAR|ImplantTotal|1
+Subcutaneous Body Armor (Heavy)		TYPE:Cybernetics.PL6	COST:25	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels								BONUS:COMBAT|AC|8|TYPE=NaturalArmor.REPLACE																			BONUS:VAR|ImplantTotal|1
+Subcutaneous Cell Phone				TYPE:Cybernetics.PL6	COST:16	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Telescopic Optics					TYPE:Cybernetics.PL6	COST:15	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Voice Stress Analyzer				TYPE:Cybernetics.PL6	COST:17	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																					BONUS:SKILL|Sense Motive|4|TYPE=Equipment							BONUS:VAR|ImplantTotal|1
+Anti-Flare Implants				TYPE:Cybernetics.PL7	COST:14	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1																			SA:Immune to blinding effects produced by bright lights
+Anti-Stun Implant					TYPE:Cybernetics.PL7	COST:24	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1																			SA:Cannot be stunned
+Body Repair Weave					TYPE:Cybernetics.PL7	COST:21	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1																			SA:Heals naturally at twice the normal rate
+Data Archive					TYPE:Cybernetics.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																					BONUS:SKILL|TYPE.Knowledge|4|TYPE=Equipment						BONUS:VAR|ImplantTotal|1																																							CSKILL:TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma
+Fortified Skeleton				TYPE:Cybernetics.PL7	COST:32	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels					DR:4/-																												BONUS:VAR|ImplantTotal|1
+Initiative Implant				TYPE:Cybernetics.PL7	COST:20	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels								BONUS:COMBAT|INITIATIVE|2|TYPE=Equipment																				BONUS:VAR|ImplantTotal|1
+Internal Weapon Mount (Melee)			TYPE:Cybernetics.PL7	COST:17	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Internal Weapon Mount (Ranged)		TYPE:Cybernetics.PL7	COST:19	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Luminous Skin					TYPE:Cybernetics.PL7	COST:4	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Luminous Skin (Chronometer)			TYPE:Cybernetics.PL7	COST:6	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Microcomputer					TYPE:Cybernetics.PL7	COST:35	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Microcomputer (Integrated cellular modem)	TYPE:Cybernetics.PL7	COST:36	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Mindscreen Implant				TYPE:Cybernetics.PL7	COST:28	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1																			SA:+2 equipment bonus on saving throws vs. mind-affecting attacks
+Prosthetic Enhancer (Arm)			TYPE:Cybernetics.PL7	COST:22	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																					BONUS:SKILL|STAT.STR,STAT.DEX|2																															SA:deals an additional 1 point of damage to unarmed attacks	SA:+2 bonus on Strength and Dexterity based ability checks
+Prosthetic Enhancer (Leg)			TYPE:Cybernetics.PL7	COST:22	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																BONUS:POSTMOVEADD|TYPE.Walk|5																																					SA:deals an additional 1 point of damage to unarmed attacks
+Rage Implant					TYPE:Cybernetics.PL7	COST:0	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Activated Rage Implant																														BONUS:VAR|ImplantTotal|1							SPROP:can activate as a free action once per day for % rounds|4+CON
+Targeting Optics					TYPE:Cybernetics.PL7	COST:17	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels								BONUS:COMBAT|TOHIT.RANGED|1																						BONUS:VAR|ImplantTotal|1
+Invisiware						TYPE:Cybernetics.PL8	COST:0	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels																																		BONUS:VAR|ImplantTotal|1
+Psi Implant						TYPE:Cybernetics.PL8	COST:0	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Wild Talent																																BONUS:VAR|ImplantTotal|1
+
+###Block:Weapons
+
+# Equipment Name		Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Virtual Feat			Modify VAR
+Laser Optics (Single)	PROFICIENCY:Laser Optics	TYPE:Cybernetics.PL7.Weapon.Simple.Ranged.Unarmed	COST:25	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:20	SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+Laser Optics (Pair)	PROFICIENCY:Laser Optics	TYPE:Cybernetics.PL7.Weapon.Simple.Ranged.Unarmed	COST:28	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6+2	RANGE:20	SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels	BONUS:VAR|ImplantTotal|1
+
+###Block: Skill Implants
+
+# Equipment Name	Type						Cost		Weight	MODS			Source Page					Virtual Feat						Modify VAR
+Skill Implant	TYPE:Cybernetics.SkillImplant.PL6	COST:20	WT:0		MODS:REQUIRED	SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Skill Implants
+Skill Plexus	TYPE:Cybernetics.PL7.SkillPlexus	COST:25	WT:0					SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Skill Implants	BONUS:VAR|SkillPlexusTotal|1	BONUS:VAR|SkillImplantTotal|-3
+
+###Block:Feat Implants
+
+# Equipment Name						Type						Cost		Weight	Source Page					Virtual Feat																													Bonus to HP			Modify VAR
+Feat Plexus							TYPE:Cybernetics.PL8			COST:0	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants																												BONUS:VAR|FeatPlexusTotal|1
+
+Feat Implant (Acrobatic)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Acrobatic																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Advanced Combat Martial Arts)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Advanced Combat Martial Arts|PREMULT:2,[PREATT:8],[PREFEAT:2,Combat Martial Arts,Improved Combat Martial Arts]								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Advanced Firearms Proficiency)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Advanced Firearms Proficiency|PREFEAT:1,Personal Firearms Proficiency															BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Advanced Two-Weapon Fighting)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Advanced Two-Weapon Fighting|PREMULT:3,[PREATT:11],[PREFEAT:2,Two-Weapon Fighting,Improved Two-Weapon Fighting],[PRESTAT:1,DEX=13]					BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Agile Riposte)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Agile Riposte|PREMULT:2,[PREFEAT:1,Dodge],[PRESTAT:1,DEX=13]																BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Alertness)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Alertness																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Animal Affinity)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Animal Affinity																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Archaic Weapons Proficiency)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Archaic Weapons Proficiency																						BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Heavy Armor Proficiency)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Armor Proficiency (Heavy)|PREFEAT:2,Armor Proficiency (Light),Armor Proficiency (Medium)												BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Light Armor Proficiency)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Armor Proficiency (Light)																						BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Medium Armor Proficiency)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Armor Proficiency (Medium)|PREFEAT:1,Armor Proficiency (Light)																BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Athletic)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Athletic																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Attentive)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Attentive																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Blind-Fight)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Blind-Fight																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Brawl)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Brawl																										BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Burst Fire)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Burst Fire|PREMULT:2,[PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency],[PRESTAT:1,WIS=13]								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Cautious)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Cautious																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Cleave)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Cleave|PREMULT:2,[PREFEAT:1,Power Attack],[PRESTAT:1,STR=13]																BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Combat Expertise)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Combat Expertise|PRESTAT:1,INT=13																					BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Combat Martial Arts)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Combat Martial Arts|PREATT:1																						BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Combat Reflexes)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Combat Reflexes																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Combat Throw)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Combat Throw|PREFEAT:1,Defensive Martial Arts																			BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Confident)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Confident																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Dead Aim)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Dead Aim|PREMULT:2,[PREFEAT:1,Far Shot],[PRESTAT:1,WIS=13]																	BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Deceptive)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Deceptive																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Defensive Martial Arts)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Defensive Martial Arts																							BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Dodge)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Dodge|PRESTAT:1,DEX=13																							BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Double Tap)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Double Tap|PREMULT:2,[PREFEAT:1,Point Blank Shot],[PRESTAT:1,DEX=13]															BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Drive-By Attack)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Drive-By Attack																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Elusive Target)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Elusive Target|PREMULT:2,[PREFEAT:1,Defensive Martial Arts],[PRESTAT:1,DEX=13]													BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Endurance)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Endurance																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Far Shot)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Far Shot																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Focused)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Focused																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Force Stop)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Force Stop|PREMULT:2,[PREFEAT:1,Vehicle Expert],[PRESKILL:1,Drive=4]															BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Frightful Presence)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Frightful Presence|PREMULT:2,[PRESKILL:1,Intimidate=9],[PRESTAT:1,CHA=15]														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Gearhead)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Gearhead																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Great Cleave)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Great Cleave|PREMULT:3,[PREATT:4],[PREFEAT:2,Power Attack,Cleave],[PRESTAT:1,STR=13]												BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Great Fortitude)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Great Fortitude																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Guide)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Guide																										BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Heroic Surge)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Heroic Surge																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Brawl)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Brawl|PREMULT:2,[PREATT:3],[PREFEAT:1,Brawl]																		BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Bull Rush)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Bull Rush|PREMULT:2,[PREFEAT:1,Power Attack],[PRESTAT:1,STR=13]														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Combat Martial Arts)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Combat Martial Arts|PREMULT:2,[PREATT:4],[PREFEAT:1,Combat Martial Arts]													BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Combat Throw)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Combat Throw|PREMULT:2,[PREATT:3],[PREFEAT:2,Defensive Martial Arts,Combat Throw]											BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Damage Threshold)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants																												BONUS:VAR|FeatImplantTotal|1	BONUS:VAR|DamageThreshold|3
+Feat Implant (Improved Disarm)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Disarm|PREMULT:2,[PREFEAT:1,Combat Expertise],[PRESTAT:1,INT=13]														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Feint)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Feint|PREMULT:2,[PREFEAT:2,Brawl,Streetfighting],[PRESTAT:1,INT=13]														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Initiative)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Initiative																							BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Knockout Punch)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Knockout Punch|PREMULT:2,[PREATT:6],[PREFEAT:2,Brawl,Knockout Punch]														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Trip)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Trip|PREMULT:2,[PREFEAT:1,Combat Expertise],[PRESTAT:1,INT=13]															BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Improved Two-Weapon Fighting)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Improved Two-Weapon Fighting|PREMULT:3,[PREATT:6],[PREFEAT:1,Two-Weapon Fighting],[PRESTAT:1,DEX=13]										BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Iron Will)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Iron Will																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Knockout Punch)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Knockout Punch|PREMULT:2,[PREATT:3],[PREFEAT:1,Brawl]																		BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Lightning Reflexes)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Lightning Reflexes																							BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Low Profile)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Low Profile																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Medical Expert)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Medical Expert																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Meticulous)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Meticulous																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Mobility)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Mobility|PREMULT:2,[PREFEAT:1,Dodge],[PRESTAT:1,DEX=13]																	BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Nimble)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Nimble																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Personal Firearms Proficiency)	TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Personal Firearms Proficiency																						BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Point Blank Shot)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Point Blank Shot																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Power Attack)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Power Attack|PRESTAT:1,STR=13																						BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Precise Shot)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Precise Shot|PREFEAT:1,Point Blank Shot																				BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Quick Draw)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Quick Draw|PREATT:1																							BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Quick Reload)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Quick Reload|PREATT:1																							BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Renown)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Renown																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Run)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Run																										BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Shot on the Run)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Shot on the Run|PREMULT:2,[PREFEAT:3,Point Blank Shot,Dodge,Mobility],[PRESTAT:1,DEX=13]												BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Simple Weapons Proficiency)		TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Simple Weapons Proficiency																						BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Skip Shot)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Skip Shot|PREFEAT:2,Point Blank Shot,Precise Shot																		BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Spring Attack)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Spring Attack|PREMULT:3,[PREATT:4],[PREFEAT:2,Dodge,Mobility],[PRESTAT:1,DEX=13]													BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Stealthy)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Stealthy																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Strafe)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Strafe|PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Streetfighting)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Streetfighting|PREMULT:2,[PREATT:2],[PREFEAT:1,Brawl]																		BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Studious)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Studious																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Sunder)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Sunder|PREMULT:2,[PREFEAT:1,Power Attack],[PRESTAT:1,STR=13]																BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Surgery)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Surgery|PRESKILL:1,Treat Injury=4																					BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Toughness)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants																								BONUS:HP|CURRENTMAX|3	BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Track)					TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Track																										BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Trustworthy)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Trustworthy																									BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Two-Weapon Fighting)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Two-Weapon Fighting|PREMULT:2,[PREHANDSEQ:2],[PRESTAT:1,DEX=13]																BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Unbalance Opponent)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Unbalance Opponent|PREMULT:2,[PREATT:6],[PREFEAT:1,Defensive Martial Arts]														BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Vehicle Dodge)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Vehicle Dodge|PREMULT:3,[PREFEAT:1,Vehicle Expert],[PRESKILL:1,Drive=6],[PRESTAT:1,DEX=13]											BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Vehicle Expert)				TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Vehicle Expert																								BONUS:VAR|FeatImplantTotal|1
+Feat Implant (Whirlwind Attack)			TYPE:Cybernetics.FeatImplant.PL7	COST:27	WT:0		SOURCEPAGE:FutureCybernetics.rtf	VFEAT:Cyborg|Negative Levels|Feat Implants	VFEAT:Whirlwind Attack|PREMULT:2,[PREATT:4],[PREFEAT:4,Dodge,Mobility,Spring Attack,Combat Expertise],[PRESTAT:2,DEX=13,INT=13]						BONUS:VAR|FeatImplantTotal|1
+
+
+#MULTI FEATS - These need to be paired with EQMODS so that the choices made can be set
+#VFEAT:Aircraft Operation|PRESKILL:1,Pilot=4
+#VFEAT:Builder
+#VFEAT:Creative
+#VFEAT:Educated
+#VFEAT:Exotic Firearms Proficiency|PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency
+#VFEAT:Exotic Melee Weapon Proficiency|PREATT:1
+#VFEAT:Surface Vehicle Operation|PRESKILL:1,Drive=4
+#VFEAT:Weapon Finesse|PREATT:1
+#VFEAT:Weapon Focus|PREATT:1
+
+#
+# End
+#

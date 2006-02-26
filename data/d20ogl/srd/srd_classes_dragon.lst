@@ -1,0 +1,344 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Mon Jan 17 12:31:12 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+# Things that Don't work in Monster TYPE classes:
+#	Spellcasting:  All sorts of Funky things happen with CAST
+#	Using List DEFINEd variables in Bonus statments causes java.lang.StackOverflowError
+#		erros, so this file is MUCH larger than it needs be. (Esp. with TYPEs)
+#
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Black Dragon	HD:12		TYPE:Monster	ABB:BkDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:Black Dragon	PRERACE:Dragon (Black%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) %' Line of Acid %d4 acid DC %|max((SIZE-1)*20,30)|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|14
+###Block: Normal Progression
+2																							BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+7																		BONUS:VAR|BreathWeaponDC|1																						DEFINE:DragonAge|2
+10																		BONUS:VAR|BreathWeaponDC|3																						DEFINE:DragonAge|3
+13							SA:Darkness %' 3/day(Sp)|DragonAge*10					BONUS:VAR|BreathWeaponDC|1																						DEFINE:DragonAge|4
+16	ADD:SPELLCASTER(Sorcerer)	SR:17	SA:Frightful Presence(Ex) % ft DC %|DragonAge*30|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|4														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|CL/2+10+CHA
+18																															BONUS:PCLEVEL|Sorcerer|1
+19						SR:18	SA:Corrupt Water(Sp) DC %|FrightfulPresDC					BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6
+21																															BONUS:PCLEVEL|Sorcerer|1
+22						SR:21												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+24																															BONUS:PCLEVEL|Sorcerer|1
+25						SR:22												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Plant Growth,13+CHA
+27																															BONUS:PCLEVEL|Sorcerer|1
+28						SR:23												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+30																															BONUS:PCLEVEL|Sorcerer|1
+31						SR:25												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10							SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Insect Plague,15+CHA
+33																															BONUS:PCLEVEL|Sorcerer|1
+34						SR:26												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+36																															BONUS:PCLEVEL|Sorcerer|1
+37						SR:28	SA:Charm Reptiles 3/day(Sp)							BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12
+39																															BONUS:PCLEVEL|Sorcerer|1
+40																															BONUS:PCLEVEL|Sorcerer|1
+42																															BONUS:PCLEVEL|Sorcerer|1
+43																															BONUS:PCLEVEL|Sorcerer|1
+45																															BONUS:PCLEVEL|Sorcerer|1
+46																															BONUS:PCLEVEL|Sorcerer|1
+48																															BONUS:PCLEVEL|Sorcerer|1
+49																															BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Blue Dragon	HD:12		TYPE:Monster	ABB:BlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Blue Dragon	PRERACE:Dragon (Blue%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Line of Lightning %d8 Electricity DC %|(SIZE-1)*20|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|14
+###Block: Normal Progression
+1							SA:Create/Destroy Water 3/day(Sp)
+2																							BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+9																		BONUS:VAR|BreathWeaponDC|2																						DEFINE:DragonAge|2
+12																		BONUS:VAR|BreathWeaponDC|2																						DEFINE:DragonAge|3
+15	ADD:SPELLCASTER(Sorcerer)		SA:Sound Imitation(Ex)								BONUS:VAR|BreathWeaponDC|2														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|4
+17																															BONUS:PCLEVEL|Sorcerer|1
+18						SR:19	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|CL/2+10+CHA
+20																															BONUS:PCLEVEL|Sorcerer|1
+21						SR:21												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6							SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Ventriloquism,11+CHA
+23																															BONUS:PCLEVEL|Sorcerer|1
+24						SR:22												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+26																															BONUS:PCLEVEL|Sorcerer|1
+27						SR:24												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Hallucinatory Terrain,14+CHA
+29																															BONUS:PCLEVEL|Sorcerer|1
+30						SR:25												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+32																															BONUS:PCLEVEL|Sorcerer|1
+33						SR:27												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Veil,16+CHA
+35																															BONUS:PCLEVEL|Sorcerer|1
+36						SR:29												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+38																															BONUS:PCLEVEL|Sorcerer|1
+39						SR:31												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Mirage Arcana,15+CHA
+41																															BONUS:PCLEVEL|Sorcerer|1
+42																															BONUS:PCLEVEL|Sorcerer|1
+44																															BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Green Dragon	HD:12		TYPE:Monster	ABB:GnDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:Green Dragon	PRERACE:Dragon (Green%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Cone of Corrosive Gas %d6 Acid DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|13
+###Block: Normal Progression
+2																							BONUS:COMBAT|AC|CL=Green Dragon|TYPE=NaturalArmor.REPLACE
+8																		BONUS:VAR|BreathWeaponDC|3																								DEFINE:DragonAge|2
+11																		BONUS:VAR|BreathWeaponDC|1																								DEFINE:DragonAge|3
+14	ADD:SPELLCASTER(Sorcerer)													BONUS:VAR|BreathWeaponDC|3																BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|4
+16																																	BONUS:PCLEVEL|Sorcerer|1
+17						SR:19	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|(CL)/2+10+CHA
+19																																	BONUS:PCLEVEL|Sorcerer|1
+20						SR:21												BONUS:VAR|BreathWeaponDC|3											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
+22																																	BONUS:PCLEVEL|Sorcerer|1
+23						SR:22												BONUS:VAR|BreathWeaponDC|1											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+25																																	BONUS:PCLEVEL|Sorcerer|1
+26						SR:24												BONUS:VAR|BreathWeaponDC|3											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8								SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Plant Growth,13+CHA
+28																																	BONUS:PCLEVEL|Sorcerer|1
+29						SR:25												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+31																																	BONUS:PCLEVEL|Sorcerer|1
+32						SR:27												BONUS:VAR|BreathWeaponDC|3											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Dominate Person,15+CHA
+34																																	BONUS:PCLEVEL|Sorcerer|1
+35						SR:28												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+37																																	BONUS:PCLEVEL|Sorcerer|1
+38						SR:30												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12								SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Command Plants,18+CHA
+40																																	BONUS:PCLEVEL|Sorcerer|1
+41																																	BONUS:PCLEVEL|Sorcerer|1
+43																																	BONUS:PCLEVEL|Sorcerer|1
+
+# Errata (3/18/02 applied) to (Red) Dragon
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Red Dragon	HD:12		TYPE:Monster	ABB:RdDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Red Dragon	PRERACE:Dragon (Red%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Cone of Fire %d10 Fire DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|15
+###Block: Normal Progression
+1																																				BONUS:SKILLRANK|Jump|CL|TYPE=Racial
+2																							BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+10																		BONUS:VAR|BreathWeaponDC|3																						DEFINE:DragonAge|2
+13	ADD:SPELLCASTER(Sorcerer)													BONUS:VAR|BreathWeaponDC|1														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3
+15																															BONUS:PCLEVEL|Sorcerer|1
+16																		BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|4								SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Locate Object,12+CHA
+18																															BONUS:PCLEVEL|Sorcerer|1
+19						SR:19	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|(CL)/2+10+CHA
+21																															BONUS:PCLEVEL|Sorcerer|1
+22						SR:21												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6
+24																															BONUS:PCLEVEL|Sorcerer|1
+25						SR:23												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+27																															BONUS:PCLEVEL|Sorcerer|1
+28						SR:24												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
+30																															BONUS:PCLEVEL|Sorcerer|1
+31						SR:26												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+33																															BONUS:PCLEVEL|Sorcerer|1
+34						SR:28												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10								SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Find the Path,16+CHA
+36																															BONUS:PCLEVEL|Sorcerer|1
+37						SR:30												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+39																															BONUS:PCLEVEL|Sorcerer|1
+40						SR:32												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12								SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Discern Location,18+CHA
+42																															BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:White Dragon	HD:12		TYPE:Monster	ABB:WhDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:White Dragon	PRERACE:Dragon (White%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Cone of Cold %d6 Cold DC %|max((SIZE-1)*10,15)|DragonAge|BreathWeaponDC	DEFINE:BreathWeaponDC|12
+###Block: Normal Progression
+2																												BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+6																		BONUS:VAR|BreathWeaponDC|2																											DEFINE:DragonAge|2
+9																		BONUS:VAR|BreathWeaponDC|2																											DEFINE:DragonAge|3
+12							SA:Fog Cloud(Sp) 3/day								BONUS:VAR|BreathWeaponDC|2																											DEFINE:DragonAge|4
+15						SR:16	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|2																											DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|(CL)/2+10+CHA
+18	ADD:SPELLCASTER(Sorcerer)	SR:18												BONUS:VAR|BreathWeaponDC|2	BONUS:VAR|BreathWeaponDC|1														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|6								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Gust of Wind,13+CHA
+20																																				BONUS:PCLEVEL|Sorcerer|1
+21						SR:20												BONUS:VAR|BreathWeaponDC|2														BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+23																																				BONUS:PCLEVEL|Sorcerer|1
+24						SR:21	SA:Freezing Fog(Sp) 3/day							BONUS:VAR|BreathWeaponDC|2														BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8
+26																																				BONUS:PCLEVEL|Sorcerer|1
+27						SR:23												BONUS:VAR|BreathWeaponDC|2														BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+29																																				BONUS:PCLEVEL|Sorcerer|1
+30						SR:24												BONUS:VAR|BreathWeaponDC|2														BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Wall of Ice,14+CHA
+32																																				BONUS:PCLEVEL|Sorcerer|1
+33						SR:25												BONUS:VAR|BreathWeaponDC|2														BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+35																																				BONUS:PCLEVEL|Sorcerer|1
+36						SR:27												BONUS:VAR|BreathWeaponDC|2														BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12								SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+38																																				BONUS:PCLEVEL|Sorcerer|1
+39																																				BONUS:PCLEVEL|Sorcerer|1
+41																																				BONUS:PCLEVEL|Sorcerer|1
+42																																				BONUS:PCLEVEL|Sorcerer|1
+44																																				BONUS:PCLEVEL|Sorcerer|1
+45																																				BONUS:PCLEVEL|Sorcerer|1
+47																																				BONUS:PCLEVEL|Sorcerer|1
+#
+# Metalic Dragons
+#
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Brass Dragon	HD:12		TYPE:Monster	ABB:BsDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:Brass Dragon	PRERACE:Dragon (Brass%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Cone of Sleep DC %|max((SIZE-1)*10,15)|BreathWeaponDC				DEFINE:BreathWeaponDC|13
+1	SA:Breath Weapon(Su) % ft Line of Fire %d6 Fire DC %|max((SIZE-1)*20,30)|DragonAge|BreathWeaponDC
+###Block: Normal Progression
+1																																																						SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
+2																							BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+7																		BONUS:VAR|BreathWeaponDC|1																						DEFINE:DragonAge|2
+10	ADD:SPELLCASTER(Sorcerer)													BONUS:VAR|BreathWeaponDC|3														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3
+12																															BONUS:PCLEVEL|Sorcerer|1
+13							SA:Endure Elements(Sp) %' radius 3/day|DragonAge*10			BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|4
+15																															BONUS:PCLEVEL|Sorcerer|1
+16						SR:18	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|CL/2+10+CHA
+18																															BONUS:PCLEVEL|Sorcerer|1
+19						SR:20												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
+21																															BONUS:PCLEVEL|Sorcerer|1
+22						SR:22												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+24																															BONUS:PCLEVEL|Sorcerer|1
+25						SR:24												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Winds,15+CHA
+27																															BONUS:PCLEVEL|Sorcerer|1
+28						SR:25												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+30																															BONUS:PCLEVEL|Sorcerer|1
+31						SR:27												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+33																															BONUS:PCLEVEL|Sorcerer|1
+34						SR:28												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+36																															BONUS:PCLEVEL|Sorcerer|1
+37						SR:30												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Summon Djinni,17+CHA
+39																															BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:Bronze Dragon	PRERACE:Dragon (Bronze%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Line of Lightning %d6 Electricity DC %|(SIZE-1)*20|2*DragonAge|BreathWeaponDC	DEFINE:BreathWeaponDC|14
+1	SA:Breath Weapon(Su) % ft Cone of Repulsion Gas DC %|(SIZE-1)*10|BreathWeaponDC
+###Block: Normal Progression
+1																																																									SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
+2																							BONUS:COMBAT|AC|CL=Bronze Dragon|TYPE=NaturalArmor.REPLACE
+9																		BONUS:VAR|BreathWeaponDC|2																								DEFINE:DragonAge|2
+12	ADD:SPELLCASTER(Sorcerer)		SA:Polymorph Self(Sp) 3/day							BONUS:VAR|BreathWeaponDC|2																BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3
+14																																	BONUS:PCLEVEL|Sorcerer|1
+15																		BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|4
+17																																	BONUS:PCLEVEL|Sorcerer|1
+18						SR:20	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|3											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|(CL)/2+10+CHA
+20																																	BONUS:PCLEVEL|Sorcerer|1
+21						SR:22												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Create Food and Water,13+CHA|Fog Cloud,12+CHA
+23																																	BONUS:PCLEVEL|Sorcerer|1
+24						SR:23												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+26																																	BONUS:PCLEVEL|Sorcerer|1
+27						SR:25												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Detect Thoughts,12+CHA
+29																																	BONUS:PCLEVEL|Sorcerer|1
+30						SR:26												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+32																																	BONUS:PCLEVEL|Sorcerer|1
+33						SR:28												BONUS:VAR|BreathWeaponDC|2											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10								SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Water,16+CHA
+35																																	BONUS:PCLEVEL|Sorcerer|1
+36						SR:29												BONUS:VAR|BreathWeaponDC|3											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+38																																	BONUS:PCLEVEL|Sorcerer|1
+39						SR:31												BONUS:VAR|BreathWeaponDC|1											BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12								SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+41																																	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:Copper Dragon	PRERACE:Dragon (Copper%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:Breath Weapon(Su) % ft Cone of Slow DC %|max((SIZE-1)*10,15)|BreathWeaponDC				DEFINE:BreathWeaponDC|13
+1	SA:Breath Weapon(Su) % ft Line of Acid %d4 Acid DC %|max((SIZE-1)*20,30)|2*DragonAge|BreathWeaponDC
+###Block: Normal Progression
+2																							BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+8																		BONUS:VAR|BreathWeaponDC|2																						DEFINE:DragonAge|2
+11	ADD:SPELLCASTER(Sorcerer)													BONUS:VAR|BreathWeaponDC|2														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3
+13																															BONUS:PCLEVEL|Sorcerer|1
+14																		BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|4
+16																															BONUS:PCLEVEL|Sorcerer|1
+17						SR:19	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|CL/2+10+CHA
+19																															BONUS:PCLEVEL|Sorcerer|1
+20						SR:21												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6							SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Stone Shape,15+CHA
+22																															BONUS:PCLEVEL|Sorcerer|1
+23						SR:23												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+25																															BONUS:PCLEVEL|Sorcerer|1
+26						SR:25												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Transmute Mud to Rock,15+CHA|Transmute Rock to Mud,15+CHA
+28																															BONUS:PCLEVEL|Sorcerer|1
+29						SR:26												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+31																															BONUS:PCLEVEL|Sorcerer|1
+32						SR:28												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Wall of Stone,15+CHA
+34																															BONUS:PCLEVEL|Sorcerer|1
+35						SR:29												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+37																															BONUS:PCLEVEL|Sorcerer|1
+38						SR:31												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Move Earth,16+CHA
+40																															BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Gold Dragon	PRERACE:Dragon (Gold%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:BreathWeapon(Su) % ft Cone of Fire %d10 Fire DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC						DEFINE:BreathWeaponDC|16
+1	SA:Breath Weapon(Su) % ft Cone of Weakening Gas (Fort save or -% temporary STR) DC %|(SIZE-1)*10|DragonAge|BreathWeaponDC
+###Block: Normal Progression
+1							SA:Polymorph Self(Sp) 3/day																																BONUS:SKILLRANK|Jump|CL|TYPE=Racial
+2																														BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+11																									BONUS:VAR|BreathWeaponDC|2																						DEFINE:DragonAge|2
+14	ADD:SPELLCASTER(Sorcerer)																				BONUS:VAR|BreathWeaponDC|2														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3
+16																																						BONUS:PCLEVEL|Sorcerer|1
+17																									BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|4	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Bless,11+CHA
+19																																						BONUS:PCLEVEL|Sorcerer|1
+20						SR:21	SA:Frightful Presence(Ex) %'|(DragonAge*30)	SA:Frightful Presence DC %|CL/2+10+CHA				BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5
+22																																						BONUS:PCLEVEL|Sorcerer|1
+23						SR:23	SA:Luck Bonus 1d3 + % hours given|3*DragonAge	SA:Luck Bonus(Sp) 1/day %' radius around self|DragonAge*10	BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6
+25																																						BONUS:PCLEVEL|Sorcerer|1
+26						SR:25																			BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+28																																						BONUS:PCLEVEL|Sorcerer|1
+29						SR:27	SA:Detect Gems(Sp) 3/day														BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Geas/Quest,16+CHA
+31																																						BONUS:PCLEVEL|Sorcerer|1
+32						SR:28																			BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+34																																						BONUS:PCLEVEL|Sorcerer|1
+35						SR:30																			BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Sunburst,18+CHA
+37																																						BONUS:PCLEVEL|Sorcerer|1
+38						SR:31																			BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+40																																						BONUS:PCLEVEL|Sorcerer|1
+41						SR:33																			BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Foresight,19+CHA
+43																																						BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus									Combat bonus
+CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race		Reg. Race Type
+CLASS:Silver Dragon	PRERACE:Dragon (Silver%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Silver Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
+1	SA:BreathWeapon(Su) % ft Cone of Cold %d8 Cold DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC							DEFINE:BreathWeaponDC|15
+1	SA:Breath Weapon(Su) % ft Cone of Paralyzing Gas (Fort save or Paralyzed 1d6 + % rounds) DC %|(SIZE-1)*10|DragonAge|BreathWeaponDC
+###Block: Normal Progression
+1							SA:Polymorph Self(Sp) 3/day	SA:Cloudwalking(Su)																					BONUS:SKILLRANK|Jump|CL|TYPE=Racial
+2																							BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.REPLACE
+10																		BONUS:VAR|BreathWeaponDC|3																						DEFINE:DragonAge|2
+13	ADD:SPELLCASTER(Sorcerer)													BONUS:VAR|BreathWeaponDC|1														BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	DEFINE:DragonAge|3
+15																															BONUS:PCLEVEL|Sorcerer|1
+16																		BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|4							SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Feather Fall,11+CHA
+18																															BONUS:PCLEVEL|Sorcerer|1
+19						SR:20	SA:Frightful Presence(Ex) %' DC %|(DragonAge*30)|FrightfulPresDC	BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|5	DEFINE:FrightfulPresDC|CL/2+10+CHA
+21																															BONUS:PCLEVEL|Sorcerer|1
+22						SR:22												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|6							SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Fog Cloud,12+CHA
+24																															BONUS:PCLEVEL|Sorcerer|1
+25						SR:24												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|7
+27																															BONUS:PCLEVEL|Sorcerer|1
+28						SR:26												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|8							SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Winds,15+CHA
+30																															BONUS:PCLEVEL|Sorcerer|1
+31						SR:27												BONUS:VAR|BreathWeaponDC|1									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|9
+33																															BONUS:PCLEVEL|Sorcerer|1
+34						SR:29												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|10							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+36																															BONUS:PCLEVEL|Sorcerer|1
+37						SR:30												BONUS:VAR|BreathWeaponDC|2									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|11
+39																															BONUS:PCLEVEL|Sorcerer|1
+40						SR:32												BONUS:VAR|BreathWeaponDC|3									BONUS:PCLEVEL|Sorcerer|1									DEFINE:DragonAge|12							SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Reverse Gravity,17+CHA
+42																															BONUS:PCLEVEL|Sorcerer|1

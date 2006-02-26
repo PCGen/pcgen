@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Wed Apr 23 14:29:08 2003 -- reformated by prettylst.pl v1.27 (build 277)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+
+# Equipment Name		Type				Cost		Weight	Source Page
+Kanegor's Bitter Pill	TYPE:Goods.Alchemical	COST:65	WT:1		SOURCEPAGE:p.44
+Jaw Trapper			TYPE:Goods.Gear		COST:75	WT:10		SOURCEPAGE:p.44
+Tanglebomb			TYPE:Goods.Alchemical	COST:100	WT:2		SOURCEPAGE:p.45

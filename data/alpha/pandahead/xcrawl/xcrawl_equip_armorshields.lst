@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Equipment Name				Output Name							Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus
+Armor (boffer)				OUTPUTNAME:Armor, boffer				TYPE:Armor.Light.Suit.Standard.Boffer	COST:20	WT:10		ACCHECK:0		MAXDEX:6		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Bonded													TYPE:Armor.Light.Suit.Standard		COST:250	WT:20		ACCHECK:-1		MAXDEX:5		SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Composite Sports Gear (standard)	OUTPUTNAME:Composite Sports Gear, standard	TYPE:Armor.Medium.Suit.Standard.CSG		COST:150	WT:25		ACCHECK:-2		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Composite Sports Gear (light)		OUTPUTNAME:Composite Sports Gear, light		TYPE:Armor.Light.Suit.Standard.CSG		COST:150	WT:15		ACCHECK:-2		MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Micromesh armor												TYPE:Armor.Light.Suit.Standard.Micromesh	COST:550	WT:20		ACCHECK:-2		MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Micromesh armored cloting										TYPE:Armor.Light.Suit.Standard.Micromesh	COST:850	WT:15		ACCHECK:-1		MAXDEX:5		SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+MiniLynx (standard)			OUTPUTNAME:MiniLynx, standard				TYPE:Armor.Medium.Suit.Standard.MiniLynx	COST:2500	WT:25		ACCHECK:-3		MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+MiniLynx (light)				OUTPUTNAME:MiniLynx, light				TYPE:Armor.Light.Suit.Standard.MiniLynx	COST:3200	WT:15		ACCHECK:-1		MAXDEX:8		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Riot Gear													TYPE:Armor.Medium.Suit.Standard		COST:1000	WT:30		ACCHECK:-5		MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+
+Shield (Large/Plastic Riot)										TYPE:Shield.Standard.Plastic			COST:100	WT:10		ACCHECK:-1					SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.Replace
+Shield (Boffer)												TYPE:Shield.Standard.Boffer			COST:10	WT:3		ACCHECK:-1					SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.Replace

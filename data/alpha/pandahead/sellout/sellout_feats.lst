@@ -1,0 +1,32 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Feat Name				Type				Req. Att.	Required Feat							Req. Special Ability	Required Skill		Required Stat	Required Text								Required Type		Template					Save checks bonus			Bonus to skill				Modify VAR				Source Page
+110 percent				TYPE:General.Athlete			PREFEAT:2,Get Tough,Play Through The Hurt														PRETEXT:Six weeks training with a coach																														SOURCEPAGE:90
+Born Athelete			TYPE:General																																						TEMPLATE:ADDCHOICE:BornAthlete																	SOURCEPAGE:90
+Controversary			TYPE:General																	PRESKILL:1,Bluff=8																																								SOURCEPAGE:90
+Cover Your Zone			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:90
+Extra Signing Bonus		TYPE:General													PRESA:1,Signing Bonus																																							BONUS:VAR|SigningBonus|10	SOURCEPAGE:90
+Get Tough				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach														BONUS:CHECKS|Fortitude|2												SOURCEPAGE:90
+Get Your Head In The Game	TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:91
+Gorilla Bus Stop			TYPE:General				PREFEAT:2,Cover Your Zone,Improved Unarmed Strike									PRESTAT:1,STR=16																																					SOURCEPAGE:91
+Hard Headed				TYPE:General																																																												SOURCEPAGE:91
+Hawaiin Scuffle Truck		TYPE:General				PREFEAT:2,Improved Unarmed Strike,Improved Grapple																						PRETYPE:1,Humanoid																							SOURCEPAGE:91
+Hottie				TYPE:General																																																												SOURCEPAGE:91
+If They Go I Go			TYPE:General																																																												SOURCEPAGE:91
+Interior Player			TYPE:General.Athlete	PREATT:4																					PRETEXT:Six weeks training with a coach																														SOURCEPAGE:91
+Korean Leg Pinch			TYPE:General				PREFEAT:1,Improved Unarmed Strike																																																			SOURCEPAGE:91
+Let's Give Em a Hand		TYPE:General				PREFEAT:1,Crowd Favorite																																																				SOURCEPAGE:92
+Man To Man				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:92
+Natural Skater			TYPE:General																																																												SOURCEPAGE:92
+Play Loose				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach														BONUS:CHECKS|Reflex|2													SOURCEPAGE:92
+Play Through The Hurt		TYPE:General				PREFEAT:2,Stay Focused,Toughness																																																			SOURCEPAGE:92
+Speed Skater			TYPE:General				PREFEAT:1,Natural Skater																																																				SOURCEPAGE:92
+Stay Focused			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach														BONUS:CHECKS|Willpower|2												SOURCEPAGE:92
+Strong Forward			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:92
+Strong D				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:92
+Stunning Shot			TYPE:General		PREATT:5	PREFEAT:2,Point Blank Shot,Precise Shot											PRESTAT:1,DEX=15																																					SOURCEPAGE:92
+Sharking				TYPE:General		PREATT:4														PRESKILL:1,Bluff=8				PRETEXT:A campaign that uses the optional statistic rules																											SOURCEPAGE:93
+Stoic					TYPE:General																																																	BONUS:SKILL|Concentration,Bluff|2						SOURCEPAGE:93
+Work The Numbers			TYPE:General																								PRETEXT:A campaign that uses the optional statistic rules																											SOURCEPAGE:93
+Table Top Player			TYPE:General																																																	BONUS:SKILL|Knowledge (XCrawl)|4						SOURCEPAGE:93

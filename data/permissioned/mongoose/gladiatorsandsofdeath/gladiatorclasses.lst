@@ -1,0 +1,17 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Aug 10 22:44:55 2003 -- reformated by prettylst.pl v1.29 (build 300)
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death|SOURCESHORT:Gladiators|SOURCEWEB:http://mongoosepublishing.com
+
+# Class Name	Hit Dice	Type		Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Slave		HD:6		TYPE:NPC	MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Slave		STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Jump|Listen|Spot|Swim|Use Rope
+1	ADD:FEAT(Slave Weapon)
+
+#Gladiator Champion
+#CLASS:Gladiator Champion	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble
+
+#Beast Handler
+#CLASS:Beast Handler		CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble
+
+#Charioteer
+#CLASS:Charioteer			CSKILL:Bluff|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride

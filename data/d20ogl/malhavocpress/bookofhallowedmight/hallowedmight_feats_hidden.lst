@@ -1,0 +1,11 @@
+# CVS $Revision: 1.5 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# $Author: dmcmill $
+
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+
+# Feat Name			Clear Prereq.	Required Class								Required Feat											Prohibited Feat
+Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's),Ranger (BoHM)=1														!PREFEAT:1,Favored Enemy I
+Favored Enemy II.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's),Ranger (BoHM)=5	PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
+Favored Enemy III.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's),Ranger (BoHM)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
+Favored Enemy IV.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's),Ranger (BoHM)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
+Favored Enemy V.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's),Ranger (BoHM)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V

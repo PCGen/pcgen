@@ -1,0 +1,4 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Sun Oct  2 00:08:09 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - Web Enhancements|SOURCESHORT:MalhavocWb|SOURCEWEB:http://www.montecook.com
+# Race Name	Product Identity?	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Vision		Automatic Languages		Bonus Languages				Bonus to skill								Stat bonus								Special Ability	Type				Level Adjustment	Source Page
+Litorian	NAMEISPI:YES	FAVCLASS:Ranger	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-light	LANGAUTO:Common,Litorian	LANGBONUS:Elven,Gnoll,Goblin,Orc	BONUS:SKILL|Intimidate,Listen,Search,Spot,Wilderness Lore|2	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	SA:Scent(Ex)	TYPE:Monstrous Humanoid	LEVELADJUSTMENT:1	SOURCEPAGE:p.1

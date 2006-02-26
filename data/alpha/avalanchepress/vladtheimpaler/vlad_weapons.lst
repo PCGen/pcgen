@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Sep  6 13:17:21 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia|SOURCESHORT:Vlad|SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+# Original Entry by: Jerril
+
+# Equipment Name	Required Proficiency	Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Weapon prop. bonus		Weapon prof. bonus
+Siege Cannon	PROFICIENCY:Cannon	TYPE:Weapon.Cannon.Ranged.Projectile	COST:0	CRITMULT:x2			CRITRANGE:3			DAMAGE:3d4	RANGE:100	SIZE:H	SOURCEPAGE:p.41	BONUS:WEAPON|DAMAGE|STRMIN0	BONUS:WEAPONPROF=Cannon|TOHIT|-4|GunneryPenalty
+Arquebus		PROFICIENCY:Arquebus	TYPE:Weapon.Arquebus.Ranged.Projectile	COST:0	CRITMULT:x2			CRITRANGE:4			DAMAGE:10	RANGE:20	SIZE:L	SOURCEPAGE:p.41	BONUS:WEAPON|DAMAGE|STRMIN0	BONUS:WEAPONPROF=Arquebus|TOHIT|-3

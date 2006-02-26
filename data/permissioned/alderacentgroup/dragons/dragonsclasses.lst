@@ -1,0 +1,83 @@
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Sun Aug 10 22:44:55 2003 -- reformated by prettylst.pl v1.29 (build 300)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+
+# Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p.32-35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feat			Required Skill
+CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:1,Balance=4	PRESKILL:1,Ride=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE.Climb|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Jump|Ride|Spot|Swim
+1	SA:Improved Aerial Rider																																																													FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+2	SA:Aerial mount
+3	SA:Swoop attack
+4	SA:Feather fall
+5	SA:Improved aerial rider	SA:Improved mount
+6									DEFINE:WeapSpecQualify|1	ADD:FEAT(Alertness,Improved Critical,Improved Initiative,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Skill Focus,Weapon Finesse,Weapon Focus,Weapon Specialization)
+7	SA:Aerial Awarness
+8	SA:Summon Air Elemental
+9	SA:Improved Aerial Rider
+10	SA:Improved Mount											ADD:FEAT(Alertness,Improved Critical,Improved Initiative,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Skill Focus,Weapon Finesse,Weapon Focus,Weapon Specialization)
+
+# Class Name		Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Dragon Slayer	NAMEISPI:NO		HD:10		ABB:DS		MAXLEVEL:10	SOURCEPAGE:p.35-37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat
+CLASS:Dragon Slayer	PREATT:5	PREFEAT:1,Iron Will	PREFEAT:1,Power Attack
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|TYPE.Jump|Listen|Ride|Spot|Swim
+1	SA:Improved Power Attack		FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+2	SA:Latch Attack
+3	SA:Fearless (+4 saves)
+4	SA:Penetrating Blow
+5	SA:Improved Critical vs. dragons
+6	SA:Aura of Invincibility
+7	SA:Relentless Attack
+8	SA:Fearless (Immune)
+9	SA:Spot Vulnerability
+10	SA:Improved Penetrating Blow
+
+# Class Name			Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus									Combat bonus
+CLASS:Student of the Dragon	NAMEISPI:NO		HD:8		ABB:SotD		MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Feat				Required Language		Required Skill
+CLASS:Student of the Dragon	PREATT:7	PREFEAT:1,Improved Unarmed Strike	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=13
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE.Climb|Concentration|TYPE.Craft|TYPE.Diplomacy|Escape Artist|Hide|TYPE.Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE.Profession|Swim|Tumble
+1									SA:Wings of the Dragon
+2									SA:Strength of the Dragon
+3	VISION:Darkvision (60')					SA:Eyes of the Dragon
+4									SA:Fist of the Dragon
+5									SA:Ki Strike (+2)	SA:Tactics of the Dragon
+6									SA:Roar of the Dragon
+7									SA:Fury of the Dragon
+8					SA:.CLEAR.Ki Strike	SA:Ki Strike (+3)
+9									SA:Thunder of the Dragon
+10									SA:Master of the Dragon
+
+# Class Name	Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Wyrmfoe	NAMEISPI:NO		HD:4		ABB:WFoe		MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wyrmfoe	STARTSKILLPTS:2	CSKILL:TYPE.Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Dragon Magic
+2	ADD:SPELLCASTER(ANY)	SA:Dragon Claws
+3	ADD:SPELLCASTER(ANY)	SA:Damage Resistance
+4	ADD:SPELLCASTER(ANY)	SA:Dragon Magic
+5	ADD:SPELLCASTER(ANY)	SA:Dragon Creature Type
+6	ADD:SPELLCASTER(ANY)	SA:Damage Resistance
+7	ADD:SPELLCASTER(ANY)	SA:Dragon Magic
+8	ADD:SPELLCASTER(ANY)	SA:Damage Resistance
+9	ADD:SPELLCASTER(ANY)	SA:Dragon Breath
+10	ADD:SPELLCASTER(ANY)	SA:Dragon Magic
+
+# Class Name	Product Identity?	Hit Dice	Max Level	Source Page			Save checks bonus									Combat bonus
+CLASS:Wyrm Spawn	NAMEISPI:NO		HD:8		MAXLEVEL:10	SOURCEPAGE:p.42-44	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|0|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Wyrm Spawn	STARTSKILLPTS:4
+1	SA:Draconic Blood
+2	SA:Resist Elements
+3	SA:Scent				BONUS:STAT|CON|1
+4	SA:Flight
+5	SA:Immune to dragon fear	BONUS:STAT|WIS|2
+6	SA:Innate Magic
+7	SA:Draconic Hide +4		BONUS:STAT|STR|2
+8	SA:Longevity			BONUS:STAT|INT|2
+9	SA:polymorph
+10	SA:Breath Weapon

@@ -1,0 +1,410 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Path of Magic|SOURCESHORT:Magic|SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
+# Original Entry by: Ratheof Blithwyn
+
+
+
+
+# The Mind Weavers choice of spells
+# Spell Name				Classes of caster
+Dancing Lights.MOD			CLASSES:Mind Weaver=0
+Daze.MOD					CLASSES:Mind Weaver=0
+Detect Magic.MOD				CLASSES:Mind Weaver=0
+Mage Hand.MOD				CLASSES:Mind Weaver=0
+Mending.MOD					CLASSES:Mind Weaver=0
+Open/Close.MOD				CLASSES:Mind Weaver=0
+Prestidigitation.MOD			CLASSES:Mind Weaver=0
+
+Animate Rope.MOD				CLASSES:Mind Weaver=1
+Cause Fear.MOD				CLASSES:Mind Weaver=1
+Charm Person.MOD				CLASSES:Mind Weaver=1
+Color Spray.MOD				CLASSES:Mind Weaver=1
+Entropic Shield.MOD			CLASSES:Mind Weaver=1
+Expeditious Retreat.MOD			CLASSES:Mind Weaver=1
+Feather Fall.MOD				CLASSES:Mind Weaver=1
+Hold Portal.MOD				CLASSES:Mind Weaver=1
+Hypnotism.MOD				CLASSES:Mind Weaver=1
+Jump.MOD					CLASSES:Mind Weaver=1
+Mage Armor.MOD				CLASSES:Mind Weaver=1
+Magic Missile.MOD				CLASSES:Mind Weaver=1
+Pass without Trace.MOD			CLASSES:Mind Weaver=1
+Shield.MOD					CLASSES:Mind Weaver=1
+Sleep.MOD					CLASSES:Mind Weaver=1
+Spider Climb.MOD				CLASSES:Mind Weaver=1
+Floating Disk.MOD				CLASSES:Mind Weaver=1
+True Strike.MOD				CLASSES:Mind Weaver=1
+
+Blur.MOD					CLASSES:Mind Weaver=2
+Bull's Strength.MOD			CLASSES:Mind Weaver=2
+Cat's Grace.MOD				CLASSES:Mind Weaver=2
+Darkvision.MOD				CLASSES:Mind Weaver=2
+Detect Thoughts.MOD			CLASSES:Mind Weaver=2
+Enthrall.MOD				CLASSES:Mind Weaver=2
+Flaming Sphere.MOD			CLASSES:Mind Weaver=2
+Levitate.MOD				CLASSES:Mind Weaver=2
+Locate Object.MOD				CLASSES:Mind Weaver=2
+Make Whole.MOD				CLASSES:Mind Weaver=2
+Minor Image.MOD				CLASSES:Mind Weaver=2
+Mirror Image.MOD				CLASSES:Mind Weaver=2
+Protection from Arrows.MOD		CLASSES:Mind Weaver=2
+Resist Elements.MOD			CLASSES:Mind Weaver=2
+See Invisibility.MOD			CLASSES:Mind Weaver=2
+Shatter.MOD					CLASSES:Mind Weaver=2
+Sound Burst.MOD				CLASSES:Mind Weaver=2
+Spectral Hand.MOD				CLASSES:Mind Weaver=2
+Suggestion.MOD				CLASSES:Mind Weaver=2
+Tongues.MOD					CLASSES:Mind Weaver=2
+Undetectable Alignment.MOD		CLASSES:Mind Weaver=2
+
+Charm Monster.MOD				CLASSES:Mind Weaver=3
+Clairaudience/Clairvoyance.MOD	CLASSES:Mind Weaver=3
+Dispel Magic.MOD				CLASSES:Mind Weaver=3
+Displacement.MOD				CLASSES:Mind Weaver=3
+Fireball.MOD				CLASSES:Mind Weaver=3
+Flame Arrow.MOD				CLASSES:Mind Weaver=3
+Fly.MOD					CLASSES:Mind Weaver=3
+Haste.MOD					CLASSES:Mind Weaver=3
+Hold Person.MOD				CLASSES:Mind Weaver=3
+Invisibility Purge.MOD			CLASSES:Mind Weaver=3
+Lesser Geas.MOD				CLASSES:Mind Weaver=3
+Lightning Bolt.MOD			CLASSES:Mind Weaver=3
+Major Image.MOD				CLASSES:Mind Weaver=3
+Nondetection.MOD				CLASSES:Mind Weaver=3
+Slow.MOD					CLASSES:Mind Weaver=3
+Water Breathing.MOD			CLASSES:Mind Weaver=3
+Water Walk.MOD				CLASSES:Mind Weaver=3
+
+Detect Scrying.MOD			CLASSES:Mind Weaver=4
+Dimension Door.MOD			CLASSES:Mind Weaver=4
+Discern Lies.MOD				CLASSES:Mind Weaver=4
+Dominate Person.MOD			CLASSES:Mind Weaver=4
+Emotion.MOD					CLASSES:Mind Weaver=4
+Fire Shield.MOD				CLASSES:Mind Weaver=4
+Freedom of Movement.MOD			CLASSES:Mind Weaver=4
+Improved Invisibility.MOD		CLASSES:Mind Weaver=4
+Locate Creature.MOD			CLASSES:Mind Weaver=4
+Modify Memory.MOD				CLASSES:Mind Weaver=4
+Minor Creation.MOD			CLASSES:Mind Weaver=4
+Minor Globe of Invulnerability.MOD	CLASSES:Mind Weaver=4
+Phantasmal Killer.MOD			CLASSES:Mind Weaver=4
+Polymorph Self.MOD			CLASSES:Mind Weaver=4
+Shadow Conjuration.MOD			CLASSES:Mind Weaver=4
+Shout.MOD					CLASSES:Mind Weaver=4
+Stoneskin.MOD				CLASSES:Mind Weaver=4
+Wall of Fire.MOD				CLASSES:Mind Weaver=4
+
+Cone of Cold.MOD				CLASSES:Mind Weaver=5
+Greater Shadow Conjuration.MOD	CLASSES:Mind Weaver=5
+Feeblemind.MOD				CLASSES:Mind Weaver=5
+Flame Strike.MOD				CLASSES:Mind Weaver=5
+Hold Monster.MOD				CLASSES:Mind Weaver=5
+Major Creation.MOD			CLASSES:Mind Weaver=5
+Mislead.MOD					CLASSES:Mind Weaver=5
+Persistent Image.MOD			CLASSES:Mind Weaver=5
+Passwall.MOD				CLASSES:Mind Weaver=5
+Prying Eyes.MOD				CLASSES:Mind Weaver=5
+Telepathic Bond.MOD			CLASSES:Mind Weaver=5
+Shadow Evocation.MOD			CLASSES:Mind Weaver=5
+Stone Shape.MOD				CLASSES:Mind Weaver=5
+Telekinesis.MOD				CLASSES:Mind Weaver=5
+Teleport.MOD				CLASSES:Mind Weaver=5
+
+Analyze Dweomer.MOD			CLASSES:Mind Weaver=6
+Chain Lightning.MOD			CLASSES:Mind Weaver=6
+Disintegrate.MOD				CLASSES:Mind Weaver=6
+Geas/Quest.MOD				CLASSES:Mind Weaver=6
+Greater Dispelling.MOD			CLASSES:Mind Weaver=6
+Greater Shadow Evocation.MOD		CLASSES:Mind Weaver=6
+Flesh to Stone.MOD			CLASSES:Mind Weaver=6
+Mass Haste.MOD				CLASSES:Mind Weaver=6
+Mass Suggestion.MOD			CLASSES:Mind Weaver=6
+Move Earth.MOD				CLASSES:Mind Weaver=6
+Freezing Sphere.MOD			CLASSES:Mind Weaver=6
+Permanent Image.MOD			CLASSES:Mind Weaver=6
+Programmed Image.MOD			CLASSES:Mind Weaver=6
+Project Image.MOD				CLASSES:Mind Weaver=6
+Repulsion.MOD				CLASSES:Mind Weaver=6
+Shades.MOD					CLASSES:Mind Weaver=6
+Stone to Flesh.MOD			CLASSES:Mind Weaver=6
+True Seeing.MOD				CLASSES:Mind Weaver=6
+Wind Walk.MOD				CLASSES:Mind Weaver=6
+
+Delayed Blast Fireball.MOD		CLASSES:Mind Weaver=7
+Ethereal Jaunt.MOD			CLASSES:Mind Weaver=7
+Finger of Death.MOD			CLASSES:Mind Weaver=7
+Phase Door.MOD				CLASSES:Mind Weaver=7
+Power Word (Stun).MOD			CLASSES:Mind Weaver=7
+Plane Shift.MOD				CLASSES:Mind Weaver=7
+Prismatic Spray.MOD			CLASSES:Mind Weaver=7
+Regenerate.MOD				CLASSES:Mind Weaver=7
+Shadow Walk.MOD				CLASSES:Mind Weaver=7
+Spell Turning.MOD				CLASSES:Mind Weaver=7
+Teleport without Error.MOD		CLASSES:Mind Weaver=7
+Vanish.MOD					CLASSES:Mind Weaver=7
+
+Discern Location.MOD			CLASSES:Mind Weaver=8
+Horrid Wilting.MOD			CLASSES:Mind Weaver=8
+Iron Body.MOD				CLASSES:Mind Weaver=8
+Mass Charm.MOD				CLASSES:Mind Weaver=8
+Telekinetic Sphere.MOD			CLASSES:Mind Weaver=8
+Polymorph Any Object.MOD		CLASSES:Mind Weaver=8
+Protection from Spells.MOD		CLASSES:Mind Weaver=8
+Power Word (Blind).MOD			CLASSES:Mind Weaver=8
+Prismatic Wall.MOD			CLASSES:Mind Weaver=8
+Sunburst.MOD				CLASSES:Mind Weaver=8
+
+Astral Projection.MOD			CLASSES:Mind Weaver=9
+Dominate Monster.MOD			CLASSES:Mind Weaver=9
+Energy Drain.MOD				CLASSES:Mind Weaver=9
+Foresight.MOD				CLASSES:Mind Weaver=9
+Gate.MOD					CLASSES:Mind Weaver=9
+Implosion.MOD				CLASSES:Mind Weaver=9
+Disjunction.MOD				CLASSES:Mind Weaver=9
+Power Word (Kill).MOD			CLASSES:Mind Weaver=9
+Prismatic Sphere.MOD			CLASSES:Mind Weaver=9
+Shapechange.MOD				CLASSES:Mind Weaver=9
+Time Stop.MOD				CLASSES:Mind Weaver=9
+Wail of the Banshee.MOD			CLASSES:Mind Weaver=9
+Weird.MOD					CLASSES:Mind Weaver=9
+
+
+
+
+
+# The Sun Mages choice of spells
+# Spell Name				Classes of caster
+Cure Minor Wounds.MOD			CLASSES:Sun Mage=0
+Dancing Lights.MOD			CLASSES:Sun Mage=0
+Daze.MOD					CLASSES:Sun Mage=0
+Detect Magic.MOD				CLASSES:Sun Mage=0
+Detect Poison.MOD				CLASSES:Sun Mage=0
+Disrupt Undead.MOD			CLASSES:Sun Mage=0
+Flare.MOD					CLASSES:Sun Mage=0
+Guidance.MOD				CLASSES:Sun Mage=0
+Light.MOD					CLASSES:Sun Mage=0
+Mage Hand.MOD				CLASSES:Sun Mage=0
+Mending.MOD					CLASSES:Sun Mage=0
+Open/Close.MOD				CLASSES:Sun Mage=0
+Prestidigitation.MOD			CLASSES:Sun Mage=0
+Purify Food and Drink.MOD		CLASSES:Sun Mage=0
+Resistance.MOD				CLASSES:Sun Mage=0
+
+Animate Rope.MOD				CLASSES:Sun Mage=1
+Burning Hands.MOD				CLASSES:Sun Mage=1
+Cause Fear.MOD				CLASSES:Sun Mage=1
+Charm Person.MOD				CLASSES:Sun Mage=1
+Color Spray.MOD				CLASSES:Sun Mage=1
+Cure Light Wounds.MOD			CLASSES:Sun Mage=1
+Detect Undead.MOD				CLASSES:Sun Mage=1
+Endure Elements.MOD			CLASSES:Sun Mage=1
+Entropic Shield.MOD			CLASSES:Sun Mage=1
+Expeditious Retreat.MOD			CLASSES:Sun Mage=1
+Faerie Fire.MOD				CLASSES:Sun Mage=1
+Feather Fall.MOD				CLASSES:Sun Mage=1
+Hold Portal.MOD				CLASSES:Sun Mage=1
+Hypnotism.MOD				CLASSES:Sun Mage=1
+Identify.MOD				CLASSES:Sun Mage=1
+Jump.MOD					CLASSES:Sun Mage=1
+Mage Armor.MOD				CLASSES:Sun Mage=1
+Magic Missile.MOD				CLASSES:Sun Mage=1
+Magic Weapon.MOD				CLASSES:Sun Mage=1
+Message.MOD					CLASSES:Sun Mage=1
+Pass without Trace.MOD			CLASSES:Sun Mage=1
+Protection from Good.MOD		CLASSES:Sun Mage=1
+Protection from Evil.MOD		CLASSES:Sun Mage=1
+Protection from Chaos.MOD		CLASSES:Sun Mage=1
+Protection from Law.MOD			CLASSES:Sun Mage=1
+Sanctuary.MOD				CLASSES:Sun Mage=1
+Shield.MOD					CLASSES:Sun Mage=1
+Sleep.MOD					CLASSES:Sun Mage=1
+Spider Climb.MOD				CLASSES:Sun Mage=1
+Floating Disk.MOD				CLASSES:Sun Mage=1
+True Strike.MOD				CLASSES:Sun Mage=1
+
+Aid.MOD					CLASSES:Sun Mage=2
+Blur.MOD					CLASSES:Sun Mage=2
+Bull's Strength.MOD			CLASSES:Sun Mage=2
+Calm Emotions.MOD				CLASSES:Sun Mage=2
+Cat's Grace.MOD				CLASSES:Sun Mage=2
+Cure Moderate Wounds.MOD		CLASSES:Sun Mage=2
+Darkvision.MOD				CLASSES:Sun Mage=2
+Daylight.MOD				CLASSES:Sun Mage=2
+Delay Poison.MOD				CLASSES:Sun Mage=2
+Detect Thoughts.MOD			CLASSES:Sun Mage=2
+Endurance.MOD				CLASSES:Sun Mage=2
+Enthrall.MOD				CLASSES:Sun Mage=2
+Flaming Sphere.MOD			CLASSES:Sun Mage=2
+Gentle Repose.MOD				CLASSES:Sun Mage=2
+Glitterdust.MOD				CLASSES:Sun Mage=2
+Lesser Restoration.MOD			CLASSES:Sun Mage=2
+Levitate.MOD				CLASSES:Sun Mage=2
+Locate Object.MOD				CLASSES:Sun Mage=2
+## Magic Weapon.MOD			CLASSES:Sun Mage=2  this one is entered twice.
+Make Whole.MOD				CLASSES:Sun Mage=2
+Acid Arrow.MOD				CLASSES:Sun Mage=2
+Minor Image.MOD				CLASSES:Sun Mage=2
+Mirror Image.MOD				CLASSES:Sun Mage=2
+Obscure Object.MOD			CLASSES:Sun Mage=2
+Protection from Arrows.MOD		CLASSES:Sun Mage=2
+Pyrotechnics.MOD				CLASSES:Sun Mage=2
+Resist Elements.MOD			CLASSES:Sun Mage=2
+See Invisibility.MOD			CLASSES:Sun Mage=2
+Shatter.MOD					CLASSES:Sun Mage=2
+Sound Burst.MOD				CLASSES:Sun Mage=2
+Spectral Hand.MOD				CLASSES:Sun Mage=2
+Suggestion.MOD				CLASSES:Sun Mage=2
+Tongues.MOD					CLASSES:Sun Mage=2
+Whispering Wind.MOD			CLASSES:Sun Mage=2
+
+Blink.MOD					CLASSES:Sun Mage=3
+Charm Monster.MOD				CLASSES:Sun Mage=3
+Clairaudience/Clairvoyance.MOD	CLASSES:Sun Mage=3
+Continual Flame.MOD			CLASSES:Sun Mage=3
+Cure Serious Wounds.MOD			CLASSES:Sun Mage=3
+Dispel Magic.MOD				CLASSES:Sun Mage=3
+Displacement.MOD				CLASSES:Sun Mage=3
+Explosive Runes.MOD			CLASSES:Sun Mage=3
+Fireball.MOD				CLASSES:Sun Mage=3
+Flame Arrow.MOD				CLASSES:Sun Mage=3
+Fly.MOD					CLASSES:Sun Mage=3
+Greater Magic Weapon.MOD		CLASSES:Sun Mage=3
+Gust of Wind.MOD				CLASSES:Sun Mage=3
+Halt Undead.MOD				CLASSES:Sun Mage=3
+Haste.MOD					CLASSES:Sun Mage=3
+Hold Person.MOD				CLASSES:Sun Mage=3
+Invisibility Purge.MOD			CLASSES:Sun Mage=3
+Keen Edge.MOD				CLASSES:Sun Mage=3
+Lesser Geas.MOD				CLASSES:Sun Mage=3
+Lightning Bolt.MOD			CLASSES:Sun Mage=3
+Magic Circle against Chaos.MOD	CLASSES:Sun Mage=3
+Magic Circle against Evil.MOD		CLASSES:Sun Mage=3
+Magic Circle against Good.MOD		CLASSES:Sun Mage=3
+Magic Circle against Law.MOD		CLASSES:Sun Mage=3
+Major Image.MOD				CLASSES:Sun Mage=3
+Negative Energy Protection.MOD	CLASSES:Sun Mage=3
+Nondetection.MOD				CLASSES:Sun Mage=3
+Phantom Steed.MOD				CLASSES:Sun Mage=3
+Protection from Elements.MOD		CLASSES:Sun Mage=3
+Remove Curse.MOD				CLASSES:Sun Mage=3
+Remove Disease.MOD			CLASSES:Sun Mage=3
+Slow.MOD					CLASSES:Sun Mage=3
+Water Breathing.MOD			CLASSES:Sun Mage=3
+Water Walk.MOD				CLASSES:Sun Mage=3
+Wind Wall.MOD				CLASSES:Sun Mage=3
+
+Break Enchantment.MOD			CLASSES:Sun Mage=4
+Cure Critical Wounds.MOD		CLASSES:Sun Mage=4
+Detect Scrying.MOD			CLASSES:Sun Mage=4
+Dimension Door.MOD			CLASSES:Sun Mage=4
+Dismissal.MOD				CLASSES:Sun Mage=4
+Dominate Person.MOD			CLASSES:Sun Mage=4
+Emotion.MOD					CLASSES:Sun Mage=4
+Fire Shield.MOD				CLASSES:Sun Mage=4
+Fire Trap.MOD				CLASSES:Sun Mage=4
+Freedom of Movement.MOD			CLASSES:Sun Mage=4
+Ice Storm.MOD				CLASSES:Sun Mage=4
+Imbue with Spell Ability.MOD		CLASSES:Sun Mage=4
+Improved Invisibility.MOD		CLASSES:Sun Mage=4
+Legend Lore.MOD				CLASSES:Sun Mage=4
+Locate Creature.MOD			CLASSES:Sun Mage=4
+Minor Creation.MOD			CLASSES:Sun Mage=4
+Minor Globe of Invulnerability.MOD	CLASSES:Sun Mage=4
+Neutralize Poison.MOD			CLASSES:Sun Mage=4
+Rainbow Pattern.MOD			CLASSES:Sun Mage=4
+Remove Curse.MOD				CLASSES:Sun Mage=4
+Shout.MOD					CLASSES:Sun Mage=4
+Spell Immunity.MOD			CLASSES:Sun Mage=4
+Stoneskin.MOD				CLASSES:Sun Mage=4
+Wall of Fire.MOD				CLASSES:Sun Mage=4
+
+Cone of Cold.MOD				CLASSES:Sun Mage=5
+Contact Other Plane.MOD			CLASSES:Sun Mage=5
+Feeblemind.MOD				CLASSES:Sun Mage=5
+Flame Strike.MOD				CLASSES:Sun Mage=5
+Greater Dispelling.MOD			CLASSES:Sun Mage=5
+Healing Circle.MOD			CLASSES:Sun Mage=5
+Hold Monster.MOD				CLASSES:Sun Mage=5
+Major Creation.MOD			CLASSES:Sun Mage=5
+Mislead.MOD					CLASSES:Sun Mage=5
+Passwall.MOD				CLASSES:Sun Mage=5
+Permanency.MOD				CLASSES:Sun Mage=5
+Persistent Image.MOD			CLASSES:Sun Mage=5
+Prying Eyes.MOD				CLASSES:Sun Mage=5
+Telepathic Bond.MOD			CLASSES:Sun Mage=5
+Spell Resistance.MOD			CLASSES:Sun Mage=5
+Telekinesis.MOD				CLASSES:Sun Mage=5
+Teleport.MOD				CLASSES:Sun Mage=5
+Wall of Stone.MOD				CLASSES:Sun Mage=5
+
+Analyze Dweomer.MOD			CLASSES:Sun Mage=6
+##Banishment.MOD				CLASSES:Sun Mage=6 see level 7
+Chain Lightning.MOD			CLASSES:Sun Mage=6
+Control Weather.MOD			CLASSES:Sun Mage=6
+Disintegrate.MOD				CLASSES:Sun Mage=6
+Geas/Quest.MOD				CLASSES:Sun Mage=6
+Greater Dispelling.MOD			CLASSES:Sun Mage=6
+Find the Path.MOD				CLASSES:Sun Mage=6
+Flesh to Stone.MOD			CLASSES:Sun Mage=6
+Heal.MOD					CLASSES:Sun Mage=6
+Mass Haste.MOD				CLASSES:Sun Mage=6
+Mass Suggestion.MOD			CLASSES:Sun Mage=6
+Move Earth.MOD				CLASSES:Sun Mage=6
+Freezing Sphere.MOD			CLASSES:Sun Mage=6
+Plane Shift.MOD				CLASSES:Sun Mage=6
+Project Image.MOD				CLASSES:Sun Mage=6
+Repulsion.MOD				CLASSES:Sun Mage=6
+Stone to Flesh.MOD			CLASSES:Sun Mage=6
+True Seeing.MOD				CLASSES:Sun Mage=6
+Wind Walk.MOD				CLASSES:Sun Mage=6
+
+Banishment.MOD				CLASSES:Sun Mage=7
+Delayed Blast Fireball.MOD		CLASSES:Sun Mage=7
+Forcecage.MOD				CLASSES:Sun Mage=7
+Limited Wish.MOD				CLASSES:Sun Mage=7
+Sword.MOD					CLASSES:Sun Mage=7
+Phase Door.MOD				CLASSES:Sun Mage=7
+Power Word (Stun).MOD			CLASSES:Sun Mage=7
+Plane Shift.MOD				CLASSES:Sun Mage=7
+Prismatic Spray.MOD			CLASSES:Sun Mage=7
+Regenerate.MOD				CLASSES:Sun Mage=7
+Spell Turning.MOD				CLASSES:Sun Mage=7
+Teleport without Error.MOD		CLASSES:Sun Mage=7
+Vanish.MOD					CLASSES:Sun Mage=7
+Vision.MOD					CLASSES:Sun Mage=7
+
+Discern Location.MOD			CLASSES:Sun Mage=8
+Earthquake.MOD				CLASSES:Sun Mage=8
+Fire Storm.MOD				CLASSES:Sun Mage=8
+Iron Body.MOD				CLASSES:Sun Mage=8
+Mass Charm.MOD				CLASSES:Sun Mage=8
+Mass Heal.MOD				CLASSES:Sun Mage=8
+Mind Blank.MOD				CLASSES:Sun Mage=8
+Telekinetic Sphere.MOD			CLASSES:Sun Mage=8
+Polymorph Any Object.MOD		CLASSES:Sun Mage=8
+Protection from Spells.MOD		CLASSES:Sun Mage=8
+Power Word (Blind).MOD			CLASSES:Sun Mage=8
+Prismatic Wall.MOD			CLASSES:Sun Mage=8
+Screen.MOD					CLASSES:Sun Mage=8
+Sunburst.MOD				CLASSES:Sun Mage=8
+Symbol.MOD					CLASSES:Sun Mage=8
+
+Dominate Monster.MOD			CLASSES:Sun Mage=9
+Foresight.MOD				CLASSES:Sun Mage=9
+Gate.MOD					CLASSES:Sun Mage=9
+Implosion.MOD				CLASSES:Sun Mage=9
+Meteor Swarm.MOD				CLASSES:Sun Mage=9
+Disjunction.MOD				CLASSES:Sun Mage=9
+Power Word (Kill).MOD			CLASSES:Sun Mage=9
+Prismatic Sphere.MOD			CLASSES:Sun Mage=9
+Shapechange.MOD				CLASSES:Sun Mage=9
+Storm of Vengeance.MOD			CLASSES:Sun Mage=9
+Teleportation Circle.MOD		CLASSES:Sun Mage=9
+Time Stop.MOD				CLASSES:Sun Mage=9
+Weird.MOD					CLASSES:Sun Mage=9
+Wish.MOD					CLASSES:Sun Mage=9
+
+
+
+
+
+#

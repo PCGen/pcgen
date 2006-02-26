@@ -1,0 +1,92 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients|SOURCESHORT:ArtifactsA|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+#Martial Weapons Ranged
+# Equipment Name					Required Proficiency			Type											Contains							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page				Special Property
+Shock-Field Glove					PROFICIENCY:Shock-Field Glove		TYPE:Weapon.Martial.Ranged.Energy.Electrical.Container.Metal	CONTAINS:4|Total=50|Backpack=50|Beltpack=25	COST:8050	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:20	SIZE:S	SOURCEPAGE:pp.70,71		SPROP:Power=Backpack|Beltpack, Rate=Normal, Reload=Standard Action
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Shotgun, Automatic				PROFICIENCY:Shotgun, Automatic	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Metal	CONTAINS:1.5|Total=10|Shell=10			COST:4750	WT:10													RANGE:10	SIZE:M	SOURCEPAGE:pp.71,72		SPROP:Rounds=10, Rate=Automatic, Reload=Standard Action, See DWWR for special rules
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Machinegun						PROFICIENCY:Machinegun			TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Metal	CONTAINS:10|Total=1|MBelt=1				COST:19500	WT:75		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12		RANGE:500	SIZE:L	SOURCEPAGE:pp.70-72		SPROP:Rounds=100, Rate=Rapid-Fire, Reload=Standard Action
+
+#HUGE ----------------------------------------------------------------------------------------------------------
+Cannon						PROFICIENCY:Cannon			TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Metal	CONTAINS:75|Total=1|Cannon=1				COST:200000	WT:750	CRITMULT:x3			CRITRANGE:1			DAMAGE:10d10	RANGE:1000	SIZE:H	SOURCEPAGE:pp.70-72		SPROP:Rounds=1, Rate=1/Full Round Action, Reload=Full Round Action
+
+#Exotic Weapons Ranged
+#TINY ----------------------------------------------------------------------------------------------------------
+Hand Stunner					PROFICIENCY:Hand Stunner		TYPE:Weapon.Exotic.Ranged.Energy.Subdual.Container.Metal		CONTAINS:0|Total=1|Clip=1				COST:450	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4		RANGE:20	SIZE:T	SOURCEPAGE:pp.73,76		SPROP:Power=Clip, Rate=Ranged Touch Attack, Reload=Standard Action
+Blood Agent Grenade				PROFICIENCY:Blood Agent Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:1900	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 37, 41
+Concussion Grenade				PROFICIENCY:Concussion Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:90	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:3d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 37, 41
+Dynamite						PROFICIENCY:Dynamite			TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:100	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:3d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 37, 41
+Energy Grenade					PROFICIENCY:Energy Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:375	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:8d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 37, 41
+Fragmentation Grenade				PROFICIENCY:Fragmentation Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:6d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 37, 41
+Glitter Grenade					PROFICIENCY:Glitter Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:50	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36-38, 41
+Inferno Grenade					PROFICIENCY:Inferno Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:5d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
+Irritant Gas Grenade				PROFICIENCY:Irritant Gas Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:225	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
+Molotov Cocktail					PROFICIENCY:Molotov Cocktail		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:15	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:2d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
+Mutation Grenade					PROFICIENCY:Mutation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:3825	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 39, 41
+Negation Grenade					PROFICIENCY:Negation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:225	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Nerve Gas Grenade					PROFICIENCY:Nerve Gas Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:2275	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Photon Grenade					PROFICIENCY:Photon Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Plasma Grenade					PROFICIENCY:Plasma Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:500	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:9d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Radiation Grenade					PROFICIENCY:Radiation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:1650	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Satchel Charge A					PROFICIENCY:Satchel Charge A		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:700	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:4d6		RANGE:0	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Shock Grenade					PROFICIENCY:Shock Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:375	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:3d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39-41
+Smoke Grenade					PROFICIENCY:Smoke Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:25	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 40, 41
+Stun Grenade					PROFICIENCY:Stun Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:5d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 40, 41
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Anti-Tank Grenade					PROFICIENCY:Anti-Tank Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:375	WT:2		CRITMULT:x1			CRITRANGE:1			DAMAGE:10d6		RANGE:10	SIZE:S	SOURCEPAGE:pp. 36, 37, 41
+Blaster						PROFICIENCY:Blaster			TYPE:Weapon.Exotic.Ranged.Energy.Disintegrate.Container.Metal	CONTAINS:0|Total=10|Minifusion=10			COST:73000	WT:2													RANGE:20	SIZE:S	SOURCEPAGE:pp.73,76		SPROP:Power=Minifusion Cell, Rate=1/Round, Reload=Standard Action
+Flame Pistol					PROFICIENCY:Flame Pistol		TYPE:Weapon.Exotic.Ranged.Explosive.Fire.Container.Metal										COST:4000	WT:4		CRITMULT:x1			CRITRANGE:1			DAMAGE:2d4		RANGE:5	SIZE:S	SOURCEPAGE:pp. 36, 37, 41	SPROP:Rounds=3|16, Power=Mini Cannister|Flamethrower Cannister, Rate=1/Round, Reload=
+Gauss Pistol Mk 1					PROFICIENCY:Gauss Pistol Mk 1		TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:18750	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:100	SIZE:S	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Clip|Beltpack|Backpack, Rate=Normal, Reload=
+Gauss Pistol Mk 2					PROFICIENCY:Gauss Pistol Mk 2		TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:20750	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:100	SIZE:S	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Clip|Beltpack|Backpack, Rate=Normal, Reload=
+Gauss SMG						PROFICIENCY:Gauss SMG			TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:32900	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:100	SIZE:S	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Clip|Beltpack|Backpack, Rate=Automatic, Reload=
+Grenade Launcher					PROFICIENCY:Greande Launcher		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:4500	WT:12		CRITMULT:x1			CRITRANGE:1			DAMAGE:0d0		RANGE:200	SIZE:S	SOURCEPAGE:pp. 36, 38, 42	SPROP:Rounds=
+Laser Pistol Mk 1					PROFICIENCY:Laser Pistol Mk 1		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:8500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:100	SIZE:S	SOURCEPAGE:pp.73,74,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Laser Pistol Mk 2					PROFICIENCY:Laser Pistol Mk 2		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:16500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:100	SIZE:S	SOURCEPAGE:pp.73-76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Maser Pistol					PROFICIENCY:Maser Pistol		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:6500	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:100	SIZE:S	SOURCEPAGE:pp.73,75,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Mine, Fragmentation				PROFICIENCY:Mine				TYPE:Weapon.Exotic.Ranged.Explosive.Special.Plastic											COST:350	WT:2		CRITMULT:x1			CRITRANGE:1			DAMAGE:6d6		RANGE:0	SIZE:S	SOURCEPAGE:pp. 36, 38, 42
+Plasma Pistol					PROFICIENCY:Plasma Pistol		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:18500	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d12		RANGE:100	SIZE:S	SOURCEPAGE:pp.73,75,76		SPROP:Power=Minifusion Cell, Rate=1/Round, Reload=Standard Action
+Satchel Charge B					PROFICIENCY:Satchel Charge B		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:1650	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:6d6		RANGE:0	SIZE:S	SOURCEPAGE:pp. 36, 39, 41
+Stun Gun						PROFICIENCY:Stun Gun			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:18500	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8		RANGE:50	SIZE:S	SOURCEPAGE:pp.73,76,77		SPROP:Power=Clip, Rate=1/Round, Reload=
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Atom Gun						PROFICIENCY:Atom Gun			TYPE:Weapon.Exotic.Ranged.Particle.Special.Container.Metal										COST:50750	WT:10		CRITMULT:x1			CRITRANGE:1			DAMAGE:6d6		RANGE:10	SIZE:M	SOURCEPAGE:p.80			SPROP:Power=Plutonium Clip, Rate=1/Round, Reload=
+Dazzle Rifle					PROFICIENCY:Dazzle Rifle		TYPE:Weapon.Exotic.Ranged.Energy.Light.Container.Metal										COST:2300	WT:7													RANGE:50	SIZE:M	SOURCEPAGE:pp.73,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Ranged Touch Attack, Reload=Standard Action
+Electro-Saw Thrower				PROFICIENCY:Electro-Saw Thrower	TYPE:Weapon.Exotic.Ranged.Mass.Slashing.Container.Metal										COST:18750	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:3d4		RANGE:80	SIZE:M	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Rate=Normal, Reload=
+EMP Rifle						PROFICIENCY:EMP Rifle			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:50000	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:5d8		RANGE:20	SIZE:M	SOURCEPAGE:pp.73,76		SPROP:Power=Minifusion Cell, Rate=1/Round, Reload=Standard Action, Full Damage vs. Electronic Constructs only
+Flamethrower					PROFICIENCY:Flamethrower		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:18000	WT:8		CRITMULT:x1			CRITRANGE:1			DAMAGE:3d6		RANGE:20	SIZE:M	SOURCEPAGE:pp. 36, 37, 41	SPROP:Power=Flamethrower Cannister, Reload=
+Fusion Rifle					PROFICIENCY:Fusion Rifle		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:51500	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:4d10		RANGE:100	SIZE:M	SOURCEPAGE:pp.73,76		SPROP:Power=Minifusion Cell, Rate=1/Round, Reload=Standard Action
+Gauss Auto Rifle (GAR)				PROFICIENCY:Gauss Auto Rifle		TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:50750	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6		RANGE:100	SIZE:M	SOURCEPAGE:pp.77,78		SPROP:Rounds=30, Power=Clip|Backpack|Beltpack, Rate=Automatic, Reload=
+Gauss Rifle Mk 1					PROFICIENCY:Gauss Rifle Mk 1		TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:32750	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6		RANGE:200	SIZE:M	SOURCEPAGE:pp.77,78		SPROP:Rounds=30, Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Gauss Rifle Mk 2					PROFICIENCY:Gauss Rifle Mk 2		TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:34750	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6		RANGE:200	SIZE:M	SOURCEPAGE:pp.77,78		SPROP:Rounds=30, Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Hydrogen Laser Rifle				PROFICIENCY:Hydrogen Laser Rifle	TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:50500	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d10		RANGE:200	SIZE:M	SOURCEPAGE:pp.73,74,76		SPROP:Power=Harmonic Cell, Rate=Normal, Reload=
+Infra-Red Laser					PROFICIENCY:Infra-Red Laser		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:32500	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:200	SIZE:M	SOURCEPAGE:pp.73,74,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Ion Ray						PROFICIENCY:Ion Ray			TYPE:Weapon.Exotic.Ranged.Particle.Special.Container.Metal										COST:32750	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:100	SIZE:M	SOURCEPAGE:p.80			SPROP:Power=Minifusion Cell, Rate=Rapid-Fire, Reload=
+Laser Rifle						PROFICIENCY:Laser Rifle			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:18500	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d10		RANGE:200	SIZE:M	SOURCEPAGE:pp.73,75,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Maser Rifle						PROFICIENCY:Maser Rifle			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:16500	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8		RANGE:200	SIZE:M	SOURCEPAGE:pp.73,75,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
+Meson Cannon					PROFICIENCY:Meson Cannon		TYPE:Weapon.Exotic.Ranged.Particle.Special.Container.Metal										COST:50750	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6		RANGE:200	SIZE:M	SOURCEPAGE:p.80			SPROP:Power=Minifusion Cell, Rate=Normal, Reload=
+Micro-Missile Launcher				PROFICIENCY:Micro-Missile Launcher	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:72000	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:40	SIZE:M	SOURCEPAGE:pp. 36, 38, 42
+Plasma Rifle					PROFICIENCY:Plasma Rifle		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:50500	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:4d12		RANGE:200	SIZE:M	SOURCEPAGE:pp.73,75,76		SPROP:Power=Minifusion Cell, Rate=1/Round, Reload=
+Pulse Laser Rifle					PROFICIENCY:Pulse Laser Rifle		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:32500	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:100	SIZE:M	SOURCEPAGE:pp.73,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Rapid-Fire, Reload=
+Radiation Rifle					PROFICIENCY:Radiation Rifle		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:51500	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10		RANGE:20	SIZE:M	SOURCEPAGE:pp.73,76,77		SPROP:Power=Plutonium Clip, Rate=1/Round, Reload=
+Satchel Charge C					PROFICIENCY:Satchel Charge C		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:3000	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:8d6		RANGE:0	SIZE:M	SOURCEPAGE:pp. 36, 39, 41
+Sonic Rifle						PROFICIENCY:Sonic Rifle			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:16500	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6		RANGE:20	SIZE:M	SOURCEPAGE:pp.73,76,77		SPROP:Power=Clip|Backpack|Beltpack, Rate=1/Round, Reload=
+X-Laser						PROFICIENCY:X-Laser			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:32500	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8		RANGE:100	SIZE:M	SOURCEPAGE:pp.73,76,77		SPROP:Power=Minifusion Cell, Rate=1/Round, Reload=
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Gauss ATG						PROFICIENCY:Gauss ATG			TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:22275	WT:50		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6		RANGE:200	SIZE:L	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Minifusion Cell, Rate=Full Round Action, Reload=
+Laser LAW						PROFICIENCY:Laser LAW			TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:20725	WT:65		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:100	SIZE:L	SOURCEPAGE:pp.73,74,76		SPROP:Power=Multifusion Cell, Rate=Full Round Action, Reload=
+LAW (Light Anti-Tank Weapon)			PROFICIENCY:LAW				TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:2275	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:5d10		RANGE:80	SIZE:L	SOURCEPAGE:pp. 36, 38, 41
+Mini-Missile Launcher				PROFICIENCY:Mini-Missile Launcher	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:98000	WT:80		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d8		RANGE:100	SIZE:L	SOURCEPAGE:pp. 36, 38, 42
+Missile Launcher					PROFICIENCY:Missile Launcher		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:128000	WT:120	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:200	SIZE:L	SOURCEPAGE:pp. 36, 38, 42
+NP Cannon						PROFICIENCY:NP Cannon			TYPE:Weapon.Exotic.Ranged.Particle.Special.Container.Metal										COST:98750	WT:20		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4		RANGE:500	SIZE:L	SOURCEPAGE:p.80			SPROP:Power=Minifusion Cell, Rate=Ranged Touch Attack, Reload=
+RPG (Rocket-Propelled Grenade Launcher)	PROFICIENCY:RPG				TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal										COST:4500	WT:20		CRITMULT:x1			CRITRANGE:1			DAMAGE:6d6		RANGE:100	SIZE:L	SOURCEPAGE:pp. 36, 39, 42
+
+#HUGE ----------------------------------------------------------------------------------------------------------
+Gauss Cannon					PROFICIENCY:Gauss Cannon		TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal										COST:232000	WT:1500	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:500	SIZE:H	SOURCEPAGE:pp.77,78		SPROP:Rounds=1, Power=Multifusion Cell, Rate=Full Round Action, Reload=
+Laser Cannon					PROFICIENCY:Laser Cannon		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal										COST:218000	WT:1000	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:500	SIZE:H	SOURCEPAGE:pp.73,74,76		SPROP:Power=Multifusion Cell, Rate=Full Round Action, Reload=

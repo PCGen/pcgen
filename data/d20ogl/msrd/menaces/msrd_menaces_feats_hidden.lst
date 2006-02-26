@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sat Nov 27 23:21:34 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name								Type						Visible	Special Ability							Multiple?	Choose					Bonus to skill rank
+Revenant Special Vulnerability (Acid)			TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Acid (Ex)
+Revenant Special Vulnerability (Electricity)		TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Electricity (Ex)
+Revenant Special Vulnerability (Fire)			TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Fire (Ex)
+Revenant Special Vulnerability (Cold)			TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Cold (Ex)
+Revenant Special Vulnerability (Sonic/Concussion)	TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Sonic/Concussion (Ex)
+Revenant Special Vulnerability (Slashing)			TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Slashing (Ex)
+Revenant Special Vulnerability (Piercing)			TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Piercing (Ex)
+Revenant Special Vulnerability (Bludgeoning)		TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Bludgeoning (Ex)
+Revenant Special Vulnerability (Ballistic)		TYPE:RevenantSpecialVulnerability	VISIBLE:NO	SA:Special Vulnerability to Ballistic (Ex)
+
+### Knowledge Skills
+One Knowledge Skill (+9)					TYPE:OneKnowledge10			VISIBLE:NO										MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge|1	BONUS:SKILLRANK|LIST|9|PREDEFAULTMONSTER:Y

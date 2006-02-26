@@ -1,0 +1,15 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Mon Mar 14 23:02:18 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Beaver and Tir Gwaith
+
+# Skill Name				Key Stat	Untrained?		Exclusive?		Type						Source Page
+Knowledge (Aruun)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.23
+Knowledge (Caraheen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.21
+Knowledge (Central Erenland)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.25
+Knowledge (Eren River Valley)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.24
+Knowledge (Kaladrun Mountains)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.19
+Knowledge (Miraleen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.22
+Knowledge (Northern Marches)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.30
+Knowledge (Northlands)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.27
+Knowledge (Southern Erenland)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.28
+Knowledge (Veradeen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge.Local	SOURCEPAGE:p.20

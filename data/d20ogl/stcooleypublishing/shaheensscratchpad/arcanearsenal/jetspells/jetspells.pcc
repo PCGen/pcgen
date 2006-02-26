@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Oct 19 10:34:46 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:S. T. Cooley Publishing - Arcane Arsenal - Jet Spells
+GAMEMODE:35e
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Fantasy
+TYPE:S T Cooley Publishing.Shaheen's Scratchpad.Arcane Arsenal
+SOURCELONG:Arcane Arsenal - Jet Spells
+SOURCESHORT:JetSpells
+SOURCEWEB:http://www.stcooleypublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Shaheen's Scratchpad - Arcane Arsenal: Jet Spells Copyright 2005, Spencer T. Cooley, distributed in electronic form by S.T. Cooley Publishing (http://www.stcooleypublishing.com)
+COPYRIGHT:PCGen dataset conversion for Jet Spells Copyright 2005, PCGen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+FEAT:jetspells_feats.lst
+SPELL:jetspells_spells.lst
+

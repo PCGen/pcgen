@@ -1,0 +1,24 @@
+# CVS $Revision: 1.5 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
+
+##Rings
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page				Choose a Feat													Combat bonus				Bonus to skill				Stat bonus						Special Property
+Ring (Purity)			OUTPUTNAME:Band of [NAME]	TYPE:Magic.Ring	COST:48825	WT:0		SOURCEPAGE:pg. 23, Rings																																			SPROP:See text
+# The "minimum Profession (cook) rank of 3" is missing from the Ring of Cooking.
+Ring (Cooking)			OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:3300	WT:0		SOURCEPAGE:pg. 23, Rings																						BONUS:SKILL|Profession (Cook)|2								SPROP:See text
+Ring (Divine Fate)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:7000	WT:0		SOURCEPAGE:pg. 23, Rings																																			SPROP:See text
+Ring (Imp Master)			OUTPUTNAME:[NAME] Ring		TYPE:Magic.Ring	COST:50400	WT:0		SOURCEPAGE:pg. 24, Rings																																			SPROP:See text
+Ring (Slime Lord)			OUTPUTNAME:[NAME] Ring		TYPE:Magic.Ring	COST:69500	WT:0		SOURCEPAGE:pg. 24, Rings																																			SPROP:See text
+Ring (Sound Mind +2)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:pg. 24, Rings																												BONUS:STAT|INT,WIS,CHA|2|TYPE=Enhancement	SPROP:See text
+Ring (Sound Mind +4)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:80000	WT:0		SOURCEPAGE:pg. 24, Rings																												BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement	SPROP:See text
+Ring (Sound Mind +6)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:180000	WT:0		SOURCEPAGE:pg. 24, Rings																												BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement	SPROP:See text
+Ring (Spinning Force)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:40750	WT:0		SOURCEPAGE:pg. 25, Rings																BONUS:COMBAT|AC|2|TYPE=Deflection														SPROP:See text
+Ring (Underwater Breathing)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:31800	WT:0		SOURCEPAGE:pg. 25, Rings																						BONUS:SKILL|Swim|5|TYPE=Competence								SPROP:See text
+# The ADD:FEAT doesn't work in the EQUIPMENT files for now - É.B.
+Ring (Weapon Insight)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:4000	WT:0		SOURCEPAGE:pg. 25-26, Rings	ADD:FEAT(Exotic Weapon Proficiency,Martial Weapon Proficiency,Simple Weapon Proficiency)																				SPROP:See text
+Ring (Wedding)			OUTPUTNAME:Wedding Rings	TYPE:Magic.Ring	COST:10300	WT:0		SOURCEPAGE:pg. 26, Rings																																			SPROP:See text
+Ring (Whole Body +2)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:pg. 26, Rings																												BONUS:STAT|STR,DEX,CON|2|TYPE=Enhancement	SPROP:See text
+Ring (Whole Body +4)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:80000	WT:0		SOURCEPAGE:pg. 26, Rings																												BONUS:STAT|STR,DEX,CON|2|TYPE=Enhancement	SPROP:See text
+Ring (Whole Body +6)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:180000	WT:0		SOURCEPAGE:pg. 26, Rings																												BONUS:STAT|STR,DEX,CON|2|TYPE=Enhancement	SPROP:See text
+Ring (Wild Elemental Magic)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:67680	WT:0		SOURCEPAGE:pg. 26-27, Rings																																			SPROP:See text
+Ring (Wilting)			OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:40000	WT:0		SOURCEPAGE:pg. 28, Rings																																			SPROP:See text

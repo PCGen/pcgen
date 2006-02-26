@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="frankish-male-rule" title="Frank" usage="final">
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETRULE idref="frankish-male-given-rule" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="frankish-male-given-rule" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="frankish-aka" title="Also Known As"/>
+			<SPACE/>
+			<GETRULE idref="frankish-male-given-rule" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="frankish-male-given-rule" title="Given" usage="public">
+		<RULE weight="1">
+			<GETLIST idref="frankish-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="frankish-syl1" title="Given"/>
+			<GETLIST idref="frankish-male-syl2" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="frankish-female-rule" title="Frank" usage="final">
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="2">
+			<GETRULE idref="frankish-female-given-rule" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="frankish-female-given-rule" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="frankish-female-filia" title="Filia"/>
+			<SPACE/>
+			<GETLIST idref="frankish-patrynomic" title="Filia"/>
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="frankish-female-given-rule" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="frankish-aka" title="Also Known As"/>
+			<SPACE/>
+			<GETRULE idref="frankish-female-given-rule" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="frankish-female-given-rule" title="Given" usage="public">
+		<RULE weight="1">
+			<GETLIST idref="frankish-female-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="frankish-syl1" title="Given"/>
+			<GETLIST idref="frankish-female-syl2" title="Given"/>
+		</RULE>
+	</RULESET>
+	<LIST id="frankish-syl1" title="Syl1">
+		<VALUE>Adal</VALUE>
+		<VALUE>Am</VALUE>
+		<VALUE>Amal</VALUE>
+		<VALUE>Bald</VALUE>
+		<VALUE>Bert</VALUE>
+		<VALUE>Child</VALUE>
+		<VALUE>Chlod</VALUE>
+		<VALUE>Sigi</VALUE>
+		<VALUE>Theud</VALUE>
+	</LIST>
+	<LIST id="frankish-male-syl2" title="Syl2">
+		<VALUE>ger</VALUE>
+		<VALUE>man</VALUE>
+		<VALUE>mund</VALUE>
+		<VALUE>ric</VALUE>
+		<VALUE>sind</VALUE>
+	</LIST>
+	<LIST id="frankish-aka" title="Also Known As">
+		<VALUE>qui et<SUBVALUE type="meaning">who [is] also</SUBVALUE></VALUE>
+		<VALUE>alias</VALUE>
+		<VALUE>quae cognominabatur<SUBVALUE type="meaning">who was called</SUBVALUE></VALUE>
+		<VALUE>sive<SUBVALUE type="meaning">or</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="frankish-male-given" title="Given">
+		<VALUE>Adalbaldus</VALUE>
+		<VALUE>Adalbert</VALUE>
+		<VALUE>Adalbertus</VALUE>
+		<VALUE>Adalgarius</VALUE>
+		<VALUE>Ageric</VALUE>
+		<VALUE>Agilbertus</VALUE>
+		<VALUE>Agiulf</VALUE>
+		<VALUE>Ailbertus</VALUE>
+		<VALUE>Alaric</VALUE>
+		<VALUE>Albricus</VALUE>
+		<VALUE>Amalaric</VALUE>
+		<VALUE>Andica</VALUE>
+		<VALUE>Ansovald</VALUE>
+		<VALUE>Arcambaldus</VALUE>
+		<VALUE>Aregisel</VALUE>
+		<VALUE>Arnegisel</VALUE>
+		<VALUE>Arnulf</VALUE>
+		<VALUE>Athanagild</VALUE>
+		<VALUE>Athanaric</VALUE>
+		<VALUE>Audovald</VALUE>
+		<VALUE>Austregisel</VALUE>
+		<VALUE>Autbertus</VALUE>
+		<VALUE>Autgarius</VALUE>
+		<VALUE>Autgerius</VALUE>
+		<VALUE>Authari</VALUE>
+		<VALUE>Badegisel</VALUE>
+		<VALUE>Balduinus</VALUE>
+		<VALUE>Barnardus</VALUE>
+		<VALUE>Beraldus</VALUE>
+		<VALUE>Bernard</VALUE>
+		<VALUE>Bernardus</VALUE>
+		<VALUE>Bernerius</VALUE>
+		<VALUE>Bero</VALUE>
+		<VALUE>Beroldus</VALUE>
+		<VALUE>Berthar</VALUE>
+		<VALUE>Berthefried</VALUE>
+		<VALUE>Bertram</VALUE>
+		<VALUE>Bertramnus</VALUE>
+		<VALUE>Bertrandus</VALUE>
+		<VALUE>Bertrannus</VALUE>
+		<VALUE>Bisinus</VALUE>
+		<VALUE>Burchard</VALUE>
+		<VALUE>Carloman</VALUE>
+		<VALUE>Chararic</VALUE>
+		<VALUE>Charibert</VALUE>
+		<VALUE>Charlemange</VALUE>
+		<VALUE>Charles</VALUE>
+		<VALUE>Childebert</VALUE>
+		<VALUE>Childeric</VALUE>
+		<VALUE>Chilperic</VALUE>
+		<VALUE>Chlodomer</VALUE>
+		<VALUE>Chramnesind</VALUE>
+		<VALUE>Clovis</VALUE>
+		<VALUE>Dagaric</VALUE>
+		<VALUE>Dagobert</VALUE>
+		<VALUE>Desiderius</VALUE>
+		<VALUE>Drogo</VALUE>
+		<VALUE>Eberulf</VALUE>
+		<VALUE>Ebregisel</VALUE>
+		<VALUE>Engilbert</VALUE>
+		<VALUE>Euric</VALUE>
+		<VALUE>Everardus</VALUE>
+		<VALUE>Evrardus</VALUE>
+		<VALUE>Frotarius</VALUE>
+		<VALUE>Frotharius</VALUE>
+		<VALUE>Fulcarius</VALUE>
+		<VALUE>Fulcradus</VALUE>
+		<VALUE>Galterius</VALUE>
+		<VALUE>Gararic</VALUE>
+		<VALUE>Garivald</VALUE>
+		<VALUE>Gaucelmus</VALUE>
+		<VALUE>Gauzbertus</VALUE>
+		<VALUE>Gerbertus</VALUE>
+		<VALUE>Gerhardus</VALUE>
+		<VALUE>Gerold</VALUE>
+		<VALUE>Gislarius</VALUE>
+		<VALUE>Gocelmus</VALUE>
+		<VALUE>Godomar</VALUE>
+		<VALUE>Gozhelmus</VALUE>
+		<VALUE>Grimald</VALUE>
+		<VALUE>Gualtarius</VALUE>
+		<VALUE>Gualterus</VALUE>
+		<VALUE>Guillabertus</VALUE>
+		<VALUE>Guitardus</VALUE>
+		<VALUE>Gunderic</VALUE>
+		<VALUE>Gundobad</VALUE>
+		<VALUE>Gunthar</VALUE>
+		<VALUE>Guntram</VALUE>
+		<VALUE>Hartmut</VALUE>
+		<VALUE>Hermangild</VALUE>
+		<VALUE>Herminafrid</VALUE>
+		<VALUE>Hildebald</VALUE>
+		<VALUE>Hucbertus</VALUE>
+		<VALUE>Hugbertus</VALUE>
+		<VALUE>Huneric</VALUE>
+		<VALUE>Imnachar</VALUE>
+		<VALUE>Ingomer</VALUE>
+		<VALUE>Karl</VALUE>
+		<VALUE>Karle</VALUE>
+		<VALUE>Karolus</VALUE>
+		<VALUE>Leudast</VALUE>
+		<VALUE>Leuvigild</VALUE>
+		<VALUE>Lodharius</VALUE>
+		<VALUE>Lodhuvicus</VALUE>
+		<VALUE>Lodhuwicus</VALUE>
+		<VALUE>Lothar</VALUE>
+		<VALUE>Louis</VALUE>
+		<VALUE>Ludhuuuige</VALUE>
+		<VALUE>Magnachar</VALUE>
+		<VALUE>Magneric</VALUE>
+		<VALUE>Mainardus</VALUE>
+		<VALUE>Marachar</VALUE>
+		<VALUE>Meginhard</VALUE>
+		<VALUE>Merovech</VALUE>
+		<VALUE>Munderic</VALUE>
+		<VALUE>Odelricus</VALUE>
+		<VALUE>Odolricus</VALUE>
+		<VALUE>Otbertus</VALUE>
+		<VALUE>Otgerius</VALUE>
+		<VALUE>Otker</VALUE>
+		<VALUE>Pepin</VALUE>
+		<VALUE>Radulfus</VALUE>
+		<VALUE>Ragambaldus</VALUE>
+		<VALUE>Raginarius</VALUE>
+		<VALUE>Ragnachar</VALUE>
+		<VALUE>Ragnaldus</VALUE>
+		<VALUE>Raimboldus</VALUE>
+		<VALUE>Rainaldus</VALUE>
+		<VALUE>Ramnulfus</VALUE>
+		<VALUE>Rathar</VALUE>
+		<VALUE>Raynoldus</VALUE>
+		<VALUE>Reccared</VALUE>
+		<VALUE>Reginarius</VALUE>
+		<VALUE>Ricchar</VALUE>
+		<VALUE>Rotbertus</VALUE>
+		<VALUE>Ruotbertus</VALUE>
+		<VALUE>Segoinus</VALUE>
+		<VALUE>Seguinus</VALUE>
+		<VALUE>Sicbaldus</VALUE>
+		<VALUE>Sichar</VALUE>
+		<VALUE>Sigebaldus</VALUE>
+		<VALUE>Sigebertus</VALUE>
+		<VALUE>Sigeric</VALUE>
+		<VALUE>Sigibert</VALUE>
+		<VALUE>Sigismund</VALUE>
+		<VALUE>Sunnegisil</VALUE>
+		<VALUE>Tancradus</VALUE>
+		<VALUE>Tancredus</VALUE>
+		<VALUE>Tassilo</VALUE>
+		<VALUE>Teodericus</VALUE>
+		<VALUE>Teotbertus</VALUE>
+		<VALUE>Tetbertus</VALUE>
+		<VALUE>Teutbaldus</VALUE>
+		<VALUE>Teutbertus</VALUE>
+		<VALUE>Theoderic</VALUE>
+		<VALUE>Theodericus</VALUE>
+		<VALUE>Theoricus</VALUE>
+		<VALUE>Theudebald</VALUE>
+		<VALUE>Theuderic</VALUE>
+		<VALUE>Theutbaldus</VALUE>
+		<VALUE>Thorismund</VALUE>
+		<VALUE>Uuolfarius</VALUE>
+		<VALUE>Vuitardus</VALUE>
+		<VALUE>Vulfarius</VALUE>
+		<VALUE>Vulfoliac</VALUE>
+		<VALUE>Vulframnus</VALUE>
+		<VALUE>Vulvarius</VALUE>
+		<VALUE>Waltgaud</VALUE>
+		<VALUE>Werinbert</VALUE>
+		<VALUE>Wilbertus</VALUE>
+		<VALUE>William</VALUE>
+		<VALUE>Willichar</VALUE>
+	</LIST>
+	<LIST id="frankish-female-syl2" title="Syl2">
+		<VALUE>gera</VALUE>
+		<VALUE>mana</VALUE>
+		<VALUE>munda</VALUE>
+		<VALUE>rica</VALUE>
+		<VALUE>sinda</VALUE>
+		<VALUE>burg</VALUE>
+		<VALUE>gard</VALUE>
+		<VALUE>gund</VALUE>
+		<VALUE>hild</VALUE>
+		<VALUE>lind</VALUE>
+		<VALUE>swind</VALUE>
+		<VALUE>swinda</VALUE>
+		<VALUE>trud</VALUE>
+	</LIST>
+	<LIST id="frankish-female-filia" title="Filia">
+		<VALUE>filia<SUBVALUE type="meaning">daughter of</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="frankish-female-given" title="Given">
+		<VALUE>Adalgardis</VALUE>
+		<VALUE>Adallinda</VALUE>
+		<VALUE>Adaltrude</VALUE>
+		<VALUE>Adelaidis</VALUE>
+		<VALUE>Airsenda</VALUE>
+		<VALUE>Albofleda</VALUE>
+		<VALUE>Albrada</VALUE>
+		<VALUE>Aliberta</VALUE>
+		<VALUE>Alitrudis</VALUE>
+		<VALUE>Amalasuntha</VALUE>
+		<VALUE>Arsindis</VALUE>
+		<VALUE>Audofleda</VALUE>
+		<VALUE>Audovera</VALUE>
+		<VALUE>Austrechild</VALUE>
+		<VALUE>Beretrude</VALUE>
+		<VALUE>Bertha</VALUE>
+		<VALUE>Berthefled</VALUE>
+		<VALUE>Berthefried</VALUE>
+		<VALUE>Berthegund</VALUE>
+		<VALUE>Bertrada</VALUE>
+		<VALUE>Brunhild</VALUE>
+		<VALUE>Chlodosind</VALUE>
+		<VALUE>Chlothsinda</VALUE>
+		<VALUE>Clotild</VALUE>
+		<VALUE>Dhuoda</VALUE>
+		<VALUE>Eldesendis</VALUE>
+		<VALUE>Emma</VALUE>
+		<VALUE>Ermengardis</VALUE>
+		<VALUE>Ermensindis</VALUE>
+		<VALUE>Faileuba</VALUE>
+		<VALUE>Fastrada</VALUE>
+		<VALUE>Fredegunde</VALUE>
+		<VALUE>Galswinth</VALUE>
+		<VALUE>Gersvinda</VALUE>
+		<VALUE>Gisela</VALUE>
+		<VALUE>Goiswinth</VALUE>
+		<VALUE>Gundrada</VALUE>
+		<VALUE>Harildis</VALUE>
+		<VALUE>Hildegarde</VALUE>
+		<VALUE>Hildegardis</VALUE>
+		<VALUE>Hildesendis</VALUE>
+		<VALUE>Hildigard</VALUE>
+		<VALUE>Hiltrude</VALUE>
+		<VALUE>Ingitrude</VALUE>
+		<VALUE>Ingunde</VALUE>
+		<VALUE>Irmengarde</VALUE>
+		<VALUE>Judith</VALUE>
+		<VALUE>Lanthechilde</VALUE>
+		<VALUE>Leubast</VALUE>
+		<VALUE>Leubovera</VALUE>
+		<VALUE>Liutgarde</VALUE>
+		<VALUE>Luitgard</VALUE>
+		<VALUE>Madelgarde</VALUE>
+		<VALUE>Magnatrude</VALUE>
+		<VALUE>Marcatrude</VALUE>
+		<VALUE>Marcovefa</VALUE>
+		<VALUE>Radegund</VALUE>
+		<VALUE>Rigunth</VALUE>
+		<VALUE>Rosamund</VALUE>
+		<VALUE>Rothaide</VALUE>
+		<VALUE>Rotrude</VALUE>
+		<VALUE>Ruothilde</VALUE>
+		<VALUE>Theodelinda</VALUE>
+		<VALUE>Theoderada</VALUE>
+		<VALUE>Theodrada</VALUE>
+		<VALUE>Ultrogotha</VALUE>
+		<VALUE>Vuldretrada</VALUE>
+	</LIST>
+	<LIST id="frankish-patrynomic" title="Patrynomic">
+		<VALUE>Adalbaldi</VALUE>
+		<VALUE>Adalbert</VALUE>
+		<VALUE>Adalberti</VALUE>
+		<VALUE>Adalgarii</VALUE>
+		<VALUE>Ageric</VALUE>
+		<VALUE>Agilberti</VALUE>
+		<VALUE>Agiulf</VALUE>
+		<VALUE>Ailberti</VALUE>
+		<VALUE>Alaric</VALUE>
+		<VALUE>Albrici</VALUE>
+		<VALUE>Amalaric</VALUE>
+		<VALUE>Andica</VALUE>
+		<VALUE>Ansovald</VALUE>
+		<VALUE>Arcambaldi</VALUE>
+		<VALUE>Aregisel</VALUE>
+		<VALUE>Arnegisel</VALUE>
+		<VALUE>Arnulf</VALUE>
+		<VALUE>Athanagild</VALUE>
+		<VALUE>Athanaric</VALUE>
+		<VALUE>Audovald</VALUE>
+		<VALUE>Austregisel</VALUE>
+		<VALUE>Autberti</VALUE>
+		<VALUE>Autgarii</VALUE>
+		<VALUE>Autgerii</VALUE>
+		<VALUE>Authari</VALUE>
+		<VALUE>Badegisel</VALUE>
+		<VALUE>Balduini</VALUE>
+		<VALUE>Barnardi</VALUE>
+		<VALUE>Beraldi</VALUE>
+		<VALUE>Bernard</VALUE>
+		<VALUE>Bernardi</VALUE>
+		<VALUE>Bernerii</VALUE>
+		<VALUE>Bero</VALUE>
+		<VALUE>Beroldi</VALUE>
+		<VALUE>Berthar</VALUE>
+		<VALUE>Berthefried</VALUE>
+		<VALUE>Bertram</VALUE>
+		<VALUE>Bertramni</VALUE>
+		<VALUE>Bertrandi</VALUE>
+		<VALUE>Bertranni</VALUE>
+		<VALUE>Bisini</VALUE>
+		<VALUE>Burchard</VALUE>
+		<VALUE>Carloman</VALUE>
+		<VALUE>Chararic</VALUE>
+		<VALUE>Charibert</VALUE>
+		<VALUE>Charlemange</VALUE>
+		<VALUE>Charles</VALUE>
+		<VALUE>Childebert</VALUE>
+		<VALUE>Childeric</VALUE>
+		<VALUE>Chilperic</VALUE>
+		<VALUE>Chlodomer</VALUE>
+		<VALUE>Chramnesind</VALUE>
+		<VALUE>Clovis</VALUE>
+		<VALUE>Dagaric</VALUE>
+		<VALUE>Dagobert</VALUE>
+		<VALUE>Desiderii</VALUE>
+		<VALUE>Drogo</VALUE>
+		<VALUE>Eberulf</VALUE>
+		<VALUE>Ebregisel</VALUE>
+		<VALUE>Engilbert</VALUE>
+		<VALUE>Euric</VALUE>
+		<VALUE>Everardi</VALUE>
+		<VALUE>Evrardi</VALUE>
+		<VALUE>Frotarii</VALUE>
+		<VALUE>Frotharii</VALUE>
+		<VALUE>Fulcarii</VALUE>
+		<VALUE>Fulcradi</VALUE>
+		<VALUE>Galterii</VALUE>
+		<VALUE>Gararic</VALUE>
+		<VALUE>Garivald</VALUE>
+		<VALUE>Gaucelmi</VALUE>
+		<VALUE>Gauzberti</VALUE>
+		<VALUE>Gerberti</VALUE>
+		<VALUE>Gerhardi</VALUE>
+		<VALUE>Gerold</VALUE>
+		<VALUE>Gislarii</VALUE>
+		<VALUE>Gocelmi</VALUE>
+		<VALUE>Godomar</VALUE>
+		<VALUE>Gozhelmi</VALUE>
+		<VALUE>Grimald</VALUE>
+		<VALUE>Gualtarii</VALUE>
+		<VALUE>Gualteri</VALUE>
+		<VALUE>Guillaberti</VALUE>
+		<VALUE>Guitardi</VALUE>
+		<VALUE>Gunderic</VALUE>
+		<VALUE>Gundobad</VALUE>
+		<VALUE>Gunthar</VALUE>
+		<VALUE>Guntram</VALUE>
+		<VALUE>Hartmut</VALUE>
+		<VALUE>Hermangild</VALUE>
+		<VALUE>Herminafrid</VALUE>
+		<VALUE>Hildebald</VALUE>
+		<VALUE>Hucberti</VALUE>
+		<VALUE>Hugberti</VALUE>
+		<VALUE>Huneric</VALUE>
+		<VALUE>Imnachar</VALUE>
+		<VALUE>Ingomer</VALUE>
+		<VALUE>Karl</VALUE>
+		<VALUE>Karle</VALUE>
+		<VALUE>Karoli</VALUE>
+		<VALUE>Leudast</VALUE>
+		<VALUE>Leuvigild</VALUE>
+		<VALUE>Lodharii</VALUE>
+		<VALUE>Lodhuvici</VALUE>
+		<VALUE>Lodhuwici</VALUE>
+		<VALUE>Lothar</VALUE>
+		<VALUE>Louis</VALUE>
+		<VALUE>Ludhuuuige</VALUE>
+		<VALUE>Magnachar</VALUE>
+		<VALUE>Magneric</VALUE>
+		<VALUE>Mainardi</VALUE>
+		<VALUE>Marachar</VALUE>
+		<VALUE>Meginhard</VALUE>
+		<VALUE>Merovech</VALUE>
+		<VALUE>Munderic</VALUE>
+		<VALUE>Odelrici</VALUE>
+		<VALUE>Odolrici</VALUE>
+		<VALUE>Otberti</VALUE>
+		<VALUE>Otgerii</VALUE>
+		<VALUE>Otker</VALUE>
+		<VALUE>Pepin</VALUE>
+		<VALUE>Radulfi</VALUE>
+		<VALUE>Ragambaldi</VALUE>
+		<VALUE>Raginarii</VALUE>
+		<VALUE>Ragnachar</VALUE>
+		<VALUE>Ragnaldi</VALUE>
+		<VALUE>Raimboldi</VALUE>
+		<VALUE>Rainaldi</VALUE>
+		<VALUE>Ramnulfi</VALUE>
+		<VALUE>Rathar</VALUE>
+		<VALUE>Raynoldi</VALUE>
+		<VALUE>Reccared</VALUE>
+		<VALUE>Reginarii</VALUE>
+		<VALUE>Ricchar</VALUE>
+		<VALUE>Rotberti</VALUE>
+		<VALUE>Ruotberti</VALUE>
+		<VALUE>Segoini</VALUE>
+		<VALUE>Seguini</VALUE>
+		<VALUE>Sicbaldi</VALUE>
+		<VALUE>Sichar</VALUE>
+		<VALUE>Sigebaldi</VALUE>
+		<VALUE>Sigeberti</VALUE>
+		<VALUE>Sigeric</VALUE>
+		<VALUE>Sigibert</VALUE>
+		<VALUE>Sigismund</VALUE>
+		<VALUE>Sunnegisil</VALUE>
+		<VALUE>Tancradi</VALUE>
+		<VALUE>Tancredi</VALUE>
+		<VALUE>Tassilo</VALUE>
+		<VALUE>Teoderici</VALUE>
+		<VALUE>Teotberti</VALUE>
+		<VALUE>Tetberti</VALUE>
+		<VALUE>Teutbaldi</VALUE>
+		<VALUE>Teutberti</VALUE>
+		<VALUE>Theoderic</VALUE>
+		<VALUE>Theoderici</VALUE>
+		<VALUE>Theorici</VALUE>
+		<VALUE>Theudebald</VALUE>
+		<VALUE>Theuderic</VALUE>
+		<VALUE>Theutbaldi</VALUE>
+		<VALUE>Thorismund</VALUE>
+		<VALUE>Uuolfarii</VALUE>
+		<VALUE>Vuitardi</VALUE>
+		<VALUE>Vulfarii</VALUE>
+		<VALUE>Vulfoliac</VALUE>
+		<VALUE>Vulframni</VALUE>
+		<VALUE>Vulvarii</VALUE>
+		<VALUE>Waltgaud</VALUE>
+		<VALUE>Werinbert</VALUE>
+		<VALUE>Wilberti</VALUE>
+		<VALUE>William</VALUE>
+		<VALUE>Willichar</VALUE>
+	</LIST>
+</GENERATOR>
+

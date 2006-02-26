@@ -1,0 +1,22 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec  3 03:47:46 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Original Entry by: Beaver
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+
+# Feat Name			Type			Required Skill			Req. Casting Type			Required Stat	Required Text		Description																				Multiple?	Choose						Save checks bonus					Combat bonus				Bonus to skill						Source Page
+Canny				TYPE:General																		DESC:You're quick-witted and a good judge of character.												MULT:NO																					BONUS:SKILL|Bluff,Sense Motive|2			SOURCEPAGE:p.32
+Empathic			TYPE:General																		DESC:You're particularly aware of the feelings and moods of others.										MULT:NO																					BONUS:SKILL|Diplomacy,Sense Motive|2		SOURCEPAGE:p.32
+Healing Trance		TYPE:General	PRESKILL:1,Concentration=5						PRESTAT:1,WIS=13					DESC:You can enter a meditative stat that allows you to recover quickly from injury.							MULT:NO																													SOURCEPAGE:p.32
+Iron Concentration	TYPE:General	PRESKILL:1,Concentration=1						PRESTAT:1,WIS=13					DESC:Your mind is exceptionally focused.															MULT:NO																													SOURCEPAGE:p.32
+Lunar Magic			TYPE:General						PRESPELLCAST:TYPE.Arcane								DESC:Your spellcasting abilities are strongly influenced by the phases of the moon.								MULT:NO																													SOURCEPAGE:p.32
+Mind over Matter		TYPE:General											PRESTAT:1,WIS=13					DESC:Your strong will reinforces your stamina.														MULT:NO																													SOURCEPAGE:p.33
+Sacrificing Spell		TYPE:Metamagic																		DESC:You can enhance spells with metamagic feats without increasing their level bu sacrificing ability score points instead.	MULT:NO																													SOURCEPAGE:p.33
+Skill Wisdom		TYPE:General											PRESTAT:1,WIS=13					DESC:Your approach to a particular skill as a matter of wisdom and instinct rather than book learning and analysis		MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Intelligence														BONUS:SKILL|LIST|WIS-INT				SOURCEPAGE:p.33
+Soothsay			TYPE:General																		DESC:You have a gift as a fortune-teller and soothsayer.												MULT:NO																					BONUS:SKILL|Profession (Fortune Teller)|10	SOURCEPAGE:p.33
+Spell Trap			TYPE:Metamagic																		DESC:You can use a spell to create a magical ward or trap.												MULT:NO																													SOURCEPAGE:p.33
+Swarm Shape			TYPE:General														PRETEXT:Wild Shape	DESC:You can transform into a swarm of creatures.													MULT:NO																													SOURCEPAGE:p.34
+Sympathetic Spell		TYPE:Metamagic																		DESC:Using material links, you can cast spells on targets over vast distances.								MULT:NO																													SOURCEPAGE:p.35
+Widen Spell			TYPE:Metamagic																		DESC:You can increase the area of your spells.														MULT:NO																													SOURCEPAGE:p.35
+Wise Defense		TYPE:General											PRESTAT:1,WIS=13					DESC:You Wisdom and insight benefits you in battle.													MULT:NO															BONUS:COMBAT|AC|max(WIS,DEX)-DEX									SOURCEPAGE:p.35
+Wise Evasion		TYPE:General											PRESTAT:1,WIS=13					DESC:Your keen insight helps to get you out of tough scrapes.											MULT:NO								BONUS:CHECKS|Reflex|max(WIS,DEX)-DEX															SOURCEPAGE:p.35
+Wise Precaution		TYPE:General											PRESTAT:1,WIS=13					DESC:Your cleverness helps you avoid danger.														MULT:NO																													SOURCEPAGE:p.35

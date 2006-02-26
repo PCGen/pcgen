@@ -1,0 +1,308 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Thu Dec  8 10:46:54 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																				Combat bonus
+CLASS:Agency Operative	HD:8		TYPE:PC.Prestige	ABB:AOp		MAXLEVEL:10	SOURCEPAGE:p.90	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Skill
+CLASS:Agency Operative	PREATT:5	PRESKILL:1,Knowledge (Law)=4	PRESKILL:1,Knowledge (Occult)=3	PRESKILL:1,Spot=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Agency Operative	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Holdout|Innuendo|Knowledge (Law)|Knowledge (Occult)|Listen|Move Silently|Open Lock|Ridicule|Search|Sense Motive|TYPE.Language|Spot
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun|TYPE.Automatic	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Automatic Weapon Proficiency
+###Block: Normal Progression
+1												BONUS:SKILLRANK|Knowledge (Occult)|1
+2	SA:Friends in High Places %|FriendsHigh	BONUS:VAR|FriendsHigh|2								DEFINE:FriendsHigh|0
+3																							ADD:FEAT(Skill Focus)
+4								BONUS:VAR|FriendsHigh|2
+5	SA:Requisition Equipment
+6								BONUS:VAR|FriendsHigh|2												ADD:FEAT(Skill Focus)
+8								BONUS:VAR|FriendsHigh|2
+9																							ADD:FEAT(Skill Focus)
+10								BONUS:VAR|FriendsHigh|2
+
+# Class Name		Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																			Combat bonus
+CLASS:Black Magician	HD:4		TYPE:NPC	ABB:Blm		SOURCEPAGE:p.124	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|1+floor(CL/5)+floor((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL
+CLASS:Black Magician	PREALIGN:LE,NE,CE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Black Magician	STARTSKILLPTS:2	CSKILL:Alchemy|Black Magic|Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Ridicule|Scry|Spellcraft
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Black Magician	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Black Magician|CL
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1											ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Black Magician|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+2											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+3											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+4											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+5	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+6											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+7											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+8											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+9											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+10	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+11											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+12											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+13											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+14											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+15	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+16											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+17											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+18											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+19											ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+20	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Black Magician|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																			Combat bonus
+CLASS:Blessed	HD:6		TYPE:PC	ABB:Bls		SOURCEPAGE:p.24	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Blessed	PREALIGN:LG,LN,NG,TN,CG,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Blessed	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Faith|Heal|Intimidate|Knowledge (Local)|Knowledge (Occult)|Knowledge (Religion)|Perform|TYPE.Profession|Sense Motive|TYPE.Language|Tale Tellin'
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Blessed	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blessed|CL
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: need to update this Turn Undead block
+1	DEFINE:TurnUndead|3+CHA	ADD:SPECIAL(Turn Undead<PREALIGN:0,3,6>)
+###Block: Normal Level Progression
+1																											ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Blessed|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+2																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+3																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+4																							ADD:FEAT(TYPE=Gift)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+5	SA:Divine Intervention %/week|DivineInterventionTimes	BONUS:VAR|DivineInterventionTimes|CL/5	DEFINE:DivineInterventionTimes|0					ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+6																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+7																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+8																							ADD:FEAT(TYPE=Gift)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+9																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+10																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+11																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+12																							ADD:FEAT(TYPE=Gift)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+13																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+14																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+15																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+16																							ADD:FEAT(TYPE=Gift)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+17																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+18																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+19																											ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+20																							ADD:FEAT(TYPE=Gift)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Blessed|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																				Combat bonus
+CLASS:Brave		HD:10		TYPE:PC	ABB:Brv		SOURCEPAGE:p.26	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Brave		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Indian Lore)|Knowledge (Nature)|Listen|Move Silently|Ride|TYPE.Language|Spot|Swim|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple	WEAPONBONUS:Shortbow	FEATAUTO:Simple Weapon Proficiency
+1										FEATAUTO:Armor Proficiency (Light)
+1										FEATAUTO:Shield Proficiency
+###Block: Normal Progression
+1	SA:War Cry %/day|WarCry	BONUS:VAR|WarCry|CL/4+1	DEFINE:WarCry|0								FEATAUTO:Mounted Combat
+4									DEFINE:WeapSpecQualify|1
+5														ADD:FEAT(TYPE=Guardian)
+6														ADD:FEAT(Dead Eye)
+11														ADD:FEAT(TYPE=Guardian1)
+15	SA:Greater War Cry
+17														ADD:FEAT(TYPE=Guardian2)
+
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																				Combat bonus
+CLASS:Gunslinger	HD:10		TYPE:PC	ABB:Gns		SOURCEPAGE:p.28	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Gamblin'|Gunplay|Holdout|Intimidate|Knowledge (Local)|TYPE.Profession|Ride|Ridicule|Sense Motive|TYPE.Language|Speed Load|Spot|Use Rope
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1																		ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+2	SA:Greased Lightnin' +%|GreaseLightning	BONUS:VAR|GreaseLightning|2	DEFINE:GreaseLightning|0
+4													DEFINE:WeapSpecQualify|1	ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+5								BONUS:VAR|GreaseLightning|1
+6																																																																															FEATAUTO:Dead Eye
+7																		ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+8								BONUS:VAR|GreaseLightning|1
+10																		ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+13																		ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+14								BONUS:VAR|GreaseLightning|1
+16																		ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+17								BONUS:VAR|GreaseLightning|1
+19																		ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Improved Critical,Grim Servant o' Death,Improved Initiative,Level-Headed,Mounted Archery,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Fill Yer Hand,Mercy Shot,Slip Shot,Special Draw,Steady Shot)
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Automatic Weapon Prof.				Save checks bonus																	Combat bonus
+#CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		SOURCEPAGE:p.30	LANGAUTO:Literacy		AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+#CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE.Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE.Language|Spellcraft
+# Class Name	Spell Stat		Spell Type		Caster level
+#CLASS:Huckster	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Huckster|CL
+#1				ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Huckster|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+#2				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#3				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#4				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#5	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#6				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#7				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#8				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#9	SA:Blood Magic	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#10	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#11				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#12				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#13				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#14				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#15	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#16				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#17				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#18				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#19				ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+#20	SA:Old Hand %|2	ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|CLASS=Huckster|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		SOURCEPAGE:p.30	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE.Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE.Language|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Huckster	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+#		SPELLLIST:1|Sorcerer
+###Block: Normal Progression
+1	CAST:1,1				KNOWN:1,4
+2	CAST:1,1				KNOWN:1,4
+3	CAST:1,1,1				KNOWN:1,4
+4	CAST:1,1,1				KNOWN:1,4
+5	CAST:1,1,1,1			KNOWN:1,4	SA:Old Hand %|OldHand	BONUS:VAR|OldHand|floor(CL/5)*2	DEFINE:OldHand|0
+6	CAST:1,1,1,1			KNOWN:1,4
+7	CAST:1,1,1,1,1			KNOWN:1,4
+8	CAST:1,1,1,1,1			KNOWN:1,4
+9	CAST:1,1,1,1,1,1			KNOWN:1,4	SA:Blood Magic
+10	CAST:1,1,1,1,1,1			KNOWN:1,4
+11	CAST:1,1,1,1,1,1,1		KNOWN:1,4
+12	CAST:1,1,1,1,1,1,1		KNOWN:1,4
+13	CAST:1,1,1,1,1,1,1,1		KNOWN:1,4
+14	CAST:1,1,1,1,1,1,1,1		KNOWN:1,4
+15	CAST:1,1,1,1,1,1,1,1,1		KNOWN:1,4
+16	CAST:1,1,1,1,1,1,1,1,1		KNOWN:1,4
+17	CAST:1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
+18	CAST:1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
+19	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
+20	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,4
+
+
+# Class Name		Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Mad Scientist	HD:6		TYPE:PC	ABB:Mds		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mad Scientist	STARTSKILLPTS:6	CSKILL:Alchemy|TYPE.Craft|Decipher Script|Demolitions|Disable Device|TYPE.Drivin'|Heal|TYPE.Knowledge|Mad Science|Open Lock|TYPE.Profession|TYPE.Language|Tinkerin'
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1	SA:Concoct Potion	SA:Starting gadget
+2	SA:Jury Rig %|JuryRig				BONUS:VAR|JuryRig|2	DEFINE:JuryRig|0
+5															ADD:FEAT(Academic Mastery)
+7								BONUS:VAR|JuryRig|2
+10															ADD:FEAT(Academic Mastery)
+11								BONUS:VAR|JuryRig|2
+13	SA:Jinx
+14								BONUS:VAR|JuryRig|2
+16															ADD:FEAT(Academic Mastery)
+19								BONUS:VAR|JuryRig|2
+20															ADD:FEAT(Academic Mastery)
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Maverick	HD:6		TYPE:PC	ABB:Mvr		SOURCEPAGE:p.34	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Maverick	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamblin'|Gather Information|Hide|Holdout|Innuendo|Intimidate|Jump|Knowledge (History)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Ridicule|Search|Sense Motive|Sleight o' Hand|TYPE.Language|Spot|Tale Tellin'|Tumble
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Uncanny Dodge
+3	BONUS:VAR|UncannyDodge|1	FEATAUTO:Uncanny Dodge
+6	BONUS:VAR|UncannyDodge|1
+###Block: Normal Progression
+1	SA:Extraordinary Luck	BONUS:CHECKS|Fortitude,Reflex,Willpower|max(CHA,0)
+2																																			VFEAT:Evasion
+5														ADD:FEAT(Skill Focus)
+8														ADD:FEAT(Skill Focus)
+10																		ADD:SPECIAL(Defensive Roll,Gambler's Luck,Improved Evasion,Skill Mastery,Slippery Mind,Sneak Attack)
+11														ADD:FEAT(Skill Focus)
+13																		ADD:SPECIAL(Defensive Roll,Gambler's Luck,Improved Evasion,Skill Mastery,Slippery Mind,Sneak Attack)
+14														ADD:FEAT(Skill Focus)
+16																		ADD:SPECIAL(Defensive Roll,Gambler's Luck,Improved Evasion,Skill Mastery,Slippery Mind,Sneak Attack)
+17														ADD:FEAT(Skill Focus)
+19														ADD:FEAT(Skill Focus)
+20																		ADD:SPECIAL(Defensive Roll,Gambler's Luck,Improved Evasion,Skill Mastery,Slippery Mind,Sneak Attack)
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus																			Combat bonus
+CLASS:Rowdy		HD:10		TYPE:PC	ABB:Rwd		SOURCEPAGE:p.36	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|1+floor(CL/5)+floor((CL+3)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rowdy		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Demolitions|TYPE.Drivin'|Handle Animal|Holdout|Intimidate|Jump|Knowledge (Local)|Listen|TYPE.Profession|Ridicule|Ride|TYPE.Language|Spot|Swim|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1														BONUS:SKILL|Language (%)|6						ADD:FEAT(Blind-Fight,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Great Fortitude,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Unarmed Strike,Stunning Fist,Iron Will,Level-Headed,Nerves o' Steel,Power Attack,Cleave,Improved Bull Rush,Sand,Sunder,Great Cleave,Sucker Punch,Toughness,Weapon Finesse,Weapon Focus)	FEATAUTO:Endurance
+2	SA:Thick Skin
+4																			DEFINE:WeapSpecQualify|1
+5																								ADD:FEAT(Blind-Fight,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Great Fortitude,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Unarmed Strike,Stunning Fist,Iron Will,Level-Headed,Nerves o' Steel,Power Attack,Cleave,Improved Bull Rush,Sand,Sunder,Great Cleave,Sucker Punch,Toughness,Weapon Finesse,Weapon Focus)
+10																								ADD:FEAT(Blind-Fight,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Great Fortitude,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Unarmed Strike,Stunning Fist,Iron Will,Level-Headed,Nerves o' Steel,Power Attack,Cleave,Improved Bull Rush,Sand,Sunder,Great Cleave,Sucker Punch,Toughness,Weapon Finesse,Weapon Focus)
+11	SA:Tough as Nails %|ToughNails	BONUS:VAR|ToughNails|floor((CL-7)/4)*2						DEFINE:ToughNails|0
+14																								ADD:FEAT(Blind-Fight,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Great Fortitude,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Unarmed Strike,Stunning Fist,Iron Will,Level-Headed,Nerves o' Steel,Power Attack,Cleave,Improved Bull Rush,Sand,Sunder,Great Cleave,Sucker Punch,Toughness,Weapon Finesse,Weapon Focus)
+17																								ADD:FEAT(Blind-Fight,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Great Fortitude,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Unarmed Strike,Stunning Fist,Iron Will,Level-Headed,Nerves o' Steel,Power Attack,Cleave,Improved Bull Rush,Sand,Sunder,Great Cleave,Sucker Punch,Toughness,Weapon Finesse,Weapon Focus)
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Scout		HD:8		TYPE:PC	ABB:Sct		SOURCEPAGE:p.38	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Gather Information|Handle Animal|Hide|Holdout|Intuit Direction|Jump|Knowledge (Local)|Knowledge (Indian Lore)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|TYPE.Language|Spot|Swim|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1												BONUS:SKILL|Language |4														FEATAUTO:Track
+2																									ADD:FEAT(Alertness)
+4	SA:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/4										DEFINE:SneakAttack|0
+5												BONUS:SKILL|Language |2	BONUS:SKILL|Listen,Spot|1
+6																									ADD:FEAT(Skill Focus)
+7												BONUS:SKILL|Language |2
+8												BONUS:SKILL|Listen,Spot|1
+9																									ADD:FEAT(Skill Focus)
+10												BONUS:SKILL|Language |2
+11												BONUS:SKILL|Listen,Spot|1
+13																									ADD:FEAT(Skill Focus)
+14												BONUS:SKILL|Listen,Spot|1
+15												BONUS:SKILL|Language |2
+17												BONUS:SKILL|Listen,Spot|1
+18																									ADD:FEAT(Skill Focus)
+20												BONUS:SKILL|Language |2
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus															Combat bonus
+CLASS:Shaman (DL)	HD:6		TYPE:PC	ABB:Shm		SOURCEPAGE:p.40	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Shaman (DL)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Indian Lore)|Knowledge (Nature)|Ritual|Sense Motive|TYPE.Language|Swim|Wilderness Lore
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Shaman (DL)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman (DL)|CL
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple	WEAPONBONUS:Shortbow	FEATAUTO:Simple Weapon Proficiency
+1										FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Progression
+1					ADD:FEAT(TYPE=Guardian)		ADD:LIST(4 zero or 1st level spells [CHOOSE:SPELLLEVEL|4|CLASS=Shaman (DL)|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+2	SA:Nature Sense							ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|1] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+3										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+4										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|2] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+5					ADD:FEAT(TYPE=Guardian1)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+6										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|3] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+7	SA:Vision Quest							ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+8										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|4] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+9										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+10					ADD:FEAT(TYPE=Guardian2)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|5] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+11	SA:View Hunting Grounds						ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+12										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|6] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+13										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+14	SA:One with Nature						ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|7] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+15					ADD:FEAT(TYPE=Guardian3)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+16										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|8] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+17										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+18										ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+19	SA:Open Portal							ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+20					ADD:FEAT(TYPE=Guardian4)	ADD:LIST(WIS in spells [CHOOSE:SPELLLEVEL|WIS|CLASS=Shaman (DL)|0|9] [BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
+CLASS:Texas Ranger	HD:10		TYPE:PC.Prestige	ABB:TxR		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|1+floor(CL/5)+floor((CL+3)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat	Required Skill
+CLASS:Texas Ranger	PREATT:6	PREFEAT:1,Track	PRESKILL:1,Gather Information=4	PRESKILL:1,Wilderness Lore=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Texas Ranger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Gunplay|Handle Animal|Hide|Gather Information|Intimidate|Intuit Direction|Holdout|Knowledge (Local)|Knowledge (Occult)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|TYPE.Language|Speed Load|Spot|Swim|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	FEATAUTO:Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
+###Block: Normal Progression
+1	SA:National Law Enforcement	SA:Ranger's Bible						BONUS:SKILL|Gather Information|2					BONUS:SKILLRANK|Knowledge (Occult)|1
+2	SA:Presence %|RangerPres				BONUS:VAR|RangerPres|(CL+1)/3	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres								DEFINE:RangerPres|0
+3	SA:One Riot- One Ranger %|RiotRanger|1		BONUS:VAR|RiotRanger|CL/3																		DEFINE:RiotRanger|0
+4																																			ADD:FEAT(Dead Eye,Dodge,Endurance,Great Fortitude,Grim Servant o' Death,Improved Critical,Iron Will,Mounted Archery,Level-Headed,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Toughness,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)
+7	SA:Chapter 13											BONUS:SKILL|Knowledge (Occult)|4
+10																																			ADD:FEAT(Dead Eye,Dodge,Endurance,Great Fortitude,Grim Servant o' Death,Improved Critical,Iron Will,Mounted Archery,Level-Headed,Point Blank Shot,Fannin',Far Shot,Precise Shot,Quick Draw,The Stare,Toughness,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)

@@ -1,0 +1,54 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $
+CAMPAIGN:PE - Deadlands Core Rulebook - Horrors o' the Weird West
+GAMEMODE:Deadlands
+TYPE:Pinnacle Entertainment.Deadlands.Core Rules
+RANK:3
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West
+SOURCESHORT:HotWW
+SOURCEWEB:http://www.peginc.com/index.htm
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Horrors of the Weird West Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001, Eddy Anthony (MoSaT))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+BIOSET:hotwwbiosettings.lst
+
+# conflicts with core rulebook file
+#CLASS:hotwwclasses.lst
+
+EQUIPMENT:hotwwequiparmorshields.lst
+EQUIPMENT:hotwwequipweapmelee.lst
+RACE:hotwwracesa.lst
+RACE:hotwwracesb.lst
+RACE:hotwwracesc.lst
+RACE:hotwwracesd.lst
+RACE:hotwwracese.lst
+RACE:hotwwracesf.lst
+RACE:hotwwracesg.lst
+RACE:hotwwracesh.lst
+RACE:hotwwracesj.lst
+RACE:hotwwracesk.lst
+RACE:hotwwracesl.lst
+RACE:hotwwracesm.lst
+RACE:hotwwracesn.lst
+RACE:hotwwraceso.lst
+RACE:hotwwracesp.lst
+RACE:hotwwracesr.lst
+RACE:hotwwracess.lst
+RACE:hotwwracest.lst
+RACE:hotwwracesu.lst
+RACE:hotwwracesv.lst
+RACE:hotwwracesw.lst
+RACE:hotwwracesz.lst
+RACE:hotwwzombieanimals.lst
+SKILL:hotwwskills.lst
+TEMPLATE:hotwwtemplates.lst
+WEAPONPROF:hotwwweapprofs.lst
+
+# Imported from the SRD
+
+FEAT:@/d20ogl/srd/srd_feats.lst|(INCLUDE:Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)|(INCLUDE:Flyby Attack|Multidexterity|Multiweapon Fighting|Multiattack)
+TEMPLATE:@/d20ogl/srd/srd_templates_types.lst|(INCLUDE:Construct|Elemental|Incorporeal|Ooze|Plant|Undead)
+TEMPLATE:@/d20ogl/srd/srd_templates.lst|(INCLUDE:Celestial|Half-Celestial|Celestial Wings|w/o Celestial Wings|Fiendish|Ghost|Half-Dragon|Half-Dragon (Black)|Half-Dragon (Blue)|Half-Dragon (Green)|Half-Dragon (Red)|Half-Dragon (White)|Half-Dragon (Brass)|Half-Dragon (Bronze)|Half-Dragon (Copper)|Half-Dragon (Gold)|Half-Dragon (Silver)|Half-Fiend|Fiendish Wings|w/o Fiendish Wings|Lich|Shapechanger|Vampire)

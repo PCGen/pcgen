@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 27 07:35:23 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block: Ammunition
+# Equipment Name		Type									Cost		Weight	Modifier		Source Page		Weapon prop. bonus		Special Property
+Arrow of Spelltargeting	TYPE:Enhancement.Ammunition.SpecificArrow.Individual	COST:647	WT:0		EQMOD:STEEL.WOOD	SOURCEPAGE:p.166	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:On successful hit, marks target and draws spells towards him
+Fireball Arrow		TYPE:Enhancement.Ammunition.SpecificArrow.Individual	COST:1447	WT:0		EQMOD:STEEL.WOOD	SOURCEPAGE:p.166	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:On successful hit, detonates fireball for 7d6 fire damage

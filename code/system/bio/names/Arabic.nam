@@ -1,0 +1,79 @@
+//
+// Al-Qadim style names
+//
+[RULES]
+5	[ABU]	[PREFIX]	[SUFFIX]
+20	[RAS]	[PREFIX]	[SUFFIX]
+40	[WADI]	[AL]	[PREFIX]	[SUFFIX]
+70	[PREFIX]	[SUFFIX]
+100	[AL]	[PREFIX]	[SUFFIX]
+
+[AL]
+al-
+[RAS]
+Ras 
+[WADI]
+Wadi 
+[ABU]
+Abu 
+[PREFIX]
+Aa
+Ah
+As
+Ak
+Fa
+Jam
+Ja
+Ka
+Al
+Bandar al-
+Sa
+Sha
+Ghun
+Ba
+Bi
+Kha
+Mu
+Sula
+Madi
+Ma
+Na
+A
+Kith
+Abu
+Abd
+
+[SUFFIX]
+ziz
+sim
+mad
+war
+rid
+sam
+mal
+rim
+ia
+nar
+tima
+tisam
+lima
+moon
+jib
+zeed
+la
+tara
+beida
+min
+dir
+if
+aif
+sul
+tahkir
+bib
+meima
+mar
+hah
+rayyah
+dahar
+lat
+dar

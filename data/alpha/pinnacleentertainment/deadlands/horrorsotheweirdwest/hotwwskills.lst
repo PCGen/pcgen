@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Jan 26 23:55:41 2003 -- reformated by prettylst.pl v1.25 (build 257)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+# Skill Name			Key Stat	Untrained?		Type					Bonus to skill																																											Source Page
+Knowledge (Anthropology)	KEYSTAT:INT				TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Anthropology)|2|PRESKILL:1,Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK	SOURCEPAGE:p.35
+Profession (Lawyer)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		BONUS:SKILL|Profession (Lawyer)|2|PRESKILL:1,Knowledge (Law)=5|TYPE=Synergy.STACK																																SOURCEPAGE:p.53

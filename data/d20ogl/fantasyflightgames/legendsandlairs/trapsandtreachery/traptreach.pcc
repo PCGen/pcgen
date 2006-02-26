@@ -1,0 +1,34 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $
+CAMPAIGN:FFG - TrapsandTreachery - Source Book
+GAMEMODE:3e
+TYPE:Fantasy Flight Games.Sourcebook
+RANK:9
+SOURCELONG:Fantasy Flight Games - Traps and Treachery
+SOURCESHORT:TrapTreach
+SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:d20 System Reference Document Copyright 2000, Wizards of the Coast
+COPYRIGHT:Traps &amp Treachery &copy 2001, Fantasy Flight, Inc.
+COPYRIGHT:PCGen dataset conversion for Traps and Treachery Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew McDougall (Tir Gwaith), Paul W. King, Paul Grosse)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SKILL:traptreach_skills.lst
+CLASS:traptreach_classes.lst
+FEAT:traptreach_feats_hidden.lst
+FEAT:traptreach_feats.lst
+
+SPELL:traptreach_spells.lst
+DOMAIN:traptreach_domains.lst
+
+EQUIPMENT:traptreach_equip.lst
+EQUIPMENT:traptreach_equip_rings.lst
+EQUIPMENT:traptreach_equip_poisons.lst
+EQUIPMENT:traptreach_equip_wondrousitems.lst
+EQUIPMENT:traptreach_equip_weap_melee.lst
+EQUIPMENT:traptreach_equip_potionsscrolls.lst
+EQUIPMENT:traptreach_equip_rodsstaffswands.lst
+
+FEAT:@\d20ogl\srd\srd_feats_hidden.lst|(INCLUDE:Sneak Attack|All Automatic Proficiencies)

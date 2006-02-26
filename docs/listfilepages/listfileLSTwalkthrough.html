@@ -1,0 +1,1728 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTwalkthrough.html,v 1.4 2005/10/07 11:05:20 zaister Exp $
+		$Author: zaister $
+		$Date: 2005/10/07 11:05:20 $
+		$Revision: 1.4 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H. Olafsson - shoATtnDOTis
+		
+		Description:
+		Provides information on PCC and LST Files.
+	-->
+	<head>
+		<title>PCC and LST Files Explained</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>PCC and LST Files Explained</h1>
+		<p>by James McP</p>
+		
+		<p>This document assumes you are familiar with the RPG Third Edition and the SRD rule set.
+		In particular, it follows the System Reference Document (SRD) for 3E, which varies in some ways from the 3E books.
+		It was also written based on PCGen version 5 data files, located in the \data\d20ogl\srd\ directory of PCGen.</p>
+		
+		<p>We will be discussing the format of LSTs and PCC files and how they expect to encounter tags.
+		Refer to the documentation for details on implementing specific tags as
+		they can, and do, change.</p>
+		
+		<p>PCGen interprets data files using tabs and line returns. Note that a return
+		(hitting the &quot;enter&quot; or &quot;return&quot; key) is different from word-wrap.
+		You are advised to use a true text editor like the basic windows Notepad
+		or one of the free editing programs like UltraEdit. Regardless, turn word-wrap
+		off.</p>
+		
+		<p>In these examples I will be using extra lines that are indented rather than tabs and blank lines to indicate separate
+		lines.</p>
+		
+		<p>So this:</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="18%">
+			<tr>
+				<td width="33%">Bob</td>
+				<td width="33%">1</td>
+				<td width="34%">2</td>
+			</tr>
+			<tr>
+				<td width="33%">
+		Alice</td>
+				<td width="33%">3</td>
+				<td width="34%">4</td>
+			</tr>
+		</table>
+		
+		<p>Will be portrayed as:</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="13%">
+			<tr>
+				<td width="50%">Bob</td>
+				<td width="50%"></td>
+			</tr>
+			<tr>
+				<td width="50%"></td>
+				<td width="50%">1</td>
+			</tr>
+			<tr>
+				<td width="50%"></td>
+				<td width="50%">2</td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="13%">
+			<tr>
+				<td width="50%">Alice</td>
+				<td width="50%"></td>
+			</tr>
+			<tr>
+				<td width="50%"></td>
+				<td width="50%">3</td>
+			</tr>
+			<tr>
+				<td width="50%"></td>
+				<td width="50%">4</td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<h2>What is a PCC? Why are we discussing it first?</h2>
+		
+		<p>A PCC file is the only way PCGen can see a LST file. Perhaps the most common
+		problem people have creating their first home brew LST file is failing to create
+		a PCC that references it.</p>
+		
+		<p>While most users will only use PCCs as little more than a list of LSTs for their home brew campaigns, when converting a
+		published source to PCGen the PCC file is an expression of the legal system in the form of the Open Gaming License (OGL). 
+		Only through these, or other licenses, can PCGen distribute data from published
+		sources without violating copyrights. This can make the PCC the most important part in distributing copyrighted data.</p>
+		
+		<p>For a completely original campaign, you are the owner of your material and the copyrights. You should still declare all 
+		the copyright information just in case your data files are somehow distributed. Keep in mind that a PCC is the sole way for 
+		PCGen to identify a LST and that the structure of PCC files is primarily to fulfill that purpose. The copyright information 
+		is for legal compliance, not program functionality.</p>
+		
+		<h2>Building your own PCC</h2>
+		
+		<p>Really not hard. The PCC consists of the header block; used to fulfil the legal
+		obligations and provide information used in prioritizing the data and knowing
+		which types of games it is compatible with (e.g. Fantasy RPGs, Sci-Fi RPGs, etc), and
+		a list of LSTs to include. Each entry has a separate line in the PCC.</p>
+		
+		<p>PCC files must be kept within the \data directory of your PCGen installation. They
+		can be in subdirectories as PCGen will find all PCCs within \data.
+		PCC files can also be loaded off the internet in the newer betas (version
+		5.1 and greater).</p>
+		
+		<p>See the \data\d20ogl\srd\srd.pcc for an example of the layout of a PCC. Here are the
+		tags in the order they are typically found. The order is not important, but following conventions will help others
+		help you if you make a mistake. For legal reasons, few of the header tags should ever be omitted.
+		The tags are basically explained, but not detailed. See the documentation in the documentation directory for details with
+		specific tags.</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td width="50%" valign="top"><code>CAMPAIGN:</code></td>
+				<td width="50%">Name of Campaign Displayed in data load window.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>RANK: 1</code></td>
+				<td width="50%">Rank indicates priority in sorts.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>GAMEMODE:3e</code></td>
+				<td width="50%">Designates the Game Mode.<br />
+												Default RPG is 3e.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>GENRE:</code></td>
+				<td width="50%">This tells PCGen what genre this is,<br />
+												used to filter sources.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>TYPE:Dominant Game Publisher.SRD</code></td>
+				<td width="50%">Type will be used for sorts.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>SOURCELONG:The Full Name of the Source</code></td>
+				<td width="50%">Long title (used in some displays).</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>SOURCESHORT:Source</code></td>
+				<td width="50%">Short title (used in some displays).</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>SOURCEWEB:http://www.mywebsite.com</code></td>
+				<td width="50%">Website for the source (typically the publisher's general site).</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>ISOGL:YES</code></td>
+				<td width="50%">If the source uses the open gaming license (OGL) See OGL FAQ.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>OGL version</code></td>
+				<td width="50%">Version of OGL, if applicable.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, Your Name</code></td>
+				<td width="50%">Copyright Terms.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>COPYRIGHT:The Full Name of the Source Copyright 2003, Company Name ; Authors Bob Writer</code></td>
+				<td width="50%">Copyright Owner.</td>
+			</tr>
+			<tr>
+				<td width="50%" valign="top"><code>[LST Type]:[LST Name]</code></td>
+				<td width="50%">Call a LST file.</td>
+			</tr>
+		</table>
+		
+		<p>The minimum LST files that have to be loaded to be able to create a new character are the following:</p>
+			<ul>
+				 <li>CLASS</li>
+				 <li>EQUIPMENT</li>
+				 <li>FEAT</li>
+				 <li>SKILL</li>
+				 <li>WEAPONPROF</li>
+			</ul>  
+			
+			
+		<h2>LST Types</h2>
+		
+		<p>LST files are specialized, containing only a single type of data. PCC
+		files must specify the type of LST file but each PCC can contain multiple LSTs
+		of the same type.</p>
+		
+		<p>Types of LST:</p>
+			<ul>
+				 <li>CLASS</li>
+				 <li>DEITY</li>
+				 <li>DOMAIN</li>
+				 <li>EQUIPMENT</li>
+				 <li>EQUIPMOD</li>
+				 <li>FEAT</li>
+				 <li>KIT</li>
+				 <li>LANGUAGE</li>
+				 <li>RACE</li>
+				 <li>SKILL</li>
+				 <li>SPELL</li>
+				 <li>TEMPLATE</li>
+				 <li>WEAPONPROF</li>
+			</ul>   
+		
+		<p>So to call a class LST named &quot;myfirstclass.lst&quot; you would have the
+			following in the PCC:</p>
+		
+		<p><code>CLASS:myfirstclass.lst</code></p>
+		
+		<p>This assumes the file myfirstclass.lst is in the same directory as the PCC. So
+		if you wanted this PCC to load the file srdspells stored in pcgen\data\d20ogl\srd
+		you would use the following line:</p>
+		
+		<p><code>SPELL:@/d20ogl/srd/srdspells.lst</code></p>
+		
+		<p>The &quot;@&quot; symbol tells PCGen to start at the top of the data directory
+			and then follow the path down.
+		See the documentation for more information.</p>
+		
+		<p><code>CLASS:&/complete_monkey/complete_monkey_classes.lst</code></p>
+		
+		<p>The &quot;&&quot; symbol tells PCGen to start at the top of the vendor data directory
+			and then follow the path down.
+		See the documentation for more information.</p>
+		
+		<h4>Excluding and Including from LST files</h4>
+		
+		<p>You can include/exclude specific information from any LST file by using the INCLUDE/EXCLUDE Tags.</p>
+		<p>Examples:</p>
+		<p><code>CLASS:myfirstclass.lst|@/d20ogl/srd/srdclassesbase.lst|(INCLUDE:Fighter)</code></p>
+		<p>Would load the classes in myclass.lst and only include the Fighter class from the SRD classes.</p>
+		
+		<p><code>CLASS:myfirstclass.lst|(EXCLUDE:Monk|SorcererFoowarf)|@/d20ogl/srd/srdclassesbase.lst</code></p>
+		<p>Would load all classes in myclass.lst and all the SRD classes, except the Monk and the Sorcerer.</p>
+		See further info in the "List Files" Section.</p>
+
+		
+		<h2>Building your own LST</h2>
+		
+		<p>Because LSTs are called from PCC files they have little in the way of a header, just a
+		SOURCExxx tag which provide information used on character sheets and displays.</p>
+		
+		<p>LSTs can be complicated in the whole, but are typically quite simple. Here,
+		in the author's opinion, are the LSTs sorted by complexity.
+		I will be detailing the assembly of key LSTs at various levels of
+		complexity.</p>
+		
+		<ul>
+			<li>language</li>
+			<li>proficiency</li>
+			<li>skill</li>
+			<li>deity</li>
+			<li>domain</li>
+			<li>equipmod</li>
+			<li>equipment</li>
+			<li>spell</li>
+			<li>feat</li>
+			<li>race</li>
+			<li>kit</li>
+			<li>template</li>
+			<li>class</li>
+		</ul>
+		
+		<p>The basic construction of a LST is a
+		simple header block followed by a list of entries and their respective tags.
+		With the exception of the name the order of tags is flexible but it is
+		best to follow conventions. Tags are
+		separated by tabs (hit the tab key on your keyboard) or whitespace.
+		Most entries are on separate lines.</p>
+		
+		<p>Remember, in these examples I will be
+		using extra lines with indentions to reflect the tags rather than tabs for
+		readability. Blank lines will
+		separate entries.</p>
+		
+		<h2>Language LST</h2>
+		
+		<p>This is as basic as it gets. Entries in a language LST are displayed in the language selection box.
+		It consists of the header and a list of languages and their type.
+		Let's consider two hypothetical languages, the spoken language Simian and
+		the written only language Peel.</p>
+		
+		<p>Here is the header block:</p>
+		
+		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</code></p>
+		
+		<p>Here the header tells us in detail where the information came from, a short name for use in cramped locations, and the
+		website of the source.</p>
+		
+		<p>Then comes the actual code. In order we list the language name and type.
+		Most LSTs have more options so with the exception of the name the order
+		of tags is flexible but it is best to follow conventions.
+		Tags are separated by tabs (hit the tab key on your keyboard) or
+		whitespace. Entries are on separate lines.</p>
+		
+		<p>And here are the two working tags:</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Simian</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>TYPE:Spoken</code></td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Peel</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		<code>TYPE:Written</code></td>
+			</tr>
+		</table>
+		
+		<p>You can refer to the srdlanguages.lst for a working example.</p>
+		
+		<h2>Equipment LST</h2>
+		
+		<p>Custom equipment is often one of the first things that a GM needs to create. We'll
+		start with something simple, like a Mighty Sling.</p>
+		
+		<p>First, the header block:</p>
+		
+		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</code></p>
+		
+		<p>Then comes the actual code. In order we list the item's name, type, cost, weight, sourcepage,
+		proficiency used, crit multiplier, critical range (i.e. 1 for a 20, 2 for 19-20,
+		etc), damage, range (if ranged weapon), size, and any bonuses and special
+		abilities. Other than the name the order is flexible but it is best to follow conventions.</p>
+		
+		<p>If you create a wholly new weapon with a
+		new proficiency, you will need to create a proficiency LST that references your
+		new weapon and then have your PCC load
+		it.</p>
+		
+		<p>Here is what we end up with, separating each tag into a separate line</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Sling (+1 Mighty)</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		COST:0</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>WT:0</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		PROFICIENCY:Sling</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		CRITMULT:x2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		CRITRANGE:1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		DAMAGE:1d4</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		RANGE:50</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SIZE:S</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:WEAPON|DAMAGE|STRMIN1</code></td>
+			</tr>
+		</table>
+		
+		<p>Looking at this you might notice the source page tag is missing. Yup,
+		it's optional and since this is a &quot;home made&quot; item without a sourcebook,
+		I left it off.</p>
+		
+		<p>The TYPE tag is fairly easy to read, but
+		you will likely need to refer to the documentation and srdequip(something).lst
+		for examples.</p>
+		
+		<p>The BONUS tag is a very, very, very feature rich tag. You will need to
+		read the docs very carefully. This particular implementation indicates that it
+		applies only to a weapon, modifies the damage dealt, and adds +1 strength damage
+		to the weapon as long as the user has a strength bonus of at least +1.
+		A mighty +2 sling would be identical except for
+		the tag</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:WEAPON|DAMAGE|STRMIN2</code></td>
+			</tr>
+		</table>
+		
+		<p>Now lets do something a bit more and create some magical armor. Red
+		Dragon Armor will be plate +2 that provides fire resistance +5 and makes the
+		wearer immune to Red Dragon fear. We'll start by copying the plate armor from the srdequiparmorshields.lst file.</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Full Plate</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Armor.Heavy.Suit.Standard.Metal</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		COST:1500</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		WT:50</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>ACCHECK:-6</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MAXDEX:1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MOVE:20,15</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SOURCEPAGE:Chap.7, Armor</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SPELLFAILURE:35</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE</code></td>
+			</tr>
+		</table>
+		
+		<p>Looking at it you can see how its tags work and how similar it is to the weapons. Name,
+		type, cost, weight, armor check penalty, maximum dex bonus, movement
+		restrictions (if any), source page, percent chance of spell failure, and the
+		armor class bonus, set up as a replace to ensure only one set of armor is used.</p>
+		
+		<p>For our custom version we'll be adding some other features. Other examples
+		can be pulled from the srdequiparmorsheildspecific.lst</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Red Dragon Armor</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		PROFICIENCY:Full Plate</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Magic.Armor.Heavy.Standard.Suit.Specific</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		COST:16650</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		WT:50</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>ACCHECK:-5</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MAXDEX:1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MOVE:20,15</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SPELLFAILURE:35</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SA: Fire Resistance +5</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SA: Immune to Red Dragon Fear</code></td>
+			</tr>
+		</table>
+		
+		<p>Notice the changes?</p>
+		
+		<p>First we added a PROFICIENCY tag - Very important as it informs PCGen which 
+		characters can use the armor since the name
+		no longer matches any of the armor use proficiencies.</p>
+		
+		<p>The TYPE also changes to include Magic and Specific.
+		Magic will always be flagged first, the Specific tells it that it is a
+		named item.</p>
+		
+		<p>Then there's the reduced ACCHECK rating. Why? Well, all magic items
+		are masterwork, and masterwork armor has a reduced armor check penalty.</p>
+		
+		<p>Last, the AC bonus was increased by 2 in the BONUS tag.
+		The cost is my personal evaluation of the cost of this armor.</p>
+		
+		<p>For armor found in a horde you may be tempted to set it to 0 so they can
+		buy it without hitting the &quot;buy for free&quot; tag, but it is recommended to
+		set	the cost so you can use the &quot;owned wealth&quot; calculation to make sure
+		your	PCs	have as much, or as little, as you think they should.</p>
+		
+		<p>Last come the SA tags. SA stands for Special Ability and reflects a text string that is
+		displayed on the character sheet. SAs have no affect on PCGen's operation. SAs
+		can be used as requirements and can perform calculations (like displaying uses
+		per level). SAs are almost, but not quite, as feature rich as BONUS. Remember
+		citizen, the docs are your friends.</p>
+		
+		<h2>Proficiency LST</h2>
+		
+		<p>For completeness I have included a proficiency.lst below with the most complicated 
+		proficiency in the basic game; the bastard sword.</p>
+		
+		<p>From your reading you should be aware that by the Martial Weapon proficiency, a 
+		person can use the sword two handed if medium sized, or 1 handed if they are a 
+		Large (or bigger) creature. Only someone who has the Exotic Weapon Proficiency: 
+		Bastard Sword can use it one handed.</p>
+		
+		<p>Cannibalizing the srdweaponprof.lst file we get:</p>
+		
+		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</code></p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Sword (Bastard/Martial)</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Martial</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		HANDS:1IFLARGERTHANWEAPON</code></td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Sword (Bastard/Exotic)</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Exotic</code></td>
+			</tr>
+		</table>
+		
+		<p>So you see the weapon's name, the type, and the number of hands required to use the weapon.
+		If you don't specify the number of hands, PCGen's sizing system
+		automatically fires up, assigning weapons of same or smaller size to 1 hand use,
+		and weapons sized larger than the character to 2 hand use.</p>
+		
+		<p>In this case, the Martial version of the proficiency does NOT allow a medium creature to use the medium sized Bastard
+		Sword one-handed and overrides the default.</p>
+		
+		<p>The Exotic version follows the standard PCGen sizing system which works as the rules require.</p>
+		
+		<p>Refer to the HANDS tag docs for more details.</p>
+		
+		<h2>Feat LST</h2>
+		
+		<p>Feats are handy things. They have a lot of power, but are really fairly simple.
+		We'll start at the beginning of the srdfeats.lst and pull alertness.</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%" height="98">
+			<tr>
+				<td width="100%" colspan="2" height="18"><code>Alertness</code></td>
+			</tr>
+			<tr>
+				<td width="10%" height="20"></td>
+				<td width="90%" height="20"><code>
+		TYPE:General</code></td>
+			</tr>
+			<tr>
+				<td width="10%" height="20"></td>
+				<td width="90%" height="20"><code>
+		DESC:See Text</code></td>
+			</tr>
+			<tr>
+				<td width="10%" height="20"></td>
+				<td width="90%" height="20"><code>
+		BONUS:SKILL|Listen,Spot|2</code></td>
+			</tr>
+			<tr>
+				<td width="10%" height="20"></td>
+				<td width="90%" height="20"><code>
+		SOURCEPAGE:Chap.5, Feat Descriptions</code></td>
+			</tr>
+		</table>
+		
+		<p>So we have the name, type, description, a bonus of +2 to listen and spot, and sourcepage.
+		Really the name, type and description are the only things you need.
+		Some feats provide features that are not handled in PCGen because they
+		are conditional or just not addressed.</p>
+		
+		<p>We'll move on to something meatier.</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Weapon Specialization</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Special.Fighter</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		PREFEAT:1,Weapon Focus</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		PREVARGTEQ:WeapSpecQualify,1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		DESC:See Text</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MULT:YES</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>CHOOSE:FEAT=Weapon Focus|1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SOURCEPAGE:Chap.5, Feat Descriptions</code></td>
+			</tr>
+		</table>
+		
+		<p>A bit different, but not much. Besides the normal stuff, we see that Weapon Specialization requires the
+		character to already have the feat Weapon Focus and have a variable called
+		WeaponSpecQualify with a value of 1. We'll 
+		see WeaponSpecQualify later in the CLASS section where it will be covered in
+		more detail. It can be chosen
+		MULTiple times but only once per weapon, a feature inherent in PCGen. You CHOOSE
+		a weapon that you already have Weapon Focus and it receives a +2 to damage.</p>
+		
+		<h2>Race LST</h2>
+		
+		<p>Races are a step up the complexity list from feats. We'll first examine one
+		of the most complex standard races, at least by PCGen standards, the Elf.
+		This, and other examples, can be found in the srdracesphb.lst file.</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Elf</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		FAVCLASS:Wizard</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		STARTFEATS:1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SIZE:M</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MOVE:Walk,30</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		REACH:5</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>VISION:Low-light</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		LANGAUTO:Common,Elven</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		WEAPONAUTO:Shortbow|Longbow|Longbow (Composite)|Shortbow (Composite)</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		WEAPONBONUS:Rapier|Longsword</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:STAT|DEX|2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:STAT|CON|-2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SA:Immunity to magic sleep spells and effects</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SA:+2 racial saving throw bonus against Enchantment spells or effects&nbsp;</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SA:An elf who merely passes within 5 feet of a secret or concealed door is entitled 
+		to a Search check to notice it as if she were actively looking for the door</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Humanoid</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SOURCEPAGE:Chap.2, Elves</code></td>
+			</tr>
+		</table>
+		
+		<p>What we find is the race name, favored class, number of starting feats, size, movement types and speeds, reach, special
+		vision types, automatic languages, the list of available bonus languages,
+		automatic weapon proficiencies, a bonus proficiency that is chosen in the race
+		window, racial adjustments to skills and stats (note the Con penalty applied as
+		a negative bonus), followed by special abilities, the creature type and source
+		page. Notice the SAs with nice, descriptive tags.</p>
+		
+		<p>Since SAs have no affect on PCGen, you should make sure the relevant data
+			is in the SAs. (Unless the copyright owner says not to. You'll find lots of 
+			things with an SA of &quot;Super Power: see text p.xx&quot; because the 
+			publisher doesn't want Super Power defined outside their books. It's their 
+			book, it's their right and we respect that. Do what you want for your own 
+			creations.)</p>
+		
+		<p>The required entries are name, size, movement, reach, and creature type. Everything
+		else is optional and there are many, many more racial tags available for use.</p>
+		
+		<p>Our example race will be a Silverback, a
+		strong and intelligent creature (+2 strength, +1 intelligence) but somewhat
+		inflexible (dexterity -1), they are Large creatures with a 10' reach, 60'
+		darkvision, bonuses to handle animal, diplomacy and sense motive (+2 each),
+		immune to charm spells, with a preferred class of ranger.
+		They automatically speak Simian and Common and have an elf-like list of
+		bonus languages. Like most races,
+		they only receive 1 feat at first level. Silverbacks
+		have no automatic weapon proficiencies but they do get two claw attacks doing
+		1d6 damage. Silverbacks do not
+		receive any bonus hit dice or have monster classes.</p>
+		
+		<p>Building our race.lst file from scratch we put our standard header.</p>
+		
+		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org/</code></p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>Silverback</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		FAVCLASS:Ranger</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		STARTFEATS:1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>SIZE:L</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MOVE:Walk,30</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>REACH:10</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		VISION:Darkvision (60')</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>LANGAUTO:Common,Simian</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan,Elven</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:SKILL|Handle Animal,Diplomacy,Sense Motive|2|TYPE=Racial</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:STAT|STR|2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:STAT|INT|1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:STAT|DEX|-1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SA:Immunity to charm</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Humanoid</code></td>
+			</tr>
+		</table>
+		
+		<p>The differences between this and the Elf
+		are primarily the missing weapon bonuses and the new NATURALATTACKS tag.
+		NATURALATTACKS do not need a proficiency specified so no worries there.
+		You can see it is called Claw, is a natural melee piercing/slashing
+		weapon and there are two of them.</p>
+		
+		<p>More complex races abound in the SRD directory. Consider examining the
+		srdracesXXX.lst files. Srdracesst.lst includes tritonss, troglodytes and trolls which are good examples for
+		player character races.</p>
+		
+		<h2>Class LST</h2>
+		
+		<p>After custom equipment, classes are the most popular new LST. They are also
+		perhaps the most complicated and difficult to master.
+		Mastery takes time, but most people can achieve sufficiency in a very
+		short period of time. And sufficiency is, well, sufficient.</p>
+		
+		<p>The first barrier to overcome is that
+		class LSTs do not follow the one line per entry system that all the other LSTs
+		follow. Classes are too complicated to do that. So you have three
+		sections to a class entry: a combat definition, a skill set definition, and the
+		level-specific events.</p>
+		
+		<p>Some will have more sections to cover special functions, but these are the standards.
+		Once you start the level-specific block you can put entries in whatever
+		order you want or have multiple entries for the same level.
+		All those entries will apply until it finds a new definition block.</p>
+		
+		<p>We'll begin simple and look at the Warrior, your basic muscle. Like
+		the other examples, blank lines indicate a new line and the indentions list the
+		tags that fall on that line.</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>CLASS:Warrior</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>CLASS:Warrior</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		HD:8</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:NPC</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		ABB:War</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SOURCEPAGE:Chap.2, Classes, NPC Classes</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:CHECKS|BASE.Fortitude|CL/2+2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		BONUS:COMBAT|BAB|CL</code></td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2"><code>
+		CLASS:Warrior</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		STARTSKILLPTS:2</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim</code></td>
+			</tr>
+			<tr>
+				<td width="10%"><code>1</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		WEAPONAUTO:SIMPLE|MARTIAL</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		FEATAUTO:Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency
+					(Heavy)|Shield Proficiency|Martial Weapon Proficiency</code></td>
+			</tr>
+		</table>
+		
+		<p>In the combat definition we find hit dice, class type (base, prestige, NPC, monster, etc), abbreviation to be used,
+		source page, saving throws and base attack bonus.</p>
+		
+		<p>The skill set block covers class skills and skill points per level. The
+		skill names in the block need to match the entries in the skill LST file.</p>
+		
+		<p>The level specific block only addresses first level where we see the warrior receives all simple and martial weapon
+		proficiencies and all armor and shield proficiencies.</p>
+		
+		<p>Notice that all the definition blocks start with CLASS:. This is the
+		keyword used by PCGen. Leave that out and bad things will happen.</p>
+		
+		<p>To make a warrior into a fighter we'd
+		change the hit die and add some more level-specific abilities, specifically
+		feats. Here is the level specific
+		block for the fighter from the srdbaseclasses.lst file:</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>1</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		WEAPONAUTO:SIMPLE|MARTIAL
+		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor
+		Proficiency (Heavy)|Shield Proficiency|Simple Weapon Proficiency
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>2</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>4</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>DEFINE:WeapSpecQualify|1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>6</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>8</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>10</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>12</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>14</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>16</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>18</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>20</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		ADD:FEAT(TYPE=Fighter)
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		</code>
+		
+		<p>Pretty simple. Only the 4<sup>th</sup> level DEFINE statement should require
+		explanation. The DEFINE statement is used to initialize a variable, in this case WeapSpecQualify, and set it to 1.
+		This is the prerequisite for the Weapon Specialization feat we saw earlier.</p>
+		
+		<p>Let's look at something more magical, like a bard.</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2">
+		
+		<code>
+		CLASS:Bard
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		HD:6
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SPELLSTAT:CHA
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SPELLTYPE:Arcane
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		TYPE:Base.PC
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		ABB:Brd
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		MEMORIZE:NO
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		SOURCEPAGE:Chap.3, Bard
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>
+		LANGAUTO:Literacy
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:CHECKS|BASE.Fortitude|CL/3
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>BONUS:COMBAT|BAB|CL*3/4
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		</code>
+		
+		<p>Standard combat definiton block, but for the Bard it indicates the class can cast arcane spells using Charisma as the
+		prime stat without memorizing spells.</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2">
+		
+		<code>
+		CLASS:Bard
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%"><code>PREALIGN:3,4,5,6,7,8</code></td>
+			</tr>
+		</table>
+		
+		</code>
+		
+		<p>Bards have an alignment restriction of &quot;nonnlawful&quot;. The numbers 0-9
+		correspond to the alignments with the omitted 1, 2, and 9 being lawful good,
+		lawful neutral and lawful evil respectively.</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="100%" colspan="2">
+		
+		<code>
+		CLASS:Bard
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		STARTSKILLPTS:4
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|
+		TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather 
+		Information|Hide|IntuitDirection|Jump|TYPE.Knowledge|Listen |MoveSilently|Perform|PickPocket|TYPE.Profession|Scry|SenseMotive|Speak
+		Language|Spellcraft|Swim|Tumble|Use Magic Device
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		</code>
+		
+		<p>Standard skill set. Nothing to see here, move along.</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%"><code>1</code></td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		CAST:2
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		KNOWN:4
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		SA:Bardic music %/day|BardicMusic
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		SA:Bardic knowledge (+%)|BardicKnowledge
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		BONUS:VAR|BardicMusic|CL=Bard
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		BONUS:VAR|BardicKnowledge|CL=Bard+INT
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		DEFINE:BardicKnowledge|0
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		DEFINE:BardicMusic|0
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		WEAPONAUTO:SIMPLE
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		WEAPONBONUS:Longbow|Longbow(Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword
+		(Short)|Shortbow|Whip
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		</code>
+		
+		<p>Now we see some new things other than the standard proficiencies and feats. A
+		first level Bard can cast 2 1<sup>st</sup> level spells and knows four of them.
+		He has the special ability to use Bardic Music a number of times equal to
+		his class level (CL) which is handled by an SA entry (with % being used to
+		display the value of the BardicMusic variable), a DEFINE and a BONUS to set the
+		variable to the Bard class level. The same is done with the Bardic Knowledge bonus.</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%">
+		
+		<code>
+		2
+		</code>
+		
+				</td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		CAST:3,0
+		</code>
+		
+				</td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		KNOWN:5,2
+		</code>
+		
+				</td>
+			</tr>
+		</table>
+		
+		</code>
+		
+		<p>Bards can now cast 2<sup>nd</sup> level spells (if they have any bonus spells from their spell-stat Charisma) and know 2
+		of them.</p>
+		
+		<code>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%">
+		
+		<code>
+		3</code>
+		
+				</td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		CAST:3,1</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		KNOWN:6,3</code></td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%">
+		
+		<code>4
+		</code>
+		
+				</td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		CAST:3,2,0</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		KNOWN:6,3,2</code></td>
+			</tr>
+		</table>
+		
+		<br />
+		
+		<p>...</p>
+		<p>...</p>
+		
+		<table border="0" cellpadding="0" cellspacing="0" width="64%">
+			<tr>
+				<td width="10%">
+		
+		<code>
+		20
+		</code>
+		
+				</td>
+				<td width="90%"></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		CAST:4,4,4,4,4,4,4</code></td>
+			</tr>
+			<tr>
+				<td width="10%"></td>
+				<td width="90%">
+		
+		<code>
+		KNOWN:6,5,5,5,5,5,4</code></td>
+			</tr>
+		</table>
+		
+		<p>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</p>
+		</code>
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTwalkthrough.html,v $ ($Revision: 1.4 $) last updated $Date: 2005/10/07 11:05:20 $ by $Author: zaister $</p> -->
+	</body>
+
+</html>

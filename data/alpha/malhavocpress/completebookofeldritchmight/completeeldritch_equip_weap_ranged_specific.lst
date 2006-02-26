@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 27 07:35:23 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block: Ranged
+# Equipment Name		Required Proficiency	Type																	Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page		Weapon prop. bonus									Special Property
+Bow of the Grey Marches	PROFICIENCY:Longbow	TYPE:Enhancement.Weapon.Martial.Ranged.Specific.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:1|Arrow=1	COST:12375	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:L	SOURCEPAGE:p.167	BONUS:WEAPON|TOHIT|2|TYPE=Enhancement	BONUS:WEAPON|DAMAGE|STRMIN10	SPROP:Self-adjusting strength bow
+Harp Bow			PROFICIENCY:Shortbow	TYPE:Enhancement.Weapon.Martial.Ranged.Specific.Piercing.Container.Projectile.Bow.Shortbow		CONTAINS:1|Arrow=1	COST:3330	WT:5		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:60	SIZE:L	SOURCEPAGE:p.168	BONUS:WEAPON|TOHIT|2|TYPE=Enhancement	BONUS:WEAPON|DAMAGE|STRMIN0	SPROP:Can be both Harp and Bow

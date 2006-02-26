@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 17 12:02:37 2004 -- reformated by prettylst.pl v1.32 (build 339)
+# Original Entry by: Beaver
+SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
+
+# Feat Name			Product Identity?	Type			Visible	Req. Att.	Required Class		Required Lvl	Required Stat	Description																	Stackable?	Multiple?	Choose			Stat bonus		Class Skill		Source Page
+Attached Soul		NAMEISPI:NO		TYPE:General												PRESTAT:1,CHA=13	DESC:You are fiercely attached to life.																										SOURCEPAGE:p.254
+Devout			NAMEISPI:NO		TYPE:General															DESC:You are completely dedicated to you god and will not be swayed by the powers opposed to your faith.															SOURCEPAGE:p.254
+Domain Specialization	NAMEISPI:NO		TYPE:Special					PRECLASS:1,Cleric=4				PRESTAT:1,WIS=13	DESC:You may spontaneously cast spells from you clerical domain.																						SOURCEPAGE:p.254
+Ear of God			NAMEISPI:NO		TYPE:General															DESC:You are watched over by your god's servant.																								SOURCEPAGE:p.254
+Famous			NAMEISPI:NO		TYPE:General									PRELEVEL:6					DESC:You may choose to put points into the Famous skill																				CSKILL:Famous	SOURCEPAGE:p.254
+Free Thinker		NAMEISPI:NO		TYPE:Special					PRECLASS:1,Cleric=1				PRESTAT:1,WIS=13	DESC:You may prepare spells at anytime.																										SOURCEPAGE:p.254
+Heretic			NAMEISPI:NO		TYPE:Special					PRECLASS:1,Cleric=1							DESC:You may be of two alignment shifts from your god and still gain spells.																				SOURCEPAGE:p.254
+Martial Instructor	NAMEISPI:NO		TYPE:General			PREATT:5											DESC:You are skilled at the training of others in the use of weapons.																					SOURCEPAGE:p.255
+Profound Faith		NAMEISPI:NO		TYPE:Special					PRECLASS:1,Cleric=1				PRESTAT:1,CHA=13	DESC:You use your faith more than your wisdom to call for aid from your god.																				SOURCEPAGE:p.256
+Religeous Scholar		NAMEISPI:NO		TYPE:General															DESC:You are a leading expert in the study of one of the gods in the pantheon.																			SOURCEPAGE:p.256
+#CHOOSE:COUNT=2|Weapon Penalty Reduction|Reduce	BONUS:whatever|EndsUpBeingProgramed|VAR	DEFINE:WMast|2  BONUS:VAR|WMast|COUNT[FEAT=Weapon Master]-1 -Something like this for WeapMstr
+Weapons Master		NAMEISPI:NO		TYPE:General			PREATT:4											DESC:You are suffer only a -2 penalty on non-profiencient weapons.							STACK:YES	MULT:YES											SOURCEPAGE:p.256
+Cut Arrows			NAMEISPI:NO		TYPE:General												PRESTAT:1,DEX=13	DESC:See Deflect Arrows Feat																												SOURCEPAGE:p.93
+Talesman Ability Bonus	NAMEISPI:NO		TYPE:Talesman	VISIBLE:NO																															STACK:YES	MULT:YES	CHOOSE:COUNT=1|STAT	BONUS:STAT|LIST|1
+
+
+###Block: Hidden feats
+# Feat Name			Type				Visible	Multiple?	Choose			Bonus to skill
+Artificer Hidden Feat	TYPE:ArtificerHidden	VISIBLE:NO	MULT:YES	CHOOSE:SKILLS|LIST|1	BONUS:SKILL|LIST|4

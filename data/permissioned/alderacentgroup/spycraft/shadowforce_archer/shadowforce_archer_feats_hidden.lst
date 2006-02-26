@@ -1,0 +1,59 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+# Feat Name					Type						Visible		Required var. value				Var. Max. Value				Special Ability		Description				Stackable?	Multiple?	Choose						Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
+Cat Burglar Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Nimble			DESC:Nimble															BONUS:SKILL|STAT.DEX|1
+Counter Terrorist Core Ability	TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Quick-Thinking		DESC:Quick-Thinking
+Hacker Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Custom-Built System	DESC:Custom-Built System
+Sniper Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Precise			DESC:Precise
+Shadespeaker Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Dedication		DESC:Dedication																																					BONUS:VAR|ACTIONDICE|1
+
+# Psion Core Abilities
+
+Mentalist Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SA:Insightful
+Physical Adept Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SA:Zen
+Telepath Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1				SA:Sensitive
+
+# Psion Class Abilities
+
+Mentalist Psi Mastery			TYPE:MentalistAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Mental|1		BONUS:SKILL|LIST|2|TYPE=Psionic
+Physical Adept Psi Mastery		TYPE:PhysicalAdeptAbility		VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Physical|1		BONUS:SKILL|LIST|2|TYPE=Psionic
+Telepath Psi Mastery			TYPE:TelepathAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Telepathic|1	BONUS:SKILL|LIST|2|TYPE=Psionic
+
+Strength Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Str																			BONUS:STAT|STR|1
+Dexterity Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Dex																			BONUS:STAT|DEX|1
+Constitution Ability Bonus		TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Con																			BONUS:STAT|CON|1
+Intelligence Ability Bonus		TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Int																			BONUS:STAT|INT|1
+Wisdom Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Wis																			BONUS:STAT|WIS|1
+Charisma Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Cha																			BONUS:STAT|CHA|1
+
+# Psionic Feat Support
+
+Evolved Mind - Mentalist Level 12	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,12																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=12|12
+Evolved Mind - Mentalist Level 13	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,13																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=13|12
+Evolved Mind - Mentalist Level 14	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,14																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=14|12
+Evolved Mind - Mentalist Level 15	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,15																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=15|12
+Evolved Mind - Mentalist Level 16	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,16																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=16|12
+Evolved Mind - Mentalist Level 17	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,17																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=17|12
+Evolved Mind - Mentalist Level 18	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,18																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=18|12
+Evolved Mind - Mentalist Level 19	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,19																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=19|12
+Evolved Mind - Mentalist Level 20	TYPE:EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,20																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=20|12
+
+Ultimate Mentalist Level 18		TYPE:UltimateMentalistPoints		VISIBLE:NO		PREVAREQ:UltimateMentalistLevel,18																																		BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=18|24
+Ultimate Mentalist Level 19		TYPE:UltimateMentalistPoints		VISIBLE:NO		PREVAREQ:UltimateMentalistLevel,19																																		BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=19|24
+Ultimate Mentalist Level 20		TYPE:UltimateMentalistPoints		VISIBLE:NO		PREVAREQ:UltimateMentalistLevel,20																																		BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=20|24
+
+Heightened Strength Bonus		TYPE:HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:+1|+2																			BONUS:STAT|STR|1|PREFEAT:1,Heightened Inner Strength
+Heightened Dexterity Bonus		TYPE:HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:+1|+2																			BONUS:STAT|DEX|1|PREFEAT:1,Heightened Inner Strength
+Heightened Constitution Bonus		TYPE:HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:+1|+2																			BONUS:STAT|CON|1|PREFEAT:1,Heightened Inner Strength
+Heightened Intelligence Bonus		TYPE:HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:+1|+2																			BONUS:STAT|INT|1|PREFEAT:1,Heightened Inner Strength
+Heightened Wisdom Bonus			TYPE:HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:+1|+2																			BONUS:STAT|WIS|1|PREFEAT:1,Heightened Inner Strength
+Heightened Charisma Bonus		TYPE:HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:+1|+2																			BONUS:STAT|CHA|1|PREFEAT:1,Heightened Inner Strength
+
+#
+# End
+#

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="middle-earth-fantasy-elven-male-rule" title="Middle Earth Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-elven-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-elven-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-elven-male-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="middle-earth-fantasy-elven-female-rule" title="Middle Earth Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-elven-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-elven-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-elven-female-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="middle-earth-fantasy-dwarven-male-rule" title="Middle Earth Dwarf" usage="final">
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-dwarven-male-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-dwarven-male-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-dwarven-male-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="middle-earth-fantasy-dwarven-female-rule" title="Middle Earth Dwarf" usage="final">
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-dwarven-female-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-dwarven-female-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-dwarven-female-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="middle-earth-fantasy-halfling-male-rule" title="Middle Earth Halfling" usage="final">
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-halfling-male-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-halfling-male-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-halfling-male-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="middle-earth-fantasy-halfling-female-rule" title="Middle Earth Halfling" usage="final">
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-halfling-female-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-halfling-female-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-halfling-female-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="middle-earth-fantasy-sword-rule" title="Middle Earth Swords" usage="final">
+		<CATEGORY title="Fantasy: Other"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Other"/>
+		<RULE weight="1">
+			<GETLIST idref="middle-earth-fantasy-sword-syl1" title="Syllable 1"/>
+			<GETLIST idref="middle-earth-fantasy-sword-syl2" title="Syllable 2"/>
+			<GETLIST idref="middle-earth-fantasy-sword-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<LIST id="middle-earth-fantasy-elven-syl1" title="Syllable 1">
+		<VALUE>An</VALUE>
+		<VALUE>Am</VALUE>
+		<VALUE>Bel</VALUE>
+		<VALUE>Cel</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Cal</VALUE>
+		<VALUE>Del</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>Elr</VALUE>
+		<VALUE>Elv</VALUE>
+		<VALUE>Eow</VALUE>
+		<VALUE>E&#228;r</VALUE>
+		<VALUE>F</VALUE>
+		<VALUE>G</VALUE>
+		<VALUE>Gal</VALUE>
+		<VALUE>Gl</VALUE>
+		<VALUE>H</VALUE>
+		<VALUE>Is</VALUE>
+		<VALUE>Leg</VALUE>
+		<VALUE>L&#243;m</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>P</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>T</VALUE>
+		<VALUE>Thr</VALUE>
+		<VALUE>Tin</VALUE>
+		<VALUE>Ur</VALUE>
+		<VALUE>Un</VALUE>
+		<VALUE>V</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-elven-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>&#225;</VALUE>
+		<VALUE>adrie</VALUE>
+		<VALUE>ara</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>&#233;</VALUE>
+		<VALUE>ebri</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>io</VALUE>
+		<VALUE>ithra</VALUE>
+		<VALUE>ilma</VALUE>
+		<VALUE>il-Ga</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>orfi</VALUE>
+		<VALUE>&#243;</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-elven-male-syl3" title="Syllable 3">
+		<VALUE>l</VALUE>
+		<VALUE>las</VALUE>
+		<VALUE>lad</VALUE>
+		<VALUE>ldor</VALUE>
+		<VALUE>ldur</VALUE>
+		<VALUE>lith</VALUE>
+		<VALUE>mir</VALUE>
+		<VALUE>n</VALUE>
+		<VALUE>nd</VALUE>
+		<VALUE>ndel</VALUE>
+		<VALUE>ndil</VALUE>
+		<VALUE>ndir</VALUE>
+		<VALUE>nduil</VALUE>
+		<VALUE>ng</VALUE>
+		<VALUE>mbor</VALUE>
+		<VALUE>r</VALUE>
+		<VALUE>ril</VALUE>
+		<VALUE>riand</VALUE>
+		<VALUE>rion</VALUE>
+		<VALUE>wyn</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-elven-female-syl3" title="Syllable 3">
+		<VALUE>l</VALUE>
+		<VALUE>las</VALUE>
+		<VALUE>lad</VALUE>
+		<VALUE>ldor</VALUE>
+		<VALUE>ldur</VALUE>
+		<VALUE>lith</VALUE>
+		<VALUE>mir</VALUE>
+		<VALUE>n</VALUE>
+		<VALUE>nd</VALUE>
+		<VALUE>ndel</VALUE>
+		<VALUE>ndil</VALUE>
+		<VALUE>ndir</VALUE>
+		<VALUE>nduil</VALUE>
+		<VALUE>ng</VALUE>
+		<VALUE>mbor</VALUE>
+		<VALUE>r</VALUE>
+		<VALUE>ril</VALUE>
+		<VALUE>riand</VALUE>
+		<VALUE>rion</VALUE>
+		<VALUE>wyn</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-dwarven-male-syl1" title="Syllable 1">
+		<VALUE>B</VALUE>
+		<VALUE>D</VALUE>
+		<VALUE>F</VALUE>
+		<VALUE>G</VALUE>
+		<VALUE>Gl</VALUE>
+		<VALUE>H</VALUE>
+		<VALUE>K</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>T</VALUE>
+		<VALUE>V</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-dwarven-male-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>oi</VALUE>
+		<VALUE>u</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-dwarven-male-syl3" title="Syllable 3">
+		<VALUE>bur</VALUE>
+		<VALUE>fur</VALUE>
+		<VALUE>gan</VALUE>
+		<VALUE>gnus</VALUE>
+		<VALUE>gnar</VALUE>
+		<VALUE>li</VALUE>
+		<VALUE>lin</VALUE>
+		<VALUE>lir</VALUE>
+		<VALUE>mli</VALUE>
+		<VALUE>nar</VALUE>
+		<VALUE>nus</VALUE>
+		<VALUE>rin</VALUE>
+		<VALUE>ran</VALUE>
+		<VALUE>sin</VALUE>
+		<VALUE>sil</VALUE>
+		<VALUE>sur</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-dwarven-female-syl1" title="Syllable 1">
+		<VALUE>Al</VALUE>
+		<VALUE>Br</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Cl</VALUE>
+		<VALUE>D</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>Gw</VALUE>
+		<VALUE>J</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>Mer</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>Ys</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-dwarven-female-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>ea</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+		<VALUE>w</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-dwarven-female-syl3" title="Syllable 3">
+		<VALUE>brylla</VALUE>
+		<VALUE>cla</VALUE>
+		<VALUE>dda</VALUE>
+		<VALUE>ll</VALUE>
+		<VALUE>lla</VALUE>
+		<VALUE>llyra</VALUE>
+		<VALUE>lonna</VALUE>
+		<VALUE>lyan</VALUE>
+		<VALUE>na</VALUE>
+		<VALUE>ngwen</VALUE>
+		<VALUE>niver</VALUE>
+		<VALUE>noic</VALUE>
+		<VALUE>ra</VALUE>
+		<VALUE>rka</VALUE>
+		<VALUE>ryan</VALUE>
+		<VALUE>ssa</VALUE>
+		<VALUE>vyan</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-halfling-male-syl1" title="Syllable 1">
+		<VALUE>B</VALUE>
+		<VALUE>Dr</VALUE>
+		<VALUE>Fr</VALUE>
+		<VALUE>Mer</VALUE>
+		<VALUE>Per</VALUE>
+		<VALUE>S</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-halfling-male-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>ia</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>oi</VALUE>
+		<VALUE>u</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-halfling-male-syl3" title="Syllable 3">
+		<VALUE>bo</VALUE>
+		<VALUE>do</VALUE>
+		<VALUE>doc</VALUE>
+		<VALUE>go</VALUE>
+		<VALUE>grin</VALUE>
+		<VALUE>m</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-halfling-female-syl1" title="Syllable 1">
+		<VALUE>Al</VALUE>
+		<VALUE>Br</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Cl</VALUE>
+		<VALUE>D</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>Gw</VALUE>
+		<VALUE>J</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>Mer</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>Ys</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-halfling-female-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>ea</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+		<VALUE>w</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-halfling-female-syl3" title="Syllable 3">
+		<VALUE>brylla</VALUE>
+		<VALUE>cla</VALUE>
+		<VALUE>dda</VALUE>
+		<VALUE>ll</VALUE>
+		<VALUE>lla</VALUE>
+		<VALUE>llyra</VALUE>
+		<VALUE>lonna</VALUE>
+		<VALUE>lyan</VALUE>
+		<VALUE>na</VALUE>
+		<VALUE>ngwen</VALUE>
+		<VALUE>niver</VALUE>
+		<VALUE>noic</VALUE>
+		<VALUE>ra</VALUE>
+		<VALUE>rka</VALUE>
+		<VALUE>ryan</VALUE>
+		<VALUE>ssa</VALUE>
+		<VALUE>vyan</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-sword-syl1" title="Syllable 1">
+		<VALUE>An</VALUE>
+		<VALUE>Aig</VALUE>
+		<VALUE>Glam</VALUE>
+		<VALUE>Trith</VALUE>
+		<VALUE>Nar</VALUE>
+		<VALUE>Al</VALUE>
+		<VALUE>Aug</VALUE>
+		<VALUE>Dul</VALUE>
+		<VALUE>Gom</VALUE>
+		<VALUE>Pel</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-sword-syl2" title="Syllable 2">
+		<VALUE>dur</VALUE>
+		<VALUE>al</VALUE>
+		<VALUE>at</VALUE>
+		<VALUE>aith</VALUE>
+		<VALUE>dr</VALUE>
+		<VALUE>tha</VALUE>
+		<VALUE>cat</VALUE>
+	</LIST>
+	<LIST id="middle-earth-fantasy-sword-syl3" title="Syllable 3">
+		<VALUE>il</VALUE>
+		<VALUE>sil</VALUE>
+		<VALUE>los</VALUE>
+		<VALUE>ing</VALUE>
+		<VALUE>sol</VALUE>
+		<VALUE>ol</VALUE>
+		<VALUE>as</VALUE>
+		<VALUE>us</VALUE>
+		<VALUE>is</VALUE>
+	</LIST>
+</GENERATOR>
+

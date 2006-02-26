@@ -1,0 +1,35 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+# Original entry by Ratheof Blithwyn
+CAMPAIGN:FFG - Path of Magic - Source Book
+GAMEMODE:3e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Fantasy Flight Games.Sourcebook
+RANK:6
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
+SOURCELONG:Path of Magic
+SOURCESHORT:Magic
+SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Path of Magic Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for the Path of Magic Copyright 2004-2005, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn), Andrew McDougall (Tir Gwaith))
+
+CLASS:pathmagic_classes_prestige.lst
+CLASS:pathmagic_classes_legendary.lst
+CLASS:pathmagic_classes_variant.lst
+FEAT:pathmagic_feats.lst
+FEAT:pathmagic_feats_hidden.lst
+#EQUIPMENT:pathmagic_equip.lst
+SKILL:pathmagic_skills.lst
+SPELL:pathmagic_spells.lst
+TEMPLATE:pathmagic_templates.lst
+
+# Files that are part of the data sets but not used directly by the PCGEN loader.
+# Do not remove, this section is needed for release tools.
+
+#EXTRAFILE:OGL.txt

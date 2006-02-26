@@ -1,0 +1,6 @@
+# CVS $Revision: 1.2 $ $Author: mhgj $ -- Thu Jun 16 22:06:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Weapon Name	Type
+Mind Blade		TYPE:MindBlade
+

@@ -1,0 +1,48 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Jun 17 23:22:46 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Bonus to skill																																													Source Page		Choose
+Black Magic						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence																																																		SOURCEPAGE:p.124
+Demolitions						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			BONUS:SKILL|Demolitions|2|PRESKILL:1,Disable Device,Knowledge (Chemistry)=5|TYPE=Synergy.STACK																																SOURCEPAGE:p.45
+Drivin' (Aircraft)				KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Drivin'		BONUS:SKILL|Drivin' (Aircraft)|2|PRESKILL:1,Profession (Airship Pilot)=5|TYPE=Synergy.STACK																																SOURCEPAGE:p.45
+Drivin' (Land Vehicles)				KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Drivin'		BONUS:SKILL|Drivin' (Land Vehicles)|2|PRESKILL:1,Profession (Stagecoach Driver)=5|TYPE=Synergy.STACK																															SOURCEPAGE:p.45
+Drivin' (Personal)				KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Drivin'																																																	SOURCEPAGE:p.45
+Drivin' (Watercraft)				KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Drivin'		BONUS:SKILL|Drivin' (Watercraft)|2|PRESKILL:1,Profession (Riverboat Pilot)=5|TYPE=Synergy.STACK																																SOURCEPAGE:p.45
+Faith							KEYSTAT:WIS	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Wisdom																																																			SOURCEPAGE:p.45
+Gamblin'						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			BONUS:SKILL|Gamblin'|2|PRESKILL:1,Bluff,Sense Motive=5|TYPE=Synergy.STACK																																			SOURCEPAGE:p.46
+Gunplay						KEYSTAT:DEX											TYPE:Dexterity																																																		SOURCEPAGE:p.46
+Hexslingin'						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence																																																		SOURCEPAGE:p.47
+Holdout						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			BONUS:SKILL|Holdout|2|PRESKILL:1,Disguise,Sleight o' Hand=5|TYPE=Synergy.STACK																																		SOURCEPAGE:p.47
+Intimidate						KEYSTAT:CHA											TYPE:Charisma			BONUS:SKILL|Intimidate|2|PRESKILL:1,Bluff,Gunplay=5|TYPE=Synergy.STACK																																				SOURCEPAGE:p.47
+Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Architecture and Engineering)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.43
+Knowledge (Biology)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Biology)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.43
+Knowledge (Chemistry)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Chemistry)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.43
+Knowledge (Engineering)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Engineering)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.43
+Knowledge (Geology)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Geology)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.43
+Knowledge (Indian Lore)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																																SOURCEPAGE:p.44
+Knowledge (Law)					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																																SOURCEPAGE:p.44
+Knowledge (Mathematics)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Mathematics)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.44
+Knowledge (Meteorology)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Meteorology)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Physics)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.44
+Knowledge (Occult)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge																																																SOURCEPAGE:p.44
+Knowledge (Physics)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Physics)|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology)=5|TYPE=Synergy.STACK			SOURCEPAGE:p.44
+Mad Science						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence			BONUS:SKILL|Mad Science|2|PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK	SOURCEPAGE:p.44
+Pick Pocket						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity			BONUS:SKILL|Pick Pocket|2|PRESKILL:1,Bluff,Sleight o' Hand=5|TYPE=Synergy.STACK																																		SOURCEPAGE:p.49
+Profession (Stage Magician)			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession		BONUS:SKILL|Profession (Stage Magician)|2|PRESKILL:1,Sleight o' Hand=5|TYPE=Synergy.STACK																																	SOURCEPAGE:p.49
+Ridicule						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence																																																		SOURCEPAGE:p.48
+Ritual						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence																																																		SOURCEPAGE:p.49
+Sleight o' Hand					KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity																																																		SOURCEPAGE:p.49
+Speak Language							USEUNTRAINED:NO								TYPE:None.Language																																																	SOURCEPAGE:p.44	CHOOSE:Language(Spoken)
+Speed Load						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity																																																		SOURCEPAGE:p.49
+Tale Tellin'					KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma																																																		SOURCEPAGE:p.50
+Tinkerin'						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			BONUS:SKILL|Tinkerin'|2|PRESKILL:1,Mad Science=5|TYPE=Synergy.STACK																																				SOURCEPAGE:p.50
+
+###Block: These are referenced in the other skill synergy prereqs
+# Skill Name				Key Stat	Untrained?		Type					Source Page
+Profession (Airship Pilot)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.49
+Profession (Stagecoach Driver)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.49
+Profession (Riverboat Pilot)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.49
+Knowledge (Anthropology)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.44
+
+#
+# End
+#

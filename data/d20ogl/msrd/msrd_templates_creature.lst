@@ -1,0 +1,112 @@
+# CVS $Revision: 1.13 $ $Author: frank_kliewe $ -- Fri Feb  3 17:12:20 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Doug McMillan
+
+###Block: Templates
+
+# Template Name		CR	Size		Visible	Damage Reduction	Template																										Source Page				Special Ability																																																		Define																						Prohibited Template							Save checks bonus									Combat bonus														Bonus to HP			Bonus to skill												Bonus to skill rank																														Stat bonus														Class Skill										Feat													Move			Removable?		Natural Attacks
+Skeleton											TEMPLATE:Undead	TEMPLATE:CHOOSE:Claw (Fine)|Claw (Diminutive)|Claw (Tiny)|Claw (Small)|Claw (Medium)|Claw (Large)|Claw (Huge)|Claw (Gargantuan)|Claw (Colossal)	SOURCEPAGE:msrdcreatures.rtf	SA:Skeletal Immunities																																																	DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|10	DEFINE:LOCK.CHA|1	DEFINE:SkeletonCR|max(SIZE-4,0)+1+((max(SIZE-6,0)+1)*2)+max(SIZE-6,0)																						BONUS:COMBAT|AC|max(((SIZE-2)+(SIZE>=7)+((SIZE>8)*3))),0)|TYPE=NaturalArmor.REPLACE																																																						BONUS:STAT|DEX|2																								FEAT:Improved Initiative
+Vampire			CR:2					DR:15/+1		TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:msrdcreatures.rtf	SA:Blood Drain (Ex)	SA:Create Spawn (Su)	SA:Domination (Su)	SA:Energy Drain (Su)	SA:Alternate Form (Su)	SA:Children of the Night (Su)	SA:Fast Healing 5 (Ex)	SA:Gaseous Form (Su)	SA:Cold/Electricity Resistance 20 (Ex)	SA:Turn Resistance 4 (Ex)	SA:Spider Climb (Ex)	SA:Weakness (Ex)																																													BONUS:COMBAT|AC|6|TYPE=NaturalArmor.REPLACE													BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=RACIAL																																		BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4												FEAT:Alertness|Combat Reflexes|Dodge|Improved Initiative|Lightning Reflexes				REMOVABLE:YES
+Werewolf (Human form)	CR:2	SIZE:M	VISIBLE:YES	DR:15/Silver																												SOURCEPAGE:msrdcreatures.rtf	SA:Alternate Form	SA:Curse of Lycanthropy (Su)	SA:Trip (Ex)	SA:Scent (Ex)	SA:Wolf Empathy (Ex)																																																										!PRETEMPLATE:Werewolf (Wolf form)|Werewolf (Hybrid form)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|3|PREDEFAULTMONSTER:Y	BONUS:COMBAT|AC|0|TYPE=NaturalArmor	BONUS:COMBAT|BAB|1|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|16															BONUS:SKILLRANK|Hide|1|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Listen|5|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Move Silently|2|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Spot|3|PREDEFAULTMONSTER:Y	BONUS:STAT|STR|0	BONUS:STAT|DEX|0	BONUS:STAT|CON|4	BONUS:STAT|WIS|2				CSKILL:Hide|Listen|Move Silently|Spot|Survival|Control Shape	FEAT:Iron Will|Weapon Finesse (Bite)										REMOVABLE:YES
+Werewolf (Hybrid form)	CR:2	SIZE:M	VISIBLE:YES	DR:15/Silver																												SOURCEPAGE:msrdcreatures.rtf	SA:Alternate Form	SA:Curse of Lycanthropy (Su)	SA:Trip (Ex)	SA:Scent (Ex)	SA:Wolf Empathy (Ex)	SA:+4 Survival checks when using Scent																																																			!PRETEMPLATE:Werewolf (Human form)|Werewolf (Wolf form)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|3|PREDEFAULTMONSTER:Y	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:COMBAT|BAB|1|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|16															BONUS:SKILLRANK|Hide|1|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Listen|5|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Move Silently|2|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Spot|3|PREDEFAULTMONSTER:Y	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|WIS|2				CSKILL:Hide|Listen|Move Silently|Spot|Survival|Control Shape	FEAT:Iron Will|Weapon Finesse (Bite)							MOVE:Walk,50	REMOVABLE:YES	NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
+Werewolf (Wolf form)	CR:2	SIZE:M	VISIBLE:YES	DR:15/Silver																												SOURCEPAGE:msrdcreatures.rtf	SA:Alternate Form	SA:Curse of Lycanthropy (Su)	SA:Trip (Ex)	SA:Scent (Ex)	SA:Wolf Empathy (Ex)	SA:+4 Survival checks when using Scent																																																			!PRETEMPLATE:Werewolf (Hybrid form)|Werewolf (Human form)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|3|PREDEFAULTMONSTER:Y	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:COMBAT|BAB|1|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|16															BONUS:SKILLRANK|Hide|1|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Listen|5|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Move Silently|2|PREDEFAULTMONSTER:Y	BONUS:SKILLRANK|Spot|3|PREDEFAULTMONSTER:Y	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|WIS|2				CSKILL:Hide|Listen|Move Silently|Spot|Survival|Control Shape	FEAT:Iron Will|Weapon Finesse (Bite)							MOVE:Walk,50	REMOVABLE:YES	NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
+Zombie											TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:msrdcreatures.rtf	SA:Move or Attack Action Only(Ex)																																															DEFINE:LOCK.INT|10	DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|10	DEFINE:LOCK.CHA|1																														BONUS:COMBAT|AC|((max(SIZE-2,0))+((max(SIZE-6,0))*2)+(max(SIZE-7,0)))|TYPE=NaturalArmor																																																					BONUS:STAT|STR|2	BONUS:STAT|DEX|-2																					FEAT:Toughness
+
+###Block: Creature Types
+
+# Template Name		Visible	Source Page				Special Ability																																																												Define							Var. Max. Value		Bonus to HP												Modify VAR								Automaticaly Gained Weapon Prof.		Removable?		Main Race Type		Type			Vision
+Aberration			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Aberrations eats, sleeps, and breathes																																																																																																											VISION:Darkvision (60')
+Animal			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Animals eats, sleeps, and breathes																																																																PREVARLTEQ:INTSCORE,2																																								VISION:Low-light
+Construct			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Immune to poison, sleep, paralysis,stunning,disease, necromantic effects, mind-influencing effects and any affect that requires a fortitude save unless it affects objects or is harmless	SA:Not subject to critical hits, nonlethal damage, ability damage, energy drain, or death from massive damage	SA:Cannot heal but can be reparied	SA:Cannot be raised from dead	DEFINE:LOCK.CON|10																																						REMOVABLE:YES	RACETYPE:Construct	TYPE:Construct
+Dragon			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Sleep Immunity(Ex)	SA:Hold Immunity(Ex)	SA:Paralysis Immunity(Ex)																																																																																											REMOVABLE:YES	RACETYPE:Dragon		TYPE:Dragon
+Elemental			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Immune to poison/sleep/paralysis/stunning	SA:Not subject to critical hits, flanking, effects of massive damage	SA:Cannot be raised from dead																																																																															REMOVABLE:YES	RACETYPE:Elemental	TYPE:Elemental
+Fey				VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Fey eats, sleeps, and breathes																																																																																											AUTO:WEAPONPROF|TYPE=Simple													VISION:Low-light
+Giant				VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Giants eats, sleeps, and breathes																																																																																										AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial											VISION:Low-light
+Humanoid			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Humanoids eats, sleeps, and breathes																																																																																										AUTO:WEAPONPROF|TYPE=Simple
+Magical Beast		VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Magical Beasts eats, sleeps, and breathes																																																																																																										VISION:Darkvision (60')|Low-light
+Monstrous Humanoid	VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Monstrous Humanoids eats, sleeps, and breathes																																																																																								AUTO:WEAPONPROF|TYPE=Simple													VISION:Darkvision (60')
+Ooze				VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Immune to mind affecting effects,poison,sleep,paralysis,stunning,gaze attacks,visual illusions, and other attacks that rely on sight	SA:Not subject to critical hits flanking, effects of massive damage	SA:Blindsight(Ex)																									DEFINE:LOCK.INT|10									BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|((SIZE-6)MAX0)*5																	REMOVABLE:YES	RACETYPE:Ooze		TYPE:Ooze
+Outsider			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Cannot be raised from dead																																																																																																			REMOVABLE:YES	RACETYPE:Outsider		TYPE:Outsider
+Plant				VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Immune to sleep, paralysis, stunning, and  mind-affecting effects	SA:Not subject to critical hits, effects of massive damage																																																																																		REMOVABLE:YES	RACETYPE:Plant		TYPE:Plant
+Undead			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Immune to poison, sleep, paralysis,stunning,disease, necromantic effects, and mind-influencing effects	SA:Not subject to critical hits, subdual damage, ability damage, energy drain, or effects any affect that requires a fortitude save unless it affects object or is harmless																DEFINE:LOCK.CON|10																																						REMOVABLE:YES	RACETYPE:Undead		TYPE:Undead
+Vermin			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Immune to mind-influencing effects	SA:Resistance to Massive Damage(Ex)	SA:Potent Venom bonus to save +DC %|PotentVenom																																										DEFINE:PotentVenom|0	DEFINE:LOCK.INT|10																		BONUS:VAR|PotentVenom|(SIZE-3)*2|PREBASESIZEGTEQ:M								REMOVABLE:YES	RACETYPE:Vermin		TYPE:Vermin
+
+###Block: Monstrous Spider
+
+# Template Name	Visible	Source Page				Special Ability					Add to base move			Bonus to skill																Removable?		SUBRACE
+Hunting		VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf								BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Hide|4|TYPE=Racial	BONUS:SKILL|Jump|6|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial	REMOVABLE:YES	SUBRACE:Yes
+Web Spinning	VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	SA:Cast Web(Ex) 8/day maximum range 50'						BONUS:SKILL|Hide,Spot|4|TYPE=Racial													REMOVABLE:YES	SUBRACE:Yes
+
+###Block: Animated Object templates don't do anything yet.
+
+# Template Name		Visible		Template									Source Page				Required Template		Prohibited Template				Choose a Feat				Automaticaly Gained Weapon Prof.	Move			Removable?
+Bipedal			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Quadraped|Wheels																REMOVABLE:YES
+Quadruped			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Bipedal|Wheels																	REMOVABLE:YES
+Treads			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Bipdeal|Quadraped|Wheels																REMOVABLE:YES
+Wheels			VISIBLE:DISPLAY											SOURCEPAGE:msrdcreatures.rtf	PRETEMPLATE:Construct	!PRETEMPLATE:Treads|Bipedal|Quadraped																REMOVABLE:YES
+
+# Template Name		Visible		Template									Source Page				Required Template		Prohibited Template				Choose a Feat				Automaticaly Gained Weapon Prof.	Move			Removable?
+Land?				VISIBLE:NO		TEMPLATE:CHOOSE:Land_Movement|No_Land_Movement			SOURCEPAGE:msrdcreatures.rtf
+Water?			VISIBLE:NO		TEMPLATE:CHOOSE:Water_Movement|No_Water_Movement		SOURCEPAGE:msrdcreatures.rtf
+Climbing?			VISIBLE:NO		TEMPLATE:CHOOSE:Climbing_Movement|No_Climbing_Movement	SOURCEPAGE:msrdcreatures.rtf
+Earth?			VISIBLE:NO		TEMPLATE:CHOOSE:Earth_Movement|No_Earth_Movement		SOURCEPAGE:msrdcreatures.rtf
+Air?				VISIBLE:NO		TEMPLATE:CHOOSE:Air_Movement|No_Air_Movement			SOURCEPAGE:msrdcreatures.rtf
+Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveLand)1
+Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveWater)1							MOVE:Swim,0
+Climbing_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveClimb)1							MOVE:Climb,0
+Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveEarth)1							MOVE:Burrow,0
+Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf												ADD:FEAT(TYPE=CreatureMoveAir)1							MOVE:Fly,0
+No_Land_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
+No_Water_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
+No_Climbing_Movement	VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
+No_Earth_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
+No_Air_Movement		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf
+Weapon_Question		VISIBLE:NO		TEMPLATE:CHOOSE:Archaic_Weapons|Simple Weapons			SOURCEPAGE:msrdcreatures.rtf
+Archaic_Weapons		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		AUTO:WEAPONPROF|TYPE=Archaic
+Simple Weapons		VISIBLE:NO												SOURCEPAGE:msrdcreatures.rtf																		AUTO:WEAPONPROF|TYPE=Simple
+
+###Block: Fiend Hit Die Adjustments
+
+# Template Name	Hit Dice Size	Visible
+Small Fiend		HITDIE:%/2		VISIBLE:NO
+Tiny Fiend		HITDIE:%/4		VISIBLE:NO
+Diminutive Fiend	HITDIE:%/8		VISIBLE:NO
+Fine Fiend		HITDIE:%/16		VISIBLE:NO
+
+###Block: builder templates
+
+# Template Name			Visible	Required Size	Required var. value	Stat bonus		Natural Attacks
+Bite ~ Claw (Fine)		VISIBLE:NO	PRESIZEEQ:F									NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Bite ~ Claw (Diminutive)	VISIBLE:NO	PRESIZEEQ:D									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1
+Bite ~ Claw (Tiny)		VISIBLE:NO	PRESIZEEQ:T									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d2
+Bite ~ Claw (Small)		VISIBLE:NO	PRESIZEEQ:S									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d3
+Bite ~ Claw (Medium)		VISIBLE:NO	PRESIZEEQ:M									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+Bite ~ Claw (Large)		VISIBLE:NO	PRESIZEEQ:L									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+Bite ~ Claw (Huge)		VISIBLE:NO	PRESIZEEQ:H									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d8
+Bite ~ Claw (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,2d6
+Bite ~ Claw (Colossal)		VISIBLE:NO	PRESIZEEQ:C									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,3d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,3d6
+Claw (Fine)				VISIBLE:NO	PRESIZEEQ:F									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Claw (Diminutive)			VISIBLE:NO	PRESIZEEQ:D									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Claw (Tiny)				VISIBLE:NO	PRESIZEEQ:T									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
+Claw (Small)			VISIBLE:NO	PRESIZEEQ:S									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Claw (Medium)			VISIBLE:NO	PRESIZEEQ:M									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Claw (Large)			VISIBLE:NO	PRESIZEEQ:L									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Claw (Huge)				VISIBLE:NO	PRESIZEEQ:H									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Claw (Gargantuan)			VISIBLE:NO	PRESIZEEQ:G									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
+Claw (Colossal)			VISIBLE:NO	PRESIZEEQ:C									NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8
+Slam (Fine)				VISIBLE:NO	PRESIZEEQ:F									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1
+Slam (Diminutive)			VISIBLE:NO	PRESIZEEQ:D									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Slam (Tiny)				VISIBLE:NO	PRESIZEEQ:T									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Slam (Small)			VISIBLE:NO	PRESIZEEQ:S									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Slam (Medium)			VISIBLE:NO	PRESIZEEQ:M									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Slam (Large)			VISIBLE:NO	PRESIZEEQ:L									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Slam (Huge)				VISIBLE:NO	PRESIZEEQ:H									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Slam (Gargantuan)			VISIBLE:NO	PRESIZEEQ:G									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Slam (Colossal)			VISIBLE:NO	PRESIZEEQ:C									NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+Int Bonus +1			VISIBLE:NO				PREVAREQ:INTSCORE,2	BONUS:STAT|INT|1
+Int Bonus +2			VISIBLE:NO				PREVAREQ:INTSCORE,1	BONUS:STAT|INT|2
+Int Bonus +3			VISIBLE:NO				PREVAREQ:INTSCORE,0	BONUS:STAT|INT|3
+
+#
+# End
+#

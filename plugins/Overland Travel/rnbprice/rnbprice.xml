@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RNBPRICE SYSTEM "rnbprice.dtd">
+<!--
+    Document   : rnbprice.xml
+    Created on : August 5, 2003
+    Author     : Juliean Galak
+    Description:
+        Stores room and board prices
+-->
+
+<table>
+    <item>
+    	<type>Inn</type>
+        <name>Poor</name>
+        <speed>.2</speed>
+    </item>
+    <item>
+    	<type>Inn</type>
+        <name>Common</name>
+        <speed>0.5</speed>
+    </item>
+    <item>
+    	<type>Inn</type>
+        <name>Good</name>
+        <speed>2</speed>
+    </item>
+    <item>
+    	<type>Food</type>
+        <name>Poor</name>
+        <speed>0.1</speed>
+    </item>
+    <item>
+    	<type>Food</type>
+        <name>Common</name>
+        <speed>0.3</speed>
+    </item>
+    <item>
+    	<type>Food</type>
+        <name>Good</name>
+        <speed>0.5</speed>
+    </item>
+    <item>
+    	<type>Animal</type>
+        <name>Feed</name>
+        <speed>0.05</speed>
+    </item>
+    <item>
+    	<type>Animal</type>
+        <name>Stabling</name>
+        <speed>0.5</speed>
+    </item>
+</table>

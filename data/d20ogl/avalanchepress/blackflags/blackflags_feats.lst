@@ -1,0 +1,37 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean|SOURCESHORT:BlackFlags|SOURCEWEB:http://www.avalanchepress.com
+
+# Feat Name				Product Identity?	Type				Req. Att.	Required Feat						Required Skill	Required Stat	Desc is PI?	Description								Automaticaly Gained Weapon Prof.	Bonus to skill				Weapon prof. bonus					Source Page
+Amputate				NAMEISPI:NO		TYPE:General												PRESKILL:1,Heal=8				DESCISPI:NO	DESC:Better skilled at removing a limb.																							SOURCEPAGE:p.48
+Deadeye				NAMEISPI:NO		TYPE:Panache		PREATT:5	PREFEAT:2,Firearms Proficiency,Sharpshooter							DESCISPI:NO	DESC:Deadly shot with a firearm.																BONUS:WEAPONPROF=TYPE.Firearm|CRITRANGEDOUBLE|1	SOURCEPAGE:p.49
+Firearms Proficiency		NAMEISPI:NO		TYPE:General.Panache																	DESCISPI:NO	DESC:Proficiency with a firearm.				AUTO:WEAPONPROF|TYPE=Firearm																SOURCEPAGE:p.49
+Grace					NAMEISPI:NO		TYPE:General																		DESCISPI:NO	DESC:Has an air of grace.											BONUS:SKILL|STAT=CHA|2|TYPE=Racial									SOURCEPAGE:p.49
+Gunnery				NAMEISPI:NO		TYPE:General.Panache			PREFEAT:1,Firearms Proficiency									DESCISPI:NO	DESC:Trained in use of cannons and heavy weaponry.																					SOURCEPAGE:p.49
+Improvised Weapon Proficiency	NAMEISPI:NO		TYPE:General.Panache																	DESCISPI:NO	DESC:Make anything into a makeshift weapon.																						SOURCEPAGE:p.49
+Literacy				NAMEISPI:NO		TYPE:General																		DESCISPI:NO	DESC:Can read/write a language.																								SOURCEPAGE:p.50
+Sharpshooter			NAMEISPI:NO		TYPE:Panache				PREFEAT:1,Firearms Proficiency						PRESTAT:1,DEX=15	DESCISPI:NO	DESC:Natural aptitude for firearms.																								SOURCEPAGE:p.50
+Trick Shot				NAMEISPI:NO		TYPE:Panache		PREATT:7	PREFEAT:2,Firearms Proficiency,Sharpshooter							DESCISPI:NO	DESC:Skilled at using firearms in unusual ways.																						SOURCEPAGE:p.50
+
+###Block: Pananche modifed TYPE feats.
+# Feat Name			Type
+Alertness.MOD		TYPE:General.Panache
+Ambidexterity.MOD		TYPE:General.Fighter.Panache
+Blind-Fight.MOD		TYPE:General.Fighter.Panache
+Combat Reflexes.MOD	TYPE:General.Fighter.Panache
+Dodge.MOD			TYPE:General.Fighter.Panache
+Expertise.MOD		TYPE:General.Fighter.Panache
+Far Shot.MOD		TYPE:General.Fighter.Panache
+Improved Critical.MOD	TYPE:General.Fighter.Panache
+Improved Disarm.MOD	TYPE:General.Fighter.Panache
+Improved Initiative.MOD	TYPE:General.Fighter.Panache
+Improved Trip.MOD		TYPE:General.Fighter.Panache
+Mobility.MOD		TYPE:General.Fighter.Panache
+Point Blank Shot.MOD	TYPE:General.Fighter.Panache
+Precise Shot.MOD		TYPE:General.Fighter.Panache
+Quick Draw.MOD		TYPE:General.Fighter.Panache
+Rapid Shot.MOD		TYPE:General.Fighter.Panache
+Shot on the Run.MOD	TYPE:General.Fighter.Panache
+Spring Attack.MOD		TYPE:General.Fighter.Panache
+Two-Weapon Fighting.MOD	TYPE:General.Fighter.Panache
+Weapon Finesse.MOD	TYPE:General.Fighter.Panache
+Whirlwind Attack.MOD	TYPE:General.Fighter.Panache

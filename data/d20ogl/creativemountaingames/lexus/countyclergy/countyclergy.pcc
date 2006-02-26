@@ -1,0 +1,23 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $
+CAMPAIGN:CMG - Lexus - County Clergy
+GAMEMODE:3e
+TYPE:Creative Mountain Games.Sourcebook.Lexus
+RANK:9
+SOURCELONG:Culture Class - County Clergy
+SOURCESHORT:CountyClg
+SOURCEWEB:http://www.creativemountaingames.com
+ISOGL:YES
+ISLICENSED:YES
+LICENSE:FILE=data\d20ogl\creativemountaingames\lexus\permission.txt
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Culture Class - County Clergy A Lexus Supplement Copyright 2002, Creative Mountain Games.
+COPYRIGHT:PCGen dataset conversion for Culture Class - County Clergy Copyright 2002-2003, PCgen Data team (Including, but not limited to Chris Chandler (Barak), Andrew McDougall (Tir Gwaith), Eric Beaudoin (ericbeaudoin)).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:@/d20ogl/creativemountaingames/lexus/permission.txt
+#EXTRAFILE:@/d20ogl/creativemountaingames/permission.txt
+
+CLASS:lexusclergyclasses.lst
+SPELL:lexusclergyspells.lst

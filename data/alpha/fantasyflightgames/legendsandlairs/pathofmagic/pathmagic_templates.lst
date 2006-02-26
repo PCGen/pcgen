@@ -1,0 +1,135 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Path of Magic|SOURCESHORT:Magic|SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
+# Original Entry by: Ratheof Blithwyn
+
+#
+# Arcane Schools
+#
+
+# Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Spells
+Stormweaver - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:The Study of Weather																																																																															REMOVABLE:NO
+Stormweaver - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Trick Knee																																											PRETEMPLATE:Stormweaver - Lesson 1																																REMOVABLE:NO
+Stormweaver - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Rain Dance																																											PRETEMPLATE:Stormweaver - Lesson 2																																REMOVABLE:NO
+Stormweaver - Lesson 4								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Adjust the Flow																																										PRETEMPLATE:Stormweaver - Lesson 3																																REMOVABLE:NO
+Stormweaver - Lesson 5								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Move Weather																																											PRETEMPLATE:Stormweaver - Lesson 4																																REMOVABLE:NO
+Stormweaver - Lesson 6								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Storm Friend																																											PRETEMPLATE:Stormweaver - Lesson 5																																REMOVABLE:NO
+Stormweaver - Lesson 7								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Lightning Rod																																											PRETEMPLATE:Stormweaver - Lesson 6																																REMOVABLE:NO
+Stormweaver - Lesson 8								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Fists of Rain																																											PRETEMPLATE:Stormweaver - Lesson 7																																REMOVABLE:NO
+Stormweaver - Lesson 9								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Breath of the Stormgod																																									PRETEMPLATE:Stormweaver - Lesson 8																																REMOVABLE:NO
+Stormweaver - Lesson 10								VISIBLE:DISPLAY	SOURCEPAGE:p.102	SA:Greater Storm Friend																																										PRETEMPLATE:Stormweaver - Lesson 9																																REMOVABLE:NO
+
+Arcane Marauder - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Sea Legs																																																																																	REMOVABLE:NO
+Arcane Marauder - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Spell Understanding																																										PRETEMPLATE:Arcane Marauder - Lesson 1																															REMOVABLE:NO
+Arcane Marauder - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Concentration Taunt																																										PRETEMPLATE:Arcane Marauder - Lesson 2																															REMOVABLE:NO
+Arcane Marauder - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Cheap Shot																																											PRETEMPLATE:Arcane Marauder - Lesson 3																															REMOVABLE:NO
+Arcane Marauder - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Shifty Target																																											PRETEMPLATE:Arcane Marauder - Lesson 4																															REMOVABLE:NO
+Arcane Marauder - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Mindbreaker																																											PRETEMPLATE:Arcane Marauder - Lesson 5																															REMOVABLE:NO
+Arcane Marauder - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Arcane Plunder																																											PRETEMPLATE:Arcane Marauder - Lesson 6																															REMOVABLE:NO
+Arcane Marauder - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:The Wizard Killers																																										PRETEMPLATE:Arcane Marauder - Lesson 7																															REMOVABLE:NO
+Arcane Marauder - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Counter Spell																																											PRETEMPLATE:Arcane Marauder - Lesson 8																															REMOVABLE:NO
+Arcane Marauder - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.105	SA:Mind Blast																																											PRETEMPLATE:Arcane Marauder - Lesson 9																															REMOVABLE:NO
+
+Galvanar Spellmaster - Lesson 1						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Basic Studies																																																																BONUS:SKILL|Spellcraft|1|TYPE=Circumstance									REMOVABLE:NO
+Galvanar Spellmaster - Lesson 2						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Foreign Languages																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 1																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 3						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Intermediate Studies																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 2														BONUS:SKILL|Knowledge (Arcana)|1|TYPE=Circumstance								REMOVABLE:NO
+Galvanar Spellmaster - Lesson 4						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:The Mechanics of Magic																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 3																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 5						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Defensive Spell Combat																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 4																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 6						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Advanced Studies																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 5														BONUS:SKILL|STAT.INT|1													REMOVABLE:NO
+Galvanar Spellmaster - Lesson 7						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Spell Wringing																																											PRETEMPLATE:Galvanar Spellmaster - Lesson 6																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 8						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Metamagic Mastery																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 7																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 9						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Expert Spell Knowledge																																									PRETEMPLATE:Galvanar Spellmaster - Lesson 8																														REMOVABLE:NO
+Galvanar Spellmaster - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.108	SA:Spellcasting Mastery																																										PRETEMPLATE:Galvanar Spellmaster - Lesson 9																														REMOVABLE:NO
+#lesson 9,10 bonuseszzzz
+
+Telwar Pyros - Lesson 1								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Alchemy Instructional																																																																														REMOVABLE:NO
+Telwar Pyros - Lesson 2								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:The Red Thumb																																											PRETEMPLATE:Telwar Pyros - Lesson 1																																REMOVABLE:NO
+Telwar Pyros - Lesson 3								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Little Snappers																																										PRETEMPLATE:Telwar Pyros - Lesson 2																																REMOVABLE:NO
+Telwar Pyros - Lesson 4								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Sparks																																												PRETEMPLATE:Telwar Pyros - Lesson 3																																REMOVABLE:NO
+Telwar Pyros - Lesson 5								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Firewalker																																											PRETEMPLATE:Telwar Pyros - Lesson 4																																REMOVABLE:NO
+Telwar Pyros - Lesson 6								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Burning Poker																																											PRETEMPLATE:Telwar Pyros - Lesson 5																																REMOVABLE:NO
+Telwar Pyros - Lesson 7								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:The Kiss of Fire																																										PRETEMPLATE:Telwar Pyros - Lesson 6																																REMOVABLE:NO
+Telwar Pyros - Lesson 8								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Flaming Fist																																											PRETEMPLATE:Telwar Pyros - Lesson 7																																REMOVABLE:NO
+Telwar Pyros - Lesson 9								VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Big Bangers																																											PRETEMPLATE:Telwar Pyros - Lesson 8																																REMOVABLE:NO
+Telwar Pyros - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.110	SA:Cloak of Fire																																											PRETEMPLATE:Telwar Pyros - Lesson 9																																REMOVABLE:NO
+#lesson 10: fire resistance 10zzz
+
+Celestial Chorus - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Songs of the Ages																																																															BONUS:SKILL|Perform (Sing)|1												REMOVABLE:NO
+Celestial Chorus - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Hymn of Courage																																										PRETEMPLATE:Celestial Chorus - Lesson 1																															REMOVABLE:NO
+Celestial Chorus - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:The Water Song																																											PRETEMPLATE:Celestial Chorus - Lesson 2																															REMOVABLE:NO
+Celestial Chorus - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Soothing Lullaby																																										PRETEMPLATE:Celestial Chorus - Lesson 3																															REMOVABLE:NO
+Celestial Chorus - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Torturous Melody																																										PRETEMPLATE:Celestial Chorus - Lesson 4																															REMOVABLE:NO
+Celestial Chorus - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Tune of the Piper																																										PRETEMPLATE:Celestial Chorus - Lesson 5																															REMOVABLE:NO
+Celestial Chorus - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:The Solo of Lenoire																																										PRETEMPLATE:Celestial Chorus - Lesson 6																															REMOVABLE:NO
+Celestial Chorus - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:The Sorcerer's Sonata																																									PRETEMPLATE:Celestial Chorus - Lesson 7																															REMOVABLE:NO
+Celestial Chorus - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Scroll of Gandral																																										PRETEMPLATE:Celestial Chorus - Lesson 8																															REMOVABLE:NO
+Celestial Chorus - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.112	SA:Scroll of Sulis																																										PRETEMPLATE:Celestial Chorus - Lesson 9																															REMOVABLE:NO
+
+Snakebrine School - Lesson 1							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Herbs and Toads																																																															BONUS:SKILL|Knowledge (Nature)|2											REMOVABLE:NO
+Snakebrine School - Lesson 2							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Bats, Cats, and Owls																																										PRETEMPLATE:Snakebrine School - Lesson 1																															REMOVABLE:NO
+Snakebrine School - Lesson 3							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Black Cauldron																																											PRETEMPLATE:Snakebrine School - Lesson 2																															REMOVABLE:NO
+Snakebrine School - Lesson 4							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Shadow Puppetry																																										PRETEMPLATE:Snakebrine School - Lesson 3																															REMOVABLE:NO
+Snakebrine School - Lesson 5							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Toil and Trouble																																										PRETEMPLATE:Snakebrine School - Lesson 4																															REMOVABLE:NO
+Snakebrine School - Lesson 6							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Imposing Presence																																										PRETEMPLATE:Snakebrine School - Lesson 5																															REMOVABLE:NO
+Snakebrine School - Lesson 7							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Dark Magic																																											PRETEMPLATE:Snakebrine School - Lesson 6																															REMOVABLE:NO
+Snakebrine School - Lesson 8							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Broomstick																																											PRETEMPLATE:Snakebrine School - Lesson 7																															REMOVABLE:NO
+Snakebrine School - Lesson 9							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:Moon Magic																																											PRETEMPLATE:Snakebrine School - Lesson 8																															REMOVABLE:NO
+Snakebrine School - Lesson 10							VISIBLE:DISPLAY	SOURCEPAGE:p.115	SA:The Horror of Horrors																																									PRETEMPLATE:Snakebrine School - Lesson 9																															REMOVABLE:NO
+
+Carharte Timekeeper - Lesson 1						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Age Study																																																																																REMOVABLE:NO
+Carharte Timekeeper - Lesson 2						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Internal Clock																																											PRETEMPLATE:Carharte Timekeeper - Lesson 1																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 3						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Clock Construction																																										PRETEMPLATE:Carharte Timekeeper - Lesson 2																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 4						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Fortune Teller																																											PRETEMPLATE:Carharte Timekeeper - Lesson 3																														REMOVABLE:NO	SPELLS:Innate|TIMES=3|Augury
+Carharte Timekeeper - Lesson 5						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Freeze Time																																											PRETEMPLATE:Carharte Timekeeper - Lesson 4																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 6						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Wither																																												PRETEMPLATE:Carharte Timekeeper - Lesson 5																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 7						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Time Stutter																																											PRETEMPLATE:Carharte Timekeeper - Lesson 6																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 8						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:Reinvigorate																																											PRETEMPLATE:Carharte Timekeeper - Lesson 7																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 9						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:The 10-Minute Leap																																										PRETEMPLATE:Carharte Timekeeper - Lesson 8																														REMOVABLE:NO
+Carharte Timekeeper - Lesson 10						VISIBLE:DISPLAY	SOURCEPAGE:p.118	SA:The Keys of Time																																										PRETEMPLATE:Carharte Timekeeper - Lesson 9																														REMOVABLE:NO
+
+
+#
+# Arcane Organizations
+#
+
+# Template Name									Visible		Source Page		Special Ability			Required Class				Required Feat				Required Gender	Required Language		Required Skill												Req. Spell Type		Required Stat	Required Template											Required Text	Var. Min. Value			Bonus to skill							Bonus to spell known/L				Removable?		Spells
+Bringers - Rank 1 - Apprentice						VISIBLE:YES		SOURCEPAGE:p.138						PRECLASS:1,Sorcerer=1																PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Sense Motive=1																								PRETEXT:See Text.																						REMOVABLE:YES
+Bringers - Rank 2 - Finder							VISIBLE:YES		SOURCEPAGE:p.138																									PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Sense Motive=3											PRETEMPLATE:Bringers - Rank 1 - Apprentice																														REMOVABLE:YES
+Bringers - Rank 3 - Bringer							VISIBLE:YES		SOURCEPAGE:p.138																									PRESKILL:1,Sense Motive=5														PRESTAT:1,CHA=14	PRETEMPLATE:Bringers - Rank 2 - Finder																															REMOVABLE:YES
+Bringers - Rank 4 - Adept Bringer						VISIBLE:YES		SOURCEPAGE:p.138																									PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Sense Motive=7											PRETEMPLATE:Bringers - Rank 3 - Bringer																															REMOVABLE:YES
+Bringers - Rank 5 - Master Bringer						VISIBLE:YES		SOURCEPAGE:p.138						PRECLASS:1,Sorcerer=7																PRESKILL:1,Sense Motive=7																	PRETEMPLATE:Bringers - Rank 4 - Adept Bringer																														REMOVABLE:YES
+
+Guild of Alchemists - Rank 1 - Apprentice					VISIBLE:YES		SOURCEPAGE:p.139																									PRESKILL:1,Knowledge (Arcana)=1	PRESKILL:1,Alchemy=3																									PRETEXT:See Text.																						REMOVABLE:YES
+Guild of Alchemists - Rank 2 - Journeyman					VISIBLE:YES		SOURCEPAGE:p.139																									PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Alchemy=5												PRETEMPLATE:Guild of Alchemists - Rank 1 - Apprentice																													REMOVABLE:YES
+Guild of Alchemists - Rank 3 - Alchemist					VISIBLE:YES		SOURCEPAGE:p.139												PREFEAT:1,Brew Potion										PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Alchemy=7												PRETEMPLATE:Guild of Alchemists - Rank 2 - Journeyman																													REMOVABLE:YES
+Guild of Alchemists - Rank 4 - Master Alchemist				VISIBLE:YES		SOURCEPAGE:p.139																									PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Alchemy=9												PRETEMPLATE:Guild of Alchemists - Rank 3 - Alchemist																													REMOVABLE:YES
+Guild of Alchemists - Rank 5 - Philosopher				VISIBLE:YES		SOURCEPAGE:p.139																									PRESKILL:1,Knowledge (Arcana)=9	PRESKILL:1,Alchemy=11												PRETEMPLATE:Guild of Alchemists - Rank 4 - Master Alchemist																												REMOVABLE:YES
+
+Royal Society of Singers and Storytellers - Rank 1 - Journeyman	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=3											PRESPELLTYPE:Arcane,1,0																	PRETEXT:See Text.																						REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 2 - Balladeer	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=5											PRESPELLTYPE:Arcane,1,1				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 1 - Journeyman																									REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 3 - Tale Singer	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=7																		PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 2 - Balladeer				PREVARGTEQ:BardicMusic,1																	REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 4 - Weaver		VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=9											PRESPELLTYPE:Arcane,1,2				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 3 - Tale Singer																									REMOVABLE:YES
+Royal Society of Singers and Storytellers - Rank 5 - Maestro	VISIBLE:YES		SOURCEPAGE:p.140																									PRESKILL:1,Perform=11											PRESPELLTYPE:Arcane,1,3				PRETEMPLATE:Royal Society of Singers and Storytellers - Rank 4 - Weaver																										REMOVABLE:YES
+
+Sanguine Society - Rank 1 - Blood Brother					VISIBLE:YES		SOURCEPAGE:p.141																					PRELANG:1,Draconic																																																											REMOVABLE:YES
+Sanguine Society - Rank 2 - Thaumaturge					VISIBLE:YES		SOURCEPAGE:p.141																									PRESKILL:1,Spellcraft=3																		PRETEMPLATE:Sanguine Society - Rank 1 - Blood Brother																													REMOVABLE:YES
+Sanguine Society - Rank 3 - Numinist					VISIBLE:YES		SOURCEPAGE:p.141																									PRESKILL:1,Knowledge (Dragons)=3	PRESKILL:1,Spellcraft=5												PRETEMPLATE:Sanguine Society - Rank 2 - Thaumaturge																													REMOVABLE:YES
+Sanguine Society - Rank 4 - Theurgist					VISIBLE:YES		SOURCEPAGE:p.141																									PRESKILL:1,Knowledge (Dragons)=5	PRESKILL:1,Spellcraft=7	PRESKILL:1,Intimidate=3								PRETEMPLATE:Sanguine Society - Rank 3 - Numinist																													REMOVABLE:YES
+Sanguine Society - Rank 5 - Blood Lord					VISIBLE:YES		SOURCEPAGE:p.141																									PRESKILL:1,Knowledge (Dragons)=7	PRESKILL:1,Intimidate=5												PRETEMPLATE:Sanguine Society - Rank 4 - Theurgist																													REMOVABLE:YES
+#Todo: prereq Ability to cast 1st-level sorcerer spellszzzzzzzz
+
+Wayfarer - Rank 1 - Cousin							VISIBLE:YES		SOURCEPAGE:p.143																									PRESKILL:1,Bluff,Perform,Pick Pocket=3																												PRETEXT:See Text.																						REMOVABLE:YES
+Wayfarer - Rank 2 - Sister							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:2,Bluff,Perform,Pick Pocket=3								PRESPELLTYPE:Arcane,1,1				PRETEMPLATE:Wayfarer - Rank 1 - Cousin																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=0|1	REMOVABLE:YES
+Wayfarer - Rank 2 - Brother							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:2,Bluff,Perform,Pick Pocket=3								PRESPELLTYPE:Arcane,1,1				PRETEMPLATE:Wayfarer - Rank 1 - Cousin																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=0|1	REMOVABLE:YES
+Wayfarer - Rank 3 - Aunt							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:3,Bluff,Perform,Pick Pocket=3															PRETEMPLATE:Wayfarer - Rank 2 - Sister															BONUS:SKILL|Bluff|1|TYPE=Competence											REMOVABLE:YES
+Wayfarer - Rank 3 - Uncle							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:3,Bluff,Perform,Pick Pocket=3															PRETEMPLATE:Wayfarer - Rank 2 - Brother															BONUS:SKILL|Bluff|1|TYPE=Competence											REMOVABLE:YES
+Wayfarer - Rank 4 - Mother							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:1,Perform=8											PRESPELLTYPE:Arcane,1,2				PRETEMPLATE:Wayfarer - Rank 3 - Aunt																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1	REMOVABLE:YES
+Wayfarer - Rank 4 - Father							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:1,Perform=8											PRESPELLTYPE:Arcane,1,2				PRETEMPLATE:Wayfarer - Rank 3 - Uncle																								BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1	REMOVABLE:YES
+Wayfarer - Rank 5 - Mistress							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:F						PRESKILL:1,Perform=11	PRESKILL:2,Bluff,Pick Pocket=5												PRETEMPLATE:Wayfarer - Rank 4 - Mother															BONUS:SKILL|Bluff|2|TYPE=Competence											REMOVABLE:YES
+Wayfarer - Rank 5 - Master							VISIBLE:YES		SOURCEPAGE:p.143																		PREGENDER:M						PRESKILL:1,Perform=11	PRESKILL:2,Bluff,Pick Pocket=5												PRETEMPLATE:Wayfarer - Rank 4 - Father															BONUS:SKILL|Bluff|2|TYPE=Competence											REMOVABLE:YES
+#bonus language Wayfarer's Cant
+
+Wizards' Guild - Rank 1 - Apprentice					VISIBLE:YES		SOURCEPAGE:p.144						PRECLASS:1,SPELLCASTER.Arcane=3														PRESKILL:2,Knowledge (Arcana),Spellcraft=3																											PRETEXT:See Text.																						REMOVABLE:YES
+Wizards' Guild - Rank 2 - Journeyman					VISIBLE:YES		SOURCEPAGE:p.144																									PRESKILL:2,Knowledge (Arcana),Spellcraft=5														PRETEMPLATE:Wizards' Guild - Rank 1 - Apprentice																													REMOVABLE:YES
+Wizards' Guild - Rank 3 - Guild Wizard					VISIBLE:YES		SOURCEPAGE:p.144																									PRESKILL:2,Knowledge (Arcana),Spellcraft=7														PRETEMPLATE:Wizards' Guild - Rank 2 - Journeyman																													REMOVABLE:YES
+Wizards' Guild - Rank 4 - Esteemed Wizard					VISIBLE:YES		SOURCEPAGE:p.144												PREFEAT:1,Spell Focus										PRESKILL:2,Knowledge (Arcana),Spellcraft=9														PRETEMPLATE:Wizards' Guild - Rank 3 - Guild Wizard																													REMOVABLE:YES
+Wizards' Guild - Rank 5 - Peer						VISIBLE:YES		SOURCEPAGE:p.144												PREFEAT:2,CHECKMULT,Spell Focus																													PRETEMPLATE:Wizards' Guild - Rank 4 - Esteemed Wizard					PRETEXT:See Text.																						REMOVABLE:YES

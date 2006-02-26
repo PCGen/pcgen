@@ -1,0 +1,11 @@
+Some SAs need correcting.
+
+Aboleth: +16 swim modifier, it should be +8 (see bug report)
+Caller in Darkness: +2 deflection bonus from Incorporeal missing
+Gray Glutton: Jump +18 instead of +14 (PCgen indicates a +12 modifier and 6 ranks, but Str gives it +8. Where does the other +4 come from?)
+Neothelid: Saves are all off by +2. Effects of Epic bonuses kicking in? Psychic Thrust is missing from rsrd_powers.
+Psion-Killer: HP not correct in PCGen (Construct HP not added)
+Puppeteer (Flesh Harrower): RSRD error, they forgot to add the size modifier to AC
+Thought Slayer: Extra +8 to Jump in PCGen. Don't know where it comes from.
+Udoroot: PCGen gives an extra +5 AC somehow. RSRD lists "-5 Dex" in the AC entry.
+

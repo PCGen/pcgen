@@ -1,0 +1,22 @@
+*** Version 1.1 2002-01-07
+
+New modules: markup
+Bugs fixed: None open
+Patches applied: #447412, #482472
+
+Notes:
+
+1. Variables in the string module have been renamed to 
+eliminate the use of QNames, which is problematic in
+some XSLT processors.  All variables have been prefixed
+by 'xsltsl-'.  User stylesheets should avoid naming
+variables or parameters with the same prefix.
+
+2. Some templates in the markup module check their
+parameters for error conditions and terminate the
+entire stylesheet processing if an error condition is 
+found.  In this version this behaviour is not
+configurable.
+
+=======================================================
+

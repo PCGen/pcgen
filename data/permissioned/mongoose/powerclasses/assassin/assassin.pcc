@@ -1,0 +1,29 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Mon Dec 16 23:11:14 2002 -- reformated by prettylst.pl v1.20 (build 234)
+CAMPAIGN:Mongoose Publishing - Power Classes Volume I - Assassin
+GAMEMODE:3e
+TYPE:Mongoose.Supplement.Power Classes
+RANK:9
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin
+SOURCESHORT:Assassin
+SOURCEWEB:http//www.mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open Game Content from Power classes I - Assassin copyright 2002, Mongoose Publishing.
+COPYRIGHT:PCGen dataset conversion for Power Classes I - Assassin Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King, wizoffice2001, Mynex)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:assassinclasses.lst
+FEAT:assassin_feats_hidden.lst
+
+EQUIPMENT:assassinpotionspoisons.lst
+EQUIPMENT:assassinequip.lst
+EQUIPMENT:assassinequipweapammo.lst
+EQUIPMENT:assassinequipweapmelee.lst
+EQUIPMENT:assassinequipweapranged.lst
+EQUIPMOD:assassinequipmods.lst
+WEAPONPROF:assassinweapprofs.lst
+
+FEAT:@\d20ogl\srd\srd_feats_hidden.lst|(INCLUDE:Sneak Attack)

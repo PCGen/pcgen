@@ -1,0 +1,33 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Celestial Charger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unicorn]
+RACE:Unicorn	!PRERACE:%
+NAME:Celestial Charger
+ALIGN:CG
+STAT:STR=14|DEX=12|CON=10|INT=13|WIS=17|CHA=8
+SKILL:Listen			RANK:5
+SKILL:Move Silently		RANK:4
+SKILL:Spot				RANK:4
+SKILL:Survival			RANK:4
+SKILL:Knowledge (Nature)	RANK:2
+FEAT:Alertness
+FEAT:Skill Focus(Survival)
+CLASS:Magical Beast	LEVEL:4
+TEMPLATE:Celestial
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Concentration		RANK:3
+FEAT:Run
+CLASS:Cleric		LEVEL:7
+DEITY:None	DOMAIN:Animal|Good
+SKILL:Concentration		RANK:3
+SKILL:Knowledge (Religion)	RANK:7
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Spellcraft			RANK:4
+SKILL:Spot				RANK:1
+FEAT:Combat Casting
+FEAT:Extra Turning
+FEAT:Improved Turning
+GEAR:Bracers of Armor +5	LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic|Detect Poison=2|Light|Virtue=2|Bless=2|Calm Animals|Obscuring Mist|Remove Fear|Sanctuary|Shield of Faith|Aid=2|Animal Messenger|Restoration (Lesser)|Remove Paralysis|Shield Other|Prayer|Protection from Energy|Remove Curse|Searing Light=2|Air Walk|Divine Power|Holy Smite|Restoration
+

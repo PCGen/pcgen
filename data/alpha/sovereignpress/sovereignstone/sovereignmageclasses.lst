@@ -1,0 +1,162 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Wed Nov 16 17:55:37 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# These are placed separately as it is very likely that people will use the non magical aspects in
+#	non Sovereign Stone Campaigns but not include the magic system. Or use the magic system and not
+#	include the non magical classes.
+# The design philosophy of the new magic system is very different than that found in the core rules.
+#	While well balanced in this writers opinion some may find it too different.
+
+# Class Name			Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Elemental Mage (Earth)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Elemental Mage (Earth)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|Literacy|TYPE.Profession|Scry|Speak Language|Spellcraft
+# Class Name			Spell Stat		Spell Type		Caster level
+CLASS:Elemental Mage (Earth)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Earth)|CL
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)															ADD:Language(Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil)
+2	CAST:2
+3	CAST:3
+4	CAST:4
+5	CAST:5																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+6	CAST:6
+7	CAST:7
+8	CAST:8
+9	CAST:9
+10	CAST:10																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+11	CAST:11
+12	CAST:12
+13	CAST:13
+14	CAST:14
+15	CAST:15																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+16	CAST:11
+17	CAST:12
+18	CAST:13
+19	CAST:14
+20	CAST:20																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+
+# Class Name			Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Elemental Mage (Air)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Elemental Mage (Air)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|Literacy|TYPE.Profession|Scry|Speak Language|Spellcraft
+# Class Name			Spell Stat		Spell Type		Caster level
+CLASS:Elemental Mage (Air)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Air)|CL
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)															ADD:Language(Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil)
+2	CAST:2
+3	CAST:3
+4	CAST:4
+5	CAST:5																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+6	CAST:6
+7	CAST:7
+8	CAST:8
+9	CAST:9
+10	CAST:10																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+11	CAST:11
+12	CAST:12
+13	CAST:13
+14	CAST:14
+15	CAST:15																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+16	CAST:11
+17	CAST:12
+18	CAST:13
+19	CAST:14
+20	CAST:20																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+
+# Class Name			Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Elemental Mage (Fire)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Elemental Mage (Fire)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|Literacy|TYPE.Profession|Scry|Speak Language|Spellcraft
+# Class Name			Spell Stat		Spell Type		Caster level
+CLASS:Elemental Mage (Fire)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Fire)|CL
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)															ADD:Language(Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil)
+2	CAST:2
+3	CAST:3
+4	CAST:4
+5	CAST:5																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+6	CAST:6
+7	CAST:7
+8	CAST:8
+9	CAST:9
+10	CAST:10																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+11	CAST:11
+12	CAST:12
+13	CAST:13
+14	CAST:14
+15	CAST:15																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+16	CAST:11
+17	CAST:12
+18	CAST:13
+19	CAST:14
+20	CAST:20																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+
+# Class Name			Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Elemental Mage (Water)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Elemental Mage (Water)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|Literacy|TYPE.Profession|Scry|Speak Language|Spellcraft
+# Class Name			Spell Stat		Spell Type		Caster level
+CLASS:Elemental Mage (Water)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Water)|CL
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+1	CAST:1	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)															ADD:Language(Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil)
+2	CAST:2
+3	CAST:3
+4	CAST:4
+5	CAST:5																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+6	CAST:6
+7	CAST:7
+8	CAST:8
+9	CAST:9
+10	CAST:10																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+11	CAST:11
+12	CAST:12
+13	CAST:13
+14	CAST:14
+15	CAST:15																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+16	CAST:11
+17	CAST:12
+18	CAST:13
+19	CAST:14
+20	CAST:20																									ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Void Mage	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Void Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|Literacy|TYPE.Profession|Scry|Spellcraft
+# Class Name	Spell Stat		Spell Type			Caster level
+CLASS:Void Mage	SPELLSTAT:INT	SPELLTYPE:EleVoidMage	BONUS:CASTERLEVEL|Void Mage|CL
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+1	CAST:1	SA:Tainted by Void	DEFINE:ELEMAGELEVEL|CL	DEFINE:SPELLCASTINBONUS|CL	DEFINE:QUICKREFERENCE|40+(CL*10)+(INT*10)	DEFINE:INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)															ADD:Language(Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil)
+2	CAST:2
+3	CAST:3
+4	CAST:4
+5	CAST:5																													ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+6	CAST:6
+7	CAST:7
+8	CAST:8
+9	CAST:9
+10	CAST:10																													ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+11	CAST:11
+12	CAST:12
+13	CAST:13
+14	CAST:14
+15	CAST:15																													ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)
+16	CAST:11
+17	CAST:12
+18	CAST:13
+19	CAST:14
+20	CAST:20																													ADD:FEAT(TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery)

@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jul 27 01:11:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+
+# Equipment Name			Product Identity?	Type						Cost		Weight	Source Page		Virtual Feat
+Cloak of Probability		NAMEISPI:YES	TYPE:Psionic.Universal.Cloak		COST:150000	WT:0		SOURCEPAGE:p.42
+Ring of Improved Teleport	NAMEISPI:YES	TYPE:Psionic.Universal.Ring		COST:26400	WT:0		SOURCEPAGE:p.43
+Third Eye (Continual Power)	NAMEISPI:YES	TYPE:Psionic.Universal.ThirdEye	COST:28000	WT:0		SOURCEPAGE:p.43	VFEAT:Continual Power
+

@@ -1,0 +1,656 @@
+# CVS $Revision: 1.11 $ $Author: tmilam $ -- Mon Jan  9 22:54:42 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+###Block: Talent Skills
+#Talent +1 on Appraise.MOD			TYPE:
+# Feat Name						Type										Visible	Prohibited Feat						Stackable?	Multiple?	Choose				Bonus to skill						Source Page
+Talent +1 on Bluff.MOD				TYPE:ForestWightTalentSkill
+Talent +1 on Craft (Armorsmithing).MOD	TYPE:ForestWightTalentSkill
+Talent +1 on Craft (Weaponsmithing).MOD	TYPE:ForestWightTalentSkill
+Talent +1 on Hide					TYPE:TalentSkill.GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:NO	!PREFEAT:3,CHECKMULT,Talent +1 on Hide		STACK:YES	MULT:YES	CHOOSE:+1 on Hide			BONUS:SKILL|Hide|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
+Talent +1 on Knowledge (Nature).MOD		TYPE:GhostElfTalentSkill.ForestWightTalentSkill
+Talent +1 on Listen.MOD				TYPE:GhostElfTalentSkill
+Talent +1 on Move Silently			TYPE:TalentSkill.GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:NO	!PREFEAT:3,CHECKMULT,Talent +1 on Move Silently	STACK:YES	MULT:YES	CHOOSE:+1 on Move Silently	BONUS:SKILL|Move Silently|1|TYPE=Talent.STACK	SOURCEPAGE:p.25
+Talent +1 on Spot.MOD				TYPE:GhostElfTalentSkill
+Talent +1 on Survival.MOD			TYPE:GhostElfTalentSkill.ForestWightTalentSkill
+Talent +1 on Tumble				TYPE:ForestWightTalentSkill						VISIBLE:NO	!PREFEAT:3,CHECKMULT,Talent +1 on Tumble		STACK:YES	MULT:YES	CHOOSE:+1 on Tumble		BONUS:SKILL|Tumble|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
+
+###Block: Transformation Skills
+# Feat Name					Type							Visible	Prohibited Feat							Stackable?	Multiple?	Choose			Bonus to skill						Source Page
+Transformation +1 on Balance.MOD	TYPE:ForestWightTransfSkill
+Transformation +1 on Climb.MOD	TYPE:ForestWightTransfSkill
+Transformation +1 on Jump.MOD		TYPE:ForestWightTransfSkill
+Transformation +1 on Listen		TYPE:TransfSkill.ForestWightTransfSkill	VISIBLE:NO	!PREFEAT:3,CHECKMULT,Transformation +1 on Listen	STACK:YES	MULT:YES	CHOOSE:+1 on Listen	BONUS:SKILL|Listen|1|TYPE=Transformation.STACK	SOURCEPAGE:p.73
+Transformation +1 on Spot		TYPE:TransfSkill.ForestWightTransfSkill	VISIBLE:NO	!PREFEAT:3,CHECKMULT,Transformation +1 on Spot		STACK:YES	MULT:YES	CHOOSE:+1 on Spot		BONUS:SKILL|Spot|1|TYPE=Transformation.STACK	SOURCEPAGE:p.73
+
+
+
+############
+### Dwarf
+############
+
+###Block: Dwarf
+# Racial Talents
+# Feat Name				Type						Visible	Required Feat								Prohibited Feat				Required Lvl	Special Ability					Define				Spells												Stackable?	Multiple?	Choose					Choose a Feat																						Modify VAR												Source Page
+Subterranean Empathy		TYPE:DwarfRacialTalent			VISIBLE:NO																				SA:Subterranean Empathy (Ex)																							MULT:NO																																												SOURCEPAGE:p.6
+Elemental Empathy			TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Subterranean Empathy														SA:Elemental Empathy (Ex)																							MULT:NO																																												SOURCEPAGE:p.6
+Underbeast Empathy		TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Elemental Empathy															SA:Underbeast Empathy (Ex)																							MULT:NO																																												SOURCEPAGE:p.6
+Master of the Underbeasts	TYPE:DwarfRacialTalent			VISIBLE:NO																				SA:Master of the Underbeasts (Ex)																						MULT:NO																																												SOURCEPAGE:p.6
+Voice of Stone and Flame	TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Master of the Underbeasts														SA:Voice of Stone and Flame (Sp)		DEFINE:VoiceStoneFlameTimes|0	SPELLS:Innate|TIMES=VoiceStoneFlameTimes|CASTERLEVEL=TL|Charm Monster,14+CHA	STACK:YES	MULT:YES	CHOOSE:Cast Charm Monster +1/day																									BONUS:VAR|VoiceStoneFlameTimes|COUNT[FEATNAME=Voice of Stone and Flame.ALL]	SOURCEPAGE:p.6
+Stone Brother			TYPE:DwarfRacialTalent			VISIBLE:NO	PREFEAT:1,Subterranean Empathy,Master of the Underbeasts							PRELEVEL:4		SA:Stone Brother (Ex)																								MULT:NO																																												SOURCEPAGE:p.6
+
+
+### Racial Transformations
+# Feat Name				Type						Visible	Required Feat								Prohibited Feat				Required Lvl	Special Ability					Define				Spells												Stackable?	Multiple?	Choose					Choose a Feat																						Modify VAR												Source Page
+Dwarf Fire Resistance 2		TYPE:DwarfRacialTransformation2	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Fire Resistance)																				BONUS:VAR|FireResistance|2									SOURCEPAGE:p.7
+Dwarf Fire Resistance 4		TYPE:DwarfRacialTransformation4	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Dwarf Fire Resistance 2)																			BONUS:VAR|FireResistance|2									SOURCEPAGE:p.7
+Dwarf Fire Resistance 6		TYPE:DwarfRacialTransformation6	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Dwarf Fire Resistance 2)	ADD:FEAT(Dwarf Fire Resistance 4)													BONUS:VAR|FireResistance|2									SOURCEPAGE:p.7
+Dwarf Fire Resistance 8		TYPE:DwarfRacialTransformation8	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Dwarf Fire Resistance 2)	ADD:FEAT(Dwarf Fire Resistance 4)	ADD:FEAT(Dwarf Fire Resistance 6)							BONUS:VAR|FireResistance|2									SOURCEPAGE:p.7
+Dwarf Fire Resistance 10	TYPE:DwarfRacialTransformation10	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Dwarf Fire Resistance 2)	ADD:FEAT(Dwarf Fire Resistance 4)	ADD:FEAT(Dwarf Fire Resistance 6)	ADD:FEAT(Dwarf Fire Resistance 8)	BONUS:VAR|FireResistance|2									SOURCEPAGE:p.7
+Fast Healing			TYPE:Special				VISIBLE:NO																				SA:Fast Healing (Ex) (%)|FastHealing	DEFINE:FastHealing|0																	MULT:NO																																												SOURCEPAGE:p.7
+Dwarf Fast Healing 6		TYPE:DwarfRacialTransformation6	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Fast Healing)																					BONUS:VAR|FastHealing|1										SOURCEPAGE:p.7
+Dwarf Fast Healing 8		TYPE:DwarfRacialTransformation8	VISIBLE:NO											!PREFEAT:1,Dwarf Fast Healing 6																															MULT:NO							ADD:FEAT(Fast Healing)																					BONUS:VAR|FastHealing|1										SOURCEPAGE:p.7
+Dwarf Fast Healing 10		TYPE:DwarfRacialTransformation10	VISIBLE:NO											!PREFEAT:1,Dwarf Fast Healing 8																															MULT:NO							ADD:FEAT(Fast Healing)																					BONUS:VAR|FastHealing|1										SOURCEPAGE:p.7
+Tremorsense				TYPE:Special				VISIBLE:NO																				SA:Tremorsense (Ex) (%')|Tremorsense	DEFINE:Tremorsense|10																	MULT:NO																																												SOURCEPAGE:p.7
+Dwarf Tremorsense 6		TYPE:DwarfRacialTransformation6	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Tremorsense)																					BONUS:VAR|Tremorsense|5										SOURCEPAGE:p.7
+Dwarf Tremorsense 8		TYPE:DwarfRacialTransformation8	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Tremorsense)																					BONUS:VAR|Tremorsense|5										SOURCEPAGE:p.7
+Dwarf Tremorsense 10		TYPE:DwarfRacialTransformation10	VISIBLE:NO																																															MULT:NO							ADD:FEAT(Tremorsense)																					BONUS:VAR|Tremorsense|5										SOURCEPAGE:p.7
+
+#TODO (Dwarf): Voice of Stone and Flame(spells per day)
+
+##################
+### Elf, Dawn  ###
+##################
+
+###Block:Dawn Elf
+# Racial Talents
+# Feat Name				Type						Visible	Required Feat			Prohibited Feat			Required Lvl	Req. Spell Type		Required Stat	Special Ability					Define			Stackable?	Multiple?	Choose				Modify VAR			Source Page
+Call to Battle			TYPE:DawnElfRacialTalent		VISIBLE:NO																		PRESTAT:1,CHA=13	SA:Call to Battle (Su)										MULT:NO										SOURCEPAGE:p.19
+Spirit of Dawn			TYPE:DawnElfRacialTalent		VISIBLE:NO																		PRESTAT:1,CHA=13	SA:Spirit of Dawn (Su)										MULT:NO										SOURCEPAGE:p.19
+Song of Glory			TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Call to Battle													PRESTAT:1,CHA=13	SA:Song of Glory (Su) (%/day)|SongOfGlory	DEFINE:SongOfGlory|0	STACK:YES	MULT:YES	CHOOSE:Song of Glory +1/day	BONUS:VAR|SongOfGlory|1	SOURCEPAGE:p.20
+Urging of the Light		TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Spirit of Dawn						PRELEVEL:6						PRESTAT:1,CHA=13	SA:Urging of the Light (Su)									MULT:NO										SOURCEPAGE:p.20
+Words of Exhortation		TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Song of Glory							PRELEVEL:6						PRESTAT:1,CHA=13	SA:Words of Exhortation (Su)									MULT:NO										SOURCEPAGE:p.20
+
+Dance of Shadows			TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Twilight Dance													PRESTAT:1,DEX=13	SA:Dance of Shadows (Ex)									MULT:NO										SOURCEPAGE:p.20
+Dance of Storm Winds		TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Dawn Dance														PRESTAT:1,DEX=13	SA:Dance of Storm Winds (Ex)									MULT:NO										SOURCEPAGE:p.20
+Dance of the Endless Journey	TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Dawn Dance														PRESTAT:1,DEX=13	SA:Dance of the Endless Journey (Ex)							MULT:NO										SOURCEPAGE:p.20
+Dance of the Starlit River	TYPE:DawnElfRacialTalent		VISIBLE:NO	PREFEAT:1,Twilight Dance													PRESTAT:1,DEX=13	SA:Dance of the Starlit River (Ex)								MULT:NO										SOURCEPAGE:p.20
+Dawn Dance				TYPE:DawnElfRacialTalent		VISIBLE:NO																		PRESTAT:1,DEX=13	SA:Dawn Dance (Ex)										MULT:NO										SOURCEPAGE:p.20
+Twilight Dance			TYPE:DawnElfRacialTalent		VISIBLE:NO																		PRESTAT:1,DEX=13	SA:Twilight Dance (Ex)										MULT:NO										SOURCEPAGE:p.20
+
+### Racial Transformations
+# Feat Name				Type						Visible	Required Feat			Prohibited Feat			Required Lvl	Req. Spell Type		Required Stat	Special Ability					Define			Stackable?	Multiple?	Choose				Modify VAR			Source Page
+Burning Bright			TYPE:DawnElfRacialTransformation	VISIBLE:NO														PRESPELLTYPE:Arcane,1,3				SA:Burning Bright (Ex)										MULT:NO										SOURCEPAGE:p.20
+Bitter Harvest			TYPE:DawnElfRacialTransformation	VISIBLE:NO														PRESPELLTYPE:Divine,1,1				SA:Bitter Harvest (Ex)										MULT:NO										SOURCEPAGE:p.21
+Touch of Frost			TYPE:DawnElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Ageless			!PREFEAT:1,Burning Bright	PRELEVEL:10									SA:Touch of Frost (Ex)										MULT:NO										SOURCEPAGE:p.21
+#pre Blood Runs Hot????
+Visions of the Spirit		TYPE:DawnElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Elfsight																	SA:Visions of the Spirit (Sp)									MULT:NO										SOURCEPAGE:p.21
+
+
+##################
+### Elf, Ghost ###
+##################
+
+###Block: Ghost Elf
+# Racial Talents
+# Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Req. Casting Type			Req. Spell Type		Special Ability									Define				Stackable?	Multiple?	Choose			Choose a Feat																												Modify VAR				Source Page
+Blessing of Life				TYPE:GhostElfRacialTalent		VISIBLE:NO																										SA:Blessing of Life (Su)														MULT:NO																																								SOURCEPAGE:p.24
+Catch the Winds				TYPE:GhostElfRacialTalent		VISIBLE:NO																						PRESPELLTYPE:Any,1,1	SA:Catch the Winds (Su) (% bags, % minutes/day)|CatchWindsBags|TL	DEFINE:CatchWindsBags|0		STACK:YES	MULT:YES	CHOOSE:+1 fetish bag																															BONUS:VAR|CatchWindsBags|1	SOURCEPAGE:p.25
+Dance of the Return			TYPE:GhostElfRacialTalent		VISIBLE:NO																										SA:Dance of the Return (Ex)														MULT:NO																																								SOURCEPAGE:p.25
+One Elf Alone				TYPE:GhostElfRacialTalent		VISIBLE:NO																										SA:One Elf Alone (Ex)															MULT:NO																																								SOURCEPAGE:p.25
+Songs of the Mist				TYPE:GhostElfRacialTalent		VISIBLE:NO	PREFEAT:1,Bardic Music																						SA:Songs of the Mist (Sp) (DC%)|10+TL/2+CHA											MULT:NO																																								SOURCEPAGE:p.25
+Spear forged from Hope			TYPE:GhostElfRacialTalent		VISIBLE:NO	PREFEAT:1,Blessing of Life												PRESPELLCAST:TYPE=Divine					SA:Spear forged from Hope														MULT:NO																																								SOURCEPAGE:p.25
+Ghost Elf Talent Feats 1		TYPE:GhostElfRacialTalent1		VISIBLE:NO																																												MULT:NO					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																						SOURCEPAGE:p.25
+Ghost Elf Talent Feats 3		TYPE:GhostElfRacialTalent3		VISIBLE:NO						!PREFEAT:1,Ghost Elf Talent Feats 1																																	MULT:NO					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																						SOURCEPAGE:p.25
+Ghost Elf Talent Feats 5		TYPE:GhostElfRacialTalent5		VISIBLE:NO						!PREFEAT:1,Ghost Elf Talent Feats 3																																	MULT:NO					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																						SOURCEPAGE:p.25
+Ghost Elf Talent Feats 7		TYPE:GhostElfRacialTalent7		VISIBLE:NO						!PREFEAT:1,Ghost Elf Talent Feats 5																																	MULT:NO					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																						SOURCEPAGE:p.25
+Ghost Elf Talent Feats 9		TYPE:GhostElfRacialTalent9		VISIBLE:NO						!PREFEAT:1,Ghost Elf Talent Feats 7																																	MULT:NO					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																						SOURCEPAGE:p.25
+Ghost Elf Talent Skills 1		TYPE:GhostElfRacialTalent1		VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)						SOURCEPAGE:p.25
+Ghost Elf Talent Skills 3		TYPE:GhostElfRacialTalent3		VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)						SOURCEPAGE:p.25
+Ghost Elf Talent Skills 5		TYPE:GhostElfRacialTalent5		VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)						SOURCEPAGE:p.25
+Ghost Elf Talent Skills 7		TYPE:GhostElfRacialTalent7		VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)						SOURCEPAGE:p.25
+Ghost Elf Talent Skills 9		TYPE:GhostElfRacialTalent9		VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)	ADD:FEAT(TYPE=GhostElfTalentSkill)						SOURCEPAGE:p.25
+
+### Racial Transformations
+# Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Req. Casting Type			Req. Spell Type		Special Ability									Define				Stackable?	Multiple?	Choose			Choose a Feat																												Modify VAR				Source Page
+Eye of the Storm				TYPE:GhostElfRacialTransformation	VISIBLE:NO																										SA:Eye of the Storm (Ex) (resistance to electricity 5)									MULT:NO																																								SOURCEPAGE:p.25
+Hands of Ice				TYPE:GhostElfRacialTransformation	VISIBLE:NO														PRELEVEL:6											SA:Hands of Ice (Ex) (1/day, % rounds)|TL												MULT:NO																																								SOURCEPAGE:p.25
+Heart of the Mists Transformation	TYPE:Special				VISIBLE:NO														PRELEVEL:4											SA:Heart of the Mists (Sp) (%/day)|HeartoftheMists			DEFINE:HeartoftheMists|0			MULT:NO																																								SOURCEPAGE:p.25
+Heart of the Mists			TYPE:GhostElfRacialTransformation	VISIBLE:NO														PRELEVEL:4																											STACK:YES	MULT:YES	CHOOSE:+1 time per day																															BONUS:VAR|HeartoftheMists|1	SOURCEPAGE:p.25
+Memories from Better Days		TYPE:GhostElfRacialTransformation	VISIBLE:NO																						PRESPELLTYPE:Divine,1,1	SA:Memories from Better Days														MULT:NO																																								SOURCEPAGE:p.25
+Mistwalker					TYPE:GhostElfRacialTransformation	VISIBLE:NO																										SA:Mistwalker (Ex)															MULT:NO																																								SOURCEPAGE:p.25
+Snowblooded					TYPE:GhostElfRacialTransformation	VISIBLE:NO																										SA:Snowblooded (Ex) (resistance to cold 5)											MULT:NO																																								SOURCEPAGE:p.25
+Ghost Elf Transformation Feats 4	TYPE:GhostElfRacialTransformation4	VISIBLE:NO																																												MULT:NO					ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																												SOURCEPAGE:p.25
+Ghost Elf Transformation Feats 6	TYPE:GhostElfRacialTransformation6	VISIBLE:NO						!PREFEAT:1,Ghost Elf Transformation Feats 4																															MULT:NO					ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																												SOURCEPAGE:p.25
+Ghost Elf Transformation Feats 8	TYPE:GhostElfRacialTransformation8	VISIBLE:NO						!PREFEAT:1,Ghost Elf Transformation Feats 6																															MULT:NO					ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																												SOURCEPAGE:p.25
+Ghost Elf Transformation Feats 10	TYPE:GhostElfRacialTransformation10	VISIBLE:NO						!PREFEAT:1,Ghost Elf Transformation Feats 8																															MULT:NO					ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																												SOURCEPAGE:p.25
+Ghost Elf Transformation Skills 2	TYPE:GhostElfRacialTransformation2	VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)						SOURCEPAGE:p.25
+Ghost Elf Transformation Skills 4	TYPE:GhostElfRacialTransformation4	VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)						SOURCEPAGE:p.25
+Ghost Elf Transformation Skills 6	TYPE:GhostElfRacialTransformation6	VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)						SOURCEPAGE:p.25
+Ghost Elf Transformation Skills 8	TYPE:GhostElfRacialTransformation8	VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)						SOURCEPAGE:p.25
+Ghost Elf Transformation Skills 10	TYPE:GhostElfRacialTransformation10	VISIBLE:NO																																										STACK:NO	MULT:NO					ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)						SOURCEPAGE:p.25
+# re-using DawnElfTransfSkill here, (i.e. not a typo)
+
+#TODO: Memories from Better Days....
+
+
+#################
+### Elf, Moon ###
+#################
+
+###Block: Moon Elf
+# Racial Talents
+# Feat Name					Type						Visible	Required Feat					Prohibited Feat						Required Lvl	Required Stat	Special Ability				Stackable?	Multiple?	Choose a Feat																																																															BONUS:DC				Bonus to skill						Source Page
+Perfect Memory				TYPE:MoonElfRacialTalent		VISIBLE:NO																						SA:Perfect Memory (Ex)					MULT:NO																																																																															SOURCEPAGE:p.27
+Stories of the Past			TYPE:MoonElfRacialTalent		VISIBLE:NO																						SA:Stories of the Past (Ex)				MULT:NO																																																																							BONUS:SKILL|Knowledge (History)|2|TYPE=Racial	SOURCEPAGE:p.27
+Stories of the Future			TYPE:MoonElfRacialTalent		VISIBLE:NO	PREFEAT:1,Stories of the Past																	SA:Stories of the Future (Ex)				MULT:NO																																																																															SOURCEPAGE:p.27
+Songs of the Sun				TYPE:MoonElfRacialTalent		VISIBLE:NO	PREFEAT:1,Songs of the Stars											PRELEVEL:4					SA:Songs of the Sun (Su) (1/day)			MULT:NO																																																																															SOURCEPAGE:p.27
+Songs of the Moon				TYPE:MoonElfRacialTalent		VISIBLE:NO	PREFEAT:1,Songs of the Stars											PRELEVEL:6					SA:Songs of the Moon (Su) (1/day)			MULT:NO																																																																															SOURCEPAGE:p.27
+Songs of the Stars			TYPE:MoonElfRacialTalent		VISIBLE:NO																						SA:Songs of the Stars (Su) (1/day)			MULT:NO																																																																															SOURCEPAGE:p.27
+Moon Elf Talent Feats 1			TYPE:MoonElfRacialTalent1		VISIBLE:NO																														MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																	SOURCEPAGE:p.27
+Moon Elf Talent Feats 3			TYPE:MoonElfRacialTalent3		VISIBLE:NO								!PREFEAT:1,Ghost Elf Talent Feats 1																	MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																	SOURCEPAGE:p.27
+Moon Elf Talent Feats 5			TYPE:MoonElfRacialTalent5		VISIBLE:NO								!PREFEAT:1,Ghost Elf Talent Feats 3																	MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																	SOURCEPAGE:p.27
+Moon Elf Talent Feats 7			TYPE:MoonElfRacialTalent7		VISIBLE:NO								!PREFEAT:1,Ghost Elf Talent Feats 5																	MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																	SOURCEPAGE:p.27
+Moon Elf Talent Feats 9			TYPE:MoonElfRacialTalent9		VISIBLE:NO								!PREFEAT:1,Ghost Elf Talent Feats 7																	MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																	SOURCEPAGE:p.27
+Moon Elf Talent Skills 1		TYPE:MoonElfRacialTalent1		VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)														SOURCEPAGE:p.27
+Moon Elf Talent Skills 3		TYPE:MoonElfRacialTalent3		VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)														SOURCEPAGE:p.27
+Moon Elf Talent Skills 5		TYPE:MoonElfRacialTalent5		VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)														SOURCEPAGE:p.27
+Moon Elf Talent Skills 7		TYPE:MoonElfRacialTalent7		VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)														SOURCEPAGE:p.27
+Moon Elf Talent Skills 9		TYPE:MoonElfRacialTalent9		VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)														SOURCEPAGE:p.27
+
+### Racial Transformations
+# Feat Name					Type						Visible	Required Feat					Prohibited Feat						Required Lvl	Required Stat	Special Ability				Stackable?	Multiple?	Choose a Feat																																																															BONUS:DC				Bonus to skill						Source Page
+Eyes of the Stars				TYPE:MoonElfRacialTransformation	VISIBLE:NO																PRELEVEL:4		PRESTAT:1,CHA=13	SA:Eyes of the Stars (Su)				MULT:NO																																																																															SOURCEPAGE:p.27
+Face of the Sun				TYPE:MoonElfRacialTransformation	VISIBLE:NO																						SA:Face of the Sun (Ex)					MULT:NO																																																																							BONUS:SKILL|Bluff,Diplomacy|2|TYPE=Racial		SOURCEPAGE:p.27
+Body of the Moon				TYPE:MoonElfRacialTransformation	VISIBLE:NO																						SA:Body of the Moon (Ex)				MULT:NO																																																																		BONUS:DC|SCHOOL.Enchantment|1									SOURCEPAGE:p.27
+Weave Moonlight				TYPE:MoonElfRacialTransformation	VISIBLE:NO																						SA:Weave Moonlight (Ex)					MULT:NO																																																																															SOURCEPAGE:p.27
+Weave Starlight				TYPE:MoonElfRacialTransformation	VISIBLE:NO	PREFEAT:1,Weave Moonlight											PRELEVEL:6					SA:Weave Starlight (Ex)					MULT:NO																																																																															SOURCEPAGE:p.27
+Weave Sunlight				TYPE:MoonElfRacialTransformation	VISIBLE:NO	PREFEAT:2,Weave Sunlight,Weave Moonlight									PRELEVEL:8					SA:Weave Sunlight (Ex)					MULT:NO																																																																															SOURCEPAGE:p.27
+Moon Elf Transformation Feats 4	TYPE:MoonElfRacialTransformation4	VISIBLE:NO																														MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																							SOURCEPAGE:p.27
+Moon Elf Transformation Feats 6	TYPE:MoonElfRacialTransformation6	VISIBLE:NO								!PREFEAT:1,Moon Elf Transformation Feats 4															MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																							SOURCEPAGE:p.27
+Moon Elf Transformation Feats 8	TYPE:MoonElfRacialTransformation8	VISIBLE:NO								!PREFEAT:1,Moon Elf Transformation Feats 6															MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																							SOURCEPAGE:p.27
+Moon Elf Transformation Feats 10	TYPE:MoonElfRacialTransformation10	VISIBLE:NO								!PREFEAT:1,Moon Elf Transformation Feats 8															MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																							SOURCEPAGE:p.27
+Moon Elf Transformation Skills 2	TYPE:MoonElfRacialTransformation2	VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																	SOURCEPAGE:p.27
+Moon Elf Transformation Skills 4	TYPE:MoonElfRacialTransformation4	VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																	SOURCEPAGE:p.27
+Moon Elf Transformation Skills 6	TYPE:MoonElfRacialTransformation6	VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																	SOURCEPAGE:p.27
+Moon Elf Transformation Skills 8	TYPE:MoonElfRacialTransformation8	VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																	SOURCEPAGE:p.27
+Moon Elf Transformation Skills 10	TYPE:MoonElfRacialTransformation10	VISIBLE:NO																												STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																	SOURCEPAGE:p.27
+# re-using DawnElfTransfSkill here, (i.e. not a typo)
+
+
+###################
+### Elf, Night  ###
+###################
+
+###Block: Night Elf
+# Racial Talents
+# Feat Name			Type						Visible	Required AL		Required Feat							Required Lvl	Req. Spell Type		Required Vision		Special Ability				Spells					Multiple?	Source Page
+Rites of Blood		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Rites of Darkness								PRESPELLTYPE:Divine,1,3					SA:Rites of Blood (Ex)									MULT:NO	SOURCEPAGE:p.28
+Rites of Darkness		TYPE:NightElfRacialTalent		VISIBLE:NO																								SA:Rites of Darkness (Ex)								MULT:NO	SOURCEPAGE:p.28
+Rites of Fury		TYPE:NightElfRacialTalent		VISIBLE:NO	PREALIGN:LE,NE,CE																					SA:Rites of Fury (Ex)									MULT:NO	SOURCEPAGE:p.28
+Rites of the Hunt		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Still Spell,Silent Spell							PRESPELLTYPE:Divine,1,2					SA:Rites of the Hunt (Ex)								MULT:NO	SOURCEPAGE:p.28
+Songs of Mending		TYPE:NightElfRacialTalent		VISIBLE:NO																								SA:Songs of Mending (Sp)		SPELLS:Innate|TIMES=-1|Mending	MULT:NO	SOURCEPAGE:p.28
+Songs of Making		TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:1,Songs of Mending																SA:Songs of Making (Ex)									MULT:NO	SOURCEPAGE:p.28
+Songs of Bladecrafting	TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:2,Songs of Mending,Craft Magic Arms and Armor	PRELEVEL:8										SA:Songs of Bladecrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
+Songs of Armorcrafting	TYPE:NightElfRacialTalent		VISIBLE:NO				PREFEAT:2,Songs of Mending,Craft Magic Arms and Armor	PRELEVEL:6										SA:Songs of Armorcrafting (Ex)							MULT:NO	SOURCEPAGE:p.28
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required AL		Required Feat							Required Lvl	Req. Spell Type		Required Vision		Special Ability				Spells					Multiple?	Source Page
+Bleed Black Waters	TYPE:NightElfRacialTransformation	VISIBLE:NO																								SA:Bleed Black Waters (Ex)								MULT:NO	SOURCEPAGE:p.29
+Dream of the Light	TYPE:NightElfRacialTransformation	VISIBLE:NO																				PREVISION:1,Darkvision	SA:Dream of the Light (Ex)								MULT:NO	SOURCEPAGE:p.29
+Drink the Darkness	TYPE:NightElfRacialTransformation	VISIBLE:NO																								SA:Drink the Darkness (Ex)								MULT:NO	SOURCEPAGE:p.29
+Hunter's Hope		TYPE:NightElfRacialTransformation	VISIBLE:NO																								SA:Hunter's Hope (Ex)									MULT:NO	SOURCEPAGE:p.29
+Taste the Shadow		TYPE:NightElfRacialTransformation	VISIBLE:NO				PREFEAT:1,Drink the Darkness																SA:Taste the Shadow (Ex)								MULT:NO	SOURCEPAGE:p.29
+
+
+###################
+### Elf, Wood   ###
+###################
+
+###Block: Wood Elf
+# Racial Talents
+# Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Required Stat	Special Ability					Define				Stackable?	Multiple?	Choose a Feat																																																															Bonus to skill					Modify VAR				Source Page
+Aim is True					TYPE:WoodElfRacialTalent		VISIBLE:NO																				SA:Aim is True (Ex)											MULT:NO																																																																														SOURCEPAGE:p.32
+Bounty of the Forest			TYPE:WoodElfRacialTalent		VISIBLE:NO																				SA:Bounty of the Forest (Ex) (1/day)								MULT:NO																																																																														SOURCEPAGE:p.32
+Dance of Falling Leaves			TYPE:WoodElfRacialTalent		VISIBLE:NO																				SA:Dance of Falling Leaves (Ex)									MULT:NO																																																																														SOURCEPAGE:p.32
+Wood Elf Fey Gift I			TYPE:WoodElfRacialTalent		VISIBLE:NO																				SA:Fey Gift I (Sp)											MULT:NO																																																																														SOURCEPAGE:p.32
+Wood Elf Fey Gift II			TYPE:WoodElfRacialTalent		VISIBLE:NO	PREFEAT:1,Wood Elf Fey Gift I									PRELEVEL:7					SA:Fey Gift II (Sp)											MULT:NO																																																																														SOURCEPAGE:p.33
+Guests of the Fey				TYPE:WoodElfRacialTalent		VISIBLE:NO																				SA:Guests of the Fey (Ex)										MULT:NO																																																																														SOURCEPAGE:p.33
+Wood Elf Talent Feats 1			TYPE:WoodElfRacialTalent1		VISIBLE:NO																																		MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																SOURCEPAGE:p.32
+Wood Elf Talent Feats 3			TYPE:WoodElfRacialTalent3		VISIBLE:NO						!PREFEAT:1,Wood Elf Talent Feats 1																							MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																SOURCEPAGE:p.32
+Wood Elf Talent Feats 5			TYPE:WoodElfRacialTalent5		VISIBLE:NO						!PREFEAT:1,Wood Elf Talent Feats 3																							MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																SOURCEPAGE:p.32
+Wood Elf Talent Feats 7			TYPE:WoodElfRacialTalent7		VISIBLE:NO						!PREFEAT:1,Wood Elf Talent Feats 5																							MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																SOURCEPAGE:p.32
+Wood Elf Talent Feats 9			TYPE:WoodElfRacialTalent9		VISIBLE:NO						!PREFEAT:1,Wood Elf Talent Feats 7																							MULT:NO	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Point Blank Shot,Quick Draw,Spell Focus)																																																																SOURCEPAGE:p.32
+Wood Elf Talent Skills 1		TYPE:WoodElfRacialTalent1		VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)													SOURCEPAGE:p.32
+Wood Elf Talent Skills 3		TYPE:WoodElfRacialTalent3		VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)													SOURCEPAGE:p.32
+Wood Elf Talent Skills 5		TYPE:WoodElfRacialTalent5		VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)													SOURCEPAGE:p.32
+Wood Elf Talent Skills 7		TYPE:WoodElfRacialTalent7		VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)													SOURCEPAGE:p.32
+Wood Elf Talent Skills 9		TYPE:WoodElfRacialTalent9		VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)	ADD:FEAT(TYPE=DawnElfTalentSkill,TYPE=TalentCraftSkill,TYPE=TalentProfSkill)													SOURCEPAGE:p.32
+# re-using DawnElfTalentSkill here, (i.e. not a typo)
+
+#TODO: Divine Mastery, Fey Gift
+
+### Racial Transformations
+# Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Required Stat	Special Ability					Define				Stackable?	Multiple?	Choose a Feat																																																															Bonus to skill					Modify VAR				Source Page
+Feet of a Cat				TYPE:WoodElfRacialTransformation	VISIBLE:NO																				SA:Feet of a Cat (Su)											MULT:NO																																																																														SOURCEPAGE:p.33
+Ears of a Fox				TYPE:WoodElfRacialTransformation	VISIBLE:NO																				SA:Ears of a Fox (Ex)											MULT:NO																																																																		BONUS:SKILL|Listen|3|TYPE=Transformation						SOURCEPAGE:p.33
+Eyes of a Hawk				TYPE:WoodElfRacialTransformation	VISIBLE:NO																				SA:Eyes of a Hawk (Ex)											MULT:NO																																																																		BONUS:SKILL|Spot|3|TYPE=Transformation						SOURCEPAGE:p.33
+Heart of a Bear				TYPE:WoodElfRacialTransformation	VISIBLE:NO														PRELEVEL:6		PRESTAT:1,CON=13	SA:Heart of a Bear (Ex)				DEFINE:BarbRageTimesLVL|0			MULT:NO	ADD:FEAT(Rage)																																																																						BONUS:VAR|BarbRageTimesLVL|1	SOURCEPAGE:p.33
+Wood Elf Transformation Feats 4	TYPE:WoodElfRacialTransformation4	VISIBLE:NO																																		MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																						SOURCEPAGE:p.33
+Wood Elf Transformation Feats 6	TYPE:WoodElfRacialTransformation6	VISIBLE:NO						!PREFEAT:1,Wood Elf Transformation Feats 4																					MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																						SOURCEPAGE:p.33
+Wood Elf Transformation Feats 8	TYPE:WoodElfRacialTransformation8	VISIBLE:NO						!PREFEAT:1,Wood Elf Transformation Feats 6																					MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																						SOURCEPAGE:p.33
+Wood Elf Transformation Feats 10	TYPE:WoodElfRacialTransformation10	VISIBLE:NO						!PREFEAT:1,Wood Elf Transformation Feats 8																					MULT:NO	ADD:FEAT(Dodge,Lightning Reflexes,Iron Will)																																																																						SOURCEPAGE:p.33
+Wood Elf Transformation Skills 2	TYPE:WoodElfRacialTransformation2	VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																SOURCEPAGE:p.33
+Wood Elf Transformation Skills 4	TYPE:WoodElfRacialTransformation4	VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																SOURCEPAGE:p.33
+Wood Elf Transformation Skills 6	TYPE:WoodElfRacialTransformation6	VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																SOURCEPAGE:p.33
+Wood Elf Transformation Skills 8	TYPE:WoodElfRacialTransformation8	VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																SOURCEPAGE:p.33
+Wood Elf Transformation Skills 10	TYPE:WoodElfRacialTransformation10	VISIBLE:NO																																STACK:NO	MULT:NO	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)	ADD:FEAT(TYPE=DawnElfTransfSkill)																																																SOURCEPAGE:p.33
+# re-using DawnElfTransfSkill here, (i.e. not a typo)
+
+
+###############
+### Gnome   ###
+###############
+
+###Block: Gnome
+# Racial Talents
+# Feat Name				Type						Visible	Required Feat		Required Lvl	Required Stat		Special Ability						Spells					Multiple?	Save checks bonus					Source Page
+Bend before the Wind		TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Bend before the Wind (Ex)										MULT:NO								SOURCEPAGE:p.34
+Deep Roots				TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Deep Roots (Ex)											MULT:NO								SOURCEPAGE:p.35
+Flash of Thunder			TYPE:GnomeRacialTalent			VISIBLE:NO					PRELEVEL:4						SA:Flash of Thunder (Ex)										MULT:NO								SOURCEPAGE:p.35
+Part like Water			TYPE:GnomeRacialTalent			VISIBLE:NO					PRELEVEL:6		PRESTAT:2,DEX=13,WIS=13	SA:Part like Water (Ex)											MULT:NO								SOURCEPAGE:p.35
+Roots Break the Mountain	TYPE:GnomeRacialTalent			VISIBLE:NO	PREFEAT:1,Deep Roots	PRELEVEL:4						SA:Roots Break the Mountain (Ex)									MULT:NO								SOURCEPAGE:p.35
+
+Call to Life			TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Call to Life (Ex)											MULT:NO								SOURCEPAGE:p.34
+Drink the Soil's Strength	TYPE:GnomeRacialTalent			VISIBLE:NO								PRESTAT:1,WIS=13		SA:Drink the Soil's Strength (Ex)									MULT:NO								SOURCEPAGE:p.34
+Friend of the Land		TYPE:GnomeRacialTalent			VISIBLE:NO					PRELEVEL:4		PRESTAT:1,WIS=13		SA:Friend of the Land (Ex)										MULT:NO								SOURCEPAGE:p.34
+Shroud of Leaves			TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Shroud of Leaves (Ex)										MULT:NO								SOURCEPAGE:p.34
+Voices on the Leaves		TYPE:GnomeRacialTalent			VISIBLE:NO												SA:Voices on the Leaves (Sp) 30'			SPELLS:Innate|TIMES=-1|Detect Magic	MULT:NO								SOURCEPAGE:p.34
+
+#TODO: Friend of the Land: animal companion....
+
+### Racial Transformations
+# Feat Name				Type						Visible	Required Feat		Required Lvl	Required Stat		Special Ability						Spells					Multiple?	Save checks bonus					Source Page
+Heart of Autumn			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Autumn (Ex)											MULT:NO	BONUS:CHECKS|Fortitude|2|TYPE=Talent	SOURCEPAGE:p.34
+Heart of Spring			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Spring (Ex)											MULT:NO								SOURCEPAGE:p.34
+Heart of Summer			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Summer (Ex) (resistance to fire 5)							MULT:NO								SOURCEPAGE:p.34
+Heart of Winter			TYPE:GnomeRacialTransformation	VISIBLE:NO												SA:Heart of Winter (Ex) (resistance to cold 5)							MULT:NO								SOURCEPAGE:p.34
+
+
+#########################
+### Human, Highlander ###
+#########################
+
+###Block: Highlander
+# Racial Talents
+# Feat Name		Type						Visible	Required Class			Prohibited Feat			Required Lvl	Special Ability												Define			Multiple?	Choose a Feat		Bonus to skill						Modify VAR				Source Page
+Drive the Body	TYPE:HHighlRacialTalent			VISIBLE:NO	PRECLASS:1,Spirit Adept=1						PRELEVEL:4		SA:Drive the Body (Ex)															MULT:NO																		SOURCEPAGE:p.42
+Purity of Heart	TYPE:HHighlRacialTalent			VISIBLE:NO	PRECLASS:1,Spirit Adept=1									SA:Purity of Heart (Ex)															MULT:NO																		SOURCEPAGE:p.43
+Purity of Body	TYPE:HHighlRacialTalent			VISIBLE:NO	PRECLASS:1,Spirit Adept=1									SA:Purity of Body (Ex)															MULT:NO																		SOURCEPAGE:p.43
+Strength of Stone	TYPE:HHighlRacialTalent			VISIBLE:NO	PRECLASS:1,Spirit Adept=1						PRELEVEL:8		SA:Strength of Stone (Ex)														MULT:NO																		SOURCEPAGE:p.43
+Surge of Will	TYPE:HHighlRacialTalent			VISIBLE:NO														SA:Surge of Will (Ex)															MULT:NO																		SOURCEPAGE:p.43
+Way of Spirit	TYPE:Special				VISIBLE:NO	PRECLASS:1,Spirit Adept=1									SA:Way of Spirit (Ex) (% additional spirit adepth strength points)|WayofSpirit	DEFINE:WayofSpirit|0	MULT:NO																		SOURCEPAGE:p.43
+Way of Spirit 1	TYPE:HHighlRacialTalent1		VISIBLE:NO	PRECLASS:1,Spirit Adept=1																											MULT:NO	ADD:FEAT(Way of Spirit)									BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43
+Way of Spirit 3	TYPE:HHighlRacialTalent3		VISIBLE:NO	PRECLASS:1,Spirit Adept=1	!PREFEAT:1,Way of Spirit 1																						MULT:NO	ADD:FEAT(Way of Spirit)									BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43
+Way of Spirit 5	TYPE:HHighlRacialTalent5		VISIBLE:NO	PRECLASS:1,Spirit Adept=1	!PREFEAT:1,Way of Spirit 3																						MULT:NO	ADD:FEAT(Way of Spirit)									BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43
+Way of Spirit 7	TYPE:HHighlRacialTalent7		VISIBLE:NO	PRECLASS:1,Spirit Adept=1	!PREFEAT:1,Way of Spirit 5																						MULT:NO	ADD:FEAT(Way of Spirit)									BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43
+Way of Spirit 9	TYPE:HHighlRacialTalent9		VISIBLE:NO	PRECLASS:1,Spirit Adept=1	!PREFEAT:1,Way of Spirit 7																						MULT:NO	ADD:FEAT(Way of Spirit)									BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43
+#maybe add the points to the total instead...
+Bonded		TYPE:HHighlRacialTalent			VISIBLE:NO														SA:Bonded (Su)																MULT:NO																		SOURCEPAGE:p.43
+Elder			TYPE:HHighlRacialTalent			VISIBLE:NO											PRELEVEL:6		SA:Elder (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Faith			TYPE:HHighlRacialTalent			VISIBLE:NO														SA:Faith (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Hope			TYPE:HHighlRacialTalent			VISIBLE:NO														SA:Hope (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Steel			TYPE:HHighlRacialTalent			VISIBLE:NO														SA:Steel (Ex)																MULT:NO																		SOURCEPAGE:p.43
+
+### Racial Transformations
+# Feat Name		Type						Visible	Required Class			Prohibited Feat			Required Lvl	Special Ability												Define			Multiple?	Choose a Feat		Bonus to skill						Modify VAR				Source Page
+Healthy		TYPE:HHighlRacialTransformation	VISIBLE:NO														SA:Healthy (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Lucky			TYPE:HHighlRacialTransformation	VISIBLE:NO														SA:Lucky (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Stable		TYPE:HHighlRacialTransformation	VISIBLE:NO														SA:Stable (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Skywalker		TYPE:HHighlRacialTransformation	VISIBLE:NO											PRELEVEL:6		SA:Skywalker (Ex)																MULT:NO																		SOURCEPAGE:p.43
+Thoughtful		TYPE:HHighlRacialTransformation	VISIBLE:NO														SA:Thoughtful (Ex)															MULT:NO					BONUS:SKILL|STAT.INT|1|TYPE=Transformation						SOURCEPAGE:p.43
+
+
+########################
+### Human, Lowlander ###
+########################
+
+###Block:Lowlander
+# Racial Talents
+# Feat Name			Type						Visible	Special Ability										Spells								Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
+Elnaria			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Elnaria																				MULT:NO																			BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)				SOURCEPAGE:p.47
+#+ a Knowledge skill of his choice...
+Larakis			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Larakis																				MULT:NO																																				SOURCEPAGE:p.47
+Ironwall			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Ironwall																				MULT:YES	CHOOSE:WEAPONPROFS|3								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																COST:.33	SOURCEPAGE:p.47
+#TODO:zzzzz Ironwall...
+Riversend			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Riversend																			MULT:NO																																				SOURCEPAGE:p.47
+Seaward			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Seaward																				MULT:NO					BONUS:CHECKS|Fortitude|2|TYPE=Talent																									SOURCEPAGE:p.47
+Saranor			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Saranor																				MULT:NO																																				SOURCEPAGE:p.48
+Stormhaven			TYPE:HLowlRacialTalent			VISIBLE:NO	SA:Stormhaven																			MULT:NO																			BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery			SOURCEPAGE:p.48
+
+### Racial Transformations
+# Feat Name			Type						Visible	Special Ability										Spells								Multiple?	Choose			Save checks bonus					Combat bonus					Bonus to skill							Class Skill					Cost		Source Page
+Black Eyed			TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Black-Eyed										SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Command,11+CHA	MULT:NO																																				SOURCEPAGE:p.48
+Gold Blooded		TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Gold-Blooded (resistance acid 1, cold 1, fire 1, electricity 1)										MULT:NO																																				SOURCEPAGE:p.48
+
+### Things to do here!!!!###
+Green Man's Chosen	TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Green Man's Chosen																		MULT:NO																																				SOURCEPAGE:p.48
+Flowers on the Brow	TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Flowers on the Brow																		MULT:NO																																				SOURCEPAGE:p.48
+Harvester's Chosen	TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Harvester's Chosen																		MULT:NO																																				SOURCEPAGE:p.48
+Hero's Son			TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Hero's Son																			MULT:NO																																				SOURCEPAGE:p.48
+Roots in the Soil		TYPE:HLowlRacialTransformation	VISIBLE:NO	SA:Roots in the Soil																		MULT:NO																																				SOURCEPAGE:p.48
+### Things to do here!!!!###
+
+
+########################
+### Human, Saltblood ###
+########################
+
+###Block: Saltblood
+# Racial Talents
+# Feat Name		Type						Visible	Special Ability	Multiple?	Source Page
+Boisterous		TYPE:HSaltRacialTalent			VISIBLE:NO	SA:Boisterous	MULT:NO	SOURCEPAGE:p.55
+Clever		TYPE:HSaltRacialTalent			VISIBLE:NO	SA:Clever		MULT:NO	SOURCEPAGE:p.55
+Enterprising	TYPE:HSaltRacialTalent			VISIBLE:NO	SA:Enterprising	MULT:NO	SOURCEPAGE:p.55
+Intrepid		TYPE:HSaltRacialTalent			VISIBLE:NO	SA:Intrepid		MULT:NO	SOURCEPAGE:p.55
+Precise		TYPE:HSaltRacialTalent			VISIBLE:NO	SA:Precise		MULT:NO	SOURCEPAGE:p.55
+
+### Racial Transformations
+# Feat Name		Type						Visible	Special Ability	Multiple?	Source Page
+Agile			TYPE:HSaltRacialTransformation	VISIBLE:NO	SA:Agile		MULT:NO	SOURCEPAGE:p.55
+Determined		TYPE:HSaltRacialTransformation	VISIBLE:NO	SA:Determined	MULT:NO	SOURCEPAGE:p.55
+Frugal		TYPE:HSaltRacialTransformation	VISIBLE:NO	SA:Frugal		MULT:NO	SOURCEPAGE:p.55
+Gambler		TYPE:HSaltRacialTransformation	VISIBLE:NO	SA:Gambler		MULT:NO	SOURCEPAGE:p.55
+
+
+#################
+### Minotaur  ###
+#################
+
+###Block: Minotaur
+# Racial Talents
+# Feat Name			Type						Visible	Required Feat		Special Ability									Define									Multiple?	Source Page
+Approach the Line		TYPE:MinotaurRacialTalent		VISIBLE:NO					SA:Approach the Line																		MULT:NO	SOURCEPAGE:p.62
+Bellowing Challenge	TYPE:MinotaurRacialTalent		VISIBLE:NO					SA:Bellowing Challenge																		MULT:NO	SOURCEPAGE:p.62
+Draw the Line		TYPE:MinotaurRacialTalent		VISIBLE:NO					SA:Draw the Line																			MULT:NO	SOURCEPAGE:p.62
+Lawful Vengeance		TYPE:MinotaurRacialTalent		VISIBLE:NO					SA:Lawful Vengeance																		MULT:NO	SOURCEPAGE:p.62
+Slap the Line		TYPE:MinotaurRacialTalent		VISIBLE:NO	PREFEAT:1,Draw the Line	SA:Slap the Line																			MULT:NO	SOURCEPAGE:p.62
+Punish the Wicked		TYPE:MinotaurRacialTalent		VISIBLE:NO					SA:Punish the Wicked																		MULT:NO	SOURCEPAGE:p.62
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required Feat		Special Ability									Define									Multiple?	Source Page
+Eye of the Maze		TYPE:MinotaurRacialTransformation	VISIBLE:NO					SA:Eye of the Maze (% rounds/day, DC%)|EyeMazeDuration|EyeMazeDC	DEFINE:EyeMazeDuration|WIS	DEFINE:EyeMazeDC|10+TL/2+CHA	MULT:NO	SOURCEPAGE:p.62
+Guardian Will		TYPE:MinotaurRacialTransformation	VISIBLE:NO					SA:Guardian Will																			MULT:NO	SOURCEPAGE:p.62
+Mighty Spring		TYPE:MinotaurRacialTransformation	VISIBLE:NO					SA:Mighty Spring																			MULT:NO	SOURCEPAGE:p.62
+Word of Honor		TYPE:MinotaurRacialTransformation	VISIBLE:NO					SA:Word of Honor																			MULT:NO	SOURCEPAGE:p.62
+
+
+#################
+### Ogre      ###
+#################
+
+###Block: Ogre
+# Racial Talents
+# Feat Name		Type					Visible	Required AL		Required Feat				Required Size	Special Ability											Stackable?	Multiple?	Choose							Move		MOVECLONE			Bonus to skill						Class Skill		Source Page
+Endure		TYPE:OgreRacialTalent		VISIBLE:NO													SA:Endure (Ex)													MULT:NO																										SOURCEPAGE:p.65
+Giant's Arm		TYPE:OgreRacialTalent		VISIBLE:NO										PRESIZEEQ:L		SA:Giant's Arm (Ex)												MULT:NO																										SOURCEPAGE:p.65
+Giant's Hand	TYPE:OgreRacialTalent		VISIBLE:NO										PRESIZEEQ:L		SA:Giant's Hand (Ex)												MULT:NO																										SOURCEPAGE:p.65
+Ox Back		TYPE:OgreRacialTalent		VISIBLE:NO													SA:Ox Back (Ex)													MULT:NO																										SOURCEPAGE:p.65
+Servant's Manner	TYPE:OgreRacialTalent		VISIBLE:NO													SA:Servant's Manner (Ex)											MULT:NO																							CSKILL:Bluff|Hide	SOURCEPAGE:p.65
+Stony Face		TYPE:OgreRacialTalent		VISIBLE:NO													SA:Stony Face (Ex) (+2 talent bonus on saves vs. compulsion and fear effects)			MULT:NO															BONUS:SKILL|Bluff,Sense Motive|2|TYPE=Talent				SOURCEPAGE:p.65
+Unblinking Gaze	TYPE:OgreRacialTalent		VISIBLE:NO													SA:Unblinking Gaze (Ex)												MULT:NO																										SOURCEPAGE:p.65
+##TODO: Ox Back increase carrying capacity with 50%, possible???
+
+
+### Racial Transformations
+# Feat Name		Type					Visible	Required AL		Required Feat				Required Size	Special Ability											Stackable?	Multiple?	Choose							Move		MOVECLONE			Bonus to skill						Class Skill		Source Page
+Aquatic		TYPE:OgreRacialTransformation	VISIBLE:NO				PREFEAT:1,Swimmer							SA:Aquatic (Ex)													MULT:NO																										SOURCEPAGE:p.66
+Awakening Magic (Charm Person)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Charm Person								MULT:NO	SOURCEPAGE:p.66
+Awakening Magic (Darkness)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Darkness								MULT:NO	SOURCEPAGE:p.66
+Awakening Magic (Invisibility)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Invisibility								MULT:NO	SOURCEPAGE:p.66
+Awakening Magic (Sleep)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Sleep								MULT:NO	SOURCEPAGE:p.66
+Body to Mind	TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Body to Mind (Ex)												MULT:NO																										SOURCEPAGE:p.66
+Body to Will	TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Body to Will (Ex)												MULT:NO																										SOURCEPAGE:p.66
+Body to Spirit	TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Body to Spirit (Ex)												MULT:NO																										SOURCEPAGE:p.66
+Flight		TYPE:OgreRacialTransformation	VISIBLE:NO				PREFEAT:4,CHECKMULT,TYPE=AwakeningMagic				SA:Flight (Su)													MULT:NO									MOVE:Fly,40																SOURCEPAGE:p.66
+Swimmer		TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Swimmer (Ex)													MULT:NO											MOVECLONE:Walk,0,Swim,0												SOURCEPAGE:p.66
+Unbound Spirit	TYPE:OgreRacialTransformation	VISIBLE:NO	PREALIGN:CG,CN,CE										SA:Unbound Spirit (Ex) (immune to compulsion effects)							MULT:NO																										SOURCEPAGE:p.66
+#TODO: Awakening Magic.., Body to ...
+
+
+##############
+### Orc    ###
+##############
+
+###Block: Orc
+# Racial Talents
+# Feat Name		Type					Visible	Required Feat		Prohibited Feat			Required Lvl	Required Stat	Special Ability						Multiple?	Choose a Feat										Bonus to skill												Source Page
+Assess		TYPE:OrcRacialTalent		VISIBLE:NO																SA:Assess (Ex)						MULT:NO																											SOURCEPAGE:p.69
+Ready Grip		TYPE:OrcRacialTalent		VISIBLE:NO																SA:Ready Grip (Ex)					MULT:NO													BONUS:SKILL|Climb|STR|TYPE=Talent	BONUS:SKILL|Sleight of Hand|DEX|TYPE=Talent	SOURCEPAGE:p.69
+Sharp Eyes		TYPE:OrcRacialTalent		VISIBLE:NO																SA:Sharp Eyes (Ex)					MULT:NO																											SOURCEPAGE:p.69
+Sure Feet		TYPE:OrcRacialTalent		VISIBLE:NO										PRELEVEL:4					SA:Sure Feet (Ex)						MULT:NO																											SOURCEPAGE:p.69
+Trusting Ears 1	TYPE:OrcRacialTalent1		VISIBLE:NO																								MULT:NO	ADD:FEAT(Alertness,Blind Fight,Combat Reflexes,Lightning Reflexes)															SOURCEPAGE:p.69
+Trusting Ears 3	TYPE:OrcRacialTalent3		VISIBLE:NO					!PREFEAT:1,Trusting Ears 1															MULT:NO	ADD:FEAT(Alertness,Blind Fight,Combat Reflexes,Lightning Reflexes)															SOURCEPAGE:p.69
+Trusting Ears 5	TYPE:OrcRacialTalent5		VISIBLE:NO					!PREFEAT:1,Trusting Ears 3															MULT:NO	ADD:FEAT(Alertness,Blind Fight,Combat Reflexes,Lightning Reflexes)															SOURCEPAGE:p.69
+Trusting Ears 7	TYPE:OrcRacialTalent7		VISIBLE:NO					!PREFEAT:1,Trusting Ears 5															MULT:NO	ADD:FEAT(Alertness,Blind Fight,Combat Reflexes,Lightning Reflexes)															SOURCEPAGE:p.69
+Trusting Ears 9	TYPE:OrcRacialTalent9		VISIBLE:NO					!PREFEAT:1,Trusting Ears 7															MULT:NO	ADD:FEAT(Alertness,Blind Fight,Combat Reflexes,Lightning Reflexes)															SOURCEPAGE:p.69
+Awakened Mind	TYPE:OrcRacialTalent		VISIBLE:NO													PRESTAT:1,INT=13	SA:Awakened Mind (Ex)					MULT:NO																											SOURCEPAGE:p.69
+#TODO: Awakened Mind - Can't seem to find a way to add skillpoints outside classes...
+
+### Racial Transformations
+# Feat Name		Type					Visible	Required Feat		Prohibited Feat			Required Lvl	Required Stat	Special Ability						Multiple?	Choose a Feat										Bonus to skill												Source Page
+Wolf Run		TYPE:OrcRacialTransformation	VISIBLE:NO																SA:Wolf Run (Ex)						MULT:NO																											SOURCEPAGE:p.69
+Blood of Ice	TYPE:OrcRacialTransformation	VISIBLE:NO										PRELEVEL:6					SA:Blood of Ice (Ex) (resistance to cold 5)	MULT:NO																											SOURCEPAGE:p.69
+Cave Crawler	TYPE:OrcRacialTransformation	VISIBLE:NO										PRELEVEL:4					SA:Cave Crawler (Ex) (climb speed %)|MOVEBASE/2	MULT:NO													BONUS:SKILL|Climb|8|TYPE=Racial									SOURCEPAGE:p.69
+Fire's Friend	TYPE:OrcRacialTransformation	VISIBLE:NO					!PREFEAT:1,Frostborn					PRESTAT:1,CON=13	SA:Fire's Friend (Ex) (resistance to fire 5)	MULT:NO																											SOURCEPAGE:p.69
+Frostborn		TYPE:OrcRacialTransformation	VISIBLE:NO	PREFEAT:1,Blood of Ice	!PREFEAT:1,Fire's Friend	PRELEVEL:8					SA:Frostborn (Ex) (immunity to cold)		MULT:NO																											SOURCEPAGE:p.69
+Wait like Rock	TYPE:OrcRacialTransformation	VISIBLE:NO																SA:Wait like Rock (Ex) (%/month)|CON		MULT:NO																											SOURCEPAGE:p.69
+
+
+#####################
+### Forest Wight  ###
+#####################
+
+###Block: Forest Wight
+# Racial Talents
+# Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special Ability							Define				Spells								Stackable?	Multiple?	Choose a Feat																																	Caster level				Modify VAR					Source Page
+Forest Fade						TYPE:ForestWightRacialTalent			VISIBLE:NO									PRELEVEL:6		SA:Forest Fade (Ex)																						MULT:NO																																																SOURCEPAGE:p.72
+Hawk Swoop						TYPE:ForestWightRacialTalent			VISIBLE:NO												SA:Hawk Swoop (Ex)																						MULT:NO																																																SOURCEPAGE:p.72
+Shadow in Darkness				TYPE:ForestWightRacialTalent			VISIBLE:NO												SA:Shadow in Darkness (Ex)																					MULT:NO																																																SOURCEPAGE:p.73
+Shadow Mastery					TYPE:ForestWightRacialTalent			VISIBLE:NO												SA:Shadow Mastery (Ex)																						MULT:NO																																				BONUS:CASTERLEVEL|SCHOOL.Illusion|1							SOURCEPAGE:p.73
+Forest Wight Talent Feats 1			TYPE:ForestWightRacialTalent1			VISIBLE:NO																																					MULT:NO	ADD:FEAT(Exotic Weapon Proficiency,Improved Precise Shot,Point Blank Shot,Precise Shot,Self Sufficient,Stealthy,Track,Weapon Focus)																										SOURCEPAGE:p.73
+Forest Wight Talent Feats 3			TYPE:ForestWightRacialTalent3			VISIBLE:NO	!PREFEAT:1,Forest Wight Talent Feats 1																														MULT:NO	ADD:FEAT(Exotic Weapon Proficiency,Improved Precise Shot,Point Blank Shot,Precise Shot,Self Sufficient,Stealthy,Track,Weapon Focus)																										SOURCEPAGE:p.73
+Forest Wight Talent Feats 5			TYPE:ForestWightRacialTalent5			VISIBLE:NO	!PREFEAT:1,Forest Wight Talent Feats 3																														MULT:NO	ADD:FEAT(Exotic Weapon Proficiency,Improved Precise Shot,Point Blank Shot,Precise Shot,Self Sufficient,Stealthy,Track,Weapon Focus)																										SOURCEPAGE:p.73
+Forest Wight Talent Feats 7			TYPE:ForestWightRacialTalent7			VISIBLE:NO	!PREFEAT:1,Forest Wight Talent Feats 5																														MULT:NO	ADD:FEAT(Exotic Weapon Proficiency,Improved Precise Shot,Point Blank Shot,Precise Shot,Self Sufficient,Stealthy,Track,Weapon Focus)																										SOURCEPAGE:p.73
+Forest Wight Talent Feats 9			TYPE:ForestWightRacialTalent9			VISIBLE:NO	!PREFEAT:1,Forest Wight Talent Feats 7																														MULT:NO	ADD:FEAT(Exotic Weapon Proficiency,Improved Precise Shot,Point Blank Shot,Precise Shot,Self Sufficient,Stealthy,Track,Weapon Focus)																										SOURCEPAGE:p.73
+Forest Wight Talent Skills 1			TYPE:ForestWightRacialTalent1			VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)													SOURCEPAGE:p.73
+Forest Wight Talent Skills 3			TYPE:ForestWightRacialTalent3			VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)													SOURCEPAGE:p.73
+Forest Wight Talent Skills 5			TYPE:ForestWightRacialTalent5			VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)													SOURCEPAGE:p.73
+Forest Wight Talent Skills 7			TYPE:ForestWightRacialTalent7			VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)													SOURCEPAGE:p.73
+Forest Wight Talent Skills 9			TYPE:ForestWightRacialTalent9			VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)	ADD:FEAT(TYPE=ForestWightTalentSkill)													SOURCEPAGE:p.73
+
+### Racial Transformations
+# Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special Ability							Define				Spells								Stackable?	Multiple?	Choose a Feat																																	Caster level				Modify VAR					Source Page
+Blood of Shadows					TYPE:ForestWightRacialTransformation	VISIBLE:NO												SA:Blood of Shadows (Ex)																					MULT:NO																																																SOURCEPAGE:p.73
+Child of Darkness					TYPE:Special					VISIBLE:NO									PRELEVEL:6		SA:Child of Darkness (Sp) %/day|ChildDarknessTimes	DEFINE:ChildDarknessTimes|0	SPELLS:Innate|TIMES=ChildDarknessTimes|Invisibility			MULT:NO																																																SOURCEPAGE:p.73
+Child of Darkness 6				TYPE:ForestWightRacialTransformation6	VISIBLE:NO									PRELEVEL:6																											MULT:NO	ADD:FEAT(Child of Darkness)																																					BONUS:VAR|ChildDarknessTimes|1	SOURCEPAGE:p.73
+Child of Darkness 8				TYPE:ForestWightRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Child of Darkness 6			PRELEVEL:6																											MULT:NO	ADD:FEAT(Child of Darkness)																																					BONUS:VAR|ChildDarknessTimes|1	SOURCEPAGE:p.73
+Child of Darkness 10				TYPE:ForestWightRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Child of Darkness 8			PRELEVEL:6																											MULT:NO	ADD:FEAT(Child of Darkness)																																					BONUS:VAR|ChildDarknessTimes|1	SOURCEPAGE:p.73
+Faded Spirit					TYPE:ForestWightRacialTransformation	VISIBLE:NO									PRELEVEL:8		SA:Faded Spirit (Ex)																						MULT:NO																																																SOURCEPAGE:p.73
+Icy Breath						TYPE:ForestWightRacialTransformation	VISIBLE:NO									PRELEVEL:6		SA:Icy Breath (Su) (1/day)																					MULT:NO																																																SOURCEPAGE:p.73
+Trackless Step					TYPE:ForestWightRacialTransformation	VISIBLE:NO												SA:Trackless Step (Ex)																						MULT:NO																																																SOURCEPAGE:p.73
+Forest Wight Transformation Feats 4		TYPE:ForestWightRacialTransformation4	VISIBLE:NO																																					MULT:NO	ADD:FEAT(Acrobatic,Great Fortitude,Lightning Reflexes,Stealthy)																																					SOURCEPAGE:p.73
+Forest Wight Transformation Feats 6		TYPE:ForestWightRacialTransformation6	VISIBLE:NO	!PREFEAT:1,Forest Wight Transformation Feats 4																													MULT:NO	ADD:FEAT(Acrobatic,Great Fortitude,Lightning Reflexes,Stealthy)																																					SOURCEPAGE:p.73
+Forest Wight Transformation Feats 8		TYPE:ForestWightRacialTransformation8	VISIBLE:NO	!PREFEAT:1,Forest Wight Transformation Feats 6																													MULT:NO	ADD:FEAT(Acrobatic,Great Fortitude,Lightning Reflexes,Stealthy)																																					SOURCEPAGE:p.73
+Forest Wight Transformation Feats 10	TYPE:ForestWightRacialTransformation10	VISIBLE:NO	!PREFEAT:1,Forest Wight Transformation Feats 8																													MULT:NO	ADD:FEAT(Acrobatic,Great Fortitude,Lightning Reflexes,Stealthy)																																					SOURCEPAGE:p.73
+Forest Wight Transformation Skills 2	TYPE:ForestWightRacialTransformation2	VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)													SOURCEPAGE:p.73
+Forest Wight Transformation Skills 4	TYPE:ForestWightRacialTransformation4	VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)													SOURCEPAGE:p.73
+Forest Wight Transformation Skills 6	TYPE:ForestWightRacialTransformation6	VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)													SOURCEPAGE:p.73
+Forest Wight Transformation Skills 8	TYPE:ForestWightRacialTransformation8	VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)													SOURCEPAGE:p.73
+Forest Wight Transformation Skills 10	TYPE:ForestWightRacialTransformation10	VISIBLE:NO																																			STACK:NO	MULT:NO	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)	ADD:FEAT(TYPE=ForestWightTransfSkill)													SOURCEPAGE:p.73
+
+
+#####################
+### Doppelganger  ###
+#####################
+
+###Block: Doppelganger
+# Racial Talents
+# Feat Name			Type						Visible	Required Feat					Required Lvl	Special Ability					Multiple?	Source Page
+Mimic Age and Gender	TYPE:DoppelRacialTalent			VISIBLE:NO											SA:Mimic Age and Gender (Ex)			MULT:NO	SOURCEPAGE:p.77
+Mimic Mannerisms		TYPE:DoppelRacialTalent			VISIBLE:NO											SA:Mimic Mannerisms (Ex)			MULT:NO	SOURCEPAGE:p.78
+Mimic Voice			TYPE:DoppelRacialTalent			VISIBLE:NO											SA:Mimic Voice (Ex)				MULT:NO	SOURCEPAGE:p.78
+Rapid Sealing		TYPE:DoppelRacialTalent			VISIBLE:NO											SA:Rapid Sealing (Ex)				MULT:NO	SOURCEPAGE:p.78
+Emergency Stabilizing	TYPE:DoppelRacialTalent			VISIBLE:NO	PREFEAT:1,Rapid Sealing				PRELEVEL:6		SA:Emergency Stabilizing (Ex)			MULT:NO	SOURCEPAGE:p.78
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required Feat					Required Lvl	Special Ability					Multiple?	Source Page
+Crafting with Blood	TYPE:DoppelRacialTransformation	VISIBLE:NO	PREFEAT:1,Improvised Equipment					SA:Crafting with Blood (Su)			MULT:NO	SOURCEPAGE:p.78
+Shape of Dreams		TYPE:DoppelRacialTransformation	VISIBLE:NO	PREFEAT:1,Detect Thoughts						SA:Shape of Dreams (Su) (%/day)|CHA		MULT:NO	SOURCEPAGE:p.78
+Shape of Nightmare	TYPE:DoppelRacialTransformation	VISIBLE:NO	PREFEAT:1,Detect Thoughts						SA:Shape of Nightmare (Su) (%/day)|CHA	MULT:NO	SOURCEPAGE:p.78
+Steal Memories		TYPE:DoppelRacialTransformation	VISIBLE:NO	PREFEAT:2,Detect Thoughts,Change Shape				SA:Steal Memories (Su)				MULT:NO	SOURCEPAGE:p.78
+
+
+#################
+### Halfling  ###
+#################
+
+###Block: Halfling
+# Racial Talents
+# Feat Name			Type						Visible	Required Lvl	Required Stat	Special Ability				Multiple?	Bonus to skill						Modify VAR					Source Page
+Captivating Pattern	TYPE:HalflingRacialTalent		VISIBLE:NO	PRELEVEL:4					SA:Captivating Pattern (Ex)		MULT:NO															SOURCEPAGE:p.82
+Capture the Essence	TYPE:HalflingRacialTalent		VISIBLE:NO							SA:Capture the Essence (Ex)		MULT:NO															SOURCEPAGE:p.82
+Give a Smile		TYPE:HalflingRacialTalent		VISIBLE:NO							SA:Give a Smile (Ex)			MULT:NO															SOURCEPAGE:p.82
+The Heart of the Matter	TYPE:HalflingRacialTalent		VISIBLE:NO							SA:The Heart of the Matter (Ex)	MULT:NO															SOURCEPAGE:p.82
+Stream of Words		TYPE:HalflingRacialTalent		VISIBLE:NO							SA:Stream of Words (Ex)			MULT:NO															SOURCEPAGE:p.82
+Weave the Threads		TYPE:HalflingRacialTalent		VISIBLE:NO							SA:Weave the Threads (Ex)		MULT:NO	BONUS:SKILL|Knowledge (Local)|2|TYPE=Talent	BONUS:VAR|BardicKnowledgeLevel|2	SOURCEPAGE:p.82
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required Lvl	Required Stat	Special Ability				Multiple?	Bonus to skill						Modify VAR					Source Page
+Joyous Heart		TYPE:HalflingRacialTransformation	VISIBLE:NO							SA:Joyous Heart (Ex)			MULT:NO															SOURCEPAGE:p.82
+Tough as Tree Roots	TYPE:HalflingRacialTransformation	VISIBLE:NO							SA:Tough as Tree Roots (Ex)		MULT:NO															SOURCEPAGE:p.82
+Unseen Strength		TYPE:HalflingRacialTransformation	VISIBLE:NO				PRESTAT:1,STR=13	SA:Unseen Strength (Ex)			MULT:NO															SOURCEPAGE:p.82
+#is there any way to affect carrying capacity???
+
+
+###################
+### Lizardfolk  ###
+###################
+
+###Block: Lizardfolk
+# Racial Talents
+# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Bonus to skill							Weapon prof. bonus			Source Page
+Fire from Stones		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Fire from Stones (Sp)			SPELLS:Innate|TIMES=max(1,TL/2)|CASTERLEVEL=TL/2|Produce Fire	MULT:NO																SOURCEPAGE:p.85
+#number of spells per day....
+Light in Shadow		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Light in Shadow (Ex)															MULT:NO																SOURCEPAGE:p.85
+Retrieve Spear		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Retrieve Spear (Su)															MULT:NO																SOURCEPAGE:p.85
+River Racer			TYPE:LizardRacialTalent			VISIBLE:NO							SA:River Racer (Ex)				BONUS:MOVEADD|TYPE.Swim|10|PREVARLT:ENCUMBERANCE,1				MULT:NO																SOURCEPAGE:p.85
+Speak through Silence	TYPE:LizardRacialTalent			VISIBLE:NO							SA:Speak through Silence (Ex)														MULT:NO																SOURCEPAGE:p.85
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Bonus to skill							Weapon prof. bonus			Source Page
+Ancestor's Claws		TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery I	SA:Ancestor's Claws (1d6)														MULT:NO	BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	SOURCEPAGE:p.86
+Pounce			TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery II	SA:Pounce (Ex)																MULT:NO																SOURCEPAGE:p.86
+Rend				TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Ancestor's Claws		SA:Rend (Ex)																MULT:NO																SOURCEPAGE:p.86
+Thunder Shout		TYPE:LizardRacialTransformation	VISIBLE:NO							SA:Thunder Shout (Ex) (%/day)|1+TL/5												MULT:NO																SOURCEPAGE:p.86
+
+
+#################
+### Tiefling  ###
+#################
+
+###Block: Tiefling
+# Racial Talents
+# Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special Ability			Define					Spells											Multiple?	Move		Choose a Feat																Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
+Covert Casting 5		TYPE:TieflingRacialTalent5		VISIBLE:NO																																														MULT:NO			ADD:FEAT(Eschew Materials,Silent Spell,Still Spell,Quicken Spell)																																						SOURCEPAGE:p.92
+Covert Casting 7		TYPE:TieflingRacialTalent7		VISIBLE:NO						!PREFEAT:1,Covert Casting 5																																				MULT:NO			ADD:FEAT(Eschew Materials,Silent Spell,Still Spell,Quicken Spell)																																						SOURCEPAGE:p.92
+Covert Casting 9		TYPE:TieflingRacialTalent9		VISIBLE:NO						!PREFEAT:1,Covert Casting 7																																				MULT:NO			ADD:FEAT(Eschew Materials,Silent Spell,Still Spell,Quicken Spell)																																						SOURCEPAGE:p.92
+Poisoner			TYPE:TieflingRacialTalent		VISIBLE:NO																							SA:Poisoner (Ex)																					MULT:NO																																																			SOURCEPAGE:p.92
+Generalist			TYPE:TieflingRacialTalent		VISIBLE:NO																							SA:Generalist (Ex)																				MULT:NO																																																			SOURCEPAGE:p.93
+#TODO: Generalist - Can't seem to find a way to add skillpoints outside classes...test
+Linguist			TYPE:TieflingRacialTalent		VISIBLE:NO																							SA:Linguist (Ex)																					MULT:NO																																																			SOURCEPAGE:p.93
+Local Specialist		TYPE:TieflingRacialTalent		VISIBLE:NO																							SA:Local Specialist (Ex)																			MULT:NO																																																			SOURCEPAGE:p.93
+Prophetic Instinct	TYPE:Special				VISIBLE:NO																							SA:Prophetic Instinct (Ex)																			MULT:NO																																																			SOURCEPAGE:p.93
+Prophetic Instinct 1	TYPE:TieflingRacialTalent1		VISIBLE:NO																												DEFINE:PropheticInstinctTimes|0	SPELLS:Innate|TIMES=PropheticInstinctTimes|Augury|Guidance|True Strike	MULT:NO																																													BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
+Prophetic Instinct 3	TYPE:TieflingRacialTalent3		VISIBLE:NO						!PREFEAT:1,Prophetic Instinct 1																																			MULT:NO																																													BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
+Prophetic Instinct 5	TYPE:TieflingRacialTalent5		VISIBLE:NO						!PREFEAT:1,Prophetic Instinct 3																																			MULT:NO																																													BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
+Prophetic Instinct 7	TYPE:TieflingRacialTalent7		VISIBLE:NO						!PREFEAT:1,Prophetic Instinct 5																																			MULT:NO																																													BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
+Prophetic Instinct 9	TYPE:TieflingRacialTalent9		VISIBLE:NO						!PREFEAT:1,Prophetic Instinct 7																																			MULT:NO																																													BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
+Combat Maneuvers 1	TYPE:TieflingRacialTalent1		VISIBLE:NO																																														MULT:NO			ADD:FEAT(Improved Disarm,Improved Feint,Improved Grapple,Improved Sunder,Improved Trip)																																		SOURCEPAGE:p.93
+Combat Maneuvers 3	TYPE:TieflingRacialTalent3		VISIBLE:NO						!PREFEAT:1,Combat Maneuvers 1																																				MULT:NO			ADD:FEAT(Improved Disarm,Improved Feint,Improved Grapple,Improved Sunder,Improved Trip)																																		SOURCEPAGE:p.93
+Combat Maneuvers 5	TYPE:TieflingRacialTalent5		VISIBLE:NO						!PREFEAT:1,Combat Maneuvers 3																																				MULT:NO			ADD:FEAT(Improved Disarm,Improved Feint,Improved Grapple,Improved Sunder,Improved Trip)																																		SOURCEPAGE:p.93
+Combat Maneuvers 7	TYPE:TieflingRacialTalent7		VISIBLE:NO						!PREFEAT:1,Combat Maneuvers 5																																				MULT:NO			ADD:FEAT(Improved Disarm,Improved Feint,Improved Grapple,Improved Sunder,Improved Trip)																																		SOURCEPAGE:p.93
+Combat Maneuvers 9	TYPE:TieflingRacialTalent9		VISIBLE:NO						!PREFEAT:1,Combat Maneuvers 7																																				MULT:NO			ADD:FEAT(Improved Disarm,Improved Feint,Improved Grapple,Improved Sunder,Improved Trip)																																		SOURCEPAGE:p.93
+Fiendish Frenzy		TYPE:TieflingRacialTalent		VISIBLE:NO												PRELEVEL:6										SA:Fiendish Frenzy (Ex)																				MULT:NO			ADD:FEAT(Rage)																																								BONUS:VAR|RageTimes|1			SOURCEPAGE:p.93
+Martial Training 1	TYPE:TieflingRacialTalent1		VISIBLE:NO																																														MULT:NO			ADD:FEAT(Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Shield Proficiency)																															SOURCEPAGE:p.94
+Martial Training 3	TYPE:TieflingRacialTalent3		VISIBLE:NO						!PREFEAT:1,Martial Training 1																																				MULT:NO			ADD:FEAT(Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Shield Proficiency)																															SOURCEPAGE:p.94
+Martial Training 5	TYPE:TieflingRacialTalent5		VISIBLE:NO						!PREFEAT:1,Martial Training 3																																				MULT:NO			ADD:FEAT(Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Shield Proficiency)																															SOURCEPAGE:p.94
+Martial Training 7	TYPE:TieflingRacialTalent7		VISIBLE:NO						!PREFEAT:1,Martial Training 5																																				MULT:NO			ADD:FEAT(Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Shield Proficiency)																															SOURCEPAGE:p.94
+Martial Training 9	TYPE:TieflingRacialTalent9		VISIBLE:NO						!PREFEAT:1,Martial Training 7																																				MULT:NO			ADD:FEAT(Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Shield Proficiency)																															SOURCEPAGE:p.94
+Trip and Stab		TYPE:TieflingRacialTalent		VISIBLE:NO	PREFEAT:1,Whip Fighting											PRESTAT:1,DEX=13						SA:Trip and Stab (Ex)																				MULT:NO																																																			SOURCEPAGE:p.94
+Whip Fighting		TYPE:TieflingRacialTalent		VISIBLE:NO	PREFEAT:1,Weapon Focus(Whip)										PRESTAT:1,DEX=13						SA:Whip Fighting (Ex)																				MULT:NO																																																			SOURCEPAGE:p.94
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required Feat			Prohibited Feat				Required Lvl	Required Stat	Required Template			Special Ability			Define					Spells											Multiple?	Move		Choose a Feat																Combat bonus			Bonus to skill													Bonus to nb of slots	Modify VAR					Source Page
+Claws				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SA:Claws (1d3)																					MULT:NO																										BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial																	SOURCEPAGE:p.94
+#TODO: Claws as weapons plus multiple time...
+Fiendish Form		TYPE:TieflingRacialTransformation	VISIBLE:NO																		PRETEMPLATE:Tiefling Outsider	SA:Fiendish Form (Ex)																				MULT:NO																					BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial											SOURCEPAGE:p.94
+Inured to Good		TYPE:TieflingRacialTransformation	VISIBLE:NO																							SA:Inured to Good (Ex)																				MULT:NO																																																			SOURCEPAGE:p.94
+Tail				TYPE:TieflingRacialTransformation	VISIBLE:NO																							SA:Tail																						MULT:NO																										BONUS:SKILL|Balance|2|TYPE=Transformation									BONUS:SLOTS|RING|1							SOURCEPAGE:p.94
+#TODO: Tail as weapon plus multiple time...
+Wings				TYPE:TieflingRacialTransformation	VISIBLE:NO	PREFEAT:1,Fiendish Form														PRETEMPLATE:Tiefling Outsider	SA:Wings																						MULT:NO	MOVE:Fly,30																																																	SOURCEPAGE:p.94
+
+
+#######################
+### Human, Trueborn ###
+#######################
+
+###Block:Trueborn
+# Racial Talents
+# Feat Name			Type						Visible	Req. Att.	Required Feat		Special Ability			Spells				Multiple?	Choose a Feat								Bonus to skill				Source Page
+Hard Worker			TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Hard Worker								MULT:NO	ADD:FEAT(Athletic,Endurance,Great Fortitude,Toughness)							SOURCEPAGE:p.106
+Bowman			TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Bowman (Ex)								MULT:NO																	SOURCEPAGE:p.106
+Fleet Footed		TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Fleet-Footed (Ex)							MULT:NO											BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106
+Strong Faith		TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Strong Faith (Ex)							MULT:NO																	SOURCEPAGE:p.106
+Silver Tongued		TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Silver-Tongued (Ex)							MULT:NO											BONUS:SKILL|Bluff|2|TYPE=Talent	SOURCEPAGE:p.106
+Horse Trainer		TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Horse Trainer (Ex)							MULT:NO																	SOURCEPAGE:p.107
+Horse Talker		TYPE:HTrueRacialTalent			VISIBLE:NO			PREFEAT:1,Horse Trainer	SA:Horse Talker (Su)							MULT:NO																	SOURCEPAGE:p.107
+Ironclad			TYPE:HTrueRacialTalent			VISIBLE:NO							SA:Ironclad (Ex)								MULT:NO																	SOURCEPAGE:p.107
+
+### Racial Transformations
+# Feat Name			Type						Visible	Req. Att.	Required Feat		Special Ability			Spells				Multiple?	Choose a Feat								Bonus to skill				Source Page
+Defending Soldier		TYPE:HTrueRacialTransformation	VISIBLE:NO			PREFEAT:1,Dodge		SA:Defending Soldier (Ex)						MULT:NO																	SOURCEPAGE:p.107
+Strength of Conquest	TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Strength of Conquest (Su)						MULT:NO																	SOURCEPAGE:p.107
+Holy Light			TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Holy Light (Sp)		SPELLS:Innate|TIMES=-1|Light	MULT:NO																	SOURCEPAGE:p.107
+Divine Health		TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Divine Health (Ex)							MULT:NO																	SOURCEPAGE:p.107
+Divine Heritage		TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Divine Heritage (Ex)							MULT:NO																	SOURCEPAGE:p.107
+Followthrough		TYPE:HTrueRacialTransformation	VISIBLE:NO	PREATT:6					SA:Followthrough (Ex)							MULT:NO																	SOURCEPAGE:p.107
+Staunch			TYPE:HTrueRacialTransformation	VISIBLE:NO							SA:Staunch (Ex)								MULT:NO																	SOURCEPAGE:p.107
+#TODO: Staunch bonus...
+
+
+#################
+### Thinblood ###
+#################
+
+###Block: Thinblood
+# Racial Talents
+# Feat Name			Type						Visible	Required Feat				Prohibited Feat							Special Ability			Spells					Stackable?	Multiple?	Choose			Save checks bonus					Source Page
+Friendly Advice		TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Rapport													SA:Friendly Advice (Ex)		SPELLS:Innate|TIMES=1|Suggestion	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
+Mesmerizing Motions	TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Soothing Words											SA:Mesmerizing Motions (Ex)	SPELLS:Innate|TIMES=1|Hypnotism	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
+Rapport			TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Mesmerizing Motions											SA:Rapport (Ex)			SPELLS:Innate|TIMES=1|Charm Person	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
+Soothing Words		TYPE:ThinbloodRacialTalent		VISIBLE:NO																SA:Soothing Words (Ex)										MULT:NO												SOURCEPAGE:p.115
+
+Silent Slither		TYPE:ThinbloodRacialTalent		VISIBLE:NO																SA:Silent Slither (Ex)										MULT:NO												SOURCEPAGE:p.115
+Unseen Stillness		TYPE:ThinbloodRacialTalent		VISIBLE:NO	PREFEAT:1,Silent Slither											SA:Unseen Stillness (Ex)									MULT:NO												SOURCEPAGE:p.115
+Wall Walking		TYPE:ThinbloodRacialTalent		VISIBLE:NO																SA:Wall Walking (Sp)		SPELLS:Innate|TIMES=1|Spider Climb	STACK:YES	MULT:YES	CHOOSE:+1 time per day								SOURCEPAGE:p.115
+
+### Racial Transformations
+# Feat Name			Type						Visible	Required Feat				Prohibited Feat							Special Ability			Spells					Stackable?	Multiple?	Choose			Save checks bonus					Source Page
+Embracing the Taint	TYPE:ThinbloodRacialTransformation	VISIBLE:NO																SA:Embracing the Taint										MULT:NO												SOURCEPAGE:p.115
+Becoming the Taint	TYPE:ThinbloodRacialTransformation	VISIBLE:NO							!PREFEAT:1,Bite Attack,Natural Armor,Balancing Tail	SA:Becoming the Taint (Ex)									MULT:NO												SOURCEPAGE:p.116
+Improved Grab		TYPE:ThinbloodRacialTransformation	VISIBLE:NO	PREFEAT:1,Bite Attack,Lashing Tail										SA:Improved Grab (Ex)										MULT:NO												SOURCEPAGE:p.116
+Balancing Tail		TYPE:ThinbloodRacialTransformation	VISIBLE:NO																SA:Balancing Tail (Ex)										MULT:NO					BONUS:CHECKS|Reflex|1|TYPE=Transformation	SOURCEPAGE:p.116
+Lashing Tail		TYPE:ThinbloodRacialTransformation	VISIBLE:NO	PREFEAT:1,Balancing Tail											SA:Lashing Tail (Ex)										MULT:NO												SOURCEPAGE:p.116
+Constricting Tail		TYPE:ThinbloodRacialTransformation	VISIBLE:NO	PREFEAT:1,Lashing Tail												SA:Constricting Tail (Ex)									MULT:NO												SOURCEPAGE:p.116

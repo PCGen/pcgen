@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 12 21:48:08 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Blood and Space - High Flyers and Ground Pounders|SOURCESHORT:BnS-HFnGP|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
+
+# Feat Name					Type
+Advanced Firearms Proficiency.MOD	TYPE:StarshipGunner
+Armor Proficiency (Heavy).MOD		TYPE:StarshipMarine
+Armor Proficiency (Light).MOD		TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
+Armor Proficiency (Medium).MOD	TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
+Armor Proficiency (Powered).MOD	TYPE:StarshipMarine
+Burst Fire.MOD				TYPE:StarshipGunner.StarshipMarine
+Builder.MOD					TYPE:OperationsExpert
+Cover Fire.MOD				TYPE:StarshipMarine
+Dead Aim.MOD				TYPE:StarshipGunner.StarshipNavigator
+Dodge.MOD					TYPE:StarshipMarine
+Double Tap.MOD				TYPE:StarshipGunner
+Educated.MOD				TYPE:OperationsExpert
+Far Shot.MOD				TYPE:StarshipNavigator
+Gearhead.MOD				TYPE:OperationsExpert.StarshipNavigator
+Mastercrafter.MOD				TYPE:OperationsExpert
+Mobility.MOD				TYPE:StarshipMarine
+Personal Firearms Proficiency.MOD	TYPE:OperationsExpert.StarshipGunner.StarshipNavigator
+Point Blank Shot.MOD			TYPE:StarshipGunner
+Precise Shot.MOD				TYPE:StarshipGunner
+Quick Draw.MOD				TYPE:StarshipGunner
+Spring Attack.MOD				TYPE:StarshipMarine
+Starship Gunnery.MOD			TYPE:StarshipNavigator
+Starship Operation.MOD			TYPE:StarshipNavigator
+Zero G Training.MOD			TYPE:OperationsExpert

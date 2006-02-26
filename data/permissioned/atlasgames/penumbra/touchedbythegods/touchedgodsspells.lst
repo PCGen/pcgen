@@ -1,0 +1,51 @@
+# CVS $Revision: 1.5 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods|SOURCESHORT:TouchbtG|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+#Could not find the Time domain in the book or index.
+#Commenting out the 2 Totem spells since they are exclusive to a class that has not been coded yet.
+
+# Spell Name			School			Sub-School			Type				Classes of caster			Domains granting the spell	Components		Casting Time	Range			Target Area		Duration								Save Info					Spell Resistance		Description											Source Page		Item
+#Detect Temporal Disturbance	SCHOOL:Universal		SUBSCHOOL:Time		TYPE:Arcane.Divine	CLASSES:Cleric,Wizard=0							COMPS:V S		CASTTIME:1 action	RANGE:60 feet	DESC:See text	DURATION:Concentration, up to 1/minute/level (D)	SAVEINFO:None				SPELLRES:No			TARGETAREA:Quarter circle emanating from caster to the extreme of the range.	SOURCEPAGE:p.
+#Dispel Temporal Effect		SCHOOL:Abjuration		SUBSCHOOL:Time		TYPE:Arcane.Divine	CLASSES:Cleric,Wizard=2							COMPS:V S		CASTTIME:1 action	RANGE:Medium	DESC:See text	DURATION:Instantaneous						SAVEINFO:None				SPELLRES:No			TARGETAREA:One temporal effect								SOURCEPAGE:p.
+#Scry the Ages			SCHOOL:Divination		SUBSCHOOL:Time		TYPE:Arcane.Divine	CLASSES:Wizard=5|Cleric=6	DOMAINS:Time-p=4			COMPS:V S M DF F	CASTTIME:1 hour	RANGE:Special	DESC:See text	DURATION:1 minute/level						SAVEINFO:None				SPELLRES:No			TARGETAREA:Scry through time									SOURCEPAGE:p.
+#Hastening of Age			SCHOOL:Necromancy		SUBSCHOOL:Time		TYPE:Arcane.Divine	CLASSES:Cleric,Wizard=7		DOMAINS:Time-p=5			COMPS:V S		CASTTIME:1 action	RANGE:Close		DESC:See text	DURATION:Instantaneous						SAVEINFO:Fortitude negates		SPELLRES:Yes		TARGETAREA:Ages target rapidly								SOURCEPAGE:p.
+#Wellspring of Youth		SCHOOL:Conjuration	SUBSCHOOL:Healing|Time	TYPE:Divine			CLASSES:Cleric=8			DOMAINS:Time-p=7			COMPS:V S M XP	CASTTIME:1 action	RANGE:Touch		DESC:See text	DURATION:Instantaneous						SAVEINFO:Will negates(harmless)	SPELLRES:Yes(harmless)	TARGETAREA:Creature touched									SOURCEPAGE:p.	ITEM:Potion
+# Spell Name	Classes of caster	Domains granting the spell	School		Type		Components		Casting Time	Range		Target Area										Duration			Save Info			Spell Resistance	Description		Source Page		Item
+Interment		CLASSES:Cleric=6	DOMAINS:Endings=6			SCHOOL:Abjuration	TYPE:Divine	COMPS:V S DF	CASTTIME:1 action	RANGE:Close	TARGETAREA:One or more Undead within 30 foot diameter sphere	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.58
+True Passage				DOMAINS:Endings=9			SCHOOL:Necromancy	TYPE:Divine	COMPS:V S M		CASTTIME:1 round	RANGE:Touch	TARGETAREA:Creature touched							DURATION:Permanent	SAVEINFO:Will negates	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.58	ITEM:Potion
+#Claim Thrall			SCHOOL:Enchantment					TYPE:Divine			CLASSES:Totem=1								COMPS:V		CASTTIME:1 action	RANGE:Close		DESC:See text	DURATION:Instantaneous						SAVEINFO:Will negates			SPELLRES:Yes		TARGETAREA:One humanoid										SOURCEPAGE:p.67
+#Shape of the Spirit		SCHOOL:Transmutation					TYPE:Divine			CLASSES:Totem=2								COMPS:None		CASTTIME:1 action	RANGE:Personal	DESC:See text	DURATION:1 hour							SAVEINFO:None				SPELLRES:No			TARGETAREA:You											SOURCEPAGE:p.67
+
+###Block: SPELL.MOD generated from the old CLASSSPELL files
+# Spell Name			Domains granting the spell	Type
+Consecrate.MOD			DOMAINS:Endings=2
+Death Ward.MOD			DOMAINS:Endings=4
+Detect Undead.MOD			DOMAINS:Endings=1
+Hallow.MOD				DOMAINS:Endings=5
+Halt Undead.MOD			DOMAINS:Endings=3
+#Haste.MOD				DOMAINS:Time-p=2
+Holy Aura.MOD			DOMAINS:Endings=8
+Holy Word.MOD			DOMAINS:Endings=7
+#Mass Haste.MOD			DOMAINS:Time-p=6
+#Slow.MOD				DOMAINS:Time-p=3
+#Temporal Stasis.MOD		DOMAINS:Time-p=9
+#Time Stop.MOD			DOMAINS:Time-p=8
+#True Strike.MOD			DOMAINS:Time-p=1
+Inflict Light Wounds.MOD	DOMAINS:Rage=1
+Bull's Strength.MOD		DOMAINS:Rage=2
+Haste.MOD				DOMAINS:Rage=3			TYPE:Arcane.Divine
+Emotion.MOD				DOMAINS:Rage=4			TYPE:Arcane.Divine
+Righteous Might.MOD		DOMAINS:Rage=5
+Mass Haste.MOD			DOMAINS:Rage=6			TYPE:Arcane.Divine
+Transformation.MOD		DOMAINS:Rage=7			TYPE:Arcane.Divine
+Iron Body.MOD			DOMAINS:Rage=8
+Miracle.MOD				DOMAINS:Rage=9
+Sanctuary.MOD			DOMAINS:Nobility-p=1
+Resist Elements.MOD		DOMAINS:Nobility-p=2
+Prayer.MOD				DOMAINS:Nobility-p=3
+Discern Lies.MOD			DOMAINS:Nobility-p=4
+Mark of Justice.MOD		DOMAINS:Nobility-p=5
+Globe of Invulnerability.MOD	DOMAINS:Nobility-p=6		TYPE:Arcane.Divine
+Teleport without Error.MOD	DOMAINS:Nobility-p=7
+Discern Location.MOD		DOMAINS:Nobility-p=8
+Limited Wish.MOD			DOMAINS:Nobility-p=9		TYPE:Arcane.Divine

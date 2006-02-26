@@ -1,0 +1,7 @@
+# CVS $Revision: 1.3 $ $Author: mhgj $ -- Thu Jun 16 22:06:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: Arknight
+
+# Modifier Name	Unique Key		Type		Cost		Visible		Type granted		Choose Naming Option	Source Page				Required Type	BONUS:EQMWEAPON
+Psionic Blade	KEY:PSIBLADE	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Energy.Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:PsionicClasses.rtf	PRETYPE:MindBlade
+Thrown Psiblade	KEY:T_PSIBLADE	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Ranged.Thrown	NAMEOPT:NORMAL		SOURCEPAGE:PsionicClasses.rtf	PRETYPE:MindBlade	BONUS:EQMWEAPON|RANGEADD|30

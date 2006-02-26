@@ -1,0 +1,38 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Thu Aug 12 22:17:32 2004 -- reformated by prettylst.pl v1.33 (build 411)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Hurled Weapon Amunition		Output Name					Type							Cost		Weight	Base Quantity	Source Page
+
+# Equipment Name			Type					Cost		Weight	Source Page		Special Property
+Arrow					TYPE:Gear.Standard.Ammunition	COST:.02	WT:0		SOURCEPAGE:p.112
+Bolt					TYPE:Gear.Standard.Ammunition	COST:.02	WT:0		SOURCEPAGE:p.112
+
+# Pistol
+
+Military Ball			TYPE:Gear.Standard.Ammunition	COST:.02	WT:0		SOURCEPAGE:p.112
+Jacketed Hollow Point (JHP)	TYPE:Gear.Standard.Ammunition	COST:.02	WT:0		SOURCEPAGE:p.112	SPROP:+1 damage per hit, double target's damage reduction
+Safty Slugs (SS)			TYPE:Gear.Standard.Ammunition	COST:.05	WT:0		SOURCEPAGE:p.112	SPROP:-1 to each damage die (min 1), double target's damage reduction
+Teflon Tipped (TEF)		TYPE:Gear.Standard.Ammunition	COST:.05	WT:0		SOURCEPAGE:p.112	SPROP:Reduce damage reduction by 1 (min 1)
+
+# Rifle
+
+Full Metal Jacket (FMJ)		TYPE:Gear.Standard.Ammunition	COST:.05	WT:0		SOURCEPAGE:p.112
+Armor Piercing (AP)		TYPE:Gear.Standard.Ammunition	COST:.15	WT:0		SOURCEPAGE:p.112	SPROP:Reduce damage reduction by 2 (min 0)
+Soft Point (SP)			TYPE:Gear.Standard.Ammunition	COST:.2	WT:0		SOURCEPAGE:p.112	SPROP:+1 damage per hit to unarmored targets
+Tracer (T)				TYPE:Gear.Standard.Ammunition	COST:.1	WT:0		SOURCEPAGE:p.112	SPROP:+2 to attack roll
+
+# Shotgun
+
+Slug					TYPE:Gear.Standard.Ammunition	COST:.05	WT:0		SOURCEPAGE:p.112
+Beanbag				TYPE:Gear.Standard.Ammunition	COST:.05	WT:0		SOURCEPAGE:p.112	SPROP:Damage is subdual
+Flechette				TYPE:Gear.Standard.Ammunition	COST:.15	WT:0		SOURCEPAGE:p.112	SPROP:Attacks adjacent targets
+Gas					TYPE:Gear.Standard.Ammunition	COST:.1	WT:0		SOURCEPAGE:p.112
+Shot Shell				TYPE:Gear.Standard.Ammunition	COST:.1	WT:0		SOURCEPAGE:p.112	SPROP:Attacks adjacent targets
+
+#
+# End
+#

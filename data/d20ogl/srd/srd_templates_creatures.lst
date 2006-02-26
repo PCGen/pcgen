@@ -1,0 +1,64 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# Specific Templates used in monster races
+#
+###Block: Dragons
+# Template Name	Visible	Source Page					Removable?		Hit Dice
+Dragon(Black)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:16-21:DR:5/+1	HD:23-27:DR:10/+1	HD:28-33:DR:15/+2	HD:34+:DR:20/+3
+Dragon(Blue)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:18-23:DR:5/+1	HD:24-29:DR:10/+1	HD:30-35:DR:15/+2	HD:36+:DR:20/+3
+Dragon(Green)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:17-22:DR:5/+1	HD:23-28:DR:10/+1	HD:29-34:DR:15/+2	HD:35+:DR:20/+2
+Dragon(Red)		VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:19-24:DR:5/+1	HD:25-30:DR:10/+1	HD:31-36:DR:15/+2	HD:37+:DR:20/+3
+Dragon(White)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:15-20:DR:5/+1	HD:21-26:DR:10/+1	HD:27-32:DR:15/+2	HD:33+:DR:20/+3
+Dragon(Brass)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:16-21:DR:5/+1	HD:22-27:DR:10/+1	HD:28-33:DR:15/+2	HD:34+:DR:20/+3
+Dragon(Bronze)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:18-23:DR:5/+1	HD:24-29:DR:10/+1	HD:30-35:DR:15/+2	HD:36+:DR:20/+3
+Dragon(Copper)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:17-22:DR:5/+1	HD:23-28:DR:10/+1	HD:29-34:DR:15/+2	HD:35+:DR:20/+2
+Dragon(Gold)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:20-25:DR:5/+1	HD:26-31:DR:10/+1	HD:32-37:DR:15/+2	HD:38+:DR:20/+3
+Dragon(Silver)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES	HD:19-24:DR:5/+1	HD:25-30:DR:10/+1	HD:31-36:DR:15/+2	HD:37+:DR:20/+3
+#
+###Block: Animated Objects
+# Template Name	Visible		Source Page				Special Ability				Required Race			Prohibited Template							MOVEA			MOVECLONE				Removable?
+Float			VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Float		PRERACE:Animated Object%														MOVECLONE:Walk,0,Swim,/2	REMOVABLE:YES
+Multiple Legs	VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Multiple Legs	PRERACE:Animated Object%	!PRETEMPLATE:Two Legs|Wheeled|Sheet-like				MOVEA:Walk,20						REMOVABLE:YES
+Sheet-like		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Sheet-like	PRERACE:Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Multiple Legs|Sinuous					MOVECLONE:Walk,0,Fly,/2		REMOVABLE:YES
+Sinuous		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Sinuous		PRERACE:Animated Object%	!PRETEMPLATE:Wheeled|Two Legs|Sheet-like							MOVECLONE:Walk,0,Climb,/2	REMOVABLE:YES
+Two Legs		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Two Legs	PRERACE:Animated Object%	!PRETEMPLATE:Multiple Legs|Wheeled|Sinuous|Sheet-like		MOVEA:Walk,10						REMOVABLE:YES
+Wheeled		VISIBLE:DISPLAY	SOURCEPAGE:srdmonstersa.rtf	SA:Improved Speed(Ex) Wheeled		PRERACE:Animated Object%	!PRETEMPLATE:Two Legs|Multiple Legs|Sinuous|Sheet-like	MOVEA:Walk,40						REMOVABLE:YES
+#
+###Block: Demon/Devil
+# Template Name	Visible	Source Page				Special Ability																Required AL	Removable?		SUBRACE
+Demon			VISIBLE:NO	SOURCEPAGE:srdmonstersd.rtf	SA:Poison/Electricity Immunity(Ex)	SA:Cold/Fire/Acid Resistance 20(Ex)	SA:Telepathy(Su)				PREALIGN:CE	REMOVABLE:YES	SUBRACE:Yes
+Devil			VISIBLE:NO	SOURCEPAGE:srdmonstersd.rtf	SA:Fire/Poison Immunity(Ex)	SA:Cold/Acid Resistance 20(Ex)	SA:See in Darkness(Su)	SA:Telepathy(Su)	PREALIGN:LE	REMOVABLE:YES	SUBRACE:Yes
+#
+###Block: Nightshade
+# Template Name	Visible	Damage Reduction	Source Page				Special Ability																																									Removable?		Type
+Nightshade		VISIBLE:NO	DR:25/+3		SOURCEPAGE:srdmonstersnop.rtf	SA:Chill Aura(Su)	SA:Spell-like Abilities(Sp)	SA:Summon Undead(Su)	SA:Aversion to daylight(Ex)	SA:Cold Immunity(Ex)	SA:Acid/Fire/Electricity Resitstance 50	SA:Spell Immunity(Su)	SA:Detect Magic(Su)	SA:See Invisibility(Su)	SA:Telepathy(Su)	REMOVABLE:YES	TYPE:Undead
+#
+###Block: Monstrous Spiders
+# Template Name	Visible	Source Page					Special Ability																						Define																	Bonus to skill																Modify VAR																																																																																																																						MOVEA			Removable?		SUBRACE
+Hunting		VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf																																											BONUS:SKILL|Hide|4|TYPE=Racial	BONUS:SKILL|Jump|6|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																								MOVEA:Walk,10	REMOVABLE:YES	SUBRACE:Yes
+Web Spinning	VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf	SA:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|14	DEFINE:MonstrousSpiderWebBreakDC|20	DEFINE:MonstrousSpiderWebHp|0	BONUS:SKILL|Hide,Spot|4|TYPE=Racial													BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|18|PRESIZEEQ:C				REMOVABLE:YES	SUBRACE:Yes
+#
+###Block: Hydra Variants
+# Template Name		CR	Visible	Source Page				Special Ability																																										Prohibited Template				Removable?		SUBRACE
+Pyrohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SA:Fire Subtype(Ex)	SA:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet																													!PRETEMPLATE:Cyrohydra|Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
+Cryohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SA:Cold Subtype(Ex)	SA:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet																													!PRETEMPLATE:Pyrohydra|Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
+Lernaean			CR:2	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SA:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SA:must sever all heads to kill	SA:2 heads replace severed head in 1d4 rounds																								REMOVABLE:YES	SUBRACE:Yes
+Lernaean Pyrohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SA:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SA:must sever all heads to kill	SA:2 heads replace severed head in 1d4 rounds	SA:Fire Subtype(Ex)	SA:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet	!PRETEMPLATE:Cyrohydra|Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
+Lernaean Cryohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SA:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SA:must sever all heads to kill	SA:2 heads replace severed head in 1d4 rounds	SA:Cold Subtype(Ex)	SA:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet	!PRETEMPLATE:Pyrohydra|Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
+#
+###Block: Drow Genders
+# Template Name	Visible	Source Page				Required Race		Stat bonus		FAVOREDCLASS		Removable?		SUBRACE		GENDERLOCK
+Drow Male		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:Elf (Drow)	BONUS:STAT|CHA|-2	FAVOREDCLASS:Wizard	REMOVABLE:YES	SUBRACE:Male	GENDERLOCK:Male
+Drow Female		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:Elf (Drow)	BONUS:STAT|CHA|2	FAVOREDCLASS:Cleric	REMOVABLE:YES	SUBRACE:Female	GENDERLOCK:Female
+###Block: Pixie
+# Template Name		Visible	Source Page				Spells
+Irresistible Dance	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,21
+Normal Pixie		VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf
+###Block: Sahuagin
+# Template Name	Visible	Source Page				Required Race	FAVOREDCLASS		Removable?		GENDERLOCK
+Sahuagin Male	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:Sahuagin	FAVOREDCLASS:Ranger	REMOVABLE:YES	GENDERLOCK:Male
+Sahuagin Female	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:Sahuagin	FAVOREDCLASS:Cleric	REMOVABLE:YES	GENDERLOCK:Female
+###Block: Goblin Calvary
+# Template Name	Visible	Source Page				Special Ability	Required Race	Bonus to skill		Feat				Removable?		SUBRACE
+Goblin Cavalry	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf	SA:Goblin Calvary	PRERACE:Goblin	BONUS:SKILL|Ride|6	FEAT:Mounted Combat	REMOVABLE:YES	SUBRACE:Calvary
+Normal Goblin	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf				PRERACE:Goblin									REMOVABLE:YES

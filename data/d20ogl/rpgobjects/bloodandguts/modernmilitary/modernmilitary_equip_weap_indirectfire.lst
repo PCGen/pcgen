@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Equipment Name	Required Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
+M120 Mortar		PROFICIENCY:M120 Mortar	TYPE:Weapon.Exotic.Ballistic.Ranged	COST:33	WT:320	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6	RANGE:23760	SIZE:H	SOURCEPAGE:p.65	SPROP:Mil (+3)	RATEOFFIRE:5 rds
+M224 Mortar		PROFICIENCY:M224 Mortar	TYPE:Weapon.Exotic.Ballistic.Ranged	COST:20	WT:47		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d6	RANGE:11616	SIZE:H	SOURCEPAGE:p.65	SPROP:Mil (+3)	RATEOFFIRE:1 rd
+M252 Mortar		PROFICIENCY:M252 Mortar	TYPE:Weapon.Exotic.Ballistic.Ranged	COST:25	WT:91		CRITMULT:x2			CRITRANGE:1			DAMAGE:9d6	RANGE:18480	SIZE:H	SOURCEPAGE:p.65	SPROP:Mil (+3)	RATEOFFIRE:2 rds

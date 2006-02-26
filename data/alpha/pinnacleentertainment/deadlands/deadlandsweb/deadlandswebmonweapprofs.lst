@@ -1,0 +1,29 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Pinnacle Entertainment (PE) - Deadlands Web Enhancements|SOURCESHORT:DeadlndWeb|SOURCEWEB:http://www.peginc.com
+
+# Weapon Name	Type
+Antennae		TYPE:Natural
+Arm			TYPE:Natural
+Bite			TYPE:Natural
+Butt			TYPE:Natural
+Claw			TYPE:Natural
+Charge		TYPE:Natural
+Gore			TYPE:Natural
+Hoof			TYPE:Natural
+Hook			TYPE:Natural
+Horn			TYPE:Natural
+Punch			TYPE:Natural
+Rake			TYPE:Natural
+Slam			TYPE:Natural
+Slap			TYPE:Natural
+Snakes		TYPE:Natural
+Spikes		TYPE:Natural
+Sting			TYPE:Natural
+Strand		TYPE:Natural
+Tail Spike		TYPE:Natural
+Tail Strike		TYPE:Natural
+Tentacle		TYPE:Natural
+Thorns		TYPE:Natural
+Touch			TYPE:Natural
+Trample		TYPE:Natural
+Wing			TYPE:Natural

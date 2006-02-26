@@ -1,0 +1,46 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Mar 15 14:10:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Special Abilities
+# Feat Name		Type			Visible	Special Ability																								Define																				Combat bonus										Stat bonus										Modify VAR
+Ability Surge	TYPE:Special	VISIBLE:NO	SA:Ability Surge ~ %/day for % rounds (STR +%, Defense -% when Surged)|AbilitySurgeTimes|AbilitySurgeRounds|AbilitySurgeStrBonus|AbilitySurgeDefensePenalty	DEFINE:AbilitySurgeTimes|0	DEFINE:AbilitySurgeRounds|0	DEFINE:AbilitySurgeStrBonus|0	DEFINE:AbilitySurgeDefensePenalty|0	BONUS:COMBAT|AC|-AbilitySurgeDefensePenalty|TYPE=Temporary|PREAPPLY:PC	BONUS:STAT|STR|AbilitySurgeStrBonus|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AbilitySurgeRounds|0	BONUS:VAR|AbilitySurgeDefensePenalty|2	BONUS:VAR|AbilitySurgeStrBonus|4*AbilitySurgeDefensePenalty
+Swift Strike	TYPE:Special	VISIBLE:NO	SA:Swift Strike +%d%|SwiftStrike|SwiftStrikeDie																			DEFINE:SwiftStrikeDie|6	DEFINE:SwiftStrike|0
+Trap Sense		TYPE:Special	VISIBLE:NO	SA:Trap Sense (Ex) +%|TrapSense																					DEFINE:TrapSense|0
+Uncanny Stealth	TYPE:Special	VISIBLE:NO	SA:Uncanny Stealth (full speed)|PREVARLT:UncannyStealthChargeQual,1	SA:Uncanny Stealth (charge/run)|PREVARGTEQ:UncannyStealthChargeQual,1
+
+###Block: Xenophile Xenotype block
+# Feat Name					Type				Visible	Required Feat					Required Skill							Special Ability									Define							Stackable?	Multiple?	Choose					Modify VAR
+Base Xenotype				TYPE:Special		VISIBLE:NO																												DEFINE:XenotypeBase|2
+
+Xenotype (Aberration)			TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Earth and Life Sciences)=12	SA:Xenotype (Aberration) +%|XenotypeAberration				DEFINE:XenotypeAberration|XenotypeBase
+Xenotype Bonus (Aberration)		TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Aberration)																														STACK:YES	MULT:YES	CHOOSE:XenotypeAberration		BONUS:VAR|LIST|2
+Xenotype (Animal)				TYPE:Xenotype		VISIBLE:NO																	SA:Xenotype (Animal) +%|XenotypeAnimal					DEFINE:XenotypeAnimal|XenotypeBase
+Xenotype Bonus (Animal)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Animal)																															STACK:YES	MULT:YES	CHOOSE:XenotypeAnimal			BONUS:VAR|LIST|2
+Xenotype (Construct)			TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Technology)=9				SA:Xenotype (Construct) +%|XenotypeConstruct				DEFINE:XenotypeConstruct|XenotypeBase
+Xenotype Bonus (Construct)		TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Construct)																														STACK:YES	MULT:YES	CHOOSE:XenotypeConstruct		BONUS:VAR|LIST|2
+Xenotype (Dragon)				TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Earth and Life Sciences)=9	SA:Xenotype (Dragon) +%|XenotypeDragon					DEFINE:XenotypeDragon|XenotypeBase
+Xenotype Bonus (Dragon)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Dragon)																															STACK:YES	MULT:YES	CHOOSE:XenotypeDragon			BONUS:VAR|LIST|2
+Xenotype (Elemental)			TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Earth and Life Sciences)=9	SA:Xenotype (Elemental) +%|XenotypeElemental				DEFINE:XenotypeElemental|XenotypeBase
+Xenotype Bonus (Elemental)		TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Elemental)																														STACK:YES	MULT:YES	CHOOSE:XenotypeElemental		BONUS:VAR|LIST|2
+Xenotype (Fey)				TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Arcane Lore)=6			SA:Xenotype (Fey) +%|XenotypeFey						DEFINE:XenotypeFey|XenotypeBase
+Xenotype Bonus (Fey)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Fey)																															STACK:YES	MULT:YES	CHOOSE:XenotypeFey			BONUS:VAR|LIST|2
+Xenotype (Giant)				TYPE:Xenotype		VISIBLE:NO																	SA:Xenotype (Giant) +%|XenotypeGiant					DEFINE:XenotypeGiant|XenotypeBase
+Xenotype Bonus (Giant)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Giant)																															STACK:YES	MULT:YES	CHOOSE:XenotypeGiant			BONUS:VAR|LIST|2
+Xenotype (Magical Beast)		TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Arcane Lore)=9			SA:Xenotype (Magical Beast) +%|XenotypeMagicalBeast			DEFINE:XenotypeMagicalBeast|XenotypeBase
+Xenotype Bonus (Magical Beast)	TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Magical Beast)																														STACK:YES	MULT:YES	CHOOSE:XenotypeMagicalBeast		BONUS:VAR|LIST|2
+Xenotype (Monstrous Humanoid)		TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Earth and Life Sciences)=9	SA:Xenotype (Monstrous Humanoid) +%|XenotypeMonstrousHumanoid	DEFINE:XenotypeMonstrousHumanoid|XenotypeBase
+Xenotype Bonus (Monstrous Humanoid)	TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Monstrous Humanoid)																													STACK:YES	MULT:YES	CHOOSE:XenotypeMonstrousHumanoid	BONUS:VAR|LIST|2
+Xenotype (Ooze)				TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Earth and Life Sciences)=9	SA:Xenotype (Ooze) +%|XenotypeOoze						DEFINE:XenotypeOoze|XenotypeBase
+Xenotype Bonus (Ooze)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Ooze)																															STACK:YES	MULT:YES	CHOOSE:XenotypeOoze			BONUS:VAR|LIST|2
+Xenotype (Outsider)			TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Theology and Philosophy)=9	SA:Xenotype (Outsider) +%|XenotypeOutsider				DEFINE:XenotypeOutsider|XenotypeBase
+Xenotype Bonus (Outsider)		TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Outsider)																															STACK:YES	MULT:YES	CHOOSE:XenotypeOutsider			BONUS:VAR|LIST|2
+Xenotype (Plant)				TYPE:Xenotype		VISIBLE:NO																	SA:Xenotype (Plant) +%|XenotypePlant					DEFINE:XenotypePlant|XenotypeBase
+Xenotype Bonus (Plant)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Plant)																															STACK:YES	MULT:YES	CHOOSE:XenotypePlant			BONUS:VAR|LIST|2
+Xenotype (Undead)				TYPE:Xenotype		VISIBLE:NO								PRESKILL:1,Knowledge (Theology and Philosophy)=9	SA:Xenotype (Undead) +%|XenotypeUndead					DEFINE:XenotypeUndead|XenotypeBase
+Xenotype Bonus (Undead)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Undead)																															STACK:YES	MULT:YES	CHOOSE:XenotypeUndead			BONUS:VAR|LIST|2
+Xenotype (Vermin)				TYPE:Xenotype		VISIBLE:NO																	SA:Xenotype (Verimin) +%|XenotypeVermin					DEFINE:XenotypeVermin|XenotypeBase
+Xenotype Bonus (Vermin)			TYPE:XenotypeBonus	VISIBLE:NO	PREFEAT:1,Xenotype (Vermin)																															STACK:YES	MULT:YES	CHOOSE:XenotypeVermin			BONUS:VAR|LIST|2
+
+#
+# End
+#

@@ -1,0 +1,14 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Sat Oct  1 19:22:01 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Alderac Entertainment Group - War|SOURCESHORT:War|SOURCEWEB:http://alderac.com/d20
+# Deity Name	Product Identity?	Domains					Clergy AL			Desciption of Deity/Title					Holy Item	Deity Weapon			ALIGN		PANTHEON		Source Page
+Corlein		NAMEISPI:YES	DOMAINS:War,Good,Law,Conquest		FOLLOWERALIGN:0		DESC:The Crusader, god of justice				SYMBOL:None	DEITYWEAP:Warhammer		ALIGN:LG	PANTHEON:War	SOURCEPAGE:p.110
+Branyen		NAMEISPI:YES	DOMAINS:War,Good,Luck,Trickery	FOLLOWERALIGN:6		DESC:The Bringer of Freedom, patron of the oppressed	SYMBOL:None	DEITYWEAP:Longsword		ALIGN:CG	PANTHEON:War	SOURCEPAGE:p.110
+Aliara		NAMEISPI:YES	DOMAINS:War,Knowledge,Law		FOLLOWERALIGN:1		DESC:The Wise, goddess of strategy and tactics		SYMBOL:None	DEITYWEAP:Spear			ALIGN:LN	PANTHEON:War	SOURCEPAGE:p.110
+Arnlon		NAMEISPI:YES	DOMAINS:War,Creation,Law		FOLLOWERALIGN:4		DESC:Great Maker, patron of inventors			SYMBOL:None	DEITYWEAP:Warhammer		ALIGN:TN	PANTHEON:War	SOURCEPAGE:p.110
+Ergethen		NAMEISPI:YES	DOMAINS:War,Protection,Strength	FOLLOWERALIGN:4		DESC:The Defender, god of defense and protection	SYMBOL:None	DEITYWEAP:Quarterstaff		ALIGN:TN	PANTHEON:War	SOURCEPAGE:p.110
+Artoh			NAMEISPI:YES	DOMAINS:War,Luck				FOLLOWERALIGN:012345678	DESC:Lord of Battles						SYMBOL:None	DEITYWEAP:Longsword		ALIGN:TN	PANTHEON:War	SOURCEPAGE:p.110
+Bronegh		NAMEISPI:YES	DOMAINS:War,Conquest,Strength,Chaos	FOLLOWERALIGN:7		DESC:The Conqueror, god of conquest				SYMBOL:None	DEITYWEAP:Greataxe		ALIGN:CN	PANTHEON:War	SOURCEPAGE:p.111
+Londalia		NAMEISPI:YES	DOMAINS:War,Law,Tyranny			FOLLOWERALIGN:2		DESC:Tyrant Queen, goddess of tyranny			SYMBOL:None	DEITYWEAP:Mace			ALIGN:LE	PANTHEON:War	SOURCEPAGE:p.111
+Boraal		NAMEISPI:YES	DOMAINS:War,Evil,Trickery		FOLLOWERALIGN:5		DESC:Lord of Betrayal, patron of war profiteers		SYMBOL:None	DEITYWEAP:Dagger			ALIGN:NE	PANTHEON:War	SOURCEPAGE:p.111
+Layan'kul		NAMEISPI:YES	DOMAINS:War,Evil,Death			FOLLOWERALIGN:5		DESC:Scavenger King						SYMBOL:None	DEITYWEAP:Headsman's axe	ALIGN:NE	PANTHEON:War	SOURCEPAGE:p.112
+Pleiagh		NAMEISPI:YES	DOMAINS:War,Destruction,Death		FOLLOWERALIGN:8		DESC:the Wasted, Lord of Famine				SYMBOL:None	DEITYWEAP:Scythe			ALIGN:CE	PANTHEON:War	SOURCEPAGE:p.112

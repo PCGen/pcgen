@@ -1,0 +1,5 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Wed Feb  9 21:46:57 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
+#
+# Domain Name	Caster level					Source Page		Description
+Fey			BONUS:CASTERLEVEL|SCHOOL.Enchantment|1	SOURCEPAGE:p.35	DESC:You cast Enchantment spells at +1 caster level.

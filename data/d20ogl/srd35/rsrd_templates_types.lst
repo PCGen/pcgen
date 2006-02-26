@@ -1,0 +1,80 @@
+# CVS $Revision: 1.20 $ $Author: eddyanthony $ -- Fri Feb  3 01:42:49 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Merton Monk and Glddragon35
+
+#NOTE: These will be converted to Ability Objects, for now I'm setting them to VISIBLE:NO and set some VARs
+
+# Template Name		Visible	Source Page						Special Ability																	Define			Modify VAR				Removable?
+Vulnerability (Fire)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Suffers +50% damage from Cold-based effect regardless of saving throw																REMOVABLE:YES
+Vulnerability (Cold)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Suffers +50% damage from Fire-based effect regardless of saving throw																REMOVABLE:YES
+Tremorsense			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything in contact with ground (%')|TremorRange				DEFINE:TremorRange|0						REMOVABLE:YES
+Aquatic Tremorsense	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything moving in water (%')|TremorRange					DEFINE:TremorRange|0	BONUS:VAR|TremorRange|60	REMOVABLE:YES
+Turn Resistance		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Turn resistance is increased by HD total																					REMOVABLE:YES
+Trample			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:As a full round action can move twice its speed and run over opponents at least one size category smaller										REMOVABLE:YES
+Telepathy			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Telepathy (Su) - can communicate telepathically with creature within (%')|TelepathRange				DEFINE:TelepathRange|0	BONUS:VAR|TelepathRange|100	REMOVABLE:YES
+Swallow Whole		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Swallow Whole (Ex) - at start of round with opponent in mouth it can start new grapple to swallow prey											REMOVABLE:YES
+Summon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Summon (Sp) - can summon creatures of its kind
+Scent				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Scent (Ex) - track by sense of smell																						REMOVABLE:YES
+Rake				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Rake (Ex) - rake grappled opponent with 2 claw attacks																			REMOVABLE:YES
+
+
+###Block: Monk Outsider change at level 20.
+# Template Name	Output Name			Visible		Damage Reduction	Source Page			Main Race Type	Race Subtype
+Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:10/Magic		SOURCEPAGE:Chap.3, Monk	RACETYPE:Outsider	RACESUBTYPE:Native
+
+
+###Block: Creature Types
+
+# Template Name		Visible	Source Page						Define															Required AL	Var. Max. Value		Bonus to HP													Bonus to skill				Modify VAR								Vision
+Aberration			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																	PREALIGN:TN	PREVARLTEQ:INTSCORE,2																														VISION:Low-light
+Construct			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10																			BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10																VISION:Low-light|Darkvision (60')
+Dragon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')|Low-light
+Elemental			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
+Fey				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Low-light
+Giant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Low-light
+Humanoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Magical Beast		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')|Low-light
+Monstrous Humanoid	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
+Ooze				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																											BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON
+Outsider			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
+Plant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Low-light
+Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10																																	BONUS:SKILL|Concentration|CHA-CON										VISION:Darkvision (60')
+Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page						Special Ability																																															Define							Required Type	Combat bonus										Automatic Languages	Vision
+Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Air creatures always have fly speeds and usually have perfect maneuverability
+Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to acid/ cold/ and petrification	SA:Protective Aura (Su)	SA:Tongues (Su)	SA:+4 racial bonus on saves vs. poison																																																							VISION:Darkvision (60')|Low-light
+Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Aquatic creatures move in water without making Swim checks/ and breathe underwater
+Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:+4 racial bonus on saves vs. poison	SA:Aura of Menace (Su)	SA:Magic Circle against Evil (Su)	SA:Teleport (Su)	SA:Tongues (Su)																																																						VISION:Darkvision (60')|Low-light
+Augmented		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
+Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to cold/ vulnerable to fire
+Earth			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
+Extraplanar		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Immune to fire/ vulnerable to cold
+Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																																									LANGAUTO:Goblin
+Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
+Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently									DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1				BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX
+Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
+Native		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Outsider native to Material Plane																																																			PRETYPE:Outsider
+Reptilian		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Shapechanger	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Swarm			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Not subject to critical hits or flanking	SA:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	SA:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D	SA:Immune to any spell or effect that targets a specific number of creatures	SA:Distraction (Ex)	DEFINE:CanNotGrapple|1
+Water			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
+
+###Block: Variable Type Traits
+# Template Name	Visible	Define
+Mindless		VISIBLE:NO	DEFINE:LOCK.INT|10
+
+###Block: Fractional Hit Die Adjustments for Monster classes
+# Template Name	Hit Dice Size			Visible
+Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
+Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
+
+#
+# EOF
+#

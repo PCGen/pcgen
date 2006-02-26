@@ -1,0 +1,7 @@
+# CVS $Revision: 1.5 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+# Spell Name	Classes of caster						School			Sub-School			Spell Descriptors				Type				Components	Casting Time		Range			Target Area					Duration								Save Info		Spell Resistance	Description		Source Page
+Glimpse		CLASSES:Wizard,Sorcerer=1|Cleric=2			SCHOOL:Divination												TYPE:Arcane.Divine	COMPS:V S	CASTTIME:1 full round	RANGE:Long		TARGETAREA:Circle				DURATION:Instantanious						SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.81
+Detect Life		CLASSES:Cleric,Paladin=2|Wizard,Sorcerer=3	SCHOOL:Divination												TYPE:Arcane.Divine	COMPS:V S	CASTTIME:1 action		RANGE:Medium	TARGETAREA:Quarter circle		DURATION:Concentration, up to 1 minute/level (D)	SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.81
+Summon Elemental	CLASSES:Cleric,Wizard,Sorcerer,Druid=5		SCHOOL:Conjuration	SUBSCHOOL:Summoning	DESCRIPTOR:Air|Earth|Water|Fire	TYPE:Arcane.Divine	COMPS:V S M	CASTTIME:1 full round	RANGE:Close		TARGETAREA:One summoned elemental	DURATION:1 round/level						SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.81

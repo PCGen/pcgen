@@ -1,0 +1,558 @@
+<article>
+  <title>DocBook Extensions For XSLT Stylesheet Documentation</title>
+  <artheader>
+
+    <releaseinfo role="meta">
+      $Id: docbook-extensions.xml,v 1.1 2004/03/03 11:09:09 frugal Exp $
+    </releaseinfo>
+
+    <author>
+      <surname>Ball</surname>
+      <firstname>Steve</firstname>
+    </author>
+    <copyright>
+      <year>2001</year>
+      <holder>Steve Ball</holder>
+    </copyright>
+  </artheader>
+
+  <section>
+    <title>Introduction</title>
+
+    <para><ulink url="index.html">XSLTSL</ulink> requires that all stylesheets and templates are documented using <ulink url="http://www.docbook.org/">DocBook</ulink>, a widely-used electronic documentation standard.  <ulink url="http://nwalsh.com/">Norm Walsh</ulink> introduced some extensions to DocBook to facilitate documenting XSLT stylesheets, and the stylesheets for DocBook itself are documented using this extension.</para>
+
+    <para>Further elements have been added to the extension vocabulary for the purpose of documenting XSLTSL stylesheets.  The entire extension vocabulary is documented here.</para>
+  </section>
+
+  <section>
+    <title>Documenting XSLT Stylesheets</title>
+
+    <para>This section explains how an XSLT stylesheet is documented, with examples.</para>
+
+    <section>
+      <title>XML Namespace</title>
+
+      <para>The XSLT stylesheet must declare an XML Namespace with the namespace URI http://xsltsl.org/xsl/documentation/1.0.  The prefix used should then be excluded from the result.  For example:</para>
+      <informalexample>
+        <programlisting><![CDATA[
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:doc="http://xsltsl.org/xsl/documentation/1.0"
+  exclude-result-prefixes="doc"
+  version="1.0">
+
+</xsl:stylesheet>
+]]></programlisting>
+      </informalexample>
+    </section>
+
+    <section>
+      <title>Toplevel Documentation Element</title>
+
+      <para>Major documentation components of the library are contained within the <sgmltag>book</sgmltag> (for the top level) or <sgmltag>chapter</sgmltag> (for lower-level components) elements.  Individual stylesheets are contained within the <sgmltag>reference</sgmltag>.</para>
+      <para>These elements must be qualified within the stylesheet, but for convenience, the default XML Namespace is redefined so that descendant elements need not be qualified.  Within the <sgmltag>book</sgmltag> and <sgmltag>reference</sgmltag> elements all standard DocBook elements are permitted.</para>
+      <para>An example of library documentation:</para>
+      <informalexample>
+        <programlisting><![CDATA[
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:doc="http://xsltsl.org/xsl/documentation/1.0"
+  exclude-result-prefixes="doc"
+  version="1.0">
+
+  <doc:book xmlns="">
+    <bookinfo>
+      <title>Stylesheet Module For XSLT Standard Library</title>
+      <!-- &#36;Id&#36; -->
+
+      <author>
+	<surname>Ball</surname>
+	<firstname>Steve</firstname>
+      </author>
+      <copyright>
+	<year>2001</year>
+	<holder>Steve Ball</holder>
+      </copyright>
+    </bookinfo>
+
+    <preface>
+      <para><ulink url="http://www.w3.org/Style/XSL">XSLT</ulink> is an <ulink url="http://www.w3.org/Markup/XML/">XML</ulink>-based language for transforming XML documents.</para>
+    </preface>
+
+    <chapter>
+      <title>Reference</title>
+
+      <para>Stylesheets are documented as DocBook <sgmltag>reference</sgmltag> elements.</para>
+    </chapter>
+  </doc:book>
+
+</xsl:stylesheet>
+]]></programlisting>
+      </informalexample>
+
+      <para>An example of stylesheet documentation:</para>
+      <informalexample>
+        <programlisting><![CDATA[
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:doc="http://xsltsl.org/xsl/documentation/1.0"
+  exclude-result-prefixes="doc"
+  version="1.0">
+
+  <doc:reference xmlns="">
+    <referenceinfo>
+      <releaseinfo role="meta">
+	&#36;Id&#36;
+      </releaseinfo>
+      <author>
+	<surname>Ball</surname>
+	<firstname>Steve</firstname>
+      </author>
+      <copyright>
+	<year>2001</year>
+	<holder>Steve Ball</holder>
+      </copyright>
+    </referenceinfo>
+
+    <title>String Processing</title>
+
+    <partintro>
+      <section>
+	<title>Introduction</title>
+
+	<para>This module provides templates for manipulating strings.</para>
+
+      </section>
+    </partintro>
+
+  </doc:reference>
+
+]]></programlisting>
+      </informalexample>
+
+      <para>The keyword <literal>&#36;Id&#36;</literal> is used by CVS to insert version and author information.</para>
+
+    </section>
+
+    <section>
+      <title>Documenting Templates</title>
+
+      <para>Within each stylesheet, each individual template is documented using a separate toplevel element, <sgmltag>template</sgmltag>.  As for toplevel documentation elements, redeclaring the null XML Namespace allows DocBook elements to be used without qualification.  A number of <!--link linkend="reference"-->extension elements<!--/link--> are used to document XSLT templates.  An example of template documentation:</para>
+
+      <informalexample>
+        <programlisting><![CDATA[
+  <doc:template name="str:to-upper" xmlns="">
+    <refpurpose>Make string uppercase</refpurpose>
+
+    <refdescription>
+      <para>Converts all lowercase letters to uppercase.</para>
+    </refdescription>
+
+    <refparameter>
+      <variablelist>
+	<varlistentry>
+	  <term>text</term>
+	  <listitem>
+	    <para>The string to be converted</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refparameter>
+
+    <refreturn>
+      <para>Returns string with all uppercase letters.</para>
+    </refreturn>
+  </doc:template>
+
+  <xsl:template name="str:to-upper">
+    <xsl:param name="text"/>
+
+    <xsl:value-of select="translate($text, $str:lower, $str:upper)"/>
+  </xsl:template>
+
+]]></programlisting>
+      </informalexample>
+
+    </section>
+  </section>
+
+  <section id="reference">
+    <title>Reference</title>
+
+    <para>Reference documentation for all extension elements.</para>
+
+    <refentry id="xslt.elem.refdescription">
+      <refmeta>
+        <indexterm>
+	  <primary>elements</primary>
+	  <secondary>Refdescription</secondary>
+        </indexterm>
+	<refentrytitle>Refdescription</refentrytitle>
+	<refmiscinfo>Element</refmiscinfo>
+      </refmeta>
+      <refnamediv>
+        <refname>Refdescription</refname>
+	<refpurpose>A description of the topic of a reference entry</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <title>Synopsis</title>
+	<informaltable frame="all" role="elemsynop">
+	  <tgroup cols="3">
+	    <colspec colnum="1" colname="C1"/>
+	    <colspec colnum="2" colname="C2"/>
+	    <colspec colnum="3" colname="C3"/>
+	    <tbody>
+	      <row rowsep="0" role="cmtitle">
+	        <entry namest="C1" nameend="C3" align="left"><emphasis role="bold">Element Content Model</emphasis></entry>
+	      </row>
+	      <row rowsep="1" role="cmsynop">
+	        <entry namest="C1" nameend="C3" align="left"><synopsis>refdescription ::=
+(para|...)</synopsis></entry>
+	      </row>
+	      <row rowsep="1" role="attrtitle">
+	        <entry colsep="0"><emphasis role="bold">Attributes</emphasis></entry>
+	        <entry namest="C2" nameend="C3">Common attributes</entry>
+	      </row>
+	      <row rowsep="0" role="petitle">
+	        <entry colsep="0"><emphasis role="bold">Parameter Entities</emphasis></entry>
+	      </row>
+	      <row rowsep="0" role="pe">
+	        <entry colsep="0">None</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </refsynopsisdiv>
+
+      <refsect1>
+        <title>Description</title>
+	<para>A description of a reference entry.</para>
+
+	<refsect2>
+	  <title>Processing Expectations</title>
+
+	  <para>Formatted as a block.</para>
+	</refsect2>
+      </refsect1>
+      <refsect1>
+        <title>See Also</title>
+
+	<para><simplelist type="inline">
+	  <member><sgmltag>refdescriptor</sgmltag></member>
+	</simplelist></para>
+      </refsect1>
+      <refsect1>
+        <title>Examples</title>
+
+	<informalexample>
+	  <programlisting role="example-source"><![CDATA[
+    <refdescription>
+      <para>Converts all lowercase letters to uppercase.</para>
+    </refdescription>
+]]></programlisting>
+	</informalexample>
+      </refsect1>
+    </refentry>
+
+    <refentry id="xslt.elem.refparameter">
+      <refmeta>
+        <indexterm>
+	  <primary>elements</primary>
+	  <secondary>Refparameter</secondary>
+        </indexterm>
+	<refentrytitle>Refparameter</refentrytitle>
+	<refmiscinfo>Element</refmiscinfo>
+      </refmeta>
+      <refnamediv>
+        <refname>Refparameter</refname>
+	<refpurpose>A description of a template parameter.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <title>Synopsis</title>
+	<informaltable frame="all" role="elemsynop">
+	  <tgroup cols="3">
+	    <colspec colnum="1" colname="C1"/>
+	    <colspec colnum="2" colname="C2"/>
+	    <colspec colnum="3" colname="C3"/>
+	    <tbody>
+	      <row rowsep="0" role="cmtitle">
+	        <entry namest="C1" nameend="C3" align="left"><emphasis role="bold">Element Content Model</emphasis></entry>
+	      </row>
+	      <row rowsep="1" role="cmsynop">
+	        <entry namest="C1" nameend="C3" align="left"><synopsis>refparameter ::=
+(variablelist)</synopsis></entry>
+	      </row>
+	      <row rowsep="1" role="attrtitle">
+	        <entry colsep="0"><emphasis role="bold">Attributes</emphasis></entry>
+	        <entry namest="C2" nameend="C3">Common attributes</entry>
+	      </row>
+	      <row rowsep="0" role="petitle">
+	        <entry colsep="0"><emphasis role="bold">Parameter Entities</emphasis></entry>
+	      </row>
+	      <row rowsep="0" role="pe">
+	        <entry colsep="0">None</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </refsynopsisdiv>
+
+      <refsect1>
+        <title>Description</title>
+	<para>A list of the parameters accepted by a stylesheet template.  Each <sgmltag>varlistentry</sgmltag> in the list names the parameter in its <sgmltag>term</sgmltag> child element, and a description of the parameter in its <sgmltag>listitem</sgmltag> child element.</para>
+
+	<refsect2>
+	  <title>Processing Expectations</title>
+
+	  <para>Formatted as a block.</para>
+	</refsect2>
+      </refsect1>
+      <refsect1>
+        <title>See Also</title>
+
+	<para><simplelist type="inline">
+	  <member><sgmltag>refreturn</sgmltag></member>
+	</simplelist></para>
+      </refsect1>
+      <refsect1>
+        <title>Examples</title>
+
+	<informalexample>
+	  <programlisting role="example-source"><![CDATA[
+    <refparameter>
+      <variablelist>
+	<varlistentry>
+	  <term>text</term>
+	  <listitem>
+	    <para>The string to be converted</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refparameter>
+]]></programlisting>
+	</informalexample>
+      </refsect1>
+    </refentry>
+
+
+    <refentry id="xslt.elem.parametername">
+      <refmeta>
+        <indexterm>
+	  <primary>elements</primary>
+	  <secondary>Parametername</secondary>
+        </indexterm>
+	<refentrytitle>Parametername</refentrytitle>
+	<refmiscinfo>Element</refmiscinfo>
+      </refmeta>
+      <refnamediv>
+        <refname>Parametername</refname>
+	<refpurpose>A parameter name.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <title>Synopsis</title>
+	<informaltable frame="all" role="elemsynop">
+	  <tgroup cols="3">
+	    <colspec colnum="1" colname="C1"/>
+	    <colspec colnum="2" colname="C2"/>
+	    <colspec colnum="3" colname="C3"/>
+	    <tbody>
+	      <row rowsep="0" role="cmtitle">
+	        <entry namest="C1" nameend="C3" align="left"><emphasis role="bold">Mixed Content Model</emphasis></entry>
+	      </row>
+	      <row rowsep="1" role="cmsynop">
+	        <entry namest="C1" nameend="C3" align="left"><synopsis>Parametername ::=
+(#PCDATA)</synopsis></entry>
+	      </row>
+	      <row rowsep="1" role="attrtitle">
+	        <entry colsep="0"><emphasis role="bold">Attributes</emphasis></entry>
+	        <entry namest="C2" nameend="C3">Common attributes</entry>
+	      </row>
+	      <row rowsep="0" role="petitle">
+	        <entry colsep="0"><emphasis role="bold">Parameter Entities</emphasis></entry>
+	      </row>
+	      <row rowsep="0" role="pe">
+	        <entry colsep="0">None</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </refsynopsisdiv>
+
+      <refsect1>
+        <title>Description</title>
+	<para>A parameter name occurring in running text.</para>
+
+	<refsect2>
+	  <title>Processing Expectations</title>
+
+	  <para>Formatted inline.</para>
+	</refsect2>
+      </refsect1>
+      <refsect1>
+        <title>See Also</title>
+
+	<para><simplelist type="inline">
+	  <member><sgmltag>refparameter</sgmltag></member>
+	</simplelist></para>
+      </refsect1>
+      <refsect1>
+        <title>Examples</title>
+
+	<informalexample>
+	  <programlisting role="example-source"><![CDATA[
+<para>A parameter which contains a string value is named <parametername>text</parametername>.</para>
+]]></programlisting>
+	</informalexample>
+      </refsect1>
+    </refentry>
+
+    <refentry id="xslt.elem.refreturn">
+      <refmeta>
+        <indexterm>
+	  <primary>elements</primary>
+	  <secondary>Refreturn</secondary>
+        </indexterm>
+	<refentrytitle>Refreturn</refentrytitle>
+	<refmiscinfo>Element</refmiscinfo>
+      </refmeta>
+      <refnamediv>
+        <refname>Refreturn</refname>
+	<refpurpose>The return result of a template.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <title>Synopsis</title>
+	<informaltable frame="all" role="elemsynop">
+	  <tgroup cols="3">
+	    <colspec colnum="1" colname="C1"/>
+	    <colspec colnum="2" colname="C2"/>
+	    <colspec colnum="3" colname="C3"/>
+	    <tbody>
+	      <row rowsep="0" role="cmtitle">
+	        <entry namest="C1" nameend="C3" align="left"><emphasis role="bold">Element Content Model</emphasis></entry>
+	      </row>
+	      <row rowsep="1" role="cmsynop">
+	        <entry namest="C1" nameend="C3" align="left"><synopsis>refparameter ::=
+(para+)</synopsis></entry>
+	      </row>
+	      <row rowsep="1" role="attrtitle">
+	        <entry colsep="0"><emphasis role="bold">Attributes</emphasis></entry>
+	        <entry namest="C2" nameend="C3">Common attributes</entry>
+	      </row>
+	      <row rowsep="0" role="petitle">
+	        <entry colsep="0"><emphasis role="bold">Parameter Entities</emphasis></entry>
+	      </row>
+	      <row rowsep="0" role="pe">
+	        <entry colsep="0">None</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </refsynopsisdiv>
+
+      <refsect1>
+        <title>Description</title>
+	<para>Describes the return result of the stylesheet template.</para>
+
+	<refsect2>
+	  <title>Processing Expectations</title>
+
+	  <para>Formatted as a block.</para>
+	</refsect2>
+      </refsect1>
+      <refsect1>
+        <title>See Also</title>
+
+	<para><simplelist type="inline">
+	  <member><sgmltag>refparameter</sgmltag></member>
+	  <member><sgmltag>refreturn</sgmltag></member>
+	</simplelist></para>
+      </refsect1>
+      <refsect1>
+        <title>Examples</title>
+
+	<informalexample>
+	  <programlisting role="example-source"><![CDATA[
+    <refreturn>
+      <para>Returns string with all uppercase letters.</para>
+    </refreturn>
+]]></programlisting>
+	</informalexample>
+      </refsect1>
+    </refentry>
+
+    <refentry id="xslt.elem.refexception">
+      <refmeta>
+        <indexterm>
+	  <primary>elements</primary>
+	  <secondary>Refexception</secondary>
+        </indexterm>
+	<refentrytitle>Refexception</refentrytitle>
+	<refmiscinfo>Element</refmiscinfo>
+      </refmeta>
+      <refnamediv>
+        <refname>Refexception</refname>
+        <refname>Refthrows</refname>
+	<refpurpose>An exception generated by the template.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <title>Synopsis</title>
+	<informaltable frame="all" role="elemsynop">
+	  <tgroup cols="3">
+	    <colspec colnum="1" colname="C1"/>
+	    <colspec colnum="2" colname="C2"/>
+	    <colspec colnum="3" colname="C3"/>
+	    <tbody>
+	      <row rowsep="0" role="cmtitle">
+	        <entry namest="C1" nameend="C3" align="left"><emphasis role="bold">Element Content Model</emphasis></entry>
+	      </row>
+	      <row rowsep="1" role="cmsynop">
+	        <entry namest="C1" nameend="C3" align="left"><synopsis>refparameter ::=
+(para+)</synopsis></entry>
+	      </row>
+	      <row rowsep="1" role="attrtitle">
+	        <entry colsep="0"><emphasis role="bold">Attributes</emphasis></entry>
+	        <entry namest="C2" nameend="C3">Common attributes</entry>
+	      </row>
+	      <row rowsep="0" role="petitle">
+	        <entry colsep="0"><emphasis role="bold">Parameter Entities</emphasis></entry>
+	      </row>
+	      <row rowsep="0" role="pe">
+	        <entry colsep="0">None</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </refsynopsisdiv>
+
+      <refsect1>
+        <title>Description</title>
+	<para>Describes any exceptions generated by the stylesheet template.</para>
+
+	<refsect2>
+	  <title>Processing Expectations</title>
+
+	  <para>Formatted as a block.</para>
+	</refsect2>
+      </refsect1>
+      <refsect1>
+        <title>See Also</title>
+
+	<para><simplelist type="inline">
+	  <member><sgmltag>refreturn</sgmltag></member>
+	</simplelist></para>
+      </refsect1>
+      <refsect1>
+        <title>Examples</title>
+
+	<informalexample>
+	  <programlisting role="example-source"><![CDATA[
+    <refexception>
+      <para>An error exception is generated if the nodeset is empty.</para>
+    </refexception>
+]]></programlisting>
+	</informalexample>
+      </refsect1>
+    </refentry>
+  </section>
+
+</article>

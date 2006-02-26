@@ -1,0 +1,7 @@
+# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Sat Nov 22 22:19:20 2003 -- reformated by prettylst.pl v1.31 (build 327)
+SOURCELONG:Alderac Entertainment Group - War|SOURCESHORT:War|SOURCEWEB:http://alderac.com/d20
+
+# Domain Name	Bonus to skill			Source Page		Description													List of Domain Spells by Level
+Conquest							SOURCEPAGE:p.112	DESC:Once per day, you gain the cleave feat.							SPELLLEVEL:DOMAIN|Conquest=1|Command|Conquest=2|Enthrall|Conquest=3|Prayer|Conquest=4|Divine Power|Conquest=5|Righteous Might|Conquest=6|Greater Dispelling|Conquest=7|Repulsion|Conquest=8|Holy Aura,Unholy Aura|Conquest=9|Storm of Vengeance
+Creation							SOURCEPAGE:p.112	DESC:Minor Creation, 1/day as a spell-like ability.						SPELLLEVEL:DOMAIN|Creation=1|Summon Monster I|Creation=2|Make Whole|Creation=3|Create Food and Water|Creation=4|Restoration|Creation=5|Wall of Stone|Creation=6|Heroes' Feast|Creation=7|Resurrection|Creation=8|Mass Heal|Creation=9|Summon Monster IX
+Tyranny		BONUS:SKILL|Intimidation|2	SOURCEPAGE:p.114	DESC:+2 bonus to all Intimidation checks, spell-like ability Command 1/level/day.	SPELLLEVEL:DOMAIN|Tyranny=1|Cause Fear|Tyranny=2|Silence|Tyranny=3|Bestow Curse|Tyranny=4|Dismissal|Tyranny=5|Greater Command|Tyranny=6|Geas/Quest|Tyranny=7|Dictum|Tyranny=8|Shield of Law|Tyranny=9|Astral Projection

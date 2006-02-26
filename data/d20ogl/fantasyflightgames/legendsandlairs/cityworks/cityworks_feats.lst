@@ -1,0 +1,20 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:56:34 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Fantasy Flight Games - City Works|SOURCESHORT:CW|SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+# Original Entry by: Eddy Anthony
+
+# Feat Name			Type				Req. Att.	Required Class				Required Feat					Required Skill		Required Stat	Description																Add Spell Lvl	Source Page
+Crafty Improvisation	TYPE:General.Fighter	PREATT:1																					DESC:You are master at using random items as weapons												SOURCEPAGE:p.32
+Face in the Crowd		TYPE:General																	PRESKILL:1,Disguise=1	PRESTAT:1,CHA=13	DESC:You are expert at blending in to an urban environment											SOURCEPAGE:p.33
+Innocent Posture		TYPE:General																								DESC:You have a plain, non-threatening presence													SOURCEPAGE:p.33
+Innocent Smile		TYPE:General																					PRESTAT:1,CHA=13	DESC:You have an innocent, friendly aura about you												SOURCEPAGE:p.33
+Man About Town		TYPE:General																					PRESTAT:1,CHA=15	DESC:People know you and they like you enough to render you small favors								SOURCEPAGE:p.33
+Market Sense		TYPE:General																					PRESTAT:1,CHA=13	DESC:You know how to find the best prices in town												SOURCEPAGE:p.34
+Muffled Spell		TYPE:Metamagic																								DESC:A muffled spell is much harder to hear										ADDSPELLLEVEL:1	SOURCEPAGE:p.34
+Opportunistic Shot	TYPE:General.Fighter									PREFEAT:2,Point Blank Shot,Precise Shot								DESC:You are a patient archer																SOURCEPAGE:p.34
+Sow Rumors			TYPE:General										PREFEAT:1,Man About Town							PRESTAT:1,CHA=15	DESC:You have access to an extensive social network in town, allowing you to spead rumors with ease				SOURCEPAGE:p.34
+Quick Strike		TYPE:General.Fighter									PREFEAT:1,Quick Draw											DESC:You can draw a weapon and attack with startling speed											SOURCEPAGE:p.35
+Urbanmancer			TYPE:General				PRECLASS:1,SPELLCASTER.Arcane=3												PRESTAT:1,CHA=13	DESC:You are skilled in a rare school of magic known as urbanmancy, the practice of city-based magic				SOURCEPAGE:p.35
+
+#
+# end
+#

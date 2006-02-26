@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+# Weapon Name		Type			Nb Hands
+Broadsword			TYPE:Martial
+War Cleaver			TYPE:Martial
+Greathammer (Dwarven)	TYPE:Exotic		HANDS:2
+Warhammer (Two-Headed)	TYPE:Exotic		HANDS:2
+Cat's Claws			TYPE:Exotic
+Mace (Heavy)		TYPE:Simple
+Kin-Skull			TYPE:Simple

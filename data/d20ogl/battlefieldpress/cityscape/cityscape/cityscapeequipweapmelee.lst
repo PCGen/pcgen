@@ -1,0 +1,83 @@
+# CVS $Revision: 1.4 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+#Exotic Melee Weapons
+# Equipment Name		Required Proficiency			Type											Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Range		Size		Source Page
+Kukri										TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Monk									COST:8	WT:3		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d4							SIZE:T	SOURCEPAGE:p.
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Kama										TYPE:Weapon.Exotic.Melee.Slashing.Standard.Monk.Metal									COST:2	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Nunchaku									TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Monk.Wooden								COST:2	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Siangham									TYPE:Weapon.Exotic.Melee.Piercing.Standard.Monk.Metal									COST:3	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Wakizashi									TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal									COST:300	WT:3		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6
+
+#MEDIUM --------------------------------------------------------------------------------------------------------
+Sword (Bastard)		PROFICIENCY:Sword (Bastard/[Hands])	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal									COST:35	WT:10		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10							SIZE:M	SOURCEPAGE:p.
+Kusari-gama									TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal									COST:100	WT:3		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Spiked Chain								TYPE:Weapon.Exotic.Melee.Piercing.Standard.Finesseable.Metal							COST:25	WT:15		CRITMULT:x2			CRITRANGE:1												DAMAGE:2d4							SIZE:L	SOURCEPAGE:p.
+Flail (Dire)								TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal		ALTTYPE:Weapon.Melee.Bludgeoning	COST:90	WT:20		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8				SIZE:L	SOURCEPAGE:p.
+Katana									TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal									COST:4000	WT:6		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10
+Sword (Two-Bladed)							TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Metal		ALTTYPE:Weapon.Melee.Slashing		COST:100	WT:30		CRITMULT:x2			CRITRANGE:2			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8				SIZE:L	SOURCEPAGE:p.
+
+#Martial Melee Weapons
+#SMALL ----------------------------------------------------------------------------------------------------------
+Axe (Throwing)								TYPE:Weapon.Martial.Melee.Ranged.Standard.Slashing.Metal								COST:8	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					RANGE:10	SIZE:S	SOURCEPAGE:p.
+Hammer (Light)								TYPE:Weapon.Martial.Melee.Ranged.Standard.Bludgeoning.Metal								COST:1	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					RANGE:20	SIZE:S	SOURCEPAGE:p.
+Handaxe									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:6	WT:5		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Lance (Light)		PROFICIENCY:Lance				TYPE:Weapon.Martial.Melee.Standard.Piercing.Wooden									COST:6	WT:5		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Pick (Light)		PROFICIENCY:Pick				TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal									COST:4	WT:4		CRITMULT:x4			CRITRANGE:1												DAMAGE:1d4							SIZE:S	SOURCEPAGE:p.
+Sap										TYPE:Weapon.Martial.Melee.Standard.Bludgeoning										COST:1	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Sword (Short)								TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal									COST:10	WT:3		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Battleaxe									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:10	WT:7		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Epee										TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal									COST:350	WT:4		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d8
+Flail (Light)		PROFICIENCY:Flail				TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Metal									COST:8	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Lance (Heavy)		PROFICIENCY:Lance				TYPE:Weapon.Martial.Melee.Standard.Piercing.Wooden									COST:10	WT:10		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Pick (Heavy)		PROFICIENCY:Pick				TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal									COST:8	WT:6		CRITMULT:x4			CRITRANGE:1												DAMAGE:1d6							SIZE:M	SOURCEPAGE:p.
+Rapier									TYPE:Weapon.Martial.Melee.Standard.Piercing.Finesseable.Metal							COST:20	WT:3		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6							SIZE:M	SOURCEPAGE:p.
+Scimitar									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:15	WT:4		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6							SIZE:M	SOURCEPAGE:p.
+Longsword									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:15	WT:4		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Trident									TYPE:Weapon.Martial.Melee.Ranged.Standard.Piercing.Metal								COST:15	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					RANGE:10	SIZE:M	SOURCEPAGE:p.
+Warhammer									TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Metal									COST:12	WT:8		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Falchion									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:75	WT:16		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d4							SIZE:L	SOURCEPAGE:p.
+Flail (Heavy)		PROFICIENCY:Flail				TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Metal									COST:15	WT:20		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10							SIZE:L	SOURCEPAGE:p.
+Glaive									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:8	WT:15		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10							SIZE:L	SOURCEPAGE:p.
+Greataxe									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:20	WT:20		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d12							SIZE:L	SOURCEPAGE:p.
+Greatclub									TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Wooden									COST:5	WT:10		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d10							SIZE:L	SOURCEPAGE:p.
+Guisarme									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:9	WT:15		CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4							SIZE:L	SOURCEPAGE:p.
+Halberd									TYPE:Weapon.Martial.Melee.Standard.Piercing.Slashing.Metal								COST:10	WT:15		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10							SIZE:L	SOURCEPAGE:p.
+Longspear									TYPE:Weapon.Martial.Melee.Standard.Piercing.Wooden									COST:5	WT:9		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8							SIZE:L	SOURCEPAGE:p.
+Ranseur									TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal									COST:10	WT:15		CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4							SIZE:L	SOURCEPAGE:p.
+Scythe									TYPE:Weapon.Martial.Melee.Standard.Piercing.Slashing.Metal								COST:18	WT:12		CRITMULT:x4			CRITRANGE:1												DAMAGE:2d4							SIZE:L	SOURCEPAGE:p.
+Greatsword									TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal									COST:50	WT:15		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6							SIZE:L	SOURCEPAGE:p.
+
+#Simple Weapons Melee
+#UNARMED ----------------------------------------------------------------------------------------------------------
+Gauntlet									TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Metal								COST:2	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4							SIZE:T	SOURCEPAGE:p.
+
+#TINY ----------------------------------------------------------------------------------------------------------
+Dagger									TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal							COST:2	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					RANGE:10	SIZE:T	SOURCEPAGE:p.
+Dagger (Punching)		PROFICIENCY:Dagger			TYPE:Weapon.Dagger.Simple.Melee.Piercing.Standard.Metal								COST:2	WT:1		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4							SIZE:T	SOURCEPAGE:p.
+Gauntlet (Spiked)								TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal									COST:5	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4							SIZE:T	SOURCEPAGE:p.
+Brass Knuckles								TYPE:Weapon.Simple.Melee.Bludgeoning											COST:200	WT:-		CRITMULT:X2			CRITRANGE:1												DAMAGE:1d3					RANGE:-
+Knife (Bowie)								TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal							COST:300	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					RANGE:10
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Mace (Light)		PROFICIENCY:Mace				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal									COST:5	WT:6		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Sickle									TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal									COST:6	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6							SIZE:S	SOURCEPAGE:p.
+Sword cane									TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal									COST:250	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Club										TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden								COST:0	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					RANGE:10	SIZE:M	SOURCEPAGE:p.
+Halfspear									TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Wooden								COST:1	WT:3		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					RANGE:20	SIZE:M	SOURCEPAGE:p.
+Mace (Heavy)		PROFICIENCY:Mace				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal									COST:12	WT:12		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Morningstar									TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Piercing.Metal							COST:8	WT:8		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							SIZE:M	SOURCEPAGE:p.
+Baseball Bat								TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden								COST:35	WT:7		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Quarterstaff								TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Double.Wooden		ALTTYPE:Weapon.Melee.Bludgeoning	COST:0	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6				SIZE:L	SOURCEPAGE:p.
+Shortspear									TYPE:Weapon.Simple.Melee.Ranged.Standard.Piercing.Wooden								COST:2	WT:5		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					RANGE:20	SIZE:L	SOURCEPAGE:p.

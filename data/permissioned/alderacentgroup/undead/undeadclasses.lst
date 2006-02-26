@@ -1,0 +1,277 @@
+# CVS $Revision: 1.13 $ $Author: tir-gwaith $ -- Wed Dec 14 14:26:02 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead|SOURCESHORT:Undead|SOURCEWEB:http://alderac.com/d20
+
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL		Req. Att.	Required Skill
+CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PREATT:5	PRESKILL:1,Knowledge (Arcana)=4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Ride|Swim
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Leader of the Dead (Sp)
+2						ADD:FEAT(TYPE=Fighter)
+3	SA:Sanctuary of the Dead (Su)
+4						ADD:FEAT(TYPE=Fighter)
+5	SA:Rally Undead
+6						ADD:FEAT(TYPE=Fighter)
+7	SA:Inspire Undead (Su)
+8						ADD:FEAT(TYPE=Fighter)
+9	SA:Unholy Radiance (Su)
+10	SA:Warlord of the Dead (Su)
+
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat							Required Skill													Req. Known Spell			Required Spell School		Required Text
+CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:1,Craft (Autopsy)=6	PRESKILL:1,Heal=3	PRESKILL:2,Alchemy,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:Necromancy,4,0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+1	ADD:SPELLCASTER(ANY)					SA:Touch of Repose %/day|TouchofRepose	BONUS:VAR|TouchofRepose|1	DEFINE:TouchofRepose|0
+2	ADD:SPELLCASTER(ANY)					SA:Flesh Repair (light) (Su)			BONUS:VAR|TouchofRepose|1
+3	ADD:SPELLCASTER(ANY)					SA:Lesser Graft (Ex)				BONUS:VAR|TouchofRepose|1
+4	ADD:SPELLCASTER(ANY)					SA:Sense Graft (Su)				BONUS:VAR|TouchofRepose|1
+5	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Flesh Repair	SA:Flesh Repair (moderate) (Su)		BONUS:VAR|TouchofRepose|1
+6	ADD:SPELLCASTER(ANY)					SA:Greater Graft (Su)				BONUS:VAR|TouchofRepose|1
+7	ADD:SPELLCASTER(ANY)					SA:Control Graft (Su)				BONUS:VAR|TouchofRepose|1
+8	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Flesh Repair	SA:Flesh Repair (serious) (Su)		BONUS:VAR|TouchofRepose|1
+9	ADD:SPELLCASTER(ANY)					SA:Improved Flesh Golem (Ex)			BONUS:VAR|TouchofRepose|1
+10	ADD:SPELLCASTER(ANY)					SA:Brain Graft (Ex)				BONUS:VAR|TouchofRepose|1
+
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:The Dying	STARTSKILLPTS:2
+###Block: Turn Undead stuff
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Level progression
+1							SA:Incurable (Su)	SA:Resist Taint																			BONUS:STAT|CON|-1
+2																															BONUS:STAT|STR|-1	ADD:FEAT(Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter)
+3							SA:Fervor (Su)																						BONUS:STAT|CHA|-1
+4							SA:Tireless (Su)																						BONUS:STAT|DEX|-1	ADD:FEAT(Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter)
+5							SA:Improved Turn Undead (Su)											BONUS:HP|CURRENTMAX|-10
+6							SA:Doom (Sp)	SA:Incurable (Su)	SA:Protection from Evil(Sp)	SA:Regeneration (Sp)													ADD:FEAT(Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter)
+7							SA:Radiate Evil (Su)	SA:Unearthly Courage (Su)
+8																										BONUS:MOVEADD|TYPE=Walk|-10				ADD:FEAT(Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter)
+9	VISION:Darkvision (60')	DR:15/+2	SA:Blindness (Su)
+10							SA:Death
+
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat		Required Skill
+CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
+###Block: Turn Undead stuff
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						FEATAUTO:Turn Undead|Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL*3/2			DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Level progression
+1					SA:Branding (Sp)	SA:Unearthly Protection (Sp)
+2	ADD:SPELLCASTER(Divine)	SA:Tear the Evil from the Flesh
+3					SA:Own the Mind (Ex)					ADD:FEAT(Extra Turning)
+4	ADD:SPELLCASTER(Divine)
+5					SA:Uprooting the Beast (Sp)
+6	ADD:SPELLCASTER(Divine)									ADD:FEAT(Extra Turning)
+7					SA:Righteous Fury (Ex)
+8	ADD:SPELLCASTER(Divine)	SA:Banishment (Sp)
+9					SA:Holy Aura (Sp)						ADD:FEAT(Extra Turning)
+10	ADD:SPELLCASTER(Divine)	SA:Touch of the Holy (Su)
+
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL					Required Feat		Required Skill
+CLASS:Faith Hunter	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:1,Iron Will	PRESKILL:1,Heal=4	PRESKILL:1,Knowledge (Arcana)=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Escape Artist|Gather Information|Heal|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE.Profession|Search|Sense Motive|Spellcraft|Spot
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Indominable Will	SA:Cure Infection
+2	SA:Stake Attack +%d6|StakeAttack						BONUS:VAR|StakeAttack|CL/2	DEFINE:StakeAttack|0
+3	SA:Detect Undead (Sp)
+4	SA:Undead Foe
+5	SA:Unpalatable Blood (Ex)
+6	SA:Ranged Stake Attack
+7	SA:Undead Foe	SA:Repel Vampires %/day (Su)|RepelVampires						DEFINE:RepelVampires|1
+8
+9	SA:Compel Solid Form (DC %) (Su)|CompelSolidForm			BONUS:VAR|CompelSolidForm|CL	DEFINE:CompelSolidForm|CHA+10
+10	SA:Undead Foe
+
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Hunter of the Fallen	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.42-44	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL			Required Feat
+CLASS:Hunter of the Fallen	PREALIGN:NG,TN,CG,CN	PREFEAT:1,Martial Weapon Proficiency
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Hunter of the Fallen	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intuit Direction|TYPE.Knowledge|Listen|Search|Sense Motive|Spot
+1	SA:Favored Enemy Lvl. % |FavoredEnemy								DEFINE:FavoredEnemy|1
+2	SA:Sense Undead Lvl. % (Sp)|SenseUndead								DEFINE:SenseUndead|1
+3	SA:Hardened Soul Lvl. % (Ex)|HardenedSoul	BONUS:VAR|HardenedSoul|CL/3			DEFINE:HardenedSoul|0
+4	SA:Hand of the Hunter (Su)
+5	SA:Track the Dead (Su)
+6	SA:Banished Lvl. % |Banished			BONUS:VAR|Banished|(CL-2)/4			DEFINE:Banished|0
+7								BONUS:VAR|FavoredEnemy,SenseUndead|1
+8	SA:True Death (Su)
+10								BONUS:VAR|FavoredEnemy|1
+
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Knight of the Eternal Eye	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Required AL		Required Check Base		Required Feat
+CLASS:Knight of the Eternal Eye	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Willpower=5	PREFEAT:1,Iron Will
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Move Silently|TYPE.Profession|Ride|Sense Motive
+1					SA:Lure of Darkness (Su)	SA:Undying Loyalty (Su)																				TEMPLATE:Undeath
+2	VISION:Darkvision (60')
+3					SA:Turn Resistance % (Su)|TurnResistance																		DEFINE:TurnResistance|2
+4					SA:Bonds of Death (Su)
+5					SA:Aura of Doom (Su)
+6					SA:Energy Drain 3/day (Sp)										BONUS:SKILL|Diplomacy|-2	BONUS:SKILL|Intimidate|2
+7														BONUS:VAR|TurnResistance|2
+8					SA:Incorporeality (Su)
+10					SA:Darkness form Darkness (Su)
+
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required Class		Required Skill					Required Text
+CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion),Heal=8	PRETEXT:Special (see text)
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Ride
+# Class Name			Spell Stat		Spell Type		Caster level
+CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1					SA:Atonement
+2												BONUS:VAR|TurnLevel|max(CL-1,0)	BONUS:PCLEVEL|Paladin|1
+3					SA:Searing Light %/day (Sp)|SearingLight	BONUS:VAR|SearingLight|CL/3		BONUS:PCLEVEL|Paladin|1	DEFINE:SearingLight|0
+4					SA:Last Rites (Su)										BONUS:PCLEVEL|Paladin|1
+5					SA:Life from Death (Ex)										BONUS:PCLEVEL|Paladin|1
+6																		BONUS:PCLEVEL|Paladin|1
+7					SA:Protection from Evil (Sp)									BONUS:PCLEVEL|Paladin|1
+8	SA:.CLEAR.Last Rites	SA:Last Rites (Advanced) (Su)									BONUS:PCLEVEL|Paladin|1
+9																		BONUS:PCLEVEL|Paladin|1
+10					SA:Holy Terror (Su)										BONUS:PCLEVEL|Paladin|1
+
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Text
+CLASS:Puppet	PREALIGN:LN,LE,TN,NE,CN,CE	PRETEXT:Special (see text)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gather Information|Intimidate|Listen|Read Lips|Search|Sense Motive|Spellcraft|Spot
+1	SA:Thy Master's Will	SA:Empathic Link - % Miles(Su)|EmpLink						DEFINE:EmpLink|10
+2	SA:Strengthened Resolve
+3																					ADD:FEAT(Toughness)
+4	SA:Corruptive Influence (Su)
+5												BONUS:VAR|EmpLink|15
+6																					ADD:FEAT(Toughness)
+7	SA:Thy Master's Will - % Ability|ThyMastersWill									DEFINE:ThyMastersWill|1
+8												BONUS:VAR|ThyMastersWill|1
+9												BONUS:VAR|ThyMastersWill|1					ADD:FEAT(Toughness)
+10												BONUS:VAR|ThyMastersWill|1
+
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Skill													Required Text
+CLASS:Raider	PRESKILL:2,Hide,Move Silently=6	PRESKILL:2,Intuit Direction,Knowledge (Arcana)=4	PRETEXT:Special (see text)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Search|Spot|Tumble|Use Magic Device|Use Rope
+1					SA:Practical Knowledge	SA:Quiet Inquisition
+2					SA:Sense Ward
+3					SA:Sense Life
+4					SA:Sense Scrying (Lesser)
+5					SA:Alter Traps
+6					SA:Light of Foot						BONUS:SKILL|Balance,Hide,Move Silently,Tumble|4|TYPE=Competence
+7					SA:Lure
+8	SA:.CLEAR.Sense Scrying	SA:Sense Scrying (Greater)
+9					SA:Skillful Dodge
+10					SA:Escape Certain Doom (Ex)
+
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus															Combat bonus
+CLASS:Risen		NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.53-54	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Check Base		Required Feat
+CLASS:Risen		PRECHECKBASE:1,Willpower=8	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Toughness
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim
+1	SA:Lure of Darkness (Su)	SA:Undead (Su)	SA:Vampiric Touch %/day (Su)|VampiricTouch	BONUS:VAR|VampiricTouch|(CL+1)/2	DEFINE:Vampiric Touch|0					TEMPLATE:Undeath
+2																											ADD:FEAT(Toughness)
+3	SA:Death of the Body (Su)
+4																											ADD:FEAT(Toughness)
+5	SA:Weapons of the Grave +% (Su)|WotG										BONUS:VAR|WotG|3				DEFINE:WotG|0
+6																											ADD:FEAT(Toughness)
+7	SA:Damned Blood %d8 (Su)|Blood											BONUS:VAR|WotG,Blood|1			DEFINE:Blood|0
+8																											ADD:FEAT(Toughness)
+9																	BONUS:VAR|Blood,WotG|1
+10	SA:Rejecting the Crypt(Su)																						ADD:FEAT(Toughness)
+
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required AL				Required Feat				Required Skill				Required Spell School		Req. Spell Type		Required Text
+CLASS:Sacred Theurgist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLTYPE:Arcane,1,3	PRETEXT:Special (see text)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Sacred Theurgist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+1	SA:Bonus Spells
+2	SA:Positive Energy Magic (Sp)
+3	SA:Secrets of the Dead (Sp)
+4						ADD:FEAT(TYPE=Metamagic)
+5	SA:De-animate Undead (Sp)
+6	SA:Holy Fire (Sp)
+7	SA:Song of the Dead (Sp)
+8						ADD:FEAT(TYPE=Metamagic)
+9						ADD:FEAT(TYPE=ItemCreation)
+10	SA:Master of the Dead
+
+
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.
+CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PREATT:4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Religion)|Spellcraft
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+# Should this have a Rebuke Undead call here, or just modify the VAR?  Leaving as just modifying the VAR, since htat is how it was. - Tir Gwaith
+1	ADD:SPELLCASTER(ANY)																BONUS:VAR|TurnLevel|(CL+1)/2	ADD:FEAT(Martial Weapon Proficiency)
+2													SA:Bloody Devotion (Sp)
+3	ADD:SPELLCASTER(ANY)	VISION:Darkvision (60')					SA:Dark Eyes (Su)
+4													SA:Hidden Veil (Undead) (Su)
+5	ADD:SPELLCASTER(ANY)					SA:.CLEAR.Hidden Veil	SA:Hidden Veil (Undead or Animals) (Su)
+6													SA:Tainted Blood (Su)
+7	ADD:SPELLCASTER(ANY)									SA:Power over Death (Su)
+8													SA:Consecrate Weapon (Su)
+9	ADD:SPELLCASTER(ANY)									SA:Beyond the Veil (Su)
+10													SA:Beyond Death (Su)																TEMPLATE:Undeath
+
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL	Required Feat			Required Skill															Required Spell School		Req. Spell Type		Required Text
+CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Animal Empathy=8	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLTYPE:Divine,1,3	PRETEXT:Special (see text)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+###Block: Turn Undead stuff
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						FEATAUTO:Rebuke Undead|Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Level progression
+1													BONUS:PCLEVEL|Druid|1
+2	SA:Undead Form %/day|UndeadForm			BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1	DEFINE:UndeadForm|0
+3	SA:Death Domain										BONUS:PCLEVEL|Druid|1
+4	SA:Sustenance (Su)					BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1
+5	SA:Healing Domain										BONUS:PCLEVEL|Druid|1
+6	SA:Lifeless Pallor (Su)									BONUS:PCLEVEL|Druid|1
+7													BONUS:PCLEVEL|Druid|1					ADD:SPECIAL(Destruction Domain,Undead Domain)
+8									BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1
+9	SA:Companions of the Grave	SA:Fire Domain					BONUS:PCLEVEL|Druid|1
+10									BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1

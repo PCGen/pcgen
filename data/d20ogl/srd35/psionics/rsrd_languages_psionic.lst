@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 14 18:03:15 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by Tir Gwaith
+
+# from PsionicMonsters.rtf
+
+# Language	Type
+Maenad	TYPE:Spoken
+Xeph		TYPE:Spoken

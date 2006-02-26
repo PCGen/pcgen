@@ -1,0 +1,325 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Jul  9 16:15:53 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Arcane Airman -------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat	Required Skill					Req. Spell Type
+CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft),Drive=8	PRESPELLTYPE:Arcane,1,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|TYPE.Craft|Drive|Intuit Direction|Jump|TYPE.Knowledge|Listen|TYPE.Profession|Ride|Search|Spellcraft|Spot|Use Rope|Use Steamcraft Device
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER(Arcane)	SA:Operations Expert (Ex)
+2	ADD:SPELLCASTER(Arcane)	SA:Makeshift Repairs (Ex)
+3	ADD:SPELLCASTER(Arcane)	SA:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive|ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0
+4	ADD:SPELLCASTER(Arcane)	SA:Freefall (Sp)
+5	ADD:SPELLCASTER(Arcane)	SA:Pinpoint Accuracy (Ex)
+6	ADD:SPELLCASTER(Arcane)								BONUS:VAR|ExpertAviator|2
+7	ADD:SPELLCASTER(Arcane)	SA:Safe Flying (Ex)
+8	ADD:SPELLCASTER(Arcane)	SA:Push the Limit (Ex)
+9	ADD:SPELLCASTER(Arcane)								BONUS:VAR|ExpertAviator|2
+10	ADD:SPELLCASTER(Arcane)	SA:Sky Captain (Ex)
+
+# Arcane Performer ----------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat		Required Skill																						Req. Known Spell		Req. Spell Type		Required Text
+CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PRESKILL:3,Bluff,Perform,Spellcraft=8	PRESKILL:1,Craft (Carpentry),Craft (Woodworking),Craft (Metalworking),Craft (Musical Instrument)=5	PRESPELL:1,Enthrall	PRESPELLTYPE:Arcane,1,2	PRETEXT:Must create a new intrument
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Tumble|Use Magic Device|Use Steamcraft Device
+1	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip	FEATAUTO:Simple Weapon Proficiency
+1																				FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																				FEATAUTO:Shield Proficiency
+###Block: Musical Prodigy
+1	SA:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	FEATAUTO:Musical Prodigy
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER(ANY)															ADD:Song Power I (Sp) (Cause Fear,Charm Person,Detect Secret Doors,Expeditious retreat,Feather Fall,Hypnotism,Mage Armor,Protection from Chaos,Protection from  Evil,Protection from Good,Protection from Law,Sleep,Summon Monster I)
+2	ADD:SPELLCASTER(ANY)	SA:Masterful Performance (Ex)
+3	ADD:SPELLCASTER(ANY)	SA:Tools of the Trade (Ex)
+4	ADD:SPELLCASTER(ANY)															ADD:Song Power II (Sp) (Animal Trance,Blindness,Deafness,Blur,Bull's Strength,Cats Grace,Darkness,Daylight,Enthrall,Hold Person,Hypnotic Pattern,Mirror Image,Pyrotechnics,Scare,Shatter,Sound Burst,Summon Monster II,Summon Swarm,Whispering Wind)
+5	ADD:SPELLCASTER(ANY)
+6	ADD:SPELLCASTER(ANY)															ADD:Song Power III (Sp) (Charm Monster,Confusion,Dispell Magic,Displacement,Emotion,Fear,Lesser Geas,Phantom Steed,Remove Curse,Remove Disease,Sculpt Sound,Sommon Monster III)
+7	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)															ADD:Song Power IV (Sp) (Break Enchantment,Dismissal,Dominate Person,Hold Monster,Legend Lore,Modify Memory,Rainbow Pattern,Shout,Summon Monster IV)
+9	ADD:SPELLCASTER(ANY)	SA:Musical Genius (Ex)		BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5
+10	ADD:SPELLCASTER(ANY)	SA:Song Power Master (Ex)										ADD:Song Power V (Sp) (Control Water,Dream,Greater Dispelling,Mind Fog,Nightmare,Summon Monster V)
+###Block: Bard Spells Known
+10	BONUS:DC|CLASS.Bard|2	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1|PRESTAT:1,CHA=24
+10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=14	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=26
+10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|1|PRESTAT:1,CHA=16	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|1|PRESTAT:1,CHA=28
+10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|1|PRESTAT:1,CHA=18	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|1|PRESTAT:1,CHA=30
+10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|1|PRESTAT:1,CHA=20	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|1|PRESTAT:1,CHA=32
+10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|1|PRESTAT:1,CHA=22	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|1|PRESTAT:1,CHA=34
+
+# Brawler -------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat							Required Skill
+CLASS:Brawler	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Great Fortitude	PRESKILL:1,Intimidate=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Stubborn Resolve (Ex)
+2						ADD:FEAT(TYPE=Brawler)1
+3	SA:Feinting Maneuver (Ex)
+4						ADD:FEAT(TYPE=Brawler)1
+5	SA:Grappler (Ex)
+6						ADD:FEAT(TYPE=Brawler)1
+7	SA:Defensive Stand (Ex)
+8						ADD:FEAT(TYPE=Brawler)1
+9	SA:Eyes of the Champion (Ex)
+10	SA:Final Attack (Ex)		ADD:FEAT(TYPE=Brawler)1
+
+# Demolitionist -------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	ABB:Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat				Required Skill
+CLASS:Demolitionist	PREFEAT:1,Skill Focus(Munitions)	PRESKILL:3,Alchemy,Craft (Explosives),Munitions=8	PRESKILL:2,Concentration,Disable Device=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disable Device|Knowledge (Steamcraft)|Listen|Move Silently|Munitions|Open Lock|TYPE.Profession|Search|Spot|Use Steamcraft Device
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Precise Touch +% (Ex)|PreciseTouch					BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0
+2	SA:Explosive Knowledge (Ex) (%d6 Bonus Damage)|ExplosiveKnowledge	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0
+4												BONUS:VAR|ExplosiveKnowledge|1
+5												BONUS:VAR|PreciseTouch|1
+6												BONUS:VAR|ExplosiveKnowledge|1
+8												BONUS:VAR|ExplosiveKnowledge|1
+9	SA:Defusing Touch (Su)
+10	SA:Thick Skin (Su)								BONUS:VAR|PreciseTouch|1
+
+# Detective -----------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Detective	HD:6		TYPE:PC.Prestige	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat								Required Skill
+CLASS:Detective	PREFEAT:2,Skill Focus(Search),Skill Focus(Sense Motive)	PRESKILL:3,Diplomacy,Knowledge (Local),Profession (Detective)=5	PRESKILL:3,Gather Information,Search,Sense Motive=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Drive|Gather Information|Forgery|TYPE.Knowledge|Listen|Munitions|TYPE.Profession|Read Lips|Search|Sense Motive|Spot
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1																										ADD:FEAT(Reference Material)
+2	SA:Eye for Clues (Ex)										BONUS:SKILL|Spot|4|TYPE=Competence
+3	SA:Second Thought %/day (Ex)|SecondThought														DEFINE:SecondThought|1
+4																										ADD:FEAT(Reference Material)
+5	SA:Experienced Detective (Ex)									BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
+6									BONUS:VAR|SecondThought|1
+7																										ADD:FEAT(Reference Material)
+8	SA:Understanding the Criminal Mind (Ex)
+9									BONUS:VAR|SecondThought|1
+10	SA:Master Detective (Ex)																					ADD:FEAT(Reference Material)
+
+# Game Hunter ---------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat				Required Skill
+CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide,Knowledge (Nature),Move Silently,Wilderness Lore=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Munitions|TYPE.Profession|Ride|Spot|Swim|Use Rope|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1																														ADD:FEAT(TYPE=GameHunterFavored)
+2	SA:Scentless
+3	SA:Steady Aim +% (Ex)|SteadyAim	SA:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												DEFINE:SteadyAim|CL/3
+4	SA:Survivor (Ex)												BONUS:SKILL|Intuit Direction|Wilderness Lore|2|TYPE=Competence
+5																														ADD:FEAT(TYPE=GameHunterFavored)
+7	SA:Silent Hunter (Ex)											BONUS:SKILL|Hide|Move Silently|2|TYPE=Competence
+8	SA:Outdoorsman (Ex)											BONUS:SKILL|Climb|Swim|2|TYPE=Competence
+10	SA:Death Attack (Ex)																										ADD:FEAT(TYPE=GameHunterFavored)
+
+# Gun Glyph ----------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat																																																				Required Skill											Req. Spell Type		Required Text													Req. Weapond Prof.
+CLASS:Gun Glyph	PREFEAT:1,Weapon Focus(Flintlock Pistol),Weapon Focus(Matchlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Flintlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Dwarven Tunnel Gun),Weapon Focus(Flintlock Musket),Weapon Focus(Blunderbuss),Weapon Focus(Percussion Cap Musket),Weapon Focus(Ogre Gun)	PRESKILL:2,Alchemy,Craft (Gunsmithing)=8	PRESKILL:1,Knowledge (Steamcraft)=5	PRESPELLTYPE:Arcane,1,3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:TYPE=Firearms
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Steamcraft)|Munitions|TYPE.Profession|Ride|Search|Spellcraft
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER(Arcane)							SA:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0
+2											SA:Arcane Bond I (Sp)
+3	ADD:SPELLCASTER(Arcane)							SA:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3
+4																		BONUS:VAR|ArmorAdaptation|-2
+5	ADD:SPELLCASTER(Arcane)	SA:.CLEAR.Arcane Bond I (Sp)		SA:Arcane Bond II (Sp)
+7	ADD:SPELLCASTER(Arcane)														BONUS:VAR|ArmorAdaptation|-4
+8					SA:.CLEAR.Arcane Bond II (Sp)		SA:Arcane Bond III (Sp)
+9	ADD:SPELLCASTER(Arcane)
+10					SA:.CLEAR.Arcane Bond III (Sp)	SA:Gun Master	SA:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
+
+# Hypnotist -----------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat		Required Skill								Required Spell School
+CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,Spellcraft=8	PRESPELLSCHOOL:Enchantment,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
+1	FEATAUTO:Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER(ANY)																																				ADD:FEAT(Spell Focus(Enchantment),Hypnotist DC Bonus)1
+2					SA:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Willpower|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
+#2	FEATAUTO:Master Hypnotist	Not sure but I would think they left this out
+3	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment I (Charm Person,Hypnotism,Sleep)
+4																																																		FEATAUTO:Ultimate Hypnotist
+5	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment II (Hideous Laughter,Hold Person,Suggestion)
+6
+7	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment III (Confusion,Emotion)
+8
+9	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment IV (Mind Fog,Feeblemind,Hold Monster)
+10					SA:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
+
+# Noble Bodyguard ----------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat			Required Skill
+CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate,Sense Motive=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Handle Animal|Intimidate|Jump|Listen|Munitions|TYPE.Profession|Sense Motive|Spot
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1		SA:Human Shield (Ex)
+3		SA:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
+6																								FEATAUTO:Uncanny Dodge
+9		SA:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
+10	DR:2	SA:Bastion of Protection (Ex)
+
+# Physician -----------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat		Required Skill
+CLASS:Physician	PREFEAT:1,Physician	PRESKILL:2,Alchemy,Heal=8	PRESKILL:1,Profession (Surgeon),Profession (Doctor)=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|Move Silently|Ride|Spot|Use Rope|Wilderness Lore
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Survey the Damage
+2	SA:Healing Hand	SA:Medicinal Knowledge I (Ex)															BONUS:SKILL|Heal|4|TYPE=Competence
+3	SA:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve																				DEFINE:TemporaryReprieve|((CL-1)/2)*CL
+4	SA:Model of Health (Ex)	SA:Restore Health (Ex)										BONUS:CHECKS|Fortitude|2
+6	SA:Hand of Life (Ex)	SA:Medicinal Knowledge II (Ex)
+8	SA:Reaper's Bane (Ex)
+10	SA:Medicinal Knowledge III (Ex)	SA:Master Physician (Ex)	BONUS:VAR|TemporaryReprieve|CL
+
+# Pilot ----------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Pilot		HD:8		TYPE:PC.Prestige	ABB:Pil		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill
+CLASS:Pilot		PREFEAT:2,Skill Focus(Drive),Pilot	PRESKILL:1,Drive=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Disable Device|Drive|Intuit Direction|Jump|Knowledge (Steamcraft)|Munitions|TYPE.Profession|Spot|Swim|Use Rope|Use Steamcraft Device
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1	SA:Skilled Pilot +% (Ex)|SkilledPilot	SA:Combat Ace +% (Ex)|CombatAce						BONUS:SKILL|Drive|SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
+2	SA:Vehicle Evasion (Ex)
+4	SA:Combat Maneuvers (Ex)
+6	SA:Master Gunner (%d6) (Ex)|MasterGunner																				DEFINE:MasterGunner|1
+7	SA:Defensive Piloting (Ex)
+8	SA:Greater Evasion (Ex)
+10	SA:Master Pilot (Ex)										BONUS:VAR|MasterGunner|1
+
+# Rocket Ace ----------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill								Required Text
+CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable Device|Drive|Intuit Direction|Jump|Listen|Munitions|TYPE.Profession|Spot|Swim|Tumble|Use Steamcraft Device
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Roll (Ex)
+2	SA:Rocket Mechanic (Ex)
+3	SA:Dive (Ex)
+4	SA:Booster (% ft. for % rounds) (Ex)|CL+10|CL
+5	SA:Fly-By (Ex)
+6	SA:Rocket Defense +% (Ex)|RocketDefense		DEFINE:RocketDefense|DEX
+7	SA:Cannonball (Ex)
+8	SA:Attack of Momentum (Ex)
+9	SA:Afterburner (Ex)
+10	SA:Rocket Legeng (Ex)
+
+# Steamcraft Mage -----------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat							Required Skill														Req. Spell Type
+CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks),Knowledge (Steamcraft),Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:Arcane,1,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Use Steamcraft Device
+1	FEATAUTO:Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER(Arcane)	SA:Advanced Craftsman (Ex)
+2	ADD:SPELLCASTER(Arcane)						ADD:FEAT(Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation)1
+3	ADD:SPELLCASTER(Arcane)	SA:Spell Infusion I (Su)
+4	ADD:SPELLCASTER(Arcane)
+5	ADD:SPELLCASTER(Arcane)	SA:Expert Craftsman (Ex)
+6	ADD:SPELLCASTER(Arcane)	SA:Spell Infusion II (Su)	ADD:FEAT(Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation)1
+7	ADD:SPELLCASTER(Arcane)
+8	ADD:SPELLCASTER(Arcane)	SA:Machine Mind (Su)
+9	ADD:SPELLCASTER(Arcane)	SA:Spell Infusion III (Su)
+10	ADD:SPELLCASTER(Arcane)	SA:Master Craftsman (Ex)	ADD:FEAT(Mechanical Aptitude,Brew Injection,Industrial Know-How,Industrial Master,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,TYPE.ItemCreation)1
+
+# Street Runner ----------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat	Required Skill
+CLASS:Street Runner	PREATT:4	PREFEAT:1,Run	PRESKILL:5,Balance,Hide,Intuit Direction,Move Silently,Pick Pocket=5	PRESKILL:3,Climb,Jump,Tumble=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Munitions|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
+1	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)	FEATAUTO:Street Runner Weapon Proficiencies
+1									FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1					BONUS:VAR|SneakAttack|(CL+1)/2	FEATAUTO:Sneak Attack
+2	SA:Gossip Hound (Ex)
+4	SA:Quick Lift (Ex)
+5	SA:Street Master (Ex)
+8	SA:Fast Talker (Ex)
+10	SA:Street Lord (Ex)
+
+# Watchman ----------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Skill																Required Text
+CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate,Sense Motive=3	PRESKILL:1,Knowledge (Law),Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Intimidate|Intuit Direction|Knowledge (Local)|Knowledge (Law)|Knowledge (Crime and Criminals)|Listen|Munitions|TYPE.Profession|Ride|Sense Motive|Spot
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1																										FEATAUTO:Weapon Focus(Club)
+2	SA:Crowd Control (Ex)
+4	SA:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
+5																					ADD:FEAT(TYPE=Watchman)1
+6	SA:Renewed Vitality (Ex)	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
+8	SA:Presence of Authority (Ex)																					FEATAUTO:Leadership
+10	SA:Veteran Watchman (Ex)																ADD:FEAT(TYPE=Watchman)1
+
+#
+# end
+#

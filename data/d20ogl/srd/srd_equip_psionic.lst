@@ -1,0 +1,105 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Jan  5 12:53:43 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+# Equipment Name			Type						Cost		Slot Needed	Choose					Source Page					Bonus to skill			Special Property
+Amulet of Catapsi			TYPE:Psionic.Universal.Amulet		COST:12000									SOURCEPAGE:srdpsionicitems.rtf
+Amulet of Psychic Bastion	TYPE:Psionic.Universal.Amulet		COST:2000									SOURCEPAGE:srdpsionicitems.rtf
+Boots (Skating)			TYPE:Psionic.Universal.Boot		COST:2000	SLOTS:2							SOURCEPAGE:srdpsionicitems.rtf
+Boots (Stomping)			TYPE:Psionic.Universal.Boot		COST:1200	SLOTS:2							SOURCEPAGE:srdpsionicitems.rtf
+Brain Lock Pearl			TYPE:Psionic.Universal			COST:1000									SOURCEPAGE:srdpsionicitems.rtf
+Crystal Mask (Detection)	TYPE:Psionic.Universal.Mask		COST:12000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make search checks for traps like a rogue
+Crystal Mask (Fear)		TYPE:Psionic.Universal.Mask		COST:56000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make gaze attack (Will DC 16) to Panick a target
+Crystal Mask (Knowledge)	TYPE:Psionic.Universal.Mask		COST:500			CHOOSE:SKILLSNAMED|Knowledge %|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
+Crystal Mask (Language)		TYPE:Psionic.Universal.Mask		COST:500									SOURCEPAGE:srdpsionicitems.rtf
+Crystal Mask (Mindarmour)	TYPE:Psionic.Universal.Mask		COST:4000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:+4 on all saves vs. Compulsions
+Eyes of Powerleech		TYPE:Psionic.Universal.Eyegear	COST:7200									SOURCEPAGE:srdpsionicitems.rtf
+Eyes of Vampiric Powerleech	TYPE:Psionic.Universal.Eyegear	COST:61000									SOURCEPAGE:srdpsionicitems.rtf
+Gloves of Object Reading	TYPE:Psionic.Universal.Glove		COST:2000	SLOTS:2							SOURCEPAGE:srdpsionicitems.rtf
+Ioun Stone (Rainbow)		TYPE:Psionic.Universal			COST:16000									SOURCEPAGE:srdpsionicitems.rtf
+Mirror of Suggestion		TYPE:Psionic.Universal			COST:12000									SOURCEPAGE:srdpsionicitems.rtf
+Powerleech Pearl			TYPE:Psionic.Universal			COST:1000									SOURCEPAGE:srdpsionicitems.rtf
+Reverse Capacitor			TYPE:Psionic.Universal			COST:182000									SOURCEPAGE:srdpsionicitems.rtf
+Ring (Self-Sufficiency)		TYPE:Psionic.Universal.Ring		COST:2000									SOURCEPAGE:srdpsionicitems.rtf
+Ring (Stabilization)		TYPE:Psionic.Universal.Ring		COST:2000									SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Stabilize Self|10
+Psionatrix				TYPE:Psionic.Universal			COST:2000									SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Average)	TYPE:Psionic.Universal			COST:6000									SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Damping)	TYPE:Psionic.Universal			COST:24000									SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Greater)	TYPE:Psionic.Universal			COST:12000									SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Lesser)	TYPE:Psionic.Universal			COST:1000									SOURCEPAGE:srdpsionicitems.rtf
+Torc of Free Will			TYPE:Psionic.Universal.Torc		COST:12000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Not affected by Brain Lock or Brain Lock-like effects
+Torc of Power			TYPE:Psionic.Universal.Torc		COST:12000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Protected from Powerleech effects
+Torc of Psionic Might		TYPE:Psionic.Universal.Torc		COST:10000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Wearer spends one less PP on powers manifested (min cost 1)
+
+###Block: Crystal Capacitors
+# Equipment Name			Type				Cost		Source Page
+Crystal Capacitor (1 PP)	TYPE:Psionic.Universal	COST:1000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (11 PP)	TYPE:Psionic.Universal	COST:36000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (13 PP)	TYPE:Psionic.Universal	COST:49000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (15 PP)	TYPE:Psionic.Universal	COST:64000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (17 PP)	TYPE:Psionic.Universal	COST:81000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (3 PP)	TYPE:Psionic.Universal	COST:4000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (5 PP)	TYPE:Psionic.Universal	COST:9000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (7 PP)	TYPE:Psionic.Universal	COST:16000	SOURCEPAGE:srdpsionicitems.rtf
+Crystal Capacitor (9 PP)	TYPE:Psionic.Universal	COST:25000	SOURCEPAGE:srdpsionicitems.rtf
+
+###Block: Psicrystals
+# Equipment Name			Type				Cost		Choose					Source Page					Save checks bonus			Bonus to skill
+#Psicrystal (Artiste)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|TYPE=Craft|2
+#Psicrystal (Bully)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Intimidate|2
+#Psicrystal (Coward)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Hide|2
+#Psicrystal (Friendly)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Diplomacy|2
+#Psicrystal (Hero)			TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Fortitude|2
+#Psicrystal (Liar)			TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Bluff|2
+#Psicrystal (Meticulous)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Search|2
+#Psicrystal (Observant)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Spot|2
+#Psicrystal (Poised)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Balance|2
+#Psicrystal (Resolve)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Willpower|2
+#Psicrystal (Sage)			TYPE:Psionic.Psicrystal	COST:100	CHOOSE:SKILLSNAMED|Knowledge %|1	SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|LIST|2
+#Psicrystal (Singleminded)	TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Concentration|1
+#Psicrystal (Sneak)		TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Move Silently|2
+#Psicrystal (Sympathetic)	TYPE:Psionic.Psicrystal	COST:100							SOURCEPAGE:srdpsionicitems.rtf						BONUS:SKILL|Sense Motive|2
+
+###Block: Psycoactive Skin
+# Equipment Name				Type						Cost		Damage		Source Page					Save checks bonus					Combat bonus					Bonus to skill
+Psychoactive Skin (Chameleon)		TYPE:Psionic.Universal.PsycoSkin	COST:4500				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Hide|15
+Psychoactive Skin (Claw)		TYPE:Psionic.Universal.PsycoSkin	COST:16000	DAMAGE:1d12+STR	SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Defender)		TYPE:Psionic.Universal.PsycoSkin	COST:32000				SOURCEPAGE:srdpsionicitems.rtf								BONUS:COMBAT|AC|4
+Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000				SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Fortitude,Willpower,Reflex|3	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3
+Psychoactive Skin (Iron)		TYPE:Psionic.Universal.PsycoSkin	COST:240000				SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Nimbleness)	TYPE:Psionic.Universal.PsycoSkin	COST:2000				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Tumble|10
+Psychoactive Skin (Proteus)		TYPE:Psionic.Universal.PsycoSkin	COST:90000				SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Psion)		TYPE:Psionic.Universal.PsycoSkin	COST:66000				SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Spider)		TYPE:Psionic.Universal.PsycoSkin	COST:20000				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Climb|20
+Psychoactive Skin (Striking)		TYPE:Psionic.Universal.PsycoSkin	COST:24000				SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Troll)		TYPE:Psionic.Universal.PsycoSkin	COST:90000				SOURCEPAGE:srdpsionicitems.rtf
+
+###Block: Shards
+# Equipment Name	Type					Cost		Choose		Source Page					Bonus to skill
+Shard +1		TYPE:Psionic.Universal.Shard	COST:20	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|1
+Shard +2		TYPE:Psionic.Universal.Shard	COST:30	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|2
+Shard +3		TYPE:Psionic.Universal.Shard	COST:40	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|3
+Shard +4		TYPE:Psionic.Universal.Shard	COST:60	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|4
+Shard +5		TYPE:Psionic.Universal.Shard	COST:100	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
+Shard +6		TYPE:Psionic.Universal.Shard	COST:140	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|6
+Shard +7		TYPE:Psionic.Universal.Shard	COST:200	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|7
+Shard +8		TYPE:Psionic.Universal.Shard	COST:250	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|8
+Shard +9		TYPE:Psionic.Universal.Shard	COST:320	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|9
+Shard +10		TYPE:Psionic.Universal.Shard	COST:400	CHOOSE:SKILLS|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|10
+
+###Block:Third Eyes
+# Equipment Name		Type						Cost		Source Page					Bonus to skill						Special Property
+Third Eye (Assimilate)	TYPE:Psionic.Universal.ThirdEye	COST:11200	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Can borrow one power per day.
+Third Eye (Aware)		TYPE:Psionic.Universal.ThirdEye	COST:4000	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Search|10	BONUS:SKILL|Spot|10
+Third Eye (Conceal)	TYPE:Psionic.Universal.ThirdEye	COST:90000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Conceals the wearer from all remote viewing and scrying attempts.
+Third Eye (Concentrate)	TYPE:Psionic.Universal.ThirdEye	COST:2000	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Concentration|10
+Third Eye (Dominate)	TYPE:Psionic.Universal.ThirdEye	COST:96000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Can Remote View at will and send/recieve mental messages from the subject. 1/day lesser dominate.
+Third Eye (Expose)	TYPE:Psionic.Universal.ThirdEye	COST:12000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Always knows when someone is lying.
+Third Eye (Negate)	TYPE:Psionic.Universal.ThirdEye	COST:44600	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Can suppress psionic items 3/day
+Third Eye (Open)		TYPE:Psionic.Universal.ThirdEye	COST:12000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Freely manifest Clairaudience/Clairvoyance at will
+Third Eye (Penetrate)	TYPE:Psionic.Universal.ThirdEye	COST:4000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:+2 on manifester levels to beat Psionic Resistance.
+Third Eye (Perceive)	TYPE:Psionic.Universal.ThirdEye	COST:2000	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Sense Motive|10
+Third Eye (View)		TYPE:Psionic.Universal.ThirdEye	COST:42000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Remote View at will
+
+###Block:Inertial Armor
+# Equipment Name	Type			Cost		Required Feat			MODS		Source Page					Combat bonus
+#Inertial Armor	TYPE:Psionic	COST:0	PREFEAT:1,Inertial Armor	MODS:N	SOURCEPAGE:srdpsionicfeats.rtf	BONUS:COMBAT|AC|4|TYPE=Armor

@@ -1,0 +1,50 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Oct 20 21:53:35 2005 -- reformated by prettylst.pl v1.35 (build 478)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Andargor <andargor@yahoo.com>
+
+###Block: Epic Horizon Walker Terrain Abilities
+# Feat Name				Type				Visible	Required Feat			Var. Max. Value										Special Ability										Define					Stackable?	Multiple?	Choose					Modify VAR						Source Page
+Improved Aquatic Terrain	TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Aquatic Terrain	PREVARLTEQ:ImprovedAquaticTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Aquatic Terrain Mastery +%|ImprovedAquaticTerrain		DEFINE:ImprovedAquaticTerrain|1	STACK:YES	MULT:YES	CHOOSE:Improved Aquatic Terrain	BONUS:VAR|ImprovedAquaticTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Desert Terrain		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Desert Terrain	PREVARLTEQ:ImprovedDesertTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Desert Terrain Mastery +%|ImprovedDesertTerrain			DEFINE:ImprovedDesertTerrain|1	STACK:YES	MULT:YES	CHOOSE:Improved Desert Terrain	BONUS:VAR|ImprovedDesertTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Forest Terrain		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Forest Terrain	PREVARLTEQ:ImprovedForestTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Forest Terrain Mastery +%|ImprovedForestTerrain			DEFINE:ImprovedForestTerrain|1	STACK:YES	MULT:YES	CHOOSE:Improved Forest Terrain	BONUS:VAR|ImprovedForestTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Hills Terrain		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Hills Terrain		PREVARLTEQ:ImprovedHillsTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Hills Terrain Mastery +%|ImprovedHillsTerrain			DEFINE:ImprovedHillsTerrain|1		STACK:YES	MULT:YES	CHOOSE:Improved Hills Terrain		BONUS:VAR|ImprovedHillsTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Marsh Terrain		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Marsh Terrain		PREVARLTEQ:ImprovedMarshTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Marsh Terrain Mastery +%|ImprovedMarshTerrain			DEFINE:ImprovedMarshTerrain|1		STACK:YES	MULT:YES	CHOOSE:Improved Marsh Terrain		BONUS:VAR|ImprovedMarshTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Mountain Terrain	TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Mountain Terrain	PREVARLTEQ:ImprovedMountainTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Mountain Terrain Mastery +%|ImprovedMountainTerrain		DEFINE:ImprovedMountainTerrain|1	STACK:YES	MULT:YES	CHOOSE:Improved Mountain Terrain	BONUS:VAR|ImprovedMountainTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Plains Terrain		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Plains Terrain	PREVARLTEQ:ImprovedPlainsTerrain,ceil((CL=Horizon Walker)/10)		SA:Improved Plains Terrain Mastery +%|ImprovedPlainsTerrain			DEFINE:ImprovedPlainsTerrain|1	STACK:YES	MULT:YES	CHOOSE:Improved Plains Terrain	BONUS:VAR|ImprovedPlainsTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Underground Terrain	TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Underground Terrain	PREVARLTEQ:ImprovedUndergroundTerrain,ceil((CL=Horizon Walker)/10)	SA:Improved Underground Terrain Mastery +%|ImprovedUndergroundTerrain	DEFINE:ImprovedUndergroundTerrain|1	STACK:YES	MULT:YES	CHOOSE:Improved Underground Terrain	BONUS:VAR|ImprovedUndergroundTerrain|1	SOURCEPAGE:epicclasses.rtf
+Improved Fiery Planar		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Fiery Planar		PREVARLTEQ:ImprovedFieryPlanar,ceil((CL=Horizon Walker)/10)			SA:Improved Fiery Planar Mastery +%|ImprovedFieryPlanar			DEFINE:ImprovedFieryPlanar|1		STACK:YES	MULT:YES	CHOOSE:Improved Fiery Planar		BONUS:VAR|ImprovedFieryPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Weightless Planar	TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Weightless Planar	PREVARLTEQ:ImprovedWeightlessPlanar,ceil((CL=Horizon Walker)/10)		SA:Improved Weightless Planar Mastery +%|ImprovedWeightlessPlanar		DEFINE:ImprovedWeightlessPlanar|1	STACK:YES	MULT:YES	CHOOSE:Improved Weightless Planar	BONUS:VAR|ImprovedWeightlessPlanar|1	SOURCEPAGE:epicclasses.rtf
+Improved Cold Planar		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Cold Planar		PREVARLTEQ:ImprovedColdPlanar,ceil((CL=Horizon Walker)/10)			SA:Improved Cold Planar Mastery +%|ImprovedColdPlanar				DEFINE:ImprovedColdPlanar|1		STACK:YES	MULT:YES	CHOOSE:Improved Cold Planar		BONUS:VAR|ImprovedColdPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Shifting Planar	TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Shifting Planar	PREVARLTEQ:ImprovedShiftingPlanar,ceil((CL=Horizon Walker)/10)		SA:Improved Shifting Planar Mastery +%|ImprovedShiftingPlanar		DEFINE:ImprovedShiftingPlanar|1	STACK:YES	MULT:YES	CHOOSE:Improved Shifting Planar	BONUS:VAR|ImprovedShiftingPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Aligned Planar		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Aligned Planar	PREVARLTEQ:ImprovedAlignedPlanar,ceil((CL=Horizon Walker)/10)		SA:Improved Aligned Planar Mastery +%|ImprovedAlignedPlanar			DEFINE:ImprovedAlignedPlanar|1	STACK:YES	MULT:YES	CHOOSE:Improved Aligned Planar	BONUS:VAR|ImprovedAlignedPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Cavernous Planar	TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Cavernous Planar	PREVARLTEQ:ImprovedCavernousPlanar,ceil((CL=Horizon Walker)/10)		SA:Improved Cavernous Planar Mastery +%|ImprovedCavernousPlanar		DEFINE:ImprovedCavernousPlanar|1	STACK:YES	MULT:YES	CHOOSE:Improved Cavernous Planar	BONUS:VAR|ImprovedCavernousPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Other Planar		TYPE:ImprovedTerrain	VISIBLE:NO	PREFEAT:1,Other Planar		PREVARLTEQ:ImprovedOtherPlanar,ceil((CL=Horizon Walker)/10)			SA:Improved Other Planar Mastery +%|ImprovedOtherPlanar			DEFINE:ImprovedOtherPlanar|1		STACK:YES	MULT:YES	CHOOSE:Improved Other Planar		BONUS:VAR|ImprovedOtherPlanar|1		SOURCEPAGE:epicclasses.rtf
+
+###Block: Cosmic Descryer Naturalization
+# Feat Name		Type				Visible	Required Class			Special Ability						Define				Stackable?	Multiple?	Choose			Modify VAR				Source Page
+Naturalization	TYPE:Naturalization	VISIBLE:NO	PRECLASS:1,Cosmic Descryer=2	SA:Naturalization (% planes)|CSNaturalization	DEFINE:CSNaturalization|0	STACK:YES	MULT:YES	CHOOSE:Naturalization	BONUS:VAR|CSNaturalization|1	SOURCEPAGE:epicclasses.rtf
+
+###Block: Epic Infiltrator Specialist Training
+# Feat Name			Type				Visible	Required Class			Special Ability							Define			Stackable?	Multiple?	Choose				Bonus to skill												Modify VAR				Source Page
+Concealment Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltrator=2	SA:Specalist Training (Concealment) +%|EIConcealment	DEFINE:EIConcealment|0	STACK:YES	MULT:YES	CHOOSE:Concealment Specialist	BONUS:SKILL|Bluff,Disguise,Forgery|EIConcealment						BONUS:VAR|EIConcealment|3	SOURCEPAGE:epicprestigeclasses.rtf
+Subterfuge Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltrator=2	SA:Specalist Training (Subterfuge) +%|EISubterfuge	DEFINE:EISubterfuge|0	STACK:YES	MULT:YES	CHOOSE:Subterfuge Specialist	BONUS:SKILL|Hide,Move Silently,Open Lock,Sleight of Hand|EISubterfuge			BONUS:VAR|EISubterfuge|3	SOURCEPAGE:epicprestigeclasses.rtf
+Espionage Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltrator=2	SA:Specalist Training (Espionage) +%|EIEspionage	DEFINE:EIEspionage|0	STACK:YES	MULT:YES	CHOOSE:Espionage Specialist	BONUS:SKILL|Listen,Search,Spot|EIEspionage							BONUS:VAR|EIEspionage|3		SOURCEPAGE:epicprestigeclasses.rtf
+Interaction Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltrator=2	SA:Specalist Training (Interaction) +%|EIInteraction	DEFINE:EIInteraction|0	STACK:YES	MULT:YES	CHOOSE:Interaction Specialist	BONUS:SKILL|Diplomacy,Gather Information,Intimidate,Sense Motive|EIInteraction	BONUS:VAR|EIInteraction|3	SOURCEPAGE:epicprestigeclasses.rtf
+
+###Block: Shadowdancer Abilities
+
+# Feat Name	Type						Visible	Special Ability																																							Define									Modify VAR
+Shadow Jump	TYPE:ClassFeature.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SA:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SA:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0	DEFINE:ShadowJumpProgression|0	BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
+
+#  1 Mile = 5280 ft
+#  1 AU = 149,597,870.691 kl or 92955778.50913738 miles
+
+###Block: Epic Spellcasting Support
+
+# Feat Name						Type			Visible	ADD:SPELLCASTER					Bonus to spell cast/day
+Epic Spellcaster (Arcane/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Arcane/INT))	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/INT);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Arcane/WIS))	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/WIS);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Arcane/CHA))	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/CHA);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/INT Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Divine/INT))	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/INT);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/WIS Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Divine/WIS))	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/WIS);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/CHA Spellstat)	TYPE:EpicSpells	VISIBLE:NO	ADD:SPELLCASTER(Epic Spells (Divine/CHA))	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay

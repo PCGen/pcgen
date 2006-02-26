@@ -1,0 +1,850 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Dec 21 18:06:06 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Frank Kliewe
+
+#msrd errors?
+#Wyrmlings have too many skill ranks
+#all other Dragons do not make full use of all their skill points
+
+STARTPACK:Wyrmling	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:7
+SKILL:Diplomacy			RANK:7
+SKILL:Jump				RANK:7
+SKILL:Knowledge (Arcane Lore)	RANK:7
+SKILL:Listen			RANK:7
+SKILL:Search			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Spot				RANK:7
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Default Dragon (Black Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Wyrmling)]
+RACE:Dragon (Black Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Black Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Blue Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Wyrmling)]
+RACE:Dragon (Blue Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Blue Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Green Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Wyrmling)]
+RACE:Dragon (Green Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Green Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Red Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Wyrmling)]
+RACE:Dragon (Red Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Red Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (White Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Wyrmling)]
+RACE:Dragon (White Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (White Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Brass Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Wyrmling)]
+RACE:Dragon (Brass Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Brass Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Bronze Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Wyrmling)]
+RACE:Dragon (Bronze Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Bronze Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Copper Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Wyrmling)]
+RACE:Dragon (Copper Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Copper Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Gold Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Wyrmling)]
+RACE:Dragon (Gold Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Gold Dragon)
+KIT:Wyrmling
+
+STARTPACK:Default Dragon (Silver Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Wyrmling)]
+RACE:Dragon (Silver Wyrmling)	!PRERACE:1,%
+NAME:Wyrmling (Silver Dragon)
+KIT:Wyrmling
+
+STARTPACK:Very Young Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:8
+SKILL:Diplomacy			RANK:8
+SKILL:Jump				RANK:8
+SKILL:Knowledge (Arcane Lore)	RANK:8
+SKILL:Listen			RANK:8
+SKILL:Search			RANK:8
+SKILL:Sense Motive		RANK:8
+SKILL:Spot				RANK:8
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Default Dragon (Black Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Young Dragon)]
+RACE:Dragon (Black Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Black Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Blue Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Very Young Dragon)]
+RACE:Dragon (Blue Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Blue Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Green Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Very Young Dragon)]
+RACE:Dragon (Green Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Green Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Red Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Very Young Dragon)]
+RACE:Dragon (Red Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Red Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (White Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Very Young Dragon)]
+RACE:Dragon (White Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young White Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Brass Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Very Young Dragon)]
+RACE:Dragon (Brass Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Brass Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Bronze Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Very Young Dragon)]
+RACE:Dragon (Bronze Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Bronze Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Copper Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Very Young Dragon)]
+RACE:Dragon (Copper Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Copper Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Gold Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Very Young Dragon)]
+RACE:Dragon (Gold Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Gold Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Default Dragon (Silver Very Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Very Young Dragon)]
+RACE:Dragon (Silver Very Young Dragon)	!PRERACE:1,%
+NAME:Very Young Silver Dragon
+KIT:Very Young Dragon
+
+STARTPACK:Young Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration		RANK:1
+SKILL:Bluff				RANK:9
+SKILL:Diplomacy			RANK:9
+SKILL:Jump				RANK:9
+SKILL:Knowledge (Arcane Lore)	RANK:9
+SKILL:Listen			RANK:9
+SKILL:Search			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Damage Threshold (+3)
+FEAT:Power Attack
+SPELLS:Mage Hand|Read Magic|Resistance|Ray of Fatigue|Sleep
+
+STARTPACK:Default Dragon (Black Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young Dragon)]
+RACE:Dragon (Black Young Dragon)	!PRERACE:1,%
+NAME:Young Black Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Blue Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Young Dragon)]
+RACE:Dragon (Blue Young Dragon)	!PRERACE:1,%
+NAME:Young Blue Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Green Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Young Dragon)]
+RACE:Dragon (Green Young Dragon)	!PRERACE:1,%
+NAME:Young Green Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Red Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Young Dragon)]
+RACE:Dragon (Red Young Dragon)	!PRERACE:1,%
+NAME:Young Red Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (White Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Young Dragon)]
+RACE:Dragon (White Young Dragon)	!PRERACE:1,%
+NAME:Young White Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Brass Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Young Dragon)]
+RACE:Dragon (Brass Young Dragon)	!PRERACE:1,%
+NAME:Young Brass Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Bronze Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Young Dragon)]
+RACE:Dragon (Bronze Young Dragon)	!PRERACE:1,%
+NAME:Young Bronze Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Copper Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Young Dragon)]
+RACE:Dragon (Copper Young Dragon)	!PRERACE:1,%
+NAME:Young Copper Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Gold Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Young Dragon)]
+RACE:Dragon (Gold Young Dragon)	!PRERACE:1,%
+NAME:Young Gold Dragon
+KIT:Young Dragon
+
+STARTPACK:Default Dragon (Silver Young Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Young Dragon)]
+RACE:Dragon (Silver Young Dragon)	!PRERACE:1,%
+NAME:Young Silver Dragon
+KIT:Young Dragon
+
+STARTPACK:Juvenile Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration		RANK:2
+SKILL:Bluff				RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Jump				RANK:10
+SKILL:Knowledge (Arcane Lore)	RANK:10
+SKILL:Knowledge (History)	RANK:1
+SKILL:Listen			RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Damage Threshold (+3)
+FEAT:Power Attack
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Ray of Fatigue|Sleep
+
+STARTPACK:Default Dragon (Black Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Juvenile Dragon)]
+RACE:Dragon (Black Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Black Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Blue Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Juvenile Dragon)]
+RACE:Dragon (Blue Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Blue Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Green Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Juvenile Dragon)]
+RACE:Dragon (Green Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Green Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Red Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Juvenile Dragon)]
+RACE:Dragon (Red Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Red Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (White Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Juvenile Dragon)]
+RACE:Dragon (White Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile White Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Brass Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Juvenile Dragon)]
+RACE:Dragon (Brass Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Brass Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Bronze Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Juvenile Dragon)]
+RACE:Dragon (Bronze Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Bronze Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Copper Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Juvenile Dragon)]
+RACE:Dragon (Copper Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Copper Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Gold Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Juvenile Dragon)]
+RACE:Dragon (Gold Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Gold Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Default Dragon (Silver Juvenile Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Juvenile Dragon)]
+RACE:Dragon (Silver Juvenile Dragon)	!PRERACE:1,%
+NAME:Juvenile Silver Dragon
+KIT:Juvenile Dragon
+
+STARTPACK:Young Adult Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration		RANK:3
+SKILL:Bluff				RANK:11
+SKILL:Diplomacy			RANK:11
+SKILL:Jump				RANK:11
+SKILL:Knowledge (Arcane Lore)	RANK:11
+SKILL:Knowledge (History)	RANK:2
+SKILL:Listen			RANK:11
+SKILL:Search			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Spot				RANK:11
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Power Attack
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Ray of Fatigue|Sleep|Enhance Ability|Web
+
+STARTPACK:Default Dragon (Black Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young Adult Dragon)]
+RACE:Dragon (Black Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Black Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Blue Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Young Adult Dragon)]
+RACE:Dragon (Blue Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Blue Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Green Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Young Adult Dragon)]
+RACE:Dragon (Green Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Green Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Red Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Young Adult Dragon)]
+RACE:Dragon (Red Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Red Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (White Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Young Adult Dragon)]
+RACE:Dragon (White Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult White Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Brass Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Young Adult Dragon)]
+RACE:Dragon (Brass Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Brass Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Bronze Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Young Adult Dragon)]
+RACE:Dragon (Bronze Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Bronze Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Copper Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Young Adult Dragon)]
+RACE:Dragon (Copper Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Copper Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Gold Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Young Adult Dragon)]
+RACE:Dragon (Gold Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Gold Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Default Dragon (Silver Young Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Young Adult Dragon)]
+RACE:Dragon (Silver Young Adult Dragon)	!PRERACE:1,%
+NAME:Young Adult Silver Dragon
+KIT:Young Adult Dragon
+
+STARTPACK:Adult Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:4
+SKILL:Bluff					RANK:12
+SKILL:Diplomacy				RANK:12
+SKILL:Jump					RANK:12
+SKILL:Knowledge (Arcane Lore)		RANK:12
+SKILL:Knowledge (Current Events)	RANK:1
+SKILL:Knowledge (History)		RANK:3
+SKILL:Listen				RANK:12
+SKILL:Search				RANK:12
+SKILL:Sense Motive			RANK:12
+SKILL:Spot					RANK:12
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Power Attack
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb|Web
+
+STARTPACK:Default Dragon (Black Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Adult Dragon)]
+RACE:Dragon (Black Adult Dragon)	!PRERACE:1,%
+NAME:Adult Black Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Blue Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Adult Dragon)]
+RACE:Dragon (Blue Adult Dragon)	!PRERACE:1,%
+NAME:Adult Blue Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Green Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Adult Dragon)]
+RACE:Dragon (Green Adult Dragon)	!PRERACE:1,%
+NAME:Adult Green Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Red Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Adult Dragon)]
+RACE:Dragon (Red Adult Dragon)	!PRERACE:1,%
+NAME:Adult Red Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (White Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Adult Dragon)]
+RACE:Dragon (White Adult Dragon)	!PRERACE:1,%
+NAME:Adult White Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Brass Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Adult Dragon)]
+RACE:Dragon (Brass Adult Dragon)	!PRERACE:1,%
+NAME:Adult Brass Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Bronze Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Adult Dragon)]
+RACE:Dragon (Bronze Adult Dragon)	!PRERACE:1,%
+NAME:Adult Bronze Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Copper Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Adult Dragon)]
+RACE:Dragon (Copper Adult Dragon)	!PRERACE:1,%
+NAME:Adult Copper Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Gold Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Adult Dragon)]
+RACE:Dragon (Gold Adult Dragon)	!PRERACE:1,%
+NAME:Adult Gold Dragon
+KIT:Adult Dragon
+
+STARTPACK:Default Dragon (Silver Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Adult Dragon)]
+RACE:Dragon (Silver Adult Dragon)	!PRERACE:1,%
+NAME:Adult Silver Dragon
+KIT:Adult Dragon
+
+STARTPACK:Mature Adult Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:5
+SKILL:Bluff					RANK:13
+SKILL:Diplomacy				RANK:13
+SKILL:Jump					RANK:13
+SKILL:Knowledge (Arcane Lore)		RANK:13
+SKILL:Knowledge (Current Events)	RANK:2
+SKILL:Knowledge (History)		RANK:4
+SKILL:Listen				RANK:13
+SKILL:Search				RANK:13
+SKILL:Sense Motive			RANK:13
+SKILL:Spot					RANK:13
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Power Attack
+FEAT:Sunder
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb|Web|Dispel Magic|Haste
+
+STARTPACK:Default Dragon (Black Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Mature Adult Dragon)]
+RACE:Dragon (Black Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Black Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Blue Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Mature Adult Dragon)]
+RACE:Dragon (Blue Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Blue Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Green Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Mature Adult Dragon)]
+RACE:Dragon (Green Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Green Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Red Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Mature Adult Dragon)]
+RACE:Dragon (Red Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Red Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (White Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Mature Adult Dragon)]
+RACE:Dragon (White Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult White Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Brass Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Mature Adult Dragon)]
+RACE:Dragon (Brass Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Brass Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Bronze Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Mature Adult Dragon)]
+RACE:Dragon (Bronze Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Bronze Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Copper Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Mature Adult Dragon)]
+RACE:Dragon (Copper Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Copper Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Gold Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Mature Adult Dragon)]
+RACE:Dragon (Gold Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Gold Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Default Dragon (Silver Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Mature Adult Dragon)]
+RACE:Dragon (Silver Mature Adult Dragon)	!PRERACE:1,%
+NAME:Mature Adult Silver Dragon
+KIT:Mature Adult Dragon
+
+STARTPACK:Old Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:6
+SKILL:Bluff					RANK:14
+SKILL:Diplomacy				RANK:14
+SKILL:Jump					RANK:14
+SKILL:Knowledge (Arcane Lore)		RANK:14
+SKILL:Knowledge (Current Events)	RANK:3
+SKILL:Knowledge (History)		RANK:5
+SKILL:Listen				RANK:14
+SKILL:Search				RANK:14
+SKILL:Sense Motive			RANK:14
+SKILL:Spot					RANK:14
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Power Attack
+FEAT:Sunder
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste
+
+STARTPACK:Default Dragon (Black Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Old Dragon)]
+RACE:Dragon (Black Old Dragon)	!PRERACE:1,%
+NAME:Old Black Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Blue Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Old Dragon)]
+RACE:Dragon (Blue Old Dragon)	!PRERACE:1,%
+NAME:Old Blue Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Green Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Old Dragon)]
+RACE:Dragon (Green Old Dragon)	!PRERACE:1,%
+NAME:Old Green Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Red Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Old Dragon)]
+RACE:Dragon (Red Old Dragon)	!PRERACE:1,%
+NAME:Old Red Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (White Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Old Dragon)]
+RACE:Dragon (White Old Dragon)	!PRERACE:1,%
+NAME:Old White Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Brass Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Old Dragon)]
+RACE:Dragon (Brass Old Dragon)	!PRERACE:1,%
+NAME:Old Brass Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Bronze Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Old Dragon)]
+RACE:Dragon (Bronze Old Dragon)	!PRERACE:1,%
+NAME:Old Bronze Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Copper Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Old Dragon)]
+RACE:Dragon (Copper Old Dragon)	!PRERACE:1,%
+NAME:Old Copper Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Gold Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Old Dragon)]
+RACE:Dragon (Gold Old Dragon)	!PRERACE:1,%
+NAME:Old Gold Dragon
+KIT:Old Dragon
+
+STARTPACK:Default Dragon (Silver Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Old Dragon)]
+RACE:Dragon (Silver Old Dragon)	!PRERACE:1,%
+NAME:Old Silver Dragon
+KIT:Old Dragon
+
+STARTPACK:Very Old Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:7
+SKILL:Bluff					RANK:15
+SKILL:Diplomacy				RANK:15
+SKILL:Jump					RANK:15
+SKILL:Knowledge (Arcane Lore)		RANK:15
+SKILL:Knowledge (Current Events)	RANK:4
+SKILL:Knowledge (History)		RANK:6
+SKILL:Listen				RANK:15
+SKILL:Search				RANK:15
+SKILL:Sense Motive			RANK:15
+SKILL:Spot					RANK:15
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Sunder
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Stoneskin|Wall of Ice
+
+STARTPACK:Default Dragon (Black Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Old Dragon)]
+RACE:Dragon (Black Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Black Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Blue Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Very Old Dragon)]
+RACE:Dragon (Blue Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Blue Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Green Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Very Old Dragon)]
+RACE:Dragon (Green Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Green Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Red Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Very Old Dragon)]
+RACE:Dragon (Red Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Red Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (White Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Very Old Dragon)]
+RACE:Dragon (White Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old White Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Brass Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Very Old Dragon)]
+RACE:Dragon (Brass Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Brass Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Bronze Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Very Old Dragon)]
+RACE:Dragon (Bronze Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Bronze Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Copper Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Very Old Dragon)]
+RACE:Dragon (Copper Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Copper Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Gold Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Very Old Dragon)]
+RACE:Dragon (Gold Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Gold Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Default Dragon (Silver Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Very Old Dragon)]
+RACE:Dragon (Silver Very Old Dragon)	!PRERACE:1,%
+NAME:Very Old Silver Dragon
+KIT:Very Old Dragon
+
+STARTPACK:Ancient Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:11
+SKILL:Bluff					RANK:16
+SKILL:Diplomacy				RANK:16
+SKILL:Jump					RANK:16
+SKILL:Knowledge (Arcane Lore)		RANK:16
+SKILL:Knowledge (Current Events)	RANK:7
+SKILL:Knowledge (History)		RANK:8
+SKILL:Listen				RANK:16
+SKILL:Search				RANK:16
+SKILL:Sense Motive			RANK:16
+SKILL:Spot					RANK:16
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Sunder
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire
+
+STARTPACK:Default Dragon (Black Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Ancient Dragon)]
+RACE:Dragon (Black Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Black Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Blue Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Ancient Dragon)]
+RACE:Dragon (Blue Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Blue Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Green Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Ancient Dragon)]
+RACE:Dragon (Green Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Green Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Red Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Ancient Dragon)]
+RACE:Dragon (Red Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Red Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (White Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Ancient Dragon)]
+RACE:Dragon (White Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient White Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Brass Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Ancient Dragon)]
+RACE:Dragon (Brass Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Brass Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Bronze Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Ancient Dragon)]
+RACE:Dragon (Bronze Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Bronze Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Copper Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Ancient Dragon)]
+RACE:Dragon (Copper Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Copper Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Gold Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Ancient Dragon)]
+RACE:Dragon (Gold Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Gold Dragon
+KIT:Ancient Dragon
+
+STARTPACK:Default Dragon (Silver Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Ancient Dragon)]
+RACE:Dragon (Silver Ancient Dragon)	!PRERACE:1,%
+NAME:Ancient Silver Dragon
+KIT:Ancient Dragon
+
+STARTPACK:King/Queen Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:13
+SKILL:Bluff					RANK:17
+SKILL:Diplomacy				RANK:17
+SKILL:Jump					RANK:17
+SKILL:Knowledge (Arcane Lore)		RANK:17
+SKILL:Knowledge (Current Events)	RANK:9
+SKILL:Knowledge (History)		RANK:10
+SKILL:Listen				RANK:17
+SKILL:Search				RANK:17
+SKILL:Sense Motive			RANK:17
+SKILL:Spot					RANK:17
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Renown
+FEAT:Sunder
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire|Hold Monster|Wall of Force
+
+STARTPACK:Default Dragon (Black King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black King/Queen Dragon)]
+RACE:Dragon (Black King/Queen Dragon)	!PRERACE:1,%
+NAME:Black Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Blue King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue King/Queen Dragon)]
+RACE:Dragon (Blue King/Queen Dragon)	!PRERACE:1,%
+NAME:Blue Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Green King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green King/Queen Dragon)]
+RACE:Dragon (Green King/Queen Dragon)	!PRERACE:1,%
+NAME:Green Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Red King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red King/Queen Dragon)]
+RACE:Dragon (Red King/Queen Dragon)	!PRERACE:1,%
+NAME:Red Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (White King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White King/Queen Dragon)]
+RACE:Dragon (White King/Queen Dragon)	!PRERACE:1,%
+NAME:White Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Brass King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass King/Queen Dragon)]
+RACE:Dragon (Brass King/Queen Dragon)	!PRERACE:1,%
+NAME:Brass Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Bronze King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze King/Queen Dragon)]
+RACE:Dragon (Bronze King/Queen Dragon)	!PRERACE:1,%
+NAME:Bronze Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Copper King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper King/Queen Dragon)]
+RACE:Dragon (Copper King/Queen Dragon)	!PRERACE:1,%
+NAME:Copper Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Gold King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold King/Queen Dragon)]
+RACE:Dragon (Gold King/Queen Dragon)	!PRERACE:1,%
+NAME:Gold Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Default Dragon (Silver King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver King/Queen Dragon)]
+RACE:Dragon (Silver King/Queen Dragon)	!PRERACE:1,%
+NAME:Silver Dragon King/Queen
+KIT:King/Queen Dragon
+
+STARTPACK:Emperor/Empress Dragon	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration			RANK:15
+SKILL:Bluff					RANK:18
+SKILL:Diplomacy				RANK:18
+SKILL:Jump					RANK:18
+SKILL:Knowledge (Arcane Lore)		RANK:18
+SKILL:Knowledge (Current Events)	RANK:11
+SKILL:Knowledge (History)		RANK:12
+SKILL:Listen				RANK:18
+SKILL:Search				RANK:18
+SKILL:Sense Motive			RANK:18
+SKILL:Spot					RANK:18
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Damage Threshold (+3)
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Renown
+FEAT:Sunder
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Dimension Door|Ice Storm|Stoneskin|Wall of Fire|Cone of Cold|Hold Monster|Wall of Force
+
+STARTPACK:Default Dragon (Black Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Emperor/Empress Dragon)]
+RACE:Dragon (Black Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Black Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Blue Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Emperor/Empress Dragon)]
+RACE:Dragon (Blue Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Blue Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Green Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Emperor/Empress Dragon)]
+RACE:Dragon (Green Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Green Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Red Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Emperor/Empress Dragon)]
+RACE:Dragon (Red Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Red Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (White Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Emperor/Empress Dragon)]
+RACE:Dragon (White Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:White Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Brass Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Emperor/Empress Dragon)]
+RACE:Dragon (Brass Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Brass Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Bronze Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Emperor/Empress Dragon)]
+RACE:Dragon (Bronze Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Bronze Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Copper Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Emperor/Empress Dragon)]
+RACE:Dragon (Copper Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Copper Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Gold Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Emperor/Empress Dragon)]
+RACE:Dragon (Gold Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Gold Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon
+
+STARTPACK:Default Dragon (Silver Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Emperor/Empress Dragon)]
+RACE:Dragon (Silver Emperor/Empress Dragon)	!PRERACE:1,%
+NAME:Silver Dragon Emperor/Empress
+KIT:Emperor/Empress Dragon

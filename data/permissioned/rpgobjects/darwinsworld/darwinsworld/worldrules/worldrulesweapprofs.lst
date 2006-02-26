@@ -1,0 +1,91 @@
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# Weapon Name			Type			Nb Hands
+Air Pistol				TYPE:Martial
+Air Rifle				TYPE:Martial	HANDS:2
+Armor Spikes			TYPE:Simple
+Axe					TYPE:Simple
+Axe (Throwing)			TYPE:Simple
+Baseball Bat			TYPE:Simple
+Baseball Bat (Metal)		TYPE:Simple
+Baseball Bat (Nail-Studs)	TYPE:Simple
+Battleaxe				TYPE:Simple
+Bayonet				TYPE:Simple
+Broken Bottle			TYPE:Simple
+Carbine				TYPE:Martial	HANDS:2
+Spiked Chain			TYPE:Simple
+Club					TYPE:Simple
+Crossbow (Hand)			TYPE:Simple		HANDS:1
+Crossbow (Heavy)			TYPE:Simple		HANDS:2
+Crossbow (Light)			TYPE:Simple		HANDS:2
+Crossbow (Repeating)		TYPE:Simple		HANDS:2
+Dagger				TYPE:Simple
+Dart					TYPE:Simple
+Dart Gun				TYPE:Martial
+Falchion				TYPE:Simple
+Flail (Dire)			TYPE:Simple
+Flail					TYPE:Simple
+Gauntlet				TYPE:Simple
+Gauntlet (Spiked)			TYPE:Simple
+Glaive				TYPE:Simple
+Greataxe				TYPE:Simple
+Greatclub				TYPE:Simple
+Guisarme				TYPE:Simple
+Halberd				TYPE:Simple
+Halfspear				TYPE:Simple
+Hammer (Light)			TYPE:Simple
+Handaxe				TYPE:Simple
+Javelin				TYPE:Simple
+Kama					TYPE:Simple
+Kukri					TYPE:Simple
+Lance					TYPE:Simple
+Lead Pipe				TYPE:Simple
+Longbow				TYPE:Simple		HANDS:2
+Longbow (Composite)		TYPE:Simple		HANDS:2
+Longspear				TYPE:Simple
+Mace					TYPE:Simple
+Morningstar				TYPE:Simple
+Net					TYPE:Simple
+Nunchaku				TYPE:Simple
+Pick					TYPE:Simple
+Pipe Rifle				TYPE:Martial	HANDS:2
+Pistol (Automatic)		TYPE:Martial
+Pistol (Black Powder)		TYPE:Martial
+Pistol (Revolver)			TYPE:Martial
+Police Baton			TYPE:Simple
+Quarterstaff			TYPE:Simple		HANDS:2
+Ranseur				TYPE:Simple
+Rapier				TYPE:Simple
+Razor Blade				TYPE:Simple
+Rifle (Automatic)			TYPE:Martial	HANDS:2
+Rifle (Black Powder)		TYPE:Martial	HANDS:2
+Sap					TYPE:Simple
+Sawed-off Shotgun			TYPE:Martial
+Scimitar				TYPE:Simple
+Scythe				TYPE:Simple
+Shieldbash				TYPE:Simple		HANDS:0
+Shortbow				TYPE:Simple		HANDS:2
+Shortbow (Composite)		TYPE:Simple		HANDS:2
+Shortspear				TYPE:Simple
+Shotgun				TYPE:Martial
+Shuriken				TYPE:Simple
+Siangham				TYPE:Simple
+Sickle				TYPE:Simple
+Sling					TYPE:Simple
+Sport Rifle				TYPE:Martial	HANDS:2
+Sub Machinegun			TYPE:Martial
+# [ 579004 ] Some feats broken for large characters
+#Sword (Bastard/1-H)		TYPE:Simple		SIZE:M
+Sword (Bastard)			TYPE:Simple		HANDS:1IFLARGERTHANWEAPON
+Greatsword				TYPE:Simple
+Longsword				TYPE:Simple
+Sword (Short)			TYPE:Simple
+Sword (Two-Bladed)		TYPE:Simple
+Trident				TYPE:Simple
+Trusty-Two-By-Four		TYPE:Simple		HANDS:2
+Unarmed Strike			TYPE:Simple
+Warhammer				TYPE:Simple
+Whip					TYPE:Simple
+Zip Gun				TYPE:Martial

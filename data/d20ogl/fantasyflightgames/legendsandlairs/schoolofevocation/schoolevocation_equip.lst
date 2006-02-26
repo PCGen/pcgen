@@ -1,0 +1,20 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jun  6 01:53:02 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# Original entry by: Ratheof Blithwyn
+
+#
+# Spell Foci
+#
+# Equipment Name		Type					Cost		Weight	Source Page
+Improved Flare Powder	TYPE:Foci.Goods.Alchemical	COST:100	WT:0		SOURCEPAGE:p.50
+Chill Crystals		TYPE:Foci.Goods.Alchemical	COST:150	WT:0		SOURCEPAGE:p.51
+Arcane Oil			TYPE:Foci.Goods.Alchemical	COST:300	WT:0		SOURCEPAGE:p.51
+Focusing Ring		TYPE:Foci.Ring			COST:200	WT:0		SOURCEPAGE:p.51
+Mithral Fan			TYPE:Foci.Goods			COST:200	WT:0		SOURCEPAGE:p.51
+Amber Lens			TYPE:Foci.Goods.Tools		COST:200	WT:0		SOURCEPAGE:p.52
+Elemental Globe		TYPE:Foci.Goods.Tools		COST:300	WT:0		SOURCEPAGE:p.52
+Spell-Iron Gauntlet	TYPE:Foci.Goods.Glove		COST:1000	WT:0		SOURCEPAGE:p.52
+Amplifying Tubules	TYPE:Foci.Goods.Tools		COST:200	WT:0		SOURCEPAGE:p.52
+Infinite Prism		TYPE:Foci.Goods.Tools		COST:2000	WT:0		SOURCEPAGE:p.52
+The Ivory Hand		TYPE:Foci.Goods.Tools		COST:2000	WT:0		SOURCEPAGE:p.53
+Truecopper Rod		TYPE:Foci.Rod			COST:2000	WT:0		SOURCEPAGE:p.53

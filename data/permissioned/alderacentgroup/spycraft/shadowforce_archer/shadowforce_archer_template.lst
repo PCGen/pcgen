@@ -1,0 +1,43 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+###Block:Shadowforce Archer Chambers
+
+# Template Name						Product Identity?	Visible	Source Page		Define			Var. Max. Value			Modify VAR
+Chamber - Archer Foundation				NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.16	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - African Alliance				NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.18	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - The Company					NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.20	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - European Commonwealth			NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.22	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - Guardians of the Whispering Knife	NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.24	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - Pan-Asian Collective			NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.26	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - Room 39						NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.28	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+Chamber - Russian Confederacy				NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.30	DEFINE:ChamberNumber|0	PREVARLTEQ:ChamberNumber,1	BONUS:VAR|ChamberNumber|2
+
+###Block:Chem Treatments
+
+# Template Name				Visible	Source Page		Special Ability																																					Required Stat	Required Template				Combat bonus						Damage reduction	BONUS:SIZEMOD		Bonus to skill				Stat bonus								Choose										Temporary effect description
+Chem Treatment (Endure)			VISIBLE:YES	SOURCEPAGE:p.173	SA:Chem Booster required weekly, immune to critical hits, regains 2 vitality points at the end of every round, wound points heal at the rate of 1 per hour, agent does not have to make a saving throw in order to survive massive damage	PRESTAT:1,CON=15															BONUS:DR|-|2											BONUS:STAT|CON|%CHOICE|PREAPPLY:PC				CHOOSE:NUMBER|MIN=-18|MAX=-2|TITLE=Penalty for missed treatments	TEMPDESC:Every treatment the agent misses causes 2 points of permanent Constitution damage and the agent permanently loses the ability to spend action dice for any purpose
+Chem Treatment (Gill)			VISIBLE:YES	SOURCEPAGE:p.173	SA:Chem Booster required quarterly, ability to breathe water as well as air																											PRESTAT:1,CON=11
+Chem Treatment (Kickstart)		VISIBLE:YES	SOURCEPAGE:p.173	SA:agent has been restored to life with Kickstart Chem Treatment																																																											BONUS:STAT|CON|-2
+Chem Treatment (Muscle)			VISIBLE:YES	SOURCEPAGE:p.173	SA:Chem Booster required monthly, grows 6 inches plus another 3 every 3 levels afterwards																									PRESTAT:1,STR=13																												BONUS:STAT|STR|2	BONUS:STAT|STR|%CHOICE|PREAPPLY:PC	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Additional strength bonus		TEMPDESC:For every 3 agent levels he advances after his first treatment, he gains another +1 bonus to Strength and grows another 3 inches taller
+Chem Treatment (Muscle/Enlargment)	VISIBLE:YES	SOURCEPAGE:p.173																																											PRETEMPLATE:Chem Treatment (Muscle)												BONUS:SIZEMOD|NUMBER|1
+Chem Treatment (Rush)			VISIBLE:YES	SOURCEPAGE:p.174	SA:Chem Booster required every two weeks																																	PRESTAT:1,DEX=13
+Chem Treatment (Sharpen)		VISIBLE:YES	SOURCEPAGE:p.174	SA:Chem Booster required monthly, +5 bonus to any Survival checks made to find or follow tracks																								PRESTAT:1,WIS=13																						BONUS:SKILL|Spot,Listen,Search|5
+Chem Treatment (Talon)			VISIBLE:YES	SOURCEPAGE:p.174	SA:Chem Booster required every two months, retractable bone claws, -6 penalty for anything that the Game Control determines to require fine manipulation or to any Disguise check when the agent's claws are extended				PRESTAT:1,CON=11							BONUS:COMBAT|DAMAGE.Unarmed|%CHOICE|PREAPPLY:PC																							CHOOSE:NUMBER|MIN=2|MAX=7|TITLE=Damage bonus for claws
+
+###Block:Psionic Skill  Attacks
+
+# Template Name				Visible	Source Page		Required Skill			Weapon prof. bonus					Automaticaly Added to Inventory			Automaticaly Gained Weapon Prof.
+Psionic Skill Static Charge Attacks	VISIBLE:YES	SOURCEPAGE:p.184	PRESKILL:1,Static Charge=1	BONUS:WEAPONPROF=Static Charge|TOHIT|INT-DEX	AUTO:EQUIP|Lightning Attack|Scramble Attack	AUTO:WEAPONPROF|Static Charge
+Psionic Skill Cryokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.185	PRESKILL:1,Cryokinesis=1
+Psionic Skill Photokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.186	PRESKILL:1,Photokinesis=1
+Psionic Skill Pyrokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.187	PRESKILL:1,Pyrokinesis=1
+Psionic Skill Poltergeist Attacks	VISIBLE:YES	SOURCEPAGE:p.188	PRESKILL:1,Poltergeist=1
+
+#
+# End
+#

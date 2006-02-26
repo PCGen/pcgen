@@ -1,0 +1,21 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed May 25 21:14:54 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Maze of the Minotaur|SOURCESHORT:MotM|SOURCEWEB:http://www.behemoth3.com/
+# Original Entry by: Aaron Divinsky
+
+###Block: Alchemical Stuff and Liquids
+### TODO: No weight specified in source.
+# Equipment Name					Type					Cost		Weight	Source Page
+Tauron Stomach					TYPE:Goods.Alchemical.Flask	COST:500	WT:1.00	SOURCEPAGE:p. 26
+
+Portable Wall (10 ft. x 10 ft.)		TYPE:Goods.General		COST:250	WT:1000	SOURCEPAGE:p. 26
+
+Portable Secret Door (10 ft. x 10 ft.)	TYPE:Goods.General		COST:750	WT:1200	SOURCEPAGE:p. 26
+
+###Block: Trade Goods
+# Equipment Name		Type			Cost		Weight	Source Page
+Minotrice Stonework	TYPE:Goods.Trade	COST:10	WT:100	SOURCEPAGE:p. 26
+
+
+#
+# End
+#

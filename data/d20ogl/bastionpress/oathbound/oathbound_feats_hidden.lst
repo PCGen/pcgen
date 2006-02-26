@@ -1,0 +1,18 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+
+# workaround for Hone class
+# Feat Name		Type			Visible		Special Ability			Description		Multiple?	Choose					Combat bonus						Weapon prof. bonus																																					Source Page
+Weapon of Choice	TYPE:Hone		VISIBLE:EXPORT						DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization|1	BONUS:COMBAT|TOHIT|-1*PrecisionStrikeBonus	BONUS:WEAPONPROF=%LIST|TOHIT|PrecisionStrikeBonus	BONUS:WEAPONPROF=Unarmed Strike|TOHIT|PrecisionStrikeBonus	BONUS:WEAPONPROF=%LIST|TOHIT|PrecisionStrikeBonus|TYPE=Competence	BONUS:WEAPONPROF=%LIST|DAMAGE|FellBlowBonus|TYPE=Competence	SOURCEPAGE:p.51
+Extended Critical	TYPE:Hone.Hidden	VISIBLE:NO		SA:Extended Critical (Ex)	DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon of Choice|1									BONUS:WEAPONPROF=%LIST|CRITMULTADD|1																																		SOURCEPAGE:p.52
+
+#BONUS:WEAPONPROF=%LIST|TOHIT|HonePrecision
+#(in Feat) (Removes it from Hone Precision)
+#BONUS:WEAPONPROF=%LIST|TOHIT|HonePrecision|TYPE=Competance
+#(adds the Competance bonus type, with stacking qualifications)
+
+###Block: Proficiencies
+# Feat Name			Type			Visible	Automaticaly Gained Weapon Prof.
+Stalker Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow%|Saber (Fencing)|Rapier|Sap|Sword (Short)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Shortstaff|Backsword (Basket-Hilted)

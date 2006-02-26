@@ -1,0 +1,162 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Thu Mar 24 01:54:44 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Thomas/Chipoulou tjannes@vub.ac.be
+
+# Set Wand weight to 0.1 - according to RSRD it weighs an ounce, no clue how much pounds that is...
+# changed outputname of Immovable Rod
+# gave Rod of Enemy Detection 3 charges as per "The rod can be used three times each day"
+# gave Rod of Flame Extinguishing 10 charges as per "A rod of flame extinguishing has 10 charges when found. Spent charges are renewed every day, so that a wielder can expend up to 10 charges in any 24-hour period"
+# gave Rod of Negation 3 charges as per "The rod can be used three times each day"
+
+# TO DO: define naming convention for Metamagic Rods
+
+###Block:Rods
+# Equipment Name				Output Name				Required Proficiency		Type												Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page				Virtual Feat			Combat bonus			Stat bonus					Weapon prop. bonus					Special Property
+Rod (Absorption)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:50000	WT:5		BASEITEM:Rod																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIII.rtf
+Rod (Alertness)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:85000	WT:6		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf						BONUS:COMBAT|INITIATIVE|1							BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod (Cancellation)			OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:11000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
+Rod (Enemy Detection)			OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:23500	WT:5		BASEITEM:Rod																									EQMOD:CHARGED_ITEM_3|CHARGES[3]						SOURCEPAGE:MagicItemsIII.rtf
+Rod (Flailing)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Flail			TYPE:Magic.Rod.Weapon.Exotic.Melee.Bludgeoning.Double.Flail			ALTTYPE:Weapon.Melee.Bludgeoning	COST:50000	WT:20		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8								WIELD:OneHanded	SIZE:M	SOURCEPAGE:MagicItemsIII.rtf	VFEAT:Two Weapon Fighting												BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
+Rod (Flame Extinguishing)		OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:15000	WT:5		BASEITEM:Rod																									EQMOD:CHARGED_ITEM_10|CHARGES[10]						SOURCEPAGE:MagicItemsIII.rtf
+Rod (Immovable)				OUTPUTNAME:[NAME] Rod							TYPE:Magic.Rod																COST:5000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
+Rod (Lordly Might)			OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:70000	WT:10		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod (Metal and Mineral Detection)	OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:10500	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
+Rod (Negation)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:37000	WT:5		BASEITEM:Rod																									EQMOD:CHARGED_ITEM_3|CHARGES[3]						SOURCEPAGE:MagicItemsIII.rtf
+Rod (Python)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:13000	WT:10		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod (Rulership)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:60000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
+Rod (Security)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:61000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
+Rod (Splendor)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:25000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf											BONUS:STAT|CHA|4|TYPE=Enhancement
+Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:33000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Rod (Viper)					OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Mace (Heavy)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:19000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8														SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:25000	WT:6		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:0d0											WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
+Rod (Wonder)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod																COST:12000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
+
+###Block:Metamagic Rods
+# Equipment Name		Output Name					Type			Cost		Weight	Base Item for EQMOD	Source Page
+Rod (Enlarge/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Enlarge)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Enlarge/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Extend/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Extend)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Extend/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Silent/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Silent)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Silent/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Empower/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:9000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Empower)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:32500	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Empower/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:73000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Maximize/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:14000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Maximize)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:54000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Maximize/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:121500	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Quicken/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:35000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Quicken)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:75500	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+Rod (Quicken/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:170000	WT:5		BASEITEM:Rod		SOURCEPAGE:MagicItemsIII.rtf
+
+
+###Block:Staves
+# Equipment Name			Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page				Save checks bonus							Combat bonus			Weapon prop. bonus
+Staff (Abjuration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Charming)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:16500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Conjuration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Defense)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:58250	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Divination)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:73500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Earth and Stone)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:80500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Enchantment)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Evocation)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Fire)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:17750	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Frost)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:56250	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Healing)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:27750	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Illumination)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:48250	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Illusion)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Life)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:155750	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Necromancy)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Passage)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:170500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Power)			OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:211000	WT:4		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIV.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Staff (Size Alteration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:29000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Swarming Insects)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:24750	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Transmutation)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
+Staff (Woodlands)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:101250	WT:4		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIV.rtf															BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+
+###Block:Wands
+# Equipment Name								Output Name											Type			Weight	Base Item for EQMOD	Modifier														Source Page
+Wand (Acid Arrow)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Acid Arrow]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Bear's Endurance)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Bear's Endurance]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Bull's Strength)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Bull's Strength]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Burning Hands)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Burning Hands]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Call Lightning/5th level caster)				OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Call Lightning]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Call Lightning/8th level caster)				OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Call Lightning]SPELLLEVEL[3]CASTERLEVEL[8]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Cat's Grace)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Chaos Hammer/8th Level Caster)				OUTPUTNAME:Wand of Chaos Hammer (8th Level Caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Chaos Hammer]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Charm Animal)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Charm Animal]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Charm Monster)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Charm Monster]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Charm Person)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Charm Person/heightened to 3rd-level spell)		OUTPUTNAME:Wand of Charm Person (heightened to 3rd-level spell)		TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Charm Person]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Color Spray)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Color Spray]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Contagion)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Contagion]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Cure Critical Wounds)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Cure Critical Wounds]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]	SOURCEPAGE:MagicItemsIV.rtf
+Wand (Cure Light Wounds)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Cure Light Wounds]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Cure Moderate Wounds)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Cure Moderate Wounds]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]	SOURCEPAGE:MagicItemsIV.rtf
+Wand (Cure Serious Wounds)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Cure Serious Wounds]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Darkness)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Darkness]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Daylight)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Daylight]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Delay Poison)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Delay Poison]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Detect Magic)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Detect Magic]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Detect Secret Doors)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Detect Secret Doors]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Dimensional Anchor)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Dimensional Anchor]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Dispel Magic)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Dispel Magic]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Dispel Magic/10th level caster)				OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Dispel Magic]SPELLLEVEL[3]CASTERLEVEL[10]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Eagle's Splendor)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Eagle's Splendor]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Enlarge Person)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Enlarge Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (False Life)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[False Life]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Fear)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Fear]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Fireball/5th level caster)					OUTPUTNAME:Wand of Fireball (5th level caster)					TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Fireball]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Fireball/6th level caster)					OUTPUTNAME:Wand of Fireball (6th level caster)					TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Fireball]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Fireball/8th level caster)					OUTPUTNAME:Wand of Fireball (8th level caster)					TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Fireball]SPELLLEVEL[3]CASTERLEVEL[8]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Fireball/10th level caster)					OUTPUTNAME:Wand of Fireball (10th level caster)					TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Fireball]SPELLLEVEL[3]CASTERLEVEL[10]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Fox's Cunning)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Fox's Cunning]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Ghoul Touch)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Ghoul Touch]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Greater Invisibility)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Greater Invisibility]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]	SOURCEPAGE:MagicItemsIV.rtf
+Wand (Hold Person)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Hold Person]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Hold Person/heightened to 4th-level spell)		OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Hold Person]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Holy Smite/8th level caster)					OUTPUTNAME:Wand of Holy Smite (8th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Holy Smite]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Ice Storm)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Ice Storm]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Inflict Critical Wounds)					OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Inflict Critical Wounds]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]	SOURCEPAGE:MagicItemsIV.rtf
+Wand (Invisibility)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Invisibility]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Keen Edge)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Keen Edge]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Knock)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Knock]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Levitate)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Levitate]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Light)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Light]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Lightning Bolt/5th level caster)				OUTPUTNAME:Wand of Lightning Bolt (5th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Lightning Bolt]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Lightning Bolt/6th level caster)				OUTPUTNAME:Wand of Lightning Bolt (6th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Lightning Bolt]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Lightning Bolt/8th level caster)				OUTPUTNAME:Wand of Lightning Bolt (8th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Lightning Bolt]SPELLLEVEL[3]CASTERLEVEL[8]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Lightning Bolt/10th level caster)				OUTPUTNAME:Wand of Lightning Bolt (10th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Lightning Bolt]SPELLLEVEL[3]CASTERLEVEL[10]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Magic Missile/1st level caster)				OUTPUTNAME:Wand of Magic Missile (1st level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Magic Missile/3rd level caster)				OUTPUTNAME:Wand of Magic Missile (3rd level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Magic Missile/5th level caster)				OUTPUTNAME:Wand of Magic Missile (5th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Magic Missile/7th level caster)				OUTPUTNAME:Wand of Magic Missile (7th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Magic Missile/9th level caster)				OUTPUTNAME:Wand of Magic Missile (9th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[9]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Major Image)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Major Image]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Mirror Image)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Mirror Image]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Neutralize Poison)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Neutralize Poison]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Order's Wrath/8th level caster)				OUTPUTNAME:Wand of Order's Wrath (8th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Order's Wrath]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Owl's Wisdom)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Owl's Wisdom]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Poison)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Poison]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Polymorph)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Polymorph]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Ray of Enfeeblement/heightened to 4th-level spell)	OUTPUTNAME:Wand of Ray of Enfeeblement (heightened to 4th-level spell)	TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Ray of Enfeeblement]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Restoration)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Restoration]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Searing Light/6th level caster)				OUTPUTNAME:Wand of Searing Light (6th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Searing Light]SPELLLEVEL[3]CASTERLEVEL[6]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Shatter)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Shatter]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Shocking Grasp)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Shocking Grasp]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Silence)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Silence]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Slow)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Slow]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
+Wand (Stoneskin)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Stoneskin]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Suggestion)								OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Suggestion]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Suggestion/heightened to 4th-level spell)			OUTPUTNAME:Wand of Suggestion (heightened to 4th-level spell)		TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Suggestion]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Summon Monster I)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Summon Monster I]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Summon Monster II)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Summon Monster II]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Summon Monster III)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Summon Monster III]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Summon Monster IV)						OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Summon Monster IV]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Unholy Blight/8th level caster)				OUTPUTNAME:Wand of Unholy Blight (8th level caster)				TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Summon Monster IV]SPELLLEVEL[4]CASTERLEVEL[8]CHARGES[50]		SOURCEPAGE:MagicItemsIV.rtf
+Wand (Wall of Fire)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Wall of Fire]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Wall of Ice)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Wall of Ice]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
+Wand (Web)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Web]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf

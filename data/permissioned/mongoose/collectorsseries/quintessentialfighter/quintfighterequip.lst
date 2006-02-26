@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# Original Entry By: Knightcrawler
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+
+# Equipment Name	Type					Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page
+Arrow Catapult	TYPE:Goods.Siege Engines	COST:300	CRITMULT:-			CRITRANGE:-			DAMAGE:Special	RANGE:100	SOURCEPAGE:p.114
+#Ballista		TYPE:Goods.Siege Engines	COST:500	SOURCEPAGE:p.114	CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6		RANGE:120
+#Catapult (Heavy)	TYPE:Goods.Siege Engines	COST:800	SOURCEPAGE:p.114	CRITMULT:-			CRITRANGE:-			DAMAGE:5d6		RANGE:200
+Catapult (Medium)	TYPE:Goods.Siege Engines	COST:675	CRITMULT:-			CRITRANGE:-			DAMAGE:4d6		RANGE:150	SOURCEPAGE:p.114
+#Catapult (Light)	TYPE:Goods.Siege Engines	COST:550	SOURCEPAGE:p.114	CRITMULT:-			CRITRANGE:-			DAMAGE:3d6		RANGE:150
+Fire Projector	TYPE:Goods.Siege Engines	COST:3600	CRITMULT:-			CRITRANGE:-			DAMAGE:4d6		RANGE:30	SOURCEPAGE:p.114
+Trebuchet		TYPE:Goods.Siege Engines	COST:1400	CRITMULT:-			CRITRANGE:-			DAMAGE:6d6		RANGE:200	SOURCEPAGE:p.114
+#Note: Ballista, Catapult (Heavy) and Catapult (Light) are duplicates of whats in the DMG.

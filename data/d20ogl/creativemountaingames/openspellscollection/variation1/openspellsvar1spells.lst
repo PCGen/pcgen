@@ -1,0 +1,33 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 12 19:06:05 2002 -- reformated by prettylst.pl v1.19 (build 226)
+SOURCELONG:Open Spells Collection|SOURCESHORT:OpenSpells|SOURCEWEB:http://www.creativemountaingames.com
+# Original entry by: Barak
+
+# Spell Name		Output Name
+Acid Arrow.MOD		OUTPUTNAME:Morda's [NAME]
+Black Tentacles.MOD	OUTPUTNAME:Eva's [NAME]
+Clenched Fist.MOD		OUTPUTNAME:Big's [NAME]
+Crushing Hand.MOD		OUTPUTNAME:Big's [NAME]
+Disjunction.MOD		OUTPUTNAME:Morda's [NAME]
+Faithful Hound.MOD	OUTPUTNAME:Morda's [NAME]
+Floating Disk.MOD		OUTPUTNAME:Ten's [NAME]
+Forceful Hand.MOD		OUTPUTNAME:Big's [NAME]
+Freezing Sphere.MOD	OUTPUTNAME:Oti's [NAME]
+Grasping Hand.MOD		OUTPUTNAME:Big's [NAME]
+Hideous Laughter.MOD	OUTPUTNAME:Tash's [NAME]
+Instant Summons.MOD	OUTPUTNAME:Draw's [NAME]
+Interposing Hand.MOD	OUTPUTNAME:Big's [NAME]
+Irresistible Dance.MOD	OUTPUTNAME:Oti's [NAME]
+Lucubration.MOD		OUTPUTNAME:Morda's [NAME]
+Magic Aura.MOD		OUTPUTNAME:Nyst's [NAME]
+Magnificent Mansion.MOD	OUTPUTNAME:Morda's [NAME]
+Mnemonic Enhancer.MOD	OUTPUTNAME:Rar's [NAME]
+Resilient Sphere.MOD	OUTPUTNAME:Oti's [NAME]
+Secret Chest.MOD		OUTPUTNAME:Leo's [NAME]
+Secure Shelter.MOD	OUTPUTNAME:Leo's [NAME]
+Sword.MOD			OUTPUTNAME:Morda's [NAME]
+Telekinetic Sphere.MOD	OUTPUTNAME:Oti's [NAME]
+Telepathic Bond.MOD	OUTPUTNAME:Rar's [NAME]
+Tiny Hut.MOD		OUTPUTNAME:Leo's [NAME]
+Transformation.MOD	OUTPUTNAME:Ten's [NAME]
+Trap.MOD			OUTPUTNAME:Leo's [NAME]
+Undetectable Aura.MOD	OUTPUTNAME:Nyst's [NAME]

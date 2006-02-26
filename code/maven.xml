@@ -1,0 +1,11 @@
+<project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
+    xmlns:ant="jelly:ant" xmlns:u="jelly:util">
+    <preGoal name="java:compile">
+        <attainGoal name="javacc:javacc-generate"/>
+        <!-- Kludge around a typo in the JavaCC  -->
+        <ant:path id="maven.javacc.compile.src.set"
+            location="${basedir}/target/generated-src"/>
+        <maven:addPath id="maven.compile.src.set"
+            refid="maven.javacc.compile.src.set"/>
+    </preGoal>
+</project>

@@ -1,0 +1,133 @@
+# CVS $Revision: 1.11 $ $Author: frank_kliewe $ -- Sun Feb  5 00:14:33 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Entries by: Tir Gwaith, Doug Mcmillan, and Ian Dale
+
+###Block: Weapons
+
+# Equipment Name	Output Name					Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Size		Source Page
+PsiBlade		OUTPUTNAME:Psi-Blade			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6				SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+PsiBlade +1		OUTPUTNAME:Psi-Blade +1			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS1W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+PsiBlade +2		OUTPUTNAME:Psi-Blade +2			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+PsiBlade +3		OUTPUTNAME:Psi-Blade +3			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS3W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+PsiBlade +4		OUTPUTNAME:Psi-Blade +4			PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS4W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+ULtimate PsiBlade	OUTPUTNAME:Psi-Blade +4(Ultimate)	PROFICIENCY:Psi-Blade	TYPE:FX.Specific.Weapon.Exotic.Melee.Piercing.Finessable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS4W	SIZE:S	SOURCEPAGE:msrdfxitems.rtf
+
+###Block: Armor
+
+# Equipment Name			Output Name					Type									Cost		Weight	AC Penalty Check	Base Item for EQMOD		Critical Hit Multiplier	Critical Hit Range	Modifier		Maximum DEX Bonus	Size		Source Page				Combat bonus																		Modify VAR							Special Property
+PsiShield				OUTPUTNAME:Psi-Shield			TYPE:FX.Specific.Shield						COST:0	WT:0										CRITMULT:x2			CRITRANGE:1									SIZE:S	SOURCEPAGE:msrdfxitems.rtf																					BONUS:VAR|ClassDefense|3|TYPE=EquipmentBonus
+PsiShield (Improved)		OUTPUTNAME:Improved Psi-Shield	TYPE:FX.Specific.Shield						COST:0	WT:0										CRITMULT:x2			CRITRANGE:1									SIZE:M	SOURCEPAGE:msrdfxitems.rtf																					BONUS:VAR|ClassDefense|6|TYPE=EquipmentBonus
+Illusory Concealable Vest +1							TYPE:Armor.Medium.Suit.Concealable	TYPE:Specific	COST:23	WT:4		ACCHECK:3		BASEITEM:Concealable Vest									EQMOD:PLUS1A	MAXDEX:4				SOURCEPAGE:msrdfxitems.rtf	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE									SPROP:Lic(+1)	SPROP:Upon command, the protective garment changes shape and form to assume the appearance of a sweater or other normal piece of clothing
+Illusory Concealable Vest +2							TYPE:Armor.Medium.Suit.Concealable	TYPE:Specific	COST:23	WT:4		ACCHECK:3		BASEITEM:Concealable Vest									EQMOD:PLUS2A	MAXDEX:4				SOURCEPAGE:msrdfxitems.rtf	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE									SPROP:Lic(+1)	SPROP:Upon command, the protective garment changes shape and form to assume the appearance of a sweater or other normal piece of clothing
+Illusory Concealable Vest +3							TYPE:Armor.Medium.Suit.Concealable	TYPE:Specific	COST:23	WT:4		ACCHECK:3		BASEITEM:Concealable Vest									EQMOD:PLUS3A	MAXDEX:4				SOURCEPAGE:msrdfxitems.rtf	BONUS:COMBAT|AC|2|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Equipment.REPLACE									SPROP:Lic(+1)	SPROP:Upon command, the protective garment changes shape and form to assume the appearance of a sweater or other normal piece of clothing
+Undercover Vest of Landing +1							TYPE:Armor.Light.Suit.Concealable	TYPE:Specific	COST:22	WT:3		ACCHECK:2		BASEITEM:Undercover Vest									EQMOD:PLUS1A	MAXDEX:5				SOURCEPAGE:msrdfxitems.rtf	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE									SPROP:Lic(+1)	SPROP:Ignore the first 20 feet of damage from any fall. Wearer always lands on feet.
+Undercover Vest of Landing +2							TYPE:Armor.Light.Suit.Concealable	TYPE:Specific	COST:22	WT:3		ACCHECK:2		BASEITEM:Undercover Vest									EQMOD:PLUS2A	MAXDEX:5				SOURCEPAGE:msrdfxitems.rtf	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE									SPROP:Lic(+1)	SPROP:Ignore the first 20 feet of damage from any fall. Wearer always lands on feet.
+Undercover Vest of Landing +3							TYPE:Armor.Light.Suit.Concealable	TYPE:Specific	COST:22	WT:3		ACCHECK:2		BASEITEM:Undercover Vest									EQMOD:PLUS3A	MAXDEX:5				SOURCEPAGE:msrdfxitems.rtf	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE									SPROP:Lic(+1)	SPROP:Ignore the first 20 feet of damage from any fall. Wearer always lands on feet.
+
+###Block: Weapons
+
+# Equipment Name					Required Proficiency			Type														Contains			Cost		Weight	Base Item for EQMOD			Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Range		Size		Source Page				Special Property													Rate of Fire
+Charged Nunchaku +1				PROFICIENCY:Nunchaku			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:13	WT:2		BASEITEM:Nunchaku				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS1W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Psionic energy deals +1d4 damage
+Charged Nunchaku +2				PROFICIENCY:Nunchaku			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:13	WT:2		BASEITEM:Nunchaku				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Psionic energy deals +1d4 damage
+Charged Nunchaku +3				PROFICIENCY:Nunchaku			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:13	WT:2		BASEITEM:Nunchaku				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS3W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Psionic energy deals +1d4 damage
+Flaming Machete +1				PROFICIENCY:Machete			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:15	WT:2		BASEITEM:Machete				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS1W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:+1d6 fire when flaming
+Flaming Machete +2				PROFICIENCY:Machete			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:15	WT:2		BASEITEM:Machete				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:+1d6 fire when flaming
+Flaming Machete +3				PROFICIENCY:Machete			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:15	WT:2		BASEITEM:Machete				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS3W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:+1d6 fire when flaming
+Fragmentation Grenade of Distance +1	PROFICIENCY:Fragmentation Grenade	TYPE:FX.Specific.Explosive.Slashing													COST:25	WT:1		BASEITEM:Fragmentation Grenade	CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	EQMOD:PLUS1W				RANGE:10	SIZE:T	SOURCEPAGE:msrdfxitems.rtf	SPROP:Burst Radius 20', Mil(+3), Slashing									RATEOFFIRE:1
+Fragmentation Grenade of Distance +2	PROFICIENCY:Fragmentation Grenade	TYPE:FX.Specific.Explosive.Slashing													COST:25	WT:1		BASEITEM:Fragmentation Grenade	CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	EQMOD:PLUS2W				RANGE:10	SIZE:T	SOURCEPAGE:msrdfxitems.rtf	SPROP:Burst Radius 20', Mil(+3), Slashing									RATEOFFIRE:1
+Fragmentation Grenade of Distance +3	PROFICIENCY:Fragmentation Grenade	TYPE:FX.Specific.Explosive.Slashing													COST:25	WT:1		BASEITEM:Fragmentation Grenade	CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	EQMOD:PLUS3W				RANGE:10	SIZE:T	SOURCEPAGE:msrdfxitems.rtf	SPROP:Burst Radius 20', Mil(+3), Slashing									RATEOFFIRE:1
+Holy Crossbow +1					PROFICIENCY:Crossbow			TYPE:FX.Specific.Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:-1|Bolt=1	COST:24	WT:7		BASEITEM:Crossbow				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PLUS1W				RANGE:40	SIZE:M	SOURCEPAGE:msrdfxitems.rtf	SPROP:1 int, +2d6 holy damage											RATEOFFIRE:1
+Holy Crossbow +2					PROFICIENCY:Crossbow			TYPE:FX.Specific.Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:-1|Bolt=1	COST:24	WT:7		BASEITEM:Crossbow				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PLUS2W				RANGE:40	SIZE:M	SOURCEPAGE:msrdfxitems.rtf	SPROP:1 int, +2d6 holy damage											RATEOFFIRE:1
+Holy Crossbow +3					PROFICIENCY:Crossbow			TYPE:FX.Specific.Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:-1|Bolt=1	COST:24	WT:7		BASEITEM:Crossbow				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PLUS3W				RANGE:40	SIZE:M	SOURCEPAGE:msrdfxitems.rtf	SPROP:1 int, +2d6 holy damage											RATEOFFIRE:1
+Keen Chain Saw +1					PROFICIENCY:Chain Saw			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:19	WT:2		BASEITEM:Chain saw			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PLUS1W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Threat range doubled
+Keen Chain Saw +2					PROFICIENCY:Chain Saw			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:19	WT:2		BASEITEM:Chain saw			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PLUS2W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Threat range doubled
+Keen Chain Saw +3					PROFICIENCY:Chain Saw			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:19	WT:2		BASEITEM:Chain saw			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PLUS3W						SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Threat range doubled
+Wounding Handgun +1				PROFICIENCY:Glock 17			TYPE:FX.Specific.Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:28	WT:2		BASEITEM:Glock 17				CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:MASTERCRAFT_WEAP_HIT_1.PLUS1W	RANGE:30	SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Magazine 17, Lic(+1), Victim bleeds and loses 1 HP/hit each round until treated	RATEOFFIRE:S
+Wounding Handgun +2				PROFICIENCY:Glock 17			TYPE:FX.Specific.Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:28	WT:2		BASEITEM:Glock 17				CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:MASTERCRAFT_WEAP_HIT_1.PLUS2W	RANGE:30	SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Magazine 17, Lic(+1), Victim bleeds and loses 1 HP/hit each round until treated	RATEOFFIRE:S
+Wounding Handgun +3				PROFICIENCY:Glock 17			TYPE:FX.Specific.Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:28	WT:2		BASEITEM:Glock 17				CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:MASTERCRAFT_WEAP_HIT_1.PLUS3W	RANGE:30	SIZE:S	SOURCEPAGE:msrdfxitems.rtf	SPROP:Magazine 17, Lic(+1), Victim bleeds and loses 1 HP/hit each round until treated	RATEOFFIRE:S
+
+###Block: Potions
+
+# Equipment Name			Type				Cost		Weight	Source Page				Special Property
+Potion of Charisma		TYPE:FX.Potion.Magic	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Allows the character to speak eloquently and persuasively as well as exude an aura of personality and charm, adding a +5 Enhancement BONUS to Charisma for 5 minutes
+Potion of Constitution		TYPE:FX.Potion.Magic	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Makes the imbibing character more resilient. It provides a +5 enhancement bonus to the drinkers Constitution for 5 minutes
+Potion of Cure Light Wounds	TYPE:FX.Potion.Magic	COST:19	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Heals 1d8+1 (see cure light wounds spell)
+Potion of Darkvision		TYPE:FX.Potion.Magic	COST:22	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Character can see in dark for 3 hours, although everything appears in shades of black and white
+Potion of Dexterity		TYPE:FX.Potion.Magic	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Character becomes more graceful,agile, and coordinated. He gets a +5 enhancment BONUS to his dexterity for 5 minutes.
+Potion Of Inteligence		TYPE:FX.Potion.Magic	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:The clarity of mind and quicker wit granted by this potion results in a +5 enhancement to the drinker's Intelligence for 5 minutes
+Potion of Invisibility		TYPE:FX.Potion.Magic	COST:22	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:drinker and gear she is wearing vanish from sight. The effect lasts for 3 minutes
+Potion of See Invisibility	TYPE:FX.Potion.Magic	COST:22	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Allows drinker to see objects and being that are invisible. The effect last 30 minutes.
+Potion of Stealth			TYPE:FX.Potion.Magic	COST:24	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Improves drinkers ability to MOVE quietly and stay out of sight, granting a +5 circumstance bonus on her Hide and Move Silently CHECKS for 1 hour.
+Potion of Strength		TYPE:FX.Potion.Magic	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Improves the imbiber's Strngth, resulting in a +5 enhancement bonus for 5 minutes
+Potion of Truth			TYPE:FX.Potion.Magic	COST:25	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Forces drinker to say nothing but the truth for 10 minutes
+Potion of Wisdom			TYPE:FX.Potion.Magic	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Imbuing her with intuition, this potion adds a +5 enhancement bonus to the drinkers Wisdom for 5 minutes
+
+###Block: Rings
+
+# Equipment Name					Type						Cost		Weight	Source Page				Bonus to skill		Special Property																		Special Ability
+Ring of Energy Resistance(acid)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by acid if total damage less than 15 wearer takes no damage			SA:Acid Resistance 15
+Ring of Energy Resistance(cold)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by cold if total damage less than 15 wearer takes no damage			SA:Cold Resistance 15
+Ring of Energy Resistance(electricity)	TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by electricity if total damage less than 15 wearer takes no damage	SA:Electricity Resistance 15
+Ring of Energy Resistance(fire)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by fire if total damage less than 15 wearer takes no damage			SA:Fire Resistance 15
+Ring of Energy Resistance(sonic)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by sonic if total damage less than 15 wearer takes no damage		SA:Sonic Resistance 15
+Ring (Jumping)					TYPE:FX.Ring.Magic			COST:26	WT:0		SOURCEPAGE:msrdfxitems.rtf	BONUS:SKILL|Jump|30	SPROP:Continually allows the wearer to make incredible leaps,
+Ring (Ram)						TYPE:FX.Ring.Magic.Weapon.Ranged	COST:34	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:see text
+
+###Block: Scrolls
+
+# Equipment Name			Type					Cost		Weight	Source Page				Special Property
+Scroll (Fireball)			TYPE:FX.Scroll.Magic.Arcane	COST:23	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Reading the scroll activates a fireball spell(see spell)
+Scroll (Raise Dead)		TYPE:FX.Scroll.Magic.Divine	COST:26	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Reading the scroll activates a Neutralize Poison spell(see spell)
+Scroll (Neutralize Poison)	TYPE:FX.Scroll.Magic.Divine	COST:29	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Reading the scroll activates a Raise Dead spell(see spell)
+
+###Block: Staffs
+
+# Equipment Name		Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Size		Source Page				Spells																Special Property
+Staff of Fire		PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Arcane.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:43	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Fire|TIMES=-1|CASTERLEVEL=9|Burning Hands,13|Fireball,15|Wall of Fire,17			SPROP:Burning Hands (1 Chrg), Fireball (1 Chrg), Wall of Fire (2 Chrg)
+Staff of Illumination	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Divine.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:41	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Illumination|TIMES=-1|CASTERLEVEL=9|Light,10|Searing Light,15|True Seeing,17		SPROP:Light (No Chrg), Searing Light (1 Chrg), True Seeing (2 Chrg)
+Staff of the Mind's Eye	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Psionic.Weapon.Simple.Melee.Bludgeoning.Standard.Double		ALTTYPE:Weapon.Melee.Bludgeoning	COST:40	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of the Mind's Eye|TIMES=-1|CASTERLEVEL=9|Brain Lock,13|Inflict Pain,15|Whitefire,17	SPROP:Brain Lock (1 Chrg), Inflict Pain (1 Chrg), Whitefire (1 Chrg)
+
+###Block: Tattoos
+
+# Equipment Name			Type					Cost		Weight	Source Page				Special Property
+Tattoo of Body Adjustment	TYPE:FX.Tattoo.Psionic		COST:20	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:Hel(3d6) or Gain +7 BONUS to next Fortitude save to negate further DAMAGE or instantly heal 2 points of ability DAMAGE
+Tattoo of Natural Armor		TYPE:FX.Tattoo.Magic.Arcane	COST:26	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:When acticated the tattoo cover the bearer's skin with hard ridges that provide +4 natural armor bonus to defense;last 7 minutes
+Tattoo of Spider Climb		TYPE:FX.Tattoo.Magic.Arcane	COST:19	WT:0		SOURCEPAGE:msrdfxitems.rtf	SPROP:bearer can climb and travel on vertical surfaces and ceilings for 30 minutes. Climb speed 20 feet
+
+###Block: Wands
+
+# Equipment Name		Type					Cost		Weight	Base Item for EQMOD	Modifier												Source Page
+Wand of Animate Dead	TYPE:FX.Wand.Magic.Divine	COST:0	WT:1		BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Animate Dead]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]	SOURCEPAGE:msrdfxitems.rtf
+Wand of Knock		TYPE:FX.Wand.Magic.Arcane	COST:0	WT:1		BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Knock]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:msrdfxitems.rtf
+Wand of Web			TYPE:FX.Wand.Magic.Arcane	COST:0	WT:1		BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Web]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:msrdfxitems.rtf
+
+###Block: Wondrous Items
+
+# Equipment Name					Type							Cost		Weight	Slot Needed	Base Item for EQMOD	Damage	Modifier					Range		Size		Source Page				Spells											Save checks bonus								Damage reduction	Special Property
+Chemical Light Stick of Revealing		TYPE:FX.Wondrous.Magic				COST:29	WT:1																				SOURCEPAGE:msrdfxitems.rtf																										SPROP:As normal chemical light stick plus reveals invisible creatures and objects
+Crystal Pistol					TYPE:FX.Wondrous.Psionic.Weapon.Ranged	COST:29	WT:2								DAMAGE:3d6	EQMOD:CHARGED_ITEM_50|CHARGES[50]	RANGE:130	SIZE:S	SOURCEPAGE:msrdfxitems.rtf																										SPROP:50 charges. Cannot be recharged
+Duct Tape of Repair				TYPE:FX.Wondrous.Magic				COST:31	WT:1										EQMOD:CHARGED_ITEM_14|CHARGES[14]					SOURCEPAGE:msrdfxitems.rtf																										SPROP:5ft strip applied repairs 1d8+5 object damage, 14 uses per roll
+Gauntlet of Lightning				TYPE:FX.Wondrous.Magic.Glove			COST:32	WT:1																				SOURCEPAGE:msrdfxitems.rtf	SPELLS:Gauntlet of Lightning|TIMES=3|CASTERLEVEL=5|Lightning Bolt,14
+Icethrower						TYPE:FX.Wondrous.Magic				COST:35	WT:50										EQMOD:CHARGED_ITEM_10|CHARGES[10]					SOURCEPAGE:msrdfxitems.rtf																										SPROP:Looks like a flamethrower but shoots a Cone of COld(Reflex DC17) 10 shots,
+Jade Crocodile					TYPE:FX.Wondrous.Magic				COST:33	WT:0																				SOURCEPAGE:msrdfxitems.rtf																										SPROP:Stone turns into crocodile see text
+Leather Jacket of Damage Reduction		TYPE:FX.Wondrous.Magic.Shirt			COST:31	WT:4				BASEITEM:Leather Jacket													SOURCEPAGE:msrdfxitems.rtf																							BONUS:DR|-|1	SPROP:This BONUS stacks
+Running Shoes of Striding and Springing	TYPE:FX.Wondrous.Magic.Boot			COST:33	WT:1		SLOTS:2																	SOURCEPAGE:msrdfxitems.rtf																										SPROP:Wearer moves at double her normal speed
+Screaming Amulet					TYPE:FX.Wondrous.Psionic.Amulet		COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																										SPROP:need 10 power points to activate, see text
+Six-Demon Bag					TYPE:FX.Wondrous.Magic				COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																										SPROP:see text
+Windbreaker of Resistance +1			TYPE:FX.Wondrous.Magic.Shirt			COST:22	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Willpower|1|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +2			TYPE:FX.Wondrous.Magic.Shirt			COST:25	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Willpower|2|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +3			TYPE:FX.Wondrous.Magic.Shirt			COST:28	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Willpower|3|TYPE=Resistance				SPROP:restistance BONUS to all saves
+
+###Block: Base Items
+
+# Equipment Name	Type		Cost		Weight	MODS			Source Page
+Potion		TYPE:Potion	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+Ring			TYPE:Ring	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+Scroll		TYPE:Scroll	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+Staff			TYPE:Staff	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+Tattoo		TYPE:Tattoo	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+Wand			TYPE:Wand	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:msrdFXitems.rtf
+
+#
+# End
+#

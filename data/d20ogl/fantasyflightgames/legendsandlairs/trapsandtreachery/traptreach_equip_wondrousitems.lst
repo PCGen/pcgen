@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Equipment Name			Type					Cost		Weight	Slot Needed	Source Page		Special Property
+Alric's Tiny Golem		TYPE:Magic.Wondrous		COST:12000	WT:0				SOURCEPAGE:p.48
+Bag (Of Trash)			TYPE:Magic.Wondrous		COST:5000	WT:.5				SOURCEPAGE:p.48
+Sack (Of Trash)			TYPE:Magic.Wondrous		COST:10000	WT:.5				SOURCEPAGE:p.48
+Pouch (Belt/Of Trash)		TYPE:Magic.Wondrous		COST:2500	WT:.5				SOURCEPAGE:p.48
+Bag (Small/Of Trash)		TYPE:Magic.Wondrous		COST:5000	WT:.5				SOURCEPAGE:p.48
+Sack (Small/Of Trash)		TYPE:Magic.Wondrous		COST:10000	WT:.125			SOURCEPAGE:p.48
+Pouch (Small/Belt/Of Trash)	TYPE:Magic.Wondrous		COST:2500	WT:.125			SOURCEPAGE:p.48
+Boots of Grace			TYPE:Magic.Wondrous.Boot	COST:4000	WT:0		SLOTS:2	SOURCEPAGE:p.48
+Boots of Misdirection		TYPE:Magic.Wondrous.Boot	COST:52000	WT:0		SLOTS:2	SOURCEPAGE:p.49
+Bracers of Facade			TYPE:Magic.Wondrous		COST:60000	WT:0				SOURCEPAGE:p.49
+Bridle of Invisibility		TYPE:Magic.Wondrous		COST:15000	WT:0				SOURCEPAGE:p.50	SPROP:Makes mount that wears it invisible.
+Compass of Passage		TYPE:Magic.Wondrous		COST:37800	WT:0				SOURCEPAGE:p.50
+Scarab Agent			TYPE:Magic.Wondrous		COST:22000	WT:0				SOURCEPAGE:p.50
+Infinite Quiver			TYPE:Magic.Wondrous		COST:50000	WT:.125			SOURCEPAGE:p.130

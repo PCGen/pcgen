@@ -1,0 +1,48 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
+# Original entry by Ratheof Blithwyn
+CAMPAIGN:FFG - Dawnforge - Age of Legend - Player's Companion
+GAMEMODE:35e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Fantasy Flight Games.Dawnforge
+RANK:6
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
+SOURCELONG:Age of Legend
+SOURCESHORT:ALe
+SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Path of the Sword Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Tournaments, Fairs, and Taverns, Copyright 2002, Natural 20 Press
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural 20 Press
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Open Game Content from The Tide of Years Copyright 2001, Michelle A. Brown Nephew
+COPYRIGHT:Seafarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Dawnforge Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Dawnforge: Age of Legend, Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for the Path of Magic Copyright 2004, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn), Andrew McDougall (Tir Gwaith), Tod W. Milam)
+
+INFOTEXT:Accessory for the Dawnforge campaign setting.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+RACE:agelegend_races.lst
+TEMPLATE:agelegend_templates.lst
+TEMPLATE:agelegend_templates_races.lst
+CLASS:agelegend_classes_prestige.lst
+#CLASS:agelegend_classes_legendary.lst
+#CLASS:agelegend_classes_variant.lst
+FEAT:agelegend_feats.lst
+FEAT:agelegend_feats_hidden.lst
+#FEAT:agelegend_feats_hidden_legendary.lst
+FEAT:agelegend_feats_races.lst
+#EQUIPMENT:agelegend_equip.lst
+SKILL:agelegend_skills.lst
+SPELL:agelegend_spells.lst

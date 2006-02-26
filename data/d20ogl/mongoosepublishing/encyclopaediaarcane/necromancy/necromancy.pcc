@@ -1,0 +1,35 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $
+CAMPAIGN:Mongoose - Encyclopaedia Arcane - Necromancy
+GAMEMODE:3e
+TYPE:Mongoose.Supplement.Encyclopaedia Arcane
+RANK:9
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy
+SOURCESHORT:Necromancy
+SOURCEWEB:http://www.mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from Encyclopaedia Arcane - Necromancy Copyright 2001, Mongoose Publishing
+COPYRIGHT:PCGen dataset conversion for Encyclopaedia Arcane - Necromancy Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew McDougall (Tir Gwaith), Paul W. King, wizoffice2001, Paul Grosse)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SPELL:necromancy_spells.lst
+
+SKILL:necromancy_skills.lst
+CLASS:necromancy_classes.lst
+FEAT:necromancy_feats.lst
+
+TEMPLATE:necromancy_templates.lst
+COMPANIONMOD:necromancy_companionmods.lst
+
+EQUIPMENT:necromancy_equip_wondrousitems.lst
+EQUIPMENT:necromancy_equip_weap_melee_specific.lst
+EQUIPMENT:necromancy_equip_rings.lst
+EQUIPMENT:necromancy_equip_artifacts.lst
+EQUIPMENT:necromancy_equip_potionsscrolls.lst
+EQUIPMENT:necromancy_equip_rodsstaffswands.lst
+
+# For the Evasion and Improved Evasion pseudo-feats
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion)

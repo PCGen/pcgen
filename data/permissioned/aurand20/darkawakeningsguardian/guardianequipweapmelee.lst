@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+# Equipment Name					Required Proficiency			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus
+The Sword Eseriel					PROFICIENCY:Longsword			TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific		COST:2315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:M	SOURCEPAGE:p.78	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+The Sword Eseriel (Broken)			PROFICIENCY:Sword (Short)		TYPE:Weapon.Martial.Melee.Piercing.Metal.Specific		COST:150	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.78
+Battlesword +1 (Northern Sea-Raiders)	PROFICIENCY:Sword (Bastard/[Hands])	TYPE:Magic.Weapon.Exotic.Melee.Slashing.Standard.Metal	COST:2335	WT:10		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	SIZE:M	SOURCEPAGE:p.78	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Dagger +1 (Northern Sea-Raiders)		PROFICIENCY:Dagger			TYPE:Magic.Weapon.Simple.Melee.Piercing				COST:2302	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	SIZE:T	SOURCEPAGE:p.78	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement

@@ -1,0 +1,43 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Sun Apr 10 06:21:58 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# Original Entry by byngl
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Was this created from scratch????
+
+# Sorted by the "Magic Items on the Body" listing for now...
+# Equipment Name	Type			Cost		Weight	Slot Needed	MODS			Source Page
+Headband		TYPE:Headgear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Hat			TYPE:Headgear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Helmet		TYPE:Headgear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Phylactery		TYPE:Headgear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Eye Lenses		TYPE:Eyegear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Goggles		TYPE:Eyegear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Amulet		TYPE:Amulet		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Brooch		TYPE:Amulet		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Medallion		TYPE:Amulet		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Necklace		TYPE:Amulet		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Periapt		TYPE:Headgear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Scarab		TYPE:Amulet		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Vest			TYPE:Shirt		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Vestment		TYPE:Shirt		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Shirt			TYPE:Shirt		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Robe			TYPE:Robe		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Belt			TYPE:Belt		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Cloak			TYPE:Cape		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Cape			TYPE:Cape		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Mantle		TYPE:Cape		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Bracers		TYPE:Bracer		COST:0	WT:0		SLOTS:2	MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Bracelets		TYPE:Bracer		COST:0	WT:0		SLOTS:2	MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Gloves		TYPE:Glove		COST:0	WT:0		SLOTS:2	MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Gauntlets		TYPE:Glove		COST:0	WT:0		SLOTS:2	MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Ring			TYPE:Ring		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Boots			TYPE:Boot		COST:0	WT:0		SLOTS:2	MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Shoes			TYPE:Boot		COST:0	WT:0		SLOTS:2	MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Art			TYPE:Art		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:Treasure.rtf
+Gem			TYPE:Gem		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:Treasure.rtf
+# From "summary of magic item creation costs"
+Potion		TYPE:Potion		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Rod			TYPE:Rod		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Scroll		TYPE:Scroll		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Staff			TYPE:Staff		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+Wand			TYPE:Wand		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf

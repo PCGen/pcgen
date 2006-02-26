@@ -1,0 +1,70 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Sun Oct  2 20:59:12 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block:Armor
+# Modifier Name		Unique Key		Type			Plus		Visible		Source Page		Required Type			BONUS:EQMARMOR				Modify VAR										Special Property											Virtual Feat		Choose
+Bane				KEY:BANE_AR		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:+2 luck bonus to AC and saves vs. %|%CHOICE									CHOOSE:Designated Foe|Aberrations|Animals|Constructs|Dragons|Elementals|Fey|Giants|Humanoids (aquatic)|Humanoids (dwarf)|Humanoids (elf)|Humanoids (gnoll)|Humanoids (gnome)|Humanoids (goblinoid)|Humanoids (halfling)|Humanoids (human)|Humanoids (reptilian)|Humanoids (orc)|Magical beasts|Monstrous humanoids|Oozes|Outsiders (chaotic)|Outsiders (evil)|Outsiders (good)|Outsiders (lawful)|Plants|Undead|Vermin
+Climbing			KEY:CLIMB		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Climb checks
+Comfort			KEY:COMFORT		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:Wearer can sleep in this armor
+Demon Repelling		KEY:DEMONREP	TYPE:Armor.Shield	PLUS:5	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:Demons gets -2 penalty to attack you. You gain SR 20 against demons
+Dispelling			KEY:DISPEL		TYPE:Armor.Shield	PLUS:8	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:Automatically dispels any spell on caster
+Grace				KEY:GRACE		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|MAXDEX|50													SPROP:No MaxDex
+Hiding			KEY:HIDE		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Hide checks
+Maneuvering			KEY:MANEU		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|ACCHECK|2													SPROP:-2 on Armor Check penalty
+Maneuvering (Greater)	KEY:MANEUGR		TYPE:Armor.Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|ACCHECK|40													SPROP:No Armor Check penalty
+Moving Silently		KEY:MOVESIL		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Move Silently checks
+Poisonwarding (+1)	KEY:POISON1		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+1 luck bonus vs. poison
+Poisonwarding (+2)	KEY:POISON2		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+2 luck bonus vs. poison
+Poisonwarding (+3)	KEY:POISON3		TYPE:Armor.Shield	PLUS:3/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+3 luck bonus vs. poison
+Poisonwarding (+4)	KEY:POISON4		TYPE:Armor.Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+4 luck bonus vs. poison
+Poisonwarding (+5)	KEY:POISON5		TYPE:Armor.Shield	PLUS:5/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+5 luck bonus vs. poison
+Potion Storing		KEY:POISONST	TYPE:Shield		PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Shield																		SPROP:Hidden compartment for potion
+Spellcasting		KEY:CAST		TYPE:Armor.Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|SPELLFAILURE|-15												SPROP:Reduces Arcane Spell Failure by 15
+Spellcasting (Superior)	KEY:CASTSUP		TYPE:Armor.Shield	PLUS:4	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor	BONUS:EQMARMOR|SPELLFAILURE|-100												SPROP:No Arcane Spell Failure
+Spellwarding (+1)		KEY:SPELLW1		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+1 luck bonus to saves vs. %|%CHOICE										CHOOSE:Abjuration|Conjuration|Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal
+Spellwarding (+2)		KEY:SPELLW2		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+2 luck bonus to saves vs. %|%CHOICE										CHOOSE:Abjuration|Conjuration|Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal
+Spellwarding (+3)		KEY:SPELLW3		TYPE:Armor.Shield	PLUS:3/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+3 luck bonus to saves vs. %|%CHOICE										CHOOSE:Abjuration|Conjuration|Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal
+Spellwarding (+4)		KEY:SPELLW4		TYPE:Armor.Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+4 luck bonus to saves vs. %|%CHOICE										CHOOSE:Abjuration|Conjuration|Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal
+Spellwarding (+5)		KEY:SPELLW5		TYPE:Armor.Shield	PLUS:5/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+5 luck bonus to saves vs. %|%CHOICE										CHOOSE:Abjuration|Conjuration|Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal
+Trapwarding (+1)		KEY:TRAPW1		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+1 luck bonus to saves vs. traps
+Trapwarding (+2)		KEY:TRAPW2		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+2 luck bonus to saves vs. traps
+Trapwarding (+3)		KEY:TRAPW3		TYPE:Armor.Shield	PLUS:3/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+3 luck bonus to saves vs. traps
+Trapwarding (+4)		KEY:TRAPW4		TYPE:Armor.Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+4 luck bonus to saves vs. traps
+Trapwarding (+5)		KEY:TRAPW5		TYPE:Armor.Shield	PLUS:5/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:+5 luck bonus to saves vs. traps
+Tumbling			KEY:TUMBLE		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor																		SPROP:No armor penalties for all Tumble checks
+Uncanny Protection	KEY:UNCANNY		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.164	PRETYPE:Enhancement,Armor							BONUS:VAR|UncannyDodgeFlankingLevel|3|TYPE=EachClass.REPLACE	SPROP:Wearer gains Uncanny Dodge								VFEAT:Uncanny Dodge
+
+
+###Block:Weapon
+# Modifier Name			Unique Key		Type				Plus		Visible		Source Page		Required Type										Prohibited Type		Modify VAR								Weapon prop. bonus								Special Property													Choose
+Arcane Blasting			KEY:ARCBLAST_M	TYPE:Weapon.Melee		PLUS:4	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Ranged																															SPROP:+2d6 force energy damage
+Arcane Blasting			KEY:ARCBLAST_R	TYPE:Weapon.Ranged	PLUS:4	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Ranged							!PRETYPE:Thrown																						SPROP:+2d6 force energy damage, bestowed on ammunition
+Armor Piercing			KEY:ARMPIERC_A	TYPE:Ammunition		PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Ammunition																															SPROP:Attacker ignores the armor
+Armor Piercing			KEY:ARMPIERC_R	TYPE:Weapon.Ranged	PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Ranged							!PRETYPE:Thrown																						SPROP:Attacker ignores the armor
+Armor Shattering			KEY:ARMSHATTER	TYPE:Weapon.Melee		PLUS:4	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Melee	PRETYPE:1,Slashing,Bludgeoning																									SPROP:On successful hit, Fortitude DC 19 or armor is destroyed
+Champion Detecting		KEY:CHAMPDET	TYPE:Weapon			PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:Identifies most powerful foe
+Creature Detecting		KEY:CREATDET	TYPE:Weapon			PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:Sheds light when near %CHOICE										CHOOSE:Designated Foe|Aberrations|Animals|Constructs|Dragons|Elementals|Fey|Giants|Humanoids (aquatic)|Humanoids (dwarf)|Humanoids (elf)|Humanoids (gnoll)|Humanoids (gnome)|Humanoids (goblinoid)|Humanoids (halfling)|Humanoids (human)|Humanoids (reptilian)|Humanoids (orc)|Magical beasts|Monstrous humanoids|Oozes|Outsiders (chaotic)|Outsiders (evil)|Outsiders (good)|Outsiders (lawful)|Plants|Undead|Vermin
+Eldritch Blasting			KEY:ELDBLAST_M	TYPE:Weapon.Melee		PLUS:7	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Ranged																															SPROP:+6d6 force energy damage
+Eldritch Blasting			KEY:ELDBLAST_R	TYPE:Weapon.Ranged	PLUS:7	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Ranged							!PRETYPE:Thrown																						SPROP:+6d6 force energy damage, bestowed on ammunition
+Gripping (+2)			KEY:GRIP2		TYPE:Weapon			PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon								!PRETYPE:Ammunition																					SPROP:+2 bonus to resist disarm attempts
+Gripping (+4)			KEY:GRIP4		TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon								!PRETYPE:Ammunition																					SPROP:+4 bonus to resist disarm attempts
+Gripping (+6)			KEY:GRIP6		TYPE:Weapon			PLUS:3/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon								!PRETYPE:Ammunition																					SPROP:+6 bonus to resist disarm attempts
+Gripping (+8)			KEY:GRIP8		TYPE:Weapon			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon								!PRETYPE:Ammunition																					SPROP:+8 bonus to resist disarm attempts
+Gripping (+10)			KEY:GRIP10		TYPE:Weapon			PLUS:5/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon								!PRETYPE:Ammunition																					SPROP:+10 bonus to resist disarm attempts
+Hardened (+1)			KEY:HARDENED1	TYPE:Weapon			PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:+1 Hardness, +5 hp
+Hardened (+2)			KEY:HARDENED2	TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:+2 Hardness, +10 hp
+Hardened (+3)			KEY:HARDENED3	TYPE:Weapon			PLUS:3/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:+3 Hardness, +15 hp
+Hardened (+4)			KEY:HARDENED4	TYPE:Weapon			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:+4 Hardness, +20 hp
+Hardened (+5)			KEY:HARDENED5	TYPE:Weapon			PLUS:5/2	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:+5 Hardness, +25 hp
+Karmic				KEY:KARMIC		TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																																SPROP:+2/+2 on a combat hit, if misses next attack is -1/0
+Ki Channel				KEY:KICHAN		TYPE:Weapon.Melee		PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Melee																															SPROP:Channel Stunning Attacks and Ki Strike
+Knockback				KEY:KNOCKBACK	TYPE:Weapon.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon,Ranged																															SPROP:Knockback creatures struck by this weapon or its ammunition
+Mage Tuned				KEY:MAGETUNE	TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.165	PRETYPE:Enhancement,Weapon																					BONUS:WEAPON|TOHIT|4|TYPE=Luck|PRECLASS:1,Wizard=1,Sorcerer=1	SPROP:+4 luck bonus to attack rolls|PRECLASS:1,Wizard=1,Sorcerer=1
+Manawall Crushing			KEY:MANAWALL	TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Weapon																																SPROP:On successful hit, drains 1 of SR from target for 24 hours
+Manawall Crushing (Eldritch)	KEY:MANAWALLELD	TYPE:Weapon			PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Weapon																																SPROP:On successful hit, drains 5 of SR from target for 24 hours
+Nonlethal				KEY:NONLETHAL	TYPE:Weapon			PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Weapon																																SPROP:This weapon only causes nonlethal damage, with no negative modifier
+Roguefriend				KEY:ROGUEFR		TYPE:Weapon			PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Weapon												BONUS:VAR|SneakAttack|1|PREVARGTEQ:SneakAttack,0												SPROP:Wielder can make sneak attacks that inflicts +1d6 damage|PREVARLTEQ:SneakAttack,0
+Shield Piercing			KEY:SHLDPIERC_A	TYPE:Ammunition		PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Ammunition																															SPROP:Attacker ignores the shield
+Shield Piercing			KEY:SHLDPIERC_R	TYPE:Weapon.Ranged	PLUS:3	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Weapon,Ranged							!PRETYPE:Thrown																						SPROP:Attacker ignores the shield
+Unruly				KEY:UNRULY		TYPE:Weapon			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.166	PRETYPE:Enhancement,Weapon																					BONUS:WEAPON|TOHIT|-4								SPROP:+2d6 on damage

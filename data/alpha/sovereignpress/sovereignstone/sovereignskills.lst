@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+
+# Skill Name	Untrained?		Type				Source Page
+Literacy		USEUNTRAINED:NO	TYPE:None.Language	SOURCEPAGE:p.
+Sign Language	USEUNTRAINED:NO	TYPE:None.Language	SOURCEPAGE:p.

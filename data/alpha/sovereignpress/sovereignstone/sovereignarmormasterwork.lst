@@ -1,0 +1,53 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+#Armor and Shields				TYPE									Cost		Weight	Base AC	Max Dex Mod	AC Check Penalty	Arcane Spell Fail	Movement Rate	Hands Required		Pre-required Size
+# Equipment Name				Required Proficiency		Type									Cost		Weight	Required Size	Minimum Size	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Nb Hands	Maximum DEX Bonus	% of Spell Failure	Combat bonus
+Cloth (Masterwork)								TYPE:Armor.Light.Suit.Masterwork				COST:155	WT:10								ACCHECK:0														MAXDEX:8		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Leather (Masterwork)								TYPE:Armor.Light.Suit.Masterwork				COST:160	WT:15								ACCHECK:0														MAXDEX:6		SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Studded Leather (Masterwork)							TYPE:Armor.Light.Suit.Masterwork				COST:175	WT:20								ACCHECK:0														MAXDEX:5		SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Chain Shirt (Masterwork)							TYPE:Armor.Light.Shirt.Masterwork				COST:250	WT:25								ACCHECK:-1														MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Hide (Masterwork)									TYPE:Armor.Medium.Suit.Masterwork				COST:165	WT:15								ACCHECK:-2														MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Scale Mail (Masterwork)								TYPE:Armor.Medium.Suit.Masterwork				COST:200	WT:30								ACCHECK:-3														MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Chainmail (Masterwork)								TYPE:Armor.Medium.Suit.Masterwork				COST:300	WT:40								ACCHECK:-4														MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Platemail (Masterwork)								TYPE:Armor.Medium.Suit.Masterwork				COST:350	WT:30								ACCHECK:-3														MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Splint Mail (Masterwork)							TYPE:Armor.Heavy.Suit.Masterwork				COST:350	WT:45								ACCHECK:-6														MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Banded Mail (Masterwork)							TYPE:Armor.Heavy.Suit.Masterwork				COST:400	WT:35								ACCHECK:-5														MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Half-Plate (Masterwork)								TYPE:Armor.Heavy.Suit.Masterwork				COST:750	WT:50								ACCHECK:-6														MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Full Plate (Masterwork)								TYPE:Armor.Heavy.Suit.Masterwork				COST:1650	WT:50								ACCHECK:-5														MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Studded Leather (Small/Masterwork)						TYPE:Armor.Light.Masterwork					COST:175	WT:10		PRESIZEEQ:S					ACCHECK:0														MAXDEX:5		SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Chain Shirt (Small/Masterwork)						TYPE:Armor.Light.Masterwork					COST:250	WT:12.5	PRESIZEEQ:S					ACCHECK:-1														MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Hide (Small/Masterwork)								TYPE:Armor.Medium.Suit						COST:165	WT:12.5	PRESIZEEQ:S					ACCHECK:-2														MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Scale Mail (Small/Masterwork)							TYPE:Armor.Medium.Masterwork					COST:200	WT:15		PRESIZEEQ:S					ACCHECK:-3														MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Chainmail (Small/Masterwork)							TYPE:Armor.Medium.Masterwork					COST:300	WT:20		PRESIZEEQ:S					ACCHECK:-4														MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Platemail (Small/Masterwork)							TYPE:Armor.Medium.Masterwork					COST:350	WT:15		PRESIZEEQ:S					ACCHECK:-3														MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Splint Mail (Small/Masterwork)						TYPE:Armor.Heavy.Masterwork					COST:350	WT:22.5	PRESIZEEQ:S					ACCHECK:-6														MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Banded Mail (Small/Masterwork)						TYPE:Armor.Heavy.Masterwork					COST:400	WT:17.5	PRESIZEEQ:S					ACCHECK:-5														MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Half-Plate (Small/Masterwork)							TYPE:Armor.Heavy.Masterwork					COST:750	WT:25		PRESIZEEQ:S					ACCHECK:-6														MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Full Plate (Small/Masterwork)							TYPE:Armor.Heavy.Masterwork					COST:1650	WT:25		PRESIZEEQ:S					ACCHECK:-5														MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Cloth (Small)									TYPE:Armor.Light.Suit						COST:5	WT:5		PRESIZEEQ:S					ACCHECK:0														MAXDEX:8		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Leather (Small)									TYPE:Armor.Light.Suit						COST:10	WT:7.5	PRESIZEEQ:S					ACCHECK:0														MAXDEX:6		SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Studded Leather (Small)								TYPE:Armor.Light.Suit						COST:25	WT:10		PRESIZEEQ:S					ACCHECK:-1														MAXDEX:5		SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Chain Shirt (Small)								TYPE:Armor.Light.Shirt						COST:100	WT:12.5	PRESIZEEQ:S					ACCHECK:-2														MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Hide (Small)									TYPE:Armor.Medium.Suit						COST:15	WT:12.5	PRESIZEEQ:S					ACCHECK:-3														MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Scale Mail (Small)								TYPE:Armor.Medium.Suit						COST:50	WT:15		PRESIZEEQ:S					ACCHECK:-4														MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Chainmail (Small)									TYPE:Armor.Medium.Suit						COST:150	WT:20		PRESIZEEQ:S					ACCHECK:-5														MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Platemail (Small)									TYPE:Armor.Medium.Suit						COST:200	WT:15		PRESIZEEQ:S					ACCHECK:-4														MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Splint Mail (Small)								TYPE:Armor.Heavy.Suit						COST:200	WT:22.5	PRESIZEEQ:S					ACCHECK:-7														MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Banded Mail (Small)								TYPE:Armor.Heavy.Suit						COST:250	WT:17.5	PRESIZEEQ:S					ACCHECK:-6														MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Half-Plate (Small)								TYPE:Armor.Heavy.Suit						COST:600	WT:25		PRESIZEEQ:S					ACCHECK:-7														MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Full Plate (Small)								TYPE:Armor.Heavy.Suit						COST:1500	WT:25		PRESIZEEQ:S					ACCHECK:-6														MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Buckler (Masterwork)								TYPE:Shield.Masterwork						COST:165	WT:5								ACCHECK:0												HANDS:0				SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Pavaise (Masterwork)								TYPE:Shield								COST:180	WT:45								ACCHECK:-9																	SPELLFAILURE:50
+Shield (Small/Wooden/Masterwork)						TYPE:Shield.Wooden.Masterwork					COST:153	WT:5								ACCHECK:0																	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Shield (Small/Steel/Masterwork)						TYPE:Shield.Masterwork						COST:159	WT:6								ACCHECK:0																	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Shield (Large/Wooden/Masterwork)						TYPE:Shield.Wooden.Masterwork					COST:157	WT:10								ACCHECK:-1																	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Shield (Large/Steel/Masterwork)						TYPE:Shield.Masterwork						COST:170	WT:15								ACCHECK:-1																	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Shield (Tower/Masterwork)							TYPE:Shield.Masterwork						COST:170	WT:45								ACCHECK:-9																	SPELLFAILURE:50		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Armor Spikes (Small)			PROFICIENCY:Armor Spikes	TYPE:Armor.Weapon.Martial.Melee.Piercing			COST:50	WT:5		PRESIZEEQ:S								CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	HANDS:0
+Shield Spikes (Small)			PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Piercing			COST:10	WT:2.5	PRESIZEEQ:S								CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6
+Gauntlets (Small/Locked)		PROFICIENCY:Unarmed Strike	TYPE:Armor								COST:8	WT:2.5	PRESIZEEQ:S
+Shield Spikes (Masterwork)		PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Piercing.Masterwork	COST:160	WT:5											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6
+Armor Spikes (Masterwork)		PROFICIENCY:Armor Spikes	TYPE:Armor.Weapon.Martial.Melee.Piercing.Masterwork	COST:200	WT:10
+Gauntlets (Locked/Masterwork)		PROFICIENCY:Unarmed Strike	TYPE:Armor.Masterwork						COST:158	WT:5
+Shield Bash (Small/Small)		PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Bludgeoning		COST:0	WT:0		PRESIZEEQ:S								CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2
+Shield Bash (Med. or Lg./Small)	PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Bludgeoning		COST:0	WT:0					PRESIZEGTEQ:S				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3

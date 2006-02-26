@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Pinnacle Entertainment (PE) - Deadlands Web Enhancements|SOURCESHORT:DeadlndWeb|SOURCEWEB:http://www.peginc.com
+
+# Weapon Name	Type		Source URI
+Club (Stone)	TYPE:Simple	SOURCEWEB:http://www.peginc.com/WeirdWest/Support/Adventures/HotWW

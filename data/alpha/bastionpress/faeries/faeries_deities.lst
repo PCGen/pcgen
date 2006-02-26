@@ -1,0 +1,4 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Bastion Press - Faeries|SOURCESHORT:Faeries|SOURCEWEB:http://www.bastionpress.com
+# Deity Name	Domains													Clergy AL		Desciption of Deity/Title																Holy Item	Deity Weapon	ALIGN		Source Page		Required Class
+None (Faemancer)	DOMAINS:Air,Animal,Chaos,Dream,Fey,Luck,Magic,Plant,Protection,Travel,Trickery	FOLLOWERALIGN:67	DESC:Grants access to the Air, Animal, Chaos, Dream, Fey, Luck, Magic, Plant, Protection, Travel, or Trickery domain.	SYMBOL:None	DEITYWEAP:None	ALIGN:CN	SOURCEPAGE:p.20	PRECLASS:1,Faemancer=1

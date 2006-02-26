@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat May 14 19:33:24 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Deity Name	Domains							Clergy AL				Desciption of Deity/Title	Deity Weapon		Source Page
+Galtorzuk		DOMAINS:Earth,Strength					FOLLOWERALIGN:013467		DESC:Cult				DEITYWEAP:Warhammer	SOURCEPAGE:p.19
+Halshara		DOMAINS:Healing,Protection				FOLLOWERALIGN:013467		DESC:Cult				DEITYWEAP:Dagger		SOURCEPAGE:p.19
+Kagrua		DOMAINS:Death,Water					FOLLOWERALIGN:124578		DESC:Cult				DEITYWEAP:Trident		SOURCEPAGE:p.19
+Kak'kar		DOMAINS:Fire,Chaos					FOLLOWERALIGN:013467		DESC:Cult				DEITYWEAP:Spear		SOURCEPAGE:p.19
+Ravillot		DOMAINS:Destruction,Evil				FOLLOWERALIGN:124578		DESC:Cult				DEITYWEAP:Longsword	SOURCEPAGE:p.19
+Unicorn		DOMAINS:Plant,Animal					FOLLOWERALIGN:013467		DESC:Cult				DEITYWEAP:Staff		SOURCEPAGE:p.19
+Ylviuss		DOMAINS:Law,Trickery					FOLLOWERALIGN:124578		DESC:Cult				DEITYWEAP:Staff		SOURCEPAGE:p.19
+Arina			DOMAINS:Air,Chaos,Luck,Strength			FOLLOWERALIGN:013467		DESC:Elemental Lord		DEITYWEAP:Sling		SOURCEPAGE:p.19
+Aquan			DOMAINS:Magic,Travel,Trickery,Water			FOLLOWERALIGN:124578		DESC:Elemental Lord		DEITYWEAP:Sword (Short)	SOURCEPAGE:p.19
+Pyrna			DOMAINS:Fire,Destruction,Knowledge,War		FOLLOWERALIGN:013467		DESC:Elemental Lord		DEITYWEAP:Longsword	SOURCEPAGE:p.19
+Geoan			DOMAINS:Death,Earth,Law,Protection			FOLLOWERALIGN:124578		DESC:Elemental Lord		DEITYWEAP:Mace		SOURCEPAGE:p.19
+Denarka		DOMAINS:Good,Light,Luck,Travel			FOLLOWERALIGN:013467		DESC:Church of Light		DEITYWEAP:Mace		SOURCEPAGE:p.19
+Donica		DOMAINS:Healing,Light,Protection,Restoration	FOLLOWERALIGN:013467		DESC:Church of Light		DEITYWEAP:Dagger		SOURCEPAGE:p.19
+Gontier		DOMAINS:Animal,Good,Plant,Restoration		FOLLOWERALIGN:013467		DESC:Church of Light		DEITYWEAP:Staff		SOURCEPAGE:p.19
+Voporix		DOMAINS:Good,Protection,Strength,War		FOLLOWERALIGN:013467		DESC:Church of Light		DEITYWEAP:Longsword	SOURCEPAGE:p.19
+
+Agnostic										FOLLOWERALIGN:0123456789	DESC:Agnostic							SOURCEPAGE:p.12
+Atheist										FOLLOWERALIGN:0123456789	DESC:Atheist							SOURCEPAGE:p.12
+Druidism										FOLLOWERALIGN:0123456789	DESC:Druidism							SOURCEPAGE:p.12
+
+#
+# End
+#

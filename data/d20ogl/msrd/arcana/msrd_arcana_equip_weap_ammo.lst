@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jul 14 13:53:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Ammumition
+# Equipment Name				Output Name			Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page					Special Property
+10 ga buckshot/beanbag ammo (10)					TYPE:Ammunition.Firearm	COST:7	WT:0																SOURCEPAGE:ArcanaEquipment.rtf	SPROP:nonlethal damage, Res(+2)
+10 ga birdshot (10)							TYPE:Ammunition.Firearm	COST:4	WT:0																SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Damage -1 die
+12 ga buckshot/beanbag ammo (10)					TYPE:Ammunition.Firearm	COST:6	WT:0																SOURCEPAGE:ArcanaEquipment.rtf	SPROP:nonlethal damage, Res(+2)
+12 ga birdshot (10)							TYPE:Ammunition.Firearm	COST:3	WT:0																SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Damage -1 die
+40mm Beanbag Grenade							TYPE:Explosive.Slashing	COST:18	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:3d6	RANGE:-	SIZE:T	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Burst Radius 10', nonlethal damage, Res(+2)
+40mm High Explosive Grenade						TYPE:Explosive.Slashing	COST:21	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	RANGE:-	SIZE:T	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Burst Radius 10', MIL(+3)
+Dart (Tranquilizer)			OUTPUTNAME:[NAME]-Dart	TYPE:Dart			COST:7	WT:0																SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Delivers a tranquilizer or poison, see Craft (chemical) skill in Chapter 2 of the Core Rulebook, Res(+2)

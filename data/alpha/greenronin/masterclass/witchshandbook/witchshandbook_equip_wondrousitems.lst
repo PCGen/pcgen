@@ -1,0 +1,26 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec  1 21:27:22 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Ratheof Blithwyn
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+#TODO: Pentacle of Power, one for each level ?
+#TODO: Spell Stone
+#TODO: Cursed Candle
+
+# Equipment Name		Type					Cost		Weight	Source Page		Vision			Bonus to skill					Stat bonus
+Cauldron of Brewing	TYPE:Magic.Wondrous		COST:2000	WT:0		SOURCEPAGE:p.45					BONUS:SKILL|Alchemy|10|TYPE=Competence
+Cauldron of the Dead	TYPE:Magic.Wondrous		COST:54000	WT:0		SOURCEPAGE:p.45
+Cauldron of Flying	TYPE:Magic.Wondrous		COST:15100	WT:0		SOURCEPAGE:p.45
+Cauldron of Plenty	TYPE:Magic.Wondrous		COST:18000	WT:0		SOURCEPAGE:p.45
+Cauldron of Seeing	TYPE:Magic.Wondrous		COST:42000	WT:0		SOURCEPAGE:p.46
+Deck of Divining		TYPE:Magic.Wondrous		COST:64000	WT:0		SOURCEPAGE:p.46
+Horn of the Hunter	TYPE:Magic.Wondrous		COST:20000	WT:0		SOURCEPAGE:p.46
+Mask of Beauty		TYPE:Magic.Wondrous		COST:36000	WT:0		SOURCEPAGE:p.46												BONUS:STAT|CHA|6|TYPE=Enhancement
+Moon Circlet		TYPE:Magic.Wondrous		COST:15000	WT:0		SOURCEPAGE:p.46	VISION:Darkvision (60')
+#Pentacle of Power	TYPE:Magic.Wondrous		COST:0	WT:0		SOURCEPAGE:p.46
+#Spell Stone		TYPE:Magic.Wondrous		COST:0	WT:0		SOURCEPAGE:p.46
+Apple of Eternal Sleep	TYPE:Magic.Wondrous		COST:5000	WT:0		SOURCEPAGE:p.47
+Cloak of Immolation	TYPE:Magic.Wondrous.Cape	COST:67000	WT:1		SOURCEPAGE:p.47
+Crown of Blindness	TYPE:Magic.Wondrous		COST:20000	WT:0		SOURCEPAGE:p.47
+Hermaphromorphic Girdle	TYPE:Magic.Wondrous		COST:43000	WT:0		SOURCEPAGE:p.47
+Mantle of Madness		TYPE:Magic.Wondrous.Clothing	COST:210000	WT:0		SOURCEPAGE:p.47
+

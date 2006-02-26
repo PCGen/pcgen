@@ -1,0 +1,11 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Sun Oct 10 12:48:34 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+# Skill Name			Key Stat	Untrained?		Exclusive?		Classes			Type						Bonus to skill												Source Page
+Autohypnosis			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Psionic																	SOURCEPAGE:srdpsionicskills.rtf
+Knowledge (Mortal Enemy Lore)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Psionic															SOURCEPAGE:srdpsionicclasses.rtf
+Knowledge (Psionics)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Psionic	BONUS:SKILL|Knowledge (Psionics)|2|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK	SOURCEPAGE:srdpsionicskills.rtf
+Psicraft				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic		BONUS:SKILL|Psicraft|2|PRESKILL:1,Use Psionic Device=5|TYPE=Synergy.STACK		SOURCEPAGE:srdpsionicskills.rtf
+Remote View				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic																SOURCEPAGE:srdpsionicskills.rtf
+Stabilize Self			KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution.Psionic																SOURCEPAGE:srdpsionicskills.rtf
+Use Psionic Device		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	CLASSES:Rogue|Bard	TYPE:Charisma				BONUS:SKILL|Use Psionic Device|2|PRESKILL:1,Psicraft=5|TYPE=Synergy.STACK		SOURCEPAGE:srdpsionicskills.rtf

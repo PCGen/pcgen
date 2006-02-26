@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  9 13:38:13 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Legends of the Ancients - Carthage|SOURCESHORT:LoAC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+
+# Feat Name			Type			Required Feat				Maximum Level	Description																																												Multiple?	Choose					Template				Weapon prof. bonus				Source Page
+Mercenary Captain		TYPE:General	PREFEAT:1,Leadership,Color of Money				DESC:The mercenary has risen to command his own small band of mercenaries. As someone who understands the workings of the mercenary mind, the mercenary can attract followers through not only his personal Charisma and reputation, but also his ability to deliver wealth																					SOURCEPAGE:p.5
+Primitive Background	TYPE:General	PREFEAT:1,Rage				PRELEVELMAX:1	DESC:Many mercenaries come from barbarian lands at the edge of civilization. They are drawn to the civilized lands in pursuit of fortune and glory, or perhaps out of a desire to see how the more advanced peoples live. Often they are not impressed.				MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Simple	TEMPLATE:Primitive Background	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.5

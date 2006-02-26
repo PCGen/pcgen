@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqdatasources.html,v 1.4 2004/04/25 23:25:20 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2004/04/25 23:25:20 $
+		$Revision: 1.4 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H. Olafsson - shoATtnDOTis
+
+		Description:
+		PCGen FAQ Output and Printing Issues.
+	-->
+	<head>
+		<title>Data Sources Questions</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Data Sources Questions</h1>
+		
+		<ol>
+			<li>
+				<p><span class="underline">What is the System Reference Document (SRD)?</span></p>
+				
+				<p>It's basically a Open Gaming License subset of what's in the PHB, DMG, MM, Epic Level Handbook and  the Psionics Handbook, the real 
+				difference being that what Wizards of the Coast has declared as Product Identity (PI) or Closed Content. That means the deities are not in there, 
+				some monsters, character names and places are omitted, and spell names may have been changed.</p>
+				<p>See WotC´s declararion what is not Open Content here:</p>
+				 
+				<p><a href="http://www.wizards.com/d20/files/v35/Legal.rtf">SRD Legal Information</a></p>
+
+				<p>All non-SRD material (e.g. the splat books: Complete Warrior, Defenders of the Faith, Sword and Fist, Forgotten Realms, Dark Sun, etc. all
+				TM of Wizards of the Coast) is handled by Code Monkey Publishing (see below).</p>
+			</li>
+			<li>
+				<p><span class="underline">Where are Wizard's of the Coast's books and modules?</span></p>
+				
+				<p>Those are handled under a special license by the gang at <a href="http://www.codemonkeypublishing.com">Code Monkey Publishing.</a></p>
+			</li>
+			<li>
+				<p><span class="underline">Where are the Star Wars/Call of Cthulhu/Wheel of Time files?</span></p>
+				
+				<p>Even though Wizards of the Coast produces those books, they don't own exclusive rights to that material. We'll need to get
+				permission from both Wizards and the other copyright owner(s) of said material before we can include them in PCGen.
+				It is our intention to acquire this permission, but we're being very careful about how we proceed to maximize our chance of success.
+				We'll keep everyone informed when anything worthy of reporting occurs. :)</p>
+			</li>
+			<li>
+				<p><span class="underline">How do I include sources from Game Mode X in Game Mode Y that I currently use?</span></p>
+				
+				<p>It is possible to do this, but you need to understand that this may cause errors due to incompatibility of the different Game Modes..</p>
+				<p>To include all of Game Mode X's sources in Game Mode Y.</p>	
+				<ol>
+					<li>Go to the system/gamemode folder.</li>
+					<li>Choose the Y game mode folder.</li>
+					<li>Open miscinfo.lst.</li>
+					<li>Find the ALLOWEDMODES tag.</li>
+					<li>Append '|X' to this line.</li>
+				</ol>
+				<p>Now, all of the sources associated with Game Mode X will show up in Y. Remember you may experience problems while doing this.</p>	
+				
+				<p>To include specific sources from game mode X in game mode Y.</p>
+				<ol>
+					<li>Go to the *.pcc of the game mode X source in question.</li>
+					<li>Find the GAMEMODE tag.</li>
+					<li>Open miscinfo.lst.</li>
+					<li>Append '|Y' to this line.</li>
+					<li>Repeat for every source wanted.</li>
+				</ol>
+				<p>Now, all of these specific sources from game mode X will show up in Y. Remember you may experience problems due to Game Mode incompatibilities while doing this.</p>
+			</li>
+		</ol>
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqdatasources.html,v $ ($Revision: 1.4 $) last updated $Date: 2004/04/25 23:25:20 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

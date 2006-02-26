@@ -1,0 +1,53 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:56:34 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Path of Magic|SOURCESHORT:Magic|SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
+# Original Entry by: Ratheof Blithwyn
+
+
+# Feat Name				Type			Required Class				Required Feat													Maximum Level	Req. Special Ability		Required Skill			Req. Spellbook	Required Spell School		Req. Spell Type		Required Stat	Var. Min. Value			Description																								Stackable?	Multiple?	Bonus to skill							Bonus to skill point/L		Modify VAR							Source Page
+Additional Spell			TYPE:Special	PRECLASS:1,SPELLCASTER=1																																																		DESC:You can cast one additional spell per day.																		STACK:NO	MULT:YES																							SOURCEPAGE:p.77
+Adept Mastery			TYPE:General							PREFEAT:1,Spell Mastery																																					PRESTAT:1,INT=17						DESC:You are talented at mastering the intricacies of spells you cast.																																								SOURCEPAGE:p.77
+Arcane Artisan			TYPE:General																														PRESKILL:1,TYPE.Craft=1														PRESTAT:1,INT=13						DESC:You are skilled at creating items for magical experimentation.																																								SOURCEPAGE:p.77
+Arcane Expertise			TYPE:Special	PRECLASS:1,Bard=3																																																				DESC:You are able to draw upon your spellcasting power to use a weapon with which you are not normally proficient.																																SOURCEPAGE:p.77
+Arcane Shaper			TYPE:Metamagic							PREFEAT:1,Quicken Spell																																													DESC:You can shape a prepared spell into another effect.																																										SOURCEPAGE:p.79
+Arcane Strike			TYPE:Special	PRECLASS:1,SPELLCASTER=1																																																		DESC:You can deliver a touch spell via a melee attack with any weapon.																																								SOURCEPAGE:p.79
+Bardic Chanting			TYPE:Special																																																		PREVARGTEQ:BardicMusic,1	DESC:You are able to create a mystical performance using chanted verses.																																							SOURCEPAGE:p.79
+Bardic Dancing			TYPE:Special																																																		PREVARGTEQ:BardicMusic,1	DESC:You are able to create a mystical performance using elaborate dance steps and body postures.																																			SOURCEPAGE:p.79
+Bardic Intrumentals		TYPE:Special																																																		PREVARGTEQ:BardicMusic,1	DESC:You are able to create a mystical performance by playing an instrument.																																							SOURCEPAGE:p.79
+Bardic Singing			TYPE:Special																																																		PREVARGTEQ:BardicMusic,1	DESC:You are able to create a mystical performance by singing.																																									SOURCEPAGE:p.79
+Craft Eldricht Staff		TYPE:ItemCreation																																											PRESPELLTYPE:Arcane,1,1									DESC:You have found the raw materials for your eldritch staff and are now able to create and wield this item of power.																																SOURCEPAGE:p.79
+Counterspell Riposte		TYPE:Metamagic	PRECLASS:1,SPELLCASTER.Arcane=1																																																	DESC:You can attack instantly following a successful counterspell.																																								SOURCEPAGE:p.79
+Compelling Song			TYPE:General	PRECLASS:1,Bard=1																											PRESKILL:1,Perform=6														PRESTAT:1,CHA=15						DESC:Your ability to fascinate others through bardic music is greater due to your compelling voice and captivating songs.																															SOURCEPAGE:p.79
+Deceptive Casting			TYPE:General																														PRESKILL:1,Bluff=1														PRESTAT:1,INT=13						DESC:You are able to fool rival spellcasters who attempt to counterspell you by using false somatic components during casting.																														SOURCEPAGE:p.79
+Economical Charge			TYPE:ItemCreation							PREFEAT:1,Brew Potion,Craft Wondrous Item,Forge Ring																																								DESC:You are able to fill an expendable focus with more energy than normal.																																							SOURCEPAGE:p.80
+Eldritch Defense			TYPE:General	PRECLASS:1,SPELLCASTER=3																																																		DESC:You are able to survive otherwise deadly injuries by supplementing your life force with arcane energy.																																		SOURCEPAGE:p.80
+Enhanced Familiar			TYPE:General																									PRESA:1,Summon Familiar																											DESC:The bond between you and your familiar is so powerful that it enhances the familiar's abilites.																																			SOURCEPAGE:p.80
+Expert Bardic Knowledge		TYPE:Special							PREFEAT:2,Bardic Chanting,Bardic Dancing,Bardic Intrumentals,Bardic Singing											PRESKILL:1,Perform=6																						DESC:You are able to coax information from the most reluctant of subjects - magic items.																																					SOURCEPAGE:p.80
+Focus Mastery			TYPE:ItemCreation							PREFEAT:1,Brew Potion,Craft Wondrous Item,Forge Ring																																								DESC:You have a natural affinity for creating expendable foci.																																									SOURCEPAGE:p.80
+Intercepting Voice		TYPE:General	PRECLASS:1,Bard=1																											PRESKILL:1,Perform=3														PRESTAT:1,CHA=15						DESC:Your ability to countersong against spellcasting opponents is improved by your penetrating voice.																																		SOURCEPAGE:p.80
+Mana Control			TYPE:Metamagic							PREFEAT:1,Brew Potion,Craft Wondrous Item,Forge Ring																																								DESC:You are able to control the powerful flow of mana freed from an expendable focus with greater ease than others.																																SOURCEPAGE:p.80
+Nerves of Steel			TYPE:General																														PRESKILL:1,Concentration=1													PRESTAT:1,CON=16						DESC:It is difficult to break your concentration.																																											SOURCEPAGE:p.81
+Power Mastery			TYPE:Metamagic	PRECLASS:1,SPELLCASTER.Arcane=1																																																	DESC:You are completely in tune with one source of arcane power.																																									SOURCEPAGE:p.81
+Quick Learner			TYPE:General																						PRELEVELMAX:1																							PRESTAT:1,INT=15						DESC:You pick up new skills quickly and master them in a short amount of time.																									BONUS:SKILLPOINTS|NUMBER|1									SOURCEPAGE:p.81
+Rapid Scribing			TYPE:Metamagic							PREFEAT:1,Scribe Scroll																																													DESC:You are able to scribe scrolls you know at a very rapid pace, provided you are willing to sacrifice more experience to accelerate the process.																											SOURCEPAGE:p.81
+Reduced Spell Failure		TYPE:General							PREFEAT:1,Armor Proficiency (Heavy),Armor Proficiency (Light),Armor Proficiency (Medium)																										PRESTAT:1,DEX=13						DESC:You can reduce your chance of arcane spell failure while wearing armor in which you are proficient.																																		SOURCEPAGE:p.82
+Social Graces			TYPE:General																																															PRESTAT:1,CHA=13						DESC:You are quite comfortable when interacting with others and facile in your social discourse.																																			SOURCEPAGE:p.82
+Songs of the Suggestive Siren	TYPE:General	PRECLASS:1,Bard=1																											PRESKILL:1,Perform=9														PRESTAT:1,CHA=17						DESC:Your voice and songs carry greater power when attempting to make a suggestion to a fascinated creature.																																	SOURCEPAGE:p.82
+Songs of Triumph			TYPE:General	PRECLASS:1,Bard=1																											PRESKILL:1,Perform=6														PRESTAT:1,CHA=15						DESC:Your ability to recall stories of great triumph improves your ability to inspire others.																																				SOURCEPAGE:p.82
+Spell Chain				TYPE:Metamagic							PREFEAT:1,Quicken Spell																																													DESC:You have learned how to make spells flow together into a greater, more powerful whole.																																				SOURCEPAGE:p.82
+Spell Effects			TYPE:General																																						PRESPELLSCHOOL:Illusion,1,1													DESC:You can add, subtract, or otherwise modify sensory effects of any spell you cast.																																					SOURCEPAGE:p.83
+Spellbook Mastery			TYPE:Special																														PRESKILL:1,Spellcraft=5		PRESPELLBOOK:YES										PRESTAT:1,INT=15						DESC:You learn more spells upon achieving a new level.																																										SOURCEPAGE:p.83
+Superior Familiar			TYPE:General																									PRESA:1,Summon Familiar																											DESC:Your familiar gains a feat.																																														SOURCEPAGE:p.83
+Thrifty Wizard			TYPE:General	PRECLASS:1,Wizard=1																																											PRESTAT:1,INT=13						DESC:You have a talent for fitting extra spells into your spellbook.																																								SOURCEPAGE:p.83
+Voice of Inner Strength		TYPE:General	PRECLASS:1,Bard=1																											PRESKILL:1,Perform=15														PRESTAT:1,CHA=17						DESC:Your ability to inspire greatness is greater due to the power of your inner strength, which you share with allies through song and story.																												SOURCEPAGE:p.83
+Worldly Knowledge			TYPE:General																						PRELEVELMAX:1	PRESA:1,Bardic knowledge																										DESC:You are wizened to the world and have the knack for picking up various facts and stories.														BONUS:SKILL|Gather Information|2|TYPE=Circumstance						BONUS:VAR|BardicKnowledge|2|TYPE=Circumstance	SOURCEPAGE:p.83
+
+# Todo: Additional Spell,... Reduced Spell Failure..., Spell Chain(mult)
+
+
+
+
+
+
+
+
+

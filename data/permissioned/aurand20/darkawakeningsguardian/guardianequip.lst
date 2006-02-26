@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun May 26 01:36:16 2002 -- reformated by prettylst.pl v1.13
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+# Equipment Name	Type					Cost		Weight	Source Page
+Blessed Rose	TYPE:Magic.Plant			COST:5000	WT:0		SOURCEPAGE:p.77
+Silver Apple	TYPE:Magic.Plant			COST:60000	WT:0		SOURCEPAGE:p.78
+Elezra (Foxblood)	TYPE:Goods.Drug.Healing		COST:30	WT:0		SOURCEPAGE:p.79
+Saritol		TYPE:Goods.Drug.Stimulant	COST:300	WT:0		SOURCEPAGE:p.79

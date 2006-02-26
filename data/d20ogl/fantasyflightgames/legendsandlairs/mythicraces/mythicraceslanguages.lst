@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Nov 16 10:09:47 2002 -- reformated by prettylst.pl v1.19 (build 214)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Hobgoblin and Ogre only mentioned in Racial entries.
+# MM monsters do not speak that language.
+# Entered to allow LANGBONUS in mythicraceslanguages.lst.
+# --------------------------
+# Éric Beaudoin - 2002.11.16
+
+# Language	Type
+Hobgoblin	TYPE:Spoken
+Ogre		TYPE:Spoken

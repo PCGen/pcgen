@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Jul 15 20:21:53 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+# Dieties removed... Not in the SRD.  - Tir Gwaith
+
+# Deity Name	Domains	Clergy AL			Desciption of Deity/Title	Holy Item	Source Page
+None			DOMAINS:ALL	FOLLOWERALIGN:012345678	DESC:None				SYMBOL:None	SOURCEPAGE:srdbasiccharacterclassesi.rtf

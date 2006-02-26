@@ -1,0 +1,24 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:Mongoose - Gladiators - Sands of Death
+RANK:9
+GAMEMODE:3e
+TYPE:Mongoose.Supplement
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death
+SOURCESHORT:Gladiators
+SOURCEWEB:http://mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from Gladiator - Sands of Death Copyright 2001, Mongoose Publishing.
+COPYRIGHT:PCGen dataset conversion for Gladiator - Sands of Death Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:gladiatorclasses.lst
+EQUIPMENT:gladiatorequip.lst
+EQUIPMENT:gladiatorequipweapmelee.lst
+EQUIPMENT:gladiatorequipweapranged.lst
+FEAT:gladiatorfeats.lst
+TEMPLATE:gladiatortemplates.lst
+WEAPONPROF:gladiatorweapprofs.lst

@@ -1,0 +1,895 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Wed Dec 28 03:01:32 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Frank Kliewe
+
+#MSRD Errors?
+#Too many skill ranks: Dryad, Grendelspawn Queen, Homunculus (Mechanical), Rat (Advanced Dire), Sidhe (Faun), Urban Wendigo, Vivilor (2nd-level)
+###	Vivilor (3rd-level), Vivilor (4th-level), Vivilor (5th-level), Vrock
+#Skill rank too high for level: Dryad, Eagle, Gremlin, Sidhe (Faun), Spirit (Animating ~ Poltergeist), Squid, Swarm (West Nile Mosquito Swarm), Vrock
+#Attack TOHIT too high:Advanced Otyugh, Toxyderm (Garbage/Advanced)
+#Attack TOHIT too low: Arcanobot
+#Too many Feats: Roach Thrall
+
+STARTPACK:Default Ash Wraith	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ash Wraith]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Ash Wraith	!PRERACE:1,%
+NAME:Ash Wraith
+SKILL:Hide			RANK:9
+SKILL:Intimidate		RANK:9
+SKILL:Listen		RANK:9
+SKILL:Search		RANK:7
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+
+STARTPACK:Default Big Cat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Big Cat]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Big Cat	!PRERACE:1,%
+NAME:Big Cat
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:5
+
+STARTPACK:Default Boar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Boar	!PRERACE:1,%
+NAME:Boar
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Breathsnatcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Breathsnatcher]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+RACE:Breathsnatcher	!PRERACE:1,%
+NAME:Breathsnatcher
+SKILL:Hide			RANK:11
+SKILL:Listen		RANK:11
+SKILL:Move Silently	RANK:11
+SKILL:Spot			RANK:9
+FEAT:Personal Firearms Proficiency
+FEAT:Advanced Firearms Proficiency
+FEAT:Burst Fire
+FEAT:Quick Draw
+LANGAUTO:English
+GEAR:Knife						LOCATION:Carried
+GEAR:MAC Ingram M10 (.45 machine pistol)	LOCATION:Primary Hand	EQMOD:SPPRSS_PIS
+GEAR:Leather Jacket				LOCATION:DEFAULT
+
+STARTPACK:Default Gotthammer (Avenging Angel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gotthammer (Avenging Angel)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+RACE:Gotthammer (Avenging Angel)	!PRERACE:1,%
+NAME:Gotthammer (Avenging Angel)
+SKILL:Escape Artist				RANK:14
+SKILL:Hide						RANK:14
+SKILL:Intimidate					RANK:14
+SKILL:Knowledge (Theology and Philosophy)	RANK:14
+SKILL:Listen					RANK:14
+SKILL:Move Silently				RANK:14
+SKILL:Sense Motive				RANK:14
+SKILL:Spot						RANK:14
+FEAT:Archaic Weapons Proficiency
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS3W
+
+STARTPACK:Default Demonic Auto	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Auto]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Demonic Auto	!PRERACE:1,%
+NAME:Demonic Auto
+SKILL:Bluff			RANK:18
+SKILL:Drive			RANK:18
+SKILL:Hide			RANK:10
+SKILL:Navigate		RANK:18
+SKILL:Repair		RANK:10
+SKILL:Sense Motive	RANK:18
+SKILL:Spot			RANK:18
+FEAT:Drive-By Attack
+FEAT:Force Stop
+FEAT:Vehicle Dodge
+FEAT:Vehicle Expert
+
+STARTPACK:Default Demonic Auto (Advanced - Semi Truck)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Auto (Advanced - Semi Truck)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Demonic Auto (Advanced - Semi Truck)	!PRERACE:1,%
+NAME:Advanced Demonic Auto (Semi Truck)
+SKILL:Bluff			RANK:25
+SKILL:Drive			RANK:29
+SKILL:Hide			RANK:21
+SKILL:Intimidate		RANK:22
+SKILL:Navigate		RANK:25
+SKILL:Repair		RANK:25
+SKILL:Sense Motive	RANK:25
+SKILL:Spot			RANK:29
+FEAT:Drive-By Attack
+FEAT:Force Stop
+FEAT:Vehicle Dodge
+FEAT:Vehicle Expert
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Weapon Focus (Slam)
+GEAR:Demonic Auto Body	LOCATION:DEFAULT	EQMOD:CPNT_FLAME
+
+STARTPACK:Default Donkey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Donkey]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Donkey	!PRERACE:1,%
+NAME:Donkey
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Dryad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dryad]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Dryad	!PRERACE:1,%
+NAME:Dryad
+SKILL:Listen					RANK:7
+SKILL:Spot						RANK:7
+SKILL:Hide						RANK:7
+SKILL:Move Silently				RANK:7
+SKILL:Survival					RANK:7
+SKILL:Escape Artist				RANK:7
+SKILL:Ride						RANK:2
+SKILL:Handle Animal				RANK:7
+SKILL:Knowledge (Earth and Life Sciences)	RANK:9
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+
+STARTPACK:Default Eagle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Eagle	!PRERACE:1,%
+NAME:Eagle
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Efreeti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Efreeti]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Efreeti	!PRERACE:1,%
+NAME:Efreeti
+SKILL:Bluff			RANK:10
+SKILL:Concentration	RANK:10
+SKILL:TYPE=Craft		RANK:7
+SKILL:Escape Artist	RANK:8
+SKILL:Intimidate		RANK:11
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:8
+SKILL:Sense Motive	RANK:9
+SKILL:Spellcraft		RANK:8
+SKILL:Spot			RANK:10
+FEAT:Archaic Weapons Proficiency	FREE:YES
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+
+STARTPACK:Default Elephant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elephant]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Elephant	!PRERACE:1,%
+NAME:Elephant
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Elephant (Advanced Mastadon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elephant (Advanced Mastadon)]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Elephant (Advanced Mastadon)	!PRERACE:1,%
+NAME:Advanced Elephant (Mastadon)
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Gear Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gear Golem]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Gear Golem	!PRERACE:1,%
+NAME:Gear Golem
+
+STARTPACK:Default Gear Golem (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gear Golem (Advanced)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Gear Golem (Advanced)	!PRERACE:1,%
+NAME:Advanced Gear Golem
+
+STARTPACK:Default Gremlin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Gremlin	!PRERACE:1,%
+NAME:Gremlin
+SKILL:Computer Use		RANK:4
+SKILL:Craft (Electronic)	RANK:2
+SKILL:Craft (Mechanical)	RANK:2
+SKILL:Disable Device		RANK:6
+SKILL:Demolitions			RANK:4
+SKILL:Escape Artist		RANK:4
+SKILL:Listen			RANK:4
+SKILL:Move Silently		RANK:6
+SKILL:Repair			RANK:2
+SKILL:Spot				RANK:4
+SKILL:Tumble			RANK:4
+FEAT:Alertness
+FEAT:Builder
+FEAT:Stealthy
+
+STARTPACK:Default Grendlespawn Hunter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grendlespawn Hunter]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+RACE:Grendlespawn Hunter	!PRERACE:1,%
+NAME:Grendlespawn Hunter
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+SKILL:Survival	RANK:4
+FEAT:Combat Reflexes
+FEAT:Multiattack
+FEAT:Track
+
+STARTPACK:Default Grendlespawn Queen	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grendlespawn Queen]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+RACE:Grendlespawn Queen	!PRERACE:1,%
+NAME:Grendlespawn Queen
+SKILL:Intimidate	RANK:12
+SKILL:Listen	RANK:13
+SKILL:Spot		RANK:13
+FEAT:Blind-Fight
+FEAT:Combat Expertise
+FEAT:Frightful Presence
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Homunculus (Biochemical)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus (Biochemical)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Homunculus (Biochemical)	!PRERACE:1,%
+NAME:Biochemical Homunculus
+
+STARTPACK:Default Homunculus (Digital)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus (Digital)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Homunculus (Digital)	!PRERACE:1,%
+NAME:Digital Homunculus
+
+STARTPACK:Default Homunculus (Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus (Flesh)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Homunculus (Flesh)	!PRERACE:1,%
+NAME:Flesh Homunculus
+
+STARTPACK:Default Homunculus (Mechanical)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus (Mechanical)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Homunculus (Mechanical)	!PRERACE:1,%
+NAME:Mechanical Homunculus
+SKILL:Listen		RANK:2
+SKILL:Repair		RANK:4
+SKILL:Spot			RANK:2
+SKILL:Disable Device	RANK:3
+SKILL:Speak Language	RANK:1
+
+STARTPACK:Default Leechwalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leechwalker]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Leechwalker	!PRERACE:1,%
+NAME:Leechwalker
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:3
+
+STARTPACK:Default Living Dumpster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Living Dumpster]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Living Dumpster	!PRERACE:1,%
+NAME:Living Dumpster
+
+STARTPACK:Default Living Dumpster (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Living Dumpster (Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Living Dumpster (Advanced)	!PRERACE:1,%
+NAME:Advanced Living Dumpster
+
+STARTPACK:Default Lizard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lizard]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Lizard	!PRERACE:1,%
+NAME:Lizard
+SKILL:Climb		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Lizard (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lizard (Giant)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Lizard (Giant)	!PRERACE:1,%
+NAME:Giant Lizard
+SKILL:Climb		RANK:3
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Octopus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+RACE:Octopus	!PRERACE:1,%
+NAME:Octopus
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Octopus (Venemous)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus (Venemous)]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+RACE:Octopus (Venemous)	!PRERACE:1,%
+NAME:Octopus (Venemous)
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Octopus (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus (Giant)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+RACE:Octopus (Giant)	!PRERACE:1,%
+NAME:Giant Octopus
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Otyugh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Otyugh]
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Otyugh	!PRERACE:1,%
+NAME:Otyugh
+SKILL:Hide		RANK:8
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+
+STARTPACK:Default Otyugh (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Otyugh (Advanced)]
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Otyugh (Advanced)	!PRERACE:1,%
+NAME:Advanced Otyugh
+SKILL:Hide		RANK:8
+SKILL:Listen	RANK:12
+SKILL:Spot		RANK:12
+FEAT:Alertness
+FEAT:Improved Damage Threshold (+3)
+
+STARTPACK:Default Sraosha (Platonic of Contract Enforcement)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sraosha (Platonic of Contract Enforcement)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Sraosha (Platonic of Contract Enforcement)	!PRERACE:1,%
+NAME:Sraosha (Platonic of Contract Enforcement)
+SKILL:Computer Use		RANK:2
+SKILL:Diplomacy			RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Investigate			RANK:18
+SKILL:Knowledge (Business)	RANK:18
+SKILL:Knowledge (Civics)	RANK:18
+SKILL:Listen			RANK:18
+SKILL:Research			RANK:18
+SKILL:Search			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Spot				RANK:18
+FEAT:Advanced Firearms Proficiency
+FEAT:Burst Fire
+FEAT:Combat Martial Arts
+FEAT:Personal Firearms Proficiency
+GEAR:Longsword				LOCATION:Not Carried	EQMOD:PLUS3W
+GEAR:M16A2 (5.56mm assault rifle)	LOCATION:Not Carried	EQMOD:PLUS3W
+GEAR:Ring (Protection +2)		LOCATION:DEFAULT
+
+STARTPACK:Default Porpoise	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Porpoise]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Porpoise	!PRERACE:1,%
+NAME:Porpoise
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Rat (Dire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Dire)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Rat (Dire)	!PRERACE:1,%
+NAME:Dire Rat
+SKILL:Climb			RANK:3
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:3
+
+STARTPACK:Default Rat (Advanced Dire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Advanced Dire)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Rat (Advanced Dire)	!PRERACE:1,%
+NAME:Advanced Dire Rat
+SKILL:Climb			RANK:4
+SKILL:Move Silently	RANK:3
+SKILL:Swim			RANK:1
+SKILL:Hide			RANK:8
+
+STARTPACK:Default Retriever	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Retriever]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Retriever	!PRERACE:1,%
+NAME:Retriever
+
+STARTPACK:Default Retriever (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Retriever (Advanced)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Retriever (Advanced)	!PRERACE:1,%
+NAME:Advanced Retriever
+
+STARTPACK:Default Roach Thrall	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roach Thrall]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+RACE:Roach Thrall	!PRERACE:1,%
+NAME:Roach Thrall
+SKILL:Bluff			RANK:5
+SKILL:Climb			RANK:4
+SKILL:Disguise		RANK:5
+SKILL:Jump			RANK:4
+SKILL:Listen		RANK:3
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:3
+SKILL:Swim			RANK:4
+FEAT:Simple Weapons Proficiency	FREE:YES
+FEAT:Archaic Weapons Proficiency
+FEAT:Alertness
+FEAT:Deceptive
+FEAT:Improved Initiative
+
+STARTPACK:Default Sidhe (Dreamghast)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sidhe (Dreamghast)]
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+RACE:Sidhe (Dreamghast)	!PRERACE:1,%
+NAME:Dreamghast (Sidhe)
+SKILL:Concentration	RANK:13
+SKILL:Intimidate		RANK:13
+SKILL:Listen		RANK:12
+SKILL:Spot			RANK:13
+FEAT:Archaic Weapons Proficiency	FREE:YES
+FEAT:Simple Weapons Proficiency	FREE:YES
+FEAT:Combat Reflexes
+FEAT:Improved Damage Threshold (+3)
+FEAT:Multiweapon Fighting
+GEAR:Machete	QTY:4	LOCATION:Carried
+
+STARTPACK:Default Sidhe (Faun)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sidhe (Faun)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Sidhe (Faun)
+NAME:Faun (Sidhe)
+SKILL:Move Silently																									RANK:6
+SKILL:Bluff																											RANK:8
+SKILL:Hide																											RANK:8
+SKILL:Disguise																										RANK:10
+SKILL:Perform (Sing)																									RANK:8
+SKILL:Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)	RANK:8
+FEAT:Simple Weapons Proficiency	FREE:YES
+FEAT:Archaic Weapons Proficiency	FREE:YES
+FEAT:Personal Firearms Proficiency
+FEAT:Great Fortitude
+GEAR:Colt Python (.357 revolver)	LOCATION:Primary Hand
+GEAR:Bullet (.357)			QTY:6	LOCATION:Carried
+GEAR:Sword Cane				LOCATION:Carried
+
+STARTPACK:Default Skunk Ape	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skunk Ape]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Skunk Ape	!PRERACE:1,%
+NAME:Skunk Ape
+FEAT:Simple Weapons Proficiency
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Spirit (Animating ~ Poltergeist)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Animating ~ Poltergeist)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+RACE:Spirit (Animating ~ Poltergeist)	!PRERACE:1,%
+NAME:Animating Spirit (Poltergeist)
+SKILL:Bluff			RANK:4
+SKILL:Diplomacy		RANK:4
+SKILL:Hide			RANK:4
+SKILL:Intimidate		RANK:5
+SKILL:Listen		RANK:4
+SKILL:Search		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Improved Initiative
+
+STARTPACK:Default Spirit (Frightful ~ Apparition)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Frightful ~ Appartion)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Spirit (Frightful ~ Appartion)	!PRERACE:1,%
+NAME:Frightful Spirit (Apparition)
+SKILL:Bluff			RANK:4
+SKILL:Diplomacy		RANK:4
+SKILL:Hide			RANK:5
+SKILL:Intimidate		RANK:5
+SKILL:Listen		RANK:5
+SKILL:Search		RANK:5
+SKILL:Sense Motive	RANK:5
+SKILL:Spot			RANK:5
+FEAT:Improved Initiative
+
+STARTPACK:Default Spirit (Groaning ~ Banshee)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Groaning ~ Banshee)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+RACE:Spirit (Groaning ~ Banshee)	!PRERACE:1,%
+NAME:Groaning Spirit (Banshee)
+SKILL:Bluff			RANK:5
+SKILL:Diplomacy		RANK:5
+SKILL:Hide			RANK:5
+SKILL:Intimidate		RANK:6
+SKILL:Listen		RANK:6
+SKILL:Search		RANK:5
+SKILL:Sense Motive	RANK:5
+SKILL:Spot			RANK:6
+FEAT:Improved Initiative
+
+STARTPACK:Default Spirit (Possessing ~ Haunt)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Possessing ~ Haunt)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+RACE:Spirit (Possessing ~ Haunt)	!PRERACE:1,%
+NAME:Possessing Spirit (Haunt)
+SKILL:Bluff			RANK:6
+SKILL:Diplomacy		RANK:6
+SKILL:Hide			RANK:7
+SKILL:Intimidate		RANK:7
+SKILL:Listen		RANK:7
+SKILL:Search		RANK:7
+SKILL:Sense Motive	RANK:6
+SKILL:Spot			RANK:7
+FEAT:Improved Initiative
+FEAT:Combat Reflexes
+
+STARTPACK:Default Spirit (Weakening ~ Fetch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Weakening ~ Fetch)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Spirit (Weakening ~ Fetch)	!PRERACE:1,%
+NAME:Weakening Spirit (Fetch)
+SKILL:Bluff			RANK:6
+SKILL:Diplomacy		RANK:6
+SKILL:Hide			RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Listen		RANK:6
+SKILL:Search		RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Spot			RANK:6
+FEAT:Improved Initiative
+
+STARTPACK:Default Squid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Squid]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+RACE:Squid	!PRERACE:1,%
+NAME:Squid
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+
+STARTPACK:Default Squid (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Squid (Giant)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Squid (Giant)	!PRERACE:1,%
+NAME:Giant Squid
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+
+STARTPACK:Default Swarm (Monstrous Spider Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Monstrous Spider Swarm)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Monstrous Spider Swarm)	!PRERACE:1,%
+NAME:Monstrous Spider Swarm
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:5
+
+STARTPACK:Default Swarm (Piranha Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Piranha Swarm)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Piranha Swarm)	!PRERACE:1,%
+NAME:Piranha Swarm
+SKILL:Hide	RANK:5
+SKILL:Spot	RANK:5
+
+STARTPACK:Default Swarm (Sentient Killer Bee Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Sentient Killer Bee Swarm)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Sentient Killer Bee Swarm)	!PRERACE:1,%
+NAME:Sentient Killer Bee Swarm
+SKILL:Hide			RANK:2
+SKILL:Intimidate		RANK:5
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:6
+
+STARTPACK:Default Swarm (Shadowmoth Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Shadowmoth Swarm)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Shadowmoth Swarm)	!PRERACE:1,%
+NAME:Shadowmoth Swarm
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Swarm (Skeletal Rat Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Skeletal Rat Swarm)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (Skeletal Rat Swarm)	!PRERACE:1,%
+NAME:Skeletal Rat Swarm
+
+STARTPACK:Default Swarm (West Nile Mosquito Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (West Nile Mosquito Swarm)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Swarm (West Nile Mosquito Swarm)	!PRERACE:1,%
+NAME:West Nile Mosquito Swarm
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Toxyderm (Chemical)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Chemical)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Toxyderm (Chemical)	!PRERACE:1,%
+NAME:Chemical Toxyderm
+SKILL:Listen	RANK:27
+SKILL:Spot		RANK:27
+SKILL:Swim		RANK:4
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Great Fortitude
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+STARTPACK:Default Toxyderm (Chemical/Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Chemical/Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Toxyderm (Chemical/Advanced)	!PRERACE:1,%
+NAME:Advanced Chemical Toxyderm
+SKILL:Listen	RANK:54
+SKILL:Spot		RANK:54
+SKILL:Swim		RANK:26
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Sunder
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Default Toxyderm (Garbage)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Garbage)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Toxyderm (Garbage)	!PRERACE:1,%
+NAME:Garbage Toxyderm
+SKILL:Listen	RANK:21
+SKILL:Spot		RANK:21
+SKILL:Swim		RANK:4
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Power Attack
+FEAT:Sunder
+
+STARTPACK:Default Toxyderm (Garbage/Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Garbage/Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Toxyderm (Garbage/Advanced)	!PRERACE:1,%
+NAME:Advanced Garbage Toxyderm
+SKILL:Listen	RANK:37
+SKILL:Spot		RANK:37
+SKILL:Swim		RANK:20
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Sunder
+
+STARTPACK:Default Toxyderm (Nuclear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Nuclear)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+RACE:Toxyderm (Nuclear)	!PRERACE:1,%
+NAME:Nuclear Toxyderm
+SKILL:Listen	RANK:33
+SKILL:Spot		RANK:33
+SKILL:Swim		RANK:18
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Default Toxyderm (Nuclear/Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Nuclear/Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+RACE:Toxyderm (Nuclear/Advanced)	!PRERACE:1,%
+NAME:Advanced Nuclear Toxyderm
+SKILL:Listen	RANK:73
+SKILL:Spot		RANK:73
+SKILL:Swim		RANK:58
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Great Cleave
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Sunder
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Toughness (+3 hp)
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Default Urban Wendigo	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Urban Wendigo]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Urban Wendigo	!PRERACE:1,%
+NAME:Urban Wendigo
+SKILL:Balance	RANK:1
+SKILL:Climb		RANK:2
+SKILL:Hide		RANK:2
+SKILL:Jump		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Survival	RANK:2
+FEAT:Simple Weapons Proficiency	FREE:YES
+FEAT:Dodge
+FEAT:Mobility
+
+STARTPACK:Default Vivilor (1st-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (1st-Level)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Vivilor (1st-Level)	!PRERACE:1,%
+NAME:1st-level Vivilor
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+
+STARTPACK:Default Vivilor (2nd-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (2nd-Level)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Vivilor (2nd-Level)	!PRERACE:1,%
+NAME:2nd-level Vivilor
+SKILL:Climb		RANK:4
+SKILL:Jump		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+
+STARTPACK:Default Vivilor (3rd-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (3rd-Level)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Vivilor (3rd-Level)	!PRERACE:1,%
+NAME:3rd-level Vivilor
+SKILL:Climb		RANK:6
+SKILL:Jump		RANK:6
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Alertness
+
+STARTPACK:Default Vivilor (4th-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (4th-Level)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Vivilor (4th-Level)	!PRERACE:1,%
+NAME:4th-level Vivilor
+SKILL:Climb		RANK:8
+SKILL:Jump		RANK:8
+SKILL:Listen	RANK:9
+SKILL:Spot		RANK:9
+FEAT:Alertness
+FEAT:Iron Will
+
+STARTPACK:Default Vivilor (5th-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (5th-Level)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Vivilor (5th-Level)	!PRERACE:1,%
+NAME:5th-level Vivilor
+SKILL:Climb		RANK:11
+SKILL:Jump		RANK:11
+SKILL:Listen	RANK:12
+SKILL:Spot		RANK:12
+FEAT:Alertness
+FEAT:Iron Will
+
+STARTPACK:Default Vrock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vrock]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Vrock	!PRERACE:1,%
+NAME:Vrock
+SKILL:Hide			RANK:11
+SKILL:TYPE=Knowledge	RANK:10
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:11
+SKILL:Search		RANK:11
+SKILL:Sense Motive	RANK:11
+SKILL:Spellcraft		RANK:10
+SKILL:Spot			RANK:2
+SKILL:Concentration	RANK:14
+FEAT:Archaic Weapons Proficiency	FREE:YES
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Vrock Lord	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vrock Lord]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Vrock Lord	!PRERACE:1,%
+NAME:Advanced Vrock (Vrock Lord)
+SKILL:Bluff			RANK:24
+SKILL:Concentration	RANK:24
+SKILL:Hide			RANK:24
+SKILL:Intimidate		RANK:24
+SKILL:TYPE=Knowledge	RANK:24
+SKILL:Listen		RANK:16
+SKILL:Move Silently	RANK:24
+SKILL:Search		RANK:24
+SKILL:Sense Motive	RANK:24
+SKILL:Spellcraft		RANK:24
+SKILL:Spot			RANK:16
+SKILL:Tumble		RANK:24
+FEAT:Archaic Weapons Proficiency	FREE:YES
+FEAT:Cleave
+FEAT:Improved Critical(Bite)
+FEAT:Improved Critical(Claw)
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Drow (Dark Elf/Shadowkind)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drow (Dark Elf)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Drow (Dark Elf)	!PRERACE:1,%
+NAME:Drow
+CLASS:Humanoid	LEVEL:1
+SKILL:Craft (Chemical)	RANK:2
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Search		RANK:1
+FEAT:Personal Firearms Proficiency
+GEAR:Machete			LOCATION:Primary Hand
+GEAR:Shuriken			QTY:6	LOCATION:Carried
+GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
+GEAR:Cell Phone			LOCATION:Carried
+GEAR:Flash Goggles		LOCATION:DEFAULT
+
+STARTPACK:Default Dwarf (Shadowkind)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Dwarf	!PRERACE:1,%
+NAME:Dwarf
+CLASS:Humanoid	LEVEL:1
+SKILL:Listen			RANK:2
+SKILL:Repair			RANK:1
+SKILL:Spot				RANK:2
+SKILL:Craft (Mechanical)	RANK:3
+SKILL:Craft (Structural)	RANK:2
+FEAT:Simple Weapons Proficiency	FREE:YES
+FEAT:Builder
+GEAR:Pickaxe			LOCATION:Both Hands
+GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
+GEAR:Cell Phone			LOCATION:Carried
+GEAR:Multipurpose Tool		LOCATION:Carried
+
+STARTPACK:Default Elf (Shadowkind)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf]
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+RACE:Elf	!PRERACE:1,%
+NAME:Elf
+CLASS:Humanoid	LEVEL:1
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Survival		RANK:2
+FEAT:Point Blank Shot
+GEAR:Sword Cane			LOCATION:Primary Hand
+GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
+GEAR:Compound Bow			LOCATION:Carried
+
+STARTPACK:Default Gnome (Shadowkind)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+RACE:Gnome	!PRERACE:1,%
+NAME:Gnome
+CLASS:Humanoid	LEVEL:1
+SKILL:Computer Use		RANK:1
+SKILL:Craft (Pharmaceutical)	RANK:1
+SKILL:Knowledge (Technology)	RANK:1
+SKILL:Listen			RANK:1
+SKILL:Spot				RANK:1
+FEAT:Simple Weapons Proficiency
+GEAR:Stun gun			LOCATION:Primary Hand
+GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
+GEAR:Pepper Spray			LOCATION:Carried
+GEAR:Windbreaker			LOCATION:Carried
+GEAR:Cell Phone			LOCATION:Carried
+GEAR:PDA				LOCATION:Carried
+
+STARTPACK:Default Halfling (Shadowkind)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+RACE:Halfling	!PRERACE:1,%
+NAME:Halfling
+CLASS:Humanoid	LEVEL:1
+SKILL:Bluff			RANK:1
+SKILL:Diplomacy		RANK:2
+SKILL:TYPE=Knowledge	RANK:1
+SKILL:Sleight of Hand	RANK:2
+FEAT:Simple Weapons Proficiency
+GEAR:Slingshot			LOCATION:Primary Hand
+GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
+GEAR:Knife				LOCATION:Carried
+GEAR:Taser				LOCATION:Carried
+GEAR:Camera (Disposable)	LOCATION:Carried
+
+STARTPACK:Default Orc (Shadowkind)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orc]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Orc	!PRERACE:1,%
+NAME:Orc
+CLASS:Humanoid	LEVEL:1
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Simple Weapons Proficiency
+GEAR:Greataxe			LOCATION:Both Hands
+GEAR:Scale Mail			LOCATION:DEFAULT
+GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
+GEAR:Sunglasses			LOCATION:DEFAULT
+
+STARTPACK:Default Robot (Arcanobot)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arcanobot]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Arcanobot	!PRERACE:1,%
+NAME:Arcanobot

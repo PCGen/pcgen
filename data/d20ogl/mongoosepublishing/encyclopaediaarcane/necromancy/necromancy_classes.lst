@@ -1,0 +1,56 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+#Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
+
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy|SOURCESHORT:Necromancy|SOURCEWEB:http://www.mongoosepublishing.com
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Feat		Required Skill							Required Spell School		Prohibited Sub-school			Req. Spell Type
+CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana),Knowledge (Necrology)=7	PRESPELLSCHOOL:Necromancy,1,1	!PRESPELLSCHOOLSUB:Divination,1,1	PRESPELLTYPE:Arcane,1,1
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
+1	ADD:SPELLCASTER(Arcane)	SA:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																													SPELLS:Special Ability|TIMES=1|Speak with Dead
+2	ADD:SPELLCASTER(Arcane)	SA:Spectral Investigation
+3	ADD:SPELLCASTER(Arcane)	SA:Divination																																				SPELLS:Special Ability|TIMES=1|Divination
+4	ADD:SPELLCASTER(Arcane)	SA:Lost Arcane Lore																								ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural)
+5	ADD:SPELLCASTER(Arcane)	SA:Commune
+6	ADD:SPELLCASTER(Arcane)	SA:Contact Other Plane
+7	ADD:SPELLCASTER(Arcane)	SA:Lessons from the Grave						CSKILL:TYPE.Wisdom|TYPE.Intelligence|TYPE.Strength|TYPE.Constitution|TYPE.Dexterity|TYPE.Charisma
+8	ADD:SPELLCASTER(Arcane)	SA:Spectral Lore
+9	ADD:SPELLCASTER(Arcane)	SA:Lost Arcane Lore																								ADD:FEAT(TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural)
+10	ADD:SPELLCASTER(Arcane)	SA:The Veil Parted
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
+CLASS:Deathseeker	HD:4		TYPE:PC.Prestige	ABB:DSR		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Skill				Req. Spell Type
+CLASS:Deathseeker	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Knowledge (Necrology)=10	PRESPELLTYPE:Arcane,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Deathseeker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|Spellcraft
+1	ADD:SPELLCASTER(Arcane)	SA:Deathseeker Casting	SA:Proximity to Death (%')|DeathProx	BONUS:VAR|DeathProx|10	DEFINE:DeathProx|0
+2	ADD:SPELLCASTER(Arcane)	SA:Unleash Negativity %/Day|UnleashNeg					BONUS:VAR|UnleashNeg|1	DEFINE:UnleashNeg|0
+3	ADD:SPELLCASTER(Arcane)												BONUS:VAR|DeathProx|10
+4	ADD:SPELLCASTER(Arcane)
+5	ADD:SPELLCASTER(Arcane)												BONUS:VAR|UnleashNeg|1
+6	ADD:SPELLCASTER(Arcane)												BONUS:VAR|DeathProx|10
+7	ADD:SPELLCASTER(Arcane)
+8	ADD:SPELLCASTER(Arcane)												BONUS:VAR|UnleashNeg|1
+9	ADD:SPELLCASTER(Arcane)
+10	ADD:SPELLCASTER(Arcane)												BONUS:VAR|DeathProx|30
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Necrophage	HD:4		TYPE:PC.Prestige	ABB:Ncp		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Skill													Req. Spell Type
+CLASS:Necrophage	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Knowledge (Necrology)=10	PRESKILL:2,Knowledge (Anatomy),Knowledge (Arcana)=7	PRESPELLTYPE:Arcane,1,0
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Necrophage	STARTSKILLPTS:2	CSKILL:Alchemy|TYPE.Craft|TYPE.Knowledge|Heal|Spellcraft
+1	ADD:SPELLCASTER(Arcane)	SA:Grafting
+2	ADD:SPELLCASTER(Arcane)	SA:Body Enhancement I
+3	ADD:SPELLCASTER(Arcane)	SA:Enhanced Grafting
+4	ADD:SPELLCASTER(Arcane)	SA:Augmentation
+5	ADD:SPELLCASTER(Arcane)	SA:Body Enhancement II
+6	ADD:SPELLCASTER(Arcane)	SA:Advanced Grafting
+7	ADD:SPELLCASTER(Arcane)	SA:Enhanced Augmentation
+8	ADD:SPELLCASTER(Arcane)	SA:Body Enhancement III
+9	ADD:SPELLCASTER(Arcane)	SA:Master Grafting
+10	ADD:SPELLCASTER(Arcane)	SA:Body tranformation

@@ -1,0 +1,21 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Bastion Press - Faeries|SOURCESHORT:Faeries|SOURCEWEB:http://www.bastionpress.com
+#Aspects of Nature
+#---------------------------------------------------
+# Template Name		Visible	Source Page		Special Ability						Combat bonus				Multiply base more		Bonus to skill															Vision			Temporary effect description
+Aspect of the Air		VISIBLE:YES	SOURCEPAGE:p.40																				BONUS:SKILL|Hide|4|TYPE=Circumstance|PREAPPLY:ANYPC													TEMPDESC:Bonus to hide in natural surroundings where it is foggy or stormy
+Aspect of the Animal	VISIBLE:YES	SOURCEPAGE:p.40																				BONUS:SKILL|Animal Empathy,Handle Animal|1|TYPE=Competence
+Aspect of the Autumn	VISIBLE:YES	SOURCEPAGE:p.41																				BONUS:SKILL|Hide|3|TYPE=Circumstance|PREAPPLY:ANYPC													TEMPDESC:Bonus to hide in natural surroundings where leaves are changing color and falling from trees
+Aspect of the Darkness	VISIBLE:YES	SOURCEPAGE:p.42																				BONUS:SKILL|Move Silently|2|TYPE=Competence	BONUS:SKILL|Hide|3|TYPE=Circumstance|PREAPPLY:ANYPC					TEMPDESC:Bonus to hide in darkness and shadows
+Aspect of the Dawn	VISIBLE:YES	SOURCEPAGE:p.42																																					VISION:Low-light (60')
+Aspect of the Dusk	VISIBLE:YES	SOURCEPAGE:p.43																																					VISION:Low-light (60')
+Aspect of the Earth	VISIBLE:YES	SOURCEPAGE:p.43	SA:+2 Resistance to Electricity
+Aspect of the Fire	VISIBLE:YES	SOURCEPAGE:p.43	SA:+2 Resistance to Fire
+Aspect of the Lights	VISIBLE:YES	SOURCEPAGE:p.43																				BONUS:SKILL|Spot|4|TYPE=Competence|PREAPPLY:ANYPC													TEMPDESC:Bonus to spot checks in well-lit conditions
+Aspect of the Plant	VISIBLE:YES	SOURCEPAGE:p.43									BONUS:COMBAT|AC|1|TYPE=NaturalArmor						BONUS:SKILL|Hide|2|TYPE=Competence|PREAPPLY:ANYPC													TEMPDESC:Bonus to hide in natural surrounding
+Aspect of the Predator	VISIBLE:YES	SOURCEPAGE:p.43																				BONUS:SKILL|Listen,Spot|2
+Aspect of the Prey	VISIBLE:YES	SOURCEPAGE:p.43															BONUS:MOVEMULT|TYPE.Walk|1.2	BONUS:SKILL|Listen,Spot|2
+Aspect of the Spring	VISIBLE:YES	SOURCEPAGE:p.44																				BONUS:SKILL|Hide|2|TYPE=Circumstance|PREAPPLY:ANYPC													TEMPDESC:Bonus to hide in natural surroundings
+Aspect of the Summer	VISIBLE:YES	SOURCEPAGE:p.44									BONUS:COMBAT|AC|1|TYPE=Luck							BONUS:SKILL|Intimidate|2|TYPE=Circumstance
+Aspect of the Water	VISIBLE:YES	SOURCEPAGE:p.44	SA:+2 Resistance to Cold	SA:Hold Breath
+Aspect of the Winter	VISIBLE:YES	SOURCEPAGE:p.44	SA:+2 Resistance to Cold

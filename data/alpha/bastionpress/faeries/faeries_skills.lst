@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Bastion Press - Faeries|SOURCESHORT:Faeries|SOURCEWEB:http://www.bastionpress.com
+
+# Skill Name		Key Stat	Untrained?		Exclusive?		Type					Source Page
+Knowledge (Fey)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.16
+Knowledge (Folk Tales)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.17

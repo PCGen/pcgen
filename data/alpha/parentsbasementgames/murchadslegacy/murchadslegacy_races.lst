@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri May 13 22:09:24 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Race Name		Output Name			Favored Class		Starting Feats	Size		Move			Face/Space	Reach		Vision				Automatic Languages	Save checks bonus												Bonus to skill					Stat bonus								Feat					Special Ability																							Type			Level Adjustment	CR		Source Page		Spells
+Elf (Dark)		OUTPUTNAME:[NAME] Elf	FAVCLASS:Druid|Sorcerer	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (120')	LANGAUTO:Shintai		BONUS:CHECKS|Fortitude,Reflex,Willpower|1	BONUS:CHECKS|Willpower|1|TYPE=Racial								BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2			FEAT:Light Blindness (Ex)																										TYPE:Humanoid	LEVELADJUSTMENT:1	CR:1		SOURCEPAGE:p.7	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Darkness,12+WIS|Detect Magic,10+WIS|Inflict Minor Wounds,10+WIS
+Orc (Gadohig)	OUTPUTNAME:Orc		FAVCLASS:Barbarian	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (60')		LANGAUTO:Gadohig																BONUS:SKILL|Intimidate|2|TYPE=Racial	BONUS:STAT|STR|4	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2						SA:For the purposes of finding food and water orcs have a +4 racial bonus to Survival in the spring and summer, +2 in the fall, and -2 in the winter.	TYPE:Humanoid				CR:1/2	SOURCEPAGE:p.9
+
+#
+# End
+#

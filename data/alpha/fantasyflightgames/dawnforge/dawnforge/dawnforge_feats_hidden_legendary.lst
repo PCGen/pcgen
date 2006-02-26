@@ -1,0 +1,248 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Oct  5 21:14:50 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Dawnforge|SOURCESHORT:DF|SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Ratheof Blithwyn
+
+###########################
+##   Legendary Paths     ##
+###########################
+
+# Feat Name					Type				Visible	Required Stat	Required var. value			Special Ability											Define					Stat bonus						Modify VAR					Source Page
+Path of the Mighty 1st Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,STR=18							SA:Path of the Mighty (1st Circle)|PREVAREQ:LegendaryPathMighty,1			DEFINE:LegendaryPathMighty|0		BONUS:STAT|STR|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathMighty|1	SOURCEPAGE:p84
+Path of the Mighty 2nd Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,STR=20	PREVAREQ:LegendaryPathMighty,1	SA:Path of the Mighty (2nd Circle)|PREVAREQ:LegendaryPathMighty,2									BONUS:STAT|STR|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathMighty|1	SOURCEPAGE:p84
+Path of the Mighty 3rd Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,STR=22	PREVAREQ:LegendaryPathMighty,2	SA:Path of the Mighty (3rd Circle)|PREVAREQ:LegendaryPathMighty,3									BONUS:STAT|STR|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathMighty|1	SOURCEPAGE:p84
+Path of the Mighty 4th Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,STR=24	PREVAREQ:LegendaryPathMighty,3	SA:Path of the Mighty (4th Circle)|PREVAREQ:LegendaryPathMighty,4									BONUS:STAT|STR|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathMighty|1	SOURCEPAGE:p84
+Path of the Mighty 5th Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,STR=26	PREVAREQ:LegendaryPathMighty,4	SA:Path of the Mighty (5th Circle)|PREVAREQ:LegendaryPathMighty,5									BONUS:STAT|STR|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathMighty|1	SOURCEPAGE:p84
+Path of the Swift 1st Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,DEX=18							SA:Path of the Swift (1st Circle)|PREVAREQ:LegendaryPathSwift,1			DEFINE:LegendaryPathSwift|0		BONUS:STAT|DEX|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathSwift|1	SOURCEPAGE:p84
+Path of the Swift 2nd Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,DEX=20	PREVAREQ:LegendaryPathSwift,1		SA:Path of the Swift (2nd Circle)|PREVAREQ:LegendaryPathSwift,2									BONUS:STAT|DEX|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathSwift|1	SOURCEPAGE:p84
+Path of the Swift 3rd Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,DEX=22	PREVAREQ:LegendaryPathSwift,2		SA:Path of the Swift (3rd Circle)|PREVAREQ:LegendaryPathSwift,3									BONUS:STAT|DEX|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathSwift|1	SOURCEPAGE:p84
+Path of the Swift 4th Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,DEX=24	PREVAREQ:LegendaryPathSwift,3		SA:Path of the Swift (4th Circle)|PREVAREQ:LegendaryPathSwift,4									BONUS:STAT|DEX|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathSwift|1	SOURCEPAGE:p84
+Path of the Swift 5th Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,DEX=26	PREVAREQ:LegendaryPathSwift,4		SA:Path of the Swift (5th Circle)|PREVAREQ:LegendaryPathSwift,5									BONUS:STAT|DEX|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathSwift|1	SOURCEPAGE:p84
+Path of the Unyielding 1st Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CON=18							SA:Path of the Unyielding (1st Circle)|PREVAREQ:LegendaryPathUnyielding,1	DEFINE:LegendaryPathUnyielding|0	BONUS:STAT|CON|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathUnyielding|1	SOURCEPAGE:p84
+Path of the Unyielding 2nd Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CON=20	PREVAREQ:LegendaryPathUnyielding,1	SA:Path of the Unyielding (2nd Circle)|PREVAREQ:LegendaryPathUnyielding,2							BONUS:STAT|CON|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathUnyielding|1	SOURCEPAGE:p84
+Path of the Unyielding 3rd Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CON=22	PREVAREQ:LegendaryPathUnyielding,2	SA:Path of the Unyielding (3rd Circle)|PREVAREQ:LegendaryPathUnyielding,3							BONUS:STAT|CON|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathUnyielding|1	SOURCEPAGE:p84
+Path of the Unyielding 4th Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CON=24	PREVAREQ:LegendaryPathUnyielding,3	SA:Path of the Unyielding (4th Circle)|PREVAREQ:LegendaryPathUnyielding,4							BONUS:STAT|CON|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathUnyielding|1	SOURCEPAGE:p84
+Path of the Unyielding 5th Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CON=26	PREVAREQ:LegendaryPathUnyielding,4	SA:Path of the Unyielding (5th Circle)|PREVAREQ:LegendaryPathUnyielding,5							BONUS:STAT|CON|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathUnyielding|1	SOURCEPAGE:p84
+Path of the Learned 1st Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,INT=18							SA:Path of the Learned (1st Circle)|PREVAREQ:LegendaryPathLearned,1		DEFINE:LegendaryPathLearned|0		BONUS:STAT|INT|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathLearned|1	SOURCEPAGE:p84
+Path of the Learned 2nd Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,INT=20	PREVAREQ:LegendaryPathLearned,1	SA:Path of the Learned (2nd Circle)|PREVAREQ:LegendaryPathLearned,2								BONUS:STAT|INT|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathLearned|1	SOURCEPAGE:p84
+Path of the Learned 3rd Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,INT=22	PREVAREQ:LegendaryPathLearned,2	SA:Path of the Learned (3rd Circle)|PREVAREQ:LegendaryPathLearned,3								BONUS:STAT|INT|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathLearned|1	SOURCEPAGE:p84
+Path of the Learned 4th Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,INT=24	PREVAREQ:LegendaryPathLearned,3	SA:Path of the Learned (4th Circle)|PREVAREQ:LegendaryPathLearned,4								BONUS:STAT|INT|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathLearned|1	SOURCEPAGE:p84
+Path of the Learned 5th Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,INT=26	PREVAREQ:LegendaryPathLearned,4	SA:Path of the Learned (5th Circle)|PREVAREQ:LegendaryPathLearned,5								BONUS:STAT|INT|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathLearned|1	SOURCEPAGE:p84
+Path of the Wise 1st Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,WIS=18							SA:Path of the Wise (1st Circle)|PREVAREQ:LegendaryPathWise,1			DEFINE:LegendaryPathWise|0		BONUS:STAT|WIS|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathWise|1		SOURCEPAGE:p84
+Path of the Wise 2nd Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,WIS=20	PREVAREQ:LegendaryPathWise,1		SA:Path of the Wise (2nd Circle)|PREVAREQ:LegendaryPathWise,2									BONUS:STAT|WIS|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathWise|1		SOURCEPAGE:p84
+Path of the Wise 3rd Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,WIS=22	PREVAREQ:LegendaryPathWise,2		SA:Path of the Wise (3rd Circle)|PREVAREQ:LegendaryPathWise,3									BONUS:STAT|WIS|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathWise|1		SOURCEPAGE:p84
+Path of the Wise 4th Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,WIS=24	PREVAREQ:LegendaryPathWise,3		SA:Path of the Wise (4th Circle)|PREVAREQ:LegendaryPathWise,4									BONUS:STAT|WIS|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathWise|1		SOURCEPAGE:p84
+Path of the Wise 5th Circle		TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,WIS=26	PREVAREQ:LegendaryPathWise,4		SA:Path of the Wise (5th Circle)|PREVAREQ:LegendaryPathWise,5									BONUS:STAT|WIS|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathWise|1		SOURCEPAGE:p84
+Path of the Persuasive 1st Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CHA=18							SA:Path of the Persuasive (1st Circle)|PREVAREQ:LegendaryPathPersuasive,1	DEFINE:LegendaryPathPersuasive|0	BONUS:STAT|CHA|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathPersuasive|1	SOURCEPAGE:p84
+Path of the Persuasive 2nd Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CHA=20	PREVAREQ:LegendaryPathPersuasive,1	SA:Path of the Persuasive (2nd Circle)|PREVAREQ:LegendaryPathPersuasive,2							BONUS:STAT|CHA|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathPersuasive|1	SOURCEPAGE:p84
+Path of the Persuasive 3rd Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CHA=22	PREVAREQ:LegendaryPathPersuasive,2	SA:Path of the Persuasive (3rd Circle)|PREVAREQ:LegendaryPathPersuasive,3							BONUS:STAT|CHA|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathPersuasive|1	SOURCEPAGE:p84
+Path of the Persuasive 4th Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CHA=24	PREVAREQ:LegendaryPathPersuasive,3	SA:Path of the Persuasive (4th Circle)|PREVAREQ:LegendaryPathPersuasive,4							BONUS:STAT|CHA|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathPersuasive|1	SOURCEPAGE:p84
+Path of the Persuasive 5th Circle	TYPE:LegendaryPath	VISIBLE:NO	PRESTAT:1,CHA=26	PREVAREQ:LegendaryPathPersuasive,4	SA:Path of the Persuasive (5th Circle)|PREVAREQ:LegendaryPathPersuasive,5							BONUS:STAT|CHA|1|TYPE=Legendary.STACK	BONUS:VAR|LegendaryPathPersuasive|1	SOURCEPAGE:p84
+
+
+
+###########################
+##   Legendary Abilites  ##
+###########################
+
+###Block:Generic legendary abilities
+# Feat Name				Type					Visible	Prohibited Feat					Special Ability			Stat bonus					Source Page
+Enhanced Strength I		TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SA:Enhanced Strength I		BONUS:STAT|STR|1|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Strength II		TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SA:Enhanced Strength II		BONUS:STAT|STR|2|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Strength III		TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SA:Enhanced Strength III	BONUS:STAT|STR|3|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Strength IV		TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SA:Enhanced Strength IV		BONUS:STAT|STR|4|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Strength V		TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SA:Enhanced Strength V		BONUS:STAT|STR|5|TYPE=Legendary	SOURCEPAGE:p52
+
+Enhanced Dexterity I		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity I		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity II		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity II	BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity III		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity III	BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity IV		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity IV	BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity V		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity V		BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p52
+
+Enhanced Constitution I		TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution I	BONUS:STAT|CON|1|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution II	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution II	BONUS:STAT|CON|2|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution III	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution III	BONUS:STAT|CON|3|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution IV	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution IV	BONUS:STAT|CON|4|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution V		TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution V	BONUS:STAT|CON|5|TYPE=Legendary	SOURCEPAGE:p46
+
+Enhanced Intelligence I		TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence I	BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence II	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence II	BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence III	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence III	BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence IV	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence IV	BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence V		TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence V	BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p61
+
+Enhanced Wisdom I			TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom I		BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom II		TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom II		BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom III		TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom III		BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom IV		TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom IV		BONUS:STAT|WIS|4|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom V			TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom V		BONUS:STAT|WIS|5|TYPE=Legendary	SOURCEPAGE:p54
+
+Enhanced Charisma I		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma I		BONUS:STAT|CHA|1|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma II		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma II		BONUS:STAT|CHA|2|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma III		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma III	BONUS:STAT|CHA|3|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma IV		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma IV		BONUS:STAT|CHA|4|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma V		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma V		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p61
+
+
+
+###Block:Dawn Archer legendary abilities
+# Feat Name				Type								Visible	Required Class			Prohibited Feat						Special Ability					Multiple?	Choose													Source Page
+Second Nature Senses I		TYPE:LegendarySecondNatureSenses.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SA:Second-Nature Senses I (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|Hide|Listen|Move Silently|Spot|Survival					SOURCEPAGE:p75
+Second Nature Senses II		TYPE:LegendarySecondNatureSenses.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SA:Second-Nature Senses II (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=2|Hide|Listen|Move Silently|Spot|Survival					SOURCEPAGE:p75
+Second Nature Senses III	TYPE:LegendarySecondNatureSenses.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SA:Second-Nature Senses III (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=3|Hide|Listen|Move Silently|Spot|Survival					SOURCEPAGE:p75
+Second Nature Senses IV		TYPE:LegendarySecondNatureSenses.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SA:Second-Nature Senses IV (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=4|Hide|Listen|Move Silently|Spot|Survival					SOURCEPAGE:p75
+Second Nature Senses V		TYPE:LegendarySecondNatureSenses.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendarySecondNatureSenses	SA:Second-Nature Senses V (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=5|Hide|Listen|Move Silently|Spot|Survival					SOURCEPAGE:p75
+Deadeye I				TYPE:LegendaryDeadeye.DawnArcherLPL1		VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryDeadeye			SA:Deadeye I (+1)																					SOURCEPAGE:p75
+Deadeye II				TYPE:LegendaryDeadeye.DawnArcherLPL2		VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryDeadeye			SA:Deadeye II (+2)																				SOURCEPAGE:p75
+Deadeye III				TYPE:LegendaryDeadeye.DawnArcherLPL3		VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryDeadeye			SA:Deadeye III (+3)																				SOURCEPAGE:p75
+Deadeye IV				TYPE:LegendaryDeadeye.DawnArcherLPL4		VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryDeadeye			SA:Deadeye IV (+4)																				SOURCEPAGE:p75
+Deadeye V				TYPE:LegendaryDeadeye.DawnArcherLPL5		VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryDeadeye			SA:Deadeye V (+5)																					SOURCEPAGE:p75
+Unstoppable Arrows I		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SA:Unstoppable Arrows I (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows II		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SA:Unstoppable Arrows II (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=2|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows III		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SA:Unstoppable Arrows III (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=3|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows IV		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SA:Unstoppable Arrows IV (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=4|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Unstoppable Arrows V		TYPE:LegendaryUnstoppableArrows.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryUnstoppableArrows	SA:Unstoppable Arrows V (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=5|Adamantine|Chaotic|Cold Iron|Evil|Good|Lawful|Magic|Silver	SOURCEPAGE:p75
+Enchanted Bow I			TYPE:LegendaryEnchantedBow.DawnArcherLPL1		VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SA:Enchanted Bow I (+1)																				SOURCEPAGE:p76
+Enchanted Bow II			TYPE:LegendaryEnchantedBow.DawnArcherLPL2		VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SA:Enchanted Bow II (+2)																			SOURCEPAGE:p76
+Enchanted Bow III			TYPE:LegendaryEnchantedBow.DawnArcherLPL3		VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SA:Enchanted Bow III (+3)																			SOURCEPAGE:p76
+Enchanted Bow IV			TYPE:LegendaryEnchantedBow.DawnArcherLPL4		VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SA:Enchanted Bow IV (+4)																			SOURCEPAGE:p76
+Enchanted Bow V			TYPE:LegendaryEnchantedBow.DawnArcherLPL5		VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryEnchantedBow		SA:Enchanted Bow V (+5)																				SOURCEPAGE:p76
+Crippling Accuracy I		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL1	VISIBLE:NO	PRECLASS:1,Dawn Archer=1	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SA:Crippling Accuracy I (1/day)																		SOURCEPAGE:p76
+Crippling Accuracy II		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL2	VISIBLE:NO	PRECLASS:1,Dawn Archer=2	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SA:Crippling Accuracy II (2/day)																		SOURCEPAGE:p76
+Crippling Accuracy III		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL3	VISIBLE:NO	PRECLASS:1,Dawn Archer=3	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SA:Crippling Accuracy III (3/day)																		SOURCEPAGE:p76
+Crippling Accuracy IV		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL4	VISIBLE:NO	PRECLASS:1,Dawn Archer=4	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SA:Crippling Accuracy IV (4/day)																		SOURCEPAGE:p76
+Crippling Accuracy V		TYPE:LegendaryCripplingAccuracy.DawnArcherLPL5	VISIBLE:NO	PRECLASS:1,Dawn Archer=5	!PREFEAT:1,TYPE.LegendaryCripplingAccuracy	SA:Crippling Accuracy V (5/day)																		SOURCEPAGE:p76
+
+###Block:Fleetwind legendary abilities
+# Feat Name			Type							Visible	Required Class		Prohibited Feat					Special Ability				Source Page
+Trailblazer I		TYPE:LegendaryTrailblazer.FleetwindLPL1	VISIBLE:NO	PRECLASS:1,Fleetwind=1	!PREFEAT:1,TYPE.LegendaryTrailblazer	SA:Trailblazer I (up to 2 hours)	SOURCEPAGE:p77
+Trailblazer II		TYPE:LegendaryTrailblazer.FleetwindLPL2	VISIBLE:NO	PRECLASS:1,Fleetwind=2	!PREFEAT:1,TYPE.LegendaryTrailblazer	SA:Trailblazer II (up to 4 hours)	SOURCEPAGE:p77
+Trailblazer III		TYPE:LegendaryTrailblazer.FleetwindLPL3	VISIBLE:NO	PRECLASS:1,Fleetwind=3	!PREFEAT:1,TYPE.LegendaryTrailblazer	SA:Trailblazer III (up to 6hours)	SOURCEPAGE:p77
+Trailblazer IV		TYPE:LegendaryTrailblazer.FleetwindLPL4	VISIBLE:NO	PRECLASS:1,Fleetwind=4	!PREFEAT:1,TYPE.LegendaryTrailblazer	SA:Trailblazer IV (up to 8 hours)	SOURCEPAGE:p77
+Trailblazer V		TYPE:LegendaryTrailblazer.FleetwindLPL5	VISIBLE:NO	PRECLASS:1,Fleetwind=5	!PREFEAT:1,TYPE.LegendaryTrailblazer	SA:Trailblazer V (up to 10 hours)	SOURCEPAGE:p77
+Walk on Water I		TYPE:LegendaryWalkWater.FleetwindLPL1	VISIBLE:NO	PRECLASS:1,Fleetwind=1	!PREFEAT:1,TYPE.LegendaryWalkWater		SA:Walk on Water I (1/day)		SOURCEPAGE:p77
+Walk on Water II		TYPE:LegendaryWalkWater.FleetwindLPL2	VISIBLE:NO	PRECLASS:1,Fleetwind=2	!PREFEAT:1,TYPE.LegendaryWalkWater		SA:Walk on Water II (2/day)		SOURCEPAGE:p77
+Walk on Water III		TYPE:LegendaryWalkWater.FleetwindLPL3	VISIBLE:NO	PRECLASS:1,Fleetwind=3	!PREFEAT:1,TYPE.LegendaryWalkWater		SA:Walk on Water III (3/day)		SOURCEPAGE:p77
+Walk on Water IV		TYPE:LegendaryWalkWater.FleetwindLPL4	VISIBLE:NO	PRECLASS:1,Fleetwind=4	!PREFEAT:1,TYPE.LegendaryWalkWater		SA:Walk on Water IV (4/day)		SOURCEPAGE:p77
+Walk on Water V		TYPE:LegendaryWalkWater.FleetwindLPL5	VISIBLE:NO	PRECLASS:1,Fleetwind=5	!PREFEAT:1,TYPE.LegendaryWalkWater		SA:Walk on Water V (5/day)		SOURCEPAGE:p77
+Walk on Air I		TYPE:LegendaryWalkAir.FleetwindLPL1		VISIBLE:NO	PRECLASS:1,Fleetwind=1	!PREFEAT:1,TYPE.LegendaryWalkAir		SA:Walk on Air I (1/day)		SOURCEPAGE:p78
+Walk on Air II		TYPE:LegendaryWalkAir.FleetwindLPL2		VISIBLE:NO	PRECLASS:1,Fleetwind=2	!PREFEAT:1,TYPE.LegendaryWalkAir		SA:Walk on Air II (2/day)		SOURCEPAGE:p78
+Walk on Air III		TYPE:LegendaryWalkAir.FleetwindLPL3		VISIBLE:NO	PRECLASS:1,Fleetwind=3	!PREFEAT:1,TYPE.LegendaryWalkAir		SA:Walk on Air III (3/day)		SOURCEPAGE:p78
+Walk on Air IV		TYPE:LegendaryWalkAir.FleetwindLPL4		VISIBLE:NO	PRECLASS:1,Fleetwind=4	!PREFEAT:1,TYPE.LegendaryWalkAir		SA:Walk on Air IV (4/day)		SOURCEPAGE:p78
+Walk on Air V		TYPE:LegendaryWalkAir.FleetwindLPL5		VISIBLE:NO	PRECLASS:1,Fleetwind=5	!PREFEAT:1,TYPE.LegendaryWalkAir		SA:Walk on Air V (5/day)		SOURCEPAGE:p78
+Stunning Speed I		TYPE:LegendaryStunningSpeed.FleetwindLPL1	VISIBLE:NO	PRECLASS:1,Fleetwind=1	!PREFEAT:1,TYPE.LegendaryStunningSpeed	SA:Stunning Speed I (1/day)		SOURCEPAGE:p78
+Stunning Speed II		TYPE:LegendaryStunningSpeed.FleetwindLPL2	VISIBLE:NO	PRECLASS:1,Fleetwind=2	!PREFEAT:1,TYPE.LegendaryStunningSpeed	SA:Stunning Speed II (2/day)		SOURCEPAGE:p78
+Stunning Speed III	TYPE:LegendaryStunningSpeed.FleetwindLPL3	VISIBLE:NO	PRECLASS:1,Fleetwind=3	!PREFEAT:1,TYPE.LegendaryStunningSpeed	SA:Stunning Speed III (3/day)		SOURCEPAGE:p78
+Stunning Speed IV		TYPE:LegendaryStunningSpeed.FleetwindLPL4	VISIBLE:NO	PRECLASS:1,Fleetwind=4	!PREFEAT:1,TYPE.LegendaryStunningSpeed	SA:Stunning Speed IV (4/day)		SOURCEPAGE:p78
+Stunning Speed V		TYPE:LegendaryStunningSpeed.FleetwindLPL5	VISIBLE:NO	PRECLASS:1,Fleetwind=5	!PREFEAT:1,TYPE.LegendaryStunningSpeed	SA:Stunning Speed V (5/day)		SOURCEPAGE:p78
+Wall Fighting I		TYPE:LegendaryWallFighting.FleetwindLPL1	VISIBLE:NO	PRECLASS:1,Fleetwind=1	!PREFEAT:1,TYPE.LegendaryWallFighting	SA:Wall Fighting I (+1)			SOURCEPAGE:p78
+Wall Fighting II		TYPE:LegendaryWallFighting.FleetwindLPL2	VISIBLE:NO	PRECLASS:1,Fleetwind=2	!PREFEAT:1,TYPE.LegendaryWallFighting	SA:Wall Fighting II (+2)		SOURCEPAGE:p78
+Wall Fighting III		TYPE:LegendaryWallFighting.FleetwindLPL3	VISIBLE:NO	PRECLASS:1,Fleetwind=3	!PREFEAT:1,TYPE.LegendaryWallFighting	SA:Wall Fighting III (+3)		SOURCEPAGE:p78
+Wall Fighting IV		TYPE:LegendaryWallFighting.FleetwindLPL4	VISIBLE:NO	PRECLASS:1,Fleetwind=4	!PREFEAT:1,TYPE.LegendaryWallFighting	SA:Wall Fighting IV (+4)		SOURCEPAGE:p78
+Wall Fighting V		TYPE:LegendaryWallFighting.FleetwindLPL5	VISIBLE:NO	PRECLASS:1,Fleetwind=5	!PREFEAT:1,TYPE.LegendaryWallFighting	SA:Wall Fighting V (+5)			SOURCEPAGE:p78
+
+###Block:Epic General legendary abilities
+# Feat Name			Type								Visible	Required Class			Prohibited Feat						Special Ability				Source Page
+Heroic Inspiration I	TYPE:LegendaryHeroicInspiration.EpicGeneralLPL1	VISIBLE:NO	PRECLASS:1,Epic General=1	!PREFEAT:1,TYPE.LegendaryHeroicInspiration	SA:Heroic Inspiration I (1/day)	SOURCEPAGE:p79
+Heroic Inspiration II	TYPE:LegendaryHeroicInspiration.EpicGeneralLPL2	VISIBLE:NO	PRECLASS:1,Epic General=2	!PREFEAT:1,TYPE.LegendaryHeroicInspiration	SA:Heroic Inspiration II (2/day)	SOURCEPAGE:p79
+Heroic Inspiration III	TYPE:LegendaryHeroicInspiration.EpicGeneralLPL3	VISIBLE:NO	PRECLASS:1,Epic General=3	!PREFEAT:1,TYPE.LegendaryHeroicInspiration	SA:Heroic Inspiration III (3/day)	SOURCEPAGE:p79
+Heroic Inspiration IV	TYPE:LegendaryHeroicInspiration.EpicGeneralLPL4	VISIBLE:NO	PRECLASS:1,Epic General=4	!PREFEAT:1,TYPE.LegendaryHeroicInspiration	SA:Heroic Inspiration IV (4/day)	SOURCEPAGE:p79
+Heroic Inspiration V	TYPE:LegendaryHeroicInspiration.EpicGeneralLPL5	VISIBLE:NO	PRECLASS:1,Epic General=5	!PREFEAT:1,TYPE.LegendaryHeroicInspiration	SA:Heroic Inspiration V (5/day)	SOURCEPAGE:p79
+Shielded Mind I		TYPE:LegendaryShieldedMind.EpicGeneralLPL1	VISIBLE:NO	PRECLASS:1,Epic General=1	!PREFEAT:1,TYPE.LegendaryShieldedMind		SA:Shielded Mind I (+2)			SOURCEPAGE:p79
+Shielded Mind II		TYPE:LegendaryShieldedMind.EpicGeneralLPL2	VISIBLE:NO	PRECLASS:1,Epic General=2	!PREFEAT:1,TYPE.LegendaryShieldedMind		SA:Shielded Mind II (+4)		SOURCEPAGE:p79
+Shielded Mind III		TYPE:LegendaryShieldedMind.EpicGeneralLPL3	VISIBLE:NO	PRECLASS:1,Epic General=3	!PREFEAT:1,TYPE.LegendaryShieldedMind		SA:Shielded Mind III (+6)		SOURCEPAGE:p79
+Shielded Mind IV		TYPE:LegendaryShieldedMind.EpicGeneralLPL4	VISIBLE:NO	PRECLASS:1,Epic General=4	!PREFEAT:1,TYPE.LegendaryShieldedMind		SA:Shielded Mind IV (+8)		SOURCEPAGE:p79
+Shielded Mind V		TYPE:LegendaryShieldedMind.EpicGeneralLPL5	VISIBLE:NO	PRECLASS:1,Epic General=5	!PREFEAT:1,TYPE.LegendaryShieldedMind		SA:Shielded Mind V (+10)		SOURCEPAGE:p79
+Combat Sense I		TYPE:LegendaryCombatSense.EpicGeneralLPL1		VISIBLE:NO	PRECLASS:1,Epic General=1	!PREFEAT:1,TYPE.LegendaryCombatSense		SA:Combat Sense I (10 pct.)		SOURCEPAGE:p79
+Combat Sense II		TYPE:LegendaryCombatSense.EpicGeneralLPL2		VISIBLE:NO	PRECLASS:1,Epic General=2	!PREFEAT:1,TYPE.LegendaryCombatSense		SA:Combat Sense II (20 pct.)		SOURCEPAGE:p79
+Combat Sense III		TYPE:LegendaryCombatSense.EpicGeneralLPL3		VISIBLE:NO	PRECLASS:1,Epic General=3	!PREFEAT:1,TYPE.LegendaryCombatSense		SA:Combat Sense III (30 pct.)		SOURCEPAGE:p79
+Combat Sense IV		TYPE:LegendaryCombatSense.EpicGeneralLPL4		VISIBLE:NO	PRECLASS:1,Epic General=4	!PREFEAT:1,TYPE.LegendaryCombatSense		SA:Combat Sense IV (40 pct.)		SOURCEPAGE:p79
+Combat Sense V		TYPE:LegendaryCombatSense.EpicGeneralLPL5		VISIBLE:NO	PRECLASS:1,Epic General=5	!PREFEAT:1,TYPE.LegendaryCombatSense		SA:Combat Sense V (50 pct.)		SOURCEPAGE:p79
+Fearful Presence I	TYPE:LegendaryFearfulPresence.EpicGeneralLPL1	VISIBLE:NO	PRECLASS:1,Epic General=1	!PREFEAT:1,TYPE.LegendaryFearfulPresence		SA:Fearful Presence I			SOURCEPAGE:p79
+Fearful Presence II	TYPE:LegendaryFearfulPresence.EpicGeneralLPL2	VISIBLE:NO	PRECLASS:1,Epic General=2	!PREFEAT:1,TYPE.LegendaryFearfulPresence		SA:Fearful Presence II			SOURCEPAGE:p79
+Fearful Presence III	TYPE:LegendaryFearfulPresence.EpicGeneralLPL3	VISIBLE:NO	PRECLASS:1,Epic General=3	!PREFEAT:1,TYPE.LegendaryFearfulPresence		SA:Fearful Presence III			SOURCEPAGE:p79
+Fearful Presence IV	TYPE:LegendaryFearfulPresence.EpicGeneralLPL4	VISIBLE:NO	PRECLASS:1,Epic General=4	!PREFEAT:1,TYPE.LegendaryFearfulPresence		SA:Fearful Presence IV			SOURCEPAGE:p79
+Fearful Presence V	TYPE:LegendaryFearfulPresence.EpicGeneralLPL5	VISIBLE:NO	PRECLASS:1,Epic General=5	!PREFEAT:1,TYPE.LegendaryFearfulPresence		SA:Fearful Presence V			SOURCEPAGE:p79
+Summon Conscripts I	TYPE:LegendarySummonConscripts.EpicGeneralLPL1	VISIBLE:NO	PRECLASS:1,Epic General=1	!PREFEAT:1,TYPE.LegendarySummonConscripts		SA:Summon Conscripts I (1/week)	SOURCEPAGE:p80
+Summon Conscripts II	TYPE:LegendarySummonConscripts.EpicGeneralLPL2	VISIBLE:NO	PRECLASS:1,Epic General=2	!PREFEAT:1,TYPE.LegendarySummonConscripts		SA:Summon Conscripts II (2/week)	SOURCEPAGE:p80
+Summon Conscripts III	TYPE:LegendarySummonConscripts.EpicGeneralLPL3	VISIBLE:NO	PRECLASS:1,Epic General=3	!PREFEAT:1,TYPE.LegendarySummonConscripts		SA:Summon Conscripts III (3/week)	SOURCEPAGE:p80
+Summon Conscripts IV	TYPE:LegendarySummonConscripts.EpicGeneralLPL4	VISIBLE:NO	PRECLASS:1,Epic General=4	!PREFEAT:1,TYPE.LegendarySummonConscripts		SA:Summon Conscripts IV (4/week)	SOURCEPAGE:p80
+Summon Conscripts V	TYPE:LegendarySummonConscripts.EpicGeneralLPL5	VISIBLE:NO	PRECLASS:1,Epic General=5	!PREFEAT:1,TYPE.LegendarySummonConscripts		SA:Summon Conscripts V (5/week)	SOURCEPAGE:p80
+
+###Block:Icon legendary abilities
+# Feat Name			Type							Visible	Required Class	Prohibited Feat						Special Ability				Bonus to skill							Source Page
+Natural Leader I		TYPE:LegendaryNaturalLeader.IconLPL1	VISIBLE:NO	PRECLASS:1,Icon=1	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader I (+1)											SOURCEPAGE:p81
+Natural Leader II		TYPE:LegendaryNaturalLeader.IconLPL2	VISIBLE:NO	PRECLASS:1,Icon=2	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader II (+2)											SOURCEPAGE:p81
+Natural Leader III	TYPE:LegendaryNaturalLeader.IconLPL3	VISIBLE:NO	PRECLASS:1,Icon=3	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader III (+3)											SOURCEPAGE:p81
+Natural Leader IV		TYPE:LegendaryNaturalLeader.IconLPL4	VISIBLE:NO	PRECLASS:1,Icon=4	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader IV (+4)											SOURCEPAGE:p81
+Natural Leader V		TYPE:LegendaryNaturalLeader.IconLPL5	VISIBLE:NO	PRECLASS:1,Icon=5	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader V (+5)											SOURCEPAGE:p81
+Captivating Speach I	TYPE:LegendaryCaptivatingSpeach.IconLPL1	VISIBLE:NO	PRECLASS:1,Icon=1	!PREFEAT:1,TYPE.LegendaryCaptivatingSpeach	SA:Captivating Speach I (1/day)										SOURCEPAGE:p81
+Captivating Speach II	TYPE:LegendaryCaptivatingSpeach.IconLPL2	VISIBLE:NO	PRECLASS:1,Icon=2	!PREFEAT:1,TYPE.LegendaryCaptivatingSpeach	SA:Captivating Speach II (2/day)										SOURCEPAGE:p81
+Captivating Speach III	TYPE:LegendaryCaptivatingSpeach.IconLPL3	VISIBLE:NO	PRECLASS:1,Icon=3	!PREFEAT:1,TYPE.LegendaryCaptivatingSpeach	SA:Captivating Speach III (3/day)										SOURCEPAGE:p81
+Captivating Speach IV	TYPE:LegendaryCaptivatingSpeach.IconLPL4	VISIBLE:NO	PRECLASS:1,Icon=4	!PREFEAT:1,TYPE.LegendaryCaptivatingSpeach	SA:Captivating Speach IV (4/day)										SOURCEPAGE:p81
+Captivating Speach V	TYPE:LegendaryCaptivatingSpeach.IconLPL5	VISIBLE:NO	PRECLASS:1,Icon=5	!PREFEAT:1,TYPE.LegendaryCaptivatingSpeach	SA:Captivating Speach V (5/day)										SOURCEPAGE:p81
+Unexpected Aid I		TYPE:LegendaryUnexpectedAid.IconLPL1	VISIBLE:NO	PRECLASS:1,Icon=1	!PREFEAT:1,TYPE.LegendaryUnexpectedAid		SA:Unexpected Aid I (1/week)											SOURCEPAGE:p81
+Unexpected Aid II		TYPE:LegendaryUnexpectedAid.IconLPL2	VISIBLE:NO	PRECLASS:1,Icon=2	!PREFEAT:1,TYPE.LegendaryUnexpectedAid		SA:Unexpected Aid II (2/week)											SOURCEPAGE:p81
+Unexpected Aid III	TYPE:LegendaryUnexpectedAid.IconLPL3	VISIBLE:NO	PRECLASS:1,Icon=3	!PREFEAT:1,TYPE.LegendaryUnexpectedAid		SA:Unexpected Aid III (3/week)										SOURCEPAGE:p81
+Unexpected Aid IV		TYPE:LegendaryUnexpectedAid.IconLPL4	VISIBLE:NO	PRECLASS:1,Icon=4	!PREFEAT:1,TYPE.LegendaryUnexpectedAid		SA:Unexpected Aid IV (4/week)											SOURCEPAGE:p81
+Unexpected Aid V		TYPE:LegendaryUnexpectedAid.IconLPL5	VISIBLE:NO	PRECLASS:1,Icon=5	!PREFEAT:1,TYPE.LegendaryUnexpectedAid		SA:Unexpected Aid V (5/week)											SOURCEPAGE:p81
+Cheat Death I		TYPE:LegendaryCheatDeath.IconLPL1		VISIBLE:NO	PRECLASS:1,Icon=1	!PREFEAT:1,TYPE.LegendaryCheatDeath			SA:Cheat Death I (1/day)											SOURCEPAGE:p81
+Cheat Death II		TYPE:LegendaryCheatDeath.IconLPL2		VISIBLE:NO	PRECLASS:1,Icon=2	!PREFEAT:1,TYPE.LegendaryCheatDeath			SA:Cheat Death II (2/day)											SOURCEPAGE:p81
+Cheat Death III		TYPE:LegendaryCheatDeath.IconLPL3		VISIBLE:NO	PRECLASS:1,Icon=3	!PREFEAT:1,TYPE.LegendaryCheatDeath			SA:Cheat Death III (3/day)											SOURCEPAGE:p81
+Cheat Death IV		TYPE:LegendaryCheatDeath.IconLPL4		VISIBLE:NO	PRECLASS:1,Icon=4	!PREFEAT:1,TYPE.LegendaryCheatDeath			SA:Cheat Death IV (4/day)											SOURCEPAGE:p81
+Cheat Death V		TYPE:LegendaryCheatDeath.IconLPL5		VISIBLE:NO	PRECLASS:1,Icon=5	!PREFEAT:1,TYPE.LegendaryCheatDeath			SA:Cheat Death V (5/day)											SOURCEPAGE:p81
+Skill Mastery I		TYPE:LegendarySkillMastery.IconLPL1		VISIBLE:NO	PRECLASS:1,Icon=1	!PREFEAT:1,TYPE.LegendarySkillMastery		SA:Skill Mastery I			BONUS:SKILL|Diplomacy,Intimidate,Sense Motive|5		SOURCEPAGE:p81
+Skill Mastery II		TYPE:LegendarySkillMastery.IconLPL2		VISIBLE:NO	PRECLASS:1,Icon=2	!PREFEAT:1,TYPE.LegendarySkillMastery		SA:Skill Mastery II			BONUS:SKILL|Diplomacy,Intimidate,Sense Motive|10	SOURCEPAGE:p81
+Skill Mastery III		TYPE:LegendarySkillMastery.IconLPL3		VISIBLE:NO	PRECLASS:1,Icon=3	!PREFEAT:1,TYPE.LegendarySkillMastery		SA:Skill Mastery III			BONUS:SKILL|Diplomacy,Intimidate,Sense Motive|15	SOURCEPAGE:p81
+Skill Mastery IV		TYPE:LegendarySkillMastery.IconLPL4		VISIBLE:NO	PRECLASS:1,Icon=4	!PREFEAT:1,TYPE.LegendarySkillMastery		SA:Skill Mastery IV			BONUS:SKILL|Diplomacy,Intimidate,Sense Motive|20	SOURCEPAGE:p81
+Skill Mastery V		TYPE:LegendarySkillMastery.IconLPL5		VISIBLE:NO	PRECLASS:1,Icon=5	!PREFEAT:1,TYPE.LegendarySkillMastery		SA:Skill Mastery V			BONUS:SKILL|Diplomacy,Intimidate,Sense Motive|25	SOURCEPAGE:p81
+
+###Block:Master Arcanist legendary abilities
+# Feat Name					Type										Visible		Required Class				Special Ability					Bonus												Source Page		Filter
+#The Essence of Magic
+# Feat Name					Type									Visible	Required Class			Prohibited Feat						Special Ability				Bonus to skill									Source Page
+Master of the Mundane Arts I		TYPE:LegendaryMasterMundaneArts.MasterArcanistLPL1	VISIBLE:NO	PRECLASS:1,Master Arcanist=1	!PREFEAT:1,TYPE.LegendaryMasterMundaneArts	SA:Master of the Mundane Arts I	BONUS:SKILL|Craft (Alchemy),Knowledge (Arcana),Spellcraft|5		SOURCEPAGE:p82
+Master of the Mundane Arts II		TYPE:LegendaryMasterMundaneArts.MasterArcanistLPL2	VISIBLE:NO	PRECLASS:1,Master Arcanist=2	!PREFEAT:1,TYPE.LegendaryMasterMundaneArts	SA:Master of the Mundane Arts II	BONUS:SKILL|Craft (Alchemy),Knowledge (Arcana),Spellcraft|10	SOURCEPAGE:p82
+Master of the Mundane Arts III	TYPE:LegendaryMasterMundaneArts.MasterArcanistLPL3	VISIBLE:NO	PRECLASS:1,Master Arcanist=3	!PREFEAT:1,TYPE.LegendaryMasterMundaneArts	SA:Master of the Mundane Arts III	BONUS:SKILL|Craft (Alchemy),Knowledge (Arcana),Spellcraft|15	SOURCEPAGE:p82
+Master of the Mundane Arts IV		TYPE:LegendaryMasterMundaneArts.MasterArcanistLPL4	VISIBLE:NO	PRECLASS:1,Master Arcanist=4	!PREFEAT:1,TYPE.LegendaryMasterMundaneArts	SA:Master of the Mundane Arts IV	BONUS:SKILL|Craft (Alchemy),Knowledge (Arcana),Spellcraft|20	SOURCEPAGE:p82
+Master of the Mundane Arts V		TYPE:LegendaryMasterMundaneArts.MasterArcanistLPL5	VISIBLE:NO	PRECLASS:1,Master Arcanist=5	!PREFEAT:1,TYPE.LegendaryMasterMundaneArts	SA:Master of the Mundane Arts V	BONUS:SKILL|Craft (Alchemy),Knowledge (Arcana),Spellcraft|25	SOURCEPAGE:p82
+Unearthly Might I				TYPE:LegendaryUnearthlyMight.MasterArcanisLPL1		VISIBLE:NO	PRECLASS:1,Master Arcanist=1	!PREFEAT:1,TYPE.LegendaryUnearthlyMight		SA:Unearthly Might I (+2)													SOURCEPAGE:p82
+Unearthly Might II			TYPE:LegendaryUnearthlyMight.MasterArcanisLPL2		VISIBLE:NO	PRECLASS:1,Master Arcanist=2	!PREFEAT:1,TYPE.LegendaryUnearthlyMight		SA:Unearthly Might II (+4)													SOURCEPAGE:p82
+Unearthly Might III			TYPE:LegendaryUnearthlyMight.MasterArcanisLPL3		VISIBLE:NO	PRECLASS:1,Master Arcanist=3	!PREFEAT:1,TYPE.LegendaryUnearthlyMight		SA:Unearthly Might III (+6)													SOURCEPAGE:p82
+Unearthly Might IV			TYPE:LegendaryUnearthlyMight.MasterArcanisLPL4		VISIBLE:NO	PRECLASS:1,Master Arcanist=4	!PREFEAT:1,TYPE.LegendaryUnearthlyMight		SA:Unearthly Might IV (+8)													SOURCEPAGE:p82
+Unearthly Might V				TYPE:LegendaryUnearthlyMight.MasterArcanisLPL5		VISIBLE:NO	PRECLASS:1,Master Arcanist=5	!PREFEAT:1,TYPE.LegendaryUnearthlyMight		SA:Unearthly Might V (+10)													SOURCEPAGE:p82
+#Increased Spell Power
+Arcane Resistance I			TYPE:LegendaryArcaneResistance.MasterArcanisLPL1	VISIBLE:NO	PRECLASS:1,Master Arcanist=1	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance I (+1)													SOURCEPAGE:p82
+Arcane Resistance II			TYPE:LegendaryArcaneResistance.MasterArcanisLPL2	VISIBLE:NO	PRECLASS:1,Master Arcanist=2	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance II (+2)													SOURCEPAGE:p82
+Arcane Resistance III			TYPE:LegendaryArcaneResistance.MasterArcanisLPL3	VISIBLE:NO	PRECLASS:1,Master Arcanist=3	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance III (+3)													SOURCEPAGE:p82
+Arcane Resistance IV			TYPE:LegendaryArcaneResistance.MasterArcanisLPL4	VISIBLE:NO	PRECLASS:1,Master Arcanist=4	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance IV (+4)													SOURCEPAGE:p82
+Arcane Resistance V			TYPE:LegendaryArcaneResistance.MasterArcanisLPL5	VISIBLE:NO	PRECLASS:1,Master Arcanist=5	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance V (+5)													SOURCEPAGE:p82
+
+
+###Block:Unsuffering legendary abilities
+# Feat Name			Type								Visible	Required Class			Prohibited Feat					Special Ability						Source Page
+Rage Against Death I	TYPE:LegendaryRageAgainstDeath.UnsufferingLPL1	VISIBLE:NO	PRECLASS:1,Unsuffering=1	!PREFEAT:1,TYPE.LegendaryRageAgainstDeath	SA:Rage Against Death I (+1)				SOURCEPAGE:p83
+Rage Against Death II	TYPE:LegendaryRageAgainstDeath.UnsufferingLPL2	VISIBLE:NO	PRECLASS:1,Unsuffering=2	!PREFEAT:1,TYPE.LegendaryRageAgainstDeath	SA:Rage Against Death II (+2)				SOURCEPAGE:p83
+Rage Against Death III	TYPE:LegendaryRageAgainstDeath.UnsufferingLPL3	VISIBLE:NO	PRECLASS:1,Unsuffering=3	!PREFEAT:1,TYPE.LegendaryRageAgainstDeath	SA:Rage Against Death III (+3)			SOURCEPAGE:p83
+Rage Against Death IV	TYPE:LegendaryRageAgainstDeath.UnsufferingLPL4	VISIBLE:NO	PRECLASS:1,Unsuffering=4	!PREFEAT:1,TYPE.LegendaryRageAgainstDeath	SA:Rage Against Death IV (+4)				SOURCEPAGE:p83
+Rage Against Death V	TYPE:LegendaryRageAgainstDeath.UnsufferingLPL5	VISIBLE:NO	PRECLASS:1,Unsuffering=5	!PREFEAT:1,TYPE.LegendaryRageAgainstDeath	SA:Rage Against Death V (+5)				SOURCEPAGE:p83
+Unstoppable I		TYPE:LegendaryUnstoppable.UnsufferingLPL1		VISIBLE:NO	PRECLASS:1,Unsuffering=1	!PREFEAT:1,TYPE.LegendaryUnstoppable	SA:Unstoppable I (-10hp 1minute)			SOURCEPAGE:p83
+Unstoppable II		TYPE:LegendaryUnstoppable.UnsufferingLPL2		VISIBLE:NO	PRECLASS:1,Unsuffering=2	!PREFEAT:1,TYPE.LegendaryUnstoppable	SA:Unstoppable II (-20hp 2minute)			SOURCEPAGE:p83
+Unstoppable III		TYPE:LegendaryUnstoppable.UnsufferingLPL3		VISIBLE:NO	PRECLASS:1,Unsuffering=3	!PREFEAT:1,TYPE.LegendaryUnstoppable	SA:Unstoppable III (-30hp 3minute)			SOURCEPAGE:p83
+Unstoppable IV		TYPE:LegendaryUnstoppable.UnsufferingLPL4		VISIBLE:NO	PRECLASS:1,Unsuffering=4	!PREFEAT:1,TYPE.LegendaryUnstoppable	SA:Unstoppable IV (-40hp 4minute)			SOURCEPAGE:p83
+Unstoppable V		TYPE:LegendaryUnstoppable.UnsufferingLPL5		VISIBLE:NO	PRECLASS:1,Unsuffering=5	!PREFEAT:1,TYPE.LegendaryUnstoppable	SA:Unstoppable V (-50hp 5minute)			SOURCEPAGE:p83
+Sorcery Overpower I	TYPE:LegendarySorceryOverpower.UnsufferingLPL1	VISIBLE:NO	PRECLASS:1,Unsuffering=1	!PREFEAT:1,TYPE.LegendarySorceryOverpower	SA:Sorcery Overpower I (3 spell levels/day)	SOURCEPAGE:p83
+Sorcery Overpower II	TYPE:LegendarySorceryOverpower.UnsufferingLPL2	VISIBLE:NO	PRECLASS:1,Unsuffering=2	!PREFEAT:1,TYPE.LegendarySorceryOverpower	SA:Sorcery Overpower II (6 spell levels/day)	SOURCEPAGE:p83
+Sorcery Overpower III	TYPE:LegendarySorceryOverpower.UnsufferingLPL3	VISIBLE:NO	PRECLASS:1,Unsuffering=3	!PREFEAT:1,TYPE.LegendarySorceryOverpower	SA:Sorcery Overpower III (9 spell levels/daye)	SOURCEPAGE:p83
+Sorcery Overpower IV	TYPE:LegendarySorceryOverpower.UnsufferingLPL4	VISIBLE:NO	PRECLASS:1,Unsuffering=4	!PREFEAT:1,TYPE.LegendarySorceryOverpower	SA:Sorcery Overpower IV (12 spell levels/day)	SOURCEPAGE:p83
+Sorcery Overpower V	TYPE:LegendarySorceryOverpower.UnsufferingLPL5	VISIBLE:NO	PRECLASS:1,Unsuffering=5	!PREFEAT:1,TYPE.LegendarySorceryOverpower	SA:Sorcery Overpower V (15 spell levels/day)	SOURCEPAGE:p83
+Drain Resistance I	TYPE:LegendaryDrainResistance.UnsufferingLPL1	VISIBLE:NO	PRECLASS:1,Unsuffering=1	!PREFEAT:1,TYPE.LegendaryDrainResistance	SA:Drain Resistance I (3 points/day)		SOURCEPAGE:p84
+Drain Resistance II	TYPE:LegendaryDrainResistance.UnsufferingLPL2	VISIBLE:NO	PRECLASS:1,Unsuffering=2	!PREFEAT:1,TYPE.LegendaryDrainResistance	SA:Drain Resistance II (6 points/day)		SOURCEPAGE:p84
+Drain Resistance III	TYPE:LegendaryDrainResistance.UnsufferingLPL3	VISIBLE:NO	PRECLASS:1,Unsuffering=3	!PREFEAT:1,TYPE.LegendaryDrainResistance	SA:Drain Resistance III (9 points/day)		SOURCEPAGE:p84
+Drain Resistance IV	TYPE:LegendaryDrainResistance.UnsufferingLPL4	VISIBLE:NO	PRECLASS:1,Unsuffering=4	!PREFEAT:1,TYPE.LegendaryDrainResistance	SA:Drain Resistance IV (12 points/day)		SOURCEPAGE:p84
+Drain Resistance V	TYPE:LegendaryDrainResistance.UnsufferingLPL5	VISIBLE:NO	PRECLASS:1,Unsuffering=5	!PREFEAT:1,TYPE.LegendaryDrainResistance	SA:Drain Resistance V (15 points/day)		SOURCEPAGE:p84
+#Energy Resistance
+
+
+#
+# EOF
+#

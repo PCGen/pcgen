@@ -1,0 +1,33 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 12 19:06:05 2002 -- reformated by prettylst.pl v1.19 (build 226)
+SOURCELONG:Open Spells Collection|SOURCESHORT:OpenSpells|SOURCEWEB:http://www.creativemountaingames.com
+# Original entry by: Barak
+
+# Spell Name		Output Name
+Acid Arrow.MOD		OUTPUTNAME:Ms [NAME]
+Black Tentacles.MOD	OUTPUTNAME:Es [NAME]
+Clenched Fist.MOD		OUTPUTNAME:Bs [NAME]
+Crushing Hand.MOD		OUTPUTNAME:Bs [NAME]
+Disjunction.MOD		OUTPUTNAME:Ms [NAME]
+Faithful Hound.MOD	OUTPUTNAME:Ms [NAME]
+Floating Disk.MOD		OUTPUTNAME:Ts [NAME]
+Forceful Hand.MOD		OUTPUTNAME:Bs [NAME]
+Freezing Sphere.MOD	OUTPUTNAME:Os [NAME]
+Grasping Hand.MOD		OUTPUTNAME:Bs [NAME]
+Hideous Laughter.MOD	OUTPUTNAME:Ts [NAME]
+Instant Summons.MOD	OUTPUTNAME:Ds [NAME]
+Interposing Hand.MOD	OUTPUTNAME:Bs [NAME]
+Irresistible Dance.MOD	OUTPUTNAME:Os [NAME]
+Lucubration.MOD		OUTPUTNAME:Ms [NAME]
+Magic Aura.MOD		OUTPUTNAME:Ns [NAME]
+Magnificent Mansion.MOD	OUTPUTNAME:Ms [NAME]
+Mnemonic Enhancer.MOD	OUTPUTNAME:Rs [NAME]
+Resilient Sphere.MOD	OUTPUTNAME:Os [NAME]
+Secret Chest.MOD		OUTPUTNAME:Ls [NAME]
+Secure Shelter.MOD	OUTPUTNAME:Ls [NAME]
+Sword.MOD			OUTPUTNAME:Ms [NAME]
+Telekinetic Sphere.MOD	OUTPUTNAME:Os [NAME]
+Telepathic Bond.MOD	OUTPUTNAME:Rs [NAME]
+Tiny Hut.MOD		OUTPUTNAME:Ls [NAME]
+Transformation.MOD	OUTPUTNAME:Ts [NAME]
+Trap.MOD			OUTPUTNAME:Ls [NAME]
+Undetectable Aura.MOD	OUTPUTNAME:Ns [NAME]

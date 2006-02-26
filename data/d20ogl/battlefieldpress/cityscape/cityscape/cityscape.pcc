@@ -1,0 +1,58 @@
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $ -- Fri Aug  2 15:58:40 2002 -- reformated by prettylst.pl v1.17 (build 171)
+CAMPAIGN:Cityscape
+GAMEMODE:3e
+TYPE:Battlefield Press.Sourcebook
+RANK:9
+SOURCELONG:Battlefield Press - Cityscape
+SOURCESHORT:Cityscape
+SOURCEWEB:http://battlefieldpress.com
+ISLICENSED:YES
+LICENSE:Limited License for use of Goodies and Product Identity (PI) in Goodies: Battlefield Press, Inc. grants other OGL publishers a non-exclusive, irrevocable, royalty free limited license to use the goodies and the PI elements that appear in the names of races, spells, feats, skills, and classes. The use of PI elements is limited solely to using these PI elements in the goodies themselves and for no other use.
+ISOGL:YES
+COPYRIGHT:System Reference Document Copyright 2000, Wizard of the Coast, Inc.
+COPYRIGHT:Grim-n-Gritty Hit Point and Combat Rules Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Skills-n-Feats Martial Arts System Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Firearm Mechanics Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Skills-n-Feats Psionics System Copyright 2001 Kenneth S. Hood
+COPYRIGHT:Relics and Rituals Copyright 2000, Clark Peterson
+COPYRIGHT:Creature Collection Copyright 2000, Clark Peterson
+COPYRIGHT:Weird Wars, Weird Wars Two Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Magus Copyright 2001, Hector Hernandez
+COPYRIGHT:Swashbuckler Copyright 2001, Felix Lim, Jr.
+COPYRIGHT:Spycraft Copyright 2001, Alderac Entertainment Group, Inc
+COPYRIGHT:Forbidden Kingdoms, Copyright 2002, Otherworld Creations, Inc.
+COPYRIGHT:Dragonlords of Melnibone' Copyright 2001, Chaosium, Inc.
+COPYRIGHT:Sovereign Stone Campaign Setting Copyright 2001, Sovereign Press, Inc.
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight, Inc.
+COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight, Inc.
+COPYRIGHT:Super-powered D20 Rules for Heroes Copyright 2001, Paul Arden Lidburg
+COPYRIGHT:Cityscape: City on the Nexus of the Omniverse Copyright 2002, Battlefield Press, Inc.
+COPYRIGHT:PCGen dataset conversion for Cityscape: City on the Nexus of the Omniverse Copyright 2002-2003, PCgen Data Team including, but not limited to, Rob Reed (Mynex), Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+SPELL:@\d20ogl\srd\srd_spells.lst
+SPELL:@\d20ogl\fantasyflightgames\dragonstar\starfarershandbook\starfarershb_spells.lst
+SKILL:cityscapeskills.lst
+EQUIPMENT:@\d20ogl\srd\srd_equip.lst
+FEAT:@\d20ogl\srd\srd_feats.lst
+FEAT:@\d20ogl\fantasyflightgames\dragonstar\starfarershandbook\starfarershb_feats.lst|(INCLUDE:Born Spacer|Hacker|High-G Tolerance|Gunner's Eye|Low-G Tolerance|Remote Operation|Space Jockey|Zero-G Tolerance)
+FEAT:cityscapefeats.lst
+FEAT:@\d20ogl\srd\srd_feats_hidden.lst
+FEAT:cityscapeclassfeats.lst
+RACE:cityscaperaces.lst
+LANGUAGE:cityscapelanguages.lst
+CLASS:@\d20ogl\srd\srd_classes_base.lst|(INCLUDE:Fighter|Rogue)
+CLASS:cityscapeclasses.lst
+TEMPLATE:cityscapetemplates.lst
+WEAPONPROF:cityscapeweapprofs.lst
+EQUIPMENT:cityscapeequip.lst
+EQUIPMENT:cityscapeequiparmorshields.lst
+EQUIPMENT:cityscapeequipweapammo.lst
+EQUIPMENT:cityscapeequipweapmelee.lst
+EQUIPMENT:cityscapeequipweapranged.lst
+EQUIPMOD:cityscapeequipmods.lst
+BIOSET:cityscapebiosettings.lst

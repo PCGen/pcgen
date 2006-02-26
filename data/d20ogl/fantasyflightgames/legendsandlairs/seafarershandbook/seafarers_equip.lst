@@ -1,0 +1,70 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 20 19:16:13 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+###Block: Equipment
+
+# Equipment Name			Output Name					Type								Contains						Cost		Weight	Slot Needed	Source Page		Multiply base more		Bonus to skill
+Aquatic Quiver									TYPE:Goods.Container.General.Aquatic		CONTAINS:20|Arrow=20|Bolt=20|Total=20	COST:5	WT:1				SOURCEPAGE:p.24
+Disquise Kit (Waterproof)	OUTPUTNAME:Disquise Kit, Waterproof	TYPE:Goods.Tools.Resizable.Aquatic										COST:250	WT:8				SOURCEPAGE:p.24						BONUS:SKILL|Disguise|2
+Goggles (Swimming)		OUTPUTNAME:Goggles, Swimming		TYPE:Goods.General.Resizable.Aquatic.Eyegear								COST:5	WT:1				SOURCEPAGE:p.24
+Sailor's Wax									TYPE:Goods.Alchemical.Aquatic											COST:10	WT:-				SOURCEPAGE:p.24
+Swimming Gear (Gloves)								TYPE:Goods.General.Resizable.Aquatic.Glove								COST:50	WT:1		SLOTS:2	SOURCEPAGE:p.24						BONUS:SKILL|Swim|1	BONUS:SKILL|Disable Device,Open Lock,Pick Pocket|-2
+Swimming Gear (Flippers)							TYPE:Goods.General.Resizable.Aquatic.Boot									COST:50	WT:1		SLOTS:2	SOURCEPAGE:p.24	BONUS:MOVEMULT|TYPE=Walk|.5	BONUS:SKILL|Swim|1
+
+###Block: Underwave Equipment
+
+# Equipment Name			Output Name						Type										Cost		Weight	Source Page
+Acid bulb											TYPE:Goods.Alchemical.Aquatic						COST:90	WT:.25	SOURCEPAGE:p.27
+Glowmold Lantern (Hooded)	OUTPUTNAME:Glowmold Lantern, Hooded		TYPE:Goods.General.Resizable.Aquatic				COST:15	WT:3		SOURCEPAGE:p.28
+Glowmold Lantern (Bullseye)	OUTPUTNAME:Glowmold Lantern, Bullseye	TYPE:Goods.General.Resizable.Aquatic				COST:15	WT:3		SOURCEPAGE:p.28
+Glowmold fuel										TYPE:Goods.General.Aquatic						COST:.3	WT:.25	SOURCEPAGE:p.28
+Jellyfish paste										TYPE:Goods.General.Aquatic						COST:360	WT:-		SOURCEPAGE:p.28
+Spell shell											TYPE:Goods.General.Writing.Documents.Resizable.Aquatic	COST:5	WT:.5		SOURCEPAGE:p.29
+
+###Block: Siege Engines
+
+# Equipment Name	Type					Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
+Bomb (Acid)		TYPE:Goods.Siege Engines	COST:250	CRITMULT:-			CRITRANGE:1			DAMAGE:4d6	RANGE:200	SOURCEPAGE:p.105
+Bomb (Fire)		TYPE:Goods.Siege Engines	COST:300	CRITMULT:-			CRITRANGE:1			DAMAGE:5d6	RANGE:200	SOURCEPAGE:p.105
+Bomb (Shrapnel)	TYPE:Goods.Siege Engines	COST:200	CRITMULT:-			CRITRANGE:1			DAMAGE:2d6	RANGE:200	SOURCEPAGE:p.105
+Cannon		TYPE:Goods.Siege Engines	COST:5000	CRITMULT:-			CRITRANGE:1			DAMAGE:6d6	RANGE:300	SOURCEPAGE:p.105
+
+###Block: Ship Castles
+
+# Equipment Name				Type					Cost		Source Page
+Ship Castle (Wood)			TYPE:Goods.Siege Engines	COST:500	SOURCEPAGE:p.105
+Ship Castle (Stone)			TYPE:Goods.Siege Engines	COST:1000	SOURCEPAGE:p.105
+Ship Castle (Stone)(Reinforced)	TYPE:Goods.Siege Engines	COST:1500	SOURCEPAGE:p.105
+Ship Castle (Iron)			TYPE:Goods.Siege Engines	COST:3000	SOURCEPAGE:p.105
+Ship Castle (Mithral)			TYPE:Goods.Siege Engines	COST:5000	SOURCEPAGE:p.105
+Ship Castle (Adamantite)		TYPE:Goods.Siege Engines	COST:6000	SOURCEPAGE:p.105
+
+###Block: Hull Types
+
+# Equipment Name		Type								Contains		Cost		MODS		Size		Source Page
+Ship Hull (Small)		TYPE:Goods.Transportation.Ships.Container.Hull	CONTAINS:500	COST:50	MODS:YES	SIZE:S	SOURCEPAGE:p.102
+Ship Hull (Medium)	TYPE:Goods.Transportation.Ships.Container.Hull	CONTAINS:1000	COST:350	MODS:YES	SIZE:M	SOURCEPAGE:p.102
+Ship Hull (Large)		TYPE:Goods.Transportation.Ships.Container.Hull	CONTAINS:17920	COST:700	MODS:YES	SIZE:L	SOURCEPAGE:p.102
+Ship Hull (Huge)		TYPE:Goods.Transportation.Ships.Container.Hull	CONTAINS:22400	COST:5000	MODS:YES	SIZE:H	SOURCEPAGE:p.102
+Ship Hull (Gargantuan)	TYPE:Goods.Transportation.Ships.Container.Hull	CONTAINS:336000	COST:10000	MODS:YES	SIZE:G	SOURCEPAGE:p.102
+Ship Hull (Colossal)	TYPE:Goods.Transportation.Ships.Container.Hull	CONTAINS:448000	COST:15000	MODS:YES	SIZE:C	SOURCEPAGE:p.102
+
+
+###Block: Propultion Systems
+
+# Equipment Name			Type							Cost		Source Page
+Sail (Small)			TYPE:Goods.Transportation.Ships.Extra	COST:25	SOURCEPAGE:p.103
+Sail (Medium)			TYPE:Goods.Transportation.Ships.Extra	COST:50	SOURCEPAGE:p.103
+Sail (Large)			TYPE:Goods.Transportation.Ships.Extra	COST:100	SOURCEPAGE:p.103
+Towing Harness (Medium)		TYPE:Goods.Transportation.Ships.Extra	COST:100	SOURCEPAGE:p.103
+Towing Harness (Huge)		TYPE:Goods.Transportation.Ships.Extra	COST:200	SOURCEPAGE:p.103
+Towing Harness (Colossal)	TYPE:Goods.Transportation.Ships.Extra	COST:300	SOURCEPAGE:p.103
+Engine (Steam)			TYPE:Goods.Transportation.Ships.Extra	COST:50000	SOURCEPAGE:p.103
+
+Oars (set) (Small)		TYPE:Goods.Transportation.Ships.Extra	COST:5	SOURCEPAGE:p.103
+Oars (set) (Medium)		TYPE:Goods.Transportation.Ships.Extra	COST:15	SOURCEPAGE:p.103
+Oars (set) (Large)		TYPE:Goods.Transportation.Ships.Extra	COST:25	SOURCEPAGE:p.103
+Oars (set) (Huge)			TYPE:Goods.Transportation.Ships.Extra	COST:35	SOURCEPAGE:p.103
+Oars (set) (Gargantuan)		TYPE:Goods.Transportation.Ships.Extra	COST:45	SOURCEPAGE:p.103
+Oars (set) (Colossal)		TYPE:Goods.Transportation.Ships.Extra	COST:65	SOURCEPAGE:p.103

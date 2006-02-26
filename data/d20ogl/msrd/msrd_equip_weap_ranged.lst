@@ -1,0 +1,13 @@
+# CVS $Revision: 1.5 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Other Ranged Weapons
+# Equipment Name	Required Proficiency		Type											Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page							Weapon prop. bonus					Special Property			Rate of Fire
+Compound Bow	PROFICIENCY:Compound Bow	TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1	COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:40	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:WEAPON|DAMAGE|STR					SPROP:1 Arrow			RATEOFFIRE:1
+Crossbow		PROFICIENCY:Crossbow		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Bolt=1	COST:9	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:1 Bolt			RATEOFFIRE:1
+Flamethrower	PROFICIENCY:Flamethrower	TYPE:Weapon.Simple.Ranged.Fire										COST:17	WT:50		CRITMULT:-			CRITRANGE:0			DAMAGE:3d6	RANGE:-	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:Magazine 10,Mil(+3)	RATEOFFIRE:1
+Javelin		PROFICIENCY:Javelin		TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden						COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:30	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf														RATEOFFIRE:1
+Pepper Spray	PROFICIENCY:Pepper Spray	TYPE:Weapon.Simple.Ranged.Standard.Special								COST:5	WT:.5		CRITMULT:-			CRITRANGE:0			DAMAGE:0	RANGE:5	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:1 int.			RATEOFFIRE:1
+Shuriken		PROFICIENCY:Shuriken		TYPE:Weapon.Archaic.Ranged.Piercing.Thrown.Standard.Metal						COST:3	WT:.5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:WEAPON|DAMAGE|-STR									RATEOFFIRE:1
+Taser			PROFICIENCY:Taser			TYPE:Weapon.Simple.Ranged.Standard.Electricity								COST:7	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:1d4	RANGE:5	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf									SPROP:1 int, Paralyze DC15	RATEOFFIRE:1
+Whip			PROFICIENCY:Whip			TYPE:Weapon.Simple.Ranged.Slashing.Standard								COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:15	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:WEAPON|TOHIT|1|PREFEAT:1,Point Blank Shot						RATEOFFIRE:1

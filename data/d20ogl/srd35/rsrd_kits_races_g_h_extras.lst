@@ -1,0 +1,60 @@
+# CVS $Revision: 1.4 $ $Author: boomer70 $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Frost Giant Jarl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Frost)]
+RACE:Giant (Frost)	!PRERACE:%
+NAME:Frost Giant Jarl
+STAT:STR=14|DEX=14|CON=12|INT=10|WIS=8|CHA=18
+ALIGN:CE
+SKILL:Hide				RANK:5
+SKILL:Knowledge (Religion)	RANK:2
+SKILL:Climb				RANK:9
+SKILL:Jump				RANK:7
+SKILL:Spot				RANK:4
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Improved Sunder
+CLASS:Blackguard	LEVEL:8
+SKILL:Climb				RANK:2
+SKILL:Ride				RANK:11
+SKILL:Hide				RANK:6
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Quick Draw
+GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Blackguard|Bull's Strength|Cause Fear|Doom|Magic Weapon
+
+STARTPACK:Harpy Archer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Harpy]
+RACE:Harpy	!PRERACE:%
+NAME:Harpy Archer
+STAT:STR=12|DEX=16|CON=14|INT=10|WIS=9|CHA=13
+ALIGN:CE
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Improved Initiative
+SKILL:Spot			RANK:3
+SKILL:Perform (Oratory)	RANK:6
+SKILL:Bluff			RANK:1
+CLASS:Fighter	LEVEL:7
+SKILL:Bluff				RANK:2
+SKILL:Intimidate		RANK:1
+SKILL:Listen		RANK:1
+LEVELABILITY:Fighter=1	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Focus(Longbow)
+LEVELABILITY:Fighter=2	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Point Blank Shot
+FEAT:Rapid Shot
+LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization(Longbow)
+FEAT:Improved Critical(Longbow)
+LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Manyshot
+GEAR:Studded Leather			SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+GEAR:Longbow (Composite)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FROST_R.BOWSTR|1
+GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried	EQMOD:C_IRON
+GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried	EQMOD:ALCHM
+GEAR:Arrow					QTY:5	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS2W
+GEAR:Bracers of Archery (Lesser)	SIZE:PC	LOCATION:Equipped
+GEAR:Potion (Cat's Grace)		SIZE:PC	LOCATION:Carried
+GEAR:Potion (Cure Moderate Wounds)	SIZE:PC	LOCATION:Carried
+GEAR:Cloak of Resistance +2		SIZE:PC	LOCATION:Equipped
+GEAR:Ring (Protection +1)		SIZE:PC	LOCATION:Equipped

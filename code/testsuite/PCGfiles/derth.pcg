@@ -1,0 +1,20 @@
+CAMPAIGNS:ROGs Campaign:WotC - DnD Core Rules I - Players Hand Book:WotC - DnD Core Rules II - Dungeon Masters Guide:WotC - DnD Supplement - Defenders of the Faith:WotC - DnD Supplement - Song and Silence:WotC - DnD Supplement - Sword and Fist:WotC - DnD Supplement - Tome and Blood:
+VERSION:2.4.3
+Derth:
+19:13:16:12:13:14:0:0
+Fighter:None :None :9:7:7:7:7:7:8:7:5:1:0:None:
+Blind-Fight:0:Cleave:0:Exotic Weapon Proficiency:3:Kusari-Gama:Waraxe (Dwarven):Kusari-gama:Great Cleave:0:Improved Critical:1:Waraxe (Dwarven):Improved Initiative:0:Power Attack:0:Weapon Focus:1:Waraxe (Dwarven):Weapon Specialization:1:Waraxe (Dwarven):
+Climb:12.0:2:None:9.0:Fighter:3.0:Jump:12.0:2:None:9.0:Fighter:3.0:Swim:12.0:2:None:9.0:Fighter:3.0:
+Moradin:
+Dwarf:0:58:100:57:M:Right
+
+Common:Dwarven:Literacy:
+Armor Spikes:Armor spikes:Axe:Axe (Throwing):Battleaxe:Bite:Blowgun:Claw:Club:Crossbow (Heavy):Crossbow (Light):Dagger:Dagger (Punching):Dagger (Thrown):Dart:Falchion:Flail (Heavy):Flail (Light):Gauntlet:Gauntlet (Spiked):Glaive:Greataxe:Greatclub:Guisarme:Halberd:Halfspear:Hammer (Light):Handaxe:Javelin:Kusari-Gama:Kusari-gama:Lance (Heavy):Lance (Light):Longbow:Longbow (Composite):Longspear:Mace (Heavy):Mace (Light):Morningstar:Pick (Heavy):Pick (Light):Quarterstaff:Ranseur:Rapier:Sap:Scimitar:Scythe:Shieldbash:Shortbow:Shortbow (Composite):Shortspear:Sickle:Sling:Sword (Bastard/2-H):Sword (Great):Sword (Long):Sword (Short):Trident:Unarmed Strike:Waraxe (Dwarven):Warhammer:
+0:0
+White : :Brown : : : : :Reverent or pious :Careless : : : :
+Amulet of Health +2 :1.0:Y:1.0:Neither:Arrow :10.0:N:10.0:Neither:Arrow;M;AMMOMW;None :25.0:N:25.0:Neither:Battleaxe;M;Icy Burst.WEAP+1.WEAPMW;None :1.0:N:1.0:Neither:Belt of Giant Strength +4 :1.0:Y:1.0:Neither:Boots of Speed :1.0:Y:1.0:Neither:Crossbow (Light) :1.0:N:1.0:Neither:Full Plate;M;ANTIPATY.ARMR+4.ARMRMW;None :1.0:Y:1.0:Neither:Longbow (+4 Mighty/Composite) :1.0:N:1.0:Neither:Potion (Blur) :1.0:N:1.0:Neither:Potion (Cat's Grace) :1.0:N:1.0:Neither:Potion (Cure Serious Wounds) :1.0:N:1.0:Neither:Potion (Fire Breath) :1.0:N:1.0:Neither:Ring (Water Walking) :1.0:Y:1.0:Neither:Ring +2 (Protection) :1.0:Y:1.0:Neither:Shield (Large/Steel);M;ARMFORL.ARMR+2.ARMRMW;None :1.0:Y:1.0:Off-hand:Waraxe (Dwarven);M;Keen.Shocking Burst.WEAP+2.WEAPMW;None :1.0:Y:1.0:Primary:
+13675.00:                         :                         :
+Fighter:
+36000:Silver brooch set with Amethyst (600gp) : : :0:0:
+Fighter:
+TEMPLATE:

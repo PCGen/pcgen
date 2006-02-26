@@ -1,0 +1,10 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Sep  2 23:01:13 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+# Equipment Name	Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus										Bonus to skill
+Sharkskin		TYPE:Magic.Armor.Light.Standard.Suit.Specific.Aquatic	COST:11160	WT:20		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.43	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Enhancement	BONUS:COMBAT|DAMAGE.Piercing|2	BONUS:SKILL|Swim|10|TYPE=Enhancement
+
+#
+# end
+#

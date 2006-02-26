@@ -1,0 +1,59 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
+# Original entry by Ratheof Blithwyn
+CAMPAIGN:FFG - Dawnforge - Campaign setting
+GAMEMODE:35e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Fantasy Flight Games.Dawnforge
+RANK:5
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
+SOURCELONG:Dawnforge
+SOURCESHORT:DF
+SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Path of the Sword Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Tournaments, Fairs, and Taverns, Copyright 2002, Natural 20 Press
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural 20 Press
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Open Game Content from The Tide of Years Copyright 2001, Michelle A. Brown Nephew
+COPYRIGHT:Seafarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Dawnforge Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for Dawnforge Copyright 2004-2005, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn),Eddy Anthony, Andrew McDougall (Tir Gwaith), Tod W. Milam)
+
+INFOTEXT:Dawnforge campaign setting, load with Core Rules for the 3.5 revised edition. Racial progression NOT automatic, add appropriate template for each level.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:HowTo.txt
+
+
+RACE:dawnforge_races.lst
+BIOSET:dawnforge_biosettings.lst
+LANGUAGE:dawnforge_languages.lst
+TEMPLATE:dawnforge_templates_races.lst
+TEMPLATE:dawnforge_templates_hidden.lst
+FEAT:dawnforge_feats_races.lst
+
+TEMPLATE:dawnforge_templates.lst
+
+CLASS:dawnforge_classes.lst
+FEAT:dawnforge_feats.lst
+FEAT:dawnforge_feats_hidden.lst
+
+CLASS:dawnforge_classes_legendary.lst
+FEAT:dawnforge_feats_hidden_legendary.lst
+
+EQUIPMENT:dawnforge_equip_shields.lst
+EQUIPMENT:dawnforge_equip_weap.lst
+WEAPONPROF:dawnforge_weaponprofs.lst
+WEAPONPROF:dawnforge_weaponprofs_natural.lst
+
+#EQUIPMENT:dawnforge_equip.lst
+#SKILL:dawnforge_skills.lst
+#SPELL:dawnforge_spells.lst

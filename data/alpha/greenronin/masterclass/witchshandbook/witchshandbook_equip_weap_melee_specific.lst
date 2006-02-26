@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec  1 21:27:22 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Ratheof Blithwyn
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+# Equipment Name	Required Proficiency	Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus					Special Property
+Witch's Dagger	PROFICIENCY:Dagger	TYPE:Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger	COST:56000	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL.GHOST_M	WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.41	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:Able to wound spirits and other incorporeal creatures. Dispel Magic 3/day. Loses power if used to cut anything material.

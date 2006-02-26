@@ -1,0 +1,8 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Mar  2 20:33:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fort Griffin Echo Vol. 1 No. 1|SOURCESHORT:FGE1-1|SOURCEWEB:http://www.doghouserules.net/echo/index.html
+# Original Entry by: Lone Jedi
+
+###Block: Firearm
+# Equipment Name			Type				Cost		Weight	Base Quantity	Source Page
+Ammunition of Ricochet		TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 33
+Ammunition of Ricochet (20)	TYPE:Ammunition.Firearm	COST:10	WT:0		BASEQTY:20		SOURCEPAGE:p. 33

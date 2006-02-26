@@ -1,0 +1,48 @@
+# CVS $Revision: 1.4 $ $Author: mhgj $ -- Thu Jun 16 22:06:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: TaluronIscandar
+
+#Psicrystal personalities
+# Feat Name				Type					Visible	Define							Save checks bonus			Combat bonus			Bonus to HP						Bonus to skill			Modify VAR																															Source Page
+Psicrystal (Artiste)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|TYPE.Craft|3																																	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Bully)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Intimidate|3																																	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Coward)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Hide|3																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Friendly)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Diplomacy|3																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Hero)			TYPE:PsicrystalPersonality	VISIBLE:NO									BONUS:CHECKS|Fortitude|2																																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Liar)			TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Bluff|3																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Meticulous)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Search|3																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Nimble)		TYPE:PsicrystalPersonality	VISIBLE:NO														BONUS:COMBAT|INITIATIVE|2																																													SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Observant)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Spot|3																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Poised)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Balance|3																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Resolved)		TYPE:PsicrystalPersonality	VISIBLE:NO									BONUS:CHECKS|Willpower|2																																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sage)			TYPE:PsicrystalPersonality	VISIBLE:NO																																																															SOURCEPAGE:PsionicClasses.rtf
+#	BONUS:SKILLPOOL|NUMBER|3
+# BONUS:SKILLPOOL|NUMBER is only valid in class.lst.
+Psicrystal (Single Minded)	TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Concentration|3																																	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sneaky)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Move Silently|3																																	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sympathetic)	TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Sense Motive|3																																	SOURCEPAGE:PsionicClasses.rtf
+
+#count feat for Psionic Talent: workaround for COUNT[FEATNAME bug
+Psionic Talent Power Points	TYPE:PsiTalentPP			VISIBLE:NO	DEFINE:PsiTalentCount|1	DEFINE:PsiTalentBonus|0																							BONUS:VAR|PsiTalentCount|COUNT[FEATNAME=Psionic Talent]	BONUS:VAR|PsiTalentBonus|(-1 +(.5*PsiTalentCount) + (.5*(PsiTalentCount*PsiTalentCount)))	BONUS:VAR|BasePowerPoints|PsiTalentBonus	SOURCEPAGE:PsionicFeats.rtf
+Psionic Body Hit Points		TYPE:PsiBodyHP			VISIBLE:NO	DEFINE:PsiFeatCount|0															BONUS:HP|CURRENTMAX|(2*PsiFeatCount)						BONUS:VAR|PsiFeatCount|COUNT[FEATTYPE=Psionic]																									SOURCEPAGE:PsionicFeats.rtf
+
+#Weapon Proficiencies for .MOD capabilities in classes.
+# See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
+###Block: Weapon proficiencies
+# Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
+Psion Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
+
+###Block: Mind Blade abilities
+# Feat Name				Type			Visible	Special Ability							Define																Automaticaly Gained Weapon Prof.	Modify VAR
+MindBlade Wielder			TYPE:Special	VISIBLE:NO										DEFINE:MindBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0	AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MindBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MindBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MindBladeECL+1)/4)
+MindBlade Standard		TYPE:Special	VISIBLE:NO	SA:Mind Blade
+MindBlade Throw			TYPE:Special	VISIBLE:NO	SA:Throw Mind Blade
+MindBlade Psychic Strike	TYPE:Special	VISIBLE:NO	SA:Psychic Strike (+%d8)|PsychicStrike
+MindBlade Plus			TYPE:Special	VISIBLE:NO	SA:+% Mind Blade|MindBladePlus
+MindBlade Free Draw		TYPE:Special	VISIBLE:NO	SA:Draw Mind Blade as free action
+MindBlade Shape			TYPE:Special	VISIBLE:NO	SA:Shape Mind Blade
+MindBlade Enhancement		TYPE:Special	VISIBLE:NO	SA:Mind Blade Enhancement +%|MindBladeEnhancement
+MindBlade Bladewind		TYPE:Special	VISIBLE:NO	SA:Bladewind
+MindBlade Knife to the Soul	TYPE:Special	VISIBLE:NO	SA:Knife to the Soul
+MindBlade Multiple Throw	TYPE:Special	VISIBLE:NO	SA:Multiple Throw
+

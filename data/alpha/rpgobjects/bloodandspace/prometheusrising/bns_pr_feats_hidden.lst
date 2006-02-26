@@ -1,0 +1,50 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jan 12 21:48:08 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Blood and Space - Prometheus Rising|SOURCESHORT:BnS-PR|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+
+# Feat Name					Type						Visible	Required Feat				Prohibited Feat			Required Race		Special Ability		Define		Choose a Feat				Save checks bonus			Modify VAR
+Psyche					TYPE:Special				VISIBLE:NO																SA:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
+
+Human Computer Fortitude		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Fortitude|INT
+Human Computer Reflex			TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Reflex|INT
+Human Computer Willpower		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Willpower|INT
+
+Sensitive Base Psioninc			TYPE:SensitiveAwakening			VISIBLE:NO							!PREFEAT:3,TYPE=BasePsionic												ADD:FEAT(TYPE=BasePsionic)
+Sensitive Psionic				TYPE:SensitiveAwakening			VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic																		ADD:FEAT(TYPE=PsionicPowerFeat)
+
+Xeno Archaelogist Reputation		TYPE:XenoMajorDiscovery			VISIBLE:NO																																		BONUS:VAR|Reputation|3
+Xeno Archaelogist Wealth		TYPE:XenoMajorDiscovery			VISIBLE:NO																																		BONUS:VAR|WealthBonus|3
+
+Astronomer Bonus Acadmeic Skill	TYPE:AstronomerPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Academic)						PRERACE:Astronomer								ADD:FEAT(TYPE=Academic_Skills)
+Astronomer Bonus Doctor Skill		TYPE:AstronomerPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Doctor)							PRERACE:Astronomer								ADD:FEAT(TYPE=Doctor_Skills)
+Astronomer Bonus Technicial Skill	TYPE:AstronomerPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Technician)						PRERACE:Astronomer								ADD:FEAT(TYPE=Technician_Skills)
+Astronomer Bonus Reputation		TYPE:AstronomerPreferredOccupation	VISIBLE:NO												PRERACE:Astronomer																			BONUS:VAR|Reputation|1
+Astronomer Bonus Wealth			TYPE:AstronomerPreferredOccupation	VISIBLE:NO												PRERACE:Astronomer																			BONUS:VAR|WealthBonus|1
+
+Earther Bonus Celebrity Skill		TYPE:EartherPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Celebrity)						PRERACE:Earther									ADD:FEAT(TYPE=Celebrity_Skills)
+Earther Bonus Dilettante Skill	TYPE:EartherPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Dilettante)						PRERACE:Earther									ADD:FEAT(TYPE=Dilettante_Skills)
+Earther Bonus White Collar Skill	TYPE:EartherPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (White Collar)						PRERACE:Earther									ADD:FEAT(TYPE=White_Collar_Skills)
+Earther Bonus Reputation		TYPE:EartherPreferredOccupation	VISIBLE:NO												PRERACE:Earther																				BONUS:VAR|Reputation|1
+Earther Bonus Wealth			TYPE:EartherPreferredOccupation	VISIBLE:NO												PRERACE:Earther																				BONUS:VAR|WealthBonus|1
+
+Euro Bonus Doctor Skill			TYPE:EuroPreferredOccupation		VISIBLE:NO	PREFEAT:1,Occupation (Doctor)							PRERACE:Europan									ADD:FEAT(TYPE=Doctor_Skills)
+Euro Bonus Psychic Skill		TYPE:EuroPreferredOccupation		VISIBLE:NO	PREFEAT:1,Occupation (Psychic)						PRERACE:Europan									ADD:FEAT(TYPE=Religious_Skills)
+Euro Bonus Religioius Skill		TYPE:EuroPreferredOccupation		VISIBLE:NO	PREFEAT:1,Occupation (Religious)						PRERACE:Europan									ADD:FEAT(TYPE=Psychic_Skills)
+Euro Bonus Reputation			TYPE:EuroPreferredOccupation		VISIBLE:NO												PRERACE:Europan																				BONUS:VAR|Reputation|1
+Euro Bonus Wealth				TYPE:EuroPreferredOccupation		VISIBLE:NO												PRERACE:Europan																				BONUS:VAR|WealthBonus|1
+
+Hopper Bonus Colonist Skill		TYPE:HopperPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Colonist)						PRERACE:Hopper									ADD:FEAT(TYPE=Colonist_Skills)
+Hopper Bonus Criminal Skill		TYPE:HopperPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Criminal)						PRERACE:Hopper									ADD:FEAT(TYPE=Criminal_Skills)
+Hopper Bonus Gladiator Skill		TYPE:HopperPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Gladiator)						PRERACE:Hopper									ADD:FEAT(TYPE=Gladiator_Skills)
+Hopper Bonus Reputation			TYPE:HopperPreferredOccupation	VISIBLE:NO												PRERACE:Hopper																				BONUS:VAR|Reputation|1
+Hopper Bonus Wealth			TYPE:HopperPreferredOccupation	VISIBLE:NO												PRERACE:Hopper																				BONUS:VAR|WealthBonus|1
+
+Mauler Bonus Gladiator Skill		TYPE:MaulerPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Gladiator)						PRERACE:Mauler									ADD:FEAT(TYPE=Gladiator_Skills)
+Mauler Bonus Military Skill		TYPE:MaulerPreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Military)						PRERACE:Mauler									ADD:FEAT(TYPE=Military_Skills)
+Mauler Bonus Reputation			TYPE:MaulerPreferredOccupation	VISIBLE:NO												PRERACE:Mauler																				BONUS:VAR|Reputation|1
+Mauler Bonus Wealth			TYPE:MaulerPreferredOccupation	VISIBLE:NO												PRERACE:Mauler																				BONUS:VAR|WealthBonus|1
+
+Menome Bonus Academic Skill		TYPE:MenomePreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Academic)						PRERACE:Menome									ADD:FEAT(TYPE=Academic_Skills)
+Menome Bonus Military Skill		TYPE:MenomePreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Military)						PRERACE:Menome									ADD:FEAT(TYPE=Military_Skills)
+Menome Bonus Technician Skill		TYPE:MenomePreferredOccupation	VISIBLE:NO	PREFEAT:1,Occupation (Technician)						PRERACE:Menome									ADD:FEAT(TYPE=Technician_Skills)
+Menome Bonus Reputation			TYPE:MenomePreferredOccupation	VISIBLE:NO												PRERACE:Menome																				BONUS:VAR|Reputation|1
+Menome Bonus Wealth			TYPE:MenomePreferredOccupation	VISIBLE:NO												PRERACE:Menome																				BONUS:VAR|WealthBonus|1

@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Feb  9 01:12:14 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Quests|SOURCESHORT:Quests|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+
+# armor modifiers
+# Modifier Name	Unique Key		Type				Plus		Visible		Source Page		Required Type
+Suppression		KEY:SUPPRESSION	TYPE:Armor			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.8	PRETYPE:Enhancement
+
+# weapon modifiers
+Corrupting		KEY:CORRUPTING	TYPE:Ammuition.Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.8	PRETYPE:Enhancement
+Corrupted		KEY:CORRUPTED	TYPE:Ammuition.Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.9	PRETYPE:Enhancement
+Honorable		KEY:HONORABLE	TYPE:Ammuition.Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.9	PRETYPE:Enhancement
+Redeeming		KEY:REDEEMING	TYPE:Ammuition.Weapon	PLUS:5	VISIBLE:QUALIFY	SOURCEPAGE:p.9	PRETYPE:Enhancement

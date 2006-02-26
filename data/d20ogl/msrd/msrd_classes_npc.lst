@@ -1,0 +1,168 @@
+# CVS $Revision: 1.12 $ $Author: frank_kliewe $ -- Fri Feb  3 22:41:03 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Corrected a bunch to standard.. - Tir Gwaith
+#added class Construct (Possessed) for use with possessed constructs that gain Feats and Skills like Outsiders. - Frank Kliewe
+
+#added class Vermin (Sentient Swarm) for use with Sentient Swarms that gain Skills like Magical Beasts
+#added class Undead (unintelligent) for use with Undead with INT nonability that gain no Feats and no Skills - Frank Kliewe
+
+#Fixed Magical Beast special skill pool case, where INT < 3 results in skill pool advancement like animals - Frank Kliewe
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Aberration	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Animal	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Animal	PRERACETYPE:Animal
+# Class Name	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Animal	MODTOSKILLS:NO			MONSKILL:10
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Construct	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class				Reg. Race Type
+CLASS:Construct	!PRECLASS:1,Construct (Possessed)	PRERACETYPE:Construct
+# Class Name	Add INT to Skill Points?
+CLASS:Construct	MODTOSKILLS:NO
+
+# Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Construct (Possessed)	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class		Reg. Race Type
+CLASS:Construct (Possessed)	!PRECLASS:1,Construct	PRERACETYPE:Construct
+# Class Name			Skill Pts/Lvl
+CLASS:Construct (Possessed)	STARTSKILLPTS:8
+
+# Class Name	Hit Dice	Type			Source Page					Save checks bonus									Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Reg. Race Type
+CLASS:Dragon	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Elemental (Air/Fire)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class				Reg. Race Type
+CLASS:Elemental (Air/Fire)	!PRECLASS:1,Elemental (Earth/Water)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+
+# Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Elemental (Earth/Water)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class				Reg. Race Type
+CLASS:Elemental (Earth/Water)	!PRECLASS:1,Elemental (Air/Fire)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+
+# Class Name	Hit Dice	Type			Source Page					Save checks bonus												Combat bonus
+CLASS:Fey		HD:6		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2
+# Class Name	Reg. Race Type
+CLASS:Fey		PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Fey		STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
+1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Giant		PRERACETYPE:Giant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+max(1,INT)
+1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class							Reg. Race Type
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude),Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Humanoid	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
+2	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))
+
+# Class Name			Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Prohibited Class					Reg. Race Type
+CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid,Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Humanoid (Fortitude)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
+2	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))
+
+# Class Name		Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Prohibited Class						Reg. Race Type
+CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Humanoid (Will)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
+2	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))
+
+# Class Name		Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					Bonus to skill point for a level
+CLASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:SKILLPOOL|CLASS=Magical Beast;LEVEL=1|6|PREMULT:2,[PRESTAT:1,INT=2],[!PRESTAT:1,INT=3]	BONUS:SKILLPOOL|CLASS=Magical Beast;LEVEL=1|8|PREMULT:2,[PRESTAT:1,INT=1],[!PRESTAT:1,INT=2]
+# Class Name		Reg. Race Type
+CLASS:Magical Beast	PRERACETYPE:Magical Beast
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Magical Beast	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+2	REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|-1|!PRESTAT:1,INT=3
+
+# Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Ooze		HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Ooze		PRERACETYPE:Ooze
+# Class Name	Add INT to Skill Points?
+CLASS:Ooze		MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus									Combat bonus
+CLASS:Outsider	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Outsider	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
+1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Plant		HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Plant		PRERACETYPE:Plant
+# Class Name	Add INT to Skill Points?
+CLASS:Plant		MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Prohibited Class				Reg. Race Type
+CLASS:Undead	!PRECLASS:1,Undead (unintelligent)	PRERACETYPE:Undead
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Undead	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
+1	ADD:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)
+
+# Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Undead (unintelligent)	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Prohibited Class		Reg. Race Type
+CLASS:Undead (unintelligent)	!PRECLASS:1,Undead	PRERACETYPE:Undead
+# Class Name			Add INT to Skill Points?
+CLASS:Undead (unintelligent)	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class				Reg. Race Type
+CLASS:Vermin	!PRECLASS:1,Vermin (Sentient Swarm)	PRERACETYPE:Vermin
+# Class Name	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Vermin	MODTOSKILLS:NO			MONSKILL:10
+
+# Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Vermin (Sentient Swarm)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class		Reg. Race Type
+CLASS:Vermin (Sentient Swarm)	!PRECLASS:1,Vermin	PRERACETYPE:Vermin
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Vermin (Sentient Swarm)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE

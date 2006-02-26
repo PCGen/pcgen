@@ -1,0 +1,329 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME| - |PLAYERNAME| (|POOL.COST| Points) in Statblock Format</title>
+<!--
+	This format is designed to match the official WotC Statblock style 
+	as defined in the 3.5 Edition DMG (I)
+
+	10/05/2005 - James Dempsey
+	    Extensive work to make the stat block come closer to the WotC standard. 
+	     
+	8/1/2004 - Chuck Pint
+		Fixed problems with all possessions not listing.
+		Added spells per day for spell casters.
+
+$Revision: 1.10 $
+$Author: eddyanthony $
+$Date: 2006/01/17 02:12:57 $
+
+-->
+<style type="text/css">
+	body  { font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 0px; }
+	.header { display:block; font-size:7pt; text-align:center; }
+</style>
+</head>
+<body>
+<!--
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+-->
+<b>|NAME|:</b> |GENDER||RACE||%REGION| From |REGION|.|%| |CLASSLIST| ;
+CR |CR|; |SIZELONG| 
+|IIF(RACETYPE:None)|
+|TYPE|
+|ELSE|
+|RACETYPE|
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+; 
+|ELSE|
+ (
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|RACESUBTYPE.%subtype|, 
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|RACESUBTYPE.%subtype|
+|ENDFOR|
+); 
+|ENDIF|
+HD |HITDICE|; 
+|IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
+hp |HP|;
+|ELSE|
+vp |HP|; wp |ALTHP|;
+|ENDIF|
+Init |INITIATIVEMOD|;
+Spd |MOVEMENT|; AC |AC.Total|, touch |AC.Touch|, flat-footed |AC.Flatfooted|,
+Base Atk |ATTACK.MELEE|; Grp|ATTACK.GRAPPLE.TOTAL|;
+
+Atk:
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|WEAPON.%weap.TOTALHIT.0|
+|IIF(WEAPON.%weap.CATEGORY:Melee)|
+Melee
+|ENDIF|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+Ranged
+|ENDIF|
+(|WEAPON.%weap.DAMAGE|/|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|,
+|WEAPON.%weap.NAME|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+, Range |WEAPON.%weap.RANGE|
+|ENDIF|
+) or
+|ENDFOR|
+;
+Full Atk:
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|WEAPON.%weap.TOTALHIT|
+|IIF(WEAPON.%weap.CATEGORY:Melee)|
+Melee
+|ENDIF|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+Ranged
+|ENDIF|
+(|WEAPON.%weap.DAMAGE|/|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|,
+|WEAPON.%weap.NAME|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+, Range |WEAPON.%weap.RANGE|
+|ENDIF|
+) or
+|ENDFOR|
+;
+SA |SPECIALLIST|; SQ: |VISION|; AL: |ALIGNMENT.SHORT|;
+SV 
+|FOR,%checks,0,COUNT[CHECKS]-2,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will 
+|ELSE|
+|CHECK.%checks.NAME| 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|, 
+|ENDFOR|
+|FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will 
+|ELSE|
+|CHECK.%checks.NAME| 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|; 
+|ENDFOR|
+|FOR,%stat,0,COUNT[STATS]-2,1,1|
+|STAT.%stat.NAME|&nbsp;|STAT.%stat|, 
+|ENDFOR|
+|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
+|STAT.%stat.NAME|&nbsp;|STAT.%stat| 
+|ENDFOR|
+|FOR,%stat,0,COUNT[STATS]-2,1,1|
+|STAT.%stat.NAME| |STAT.%stat|,
+|ENDFOR|
+|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
+|STAT.%stat.NAME| |STAT.%stat|
+|ENDFOR|
+.
+<p/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Possessions:</i>
+
+|FOR,%equip,0,COUNT[EQUIPMENT.Not.Contained.NOT.Container]-1,1,1|
+|IIF(EQ.NOT.CONTAINED.NOT.Container.%equip.QTY.INTVAL:1)|
+|EQ.NOT.CONTAINED.NOT.Container.%equip.NAME|;
+|ELSE|
+|EQ.NOT.CONTAINED.NOT.Container.%equip.NAME| (x|EQ.NOT.Contained.NOT.CONTAINER.%equip.QTY.INTVAL|);
+|ENDIF|
+|ENDFOR|
+
+|FOR,%container,0,COUNT[CONTAINERS]-1,1,1|
+|EQ.IS.Container.%container.NAME|
+|IIF(EQ.IS.Container.%container.CONTENTSNUM.QTY.INTVAL:0)|
+|ELSE|
+[
+|ENDIF|
+|FOR,%equip,0,EQ.IS.Container.%container.CONTENTSNUM-1,1,1|
+|IIF(EQ.IS.Container.%container.CONTENTS.%equip.QTY.INTVAL:1)|
+|EQ.IS.Container.%container.CONTENTS.%equip.NAME|;
+|ELSE|
+|EQ.IS.Container.%container.CONTENTS.%equip.NAME| (x|EQ.IS.Container.%container.CONTENTS.%equip.QTY.INTVAL|);
+|ENDIF|
+|ENDFOR|
+|IIF(EQ.IS.Container.%container.CONTENTSNUM.QTY.INTVAL:0)|
+;
+|ELSE|
+];
+|ENDIF|
+|ENDFOR|
+
+<!-- Start Prepared Spells -->
+|FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
+
+|IIF(%memorised:0)|
+|ELSE|
+<!-- Start Innate Prepared -->
+|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+|IIF(%spellrace:0)|
+|ELSE|
+<p />
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+At Will:
+|ELSE|
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,A,NONE,NONE,2|
+|ENDIF|
+<b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDFOR|
+<br />
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<br />
+
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+<p/><i>|SPELLBOOKNAME.%spellbook| Spells:</i>
+
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+(At Will)
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,1|
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+(At Will)
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+
+|ENDFOR|
+|ENDFOR|
+
+|ENDIF|
+|ENDFOR|
+<!-- End Innate Prepared -->
+|ENDIF|
+|ENDFOR|
+
+
+<!-- Start Regular Prepared -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
+|FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
+|IIF(%foo:0.OR.%bar:0)|
+<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+<p /><i>|SPELLBOOKNAME.%spellbook|</i>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|%SPELLLISTCLASS.%class|
+(|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.0|+spell level)
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+|%level|th&#150;<i>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|,
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME| (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|),
+|ENDIF|
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|ENDFOR|
+</i>;
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+<!-- END FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0 -->
+|%| 
+|ENDFOR|
+<!-- ### END class Spellbook memorized spells ### -->
+<!-- START FALSE IIF(%memorised:0) -->
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<!-- ### END MEMORIZED ### -->
+
+<!-- End Prepared Spells -->
+
+<!-- Domain list -->
+|%DOMAIN.1|<p />
+*Domain spell. <i>Domains:</i> [
+|FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\ (\DOMAIN.%.POWER\);, ,NONE,1|
+] Deity: |DEITY|;
+|%|
+
+<!-- Known spells -->
+|%SPELLLISTCLASS.0|
+<p />
+<i>Spells Known</i>
+|%|
+
+|%SPELLLISTBOOK.0.0.1|
+<b>Innate:</b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK0.1.0]-2,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK0.1.0]-1,COUNT[SPELLSINBOOK0.1.0]-1,1,1|
+|SPELLMEM.0.1.0.%spell.NAME|
+|ENDFOR|
+<br />
+|%|
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
+|%SPELLLISTCLASS.%class|
+<i>|SPELLLISTCLASS.%class|</i>
+(|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0|; base DC = |SPELLLISTDC.%class.0| + spell level):
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|%SPELLLISTBOOK.%class.%level.0|
+|%level|th&#150;<i>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|</i>,
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+
+|%|
+<!-- ================================================================= -->
+
+</body>
+</html>

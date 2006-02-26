@@ -1,0 +1,17 @@
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
+
+###Block: Armor special qualities
+# Modifier Name		Type			Plus		Source Page						Required Type		Special Property
+Divine			TYPE:Armor		PLUS:2	SOURCEPAGE:pg. 7, Armor Special Abilities	PRETYPE:Enhancement	SPROP:See text
+Life-keeper			TYPE:Armor		PLUS:2	SOURCEPAGE:pg. 7, Armor Special Abilities	PRETYPE:Enhancement	SPROP:See text
+Positive Charge (+5)	TYPE:Armor.Light	PLUS:1	SOURCEPAGE:pg. 7, Armor Special Abilities	PRETYPE:Enhancement	SPROP:See text
+Positive Charge (+10)	TYPE:Armor.Medium	PLUS:3	SOURCEPAGE:pg. 7, Armor Special Abilities	PRETYPE:Enhancement	SPROP:See text
+Positive Charge (+20)	TYPE:Armor.Heavy	PLUS:5	SOURCEPAGE:pg. 7, Armor Special Abilities	PRETYPE:Enhancement	SPROP:See text
+
+###Block: Weapon special abilities
+# Modifier Name	Type					Plus		Source Page							Required Type					Special Property
+Forking Missile	TYPE:Ammunition.Thrown		PLUS:1	SOURCEPAGE:pg. 13, Weapon Special Abilities	PRETYPE:Enhancement				SPROP:See text
+Of Night		TYPE:Weapon.Slashing.Piercing	PLUS:2	SOURCEPAGE:pg. 12, Weapon Special Abilities	PRETYPE:Enhancement,Piercing|Slashing	SPROP:See text
+Plague Blade	TYPE:Weapon.Slashing.Piercing	PLUS:2	SOURCEPAGE:pg. 12, Weapon Special Abilities	PRETYPE:Enhancement				SPROP:See text
+Heritage		TYPE:Weapon				PLUS:1	SOURCEPAGE:pg. 12-13, Weapon Special Abilities	PRETYPE:Enhancement				SPROP:See text

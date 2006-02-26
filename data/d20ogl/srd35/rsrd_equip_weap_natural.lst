@@ -1,0 +1,163 @@
+# CVS $Revision: 1.14 $ $Author: eddyanthony $ -- Sun May 15 23:12:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+####Block: Simple Weapons
+#-----unarmed------
+# Equipment Name		Required Proficiency			Type														Cost		Weight	Var. Min. Value			Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	MODS		Size		Source Page				Weapon prop. bonus														Special Property
+Gauntlet			PROFICIENCY:Gauntlet			TYPE:Weapon.Melee.Simple.Unarmed.Standard.Metal.Bludgeoning.Finesseable.Gauntlet	COST:2	WT:1							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light				SIZE:M
+Unarmed Strike		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning		COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO	SIZE:M
+Flurry of Blows		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Monk.Bludgeoning					COST:0	WT:0		PREVARGTEQ:FlurryOfBlows,1	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SOURCEPAGE:CombatII.rtf		BONUS:WEAPON|ATTACKS|1+(MonkLvl>=11)	BONUS:WEAPON|TOHIT|if(MonkLvl<=4,-2,if(MonkLvl<=8,-1,0))
+Grapple			PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Unarmed.Subdual								COST:0																DAMAGE:0	WIELD:Light		MODS:NO			SOURCEPAGE:CombatII.rtf
+Shieldbash (Light)	PROFICIENCY:Shieldbash (Light)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash			COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light				SIZE:M	SOURCEPAGE:Equipment.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+Shieldbash (Heavy)	PROFICIENCY:Shieldbash (Heavy)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash					COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded			SIZE:M	SOURCEPAGE:Equipment.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+
+
+#Special ---->(Flurry of Blows)
+# This workaround is here until we can get it to work w/o equipment,
+#	or we redo Natural Attacks and Unarmed attacks. - Tir Gwaith
+
+####Block: Natural Weapons
+# Equipment Name			Output Name				Required Proficiency		Type											Cost		Weight	Damage	Nb Hands
+#	Antennae (1d3)			OUTPUTNAME:Antennae		PROFICIENCY:Antennae		TYPE:Weapon.Natural.Melee.Slashing						COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Arm (1d3)				OUTPUTNAME:Arm			PROFICIENCY:Arm			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Arm (1d6)				OUTPUTNAME:Arm			PROFICIENCY:Arm			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Arm (1d6, Poison)			OUTPUTNAME:Poison Arm		PROFICIENCY:Arm			TYPE:Weapon.Natural.Melee.Bludgeoning.Poison				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Arm (2d6)				OUTPUTNAME:Arm			PROFICIENCY:Arm			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Arm (2d6, Poison)			OUTPUTNAME:Poison Arm		PROFICIENCY:Arm			TYPE:Weapon.Natural.Melee.Bludgeoning.Poison				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Arm (3d6, Poison)			OUTPUTNAME:Poison Arm		PROFICIENCY:Arm			TYPE:Weapon.Natural.Melee.Bludgeoning.Poison				COST:0	WT:0		DAMAGE:3d6	HANDS:0
+#	Bite (1d10)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d10	HANDS:0
+#	Bite (1d2)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d2	HANDS:0
+#	Bite (1d2, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:1d2	HANDS:0
+#	Bite (1d3)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Bite (1d3)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Bite (1d3, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Bite (1d4)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Bite (1d4, Acid)			OUTPUTNAME:Acid Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Acid	COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Bite (1d4, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Bite (1d6)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Bite (1d6, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Bite (1d8)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Bite (1d8, Cold)			OUTPUTNAME:Cold Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Cold	COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Bite (1d8, Fire)			OUTPUTNAME:Fire Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Fire	COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Bite (1d8, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Bite (2d4)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:2d4	HANDS:0
+#	Bite (2d6)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Bite (2d6, Acid)			OUTPUTNAME:Acid Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Acid	COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Bite (2d6, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Bite (2d8)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Bite (2d8, Cold)			OUTPUTNAME:Cold Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Cold	COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Bite (2d8, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Bite (3d6)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:3d6	HANDS:0
+#	Bite (4d4)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:4d4	HANDS:0
+#	Bite (4d6)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Bite (4d6, Poison)		OUTPUTNAME:Poison Bite		PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison	COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Bite (4d8)				OUTPUTNAME:Bite			PROFICIENCY:Bite			TYPE:Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing		COST:0	WT:0		DAMAGE:4d8	HANDS:0
+#	Butt (1d6)				OUTPUTNAME:Butt			PROFICIENCY:Butt			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Claw (1d10)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d10	HANDS:0
+#	Claw (1d12)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d12	HANDS:0
+#	Claw (1d2)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d2	HANDS:0
+#	Claw (1d3)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Claw (1d3, Cold)			OUTPUTNAME:Cold Claw		PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing.Cold			COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Claw (1d3, Fire)			OUTPUTNAME:Fire Claw		PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing.Fire			COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Claw (1d3, Poison)		OUTPUTNAME:Poison Claw		PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing.Poison			COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Claw (1d4)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Claw (1d6)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Claw (1d8)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Claw (2d4)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:2d4	HANDS:0
+#	Claw (2d6)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Claw (2d8)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Claw (4d6)				OUTPUTNAME:Claw			PROFICIENCY:Claw			TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Crush (2d8)				OUTPUTNAME:Crush			PROFICIENCY:Crush			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Crush (4d6)				OUTPUTNAME:Crush			PROFICIENCY:Crush			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Crush (4d8)				OUTPUTNAME:Crush			PROFICIENCY:Crush			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:4d8	HANDS:0
+#	Gore (1d6)				OUTPUTNAME:Gore			PROFICIENCY:Gore			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Gore (1d8)				OUTPUTNAME:Gore			PROFICIENCY:Gore			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Gore (2d6)				OUTPUTNAME:Gore			PROFICIENCY:Gore			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Gore (2d8)				OUTPUTNAME:Gore			PROFICIENCY:Gore			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Hoof (1d3)				OUTPUTNAME:Hoof			PROFICIENCY:Hoof			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Hoof (1d4)				OUTPUTNAME:Hoof			PROFICIENCY:Hoof			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Hoof (1d6)				OUTPUTNAME:Hoof			PROFICIENCY:Hoof			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Hoof (1d8, Fire)			OUTPUTNAME:Fire Hoof		PROFICIENCY:Hoof			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Horn (1d10)				OUTPUTNAME:Horn			PROFICIENCY:Horn			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d10	HANDS:0
+#	Horn (1d8)				OUTPUTNAME:Horn			PROFICIENCY:Horn			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Pincer (2d8)			OUTPUTNAME:Pincer			PROFICIENCY:Pincer		TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Quill (1d6)				OUTPUTNAME:Quill			PROFICIENCY:Quill			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Ray (1d6)				OUTPUTNAME:Ray			PROFICIENCY:Ray			TYPE:Weapon.Natural.Ranged.Piercing						COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Ray (1d8)				OUTPUTNAME:Ray			PROFICIENCY:Ray			TYPE:Weapon.Natural.Ranged.Piercing						COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Ray (2d12)				OUTPUTNAME:Ray			PROFICIENCY:Ray			TYPE:Weapon.Natural.Ranged.Piercing						COST:0	WT:0		DAMAGE:2d12	HANDS:0
+#	Ray (2d6)				OUTPUTNAME:Ray			PROFICIENCY:Ray			TYPE:Weapon.Natural.Ranged.Piercing						COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Ray (2d8)				OUTPUTNAME:Ray			PROFICIENCY:Ray			TYPE:Weapon.Natural.Ranged.Piercing						COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Shock (2d8, Electricity)	OUTPUTNAME:Electricity Shock	PROFICIENCY:Electricity Shock	TYPE:Weapon.Natural.Melee.Bludgeoning.Electricity			COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Slam (1d10)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d10	HANDS:0
+#	Slam (1d3)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Slam (1d4)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Slam (1d4, Fire)			OUTPUTNAME:Fire Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Slam (1d6)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Slam (1d6, Acid)			OUTPUTNAME:Acid Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Acid				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Slam (1d6, Fire)			OUTPUTNAME:Fire Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Slam (1d8)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Slam (1d8)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Slam (1d8, Fire)			OUTPUTNAME:Fire Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Slam (2d10)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d10	HANDS:0
+#	Slam (2d4)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d4	HANDS:0
+#	Slam (2d4, Acid)			OUTPUTNAME:Acid Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Acid				COST:0	WT:0		DAMAGE:2d4	HANDS:0
+#	Slam (2d6)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Slam (2d6, Acid)			OUTPUTNAME:Acid Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Acid				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Slam (2d6, Fire)			OUTPUTNAME:Fire Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Slam (2d6, Sonic)			OUTPUTNAME:Sonic Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Sonic				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Slam (2d8)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Slam (2d8, Fire)			OUTPUTNAME:Fire Slam		PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Slam (4d6)				OUTPUTNAME:Slam			PROFICIENCY:Slam			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Snakes (1d4, Poison)		OUTPUTNAME:Poison Snakes	PROFICIENCY:Poison Snakes	TYPE:Weapon.Natural.Melee.Slashing.Poison					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Spikes (1d8)			OUTPUTNAME:Spikes			PROFICIENCY:Spikes		TYPE:Weapon.Natural.Ranged.Piercing						COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Stamp (2d6)				OUTPUTNAME:Stamp			PROFICIENCY:Stamp			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Sting (1d2, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:1d2	HANDS:0
+#	Sting (1d3, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Sting (1d4, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Sting (1d6, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Sting (1d8, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Sting (2d4, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:2d4	HANDS:0
+#	Sting (2d6, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Sting (2d8, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Sting (3d4, Poison)		OUTPUTNAME:Poison Sting		PROFICIENCY:Sting			TYPE:Weapon.Natural.Melee.Piercing.Poison					COST:0	WT:0		DAMAGE:3d4	HANDS:0
+#	Strand (2d6)			OUTPUTNAME:Strand			PROFICIENCY:Strand		TYPE:Weapon.Natural.Melee.Slashing						COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Tail (1d12)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d12	HANDS:0
+#	Tail (1d4, Fire)			OUTPUTNAME:Fire Tail		PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Tail (1d6)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Tail (1d8)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Tail (2d6)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Tail (2d6, Fire)			OUTPUTNAME:Fire Tail		PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Tail (2d8)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Tail (2d8, Fire)			OUTPUTNAME:Fire Tail		PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Tail (3d6)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:3d6	HANDS:0
+#	Tail (3d8)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:3d8	HANDS:0
+#	Tail (4d6)				OUTPUTNAME:Tail			PROFICIENCY:Tail			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Tail Slap (1d8)			OUTPUTNAME:Tail Slap		PROFICIENCY:Tail Slap		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Tail Slap (2d6)			OUTPUTNAME:Tail Slap		PROFICIENCY:Tail Slap		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Tail Slap (2d8)			OUTPUTNAME:Tail Slap		PROFICIENCY:Tail Slap		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Tail Slap (4d6)			OUTPUTNAME:Tail Slap		PROFICIENCY:Tail Slap		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:4d6	HANDS:0
+#	Tail Sweep (2d6)			OUTPUTNAME:Tail Sweep		PROFICIENCY:Tail Sweep		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Tail Sweep (2d8)			OUTPUTNAME:Tail Sweep		PROFICIENCY:Tail Sweep		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Talons (1d4)			OUTPUTNAME:Talons			PROFICIENCY:Talons		TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Talons (1d6)			OUTPUTNAME:Talons			PROFICIENCY:Talons		TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Talons (2d6)			OUTPUTNAME:Talons			PROFICIENCY:Talons		TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Talons (2d8)			OUTPUTNAME:Talons			PROFICIENCY:Talons		TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Tendril (1d6)			OUTPUTNAME:Tendril		PROFICIENCY:Tendril		TYPE:Weapon.Natural.Melee.Piercing.Slashing				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Tentacle (1d3)			OUTPUTNAME:Tentacle		PROFICIENCY:Tentacle		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d3	HANDS:0
+#	Tentacle (1d4)			OUTPUTNAME:Tentacle		PROFICIENCY:Tentacle		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Tentacle (1d6)			OUTPUTNAME:Tentacle		PROFICIENCY:Tentacle		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Tentacle (1d6, Poison)		OUTPUTNAME:Poison Tentacle	PROFICIENCY:Tentacle		TYPE:Weapon.Natural.Melee.Bludgeoning.Poison				COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Tentacle (2d8)			OUTPUTNAME:Tentacle		PROFICIENCY:Tentacle		TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0
+#	Touch (1d4)				OUTPUTNAME:Touch			PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Touch (1d4,Incorporeal)		OUTPUTNAME:Incorporeal Touch	PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Touch (1d6,Incorporeal)		OUTPUTNAME:Incorporeal Touch	PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Touch (1d8, Fire)			OUTPUTNAME:Fire Touch		PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Bludgeoning.Fire				COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Touch (1d8,Incorporeal)		OUTPUTNAME:Incorporeal Touch	PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Touch (2d6,Incorporeal)		OUTPUTNAME:Incorporeal Touch	PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Piercing						COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Touch (5d6)				OUTPUTNAME:Touch			PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:5d6	HANDS:0
+#	Touch (6d6)				OUTPUTNAME:Touch			PROFICIENCY:Touch			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:6d6	HANDS:0
+#	Wing (1d4)				OUTPUTNAME:Wing			PROFICIENCY:Wing			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d4	HANDS:0
+#	Wing (1d6)				OUTPUTNAME:Wing			PROFICIENCY:Wing			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d6	HANDS:0
+#	Wing (1d8)				OUTPUTNAME:Wing			PROFICIENCY:Wing			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:1d8	HANDS:0
+#	Wing (2d6)				OUTPUTNAME:Wing			PROFICIENCY:Wing			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d6	HANDS:0
+#	Wing (2d8)				OUTPUTNAME:Wing			PROFICIENCY:Wing			TYPE:Weapon.Natural.Melee.Bludgeoning					COST:0	WT:0		DAMAGE:2d8	HANDS:0

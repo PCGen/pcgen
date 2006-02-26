@@ -1,0 +1,219 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:3.5 RSRD
+VERSION:5.6.0
+ROLLMETHOD:1|EXPRESSION:roll(4,6,[2,3,4])
+PURCHASEPOINTS:N|TYPE:
+POOLPOINTS:2
+GAMEMODE:35e
+TABLABEL:0
+AUTOSPELLS:Y
+LOADCOMPANIONS:N
+USETEMPMODS:N
+AUTOSORTGEAR:Y
+AUTOSORTSKILLS:Y
+
+# Character Bio
+CHARACTERNAME:Thor Khazad
+TABNAME:
+PLAYERNAME:David
+HEIGHT:52
+WEIGHT:214
+AGE:58
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:18
+STAT:DEX|SCORE:17
+STAT:CON|SCORE:16
+STAT:INT|SCORE:13
+STAT:WIS|SCORE:18
+STAT:CHA|SCORE:20
+ALIGN:CN
+RACE:Dwarf
+
+# Character Class(es)
+CLASS:Cleric|SUBCLASS:None|LEVEL:3|SKILLPOOL:0|SPELLBASE:WIS|CANCASTPERDAY:4,2,1|PROHIBITED:None
+CLASS:Fighter|SUBCLASS:None|LEVEL:7|SKILLPOOL:0|PROHIBITED:None
+CLASSABILITIESLEVEL:Cleric=1|HITPOINTS:8|SPECIALABILITIES:[SA:Turn Undead %/day&pipe;TurnUndead]|SKILLSGAINED:12
+CLASSABILITIESLEVEL:Cleric=2|HITPOINTS:6|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Cleric=3|HITPOINTS:6|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=1|HITPOINTS:7|SKILLSGAINED:12
+CLASSABILITIESLEVEL:Fighter=2|HITPOINTS:4|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=3|HITPOINTS:9|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=4|HITPOINTS:4|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=5|HITPOINTS:2|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=6|HITPOINTS:9|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=7|HITPOINTS:8|SKILLSGAINED:3
+
+# Character Experience
+EXPERIENCE:45375
+
+# Character Templates
+
+# Character Region
+
+# Character Skills
+SKILL:Appraise|OUTPUTORDER:1|
+SKILL:Balance|OUTPUTORDER:2|
+SKILL:Bluff|OUTPUTORDER:3|
+SKILL:Climb|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Fighter|RANKS:5.0|COST:1|CLASSSKILL:Y]
+SKILL:Concentration|OUTPUTORDER:5|CLASSBOUGHT:[CLASS:Cleric|RANKS:10.0|COST:1|CLASSSKILL:Y]
+SKILL:Craft (Untrained)|OUTPUTORDER:6|
+SKILL:Diplomacy|OUTPUTORDER:7|
+SKILL:Disguise|OUTPUTORDER:8|
+SKILL:Escape Artist|OUTPUTORDER:9|
+SKILL:Forgery|OUTPUTORDER:10|
+SKILL:Gather Information|OUTPUTORDER:11|
+SKILL:Heal|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Cleric|RANKS:3.0|COST:1|CLASSSKILL:Y]
+SKILL:Hide|OUTPUTORDER:14|
+SKILL:Intimidate|OUTPUTORDER:15|CLASSBOUGHT:[CLASS:Fighter|RANKS:4.0|COST:1|CLASSSKILL:Y]
+SKILL:Jump|OUTPUTORDER:16|CLASSBOUGHT:[CLASS:Fighter|RANKS:5.0|COST:1|CLASSSKILL:Y]
+SKILL:Listen|OUTPUTORDER:21|
+SKILL:Move Silently|OUTPUTORDER:22|
+SKILL:Ride|OUTPUTORDER:23|CLASSBOUGHT:[CLASS:Fighter|RANKS:5.0|COST:1|CLASSSKILL:Y]
+SKILL:Search|OUTPUTORDER:24|
+SKILL:Sense Motive|OUTPUTORDER:25|
+SKILL:Spot|OUTPUTORDER:27|
+SKILL:Survival|OUTPUTORDER:28|
+SKILL:Swim|OUTPUTORDER:29|CLASSBOUGHT:[CLASS:Fighter|RANKS:5.0|COST:1|CLASSSKILL:Y]
+SKILL:Use Rope|OUTPUTORDER:30|
+SKILL:Handle Animal|OUTPUTORDER:12|CLASSBOUGHT:[CLASS:Fighter|RANKS:5.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Arcana)|OUTPUTORDER:17|CLASSBOUGHT:[CLASS:Cleric|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (History)|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Cleric|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Religion)|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Cleric|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (The Planes)|OUTPUTORDER:20|CLASSBOUGHT:[CLASS:Cleric|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Spellcraft|OUTPUTORDER:26|CLASSBOUGHT:[CLASS:Cleric|RANKS:3.0|COST:1|CLASSSKILL:Y]
+
+# Character Languages
+LANGUAGE:Common|LANGUAGE:Dwarven|LANGUAGE:Giant
+
+# Character Feats
+FEAT:Power Attack|TYPE:GENERAL.FIGHTER|DESC:On your action, before making attack rolls for a round, you may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed your base attack bonus.
+FEAT:Cleave|TYPE:GENERAL.FIGHTER|DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
+FEAT:Dodge|TYPE:GENERAL.FIGHTER|DESC:During your action, you designate an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
+FEAT:Weapon Focus|APPLIEDTO:Warhammer|TYPE:GENERAL.FIGHTER|DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon.
+FEAT:Weapon Specialization|APPLIEDTO:Warhammer|TYPE:SPECIAL.FIGHTER|DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon.
+FEAT:Mobility|TYPE:GENERAL.FIGHTER|DESC:You get a +4 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area.
+FEAT:Quick Draw|TYPE:GENERAL.FIGHTER|DESC:You can draw a weapon as a free action instead of as a move action. You can draw a hidden weapon as a move action. A character who has selected this feat may throw weapons at his full normal rate of attacks (much like a character with a bow).
+FEAT:Spring Attack|TYPE:GENERAL.FIGHTER|DESC:When using the attack action with a melee weapon, you can move both before and after the attack, provided that your total distance moved is not greater than your speed.
+FEATPOOL:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Axe (Throwing)|WEAPON:Battleaxe|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Falchion|WEAPON:Flail]
+WEAPONPROF:[WEAPON:Flail (Heavy)|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Glaive|WEAPON:Greataxe|WEAPON:Greatclub|WEAPON:Greatsword|WEAPON:Guisarme|WEAPON:Halberd|WEAPON:Hammer (Light)]
+WEAPONPROF:[WEAPON:Handaxe|WEAPON:Javelin|WEAPON:Kukri|WEAPON:Lance|WEAPON:Longbow|WEAPON:Longspear|WEAPON:Longsword|WEAPON:Mace (Heavy)|WEAPON:Mace (Light)|WEAPON:Mind-blade]
+WEAPONPROF:[WEAPON:Morningstar|WEAPON:Pick (Heavy)|WEAPON:Pick (Light)|WEAPON:Quarterstaff|WEAPON:Ranseur|WEAPON:Rapier|WEAPON:Sap|WEAPON:Scimitar|WEAPON:Scythe|WEAPON:Shieldbash (Heavy)]
+WEAPONPROF:[WEAPON:Shieldbash (Light)|WEAPON:Shortbow|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Spear|WEAPON:Spells(Energy Missile)|WEAPON:Spells(Ray)|WEAPON:Spells(Touch)|WEAPON:Spiked Armor]
+WEAPONPROF:[WEAPON:Sword (Bastard/Martial)|WEAPON:Sword (Short)|WEAPON:Trident|WEAPON:Unarmed Strike|WEAPON:Urgrosh (Dwarven)|WEAPON:Waraxe (Dwarven/Exotic)|WEAPON:Waraxe (Dwarven/Martial)|WEAPON:Warhammer]
+
+# Character Equipment
+MONEY:0.00
+EQUIPNAME:Backpack|OUTPUTORDER:2|COST:2|WT:2.0|QUANTITY:1.0
+EQUIPNAME:Boots of Levitation|OUTPUTORDER:3|COST:7500|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Climber's Kit|OUTPUTORDER:4|COST:80|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Coin (Gold)|OUTPUTORDER:5|COST:1|WT:0.02|QUANTITY:8779.0
+EQUIPNAME:Dust of Illusion|OUTPUTORDER:6|COST:1200|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Dwarven Thrower|OUTPUTORDER:7|COST:60312.0|WT:8.0|QUANTITY:2.0|CUSTOMIZATION:[BASEITEM:Dwarven Thrower|DATA:NAME=Dwarven Thrower$EQMOD=STEEL]
+EQUIPNAME:Flint and Steel|OUTPUTORDER:8|COST:1|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Healer's Kit|OUTPUTORDER:9|COST:50|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Holy Symbol (Silver)|OUTPUTORDER:10|COST:25|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Oil (1 Pt. Flask)|OUTPUTORDER:11|COST:0.1|WT:1.0|QUANTITY:3.0
+EQUIPNAME:Outfit (Cold Weather)|OUTPUTORDER:12|COST:0|WT:7.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Outfit (Cold Weather)|DATA:NAME=Outfit (Cold Weather)$COSTMOD=-8]
+EQUIPNAME:Potion (Gaseous Form)|OUTPUTORDER:13|COST:750|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Pouch (Belt)|OUTPUTORDER:15|COST:1|WT:0.5|QUANTITY:3.0
+EQUIPNAME:Rations (Trail/Per Day)|OUTPUTORDER:16|COST:0.5|WT:1.0|QUANTITY:7.0
+EQUIPNAME:Ring (Spell Turning)|OUTPUTORDER:17|COST:98280|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Rope (Silk/50 Ft.)|OUTPUTORDER:18|COST:10|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Scroll (Bless)|OUTPUTORDER:20|COST:25|WT:0.01|QUANTITY:1.0
+EQUIPNAME:Scroll (Neutralize Poison)|OUTPUTORDER:21|COST:1000|WT:0.01|QUANTITY:2.0
+EQUIPNAME:Scroll (Remove Curse)|OUTPUTORDER:22|COST:700|WT:0.01|QUANTITY:1.0
+EQUIPNAME:Waterskin|OUTPUTORDER:23|COST:1|WT:4.0|QUANTITY:1.0
+EQUIPNAME:Potion (Protection from Energy/Electricity)|OUTPUTORDER:14|COST:750|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Scarab (Golembane)|OUTPUTORDER:19|COST:2500|WT:0.0|QUANTITY:1.0
+EQUIPNAME:+1 light shield|OUTPUTORDER:1|COST:2159.0|WT:6.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Shield (Light/Metal)|DATA:NAME=+1 light shield$EQMOD=MWORKA.PLUS1S.STEEL$SPROP=(Shield (Light/Metal/Masterwork/+1 (Enhancement to Shield)))]
+EQUIPNAME:+2 scale mail|OUTPUTORDER:1|COST:4200.0|WT:30.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Scale Mail|DATA:NAME=+2 scale mail$EQMOD=MWORKA.PLUS2A.STEEL$SPROP=(Scale Mail (Masterwork/+2 (Enhancement to Armor)))]
+EQUIPSET:Default Set|ID:0.1
+EQUIPSET:Equipped|ID:0.1.1|VALUE:Backpack|QUANTITY:1.0
+EQUIPSET:Backpack|ID:0.1.1.1|VALUE:Rations (Trail/Per Day)|QUANTITY:7.0
+EQUIPSET:Backpack|ID:0.1.1.2|VALUE:Rope (Silk/50 Ft.)|QUANTITY:1.0
+EQUIPSET:Backpack|ID:0.1.1.3|VALUE:Waterskin|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.12|VALUE:Pouch (Belt)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.12.1|VALUE:Potion (Gaseous Form)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.12.2|VALUE:Oil (1 Pt. Flask)|QUANTITY:3.0
+EQUIPSET:Pouch (Belt)|ID:0.1.12.3|VALUE:Flint and Steel|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.13|VALUE:Pouch (Belt)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.13.1|VALUE:Scroll (Bless)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.13.2|VALUE:Scroll (Neutralize Poison)|QUANTITY:2.0
+EQUIPSET:Pouch (Belt)|ID:0.1.13.3|VALUE:Scroll (Remove Curse)|QUANTITY:1.0
+EQUIPSET:Not Carried|ID:0.1.14|VALUE:Coin (Gold)|QUANTITY:8779.0
+EQUIPSET:Equipped|ID:0.1.17|VALUE:Pouch (Belt)|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.17.1|VALUE:Dust of Illusion|QUANTITY:1.0
+EQUIPSET:Pouch (Belt)|ID:0.1.17.2|VALUE:Potion (Protection from Energy/Electricity)|QUANTITY:1.0
+EQUIPSET:Foot|ID:0.1.2|VALUE:Boots of Levitation|QUANTITY:1.0
+EQUIPSET:Neck|ID:0.1.20|VALUE:Scarab (Golembane)|QUANTITY:1.0
+EQUIPSET:Shield|ID:0.1.21|VALUE:+1 light shield|QUANTITY:1.0
+EQUIPSET:Armor|ID:0.1.22|VALUE:+2 scale mail|QUANTITY:1.0
+EQUIPSET:Primary Hand|ID:0.1.23|VALUE:Dwarven Thrower|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.3|VALUE:Climber's Kit|QUANTITY:1.0
+EQUIPSET:Equipped|ID:0.1.5|VALUE:Healer's Kit|QUANTITY:1.0
+EQUIPSET:Carried|ID:0.1.6|VALUE:Holy Symbol (Silver)|QUANTITY:1.0
+EQUIPSET:Torso|ID:0.1.7|VALUE:Outfit (Cold Weather)|QUANTITY:1.0
+EQUIPSET:Fingers|ID:0.1.9|VALUE:Ring (Spell Turning)|QUANTITY:1.0
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:Haela Brightaxe|DEITYDOMAINS:[DOMAIN:Chaos|DOMAIN:Good|DOMAIN:Luck|DOMAIN:War]|ALIGNALLOW:673|DESC:Clerics pray for spells in the morning|HOLYITEM:Unsheathed shortsword wrapped in two spirals of flame|DEITYFAVWEAP:[WEAPON:Greatsword]|DEITYALIGN:LG
+DOMAIN:Chaos|DOMAINGRANTS:You cast chaos spells at +1 caster level.|SOURCE:[TYPE:PCClass|NAME:Cleric|LEVEL:1]
+DOMAIN:Luck|DOMAINGRANTS:You gain the power of good fortune, which is usable once per day. This extraordinary ability allows you to reroll one roll that you have just made before the DM declares whether the roll results in success or failure. You must take the result of the reroll, even if it's worse than the original roll.|SOURCE:[TYPE:PCClass|NAME:Cleric|LEVEL:1]
+
+# Character Spells Information
+SPELLNAME:Aid|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:2|SOURCE:[TYPE:DOMAIN|NAME:Luck]
+SPELLNAME:Bear's Endurance|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:2|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Bless|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Bull's Strength|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:2|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Divine Favor|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Entropic Shield|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:1|SOURCE:[TYPE:DOMAIN|NAME:Luck]
+SPELLNAME:Guidance|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:0|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Light|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:0|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Resistance|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:0|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Shield of Faith|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Cleric]
+SPELLNAME:Virtue|TIMES:1|CLASS:Cleric|BOOK:Prepared|SPELLLEVEL:0|SOURCE:[TYPE:CLASS|NAME:Cleric]
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:Dwarven Thrower&colon; when hurled it does +1d8 points of bonus damage, or +2d8 points of bonus damage vs. giants, +1 enhancement bonus when used by a dwarf, it can be hurled with a 30' range increment (it returns to its thrower on the round after it was thrown)
+
+# Character Master/Follower
+
+# Character Notes Tab
+
+# Kits
+
+# Chosen Armor Profs
+
+# Age Set Selections
+AGESET:0:0:0:0:0:0:0:0:0:0

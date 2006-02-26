@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+#Original entry by: Knightcrawler
+SOURCELONG:Fantasy Flight Games - Spells and Spellcraft|SOURCESHORT:Spellcraft|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Equipment Name		Type			Cost		Weight	Source Page		Special Property
+Metaring of Enlarge	TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:p.168	SPROP:Enlarge Spell once per day
+Metaring of Extend	TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:p.168	SPROP:Extend Spell once per day
+Metaring of Silent	TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:p.168	SPROP:Silent Spell once per day
+Metaring of Still		TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:p.168	SPROP:Still Spell once per day
+Metaring of Empower	TYPE:Magic.Ring	COST:12000	WT:0		SOURCEPAGE:p.168	SPROP:Empower Spell once per day
+Metaring of Maximize	TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:p.168	SPROP:Maximize Spell once per day
+Metaring of Quicken	TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:p.168	SPROP:Quicken Spell once per day

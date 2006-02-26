@@ -1,0 +1,6 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia|SOURCESHORT:Vlad|SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+# Original Entry by: Jerril
+
+# Skill Name			Key Stat	Untrained?		Type					Source Page
+Knowledge (Local History)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.32

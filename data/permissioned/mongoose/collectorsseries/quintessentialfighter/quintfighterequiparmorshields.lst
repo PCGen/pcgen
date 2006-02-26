@@ -1,0 +1,17 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+#Unsure how to set syntax for roundels and back and breast armors.
+
+# Equipment Name		Type							Cost		Weight	AC Penalty Check	Nb Hands	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Special Property
+Silk Shirt			TYPE:Armor.Light.Shirt.Standard.Nonmetal	COST:25	WT:0										SOURCEPAGE:p.49	SPELLFAILURE:0									SPROP:+2 circumstance bonus on healing ranged.
+#Medium Weight -------------------------------------------------------------------------------------------------------------
+#Back and Breast		TYPE:Armor.Medium.Metal.Suit.Standard	COST:50	WT:15		SOURCEPAGE:p.49	ACCHECK:-5					MAXDEX:2		MOVE:20,15	SPELLFAILURE:20		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Bugbear Hide		TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:475	WT:25		ACCHECK:-3				MAXDEX:4		SOURCEPAGE:p.49	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Dragonscale			TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:4500	WT:30		ACCHECK:-4				MAXDEX:3		SOURCEPAGE:p.49	SPELLFAILURE:30		BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE	SPROP:Damage reduction 10 vs. Dragon breath.
+Hydra Hide			TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:1500	WT:25		ACCHECK:-3				MAXDEX:4		SOURCEPAGE:p.49	SPELLFAILURE:20		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+#Heavy Weight -------------------------------------------------------------------------------------------------------------
+Bronze Plate		TYPE:Armor.Heavy.Suit.Standard.Metal	COST:900	WT:40		ACCHECK:-5				MAXDEX:2		SOURCEPAGE:p.49	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+#Shields ------------------------------------------------------------------------------------------------------------------
+Shield (Dragonscale)	TYPE:Shield.Standard.Nonmetal			COST:3000	WT:10					HANDS:1				SOURCEPAGE:p.50	SPELLFAILURE:0		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE	SPROP:Damage reduction 5 vs. Dragon Breath.
+#Extras -------------------------------------------------------------------------------------------------------------------
+#Roundels			TYPE:Armor.Extra.Metal				COST:50	WT:10		SOURCEPAGE:p.49	ACCHECK:-1					MAXDEX:-1								BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE

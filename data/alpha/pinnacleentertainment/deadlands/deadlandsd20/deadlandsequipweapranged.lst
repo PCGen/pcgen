@@ -1,0 +1,58 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name					Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage			Range		Size		Source Page		Bonus to skill			Weapon prop. bonus
+Dynamite stick											TYPE:Weapon.Simple.Ranged							COST:3	WT:.5										DAMAGE:4d10 (BR 20)	RANGE:15	SIZE:S	SOURCEPAGE:p.72
+Nitro (Vial)											TYPE:Weapon.Simple.Ranged.Vial						COST:2.5	WT:.5										DAMAGE:4d10 (BR 20)	RANGE:15	SIZE:S	SOURCEPAGE:p.72
+Lance													TYPE:Weapon.Simple.Ranged.Slashing.Thrown					COST:3	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			RANGE:10	SIZE:L	SOURCEPAGE:p.72
+Spear													TYPE:Weapon.Simple.Ranged.Piercing.Thrown					COST:3	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			RANGE:10	SIZE:L	SOURCEPAGE:p.72
+
+#Martial Ranged Weapons Name
+Derringer (Derringer/SA)									TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing	COST:8	WT:0.5	CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:15	SIZE:T	SOURCEPAGE:p.73
+Knuckle-Duster (Derringer/SA)									TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing	COST:8	WT:0.5	CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4+1		RANGE:15	SIZE:T	SOURCEPAGE:p.73
+Rupertus Pepperbox (Derringer/SA)								TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing	COST:6	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4			RANGE:15	SIZE:T	SOURCEPAGE:p.73
+Wesson Dagger-Pistol (Derringer/SA)								TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing	COST:6	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			RANGE:15	SIZE:T	SOURCEPAGE:p.73
+Colt Army (Pistol/SA)										TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.CnB.Piercing		COST:10	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Buntline Special (Pistol/SA)								TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:500	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+2		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Dragoon (Pistol/SA)									TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.CnB.Piercing		COST:11	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Frontier 1873 (Pistol/SA)								TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:15	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Lightning (Pistol/DA)									TYPE:Weapon.Ranged.Firearm.Pistol.DoubleAction.Piercing		COST:13	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4+2		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Navy (Pistol/SA)										TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:18	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Peacemaker (Pistol/SA)									TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:15	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Colt Thunderer (Pistol/DA)									TYPE:Weapon.Ranged.Firearm.Pistol.DoubleAction.Piercing		COST:14	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Gunnison Independence (Pistol/SA)								TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:15	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Gunnison Rubicon (Pistol/DA)									TYPE:Weapon.Ranged.Firearm.Pistol.DoubleAction.Piercing		COST:14	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			RANGE:30	SIZE:S	SOURCEPAGE:p.73
+LeMat Pistol and Shotgun (Pistol/SA)							TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:25	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6/1-4d4		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Smith and Wesson Schofield (Pistol/SA)							TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:14	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Starr Army Revolver (Pistol/DA)								TYPE:Weapon.Ranged.Firearm.Pistol.DoubleAction.CnB.Piercing		COST:9	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Tyler Alamo (Pistol/SA)										TYPE:Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing		COST:15	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Ballard '72 (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.CnB.Piercing				COST:24	WT:11		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d10			RANGE:75	SIZE:M	SOURCEPAGE:p.73
+Colt Revolving Shotgun (Shotgun)								TYPE:Weapon.Ranged.Firearm.Shotgun.Piercing				COST:45	WT:10		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6/4d6		RANGE:30	SIZE:M	SOURCEPAGE:p.73
+Colt-Patterson Model 36 (Rifle)								TYPE:Weapon.Ranged.Firearm.Rifle.CnB.Piercing				COST:25	WT:12		CRITMULT:x3			CRITRANGE:2			DAMAGE:2d10+1		RANGE:60	SIZE:M	SOURCEPAGE:p.73
+Double Barrel (Shotgun)										TYPE:Weapon.Ranged.Firearm.Shotgun.Piercing				COST:35	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6/4d6		RANGE:30	SIZE:M	SOURCEPAGE:p.73
+Enfield Musket (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.CnB.Piercing				COST:25	WT:9		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d10			RANGE:45	SIZE:M	SOURCEPAGE:p.73
+Henry Rifle (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.Piercing					COST:20	WT:10		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8+1		RANGE:60	SIZE:M	SOURCEPAGE:p.73
+Scattergun (Shotgun)										TYPE:Weapon.Ranged.Firearm.Shotgun.Piercing				COST:35	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6/4d6		RANGE:10	SIZE:M	SOURCEPAGE:p.73
+Sharps Big .50 (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.Piercing					COST:30	WT:10		CRITMULT:x3			CRITRANGE:2			DAMAGE:2d12			RANGE:120	SIZE:M	SOURCEPAGE:p.73
+Sharps Carbine (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.CnB.Piercing				COST:18	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d10			RANGE:45	SIZE:M	SOURCEPAGE:p.73
+Shortbow												TYPE:Weapon.Martial.Ranged.Piercing						COST:30	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			RANGE:60	SIZE:M	SOURCEPAGE:p.60
+Shortbow (Composite)										TYPE:Weapon.Martial.Ranged.Piercing						COST:75	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			RANGE:70	SIZE:M	SOURCEPAGE:p.60
+Single Barrel (Shotgun)										TYPE:Weapon.Ranged.Firearm.Shotgun.Piercing				COST:25	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6/4d6		RANGE:30	SIZE:M	SOURCEPAGE:p.73
+Spencer Carbine .56 (Rifle)									TYPE:Weapon.Ranged.Firearm.Rifle.Piercing					COST:15	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8			RANGE:45	SIZE:M	SOURCEPAGE:p.73
+Springfield .58 (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.CnB.Piercing				COST:8	WT:9		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d10			RANGE:45	SIZE:M	SOURCEPAGE:p.73
+Tyler Texan (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.Piercing					COST:25	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8+1		RANGE:60	SIZE:M	SOURCEPAGE:p.73
+Winchester '73 (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.Piercing					COST:25	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8+1		RANGE:60	SIZE:M	SOURCEPAGE:p.73
+Winchester '76 (Rifle)										TYPE:Weapon.Ranged.Firearm.Rifle.Piercing					COST:40	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8+2		RANGE:90	SIZE:M	SOURCEPAGE:p.73
+Winchester Lever-Action (Shotgun)								TYPE:Weapon.Ranged.Firearm.Shotgun.Piercing				COST:35	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6/4d6		RANGE:30	SIZE:M	SOURCEPAGE:p.73
+
+#Exotic Ranged Weapons Name
+Bolas													TYPE:Weapon.Exotic.Ranged.Bludgeoning					COST:3	WT:0.5					CRITRANGE:1			DAMAGE:2d6			RANGE:15	SIZE:S	SOURCEPAGE:p.73
+Gatling Pistol											TYPE:Weapon.Exotic.Ranged.Firearm.Automatic.Piercing			COST:800	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6+1		RANGE:30	SIZE:S	SOURCEPAGE:p.73
+Flamethrower											TYPE:Weapon.Exotic.Ranged.Energy						COST:2000	WT:25										DAMAGE:1d6/shot		RANGE:60	SIZE:L	SOURCEPAGE:p.73
+Gatling Gun												TYPE:Weapon.Exotic.Ranged.Firearm.Automatic.Piercing			COST:1500	WT:90		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8+2		RANGE:90	SIZE:L	SOURCEPAGE:p.73
+Lariat												TYPE:Weapon.Exotic.Ranged							COST:4	WT:3										DAMAGE:0			RANGE:10	SIZE:L	SOURCEPAGE:p.73
+
+#Specific
+Sacred Tomahawk of the Sun			PROFICIENCY:Tomahawk			TYPE:Magic.Weapon.Simple.Melee.Ranged.Slashing				COST:18153	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			RANGE:10	SIZE:S	SOURCEPAGE:p.198						BONUS:WEAPON|DAMAGE,TOHIT|3
+Sun Bow						PROFICIENCY:Shortbow			TYPE:Magic.Weapon.Martial.Ranged.Piercing					COST:18180	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			RANGE:60	SIZE:M	SOURCEPAGE:p.198						BONUS:WEAPON|DAMAGE,TOHIT|3
+Wild Bill's Six-Shooter				PROFICIENCY:Colt Navy (Pistol/SA)	TYPE:Magic.Weapon.Ranged.Firearm.Pistol.SingleAction.Piercing	COST:2668	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4+2		RANGE:30	SIZE:S	SOURCEPAGE:p.199
+Judge's Gun						PROFICIENCY:Colt Army (Pistol/SA)	TYPE:Magic.Weapon.Ranged.Firearm.Pistol.SingleAction.CnB.Piercing	COST:8320	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:4d6			RANGE:30	SIZE:S	SOURCEPAGE:p.198	BONUS:SKILL|Intimidate|2	BONUS:WEAPON|TOHIT|1

@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+#Goods Name					Type of Item	Cost		Weight
+# Equipment Name				Type		Cost		Weight	Source Page
+Coin (Orgent)				TYPE:Coin	COST:100	WT:.02	SOURCEPAGE:p.
+Coin (Domargent)				TYPE:Coin	COST:2	WT:.02	SOURCEPAGE:p.
+Coin (Gold bar)				TYPE:Coin	COST:64000	WT:.02	SOURCEPAGE:p.
+Coin (Argent)				TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.
+Coin (Old Vinnengaelean Argent)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:p.
+Coin (Tam)					TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.
+Coin (Conent)				TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.
+Coin (Phennig)				TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.

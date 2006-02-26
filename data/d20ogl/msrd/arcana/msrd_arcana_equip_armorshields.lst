@@ -1,0 +1,31 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Sun Feb  5 00:06:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Light Armor
+# Equipment Name		Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page					% of Spell Failure	Combat bonus																Special Property
+Padded Armor		TYPE:Armor.Light.Suit.Impromptu	COST:9	WT:10		ACCHECK:-3		MAXDEX:8		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.STACK
+Studded Leather Armor	TYPE:Armor.Light.Suit.Archaic		COST:13	WT:20		ACCHECK:-1		MAXDEX:5		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+NBC Suit			TYPE:Armor.Light.Suit.Tactical	COST:15	WT:10		ACCHECK:-4		MAXDEX:5		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|0|TYPE=Armor.STACK													SPROP:Res(+2)	SPROP:+10 bonus on Fortitude saves against radiation
+Fire Resistant Suit	TYPE:Armor.Light.Suit.Tactical	COST:13	WT:10		ACCHECK:-4		MAXDEX:5		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|0|TYPE=Armor.STACK													SPROP:Fire Resistance 10
+
+###Block: Medium Armor NonProf=+2
+# Equipment Name	Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page					% of Spell Failure	Combat bonus
+Hide Armor		TYPE:Armor.Medium.Suit.Impromptu	COST:10	WT:25		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:20		BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Lamellar Armor	TYPE:Armor.Medium.Suit.Archaic	COST:20	WT:35		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:30		BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Scale Mail		TYPE:Armor.Medium.Suit.Archaic	COST:16	WT:30		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:25		BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Breastplate		TYPE:Armor.Medium.Suit.Archaic	COST:18	WT:30		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:25		BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+
+###Block: Heavy Armor nonprof=+3
+# Equipment Name	Type					Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page					% of Spell Failure	Combat bonus
+Splint Mail		TYPE:Armor.Heavy.Suit.Archaic	COST:18	WT:45		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+Banded Mail		TYPE:Armor.Heavy.Suit.Archaic	COST:19	WT:35		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+Half Plate		TYPE:Armor.Heavy.Suit.Archaic	COST:21	WT:50		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+O-Yoroi		TYPE:Armor.Heavy.Suit.Archaic	COST:28	WT:45		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:40		BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+
+###Block: Shields
+# Equipment Name		Output Name				Type					Cost		Weight	AC Penalty Check	Source Page					% of Spell Failure	Combat bonus																	Special Property
+Buckler								TYPE:Shield.Buckler.Standard	COST:9	WT:5		ACCHECK:-1		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|0|TYPE=Shield.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK	SPROP:-1 penalty to attacks using the buckler armored hand
+Shield (Impromptu)	OUTPUTNAME:[NAME] Shield	TYPE:Shield.Light.Standard	COST:0	WT:0		ACCHECK:-2		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|0|TYPE=Shield.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK	SPROP:hardness 5, 3hp
+Shield (Small)		OUTPUTNAME:[NAME] Shield	TYPE:Shield.Light.Standard	COST:5	WT:6		ACCHECK:-1		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|0|TYPE=Shield.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK	SPROP:You may carry, but not use items with your shield hand
+Shield (Large)		OUTPUTNAME:[NAME] Shield	TYPE:Shield.Heavy.Standard	COST:7	WT:15		ACCHECK:-2		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|1|TYPE=Shield.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK
+Shield (Riot)		OUTPUTNAME:[NAME] Shield	TYPE:Shield.Heavy.Standard	COST:10	WT:6		ACCHECK:-1		SOURCEPAGE:ArcanaEquipment.rtf	SPELLFAILURE:30		BONUS:COMBAT|AC|1|TYPE=Shield.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK	SPROP:Res(+2)	SPROP:Transparent plastic, not hindering sight

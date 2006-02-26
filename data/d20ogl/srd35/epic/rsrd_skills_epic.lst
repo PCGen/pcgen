@@ -1,0 +1,34 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Wed Sep 28 00:18:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Craft (Dreamweaving)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf
+Craft (Gemcutting)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMagicItems2.rtf
+Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf
+Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf
+Profession (Bookkeeper)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:EpicMonsters(G-W).rtf
+
+###Block: Epic Synergy Bonuses, see EpicSkills.rtf
+
+# Skill Name				Bonus to skill
+Balance.MOD					BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*2|TYPE=Synergy.STACK
+Diplomacy.MOD				BONUS:SKILL|Diplomacy|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*2|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|max(0,floor((var("SKILLRANK=Sense Motive")-5)/20))*2|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|max(0,floor((var("SKILLRANK=Knowledge (Nobility and Royalty)")-5)/20))*2|TYPE=Synergy.STACK
+Disguise.MOD				BONUS:SKILL|Disguise|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*2|TYPE=Synergy.STACK
+Escape Artist.MOD				BONUS:SKILL|Escape Artist|max(0,floor((var("SKILLRANK=Use Rope")-5)/20))*2|TYPE=Synergy.STACK
+Gather Information.MOD			BONUS:SKILL|Gather Information|max(0,floor((var("SKILLRANK=Knowledge (Local)")-5)/20))*2|TYPE=Synergy.STACK
+Intimidate.MOD				BONUS:SKILL|Intimidate|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*2|TYPE=Synergy.STACK
+Jump.MOD					BONUS:SKILL|Jump|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*2|TYPE=Synergy.STACK
+Knowledge (Nature).MOD			BONUS:SKILL|Knowledge (Nature)|max(0,floor((var("SKILLRANK=Survival")-5)/20))*2|TYPE=Synergy.STACK
+Ride.MOD					BONUS:SKILL|Ride|max(0,floor((var("SKILLRANK=Handle Animal")-5)/20))*2|TYPE=Synergy.STACK
+Search.MOD					BONUS:SKILL|Search|max(0,floor((var("SKILLRANK=Knowledge (Architecture and Engineering)")-5)/20))*2|TYPE=Synergy.STACK
+Sleight of Hand.MOD			BONUS:SKILL|Sleight of Hand|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*2|TYPE=Synergy.STACK
+Spellcraft.MOD				BONUS:SKILL|Spellcraft|max(0,floor((var("SKILLRANK=Knowledge (Arcana)")-5)/20))*2|TYPE=Synergy.STACK
+Survival (Underground).MOD		BONUS:SKILL|Survival (Underground)|max(0,floor((var("SKILLRANK=Knowledge (Dungeoneering)")-5)/20))*2|TYPE=Synergy.STACK
+Survival (The Planes).MOD		BONUS:SKILL|Survival (The Planes)|max(0,floor((var("SKILLRANK=Knowledge (The Planes)")-5)/20))*2|TYPE=Synergy.STACK
+Survival (Natural environments).MOD	BONUS:SKILL|Survival (Natural environments)|max(0,floor((var("SKILLRANK=Knowledge (Nature)")-5)/20))*2|TYPE=Synergy.STACK
+Survival (Lost/Natural hazards).MOD	BONUS:SKILL|Survival (Lost/Natural hazards)|max(0,floor((var("SKILLRANK=Knowledge (Geography)")-5)/20))*2|TYPE=Synergy.STACK
+Tumble.MOD					BONUS:SKILL|Tumble|max(0,floor((var("SKILLRANK=Jump")-5)/20))*2|TYPE=Synergy.STACK
+
+#
+# End
+#

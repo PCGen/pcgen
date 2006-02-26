@@ -1,0 +1,209 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jul  9 05:39:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean|SOURCESHORT:BlackFlags|SOURCEWEB:http://www.avalanchepress.com
+
+# Several classes have odd skill point progressions where first level has a different base number of
+#	skill points than higher levels (see Priest and Sailor for examples).
+# Doing this by adding BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=4 to the first level
+#	line of those classes to simulate the higher number for first level.
+# Also note that the bonus tag has very quirky behavior in that it automatically is multiplied by
+#	4 at first level. I don't think that is correct but I can work around this.
+
+# The Cook class template has a bonus to a skill called Haggle which does not exist in this book
+#	nor in the SRD. This should probably be errata'ed to Diplomacy(when used to haggle for price).
+# The Physician has a prerequisite of 6 ranks in Wilderness Survival which does not exist in this
+#	book nor in the SRD. This should probably be errata'ed to Wilderness Lore.
+
+# Checked website and no errata appears to have been published.
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:Mch		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE.Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot
+###Block: Proficiency
+1	FEATAUTO:Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Normal Level Progression
+1	SA:Knowledge:Market (Ex)												FEATAUTO:Literacy
+3	SA:Contacts (Ex)	SA:Haggle (Ex)
+5	SA:Jack of All Trades % (Ex)|BFJackTrades	BONUS:VAR|BFJackTrades|CL/5	DEFINE:BFJackTrades|0
+6	SA:Payoffs (Ex)
+7	SA:Resources % (Ex)|BFResources		BONUS:VAR|BFResources|1		DEFINE:BFResources|0
+11								BONUS:VAR|BFResources|1
+13	SA:Friends in High Places (Ex)
+17								BONUS:VAR|BFResources|1
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.34	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Read Lips|Ride|Sense Motive|Speak Language|Spot
+###Block: Proficiency
+1	FEATAUTO:Firearms Proficiency|Noble Weapon Proficiencies|All Automatic Proficiencies
+###Block: Normal Level Progression
+1	SA:Resources % (Ex)|BFResources	SA:Social Standing % (Ex)|BFSocialStanding						DEFINE:BFSocialStanding|1	DEFINE:BFResources|1	FEATAUTO:Literacy
+3															BONUS:VAR|BFSocialStanding|1
+4															BONUS:VAR|BFResources|1
+5	SA:Influence (Ex)
+7	SA:Paramours (Ex)
+8															BONUS:VAR|BFSocialStanding|1
+10															BONUS:VAR|BFResources|1
+11	SA:Favors (Ex)
+13															BONUS:VAR|BFSocialStanding|1
+14															BONUS:VAR|BFResources|1
+17															BONUS:VAR|BFSocialStanding|1
+19															BONUS:VAR|BFResources|1
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		SOURCEPAGE:p.37	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Gender
+CLASS:Priest	PREGENDER:M
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
+1	SA:Bless %/day (Sp)|BFBless	SA:Bless Water %/day (Sp)|BFBlessWater	SA:Literacy x2(Native,Latin) (Ex)										BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=2	DEFINE:BFBless|1	DEFINE:BFBlessWater|1			FEATAUTO:Literacy
+2	SA:Bane %/day (Sp)|BFBane																																											DEFINE:BFBane|1
+3	SA:Aura of Fear %/day (Sp)|BFAuraFear																																									DEFINE:BFAuraFear|1
+4	SA:Divine Favor %/day (Sp)|BFDivineFavor												BONUS:VAR|BFBless|1																										DEFINE:BFDivineFavor|1
+5																																																							ADD:FEAT
+6																			BONUS:VAR|BFBane|1	BONUS:VAR|BFAuraFear|1
+7	SA:Bishop (Ex)	SA:Doom %/day (Sp)|BFDoom	SA:Remove Fear %/day (Sp)|BFRemoveFear																																	DEFINE:BFDoom|1	DEFINE:BFRemoveFear|1
+8																			BONUS:VAR|BFBless|1	BONUS:VAR|BFDivineFavor|1
+9	SA:Lay Hands %/day (Sp)|BFLayHands													BONUS:VAR|BFBane|1																										DEFINE:BFLayHands|1
+10																																																							ADD:FEAT
+11																			BONUS:VAR|BFAuraFear|1
+12																			BONUS:VAR|BFDivineFavor|1
+13																			BONUS:VAR|BFDoom|1
+14																			BONUS:VAR|BFRemoveFear|1
+15																																																							ADD:FEAT
+16																			BONUS:VAR|BFLayHands|1
+17																			BONUS:VAR|BFDoom|1
+18																			BONUS:VAR|BFRemoveFear|1
+19																			BONUS:VAR|BFLayHands|1
+20																																																							ADD:FEAT
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|Cutlass	FEATAUTO:Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Normal Level Progression
+1	SA:Sea Legs (Ex)		BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=6
+2																											FEATAUTO:Great Fortitude
+3																											FEATAUTO:Improvised Weapon Proficiency
+5																									ADD:FEAT
+7																									ADD:FEAT
+10	SA:Curse (Sp)
+12																									ADD:FEAT
+14	SA:Remove Curse (Sp)
+16																									ADD:FEAT
+18																									ADD:FEAT
+20																									ADD:FEAT
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		SOURCEPAGE:p.40	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim
+###Block: Proficiency
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Firearms Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1						ADD:FEAT(TYPE=Fighter)
+2						ADD:FEAT(TYPE=Fighter)
+4	DEFINE:WeapSpecQualify|1	ADD:FEAT(TYPE=Fighter)
+6						ADD:FEAT(TYPE=Fighter)
+8						ADD:FEAT(TYPE=Fighter)
+10						ADD:FEAT(TYPE=Fighter)
+12						ADD:FEAT(TYPE=Fighter)
+14						ADD:FEAT(TYPE=Fighter)
+16						ADD:FEAT(TYPE=Fighter)
+18						ADD:FEAT(TYPE=Fighter)
+20						ADD:FEAT(TYPE=Fighter)
+
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
+CLASS:Escaped Slave	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:ESl		MAXLEVEL:1	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude|2
+# Class Name		Prohibited Class		Required Lvl
+CLASS:Escaped Slave	!PRECLASS:1,Priest=1	PRELEVEL:1
+1	BONUS:SKILL|Disguise,Escape Artist,Hide,Move Silently|2|TYPE=Class	FEATAUTO:Endurance|Run
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
+CLASS:Carpenter	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Car		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Reflex|2
+# Class Name	Prohibited Class			Required Lvl
+CLASS:Carpenter	!PRECLASS:1,Priest,Noble=1	PRELEVEL:1
+1	SA:Damage Control (Ex)	BONUS:SKILL|Balance,Climb|2|TYPE=Class	BONUS:SKILL|Craft (Carpentry)|4|TYPE=Class	FEATAUTO:Amputate
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
+CLASS:Cook		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Cok		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Reflex|2
+# Class Name	Prohibited Class		Required Lvl
+CLASS:Cook		!PRECLASS:1,Priest=1	PRELEVEL:1
+1	SA:Forage (Ex)	BONUS:SKILL|Craft (Cook),Haggle|4|TYPE=Class	FEATAUTO:Alertness
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
+CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Willpower|2
+# Class Name	Required Lvl
+CLASS:Officer	PRELEVEL:1
+1	SA:Forage (Ex)	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	ADD:FEAT(TYPE=Panache)	FEATAUTO:Weapon Finesse(Rapier)
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feat		Required Skill				Required Stat
+CLASS:Captain	PREFEAT:1,Leadership	PRESKILL:2,Navigation,Piloting=8	PRESTAT:1,CHA=13
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Captain	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|Search|Spot|Swim|Use Rope|Wilderness Lore
+###Block: Proficiencies
+1	FEATAUTO:Firearms Proficiency|Captain Weapon Proficiencies
+###Block: Normal Level Progression
+1	SA:Aura of Command (Su)
+2						ADD:FEAT(TYPE=Panache)
+3	SA:Remove Fear (Su)
+4						ADD:FEAT(TYPE=Panache)
+5	SA:Inspire to Greatness (Su)
+6						ADD:FEAT(TYPE=Panache)
+7	SA:Aura of Fear (Su)
+8						ADD:FEAT(TYPE=Panache)
+9	SA:Intuition (Sp)
+1						ADD:FEAT(TYPE=Panache)
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Class		Required Feat		Required Skill		Required Stat	Required Text
+CLASS:Cardinal	PRECLASS:1,Priest=7	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=12	PRESTAT:1,CHA=13	PRETEXT:Must have been promoted to Bishop.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Forgery|Gather Information|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Read Lips|Ride|Sense Motive|Speak Language|Spot
+1	SA:Entourage	SA:Guard	SA:Social Standing % (Ex)|BFSocialStanding	SA:Theological Wisdom (Ex)									DEFINE:BFSocialStanding|4
+2																			BONUS:VAR|BFLayHands|1	BONUS:VAR|BFAuraFear|1
+3	SA:Remove Curse (Sp)
+4	SA:Remove Blindness/Deafness (Sp)
+5																																ADD:FEAT
+6																			BONUS:VAR|BFLayHands|1
+7																			BONUS:VAR|BFSocialStanding|1
+8	SA:Divination (Sp)
+9	SA:Divine Power (Sp)
+10	SA:Excommunicate (Su)
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Navigator	NAMEISPI:NO		HD:8		TYPE:Prestige.PC	ABB:Nav		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Skill												Required Stat
+CLASS:Navigator	PRESKILL:1,Navigation=12	PRESKILL:1,Intuit Direction=8	PRESKILL:1,Piloting=6	PRESTAT:1,WIS=13
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Navigator	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Decipher Script|Gather Information|Intuit Direction|Navigation|Piloting|Profession (Cartographer)|Speak Language|Spot|Wilderness Lore
+1	SA:Familiar Waters x% (Ex)|BFFamiliarWaters	BONUS:VAR|BFFamiliarWaters|CL/4+1	DEFINE:BFFamiliarWaters|0
+2	SA:Know Direction %/day (Sp)|BFKnowDirection	BONUS:VAR|BFKnowDirection|1		DEFINE:BFKnowDirection|0
+3	SA:Efficient Plotting (Ex)
+5									BONUS:VAR|BFKnowDirection|1
+6	SA:Improved Piloting (Ex)
+7	SA:Tactical Navigation (Ex)
+9									BONUS:VAR|BFKnowDirection|1
+10	SA:Never Lost (Su)
+
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
+CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Skill								Required Stat
+CLASS:Physician	PRESKILL:2,Alchemy,Wilderness Lore=6	PRESKILL:1,Heal=8	PRESTAT:1,INT=12
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Physician	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Concentration|Heal|Knowledge (Medicine)|Profession (Physician)|Wilderness Lore
+1	SA:Cure Minor Wounds %/day (Ex)|PhysicianMinor						DEFINE:PhysicianMinor|CL
+2																			FEATAUTO:Amputate
+3	SA:Treat Sickness (Ex)
+5	SA:Heal Wounds %/day (Ex)|BFHealWounds							DEFINE:BFHealWounds|1
+6	SA:Remove Disease 1/day (Ex)
+7	SA:Save Limb (Ex)
+9									BONUS:VAR|BFHealWounds|1

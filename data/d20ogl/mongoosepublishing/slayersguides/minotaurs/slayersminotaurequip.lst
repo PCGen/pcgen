@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Mar  1 22:14:04 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs|SOURCESHORT:SGtM|SOURCEWEB:http://mongoosepublishing.com
+
+###Block:Tools
+# Equipment Name			Type							Cost		Weight	Source Page		Bonus to skill
+Artisan's Tools (Labyrinth)	TYPE:Goods.Tools.Artisan.LabyrinthTools	COST:5	WT:5		SOURCEPAGE:P.19	BONUS:SKILL|Craft (Labyrinth)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Alter)		TYPE:Goods.Tools.Artisan.AlterTools		COST:5	WT:5		SOURCEPAGE:P.19	BONUS:SKILL|Craft (Alter)|2|TYPE=Circumstance|PRETYPE:Masterwork

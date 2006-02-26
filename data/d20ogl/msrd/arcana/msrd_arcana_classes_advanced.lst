@@ -1,0 +1,234 @@
+# CVS $Revision: 1.6 $ $Author: frank_kliewe $ -- Thu Dec  1 03:39:40 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Paul King
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus													Combat bonus		Modify VAR
+CLASS:Arcane Arranger	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
+# Class Name		Required Skill
+CLASS:Arcane Arranger	PRESKILL:2,Diplomacy,Gather Information=6	PRESKILL:1,Knowledge (Arcane Lore),Knowledge (Business),Knowledge (Current Events),Knowledge (Popular Culture),Knowledge (Streetwise)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Arranger	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Decipher Script|Diplomacy|Forgery|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Repair|Research|Sense Motive|Speak Language
+1	SA:Word on the Street
+2	SA:False Allegiance
+3												ADD:FEAT(TYPE=ArcaneArranger)
+4	SA:Shadow Resources
+5	SA:Pack Rat
+6												ADD:FEAT(TYPE=ArcaneArranger)
+7	SA:Expert in Your Field
+8	SA:Up My Sleeve - one object up to Small size
+9												ADD:FEAT(TYPE=ArcaneArranger)
+10	SA:Up My Sleeve - one object up to Large, or three up to Small
+
+# Class Name			Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name			Req. Att.	Required Feat
+CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
+1							BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0							FEATAUTO:Weapon Specialization
+2	SA:Imbue Weapon +%|ImbueWeapon	BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0
+3																		ADD:FEAT(TYPE=ArchaicWeaponmaster)
+4	SA:Quick Weapon Draw
+5	SA:Expert in Your Field
+6																		ADD:FEAT(TYPE=ArchaicWeaponmaster)
+7	SA:Weapon Stun
+9																		ADD:FEAT(TYPE=ArchaicWeaponmaster)
+10																								FEATAUTO:Increased Weapon Critical
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Glamourist	PRESKILL:2,Bluff,Sense Motive=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Glamourist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Decipher Script|Disguise|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Act)|Perform (Sing)|Profession|Read/Write Language|Sense Motive|Speak Language|Spot
+1	SA:Self Confidence
+2	SA:Hidden Motives
+3					ADD:FEAT(TYPE=Glamourist)
+4	SA:Hidden Allegiance
+5	SA:Audience
+6					ADD:FEAT(TYPE=Glamourist)
+7	SA:Daze								SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Daze,10+CHA|PRESTAT:1,CHA=10
+8	SA:Utterly Convincing
+9					ADD:FEAT(TYPE=Glamourist)
+10	SA:Charm Person							SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Charm Person,11+CHA|PRESTAT:1,CHA=11
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus													Combat bonus		Modify VAR
+CLASS:Mystic	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Mystic	PRESKILL:3,Diplomacy,Knowledge (Theology and Philosophy),Listen=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Diplomacy|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Treat Injury
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
+###Block: Turning
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
+2	BONUS:VAR|TurnDamagePlus|CL
+2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
+###Block: Spells
+1	SPELLLEVEL:CLASS|Mystic=0|Create Water,Detect Magical Aura,Light,Read Magic,Resistance,Virtue
+1	SPELLLEVEL:CLASS|Mystic=1|Bane,Bless,Cause Fear,Command,Comprehend Languages,Magic Weapon,Remove Fear,Shield of Faith
+1	SPELLLEVEL:CLASS|Mystic=2|Aid,Augury,Delay Poison,Enhance Ability,Hold Person,Lesser Restoration,Remove Paralysis,Resist Energy,Shatter,Silence,Spider Climb,Zone of Truth
+1	SPELLLEVEL:CLASS|Mystic=3|Animate Dead,Bestow Curse,Dispel Magic,Glyph of Warding,Locate Object,Prayer,Remove Curse,Remove Disease,Searing Light,Status,Water Breathing
+1	SPELLLEVEL:CLASS|Mystic=4|Discern Lies,Faith's Fury,Freedom of Movement,Greater Magic Weapon,Neutralize Poison,Restoration,Tongues
+1	SPELLLEVEL:CLASS|Mystic=5|Break Enchantment,Flaming Wrath,Greater Command,Insect Plague,True Seeing,Wall of Stone
+###Block: Standard block
+1	CAST:3,2		KNOWN:4,2												FEATAUTO:Arcane Skills
+2	CAST:4,3		KNOWN:5,2
+3	CAST:4,3,2		KNOWN:5,3,1					ADD:FEAT(TYPE=Mystic,TYPE=Metamagic)
+4	CAST:5,4,3		KNOWN:6,3,2		SA:Combat Casting
+5	CAST:5,4,3,2	KNOWN:6,4,2,1											FEATAUTO:Brew Potion
+6	CAST:5,4,4,3	KNOWN:7,4,3,2				ADD:FEAT(TYPE=Mystic,TYPE=Metamagic)
+7	CAST:6,5,4,3,2	KNOWN:7,5,3,2,1	SA:Discern Lie
+8	CAST:6,5,4,4,3	KNOWN:8,5,4,3,2											FEATAUTO:Turn/Rebuke Humans
+9	CAST:6,5,5,4,3,2	KNOWN:8,5,4,3,2,1				ADD:FEAT(TYPE=Mystic,TYPE=Metamagic)
+10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2											FEATAUTO:Empower Spell
+
+# Psionic Agent moved to psionics subfolder set folder
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus									Combat bonus		Modify VAR
+CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-2)/3	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat													Required Skill
+CLASS:Shadow Hunter	PREATT:2	PREFEAT:1,Track	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:2,Investigate,Sense Motive=6	PRESKILL:1,Knowledge (Arcane Lore)=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot|Survival
+1	SA:Target Bonus +%|TargetBonus	BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0
+2	SA:Swift Track
+3																	ADD:FEAT(TYPE=ShadowHunter)
+4	SA:No Trace
+5	SA:Play a Hunch
+6																	ADD:FEAT(TYPE=ShadowHunter)
+8	SA:Detect Magical Aura
+9																	ADD:FEAT(TYPE=ShadowHunter)
+10	SA:Locate Target				BONUS:VAR|TargetBonus|-1
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Shadowjack	PRESKILL:3,Computer Use,Craft (Electronic),Disable Device=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Writing)|Decipher Script|Disable Device|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Repair|Research|Speak Language|Search
+1	SA:Read/Write Code
+2	SA:Online Presence
+3											ADD:FEAT(TYPE=Shadowjack)
+4	SA:Electronic Empathy	SA:Careful Progress
+5	SA:False Trail	SA:Install Backdoor
+6											ADD:FEAT(TYPE=Shadowjack)
+7	SA:Online Spell Resistance %|10+CL	SA:Improved Degradation
+8	SA:Passfirewall	SA:Walking Database
+9											ADD:FEAT(TYPE=Shadowjack)
+10	SA:Virtual Incantations
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Check Base	Required Feat			Required Skill
+CLASS:Speed Demon	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
+1					ADD:FEAT(Uncanny Dodge I,Uncanny Dodge II)	QUALIFY:Uncanny Dodge I
+2	SA:Hit the Weak Spot
+3	SA:Vehicle Empathy	ADD:FEAT(TYPE=SpeedDemon)
+4	SA:Need for Speed
+5	SA:Nursing the Turns
+6	SA:Commandeer		ADD:FEAT(TYPE=SpeedDemon)
+7	SA:Leadfoot
+8	SA:Redlining the Needle
+9	SA:Restore Vehicle	ADD:FEAT(TYPE=SpeedDemon)
+10	SA:One with the Machine
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat				Required Skill
+CLASS:Street Warrior	PREATT:3	PREFEAT:2,Brawl,Streetfighting	PRESKILL:1,Knowledge (Streetwise)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Investigate|Jump|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Profession|Sense Motive|Spot|Survival
+1	SA:Urban Survival
+2	SA:Improvised Weapons
+3											ADD:FEAT(TYPE=StreetWarrior)
+4	SA:Street Cred
+5	SA:Improved Streetfighting
+6											ADD:FEAT(TYPE=StreetWarrior)
+7						BONUS:VAR|WeapSpecQualify|1	ADD:FEAT(Weapon Specialization)
+8	SA:Improvised Weapon Damage
+9											ADD:FEAT(TYPE=StreetWarrior)
+10	SA:Advanced Streetfighting
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat			Required Skill
+CLASS:Swashbuckler	PREATT:2	PREFEAT:1,Weapon Finesse	PRESKILL:2,Balance,Tumble=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Pilot|Profession|Sleight of Hand|Swim|Tumble
+1										ADD:FEAT(Weapon Focus)
+2	SA:Quick Weapon Draw
+3										ADD:FEAT(TYPE=Swashbuckler)
+4					BONUS:VAR|WeapSpecQualify|1	ADD:FEAT(Weapon Specialization)
+5	SA:Find the Mark														FEATAUTO:Find the Mark
+6										ADD:FEAT(TYPE=Swashbuckler)
+7										ADD:FEAT(Greater Weapon Specialization)
+8	SA:Deflect Missiles
+9										ADD:FEAT(TYPE=Swashbuckler)
+10	SA:Touche
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Techno Mage	PRESKILL:4,Computer Use,Craft (Electronic),Knowledge (Arcane Lore),Repair=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Techno Mage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Read/Write Language|Repair|Research|Speak Language|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Techno Mage|CL
+###Block: Spells
+1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock,Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb,Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door,Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
+###Block: Standard
+1	CAST:3,1		SA:Arcane Skills			BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
+2	CAST:4,2		SA:Machine Empathy
+3	CAST:4,2,1		SA:Program Spell																																																												ADD:FEAT(TYPE=TechnoMage,TYPE=Metamagic)
+4	CAST:4,3,2		SA:Create Homunculus
+5	CAST:4,3,2,1	SA:Arcane Spontaneous casting																																																																	CHOOSE:SPELLLIST|INT
+6	CAST:4,3,3,2																																																															ADD:FEAT(TYPE=TechnoMage,TYPE=Metamagic)
+7	CAST:4,4,3,2,1																																																																										FEATAUTO:Spell Focus
+8	CAST:4,4,3,3,2	SA:Online Casting
+9	CAST:4,4,4,3,2,1																																																															ADD:FEAT(TYPE=TechnoMage,TYPE=Metamagic)
+10	CAST:4,4,4,3,3,2																																																																										FEATAUTO:Quicken Spell
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat			Required Skill
+CLASS:Thrasher	PREATT:2	PREFEAT:1,Athletic,Endurance	PRESKILL:2,Concentration,Survival=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Survival|Tumble
+1			SA:Tough Defense										BONUS:COMBAT|AC|CON-DEX
+2			SA:Ability Surge %/day|AbilitySurge	BONUS:VAR|AbilitySurge|(CL+1)/3								DEFINE:AbilitySurge|0
+3																										ADD:FEAT(TYPE=Thrasher)
+4																										ADD:FEAT(Uncanny Dodge I,Uncanny Dodge II)	QUALIFY:Uncanny Dodge I
+6																										ADD:FEAT(TYPE=Thrasher)
+7	DR:5/+1
+9																										ADD:FEAT(TYPE=Thrasher)
+10																			BONUS:DR|+1|5
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Wildlord	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Skill
+CLASS:Wildlord	PREATT:2	PRESKILL:2,Handle Animal,Survival=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
+###Block: Turning
+8	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Animals
+8	BONUS:VAR|TurnLevel|var("CL=Wildlord")		DEFINE:ExtraTurningQual|1
+8	BONUS:VAR|TurnDamagePlus|var("CL=Wildlord")
+8	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
+10														FEATAUTO:Turn/Rebuke Magical Beasts
+###Block: Standard
+1	SA:Animal Empathy
+2	SA:Animal Companion									FEATAUTO:Track
+3	SA:Fast Climb				ADD:FEAT(TYPE=Wildlord)
+4	SA:Resist Venom	SA:Call Companion
+5	SA:Skill Mastery				ADD:FEAT(Wildlord Skill Mastery)
+6							ADD:FEAT(TYPE=Wildlord)
+7	SA:Expert in Your Field
+9	SA:Transform Companion			ADD:FEAT(TYPE=Wildlord)
+
+#
+# End
+#

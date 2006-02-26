@@ -1,0 +1,47 @@
+# CVS $Revision: 1.13 $ $Author: eddyanthony $ -- Wed Sep 21 08:53:32 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by :Doug McMillan
+
+# Feat Name				Output Name						Type				Req. Att.	Required Feat								PREHANDSGTEQ	Required Item		Req. Movement	Minimum Size	Required Stat	Var. Min. Value					Description		Stackable?	Multiple?	Choose					Combat bonus									Weapon prof. bonus			Source Page
+Ability Focus										TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Awesome Blow										TYPE:General.Fighter			PREFEAT:2,Power Attack,Improved Bull Rush														PRESIZEGTEQ:L	PRESTAT:1,STR=25								DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Craft Construct										TYPE:ItemCreation				PREFEAT:2,Craft Magic Arms and Armor,Craft Wondrous Item																								DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Empower Spell Like Ability	OUTPUTNAME:Empower Spell-Like Ability	TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Flyby Attack										TYPE:General																					PREMOVE:Fly=1														DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Hover												TYPE:General																					PREMOVE:Fly=1														DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Improved Natural Armor									TYPE:General																											PRESTAT:1,CON=13	PREVARGTEQ:BONUS.COMBAT.AC.NaturalArmor,1	DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										SOURCEPAGE:rsrd monster feats.rtf
+Improved Natural Attack									TYPE:General		PREATT:4														PREITEM:1,TYPE=Natural																	DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Natural												BONUS:WEAPONPROF=%LIST|DAMAGESIZE|1	SOURCEPAGE:rsrd monster feats.rtf
+Multiattack											TYPE:General																																					DESC:See Text											BONUS:COMBAT|TOHIT-SECONDARY|3												SOURCEPAGE:rsrd monster feats.rtf
+Multiweapon Fighting									TYPE:General														PREHANDSGTEQ:3											PRESTAT:1,DEX=13								DESC:See Text											BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6							SOURCEPAGE:rsrd monster feats.rtf
+Quicken Spell Like Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Snatch											TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Wingover											TYPE:General																					PREMOVE:Fly=1														DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+
+###Block: Descriptions
+#
+# This lower section is for the Benefits section in the SRD.
+# Please do not use Benefit sections from feats when submitting new datasets.
+# We want to make sure we stay publisher friendly, and using the benefits section can remove the need to own the source.
+#	- Tir Gwaith
+#
+#
+
+# Monster Feats
+# Feat Name					Description
+Ability Focus.MOD				DESC:Add +2 to the DC for all saving throws against the special attack on which the creature focuses.
+Awesome Blow.MOD				DESC:As a standard action, the creature may choose to subtract 4 from its melee attack roll and deliver an awesome blow.
+Craft Construct.MOD			DESC:A creature with this feat can create any construct whose prerequisites it meets.
+Empower Spell Like Ability.MOD	DESC:The creature can use the selected ability as an empowered spell-like ability three times per day (or less, if the ability is normally usable only once or twice per day).
+Flyby Attack.MOD				DESC:When flying, the creature can take a move action (including a dive) and another standard action at any point during the move.
+Hover.MOD					DESC:When flying, the creature can halt its forward motion and hover in place as a move action.
+Improved Natural Armor.MOD		DESC:creature's natural armor bonus increases by 1.
+Improved Natural Attack.MOD		DESC:The damage for the selected natural weapon increases by one step, as if the creature's size had increased by one category.
+Multiattack.MOD				DESC:The creature's secondary attacks with natural weapons take only a -2 penalty.
+Multiweapon Fighting.MOD		DESC:Penalties for fighting with multiple weapons are reduced by 2 with the primary hand and reduced by 6 with off hands.
+Quicken Spell Like Ability.MOD	DESC:The creature can use the selected ability as a quickened spell-like ability three times per day (or less, if the ability is normally usable only once or twice per day).
+Snatch.MOD					DESC:The creature can choose to start a grapple when it hits with a claw or bite attack, as though it had the improved grab special attack.
+Wingover.MOD				DESC:A flying creature with this feat can change direction quickly once each round as a free action.
+
+#
+# End
+#

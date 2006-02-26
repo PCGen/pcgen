@@ -1,0 +1,15 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jun  5 21:22:36 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# Original entry by: Ratheof Blithwyn
+
+
+# Equipment Name		Type					Cost		Weight	Base Quantity	Source Page		Bonus to skill
+Boots of Diversion	TYPE:Magic.Wondrous.Boot	COST:3320	WT:0					SOURCEPAGE:p.61
+Circlet of Intimidation	TYPE:Magic.Wondrous		COST:2000	WT:0					SOURCEPAGE:p.61	BONUS:SKILL|Intimidate|10|TYPE=Competence
+Coin of Multiplying	TYPE:Magic.Wondrous		COST:2800	WT:0					SOURCEPAGE:p.61
+Dust of Worthlessness	TYPE:Magic.Wondrous		COST:2800	WT:0					SOURCEPAGE:p.61
+Key of Attraction		TYPE:Magic.Wondrous		COST:2500	WT:0					SOURCEPAGE:p.61
+Key of Vanishing		TYPE:Magic.Wondrous		COST:4500	WT:0					SOURCEPAGE:p.61
+Peasant's Robe		TYPE:Magic.Wondrous.Robe	COST:1000	WT:0					SOURCEPAGE:p.62
+Reflective Marbles	TYPE:Magic.Wondrous		COST:1850	WT:0		BASEQTY:10		SOURCEPAGE:p.62
+Tome of Shadows		TYPE:Magic.Wondrous.Book	COST:88500	WT:0					SOURCEPAGE:p.62

@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun|SOURCESHORT:WayotGun|SOURCEWEB:http://www.peginc.com/index.htm
+#Name
+# Equipment Name			Type				Cost		Weight	Source Page
+Acid (20)				TYPE:Ammunition		COST:20	WT:1		SOURCEPAGE:p.34
+AP Ammunition (Pistol/50)	TYPE:Ammunition		COST:50	WT:2		SOURCEPAGE:p.34
+AP Ammunition (Rifle/50)	TYPE:Ammunition		COST:100	WT:3		SOURCEPAGE:p.34
+Buck and Ball (50)		TYPE:Ammunition		COST:2	WT:4		SOURCEPAGE:p.32
+
+#Specific
+Nameable Bullet			TYPE:Magic.Ammunition	COST:32000	WT:0		SOURCEPAGE:p.42

@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# Equipment Name			Type						Cost		Weight	Source Page		Weapon prop. bonus
+Arrow					TYPE:Ammunition.Arrow			COST:.1667	WT:.15	SOURCEPAGE:p.
+Arrow (Quality)			TYPE:Ammunition.Arrow.Masterwork	COST:1	WT:.15	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Arrow (Silvered)			TYPE:Ammunition.Arrow			COST:1	WT:.15	SOURCEPAGE:p.
+Bolt (Crossbow)			TYPE:Ammunition.Bullet			COST:.2	WT:.1		SOURCEPAGE:p.
+Bolt (Crossbow/Quality)		TYPE:Ammunition.Bullet.Masterwork	COST:.8	WT:.15	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Bolt (Crossbow/Silvered)	TYPE:Ammunition.Bullet			COST:1	WT:.15	SOURCEPAGE:p.
+Bullet (Sling)			TYPE:Ammunition.SlingStone		COST:0.005	WT:.5		SOURCEPAGE:p.
+Needle (Blowgun)			TYPE:Ammunition.Needle			COST:.15			SOURCEPAGE:p.

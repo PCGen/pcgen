@@ -1,0 +1,36 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Firarms
+
+# Equipment Name					Required Proficiency			Type														Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+# Small---------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency			Type														Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Matchlock Pistol (Light)			PROFICIENCY:Matchlock Pistol		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:80	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S	SOURCEPAGE:p.150
+Matchlock Pistol (Heavy)			PROFICIENCY:Matchlock Pistol		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:120	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	RANGE:50	SIZE:S	SOURCEPAGE:p.150
+Flintlock Pistol (Light)			PROFICIENCY:Flintlock Pistol		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:90	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:60	SIZE:S	SOURCEPAGE:p.150
+Percussion Cap Pistol (Holdout)		PROFICIENCY:Percussion Cap Pistol	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:90	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:20	SIZE:S	SOURCEPAGE:p.150
+Percussion Cap Pistol (Light)			PROFICIENCY:Percussion Cap Pistol	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:120	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S	SOURCEPAGE:p.150
+
+# Medium--------------------------------------------------------------------------------
+Flintlock Pistol (Heavy)			PROFICIENCY:Flintlock Pistol		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:130	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	RANGE:60	SIZE:M	SOURCEPAGE:p.150
+Flintlock Pistol (Double-Barrel)		PROFICIENCY:Flintlock Pistol		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=2|Shot=2	COST:200	WT:8		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:60	SIZE:M	SOURCEPAGE:p.150
+Percussion Cap Pistol (Medium)		PROFICIENCY:Percussion Cap Pistol	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:180	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	RANGE:60	SIZE:M	SOURCEPAGE:p.150
+Percussion Cap Pistol (Heavy)			PROFICIENCY:Percussion Cap Pistol	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:220	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:60	SIZE:M	SOURCEPAGE:p.150
+Percussion Cap Pistol (Double-Barrel)	PROFICIENCY:Percussion Cap Pistol	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=2|Shot=2	COST:250	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:M	SOURCEPAGE:p.150
+Percussion Cap Pistol (Revolver)		PROFICIENCY:Percussion Cap Pistol	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Pistol	CONTAINS:-1|Bullet=1|Shot=1	COST:500	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:M	SOURCEPAGE:p.150
+Dwarven Tunnel Gun (Flintlock)		PROFICIENCY:Dwarven Tunnel Gun	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=1|Shot=1	COST:100	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.150
+
+# Large---------------------------------------------------------------------------------
+Flintlock Musket					PROFICIENCY:Flintlock Musket		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=1|Shot=1	COST:180	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:100	SIZE:L	SOURCEPAGE:p.150
+Flintlock Musket (Double-Barrel)		PROFICIENCY:Flintlock Musket		TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=2|Shot=2	COST:350	WT:18		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:100	SIZE:L	SOURCEPAGE:p.150
+Blunderbuss (Flintlock)				PROFICIENCY:Blunderbuss			TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=1|Shot=1	COST:100	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:15	SIZE:L	SOURCEPAGE:p.150
+Percussion Cap Musket				PROFICIENCY:Percussion Cap Musket	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=1|Shot=1	COST:250	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d10	RANGE:75	SIZE:L	SOURCEPAGE:p.150
+Percussion Cap Musket (Double-Barrel)	PROFICIENCY:Percussion Cap Musket	TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=2|Shot=2	COST:450	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d10	RANGE:75	SIZE:L	SOURCEPAGE:p.150
+Steambow						PROFICIENCY:Steambow			TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile				CONTAINS:-1|Bolt=50		COST:500	WT:100	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:40	SIZE:L	SOURCEPAGE:p.131
+Ogre Gun (Matchlock)				PROFICIENCY:Ogre Gun			TYPE:Weapon.Simple.Ranged.Piercing.Standard.Container.Projectile.Firearms.Musket	CONTAINS:-1|Bullet=1|Shot=1	COST:400	WT:100	CRITMULT:x3			CRITRANGE:1			DAMAGE:2d12	RANGE:30	SIZE:L	SOURCEPAGE:p.150
+
+#
+# end
+#

@@ -1,0 +1,2212 @@
+// Flemish Male Names
+
+[RULES]
+30	[SYL1]	[MISC]	[SYL2]
+40	[SYL1]	[DU]	[SYL2]
+50	[SYL1]	[VANDER]	[SYL2]
+60	[SYL1]	[VAN]	[SYL2]
+70	[SYL1]	[DE]	[SYL2]
+100	[SYL1]	[SYL2]
+
+[SYL1]
+[PREGENDER:M]
+Abacuc
+Abraham
+Absolon
+Adaem
+Adam
+Adolf
+Aenoud
+Aernoud
+Aernoudt
+Aernous
+Aernout
+Alaerd
+Alanche
+Alard
+Albyn
+Allaert
+Alonche
+Alwer
+Amandus
+Amant
+Ambrosius
+Andries
+Anselmus
+Antheunis
+Anthone
+Anthonio
+Anthonius
+Anths
+Anthuenis
+Antone
+Antonius
+Augustyn
+Balthazar
+Baltin
+Bane
+Bantsoen
+Bartholomeus
+Bave
+Bavo
+Beernaert
+Bernard
+Bertholmeeus
+Bertholomeeus
+Bertholomeus
+Bertram
+Bloc
+Boen
+Bonifaes
+Bossaerd
+Bouden
+Boudin
+Bouduin
+Carel
+Carsteloot
+Casin
+Celye
+Centen
+Charles
+Chls
+Christiaen
+Christian
+Christoffel
+Christoffels
+Claeis
+Claeys
+Clais
+Claude
+Claudinus
+Clays
+Clement
+Colaerd
+Colaert
+Colard
+Colin
+Cornelis
+Costiaen
+Crispin
+Culpyn
+Daniel
+Diederic
+Dieric
+Dixus
+Dominicus
+Donaes
+Du
+Ector
+Eeuwoud
+Eloy
+Engel
+Engelbert
+Enghel
+Erasmus
+Everaert
+Fans
+Ferdinande
+Ferry
+Franc?ois
+Francisco
+Franciscus
+Frans
+Franskin
+Gabriel
+Gastoen
+Gauthier
+Gautier
+Geeraerd
+Geeraert
+Gerard
+Gerardus
+Germain
+Germin
+Gervaes
+Gerwyn
+Gheeraert
+Ghelein
+Gheleyn
+Ghelyet
+Gherard
+Ghildof
+Ghildolf
+Ghy
+Ghylebert
+Ghysbrecht
+Ghyselbrecht
+Gillebert
+Gillis
+Glaeys
+Glaude
+Godefroid
+Godefroot
+Goelkin
+Gomaer
+Goosin
+Goossen
+Goris
+Gosin
+Gossyn
+Gosyn
+Govaert
+Govard
+Gregorius
+Griel
+Griffioen
+Griffoen
+Grote
+Guido
+Guillaume
+Guilliaume
+Guyoot
+Guyot
+Hannekin
+Hanskin
+Hector
+Heindric
+Heindrik
+Heinric
+Hellin
+Hendryk
+Henricus
+Henryk
+Henryn
+Herckeles
+Herman
+Heynderic
+Heyndric
+Hieronimus
+Hoste
+Hubert
+Hubrecht
+Huchon
+Hughe
+Hugo
+Hynghel
+Imeus
+Isenbrant
+Jacob
+Jacques
+Jakob
+Jaques
+Jaspar
+Jeronimus
+Joachim
+Jooris
+Joorkin
+Joos
+Joris
+Joseph
+Jozef
+Karel
+Kristiaen
+Lambert
+Lambrecht
+Lamsin
+Landsloot
+Lenard
+Lieven
+Lievin
+Lioen
+Lion
+Lodewijk
+Lodewyc
+Lodewyk
+Looi
+Loonis
+Loonise
+Lop
+Lopez
+Louis
+Loupus
+Lowys
+Loy
+Loys
+Luc
+Lucas
+Luuc
+Lyman
+Maerten
+Mahieu
+Mailliaerdt
+Malin
+Marc
+Marcelis
+Marcus
+Marlin
+Marsclis
+Marten
+Martin
+Martinus
+Masin
+Matheus
+Mathys
+Mattheus
+Matthys
+Maximiliaen
+Maykin
+Melchior
+Michiel
+Michil
+Moressis
+Nicasen
+Nicasius
+Niclaeys
+Niclays
+Nicolaes
+Nicolaeus
+Nicolas
+Noe
+Obekin
+Obert
+Ogier
+Olivier
+Omaer
+Ooste
+Oste
+Pachet
+Passchier
+Passchyer
+Pater
+Paulus
+Pauwel
+Pauwels
+Perceval
+Perryn
+Perseval
+Phelips
+Philippe
+Philippus
+Philips
+Pierken
+Pierret
+Pieter
+Pieters
+Raphael
+Regnier
+Remault
+Remeeus
+Reynier
+Richard
+Riquaerd
+Ritcaert
+Robert
+Robrecht
+Robregt
+Roegier
+Roeland
+Roelandt
+Roger
+Rogier
+Rubbrecht
+Rubin
+Rutgeer
+Rygaert
+Ryquaert
+Sakerus
+Salomon
+Samuel
+Sanders
+Schyere
+Sebastiaen
+Servaes
+Simmoen
+Simoen
+Simon
+Simphoriaen
+Stalin
+Stasin
+Stassin
+Stasyn
+Stevin
+Symoen
+Talghefeer
+Tanne
+Tasin
+Thibaut
+Thielman
+Thilman
+Thomas
+Tielman
+Tilleman
+Tobias
+Tosseyn
+Toussaint
+Tsarle
+Tsarloot
+Tybaut
+Veytman
+Victoor
+Victor
+Vincent
+Wapoel
+Wauter
+Weyn
+Wilem
+Willebrodus
+Willem
+Winnoc
+Wouter
+Wulf
+Wulfaert
+Wylyame
+Zebardyn
+Zeger
+Zegher
+[PREGENDER:F]
+Adriaen
+Adriana
+Agnes
+Aleit
+Alvara
+Anna
+Baptiste
+Barbara
+Barbele
+Beatrix
+Boudewyn
+Catherine
+Christina
+Christine
+Clara
+Clementia
+Danneel
+Denys
+Elisabeth
+Emerante
+Ermen
+Eva
+Floris
+Francies
+Gertrud
+Gertruda
+Heilwich
+Hillewaert
+Ida
+Inneke
+Isold
+Jan
+Jaquemine
+Johanna
+Joossine
+Jute
+Katharina
+Katheline
+Kathelyne
+Koen
+Laureins
+Laurens
+Laureyns
+Lauwereins
+Lauwers
+Leenaert
+Lenaert
+Lote
+Lysbette
+Mabelie
+Mabilia
+Magdalena
+Magdalene
+Margareta
+Maria
+Marie
+Martina
+Mathild
+Mine
+Noel
+Oda
+Odilia
+Pauweline
+Raes
+Sara
+Scarlt
+Symphoriaan
+Thoseyn
+Thousain
+Torie
+Tosseyn
+Veerle
+Zwane
+[/PRE]
+
+[DE]
+ de
+
+[VAN]
+ van
+
+[VANDER]
+ vander
+ vanden
+ vande
+
+[DU]
+ du
+
+[MISC]
+ de la
+ van den
+ d'
+ van de
+ van der
+ Van
+ fs
+ De
+ del
+ Le
+ Ville
+ avn
+ de
+ e
+ dyra
+ la
+ le
+ up den
+ uten
+ uuter
+
+[SYL2]
+ Aa
+ Aaradyn
+ Abelmont
+ Acker
+ Ackere
+ Adams
+ Adoorne
+ Adornes
+ Adriaens
+ Aecht
+ Aelbrecht
+ Aercheem
+ Aernouds
+ Aernoudts
+ Aernouts
+ Aert
+ Aertchier
+ Aertrycke
+ Aerync
+ Agast
+ Ageins
+ Alaedt
+ Alaerd
+ Alaerdt
+ Alemys
+ Alinckbroodt
+ Altere
+ Amere
+ Amerycx
+ Ametiennes
+ Ameye
+ Amyrex
+ Anchemant
+ Anchyn
+ Andelieu
+ Andries
+ Aplicata
+ Aradyn
+ Armarin
+ Arpe
+ Asschen
+ Assenede
+ Audejans
+ Audelet
+ Audelie
+ Augustine
+ Auvrecx
+ Azebaert
+ Backer
+ Backere
+ Badts
+ Baeckere
+ Baelgy
+ Baenst
+ Baerdt
+ Baere
+ Baers
+ Baerse
+ Baert
+ Baertmaecker
+ Baertmaeker
+ Baes
+ Baete
+ Bake
+ Bakkere
+ Bakra
+ Bakupe
+ Balberghe
+ Balderick
+ Baldern
+ Ballegheer
+ Balyu
+ Bambeke
+ Banc
+ Banck
+ Banckaert
+ Bant
+ Banwyns
+ Barbier
+ Barodt
+ Barradodt
+ Barre
+ Barst
+ Barthauw
+ Basche
+ Basciet
+ Basse
+ Bassevelde
+ Basseyen
+ Bassieu
+ Bastoen
+ Bate
+ Baude
+ Bavardt
+ Bavelaere
+ Beekaert
+ Beerblock
+ Beernaerts
+ Bega
+ Behaghele
+ Bekaert
+ Beke
+ Beke
+ Beken
+ Belinc
+ Belle
+ Benne
+ Bentheem
+ Berch
+ Berchove
+ Berghart
+ Berghe
+ Berlemont
+ Bernaerds
+ Bernaerdt
+ Bernaerts
+ Berout
+ Berthelmeeus
+ Berthelmeus
+ Berthil
+ Berye
+ Besoete
+ Bette
+ Bettens
+ Bettins
+ Beuvays
+ Beylyeu
+ Beyts
+ Bezoete
+ Bierweart
+ Biesbrouck
+ Biest
+ Bigghe
+ Biloo
+ Bisscop
+ Bitterheel
+ Blackaert
+ Bladelin
+ Blanckaert
+ Blancke
+ Blandeyn
+ Blide
+ Bloc
+ Block
+ Blockeel
+ Blok
+ Blomme
+ Blommeghem
+ Blyde
+ Boc
+ Bochout
+ Boele
+ Bogaerde
+ Boghe
+ Bois
+ Bolengier
+ Bolleken
+ Bollekin
+ Bonin
+ Bonnaert
+ Bonnie
+ Boodt
+ Boom
+ Bootkin
+ Bordoen
+ Bordon
+ Borghereye
+ Borgnet
+ Borlet
+ Boroy
+ Borre
+ Bortoen
+ Bossaert
+ Bossuuts
+ Bouden
+ Boudens
+ Boudins
+ Bouduwe
+ Bouduwe
+ Boudylo
+ Bouillandt
+ Boulengier
+ Boureye
+ Bouts
+ Bouvere
+ Bouvereye
+ Bouverie
+ Bouwyns
+ Boykin
+ Boys
+ Brabandere
+ Brabant
+ Braem
+ Braemhaert
+ Brake
+ Bramaert
+ Brant
+ Brassaert
+ Brauwer
+ Brauwere
+ Breeda
+ Bres
+ Brest
+ Breydel
+ Bril
+ Broc
+ Broucke
+ Brouckere
+ Brouke
+ Broukere
+ Brouwer
+ Brouwere
+ Brueck
+ Brugghe
+ Bruggheman
+ Brumbout
+ Brune
+ Bruneel
+ Bruneruwe
+ Brunet
+ Brunezune
+ Bruthyn
+ Bruun
+ Bruune
+ Bruuneruwe
+ Bruunsteen
+ Bruunstyn
+ Bruwaen
+ Bruwyle
+ Bruyne
+ Bryaerde
+ Bryatere
+ Bryhalter
+ Brysoen
+ Brysync
+ Buck
+ Buelinck
+ Buelync
+ Buerse
+ Buerwaen
+ Bulteel
+ Bultinc
+ Bultinck
+ Bultine
+ Bultync
+ Bultynck
+ Bunynghe
+ Burch
+ Burchgrave
+ Bure
+ Burgave
+ Bussche
+ Bussche
+ Busschere
+ Busschette
+ Busyn
+ Busync
+ But
+ Butse
+ Buuck
+ Bybau
+ Byc
+ Byens
+ Byese
+ Bylbriy
+ Byns
+ Caerle
+ Caervoet
+ Caet
+ Caiseele
+ Callaert
+ Callewaert
+ Calomme
+ Caluwe
+ Calve
+ Camajore
+ Cambien
+ Camme
+ Campen
+ Camphin
+ Camsin
+ Candy
+ Wylliers Candy
+ Caneel
+ Cans
+ Capelle
+ Cappal
+ Cappelle
+ Carette
+ Carle
+ Caroundelet
+ Carpentier
+ Casembroot
+ Caserne
+ Casstichtere
+ Casteele
+ Casteele
+ Casteleyn
+ Castillo
+ Cat
+ Caudelier
+ Caulier
+ Cauwe
+ Cauwekier
+ Cayseele
+ Cayzeele
+ Cennis
+ Cennys
+ Cent
+ Chantranes
+ Charlandt
+ Chattelet
+ Chenyn
+ Cherf
+ Chevalier
+ Chiens
+ Christiaens
+ Chuus
+ Cille
+ Cille
+ Claenwaert
+ Claeszone
+ Claeus
+ Claeys
+ Clais
+ Clarent
+ Claus
+ Clauwaert
+ Clays
+ Claysins
+ Clayssens
+ Clayssins
+ Clayszuene
+ Cleauwaert
+ Cleerboudt
+ Clerc
+ Clerck
+ Clinckaert
+ Cloet
+ Cloosterman
+ Cloppelin
+ Clyevere
+ Clyngherman
+ Cnockaert
+ Coc
+ Coelbrant
+ Coene
+ Colaerdt
+ Cole
+ Colins
+ Collaerd
+ Coloron
+ Colsyn
+ Colve
+ Colyns
+ Coninc
+ Coninck
+ Constant
+ Consteyn
+ Coocman
+ Coolman
+ Cools
+ Cooneput
+ Coopman
+ Coorman
+ Coorne
+ Coppins
+ Cordier
+ Cornelis
+ Cornet
+ Cornillo
+ Coron
+ Cort
+ Cortebos
+ Cortemarck
+ Cortenbos
+ Cossyer
+ Coster
+ Costere
+ Cotenghis
+ Cotenghys
+ Cotengyes
+ Cotheem
+ Cothenghys
+ Cots
+ Coucke
+ Coudenberghe
+ Cousteyn
+ Coustyn
+ Cousyn
+ Crabbe
+ Crame
+ Crane
+ Craye
+ Crekele
+ Crempe
+ Cridts
+ Criets
+ Crits
+ Croe
+ Croes
+ Cromton
+ Crop
+ Croquet
+ Crunynghe
+ Cruse
+ Cruze
+ Cryns
+ Crys
+ Cryst
+ Cuelnare
+ Cuenick
+ Cule
+ Custeele
+ Cutsegheem
+ Cuuper
+ Dact
+ Daelen
+ Daens
+ Dagua
+ Dale
+ Dalle
+ Daman
+ Antone Damast
+ Dame
+ Dammaert
+ Damme
+ Danche
+ Danckant
+ Daneels
+ Danneels
+ Danstins
+ Danwyck
+ Daucy
+ Dauwit
+ Davele
+ David
+ Davidt
+ Decker
+ Decle
+ Deeken
+ Deel
+ Deems
+ Delcampo
+ Deleyn
+ Delgheer
+ Dene
+ Denis
+ Dens
+ Denys
+ Detgheer
+ Deurghys
+ Deynaert
+ Deynne
+ Deyster
+ Deyster
+ Dhane
+ Dhant
+ Dhaut
+ Dhomaes
+ Dhondt
+ Dhoosche
+ Dhoose
+ Dhoossche
+ Dhoyere
+ Dicke
+ Dict
+ Diederic
+ Dierant
+ Dieriks
+ Dierkens
+ Dierkins
+ Dierman
+ Dies
+ Dingne
+ Dingue
+ Dixmuyde
+ Dobbelaere
+ Doignies
+ Doly
+ Dolyslaye
+ Dominicle
+ Donc
+ Donck
+ Donckere
+ Donset
+ Doorne
+ Dop
+ Dopper
+ Doppere
+ Dorne
+ Dorpe
+ Dotenis
+ Douche
+ Douchs
+ Doufaey
+ Dougnyes
+ Doursin
+ Doutte
+ Drael
+ Driessche
+ Drooghe
+ Drost
+ Drylinc
+ Duc
+ Dule
+ Dullaert
+ Dumelinck
+ Dunder
+ Durch
+ Duuc
+ van Dycke
+ Dyerman
+ Dylerva
+ Ecke
+ Edou
+ Ee
+ Eechoutte
+ Eecke
+ Eecke
+ Eede
+ Eeke
+ Eekele
+ Eender
+ Eenderho
+ Eenho
+ Eesene
+ Eessene
+ Eestaes
+ Eggheman
+ Eins
+ Ekelaere
+ Ekelaers
+ Elst
+ Erden
+ Ermarin
+ Estournel
+ Estrompes
+ Everaerd
+ Everaert
+ Everbout
+ Exele
+ Eygherwey
+ Eyman
+ Faes
+ Faghele
+ Falle
+ Fassuer
+ Fay
+ Felle
+ Fermyn
+ Fernaguut
+ Ferre
+ Feryn
+ Fesse
+ Feuer
+ Fevere
+ Feye
+ Feys
+ Feytin
+ Ficket
+ Fierens
+ Fietyn
+ Flory
+ Flye
+ Foelgheslare
+ Foerlyngier
+ Fomenteet
+ Fontaines
+ Fonteyne
+ Foreest
+ Forlengiet
+ Formanteet
+ Formaybeel
+ Formenteet
+ Fosse
+ Fourlyngier
+ Fournier
+ Fournyer
+ Fraeys
+ Francke
+ Ville Francke
+ Franckin
+ Franke
+ Frans
+ Franse
+ Fransyn
+ Vaerwye Fransyn
+ François
+ Frays
+ Frecourt
+ Frecour
+ From
+ Fruytier
+ Fuchyn
+ Fulre
+ Fycket
+ Gabet
+ Gaey
+ Gailliaert
+ Galle
+ Lopez Gallo
+ Galoys
+ Ganeeles
+ Gansebroeck
+ Gassele
+ Gasselle
+ Gauchy
+ Gavere
+ Gaveren
+ Gaylges
+ Gaylges
+ Gayseele
+ Geerstekoorn
+ Geilliaerdt
+ Geniwaert
+ Geric
+ Gheeraerds
+ Gheeraert
+ Gheeraerts
+ Gheerolf
+ Gheerts
+ Gheilezuene
+ Gheillaert
+ Ghelder
+ Ghele
+ Gheleyns
+ Ghellync
+ Ghelyaert
+ Ghendt
+ Gheric
+ Gherraert
+ Gherstecore
+ Gherts
+ Gheskiere
+ Ghevaert
+ Gheylaert
+ Gheystere
+ Ghezelles
+ Ghiestele
+ Ghillewycx
+ Ghistelhof
+ Ghizelinus
+ Ghoossins
+ Ghoris
+ Ghuuleke
+ Ghyhoet
+ Ghyoodt
+ Ghyoot
+ Ghys
+ Ghysegheem
+ Ghyselbrecht
+ Ghyselin
+ Ghyselins
+ Gilis
+ Gillis
+ Giselinck
+ Glaude
+ Gloribus
+ Gloyere
+ Goddyn
+ Gole
+ Gome
+ Gomiere
+ Gooris
+ Goossin
+ Gornay
+ Gossy
+ Gote
+ Govaert
+ Gracht
+ Grave
+ Graveeles
+ Greguire
+ Grispere
+ Groes
+ Grois
+ Groote
+ Grootheere
+ Groy
+ Gruls
+ Gruuthuuse
+ Gruwe
+ Gryp
+ Gryspeere
+ Guts
+ Guynckere
+ Haa
+ Haaghe
+ Hadynck
+ Haec
+ Haegheman
+ Haeke
+ Haelwyt
+ Haene
+ Haenebil
+ Haerinck
+ Haerlefyn
+ Haerst
+ Haghe
+ Haket
+ Halewyn
+ Halle
+ Hallewyn
+ Hame
+ Hamebil
+ Hamerecx
+ Hamme
+ Hane
+ Hanebert
+ Hanebil
+ Hannaert
+ Hansen
+ Hardere
+ Harinc
+ Harync
+ Hasebroeck
+ Hauwe
+ Havegheer
+ Haverbeke
+ Havic
+ Haye
+ Haynau
+ Hazaerd
+ Hazaerdt
+ Hebberecht
+ Hecke
+ Heckeboudt
+ Hee
+ Heede
+ Heendere
+ Heere
+ Heerle
+ Heert
+ Heertsberghe
+ Heide
+ Heimaert
+ Heims
+ Heimst
+ Heinckins
+ Heindricx
+ Heindrix
+ Heinx
+ Helist
+ Hellinck
+ Helst
+ Helugghen
+ Hemckins
+ Hendryckx
+ Hendryks
+ Henneman
+ Herckele
+ Herisaert
+ Herkele
+ Herrebrant
+ Hert
+ Hertsberghe
+ Hetteneye
+ Heyde
+ Heykin
+ Heyle
+ Heyndricx
+ Heyne
+ Hidde
+ Higghe
+ Hile
+ Hille
+ Hillebrant
+ Hinchelyn
+ Hisendike
+ Hoeest
+ Hoengne
+ Hoers
+ Hoeve
+ Hoflake
+ Hoghestraete
+ Hokere
+ Hollebeke
+ Hondenaghele
+ Hondt
+ Honne
+ Honne
+ Hooft
+ Hooft
+ Hooftman
+ Hooghe
+ Hoogheweghe
+ Hoogstraete
+ Hoolman
+ Hoorenweghe
+ Hooreweghe
+ Hoorne
+ Hoorneweder
+ Hoorneweghe
+ Hoose
+ Hoossche
+ Hornuwe
+ Hose
+ Hoste
+ Hosterlinc
+ Houcke
+ Houfnaghele
+ Houke
+ Housset
+ Houstrate
+ Houtemarck
+ Houtte
+ Houttemarck
+ Houve
+ Hove
+ Hovelinck
+ Hoye
+ Hoyere
+ Hoykins
+ Hubin
+ Hubregt
+ Huele
+ Huele
+ Huerne
+ Huffele
+ Hughelynck
+ Hugheyns
+ Hulle
+ Hulstere
+ Humaus
+ Hundt
+ Huse
+ Husman
+ Huson
+ Hutenburch
+ Hutenkelnaere
+ Huterwulghe
+ Huubin
+ Huughe
+ Huughes
+ Huus
+ Huusheere
+ Huusman
+ Huussins
+ Huve
+ Huwet
+ Hynckele
+ Ilornewedere
+ Incroye
+ Inerweyde
+ Inghelrave
+ Iseghem
+ Jabeke
+ Jacobs
+ Adornes Jacobs
+ Jacx
+ Jaeghere
+ Jamais
+ Jans
+ Jansins
+ Jansseune
+ Janssins
+ Jansuene
+ Jolys
+ Jonckery
+ Jonghe
+ Jooris
+ Boudins Jooris
+ Jorix
+ Junsteman
+ Justeman
+ Kaerle
+ Kaerne
+ Kaeyoen
+ Kaeyzeele
+ Karel
+ Karette
+ Kayoen
+ Kayseele
+ Kaysere
+ Keere
+ Keilliaert
+ Kelderman
+ Kempenaere
+ Kempennaere
+ Kenninck
+ Kerchove
+ Kerckof
+ Kersghyeter
+ Kevelaere
+ Keysere
+ Keyzer
+ Kierlinc
+ Kierlinck
+ Kiezlync
+ Knesselaere
+ Knut
+ Korte
+ Krekele
+ Kuekere
+ Kueninck
+ Labee
+ Labyte
+ Laere
+ Lalyon
+ Lam
+ Lambrecht
+ Lambroeck
+ Lame
+ Lamertin-Meyere
+ Lammens
+ Lamour
+ Lampsins
+ Lamsins
+ Landaes
+ Landshusere
+ Landsins
+ Landsocht
+ Landthuisere
+ Langendouc
+ Langhe
+ Langhe
+ Langhemerc
+ Langhendank
+ Lvander Lare
+ Laurin
+ Lauryn
+ Lauwereins
+ Lauwereyns
+ Lauwers
+ Lauwery
+ Lavet
+ Lazoen
+ Leene
+ Leeuwe
+ Lem
+ Lems
+ Lenaert
+ Lende
+ Lenten
+ Lepelare
+ Leschottens
+ Letins
+ Leye
+ Leys
+ Libaert
+ Liesfelt
+ Lieu
+ Lievens
+ Lievins
+ Lippens
+ Lisseghe
+ Lobbrecht
+ Lockhenburch
+ Logghc
+ Logghe
+ Lombi
+ Lomeir
+ Longet
+ Longhet
+ Lonner
+ Loo
+ Loockman
+ Loocman
+ Loodts
+ Loot
+ Lootins
+ Loots
+ Loozebeke
+ Lotin
+ Lotins
+ Loufooghe
+ Loys
+ Loyset
+ Lozebeke
+ Lucas
+ Luucks
+ Luucx
+ Lyppens
+ Maech
+ Maelassys
+ Maerle
+ Maertins
+ Maes
+ Maese
+ Maets
+ Mahieu
+ Maire
+ Malassys
+ Malazyens
+ Malazyes
+ Malazyns
+ Malbrancke
+ Maldeghem
+ Male
+ Malen
+ Mallasys
+ Man
+ Manchepront
+ Mandere
+ Mane
+ Manshove
+ Marcke
+ Marct
+ Marodt
+ Marope
+ Maroye
+ Mart
+ Martins
+ Marysyen
+ Mase
+ Masin
+ Massuwe
+ Massy
+ Masyn
+ Mateloet
+ Matteloet
+ Matthys
+ Matyne
+ Maye
+ Mechel
+ Mechelen
+ Meere
+ Meersch
+ Meessche
+ Meester
+ Meestre
+ Meet
+ Meeus
+ Meghe
+ Mel
+ Melkere
+ Melly
+ Merbeke
+ Mere
+ Merre
+ Mersch
+ Mertschyers
+ Mertscyers
+ Messiaen
+ Messyaen
+ Metteneye
+ Mettere
+ Meulemeester
+ Meulenaere
+ Mey
+ Meycleder
+ Meye
+ Meyer
+ Meynfroot
+ Meynghe
+ Meyngot
+ Meyre
+ Micault
+ Michiels
+ Mil
+ Modde
+ Moemus
+ Moenins
+ Moens
+ Moenynks
+ Moere
+ Moere
+ Moerinc
+ Moering
+ Moerman
+ Moerync
+ Moeryng
+ Moestaert
+ Mol
+ Molendino
+ Mondt
+ Mondydier
+ Mondydyer
+ Moniez
+ Montaegne
+ Montaigne
+ Montainge
+ Moor
+ Moortele
+ Morant
+ Mordaech
+ Moreel
+ Morenval
+ Moret
+ Moriske
+ Morseel
+ Mortroel
+ Mostaert
+ Mote
+ Muelaert
+ Muelenaere
+ Muelenare
+ Muelene
+ Muelne
+ Muenic
+ Muenick
+ Muenicxhove
+ Mueninc
+ Mueninck
+ Mueninxhee
+ Muer
+ Muering
+ Muet
+ Mulaerdt
+ Mulem
+ Mulem
+ Mullem
+ Muloot
+ Munte
+ Masschaert
+ Mussche
+ Musselle
+ Mutscheele
+ Myanneel
+ Myetins
+ Mylevyle
+ Mymeel
+ Naelde
+ Naen
+ Nagero
+ Naghele
+ Nagtegael
+ Najeles
+ Nayre
+ Necht
+ Neerinck
+ Neerync
+ Neirync
+ Nettelet
+ Neut
+ Neve
+ Neve
+ Neve
+ Nevel
+ Neyns
+ Neynts
+ Neyt
+ Neyts
+ Nieuwenhove
+ Nieuwkercke
+ Nippe
+ Noeles
+ Noorwee
+ Noorweghe
+ Nuete
+ Nyeles
+ Nyepa
+ Nyfaert
+ Nys
+ Obelaere
+ Obery
+ Odolf
+ Oesbrouc
+ Oliviers
+ Ollevyere
+ Ommejaegher
+ Oobreckx
+ Oofsta
+ Ooghe
+ Oom
+ Oorvike
+ Oosbrouck
+ Oosterlync
+ Oste
+ Outmart
+ Outtemaert
+ Outvelt
+ Overbeke
+ Pachtere
+ Pachteveke
+ Paen
+ Paetenbeeke
+ Pagaets
+ Palin
+ Palynex
+ Pamele
+ Pape
+ Pardo
+ Pardoen
+ Pardol
+ Parent
+ Pareres
+ Parmentier
+ Parydaen
+ Parynghoot
+ Pasteiken
+ Patin
+ Patoulet
+ Patulet
+ Pauw
+ Pauwels
+ Peau
+ Peelt
+ Peemans
+ Peereboome
+ Penneet
+ Penneit
+ Penseil
+ Penyt
+ Pepere
+ Perlant
+ Persins
+ Pertsevale
+ Pese
+ Pessert
+ Petit
+ Petyt
+ Peussyn
+ Peyn
+ Peyt
+ Pharynghoot
+ Piers
+ Pieters
+ Pimere
+ Piper
+ Pitman
+ Pitte
+ Plaatse
+ Plackard
+ Plackart
+ Plaes
+ Plaet
+ Plaetse
+ Plancke
+ Planckes
+ Plant
+ Plante
+ Plantyn
+ Plas
+ Plathyez
+ Plenter
+ Ploequoy
+ Plumert
+ Polet
+ Druwet dit Pollet
+ Pon
+ Pondt
+ Poortere
+ Porter
+ Portere
+ Potmaeckere
+ Pots
+ Pottere
+ Potterye
+ Pouchyn
+ Poucke
+ Praet
+ Prees
+ Prest
+ Primmbout
+ Prinche
+ Provea
+ Pruet
+ Pruvost
+ Pruyssenaere
+ Puessen
+ Pulleem
+ Pulsbroeck
+ Pundt
+ Puuert
+ Puut
+ Pycke
+ Pylaert
+ Pynckaerd
+ Pynync
+ Pypere
+ Pyppelaere
+ Qualyn
+ Quareyt
+ Queeck
+ Quickeborne
+ Quintin
+ Quynckere
+ Rade
+ Rade
+ Rade
+ Rade
+ Raedemaecker
+ Raedt
+ Raemhondt
+ Raempoorte
+ Raemporte
+ Raes
+ Raet
+ Raeywaerdt
+ Raffelaert
+ Rake
+ Rape
+ Rave
+ Ravereye
+ Raverye
+ Ravestein
+ Ravierie
+ Ravins
+ Raywaerdt
+ Refect
+ Reiftens
+ Reistens
+ Remaert
+ Renstaes
+ Reyfin
+ Reynboudt
+ Reyngout
+ Reynhout
+ Reyniers
+ Reyvaerdt
+ Reyzer
+ Rezoete
+ Ridtsaert
+ Rie
+ Riebeque
+ Rielandt
+ Riquilaerdt
+ Ritsaert
+ Riviere
+ Robaert
+ Robyn
+ Robytaelge
+ Robytaelghe
+ Rode
+ Roegiers
+ Roelandts
+ Roelins
+ Roelof
+ Roels
+ Rogiers
+ Rom
+ Rombaut
+ Rombout
+ Roose
+ Roovere
+ Rosseel
+ Rouf
+ Rovere
+ Rowaert
+ Roy
+ Rudder
+ Ruddere
+ Rue
+ Rue
+ Ruebens
+ Ruebins
+ Rueles
+ Rute
+ Ruttyn
+ Ruusbrouck
+ Ruwe
+ Rycke
+ Ryckeman
+ Ryckier
+ Rycquaerdt
+ Rycquaert
+ Rye
+ Rye
+ Rykeman
+ Rync
+ Ryne
+ Ryo
+ Ryquaert
+ Ryquaerts
+ Rysele
+ Sack
+ Saldana
+ Sale
+ Sanders
+ Satelaeres
+ Marcq de Sauldane
+ Sayoen
+ Scachtere
+ Scaec
+ Scaerdenburch
+ Scakyer
+ Scave
+ Scelhaver
+ Sceluwaerd
+ Schardenburch
+ Schee
+ Scheerere
+ Schelphaeghe
+ Schelvergheem
+ Schildere
+ Schoettetten
+ Schoonemaecker
+ Schoonlant
+ Schooyt
+ Schottyn
+ Schrodelync
+ Schuere
+ Schuppelync
+ Schyere
+ Schynckel
+ Schynkele
+ Scochtyn
+ Scodicht
+ Scodyt
+ Scoemaekere
+ Scooresse
+ Scors
+ Scotteem
+ Scoubeke
+ Scoudharinc
+ Screvele
+ Scriec
+ Scroo
+ Scuere
+ Scuppelync
+ Scuute
+ Sean
+ Selverlinck
+ Senty
+ Servaes
+ Simoens
+ Simpson
+ Sint Gillis
+ Sint Michel
+ Sint Omaers
+ Sint Omer
+ Sioen
+ Skep
+ Slabbaert
+ Slaken
+ Sluusmans
+ Smet
+ Smit
+ Smout
+ Snaekendaele
+ Snave
+ Snockaert
+ Soen
+ Sohyer
+ Sonneville
+ Soucket
+ Sovenet
+ Soyegheem
+ Spairs
+ Speeck
+ Spelman
+ Spillebeen
+ Splenter
+ Spotte
+ Springhel
+ Springhels
+ Springher
+ Spruute
+ St Omer
+ Staden
+ Stadynx
+ Stael
+ Stalin
+ Stalpaert
+ Stalrave
+ Stamps
+ Stasins
+ Steene
+ Steenwerckere
+ Steil
+ Step
+ Stercke
+ Stevins
+ Stichele
+ Stierman
+ Stochove
+ Stocke
+ Stoppe
+ Storme
+ Straete
+ Straeten
+ Straetmaeker
+ Strasin
+ Strate
+ Striepe
+ Stroobyer
+ Struusbolle
+ Struve
+ Stuerman
+ Styghere
+ Styl
+ Suns
+ Suus
+ Swandyn
+ Swercx
+ Symmoens
+ Symoens
+ Symyngoen
+ Synaeghe
+ Sys
+ Taelboom
+ Tailly
+ Talboom
+ Talcke
+ Tancquere
+ Tanquere
+ Tant
+ Tassche
+ Tavernier
+ Tessele
+ Themscke
+ Themseke
+ Themsekin
+ Thiebault
+ Thielque
+ Thienpondt
+ Thomme
+ Thycsens
+ Thyssens
+ Tielke
+ Timmerman
+ Tinnepotghietere
+ Tollenaere
+ Tolnare
+ Tomme
+ Torre
+ Tortelboom
+ Tournier
+ Toyt
+ Tricht
+ Triest
+ Troch
+ Trosset
+ Troys
+ Truwe
+ Tsaeul
+ Tsoen
+ Tsolle
+ Turcoy
+ Turcoy
+ Tye
+ Tyenpont
+ Tykel
+ Tyleke
+ Tys
+ Uphove
+ Uutenhove
+ Uytte
+ Vact
+ Vaes
+ Vaickenaere
+ Vainc
+ Valcke
+ Valckenaere
+ Valencyne
+ Vallyn
+ Vanck
+ Vane
+ Vanric
+ Varbeke
+ Vardyc
+ Vardye
+ Varent
+ Varent
+ Varincole
+ Varlende
+ Vastenavent
+ Vechelman
+ Veerdeghem
+ Veezaerdt
+ Veghelman
+ Velde
+ Velghelman
+ Ventsoen
+ Venyn
+ Verbrugghe
+ Vergaert
+ Vergruwe
+ Verhouve
+ Verlaere
+ Vermeersch
+ Vermoen
+ Vernieuwe
+ Verwict
+ Vierlync
+ Vincent
+ Visch
+ Visschere
+ Visschereye
+ Vlaeminck
+ Vlaminck
+ Vlamync
+ Vleis
+ Vleys
+ Vlieghe
+ Vlieghere
+ Vlisseghem
+ Vlissinghe
+ Vlooders
+ Vloodorp
+ Vloote
+ Voet
+ Voocht
+ Vooghe
+ Vooght
+ Voorae
+ Voorcht
+ Voorde
+ Vorsteman
+ Vos
+ Voye
+ Vranckx
+ Vreeze
+ Vremde
+ Vriere
+ Vriese
+ Vrieze
+ Vrit
+ Vroede
+ Vromboudt
+ Vryese
+ Vyerlinck
+ Vyfve
+ Vylder
+ Vylre
+ Gerardus Vynaert
+ Vync
+ Vyncke
+ Vyndegoet
+ Vyve
+ Vyve
+ Waerdelve
+ Waet
+ Wagghe
+ Wagghele
+ Waghe
+ Wagheers
+ Waghemaecker
+ Wagherts
+ Wale
+ Walgherlinc
+ Walgherlync
+ Walle
+ Wallyn
+ Wambac
+ Wambeke
+ Wambeke
+ Wamberghe
+ Wandele
+ Wankier
+ Wante
+ Wapoel
+ Pope de Wasschere
+ Watre
+ Waukier
+ Wauters
+ Wedaghe
+ Wede
+ Weede
+ Weerkins
+ Weert
+ Weese
+ Weeze
+ Weghe
+ Welle
+ Wendens
+ Werchs
+ Werft
+ Wert
+ Werve
+ Wervere
+ Werviic
+ Westbusch
+ Westende
+ Westere
+ Westhende
+ Westvoorde
+ Wetteren
+ Weymaere
+ Weyts
+ Wezen
+ Wielancke
+ Wiele
+ Wilde
+ Willaerdt
+ Willaert
+ Willay
+ Willebaert
+ Willebart
+ Willemaert
+ Willeman
+ Willemant
+ Willems
+ Willems
+ Willewycx
+ Willyers
+ Wilman
+ Wilsberghe
+ Windelbreke
+ Windt
+ Wissel
+ Wisselberghe
+ Witkin
+ Wittac
+ Witte
+ Wittebaert
+ Wittebroodt
+ Wittebroot
+ Wittenheyns
+ Woestenberghe
+ Woestyn
+ Woestyne
+ Wouters
+ Wreede
+ Wrekere
+ Wulf
+ Wulferlinc
+ Wuts
+ Wybau
+ Wyc
+ Wyehuuse
+ Wyk
+ Wyke
+ Wymeersch
+ Wyndt
+ Wyntere
+ Wyt
+ Wyts
+ Yden
+ Ynghelberch
+ Ynghelbrecht
+ Yseghem
+ Ysendycke
+ Yvorye
+ Zaghere
+ Zaghere
+ Zame
+ Zande
+ Zanghere
+ Zantvliete
+ Zatyt
+ Zeebroeck
+ Zeebrouck
+ Zeewael
+ Zeghers
+ Zegherscappel
+ Zenneke
+ Zevenegillis
+ Zoetaert
+ Zoete
+ Zoetelync
+ Zoetemont
+ Zolre
+ Zorghere
+ Zuneman
+ Zuttere
+ Zwaef
+ Zwaene
+ Zwanckaert
+ Zwarte
+ Zynghene
+

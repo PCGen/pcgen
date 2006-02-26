@@ -1,0 +1,10 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Jul 15 20:21:53 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods|SOURCESHORT:TouchbtG|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+#Could not find the Time domain in this book or index.
+
+# Domain Name	Source Page		Description
+Endings		SOURCEPAGE:p.58	DESC:You cast Endings spells at +1 caster level.
+Nobility-p		SOURCEPAGE:p.87	DESC:Once per day, you can use any known spell as a quickened spell provided you have adhered to one of your chosen Moral Codes that day.
+Rage			SOURCEPAGE:p.106	DESC:Rage once per day as a barbarian of the same level as your cleric or barbarian level (whichever is higher)
+#Time-p		DESC:You cast time spells at +1 caster level.																SOURCEPAGE:p.

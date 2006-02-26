@@ -1,0 +1,34 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Tiny
+# Equipment Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Size		Source Page		Special Property
+Awl							PROFICIENCY:Tool			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal										COST:.5	WT:0		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d3						SIZE:T	SOURCEPAGE:p.152
+Scalpel						PROFICIENCY:Dagger		TYPE:Weapon.Simple.Melee.Ranged.Slashing.Standard.Metal										COST:3	WT:0		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d2						SIZE:T	SOURCEPAGE:p.152
+
+# Small
+Bayonet						PROFICIENCY:Dagger		TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Wooden										COST:20	WT:2		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.152
+Belaying Pin					PROFICIENCY:Club			TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden.Thrown.Club								COST:1	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.152
+Gnome Guardian's Knife				PROFICIENCY:Dagger		TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Metal.Masterwork							COST:250	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.131
+Injector						PROFICIENCY:Injector		TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal											COST:10	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3						SIZE:S	SOURCEPAGE:p.131	SPROP:If damage is inflicted user may inject contents into target as a free action
+Screwdriver						PROFICIENCY:Tool			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal										COST:.5	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.152
+Springblade						PROFICIENCY:Springblade		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Gauntlet										COST:250	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.131
+
+# Medium
+Sparking Sword					PROFICIENCY:Longsword		TYPE:Weapon.Martial.Melee.Slashing.Standard.Metal.Sword.Masterwork								COST:2315	WT:4		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8+1d6					SIZE:M	SOURCEPAGE:p.131
+Wrench (Medium)					PROFICIENCY:Tool			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal											COST:2	WT:4		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4						SIZE:M	SOURCEPAGE:p.152
+Tongs (Blacksmith)				PROFICIENCY:Tool			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal											COST:1	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						SIZE:M	SOURCEPAGE:p.152
+
+# Large
+Wrench (Large)					PROFICIENCY:Large Tool		TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal											COST:3	WT:5		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6						SIZE:L	SOURCEPAGE:p.152
+Shovel (Gardener)					PROFICIENCY:Large Tool		TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal											COST:1	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						SIZE:L	SOURCEPAGE:p.152
+
+# Firearms used as melee weapons
+Pistol (As Melee Weapon)			PROFICIENCY:Mace			TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal.Firearms									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.143
+Musket (As Melee Weapon)			PROFICIENCY:Quarterstaff	TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Double.Firearms			ALTTYPE:Weapon.Melee.Bludgeoning	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6		ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.143
+Musket (As Melee Weapon with Bayonet)	PROFICIENCY:Longspear		TYPE:Weapon.Simple.Melee.Standard.Piercing.Firearms											COST:0	WT:0		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8						SIZE:L	SOURCEPAGE:p.143
+
+#
+# end
+#

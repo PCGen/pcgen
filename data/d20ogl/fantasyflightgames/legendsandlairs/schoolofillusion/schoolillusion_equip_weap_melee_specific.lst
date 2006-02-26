@@ -1,0 +1,9 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Dec  9 22:23:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# Original entry by: Ratheof Blithwyn
+
+# Equipment Name			Required Proficiency	Type												Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page		Weapon prop. bonus					Special Property
+Axe of Deceit			PROFICIENCY:Battleaxe	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Axe				COST:110320	WT:3		BASEITEM:Battleaxe											EQMOD:DANCE					SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Dagger of Gruesome Deaths	PROFICIENCY:Dagger	TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger	COST:4000	WT:1						CRITMULT:x2			CRITRANGE:2			DAMAGE:0			RANGE:10	SIZE:T	SOURCEPAGE:p.58									SPROP:Creates realistic appearance of a painful death
+Rapier of Misdirection		PROFICIENCY:Rapier	TYPE:Magic.Weapon.Martial.Melee.Piercing.Specific.Sword			COST:115160	WT:3		BASEITEM:Rapier												EQMOD:DANCE					SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
+#Rapier of Misdirection						TYPE:Magic.Weapon.Martial.Melee.Piercing.Specific.Sword			COST:115160	WT:3			CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6		SIZE:M	SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement

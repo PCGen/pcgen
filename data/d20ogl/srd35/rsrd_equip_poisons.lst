@@ -1,0 +1,34 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri May  7 21:03:41 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Thomas/Chipoulou tjannes@vub.ac.be
+
+#Poisons
+# Equipment Name				Output Name		Type			Cost		Weight	Source Page						Special Property
+Poison (Nitharit)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:650	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 13, Init.:0, Sec.:3d6 CON
+Poison (Sassone leaf residue)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:300	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:2d12 HP, Sec.:1d6 CON
+Poison (Malyss root paste)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:1 DEX, Sec.:2d4 DEX
+Poison (Terinav root)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:750	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:1d6 DEX, Sec.:2d6 DEX
+Poison (Black lotus extract)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:4500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 20, Init.:3d6 CON / 3d6 CON
+Poison (Dragon bile)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:1500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 26, Init.:3d6 STR / 0
+Poison (Striped toadstool)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:180	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 11, Init.:1 WIS, Sec.:2d6 WIS + 1d4 INT
+Poison (Arsenic)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:120	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 13, Init.:1 CON, Sec.:1d8 CON
+Poison (Id moss)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:125	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 14, Init.:1d4 INT, Sec.: 2d6 INT
+Poison (Oil of taggit)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:90	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 15, Init.:0, Sec.: unconsciousness
+Poison (Lich dust)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:250	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 17, Init.:2d6 STR, Sec.:1d6 STR
+Poison (Dark reaver powder)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:300	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 18, Init.:2d6 CON / 1d6 CON + 1d6 STR
+Poison (Ungol dust)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:1000	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 15, Init.:1 CHA, Sec.:1d6 CHA + 1 CHA (permanent)
+Poison (Insanity mist)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:1500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 15, Init.:1d4 WIS, Sec.: 2d6 WIS
+Poison (Burnt othur fumes)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:2100	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 18, Init.:1 CON (permanent), Sec.:3d6 CON
+Poison (Black adder venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:120	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 11, Init.:1d6 CON, Sec.:1d6 CON
+Poison (Small centipede poison)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:90	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 11, Init.:1d2 DEX / 1d2 DEX
+Poison (Bloodroot)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:100	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 12, Init.:0, Sec.:1d4 CON + 1d3 WIS
+Poison (Drow Poison)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:75	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 13, Init.:unconsciousness, Sec.:unconsciousness for 2d4 hours
+Poison (Greenblood oil)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:100	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 13, Init.:1 CON, Sec.:1d2 CON
+Poison (Blue whinnis)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:120	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 14, Init.:1 CON, Sec.:unconsciousness
+Poison (Medium spider venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:150	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 14, Init.:1d4 STR, Sec.:1d4 STR
+Poison (Shadow essence)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:250	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 17, Init.:1 STR (permanent), Sec.:2d6 STR
+Poison (Wyvern poison)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:3000	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 17, Init.:2d6 CON, Sec.:2d6 CON
+Poison (Large scorpion venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:200	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 18, Init.:1d6 STR, Sec.:1d6 STR
+Poison (Giant wasp poison)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:210	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 18, Init.:1d6 DEX, Sec.:1d6 DEX
+Poison (Deathblade)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:1800	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 20, Init.:1d6 CON, Sec.:2d6 CON
+Poison (Purple worm poison)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:700	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 24, Init.:1d6 STR, Sec.:2d6 STR

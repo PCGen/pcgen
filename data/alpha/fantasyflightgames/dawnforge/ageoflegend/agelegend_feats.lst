@@ -1,0 +1,139 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Oct  5 21:26:56 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+###block: Regional Feats Chapter One
+# Feat Name			Type				Required AL				Required Feat				Required Race		Required Stat	Required Template				Required Text									Description														Source Page
+Dream of the Dawn A	TYPE:Cultural		PREALIGN:LG,LE,LN,NE,CG,CE														PRETEMPLATE:Region (Stormfells)												DESC:You have seen a vision of the world at the moment of its creation.				SOURCEPAGE:p.5
+Elemental Scion		TYPE:Metamagic.Cultural						PREFEAT:1,Enlarge Spell,Widen Spell								PRETEMPLATE:Region (Stormfells)												DESC:You have learned secrets beneath the mountains.							SOURCEPAGE:p.5
+Kingdom's Honor		TYPE:Cultural																	PRESTAT:1,CON=13	PRETEMPLATE:Region (Stormfells)	PRETEXT:Accepted as member of one of the three dwarven kingdoms.	DESC:The presence of other dwarves of your kingdom sustains you in battle.			SOURCEPAGE:p.5
+Mark of Mordrin		TYPE:Cultural													PRERACE:Dwarf (DF)				PRETEMPLATE:Region (Stormfells)	PRETEXT:Must have been baptized at a temple to Mordrin.		DESC:Mordrin has marked you as one of his own.								SOURCEPAGE:p.5
+Rage of Mordrin		TYPE:Cultural							PREFEAT:1,TYPE.TurnUndead		PRERACE:Dwarf (DF)				PRETEMPLATE:Region (Stormfells)												DESC:You may channel Mordrin's righteous wrath.								SOURCEPAGE:p.5
+Red Blade			TYPE:Cultural.Fighter						PREFEAT:2,Cleave,Power Attack						PRESTAT:1,STR=13	PRETEMPLATE:Region (Stormfells)												DESC:See text.													SOURCEPAGE:p.5
+Mountain Charge		TYPE:Cultural																				PRETEMPLATE:Region (Stormfells)												DESC:You have trained in the uneven terrain of the mountains to use it to your advantage.	SOURCEPAGE:p.6
+
+
+###block: Regional Feats Chapter Two
+# Feat Name				Type			Visible		Required Feat			Multiple Requirements							Required Race			Req. Special Ability	Req. Known Spell				Req. Spell Type		Required Stat	Required Template								Special Ability			Define		Description																		Stackable?	Multiple?	Choose		Modify VAR		Source Page
+Fey Racer				TYPE:Cultural	VISIBLE:DISPLAY	PREFEAT:1,Fey Rider												PRERACE:Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)				SA:Fey Racer (%/day)|FeyRacer	DEFINE:FeyRacer|0	DESC:You know how to extend a bit of fey power to your mount.									STACK:YES	MULT:YES	CHOOSE:FeyRacer	BONUS:VAR|LIST|1	SOURCEPAGE:p.17
+Fey Rider				TYPE:Cultural																			PRERACE:Elf,Gnome (DF)																PRESTAT:1,CHA=13	PRETEMPLATE:Region (Central Sildanyr)												DESC:The magic in your spirit reaches out to support your mount.																			SOURCEPAGE:p.17
+Song of Stream and Stone	TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:Any,1,1],[PREFEAT:1,Bardic Music]																							PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your voice can shape mountains.																				SOURCEPAGE:p.17
+Rites of the Hours		TYPE:Cultural																																						PRESTAT:1,CON=13	PRETEMPLATE:Region (Central Sildanyr)												DESC:You keep the oldest fey rites and rituals.																						SOURCEPAGE:p.17
+Whisper to the Trees		TYPE:Cultural									PREMULT:1,[PRESPELLTYPE:Any,1,1],[PREFEAT:1,Bardic Music]																							PRETEMPLATE:Region (Deep Sildanyr)													DESC:Given enough time, your can shape a forest into a city.																			SOURCEPAGE:p.17
+The Endless Dance			TYPE:Cultural																																									PRETEMPLATE:Region (Deep Sildanyr)													DESC:You can dance the measure of creation.																						SOURCEPAGE:p.17
+By Moonlight Vision		TYPE:Cultural																			PRERACE:Elf (Moon),Gnome (DF)																		PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know how to look for the telltale signs of secrets revealed by moon and starlight.														SOURCEPAGE:p.17
+By Old Loyalties Bound		TYPE:Cultural																			PRERACE:Elf,Gnome (DF)																			PRETEMPLATE:Region (Deep Sildanyr)													DESC:You participate in the intricate ties of obligation that bind all of the fey folk together.													SOURCEPAGE:p.18
+Color of the Wind			TYPE:Cultural																			PRERACE:Elf,Gnome (DF)						PRESPELL:1,Summon Nature's Ally I								PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know how to listen to the voices of the world.																				SOURCEPAGE:p.18
+Song of the Seasons		TYPE:Cultural																								PRESA:1,Wild Empathy														PRETEMPLATE:Region (Deep Sildanyr)													DESC:You know the song sung by the land as it changes and grows.																			SOURCEPAGE:p.18
+Dance of Blood			TYPE:Cultural				PREFEAT:1,Dance of Blades																														PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use momentum to your advantage in a fight.																			SOURCEPAGE:p.18
+Dance of the Pine Needle	TYPE:Cultural				PREFEAT:1,Dance of Blades																														PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You use the unpredictable path of a falling needle as a model for your movement in combat.														SOURCEPAGE:p.18
+Dance of Blades			TYPE:Cultural																																						PRESTAT:1,DEX=13	PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You have incorporated the sliding steps of elven dance into your fighting style.															SOURCEPAGE:p.18
+Display of Power			TYPE:Cultural																																		PRESPELLTYPE:Any,1,1				PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You know how to use magic to intimidate others.																					SOURCEPAGE:p.18
+Songs of Blood and War		TYPE:Cultural				PREFEAT:1,Bardic Music																																		PRETEMPLATE:Region (Outskirts of Sildanyr)											DESC:You have modified the old elven songs to become a dirge of war.																		SOURCEPAGE:p.18
+Dance of Fury			TYPE:Cultural																																						PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have broken the traditional beauty of elven reed dances to fit your fighting style.														SOURCEPAGE:p.19
+Dance of Hate			TYPE:Cultural																																						PRESTAT:1,DEX=13	PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have adapted dance steps into your fighting style to mock your hated enemy.															SOURCEPAGE:p.19
+Songs of Darkness and Loss	TYPE:Cultural				PREFEAT:1,Bardic Music																																		PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have learned the new songs of your people, songs that speak of the darkness that protects your kin.											SOURCEPAGE:p.19
+The Cruelest Hand			TYPE:Cultural																																									PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You can strike down the helpless with brutal efficiency.																			SOURCEPAGE:p.19
+Voice of the Dark Brothers	TYPE:Cultural																								PRESA:1,Wild Empathy														PRETEMPLATE:Region (Subterranean Morningstar Mountains)									DESC:You have learned to speak to Lathail's chosen creatures.																			SOURCEPAGE:p.19
+
+###block Regional Feats Chapter Three
+# Feat Name		Output Name			Type			Required Feat		Req. Spell Type		Required Stat	Required Template								Description																	Save checks bonus				Class Skill				Source Page
+Champion's Call					TYPE:Cultural									PRESTAT:1,CHA=13	PRETEMPLATE:Region (Anderland),Region (Durning Highlands)	DESC:You know how to call up the heroic spirit that hides in the heart of every human.															SOURCEPAGE:p.39
+Craftsman's Focus					TYPE:Cultural									PRESTAT:1,INT=13	PRETEMPLATE:Region (Anderland)					DESC:You have specialized in a single craft to the exclusion of all others.																	SOURCEPAGE:p.40
+Farmer's Son					TYPE:Cultural									PRESTAT:1,CON=13	PRETEMPLATE:Region (Anderland)					DESC:You once stood vigil on crops and herds throughout the lonely nights of winter.															SOURCEPAGE:p.40
+Healer's Hands					TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:Region (Anderland)					DESC:Your dextrous hands can bind wounds quickly and efficiently.																			SOURCEPAGE:p.40
+Hunter's Wealth					TYPE:Cultural									PRESTAT:1,WIS=13	PRETEMPLATE:Region (Anderland)					DESC:You have a gift for finding plenty even in the harshest conditions.																	SOURCEPAGE:p.40
+Traveler's Step					TYPE:Cultural									PRESTAT:1,STR=13	PRETEMPLATE:Region (Anderland)					DESC:You have gained a longer stride from traveling the wide plains of Anderland.																SOURCEPAGE:p.40
+Able Bodied		OUTPUTNAME:Able-bodied	TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:Long hours in the rigging have given you remarkable physical fitness.						BONUS:CHECKS|Reflex,Fortitude|1						SOURCEPAGE:p.40
+Bilge Rat						TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:You have worked the worst job in the fleet. What you saw there toughened your nerves and stomach.												SOURCEPAGE:p.40
+Explorer						TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:Years of privation at sea allow you to go for long periods of time without food or water.														SOURCEPAGE:p.40
+Seer							TYPE:Cultural					PRESPELLTYPE:Any,1,1				PRETEMPLATE:Region (Dreaming Isles)					DESC:The blood of a powerful dreamer and diviner courses through your veins.																	SOURCEPAGE:p.41
+Tale Spinner					TYPE:Cultural												PRETEMPLATE:Region (Dreaming Isles)					DESC:You may not have seen everything there is to be seen, but you can convince others that you have.								CSKILL:Perform (Oratory)	SOURCEPAGE:p.41
+Far Runner						TYPE:Cultural	PREFEAT:1,Endurance								PRETEMPLATE:Region (Durning Highlands)				DESC:You have run the Horn Race.																								SOURCEPAGE:p.41
+Honorable Duelist					TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:Region (Durning Highlands)				DESC:See Text.																											SOURCEPAGE:p.42
+Stoneknapper					TYPE:Cultural												PRETEMPLATE:Region (Durning Highlands)				DESC:You know the almost forgotten art of making weapons from stone or wood.												CSKILL:Craft (Stonemasonry)	SOURCEPAGE:p.42
+True Speaker					TYPE:Cultural												PRETEMPLATE:Region (Durning Highlands)				DESC:You have mastered the bardic cant of the highlands.																				SOURCEPAGE:p.42
+
+#Craftsman's Focus might be possible to code
+#Stoneknapper: used Stonemasonry instead of Stoneworking.??
+
+
+###block Regional Feats Chapter Four
+# Feat Name			Type				Visible	Required AL				Required Feat					Required Stat	Required Template								Special Ability				Description														Multiple?	Choose																			% bonus to range			Source Page
+Dream of the Dawn B	TYPE:Cultural				PREALIGN:LG,LN,LE,CG,NE,CE											PRETEMPLATE:Region (Foothills)											DESC:You have seen a vision of the world at the moment of its creation.																															SOURCEPAGE:p.59
+Defender's Frenzy		TYPE:Cultural									PREFEAT:1,Rage								PRETEMPLATE:Region (Foothills)											DESC:The presence of your master in battle drives you into a murderous frenzy.																													SOURCEPAGE:p.59
+Bloodlust			TYPE:Cultural.Fighter								PREFEAT:2,Cleave,Power Attack			PRESTAT:1,STR=13	PRETEMPLATE:Region (Foothills)											DESC:See Text.																																								SOURCEPAGE:p.60
+Vision of Glory		TYPE:Cultural																			PRETEMPLATE:Region (Foothills)											DESC:An immortal has revealed to you the infinite reaches of the divine future.																													SOURCEPAGE:p.60
+Whispers in the Dark	TYPE:Metamagic				PREALIGN:LE,NE,CE			PREFEAT:1,Empower Spell							PRETEMPLATE:Region (Foothills)											DESC:You have heard the voices of dark things among the root of the mountain.																														SOURCEPAGE:p.60
+Corrupted Allegiance	TYPE:Cultural		VISIBLE:NO	PREALIGN:LN,LE,TN,NE,CN,CE											PRETEMPLATE:Region (Icehammer Front and the Frostfells)	SA:Corrupted Allegiance (%CHOICE)	DESC:You are a part of long-held pacts with the dark creatures of the mountains.		MULT:YES	CHOOSE:NUMCHOICES=1|incorporeal undead|evil fey|chaotic evil outsiders|neutral evil outsiders|lawful evil outsiders						SOURCEPAGE:p.60
+Whispers in the Dark	TYPE:Metamagic																			PRETEMPLATE:Region (Icehammer Front and the Frostfells)							DESC:Your have learned the secrets of the ancient ice.																																	SOURCEPAGE:p.60
+Iceforged Blood		TYPE:Cultural																			PRETEMPLATE:Region (Icehammer Front and the Frostfells)							DESC:You have mastered the use of iceforged weapons.																																		SOURCEPAGE:p.60
+Iceforged Bone		TYPE:Cultural																			PRETEMPLATE:Region (Icehammer Front and the Frostfells)							DESC:You have mastered the unique properties of iceforged armor.																																SOURCEPAGE:p.60
+Cloud Born			TYPE:Cultural																			PRETEMPLATE:Region (Skyhome)												DESC:You were raised in the lofty cloud cities of Tallidur.																																	SOURCEPAGE:p.61
+Great Throw			TYPE:Cultural									PREFEAT:2,Point Blank Shot,Far Shot		PRESTAT:1,DEX=13	PRETEMPLATE:Region (Skyhome)												DESC:You have a gift for lobbing rocks great enough to qualify you for the Great Games.																							BONUS:RANGEMULT|THROWN|100	SOURCEPAGE:p.61
+Shattering Blow		TYPE:Cultural									PREFEAT:2,Improved Sunder,Power Attack	PRESTAT:1,STR=13	PRETEMPLATE:Region (Skyhome)												DESC:You know the weaknesses of weapons, especially those forged of ice.																														SOURCEPAGE:p.61
+
+#Iceforged could possibly be a weapon/armour mod....
+#Dream of the Dawn in both chapter One and Four!!
+
+
+
+###block: Regional Feats Chapter Five
+# Feat Name			Type			Required Feat			Required Skill			Req. Spell Type		Required Template					Description																	Save checks bonus			Bonus to skill				Source Page
+Tested Awareness		TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Civilized to Savage)	DESC:You have been forced to rely on your senses to survive.																			SOURCEPAGE:p.75
+Tested Fortitude		TYPE:Cultural															PRETEMPLATE:Region (Civilized to Savage)	DESC:Living in the wilderness pushed your fortitude far beyond what you thought of as your limits.													SOURCEPAGE:p.75
+Tested Agility		TYPE:Cultural															PRETEMPLATE:Region (Civilized to Savage)	DESC:Life on the edge honed your agility to an unbelievable level.																		SOURCEPAGE:p.75
+Tested Strength		TYPE:Cultural	PREFEAT:1,Power Attack											PRETEMPLATE:Region (Civilized to Savage)	DESC:The savage wilderness trained your already impressive physical form to new heights.															SOURCEPAGE:p.75
+Tested Will			TYPE:Cultural	PREFEAT:1,Iron Will											PRETEMPLATE:Region (Civilized to Savage)	DESC:You have learned to push yourself beyond the limits of civilized men.																	SOURCEPAGE:p.76
+Boundless Depths		TYPE:Cultural	PREFEAT:1,Great Fortitude										PRETEMPLATE:Region (Sunset Reach)		DESC:You have faced the seemingly endless expanses of the ocean.																			SOURCEPAGE:p.76
+Eyes on the Horizon	TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Sunset Reach)		DESC:Your eyes naturally scan the horizon for any signs of life.																			SOURCEPAGE:p.76
+Touch of the Reach	TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You can keep your crew alive on the longest voyages.																				SOURCEPAGE:p.76
+Under the Stars		TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You know the arts of deep-sea navigation.																BONUS:SKILL|Profession (Sailor)|4	SOURCEPAGE:p.76
+Windweaver			TYPE:Cultural											PRESPELLTYPE:Divine,1,0	PRETEMPLATE:Region (Sunset Reach)		DESC:You know the simple magic that calls the wind.																					SOURCEPAGE:p.76
+Grim Resignation		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You long ago let go of the illusions others cling to so tenaciously.																	SOURCEPAGE:p.76
+Strength of Illusion	TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You cling tightly to the rudiments of civilization.																				SOURCEPAGE:p.77
+True Name			TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:Living in the borders between civilization and savagery has taught you the meaning of your own name.	BONUS:CHECKS|Willpower|1							SOURCEPAGE:p.77
+Unspoken Wisdom		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You have learned things that cannot be expressed in words.																			SOURCEPAGE:p.77
+Carefree Heart		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:You have shed the burdens of the world.																						SOURCEPAGE:p.77
+Lay a Wreath		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:You honor your dead by living on.																							SOURCEPAGE:p.77
+Sing up a Bright Heart	TYPE:Cultural	PREFEAT:1,Bardic Music		PRESKILL:1,TYPE.Perform=6					PRETEMPLATE:Region (Faring Folk)		DESC:You have learned how to call forth emotion from the coldest heart.																		SOURCEPAGE:p.77
+Trust in Fate		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:Your confidence in fate to guide your aim can improve your lot.																		SOURCEPAGE:p.77
+
+
+###block Regional Feats Chapter Six
+# Feat Name			Type			Required Class			Required Feat							Required Lvl	Required Skill			Req. Known Spell		Required Stat				Required Template					Description																										Stackable?	Multiple?	Choose					Save checks bonus		Combat bonus			Source Page
+Bandit's Touch		TYPE:Cultural																											PRESTAT:1,DEX=15				PRETEMPLATE:Region (Northern Zangala)	DESC:From the ever-growing legions of bandits in the Zangalan highlands, you have learned that it is as easy to cut purses as it is to cut flesh.																						SOURCEPAGE:p.91
+Concealed Carry		TYPE:Cultural																																	PRETEMPLATE:Region (Valhedar Dominion)	DESC:The character is particularly skilled at secreting weapons about her person.																																	SOURCEPAGE:p.91
+Desert Native		TYPE:Cultural																											PRESTAT:1,CON=13				PRETEMPLATE:Region (Northern Zangala)	DESC:Having traveled the deserts of Northern Zangala, you learned how to survive in the blistering heat with little or no water.																									SOURCEPAGE:p.91
+Disabling Duelist		TYPE:Cultural						PREFEAT:1,Skilled Duelist																	PRESTAT:1,DEX=13				PRETEMPLATE:Region (Valhedar Dominion)	DESC:You do a greater amount of damage when making skilled hits in nonlethal combat.																																SOURCEPAGE:p.91
+Expert Duelist		TYPE:Cultural						PREFEAT:1,Weapon Finesse																	PRESTAT:1,DEX=15				PRETEMPLATE:Region (Valhedar Dominion)	DESC:You wield light weapons with brutal precision.																																						SOURCEPAGE:p.91
+Improved Quick Draw	TYPE:Cultural						PREFEAT:1,Quick Draw																								PRETEMPLATE:Region (Valhedar Dominion)	DESC:You can draw weapons with quicksilver speed.																																						SOURCEPAGE:p.92
+Infernal Favor		TYPE:Metamagic																																	PRETEMPLATE:Region (Valhedar Dominion)	DESC:For reasons known only to them, the demonic patrons of the Dominion favor you over the other disciples.									STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|Infernal Favor										SOURCEPAGE:p.92
+#Infernal Favor can be taken twice, might need a CHOOSE....
+Inspiring Poet		TYPE:Cultural																		PRESKILL:1,TYPE.Perform=5					PRESTAT:1,CHA=13				PRETEMPLATE:Region (Valhedar Dominion)	DESC:The character is a poet in the Valhedrin tradition, and by reciting epics of heroes past, he can inspire his allies to greater heights of martial skill.																				SOURCEPAGE:p.92
+Lordling Reflexes		TYPE:Cultural						PREFEAT:2,Lightning Reflexes,Improved Initiative																			PRETEMPLATE:Region (Valhedar Dominion)	DESC:The character's reflexes are as practiced as those of the most well-trained tiefling lordling.																					BONUS:CHECKS|Reflex|1	BONUS:COMBAT|INITIATIVE|2	SOURCEPAGE:p.92
+Skilled Duelist		TYPE:Cultural																																	PRETEMPLATE:Region (Valhedar Dominion)	DESC:The character is skilled at making nonlethal attacks with his weapon.																																		SOURCEPAGE:p.92
+Stalwart Legionnaire	TYPE:Cultural																											PRESTAT:1,STR=13	PRESTAT:1,DEX=13	PRETEMPLATE:Region (Valhedar Dominion)	DESC:The legionnaires of the Dominion are famous for undertaking long marches while carrying heavy loads.																													SOURCEPAGE:p.92
+#zzzzzzz add the Bonuses!!!
+Survivor of the Pits	TYPE:Cultural						PREFEAT:1,Iron Will						PRELEVEL:6																	PRETEMPLATE:Region (Valhedar Dominion)	DESC:Those who survive the summoning pits will never fear anything outside them.																																	SOURCEPAGE:p.92
+
+
+
+# Feat Name			Type			Required Class			Required Feat							Required Lvl	Required Skill			Req. Known Spell		Required Stat				Required Template					Description																										Stackable?	Multiple?	Choose					Save checks bonus		Combat bonus			Source Page
+Craft Summoning Pit	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER=12																		PRESPELL:1,Unhallow														DESC:You can construct a summoning pit on an infernal gateway.																																				SOURCEPAGE:p.96
+
+
+
+###block: Regional Feats Chapter Six
+# Feat Name				Type					Required Class			Required Feat					Required Skill	Required Stat	Required Template										Required Text						Description																						Stackable?	Multiple?	Choose					Class Skill	Source Page
+Craft Greater Holy Weapon	TYPE:ItemCreation.Cultural	PRECLASS:1,SPELLCASTER=12	PREFEAT:1,Craft Magic Arms and Armor							PRETEMPLATE:Region (Kingsmarch)															DESC:See Text.																																	SOURCEPAGE:p.105
+Innate Talent			TYPE:Cultural																					PRETEMPLATE:Region (Kingsmarch)															DESC:See Text.																					STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|2	CSKILL:LIST	SOURCEPAGE:p.105
+#test test test
+Skilled Prodigy			TYPE:Cultural																					PRETEMPLATE:Region (Kingsmarch),Region (Emerlyn)												DESC:See Text.																																	SOURCEPAGE:p.105
+#...probably not possible at the moment...
+Sprinter				TYPE:Cultural																					PRETEMPLATE:Region (Emerlyn)																DESC:On the battlefields of the Emerlyn peninsula, there are many who can draw on bursts of speed in desperate situations.															SOURCEPAGE:p.105
+Quick Mount				TYPE:Cultural															PRESKILL:1,Ride=5	PRESTAT:1,DEX=13	PRETEMPLATE:Region (Kingsmarch)															DESC:The horsemen of the Kingsmarch drill until they move from their bedrolls to ready astride their mount in a single, fluid motion.													SOURCEPAGE:p.105
+Favored Disciple			TYPE:Metamagic																					PRETEMPLATE:Region (Emerlyn),Region (Kingsmarch),Region (Valhedar)	PRETEXT:Ability to make Intercession check	DESC:You are the favored servant of an immortal.																											SOURCEPAGE:p.105
+#PRExx Intercession checks ... and then bonus..
+Shield Mastery			TYPE:Cultural								PREFEAT:1,Shield Proficiency									PRETEMPLATE:Region (Kingsmarch)															DESC:You are trained and experienced in the use of the shield as both an offensive and defensive tool.																		SOURCEPAGE:p.105
+#bonus while bashing....

@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Aug  6 19:18:34 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+# Equipment Name			Product Identity?	Output Name				Type			Cost		Weight	Source Page
+Potion (Armor in a Bottle)	NAMEISPI:YES	OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:1400	WT:0		SOURCEPAGE:p.167
+Potion (Felton's Red)		NAMEISPI:YES	OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.167
+Potion (Kadum's Blood)		NAMEISPI:YES	OUTPUTNAME:[NAME]			TYPE:Magic.Potion	COST:1200	WT:0		SOURCEPAGE:p.167
+Potion (False Death)		NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1000	WT:0		SOURCEPAGE:p.167-168
+Potion (Mormo's Visage)		NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1400	WT:0		SOURCEPAGE:p.168

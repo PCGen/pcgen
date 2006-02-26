@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri May  9 14:42:08 2003 -- reformated by prettylst.pl v1.28 (build 286)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+#EXOTIC
+# Equipment Name	Required Proficiency	Type													Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Harpoon		PROFICIENCY:Harpoon	TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Thrown.Wooden.Container.Harpoon	CONTAINS:-1|Spear=1	COST:100.0	WT:15.0	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d12	RANGE:60	SIZE:L	SOURCEPAGE:p.328

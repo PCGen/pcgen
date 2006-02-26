@@ -1,0 +1,74 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Sun Oct  2 20:59:12 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+# Equipment Name				Type					Cost		Weight	Source Page		Virtual Feat		Vision				Spells																	Combat bonus											BONUS:DC			Add to base move			Bonus to skill						Stat bonus					Automatic Languages	Special Property
+Amulet of the Arcanist			TYPE:Magic.Wondrous		COST:50000	WT:0		SOURCEPAGE:p.174																																									BONUS:DC|TYPE.Arcane|2
+Animated Instrument			TYPE:Magic.Wondrous		COST:600	WT:0		SOURCEPAGE:p.174
+Armband of the Delicate Touch		TYPE:Magic.Wondrous.Bracer	COST:5000	WT:0		SOURCEPAGE:p.174
+Belt of Feyform				TYPE:Magic.Wondrous.Belt	COST:18000	WT:0		SOURCEPAGE:p.174
+Book of Roses				TYPE:Magic.Wondrous.Book	COST:100000	WT:2		SOURCEPAGE:p.174
+Bottled Whirlwind				TYPE:Magic.Wondrous		COST:3000	WT:1		SOURCEPAGE:p.174
+Chain of Supernatural Might		TYPE:Magic.Wondrous		COST:30000	WT:15		SOURCEPAGE:p.174																												BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Natural|2
+Clasp of Returning			TYPE:Magic.Wondrous		COST:9000	WT:0		SOURCEPAGE:p.175
+Clasp of Shared Protection		TYPE:Magic.Wondrous		COST:4000	WT:0		SOURCEPAGE:p.175
+Cloak of the Living			TYPE:Magic.Wondrous.Cape	COST:100000	WT:1		SOURCEPAGE:p.175
+Doomskull					TYPE:Magic.Wondrous		COST:800	WT:3		SOURCEPAGE:p.175
+D'Stradi Belt				TYPE:Magic.Wondrous.Belt	COST:10000	WT:1		SOURCEPAGE:p.175
+Devir's Bowl				TYPE:Magic.Wondrous		COST:3000	WT:0		SOURCEPAGE:p.175
+Devir's Cup					TYPE:Magic.Wondrous		COST:2000	WT:0		SOURCEPAGE:p.175
+Devir's Plate				TYPE:Magic.Wondrous		COST:500	WT:0		SOURCEPAGE:p.175
+Elemental Charms				TYPE:Magic.Wondrous.Bracer	COST:1250	WT:0		SOURCEPAGE:p.176
+Everwarm Blanket				TYPE:Magic.Wondrous		COST:1200	WT:1		SOURCEPAGE:p.176
+Fancy Platter				TYPE:Magic.Wondrous		COST:800	WT:1		SOURCEPAGE:p.176
+Flaming Cloak				TYPE:Magic.Wondrous.Cape	COST:1000	WT:1		SOURCEPAGE:p.176																																																		BONUS:SKILL|Intimidate|1|TYPE=Circumstance
+Gauntlet of Arthanath			TYPE:Magic.Wondrous.Glove	COST:5500	WT:0		SOURCEPAGE:p.176	VFEAT:Dragon Magic																																																												LANGAUTO:Draconic
+Glass of Clarity				TYPE:Magic.Wondrous		COST:2000	WT:0		SOURCEPAGE:p.176
+Glass of Frozen Dreams			TYPE:Magic.Wondrous		COST:1500	WT:0		SOURCEPAGE:p.176
+Glass of Mist				TYPE:Magic.Wondrous		COST:9000	WT:1		SOURCEPAGE:p.176										SPELLS:Glass of Mist|TIMES=3|Obscuring Mist	SPELLS:Glass of Mist|TIMES=3|Mirror Shield
+Glass Rose					TYPE:Magic.Wondrous		COST:15000	WT:0		SOURCEPAGE:p.176
+Globe of Kalias (Globe of Negation)	TYPE:Magic.Wondrous		COST:1500	WT:1		SOURCEPAGE:p.176
+Headband of Reflected Arrows		TYPE:Magic.Wondrous.Headgear	COST:7800	WT:0		SOURCEPAGE:p.176
+Heart Thief					TYPE:Magic.Wondrous		COST:4500	WT:5		SOURCEPAGE:p.176
+Helm of Alacrity +1			TYPE:Magic.Wondrous.Headgear	COST:4000	WT:3		SOURCEPAGE:p.176																												BONUS:COMBAT|AC|1|TYPE=Insight
+Helm of Alacrity +2			TYPE:Magic.Wondrous.Headgear	COST:16000	WT:3		SOURCEPAGE:p.176																												BONUS:COMBAT|AC|2|TYPE=Insight
+Helm of Alacrity +3			TYPE:Magic.Wondrous.Headgear	COST:36000	WT:3		SOURCEPAGE:p.176																												BONUS:COMBAT|AC|3|TYPE=Insight
+Helm of Alacrity +4			TYPE:Magic.Wondrous.Headgear	COST:64000	WT:3		SOURCEPAGE:p.176																												BONUS:COMBAT|AC|4|TYPE=Insight
+Helm of Alacrity +5			TYPE:Magic.Wondrous.Headgear	COST:100000	WT:3		SOURCEPAGE:p.176																												BONUS:COMBAT|AC|5|TYPE=Insight
+Image Crystal				TYPE:Magic.Wondrous		COST:100	WT:0		SOURCEPAGE:p.177
+Lair Guardian				TYPE:Magic.Wondrous		COST:18000	WT:30		SOURCEPAGE:p.177
+Lanneath's Conjure Bomb			TYPE:Magic.Wondrous		COST:4000	WT:2		SOURCEPAGE:p.177
+Lens of Focus				TYPE:Magic.Wondrous.Eyegear	COST:20000	WT:1		SOURCEPAGE:p.177
+Lens of Dragonsight			TYPE:Magic.Wondrous.Eyegear	COST:30000	WT:0		SOURCEPAGE:p.177					VISION:Darkvision (500')
+Lenses of Seeing the Unseen		TYPE:Magic.Wondrous.Eyegear	COST:10000	WT:0		SOURCEPAGE:p.178					VISION:See Invisibility (60')
+Lute of Charms				TYPE:Magic.Wondrous		COST:6000	WT:2		SOURCEPAGE:p.178										SPELLS:Lute of Charms|TIMES=-1|Charm Person
+Manawall Robe				TYPE:Magic.Wondrous.Robe	COST:8500	WT:1		SOURCEPAGE:p.178
+Marstle's Mask				TYPE:Magic.Wondrous.Headgear	COST:17000	WT:0		SOURCEPAGE:p.178
+Mirror of Vanity +2			TYPE:Magic.Wondrous		COST:4000	WT:2		SOURCEPAGE:p.178																																																										BONUS:STAT|CHA|2|TYPE=Enhancement
+Mirror of Vanity +4			TYPE:Magic.Wondrous		COST:16000	WT:2		SOURCEPAGE:p.178																																																										BONUS:STAT|CHA|4|TYPE=Enhancement
+Mirror of Vanity +6			TYPE:Magic.Wondrous		COST:40000	WT:2		SOURCEPAGE:p.178																																																										BONUS:STAT|CHA|6|TYPE=Enhancement					SPROP:Once per day, can transfix a target with its own reflection
+Mist of Divination Protection		TYPE:Magic.Wondrous.Vial	COST:1000	WT:0		SOURCEPAGE:p.178
+Necklace of Stars				TYPE:Magic.Wondrous.Amulet	COST:1400	WT:0		SOURCEPAGE:p.178
+Ocular Band					TYPE:Magic.Wondrous.Headgear	COST:21000	WT:0		SOURCEPAGE:p.178										SPELLS:Ocular Band|TIMES=-1|Detect Magic	SPELLS:Ocular Band|TIMES=1|Clairaudience/Clairvoyance|True Seeing
+Pillow of Blissful Rest			TYPE:Magic.Wondrous		COST:100	WT:1		SOURCEPAGE:p.178
+Pipes of Power				TYPE:Magic.Wondrous		COST:70000	WT:2		SOURCEPAGE:p.179
+Pipes of Protection			TYPE:Magic.Wondrous		COST:35000	WT:3		SOURCEPAGE:p.179
+Quill of Dictation			TYPE:Magic.Wondrous		COST:400	WT:0		SOURCEPAGE:p.179
+Quill of Translation			TYPE:Magic.Wondrous		COST:5600	WT:0		SOURCEPAGE:p.179
+Razor Cloak					TYPE:Magic.Wondrous.Cape	COST:12000	WT:1		SOURCEPAGE:p.179																																																																				SPROP:Attacks at +10 for 1d8 damage
+Robe of Force Resistance		TYPE:Magic.Wondrous.Robe	COST:100000	WT:1		SOURCEPAGE:p.180
+Scabbard of Venoms			TYPE:Magic.Wondrous		COST:5000	WT:1		SOURCEPAGE:p.180
+Scry Beacon					TYPE:Magic.Wondrous		COST:5000	WT:1		SOURCEPAGE:p.180
+Scry Disruptor				TYPE:Magic.Wondrous		COST:50000	WT:1		SOURCEPAGE:p.180
+Skid Boots					TYPE:Magic.Wondrous.Boot	COST:800	WT:1		SOURCEPAGE:p.180																																													BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Balance|-2
+Skull of Spelldoom (1st level)	TYPE:Magic.Wondrous		COST:2400	WT:1		SOURCEPAGE:p.180
+Skull of Spelldoom (2nd level)	TYPE:Magic.Wondrous		COST:3200	WT:1		SOURCEPAGE:p.180
+Skull of Spelldoom (4th level)	TYPE:Magic.Wondrous		COST:19000	WT:1		SOURCEPAGE:p.180
+Skull of Spelldoom (6th level)	TYPE:Magic.Wondrous		COST:43000	WT:1		SOURCEPAGE:p.180
+Skull of Spelldoom (8th level)	TYPE:Magic.Wondrous		COST:77000	WT:1		SOURCEPAGE:p.180
+Skull of Spelldoom (10th level)	TYPE:Magic.Wondrous		COST:120000	WT:1		SOURCEPAGE:p.180
+Skull of Spelldoom (12th level)	TYPE:Magic.Wondrous		COST:172000	WT:1		SOURCEPAGE:p.180
+Spellstealer				TYPE:Magic.Wondrous.Glove	COST:90000	WT:0		SOURCEPAGE:p.181
+Tooth of the Deadly Voice		TYPE:Magic.Wondrous		COST:5000	WT:0		SOURCEPAGE:p.181
+Vest of Reflection			TYPE:Magic.Wondrous.Shirt	COST:7500	WT:0		SOURCEPAGE:p.181
+Wandwrap					TYPE:Magic.Wondrous		COST:21000	WT:1		SOURCEPAGE:p.181

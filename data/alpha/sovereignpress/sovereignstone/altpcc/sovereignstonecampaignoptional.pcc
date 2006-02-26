@@ -1,0 +1,28 @@
+# CVS $Revision: 1.2 $ $Author: dmcmill $ -- Tue Jun  4 18:21:03 2002 -- reformated by prettylst.pl v1.13
+CAMPAIGN:SP - Sovereign Stone Campaign Rules
+RANK:1
+GAMEMODE:SovereignStoneD20
+TYPE:Campaign.Setting.Sovereign Stone
+SOURCELONG:Sovereign Press - Sovereign Stone Campaign
+SOURCESHORT:SovereignS
+SOURCEWEB:http://www.sovstone.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Dragon Lords of Melnibone Copyright 2001, Chaosium, Inc.; Charlie Krank, Lynn Willis, Richard Watts.
+COPYRIGHT:Sovereign Stone Campaign Sourcebook Copyright 2001, Sovereign Press, Inc.; Authors Timothy Kidwell, Jamie Chambers, Don Perrin, based on original material by Larry Elmore, Margaret Weis, and Tracy Hickman.
+COPYRIGHT:PCGen dataset conversion for Sovereign Stone Core Rules Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+INFOTEXT:For loading in SS and only the parts of the PHB SS uses.<p>In other words for setting up a standard 'Official SS Campaign'.
+
+LSTEXCLUDE:srdracesphb.lst|srdlanguages.lst|srdequipcoinsgems.lst
+#The above items are officially illegal in the SS world.
+
+#PCC:@\permissioned\sovereignpress\sovereignstone\sovereign.pcc
+PCC:@\alpha\sovereignpress\sovereignstone\sovereign.pcc
+
+FEAT:@\d20ogl\srd\srd_feats.lst|(EXCLUDE:Brew Potion|Craft Magic Arms and Armor|Craft Rod|Craft Staff|Craft Wand|Craft Wondrous Item|Empower Spell|Enlarge Spell|Extend Spell|Extra Turning|Forge Ring|Heighten Spell|Maximize Spell|Quicken Spell|Scribe Scroll|Silent Spell|Spell Mastery|Still Spell|Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)
+SKILL:@\d20ogl\srd\srd_skills.lst|(EXCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
+#CLASS:@\permissioned\sovereignpress\sovereignstone\sovereignphbclasses.lst
+#EQUIPMENT:@\permissioned\sovereignpress\sovereignstone\sovereignphbequip.lst
+CLASS:@\alpha\sovereignpress\sovereignstone\sovereignphbclasses.lst
+EQUIPMENT:@\alpha\sovereignpress\sovereignstone\sovereignphbequip.lst

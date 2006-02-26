@@ -1,0 +1,104 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Dec 21 02:12:25 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+#### Additional Knowledges
+
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type									Required Feat				Source Page		Weapon prof. bonus					Automaticaly Added to Inventory
+Knowledge (African History)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (The Ancients)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Archaeology)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Archer Secrets)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Asian History)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Biochemistry)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Chinese Politics)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Cold War)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Collective Secrets)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Company Secrets)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (European Secrets)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Gadgets)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Gemeinschafft Secrets)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Guardians)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Internet)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Mystic Artifacts)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Occult)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Occult World)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (P.E.R.I.L.)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Politics)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Psionics)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Psions)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Psychiatry)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Psychology)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Room 39 Secrets)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Russian Politics)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Theology)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+Knowledge (Urban Tactics)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+#### Mental Psion Skills ####
+
+# Psychoinventive Psion Skills
+
+Focus the Mind				KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Mental.Psychoinventive	PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184
+Gadgeteer					KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Mental.Psychoinventive	PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184
+Static Charge				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Mental.Psychoinventive		PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184	BONUS:WEAPONPROF=Static Charge|TOHIT|INT-DEX	AUTO:EQUIP|Lightning Attack|Scramble Attack
+
+# Psychokinetic Psion Skills
+
+Cryokinesis					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Mental.Psychokinetic		PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.185	BONUS:WEAPONPROF=Cryokinesis|TOHIT|INT-DEX	AUTO:EQUIP|Ice Attack
+Photokinesis				KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Mental.Psychokinetic			PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.186	BONUS:WEAPONPROF=Photokinesis|TOHIT|INT-DEX	AUTO:EQUIP|Laser Attack
+Pyrokinesis					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Mental.Psychokinetic		PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.187	BONUS:WEAPONPROF=Pyrokinesis|TOHIT|INT-DEX	AUTO:EQUIP|Fire Attack
+
+# Telekinetic Psion Skills
+
+Kinetic Shield				KEYSTAT:CON	USEUNTRAINED:NO	ACHECK:YES			TYPE:Constitution.Psionic.Mental.Telekinetic		PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.187	BONUS:WEAPONPROF=Poltergeist|TOHIT|INT-DEX	AUTO:EQUIP|Debris Attack
+Levitation					KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Mental.Telekinetic			PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.188
+Poltergeist					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Mental.Telekinetic			PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.188
+
+#### Physical Psion Skills ####
+
+# Adrenal Psion Skills
+
+Body Sculpting				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Physical.Adrenal			PREFEAT:1,Adrenal Basics		SOURCEPAGE:p.193
+Energy Burst				KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:YES			TYPE:Strength.Psionic.Physical.Adrenal			PREFEAT:1,Adrenal Basics		SOURCEPAGE:p.193
+Speed Control				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Physical.Adrenal			PREFEAT:1,Adrenal Basics		SOURCEPAGE:p.193
+
+# Metabolic Psion Skills
+
+Control Metabolism			KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Physical.Metabolic			PREFEAT:1,Metabolic Basics		SOURCEPAGE:p.194
+Control Pheromones			KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Physical.Metabolic			PREFEAT:1,Metabolic Basics		SOURCEPAGE:p.194
+Pain Transmission				KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Physical.Metabolic		PREFEAT:1,Metabolic Basics		SOURCEPAGE:p.195
+
+# Sensory Psion Skills
+
+Combat Sense				KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Physical.Sensory		PREFEAT:1,Sensory Basics		SOURCEPAGE:p.195
+Enhance Senses				KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Physical.Sensory			PREFEAT:1,Sensory Basics		SOURCEPAGE:p.196
+Extended Visual Spectrum		KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Physical.Sensory			PREFEAT:1,Sensory Basics		SOURCEPAGE:p.196
+
+#### Telepathic Psion Skills ####
+
+# ESP Psion Skills
+
+Clairsentience				KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Telepathic.ESP				PREFEAT:1,ESP Basics			SOURCEPAGE:p.200
+Empathy					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Telepathic.ESP			PREFEAT:1,ESP Basics			SOURCEPAGE:p.201
+Psychometry					KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Telepathic.ESP				PREFEAT:1,ESP Basics			SOURCEPAGE:p.201
+
+# Imprint Psion Skills
+
+Dominion					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Telepathic.Imprint			PREFEAT:1,Imprint Basics		SOURCEPAGE:p.202
+Project Thought				KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Telepathic.Imprint		PREFEAT:1,Imprint Basics		SOURCEPAGE:p.202
+Telempathy					KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Telepathic.Imprint			PREFEAT:1,Imprint Basics		SOURCEPAGE:p.202
+
+# Intuitive Psion Skills
+
+Catalyst					KEYSTAT:CON	USEUNTRAINED:NO	ACHECK:YES			TYPE:Constitution.Psionic.Telepathic.Intuitive		PREFEAT:1,Intuitive Basics		SOURCEPAGE:p.203
+Precognition				KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Telepathic.Intuitive			PREFEAT:1,Intuitive Basics		SOURCEPAGE:p.203
+Synthesis					KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Telepathic.Intuitive		PREFEAT:1,Intuitive Basics		SOURCEPAGE:p.203
+
+#
+# End
+#

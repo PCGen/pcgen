@@ -1,0 +1,133 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# Equipment Name			Type					Contains								Cost		Weight	Size		Source Page		Bonus to skill		Special Property
+Backpack				TYPE:Goods.General		CONTAINS:100|Any=100						COST:2	WT:2				SOURCEPAGE:p.
+Backpack (Small)			TYPE:Goods.General		CONTAINS:25|Any=25						COST:2	WT:.5				SOURCEPAGE:p.
+Barrel				TYPE:Goods.General		CONTAINS:500|Any=300						COST:2	WT:30				SOURCEPAGE:p.
+Basket				TYPE:Goods.General		CONTAINS:25|Any=20						COST:.4	WT:1				SOURCEPAGE:p.
+Bedroll				TYPE:Goods.General											COST:.1	WT:5				SOURCEPAGE:p.
+Bedroll (Small)			TYPE:Goods.General											COST:.1	WT:1.25			SOURCEPAGE:p.
+Bell					TYPE:Goods.General.Instrument										COST:1	WT:0				SOURCEPAGE:p.
+Blanket (Winter)			TYPE:Goods.General											COST:.5	WT:3				SOURCEPAGE:p.
+Blanket (Small/Winter)		TYPE:Goods.General											COST:.5	WT:0.75			SOURCEPAGE:p.
+Block and Tackle			TYPE:Goods.General											COST:5	WT:5				SOURCEPAGE:p.
+Bottle (Glass/Wine)		TYPE:Goods.General		CONTAINS:1.5|Liquid=3|SpellComponent=1			COST:2	WT:0				SOURCEPAGE:p.
+Bucket				TYPE:Goods.General		CONTAINS:10|Any=10						COST:.5	WT:2				SOURCEPAGE:p.
+Caltrops				TYPE:Goods.General											COST:1	WT:2				SOURCEPAGE:p.
+Candle				TYPE:Goods.General											COST:.1	WT:0				SOURCEPAGE:p.
+Case (Map or Scroll)		TYPE:Goods.General		CONTAINS:3|Total=6|Scroll=6|Documents=6|Paper=6		COST:1	WT:.5				SOURCEPAGE:p.
+Chain (10 Ft.)			TYPE:Goods.General											COST:30	WT:2				SOURCEPAGE:p.
+Chalk (1 piece)			TYPE:Goods.General											COST:.1	WT:0				SOURCEPAGE:p.
+Chest					TYPE:Goods.General		CONTAINS:200|Any=200						COST:2	WT:25				SOURCEPAGE:p.
+Crowbar				TYPE:Goods.General											COST:2	WT:5				SOURCEPAGE:p.
+Fishhook				TYPE:Goods.General											COST:.05	WT:0				SOURCEPAGE:p.
+Flask (Earthenware)		TYPE:Goods.General.Vial		CONTAINS:1|Liquid=1|SpellComponent=1			COST:.3	WT:0				SOURCEPAGE:p.
+Flint and Steel			TYPE:Goods.General											COST:1	WT:0				SOURCEPAGE:p.
+Grappling Hook			TYPE:Goods.General											COST:1	WT:4				SOURCEPAGE:p.
+Hammer				TYPE:Goods.General											COST:.2	WT:2				SOURCEPAGE:p.
+Jug (Clay)				TYPE:Goods.General		CONTAINS:8|Liquid=20|SpellComponent=1			COST:.2	WT:1				SOURCEPAGE:p.
+Ladder,10ft				TYPE:Goods.General											COST:.5	WT:20				SOURCEPAGE:p.
+Lantern (Bullseye)		TYPE:Goods.General											COST:12	WT:3				SOURCEPAGE:p.
+Lantern (Hooded)			TYPE:Goods.General											COST:7	WT:2				SOURCEPAGE:p.
+Lock (Very Simple)		TYPE:Goods.General											COST:20	WT:1				SOURCEPAGE:p.
+Lock (Average)			TYPE:Goods.General											COST:40	WT:1				SOURCEPAGE:p.
+Lock (Good)				TYPE:Goods.General											COST:80	WT:1				SOURCEPAGE:p.
+Lock (Amazing)			TYPE:Goods.General											COST:120	WT:1				SOURCEPAGE:p.
+Mirror (Small/Steel)		TYPE:Goods.General											COST:10	WT:.5				SOURCEPAGE:p.
+Mug or Tankard (Clay)		TYPE:Goods.General		CONTAINS:1|Liquid=2|SpellComponent=1			COST:.2	WT:0				SOURCEPAGE:p.
+Oil (1 Pt. Flask)			TYPE:Goods.General.Vial											COST:.6	WT:1				SOURCEPAGE:p.
+Pitcher (Clay)			TYPE:Goods.General		CONTAINS:4|Liquid=10|SpellComponent=1			COST:.2	WT:1				SOURCEPAGE:p.
+Piton					TYPE:Goods.General											COST:.2	WT:.5				SOURCEPAGE:p.
+Pole (10 Ft.)			TYPE:Goods.General											COST:.3	WT:8				SOURCEPAGE:p.
+Pot (Iron)				TYPE:Goods.General		CONTAINS:8|Liquid=8|Food=8					COST:.8	WT:2				SOURCEPAGE:p.
+Pouch (Belt)			TYPE:Goods.General		CONTAINS:5|Any=5|Gem=50|Coin=50|Total=50			COST:.8	WT:.5				SOURCEPAGE:p.
+Pouch (Small/Belt)		TYPE:Goods.General		CONTAINS:1.25|Any=1.25|Gem=12.5|Coin=12.5|Total=12.5	COST:.8	WT:.125			SOURCEPAGE:p.
+Rope (Hemp/50 Ft.)		TYPE:Goods.General											COST:1	WT:10				SOURCEPAGE:p.
+Rope (Silk/50 Ft.)		TYPE:Goods.General											COST:15	WT:5				SOURCEPAGE:p.	BONUS:SKILL|Use Rope|2
+Sack					TYPE:Goods.General		CONTAINS:40|Any=50						COST:.1	WT:.5				SOURCEPAGE:p.
+Sack (Small)			TYPE:Goods.General		CONTAINS:10|Any=12.5						COST:.1	WT:.125			SOURCEPAGE:p.
+Sealing Wax				TYPE:Goods.General											COST:1	WT:1				SOURCEPAGE:p.
+Sewing Needle (Bronze)		TYPE:Goods.General											COST:.05					SOURCEPAGE:p.
+Signal Whistle			TYPE:Goods.General											COST:1	WT:.1				SOURCEPAGE:p.
+Signet Ring				TYPE:Goods.General											COST:9					SOURCEPAGE:p.
+Sledge				TYPE:Goods.General											COST:1	WT:10				SOURCEPAGE:p.
+Soap (Per Lb.)			TYPE:Goods.General											COST:.2	WT:1				SOURCEPAGE:p.
+Spade or Shovel			TYPE:Goods.General											COST:2	WT:8				SOURCEPAGE:p.
+Spyglass				TYPE:Goods.General											COST:2000	WT:1				SOURCEPAGE:p.
+Tent					TYPE:Goods.General											COST:6	WT:20				SOURCEPAGE:p.
+Tent (Small)			TYPE:Goods.General											COST:6	WT:5				SOURCEPAGE:p.
+Torch					TYPE:Goods.General											COST:.01	WT:1				SOURCEPAGE:p.
+Waterskin				TYPE:Goods.General		CONTAINS:4|Liquid=8						COST:1	WT:0				SOURCEPAGE:p.
+Waterskin (Small)			TYPE:Goods.General		CONTAINS:1|Liquid=2						COST:1	WT:0				SOURCEPAGE:p.
+Whetstone				TYPE:Goods.General											COST:.02	WT:1				SOURCEPAGE:p.
+#Clothing
+Clothes (Artisan's)		TYPE:Goods.Clothing											COST:2	WT:4				SOURCEPAGE:p.
+Clothes (Small/Artisan's)	TYPE:Goods.Clothing											COST:2	WT:1				SOURCEPAGE:p.
+Clothes (Cold Weather)		TYPE:Goods.Clothing											COST:8	WT:8				SOURCEPAGE:p.					SPROP: +2 circumstance bonus on Fort saves vs cold
+Clothes (Small/Cold Weather)	TYPE:Goods.Clothing											COST:8	WT:2				SOURCEPAGE:p.					SPROP: +2 circumstance bonus on Fort saves vs cold
+Clothes (Entertainer's)		TYPE:Goods.Clothing											COST:3	WT:4				SOURCEPAGE:p.
+Clothes (Small/Entertainer's)	TYPE:Goods.Clothing											COST:3	WT:1				SOURCEPAGE:p.
+Clothes (Explorer's)		TYPE:Goods.Clothing											COST:8	WT:8				SOURCEPAGE:p.
+Clothes (Small/Explorer's)	TYPE:Goods.Clothing											COST:8	WT:2				SOURCEPAGE:p.
+Clothes (Noble's)			TYPE:Goods.Clothing											COST:80	WT:10				SOURCEPAGE:p.
+Clothes (Small/Noble's)		TYPE:Goods.Clothing											COST:80	WT:2.5			SOURCEPAGE:p.
+Clothes (Royal)			TYPE:Goods.Clothing											COST:200	WT:15				SOURCEPAGE:p.
+Clothes (Small/Royal)		TYPE:Goods.Clothing											COST:200	WT:3.75			SOURCEPAGE:p.
+Clothes (Scholar's)		TYPE:Goods.Clothing											COST:4	WT:6				SOURCEPAGE:p.
+Clothes (Small/Scholar's)	TYPE:Goods.Clothing											COST:4	WT:1.5			SOURCEPAGE:p.
+Clothes (Traveling)		TYPE:Goods.Clothing											COST:4	WT:6				SOURCEPAGE:p.
+Clothes (Small/Traveling)	TYPE:Goods.Clothing											COST:4	WT:1.5			SOURCEPAGE:p.
+
+#Mounts and Tack Name
+Bit and Bridle			TYPE:Goods.Mount												COST:2	WT:1				SOURCEPAGE:p.
+Cart (Two Wheeled)		TYPE:Goods.Mount.Vehicle	CONTAINS:3120|Any=-1						COST:100	WT:200			SOURCEPAGE:p.
+Donkey				TYPE:Goods.Mount			CONTAINS:150|Any=150						COST:.8	WT:0		SIZE:M	SOURCEPAGE:p.
+Feed (Per Day)			TYPE:Goods.Mount												COST:.5	WT:10				SOURCEPAGE:p.
+Horse (Heavy)			TYPE:Goods.Mount			CONTAINS:600|Any=600						COST:100	WT:0		SIZE:M	SOURCEPAGE:p.
+Horse (Light)			TYPE:Goods.Mount			CONTAINS:450|Any=450						COST:80	WT:0		SIZE:M	SOURCEPAGE:p.
+Mule					TYPE:Goods.Mount			CONTAINS:690|Any=690						COST:.8	WT:0		SIZE:L	SOURCEPAGE:p.
+Pony					TYPE:Goods.Mount			CONTAINS:225|Any=225						COST:35	WT:0		SIZE:M	SOURCEPAGE:p.
+Horse (Heavy/War)			TYPE:Goods.Mount			CONTAINS:900|Any=900						COST:400	WT:0		SIZE:M	SOURCEPAGE:p.
+Horse (Light/War)			TYPE:Goods.Mount			CONTAINS:690|Any=690						COST:180	WT:0		SIZE:M	SOURCEPAGE:p.
+Saddle (Military)			TYPE:Goods.Mount												COST:20	WT:30				SOURCEPAGE:p.	BONUS:SKILL|Ride|2
+Saddle (Pack)			TYPE:Goods.Mount												COST:5	WT:15				SOURCEPAGE:p.
+Saddle (Military/Exotic)	TYPE:Goods.Mount												COST:60	WT:40				SOURCEPAGE:p.	BONUS:SKILL|Ride|2
+Saddle (Pack/Exotic)		TYPE:Goods.Mount												COST:15	WT:20				SOURCEPAGE:p.
+Saddle (Riding/Exotic)		TYPE:Goods.Mount												COST:30	WT:30				SOURCEPAGE:p.
+Saddlebags				TYPE:Goods.Mount			CONTAINS:300|Any=50						COST:45	WT:8				SOURCEPAGE:p.
+Sled					TYPE:Goods.Mount.Vehicle	CONTAINS:2000|Any=-1						COST:20	WT:300			SOURCEPAGE:p.
+Stabling (Per Day)		TYPE:Goods.Mount												COST:.5					SOURCEPAGE:p.
+Wagon (Four Wheeled)		TYPE:Goods.Mount.Vehicle	CONTAINS:4000|Any=-1						COST:200	WT:400			SOURCEPAGE:p.
+#Mageware
+Paper (Sheet)			TYPE:Goods.Paper												COST:.1					SOURCEPAGE:p.
+Parchment (Sheet)			TYPE:Goods.Paper												COST:.3					SOURCEPAGE:p.
+
+#Tools
+Artisan's Tools			TYPE:Goods.Tools												COST:5	WT:5				SOURCEPAGE:p.
+Climber's Kit			TYPE:Goods.Tools												COST:80	WT:5				SOURCEPAGE:p.	BONUS:SKILL|Climb|2
+Climber's Kit (Small)		TYPE:Goods.Tools												COST:80	WT:1.25			SOURCEPAGE:p.	BONUS:SKILL|Climb|2
+Disguise Kit			TYPE:Goods.Tools												COST:50	WT:8				SOURCEPAGE:p.	BONUS:SKILL|Disguise|2
+Disguise Kit (Small)		TYPE:Goods.Tools												COST:50	WT:2				SOURCEPAGE:p.	BONUS:SKILL|Disguise|2
+Healer's Kit			TYPE:Goods.Tools												COST:50	WT:1				SOURCEPAGE:p.	BONUS:SKILL|Heal|2
+Musical Instrument (Common)	TYPE:Goods.Instrument											COST:5	WT:3				SOURCEPAGE:p.
+Scale (Merchant's)		TYPE:Goods.Tools												COST:2	WT:1				SOURCEPAGE:p.
+Thieves' Tools			TYPE:Goods.Tools												COST:30	WT:1				SOURCEPAGE:p.
+
+#Food
+Ale (Gallon)			TYPE:Goods.Liquid.Food											COST:.9	WT:8				SOURCEPAGE:p.
+Ale (Mug)				TYPE:Goods.Food												COST:.1	WT:1				SOURCEPAGE:p.
+Banquet (Per Person)		TYPE:Goods.Food												COST:10					SOURCEPAGE:p.
+Bread (Loaf)			TYPE:Goods.Food												COST:.2	WT:.5				SOURCEPAGE:p.
+Cheese (Hunk)			TYPE:Goods.Food												COST:.1	WT:.5				SOURCEPAGE:p.
+Inn (Good/Per Day)		TYPE:Goods.Lodging											COST:5					SOURCEPAGE:p.
+Inn (Common/Per Day)		TYPE:Goods.Lodging											COST:.8					SOURCEPAGE:p.
+Inn (Poor/Per Day)		TYPE:Goods.Lodging											COST:.2					SOURCEPAGE:p.
+Meals (Good/Per Day)		TYPE:Goods.Food												COST:.5					SOURCEPAGE:p.
+Meals (Common/Per Day)		TYPE:Goods.Food												COST:.3					SOURCEPAGE:p.
+Meals (Poor/Per Day)		TYPE:Goods.Food												COST:.1					SOURCEPAGE:p.
+Meat (Chunk)			TYPE:Goods.Food												COST:.3	WT:.5				SOURCEPAGE:p.
+Rations (Trail/Per Week)	TYPE:Goods.Food												COST:5	WT:1				SOURCEPAGE:p.
+Wine (Common/Pitcher)		TYPE:Goods.Food												COST:1	WT:6				SOURCEPAGE:p.
+Wine (Fine/Bottle)		TYPE:Goods.Food												COST:15	WT:1.5			SOURCEPAGE:p.
+Wine (Fine)				TYPE:Goods.Liquid.Food											COST:13	WT:1.5			SOURCEPAGE:p.
+Water (Pint)			TYPE:Goods.Liquid.Food											COST:0	WT:1.00			SOURCEPAGE:p.

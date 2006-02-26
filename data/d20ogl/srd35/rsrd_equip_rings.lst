@@ -1,0 +1,69 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Sep 14 18:06:04 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: abernat
+# Please follow the standard I did in the first 7 rings.
+#	We are going away from Ring (Blah) for Names of things. - Tir Gwaith
+
+
+# Equipment Name						Output Name									Type			Cost		Weight	Source Page				Virtual Feat	Combat bonus				Bonus to skill					Multiply spell cast/day				Special Property
+Ring of Animal Friendship														TYPE:Magic.Ring	COST:10800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring of Blinking																TYPE:Magic.Ring	COST:27000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring of Chameleon Power															TYPE:Magic.Ring	COST:12700	WT:0		SOURCEPAGE:MagicItemsIII.rtf										BONUS:SKILL|Hide|10|TYPE=Competence
+Ring of Climbing																TYPE:Magic.Ring	COST:2500	WT:0		SOURCEPAGE:MagicItemsIII.rtf										BONUS:SKILL|Climb|5|TYPE=Competence
+Ring of Climbing (Improved)				OUTPUTNAME:Ring of Climbing, [NAME]					TYPE:Magic.Ring	COST:10000	WT:0		SOURCEPAGE:MagicItemsIII.rtf										BONUS:SKILL|Climb|10|TYPE=Competence
+Ring of Counterspells															TYPE:Magic.Ring	COST:4000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring of Djinni Calling															TYPE:Magic.Ring	COST:125000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Elemental Command/Air)				OUTPUTNAME:Ring of Elemental Command (Air)			TYPE:Magic.Ring	COST:200000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Elemental Command/Earth)			OUTPUTNAME:Ring of Elemental Command (Earth)			TYPE:Magic.Ring	COST:200000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Elemental Command/Fire)				OUTPUTNAME:Ring of Elemental Command (Fire)			TYPE:Magic.Ring	COST:200000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Elemental Command/Water)			OUTPUTNAME:Ring of Elemental Command (Water)			TYPE:Magic.Ring	COST:200000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+#Ring (Elemental Command)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:200000	WT:0		CHOOSE:Element|Air|Earth|Fire|Water				SOURCEPAGE:MagicItemsIII.rtf
+Ring (Energy Resistance/Acid/Major)			OUTPUTNAME:Major Ring of Energy Resistance (Acid)		TYPE:Magic.Ring	COST:28000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 20 points of Acid damage
+Ring (Energy Resistance/Cold/Major)			OUTPUTNAME:Major Ring of Energy Resistance (Cold)		TYPE:Magic.Ring	COST:28000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 20 points of Cold damage
+Ring (Energy Resistance/Electricity/Major)	OUTPUTNAME:Major Ring of Energy Resistance (Electricity)	TYPE:Magic.Ring	COST:28000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 20 points of Electrical damage
+Ring (Energy Resistance/Fire/Major)			OUTPUTNAME:Major Ring of Energy Resistance (Fire)		TYPE:Magic.Ring	COST:28000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 20 points of Fire damage
+Ring (Energy Resistance/Sonic/Major)		OUTPUTNAME:Major Ring of Energy Resistance (Sonic)		TYPE:Magic.Ring	COST:28000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 20 points of Sonic damage
+#Ring (Energy Resistance/Major)			OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:28000	WT:0		CHOOSE:Energy Type|Acid|Cold|Electricity|Fire|Sonic	SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 20 points of %CHOICE damage
+Ring (Energy Resistance/Acid/Minor)			OUTPUTNAME:Minor Ring of Energy Resistance (Acid)		TYPE:Magic.Ring	COST:12000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 10 points of Acid damage
+Ring (Energy Resistance/Cold/Minor)			OUTPUTNAME:Minor Ring of Energy Resistance (Cold)		TYPE:Magic.Ring	COST:12000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 10 points of Cold damage
+Ring (Energy Resistance/Electricity/Minor)	OUTPUTNAME:Minor Ring of Energy Resistance (Electricity)	TYPE:Magic.Ring	COST:12000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 10 points of Electrical damage
+Ring (Energy Resistance/Fire/Minor)			OUTPUTNAME:Minor Ring of Energy Resistance (Fire)		TYPE:Magic.Ring	COST:12000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 10 points of Fire damage
+Ring (Energy Resistance/Sonic/Minor)		OUTPUTNAME:Minor Ring of Energy Resistance (Sonic)		TYPE:Magic.Ring	COST:12000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 10 points of Sonic damage
+#Ring (Energy Resistance/Minor)			OUTPUTNAME:Ring of Energy Resistance, Minor (%CHOICE)		TYPE:Magic.Ring	COST:12000	WT:0		CHOOSE:Energy Type|Acid|Cold|Electricity|Fire|Sonic	SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 10 points of %CHOICE damage
+Ring (Energy Resistance/Acid/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Acid)		TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of Acid damage
+Ring (Energy Resistance/Cold/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Cold)		TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of Cold damage
+Ring (Energy Resistance/Electricity/Greater)	OUTPUTNAME:Greater Ring of Energy Resistance (Electricity)	TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of Electrical damage
+Ring (Energy Resistance/Fire/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Fire)		TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of Fire damage
+Ring (Energy Resistance/Sonic/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Sonic)		TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of Sonic damage
+#Ring (Energy Resistance/Greater)			OUTPUTNAME:Ring of Energy Resistance, Greater (%CHOICE)	TYPE:Magic.Ring	COST:44000	WT:0		CHOOSE:Energy Type|Acid|Cold|Electricity|Fire|Sonic	SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of %CHOICE damage
+Ring (Evasion)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:25000	WT:0		SOURCEPAGE:MagicItemsIII.rtf	VFEAT:Evasion
+Ring (Feather Falling)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Force Shield)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8500	WT:0		SOURCEPAGE:MagicItemsIII.rtf				BONUS:COMBAT|AC|2
+Ring (Freedom of Movement)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:40000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Friend Shield)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:50000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Invisibility)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Jumping)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2500	WT:0		SOURCEPAGE:MagicItemsIII.rtf										BONUS:SKILL|Jump|5|TYPE=Competence
+Ring (Mind Shielding)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Protection +1)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2000	WT:0		SOURCEPAGE:MagicItemsIII.rtf				BONUS:COMBAT|AC|1|TYPE=Deflection
+Ring (Protection +2)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8000	WT:0		SOURCEPAGE:MagicItemsIII.rtf				BONUS:COMBAT|AC|2|TYPE=Deflection
+Ring (Protection +3)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:18000	WT:0		SOURCEPAGE:MagicItemsIII.rtf				BONUS:COMBAT|AC|3|TYPE=Deflection
+Ring (Protection +4)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:32000	WT:0		SOURCEPAGE:MagicItemsIII.rtf				BONUS:COMBAT|AC|4|TYPE=Deflection
+Ring (Protection +5)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:50000	WT:0		SOURCEPAGE:MagicItemsIII.rtf				BONUS:COMBAT|AC|5|TYPE=Deflection
+Ring (Ram)							OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8600	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Regeneration)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:90000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Shooting Stars)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:50000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Spell Storing/Minor)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:18000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Spell Storing)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:50000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Spell Storing/Major)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:200000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Spell Turning)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:98280	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Sustenance)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2500	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Swimming)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2500	WT:0		SOURCEPAGE:MagicItemsIII.rtf										BONUS:SKILL|Swim|5|TYPE=Competence
+Ring (Swimming/Improved)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:10000	WT:0		SOURCEPAGE:MagicItemsIII.rtf										BONUS:SKILL|Swim|10|TYPE=Competence
+Ring (Telekinesis)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:75000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Three Wishes)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:97950	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Water Walking)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:15000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Ring (Wizardry I)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																	BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2
+Ring (Wizardry II)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:40000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																	BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=2|2
+Ring (Wizardry III)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:70000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																	BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=3|2
+Ring (Wizardry IV)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:100000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																	BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2
+Ring (X-Ray Vision)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:25000	WT:0		SOURCEPAGE:MagicItemsIII.rtf

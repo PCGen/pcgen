@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Sep  6 13:17:21 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia|SOURCESHORT:Vlad|SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+
+# Weapon Name	Type			Nb Hands
+Cannon		TYPE:Cannon		HANDS:2
+Arquebus		TYPE:Arquebus	HANDS:2

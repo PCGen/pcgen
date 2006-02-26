@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Equipment Name				Type			Cost		Weight	Source Page
+Lotion of Size and Shape Alteration	TYPE:Magic.Potion	COST:4000	WT:0		SOURCEPAGE:p.36
+Venenum Erratus				TYPE:Magic.Potion	COST:200	WT:0		SOURCEPAGE:p.37
+Venenum Acidus Repugno			TYPE:Magic.Potion	COST:100	WT:0		SOURCEPAGE:p.37

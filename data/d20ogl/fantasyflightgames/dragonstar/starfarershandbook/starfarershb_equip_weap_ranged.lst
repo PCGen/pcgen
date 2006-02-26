@@ -1,0 +1,124 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sun Jan 15 18:38:54 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+###Block: MODs
+#Martial Ranged
+#MEDIUM ----------------------
+# Equipment Name				Type
+Shortbow.MOD				TYPE:HandDrawn
+Shortbow (Composite).MOD		TYPE:HandDrawn
+Shortbow (+1 Mighty/Composite).MOD	TYPE:HandDrawn
+Shortbow (+2 Mighty/Composite).MOD	TYPE:HandDrawn
+
+#LARGE -----------------------
+Longbow.MOD					TYPE:HandDrawn
+Longbow (Composite).MOD			TYPE:HandDrawn
+Longbow (+1 Mighty/Composite).MOD	TYPE:HandDrawn
+Longbow (+2 Mighty/Composite).MOD	TYPE:HandDrawn
+Longbow (+3 Mighty/Composite).MOD	TYPE:HandDrawn
+Longbow (+4 Mighty/Composite).MOD	TYPE:HandDrawn
+
+###Block: New weapons
+#Simple Ranged/Thrown Weapons
+#TINY ----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Holdout Laser					PROFICIENCY:Holdout Laser					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Handgun.Fire			COST:200	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10		RANGE:75	SIZE:T	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Holdout Pistol					PROFICIENCY:Holdout Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Handgun.Piercing			COST:150	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:100	SIZE:T	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Taser Pistol					PROFICIENCY:Taser Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Handgun.Electrical		COST:100	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:100	SIZE:T	SOURCEPAGE:p.98	SPROP:Fort save DC15 or stunned 1 round, electrical	RATEOFFIRE:Single Dart/Attack
+#not book did not state wether taser is one-shot, semi, auto from description I have to assume semi
+#SMALL ----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Blaster Pistol					PROFICIENCY:Blaster Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Electrical.Handgun		COST:600	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8		RANGE:100	SIZE:S	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Laser Pistol					PROFICIENCY:Laser Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Fire.Handgun			COST:500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:100	SIZE:S	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Light AutoPistol					PROFICIENCY:Light AutoPistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Piercing.Handgun			COST:300	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		RANGE:150	SIZE:S	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Heavy AutoPistol					PROFICIENCY:Heavy AutoPistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Piercing.Handgun			COST:400	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12		RANGE:200	SIZE:S	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Screamer Pistol					PROFICIENCY:Screamer Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Sonic.Handgun			COST:450	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:100	SIZE:S	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+
+#MEDIUM----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Blaster Carbine					PROFICIENCY:Blaster Carbine					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Electrical.Carbine		COST:900	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d8		RANGE:150	SIZE:M	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Automatic Crossbow				PROFICIENCY:Automatic Crossbow				TYPE:Weapon.HighTechSimple.Ranged.Standard.Bow					COST:200	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6		RANGE:150	SIZE:M	SOURCEPAGE:p.98										RATEOFFIRE:Arrow/Attack
+Hunting Carbine					PROFICIENCY:Hunting Carbine					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Piercing.Carbine			COST:350	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		RANGE:250	SIZE:M	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Laser Carbine					PROFICIENCY:Laser Carbine					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Fire.Carbinee			COST:700	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8		RANGE:150	SIZE:M	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Blaster Rifle					PROFICIENCY:Blaster Rifle					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Rifle.Electrical			COST:1000	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Hunting Rifle					PROFICIENCY:Hunting Rifle					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Rifle.Piercing			COST:450	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12		RANGE:250	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Compound Longbow					PROFICIENCY:Compound Longbow					TYPE:Weapon.HighTechSimple.Ranged.Standard.Bow					COST:200	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12+4	RANGE:150	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Arrow/Attack
+Laser Rifle						PROFICIENCY:Laser Rifle						TYPE:Weapon.HighTechSimple.Ranged.Firearm.Rifle.Fire				COST:800	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Screamer Rifle					PROFICIENCY:Screamer Rifle					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Rifle.Sonic				COST:650	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6		RANGE:200	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Shotgun						PROFICIENCY:Shotgun						TYPE:Weapon.HighTechSimple.Ranged.Firearm.Piercing				COST:400	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:50	SIZE:L	SOURCEPAGE:p.98	SPROP:3D6 1st range 2D6 next range 1d6 5' after		RATEOFFIRE:Single Round/Attack
+
+#Martial Ranged/Thrown Weapons
+#MEDIUM----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Assault Carbine					PROFICIENCY:Assault Carbine					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Carbine.Piercing	COST:650	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		RANGE:250	SIZE:M	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Submachine Gun					PROFICIENCY:Submachine Gun					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Piercing				COST:500	WT:8		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		RANGE:200	SIZE:M	SOURCEPAGE:p.98										RATEOFFIRE:3 Round Burst/Attack
+
+#LARGE----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Assault Blaster					PROFICIENCY:Assault Blaster					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Electrical		COST:2000	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:3 Pulse Burst/Attack
+Assault Laser					PROFICIENCY:Assault Laser					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Fire			COST:1500	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:3 Pulse Burst/Attack
+Assault Rifle					PROFICIENCY:Assault Rifle					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Rifle.Piercing		COST:750	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12		RANGE:250	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:3 Round Burst/Attack
+Flamethrower					PROFICIENCY:Flamethrower					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Fire					COST:1000	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6		RANGE:20	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Grenade Launcher					PROFICIENCY:Grenade Launcher					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Explosive				COST:500	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:200	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Light Machinegun					PROFICIENCY:Light Machinegun					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Piercing				COST:1000	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:300	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:5 Round Burst/Attack
+Missile Launcher					PROFICIENCY:Missile Launcher					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Explosive				COST:7500	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:1 Missile
+Plasma Rifle					PROFICIENCY:Plasma Rifle					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Rifle.Fire				COST:3000	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:5d10		RANGE:300	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Rocket Launcher					PROFICIENCY:Rocket Launcher					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Explosive				COST:5000	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:400	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:1 Rocket
+Rocket Launcher (Multishot)			PROFICIENCY:Rocket Launcher (Multishot)			TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive			COST:6500	WT:24		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:400	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:1 Rocket/Attack
+Sniper Rifle					PROFICIENCY:Sniper Rifle					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Rifle.Piercing			COST:800	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12		RANGE:300	SIZE:L	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+
+
+#HUGE----------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Blaster Cannon					PROFICIENCY:Blaster Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Electrical			COST:5000	WT:65		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10		RANGE:500	SIZE:H	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+Heavy Machinegun					PROFICIENCY:Heavy Machinegun					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Piercing			COST:1500	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6		RANGE:400	SIZE:H	SOURCEPAGE:p.98										RATEOFFIRE:5 Round Burst/Attack
+Laser Cannon					PROFICIENCY:Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire				COST:4000	WT:50		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:500	SIZE:H	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+
+#GARGANTUAN------------------------------------------------------------------------------------------------------
+# Equipment Name					Required Proficiency						Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+Plasma Cannon					PROFICIENCY:Plasma Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire				COST:7500	WT:80		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:750	SIZE:G	SOURCEPAGE:p.98										RATEOFFIRE:Single Pulse/Attack
+#EB Mod: uppercase on Launcher :)
+Missile Launcher (Multishot-4 shot)		PROFICIENCY:Missile launcher (Multishot-4 shot)		TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive			COST:12000	WT:90		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:G	SOURCEPAGE:p.98										RATEOFFIRE:1 Missile/Attack
+Missile Launcher (Multishot-8 shot)		PROFICIENCY:Missile launcher (Multishot-8 shot)		TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive			COST:15000	WT:120	CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:G	SOURCEPAGE:p.98										RATEOFFIRE:2 Missiles/Attack
+Missile Launcher (Multishot-16 shot)	PROFICIENCY:Missile launcher (Multishot-16 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive			COST:20000	WT:150	CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:G	SOURCEPAGE:p.98										RATEOFFIRE:4 Missiles/Attack
+Missile Launcher (Multishot-24 shot)	PROFICIENCY:Missile launcher (Multishot-24 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive			COST:30000	WT:200	CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:G	SOURCEPAGE:p.98										RATEOFFIRE:6 Missiles/Attack
+
+###Block: Grenadelike Weapons
+# Equipment Name		Required Proficiency			Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property
+Grenade (Adhesive)	PROFICIENCY:Grenade (Adhesive)	TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:50	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:*	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast radius creates adhesive area
+Grenade (Concussion)	PROFICIENCY:Grenade (Concussion)	TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:100	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.100
+Grenade (Flash-Bang)	PROFICIENCY:Grenade (Flash-Bang)	TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:50	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:*	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast radius creats blinding light.
+Grenade (Frag)		PROFICIENCY:Grenade (Frag)		TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:100	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Half Fire Half piercing damage
+Grenade (Incendiary)	PROFICIENCY:Grenade (Incendiary)	TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:100	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Fire Damage
+Grenade (Nausea)		PROFICIENCY:Grenade (Nausea)		TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:50	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:*	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast radius creates noxious gas in area
+Grenade (Smoke)		PROFICIENCY:Grenade (Smoke)		TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:30	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:*	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast radius creates smoke in area
+Grenade (Stun)		PROFICIENCY:Grenade (Stun)		TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:50	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast damage is subdual
+
+###Block: Ship Weapons
+# Equipment Name							Type										Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page			Special Property									Rate of Fire
+Scout Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:Single Pulse/Attack
+Assault Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:Single Pulse/Attack
+Assault Walker Missile launcher (Multishot-4 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Turret(1)							RATEOFFIRE:1 Missile/Attack
+Hovertank Plasma Cannon						TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:15	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Turret(1)	RATEOFFIRE:Single Pulse/Attack
+Hovertank Laser Cannon						TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Turret(1)	RATEOFFIRE:Single Pulse/Attack
+Hovertank Missile launcher (Multishot-16 shot)		TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(1)							RATEOFFIRE:4 Missiles/Attack
+Strike Aircraft Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:1	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:Single Pulse/Attack
+Strike Aircraft Missile launcher (Multishot-16 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(1)							RATEOFFIRE:4 Missiles/Attack
+Interceptor Twin Laser Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10*2	RANGE:5	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:All facing Battery/Attack
+Corvette Twin Laser Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10*2	RANGE:5	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:All facing Battery/Attack
+Corvette Twin Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10*2	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(1)	RATEOFFIRE:All facing Battery/Attack
+Destroyer Quad Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10*4	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(2)	RATEOFFIRE:All facing Battery/Attack
+Destroyer Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10*5	RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(2);Speed 50					RATEOFFIRE:2 Torpedos
+Cruiser Quad Plasma Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10*4	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(4)	RATEOFFIRE:All facing Battery/Attack
+Cruiser Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10*5	RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(4);Speed 50					RATEOFFIRE:4 Torpedos
+Carrier Quad Plasma Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10*4	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(2)	RATEOFFIRE:All facing Battery/Attack
+Carrier Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10*5	RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(2);Speed 50					RATEOFFIRE:2 Torpedos
+Battleship Quad Ion Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Bludgeoning				CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12*4	RANGE:20	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:All facing Battery/Attack
+Battleship Quad Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10*4	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(10)	RATEOFFIRE:All facing Battery/Attack
+Battleship Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10*5	RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Front(3),Left(2),Right(2),Rear(3);Speed 50		RATEOFFIRE:2 Torpedos
+DreadnoughtQuad Ion Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Bludgeoning				CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12*4	RANGE:20	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(3)	RATEOFFIRE:All facing Battery/Attack
+Dreadnought Quad Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10*4	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Turret(20)	RATEOFFIRE:All facing Battery/Attack
+Dreadnought Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10*5	RANGE:-	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Front(5),Left(5),Right(5),Rear(5);Speed 50		RATEOFFIRE:2 Torpedos

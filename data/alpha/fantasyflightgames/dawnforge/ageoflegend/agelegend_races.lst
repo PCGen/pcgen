@@ -1,0 +1,16 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Nov  2 11:15:28 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+
+# Race Name		Output Name			Favored Class	Skills/Level		Starting Feats	Size		Move				Face/Space	Reach		Vision			Automatic Languages	Bonus Languages							Change Weapon Prof. Category					Bonus to skill						Stat bonus											Class Skill				Special Ability																																							Type			Template						Source Page
+Elf (Ghost)		OUTPUTNAME:[NAME] Elf	FAVCLASS:Ranger					STARTFEATS:1	SIZE:M	MOVE:Walk,30,Climb,15	FACE:5	REACH:5	VISION:Low-light		LANGAUTO:Elven		LANGBONUS:Giant,Goblin,Orc					CHANGEPROF:Wristblade,Shineblade,Wristbolt=Martial									BONUS:STAT|DEX|2	BONUS:STAT|CON|-2												SA:Cold Tolerance: Ghost elves bonded quickly with this world's spirits of cold. They never suffer non-lethal damage from cold temperatures and conditions.																TYPE:Humanoid	TEMPLATE:Racial Progression Ghost Elf	SOURCEPAGE:p.24
+Elf (Moon)		OUTPUTNAME:[NAME] Elf	FAVCLASS:Bard	XTRASKILLPTSPERLVL:1	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	VISION:Low-light		LANGAUTO:Common,Elven	LANGBONUS:Anderlar,Gnoll,Sylvan				CHANGEPROF:Wristblade,Shineblade,Wristbolt=Martial									BONUS:STAT|CHA|2	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|-2						SA:Immunity to magic sleep spells and effects.	SA:+2 racial saving throw bonus against enchantment spells or effects.																						TYPE:Humanoid	TEMPLATE:Racial Progression Moon Elf	SOURCEPAGE:p.26
+Elf (Wood)(DF)	OUTPUTNAME:[NAME] Elf	FAVCLASS:Shaman					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	VISION:Low-light		LANGAUTO:Elven,Sylvan	LANGBONUS:Night Elven,Common					CHANGEPROF:Wristblade,Shineblade,Wristbolt=Martial	BONUS:SKILL|Listen,Search,Spot|4|TYPE=Racial	BONUS:STAT|DEX|2	BONUS:STAT|STR|-2												SA:Forest Senses.																																							TYPE:Humanoid	TEMPLATE:Racial Progression Wood Elf	SOURCEPAGE:p.32
+Forest Wight					FAVCLASS:Ranger					STARTFEATS:1	SIZE:M	MOVE:Walk,40		FACE:5	REACH:5	VISION:Darkvision (60')	LANGAUTO:Common,Orc	LANGBONUS:Anderlar,Clan Speech,Dwarven,Giant,Goblin										BONUS:SKILL|Hide,Move Silently|2|TYPE=Racial	BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2	CSKILL:Hide|Move Silently	SA:Cold Tolerance: Like their orcish ancestors forest wights are not bothered by the extremes of cold. They never suffer non-lethal damage from cold temperatures and conditions.	SA:+2 to saves vs. energy drain.	SA:Light sensitivity (Ex)	TYPE:Humanoid	TEMPLATE:Racial Progression Forest Wight	SOURCEPAGE:p.72
+
+#Forest Wight: no languages, but since they are orcs...
+#Moon Elf: The extra skill point has to be a Knowledge skill...
+
+
+

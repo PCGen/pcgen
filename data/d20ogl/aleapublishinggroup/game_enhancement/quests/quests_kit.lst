@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Feb  9 01:12:14 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Quests|SOURCESHORT:Quests|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+
+STARTPACK:Default Legendary Dire White Stag	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Legendary Dire White Stag]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Legendary Dire White Stag	!PRERACE:%
+NAME:Legendary Dire White Stag
+ALIGN:TN
+SKILL:Listen	RANK:9
+SKILL:Spot		RANK:9

@@ -1,0 +1,14 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Nov 11 17:13:28 2005 -- reformated by prettylst.pl v1.35 (build 506)
+SOURCELONG:RSRD Epic Psionics|SOURCESHORT:RSRDEpicPsionics|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+###Block: Epic Synergy Bonuses, see EpicSkills.rtf
+
+# Psionic Skills			Bonus to skill
+# Skill Name			Bonus to skill
+Autohypnosis.MOD			BONUS:SKILL|Autohypnosis|max(0,floor((var("SKILLRANK=Concentration")-5)/20))*2|TYPE=Synergy.STACK
+Knowledge (Psionics).MOD	BONUS:SKILL|Knowledge (Psionics)|max(0,floor((var("SKILLRANK=Autohypnosis")-5)/20))*2|TYPE=Synergy.STACK
+Psicraft.MOD			BONUS:SKILL|Psicraft|max(0,floor((var("SKILLRANK=Knowledge (Psionics)")-5)/20))*2|TYPE=Synergy.STACK
+
+#
+# End
+#

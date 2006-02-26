@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Thu Nov 21 09:58:05 2002 -- reformated by prettylst.pl v1.19 (build 217)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy|SOURCESHORT:Necromancy|SOURCEWEB:http://www.mongoosepublishing.com
+# Replicate the Divine: Death Domain choice.. Needs some code.  - Tir Gwaith
+
+# Feat Name			Type			Required Feat						Required Skill				Req. Known Spell		Description												Multiple?	Choose						Source Page
+Animation by Touch	TYPE:Necromantic	PREFEAT:1,Death Touch											PRESPELL:1,Animate Dead	DESC:As Animate dead spell except Touch only															SOURCEPAGE:p.39
+Augment Undead		TYPE:Necromantic									PRESKILL:1,Knowledge (Necrology)=4					DESC:Enhance Undead at creation																	SOURCEPAGE:p.39
+Command Undead		TYPE:Necromantic									PRESKILL:1,Knowledge (Necrology)=8					DESC:May Turn/Rebuke undead as Cleric at 1/2 your level													SOURCEPAGE:p.40
+Death Touch			TYPE:Necromantic									PRESKILL:1,Knowledge (Necrology)=4					DESC:Attempt to slay living creature outright															SOURCEPAGE:p.40
+Empower Undead		TYPE:Necromantic	PREFEAT:1,Augment Undead										PRESPELL:1,Animate Dead	DESC:Grant Undead at creation Turn Resistance															SOURCEPAGE:p.40
+Replicate the Divine	TYPE:Necromantic	PREFEAT:1,TYPE=Necromantic														DESC:May cast 1 spell from the Divine Domain of Death					MULT:YES	CHOOSE:1 Spell from the Death Domain	SOURCEPAGE:p.40
+Resist Magic		TYPE:Necromantic									PRESKILL:1,Knowledge (Necrology)=11					DESC:You are cloaked in a shadowy field that drives away magical attacks										SOURCEPAGE:p.40
+Spirit Dissertation	TYPE:Necromantic	PREFEAT:2,Augment Undead,Replicate the Divine	PRESKILL:1,Knowledge (Necrology)=6					DESC:Gain the Supernatural ability to Speak with the dead 1/day												SOURCEPAGE:p.41

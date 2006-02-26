@@ -1,0 +1,18 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:Auran - Notes from the Apothercary
+GAMEMODE:3e
+TYPE:Auran d20.Web
+RANK:9
+SOURCELONG:Auran d20 - Web - Notes from the Apothecary, Vol. 1
+SOURCESHORT:Apothecary
+SOURCEWEB:http://www.auran.com/d20
+ISOGL:YES
+COPYRIGHT:No Section 15 information with product
+COPYRIGHT:PCGen dataset conversion for Notes from the Apothecary, Vol. 1 Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Free download source - http://files.auran.com/d20/downloads/apothecary_notes_vol1.zip
+EQUIPMENT:apothecaryequip.lst
+EQUIPMENT:apothecaryequippotionspoisons.lst

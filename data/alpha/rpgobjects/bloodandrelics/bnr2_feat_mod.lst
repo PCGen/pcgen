@@ -1,0 +1,65 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jan 26 23:35:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Relics 2nd Edition|SOURCESHORT:BnR2|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
+
+# Feat Name					Type
+Acrobatic.MOD				TYPE:RelicSeeker
+Advanced Firearms Proficiency.MOD	TYPE:OmegaKnight
+Advanced Two-Weapon Fighting.MOD	TYPE:Monitor.KnightOldTable
+Agile Riposte.MOD				TYPE:Monitor
+Alertness.MOD				TYPE:Monitor.RelicSeeker.Inquisitor.Exorcist.OmegaKnight.CovenEnchantress
+Antithesis.MOD				TYPE:Inquisitor.OmegaKnight
+Archaic Weapons Proficiency.MOD	TYPE:Exorcist
+Armor Proficiency (Light).MOD		TYPE:Monitor.Inquisitor.OmegaKnight
+Armor Proficiency (Medium).MOD	TYPE:Monitor.OmegaKnight
+Astrology.MOD				TYPE:CovenEnchantress
+Athletic.MOD				TYPE:Monitor
+Attentive.MOD				TYPE:Inquisitor
+Brainwashing.MOD				TYPE:Cultist.Inquisitor
+Cleave.MOD					TYPE:DarkWarrior
+Combat Expertise.MOD			TYPE:Monitor.RelicSeeker.Inquisitor.KnightOldTable
+Combat Reflexes.MOD			TYPE:DarkWarrior
+Conviction (Asceticism).MOD		TYPE:Inquisitor
+Dark Magnetism.MOD			TYPE:Cultist
+Deceptive.MOD				TYPE:Inquisitor.KnightOldTable.CovenEnchantress
+Defensive Martial Arts.MOD		TYPE:RelicSeeker
+Dodge.MOD					TYPE:RelicSeeker.OmegaKnight.KnightOldTable
+Educated.MOD				TYPE:RelicSeeker.Inquisitor.Exorcist.CovenEnchantress
+Endurance.MOD				TYPE:OmegaKnight
+Enemy.MOD					TYPE:OmegaKnight
+Faith's Protection.MOD			TYPE:Exorcist
+Focused.MOD					TYPE:Inquisitor
+Friends in High Places.MOD		TYPE:Inquisitor
+Frightful Presence.MOD			TYPE:Cultist.DarkWarrior.CovenEnchantress
+Guide.MOD					TYPE:RelicSeeker
+Henchmen.MOD				TYPE:Cultist.Inquisitor
+Heroic Surge.MOD				TYPE:DarkWarrior.Monitor
+Ideologue.MOD				TYPE:Cultist.Inquisitor
+Improved Damage Threshold.MOD		TYPE:DarkWarrior.KnightOldTable
+Improved Disarm.MOD			TYPE:Monitor
+Information Network.MOD			TYPE:Cultist.Inquisitor
+Inspired Leadership.MOD			TYPE:Cultist.Inquisitor
+Investment.MOD				TYPE:Inquisitor
+Lightning Reflexes.MOD			TYPE:KnightOldTable
+Low Profile.MOD				TYPE:Cultist.DarkWarrior.Inquisitor.CovenEnchantress
+Medical Expert.MOD			TYPE:CovenEnchantress
+Mobility.MOD				TYPE:RelicSeeker.OmegaKnight.KnightOldTable
+Numerology.MOD				TYPE:CovenEnchantress
+Palm Reading.MOD				TYPE:CovenEnchantress
+Pentagram.MOD				TYPE:Cultist
+Personal Firearms Proficiency.MOD	TYPE:DarkWarrior
+Power Attack.MOD				TYPE:DarkWarrior
+Profane Ritual.MOD			TYPE:Cultist
+Psychotherapy.MOD				TYPE:Exorcist
+Renown.MOD					TYPE:RelicSeeker
+Second Sight.MOD				TYPE:CovenEnchantress
+Shot on the Run.MOD			TYPE:OmegaKnight
+Spring Attack.MOD				TYPE:OmegaKnight
+Stealthy.MOD				TYPE:RelicSeeker.CovenEnchantress
+Studious.MOD				TYPE:Inquisitor.Exorcist
+Sunder.MOD					TYPE:DarkWarrior
+Teamwork.MOD				TYPE:Inquisitor.Exorcist
+Toughness.MOD				TYPE:Monitor
+Trustworthy.MOD				TYPE:Inquisitor
+Weapon Finesse.MOD			TYPE:Monitor
+Weapon Focus.MOD				TYPE:Monitor
+Windfall.MOD				TYPE:RelicSeeker

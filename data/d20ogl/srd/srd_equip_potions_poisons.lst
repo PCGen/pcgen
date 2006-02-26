@@ -1,0 +1,88 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Feb 18 17:52:34 2003 -- reformated by prettylst.pl v1.24 (build 252)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+
+#Potions
+# Equipment Name						Output Name				Type			Cost		Weight	Source Page
+Potion (Jump)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Spider Climb)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Cure Light Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Love)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+#lower case intentional so doesn't conflict with Vision spell
+Potion (vision)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Swimming)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Hiding)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Sneaking)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Oil of Timelessness)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Reduce/at 5th Level)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:250	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Enlarge/at 5th Level)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:250	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Expedious Retreat)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Speak with Animals)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Protection from Arrows)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Charisma)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Intelligence)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Wisdom)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Alter Self)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Blur)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Darkvision)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Ghoul Touch)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Delay Poison)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Endurance)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Cure Moderate Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Remove Paralysis)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Levitate)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Aid)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Invisibility)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (See Invisibility)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Cat's Grace)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Bull's Strength)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Truth)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:500	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Glibness)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:500	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Nondetection)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Tongues)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Water Breathing)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Negative Energy Protection)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Displacement)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Neutralize Poison)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Cure Serious Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Fly)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Protection from Elements/Cold)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Protection from Elements/Electricity)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Protection from Elements/Fire)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Protection from Elements/Acid)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Protection from Elements/Sonic)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Haste)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Gaseous Form)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Oil of Slipperiness)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Heroism)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+Potion (Fire Breath)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:900	WT:0		SOURCEPAGE:srdmagicitemspotions.rtf
+
+#Poisons
+Poison (Small centipede poison)			OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:90	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Greenblood oil)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:100	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Medium-size spider venom)			OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:150	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Bloodroot)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:100	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Purple worm poison)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:700	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Large scorpion venom)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:200	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Wyvern poison)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:3000	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Blue whinnis)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:120	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Giant wasp poison)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:210	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Shadow essence)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:250	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Black adder venom)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:120	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Deathblade)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:1800	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Malyss root paste)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:500	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Nitharit)						OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:650	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Dragon bile)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:1500	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Sassone leaf residue)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:300	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Terinav root)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:750	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Carrion crawler brain juice)		OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:200	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Black lotus extract)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:4500	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Oil of taggit)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:90	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Id moss)						OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:125	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Striped toadstool)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:180	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Arsenic)						OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:120	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Lich dust)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:250	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Dark reaver powder)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:300	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Ungol dust)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:1000	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Burnt othur fumes)				OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:2100	WT:0		SOURCEPAGE:srdspecialabilities.rtf
+Poison (Insanity mist)					OUTPUTNAME:[NAME]			TYPE:Goods.Poison	COST:1500	WT:0		SOURCEPAGE:srdspecialabilities.rtf

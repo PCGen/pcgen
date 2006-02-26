@@ -1,0 +1,16 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might II|SOURCESHORT:BoEM2|SOURCEWEB:http://www.montecook.com
+# Feats are not PI according to p.2 in BoEM PDF version. - Tir Gwaith
+
+# Feat Name				Type			Required Class			Required Feat			Required Skill				Required Stat				Var. Min. Value		Description															Multiple?	Source Page
+Aid Spellcasting			TYPE:Eldritch	PRECLASS:1,Spellcaster=1												PRESTAT:1,CHA=15	PRESTAT:1,INT=15					DESC:You add your knowledge and power to an allied arcanist's spell					MULT:NO	SOURCEPAGE:p.15
+Create Soul Magic Spell		TYPE:ItemCreation	PRECLASS:1,Spellcaster=9						PRESKILL:1,Knowledge (Arcana)=10											DESC:You can create soul magic spells, usable by any arcane spellcaster (but not you).				SOURCEPAGE:p.15
+Lace Spell (Resistant)		TYPE:Eldritch	PRECLASS:1,Spellcaster=7												PRESTAT:1,INT=17								DESC:You give all spells you lace with this feat a +2 DC bonus against efforts to dispel.		MULT:NO	SOURCEPAGE:p.16
+Lace Spell (Spellripper)	TYPE:Eldritch	PRECLASS:1,Spellcaster=17	PREFEAT:1,Magical Talent							PRESTAT:1,CHA=21	PRESTAT:1,INT=17					DESC:Every spell you cast has a chance to dispel one spell protecting or enhancing your foe.	MULT:NO	SOURCEPAGE:p.16
+Lace Spell (Unravel)		TYPE:Eldritch	PRECLASS:1,Spellcaster=10	PREFEAT:1,Magical Talent							PRESTAT:1,CHA=15	PRESTAT:1,INT=17					DESC:You make your spell more potent and harder to ward against.						MULT:NO	SOURCEPAGE:p.16
+# Spell song feats
+Accompaniment			TYPE:General																							PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's resistance to silence by using a magical instrument		MULT:NO	SOURCEPAGE:p.15
+Amplify Song			TYPE:General																							PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's range										MULT:NO	SOURCEPAGE:p.15
+Intensify Song			TYPE:General																							PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's damage										MULT:NO	SOURCEPAGE:p.15
+Sustain Song			TYPE:General																							PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's duration									MULT:NO	SOURCEPAGE:p.16
+Vivify Song				TYPE:General																							PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's potency (DC)									MULT:NO	SOURCEPAGE:p.16

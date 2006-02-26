@@ -1,0 +1,108 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Agent		HD:4		TYPE:PC.Prestige	ABB:Agt		MAXLEVEL:5	SOURCEPAGE:72	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE
+# Class Name	Required Feat						Required Skill
+CLASS:Agent		PREFEAT:1,Skill Focus (Profession (Agent))	PRESKILL:4,Bluff,Gather Information,Sense Motive,Profession (Agent)=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Agent		STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Gather Information|Innuendo|Knowledge (XCrawl)|Knowledge (The Business)|Knowledge (Celebrities)|Profession (Agent)|Sense Motive
+1	SA:Agent Salary % pct.|AgentSalary	SA:Maximum Clients %|MaxClients	SA:Connected	SA:Insider	BONUS:VAR|AgentSalary|10	BONUS:VAR|MaxClients|max(((CL*2)-1),2)	DEFINE:AgentSalary|0	DEFINE:MaxClients|0
+2	SA:Head to Head	SA:Namedropping												BONUS:VAR|AgentSalary|2.5
+3	SA:Funny Money															BONUS:VAR|AgentSalary|2.5
+4	SA:Master of Face Time														BONUS:VAR|AgentSalary|3
+5	SA:Old Guard															BONUS:VAR|AgentSalary|2
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Bodyguard	HD:12		TYPE:PC.Prestige	ABB:Bdg		MAXLEVEL:5	SOURCEPAGE:74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2	BONUS:COMBAT|BAB|CL/2+1|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat						Multiple Requirements																												Required Skill
+CLASS:Bodyguard	PREATT:6	PREFEAT:2,Alertness,Improved Unarmed Strike	PREMULT:1,[PREMULT:2,[PRERACE:Half-Orc],[PRESTAT:1,STR=18]],[PREMULT:2,[PRERACE:Human,Dwarf%,Half-Elf,Elf%],[PRESTAT:1,STR=16]],[PREMULT:2,[PRERACE:Gnome%,Halfling%],[PRESTAT:1,STR=14]]	PRESKILL:2,Sense Motive,Spot=8	PRESKILL:1,Drive=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Intimidate|Jump|Listen|Profession (Bodyguard)|Search|Sense Motive|Spot
+1	SA:Protect the Client														BONUS:SKILL|Drive|4
+2	SA:Runaway	SA:Browbeat									BONUS:MOVEADD|TYPE.Walk|10
+3	SA:Assisted Sprint	SA:Spot the Bogie
+4	SA:Hammer Lock
+5	SA:Stature						BONUS:COMBAT|TOHIT.Grapple|4										BONUS:STAT|CON|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Coach		HD:8		TYPE:PC.Prestige	ABB:Cch		MAXLEVEL:5	SOURCEPAGE:76	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Coach		PREATT:2	PREFEAT:1,Leadership	PRESKILL:3,Intimidate,Profession (Coach),Sense Motive=8	PRESKILL:2,Heal,Perform=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Coach		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Heal|Intimidate|Jump|Knowledge (Sports)|Knowledge (Tactics)|Knowledge (XCrawl)|Perform|Profession (Coach)|Read Lips|Sense Motive|Spot|Swim
+1	AUTO:WEAPONPROF|TYPE.Sport|TYPE.Boffer	FEATAUTO:Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	SA:Motivation %|Motivation	SA:Maximum Team Size (XCrawl/non-lethal) %/%|MaxTeamSize|2*MaxTeamSize	SA:Fundamentals (Athlete)	BONUS:VAR|Motivation|min((CL*2)-1,2)	BONUS:VAR|MaxTeamSize|5+CL+CHA	DEFINE:Motivation|0	DEFINE:MaxTeamSize|0
+2	SA:Fundamentals (Fighter)
+3	SA:Fundamentals (Rangers, Clerics)
+4	SA:Fundamentals (Rogue, Monk, Sorcerer)
+5	SA:Fundamentals (any class)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Free Agent	HD:6		TYPE:PC.Prestige	ABB:FrA		MAXLEVEL:10	SOURCEPAGE:78	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/3*4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat			Required Skill								Required Text
+CLASS:Free Agent	PREATT:3	PREFEAT:1,Crowd Favorite	PRESKILL:1,Perform=6	PRESKILL:1,Knowledge (XCrawl)=4	PRETEXT:Fame must be 55 at some point during the career.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Free Agent	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Diplomacy|Drive|Jump|KNowledge (XCrawl)|Listen|TYPE.Profession|Spot|Swim|Tumble
+### Assimilate special ability is rather involved, and its unknown if it can be properly coded.
+1	SA:Adapt	SA:Assimilate
+2	SA:Extra Performance														ADD:FEAT
+3	SA:Signing Bonus: +% pct.|SigningBonus	BONUS:VAR|SigningBonus|(CL/3)*20	DEFINE:SigningBonus|0
+4	SA:Training Bonus															ADD:FEAT(Skill Focus)
+5	SA:Cameo
+7																		ADD:FEAT
+8																		ADD:FEAT(Skill Focus)
+10	SA:Rally the Troops
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Groupie	HD:4		TYPE:PC.Prestige	ABB:Grp		MAXLEVEL:5	SOURCEPAGE:81	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|min((CL-1)/2,0)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Skill		Required Stat	Required Text
+CLASS:Groupie	PRESKILL:1,Bluff=4	PRESTAT:1,CHA=15	PRETEXT:To qualify for this prestige class, a candidte must pass the groupie trifecta: they must get back stage, meet an XCrawler, and convince him to carry a token of theirs on their person when they fight.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Groupie	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Celebrities)|Sense Motive|Spot
+1	SA:Muse +%|Muse	SA:All Access +%|AllAccess	BONUS:VAR|Muse|(CL+1)/2	DEFINE:Muse|0	DEFINE:AllAccess|4
+2	SA:Gimme Shelter
+3	SA:I'm With The Team					BONUS:VAR|AllAccess|2
+4	SA:Booster +%|Booster					BONUS:VAR|Booster|CL-3	DEFINE:Booster|0
+5	SA:Almost Famous
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Paparazzi	HD:6		TYPE:PC.Prestige	ABB:Pap		MAXLEVEL:5	SOURCEPAGE:83	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Paparazzi	PREATT:2	PREFEAT:1,Alertness	PRESKILL:1,Spot=8	PRESKILL:2,Photography,Sense Motive=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Paparazzi	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Concentration|Craft (Printmaking)|Diplomacy|Disguise|Drive|Gather Information|Hide|Innuendo|Photography|Search|Sense Motive|Spot
+1	SA:Favored Celeb %|FavoredCeleb	SA:Dramatic Injury	BONUS:VAR|FavoredCeleb|1	DEFINE:FavoredCeleb|0
+2	SA:Hey Buddy! %/day (DC %)|CL+CHA|15+CL+CHA			BONUS:VAR|FavoredCeleb|2
+3	SA:Mind Over Money							BONUS:VAR|FavoredCeleb|4
+4	SA:Dirty Laundry								BONUS:VAR|FavoredCeleb|5
+5	SA:Impossible Shot							BONUS:VAR|FavoredCeleb|3
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Scrambler	HD:8		TYPE:PC.Prestige	ABB:Scr		MAXLEVEL:10	SOURCEPAGE:86	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/3*4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat				Required Skill
+CLASS:Scrambler	PREATT:4	PREFEAT:3,Dodge,Mobility,Serpentine	PRESKILL:2,Tumble,Bluff=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scrambler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Jump|Sense Motive|Tumble
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Scrambler AC Bonus +%|ScramblerAC	SA:Buckler Expert	BONUS:VAR|ScramblerAC|(CL+1)/2	BONUS:COMBAT|AC|ScramblerAC|TYPE=Scrambler	DEFINE:ScramblerAC|0
+3	SA:Tie Up Opponent
+4	SA:Scramble
+5	SA:Two-Buckler Style
+6	SA:Everywhere at Once
+8	SA:Improved Two-Buckler Style
+9	SA:Zone Defense
+10	SA:Ultimate Two-Buckler Style
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Superstar	HD:4		TYPE:PC.Prestige	ABB:SSt		MAXLEVEL:3	SOURCEPAGE:88	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat					Required Skill			Required Stat	Required Text
+CLASS:Superstar	PREATT:5	PREFEAT:1,Crowd Favorite,The Profile	PRESKILL:2,Bluff,Perform=12	PRESTAT:1,FAM=50	PRETEXT:Must have 2 of the following: an obsessive stalker, 3+ magazine covers, entertainment news show dedicated to you, cameo as yourself in a movie or on TV, a fan club
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Superstar	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Diplomacy|Drive|Innuendo|Intimidate|Perform|Sense Motive|Speak Language|Use Magic Device
+1	SA:Eminence	SA:Lifetime Achievement			ADD:CLASSSKILLS(ANY)3
+2	SA:Allure	SA:Inner Circle (% friends)|CL+CHA
+3	SA:Must Do It For Fans

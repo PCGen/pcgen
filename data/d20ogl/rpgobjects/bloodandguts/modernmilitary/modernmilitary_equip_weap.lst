@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Thu Dec  9 21:58:46 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Equipment Name	Output Name			Type							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property
+Claymore						TYPE:Explosive.PersonalMunitions.Slashing	COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6			SIZE:S	SOURCEPAGE:p.65	SPROP:20 ft radius, Mil (+3), 6d6 Slashing Damage
+Flash Bang		OUTPUTNAME:Flash-Bang	TYPE:Explosive.PersonalMunitions.Thrown	COST:14	WT:1												RANGE:10	SIZE:T	SOURCEPAGE:p.65	SPROP:10 ft radius, Mil (+3)

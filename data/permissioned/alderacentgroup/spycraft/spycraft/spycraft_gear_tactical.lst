@@ -1,0 +1,53 @@
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Wed Apr  6 13:14:41 2005 -- reformated by prettylst.pl v1.35 (build 469)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Small ---------------
+
+# Equipment Name					Output Name				Required Proficiency				Type									Cost		Weight	Critical Hit Range	Fumble Range	Damage		Range		Size		Source Page		Special Property
+C4												PROFICIENCY:C4
+Dynamite											PROFICIENCY:Dynamite
+
+# Large ---------------
+
+Flamethrower										PROFICIENCY:Flamethrower			TYPE:Gear.Standard.Weapon.Ranged.Tactical			COST:20	WT:30		CRITRANGE:-			FUMBLERANGE:1-3	DAMAGE:2d6		RANGE:10	SIZE:M	SOURCEPAGE:p.118	SPROP:Fire damage
+
+Grenade Launcher										PROFICIENCY:Grenade Launcher			TYPE:Gear.Standard.Weapon.Ranged.Tactical			COST:20	WT:20		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:40	SIZE:M	SOURCEPAGE:p.118
+Grenade Launcher Ammo (Baton)															TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:12	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:5d4		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (CS gas)														TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:10	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (Flash)															TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:10	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (Flash/bang)														TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:10	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (Flechette)														TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:10	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:2d8+2	RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (Fragmentation)													TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:12	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:2d10		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (Illumination)													TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:5	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+Grenade Launcher Ammo (Smoke)															TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:5	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:-	SIZE:T	SOURCEPAGE:p.118	SPROP:Damage is subdual
+
+Morter											PROFICIENCY:Morter				TYPE:Gear.Standard.Weapon.Ranged.Tactical			COST:40	WT:15		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:600	SIZE:M	SOURCEPAGE:p.118
+Morter Shell (HE)																	TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:12	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:5d4		RANGE:-	SIZE:T	SOURCEPAGE:p.118
+Morter Shell (Illumination)															TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:12	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:5d4		RANGE:-	SIZE:T	SOURCEPAGE:p.118
+Morter Shell (Smoke)																TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:12	WT:.5		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:5d4		RANGE:-	SIZE:T	SOURCEPAGE:p.118
+
+Rocket Launcher										PROFICIENCY:Rocket Launcher			TYPE:Gear.Standard.Weapon.Ranged.Tactical			COST:30	WT:15		CRITRANGE:-			FUMBLERANGE:1	DAMAGE:-		RANGE:300	SIZE:M	SOURCEPAGE:p.118
+Rocket (HE)																		TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:15	WT:3		CRITRANGE:-			FUMBLERANGE:1-3	DAMAGE:3d10		RANGE:-	SIZE:L	SOURCEPAGE:p.118
+Rocket (A/A)																	TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:15	WT:5		CRITRANGE:-			FUMBLERANGE:1-2	DAMAGE:3d10		RANGE:200	SIZE:L	SOURCEPAGE:p.118
+Rocket (A/T)																	TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:15	WT:5		CRITRANGE:-			FUMBLERANGE:1-3	DAMAGE:3d10		RANGE:200	SIZE:L	SOURCEPAGE:p.118
+Rocket (ATGM)																	TYPE:Gear.Standard.Weapon.Ammo.Ranged			COST:18	WT:10		CRITRANGE:-			FUMBLERANGE:1-2	DAMAGE:3d12		RANGE:-	SIZE:L	SOURCEPAGE:p.118
+
+# Machine Guns ------------
+
+Squad Automatic Weapon (5.56x45mm)		OUTPUTNAME:5.56x45mm SAW	PROFICIENCY:Squad Automatic Weapon		TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:31	WT:8		CRITRANGE:2			FUMBLERANGE:1-3	DAMAGE:2d8+2	RANGE:100	SIZE:M	SOURCEPAGE:p.118
+Squad Automatic Weapon (7.62x39mm)		OUTPUTNAME:7.62x39mm SAW	PROFICIENCY:Squad Automatic Weapon		TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:27	WT:8		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:4d4		RANGE:90	SIZE:M	SOURCEPAGE:p.118
+
+General Purpose Machine Gun (7.62x51mm)	OUTPUTNAME:7.62x51mm GPMG	PROFICIENCY:General Purpose Machine Gun	TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:40	WT:18		CRITRANGE:2			FUMBLERANGE:1-3	DAMAGE:3d8		RANGE:120	SIZE:M	SOURCEPAGE:p.118
+General Purpose Machine Gun (7.62x54mm)	OUTPUTNAME:7.62x54mm GPMG	PROFICIENCY:General Purpose Machine Gun	TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:39	WT:18		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:4d6		RANGE:110	SIZE:M	SOURCEPAGE:p.118
+General Purpose Machine Gun (.30-60)	OUTPUTNAME:.30-60 GPMG		PROFICIENCY:General Purpose Machine Gun	TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:39	WT:25		CRITRANGE:2			FUMBLERANGE:1-4	DAMAGE:3d8		RANGE:150	SIZE:M	SOURCEPAGE:p.118
+
+Heavy Machine Gun (.50 BMG)			OUTPUTNAME:.50 BMG HMG		PROFICIENCY:Heavy Machine Gun			TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:43	WT:100	CRITRANGE:3			FUMBLERANGE:1-3	DAMAGE:5d4+2	RANGE:200	SIZE:M	SOURCEPAGE:p.118
+Heavy Machine Gun (14.5mm)			OUTPUTNAME:14.5mm HMG		PROFICIENCY:Heavy Machine Gun			TYPE:Gear.Standard.Weapon.Ranged.Tactical.Machinegun	COST:44	WT:100	CRITRANGE:3			FUMBLERANGE:1-3	DAMAGE:6d4		RANGE:200	SIZE:M	SOURCEPAGE:p.118
+
+#
+# End
+#

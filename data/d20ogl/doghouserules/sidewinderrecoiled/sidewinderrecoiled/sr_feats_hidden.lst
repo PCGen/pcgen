@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 20:15:46 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by Barak & Hugo & Tir Gwaith)
+
+###Block: Class Features (pseudofeats)
+# Feat Name			Type			Visible	Special Ability				Description		Multiple?	Choose
+Terrain Specialization	TYPE:Special	VISIBLE:NO	SA:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|Chaparral|Desert|Grassland|Forest|Mountains|Swamp
+
+#
+# End
+#

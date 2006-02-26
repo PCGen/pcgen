@@ -1,0 +1,258 @@
+#
+# Current Ver: $Revision: 1.21 $
+# Last Editor: $Author: soulcatcher $
+# Last Edited: $Date: 2006/02/21 01:57:15 $
+#
+# message displayed when experience added allows character to advance a level
+LEVELMSG:Congratulations, you can advance with that much experience!
+#
+#
+ALIGNMENTNAME:Alignment
+HPNAME:Hit Points
+HPABBREV:HP
+#ALTHPNAME:
+#ALTHPABBREV:
+
+# AC tags can be used to display AC info by using appropriate name and abbrev.
+# ACNAME: and ACABBREV: are required for proper usage.
+ACNAME:Armor Class
+ACABBREV:AC
+
+# Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
+ALLOWAUTORESIZE:Y
+
+# Stacking bonuses
+BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
+
+#
+#misc. currency specific items
+#
+CURRENCYUNIT:Gold
+CURRENCYUNITABBREV:gp
+
+#
+#define this game mode's default unit set
+#as specified in unitset.lst
+#
+DEFAULTUNITSET:Imperial
+
+# The following determine whether some Class-related
+# variables are displayed on the Classes tab.
+# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
+#  value is displayed.
+# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
+# DISPLAYVARIABLExNAME: determines the variable displayed.
+#  This must match the DEFINE: variable in order to be displayed
+# Up to 3 variables can be displayed in this manner
+
+SHOWCLASSDEFENSE:No
+#DISPLAYVARIABLE1TEXT:
+#DISPLAYVARIABLE1NAME:
+#DISPLAYVARIABLE2TEXT:
+#DISPLAYVARIABLE2NAME:
+#DISPLAYVARIABLE3TEXT:
+#DISPLAYVARIABLE3NAME:
+
+#
+# Whether or not the game mode displays these tabs
+#
+TAB:ABILITIES	NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
+TAB:CAMPAIGNS	NAME:Source Materials	CONTEXT:tabpages\source\sourcesectionheading.html
+TAB:CLASS	NAME:in_class		CONTEXT:tabpages\players\tabclasses.html
+TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\players\tabdescription.html
+TAB:DOMAINS	NAME:in_domains		CONTEXT:tabpages\players\tabdomains.html
+TAB:FEATS	NAME:in_feats		CONTEXT:tabpages\players\tabfeats.html
+TAB:INVENTORY	NAME:in_inventory	CONTEXT:tabpages\players\inventory\inventorygear.html
+TAB:RACE	NAME:in_race		CONTEXT:tabpages\players\tabraces.html
+TAB:SKILLS	NAME:in_skills		CONTEXT:tabpages\players\tabskills.html
+TAB:SPELLS	NAME:in_spells		CONTEXT:tabpages\players\tabspells.html
+TAB:SUMMARY	NAME:in_summary		CONTEXT:tabpages\players\tabsummary.html
+# Inventory subpanels
+TAB:GEAR	NAME:in_InfoGear	CONTEXT:tabpages\players\inventory\inventorygear.html
+TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\players\inventory\inventoryequipping.html
+TAB:RESOURCES	NAME:in_InfoResources	CONTEXT:tabpages\players\inventory\inventoryresources.html
+TAB:TEMPMOD	NAME:in_InfoTempMod	CONTEXT:tabpages\players\inventory\inventorytempbonus.html
+#
+# Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
+# use & for mnemonic, && for & (MENUENTRY only)
+#
+MENUENTRY:3.5e
+MENUTOOLTIP:Use 3.5e character creation settings
+DISPLAYORDER:1
+ALLOWEDMODES:35e|DnD
+#
+# SHORTRANGE sets the Short Range as referenced by
+#  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
+# Integer value, defaults to zero if tag not present to allow GameModes
+# without shortrange bonus/limitations
+SHORTRANGE:30
+#
+# RANGEPENALTY sets the modification of the to-hit value for
+# each range increment after the first.
+# Integer value, defaults to zero if tag not present to allow GameModes
+# without range increment bonus/limitations
+RANGEPENALTY:-2
+
+# SQUARESIZE defines the size of a battlemap square in feet.
+SQUARESIZE:5
+
+#SPELLRANGExxx specifies the formula used to compute spell ranges
+#The formula is evaluated by the PlayerCharacter.getVariableValue() routine
+SPELLRANGE:CLOSE|(((CASTERLEVEL/2).TRUNC)*5)+25
+SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
+SPELLRANGE:LONG|(CASTERLEVEL*40)+400
+
+#SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list)
+#e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
+SKILLMULTIPLIER:4
+SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
+
+#BONUSFEATLEVELSTARTINTERVAL:level|interval
+#level = first level where you gain an additional feat
+# (use more than one of these tags for additional feats)
+#interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
+#this is handled in the races.lst by the STARTFEATS tag
+#BONUSFEATLEVELSTARTINTERVAL:1|0
+BONUSFEATLEVELSTARTINTERVAL:3|3
+
+#BONUSSTATLEVELSTARTINTERVAL:level|interval
+#level = first level where you gain an additional stat
+# (use more than one of these tags for additional stat)
+#interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
+BONUSSTATLEVELSTARTINTERVAL:4|4
+
+DEITY:None		DOMAINS:ALL		FOLLOWERALIGN:012345678		DESC:None	SYMBOL:None		SOURCEPAGE:None
+
+# Calculations for AC. Same as those used on the
+# output sheets with the 'BONUS.' stripped off
+BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
+BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+
+# Ammo is made in batches of 50, so the "plus" cost
+# per unit should be 2000*(PLUS*PLUS)/50
+PLUSCOST:AMMUNITION|BASEQTY*40*PLUS*PLUS
+PLUSCOST:ARMOR|1000*PLUS*PLUS
+PLUSCOST:SHIELD|1000*PLUS*PLUS
+PLUSCOST:WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)
+
+#Attack/Check Cycle attributes
+BABMAXATT:4
+BABATTCYC:5
+BABMINVAL:1
+# Epic stuff
+BABMAXLVL:20
+CHECKSMAXLVL:20
+
+#Class Types
+CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:YES
+CLASSTYPE:NPC		CRFORMULA:(CL-1)MAX0	ISMONSTER:NO	XPPENALTY:YES
+CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
+
+#AC Types
+ACTYPE:Total				ADD:TOTAL
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield|NaturalArmorEnhancement
+ACTYPE:Base					ADD:Base
+ACTYPE:Armor				ADD:Armor
+ACTYPE:Shield				ADD:Shield
+ACTYPE:Ability				ADD:Ability
+ACTYPE:Size					ADD:Size
+ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
+ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement
+ACTYPE:ClassDefense			ADD:ClassDefense
+ACTYPE:Dodge				ADD:Dodge
+
+# Damage die changes on size
+BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
+BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6		DOWN:1d2,1,0
+BASEDICE:1d4	UP:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d3,1d2,1,0
+BASEDICE:1d6	UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d4,1d3,1d2,1
+BASEDICE:1d8	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
+BASEDICE:1d10	UP:2d8,3d8,4d8,6d8,8d8,12d8				DOWN:1d8,1d6,1d4,1d3
+BASEDICE:1d12	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
+BASEDICE:2d4	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
+BASEDICE:2d6	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
+BASEDICE:2d8	UP:3d8,4d8,6d8,8d8,12d8					DOWN:2d6,1d10,1d8,1d6
+BASEDICE:2d10	UP:4d8,6d8,8d8,12d8					DOWN:2d8,2d6,1d10,1d8
+
+# Penalty to attacks for different sized weapons
+EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty
+
+# Long and Short weapon damage types
+WEAPONTYPE:Bludgeoning|B
+WEAPONTYPE:Piercing|P
+WEAPONTYPE:Slashing|S
+WEAPONTYPE:Fire|F
+WEAPONTYPE:Acid|A
+WEAPONTYPE:Electricity|E
+WEAPONTYPE:Cold|C
+WEAPONTYPE:Poison|Po
+WEAPONTYPE:Sonic|So
+
+# Weapon proficiency categories
+WEAPONCATEGORY:Simple
+WEAPONCATEGORY:Martial
+WEAPONCATEGORY:Exotic
+WEAPONCATEGORY:Natural
+
+# Non-proficient penalty
+WEAPONNONPROFPENALTY:-4
+
+# Number of hands required to wield weapon categories
+#									Object Size difference
+# 											Damage multiplier: hands = multiplier
+WIELDCATEGORY:Light		HANDS:1		FINESSABLE:Yes		SIZEDIFF:-1	DAMAGEMULT:1=1,2=1
+WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1.5
+WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1.5
+WIELDCATEGORY:TooSmall		HANDS:999
+WIELDCATEGORY:TooLarge		HANDS:999
+WIELDCATEGORY:Unusable		HANDS:999
+WIELDCATEGORY:None		HANDS:0
+
+# Light weapon vs PC size changes
+WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
+WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHanded
+WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TwoHanded
+WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
+
+# OneHanded weapon vs PC size changes
+WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
+WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:Light
+WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHanded
+WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
+
+# TwoHanded weapon vs PC size changes
+WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
+WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
+WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
+WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
+
+#
+# Wield Category Steps
+#  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
+WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
+
+WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
+WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
+WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
+WIELDCATEGORY:TwoHanded						DOWN:OneHanded|Light
+WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+
+#
+# Dice rolling methods for character creation
+#
+ROLLMETHOD:3d6						METHOD:3d6
+ROLLMETHOD:4d4						METHOD:4d4
+ROLLMETHOD:4d6 drop lowest				METHOD:roll(4,6,[2,3,4])
+ROLLMETHOD:4d6, reroll 1's				METHOD:4d5+4
+ROLLMETHOD:4d6, reroll 1's, drop the lowest	METHOD:3+roll(4,5,[2,3,4])
+ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,[3,4,5])
+
+# Unit Set
+UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##
+UNITSET:Metric		HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#		DISTANCEUNIT:m		DISTANCEFACTOR:0.3	DISTANCEPATTERN:#.##	WEIGHTUNIT:kg	WEIGHTFACTOR:0.5	WEIGHTPATTERN:#.###
+
+#
+# DONE

@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 21 00:58:47 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Modern Dispatch - #6 - 172nd Infantry Brigade [Sep]
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Modern Dispatch
+GENRE:Military
+BOOKTYPE:Magazine
+SETTING:Blood and Guts
+SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade [Sep]
+SOURCESHORT:MD06-172nd
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Dispatch #6 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #6 Copyright 2006, PCGen Data team, including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+INFOTEXT:To be used with Blood and Guts: Modern Military
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:md_006_class.lst
+FEAT:md_006_feats.lst

@@ -1,0 +1,121 @@
+# CVS $Revision: 1.12 $ $Author: tir-gwaith $ -- Tue Dec 13 12:37:31 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue|SOURCESHORT:QuintRogue|SOURCEWEB:http://mongoosepublishing.com
+
+# Move Rogue Proficiency change into hidden feat from SRD's new method.
+
+#TBD - implement Language requirement (2 languages other than Common or native language)
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Agent of the Crown	HD:6		TYPE:PC.Prestige	ABB:AgC		MAXLEVEL:5	SOURCEPAGE:p.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required Feat									Required Skill																				Required Text
+CLASS:Agent of the Crown	PREFEAT:1,Skill Focus (Diplomacy),Skill Focus (Sense Motive)	PRESKILL:2,Diplomacy,Sense Motive=8	PRESKILL:1,Knowledge (Local),Knowledge (Nobility and Royalty),Knowledge (Court Protocol)=8	PRETEXT:Gain an officially recognised position within a government as an operative.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Court Protocol)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Tumble
+1	AUTO:WEAPONPROF|Dagger|Rapier|Sap
+1	AUTO:WEAPONPROF|Mace|[PRESIZEGTEQ:S]
+###Block: Normal Level Progression
+1	SA:Agent of the Crown	SA:Smooth Talker								BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|2|TYPE=Competence
+2	SA:Friends in Low Places
+3	SA:Social Chameleon
+4	SA:Man of 1000 Faces
+5	SA:Charming Demeanor %/day|CharmingDemeanor	BONUS:VAR|CharmingDemeanor|CHA													DEFINE:CharmingDemeanor|0
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Commando	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:5	SOURCEPAGE:p.23-24	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat				Required Skill				Var. Min. Value
+CLASS:Commando	PREATT:4	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:1,Hide=8	PRESKILL:1,Spot=4	PREVARGTEQ:SneakAttack,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen|Move Silently|Spot|Wilderness Lore
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Live off the Land	SA:Silent Strike
+2								BONUS:VAR|SneakAttack|CL/2
+3	SA:Prepare Ambush
+5	SA:Sniper
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat			Required Skill				Req. Spell Type
+CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:Divine,1,0
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
+1	SA:Divine Companion	SA:Divine Luck
+#	BONUS:CHECKS|2	- Um... To what?  Tir Gwaith
+2	SA:Smite Undead +%d%|SmiteUndead|SmiteUndeadDie	BONUS:VAR|SmiteUndead|CL/2									DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0
+3	SA:Detect Evil	SA:Detect Undead
+5	SA:Mask Alignment
+7	SA:Divine Shield
+9	SA:Sense Guards and Wards									BONUS:SKILL|Disable Device,Search|2|TYPE=Divine
+
+#TBD - implement Language requirement
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Deep Tracker	HD:6		TYPE:PC.Prestige	ABB:DTr		MAXLEVEL:5	SOURCEPAGE:p.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat				Required Skill
+CLASS:Deep Tracker	PREFEAT:3,Alertness,Endurance,Track	PRESKILL:1,Wilderness Lore=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Hide|Intuit Direction|Jump|Knowledge (Underearth)|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Wilderness Lore
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Monster Knowledge	SA:Underneath Explorer
+2	SA:Pathfinder						BONUS:VAR|SneakAttack|CL/2	FEATAUTO:Sneak Attack
+3	SA:Emissary
+4	SA:Maze Sense
+5	SA:Dark Sense
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL				Req. Att.	Required Feat					Required Skill
+CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:7	PREFEAT:3,Cleave,Power Attack,Sunder	PRESKILL:2,Intimidate,Spot=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|Heal
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Executioner's Strike +%d%|ExecutionersStrike|ExecutionersStrikeDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	FEATAUTO:Sneak Attack
+2	SA:Cold Blooded Killer
+4	SA:Executioner's Song
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Shadowy Avenger	HD:8		TYPE:PC.Prestige	ABB:ShA		MAXLEVEL:10	SOURCEPAGE:p.30-32	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat							Required Skill										Required Text
+CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:3,Disguise,Intimidate,Sense Motive=8	PRESKILL:1,Alchemy=4	PRETEXT:Must have lost a loved one to a criminal act.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE.Craft|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Eye for Detail	SA:Urban Ranger						BONUS:SKILL|Sense Motive|2|TYPE=Competence
+2	SA:Scrounger				BONUS:VAR|SneakAttack|CL/2												FEATAUTO:Sneak Attack
+3	SA:Punish the Guilty 1/day
+5	SA:Fearsome Reputation								BONUS:SKILL|Intimidate|2|TYPE=Competence
+7	SA:Alchemical Genius																VFEAT:Brew Potion
+9	SA:Long Arm of the Law
+10	SA:Angel of Judgement
+
+#TBD - implement Superior Knowledge?
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Tomb Raider	HD:6		TYPE:PC.Prestige	ABB:TmR		MAXLEVEL:5	SOURCEPAGE:p.32-33	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat											Required Skill							Required Stat
+CLASS:Tomb Raider	PREFEAT:4,Dodge,Lightning Reflexes,Mobility,Skill Focus (TYPE.Knowledge)	PRESKILL:1,Tumble=10	PRESKILL:2,TYPE.Knowledge=4	PRESTAT:1,DEX=15
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tomb Raider	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Move Silently|Open Lock|TYPE.Profession|Ride|Search|Spellcraft|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Recognize Trap Design	SA:Superior Knowledge
+2	SA:Mystic Knowledge	SA:Trap Sense			BONUS:SKILL|Use Magic Device|2|TYPE=Competence
+3	SA:Identify Item	SA:Superior Knowledge
+4	SA:Superior Appraise	SA:Rapid Dodge
+5	SA:Magical Lore	SA:Superior Knowledge

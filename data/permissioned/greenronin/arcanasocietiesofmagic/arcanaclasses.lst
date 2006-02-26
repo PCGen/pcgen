@@ -1,0 +1,98 @@
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $ -- Tue Dec 13 19:15:53 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+
+# Can't do Unarmed Damage levels stacking with Monk.  Just doing as close as possible.
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Attack Cycle	Save checks bonus									Combat bonus
+CLASS:Green Steel Monk	HD:8		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.8	LANGAUTO:Infernal		ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL	Req. Att.	Required Feat								Required Skill
+CLASS:Green Steel Monk	PREALIGN:LE	PREATT:3	PREFEAT:3,Deflect Arrows,Endurance,Improved Unarmed Strike	PRESKILL:1,Knowledge (The Planes)=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Green Steel Monk	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Listen|Move Silently|Tumble
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Green Steel Monk	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Green Steel Monk|CL
+###Block: Spell List
+1	SPELLLEVEL:CLASS|Green Steel Monk=1|Burning Hands,Chill Touch,Inflict Light Wounds,Magic Missile,Shocking Grasp,True Strike
+1	SPELLLEVEL:CLASS|Green Steel Monk=2|Acid Arrow,Death Knell,Ghoul Touch,Hold Person,Inflict Moderate Wounds
+1	SPELLLEVEL:CLASS|Green Steel Monk=3|Fireball,Inflict Serious Wounds,Keen Edge,Lightning Bolt,Vampiric Touch
+1	SPELLLEVEL:CLASS|Green Steel Monk=4|Contagion,Enervation,Inflict Critical Wounds,Poison
+1	SPELLLEVEL:CLASS|Green Steel Monk=5|Dismissal,Hold Monster,Slay Living
+###Block: Shared Monk abilities
+1	BONUS:VAR|MonkACLVL|CL		VFEAT:Monk AC
+1	BONUS:VAR|MonkSpeedLVL|CL	VFEAT:Monk Fast Movement
+###Block: Normal Level Progression
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2	CAST:0,0
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8				CAST:0,1						SA:Magic Touch
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8				CAST:0,1,0						SA:Devil Skin +%|DevilSkin		BONUS:VAR|DevilSkin|CL/3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	DEFINE:DevilSkin|0
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,1						SA:See in Darkness
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,1,0																												FEAT:Unarmed Sunder
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,2,1																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,3,2,1,0					SA:Cold and Acid Resistance 20
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12			CAST:0,3,2,2,1	SR:5+TL
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12			CAST:0,3,3,2,1,0																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12			CAST:0,3,3,2,2,1			DR:20/+1	SA:Diabolic Ascension
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Moon Wraith Adept	HD:8		TYPE:PC.Prestige	ABB:Mwa		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL			Required Feat									Required Skill
+CLASS:Moon Wraith Adept	PREALIGN:LN,LE,TN,NE	PREFEAT:3,Combat Reflexes,Improved Initiative,Minor Combat Magic	PRESKILL:1,Sense Motive=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Moon Wraith Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Hide|Jump|TYPE.Knowledge|TYPE.Profession|Sense Motive|Swim|Tumble
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Moon Wraith Adept	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Moon Wraith Adept|CL
+###Block: Spell List
+1	SPELLLEVEL:CLASS|Moon Wraith Adept=1|Cause Fear,Chill Touch,Cure Light Wounds,Expeditious Retreat,Feather Fall,Jump,Magic Weapon,Ray of Enfeeblement,Remove Fear,Silent Image,Sleep,True Strike,Ventriloquism
+1	SPELLLEVEL:CLASS|Moon Wraith Adept=2|Blur,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Endurance,Ghoul Touch,Lesser Restoration,Levitate,Minor Image,Misdirection,Scare,Spectral Hand,Undetectable Alignment,Zone of Truth
+1	SPELLLEVEL:CLASS|Moon Wraith Adept=3|Clairaudience/Clairvoyance,Cure Serious Wounds,Displacement,Gentle Repose,Greater Magic Weapon,Halt Undead,Haste,Keen Edge,Major Image,Nondetection,Vampiric Touch
+1	SPELLLEVEL:CLASS|Moon Wraith Adept=4|Arcane Eye,Charm Monster,Contagion,Cure Critical Wounds,Death Ward,Detect Scrying,Enervation,Fear,Restoration,Scrying,Stoneskin
+1	SPELLLEVEL:CLASS|Moon Wraith Adept=5|Animate Dead,Contact Other Plane,False Vision,Prying Eyes,Slay Living
+###Block: Normal Level Prgression
+1	CAST:0,1																						FEATAUTO:Opportunity Knocks
+2	CAST:0,2		SA:Foretell Results %/day|FortellResults	BONUS:VAR|FortellResults|1	DEFINE:FortellResults|0		VFEAT:Evasion
+3	CAST:0,2,1									BONUS:VAR|UncannyDodge|1									FEATAUTO:Uncanny Dodge
+4	CAST:0,2,2		SA:Initiate						BONUS:VAR|FortellResults|1
+5	CAST:0,2,2,1	SA:Chilling Touch					BONUS:VAR|UncannyDodge|1
+6	CAST:0,3,2,2								BONUS:VAR|FortellResults|1
+7	CAST:0,3,2,2,1	SA:Disicple
+8	CAST:0,3,2,2,2	SA:Negative Plane Protection
+9	CAST:0,3,3,2,2,1	SA:Energy Drain %/day|EnergyDrain							DEFINE:EnergyDrain|1+INT
+10	CAST:0,3,3,3,2,2	SA:Master	SA:Become Moon Wraith		BONUS:VAR|UncannyDodge|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Servant of Decay	HD:8		TYPE:PC.Prestige	ABB:Sod		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required AL			Required Feat		Required Skill														Req. Spell Type
+CLASS:Servant of Decay	PREALIGN:TN,NE,CN,CE	PREFEAT:1,Alertness	PRESKILL:1,Knowledge (Nature)=8	PRESKILL:2,Knowledge (The Planes),Knowledge (Arcana)=4	PRESPELLTYPE:Divine,1,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Servant of Decay	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Hide|Innuendo|TYPE.Knowledge|Move Silently
+1	ADD:SPELLCASTER(Divine)			SA:Preternatural Sight	SA:Summon Preternatural
+2	ADD:SPELLCASTER(Divine)			SA:Preternatural Touch
+3	ADD:SPELLCASTER(Divine)			SA:Nexus Travel
+4	ADD:SPELLCASTER(Divine)			SA:Spell Circle
+5	ADD:SPELLCASTER(Divine)			SA:Improved Nexus Travel
+6	ADD:SPELLCASTER(Divine)			SA:Create Nexus
+7	ADD:SPELLCASTER(Divine)			SA:Overcome Resistance
+8	ADD:SPELLCASTER(Divine)			SA:Greater Spell Circle
+9	ADD:SPELLCASTER(Divine)			SA:Timeless Body
+10	ADD:SPELLCASTER(Divine)	DR:20/+1	SA:Preternature	SA:Cold Resistance 20
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Wizard Slayer	HD:10		TYPE:PC.Prestige	ABB:Wsl		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Skill
+CLASS:Wizard Slayer	PREATT:5	PRESKILL:2,Knowledge (Arcana),Spellcraft=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Wizard Slayer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Gather Information|Hide|Knowledge (Arcana)|Move Silently|Jump|TYPE.Profession|Sense Motive|Spellcraft|Swim|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1		SA:Detect Magic	SA:Smite Spellcaster
+2		SA:Dispel Magic %/day|DispelMagic		BONUS:VAR|DispelMagic|1	DEFINE:DispelMagic|0
+3		SA:Dismissal
+4									BONUS:VAR|DispelMagic|1
+5		SA:Nondetection
+6									BONUS:VAR|DispelMagic|1
+7		SA:Supress Spellcasting
+8	SR:23
+9	SR:24	SA:True Sight
+10	SR:25	SA:Disrupt Arcane Spellcasting

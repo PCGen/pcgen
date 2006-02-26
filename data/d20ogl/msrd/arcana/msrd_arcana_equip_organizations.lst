@@ -1,0 +1,38 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jul 14 12:44:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+###Block: Magic Items
+# Equipment Name					Type					Cost		Weight	Required Template				Base Quantity	Source Page					Spells																				Special Property
+Synchronicity Watch				TYPE:FX.Magic.Wondrous		COST:32	WT:0		PRETEMPLATE:Agent of Department 7				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Synchronicity Watch|TIMES=1|CASTERLEVEL=5|Synchronicity,17											SPROP:Once per day, the watch can be used to activate a limited version of the synchronicity spell. Duration is only 10 rounds.
+Secret Pockets					TYPE:FX.Magic.Wondrous		COST:34	WT:0		PRETEMPLATE:Agent of Department 7				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Garment|TIMES=-1|CASTERLEVEL=5|Secret Pocket,14												SPROP:Choose one garment and have up to two pockets of the garment function as described in the secret pocket spell.
+Daylight Flares					TYPE:FX.Magic.Wondrous		COST:27	WT:0		PRETEMPLATE:Agent of Department 7				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Daylight Flares|TIMES=6|CASTERLEVEL=2|Daylight,11												SPROP:Every agent receives six sticks that look very much like unsharpened pencils. When a stick is snapped in two, the tip of the bottom half glows as thought it was the target of a daylight spell. This effect lasts for 20 minutes.
+Dragon Egg						TYPE:FX.Magic.Wondrous		COST:39	WT:5											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Franz Draco's great egg is enchanted so that it can cast detect thoughts spell centered on any of the other dragon eggs, no matter where in the world they are
+Calling Cards (100)				TYPE:FX.Psionic.Wondrous	COST:27	WT:0								BASEQTY:100		SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:These cards are psychically attuned to the person whose name is printed on the front, and allow anyone who holds the card to make a "psychic phone call" to that person twice per day
+Sigil of the Fellowship				TYPE:FX.Magic.Scroll		COST:20	WT:0		PRETEMPLATE:Agent of the Fellowship				SOURCEPAGE:ArcanaOrganizations.rtf	SPELLS:Sigil of the Fellowship|TIMES=-1|CASTERLEVEL=3|Magic Circle,14|Electromagnetic Pulse,14|Obscuring Mist,11|Recharge,14	SPROP:Break the disk to cast one of the following spells: Magic Circle (against enemies of the Fellowship), Electromagnetic Pulse, Obscuring Mist or Recharge (see text for further details)
+Magic Meal (Balance Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Balance checks for 10+1d10 rounds after applying
+Magic Meal (Climb Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Climb checks for 10+1d10 rounds after applying
+Magic Meal (Hide Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Hide checks for 10+1d10 rounds after applying
+Magic Meal (Jump Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Jump checks for 10+1d10 rounds after applying
+Magic Meal (Listen Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Listen checks for 10+1d10 rounds after applying
+Magic Meal (Move Silently Tattoo)		TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Move Silently checks for 10+1d10 rounds after applying
+Magic Meal (Spot Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Spot checks for 10+1d10 rounds after applying
+Magic Meal (Swim Tattoo)			TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a magic wet transfer tattoo that grants a +2 bonus on Swim checks for 10+1d10 rounds after applying
+Magic Meal (Wind-up Familiar: Cat)		TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a wind-up familiar in the shape of a cat (special command: eyes glow yellow lighting a 5 foot square in front of the toy)
+Magic Meal (Wind-up Familiar: Owl)		TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a wind-up familiar in the shape of an owl (special command: fly five feet straight up and five feet forward then fly straight down until landed)
+Magic Meal (Wind-up Familiar: Rat)		TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a wind-up familiar in the shape of a rat (special command: pick up and carry one item weighing no more than one pound)
+Magic Meal (Wind-up Familiar: Spider)	TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a wind-up familiar in the shape of a spider (special command: climb solid surface as per the spider climb spell [including reduced movement rate])
+Magic Meal (Wind-up Familiar: Toad)		TYPE:FX.Magic.Wondrous		COST:2	WT:0											SOURCEPAGE:ArcanaOrganizations.rtf																						SPROP:Includes a wind-up familiar in the shape of a toad (special command: hop five feet in the air, landing 10 feet forward)
+
+###Block: Mundane Items
+# Equipment Name					Type					Cost		Weight	Required Template								Source Page					Bonus to skill									Special Property
+Friends of the Displaced booklet		TYPE:Goods.Informational	COST:0	WT:0												SOURCEPAGE:ArcanaOrganizations.rtf												SPROP:small booklet containing the contact information for local organizations, companies, and individuals that have promised support of one kind or another
+Ashe's Field Guide				TYPE:Goods.Informational	COST:0	WT:0		PRETEMPLATE:Member of the Fraternal Order of Vigilance	SOURCEPAGE:ArcanaOrganizations.rtf												SPROP:Provides a +5 equipment bonus on all Research checks to understand or predict the behavior of Shadow creatures, determine the species of a creature based on knowledge of its actions, or other similar task
+Dr. Allison's Guide to the Mystic Arts	TYPE:Goods.Informational	COST:0	WT:0												SOURCEPAGE:ArcanaOrganizations.rtf	BONUS:SKILL|Research,Knowledge (Arcane Lore)|5|TYPE=Equipment	SPROP:Anyone using this book gets a bonus on Research and Knowledge (Arcane Lore) checks. Users also receive a +2 equipment bonus on Craft (chemical), Craft (visual arts), and Craft (writing) checks when brewing potions and scribing tattoos or scrolls
+Union Card						TYPE:Goods.General		COST:10	WT:0		PRETEMPLATE:Member of the International Guild of Laborers	SOURCEPAGE:ArcanaOrganizations.rtf												SPROP:Grants a one-time +5 Wealth bonus, medical benefits and free legal representation from the International Guild of Laborers. (see text)
+
+#Needed for Nakamura Blade Equipmod
+Katana.MOD						TYPE:Katana
+
+#
+# End
+#

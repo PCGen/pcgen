@@ -1,0 +1,419 @@
+//Roman Female Names
+[RULES]
+65	[NOMEN]	[COGNOMEN]
+70	[GENETIVENOMEN]	[COGNOMEN]
+75	[GENETIVENOMEN]	[NUMBER]	[COGNOMEN]
+90	[NOMEN]	[COGNOMEN]	[TRIBE]
+92	[GENETIVENOMEN]	[COGNOMEN]	[TRIBE]
+94	[GENETIVENOMEN]	[NUMBER]	[COGNOMEN]	[TRIBE]
+96	[NOMEN]	[COGNOMEN]	[COGNOMEN]
+99	[GENETIVENOMEN]	[COGNOMEN]	[COGNOMEN]
+100	[GENETIVENOMEN]	[NUMBER]	[COGNOMEN]	[COGNOMEN]
+
+[NOMEN]
+Abudia Megiste
+Allia Potestas
+Antiochis
+Antonia Thallusa
+Appulia
+Aristarete
+Arria
+Artemis
+Athenodora
+Atia
+Aurelia Leite
+Aurelia Philmatio
+Bassilla
+Caprasia
+Cassia Secunda
+Claudia
+Clodia
+Cornelia
+Didymarion
+Didyme
+Dionysia
+Domnina
+Drusilla
+Epicydilla
+Epidia
+Epria
+Eucharis
+Extricata
+Fannia
+Flavia Publia Nimachis
+Flavia Sabina
+Gaia Afrania
+Gnome
+Hedea
+Helvia
+Hilara
+Hortensia
+Irene
+Isidora
+Italia
+Julia Domna
+Julia Livilla
+Julia Pye
+Junia Theodora
+Lalla
+Larcia Horaea
+Licinia
+Magnilla
+Melino
+Melitine
+Messalina
+Minicia Marcella
+Minucia Asste
+Modia Quintia
+Murdia
+Musa
+Mussia Dionysia
+Nitocris
+Olympias
+Olympionica
+Paezusa
+Panthia
+Parthenia
+Perenice
+Phamphile
+Phyllis
+Pobicia Aphe
+Politta
+Posilla Senenia
+Primilla
+Quarta Senenia
+Recepta
+Sallustia Athenais
+Saufeia Thalea
+Scholastica
+Semiramis
+Socratea
+Statilla
+Statillia Tyrannis
+Sulpicia
+Telephoris
+Terentia Prima
+Tertia Aemilia
+Thuria
+Timarete
+Tryphosa
+Urbana
+Venuleia Sosis
+
+[COGNOMEN]
+ Aelianus
+ Agricola
+ Agrippa
+ Albanus
+ Albinus
+ Aprilis
+ Arcanus
+ Avitus
+ Balbus
+ Bassus
+ Bellicianus
+ Betto
+ Caelianus
+ Capito
+ Castus
+ Cattianus
+ Celer
+ Cerialis
+ Civilis
+ Clemens
+ Coranus
+ Corvinus
+ Crescens
+ Crispus
+ Dexter
+ Dida
+ Disertus
+ Donatus
+ Drusus
+ Erasinus
+ Facilis
+ Faustus
+ Felicissimus
+ Felix
+ Festus
+ Fidus
+ Firmus
+ Flavinus
+ Fortunatus
+ Frontinus
+ Fronto
+ Fuscus
+ Gaianus
+ Galba
+ Gallienus
+ Gallus
+ Gemellus
+ Genialis
+ Geta
+ Gracchus
+ Homullus
+ Honoratus
+ Ingenuus
+ Justus
+ Libo
+ Longinus
+ Lucullus
+ Lupus
+ Macer
+ Macrinus
+ Macro
+ Magnus
+ Mansuetus
+ Marcellus
+ Maritimus
+ Martialis
+ Martius
+ Masala
+ Masavo
+ Maternus
+ Maurus
+ Maximus
+ Melito
+ Messalinus
+ Mettellus
+ Modianus
+ Montanus
+ Natalis
+ Nepos
+ Nerva
+ Noricus
+ Novanus
+ Paetus
+ Panthera
+ Paulinus
+ Pertinax
+ Petra
+ Picens
+ Pius
+ Probus
+ Proclus
+ Pudens
+ Pulcher
+ Quadratus
+ Quietus
+ Romanus
+ Rufinus
+ Rufus
+ Rusticus
+ Sabinus
+ Saenus
+ Saturninus
+ Savius
+ Scapula
+ Scipio
+ Secundus
+ Seianus
+ Senecio
+ Severus
+ Silanus
+ Silvanus
+ SolonSolus
+ Speratus
+ Strabo
+ Suavis
+ Super
+ Surinus
+ Thurinus
+ Valens
+ Venator
+ Verus
+ Viator
+ Victor
+ Vindex
+ Virilis
+ Vitalis
+
+[TRIBE]
+ Aemilia
+ Fabia
+ Papiria
+ Sergia
+ Aniensis
+ Falerna
+ Pollia
+ Stellatina
+ Arnensis
+ Galeria
+ Pomptina
+ Suburana
+ Camilia
+ Horatia
+ Publilia
+ Terentina
+ Claudia
+ Lemonia
+ Pupinia
+ Tromentina
+ Clustumina
+ Maecia
+ Quirina
+ Velina
+ Collina
+ Menenia
+ Romilia
+ Voltina
+ Cornelia
+ Oufentina
+ Sabatina
+ Voturia
+ Esquilina
+ Palantina
+ Scaptia
+
+[GENETIVENOMEN]
+Abuda
+Adauca
+Aela
+Aemila
+Aeresa
+Afrana
+Alba
+Ammona
+Antona
+Apuleii
+Arrena
+Anica
+Antona
+Artora
+Audacila
+Aufida
+Aurela
+Babuda
+Caecila
+Caela
+Caesenna
+Caesida
+Calida
+Calpurna
+Cammida
+Camma
+Camura
+Carausa
+Cassa
+Celerina
+Censora
+Clauda
+Cloda
+Cornela
+Curta
+Decra
+Destica
+Dida
+Domita
+Ducca
+Ecima
+Epra
+Exomna
+Faba
+Fanna
+Favona
+Flava
+Gargila
+Gratta
+Helvida
+Helva
+Honora
+Hortensa
+Hosida
+Ingenua
+Jula
+Juventa
+Larca
+Latina
+Liburna
+Licina
+Ligustina
+Liva
+Lolla
+Lousa
+Lucreta
+Maena
+Manla
+Manna
+Mara
+Mena
+Mercata
+Messora
+Minica
+Momma
+Mumma
+Muca
+Munata
+Mussa
+Musta
+Nectovela
+Nemona
+Nerata
+Nestora
+Octava
+Olcina
+Oppa
+Ostora
+Paterna
+Peltrasa
+Petilla
+Petrona
+Plauta
+Platora
+Poena
+Pompii
+Pompona
+Ponta
+Porca
+Postuma
+Praesenta
+Pupa
+Quinctila
+Rosca
+Rusta
+Rutila
+Satura
+Sallusta
+Saufii
+Scribona
+Semprona
+Septima
+Sertora
+Simplica
+Sitta
+Socella
+Spura
+Statila
+Statora
+Suetona
+Sulpica
+Tabella
+Tada
+Terenta
+Tertina
+Thorana
+Tita
+Trebella
+Tucca
+Ulpa
+Valera
+Vara
+Vela
+Verana
+Vesna
+Vetta
+Viba
+Vira
+Vitella
+Voltii
+Volusa
+
+[NUMBER]
+ Prima
+ Una
+ Major
+ Maxima
+ Secunda
+ Minima
+ Minor
+ Tertia

@@ -1,0 +1,51 @@
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $
+CAMPAIGN:3.0 SRD Basics
+RANK:1
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:SRD
+TYPE:SRD.Partial
+SOURCELONG:SRD Basics
+SOURCESHORT:SRDBasic
+SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Sigurdur H. Olafsson)
+
+INFOTEXT:SRD Basics (The base classes, feats, spells, equipment, etc.)
+
+#BIOSET:@/wizardsofthecoast/sourcebooks/dnd/core/phb/phbbiosettings.lst
+CLASS:@/d20ogl/srd/srd_classes_base.lst
+DEITY:@/d20ogl/srd/srd_deities.lst
+DOMAIN:@/d20ogl/srd/srd_domains.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_coinsgems.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_weap_ranged.lst
+FEAT:@/d20ogl/srd/srd_feats.lst
+FEAT:@/d20ogl/srd/srd_feats_descriptions.lst
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst
+RACE:@/d20ogl/srd/srd_races__phb.lst
+SKILL:@/d20ogl/srd/srd_skills.lst
+SPELL:@/d20ogl/srd/srd_spells.lst
+WEAPONPROF:@/d20ogl/srd/srd_weapprofs.lst
+LANGUAGE:@/d20ogl/srd/srd_languages.lst
+EQUIPMOD:@/d20ogl/srd/srd_equipmods_mundane.lst
+TEMPLATE:@/d20ogl/srd/srd_templates_types.lst
+KIT:@/d20ogl/srd/srd_starting_kits.lst
+
+# Hiding internal types
+HIDETYPE:EQUIP|ArmorsmithingTools|BasketweavingTools|BookbindingTools|BowmakingTools|BlacksmithingTools|CalligraphyTools|CarpentryTools|CobblingTools
+HIDETYPE:EQUIP|GemcuttingTools|LeatherworkingTools|LocksmithingTools|PaintingTools|PotteryTools|SculptureTools|ShipmakingTools|StoneworkingTools
+HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools
+
+
+# Stuff for Companions and Followers
+COMPANIONMOD:@/d20ogl/srd/srd_companion_mods.lst
+RACE:@/d20ogl/srd/srd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Tiny)|Toad|Weasel)
+RACE:@/d20ogl/srd/srd_races__animals.lst|(INCLUDE:Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
+CLASS:@/d20ogl/srd/srd_classes_creature_types.lst|(INCLUDE:Animal|Beast|Magical Beast)

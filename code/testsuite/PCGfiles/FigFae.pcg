@@ -1,0 +1,121 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:3.0 SRD
+VERSION:5.6.0-1
+ROLLMETHOD:1|EXPRESSION:roll(4,6,[2,3,4])
+PURCHASEPOINTS:N|TYPE:
+POOLPOINTS:1
+GAMEMODE:3e
+TABLABEL:0
+AUTOSPELLS:Y
+LOADCOMPANIONS:N
+USETEMPMODS:N
+AUTOSORTGEAR:Y
+AUTOSORTSKILLS:Y
+
+# Character Bio
+CHARACTERNAME:FigFae
+TABNAME:
+PLAYERNAME:
+HEIGHT:64
+WEIGHT:160
+AGE:18
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:15
+STAT:DEX|SCORE:17
+STAT:CON|SCORE:15
+STAT:INT|SCORE:15
+STAT:WIS|SCORE:9
+STAT:CHA|SCORE:12
+ALIGN:NG
+RACE:Half-Orc
+
+# Character Class(es)
+CLASS:Fighter|SUBCLASS:None|LEVEL:4|SKILLPOOL:0|PROHIBITED:None
+CLASSABILITIESLEVEL:Fighter=1|HITPOINTS:10|SKILLSGAINED:12
+CLASSABILITIESLEVEL:Fighter=2|HITPOINTS:3|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=3|HITPOINTS:3|SKILLSGAINED:3
+CLASSABILITIESLEVEL:Fighter=4|HITPOINTS:8|POSTSTAT:STR=0|SKILLSGAINED:3
+
+# Character Experience
+EXPERIENCE:0
+
+# Character Templates
+
+# Character Region
+
+# Character Skills
+SKILL:Climb|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:Fighter|RANKS:7.0|COST:1|CLASSSKILL:Y]
+SKILL:Jump|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Fighter|RANKS:7.0|COST:1|CLASSSKILL:Y]
+SKILL:Disable Device|OUTPUTORDER:2|CLASSBOUGHT:[CLASS:Fighter|RANKS:3.5|COST:2|CLASSSKILL:N]
+
+# Character Languages
+LANGUAGE:Common|LANGUAGE:Orc
+
+# Character Feats
+FEAT:Ambidexterity|TYPE:GENERAL.FIGHTER|DESC:The character ignores all penalties for using an off hand. The character is neither left-handed nor right-handed.
+FEAT:Blind-Fight|TYPE:GENERAL.FIGHTER|DESC:In melee, every time a character misses because of concealment, the character can reroll the miss chance percentile roll one time to see if the character actually hit.
+FEAT:Dodge|TYPE:GENERAL.FIGHTER|DESC:During the character's action, the character designates an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
+FEAT:Exotic Weapon Proficiency|APPLIEDTO:Flail (Dire)|TYPE:GENERAL.FIGHTER|DESC:The character makes attack rolls with the weapon normally.
+FEAT:Two-Weapon Fighting|TYPE:GENERAL.FIGHTER|DESC:The character's penalties for fighting with two weapons are reduced by 2.
+FEATPOOL:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Armor Spikes|WEAPON:Axe|WEAPON:Axe (Throwing)|WEAPON:Battleaxe|WEAPON:Blowgun|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)]
+WEAPONPROF:[WEAPON:Dart|WEAPON:Falchion|WEAPON:Flail|WEAPON:Flail (Dire)|WEAPON:Flail (Light)|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Glaive|WEAPON:Greataxe|WEAPON:Greatclub]
+WEAPONPROF:[WEAPON:Greatsword|WEAPON:Guisarme|WEAPON:Halberd|WEAPON:Halfspear|WEAPON:Hammer (Light)|WEAPON:Handaxe|WEAPON:Javelin|WEAPON:Katana (Martial)|WEAPON:Kusari-gama|WEAPON:Lance]
+WEAPONPROF:[WEAPON:Longbow|WEAPON:Longbow (Composite)|WEAPON:Longspear|WEAPON:Longsword|WEAPON:MARTIAL|WEAPON:Mace|WEAPON:Mace (Heavy)|WEAPON:Mind Blade|WEAPON:Morningstar|WEAPON:Pick]
+WEAPONPROF:[WEAPON:Quarterstaff|WEAPON:Ranseur|WEAPON:Rapier|WEAPON:SIMPLE|WEAPON:Sap|WEAPON:Scimitar|WEAPON:Scythe|WEAPON:Shieldbash|WEAPON:Shortbow|WEAPON:Shortbow (Composite)]
+WEAPONPROF:[WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Sword (Bastard/Martial)|WEAPON:Sword (Short)|WEAPON:Trident|WEAPON:Unarmed Strike|WEAPON:Wakizashi|WEAPON:Waraxe (Dwarven/Martial)|WEAPON:Warhammer]
+
+# Character Equipment
+MONEY:0.00
+EQUIPNAME:Rapier|OUTPUTORDER:1|COST:20|WT:3.0|QUANTITY:2.0
+EQUIPSET:Default Set|ID:0.1
+EQUIPSET:Two Weapons|ID:0.1.1|VALUE:Rapier|QUANTITY:2.0
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+
+# Character Master/Follower
+
+# Character Notes Tab
+NOTE:New Item|ID:0|PARENTID:-1|VALUE:New Value
+
+# Kits
+
+# Chosen Armor Profs
+
+# Age Set Selections
+AGESET:0:0:0:0:0:0:0:0:0:0

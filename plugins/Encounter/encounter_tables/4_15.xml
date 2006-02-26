@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE lookuptable SYSTEM "../encounter.dtd" >
+<lookuptable name="table 4-15 1st-Level Dungeon Encounters">
+	<!-- header -->
+	<row>
+		<item>d%</item>
+		<item>Role</item>
+		<item>Number of Creatures and kind</item>
+		<item>Treasure</item>
+	</row>
+	
+	<!-- 01-04% -->
+	<row>
+		<item>4</item>
+		<item>Critter</item>
+		<item>1d3 centipedes, Medium-size monstrous (vermin)</item>
+		<item>20%</item>
+	</row>	
+
+	<!-- 05-09% -->
+	<row>
+		<item>9</item>
+		<item>Critter</item>
+		<item>1d3+1 dire rats</item>
+		<item>20%</item>
+	</row>	
+
+	<!-- 10-14% -->
+	<row>
+		<item>14</item>
+		<item>Critter</item>
+		<item>1d3+1 fire beetles, giant (vermin)</item>
+		<item>20%</item>
+	</row>	
+
+	<!-- 15-17% -->
+	<row>
+		<item>17</item>
+		<item>Critter</item>
+		<item>1d3 scorpions, small monstrous (vermin)</item>
+		<item>20%</item>
+	</row>	
+
+	<!-- 18-20% -->
+	<row>
+		<item>20</item>
+		<item>Critter</item>
+		<item>1d3 spiders, small monstrous (vermin)</item>
+		<item>20%</item>
+	</row>	
+
+	<!-- 21-25% -->
+	<row>
+		<item>25</item>
+		<item>Dragon</item>
+		<item>1 dragon, [Table 4-35]</item>
+		<item>80%+2</item>
+	</row>	
+
+	<!-- 26-30% -->
+	<row>
+		<item>30</item>
+		<item>Friend</item>
+		<item>1d3 dwarven warriors</item>
+		<item>80%+1</item>
+	</row>	
+
+	<!-- 31-35% -->
+	<row>
+		<item>35</item>
+		<item>Friend</item>
+		<item>1d3 elven warriors</item>
+		<item>80%+1</item>
+	</row>	
+	
+	<!-- 36-40% -->
+	<row>
+		<item>40</item>
+		<item>NPC</item>
+		<item>1 1st-level NPC</item>
+		<item>Gear</item>
+	</row>	
+	
+	<!-- 41-45% -->
+	<row>
+		<item>45</item>
+		<item>Terror</item>
+		<item>1 darkmantle</item>
+		<item>50%+1</item>
+	</row>	
+	
+	<!-- 46-55% -->
+	<row>
+		<item>55</item>
+		<item>Terror</item>
+		<item>1 krenshar</item>
+		<item>50%+1</item>
+	</row>		
+	
+	<!-- 56-60% -->
+	<row>
+		<item>60</item>
+		<item>Terror</item>
+		<item>1 lemure (devil)</item>
+		<item>50%+1</item>
+	</row>	
+	
+	<!-- 61-65% -->
+	<row>
+		<item>65</item>
+		<item>Tough</item>
+		<item>1d4+2 goblins</item>
+		<item>80%+1</item>
+	</row>	
+	
+	<!-- 66-70% -->
+	<row>
+		<item>70</item>
+		<item>Tough</item>
+		<item>1 hobgoblin + 1d3 goblins</item>
+		<item>80%+1</item>
+	</row>	
+	
+	<!-- 71-80% -->
+	<row>
+		<item>80</item>
+		<item>Tough</item>
+		<item>1d6+3 kobolds</item>
+		<item>80%+1</item>
+	</row>	
+	
+	<!-- 81-90% -->
+	<row>
+		<item>90</item>
+		<item>Undead</item>
+		<item>1d3+1 skeletons, medium-size</item>
+		<item>50%</item>
+	</row>	
+	
+	<!-- 91-100% -->
+	<row>
+		<item>100</item>
+		<item>Undead</item>
+		<item>1d3 zombies, medium-size</item>
+		<item>50%</item>
+	</row>	
+</lookuptable>

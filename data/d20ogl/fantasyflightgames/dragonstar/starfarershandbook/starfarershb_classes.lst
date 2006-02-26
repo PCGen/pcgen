@@ -1,0 +1,280 @@
+# CVS $Revision: 1.12 $ $Author: tir-gwaith $ -- Wed Nov 30 02:47:24 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+
+# Working notes the rogue and Gundancer(needs to be checked)
+# Gundancer all martial firearms
+# Assassin
+#Commoner one weapon from HighTechSimple
+
+# Class Name
+CLASS:Barbarian.MOD
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]
+
+
+# Class Name	Class Skill
+CLASS:Bard.MOD	CSKILL:Navigate|Research|Urban Lore|Use Device
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+
+
+# Class Name	Class Skill
+CLASS:Cleric.MOD	CSKILL:Research
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
+
+# Class Name	Subclass?
+CLASS:Druid.MOD	HASSUBCLASS:YES
+# Class Name	Class Skill
+CLASS:Druid.MOD	CSKILL:Freefall|TYPE.Science|Navigate
+# Druid Subclasses
+SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
+SUBCLASSLEVEL:1	ADD:SPELLCASTER(Druid)	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
+SUBCLASSLEVEL:1					FEATAUTO:Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
+
+# Class Name	Removed Class Skill			Class Skill									Cross-class Skill
+CLASS:Fighter.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Swim|Demolition|Freefall|Pilot	CCSKILL:Handle Animal|Ride
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+
+# Class Name
+CLASS:Monk.MOD
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+
+###Block: Normal Level Progression
+#1	AUTO:WEAPONPROF|TYPE=Simple	AUTO:ARMORPROF|TYPE=Light|PREFEAT:1,Technical Proficiency
+4						SA:Evade Fire(Ex)
+7	SA:.CLEAR.Leap of the Clouds	SA:Leap of the Clouds(variable gravity still has normal effects)
+
+# Class Name	Removed Class Skill			Class Skill																					Cross-class Skill
+CLASS:Paladin.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE.Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+
+# Class Name	Class Skill
+CLASS:Ranger.MOD	CSKILL:Freefall|Navigate|Pilot
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+###Block: Normal Level Progression
+2	ADD:FEAT(TYPE=RangerTerrain)
+4	ADD:FEAT(TYPE=RangerTerrain)
+6	ADD:FEAT(TYPE=RangerTerrain)
+10	ADD:FEAT(TYPE=RangerTerrain)
+14	ADD:FEAT(TYPE=RangerTerrain)
+18	ADD:FEAT(TYPE=RangerTerrain)
+
+# Class Name	Class Skill
+CLASS:Rogue.MOD	CSKILL:Cryptography|Demolitions|Freefall|Navigate|Pilot|Urban Lore|Use Device
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:WeaponThiefSmall[PREFEAT:1,Technical Proficiency]|WeaponThiefMedium[PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+
+# Class Name
+CLASS:Sorcerer.MOD
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+
+# Class Name	Class Skill
+CLASS:Wizard.MOD	CSKILL:Navigate|Research
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+
+##############
+#New classes
+##############
+
+# Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Pilot		HD:6		ABB:Plt		SOURCEPAGE:p.49	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE.Profession|Repair|Spot|Swim|Use Device|Use Rope
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Technical Proficiency
+1	FEATAUTO:HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (HighTechLight)
+###Block: Normal Level Progression
+1	SA:Speed Demon																		ADD:FEAT(TYPE=Pilot)
+2	SA:Dogfighter +%|Dogfighter					BONUS:VAR|Dogfighter|(CL+5)/7		DEFINE:Dogfighter|0
+3	SA:Defensive Maneuvering +%|DefensiveManeuvering	BONUS:VAR|DefensiveManeuvering|CL/3	DEFINE:DefensiveManeuvering|0
+4	SA:Pilot Evasion
+5	SA:Gunners Instinct +%|GunnersInstinct			BONUS:VAR|GunnersInstinct|CL/5	DEFINE:GunnersInstinct|0	ADD:FEAT(TYPE=Pilot)
+9																					ADD:FEAT(TYPE=Pilot)
+13																					ADD:FEAT(TYPE=Pilot)
+17																					ADD:FEAT(TYPE=Pilot)
+
+# Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Mechanist	HD:6		ABB:Mech		SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptography|Demolitions|Disable Device|Freefall|TYPE.Knowledge|Open Lock|Pilot|TYPE.Profession|Repair|Research|Search|Use Device
+1	FEATAUTO:Technical Proficiency
+1	FEATAUTO:HighTechSimple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (HighTechLight)
+###Block: Normal Level Progression
+1	SA:Jury-rig	SA:Guerilla Repair	SA:Minor Upgrade	SA:Traps	ADD:FEAT(TYPE=Mechanist)
+2	SA:Sabotage										ADD:FEAT(TYPE=MechTech)
+5	SA:Moderate Upgrade
+6												ADD:FEAT(TYPE=MechTech)	ADD:FEAT(TYPE=Mechanist)
+10	SA:Major Upgrade									ADD:FEAT(TYPE=MechTech)
+11												ADD:FEAT(TYPE=Mechanist)
+14												ADD:FEAT(TYPE=MechTech)
+15	SA:Extraordinary Upgrade
+16												ADD:FEAT(TYPE=Mechanist)
+18												ADD:FEAT(TYPE=MechTech)
+20	SA:Masterful Upgrade
+
+#########################
+#Prestige classes
+########################
+
+# Class Name
+CLASS:Arcane Archer.MOD
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]
+
+
+# Class Name		Class Skill
+CLASS:Assassin.MOD	CSKILL:Demolitions|Freefall
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+
+
+# Class Name		Skill Pts/Lvl	Removed Class Skill			Class Skill																					Cross-class Skill
+CLASS:Blackguard.MOD	STARTSKILLPTS:2	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
+0	BONUS:VAR|LayOnHands|CL*max(CHA,0)|PRECLASS:1,Ex Paladin=3	DEFINE:SmiteGood|0	DEFINE:LayOnHands|0
+###Block: Proficiencies
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+
+# Class Name			Class Skill
+CLASS:Dwarven Defender.MOD	CSKILL:Demolitions|Freefall
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+
+
+# Class Name		Class Skill
+CLASS:Loremaster.MOD	CSKILL:Cryptography|Research|Use Device
+1	BONUS:SKILL|Research|CL|TYPE=Competance|PREFEAT:1,Technical Proficiency	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+
+# Class Name		Class Skill
+CLASS:Shadowdancer.MOD	CSKILL:Demolitions|Freefall
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (HighTechLight)
+
+#######################
+#New prestige classes
+#######################
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Feat											Required Skill
+CLASS:Gundancer	PREATT:5	PREFEAT:4,Evasion,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump,Tumble=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (HighTechLight)
+###Block: Normal Level Progression
+1	SA:Backfire	SA:Gun Mastery +%|GunMastery	BONUS:VAR|GunMastery|(CL+2)/3	DEFINE:GunMastery|0
+3	SA:Dead Aim
+5	SA:Dodge Fire
+7	SA:Haste
+9	SA:Firestorm
+10	SA:Absorb Energy
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required Feat				Required Skill
+CLASS:Negotiator	PREFEAT:2,Iron Will,Leadership	PRESKILL:4,Bluff,Diplomacy,Innuendo,Sense Motive=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Move Silently|Perform|TYPE.Profession|Research|Search|Sense Motive|Speak Language|Spot
+1	SA:First Impression	SA:Fast Talk	SA:Bonus Languages	SA:Tongues						BONUS:LANGUAGES|NUMBER|1
+2	SA:Discern Lie %/day|DiscernLie								BONUS:VAR|DiscernLie|(CL+2)/4						DEFINE:DiscernLie|0
+3	SA:Suggestion																BONUS:LANGUAGES|NUMBER|1
+5	SA:Slippery Mind																BONUS:LANGUAGES|NUMBER|1
+6	SA:Detect Scrying and Surveillance
+7																			BONUS:LANGUAGES|NUMBER|1
+9																			BONUS:LANGUAGES|NUMBER|1
+10	SA:Mindscan												BONUS:VAR|DiscernLie|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Required Feat							Required Skill						Req. Spell Type
+CLASS:Technomancer	PREFEAT:2,Technical Proficiency,TYPE=ItemCreation	PRESKILL:1,Repair=5	PRESKILL:1,Use Device=8	PRESPELLTYPE:Arcane,1,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE.Craft|Cryptography|Decipher Script|Disable Device|TYPE.Knowledge|TYPE.Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Technomancer	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Technomancer|CL
+1	CAST:0		SA:Arcane Tools
+2	CAST:1		SA:Energy Flux
+3	CAST:1,0		SA:Confuse Construct
+4	CAST:1,1		SA:Enhance Construct
+5	CAST:1,1,0
+6	CAST:1,1,1
+7	CAST:2,1,1,0	SA:Dominate Machine
+8	CAST:2,1,1,1
+9	CAST:2,2,1,1
+10	CAST:2,2,2,1	SA:Meld with Construct
+
+##############
+#NPC classes
+##############
+#Adept didn't change machanically
+
+# Class Name		Class Skill
+CLASS:Aristocrat.MOD	CSKILL:Pilot|Urban Lore
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+
+# Class Name		Removed Class Skill			Class Skill											Cross-class Skill
+CLASS:Commoner.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Listen|TYPE.Profession|Spot|Swim|Use Rope	CCSKILL:Handle Animal|Ride
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+
+# Class Name
+CLASS:Expert.MOD
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+
+# Class Name	Class Skill
+CLASS:Warrior.MOD	CSKILL:Demolitions|Freefall|Pilot
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+
+#################
+#new NPC classes
+#################
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Rogue Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+
+###Block: Normal Level Progression
+1	SA:Backstab +%d6|Backstab	BONUS:VAR|Backstab|CL/5+1	DEFINE:Backstab|0
+10														ADD:FEAT(TYPE=Fighter)
+15																		ADD:SPECIAL(Crippling Strike,Defensive Roll,Opportunist)
+20														ADD:FEAT(TYPE=Fighter)

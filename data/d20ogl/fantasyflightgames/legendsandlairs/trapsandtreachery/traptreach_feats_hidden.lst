@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Jul  8 17:38:19 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Original Entry by: Tir Gwaith
+
+###Block: Proficiencies
+# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+Guildmaster Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace|Sap|Sword (Short)	AUTO:WEAPONPROF|Club|Morningstar|Quarterstaff|Rapier|[PRESIZEGTEQ:M]

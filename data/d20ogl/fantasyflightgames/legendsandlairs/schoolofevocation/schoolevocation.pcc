@@ -1,0 +1,33 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Jun  6 01:23:49 2004 -- reformated by prettylst.pl v1.32 (build 353)
+# Original entry by Ratheof Blithwyn
+CAMPAIGN:FFG - School of Evocation - Source Book
+GAMEMODE:3e
+TYPE:Fantasy Flight Games.Sourcebook
+RANK:9
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
+SOURCELONG:Fantasy Flight Games - School of Evocation
+SOURCESHORT:Evoc
+SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:School of Evocation Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for the School of Evocation Copyright 2003, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn), Andrew McDougall (Tir Gwaith), Paul Grosse)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:schoolevocation_classes.lst
+FEAT:schoolevocation_feats.lst
+FEAT:schoolevocation_feats_hidden.lst
+SPELL:schoolevocation_spells.lst
+EQUIPMENT:schoolevocation_equip.lst
+EQUIPMENT:schoolevocation_equip_armorshields_specific.lst
+EQUIPMENT:schoolevocation_equip_rings.lst
+EQUIPMENT:schoolevocation_equip_rodsstaffswands.lst
+EQUIPMENT:schoolevocation_equip_weap_ammo_specific.lst
+EQUIPMENT:schoolevocation_equip_weap_ranged_specific.lst
+EQUIPMENT:schoolevocation_equip_wondrousitems.lst
+EQUIPMENT:schoolevocation_equip_potionsscrolls.lst

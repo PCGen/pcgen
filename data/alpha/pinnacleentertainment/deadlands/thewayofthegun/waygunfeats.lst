@@ -1,0 +1,12 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Sat Jun 18 20:16:05 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun|SOURCESHORT:WayotGun|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Feat Name			Type			Req. Att.	Required Class		Required Feat			Required Skill		Required Stat		Special Ability						Define			Description																										Stackable?	Multiple?	Choose		Modify VAR			Source Page
+Fill Yer Hand		TYPE:General												PRESKILL:1,Holdout=8	PRESTAT:1,DEX=16														DESC:You can draw and fire a derringer or other small pistol with a single motion, catching a nearby target unawares.																			SOURCEPAGE:p.13
+Law Man (Town/City)	TYPE:Special			PRECLASS:1,Law Dog=1																										DESC:You have the authorization and jurisdiction to enforce the law within the indicated area.																							SOURCEPAGE:p.26
+Law Man (County)		TYPE:Special			PRECLASS:1,Law Dog=1	PREFEAT:1,Law Man (Town/City)																					DESC:You have the authorization and jurisdiction to enforce the law within the indicated area.																							SOURCEPAGE:p.26
+Law Man (National)	TYPE:Special			PRECLASS:1,Law Dog=1	PREFEAT:1,Law Man (County)																					DESC:You have the authorization and jurisdiction to enforce the law within the indicated area.																							SOURCEPAGE:p.26
+Mercy Shot			TYPE:General	PREATT:6																		SA:Mercy Shot (+% on a Called Shot)|MercyShot	DEFINE:MercyShot|0	DESC:+2 bonus to hit and damage a weapon with a called shot.  This feat can be taken multiple times, and its effects stack.							STACK:YES	MULT:YES	CHOOSE:Mercy Shot	BONUS:VAR|MercyShot|2	SOURCEPAGE:p.13
+Slip Shot			TYPE:General	PREATT:6					PREFEAT:1,Fannin'							PRESTAT:2,DEX=16|STR=13													DESC:You can fire a maximum of 3 bullets as a full action at any targets within your revolver's first range increment, with a penalty to hit of -3 per bullet.												SOURCEPAGE:p.14
+Special Draw		TYPE:General							PREFEAT:1,Improved Initiative																					DESC:+2 to Initiative rolls made when using this feat in combat.																												SOURCEPAGE:p.14
+Steady Shot			TYPE:General							PREFEAT:1,Level-Headed						PRESTAT:1,WIS=13														DESC:You gain a +1 bonus to hit for every 2 points of Initiative you give up.																										SOURCEPAGE:p.14

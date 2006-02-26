@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 18 09:20:00 2004 -- reformated by prettylst.pl v1.32 (build 339)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+
+# Domain Name	Class Skill			Bonus to skill					Source Page		Description				List of Domain Spells by Level
+Undersea		CSKILL:Wilderness Lore	BONUS:SKILL|Swim|4|TYPE=Circumstance	SOURCEPAGE:p.29	DESC:You are at home at sea	SPELLLEVEL:DOMAIN|Undersea=1|Buoyancy|Undersea=2|Ink Cloud|Undersea=3|Air Breathing|Undersea=4|Aquatic Form|Undersea=5|Sphere of Air|Undersea=6|Sink|Undersea=7|Acid Fog (Aquatic)|Undersea=8|Whirlpool|Undersea=9|Elemental Swarm

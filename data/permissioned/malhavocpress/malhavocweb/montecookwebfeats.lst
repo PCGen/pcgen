@@ -1,0 +1,5 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Apr 26 09:05:54 2003 -- reformated by prettylst.pl v1.28 (build 279)
+SOURCELONG:Malhavoc Press - Web Enhancements|SOURCESHORT:MalhavocWb|SOURCEWEB:http://www.montecook.com
+# Feat Name				Type				Required Feat			Description											Source Page
+Favored Enemy Strike		TYPE:General.Ranger	PREFEAT:1,Favored Enemy I	DESC:Inflict +1d6 bonus damage against favored enemies			SOURCEPAGE:Web
+Favored Enemy Critical Strike	TYPE:General.Ranger	PREFEAT:1,Favored Enemy I	DESC:Inflict +1d10 bonus damage with critical hits on favored enemies	SOURCEPAGE:Web

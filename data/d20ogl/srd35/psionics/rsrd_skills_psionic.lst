@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 14 18:03:15 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Arknight
+
+# Skill Name		Key Stat	Untrained?		Type					Bonus to skill												Source Page
+Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				BONUS:SKILL|Autohypnosis|2|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK		SOURCEPAGE:PsionicSkills.rtf
+Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Psionics)|2|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK	SOURCEPAGE:PsionicSkills.rtf
+Psicraft			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			BONUS:SKILL|Psicraft|2|PRESKILL:1,Knowledge (Psionics)=5|TYPE=Synergy.STACK		SOURCEPAGE:PsionicSkills.rtf
+Use Psionic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma																	SOURCEPAGE:PsionicSkills.rtf

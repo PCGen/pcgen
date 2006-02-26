@@ -1,0 +1,21 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 26 23:55:41 2003 -- reformated by prettylst.pl v1.25 (build 257)
+SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# Skill Name				Key Stat	Untrained?		Exclusive?		Type					Source Page			Choose
+Craft (Cybernetics)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
+Craft (Electrician)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
+Craft (Mechanics)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
+Craft (Robotics)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
+Craft (Technician)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
+Craft (Tinker)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
+Knowledge (Ancient Lore)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Computers)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Genetics)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Medicine)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Mutant Lore)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Pathology)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Pharmacy)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Technology)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Knowledge (Vehicle Operations)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
+Speak Language						USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:None.Language		SOURCEPAGE:pp.30-32	CHOOSE:Language(Spoken)

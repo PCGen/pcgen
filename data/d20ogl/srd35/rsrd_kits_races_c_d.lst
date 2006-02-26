@@ -1,0 +1,968 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Sun Nov 27 13:08:25 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Centaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Centaur]
+RACE:Centaur	!PRERACE:%
+ALIGN:NG
+NAME:Centaur
+SKILL:Survival		RANK:1
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Dodge
+FEAT:Weapon Focus(Hoof)
+STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|4
+GEAR:Longsword			SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Chaos Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chaos Beast]
+RACE:Chaos Beast	!PRERACE:%
+NAME:Chaos Beast
+ALIGN:CN
+SKILL:Climb			RANK:11
+SKILL:Escape Artist	RANK:11
+SKILL:Hide			RANK:11
+SKILL:Listen		RANK:11
+SKILL:Search		RANK:11
+SKILL:Spot			RANK:11
+SKILL:Jump			RANK:11
+SKILL:Tumble		RANK:11
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Chimera	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chimera]
+ALIGN:CE
+RACE:Chimera	!PRERACE:%
+NAME:Chimera
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Hover
+FEAT:Iron Will
+FEAT:Multiattack
+STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
+
+STARTPACK:Default Choker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Choker]
+ALIGN:CE
+RACE:Choker	!PRERACE:%
+NAME:Choker
+SKILL:Climb			RANK:2
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+FEAT:Lightning Reflexes
+FEAT:Stealthy
+STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
+
+STARTPACK:Default Chuul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chuul]
+ALIGN:CE
+RACE:Chuul	!PRERACE:%
+NAME:Chuul
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+SKILL:Hide		RANK:14
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Cloaker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cloaker]
+ALIGN:CN
+RACE:Cloaker	!PRERACE:%
+NAME:Cloaker
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
+
+STARTPACK:Default Cockatrice	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cockatrice]
+RACE:Cockatrice	!PRERACE:%
+NAME:Cockatrice
+ALIGN:TN
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Dodge
+STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
+
+STARTPACK:Default Couatl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Couatl]
+RACE:Couatl	!PRERACE:%
+NAME:Couatl
+ALIGN:LG
+SKILL:Concentration	RANK:12
+SKILL:Diplomacy		RANK:12
+SKILL:TYPE=Knowledge	RANK:12	COUNT:2
+SKILL:Listen		RANK:12
+SKILL:Search		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spellcraft		RANK:12
+SKILL:Spot			RANK:12
+SKILL:Tumble		RANK:12
+SKILL:Use Magic Device	RANK:12
+FEAT:Dodge
+FEAT:Empower Spell
+FEAT:Hover
+FEAT:Improved Initiative
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster|Cure Minor Wounds|Cure Moderate Wounds|Daze|Disrupt Undead|Eagle's Splendor|Endure Elements|Freedom of Movement|Gaseous Form|Light|Mage Armor|Magic Circle against Evil|Obscuring Mist|Protection from Chaos|Ray of Frost|Read Magic|Resistance|Scorching Ray|Silence|Summon Monster III|True Strike|Wind Wall
+
+STARTPACK:Default Darkmantle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Darkmantle]
+RACE:Darkmantle	!PRERACE:%
+NAME:Darkmantle
+ALIGN:TN
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Improved Initiative
+STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Delver	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Delver]
+ALIGN:TN
+RACE:Delver	!PRERACE:%
+NAME:Delver
+SKILL:Listen				RANK:16
+SKILL:Move Silently			RANK:16
+SKILL:Spot					RANK:16
+SKILL:Knowledge (Dungeoneering)	RANK:12
+SKILL:Survival				RANK:12
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Demon (Babau)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Babau)]
+RACE:Demon (Babau)	!PRERACE:%
+NAME:Babau
+ALIGN:CE
+SKILL:Climb			RANK:10
+SKILL:Disable Device	RANK:10
+SKILL:Disguise		RANK:10
+SKILL:Escape Artist	RANK:10
+SKILL:Hide			RANK:10
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:10
+SKILL:Open Lock		RANK:10
+SKILL:Search		RANK:10
+SKILL:Sleight of Hand	RANK:10
+FEAT:Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Demon (Balor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Balor)]
+RACE:Demon (Balor)	!PRERACE:%
+NAME:Balor
+ALIGN:CE
+SKILL:Intimidate		RANK:23
+SKILL:Diplomacy		RANK:23
+SKILL:Bluff			RANK:23
+SKILL:Concentration	RANK:23
+SKILL:Hide			RANK:23
+SKILL:Listen		RANK:23
+SKILL:Move Silently	RANK:23
+SKILL:Search		RANK:23
+SKILL:Sense Motive	RANK:23
+SKILL:Spellcraft		RANK:23
+SKILL:Spot			RANK:23
+SKILL:Use Magic Device	RANK:23
+SKILL:TYPE=Knowledge	RANK:23	COUNT:2
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Improved Two Weapon Fighting
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability(Telekinesis)
+FEAT:Two Weapon Fighting
+FEAT:Weapon Focus(Longsword)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Whip		SIZE:PC	LOCATION:Secondary Hand	EQMOD:MWORKW.PLUS1W.FLM_M
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.VORPAL
+
+STARTPACK:Default Demon (Bebilith)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Bebilith)]
+RACE:Demon (Bebilith)	!PRERACE:%
+NAME:Bebilith
+ALIGN:CE
+SKILL:Jump			RANK:15
+SKILL:Climb			RANK:15
+SKILL:Hide			RANK:15
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Search		RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spot			RANK:15
+FEAT:Cleave
+FEAT:Improved Grapple
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Track
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Default Demon (Dretch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Dretch)]
+RACE:Demon (Dretch)	!PRERACE:%
+NAME:Dretch
+ALIGN:CE
+SKILL:Search		RANK:5
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:5
+FEAT:Multiattack
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Default Demon (Glabrezu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Glabrezu)]
+RACE:Demon (Glabrezu)	!PRERACE:%
+NAME:Glabrezu
+ALIGN:CE
+SKILL:Move Silently	RANK:15
+SKILL:Intimidate		RANK:15
+SKILL:Bluff			RANK:15
+SKILL:Concentration	RANK:15
+SKILL:Listen		RANK:15
+SKILL:Search		RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spellcraft		RANK:15
+SKILL:Spot			RANK:15
+SKILL:TYPE=Knowledge	RANK:15	COUNT:2
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Multiattack
+FEAT:Persuasive
+FEAT:Power Attack
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Demon (Hezrou)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Hezrou)]
+RACE:Demon (Hezrou)	!PRERACE:%
+NAME:Hezrou
+ALIGN:CE
+SKILL:Climb			RANK:13
+SKILL:Concentration	RANK:13
+SKILL:Escape Artist	RANK:13
+SKILL:Intimidate		RANK:13
+SKILL:Listen		RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Search		RANK:13
+SKILL:Spellcraft		RANK:13
+SKILL:Spot			RANK:13
+SKILL:Hide			RANK:13
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Demon (Marilith)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Marilith)]
+RACE:Demon (Marilith)	!PRERACE:%
+NAME:Marilith
+ALIGN:CE
+SKILL:Intimidate		RANK:19
+SKILL:Diplomacy		RANK:19
+SKILL:Bluff			RANK:19
+SKILL:Concentration	RANK:19
+SKILL:Hide			RANK:19
+SKILL:Listen		RANK:19
+SKILL:Move Silently	RANK:19
+SKILL:Search		RANK:19
+SKILL:Sense Motive	RANK:19
+SKILL:Spellcraft		RANK:19
+SKILL:Spot			RANK:19
+SKILL:Use Magic Device	RANK:19
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Multiattack
+FEAT:Multiweapon Fighting
+FEAT:Power Attack
+FEAT:Weapon Focus(Longsword)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand2
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand3
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand4
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand5
+
+STARTPACK:Default Demon (Nalfeshnee)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Nalfeshnee)]
+RACE:Demon (Nalfeshnee)	!PRERACE:%
+NAME:Nalfeshnee
+ALIGN:CE
+SKILL:Diplomacy			RANK:17
+SKILL:Spellcraft			RANK:17
+SKILL:Bluff				RANK:17
+SKILL:Concentration		RANK:17
+SKILL:Hide				RANK:17
+SKILL:Intimidate			RANK:15
+SKILL:Knowledge (Arcana)	RANK:17
+SKILL:Listen			RANK:17
+SKILL:Move Silently		RANK:17
+SKILL:Search			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Spot				RANK:17
+SKILL:Use Magic Device		RANK:17
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Demon (Quasit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Quasit)]
+RACE:Demon (Quasit)	!PRERACE:%
+NAME:Quasit
+ALIGN:CE
+SKILL:Bluff			RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Search		RANK:6
+SKILL:Spellcraft		RANK:6
+SKILL:Spot			RANK:5
+SKILL:TYPE=Knowledge	RANK:6
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Demon (Retriever)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Retriever)]
+RACE:Demon (Retriever)	!PRERACE:%
+NAME:Retriever
+ALIGN:CE
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Demon (Succubus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Succubus)]
+RACE:Demon (Succubus)	!PRERACE:%
+NAME:Succubus
+ALIGN:CE
+SKILL:Diplomacy		RANK:4
+SKILL:Bluff			RANK:9
+SKILL:Concentration	RANK:9
+SKILL:Disguise		RANK:9
+SKILL:Escape Artist	RANK:9
+SKILL:Hide			RANK:9
+SKILL:Intimidate		RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Search		RANK:9
+SKILL:Spot			RANK:9
+SKILL:TYPE=Knowledge	RANK:9
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Persuasive
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Demon (Vrock)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demon (Vrock)]
+RACE:Demon (Vrock)	!PRERACE:%
+NAME:Vrock
+ALIGN:CE
+SKILL:Concentration	RANK:13
+SKILL:Hide			RANK:13
+SKILL:Intimidate		RANK:13
+SKILL:Listen		RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Search		RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Spellcraft		RANK:13
+SKILL:Spot			RANK:13
+SKILL:TYPE=Knowledge	RANK:13
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Derro	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Derro]
+ALIGN:CE
+RACE:Derro	!PRERACE:%
+NAME:Derro
+SKILL:Listen		RANK:4
+SKILL:Bluff			RANK:2
+SKILL:Move Silently	RANK:4
+SKILL:Hide			RANK:2
+FEAT:Blind Fight
+FEAT:Improved Initiative
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+GEAR:Buckler				SIZE:PC	LOCATION:Equipped
+GEAR:Crossbow (Repeating Light)	SIZE:PC	LOCATION:Carried
+GEAR:Sword (Short)			SIZE:PC	LOCATION:Primary Hand
+GEAR:Studded Leather			SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Destrachan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Destrachan]
+ALIGN:NE
+RACE:Destrachan	!PRERACE:%
+NAME:Destrachan
+SKILL:Move Silently	RANK:6
+SKILL:Hide			RANK:11
+SKILL:Listen		RANK:11
+SKILL:Survival		RANK:5
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Devil (Barbed (hamatula))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Barbed (hamatula))]
+RACE:Devil (Barbed (hamatula))	!PRERACE:%
+NAME:Barbed Devil (hamatula)
+ALIGN:LE
+SKILL:Concentration	RANK:15
+SKILL:Hide			RANK:15
+SKILL:Intimidate		RANK:15
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Search		RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spot			RANK:15
+SKILL:TYPE=Knowledge	RANK:15
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Grapple
+FEAT:Iron Will
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Devil (Bearded (barbazu))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bearded (barbazu))]
+RACE:Devil (Bearded (barbazu))	!PRERACE:%
+NAME:Bearded Devil (barbazu)
+ALIGN:LE
+SKILL:Move Silently	RANK:7
+SKILL:Climb			RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Weapon Focus(Glaive)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Glaive	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Devil (Bone (osyluth))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bone (osyluth))]
+RACE:Devil (Bone (osyluth))	!PRERACE:%
+NAME:Bone Devil (osyluth)
+ALIGN:LE
+SKILL:Bluff			RANK:13
+SKILL:Concentration	RANK:13
+SKILL:Hide			RANK:13
+SKILL:Listen		RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Search		RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Spot			RANK:13
+SKILL:Intimidate		RANK:13
+SKILL:TYPE=Knowledge	RANK:13
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Multiattack
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Devil (Chain (kyton))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Chain (kyton))]
+RACE:Devil (Chain (kyton))	!PRERACE:%
+NAME:Chain Devil (kyton)
+ALIGN:LE
+SKILL:Climb				RANK:11
+SKILL:Escape Artist		RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Listen			RANK:11
+SKILL:Spot				RANK:11
+SKILL:Craft (Blacksmithing)	RANK:11
+FEAT:Alertness
+FEAT:Improved Critical(Chain)
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Devil (Erinyes)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Erinyes)]
+RACE:Devil (Erinyes)	!PRERACE:%
+NAME:Erinyes
+ALIGN:LE
+SKILL:Diplomacy		RANK:2
+SKILL:Concentration	RANK:12
+SKILL:Escape Artist	RANK:12
+SKILL:Hide			RANK:12
+SKILL:Listen		RANK:12
+SKILL:Move Silently	RANK:12
+SKILL:Search		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spot			RANK:12
+SKILL:TYPE=Knowledge	RANK:12	COUNT:2
+FEAT:Point Blank Shot
+FEAT:Precise Shot
+FEAT:Rapid Shot
+FEAT:Shot on the Run
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FLM_R.BOWSTR|5
+GEAR:Longsword			SIZE:PC	LOCATION:Carried
+GEAR:Rope (Hempen/50 Ft.)	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Devil (Hellcat (bezekira))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Hellcat (bezekira))]
+RACE:Devil (Hellcat (bezekira))	!PRERACE:%
+NAME:Hellcat (bezekira)
+ALIGN:LE
+SKILL:Balance		RANK:11
+SKILL:Climb			RANK:11
+SKILL:Listen		RANK:11
+SKILL:Move Silently	RANK:11
+SKILL:Spot			RANK:11
+SKILL:Swim			RANK:11
+SKILL:Hide			RANK:11
+SKILL:Jump			RANK:11
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Devil (Horned (cornugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Horned (cornugon))]
+RACE:Devil (Horned (cornugon))	!PRERACE:%
+NAME:Horned Devil (cornugon)
+ALIGN:LE
+SKILL:Bluff			RANK:18
+SKILL:Climb			RANK:18
+SKILL:Hide			RANK:18
+SKILL:Listen		RANK:18
+SKILL:Search		RANK:18
+SKILL:Sense Motive	RANK:18
+SKILL:Spot			RANK:18
+SKILL:Move Silently	RANK:16
+SKILL:Concentration	RANK:17
+SKILL:Intimidate		RANK:18
+FEAT:Cleave
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus(Chain (Spiked))
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Chain (Spiked)	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Devil (Ice (gelugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Ice (gelugon))]
+RACE:Devil (Ice (gelugon))	!PRERACE:%
+NAME:Ice Devil (gelugon)
+ALIGN:LE
+SKILL:Jump			RANK:17
+SKILL:Intimidate		RANK:17
+SKILL:Bluff			RANK:17
+SKILL:Climb			RANK:17
+SKILL:Concentration	RANK:17
+SKILL:Listen		RANK:17
+SKILL:Move Silently	RANK:17
+SKILL:Search		RANK:17
+SKILL:Sense Motive	RANK:17
+SKILL:Spellcraft		RANK:17
+SKILL:Spot			RANK:17
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Power Attack
+FEAT:Weapon Focus(Spear)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Spear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Devil (Imp)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Imp)]
+RACE:Devil (Imp)	!PRERACE:%
+NAME:Imp
+ALIGN:LE
+SKILL:Diplomacy		RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Search		RANK:6
+SKILL:Spellcraft		RANK:6
+SKILL:Spot			RANK:6
+SKILL:TYPE=Knowledge	RANK:6
+FEAT:Dodge
+FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Devil (Lemure)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Lemure)]
+RACE:Devil (Lemure)	!PRERACE:%
+NAME:Lemure
+ALIGN:LE
+STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
+
+STARTPACK:Default Devil (Pit Fiend)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Pit Fiend)]
+RACE:Devil (Pit Fiend)	!PRERACE:%
+NAME:Pit Fiend
+ALIGN:LE
+SKILL:Jump				RANK:21
+SKILL:Bluff				RANK:21
+SKILL:Climb				RANK:21
+SKILL:Concentration		RANK:21
+SKILL:Disguise			RANK:21
+SKILL:Hide				RANK:21
+SKILL:Knowledge (Arcana)	RANK:21
+SKILL:Knowledge (Religion)	RANK:21
+SKILL:Knowledge (The Planes)	RANK:21
+SKILL:Listen			RANK:21
+SKILL:Move Silently		RANK:21
+SKILL:Search			RANK:21
+SKILL:Spot				RANK:21
+SKILL:Intimidate			RANK:21
+SKILL:Spellcraft			RANK:21
+SKILL:Tumble			RANK:21
+SKILL:Knowledge (Nature)	RANK:2
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability(Fireball)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Devourer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devourer]
+RACE:Devourer	!PRERACE:%
+NAME:Devourer
+ALIGN:NE
+SKILL:Sense Motive	RANK:8
+SKILL:Concentration	RANK:15
+SKILL:Search		RANK:7
+SKILL:Climb			RANK:15
+SKILL:Jump			RANK:15
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Spot			RANK:15
+FEAT:Blind Fight
+FEAT:Combat Casting
+FEAT:Combat Expertise
+FEAT:Improved Initiative
+FEAT:Weapon Focus(Claw)
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Digester	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Digester]
+RACE:Digester	!PRERACE:%
+NAME:Digester
+ALIGN:TN
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+SKILL:Jump		RANK:2
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dinosaur (Deinonychus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dinosaur (Deinonychus)]
+RACE:Dinosaur (Deinonychus)	!PRERACE:%
+NAME:Deinonychus
+ALIGN:TN
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+SKILL:Survival	RANK:1
+SKILL:Hide		RANK:2
+SKILL:Jump		RANK:2
+FEAT:Run
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dinosaur (Elasmosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dinosaur (Elasmosaurus)]
+RACE:Dinosaur (Elasmosaurus)	!PRERACE:%
+NAME:Elasmosaurus
+ALIGN:TN
+SKILL:Spot		RANK:8
+SKILL:Listen	RANK:3
+SKILL:Hide		RANK:2
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Toughness
+FEAT:Toughness
+STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
+
+STARTPACK:Default Dinosaur (Megaraptor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dinosaur (Megaraptor)]
+RACE:Dinosaur (Megaraptor)	!PRERACE:%
+NAME:Megaraptor
+ALIGN:TN
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Survival	RANK:2
+SKILL:Jump		RANK:2
+FEAT:Run
+FEAT:Toughness
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
+
+STARTPACK:Default Dinosaur (Triceratops)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dinosaur (Triceratops)]
+RACE:Dinosaur (Triceratops)	!PRERACE:%
+NAME:Triceratops
+ALIGN:TN
+SKILL:Spot		RANK:9
+SKILL:Listen	RANK:10
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
+
+STARTPACK:Default Dinosaur (Tyrannosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dinosaur (Tyrannosaurus)]
+RACE:Dinosaur (Tyrannosaurus)	!PRERACE:%
+NAME:Tyrannosaurus
+ALIGN:TN
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:8
+SKILL:Hide		RANK:5
+FEAT:Alertness
+FEAT:Improved Natural Attack(Bite)
+FEAT:Run
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Track
+STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Ape)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Ape)]
+RACE:Dire Animal (Dire Ape)	!PRERACE:%
+NAME:Dire Ape
+ALIGN:TN
+SKILL:Spot			RANK:3
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+FEAT:Alertness
+FEAT:Toughness
+STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Dire Animal (Dire Badger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Badger)]
+RACE:Dire Animal (Dire Badger)	!PRERACE:%
+NAME:Dire Badger
+ALIGN:TN
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Toughness
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Bat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Bat)]
+RACE:Dire Animal (Dire Bat)	!PRERACE:%
+NAME:Dire Bat
+ALIGN:TN
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:3
+FEAT:Alertness
+FEAT:Stealthy
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Bear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Bear)]
+RACE:Dire Animal (Dire Bear)	!PRERACE:%
+NAME:Dire Bear
+ALIGN:TN
+SKILL:Swim		RANK:3
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Run
+FEAT:Toughness
+FEAT:Weapon Focus(Claw)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Boar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Boar)]
+RACE:Dire Animal (Dire Boar)	!PRERACE:%
+NAME:Dire Boar
+ALIGN:TN
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Iron Will
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Lion)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Lion)]
+RACE:Dire Animal (Dire Lion)	!PRERACE:%
+NAME:Dire Lion
+ALIGN:TN
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Run
+FEAT:Weapon Focus(Claw)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Rat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Rat)]
+RACE:Dire Animal (Dire Rat)	!PRERACE:%
+NAME:Dire Rat
+ALIGN:TN
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Shark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Shark)]
+RACE:Dire Animal (Dire Shark)	!PRERACE:%
+NAME:Dire Shark
+ALIGN:TN
+SKILL:Listen	RANK:11
+SKILL:Spot		RANK:10
+FEAT:Improved Natural Attack(Bite)
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Tiger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Tiger)]
+RACE:Dire Animal (Dire Tiger)	!PRERACE:%
+NAME:Dire Tiger
+ALIGN:TN
+SKILL:Jump			RANK:2
+SKILL:Spot			RANK:4
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Swim			RANK:2
+FEAT:Alertness
+FEAT:Improved Natural Attack(Bite)
+FEAT:Improved Natural Attack(Claw)
+FEAT:Run
+FEAT:Stealthy
+FEAT:Weapon Focus(Claw)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Weasel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Weasel)]
+RACE:Dire Animal (Dire Weasel)	!PRERACE:%
+NAME:Dire Weasel
+ALIGN:TN
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Stealthy
+STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Dire Animal (Dire Wolf)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Wolf)]
+RACE:Dire Animal (Dire Wolf)	!PRERACE:%
+NAME:Dire Wolf
+ALIGN:TN
+SKILL:Survival	RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Run
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Dire Animal (Dire Wolverine)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Animal (Dire Wolverine)]
+RACE:Dire Animal (Dire Wolverine)	!PRERACE:%
+NAME:Dire Wolverine
+ALIGN:TN
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Toughness
+FEAT:Track
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Doppelganger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Doppelganger]
+RACE:Doppelganger	!PRERACE:%
+NAME:Doppelganger
+SKILL:Disguise		RANK:4
+SKILL:Listen		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+SKILL:Diplomacy		RANK:2
+SKILL:Intimidate		RANK:2
+SKILL:Bluff			RANK:5
+FEAT:Dodge
+FEAT:Great Fortitude
+STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
+
+STARTPACK:Default Dragon Turtle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon Turtle]
+RACE:Dragon Turtle	!PRERACE:%
+NAME:Dragon Turtle
+SKILL:Swim			RANK:5
+SKILL:Hide			RANK:15
+SKILL:Intimidate		RANK:15
+SKILL:Listen		RANK:15
+SKILL:Search		RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spot			RANK:15
+SKILL:Survival		RANK:10
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Snatch
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Dragonne	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragonne]
+RACE:Dragonne	!PRERACE:%
+NAME:Dragonne
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Drider VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drider (Cleric)]
+ALIGN:CE
+SKILL:Hide			RANK:8
+SKILL:Concentration	RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Climb			RANK:4
+FEAT:Combat Casting
+FEAT:Two Weapon Fighting
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
+GEAR:Dagger		SIZE:PC	LOCATION:Secondary Hand
+GEAR:Shortbow	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Drider (Cleric)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drider (Cleric)]
+RACE:Drider (Cleric)	!PRERACE:%
+NAME:Drider (Cleric)
+KIT:Default Drider
+
+STARTPACK:Default Drider (Sorcerer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drider (Sorcerer)]
+RACE:Drider (Sorcerer)	!PRERACE:%
+NAME:Drider (Sorcerer)
+KIT:Default Drider
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound|Mage Hand|Ray of Frost|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Web|Lightning Bolt
+
+STARTPACK:Default Drider (Wizard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drider (Wizard)]
+RACE:Drider (Wizard)	!PRERACE:%
+NAME:Drider (Wizard)
+KIT:Default Drider
+
+STARTPACK:Default Dryad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dryad]
+ALIGN:CG
+RACE:Dryad	!PRERACE:%
+NAME:Dryad
+SKILL:Escape Artist		RANK:7
+SKILL:Handle Animal		RANK:7
+SKILL:Hide				RANK:7
+SKILL:Listen			RANK:7
+SKILL:Move Silently		RANK:7
+SKILL:Spot				RANK:7
+SKILL:Survival			RANK:7
+SKILL:Knowledge (Nature)	RANK:7
+FEAT:Great Fortitude
+FEAT:Weapon Finesse
+STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
+GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW
+
+STARTPACK:Default Dwarf (Duergar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dwarf (Duergar)]
+RACE:Duergar	!PRERACE:%
+NAME:Duergar
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:LE
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Toughness
+GEAR:Chainmail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+

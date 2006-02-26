@@ -1,0 +1,13 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# Template Name	Visible	Source Page		Special Ability		Bonus to skill		Stat bonus								BONUSFEATS		Class Skill								FAVOREDCLASS			Feat														Height					Automatic Languages	Bonus Languages									SUBRACE		Weight
+Dwarf (Clan)	VISIBLE:NO	SOURCEPAGE:p.27					BONUS:SKILL|Ride,Spot|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-2							CSKILL:Handle Animal|Ride|Sign Language			FAVOREDCLASS:Mounted Warrior																																				SUBRACE:Clan
+Dwarf (Unhorsed)	VISIBLE:NO	SOURCEPAGE:p.28					BONUS:SKILL|Diplomacy|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|2																FAVOREDCLASS:Rogue		FEAT:Unhorsed Dwarf																					LANGBONUS:Elder Speak,Pharn'lan,Tomagai					SUBRACE:Unhorsed
+
+
+Dunkargan		VISIBLE:NO	SOURCEPAGE:p.16									BONUS:STAT|INT|2	BONUS:STAT|WIS|-2				BONUSFEATS:1	CSKILL:Diplomacy|Gather Information|Innuendo							FEAT:Dunkargan Classes											HEIGHT:M:58:2:10:0:F:53:2:10:0	LANGAUTO:Karna		LANGBONUS:Dunkrass,Sanki,Elder Speak					SUBRACE:Yes		WEIGHT:M:120:2:4:F:85:2:4
+Karnuan		VISIBLE:NO	SOURCEPAGE:p.17									BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|1																		FEAT:Karnuan Classes|Martial Weapon Proficiency|All Martial Weapon Proficiencies	HEIGHT:M:58:2:10:0:F:53:2:10:0	LANGAUTO:Karna		LANGBONUS:Elder Speak,Naru,Pharn'lan,Sanki,Tomagai			SUBRACE:Yes		WEIGHT:M:120:2:4:F:85:2:4
+Nimran		VISIBLE:NO	SOURCEPAGE:p.18									BONUS:STAT|STR|-2	BONUS:STAT|INT|2	BONUS:STAT|CHA|2	BONUSFEATS:1	CSKILL:Appraise|Knowledge (Religion)|Heal								FEAT:Nimran Classes											HEIGHT:M:58:2:10:0:F:53:2:10:0	LANGAUTO:Naru		LANGBONUS:Elder Speak,Karna,Naru-Toma,Pharn'lan,Sanki,Tomagai	SUBRACE:Yes		WEIGHT:M:120:2:4:F:85:2:4
+Nimorean		VISIBLE:NO	SOURCEPAGE:p.19									BONUS:STAT|CON|-2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUSFEATS:1	CSKILL:Diplomacy|Move Silently|Wilderness Lore							FEAT:Nimorean Classes											HEIGHT:M:58:2:10:0:F:53:2:10:0	LANGAUTO:Naru		LANGBONUS:Elder Speak,Karna,Naru-Toma,Sanki,Tomagai			SUBRACE:Yes		WEIGHT:M:120:2:4:F:85:2:4
+Trevenici		VISIBLE:NO	SOURCEPAGE:p.20	SA:Unimpressionable					BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|INT|1				CSKILL:Intimidate|Knowledge (Nature)|Wilderness Lore						FEAT:Trevenici Classes											HEIGHT:M:58:2:10:0:F:53:2:10:0	LANGAUTO:Tirniv,Twithil	LANGBONUS:Elder Speak,Fringrese,Karna,Naru,Sanki,Tomagai		SUBRACE:Yes		WEIGHT:M:120:2:4:F:85:2:4
+Vinnengaelean	VISIBLE:NO	SOURCEPAGE:p.22									BONUS:STAT|INT|1							BONUSFEATS:1										FAVOREDCLASS:Any																	HEIGHT:M:58:2:10:0:F:53:2:10:0	LANGAUTO:Elder Speak	LANGBONUS:ALL									SUBRACE:Yes		WEIGHT:M:120:2:4:F:85:2:4
+

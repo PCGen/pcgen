@@ -1,0 +1,35 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Oct 26 23:48:43 2005 -- reformated by prettylst.pl v1.35 (build 506)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Class Name		Hit Dice	Type			Source Page					Save checks bonus									Combat bonus
+CLASS:Force Dragon	HD:12		TYPE:Monster	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Force Dragon	PRERACE:Dragon (Force%
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Force Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+19	ADD:SPELLCASTER(Sorcerer)
+20						BONUS:PCLEVEL|Sorcerer|(((CL-15)/5)*3)-1
+
+# Class Name		Hit Dice	Type			Source Page					Save checks bonus									Combat bonus
+CLASS:Prismatic Dragon	HD:12		TYPE:Monster	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Prismatic Dragon	PRERACE:Dragon (Prismatic%
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Prismatic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+22	ADD:SPELLCASTER(Sorcerer)
+23						BONUS:PCLEVEL|Sorcerer|4
+28						BONUS:PCLEVEL|Sorcerer|3
+33						BONUS:PCLEVEL|Sorcerer|3
+38						BONUS:PCLEVEL|Sorcerer|2
+43						BONUS:PCLEVEL|Sorcerer|4
+48						BONUS:PCLEVEL|Sorcerer|3
+53						BONUS:PCLEVEL|Sorcerer|3
+58						BONUS:PCLEVEL|Sorcerer|3
+63						BONUS:PCLEVEL|Sorcerer|3
+68						BONUS:PCLEVEL|Sorcerer|3
+73						BONUS:PCLEVEL|Sorcerer|3
+78						BONUS:PCLEVEL|Sorcerer|3
+
+#
+# End
+#

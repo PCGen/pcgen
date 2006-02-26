@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jul  9 12:14:37 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue|SOURCESHORT:QuintRogue|SOURCEWEB:http://mongoosepublishing.com
+# Original Entry by: Tir Gwaith
+
+# Feat Name					Automaticaly Gained Weapon Prof.
+Rogue Weapon Proficiencies.MOD	AUTO:WEAPONPROF|Gauntlet (Clawed)

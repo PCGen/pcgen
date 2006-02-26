@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 14 18:03:15 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: arknight
+# Spell Level stuff in Domains.lst as well as spells.lst
+
+# Domain Name	Special Ability								Bonus to skill						Source Page				Description																		List of Domain Spells by Level
+Mind			SA:+2 on Will saves vs. Enchantment spells and effects	BONUS:SKILL|Bluff,Diplomacy,Sense Motive|2	SOURCEPAGE:PsionicSpells.rtf	DESC:+2 Bonus on Bluff, Diplomacy and Sense Motive Checks as well as +2 saves vs. enchantment spells and effects.	SPELLLEVEL:DOMAIN|Mind=1|Comprehend Languages|Mind=2|Detect Thoughts|Mind=3|Telepathic Bond (Lesser)|Mind=4|Discern Lies|Mind=5|Telepathic Bond|Mind=6|Probe Thoughts|Mind=7|Brain Spider|Mind=8|Mind Blank|Mind=9|Weird

@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+# MM templates done with link to the MM files.  -- Tir Gwaith
+
+# Template Name	CR	Visible	Level Adjustment	Source Page		Special Ability		Required AL	Removable?
+Replicant		CR:1	VISIBLE:YES	LEVELADJUSTMENT:1	SOURCEPAGE:p.	SA:Replication(Su)	PREALIGN:CE	REMOVABLE:YES
+

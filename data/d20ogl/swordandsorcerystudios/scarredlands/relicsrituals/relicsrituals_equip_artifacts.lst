@@ -1,0 +1,86 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+###Block: Relics - These have multiple powers, some are able to be done in the data file - Mynex 12/10/02
+# Equipment Name		Product Identity?	Type						Cost		Weight	Source Page		Vision			Spells							Bonus to skill
+Amulet of Ebon Dreams	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Amulet	COST:-	WT:0		SOURCEPAGE:p.202	VISION:Darkvision (60')	SPELLS:Artifact Power|TIMES=3|Dimension Door	BONUS:SKILL|Hide,Spot|10|TYPE=Circumstance
+
+###Block: Armor of flesh grants neg levels to any non evil characters
+# Equipment Name			Product Identity?	Type											Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			% of Spell Failure	Combat bonus					Stat bonus
+Armor of Flesh (Dwarven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:-	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2
+Armor of Flesh (Elven)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:-	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2
+Armor of Flesh (Halfling)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:-	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2
+Armor of Flesh (Half-Elven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:-	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Armor of Flesh (Half-Orc)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:-	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2
+
+#Armor of Graces is full plate but can be of other materials and they stack, so not mucking with it.
+Armor of Grace			NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.202-203
+
+Black Book of Belsameth		NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
+Clotstone				NAMEISPI:YES	TYPE:Magic.Artifact.Minor							COST:-	WT:0								SOURCEPAGE:p.203
+###Block: Divine Tokens
+# Equipment Name			Product Identity?	Type					Cost		Weight	Define			Source Page			ADD:DOMAIN		Virtual Feat		Spell Res.	Spells																																									Save checks bonus						Combat bonus				Bonus to skill									Stat bonus								Modify VAR							Special Ability				Class Skill
+Divine Tokens (Belsameth)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204	ADD:DOMAIN(Magic)	VFEAT:Negative Levels																																																																															BONUS:VAR|NegLevels|1|PREALIGN:0,3,6
+Divine Tokens (Chardun)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204				VFEAT:Negative Levels																																																											BONUS:SKILL|Intimidation|STR																BONUS:VAR|NegLevels|1|PREALIGN:0,3,6		SA:Smite Good %/day|Smite Good
+Divine Tokens (Corean)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204																																																				BONUS:CHECKS|Fortitude|2|PREALIGN:0,1,2,3,6																																			SA:Defensive Stance %/day|DefStance
+Divine Tokens (Drendari)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0		DEFINE:ShadowJump|0	SOURCEPAGE:p.203-204																																																																																						BONUS:VAR|ShadowJump|10*CHA				SA:Shadow Jump (% ft.)|ShadowJump	CSKILL:Hide|Move Silently
+Divine Tokens (Hedrada)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204										SPELLS:Artifact Power|TIMES=3|Discern Lies|PREDEITY:Hedrada																																															BONUS:SKILL|Appraise,Intimidate,Sense Motive|4|TYPE=Competence	BONUS:STAT|CON|4|PREDEITY:Hedrada|TYPE=Enhancement
+Divine Tokens (Madriel)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204
+Divine Tokens (Tanil)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204
+Divine Tokens (Vangal)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.203-204				VFEAT:Negative Levels																																																																															BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7
+
+Dweomer Crystal			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.204
+Fist of the Forsaken		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.204-205
+Mask of Whispers			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205
+Master's Brush			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205																																																																			BONUS:SKILL|Craft (Painting)|5
+Natural Order			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.205-206
+Roaring Wand			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206
+Robe of the Earth Mother	NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206									SR:10		SPELLS:Artifact Power|TIMES=-1|Detect Snares and Pits|Freedom of Movement|Meld into Stone|Protection from Elements|Tree Shape|Water Breathing	SPELLS:Artifact Power|TIMES=1|Call Lightning|Control Weather|Insect Plague|Sleet Storm|Transport via Plants									BONUS:COMBAT|AC|3|TYPE=Deflection
+Shard of the Forsaken		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.206-207
+Slarecian Memory Sphere		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.207
+Sunray Spear			NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.207
+Tanil's Screaming Arrow		NAMEISPI:YES	TYPE:Magic.Artifact.Minor	COST:-	WT:0						SOURCEPAGE:p.207-208
+
+###Block: Titan's Blood
+# Equipment Name			Product Identity?	Type						Cost		Weight	Source Page
+Titan's Blood (Chern)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Guarak)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Golthain)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Gormoth)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Gulaben)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Hrinruuk)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Kadum)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Lethene)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Mormo)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+Titan's Blood (Thulkas)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Liquid	COST:-	WT:0		SOURCEPAGE:p.208-209
+
+###Block: More Artifacts. Most of these are weapons, and need to be filled out.
+# Equipment Name					Product Identity?	Type					Cost		Weight	Source Page
+All-Mother's Judgement				NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.209-210
+Arator, Holy Sword of Karria			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.210
+The Autumn Blade					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.210
+The Axe of Huror					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.210-211
+The Bells of Non					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.211-212
+Belsameth's Silver Ear				NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.212
+Bloodlust						NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.212-213
+The Bone Axe of Gaurak				NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.213
+Chalice of Marvels				NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.213-214
+The Crown of Undead Spelndor			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.214
+Elkhorn Bow (The Gifts of the Stag)		NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.214-215
+Whitebone Arrows (The Gifts of the Stag)	NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.214-215
+Emporer's Quiver (The Gifts of the Stag)	NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.214-215
+The King's Rattle					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.215
+Oakskin Armor					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.216
+The Soul Forge					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.216
+The Sword Chaotic					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.216-217
+Fahenia (Fire Sword of Scarn)			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.217-218
+Izlander (Ice Sword of Scarn)			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.218
+Ertmodl (Earth Sword of Scarn)		NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.218
+Huriki (Air Sword of Scarn)			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.218
+Shargar (Shadow Sword of Scarn)		NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.218
+Mageli (Spell Sword of Scarn)			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.218-219
+Tanzil's Wondrous Chariot			NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.219
+The Tear of Mormo					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.219-220
+Wicked's Edge					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.220-221
+The Witch Cube					NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.221
+The Wretched of Vangal				NAMEISPI:YES	TYPE:Magic.Artifact.Major	COST:-	WT:0		SOURCEPAGE:p.221

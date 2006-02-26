@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sat Mar 22 20:59:34 2003 -- reformated by pretty~1.pl v1.26 (build 269)
+SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
+##Potions
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page
+Potion (Nectar of the Gods)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:pg. 21, Potions

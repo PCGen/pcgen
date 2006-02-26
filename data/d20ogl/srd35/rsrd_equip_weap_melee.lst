@@ -1,0 +1,74 @@
+# CVS $Revision: 1.43 $ $Author: eddyanthony $ -- Sun Nov 27 13:08:25 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# $Author: eddyanthony $ -- Wed Jul 23 2003
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+####Block: Simple Weapons
+#------light---------
+# Equipment Name		Output Name					Required Proficiency				Type															Alternative Type					Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Wield Category	Range		Reach		Size		BONUS:EQM																			Special Property
+Armor Spikes								PROFICIENCY:Spiked Armor			TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal.Unarmed.Accessories											COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light																												SPROP:deals extra piercing damage on a successful grapple attack
+Dagger									PROFICIENCY:Dagger				TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger								COST:2	WT:1				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light		RANGE:10			SIZE:M
+Dagger (Punching)		OUTPUTNAME:Dagger, [NAME]		PROFICIENCY:Dagger (Punching)			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Dagger												COST:2	WT:1				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light						SIZE:M
+Mace (Light)		OUTPUTNAME:Mace, Light			PROFICIENCY:Mace (Light)			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Mace												COST:5	WT:4				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+Gauntlet (Spiked)		OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:Gauntlet (Spiked)			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Unarmed.Gauntlet											COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light						SIZE:M	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
+Gauntlet (Locked)		OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:Gauntlet				TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet										COST:8	WT:5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL					WIELD:Light						SIZE:M																					SPROP:+10 vs. disarm
+
+Sickle									PROFICIENCY:Sickle				TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Slashing.Sickle											COST:6	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+#-----one handed -------
+Club										PROFICIENCY:Club					TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Bludgeoning.Club												COST:0	WT:3				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD					WIELD:OneHanded	RANGE:10			SIZE:M
+Mace (Heavy)		OUTPUTNAME:Mace, [NAME]			PROFICIENCY:Mace (Heavy)			TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.Mace														COST:12	WT:8				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Morningstar									PROFICIENCY:Morningstar				TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.Piercing.Mace													COST:8	WT:6				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Shortspear									PROFICIENCY:Shortspear				TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear												COST:1	WT:3				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD					WIELD:OneHanded	RANGE:20			SIZE:M
+#-----two handed -------
+Longspear									PROFICIENCY:Longspear				TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear												COST:5	WT:9				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD					WIELD:TwoHanded			REACH:5	SIZE:M
+Quarterstaff								PROFICIENCY:Quarterstaff			TYPE:Weapon.Melee.TwoHanded.Simple.Double.Standard.Bludgeoning.Quarterstaff			ALTTYPE:Weapon.Melee.Bludgeoning		COST:0	WT:4				CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD	ALTEQMOD:WOOD		WIELD:TwoHanded					SIZE:M
+Spear										PROFICIENCY:Spear					TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear										COST:2	WT:6				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD					WIELD:TwoHanded	RANGE:20			SIZE:M
+
+####Block: Martial Weapons
+#------light---------
+Axe (Throwing)		OUTPUTNAME:Axe, Throwing		PROFICIENCY:Axe (Throwing)			TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Martial.Standard.Slashing.Axe										COST:8	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light		RANGE:10			SIZE:M
+Hammer (Light)		OUTPUTNAME:Hammer, Light		PROFICIENCY:Hammer (Light)			TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Martial.Standard.Bludgeoning.Hammer									COST:1	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light		RANGE:20			SIZE:M
+Handaxe									PROFICIENCY:Handaxe				TYPE:Weapon.Melee.Finesseable.Martial.Standard.Slashing.Axe													COST:6	WT:3				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+Kukri										PROFICIENCY:Kukri					TYPE:Weapon.Melee.Finesseable.Martial.Standard.Slashing.Dagger												COST:8	WT:2				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light						SIZE:M
+Pick (Light)		OUTPUTNAME:Pick, Light			PROFICIENCY:Pick (Light)			TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Pick												COST:4	WT:3				CRITMULT:x4			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light						SIZE:M
+Sap										PROFICIENCY:Sap					TYPE:Weapon.Melee.Finesseable.Martial.Subdual.Standard.Bludgeoning.Sap											COST:1	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light						SIZE:M
+Spiked Armor								PROFICIENCY:Spiked Armor			TYPE:Weapon.Melee.Finesseable.Martial.Accessories.Standard.Piercing.Spiked										COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+Sword (Short)		OUTPUTNAME:Sword, Short			PROFICIENCY:Sword (Short)			TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Sword												COST:10	WT:2				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+#-----one handed -------
+Battleaxe									PROFICIENCY:Battleaxe				TYPE:Weapon.Melee.Martial.Standard.Slashing.Axe															COST:10	WT:6				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Flail				OUTPUTNAME:Flail				PROFICIENCY:Flail					TYPE:Weapon.Melee.Martial.Standard.Bludgeoning.Flail														COST:8	WT:5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Longsword									PROFICIENCY:Longsword				TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword														COST:15	WT:4				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Pick (Heavy)		OUTPUTNAME:Pick, Heavy			PROFICIENCY:Pick (Heavy)			TYPE:Weapon.Melee.Martial.Standard.Piercing.Pick														COST:8	WT:6				CRITMULT:x4			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Rapier									PROFICIENCY:Rapier				TYPE:Weapon.Melee.Martial.Finesseable.Standard.Piercing.Sword												COST:20	WT:2				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Scimitar									PROFICIENCY:Scimitar				TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword														COST:15	WT:4				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+Trident									PROFICIENCY:Trident				TYPE:Weapon.Melee.Martial.Ranged.Thrown.Standard.Piercing.Trident												COST:15	WT:4				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded	RANGE:10			SIZE:M
+Warhammer									PROFICIENCY:Warhammer				TYPE:Weapon.Melee.Martial.Standard.Bludgeoning.Hammer														COST:12	WT:5				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded					SIZE:M
+#-----two handed -------
+Falchion									PROFICIENCY:Falchion				TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword														COST:75	WT:8				CRITMULT:x2			CRITRANGE:3												DAMAGE:2d4					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Glaive									PROFICIENCY:Glaive				TYPE:Weapon.Melee.Martial.Reach.Standard.Slashing.Polearm													COST:8	WT:10				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded			REACH:5	SIZE:M
+Greataxe									PROFICIENCY:Greataxe				TYPE:Weapon.Melee.Martial.Standard.Slashing.Axe															COST:20	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d12					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Greatclub									PROFICIENCY:Greatclub				TYPE:Weapon.Melee.Martial.Standard.Bludgeoning.Club														COST:5	WT:8				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d10					EQMOD:WOOD					WIELD:TwoHanded					SIZE:M
+Flail (Heavy)		OUTPUTNAME:Flail, [NAME]		PROFICIENCY:Flail (Heavy)			TYPE:Weapon.Melee.Martial.Standard.Bludgeoning.Flail														COST:15	WT:10				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Greatsword									PROFICIENCY:Greatsword				TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword														COST:50	WT:8				CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Guisarme									PROFICIENCY:Guisarme				TYPE:Weapon.Melee.Martial.Reach.Standard.Slashing.Polearm													COST:9	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL					WIELD:TwoHanded			REACH:5	SIZE:M
+Halberd									PROFICIENCY:Halberd				TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm												COST:10	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Lance										PROFICIENCY:Lance					TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Lance													COST:10	WT:10				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD					WIELD:TwoHanded			REACH:5	SIZE:M
+Ranseur									PROFICIENCY:Ranseur				TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Polearm													COST:10	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL					WIELD:TwoHanded			REACH:5	SIZE:M
+Scythe									PROFICIENCY:Scythe				TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Scythe													COST:18	WT:10				CRITMULT:x4			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+
+####Block: Exotic Weapons
+#------light---------
+Kama										PROFICIENCY:Kama					TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Monk.Slashing.Kama												COST:2	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+Nunchaku									PROFICIENCY:Nunchaku				TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Monk.Bludgeoning.Nunchaku											COST:2	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD					WIELD:Light						SIZE:M
+Sai										PROFICIENCY:Sai					TYPE:Weapon.Melee.Finesseable.Exotic.Ranged.Thrown.Standard.Monk.Bludgeoning.Sai									COST:1	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL					WIELD:Light		RANGE:10			SIZE:M
+Siangham									PROFICIENCY:Siangham				TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Monk.Piercing.Siangham											COST:3	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL					WIELD:Light						SIZE:M
+#-----one handed -------
+Sword (Bastard)		OUTPUTNAME:Sword, Bastard		PROFICIENCY:Sword (Bastard/[Hands])		TYPE:Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword													COST:35	WT:6				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Waraxe (Dwarven)		OUTPUTNAME:Waraxe, Dwarven		PROFICIENCY:Waraxe (Dwarven/[Hands])	TYPE:Weapon.Melee.Exotic.Standard.Dwarven.Slashing.Axe													COST:30	WT:8				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded					SIZE:M
+Whip										PROFICIENCY:Whip					TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Subdual.Slashing													COST:1	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3											WIELD:OneHanded			REACH:5	SIZE:M
+#-----two handed -------
+Axe (Orc Double)		OUTPUTNAME:Axe, Orc Double		PROFICIENCY:Axe (Orc Double)			TYPE:Weapon.Melee.Exotic.Double.Standard.Orc.Slashing.Axe													COST:60	WT:15		SLOTS:2	CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL	ALTEQMOD:STEEL		WIELD:TwoHanded					SIZE:M
+Chain (Spiked)		OUTPUTNAME:Chain, Spiked		PROFICIENCY:Chain (Spiked)			TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain											COST:25	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL					WIELD:TwoHanded			REACH:5	SIZE:M
+Flail (Dire)		OUTPUTNAME:Flail, [NAME]		PROFICIENCY:Flail (Dire)			TYPE:Weapon.Melee.Exotic.Double.Standard.Bludgeoning.Flail													COST:90	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL	ALTEQMOD:STEEL		WIELD:TwoHanded					SIZE:M
+Hammer (Gnome Hooked)	OUTPUTNAME:Hammer, Gnome Hooked	PROFICIENCY:Hammer (Gnome Hooked)		TYPE:Weapon.Melee.Exotic.Double.Standard.Gnome.Bludgeoning.Hammer					ALTTYPE:Weapon.Melee.Exotic.Piercing	COST:20	WT:6		SLOTS:2	CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:x4		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d6		EQMOD:STEEL	ALTEQMOD:STEEL		WIELD:TwoHanded					SIZE:M
+Sword (Two-Bladed)	OUTPUTNAME:Sword, Two-Bladed		PROFICIENCY:Sword (Two-Bladed)		TYPE:Weapon.Melee.Exotic.Double.Standard.Slashing.Sword													COST:100	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:2			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL	ALTEQMOD:STEEL		WIELD:TwoHanded					SIZE:M
+Urgrosh (Dwarven)		OUTPUTNAME:Urgrosh, Dwarven		PROFICIENCY:Urgrosh (Dwarven)			TYPE:Weapon.Melee.Exotic.Double.Standard.Dwarven.Slashing.Axe					ALTTYPE:Weapon.Melee.Exotic.Piercing	COST:50	WT:12		SLOTS:2	CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d6		EQMOD:STEEL	ALTEQMOD:STEEL		WIELD:TwoHanded					SIZE:M

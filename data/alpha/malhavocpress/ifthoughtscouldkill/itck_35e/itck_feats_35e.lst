@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jul 27 01:11:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+
+###Block: feats
+# Feat Name			Type			Required Class				Required Feat			Description																					Source Page
+Continual Power		TYPE:Metapsionic							PREFEAT:1,TYPE=Metapsionic	DESC:You can manifest a power that repeats its effect each round while you maintain concentration.						SOURCEPAGE:p.42
+Creature Capacitor	TYPE:Psionic							PREFEAT:1,Psionic Talent	DESC:You can store part of your daily unused power points per day (equal to manifester level) in an internal crystal capacitor.	SOURCEPAGE:p.42
+Sequester Power		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Psionic Talent	DESC:You get additional power points per day for every power you sequester.										SOURCEPAGE:p.42
+Transcend Limits		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Overchannel		DESC:Increase spending limit on metapsionically enhanced powers												SOURCEPAGE:p.42
+
+###Block: hidden feats
+# Feat Name			Type			Visible	Required Class			Stackable?	Multiple?	Choose													Modify VAR						Source Page
+Power Sequestration	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Psionic|0|MAXLEVEL|[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|-1]	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40

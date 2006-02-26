@@ -1,0 +1,23 @@
+# CVS $Revision: 1.7 $ $Author: ericbeaudoin $ -- Sat Jul 13 08:19:36 2002 -- reformated by prettylst.pl v1.16 (build 169)
+CAMPAIGN:BP - Alchemy and Herbalists - Source Book
+GAMEMODE:3e
+TYPE:Bastion Press.Supplement
+RANK:9
+SOURCELONG:Bastion Press - Alchemy and Herbalists
+SOURCESHORT:AlchemyHrb
+SOURCEWEB:www.bastionpress.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Alchemy &amp Herbalists Copyright 2002, Bastion Press, Inc.
+COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Alchemy &amp Herbalists Copyright 2002-2003, PCgen Data Team including, but not limited to, Magus Knightcrawler, Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:alchemyherbalistequipwondrousitems.lst
+EQUIPMENT:alchemyherbalistequipherbs.lst
+FEAT:alchemyherbalistfeats.lst
+CLASS:alchemyherbalistclasses.lst
+SKILL:alchemyherbalistskills.lst
+SPELL:alchemyherbalistspells.lst

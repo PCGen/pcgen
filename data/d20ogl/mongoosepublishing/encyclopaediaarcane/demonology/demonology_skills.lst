@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology|SOURCESHORT:Demonology|SOURCEWEB:http://www.mongoosepublishing.com
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Knowledge (Demonology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.16

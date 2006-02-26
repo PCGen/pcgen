@@ -1,0 +1,407 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Wed Dec  7 18:59:47 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Path of Magic|SOURCESHORT:Magic|SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
+# Original Entry by: Ratheof Blithwyn
+
+
+###Block: Weapon Proficiencies
+# Feat Name					Automaticaly Gained Weapon Prof.
+Arsenalist Weapon Proficieincies	AUTO:WEAPONPROF|Crossbow (Repeating)
+
+
+###########################
+##   Legendary Abilites  ##
+###########################
+
+###Block:Generic legendary abilities
+# Feat Name				Type					Visible	Prohibited Feat					Special Ability			Stat bonus					Source Page
+Enhanced Dexterity I		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity II		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity		BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity III		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity		BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity IV		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity		BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity V		TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SA:Enhanced Dexterity		BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p52
+
+Enhanced Constitution I		TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution	BONUS:STAT|CON|1|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution II	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution	BONUS:STAT|CON|2|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution III	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution	BONUS:STAT|CON|3|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution IV	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution	BONUS:STAT|CON|4|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution V		TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SA:Enhanced Constitution	BONUS:STAT|CON|5|TYPE=Legendary	SOURCEPAGE:p46
+
+Enhanced Intelligence I		TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence	BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence II	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence	BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence III	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence	BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence IV	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence	BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence V		TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SA:Enhanced Intelligence	BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p61
+
+Enhanced Wisdom I			TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom		BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom II		TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom		BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom III		TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom		BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom IV		TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom		BONUS:STAT|WIS|4|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom V			TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SA:Enhanced Wisdom		BONUS:STAT|WIS|5|TYPE=Legendary	SOURCEPAGE:p54
+
+Enhanced Charisma I		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma		BONUS:STAT|CHA|1|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma II		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma		BONUS:STAT|CHA|2|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma III		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma		BONUS:STAT|CHA|3|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma IV		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma		BONUS:STAT|CHA|4|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma V		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SA:Enhanced Charisma		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p61
+
+
+###Block:Death Lord legendary abilities
+# Feat Name			Type								Visible		Required Class		Prohibited Feat					Special Ability		Spells						Source Page
+Undead Cohorts I		TYPE:LegendaryUndeadCohorts.DeathLordLAPL1	VISIBLE:NO		PRECLASS:1,Death Lord=1	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SA:Undead Cohorts (+1)								SOURCEPAGE:p43
+Undead Cohorts II		TYPE:LegendaryUndeadCohorts.DeathLordLAPL2	VISIBLE:NO		PRECLASS:1,Death Lord=2	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SA:Undead Cohorts (+2)								SOURCEPAGE:p43
+Undead Cohorts III	TYPE:LegendaryUndeadCohorts.DeathLordLAPL3	VISIBLE:NO		PRECLASS:1,Death Lord=3	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SA:Undead Cohorts (+3)								SOURCEPAGE:p43
+Undead Cohorts IV		TYPE:LegendaryUndeadCohorts.DeathLordLAPL4	VISIBLE:NO		PRECLASS:1,Death Lord=4	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SA:Undead Cohorts (+4)								SOURCEPAGE:p43
+Undead Cohorts V		TYPE:LegendaryUndeadCohorts.DeathLordLAPL5	VISIBLE:NO		PRECLASS:1,Death Lord=5	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SA:Undead Cohorts (+5)								SOURCEPAGE:p43
+
+Legions of the Dead I	TYPE:LegendaryLegionsDead.DeathLordLAPL1		VISIBLE:EXPORT	PRECLASS:1,Death Lord=1	!PREFEAT:1,TYPE.LegendaryLegionsDead												SOURCEPAGE:p43
+Legions of the Dead II	TYPE:LegendaryLegionsDead.DeathLordLAPL2		VISIBLE:EXPORT	PRECLASS:1,Death Lord=2	!PREFEAT:1,TYPE.LegendaryLegionsDead												SOURCEPAGE:p43
+Legions of the Dead III	TYPE:LegendaryLegionsDead.DeathLordLAPL3		VISIBLE:EXPORT	PRECLASS:1,Death Lord=3	!PREFEAT:1,TYPE.LegendaryLegionsDead												SOURCEPAGE:p43
+Legions of the Dead IV	TYPE:LegendaryLegionsDead.DeathLordLAPL4		VISIBLE:EXPORT	PRECLASS:1,Death Lord=4	!PREFEAT:1,TYPE.LegendaryLegionsDead												SOURCEPAGE:p43
+Legions of the Dead V	TYPE:LegendaryLegionsDead.DeathLordLAPL5		VISIBLE:EXPORT	PRECLASS:1,Death Lord=5	!PREFEAT:1,TYPE.LegendaryLegionsDead												SOURCEPAGE:p43
+
+Wilt Living I		TYPE:LegendaryWiltLiving.DeathLordLAPL1		VISIBLE:EXPORT	PRECLASS:1,Death Lord=1	!PREFEAT:1,TYPE.LegendaryWiltLiving													SOURCEPAGE:p44
+Wilt Living II		TYPE:LegendaryWiltLiving.DeathLordLAPL2		VISIBLE:EXPORT	PRECLASS:1,Death Lord=2	!PREFEAT:1,TYPE.LegendaryWiltLiving													SOURCEPAGE:p44
+Wilt Living III		TYPE:LegendaryWiltLiving.DeathLordLAPL3		VISIBLE:EXPORT	PRECLASS:1,Death Lord=3	!PREFEAT:1,TYPE.LegendaryWiltLiving													SOURCEPAGE:p44
+Wilt Living IV		TYPE:LegendaryWiltLiving.DeathLordLAPL4		VISIBLE:EXPORT	PRECLASS:1,Death Lord=4	!PREFEAT:1,TYPE.LegendaryWiltLiving													SOURCEPAGE:p44
+Wilt Living V		TYPE:LegendaryWiltLiving.DeathLordLAPL5		VISIBLE:EXPORT	PRECLASS:1,Death Lord=5	!PREFEAT:1,TYPE.LegendaryWiltLiving													SOURCEPAGE:p44
+
+Command Undead I		TYPE:LegendaryWiltLiving.DeathLordLAPL1		VISIBLE:EXPORT	PRECLASS:1,Death Lord=1	!PREFEAT:1,TYPE.LegendaryWiltLiving						SPELLS:Innate|TIMES=1|Dominate Monster	SOURCEPAGE:p44
+Command Undead II		TYPE:LegendaryWiltLiving.DeathLordLAPL2		VISIBLE:EXPORT	PRECLASS:1,Death Lord=2	!PREFEAT:1,TYPE.LegendaryWiltLiving						SPELLS:Innate|TIMES=2|Dominate Monster	SOURCEPAGE:p44
+Command Undead III	TYPE:LegendaryWiltLiving.DeathLordLAPL3		VISIBLE:EXPORT	PRECLASS:1,Death Lord=3	!PREFEAT:1,TYPE.LegendaryWiltLiving						SPELLS:Innate|TIMES=3|Dominate Monster	SOURCEPAGE:p44
+Command Undead IV		TYPE:LegendaryWiltLiving.DeathLordLAPL4		VISIBLE:EXPORT	PRECLASS:1,Death Lord=4	!PREFEAT:1,TYPE.LegendaryWiltLiving						SPELLS:Innate|TIMES=4|Dominate Monster	SOURCEPAGE:p44
+Command Undead V		TYPE:LegendaryWiltLiving.DeathLordLAPL5		VISIBLE:EXPORT	PRECLASS:1,Death Lord=5	!PREFEAT:1,TYPE.LegendaryWiltLiving						SPELLS:Innate|TIMES=5|Dominate Monster	SOURCEPAGE:p44
+
+Drain Undead I		TYPE:LegendaryDrainUndead.DeathLordLAPL1		VISIBLE:NO		PRECLASS:1,Death Lord=1	!PREFEAT:1,TYPE.LegendaryDrainUndead	SA:Drain Undead (1/day)								SOURCEPAGE:p44
+Drain Undead II		TYPE:LegendaryDrainUndead.DeathLordLAPL2		VISIBLE:NO		PRECLASS:1,Death Lord=2	!PREFEAT:1,TYPE.LegendaryDrainUndead	SA:Drain Undead (2/day)								SOURCEPAGE:p44
+Drain Undead III		TYPE:LegendaryDrainUndead.DeathLordLAPL3		VISIBLE:NO		PRECLASS:1,Death Lord=3	!PREFEAT:1,TYPE.LegendaryDrainUndead	SA:Drain Undead (3/day)								SOURCEPAGE:p44
+Drain Undead IV		TYPE:LegendaryDrainUndead.DeathLordLAPL4		VISIBLE:NO		PRECLASS:1,Death Lord=4	!PREFEAT:1,TYPE.LegendaryDrainUndead	SA:Drain Undead (4/day)								SOURCEPAGE:p44
+Drain Undead V		TYPE:LegendaryDrainUndead.DeathLordLAPL5		VISIBLE:NO		PRECLASS:1,Death Lord=5	!PREFEAT:1,TYPE.LegendaryDrainUndead	SA:Drain Undead (5/day)								SOURCEPAGE:p44
+
+
+###Block:Elemental Lord legendary abilities
+# Feat Name				Type									Visible	Required Class			Prohibited Feat						Special Ability						Source Page
+Master of the Elements I	TYPE:LegendaryMasterElements.ElementalLordLAPL1		VISIBLE:NO	PRECLASS:1,Elemental Lord=1	!PREFEAT:1,TYPE.LegendaryMasterElements		SA:Master of the Elements (1 energy type)		SOURCEPAGE:p46
+Master of the Elements II	TYPE:LegendaryMasterElements.ElementalLordLAPL2		VISIBLE:NO	PRECLASS:1,Elemental Lord=2	!PREFEAT:1,TYPE.LegendaryMasterElements		SA:Master of the Elements (2 energy types)	SOURCEPAGE:p46
+Master of the Elements III	TYPE:LegendaryMasterElements.ElementalLordLAPL3		VISIBLE:NO	PRECLASS:1,Elemental Lord=3	!PREFEAT:1,TYPE.LegendaryMasterElements		SA:Master of the Elements (3 energy types)	SOURCEPAGE:p46
+Master of the Elements IV	TYPE:LegendaryMasterElements.ElementalLordLAPL4		VISIBLE:NO	PRECLASS:1,Elemental Lord=4	!PREFEAT:1,TYPE.LegendaryMasterElements		SA:Master of the Elements (4 energy types)	SOURCEPAGE:p46
+Master of the Elements V	TYPE:LegendaryMasterElements.ElementalLordLAPL5		VISIBLE:NO	PRECLASS:1,Elemental Lord=5	!PREFEAT:1,TYPE.LegendaryMasterElements		SA:Master of the Elements (5 energy types)	SOURCEPAGE:p46
+# which are the energy types?? Fire Cold Electricity ??Air Earth Water???
+
+Fire in the Blood I		TYPE:LegendaryFireBlood.ElementalLordLAPL1		VISIBLE:NO	PRECLASS:1,Elemental Lord=1	!PREFEAT:1,TYPE.LegendaryFireBlood			SA:Fire in the Blood (3 spell levels/day)		SOURCEPAGE:p46
+Fire in the Blood II		TYPE:LegendaryFireBlood.ElementalLordLAPL2		VISIBLE:NO	PRECLASS:1,Elemental Lord=2	!PREFEAT:1,TYPE.LegendaryFireBlood			SA:Fire in the Blood (6 spell levels/day)		SOURCEPAGE:p46
+Fire in the Blood III		TYPE:LegendaryFireBlood.ElementalLordLAPL3		VISIBLE:NO	PRECLASS:1,Elemental Lord=3	!PREFEAT:1,TYPE.LegendaryFireBlood			SA:Fire in the Blood (9 spell levels/day)		SOURCEPAGE:p46
+Fire in the Blood IV		TYPE:LegendaryFireBlood.ElementalLordLAPL4		VISIBLE:NO	PRECLASS:1,Elemental Lord=4	!PREFEAT:1,TYPE.LegendaryFireBlood			SA:Fire in the Blood (12 spell levels/day)	SOURCEPAGE:p46
+Fire in the Blood V		TYPE:LegendaryFireBlood.ElementalLordLAPL5		VISIBLE:NO	PRECLASS:1,Elemental Lord=5	!PREFEAT:1,TYPE.LegendaryFireBlood			SA:Fire in the Blood (15 spell levels/day)	SOURCEPAGE:p46
+
+Signature Elements I		TYPE:LegendarySignatureElements.ElementalLordLAPL1	VISIBLE:NO	PRECLASS:1,Elemental Lord=1	!PREFEAT:1,TYPE.LegendarySignatureElements	SA:Signature Elements (1 spell)			SOURCEPAGE:p46
+Signature Elements II		TYPE:LegendarySignatureElements.ElementalLordLAPL2	VISIBLE:NO	PRECLASS:1,Elemental Lord=2	!PREFEAT:1,TYPE.LegendarySignatureElements	SA:Signature Elements (2 spells)			SOURCEPAGE:p46
+Signature Elements III		TYPE:LegendarySignatureElements.ElementalLordLAPL3	VISIBLE:NO	PRECLASS:1,Elemental Lord=3	!PREFEAT:1,TYPE.LegendarySignatureElements	SA:Signature Elements (3 spells)			SOURCEPAGE:p46
+Signature Elements IV		TYPE:LegendarySignatureElements.ElementalLordLAPL4	VISIBLE:NO	PRECLASS:1,Elemental Lord=4	!PREFEAT:1,TYPE.LegendarySignatureElements	SA:Signature Elements (4 spells)			SOURCEPAGE:p46
+Signature Elements V		TYPE:LegendarySignatureElements.ElementalLordLAPL5	VISIBLE:NO	PRECLASS:1,Elemental Lord=5	!PREFEAT:1,TYPE.LegendarySignatureElements	SA:Signature Elements (5 spells)			SOURCEPAGE:p46
+
+Elemental Familiar I		TYPE:LegendaryElementalFamiliar.ElementalLordLAPL1	VISIBLE:NO	PRECLASS:1,Elemental Lord=1	!PREFEAT:1,TYPE.LegendaryElementalFamiliar	SA:Elemental Familiar (2HD)				SOURCEPAGE:p46
+Elemental Familiar II		TYPE:LegendaryElementalFamiliar.ElementalLordLAPL2	VISIBLE:NO	PRECLASS:1,Elemental Lord=2	!PREFEAT:1,TYPE.LegendaryElementalFamiliar	SA:Elemental Familiar (4HD)				SOURCEPAGE:p46
+Elemental Familiar III		TYPE:LegendaryElementalFamiliar.ElementalLordLAPL3	VISIBLE:NO	PRECLASS:1,Elemental Lord=3	!PREFEAT:1,TYPE.LegendaryElementalFamiliar	SA:Elemental Familiar (6HD)				SOURCEPAGE:p46
+Elemental Familiar IV		TYPE:LegendaryElementalFamiliar.ElementalLordLAPL4	VISIBLE:NO	PRECLASS:1,Elemental Lord=4	!PREFEAT:1,TYPE.LegendaryElementalFamiliar	SA:Elemental Familiar (8HD)				SOURCEPAGE:p46
+Elemental Familiar V		TYPE:LegendaryElementalFamiliar.ElementalLordLAPL5	VISIBLE:NO	PRECLASS:1,Elemental Lord=5	!PREFEAT:1,TYPE.LegendaryElementalFamiliar	SA:Elemental Familiar (10HD)				SOURCEPAGE:p46
+
+Elemental Resistance I		TYPE:LegendaryElementalResistance.ElementalLordLAPL1	VISIBLE:NO	PRECLASS:1,Elemental Lord=1	!PREFEAT:1,TYPE.LegendaryElementalResistance	SA:Elemental Resistance (1 energy type)		SOURCEPAGE:p46
+Elemental Resistance II		TYPE:LegendaryElementalResistance.ElementalLordLAPL2	VISIBLE:NO	PRECLASS:1,Elemental Lord=2	!PREFEAT:1,TYPE.LegendaryElementalResistance	SA:Elemental Resistance (2 energy types)		SOURCEPAGE:p46
+Elemental Resistance III	TYPE:LegendaryElementalResistance.ElementalLordLAPL3	VISIBLE:NO	PRECLASS:1,Elemental Lord=3	!PREFEAT:1,TYPE.LegendaryElementalResistance	SA:Elemental Resistance (3 energy types)		SOURCEPAGE:p46
+Elemental Resistance IV		TYPE:LegendaryElementalResistance.ElementalLordLAPL4	VISIBLE:NO	PRECLASS:1,Elemental Lord=4	!PREFEAT:1,TYPE.LegendaryElementalResistance	SA:Elemental Resistance (4 energy types)		SOURCEPAGE:p46
+Elemental Resistance V		TYPE:LegendaryElementalResistance.ElementalLordLAPL5	VISIBLE:NO	PRECLASS:1,Elemental Lord=5	!PREFEAT:1,TYPE.LegendaryElementalResistance	SA:Elemental Resistance (5 energy types)		SOURCEPAGE:p46
+
+
+###Block:Infiltrator legendary abilities
+# Feat Name				Type									Visible	Required Class			Prohibited Feat						Special Ability				Spells									Bonus to skill								Source Page
+Undetectable Disguise I		TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Infiltrator=1	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SA:Undetectable Disguise		SPELLS:Innate|TIMES=1|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
+Undetectable Disguise II	TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Infiltrator=2	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SA:Undetectable Disguise		SPELLS:Innate|TIMES=2|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
+Undetectable Disguise III	TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Infiltrator=3	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SA:Undetectable Disguise		SPELLS:Innate|TIMES=3|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
+Undetectable Disguise IV	TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Infiltrator=4	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SA:Undetectable Disguise		SPELLS:Innate|TIMES=4|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
+Undetectable Disguise V		TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Infiltrator=5	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SA:Undetectable Disguise		SPELLS:Innate|TIMES=5|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
+
+Glib Tongue I			TYPE:LegendaryGlibTongue.InfiltratorLAPL1			VISIBLE:NO	PRECLASS:1,Infiltrator=1	!PREFEAT:1,TYPE.LegendaryGlibTongue			SA:Glib Tongue														BONUS:SKILL|Bluff,Diplomacy,Disguise,Gather Information|5	SOURCEPAGE:p48
+Glib Tongue II			TYPE:LegendaryGlibTongue.InfiltratorLAPL2			VISIBLE:NO	PRECLASS:1,Infiltrator=2	!PREFEAT:1,TYPE.LegendaryGlibTongue			SA:Glib Tongue														BONUS:SKILL|Bluff,Diplomacy,Disguise,Gather Information|10	SOURCEPAGE:p48
+Glib Tongue III			TYPE:LegendaryGlibTongue.InfiltratorLAPL3			VISIBLE:NO	PRECLASS:1,Infiltrator=3	!PREFEAT:1,TYPE.LegendaryGlibTongue			SA:Glib Tongue														BONUS:SKILL|Bluff,Diplomacy,Disguise,Gather Information|15	SOURCEPAGE:p48
+Glib Tongue IV			TYPE:LegendaryGlibTongue.InfiltratorLAPL4			VISIBLE:NO	PRECLASS:1,Infiltrator=4	!PREFEAT:1,TYPE.LegendaryGlibTongue			SA:Glib Tongue														BONUS:SKILL|Bluff,Diplomacy,Disguise,Gather Information|20	SOURCEPAGE:p48
+Glib Tongue V			TYPE:LegendaryGlibTongue.InfiltratorLAPL5			VISIBLE:NO	PRECLASS:1,Infiltrator=5	!PREFEAT:1,TYPE.LegendaryGlibTongue			SA:Glib Tongue														BONUS:SKILL|Bluff,Diplomacy,Disguise,Gather Information|25	SOURCEPAGE:p48
+
+Contacts I				TYPE:LegendaryContacts.InfiltratorLAPL1			VISIBLE:NO	PRECLASS:1,Infiltrator=1	!PREFEAT:1,TYPE.LegendaryContacts			SA:Contacts (1/week)																							SOURCEPAGE:p48
+Contacts II				TYPE:LegendaryContacts.InfiltratorLAPL2			VISIBLE:NO	PRECLASS:1,Infiltrator=2	!PREFEAT:1,TYPE.LegendaryContacts			SA:Contacts (2/week)																							SOURCEPAGE:p48
+Contacts III			TYPE:LegendaryContacts.InfiltratorLAPL3			VISIBLE:NO	PRECLASS:1,Infiltrator=3	!PREFEAT:1,TYPE.LegendaryContacts			SA:Contacts (3/week)																							SOURCEPAGE:p48
+Contacts IV				TYPE:LegendaryContacts.InfiltratorLAPL4			VISIBLE:NO	PRECLASS:1,Infiltrator=4	!PREFEAT:1,TYPE.LegendaryContacts			SA:Contacts (4/week)																							SOURCEPAGE:p48
+Contacts V				TYPE:LegendaryContacts.InfiltratorLAPL5			VISIBLE:NO	PRECLASS:1,Infiltrator=5	!PREFEAT:1,TYPE.LegendaryContacts			SA:Contacts (5/week)																							SOURCEPAGE:p48
+
+Quick Search I			TYPE:LegendaryQuickSearch.InfiltratorLAPL1		VISIBLE:NO	PRECLASS:1,Infiltrator=1	!PREFEAT:1,TYPE.LegendaryQuickSearch		SA:Quick Search (10 feet radius)																					SOURCEPAGE:p48
+Quick Search II			TYPE:LegendaryQuickSearch.InfiltratorLAPL2		VISIBLE:NO	PRECLASS:1,Infiltrator=2	!PREFEAT:1,TYPE.LegendaryQuickSearch		SA:Quick Search (20 feet radius)																					SOURCEPAGE:p48
+Quick Search III			TYPE:LegendaryQuickSearch.InfiltratorLAPL3		VISIBLE:NO	PRECLASS:1,Infiltrator=3	!PREFEAT:1,TYPE.LegendaryQuickSearch		SA:Quick Search (30 feet radius)																					SOURCEPAGE:p48
+Quick Search IV			TYPE:LegendaryQuickSearch.InfiltratorLAPL4		VISIBLE:NO	PRECLASS:1,Infiltrator=4	!PREFEAT:1,TYPE.LegendaryQuickSearch		SA:Quick Search (40 feet radius)																					SOURCEPAGE:p48
+Quick Search V			TYPE:LegendaryQuickSearch.InfiltratorLAPL5		VISIBLE:NO	PRECLASS:1,Infiltrator=5	!PREFEAT:1,TYPE.LegendaryQuickSearch		SA:Quick Search (50 feet radius)																					SOURCEPAGE:p48
+
+Whispers and Lies I		TYPE:LegendaryWhispersLies.InfiltratorLAPL1		VISIBLE:NO	PRECLASS:1,Infiltrator=1	!PREFEAT:1,TYPE.LegendaryWhispersLies		SA:Whispers and Lies (1/day)																						SOURCEPAGE:p48
+Whispers and Lies II		TYPE:LegendaryWhispersLies.InfiltratorLAPL2		VISIBLE:NO	PRECLASS:1,Infiltrator=2	!PREFEAT:1,TYPE.LegendaryWhispersLies		SA:Whispers and Lies (2/day)																						SOURCEPAGE:p48
+Whispers and Lies III		TYPE:LegendaryWhispersLies.InfiltratorLAPL3		VISIBLE:NO	PRECLASS:1,Infiltrator=3	!PREFEAT:1,TYPE.LegendaryWhispersLies		SA:Whispers and Lies (3/day)																						SOURCEPAGE:p48
+Whispers and Lies IV		TYPE:LegendaryWhispersLies.InfiltratorLAPL4		VISIBLE:NO	PRECLASS:1,Infiltrator=4	!PREFEAT:1,TYPE.LegendaryWhispersLies		SA:Whispers and Lies (4/day)																						SOURCEPAGE:p48
+Whispers and Lies V		TYPE:LegendaryWhispersLies.InfiltratorLAPL5		VISIBLE:NO	PRECLASS:1,Infiltrator=5	!PREFEAT:1,TYPE.LegendaryWhispersLies		SA:Whispers and Lies (5/day)																						SOURCEPAGE:p48
+
+
+
+###Block:Landwalker legendary abilities
+# Feat Name				Type								Visible	Required Class		Prohibited Feat					Special Ability							Define				Spells							Choose a Feat				Modify VAR				Source Page
+Dire Familiar I			TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (3HD)																														SOURCEPAGE:p50
+Dire Familiar II			TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (6HD)																														SOURCEPAGE:p50
+Dire Familiar III			TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (9HD)																														SOURCEPAGE:p50
+Dire Familiar IV			TYPE:LegendaryDireFamiliar.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (12HD)																														SOURCEPAGE:p50
+Dire Familiar V			TYPE:LegendaryDireFamiliar.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SA:Dire Familiar (15HD)																														SOURCEPAGE:p50
+
+Healing Earth I			TYPE:LegendaryHealingEarth.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (1/day)																													SOURCEPAGE:p50
+Healing Earth II			TYPE:LegendaryHealingEarth.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (2/day)																													SOURCEPAGE:p50
+Healing Earth III			TYPE:LegendaryHealingEarth.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (3/day)																													SOURCEPAGE:p50
+Healing Earth IV			TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (4/day)																													SOURCEPAGE:p50
+Healing Earth V			TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SA:Healing Earth (5/day)																													SOURCEPAGE:p50
+
+Nature's Song I			TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (1/day)																		ADD:FEAT(TYPE=NatureSongSpell)						SOURCEPAGE:p50
+Nature's Song II			TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (2/day)																		ADD:FEAT(TYPE=NatureSongSpell)2						SOURCEPAGE:p50
+Nature's Song III			TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (3/day)																		ADD:FEAT(TYPE=NatureSongSpell)3						SOURCEPAGE:p50
+Nature's Song IV			TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (4/day)																		ADD:FEAT(TYPE=NatureSongSpell)4						SOURCEPAGE:p50
+Nature's Song V			TYPE:LegendaryNatureSong.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryNatureSong		SA:Nature's Song (5/day)																		ADD:FEAT(TYPE=NatureSongSpell)5						SOURCEPAGE:p50
+
+Friends All Around I		TYPE:LegendaryFriendsAround.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|1	SOURCEPAGE:p50
+Friends All Around II		TYPE:LegendaryFriendsAround.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|2	SOURCEPAGE:p50
+Friends All Around III		TYPE:LegendaryFriendsAround.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|3	SOURCEPAGE:p50
+Friends All Around IV		TYPE:LegendaryFriendsAround.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|4	SOURCEPAGE:p50
+Friends All Around V		TYPE:LegendaryFriendsAround.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryFriendsAround	SA:Friends All Around																			ADD:FEAT(TYPE=TurnPlantsAnimals)	BONUS:VAR|TurnPlantsAnimals|5	SOURCEPAGE:p50
+
+The Power of the Land I		TYPE:LegendaryPowerLand.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (2 spell levels/day)																										SOURCEPAGE:p50
+The Power of the Land II	TYPE:LegendaryPowerLand.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (4 spell levels/day)																										SOURCEPAGE:p50
+The Power of the Land III	TYPE:LegendaryPowerLand.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (6 spell levels/day)																										SOURCEPAGE:p50
+The Power of the Land IV	TYPE:LegendaryPowerLand.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (8 spell levels/day)																										SOURCEPAGE:p50
+The Power of the Land V		TYPE:LegendaryPowerLand.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryPowerLand		SA:The Power of the Land (10 spell levels/day)																										SOURCEPAGE:p50
+
+
+
+Nature's Song Animal Growth	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Nature's Song|TIMES=1|Animal Growth
+Nature's Song Control Plants	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Nature's Song|TIMES=1|Control Plants
+Nature's Song Control Winds	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Nature's Song|TIMES=1|Control Winds
+Nature's Song Diminish Plants	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Nature's Song|TIMES=1|Diminish Plants
+Nature's Song Move Earth	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Nature's Song|TIMES=1|Move Earth
+#Should be castable 1/day per power level but I mention that in the SA instead...
+
+Turn Plants and Animals		TYPE:TurnPlantsAnimals					VISIBLE:NO												SA:Turn Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																				SOURCEPAGE:p50
+Rebuke Plants and Animals	TYPE:TurnPlantsAnimals					VISIBLE:NO												SA:Rebuke Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																				SOURCEPAGE:p50
+
+###Block:Maestro legendary abilities
+# Feat Name				Type								Visible	Required Class		Prohibited Feat						Special Ability			Bonus to skill					Source Page
+Influence Reaction I		TYPE:LegendaryInfluenceReaction.MaestroLAPL1	VISIBLE:NO	PRECLASS:1,Maestro=1	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SA:Influence Reaction (1/day)								SOURCEPAGE:p52
+Influence Reaction II		TYPE:LegendaryInfluenceReaction.MaestroLAPL2	VISIBLE:NO	PRECLASS:1,Maestro=2	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SA:Influence Reaction (2/day)								SOURCEPAGE:p52
+Influence Reaction III		TYPE:LegendaryInfluenceReaction.MaestroLAPL3	VISIBLE:NO	PRECLASS:1,Maestro=3	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SA:Influence Reaction (3/day)								SOURCEPAGE:p52
+Influence Reaction IV		TYPE:LegendaryInfluenceReaction.MaestroLAPL4	VISIBLE:NO	PRECLASS:1,Maestro=4	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SA:Influence Reaction (4/day)								SOURCEPAGE:p52
+Influence Reaction V		TYPE:LegendaryInfluenceReaction.MaestroLAPL5	VISIBLE:NO	PRECLASS:1,Maestro=5	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SA:Influence Reaction (5/day)								SOURCEPAGE:p52
+
+Coordinate Action I		TYPE:LegendaryCoordinateAction.MaestroLAPL1	VISIBLE:NO	PRECLASS:1,Maestro=1	!PREFEAT:1,TYPE.LegendaryCoordinateAction		SA:Coordinate Action (1/day)								SOURCEPAGE:p52
+Coordinate Action II		TYPE:LegendaryCoordinateAction.MaestroLAPL2	VISIBLE:NO	PRECLASS:1,Maestro=2	!PREFEAT:1,TYPE.LegendaryCoordinateAction		SA:Coordinate Action (2/day)								SOURCEPAGE:p52
+Coordinate Action III		TYPE:LegendaryCoordinateAction.MaestroLAPL3	VISIBLE:NO	PRECLASS:1,Maestro=3	!PREFEAT:1,TYPE.LegendaryCoordinateAction		SA:Coordinate Action (3/day)								SOURCEPAGE:p52
+Coordinate Action IV		TYPE:LegendaryCoordinateAction.MaestroLAPL4	VISIBLE:NO	PRECLASS:1,Maestro=4	!PREFEAT:1,TYPE.LegendaryCoordinateAction		SA:Coordinate Action (4/day)								SOURCEPAGE:p52
+Coordinate Action V		TYPE:LegendaryCoordinateAction.MaestroLAPL5	VISIBLE:NO	PRECLASS:1,Maestro=5	!PREFEAT:1,TYPE.LegendaryCoordinateAction		SA:Coordinate Action (5/day)								SOURCEPAGE:p52
+
+Natural Leader I			TYPE:LegendaryNaturalLeader.MaestroLAPL1		VISIBLE:NO	PRECLASS:1,Maestro=1	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader (+1)									SOURCEPAGE:p52
+Natural Leader II			TYPE:LegendaryNaturalLeader.MaestroLAPL2		VISIBLE:NO	PRECLASS:1,Maestro=2	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader (+2)									SOURCEPAGE:p52
+Natural Leader III		TYPE:LegendaryNaturalLeader.MaestroLAPL3		VISIBLE:NO	PRECLASS:1,Maestro=3	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader (+3)									SOURCEPAGE:p52
+Natural Leader IV			TYPE:LegendaryNaturalLeader.MaestroLAPL4		VISIBLE:NO	PRECLASS:1,Maestro=4	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader (+4)									SOURCEPAGE:p52
+Natural Leader V			TYPE:LegendaryNaturalLeader.MaestroLAPL5		VISIBLE:NO	PRECLASS:1,Maestro=5	!PREFEAT:1,TYPE.LegendaryNaturalLeader		SA:Natural Leader (+5)									SOURCEPAGE:p52
+
+Conduct Combat I			TYPE:LegendaryConductCombat.MaestroLAPL1		VISIBLE:NO	PRECLASS:1,Maestro=1	!PREFEAT:1,TYPE.LegendaryConductCombat		SA:Conduct Combat (1/day)								SOURCEPAGE:p52
+Conduct Combat II			TYPE:LegendaryConductCombat.MaestroLAPL2		VISIBLE:NO	PRECLASS:1,Maestro=2	!PREFEAT:1,TYPE.LegendaryConductCombat		SA:Conduct Combat (2/day)								SOURCEPAGE:p52
+Conduct Combat III		TYPE:LegendaryConductCombat.MaestroLAPL3		VISIBLE:NO	PRECLASS:1,Maestro=3	!PREFEAT:1,TYPE.LegendaryConductCombat		SA:Conduct Combat (3/day)								SOURCEPAGE:p52
+Conduct Combat IV			TYPE:LegendaryConductCombat.MaestroLAPL4		VISIBLE:NO	PRECLASS:1,Maestro=4	!PREFEAT:1,TYPE.LegendaryConductCombat		SA:Conduct Combat (4/day)								SOURCEPAGE:p52
+Conduct Combat V			TYPE:LegendaryConductCombat.MaestroLAPL5		VISIBLE:NO	PRECLASS:1,Maestro=5	!PREFEAT:1,TYPE.LegendaryConductCombat		SA:Conduct Combat (5/day)								SOURCEPAGE:p52
+
+Legendary Reputation I		TYPE:LegendaryReputation.MaestroLAPL1		VISIBLE:NO	PRECLASS:1,Maestro=1	!PREFEAT:1,TYPE.LegendaryReputation			SA:Legendary Reputation		BONUS:SKILL|Bluff,Diplomacy,Perform|5	SOURCEPAGE:p52
+Legendary Reputation II		TYPE:LegendaryReputation.MaestroLAPL2		VISIBLE:NO	PRECLASS:1,Maestro=2	!PREFEAT:1,TYPE.LegendaryReputation			SA:Legendary Reputation		BONUS:SKILL|Bluff,Diplomacy,Perform|10	SOURCEPAGE:p52
+Legendary Reputation III	TYPE:LegendaryReputation.MaestroLAPL3		VISIBLE:NO	PRECLASS:1,Maestro=3	!PREFEAT:1,TYPE.LegendaryReputation			SA:Legendary Reputation		BONUS:SKILL|Bluff,Diplomacy,Perform|15	SOURCEPAGE:p52
+Legendary Reputation IV		TYPE:LegendaryReputation.MaestroLAPL4		VISIBLE:NO	PRECLASS:1,Maestro=4	!PREFEAT:1,TYPE.LegendaryReputation			SA:Legendary Reputation		BONUS:SKILL|Bluff,Diplomacy,Perform|20	SOURCEPAGE:p52
+Legendary Reputation V		TYPE:LegendaryReputation.MaestroLAPL5		VISIBLE:NO	PRECLASS:1,Maestro=5	!PREFEAT:1,TYPE.LegendaryReputation			SA:Legendary Reputation		BONUS:SKILL|Bluff,Diplomacy,Perform|25	SOURCEPAGE:p52
+
+
+###Block:Oracle legendary abilities
+# Feat Name				Type								Visible	Required Class		Prohibited Feat						Special Ability				Spells									Combat bonus				Bonus to skill		Source Page
+Precognition I			TYPE:LegendaryPrecognition.OracleLAPL1		VISIBLE:NO	PRECLASS:1,Oracle=1	!PREFEAT:1,TYPE.LegendaryPrecognition		SA:Precognition (+10min +2pct.)	SPELLS:Innate|TIMES=-1|Augury																SOURCEPAGE:p54
+Precognition II			TYPE:LegendaryPrecognition.OracleLAPL2		VISIBLE:NO	PRECLASS:1,Oracle=2	!PREFEAT:1,TYPE.LegendaryPrecognition		SA:Precognition (+20min +4pct.)	SPELLS:Innate|TIMES=-1|Augury																SOURCEPAGE:p54
+Precognition III			TYPE:LegendaryPrecognition.OracleLAPL3		VISIBLE:NO	PRECLASS:1,Oracle=3	!PREFEAT:1,TYPE.LegendaryPrecognition		SA:Precognition (+30min +6pct.)	SPELLS:Innate|TIMES=-1|Augury																SOURCEPAGE:p54
+Precognition IV			TYPE:LegendaryPrecognition.OracleLAPL4		VISIBLE:NO	PRECLASS:1,Oracle=4	!PREFEAT:1,TYPE.LegendaryPrecognition		SA:Precognition (+40min +8pct.)	SPELLS:Innate|TIMES=-1|Augury																SOURCEPAGE:p54
+Precognition V			TYPE:LegendaryPrecognition.OracleLAPL5		VISIBLE:NO	PRECLASS:1,Oracle=5	!PREFEAT:1,TYPE.LegendaryPrecognition		SA:Precognition (+50min +10pct.)	SPELLS:Innate|TIMES=-1|Augury																SOURCEPAGE:p54
+
+Soul Searching I			TYPE:LegendarySoulSearching.OracleLAPL1		VISIBLE:NO	PRECLASS:1,Oracle=1	!PREFEAT:1,TYPE.LegendarySoulSearching		SA:Soul Searching (1/day)																						SOURCEPAGE:p54
+Soul Searching II			TYPE:LegendarySoulSearching.OracleLAPL2		VISIBLE:NO	PRECLASS:1,Oracle=2	!PREFEAT:1,TYPE.LegendarySoulSearching		SA:Soul Searching (2/day)																						SOURCEPAGE:p54
+Soul Searching III		TYPE:LegendarySoulSearching.OracleLAPL3		VISIBLE:NO	PRECLASS:1,Oracle=3	!PREFEAT:1,TYPE.LegendarySoulSearching		SA:Soul Searching (3/day)																						SOURCEPAGE:p54
+Soul Searching IV			TYPE:LegendarySoulSearching.OracleLAPL4		VISIBLE:NO	PRECLASS:1,Oracle=4	!PREFEAT:1,TYPE.LegendarySoulSearching		SA:Soul Searching (4/day)																						SOURCEPAGE:p54
+Soul Searching V			TYPE:LegendarySoulSearching.OracleLAPL5		VISIBLE:NO	PRECLASS:1,Oracle=5	!PREFEAT:1,TYPE.LegendarySoulSearching		SA:Soul Searching (5/day)																						SOURCEPAGE:p54
+
+Perfect Communication I		TYPE:LegendaryPerfectCommunication.OracleLAPL1	VISIBLE:NO	PRECLASS:1,Oracle=1	!PREFEAT:1,TYPE.LegendaryPerfectCommunication	SA:Perfect Communication (1/day)																					SOURCEPAGE:p54
+Perfect Communication II	TYPE:LegendaryPerfectCommunication.OracleLAPL2	VISIBLE:NO	PRECLASS:1,Oracle=2	!PREFEAT:1,TYPE.LegendaryPerfectCommunication	SA:Perfect Communication (2/day)																					SOURCEPAGE:p54
+Perfect Communication III	TYPE:LegendaryPerfectCommunication.OracleLAPL3	VISIBLE:NO	PRECLASS:1,Oracle=3	!PREFEAT:1,TYPE.LegendaryPerfectCommunication	SA:Perfect Communication (3/day)																					SOURCEPAGE:p54
+Perfect Communication IV	TYPE:LegendaryPerfectCommunication.OracleLAPL4	VISIBLE:NO	PRECLASS:1,Oracle=4	!PREFEAT:1,TYPE.LegendaryPerfectCommunication	SA:Perfect Communication (4/day)																					SOURCEPAGE:p54
+Perfect Communication V		TYPE:LegendaryPerfectCommunication.OracleLAPL5	VISIBLE:NO	PRECLASS:1,Oracle=5	!PREFEAT:1,TYPE.LegendaryPerfectCommunication	SA:Perfect Communication (5/day)																					SOURCEPAGE:p54
+
+Combat Prescience I		TYPE:LegendaryCombatPrescience.OracleLAPL1	VISIBLE:NO	PRECLASS:1,Oracle=1	!PREFEAT:1,TYPE.LegendaryCombatPrescience		SA:Combat Prescience													BONUS:COMBAT|AC|1|TYPE=Legendary					SOURCEPAGE:p54
+Combat Prescience II		TYPE:LegendaryCombatPrescience.OracleLAPL2	VISIBLE:NO	PRECLASS:1,Oracle=2	!PREFEAT:1,TYPE.LegendaryCombatPrescience		SA:Combat Prescience													BONUS:COMBAT|AC|2|TYPE=Legendary					SOURCEPAGE:p54
+Combat Prescience III		TYPE:LegendaryCombatPrescience.OracleLAPL3	VISIBLE:NO	PRECLASS:1,Oracle=3	!PREFEAT:1,TYPE.LegendaryCombatPrescience		SA:Combat Prescience													BONUS:COMBAT|AC|3|TYPE=Legendary					SOURCEPAGE:p54
+Combat Prescience IV		TYPE:LegendaryCombatPrescience.OracleLAPL4	VISIBLE:NO	PRECLASS:1,Oracle=4	!PREFEAT:1,TYPE.LegendaryCombatPrescience		SA:Combat Prescience													BONUS:COMBAT|AC|4|TYPE=Legendary					SOURCEPAGE:p54
+Combat Prescience V		TYPE:LegendaryCombatPrescience.OracleLAPL5	VISIBLE:NO	PRECLASS:1,Oracle=5	!PREFEAT:1,TYPE.LegendaryCombatPrescience		SA:Combat Prescience													BONUS:COMBAT|AC|5|TYPE=Legendary					SOURCEPAGE:p54
+
+Visions I				TYPE:LegendaryVisions.OracleLAPL1			VISIBLE:NO	PRECLASS:1,Oracle=1	!PREFEAT:1,TYPE.LegendaryVisions			SA:Visions					SPELLS:Innate|TIMES=1|Clairaudience/Clairvoyance|Scrying							BONUS:SKILL|Scry|5	SOURCEPAGE:p54
+Visions II				TYPE:LegendaryVisions.OracleLAPL2			VISIBLE:NO	PRECLASS:1,Oracle=2	!PREFEAT:1,TYPE.LegendaryVisions			SA:Visions					SPELLS:Innate|TIMES=2|Clairaudience/Clairvoyance|Scrying							BONUS:SKILL|Scry|10	SOURCEPAGE:p54
+Visions III				TYPE:LegendaryVisions.OracleLAPL3			VISIBLE:NO	PRECLASS:1,Oracle=3	!PREFEAT:1,TYPE.LegendaryVisions			SA:Visions					SPELLS:Innate|TIMES=3|Clairaudience/Clairvoyance|Scrying							BONUS:SKILL|Scry|15	SOURCEPAGE:p54
+Visions IV				TYPE:LegendaryVisions.OracleLAPL4			VISIBLE:NO	PRECLASS:1,Oracle=4	!PREFEAT:1,TYPE.LegendaryVisions			SA:Visions					SPELLS:Innate|TIMES=4|Clairaudience/Clairvoyance|Scrying							BONUS:SKILL|Scry|20	SOURCEPAGE:p54
+Visions V				TYPE:LegendaryVisions.OracleLAPL5			VISIBLE:NO	PRECLASS:1,Oracle=5	!PREFEAT:1,TYPE.LegendaryVisions			SA:Visions					SPELLS:Innate|TIMES=5|Clairaudience/Clairvoyance|Scrying							BONUS:SKILL|Scry|25	SOURCEPAGE:p54
+
+
+
+###Block:Puppetmaster legendary abilities
+# Feat Name				Type									Visible	Required Class			Prohibited Feat						Special Ability					Source Page
+Construct Companions I		TYPE:LegendaryConstructCompanions.PuppetmasterLAPL1	VISIBLE:NO	PRECLASS:1,Puppetmaster=1	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SA:Construct Companions (1 object 2HD)	SOURCEPAGE:p55
+Construct Companions II		TYPE:LegendaryConstructCompanions.PuppetmasterLAPL2	VISIBLE:NO	PRECLASS:1,Puppetmaster=2	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SA:Construct Companions (2 objects 4HD)	SOURCEPAGE:p55
+Construct Companions III	TYPE:LegendaryConstructCompanions.PuppetmasterLAPL3	VISIBLE:NO	PRECLASS:1,Puppetmaster=3	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SA:Construct Companions (3 objects 6HD)	SOURCEPAGE:p55
+Construct Companions IV		TYPE:LegendaryConstructCompanions.PuppetmasterLAPL4	VISIBLE:NO	PRECLASS:1,Puppetmaster=4	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SA:Construct Companions (4 objects 8HD)	SOURCEPAGE:p55
+Construct Companions V		TYPE:LegendaryConstructCompanions.PuppetmasterLAPL5	VISIBLE:NO	PRECLASS:1,Puppetmaster=5	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SA:Construct Companions (5 objects 10HD)	SOURCEPAGE:p55
+
+Master of the Craft I		TYPE:LegendaryMasterCraft.PuppetmasterLAPL1		VISIBLE:NO	PRECLASS:1,Puppetmaster=1	!PREFEAT:1,TYPE.LegendaryMasterCraft		SA:Master of the Craft (10 pct.)		SOURCEPAGE:p56
+Master of the Craft II		TYPE:LegendaryMasterCraft.PuppetmasterLAPL2		VISIBLE:NO	PRECLASS:1,Puppetmaster=2	!PREFEAT:1,TYPE.LegendaryMasterCraft		SA:Master of the Craft (20 pct.)		SOURCEPAGE:p56
+Master of the Craft III		TYPE:LegendaryMasterCraft.PuppetmasterLAPL3		VISIBLE:NO	PRECLASS:1,Puppetmaster=3	!PREFEAT:1,TYPE.LegendaryMasterCraft		SA:Master of the Craft (30 pct.)		SOURCEPAGE:p56
+Master of the Craft IV		TYPE:LegendaryMasterCraft.PuppetmasterLAPL4		VISIBLE:NO	PRECLASS:1,Puppetmaster=4	!PREFEAT:1,TYPE.LegendaryMasterCraft		SA:Master of the Craft (40 pct.)		SOURCEPAGE:p56
+Master of the Craft V		TYPE:LegendaryMasterCraft.PuppetmasterLAPL5		VISIBLE:NO	PRECLASS:1,Puppetmaster=5	!PREFEAT:1,TYPE.LegendaryMasterCraft		SA:Master of the Craft (50 pct.)		SOURCEPAGE:p56
+
+Wrest Control I			TYPE:LegendaryWrestControl.PuppetmasterLAPL1		VISIBLE:NO	PRECLASS:1,Puppetmaster=1	!PREFEAT:1,TYPE.LegendaryWrestControl		SA:Wrest Control (1/day)			SOURCEPAGE:p56
+Wrest Control II			TYPE:LegendaryWrestControl.PuppetmasterLAPL2		VISIBLE:NO	PRECLASS:1,Puppetmaster=2	!PREFEAT:1,TYPE.LegendaryWrestControl		SA:Wrest Control (2/day)			SOURCEPAGE:p56
+Wrest Control III			TYPE:LegendaryWrestControl.PuppetmasterLAPL3		VISIBLE:NO	PRECLASS:1,Puppetmaster=3	!PREFEAT:1,TYPE.LegendaryWrestControl		SA:Wrest Control (3/day)			SOURCEPAGE:p56
+Wrest Control IV			TYPE:LegendaryWrestControl.PuppetmasterLAPL4		VISIBLE:NO	PRECLASS:1,Puppetmaster=4	!PREFEAT:1,TYPE.LegendaryWrestControl		SA:Wrest Control (4/day)			SOURCEPAGE:p56
+Wrest Control V			TYPE:LegendaryWrestControl.PuppetmasterLAPL5		VISIBLE:NO	PRECLASS:1,Puppetmaster=5	!PREFEAT:1,TYPE.LegendaryWrestControl		SA:Wrest Control (5/day)			SOURCEPAGE:p56
+
+Pull the Strings I		TYPE:LegendaryPullStrings.PuppetmasterLAPL1		VISIBLE:NO	PRECLASS:1,Puppetmaster=1	!PREFEAT:1,TYPE.LegendaryPullStrings		SA:Pull the Strings (1/day)			SOURCEPAGE:p56
+Pull the Strings II		TYPE:LegendaryPullStrings.PuppetmasterLAPL2		VISIBLE:NO	PRECLASS:1,Puppetmaster=2	!PREFEAT:1,TYPE.LegendaryPullStrings		SA:Pull the Strings (2/day)			SOURCEPAGE:p56
+Pull the Strings III		TYPE:LegendaryPullStrings.PuppetmasterLAPL3		VISIBLE:NO	PRECLASS:1,Puppetmaster=3	!PREFEAT:1,TYPE.LegendaryPullStrings		SA:Pull the Strings (3/day)			SOURCEPAGE:p56
+Pull the Strings IV		TYPE:LegendaryPullStrings.PuppetmasterLAPL4		VISIBLE:NO	PRECLASS:1,Puppetmaster=4	!PREFEAT:1,TYPE.LegendaryPullStrings		SA:Pull the Strings (4/day)			SOURCEPAGE:p56
+Pull the Strings V		TYPE:LegendaryPullStrings.PuppetmasterLAPL5		VISIBLE:NO	PRECLASS:1,Puppetmaster=5	!PREFEAT:1,TYPE.LegendaryPullStrings		SA:Pull the Strings (5/day)			SOURCEPAGE:p56
+
+Convincing Oration I		TYPE:LegendaryConvincingOration.PuppetmasterLAPL1	VISIBLE:NO	PRECLASS:1,Puppetmaster=1	!PREFEAT:1,TYPE.LegendaryConvincingOration	SA:Convincing Oration (+1)			SOURCEPAGE:p56
+Convincing Oration II		TYPE:LegendaryConvincingOration.PuppetmasterLAPL2	VISIBLE:NO	PRECLASS:1,Puppetmaster=2	!PREFEAT:1,TYPE.LegendaryConvincingOration	SA:Convincing Oration (+2)			SOURCEPAGE:p56
+Convincing Oration III		TYPE:LegendaryConvincingOration.PuppetmasterLAPL3	VISIBLE:NO	PRECLASS:1,Puppetmaster=3	!PREFEAT:1,TYPE.LegendaryConvincingOration	SA:Convincing Oration (+3)			SOURCEPAGE:p56
+Convincing Oration IV		TYPE:LegendaryConvincingOration.PuppetmasterLAPL4	VISIBLE:NO	PRECLASS:1,Puppetmaster=4	!PREFEAT:1,TYPE.LegendaryConvincingOration	SA:Convincing Oration (+4)			SOURCEPAGE:p56
+Convincing Oration V		TYPE:LegendaryConvincingOration.PuppetmasterLAPL5	VISIBLE:NO	PRECLASS:1,Puppetmaster=5	!PREFEAT:1,TYPE.LegendaryConvincingOration	SA:Convincing Oration (+5)			SOURCEPAGE:p56
+
+
+
+###Block:Puzzlemaster legendary abilities
+# Feat Name				Type									Visible	Required Class			Prohibited Feat						Special Ability				Spells				Bonus to skill									Source Page
+Unsolvable Riddle I		TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL1	VISIBLE:NO	PRECLASS:1,Puzzlemaster=1	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SA:Unsolvable Riddle (1/day)																		SOURCEPAGE:p57
+Unsolvable Riddle II		TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL2	VISIBLE:NO	PRECLASS:1,Puzzlemaster=2	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SA:Unsolvable Riddle (2/day)																		SOURCEPAGE:p57
+Unsolvable Riddle III		TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL3	VISIBLE:NO	PRECLASS:1,Puzzlemaster=3	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SA:Unsolvable Riddle (3/day)																		SOURCEPAGE:p57
+Unsolvable Riddle IV		TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL4	VISIBLE:NO	PRECLASS:1,Puzzlemaster=4	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SA:Unsolvable Riddle (4/day)																		SOURCEPAGE:p57
+Unsolvable Riddle V		TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL5	VISIBLE:NO	PRECLASS:1,Puzzlemaster=5	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SA:Unsolvable Riddle (5/day)																		SOURCEPAGE:p57
+
+Unraveling Mysteries I		TYPE:LegendaryMundaneArts.PuzzlemasterLAPL1		VISIBLE:NO	PRECLASS:1,Puzzlemaster=1	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Unraveling Mysteries								BONUS:SKILL|Decipher Script,Disable Device,Use Magic Device|5	SOURCEPAGE:p58
+Unraveling Mysteries II		TYPE:LegendaryMundaneArts.PuzzlemasterLAPL2		VISIBLE:NO	PRECLASS:1,Puzzlemaster=2	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Unraveling Mysteries								BONUS:SKILL|Decipher Script,Disable Device,Use Magic Device|10	SOURCEPAGE:p58
+Unraveling Mysteries III	TYPE:LegendaryMundaneArts.PuzzlemasterLAPL3		VISIBLE:NO	PRECLASS:1,Puzzlemaster=3	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Unraveling Mysteries								BONUS:SKILL|Decipher Script,Disable Device,Use Magic Device|15	SOURCEPAGE:p58
+Unraveling Mysteries IV		TYPE:LegendaryMundaneArts.PuzzlemasterLAPL4		VISIBLE:NO	PRECLASS:1,Puzzlemaster=4	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Unraveling Mysteries								BONUS:SKILL|Decipher Script,Disable Device,Use Magic Device|20	SOURCEPAGE:p58
+Unraveling Mysteries V		TYPE:LegendaryMundaneArts.PuzzlemasterLAPL5		VISIBLE:NO	PRECLASS:1,Puzzlemaster=5	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Unraveling Mysteries								BONUS:SKILL|Decipher Script,Disable Device,Use Magic Device|25	SOURCEPAGE:p58
+
+Logical Deduction I		TYPE:LegendaryLogicalDeduction.PuzzlemasterLAPL1	VISIBLE:NO	PRECLASS:1,Puzzlemaster=1	!PREFEAT:1,TYPE.LegendaryLogicalDeduction		SA:Logical Deduction (2 pct.)		SPELLS:Innate|TIMES=1|Augury												SOURCEPAGE:p58
+Logical Deduction II		TYPE:LegendaryLogicalDeduction.PuzzlemasterLAPL2	VISIBLE:NO	PRECLASS:1,Puzzlemaster=2	!PREFEAT:1,TYPE.LegendaryLogicalDeduction		SA:Logical Deduction (4 pct.)		SPELLS:Innate|TIMES=2|Augury												SOURCEPAGE:p58
+Logical Deduction III		TYPE:LegendaryLogicalDeduction.PuzzlemasterLAPL3	VISIBLE:NO	PRECLASS:1,Puzzlemaster=3	!PREFEAT:1,TYPE.LegendaryLogicalDeduction		SA:Logical Deduction (6 pct.)		SPELLS:Innate|TIMES=3|Augury												SOURCEPAGE:p58
+Logical Deduction IV		TYPE:LegendaryLogicalDeduction.PuzzlemasterLAPL4	VISIBLE:NO	PRECLASS:1,Puzzlemaster=4	!PREFEAT:1,TYPE.LegendaryLogicalDeduction		SA:Logical Deduction (8 pct.)		SPELLS:Innate|TIMES=4|Augury												SOURCEPAGE:p58
+Logical Deduction V		TYPE:LegendaryLogicalDeduction.PuzzlemasterLAPL5	VISIBLE:NO	PRECLASS:1,Puzzlemaster=5	!PREFEAT:1,TYPE.LegendaryLogicalDeduction		SA:Logical Deduction (10 pct.)	SPELLS:Innate|TIMES=5|Augury												SOURCEPAGE:p58
+
+Combat Orientation I		TYPE:LegendaryCombatOrientation.PuzzlemasterLAPL1	VISIBLE:NO	PRECLASS:1,Puzzlemaster=1	!PREFEAT:1,TYPE.LegendaryCombatOrientation	SA:Combat Orientation (+1 to AC)																	SOURCEPAGE:p58
+Combat Orientation II		TYPE:LegendaryCombatOrientation.PuzzlemasterLAPL2	VISIBLE:NO	PRECLASS:1,Puzzlemaster=2	!PREFEAT:1,TYPE.LegendaryCombatOrientation	SA:Combat Orientation (+2 to AC)																	SOURCEPAGE:p58
+Combat Orientation III		TYPE:LegendaryCombatOrientation.PuzzlemasterLAPL3	VISIBLE:NO	PRECLASS:1,Puzzlemaster=3	!PREFEAT:1,TYPE.LegendaryCombatOrientation	SA:Combat Orientation (+3 to AC)																	SOURCEPAGE:p58
+Combat Orientation IV		TYPE:LegendaryCombatOrientation.PuzzlemasterLAPL4	VISIBLE:NO	PRECLASS:1,Puzzlemaster=4	!PREFEAT:1,TYPE.LegendaryCombatOrientation	SA:Combat Orientation (+4 to AC)																	SOURCEPAGE:p58
+Combat Orientation V		TYPE:LegendaryCombatOrientation.PuzzlemasterLAPL5	VISIBLE:NO	PRECLASS:1,Puzzlemaster=5	!PREFEAT:1,TYPE.LegendaryCombatOrientation	SA:Combat Orientation (+5 to AC)																	SOURCEPAGE:p58
+
+Inspiration I			TYPE:LegendaryInspiration.PuzzlemasterLAPL1		VISIBLE:NO	PRECLASS:1,Puzzlemaster=1	!PREFEAT:1,TYPE.LegendaryInspiration		SA:Inspiration (2 spell levels)																	SOURCEPAGE:p58
+Inspiration II			TYPE:LegendaryInspiration.PuzzlemasterLAPL2		VISIBLE:NO	PRECLASS:1,Puzzlemaster=2	!PREFEAT:1,TYPE.LegendaryInspiration		SA:Inspiration (4 spell levels)																	SOURCEPAGE:p58
+Inspiration III			TYPE:LegendaryInspiration.PuzzlemasterLAPL3		VISIBLE:NO	PRECLASS:1,Puzzlemaster=3	!PREFEAT:1,TYPE.LegendaryInspiration		SA:Inspiration (6 spell levels)																	SOURCEPAGE:p58
+Inspiration IV			TYPE:LegendaryInspiration.PuzzlemasterLAPL4		VISIBLE:NO	PRECLASS:1,Puzzlemaster=4	!PREFEAT:1,TYPE.LegendaryInspiration		SA:Inspiration (8 spell levels)																	SOURCEPAGE:p58
+Inspiration V			TYPE:LegendaryInspiration.PuzzlemasterLAPL5		VISIBLE:NO	PRECLASS:1,Puzzlemaster=5	!PREFEAT:1,TYPE.LegendaryInspiration		SA:Inspiration (10 spell levels)																	SOURCEPAGE:p58
+
+
+###Block:Traveler legendary abilities
+# Feat Name			Type								Visible	Required Class		Prohibited Feat					Special Ability				Source Page
+Planar Familiar I		TYPE:LegendaryPlanarFamiliar.TravelerLAPL1	VISIBLE:NO	PRECLASS:1,Traveler=1	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SA:Planar Familiar (2HD)		SOURCEPAGE:p59
+Planar Familiar II	TYPE:LegendaryPlanarFamiliar.TravelerLAPL2	VISIBLE:NO	PRECLASS:1,Traveler=2	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SA:Planar Familiar (4HD)		SOURCEPAGE:p59
+Planar Familiar III	TYPE:LegendaryPlanarFamiliar.TravelerLAPL3	VISIBLE:NO	PRECLASS:1,Traveler=3	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SA:Planar Familiar (6HD)		SOURCEPAGE:p59
+Planar Familiar IV	TYPE:LegendaryPlanarFamiliar.TravelerLAPL4	VISIBLE:NO	PRECLASS:1,Traveler=4	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SA:Planar Familiar (8HD)		SOURCEPAGE:p59
+Planar Familiar V		TYPE:LegendaryPlanarFamiliar.TravelerLAPL5	VISIBLE:NO	PRECLASS:1,Traveler=5	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SA:Planar Familiar (10HD)		SOURCEPAGE:p59
+
+Planar Rift I		TYPE:LegendaryPlanarRift.TravelerLAPL1		VISIBLE:NO	PRECLASS:1,Traveler=1	!PREFEAT:1,TYPE.LegendaryPlanarRift		SA:Planar Rift (1/day)			SOURCEPAGE:p59
+Planar Rift II		TYPE:LegendaryPlanarRift.TravelerLAPL2		VISIBLE:NO	PRECLASS:1,Traveler=2	!PREFEAT:1,TYPE.LegendaryPlanarRift		SA:Planar Rift (2/day)			SOURCEPAGE:p59
+Planar Rift III		TYPE:LegendaryPlanarRift.TravelerLAPL3		VISIBLE:NO	PRECLASS:1,Traveler=3	!PREFEAT:1,TYPE.LegendaryPlanarRift		SA:Planar Rift (3/day)			SOURCEPAGE:p59
+Planar Rift IV		TYPE:LegendaryPlanarRift.TravelerLAPL4		VISIBLE:NO	PRECLASS:1,Traveler=4	!PREFEAT:1,TYPE.LegendaryPlanarRift		SA:Planar Rift (4/day)			SOURCEPAGE:p59
+Planar Rift V		TYPE:LegendaryPlanarRift.TravelerLAPL5		VISIBLE:NO	PRECLASS:1,Traveler=5	!PREFEAT:1,TYPE.LegendaryPlanarRift		SA:Planar Rift (5/day)			SOURCEPAGE:p59
+
+Spacial Flux I		TYPE:LegendarySpacialFlux.TravelerLAPL1		VISIBLE:NO	PRECLASS:1,Traveler=1	!PREFEAT:1,TYPE.LegendarySpacialFlux	SA:Spacial Flux (1/day)			SOURCEPAGE:p60
+Spacial Flux II		TYPE:LegendarySpacialFlux.TravelerLAPL2		VISIBLE:NO	PRECLASS:1,Traveler=2	!PREFEAT:1,TYPE.LegendarySpacialFlux	SA:Spacial Flux (2/day)			SOURCEPAGE:p60
+Spacial Flux III		TYPE:LegendarySpacialFlux.TravelerLAPL3		VISIBLE:NO	PRECLASS:1,Traveler=3	!PREFEAT:1,TYPE.LegendarySpacialFlux	SA:Spacial Flux (3/day)			SOURCEPAGE:p60
+Spacial Flux IV		TYPE:LegendarySpacialFlux.TravelerLAPL4		VISIBLE:NO	PRECLASS:1,Traveler=4	!PREFEAT:1,TYPE.LegendarySpacialFlux	SA:Spacial Flux (4/day)			SOURCEPAGE:p60
+Spacial Flux V		TYPE:LegendarySpacialFlux.TravelerLAPL5		VISIBLE:NO	PRECLASS:1,Traveler=5	!PREFEAT:1,TYPE.LegendarySpacialFlux	SA:Spacial Flux (5/day)			SOURCEPAGE:p60
+
+Astral Doppelganger I	TYPE:LegendaryAstralDoppel.TravelerLAPL1		VISIBLE:NO	PRECLASS:1,Traveler=1	!PREFEAT:1,TYPE.LegendaryAstralDoppel	SA:Astral Doppelganger (1/day)	SOURCEPAGE:p60
+Astral Doppelganger II	TYPE:LegendaryAstralDoppel.TravelerLAPL2		VISIBLE:NO	PRECLASS:1,Traveler=2	!PREFEAT:1,TYPE.LegendaryAstralDoppel	SA:Astral Doppelganger (2/day)	SOURCEPAGE:p60
+Astral Doppelganger III	TYPE:LegendaryAstralDoppel.TravelerLAPL3		VISIBLE:NO	PRECLASS:1,Traveler=3	!PREFEAT:1,TYPE.LegendaryAstralDoppel	SA:Astral Doppelganger (3/day)	SOURCEPAGE:p60
+Astral Doppelganger IV	TYPE:LegendaryAstralDoppel.TravelerLAPL4		VISIBLE:NO	PRECLASS:1,Traveler=4	!PREFEAT:1,TYPE.LegendaryAstralDoppel	SA:Astral Doppelganger (4/day)	SOURCEPAGE:p60
+Astral Doppelganger V	TYPE:LegendaryAstralDoppel.TravelerLAPL5		VISIBLE:NO	PRECLASS:1,Traveler=5	!PREFEAT:1,TYPE.LegendaryAstralDoppel	SA:Astral Doppelganger (5/day)	SOURCEPAGE:p60
+
+Planar Wrenching I	TYPE:LegendaryPlanarWrenching.TravelerLAPL1	VISIBLE:NO	PRECLASS:1,Traveler=1	!PREFEAT:1,TYPE.LegendaryPlanarWrenching	SA:Planar Wrenching (1/day)		SOURCEPAGE:p60
+Planar Wrenching II	TYPE:LegendaryPlanarWrenching.TravelerLAPL2	VISIBLE:NO	PRECLASS:1,Traveler=2	!PREFEAT:1,TYPE.LegendaryPlanarWrenching	SA:Planar Wrenching (2/day)		SOURCEPAGE:p60
+Planar Wrenching III	TYPE:LegendaryPlanarWrenching.TravelerLAPL3	VISIBLE:NO	PRECLASS:1,Traveler=3	!PREFEAT:1,TYPE.LegendaryPlanarWrenching	SA:Planar Wrenching (3/day)		SOURCEPAGE:p60
+Planar Wrenching IV	TYPE:LegendaryPlanarWrenching.TravelerLAPL4	VISIBLE:NO	PRECLASS:1,Traveler=4	!PREFEAT:1,TYPE.LegendaryPlanarWrenching	SA:Planar Wrenching (4/day)		SOURCEPAGE:p60
+Planar Wrenching V	TYPE:LegendaryPlanarWrenching.TravelerLAPL5	VISIBLE:NO	PRECLASS:1,Traveler=5	!PREFEAT:1,TYPE.LegendaryPlanarWrenching	SA:Planar Wrenching (5/day)		SOURCEPAGE:p60
+
+
+###Block:Wizard King legendary abilities
+# Feat Name					Type									Visible	Required Class			Prohibited Feat						Special Ability			Choose a Feat				BONUS:DC					Bonus to skill								Source Page
+Increased Spell Power I			TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)																	SOURCEPAGE:p62
+Increased Spell Power II		TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)2																	SOURCEPAGE:p62
+Increased Spell Power III		TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)3																	SOURCEPAGE:p62
+Increased Spell Power IV		TYPE:LegendaryIncSpellPower.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)4																	SOURCEPAGE:p62
+Increased Spell Power V			TYPE:LegendaryIncSpellPower.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SA:Increased Spell Power	ADD:FEAT(TYPE=IncSpellPowerSchool)5																	SOURCEPAGE:p62
+
+Mastered Spells I				TYPE:LegendaryMasteredSpells.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (1)																								SOURCEPAGE:p62
+Mastered Spells II			TYPE:LegendaryMasteredSpells.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (2)																								SOURCEPAGE:p62
+Mastered Spells III			TYPE:LegendaryMasteredSpells.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (3)																								SOURCEPAGE:p62
+Mastered Spells IV			TYPE:LegendaryMasteredSpells.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (4)																								SOURCEPAGE:p62
+Mastered Spells V				TYPE:LegendaryMasteredSpells.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SA:Mastered Spells (5)																								SOURCEPAGE:p62
+# Can't really see a way to do more here. Gimme, gimme, gimme, Chooser for spells....and then add to a separate spell list...
+
+Unearthly Penetration I			TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL1	VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +1																							SOURCEPAGE:p62
+Unearthly Penetration II		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL2	VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +2																							SOURCEPAGE:p62
+Unearthly Penetration III		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL3	VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +3																							SOURCEPAGE:p62
+Unearthly Penetration IV		TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL4	VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +4																							SOURCEPAGE:p62
+Unearthly Penetration V			TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL5	VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SA:Unearthly Penetration +5																							SOURCEPAGE:p62
+
+Arcane Resistance I			TYPE:LegendaryArcaneResistance.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +1																								SOURCEPAGE:p62
+Arcane Resistance II			TYPE:LegendaryArcaneResistance.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +2																								SOURCEPAGE:p62
+Arcane Resistance III			TYPE:LegendaryArcaneResistance.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +3																								SOURCEPAGE:p62
+Arcane Resistance IV			TYPE:LegendaryArcaneResistance.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +4																								SOURCEPAGE:p62
+Arcane Resistance V			TYPE:LegendaryArcaneResistance.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SA:Arcane Resistance +5																								SOURCEPAGE:p62
+
+Master of the Mundane Arts I		TYPE:LegendaryMundaneArts.WizardKingLAPL1			VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|5	SOURCEPAGE:p62
+Master of the Mundane Arts II		TYPE:LegendaryMundaneArts.WizardKingLAPL2			VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|10	SOURCEPAGE:p62
+Master of the Mundane Arts III	TYPE:LegendaryMundaneArts.WizardKingLAPL3			VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|15	SOURCEPAGE:p62
+Master of the Mundane Arts IV		TYPE:LegendaryMundaneArts.WizardKingLAPL4			VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|20	SOURCEPAGE:p62
+Master of the Mundane Arts V		TYPE:LegendaryMundaneArts.WizardKingLAPL5			VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMundaneArts		SA:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|25	SOURCEPAGE:p62
+
+
+Increase Abjuration Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Abjuration|2												SOURCEPAGE:p62
+Increase Conjuration Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Conjuration|2												SOURCEPAGE:p62
+Increase Divination Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Divination|2												SOURCEPAGE:p62
+Increase Enchantment Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Enchantment|2												SOURCEPAGE:p62
+Increase Evocation Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Evocation|2												SOURCEPAGE:p62
+Increase Illusion Spell Power		TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Illusion|2												SOURCEPAGE:p62
+Increase Necromancy Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Necromancy|2												SOURCEPAGE:p62
+Increase Transmutation Spell Power	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																				BONUS:DC|SCHOOL.Transmutation|2											SOURCEPAGE:p62
+# I have a feeling this can be done with chooser directly, but with the poor documentation of it I'm not going to try.
+
+
+
+
+#

@@ -1,0 +1,686 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Dragon (Black Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Wyrmling)]
+RACE:Dragon (Black Wyrmling)	!PRERACE:%
+NAME:Dragon (Black Wyrmling)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Very Young)]
+RACE:Dragon (Black Very Young)	!PRERACE:%
+NAME:Dragon (Black Very Young)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Young)]
+RACE:Dragon (Black Young)	!PRERACE:%
+NAME:Dragon (Black Young)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Juvenile)]
+RACE:Dragon (Black Juvenile)	!PRERACE:%
+NAME:Dragon (Black Juvenile)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Young Adult)]
+RACE:Dragon (Black Young Adult)	!PRERACE:%
+NAME:Dragon (Black Young Adult)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Adult)]
+RACE:Dragon (Black Adult)	!PRERACE:%
+NAME:Dragon (Black Adult)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Mature Adult)]
+RACE:Dragon (Black Mature Adult)	!PRERACE:%
+NAME:Dragon (Black Mature Adult)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Old)]
+RACE:Dragon (Black Old)	!PRERACE:%
+NAME:Dragon (Black Old)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Very Old)]
+RACE:Dragon (Black Very Old)	!PRERACE:%
+NAME:Dragon (Black Very Old)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Ancient)]
+RACE:Dragon (Black Ancient)	!PRERACE:%
+NAME:Dragon (Black Ancient)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Wyrm)]
+RACE:Dragon (Black Wyrm)	!PRERACE:%
+NAME:Dragon (Black Wyrm)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Black Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Black Great Wyrm)]
+RACE:Dragon (Black Great Wyrm)	!PRERACE:%
+NAME:Dragon (Black Great Wyrm)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Blue Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Wyrmling)]
+RACE:Dragon (Blue Wyrmling)	!PRERACE:%
+NAME:Dragon (Blue Wyrmling)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Very Young)]
+RACE:Dragon (Blue Very Young)	!PRERACE:%
+NAME:Dragon (Blue Very Young)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Young)]
+RACE:Dragon (Blue Young)	!PRERACE:%
+NAME:Dragon (Blue Young)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Juvenile)]
+RACE:Dragon (Blue Juvenile)	!PRERACE:%
+NAME:Dragon (Blue Juvenile)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Young Adult)]
+RACE:Dragon (Blue Young Adult)	!PRERACE:%
+NAME:Dragon (Blue Young Adult)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Adult)]
+RACE:Dragon (Blue Adult)	!PRERACE:%
+NAME:Dragon (Blue Adult)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Mature Adult)]
+RACE:Dragon (Blue Mature Adult)	!PRERACE:%
+NAME:Dragon (Blue Mature Adult)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Old)]
+RACE:Dragon (Blue Old)	!PRERACE:%
+NAME:Dragon (Blue Old)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Very Old)]
+RACE:Dragon (Blue Very Old)	!PRERACE:%
+NAME:Dragon (Blue Very Old)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Ancient)]
+RACE:Dragon (Blue Ancient)	!PRERACE:%
+NAME:Dragon (Blue Ancient)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Wyrm)]
+RACE:Dragon (Blue Wyrm)	!PRERACE:%
+NAME:Dragon (Blue Wyrm)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Blue Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Blue Great Wyrm)]
+RACE:Dragon (Blue Great Wyrm)	!PRERACE:%
+NAME:Dragon (Blue Great Wyrm)
+ALIGN:LE
+DEITY:None	DOMAIN:Air|Evil|Law
+
+STARTPACK:Default Dragon (Green Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Wyrmling)]
+RACE:Dragon (Green Wyrmling)	!PRERACE:%
+NAME:Dragon (Green Wyrmling)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Very Young)]
+RACE:Dragon (Green Very Young)	!PRERACE:%
+NAME:Dragon (Green Very Young)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Young)]
+RACE:Dragon (Green Young)	!PRERACE:%
+NAME:Dragon (Green Young)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Juvenile)]
+RACE:Dragon (Green Juvenile)	!PRERACE:%
+NAME:Dragon (Green Juvenile)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Young Adult)]
+RACE:Dragon (Green Young Adult)	!PRERACE:%
+NAME:Dragon (Green Young Adult)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Adult)]
+RACE:Dragon (Green Adult)	!PRERACE:%
+NAME:Dragon (Green Adult)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Mature Adult)]
+RACE:Dragon (Green Mature Adult)	!PRERACE:%
+NAME:Dragon (Green Mature Adult)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Old)]
+RACE:Dragon (Green Old)	!PRERACE:%
+NAME:Dragon (Green Old)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Very Old)]
+RACE:Dragon (Green Very Old)	!PRERACE:%
+NAME:Dragon (Green Very Old)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Ancient)]
+RACE:Dragon (Green Ancient)	!PRERACE:%
+NAME:Dragon (Green Ancient)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Wyrm)]
+RACE:Dragon (Green Wyrm)	!PRERACE:%
+NAME:Dragon (Green Wyrm)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Green Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Green Great Wyrm)]
+RACE:Dragon (Green Great Wyrm)	!PRERACE:%
+NAME:Dragon (Green Great Wyrm)
+ALIGN:LE
+
+STARTPACK:Default Dragon (Red Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Wyrmling)]
+RACE:Dragon (Red Wyrmling)	!PRERACE:%
+NAME:Dragon (Red Wyrmling)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Very Young)]
+RACE:Dragon (Red Very Young)	!PRERACE:%
+NAME:Dragon (Red Very Young)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Young)]
+RACE:Dragon (Red Young)	!PRERACE:%
+NAME:Dragon (Red Young)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Juvenile)]
+RACE:Dragon (Red Juvenile)	!PRERACE:%
+NAME:Dragon (Red Juvenile)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Young Adult)]
+RACE:Dragon (Red Young Adult)	!PRERACE:%
+NAME:Dragon (Red Young Adult)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Adult)]
+RACE:Dragon (Red Adult)	!PRERACE:%
+NAME:Dragon (Red Adult)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Mature Adult)]
+RACE:Dragon (Red Mature Adult)	!PRERACE:%
+NAME:Dragon (Red Mature Adult)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Old)]
+RACE:Dragon (Red Old)	!PRERACE:%
+NAME:Dragon (Red Old)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Very Old)]
+RACE:Dragon (Red Very Old)	!PRERACE:%
+NAME:Dragon (Red Very Old)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Ancient)]
+RACE:Dragon (Red Ancient)	!PRERACE:%
+NAME:Dragon (Red Ancient)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Wyrm)]
+RACE:Dragon (Red Wyrm)	!PRERACE:%
+NAME:Dragon (Red Wyrm)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (Red Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Red Great Wyrm)]
+RACE:Dragon (Red Great Wyrm)	!PRERACE:%
+NAME:Dragon (Red Great Wyrm)
+ALIGN:CE
+DEITY:None	DOMAIN:Chaos|Evil|Fire
+
+STARTPACK:Default Dragon (White Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Wyrmling)]
+RACE:Dragon (White Wyrmling)	!PRERACE:%
+NAME:Dragon (White Wyrmling)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Very Young)]
+RACE:Dragon (White Very Young)	!PRERACE:%
+NAME:Dragon (White Very Young)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Young)]
+RACE:Dragon (White Young)	!PRERACE:%
+NAME:Dragon (White Young)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Juvenile)]
+RACE:Dragon (White Juvenile)	!PRERACE:%
+NAME:Dragon (White Juvenile)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Young Adult)]
+RACE:Dragon (White Young Adult)	!PRERACE:%
+NAME:Dragon (White Young Adult)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Adult)]
+RACE:Dragon (White Adult)	!PRERACE:%
+NAME:Dragon (White Adult)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Mature Adult)]
+RACE:Dragon (White Mature Adult)	!PRERACE:%
+NAME:Dragon (White Mature Adult)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Old)]
+RACE:Dragon (White Old)	!PRERACE:%
+NAME:Dragon (White Old)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Very Old)]
+RACE:Dragon (White Very Old)	!PRERACE:%
+NAME:Dragon (White Very Old)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Ancient)]
+RACE:Dragon (White Ancient)	!PRERACE:%
+NAME:Dragon (White Ancient)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Wyrm)]
+RACE:Dragon (White Wyrm)	!PRERACE:%
+NAME:Dragon (White Wyrm)
+ALIGN:CE
+
+STARTPACK:Default Dragon (White Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (White Great Wyrm)]
+RACE:Dragon (White Great Wyrm)	!PRERACE:%
+NAME:Dragon (White Great Wyrm)
+ALIGN:CE
+
+STARTPACK:Default Dragon (Brass Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Wyrmling)]
+RACE:Dragon (Brass Wyrmling)	!PRERACE:%
+NAME:Dragon (Brass Wyrmling)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Very Young)]
+RACE:Dragon (Brass Very Young)	!PRERACE:%
+NAME:Dragon (Brass Very Young)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Young)]
+RACE:Dragon (Brass Young)	!PRERACE:%
+NAME:Dragon (Brass Young)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Juvenile)]
+RACE:Dragon (Brass Juvenile)	!PRERACE:%
+NAME:Dragon (Brass Juvenile)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Young Adult)]
+RACE:Dragon (Brass Young Adult)	!PRERACE:%
+NAME:Dragon (Brass Young Adult)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Adult)]
+RACE:Dragon (Brass Adult)	!PRERACE:%
+NAME:Dragon (Brass Adult)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Mature Adult)]
+RACE:Dragon (Brass Mature Adult)	!PRERACE:%
+NAME:Dragon (Brass Mature Adult)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Old)]
+RACE:Dragon (Brass Old)	!PRERACE:%
+NAME:Dragon (Brass Old)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Very Old)]
+RACE:Dragon (Brass Very Old)	!PRERACE:%
+NAME:Dragon (Brass Very Old)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Ancient)]
+RACE:Dragon (Brass Ancient)	!PRERACE:%
+NAME:Dragon (Brass Ancient)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Wyrm)]
+RACE:Dragon (Brass Wyrm)	!PRERACE:%
+NAME:Dragon (Brass Wyrm)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Brass Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Brass Great Wyrm)]
+RACE:Dragon (Brass Great Wyrm)	!PRERACE:%
+NAME:Dragon (Brass Great Wyrm)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Knowledge
+
+STARTPACK:Default Dragon (Bronze Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Wyrmling)]
+RACE:Dragon (Bronze Wyrmling)	!PRERACE:%
+NAME:Dragon (Bronze Wyrmling)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Very Young)]
+RACE:Dragon (Bronze Very Young)	!PRERACE:%
+NAME:Dragon (Bronze Very Young)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Young)]
+RACE:Dragon (Bronze Young)	!PRERACE:%
+NAME:Dragon (Bronze Young)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Juvenile)]
+RACE:Dragon (Bronze Juvenile)	!PRERACE:%
+NAME:Dragon (Bronze Juvenile)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Young Adult)]
+RACE:Dragon (Bronze Young Adult)	!PRERACE:%
+NAME:Dragon (Bronze Young Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Adult)]
+RACE:Dragon (Bronze Adult)	!PRERACE:%
+NAME:Dragon (Bronze Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Mature Adult)]
+RACE:Dragon (Bronze Mature Adult)	!PRERACE:%
+NAME:Dragon (Bronze Mature Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Old)]
+RACE:Dragon (Bronze Old)	!PRERACE:%
+NAME:Dragon (Bronze Old)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Very Old)]
+RACE:Dragon (Bronze Very Old)	!PRERACE:%
+NAME:Dragon (Bronze Very Old)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Ancient)]
+RACE:Dragon (Bronze Ancient)	!PRERACE:%
+NAME:Dragon (Bronze Ancient)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Wyrm)]
+RACE:Dragon (Bronze Wyrm)	!PRERACE:%
+NAME:Dragon (Bronze Wyrm)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Bronze Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Bronze Great Wyrm)]
+RACE:Dragon (Bronze Great Wyrm)	!PRERACE:%
+NAME:Dragon (Bronze Great Wyrm)
+ALIGN:LG
+DEITY:None	DOMAIN:Animal|Law|Water
+
+STARTPACK:Default Dragon (Copper Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Wyrmling)]
+RACE:Dragon (Copper Wyrmling)	!PRERACE:%
+NAME:Dragon (Copper Wyrmling)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Very Young)]
+RACE:Dragon (Copper Very Young)	!PRERACE:%
+NAME:Dragon (Copper Very Young)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Young)]
+RACE:Dragon (Copper Young)	!PRERACE:%
+NAME:Dragon (Copper Young)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Juvenile)]
+RACE:Dragon (Copper Juvenile)	!PRERACE:%
+NAME:Dragon (Copper Juvenile)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Young Adult)]
+RACE:Dragon (Copper Young Adult)	!PRERACE:%
+NAME:Dragon (Copper Young Adult)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Adult)]
+RACE:Dragon (Copper Adult)	!PRERACE:%
+NAME:Dragon (Copper Adult)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Mature Adult)]
+RACE:Dragon (Copper Mature Adult)	!PRERACE:%
+NAME:Dragon (Copper Mature Adult)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Old)]
+RACE:Dragon (Copper Old)	!PRERACE:%
+NAME:Dragon (Copper Old)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Very Old)]
+RACE:Dragon (Copper Very Old)	!PRERACE:%
+NAME:Dragon (Copper Very Old)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Ancient)]
+RACE:Dragon (Copper Ancient)	!PRERACE:%
+NAME:Dragon (Copper Ancient)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Wyrm)]
+RACE:Dragon (Copper Wyrm)	!PRERACE:%
+NAME:Dragon (Copper Wyrm)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Copper Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Copper Great Wyrm)]
+RACE:Dragon (Copper Great Wyrm)	!PRERACE:%
+NAME:Dragon (Copper Great Wyrm)
+ALIGN:CG
+DEITY:None	DOMAIN:Chaos|Earth|Trickery
+
+STARTPACK:Default Dragon (Gold Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Wyrmling)]
+RACE:Dragon (Gold Wyrmling)	!PRERACE:%
+NAME:Dragon (Gold Wyrmling)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Very Young)]
+RACE:Dragon (Gold Very Young)	!PRERACE:%
+NAME:Dragon (Gold Very Young)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Young)]
+RACE:Dragon (Gold Young)	!PRERACE:%
+NAME:Dragon (Gold Young)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Juvenile)]
+RACE:Dragon (Gold Juvenile)	!PRERACE:%
+NAME:Dragon (Gold Juvenile)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Young Adult)]
+RACE:Dragon (Gold Young Adult)	!PRERACE:%
+NAME:Dragon (Gold Young Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Adult)]
+RACE:Dragon (Gold Adult)	!PRERACE:%
+NAME:Dragon (Gold Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Mature Adult)]
+RACE:Dragon (Gold Mature Adult)	!PRERACE:%
+NAME:Dragon (Gold Mature Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Old)]
+RACE:Dragon (Gold Old)	!PRERACE:%
+NAME:Dragon (Gold Old)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Very Old)]
+RACE:Dragon (Gold Very Old)	!PRERACE:%
+NAME:Dragon (Gold Very Old)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Ancient)]
+RACE:Dragon (Gold Ancient)	!PRERACE:%
+NAME:Dragon (Gold Ancient)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Wyrm)]
+RACE:Dragon (Gold Wyrm)	!PRERACE:%
+NAME:Dragon (Gold Wyrm)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Gold Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Gold Great Wyrm)]
+RACE:Dragon (Gold Great Wyrm)	!PRERACE:%
+NAME:Dragon (Gold Great Wyrm)
+ALIGN:LG
+DEITY:None	DOMAIN:Good|Law|Luck
+
+STARTPACK:Default Dragon (Silver Wyrmling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Wyrmling)]
+RACE:Dragon (Silver Wyrmling)	!PRERACE:%
+NAME:Dragon (Silver Wyrmling)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Very Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Very Young)]
+RACE:Dragon (Silver Very Young)	!PRERACE:%
+NAME:Dragon (Silver Very Young)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Young)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Young)]
+RACE:Dragon (Silver Young)	!PRERACE:%
+NAME:Dragon (Silver Young)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Juvenile)]
+RACE:Dragon (Silver Juvenile)	!PRERACE:%
+NAME:Dragon (Silver Juvenile)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Young Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Young Adult)]
+RACE:Dragon (Silver Young Adult)	!PRERACE:%
+NAME:Dragon (Silver Young Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Adult)]
+RACE:Dragon (Silver Adult)	!PRERACE:%
+NAME:Dragon (Silver Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Mature Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Mature Adult)]
+RACE:Dragon (Silver Mature Adult)	!PRERACE:%
+NAME:Dragon (Silver Mature Adult)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Old)]
+RACE:Dragon (Silver Old)	!PRERACE:%
+NAME:Dragon (Silver Old)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Very Old)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Very Old)]
+RACE:Dragon (Silver Very Old)	!PRERACE:%
+NAME:Dragon (Silver Very Old)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Ancient)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Ancient)]
+RACE:Dragon (Silver Ancient)	!PRERACE:%
+NAME:Dragon (Silver Ancient)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Wyrm)]
+RACE:Dragon (Silver Wyrm)	!PRERACE:%
+NAME:Dragon (Silver Wyrm)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun
+
+STARTPACK:Default Dragon (Silver Great Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dragon (Silver Great Wyrm)]
+RACE:Dragon (Silver Great Wyrm)	!PRERACE:%
+NAME:Dragon (Silver Great Wyrm)
+ALIGN:LG
+DEITY:None	DOMAIN:Air|Good|Law|Sun

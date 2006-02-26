@@ -1,0 +1,222 @@
+# CVS $Revision: 1.10 $ $Author: frank_kliewe $ -- Thu Dec  1 03:39:40 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: Barak 11/09/02
+
+#Advanced classes
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus			Modify VAR
+CLASS:Soldier	HD:10		TYPE:Advanced.PC	ABB:Sol		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Speak Language|Spot|Survival|Swim
+1																						ADD:FEAT(Weapon Focus)
+2					BONUS:VAR|WeapSpecQualify|1								DEFINE:WeapSpecQualify|0	ADD:FEAT(Weapon Specialization)
+3					BONUS:VAR|WeapSpecQualify|-1													ADD:FEAT(TYPE=Soldier)
+4	SA:Tactical Aid
+5																						ADD:FEAT(Improved Critical)
+6																						ADD:FEAT(TYPE=Soldier)
+7	SA:Improved Reaction						BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+8																						ADD:FEAT(Greater Weapon Specialization)
+9																						ADD:FEAT(TYPE=Soldier)
+10	SA:Critical Strike
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
+CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	ABB:Mart		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat							Required Skill
+CLASS:Martial Artist	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|Speak Language|Spot|Tumble
+###Block: Unarmed Damage
+1	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6
+2	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6
+3	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6
+4	UDAM:1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8
+5	UDAM:1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8
+6	UDAM:1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8
+7	UDAM:1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8
+8	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
+9	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
+10	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
+###Block: Normal progression
+1					SA:Living Weapon 1d%|LivingWeaponDie	BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	DEFINE:LivingWeaponDie|6
+2					SA:Flying Kick
+3																										ADD:FEAT(TYPE=MartialArtist)
+4																					DEFINE:LivingWeaponDie|8
+5					SA:Iron Fist (one attack)
+6																										ADD:FEAT(TYPE=MartialArtist)
+7					SA:Flurry of Blows
+8																					DEFINE:LivingWeaponDie|10
+9																										ADD:FEAT(TYPE=MartialArtist)
+10	SA:.CLEAR.Iron Fist	SA:Iron Fist (all attacks)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus			Modify VAR
+CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	ABB:Guns		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Gunslinger	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand,Tumble=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival|Tumble
+1	SA:Close Combat Shot
+2					ADD:FEAT(Weapon Focus)
+3					ADD:FEAT(TYPE=Gunslinger)
+4	SA:Defensive Position
+5	SA:Lightning Shot
+6					ADD:FEAT(TYPE=Gunslinger)
+7	SA:Sharp Shooting
+8					ADD:FEAT(Greater Weapon Focus)
+9					ADD:FEAT(TYPE=Gunslinger)
+10	SA:Bullseye
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
+CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Skill
+CLASS:Infiltrator	PREATT:2	PRESKILL:2,Hide,Move Silently=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Tumble
+1				SA:Sweep				BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2
+2				SA:Improvised Implements
+3																		ADD:FEAT(TYPE=Infiltrator)
+4				SA:Improved Evasion
+5				SA:Skill Mastery
+6																		ADD:FEAT(TYPE=Infiltrator)
+7				SA:Improvised Weapon Damage
+8	SA:.CLEAR.Sweep	SA:Improved Sweep
+9																		ADD:FEAT(TYPE=Infiltrator)
+10				SA:Without a Trace
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
+CLASS:Daredevil	HD:10		TYPE:Advanced.PC	ABB:Dare		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Daredevil	PREATT:2	PREFEAT:1,Endurance	PRESKILL:2,Concentration,Drive=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|Drive|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Pilot|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Tumble
+1						SA:Fearless
+2						SA:Nip Up
+3													ADD:FEAT(TYPE=Daredevil)
+4						SA:Action Boost
+5						SA:Adrenaline Rush (one ability score)
+6													ADD:FEAT(TYPE=Daredevil)
+7						SA:Delay Damage
+8	SA:.CLEAR.Adrenaline Rush	SA:Adrenaline Rush (two ability scores)
+9													ADD:FEAT(TYPE=Daredevil)
+10						SA:Damage Threshold
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus			Modify VAR
+CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	ABB:Body		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Bodyguard	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Concentration,Intimidate=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
+1	SA:Harm's Way
+2	SA:Combat Sense +%|CombatSense					DEFINE:CombatSense|1
+3															ADD:FEAT(TYPE=Bodyguard)
+4	SA:Sudden Action
+5	SA:Improved Charge
+6															ADD:FEAT(TYPE=Bodyguard)
+7	SA:Defensive Strike
+8							BONUS:VAR|CombatSense|1
+9															ADD:FEAT(TYPE=Bodyguard)
+10	SA:Blanket Protection
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Field Scientist	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Required Skill
+CLASS:Field Scientist	PRESKILL:1,Craft (Chemical),Craft (Electronic)=6	PRESKILL:1,Knowledge (Earth and Life Sciences),Knowledge (Physical Sciences),Knowledge (Technology)=6	PRESKILL:1,Research=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Field Scientist	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Research|Search|Speak Language
+1	SA:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
+2	SA:Scientific Improvisation
+3													ADD:FEAT(TYPE=FieldScientist)
+4	SA:Skill Mastery
+5	SA:Minor Breakthrough
+6													ADD:FEAT(TYPE=FieldScientist)
+7	SA:Smart Survival
+8	SA:Smart Weapon
+9													ADD:FEAT(TYPE=FieldScientist)
+10	SA:Major Breakthrough
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
+CLASS:Techie	HD:6		TYPE:Advanced.PC	ABB:Techi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Techie	PRESKILL:1,Computer Use=6	PRESKILL:1,Craft (Electronic),Craft (Mechanical)=6	PRESKILL:1,Disable Device=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
+1	SA:Jury Rig +%|TechieRig					DEFINE:TechieRig|2
+2	SA:Extreme Machine
+3														ADD:FEAT(TYPE=Techie)
+4	SA:Build Robot
+5														ADD:FEAT(TYPE=TechieMastercraft)
+6														ADD:FEAT(TYPE=Techie)
+7						BONUS:VAR|TechieRig|2
+8														ADD:FEAT(TYPE=TechieMastercraft)
+9														ADD:FEAT(TYPE=Techie)
+10														ADD:FEAT(TYPE=TechieMastercraft)
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Field Medic	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat	Required Skill
+CLASS:Field Medic	PREATT:2	PREFEAT:1,Surgery	PRESKILL:2,Treat Injury,Spot=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Field Medic	STARTSKILLPTS:4	CSKILL:Computer Use|Concentration|Craft (Pharmaceutical)|Diplomacy|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Pilot|Profession|Read/Write Language|Research|Speak Language|Spot|Treat Injury
+1							SA:Medical Specialist +%|MedicalSpec					DEFINE:MedicalSpec|1
+2							SA:Expert Healer
+3																						ADD:FEAT(TYPE=FieldMedic)
+4							SA:Medical Mastery
+5														BONUS:VAR|MedicalSpec|1
+6																						ADD:FEAT(TYPE=FieldMedic)
+7							SA:Minor Medical Miracle
+8														BONUS:VAR|MedicalSpec|1
+9																						ADD:FEAT(TYPE=FieldMedic)
+10	SA:.CLEAR.Minor Medical Miracle	SA:Medical Miracle
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus			Modify VAR
+CLASS:Investigator	HD:6		TYPE:Advanced.PC	ABB:Inve		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Skill
+CLASS:Investigator	PREATT:2	PRESKILL:3,Investigate,Listen,Sense Motive=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
+1	SA:Profile
+2	SA:Contact (Low-Level)
+3					ADD:FEAT(TYPE=Investigator)
+4	SA:Nonlethal Force
+5	SA:Contact (Mid-Level)
+6					ADD:FEAT(TYPE=Investigator)
+7	SA:Discern Lie
+8	SA:Contact (High-level)
+9					ADD:FEAT(TYPE=Investigator)
+10	SA:Sixth Sense
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Personality	HD:6		TYPE:Advanced.PC	ABB:Pers		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat	Required Skill
+CLASS:Personality	PREFEAT:1,Renown	PRESKILL:2,Diplomacy,TYPE.Perform=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Speak Language
+1	SA:Unlimited Access
+2						ADD:CLASSSKILLS(NONEXCLUSIVE)1
+3												ADD:FEAT(TYPE=Personality)
+4	SA:Royalty
+5	SA:Winning Smile
+6												ADD:FEAT(TYPE=Personality)
+7						ADD:CLASSSKILLS(NONEXCLUSIVE)1
+8	SA:Royalty
+9												ADD:FEAT(TYPE=Personality)
+10	SA:Compelling Performance
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																	Combat bonus			Modify VAR
+CLASS:Negotiator	HD:8		TYPE:Advanced.PC	ABB:Nego		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat		Required Skill
+CLASS:Negotiator	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy,Bluff=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Drive|Gamble|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Sense Motive|Speak Language|Spot
+1								SA:Conceal Motive
+2								SA:React First
+3														ADD:FEAT(TYPE=Negotiator)
+4								SA:Talk down one opponent
+5								SA:No sweat
+6														ADD:FEAT(TYPE=Negotiator)
+7	SA:.CLEAR.Talk down one opponent		SA:Talk down several opponents
+8								SA:Sow Distrust
+9														ADD:FEAT(TYPE=Negotiator)
+10	SA:.CLEAR.Talk down several opponents	SA:Talk down all opponents

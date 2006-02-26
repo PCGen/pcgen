@@ -1,0 +1,17 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Fri Dec  2 00:43:05 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Equipment Name		Type				Cost		Weight	Size		Source Page					Special Property
+Dimensional Transformer	TYPE:Goods.General	COST:34	WT:3		SIZE:S	SOURCEPAGE:MenaceCreaturesA-I.rtf	SPROP:Mil (+3)
+Shift Detector		TYPE:Goods.General	COST:35	WT:40		SIZE:M	SOURCEPAGE:MenaceCreaturesA-I.rtf	SPROP:Mil (+3)
+Shift Extendor		TYPE:Goods.General	COST:32	WT:8		SIZE:S	SOURCEPAGE:MenaceCreaturesA-I.rtf	SPROP:Mil (+3)
+
+###Block:Monster Possessions
+# Equipment Name					Output Name									Type				Cost		Weight	Source Page
+Tattered clothing															TYPE:Goods.Clothing	COST:0	WT:0		SOURCEPAGE:MenaceCreaturesA-I.rtf
+Collection of scalps teeth and thighbones	OUTPUTNAME:Collection of scalps, teeth, and thighbones	TYPE:Goods.General	COST:0	WT:0		SOURCEPAGE:MenaceCreaturesA-I.rtf
+Collection of beheaded Dolls													TYPE:Goods.General	COST:0	WT:0		SOURCEPAGE:MenaceCreaturesJ-Z.rtf
+
+###Block: Weapons
+# Equipment Name	Required Proficiency	Type									Cost		Weight	Required Race	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page					Special Property
+Flame Sword		PROFICIENCY:Greatsword	TYPE:FX.Specific.Weapon.Archaic.Melee.Slashing.Fire	COST:0	WT:0		PRERACE:1,Elohim	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	SIZE:L	SOURCEPAGE:MenaceCreaturesA-I.rtf	SPROP:+3d6 fire damage, vanishes in a puff of smoke if it should leave the hands of the Elohim

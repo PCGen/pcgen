@@ -1,0 +1,181 @@
+#
+# message displayed when experience added will allow character to advance a level
+#
+LEVELMSG:Please check Table 1-2 in d20 Modern to see if you qualify for a new level
+#
+#
+#ALIGNMENTNAME:
+HPNAME:Grit
+HPABBREV:Grit
+ALTHPNAME:Damage Threshold
+ALTHPABBREV:Threshold
+
+# AC tags can be used to display AC info by using appropriate name and abbrev.
+# ACNAME: and ACABBREV: are required for proper usage.
+# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
+# on the Classes Tab
+ACNAME:Defense
+ACABBREV:Def
+#ALTACNAME:
+#ALTACABBREV:
+
+#
+#misc. Modern specific items
+#
+CURRENCYUNIT:Wealth
+CURRENCYUNITABBREV:Wlth
+
+#
+#define this game mode's default unit set
+#as specified in unitset.lst
+#
+DEFAULTUNITSET:Imperial
+
+# Stacking bonuses
+BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
+
+# The following determine whether some Class-related variables are displayed
+# on the Classes tab.
+# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
+# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
+# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
+# variable in order to be displayed
+# up to 3 variables can be displayed in this manner
+
+SHOWCLASSDEFENSE:YES
+DISPLAYVARIABLE1TEXT:Action Points
+DISPLAYVARIABLE1NAME:Action
+DISPLAYVARIABLE2TEXT:Reputation
+DISPLAYVARIABLE2NAME:Reputation
+DISPLAYVARIABLE3TEXT:Wealth Bonus
+DISPLAYVARIABLE3NAME:Wealth
+
+#
+# Tabs defined
+TAB:ABILITIES		NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
+TAB:CLASS			NAME:in_class			CONTEXT:tabpages\players\tabclasses.html
+TAB:DESCRIPTION		NAME:in_descrip			CONTEXT:tabpages\players\tabdescription.html
+TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\players\tabdomains.html			VISIBLE:NO
+TAB:FEATS			NAME:in_feats			CONTEXT:tabpages\players\tabfeats.html
+TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\players\tabinventory.html
+TAB:RACE			NAME:in_race			CONTEXT:tabpages\players\tabraces.html
+TAB:SKILLS			NAME:in_skills			CONTEXT:tabpages\players\tabskills.html
+TAB:CAMPAIGNS		NAME:Source Materials		CONTEXT:tabpages\source\source_sectionheading.html
+TAB:SPELLS			NAME:in_spells			CONTEXT:tabpages\players\tabspells.html			VISIBLE:NO
+TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\players\tabsummary.html
+#
+# Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
+# use & for mnemonic, && for & (MENUENTRY only)
+#
+MENUENTRY:&Sidewinder
+MENUTOOLTIP:Use Sidewinder:Recoiled character creation settings
+DISPLAYORDER:2
+#
+#SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
+# Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
+SHORTRANGE:30
+#
+# RANGEPENALTY sets the modification of the to-hit value for 
+# each range increment after the first.
+# Integer value, defaults to zero if tag not present to allow GameModes
+# without range increment bonus/limitations
+RANGEPENALTY:-2
+
+
+# SQUARESIZE defines the size of a battlemap square in feet.
+SQUARESIZE:5
+
+#SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list
+#e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
+SKILLMULTIPLIER:4
+SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
+
+#BONUSFEATLEVELSTARTINTERVAL:level|interval
+#level = first level where you gain an additional feat (use more than one of these tags for additional feats)
+#interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
+#this is handled in the races.lst by the STARTFEATS tag
+#BONUSFEATLEVELSTARTINTERVAL:1|0
+BONUSFEATLEVELSTARTINTERVAL:3|3
+
+#BONUSSTATLEVELSTARTINTERVAL:level|interval
+#level = first level where you gain an additional stat (use more than one of these tags for additional stat)
+#interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
+BONUSSTATLEVELSTARTINTERVAL:4|4
+
+# Calculations for AC. Same as those used on the output sheets with the 'BONUS.' stripped off
+BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
+BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+
+#Weapon Damage Types
+WEAPONTYPE:Bludgeoning|Bl
+WEAPONTYPE:Piercing|P
+WEAPONTYPE:Slashing|S
+WEAPONTYPE:Ballistic|Ba
+WEAPONTYPE:Electricity|El
+WEAPONTYPE:Fire|F
+
+#Weapon categories
+WEAPONCATEGORY:Simple
+WEAPONCATEGORY:PersonalFirearm
+WEAPONCATEGORY:Exotic
+WEAPONCATEGORY:Natural
+WEAPONCATEGORY:HMG
+WEAPONCATEGORY:RocketLauncher
+WEAPONCATEGORY:GrenadeLauncher
+
+# Non-proficient penalty
+WEAPONNONPROFPENALTY:-4
+
+
+#Attack/Check Cycle attributes
+BABMAXATT:4
+BABATTCYC:5
+BABMINVAL:1
+
+#Default Class Types
+CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:NPC		CRFORMULA:(CL-1)MAX0	ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
+
+#AC Types
+ACTYPE:Total		ADD:TOTAL
+ACTYPE:Flatfooted		ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor|Equipment
+ACTYPE:Base			ADD:Base
+ACTYPE:Equipment		ADD:Equipment
+ACTYPE:Armor		ADD:Armor		REMOVE:EQTYPE.Shield
+ACTYPE:Shield		ADD:EQTYPE.Shield
+ACTYPE:Ability		ADD:Ability
+ACTYPE:Size			ADD:Size
+ACTYPE:NaturalArmor	ADD:NaturalArmor
+ACTYPE:Misc			ADD:TOTAL		REMOVE:Base|Armor|Ability|Size|NaturalArmor|Equipment
+ACTYPE:ClassDefense	ADD:ClassDefense
+ACTYPE:Dodge		ADD:Dodge
+
+# Damage die changes on size
+BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,2d8,4d6,4d8	DOWN:1,0
+BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,2d8,4d6,4d8,8d6	DOWN:1d2,1,0
+BASEDICE:1d4	UP:1d6,1d8,2d6,2d8,4d6,4d8,8d6,8d8	DOWN:1d3,1d2,1,0
+BASEDICE:1d6	UP:1d8,2d6,2d8,4d6,4d8,8d6,8d8	DOWN:1d4,1d3,1d2,1,0
+BASEDICE:1d8	UP:2d6,2d8,4d6,4d8,8d6,8d8		DOWN:1d6,1d4,1d3,1d2,1,0
+BASEDICE:1d10	UP:2d6,2d8,4d6,4d8,8d6,8d8		DOWN:1d6,1d4,1d3,1d2,1,0
+BASEDICE:1d12	UP:2d8,2d8,4d6,4d8,8d6,8d8		DOWN:1d8,1d6,1d4,1d3,1d2,1,0
+
+#
+# Dice rolling methods for character creation
+#
+ROLLMETHOD:3d6						METHOD:3d6
+ROLLMETHOD:4d4						METHOD:4d4
+ROLLMETHOD:4d6 drop lowest				METHOD:roll(4,6,[2,3,4])
+ROLLMETHOD:4d6, reroll 1's				METHOD:4d5+4
+ROLLMETHOD:4d6, reroll 1's, drop the lowest	METHOD:3+roll(4,5,[2,3,4])
+ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,[3,4,5])
+
+# Unit Set
+UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##
+UNITSET:Metric		HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#		DISTANCEUNIT:m		DISTANCEFACTOR:0.3	DISTANCEPATTERN:#.##	WEIGHTUNIT:kg	WEIGHTFACTOR:0.5	WEIGHTPATTERN:#.###
+
+#
+# End
+#

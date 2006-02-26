@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Sep 27 02:21:08 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+#Deity Name		Domains							Follower AL		Desciption of Deity/Title											Holy Item		Deity Weapon		ALIGN		Source Index
+# Deity Name	Product Identity?	Domains									Clergy AL				Desc is PI?		Desciption of Deity/Title			Holy Item					Deity Weapon			ALIGN		PANTHEON			Source Page				Required Race
+Anshar		NAMEISPI:YES	DOMAINS:Healing,Holy,Pain,Strength,Suffering,Travel		FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:The Far Traveler				SYMBOL:Strand of Thorn Bush		DEITYWEAP:Unarmed Strike	ALIGN:TN					SOURCEPAGE:p.10
+Althares		NAMEISPI:YES	DOMAINS:Artifact,Divination,Holy,Knowledge			FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Artificer of the Gods			SYMBOL:Holy Book on a Chain		DEITYWEAP:Warhammer|Flintlock	ALIGN:TN					SOURCEPAGE:p.7
+Belisarda		NAMEISPI:YES	DOMAINS:Air,Animal,Earth,Fire,Healing,Holy,Plant,Water	FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:God of the Elorii				SYMBOL:(Known only to the Elorii)	DEITYWEAP:Longbow			ALIGN:TN	PANTHEON:Elorii		SOURCEPAGE:p.178			PRERACE:Elorii
+Beltine		NAMEISPI:YES	DOMAINS:Afterlife,Divination,Healing,Holy,Spirit		FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Warden of the Afterlife			SYMBOL:Incense Censer			DEITYWEAP:Quarterstaff		ALIGN:TN					SOURCEPAGE:p.7
+Cadic			NAMEISPI:YES	DOMAINS:Murder,Holy,Knowledge,Trickery,Music			FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Master of the Darkness			SYMBOL:Obsidian Disc			DEITYWEAP:Shortbow		ALIGN:TN					SOURCEPAGE:p.9
+Fire Drake		NAMEISPI:YES	DOMAINS:Earth,Fire,Holy,Plant,Saurian				FOLLOWERALIGN:012345678		DESCISPI:YES	DESC:Fire Dragon					SYMBOL:Fire Dragon			DEITYWEAP:Flail			ALIGN:TN	PANTHEON:Ss'ressen	SOURCEPAGE:p.178/Dragon p.60	PRERACE:Ss'ressen
+Hurrian		NAMEISPI:YES	DOMAINS:Air,Holy,Protection,Storm,Strength,War			FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:The Storm Lord				SYMBOL:Lightning Sword Pendant	DEITYWEAP:Longsword		ALIGN:TN					SOURCEPAGE:p.7
+Illir			NAMEISPI:YES	DOMAINS:Holy,Honor,Protection,Sun,War				FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Bringer of Light, Lord of Truth	SYMBOL:Radiant Golden Orb		DEITYWEAP:Gladius			ALIGN:TN					SOURCEPAGE:p.5
+Larissa		NAMEISPI:YES	DOMAINS:Charm,Divination,Fate,Holy,Luck,Protection,Senses	FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Oracle of the Gods				SYMBOL:Coin on Silver Chain		DEITYWEAP:Rapier			ALIGN:TN					SOURCEPAGE:p.8
+Neroth		NAMEISPI:YES	DOMAINS:Death,Destruction,Disease,Holy				FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Lord of the Dead				SYMBOL:Ankh					DEITYWEAP:Scythe			ALIGN:TN					SOURCEPAGE:p.6
+Nier			NAMEISPI:YES	DOMAINS:Destruction,Fire,Holy,War					FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:Lord of Flaming Destruction		SYMBOL:Fire Opal				DEITYWEAP:Greatsword		ALIGN:TN					SOURCEPAGE:p.8
+Saluwe		NAMEISPI:YES	DOMAINS:Animal,Earth,Holy,Plant					FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:The Stern Matriarch			SYMBOL:Wreath of Mistletoe		DEITYWEAP:Spear			ALIGN:TN					SOURCEPAGE:p.6
+Sarish		NAMEISPI:YES	DOMAINS:Daemonology,Holy,Magic,Oath,Secrets			FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:The Oath Maker,Master of the Arcane	SYMBOL:Disc with Sigil of Sarish	DEITYWEAP:Dagger (Sarishan)	ALIGN:TN					SOURCEPAGE:p.9
+Yarris		NAMEISPI:YES	DOMAINS:Protection,Sea,Water,Holy					FOLLOWERALIGN:0123456789	DESCISPI:YES	DESC:The Sea King					SYMBOL:Gilded Conch Shell		DEITYWEAP:Trident			ALIGN:TN					SOURCEPAGE:p.6
+
+#
+# End
+#

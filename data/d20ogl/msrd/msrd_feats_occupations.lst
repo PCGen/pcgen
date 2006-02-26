@@ -1,0 +1,249 @@
+# CVS $Revision: 1.21 $ $Author: frank_kliewe $ -- Mon Oct 24 16:52:28 2005 -- reformated by prettylst.pl v1.35 (build 506)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original entry by Barak & Tir Gwaith
+
+# Feat Name					Output Name		Type			Visible	Choose a Feat											Modify VAR							Source Page
+Occupation (Academic)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Academic_Skills)3								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+Occupation (Adventurer)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Adventurer_Skills)2	ADD:FEAT(TYPE=Adventurer)			BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Athlete)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Athlete_Skills)3	ADD:FEAT(TYPE=Athlete)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Blue Collar)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Blue_Collar_Skills)3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Celebrity)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Celebrity_Skills)								BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
+Occupation (Creative)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Creative_Skills)3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Criminal)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Criminal_Skills)2	ADD:FEAT(TYPE=Criminal)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Dilettante)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Dilettante_Skills)								BONUS:VAR|WealthBonus|6					SOURCEPAGE:Occupations.rtf
+Occupation (Doctor)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Doctor_Skills)2									BONUS:VAR|WealthBonus|4					SOURCEPAGE:Occupations.rtf
+Occupation (Emergency Services)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Emergency_Services_Skills)2							BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Entrepreneur)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Entrepreneur_Skills)2								BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:Occupations.rtf
+Occupation (Investigative)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Investigative_Skills)2	ADD:FEAT(TYPE=Investigative)		BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Law Enforcement)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Law_Enforcement_Skills)2	ADD:FEAT(TYPE=Law_Enforcement)	BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Military)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Military_Skills)2	ADD:FEAT(TYPE=Military)				BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Religious)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Religious_Skills)3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:Occupations.rtf
+Occupation (Rural)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Rural_Skills)2	ADD:FEAT(TYPE=Rural)					BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Student)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Student_Skills)3								BONUS:VAR|WealthBonus|1					SOURCEPAGE:Occupations.rtf
+Occupation (Technician)			OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Technician_Skills)3								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+Occupation (White Collar)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=White_Collar_Skills)2								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
+Occupation (None)				OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO																						SOURCEPAGE:Occupations.rtf
+
+###Block: The Skill choices
+# Feat Name								Type																														Visible	Required Class Skill					Prohibited Class SKill						Choose a Skill				Bonus to skill									Class Skill
+Balance(class skill)						TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:NO									!PRECSKILL:1,Balance																							CSKILL:Balance
+Balance(+1 to skill)						TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:NO	PRECSKILL:1,Balance																				BONUS:SKILL|Balance|1|TYPE=Competance					CSKILL:Balance
+
+Bluff(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Celebrity_Skills.Creative_Skills.Entrepreneur_Skills															VISIBLE:NO									!PRECSKILL:1,Bluff																							CSKILL:Bluff
+Bluff(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Celebrity_Skills.Creative_Skills.Entrepreneur_Skills															VISIBLE:NO	PRECSKILL:1,Bluff																					BONUS:SKILL|Bluff|1|TYPE=Competance						CSKILL:Bluff
+
+Climb(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Military_Skills.Rural_Skills									VISIBLE:NO									!PRECSKILL:1,Climb																							CSKILL:Climb
+Climb(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Military_Skills.Rural_Skills									VISIBLE:NO	PRECSKILL:1,Climb																					BONUS:SKILL|Climb|1|TYPE=Competance						CSKILL:Climb
+
+Computer Use(class skill)					TYPE:Occupation_Skill.Academic_Skills.Creative_Skills.Doctor_Skills.Emergency_Services_Skills.Investigative_Skills.Student_Skills.Technician_Skills.White_Collar_Skills			VISIBLE:NO									!PRECSKILL:1,Computer Use																						CSKILL:Computer Use
+Computer Use(+1 to skill)					TYPE:Occupation_Skill.Academic_Skills.Creative_Skills.Doctor_Skills.Emergency_Services_Skills.Investigative_Skills.Student_Skills.Technician_Skills.White_Collar_Skills			VISIBLE:NO	PRECSKILL:1,Computer Use																			BONUS:SKILL|Computer Use|1|TYPE=Competance				CSKILL:Computer Use
+
+Craft (Chemical - class skill)				TYPE:Occupation_Skill.Technician_Skills																								VISIBLE:NO									!PRECSKILL:1,Craft (Chemical)																						CSKILL:Craft (Chemical)
+Craft (Chemical - +1 to skill)				TYPE:Occupation_Skill.Technician_Skills																								VISIBLE:NO	PRECSKILL:1,Craft (Chemical)																			BONUS:SKILL|Craft (Chemical)|1|TYPE=Competance				CSKILL:Craft (Chemical)
+
+Craft (Electronic - class skill)				TYPE:Occupation_Skill.Blue_Collar_Skills.Technician_Skills																					VISIBLE:NO									!PRECSKILL:1,Craft (Electronic)																					CSKILL:Craft (Electronic)
+Craft (Electronic - +1 to skill)				TYPE:Occupation_Skill.Blue_Collar_Skills.Technician_Skills																					VISIBLE:NO	PRECSKILL:1,Craft (Electronic)																		BONUS:SKILL|Craft (Electronic)|1|TYPE=Competance			CSKILL:Craft (Electronic)
+
+Craft (Mechanical - class skill)				TYPE:Occupation_Skill.Blue_Collar_Skills.Technician_Skills																					VISIBLE:NO									!PRECSKILL:1,Craft (Mechanical)																					CSKILL:Craft (Mechanical)
+Craft (Mechanical - +1 to skill)				TYPE:Occupation_Skill.Blue_Collar_Skills.Technician_Skills																					VISIBLE:NO	PRECSKILL:1,Craft (Mechanical)																		BONUS:SKILL|Craft (Mechanical)|1|TYPE=Competance			CSKILL:Craft (Mechanical)
+
+Craft (Pharmaceutical - class skill)			TYPE:Occupation_Skill.Doctor_Skills																									VISIBLE:NO									!PRECSKILL:1,Craft (Pharmaceutical)																					CSKILL:Craft (Pharmaceutical)
+Craft (Pharmaceutical - +1 to skill)			TYPE:Occupation_Skill.Doctor_Skills																									VISIBLE:NO	PRECSKILL:1,Craft (Pharmaceutical)																		BONUS:SKILL|Craft (Pharmaceutical)|1|TYPE=Competance			CSKILL:Craft (Pharmaceutical)
+
+Craft (Structural - class skill)				TYPE:Occupation_Skill.Blue_Collar_Skills.Technician_Skills																					VISIBLE:NO									!PRECSKILL:1,Craft (Structural)																					CSKILL:Craft (Structural)
+Craft (Structural - +1 to skill)				TYPE:Occupation_Skill.Blue_Collar_Skills.Technician_Skills																					VISIBLE:NO	PRECSKILL:1,Craft (Structural)																		BONUS:SKILL|Craft (Structural)|1|TYPE=Competance			CSKILL:Craft (Structural)
+
+Craft (Visual Art - class skill)				TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Investigative_Skills																		VISIBLE:NO									!PRECSKILL:1,Craft (Visual Art)																					CSKILL:Craft (Visual Art)
+Craft (Visual Art - +1 to skill)				TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Investigative_Skills																		VISIBLE:NO	PRECSKILL:1,Craft (Visual Art)																		BONUS:SKILL|Craft (Visual Art)|1|TYPE=Competance			CSKILL:Craft (Visual Art)
+
+Craft (Writing - class skill)					TYPE:Occupation_Skill.Academic_Skills.Celebrity_Skills.Creative_Skills.Investigative_Skills															VISIBLE:NO									!PRECSKILL:1,Craft (Writing)																						CSKILL:Craft (Writing)
+Craft (Writing - +1 to skill)					TYPE:Occupation_Skill.Academic_Skills.Celebrity_Skills.Creative_Skills.Investigative_Skills															VISIBLE:NO	PRECSKILL:1,Craft (Writing)																			BONUS:SKILL|Craft (Writing)|1|TYPE=Competance				CSKILL:Craft (Writing)
+
+Decipher Script(class skill)					TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Religious_Skills																		VISIBLE:NO									!PRECSKILL:1,Decipher Script																						CSKILL:Decipher Script
+Decipher Script(+1 to skill)					TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Religious_Skills																		VISIBLE:NO	PRECSKILL:1,Decipher Script																			BONUS:SKILL|Decipher Script|1|TYPE=Competance				CSKILL:Decipher Script
+
+Demolitions(class skill)					TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills																					VISIBLE:NO									!PRECSKILL:1,Demolitions																						CSKILL:Demolitions
+Demolitions(+1 to skill)					TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills																					VISIBLE:NO	PRECSKILL:1,Demolitions																				BONUS:SKILL|Demolitions|1|TYPE=Competance					CSKILL:Demolitions
+
+Diplomacy(class skill)						TYPE:Occupation_Skill.Celebrity_Skills.Entrepreneur_Skills.Law_Enforcement_Skills.White_Collar_Skills														VISIBLE:NO									!PRECSKILL:1,Diplomacy																							CSKILL:Diplomacy
+Diplomacy(+1 to skill)						TYPE:Occupation_Skill.Celebrity_Skills.Entrepreneur_Skills.Law_Enforcement_Skills.White_Collar_Skills														VISIBLE:NO	PRECSKILL:1,Diplomacy																				BONUS:SKILL|Diplomacy|1|TYPE=Competance					CSKILL:Diplomacy
+
+Disable Device(class skill)					TYPE:Occupation_Skill.Adventurer_Skills.Criminal_Skills																					VISIBLE:NO									!PRECSKILL:1,Disable Device																						CSKILL:Disable Device
+Disable Device(+1 to skill)					TYPE:Occupation_Skill.Adventurer_Skills.Criminal_Skills																					VISIBLE:NO	PRECSKILL:1,Disable Device																			BONUS:SKILL|Disable Device|1|TYPE=Competance				CSKILL:Disable Device
+
+Disguise(class skill)						TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Criminal_Skills																			VISIBLE:NO									!PRECSKILL:1,Disguise																							CSKILL:Disguise
+Disguise(+1 to skill)						TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Criminal_Skills																			VISIBLE:NO	PRECSKILL:1,Disguise																				BONUS:SKILL|Disguise|1|TYPE=Competance					CSKILL:Disguise
+
+Drive(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Law_Enforcement_Skills.Military_Skills.Rural_Skills					VISIBLE:NO									!PRECSKILL:1,Drive																							CSKILL:Drive
+Drive(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Law_Enforcement_Skills.Military_Skills.Rural_Skills					VISIBLE:NO	PRECSKILL:1,Drive																					BONUS:SKILL|Drive|1|TYPE=Competance						CSKILL:Drive
+
+Escape Artist(class skill)					TYPE:Occupation_Skill.Adventurer_Skills																								VISIBLE:NO									!PRECSKILL:1,Escape Artist																						CSKILL:Escape Artist
+Escape Artist(+1 to skill)					TYPE:Occupation_Skill.Adventurer_Skills																								VISIBLE:NO	PRECSKILL:1,Escape Artist																			BONUS:SKILL|Escape Artist|1|TYPE=Competance				CSKILL:Escape Artist
+
+Forgery(class skill)						TYPE:Occupation_Skill.Creative_Skills.Criminal_Skills.Investigative_Skills																		VISIBLE:NO									!PRECSKILL:1,Forgery																							CSKILL:Forgery
+Forgery(+1 to skill)						TYPE:Occupation_Skill.Creative_Skills.Criminal_Skills.Investigative_Skills																		VISIBLE:NO	PRECSKILL:1,Forgery																				BONUS:SKILL|Forgery|1|TYPE=Competance					CSKILL:Forgery
+
+Gamble(class skill)						TYPE:Occupation_Skill.Criminal_Skills.Dilettante_Skills.Entrepreneur_Skills																		VISIBLE:NO									!PRECSKILL:1,Gamble																							CSKILL:Gamble
+Gamble(+1 to skill)						TYPE:Occupation_Skill.Criminal_Skills.Dilettante_Skills.Entrepreneur_Skills																		VISIBLE:NO	PRECSKILL:1,Gamble																				BONUS:SKILL|Gamble|1|TYPE=Competance					CSKILL:Gamble
+
+Gather Information(class skill)				TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Law_Enforcement_Skills																	VISIBLE:NO									!PRECSKILL:1,Gather Information																					CSKILL:Gather Information
+Gather Information(+1 to skill)				TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Law_Enforcement_Skills																	VISIBLE:NO	PRECSKILL:1,Gather Information																		BONUS:SKILL|Gather Information|1|TYPE=Competance			CSKILL:Gather Information
+
+Handle Animal(class skill)					TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills																						VISIBLE:NO									!PRECSKILL:1,Handle Animal																						CSKILL:Handle Animal
+Handle Animal(+1 to skill)					TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills																						VISIBLE:NO	PRECSKILL:1,Handle Animal																			BONUS:SKILL|Handle Animal|1|TYPE=Competance				CSKILL:Handle Animal
+
+Hide(class skill)							TYPE:Occupation_Skill.Criminal_Skills.Military_Skills																						VISIBLE:NO									!PRECSKILL:1,Hide																								CSKILL:Hide
+Hide(+1 to skill)							TYPE:Occupation_Skill.Criminal_Skills.Military_Skills																						VISIBLE:NO	PRECSKILL:1,Hide																					BONUS:SKILL|Hide|1|TYPE=Competance						CSKILL:Hide
+
+Intimidate(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Blue_Collar_Skills.Dilettante_Skills.Law_Enforcement_Skills														VISIBLE:NO									!PRECSKILL:1,Intimidate																							CSKILL:Intimidate
+Intimidate(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Blue_Collar_Skills.Dilettante_Skills.Law_Enforcement_Skills														VISIBLE:NO	PRECSKILL:1,Intimidate																				BONUS:SKILL|Intimidate|1|TYPE=Competance					CSKILL:Intimidate
+
+Investigate(class skill)					TYPE:Occupation_Skill.Investigative_Skills																							VISIBLE:NO									!PRECSKILL:1,Investigate																						CSKILL:Investigate
+Investigate(+1 to skill)					TYPE:Occupation_Skill.Investigative_Skills																							VISIBLE:NO	PRECSKILL:1,Investigate																				BONUS:SKILL|Investigate|1|TYPE=Competance					CSKILL:Investigate
+
+Jump(class skill)							TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Emergency_Services_Skills																	VISIBLE:NO									!PRECSKILL:1,Jump																								CSKILL:Jump
+Jump(+1 to skill)							TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Emergency_Services_Skills																	VISIBLE:NO	PRECSKILL:1,Jump																					BONUS:SKILL|Jump|1|TYPE=Competance						CSKILL:Jump
+
+Knowledge (Arcane Lore - class skill)			TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Creative_Skills.Religious_Skills.Student_Skills													VISIBLE:NO									!PRECSKILL:1,Knowledge (Arcane Lore)																				CSKILL:Knowledge (Arcane Lore)
+Knowledge (Arcane Lore - +1 to skill)			TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Creative_Skills.Religious_Skills.Student_Skills													VISIBLE:NO	PRECSKILL:1,Knowledge (Arcane Lore)																		BONUS:SKILL|Knowledge (Arcane Lore)|1|TYPE=Competance			CSKILL:Knowledge (Arcane Lore)
+
+Knowledge (Art - class skill)					TYPE:Occupation_Skill.Academic_Skills.Creative_Skills.Religious_Skills.Student_Skills.White_Collar_Skills													VISIBLE:NO									!PRECSKILL:1,Knowledge (Art)																						CSKILL:Knowledge (Art)
+Knowledge (Art - +1 to skill)					TYPE:Occupation_Skill.Academic_Skills.Creative_Skills.Religious_Skills.Student_Skills.White_Collar_Skills													VISIBLE:NO	PRECSKILL:1,Knowledge (Art)																			BONUS:SKILL|Knowledge (Art)|1|TYPE=Competance				CSKILL:Knowledge (Art)
+
+Knowledge (Behavioral Sciences - class skill)		TYPE:Occupation_Skill.Academic_Skills.Doctor_Skills.Investigative_Skills.Religious_Skills.Student_Skills													VISIBLE:NO									!PRECSKILL:1,Knowledge (Behavioral Sciences)																			CSKILL:Knowledge (Behavioral Sciences)
+Knowledge (Behavioral Sciences - +1 to skill)		TYPE:Occupation_Skill.Academic_Skills.Doctor_Skills.Investigative_Skills.Religious_Skills.Student_Skills													VISIBLE:NO	PRECSKILL:1,Knowledge (Behavioral Sciences)																BONUS:SKILL|Knowledge (Behavioral Sciences)|1|TYPE=Competance	CSKILL:Knowledge (Behavioral Sciences)
+
+Knowledge (Business - class skill)				TYPE:Occupation_Skill.Academic_Skills.Entrepreneur_Skills.Student_Skills.Technician_Skills.White_Collar_Skills												VISIBLE:NO									!PRECSKILL:1,Knowledge (Business)																					CSKILL:Knowledge (Business)
+Knowledge (Business - +1 to skill)				TYPE:Occupation_Skill.Academic_Skills.Entrepreneur_Skills.Student_Skills.Technician_Skills.White_Collar_Skills												VISIBLE:NO	PRECSKILL:1,Knowledge (Business)																		BONUS:SKILL|Knowledge (Business)|1|TYPE=Competance			CSKILL:Knowledge (Business)
+
+Knowledge (Civics - class skill)				TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Law_Enforcement_Skills.Student_Skills.White_Collar_Skills											VISIBLE:NO									!PRECSKILL:1,Knowledge (Civics)																					CSKILL:Knowledge (Civics)
+Knowledge (Civics - +1 to skill)				TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Law_Enforcement_Skills.Student_Skills.White_Collar_Skills											VISIBLE:NO	PRECSKILL:1,Knowledge (Civics)																		BONUS:SKILL|Knowledge (Civics)|1|TYPE=Competance			CSKILL:Knowledge (Civics)
+
+Knowledge (Current Events - class skill)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills.Entrepreneur_Skills.Student_Skills															VISIBLE:NO									!PRECSKILL:1,Knowledge (Current Events)																				CSKILL:Knowledge (Current Events)
+Knowledge (Current Events - +1 to skill)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills.Entrepreneur_Skills.Student_Skills															VISIBLE:NO	PRECSKILL:1,Knowledge (Current Events)																	BONUS:SKILL|Knowledge (Current Events)|1|TYPE=Competance		CSKILL:Knowledge (Current Events)
+
+Knowledge (Earth and Life Sciences - class skill)	TYPE:Occupation_Skill.Academic_Skills.Doctor_Skills.Emergency_Services_Skills.Investigative_Skills.Law_Enforcement_Skills.Student_Skills.Technician_Skills.White_Collar_Skills	VISIBLE:NO									!PRECSKILL:1,Knowledge (Earth and Life Sciences)																		CSKILL:Knowledge (Earth and Life Sciences)
+Knowledge (Earth and Life Sciences - +1 to skill)	TYPE:Occupation_Skill.Academic_Skills.Doctor_Skills.Emergency_Services_Skills.Investigative_Skills.Law_Enforcement_Skills.Student_Skills.Technician_Skills.White_Collar_Skills	VISIBLE:NO	PRECSKILL:1,Knowledge (Earth and Life Sciences)																BONUS:SKILL|Knowledge (Earth and Life Sciences)|1|TYPE=Competance	CSKILL:Knowledge (Earth and Life Sciences)
+
+Knowledge (History - class skill)				TYPE:Occupation_Skill.Academic_Skills.Religious_Skills.Student_Skills.White_Collar_Skills																VISIBLE:NO									!PRECSKILL:1,Knowledge (History)																					CSKILL:Knowledge (History)
+Knowledge (History - +1 to skill)				TYPE:Occupation_Skill.Academic_Skills.Religious_Skills.Student_Skills.White_Collar_Skills																VISIBLE:NO	PRECSKILL:1,Knowledge (History)																		BONUS:SKILL|Knowledge (History)|1|TYPE=Competance			CSKILL:Knowledge (History)
+
+Knowledge (Physical Sciences - class skill)		TYPE:Occupation_Skill.Academic_Skills.Student_Skills.Technician_Skills.White_Collar_Skills															VISIBLE:NO									!PRECSKILL:1,Knowledge (Physical Sciences)																			CSKILL:Knowledge (Physical Sciences)
+Knowledge (Physical Sciences - +1 to skill)		TYPE:Occupation_Skill.Academic_Skills.Student_Skills.Technician_Skills.White_Collar_Skills															VISIBLE:NO	PRECSKILL:1,Knowledge (Physical Sciences)																	BONUS:SKILL|Knowledge (Physical Sciences)|1|TYPE=Competance		CSKILL:Knowledge (Physical Sciences)
+
+Knowledge (Popular Culture - class skill)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Knowledge (Popular Culture)																				CSKILL:Knowledge (Popular Culture)
+Knowledge (Popular Culture - +1 to skill)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Knowledge (Popular Culture)																	BONUS:SKILL|Knowledge (Popular Culture)|1|TYPE=Competance		CSKILL:Knowledge (Popular Culture)
+
+Knowledge (Streetwise - class skill)			TYPE:Occupation_Skill.Adventurer_Skills.Criminal_Skills.Investigative_Skills.Law_Enforcement_Skills.Religious_Skills											VISIBLE:NO									!PRECSKILL:1,Knowledge (Streetwise)																					CSKILL:Knowledge (Streetwise)
+Knowledge (Streetwise - +1 to skill)			TYPE:Occupation_Skill.Adventurer_Skills.Criminal_Skills.Investigative_Skills.Law_Enforcement_Skills.Religious_Skills											VISIBLE:NO	PRECSKILL:1,Knowledge (Streetwise)																		BONUS:SKILL|Knowledge (Streetwise)|1|TYPE=Competance			CSKILL:Knowledge (Streetwise)
+
+Knowledge (Tactics - class skill)				TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Law_Enforcement_Skills.Military_Skills															VISIBLE:NO									!PRECSKILL:1,Knowledge (Tactics)																					CSKILL:Knowledge (Tactics)
+Knowledge (Tactics - +1 to skill)				TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Law_Enforcement_Skills.Military_Skills															VISIBLE:NO	PRECSKILL:1,Knowledge (Tactics)																		BONUS:SKILL|Knowledge (Tactics)|1|TYPE=Competance			CSKILL:Knowledge (Tactics)
+
+Knowledge (Technology - class skill)			TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Doctor_Skills.Emergency_Services_Skills.Entrepreneur_Skills.Student_Skills.Technician_Skills.White_Collar_Skills		VISIBLE:NO									!PRECSKILL:1,Knowledge (Technology)																					CSKILL:Knowledge (Technology)
+Knowledge (Technology - +1 to skill)			TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Doctor_Skills.Emergency_Services_Skills.Entrepreneur_Skills.Student_Skills.Technician_Skills.White_Collar_Skills		VISIBLE:NO	PRECSKILL:1,Knowledge (Technology)																		BONUS:SKILL|Knowledge (Technology)|1|TYPE=Competance			CSKILL:Knowledge (Technology)
+
+Knowledge (Theology and Philosophy - class skill)	TYPE:Occupation_Skill.Academic_Skills.Religious_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Knowledge (Theology and Philosophy)																		CSKILL:Knowledge (Theology and Philosophy)
+Knowledge (Theology and Philosophy - +1 to skill)	TYPE:Occupation_Skill.Academic_Skills.Religious_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Knowledge (Theology and Philosophy)																BONUS:SKILL|Knowledge (Theology and Philosophy)|1|TYPE=Competance	CSKILL:Knowledge (Theology and Philosophy)
+
+Listen(class skill)						TYPE:Occupation_Skill.Law_Enforcement_Skills.Religious_Skills																				VISIBLE:NO									!PRECSKILL:1,Listen																							CSKILL:Listen
+Listen(+1 to skill)						TYPE:Occupation_Skill.Law_Enforcement_Skills.Religious_Skills																				VISIBLE:NO	PRECSKILL:1,Listen																				BONUS:SKILL|Listen|1|TYPE=Competance					CSKILL:Listen
+
+Move Silently(class skill)					TYPE:Occupation_Skill.Adventurer_Skills.Criminal_Skills.Military_Skills																			VISIBLE:NO									!PRECSKILL:1,Move Silently																						CSKILL:Move Silently
+Move Silently(+1 to skill)					TYPE:Occupation_Skill.Adventurer_Skills.Criminal_Skills.Military_Skills																			VISIBLE:NO	PRECSKILL:1,Move Silently																			BONUS:SKILL|Move Silently|1|TYPE=Competance				CSKILL:Move Silently
+
+Navigate(class skill)						TYPE:Occupation_Skill.Military_Skills																								VISIBLE:NO									!PRECSKILL:1,Navigate																							CSKILL:Navigate
+Navigate(+1 to skill)						TYPE:Occupation_Skill.Military_Skills																								VISIBLE:NO	PRECSKILL:1,Navigate																				BONUS:SKILL|Navigate|1|TYPE=Competance					CSKILL:Navigate
+
+Perform (Act - class skill)					TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Act)																						CSKILL:Perform (Act)
+Perform (Act - +1 to skill)					TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Act)																			BONUS:SKILL|Perform (Act)|1|TYPE=Competance				CSKILL:Perform (Act)
+
+Perform (Dance - class skill)					TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Dance)																						CSKILL:Perform (Dance)
+Perform (Dance - +1 to skill)					TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Dance)																			BONUS:SKILL|Perform (Dance)|1|TYPE=Competance				CSKILL:Perform (Dance)
+
+Perform (Keyboards - class skill)				TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Keyboards)																					CSKILL:Perform (Keyboards)
+Perform (Keyboards - +1 to skill)				TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Keyboards)																		BONUS:SKILL|Perform (Keyboards)|1|TYPE=Competance			CSKILL:Perform (Keyboards)
+
+Perform (Percussion Instruments - class skill)		TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Percussion Instruments)																			CSKILL:Perform (Percussion Instruments)
+Perform (Percussion Instruments - +1 to skill)		TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Percussion Instruments)																BONUS:SKILL|Perform (Percussion Instruments)|1|TYPE=Competance	CSKILL:Perform (Percussion Instruments)
+
+Perform (Sing - class skill)					TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Sing)																						CSKILL:Perform (Sing)
+Perform (Sing - +1 to skill)					TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Sing)																			BONUS:SKILL|Perform (Sing)|1|TYPE=Competance				CSKILL:Perform (Sing)
+
+Perform (Stand-Up - class skill)				TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Stand-Up)																					CSKILL:Perform (Stand-Up)
+Perform (Stand-Up - +1 to skill)				TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Stand-Up)																		BONUS:SKILL|Perform (Stand-Up)|1|TYPE=Competance			CSKILL:Perform (Stand-Up)
+
+Perform (Stringed Instruments - class skill)		TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Stringed Instruments)																			CSKILL:Perform (Stringed Instruments)
+Perform (Stringed Instruments - +1 to skill)		TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Stringed Instruments)																BONUS:SKILL|Perform (Stringed Instruments)|1|TYPE=Competance	CSKILL:Perform (Stringed Instruments)
+
+Perform (Wind Instruments - class skill)			TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO									!PRECSKILL:1,Perform (Wind Instruments)																				CSKILL:Perform (Wind Instruments)
+Perform (Wind Instruments - +1 to skill)			TYPE:Occupation_Skill.Celebrity_Skills.Creative_Skills.Student_Skills																			VISIBLE:NO	PRECSKILL:1,Perform (Wind Instruments)																	BONUS:SKILL|Perform (Wind Instruments)|1|TYPE=Competance		CSKILL:Perform (Wind Instruments)
+
+Pilot(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills																					VISIBLE:NO									!PRECSKILL:1,Pilot																							CSKILL:Pilot
+Pilot(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills																					VISIBLE:NO	PRECSKILL:1,Pilot																					BONUS:SKILL|Pilot|1|TYPE=Competance						CSKILL:Pilot
+
+Read/Write Language(class skill)				TYPE:Occupation_Skill.Academic_Skills																								VISIBLE:NO									!PRECSKILL:1,Read/Write Language																					CSKILL:Read/Write Language
+Read/Write Language(1 additional language)		TYPE:Occupation_Skill.Academic_Skills																								VISIBLE:NO	PRECSKILL:1,Read/Write Language												ADD:SKILL(Read/Write Language)1												CSKILL:Read/Write Language
+
+Repair(class skill)						TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills.Technician_Skills																			VISIBLE:NO									!PRECSKILL:1,Repair																							CSKILL:Repair
+Repair(+1 to skill)						TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills.Technician_Skills																			VISIBLE:NO	PRECSKILL:1,Repair																				BONUS:SKILL|Repair|1|TYPE=Competance					CSKILL:Repair
+
+Research(class skill)						TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Student_Skills.Technician_Skills.White_Collar_Skills												VISIBLE:NO									!PRECSKILL:1,Research																							CSKILL:Research
+Research(+1 to skill)						TYPE:Occupation_Skill.Academic_Skills.Investigative_Skills.Student_Skills.Technician_Skills.White_Collar_Skills												VISIBLE:NO	PRECSKILL:1,Research																				BONUS:SKILL|Research|1|TYPE=Competance					CSKILL:Research
+
+Ride(class skill)							TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Dilettante_Skills.Rural_Skills													VISIBLE:NO									!PRECSKILL:1,Ride																								CSKILL:Ride
+Ride(+1 to skill)							TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Dilettante_Skills.Rural_Skills													VISIBLE:NO	PRECSKILL:1,Ride																					BONUS:SKILL|Ride|1|TYPE=Competance						CSKILL:Ride
+
+Search(class skill)						TYPE:Occupation_Skill.Doctor_Skills.Emergency_Services_Skills.Investigative_Skills																	VISIBLE:NO									!PRECSKILL:1,Search																							CSKILL:Search
+Search(+1 to skill)						TYPE:Occupation_Skill.Doctor_Skills.Emergency_Services_Skills.Investigative_Skills																	VISIBLE:NO	PRECSKILL:1,Search																				BONUS:SKILL|Search|1|TYPE=Competance					CSKILL:Search
+
+Sense Motive(class skill)					TYPE:Occupation_Skill.Investigative_Skills.Religious_Skills																					VISIBLE:NO									!PRECSKILL:1,Sense Motive																						CSKILL:Sense Motive
+Sense Motive(+1 to skill)					TYPE:Occupation_Skill.Investigative_Skills.Religious_Skills																					VISIBLE:NO	PRECSKILL:1,Sense Motive																			BONUS:SKILL|Sense Motive|1|TYPE=Competance				CSKILL:Sense Motive
+
+Sleight of Hand(class skill)					TYPE:Occupation_Skill.Criminal_Skills																								VISIBLE:NO									!PRECSKILL:1,Sleight of Hand																						CSKILL:Sleight of Hand
+Sleight of Hand(+1 to skill)					TYPE:Occupation_Skill.Criminal_Skills																								VISIBLE:NO	PRECSKILL:1,Sleight of Hand																			BONUS:SKILL|Sleight of Hand|1|TYPE=Competance				CSKILL:Sleight of Hand
+
+Speak Language(class skill)					TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:NO									!PRECSKILL:1,Speak Language																						CSKILL:Speak Language
+Speak Language(1 additional language)			TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:NO	PRECSKILL:1,Speak Language													ADD:SKILL(Speak Language)1													CSKILL:Speak Language
+
+Spot(class skill)							TYPE:Occupation_Skill.Adventurer_Skills.Creative_Skills																					VISIBLE:NO									!PRECSKILL:1,Spot																								CSKILL:Spot
+Spot(+1 to skill)							TYPE:Occupation_Skill.Adventurer_Skills.Creative_Skills																					VISIBLE:NO	PRECSKILL:1,Spot																					BONUS:SKILL|Spot|1|TYPE=Competance						CSKILL:Spot
+
+Survival(class skill)						TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills.Rural_Skills																			VISIBLE:NO									!PRECSKILL:1,Survival																							CSKILL:Survival
+Survival(+1 to skill)						TYPE:Occupation_Skill.Adventurer_Skills.Military_Skills.Rural_Skills																			VISIBLE:NO	PRECSKILL:1,Survival																				BONUS:SKILL|Survival|1|TYPE=Competance					CSKILL:Survival
+
+Swim(class skill)							TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Emergency_Services_Skills.Military_Skills.Rural_Skills												VISIBLE:NO									!PRECSKILL:1,Swim																								CSKILL:Swim
+Swim(+1 to skill)							TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Emergency_Services_Skills.Military_Skills.Rural_Skills												VISIBLE:NO	PRECSKILL:1,Swim																					BONUS:SKILL|Swim|1|TYPE=Competance						CSKILL:Swim
+
+Treat Injury(class skill)					TYPE:Occupation_Skill.Adventurer_Skills.Doctor_Skills.Emergency_Services_Skills																	VISIBLE:NO									!PRECSKILL:1,Treat Injury																						CSKILL:Treat Injury
+Treat Injury(+1 to skill)					TYPE:Occupation_Skill.Adventurer_Skills.Doctor_Skills.Emergency_Services_Skills																	VISIBLE:NO	PRECSKILL:1,Treat Injury																			BONUS:SKILL|Treat Injury|1|TYPE=Competance				CSKILL:Treat Injury
+
+Tumble(class skill)						TYPE:Occupation_Skill.Athlete_Skills																								VISIBLE:NO									!PRECSKILL:1,Tumble																							CSKILL:Tumble
+Tumble(+1 to skill)						TYPE:Occupation_Skill.Athlete_Skills																								VISIBLE:NO	PRECSKILL:1,Tumble																				BONUS:SKILL|Tumble|1|TYPE=Competance					CSKILL:Tumble
+
+Profession(class skill)						TYPE:Occupation_Skill.NoOccupationYet																								VISIBLE:NO									!PRECSKILL:1,Profession																							CSKILL:Profession
+Profession(+1 to skill)						TYPE:Occupation_Skill.NoOccupationYet																								VISIBLE:NO	PRECSKILL:1,Profession																				BONUS:SKILL|Profession|1|TYPE=Competance					CSKILL:Profession
+
+Concentration(class skill)					TYPE:Occupation_Skill.NoOccupationYet																								VISIBLE:NO									!PRECSKILL:1,Concentration																						CSKILL:Concentration
+Concentration(+1 to skill)					TYPE:Occupation_Skill.NoOccupationYet																								VISIBLE:NO	PRECSKILL:1,Concentration																			BONUS:SKILL|Concentration|1|TYPE=Competance				CSKILL:Concentration
+
+###Block: FX Skills
+# Feat Name				Type							Visible	Required Class Skill		Prohibited Class SKill		Bonus to skill						Class Skill
+Control Shape(class skill)	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO						!PRECSKILL:1,Control Shape									CSKILL:Control Shape
+Control Shape(+1 to skill)	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO	PRECSKILL:1,Control Shape						BONUS:SKILL|Control Shape|1|TYPE=Competance	CSKILL:Control Shape
+
+Psicraft(class skill)		TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO						!PRECSKILL:1,Psicraft										CSKILL:Psicraft
+Psicraft(+1 to skill)		TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO	PRECSKILL:1,Psicraft							BONUS:SKILL|Psicraft|1|TYPE=Competance		CSKILL:Psicraft
+
+Spellcraft(class skill)		TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO						!PRECSKILL:1,Spellcraft										CSKILL:Spellcraft
+Spellcraft(+1 to skill)		TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO	PRECSKILL:1,Spellcraft							BONUS:SKILL|Spellcraft|1|TYPE=Competance		CSKILL:Spellcraft
+
+Autohypnosis(class skill)	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO						!PRECSKILL:1,Autohypnosis									CSKILL:Autohypnosis
+Autohypnosis(+1 to skill)	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO	PRECSKILL:1,Autohypnosis						BONUS:SKILL|Autohypnosis|1|TYPE=Competance	CSKILL:Autohypnosis
+
+Use Magic Device(class skill)	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO						!PRECSKILL:1,Use Magic Device									CSKILL:Use Magic Device
+Use Magic Device(+1 to skill)	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:NO	PRECSKILL:1,Use Magic Device						BONUS:SKILL|Use Magic Device|1|TYPE=Competance	CSKILL:Use Magic Device
+
+#
+# EoF
+#

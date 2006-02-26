@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:Modern Dispatch - #47 - New Tortuga
+RANK:6
+GAMEMODE:Modern
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:RPGObjects.Modern Dispatch.New Tortuga
+ISOGL:YES
+SOURCELONG:Modern Dispatch #47 - New Tortuga
+SOURCESHORT:MD47-NT
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast; Author Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:Mutants & Masterminds Copyright 2003, Green Ronin Publishing
+COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics
+COPYRIGHT:OGL Cybernet - CYBERPUNK ROLEPLAYING is Copyright 2003, Mongoose Publishing Limited.
+COPYRIGHT:Ultramodern Firearms d20, Copyright 2002, Charles McManus Ryan
+COPYRIGHT:d20 Modern Weapons Locker, Copyright 2004, Wizards of the Coast, Inc; Author Keith Potter
+COPYRIGHT:Modern Dispatch #47 2004, RPGObjects; Author Paul King, Charles Rice
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #47 Copyright 2005, PCGen Data team (Including, but not limited to, Paul W. King)
+
+INFOTEXT:This dataset requires the use of the MSRD Future dataset
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:md_047_class.lst
+EQUIPMENT:md_047_equip.lst
+FEAT:md_047_feat.lst

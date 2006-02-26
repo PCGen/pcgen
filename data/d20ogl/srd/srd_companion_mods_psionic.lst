@@ -1,0 +1,36 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jan  5 12:53:43 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+#Original Entry: Arknight
+
+###Block:Psicrystal
+# Class of the Master		Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP		USEMASTERSKILL		Special Ability																	Define			Misc bonus				Stat bonus
+FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Self Propulsion	SA:Telepathic Link	SA:Share Powers	SA:Improved Evasion (Ex)	SA:Sighted (40')	DEFINE:EvasionUsable|0
+FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal																			SA:Deliver touch powers																									BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal																			SA:Telepathic Speech																									BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=7	TYPE:Psicrystal																																															BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=9	TYPE:Psicrystal																																															BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=11	TYPE:Psicrystal	SR:5																		SA:Power Resistance																				BONUS:MISC|SR|PCrystalLevel	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=13	TYPE:Psicrystal																			SA:Sight Link																										BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=15	TYPE:Psicrystal																			SA:Channel Power																										BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=17	TYPE:Psicrystal																																															BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=19	TYPE:Psicrystal																																															BONUS:STAT|INT|1
+#
+
+###Block:Psicrystal Bonuses to Master
+# Race of familiar				Type			Save checks bonus			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Psicrystal (Artiste)	TYPE:Psicrystal						BONUS:SKILL|TYPE.Craft|2	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Bully)		TYPE:Psicrystal						BONUS:SKILL|Intimidate|2	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Coward)		TYPE:Psicrystal						BONUS:SKILL|Hide|2		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Friendly)	TYPE:Psicrystal						BONUS:SKILL|Diplomacy|2		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Hero)		TYPE:Psicrystal	BONUS:CHECKS|Fortitude|2						VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Liar)		TYPE:Psicrystal						BONUS:SKILL|Bluff|2		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Meticulous)	TYPE:Psicrystal						BONUS:SKILL|Search|2		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Observant)	TYPE:Psicrystal						BONUS:SKILL|Spot|2		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Poised)		TYPE:Psicrystal						BONUS:SKILL|Balance|2		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Resolve)	TYPE:Psicrystal	BONUS:CHECKS|Willpower|2						VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sage)		TYPE:Psicrystal											VFEAT:Alertness
+#	BONUS:SKILLPOOL|NUMBER|3
+# BONUS:SKILLPOOL|NUMBER is only valid in class.lst.
+MASTERBONUSRACE:Psicrystal (Singleminded)	TYPE:Psicrystal						BONUS:SKILL|Concentration|1	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sneaky)		TYPE:Psicrystal						BONUS:SKILL|Move Silently|2	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sympathetic)	TYPE:Psicrystal						BONUS:SKILL|Sense Motive|2	VFEAT:Alertness

@@ -1,0 +1,22 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:RPGObjects - Darwin's World - Denizens of the Twisted Earth
+GAMEMODE:3e
+TYPE:RPGObjects.Core.Darwin's World
+RANK:2
+SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth
+SOURCESHORT:DenizensTE
+SOURCEWEB:http://www.darwinrpg.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Darwins World Copyright 2001, RPGObjects; Authors Dominic Covey and Chris Davis.
+COPYRIGHT:PCGen dataset conversion for Darwin's World: Denizens of the Twisted Earth Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Original Entry by wizofice2001
+
+CLASS:denizensteclasses.lst
+EQUIPMENT:denizensteequip.lst
+EQUIPMENT:denizensteequipweapmelee.lst

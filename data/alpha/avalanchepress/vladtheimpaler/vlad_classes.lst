@@ -1,0 +1,118 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri Dec  9 04:12:09 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia|SOURCESHORT:Vlad|SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+# Original Entry by: Jerril
+
+#NOTES (jerril 2003-07-31)
+#Boyar:
+#   Boyars get bonus feats periodically. There is no list to pick from, and no rules of sellection.
+#   Reading the class literally, a character can pick any feat from any sources, and does not need to qualify for it to have it.
+#   currently I'm letting them pick from any qualified feat.  Need clarification from Avalanche
+#GENERAL:
+#   No class abbreviations are listed. Left blank. Need to ask Avalanche if they have any preferences.
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Boyar		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Skill		Required Stat	Required Text
+CLASS:Boyar		PRESKILL:1,Intimidate=8	PRESTAT:1,CHA=13	PRETEXT:Must own a Castle
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handle Animal|Intimidate|Ride|Sense Motive|TYPE.Craft
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Progression
+1												DEFINE:BoyarIncome|1
+1	SA:Income %|BoyarIncome
+2																	ADD:FEAT(TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+3												DEFINE:BoyarOverTaxing|1
+3	SA:Overtaxing %|BoyarOverTaxing
+4							BONUS:VAR|BoyarIncome|1
+5																	ADD:FEAT(TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+6							BONUS:VAR|BoyarOverTaxing|1
+7							BONUS:VAR|BoyarIncome|1
+8																	ADD:FEAT(TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+9							BONUS:VAR|BoyarOverTaxing|1
+10																	ADD:FEAT(TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Black Hussar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Skill	Required Stat	Required Text
+CLASS:Black Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Nobility
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|Intuit Direction
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Progression
+1																			ADD:FEAT(Ride-By Attack)
+2	SA:Courser's Fury %|HussarCoursersFury
+2														DEFINE:HussarCoursersFury|1
+3																			ADD:FEAT(Spirited Charge)
+4	SA:Summon Mount
+5																			ADD:FEAT(Trample)
+6								BONUS:VAR|HussarCoursersFury|1
+7																			ADD:FEAT(Behead)
+8	SA:Equine Speed
+9	SA:Graceful Fall
+10								BONUS:VAR|HussarCoursersFury|1
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Skill	Required Stat	Required Text
+CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE.Craft
+1	AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
+1										FEATAUTO:Armor Proficiency (Light)
+1										FEATAUTO:Shield Proficiency
+###Block: Normal Progression
+1																				ADD:FEAT(Ride-By Attack)
+2	SA:Courser's Fury %|HussarCoursersFury	BONUS:VAR|HussarCoursersFury|(CL+2)/4	DEFINE:HussarCoursersFury|0
+3																				ADD:FEAT(Spirited Charge)
+4	SA:Summon Mount
+5																				ADD:FEAT(Trample)
+7																				ADD:FEAT(Behead)
+8	SA:Equine Speed
+9	SA:Graceful Fall
+
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE.Craft
+1																							ADD:Minour Poultice(Blessing,Cure Light Wounds,Curse,Prowess)									SPELLS:Herbalist|TIMES=var("CL=Herbalist")|Cure Minor Wounds
+2	SA:Minor Poultice %/day|HerbalistMinorPoultices		BONUS:VAR|HerbalistMinorPoultices|CL	DEFINE:HerbalistMinorPoultices|0	ADD:Minour Poultice(Blessing,Cure Light Wounds,Curse,Prowess)
+4																							ADD:Minour Poultice(Blessing,Cure Light Wounds,Curse,Prowess)
+5	SA:Moderate Poultice %/day|HerbalistModeratePoultices	BONUS:VAR|HerbalistModeratePoultices|CL/2	DEFINE:HerbalistModeratePoultices|0	ADD:Moderate Poultice(Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead)
+7																							ADD:Minour Poultice(Blessing,Cure Light Wounds,Curse,Prowess)
+8																							ADD:Moderate Poultice(Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead)
+10																							ADD:Moderate Poultice(Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead)
+11	SA:Major Poultice %/day|HerbalistMajorPoultices		BONUS:VAR|HerbalistMajorPoultices|CL/5	DEFINE:HerbalistMajorPoultices|0	ADD:Major Poultice(Cure Serious Wounds,Repel Major Undead)
+13																							ADD:Moderate Poultice(Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead)
+14																							ADD:Moderate Poultice(Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead)
+16																							ADD:Moderate Poultice(Cure Moderate Wounds,Love Potion,Protection From Evil,Remove Disease,Repel Minor Undead)
+19																							ADD:Major Poultice(Cure Serious Wounds,Repel Major Undead)
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
+2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowExtraTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+# Should these be referencing Cleric or Lautar????
+2	BONUS:VAR|TurnLevelBase|cl("Cleric")
+2	BONUS:VAR|TurnDamagePlusBase|cl("Cleric")
+2	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Normal Progression
+1																									SPELLS:Lautar|TIMES=cl("Lautar")/3+1|Protection from Evil
+4							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+5							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+7							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+8							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+10							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+11	SA:Create Talisman (Standard)
+13							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+14	SA:Create Talisman (Reliable)
+16							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
+17	SA:Create Talisman (Dependable)
+19																																			FEATAUTO:Craft Magic Arms and Armor
+20							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)

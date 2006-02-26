@@ -1,0 +1,29 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $
+CAMPAIGN:MP - Monte Cook - Web Enhancements
+GAMEMODE:3e
+TYPE:Malhavoc Press.Web
+RANK:9
+SOURCELONG:Malhavoc Press - Web Enhancements
+SOURCESHORT:MalhavocWb
+SOURCEWEB:http://www.montecook.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:d20 Syste rules and Content Copyright 2000, Wizards of the Coast, Inc.; authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:New ranger material based on Variant Ranger Copyright 2001 Monte Cook, found at montecook.com
+COPYRIGHT:The Book of Eldritch Might, Copyright 2001, 2002 Monte J. Cook. All rights reserved.
+COPYRIGHT:New Spellsongs ©2002, Monte J. Cook.
+COPYRIGHT:Book of Eldritch Might II: Songs and Souls of Power, Copyright 2001, 2002 Monte J. Cook. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for Malhavoc Press Web Enhancements Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+# This script that split the files by game type needs it.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:Permission.txt
+
+CLASS:montecookwebclasses.lst
+FEAT:montecookwebfeats.lst
+FEAT:montecookwebclassfeats.lst
+RACE:montecookwebraces.lst
+SPELL:montecookwebspells.lst
+
+

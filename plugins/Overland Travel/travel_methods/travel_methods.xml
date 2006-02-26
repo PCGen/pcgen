@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TRMETHOD SYSTEM "travel_methods.dtd">
+<!--
+    Document   : travel_methods.xml
+    Created on : July 28, 2003, 1:08 PM
+    Author     : Juliean Galak
+    Description:
+        Stores travel method data
+-->
+
+<table>
+    <method>
+        <name>Walk (15')</name>
+        <speed>12</speed>
+    </method>
+    <method>
+        <name>Walk (20')</name>
+        <speed>16</speed>
+    </method>
+    <method>
+        <name>Walk (30')</name>
+        <speed>24</speed>
+    </method>
+    <method>
+        <name>Walk (40')</name>
+        <speed>32</speed>
+    </method>
+    <method>
+        <name>Cart or Wagon</name>
+        <speed>16</speed>
+    </method>
+</table>

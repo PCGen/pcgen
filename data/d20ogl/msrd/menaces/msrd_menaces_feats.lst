@@ -1,0 +1,22 @@
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Tue Jan 11 00:33:05 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name				Type			Req. Movement	Required Skill		Description																	Automaticaly Gained Weapon Prof.	Source Page
+Alien Craft Operation		TYPE:General				PRESKILL:1,Pilot=4	DESC:The creature is proficient at operating one type of spacecraft utilized by certain alien species.							SOURCEPAGE:MenaceServicesandFeats.rtf
+Alien Weapons Proficiency	TYPE:General								DESC:The creature is proficient with alien weapons.										AUTO:WEAPONPROF|TYPE=Alien		SOURCEPAGE:MenaceServicesandFeats.rtf
+Flyby Attack			TYPE:General	PREMOVE:1,Fly=1					DESC:The creature can attack on the wing.																		SOURCEPAGE:MenaceServicesandFeats.rtf
+
+###Block: Feat Descriptions
+#
+#
+# This lower section is for the Benefits section in the MSRD.
+# Please do not use Benefit sections from feats when submitting new datasets.
+# We want to make sure we stay publisher friendly, and using the benefits section can remove the need to own the source.
+#	- Tir Gwaith for the PCGen Data Team
+#
+#
+
+# Feat Name				Description of the Benefits
+Alien Craft Operation.MOD	BENEFIT:The creature takes no penalty on Pilot checks or attack rolls made to operate a craft of the selected type.
+Alien Weapons Proficiency.MOD	BENEFIT:The creature takes no penalty on attack rolls when using any kind of alien weapon.
+Flyby Attack.MOD			BENEFIT:When flying, the creature can take a move action (including a dive) and another partial action at any point during the move. The creature cannot take a second move action during a round when it makes a flyby attack.

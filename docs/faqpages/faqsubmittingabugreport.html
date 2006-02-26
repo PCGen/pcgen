@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqsubmittingabugreport.html,v 1.1 2003/12/09 00:16:35 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2003/12/09 00:16:35 $
+		$Revision: 1.1 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		
+		Description:
+		PCGen FAQ Submitting Bugs.
+	-->
+	<head>
+		<title>Submitting a Bug Report for PCGen</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Submitting a Bug Report for PCGen</h1>
+		
+		<p>The purpose of this document is twofold:</p>
+		<ol class="indent1">
+			<li>To provide a walk through of how to properly submit a bug report at Source Forge for PCGen</li> 
+			<li>To explain what *IS* a <strong>Bug</strong> and what is a <strong> Feature Request</strong>.</li>
+		</ol>
+		
+		<h2>Defining a Bug vs. a Feature Request</h2>
+		
+		<p>A bug is an error in the program or list files that prevents actual execution of the program or
+		the feature you are attempting to use. The distinction can be a little tricky, as
+		sometimes a class may not function correctly because all the features that make up 
+		that class may not have been implemented into the list files or the code just yet. If a portion of the program worked before, but 
+		is now no longer working, there are a number of steps you can follow to decide whether it is a bug or a missing feature.</p>
+		
+		
+		<ol>
+			<li>Make sure you have the correct versions of Java (1.3.1 or above) and PCGen installed<br />
+			(<a href="http://sourceforge.net/projects/pcgen/">http://sourceforge.net/projects/pcgen/</a> for the latest version)</li>
+			<li>Make sure you have the desired Source Materials Loaded</li>
+			<li>If you are not sure or can not load the Source Material, 
+			please see Part 1 of this FAQ.</li>
+		</ol>
+		
+		<p>Once the Source Materials are loaded, can you duplicate the problem every time? If you can duplicate it every time, does an 
+		&quot;Error Window&quot; appear? (Please note what the error says as it will help in diagnosing/fixing your problem). If there is no 
+		&quot;Error Window&quot;, make note of the exact steps you used to duplicate the problem.</p>
+		
+		<p>If something is missing from the list files, whether it be a class, a feat, or a piece of equipment, THIS IS NOT A BUG. A 
+		Feature Request (FREQ) is what is needed (See Submitting a Feature Request) to get the missing information entered into the list files.</p>
+		
+		<p>Check to make sure that this is not something that may be missing from a list file, If you are unsure how to do this, you can ask for 
+		help at the PCGen Yahoo Group message boards<br />
+		(<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a>), there are any number of people who can tell you what the status of a certain 
+		list file may be.</p>
+		
+		<p>Once you have determined that this is NOT a missing feature from a list file or coding standpoint, the next step is to delete and 
+		re-install PCGen.&nbsp; If you have custom Source Material set up, please remember to backup this material in a safe directory.</p>
+		
+		<p>Once you re-install PCGen, try to duplicate the error. If after a fresh install, 
+		the problem still persists, then it's time to enter a Bug Report into Source 
+		Forge.</p>
+		
+		<h2>Submitting your Bug</h2>
+		
+		<ol>
+			<li><p>Go to <a href="http://sourceforge.net/projects/pcgen/">http://sourceforge.net/projects/pcgen/</a> 
+			and go to Bugs (Either at the top of the screen or scroll down slightly to see &quot;Bugs&quot;.</p></li>
+			
+			<li><p>Search through the listed bugs:<br />
+			(<a href="http://sourceforge.net/tracker/?group_id=25576&atid=384719">http://sourceforge.net/tracker/?group_id=25576&amp;atid=384719</a>),<br />
+			making sure that Assignee, Category, and Group are set to &quot;Any&quot;, that Status is set to &quot;Open&quot;, and that Sort By is set to &quot;ID&quot;, to see if 
+			your problem is already submitted. If it is, add a message at the bottom of the bug report detailing your information as well.&nbsp; 
+			This will let us know that this is a recurring problem that needs some serious attention.</p></li>
+			
+			<li><p>If it does not exist, select &quot;Submit New&quot;. Make sure you select the appropriate category, Group, and make a concise summary of 
+			the problem.</p></li>
+			
+			<li>In the Detailed Description, please include the following information:<br />
+				<ul>
+					<li>Your system configuration (Operating System, total RAM, Version of Java)</li>
+					<li>Any Error messages that were returned to you</li>
+					<li>Information from the Debug Console</li>
+					<li>Any/All steps to reproduce the error<br /></li>
+				</ul></li>
+			
+			<li>If the problem is a character file (.pcg) please attach the file so that others can test it and 
+					duplicate the problem to fix it.<br /></li>
+			
+			<li>Finally, hit submit.</li>
+		</ol>
+		
+		
+		<h2>Tracking your Bug</h2>
+		
+		<p>You can go and visit your happy little item any time you please and check on its status. Please note that the item may have been 
+		moved, either to a different tracker group within pcgen (say maybe to output sheets) or to our sub project pcgendm. If it has been moved to 
+		pcgendm your item will have been deleted in pcgen (just select deleted as a filter when searching) but there will be a message stating what 
+		Tracker and Number the item has been moved to in the pcgendm project. The pcgendm project is at:<br />
+		<a href="http://sourceforge.net/projects/pcgen/">http://sourceforge.net/projects/pcgendm/</a></p>
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqsubmittingabugreport.html,v $ ($Revision: 1.1 $) last updated $Date: 2003/12/09 00:16:35 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

@@ -1,0 +1,83 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Fri Feb 11 02:02:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Language	Required Skill
+CLASS:Feydancer	PRELANG:1,Sylvan	PRESKILL:2,Knowledge (Fey),Knowledge (Reverie)=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE.Craft|Knowledge (Fey)|TYPE.Perform|TYPE.Profession|Reverie|Sense Motive|Spot|Wilderness Lore
+1	SA:Attunement +%|ATTUNEMENT	SA:Essence Retention	BONUS:VAR|ATTUNEMENT|2	DEFINE:ATTUNEMENT|0
+2																		ADD:FEAT(Fey Gift)1
+3	SA:Attunement +%|ATTUNEMENT					BONUS:VAR|ATTUNEMENT|2
+4	SA:Essence Efficiency|EssEff					BONUS:VAR|EssEff|1	DEFINE:EssEff|0
+5										BONUS:VAR|ATTUNEMENT|2					ADD:FEAT(Fey Gift)1
+6	SA:Enchanted Slumber
+7										BONUS:VAR|ATTUNEMENT|2
+8										BONUS:VAR|EssEff|1					ADD:FEAT(Fey Gift)1
+9										BONUS:VAR|ATTUNEMENT|2
+10	SA:Transformation																			TEMPLATE:Feydancer Transformation
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Feat					Required Skill										Req. Spell Type
+CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PRESKILL:2,TYPE.Craft,TYPE.Craft=8	PRESKILL:1,Knowledge (Reverie)=6	PRESPELLTYPE:Arcane|Divine,1,2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Reverie|Spellcraft|Wilderness Lore
+1	SA:Sense Token																							ADD:FEAT(Craft Focus)1
+2	SA:Hand of the Inventor (+%)|HOTI	SA:Overcharge %|OVERCHARGE	BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1	DEFINE:HOTI|0	DEFINE:OVERCHARGE|0
+3																										ADD:FEAT(Improved Craft Focus)1
+4												BONUS:VAR|HOTI|2												ADD:FEAT(Craft Focus)1
+5	SA:Invest Token									BONUS:VAR|OVERCHARGE|1
+6												BONUS:VAR|HOTI|2												ADD:FEAT(Improved Craft Focus)1
+7	SA:Command Word Activated																					ADD:FEAT(Craft Focus)1
+8												BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1
+9																										ADD:FEAT(Improved Craft Focus)1
+10	SA:Use Activated									BONUS:VAR|HOTI|2
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Feat		Required Skill										Req. Known Spell
+CLASS:Wylding	PREFEAT:1,Forge Bond	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Wilderness Lore
+1					SA:Safe Passage (Natural)											SPELLS:Innate|TIMES=1|Speak with Plants
+2	ADD:SPELLCASTER(ANY)	SA:Absorb Essence %|ABSORBESSENCE	BONUS:VAR|ABSORBESSENCE|1	DEFINE:ABSORBESSENCE|0
+3					SA:Plant Bond													SPELLS:Innate|TIMES=2|Speak with Plants
+4	ADD:SPELLCASTER(ANY)	SA:Safe Passage (Enchanted)
+5											BONUS:VAR|ABSORBESSENCE|1					SPELLS:Innate|TIMES=3|Speak with Plants
+6	ADD:SPELLCASTER(ANY)
+7																				SPELLS:Innate|TIMES=-1|Speak with Plants
+8	ADD:SPELLCASTER(ANY)																SPELLS:Innate|TIMES=-1|Commune with Nature
+9											BONUS:VAR|ABSORBESSENCE|1
+10	ADD:SPELLCASTER(ANY)	SA:Symbiosis																					TEMPLATE:Wylding Plant
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat	Required Skill
+CLASS:Chosen Protector	PREATT:5	PREFEAT:1,Track	PRESKILL:1,Wilderness Lore=8	PRESKILL:1,Knowledge (Fey)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Chosen Protector	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Spot|Swim|Wilderness Lore
+1	SA:Scent of the Hunter (+%)|CL	SA:Slayer (+%)|CPSLAYER	BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1	DEFINE:CPSLAYER|0
+2	SA:Augmentation												BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Listen,Spot,Wilderness Lore|1													TEMPLATE:Chosen Protector Natural Attacks
+3											BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+4																					BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally I
+5											BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+6																					BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally II
+7											BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+8																					BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally III
+9											BONUS:VAR|CPSLAYER|1							BONUS:SKILL|Listen,Spot,Wilderness Lore|1
+10																					BONUS:SKILL|Listen,Spot,Wilderness Lore|1				SPELLS:ClassAbility|TIMES=1|Summon Nature's Ally IV
+
+
+# Class Name
+CLASS:Druid.MOD
+1	ADD:CLASSSKILLS(Knowledge (Reverie))1
+
+
+# Class Name
+CLASS:Ranger.MOD
+1	ADD:CLASSSKILLS(Knowledge (Reverie))1

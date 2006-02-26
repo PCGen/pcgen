@@ -1,0 +1,23 @@
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Fantasy Flight Games - City Works|SOURCESHORT:CW|SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+# Original Entry by: Eddy Anthony
+
+###Block:Assassin special ability
+
+# Feat Name			Type					Visible		Required Class			Minimum Size	Maximum Size	Define												Description								Stackable?	Multiple?	Choose												Weapon prof. bonus
+Weapon Mastery		TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Assassin (CW)=2				PRESIZELTEQ:M	DEFINE:AssassinDamage|2	DEFINE:AssassinToHit|0	DEFINE:AssassinCritical|0	DESC:You are exceptionaly deadly with this weapon	STACK:NO	MULT:NO	CHOOSE:WEAPONPROFS|1|TYPE.Dagger								BONUS:WEAPONPROF=%LIST|DAMAGE|AssassinDamage	BONUS:WEAPONPROF=%LIST|TOHIT|AssassinToHit	BONUS:WEAPONPROF=%LIST|CRITMULTADD|AssassinCritical
+Large Weapon Mastery	TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Assassin (CW)=2	PRESIZEGTEQ:L				DEFINE:AssassinDamage|2	DEFINE:AssassinToHit|0	DEFINE:AssassinCritical|0	DESC:You are exceptionaly deadly with this weapon	STACK:NO	MULT:NO	CHOOSE:WEAPONPROFS|1|TYPE.Dagger|Sword (Short)|Longsword|Scimitar|Rapier	BONUS:WEAPONPROF=%LIST|DAMAGE|AssassinDamage	BONUS:WEAPONPROF=%LIST|TOHIT|AssassinToHit	BONUS:WEAPONPROF=%LIST|CRITMULTADD|AssassinCritical
+
+###Block:Speaker of the City special ability, Note- the SpeakerSpells feat is used as a prerequisite for the Prestige Spells, it has no other purpose.
+
+# Feat Name		Type				Visible	Required Class
+SpeakerSpells	TYPE:SpeakerOfTheCity	VISIBLE:NO	PRECLASS:1,Speaker of the City
+
+###Block:Temporary Bonuses
+# Feat Name						Type				Visible	Required Class				Damage reduction									Misc bonus											Bonus to skill																										Spell Res.	Damage Reduction
+Speaker of the City in an urban setting	TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Speaker of the City=1	BONUS:DR|+1|floor(var("CL=Speaker of the City")/10)*5|PREAPPLY:PC	BONUS:MISC|SR|floor(var("CL=Speaker of the City")/10)*20|PREAPPLY:PC	BONUS:SKILL|Bluff,Diplomacy,Intimidate|2|PREAPPLY:PC|TYPE=Competence	BONUS:SKILL|Hide|(min(floor(var("CL=Speaker of the City")/5)),1)*2|PREAPPLY:PC|TYPE=Competence	SR:0		DR:0/+1
+Street Stalker in an urban setting		TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Street Stalker=1																									BONUS:SKILL|Hide,Move Silently|2|PREAPPLY:PC|TYPE=Competence	BONUS:SKILL|Disguise|(var("CL=Street Stalker")/6)|PREAPPLY:PC|TYPE=Competence
+
+#
+# end
+#

@@ -1,0 +1,136 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+
+###Block:Gifts, both Arrival and Earned
+# Template Name						Visible	Damage Reduction	Source Page		Special Ability									Define												Required Feat		Save checks bonus					Combat bonus						Bonus to skill											Stat bonus								Choose																										Choose a Feat
+Arrival Gift (Ability Boost - Strength)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|STR|2
+Arrival Gift (Ability Boost - Dexterity)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|DEX|2
+Arrival Gift (Ability Boost - Constitution)	VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|CON|2
+Arrival Gift (Ability Boost - Intelligence)	VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|INT|2
+Arrival Gift (Ability Boost - Wisdom)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|WIS|2
+Arrival Gift (Ability Boost - Charisma)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|CHA|2
+Arrival Gift (Brave)					VISIBLE:YES				SOURCEPAGE:p.20
+Arrival Gift (Chameleon)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Hide|6|TYPE=Circumstance
+Arrival Gift (Charm)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Diplomacy,Gather Information|4|TYPE=Circumstance
+Arrival Gift (Connected)				VISIBLE:YES				SOURCEPAGE:p.20
+Arrival Gift (Empathy)					VISIBLE:YES				SOURCEPAGE:p.20
+Arrival Gift (Efficient)				VISIBLE:YES				SOURCEPAGE:p.20	SA:Efficient (Ex) % days|EfficientDuration				DEFINE:EfficientDuration|CONSCORE
+Arrival Gift (Focused)					VISIBLE:YES				SOURCEPAGE:p.20																																																																																													ADD:FEAT(Focused)
+Arrival Gift (Funny)					VISIBLE:YES				SOURCEPAGE:p.20
+Arrival Gift (Good looking)				VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|CHA|1
+Arrival Gift (Healthy)					VISIBLE:YES				SOURCEPAGE:p.20
+Arrival Gift (Inconspicuous)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Disguise,Hide|4|TYPE=Luck
+Arrival Gift (Inspiring)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Diplomacy,Perform|4|TYPE=Competence
+Arrival Gift (Intimidating)				VISIBLE:YES				SOURCEPAGE:p.20	SA:Frightful Presence (Ex) DC%|FrightfulPresenceDC			DEFINE:FrightfulPresenceDC|10+(TL/2)+CHA																										BONUS:SKILL|Intimidate|4|TYPE=Competence
+Arrival Gift (Intuition)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Sense Motive|6|TYPE=Competence
+Arrival Gift (Jovial)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Perform,Perform%,Gather Information|2|TYPE=Competence
+Arrival Gift (Nimble)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Pick Pocket,Open Lock|4|TYPE=Competence
+Arrival Gift (Poker Faced)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Bluff|6|TYPE=Competence
+Arrival Gift (Quiet)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Move Silently|6|TYPE=Competence
+Arrival Gift (Resilient)				VISIBLE:YES	DR:1/-		SOURCEPAGE:p.20
+Arrival Gift (Shapechanger)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Shapechanger (Su) %/day|ShapechangerUsage				DEFINE:ShapechangerUsage|(TL/5)
+Arrival Gift (Sneaky)					VISIBLE:YES				SOURCEPAGE:p.21	SA:+2 luck bonus vs magical detection																																					BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
+Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																													ADD:FEAT(Talented)
+Arrival Gift (Telepathic)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Telepathic (Su)
+Arrival Gift (Thick Skin)				VISIBLE:YES				SOURCEPAGE:p.21																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Arrival Gift (Understanding 1/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																		CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
+Arrival Gift (Understanding 2/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																		CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
+Arrival Gift (Understanding 3/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																		CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
+Arrival Gift (Valiant)					VISIBLE:YES				SOURCEPAGE:p.21																									PREFEAT:1,Leadership
+Arrival Gift (Wild Talent)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Wild Talent (Su) %/day|WildTalentUsage					DEFINE:WildTalentUsage|(1+(TL/5))
+Arrival Gift (Willful)					VISIBLE:YES				SOURCEPAGE:p.21																													BONUS:CHECKS|Willpower|2|TYPE=Competence
+Arrival Gift (Youthful)					VISIBLE:YES				SOURCEPAGE:p.21																																																									BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|CON|1
+Arrival Gift (Zealous)					VISIBLE:YES				SOURCEPAGE:p.21
+
+Earned Gift (Adorable)					VISIBLE:YES				SOURCEPAGE:p.21																																												BONUS:SKILL|Diplomacy,Gather Information,Perform,Perform%|4|TYPE=Circumstance
+Earned Gift (Danger Sense)				VISIBLE:YES				SOURCEPAGE:p.21
+Earned Gift (Dream Walking)				VISIBLE:YES				SOURCEPAGE:p.21
+Earned Gift (Ethereal Sight)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Ethereal Sight (Su) %/day|EtherealSightUsage				DEFINE:EtherealSightUsage|(1+INT)
+Earned Gift (Famous)					VISIBLE:YES				SOURCEPAGE:p.21																																												BONUS:SKILL|Bluff,Diplomacy|4|TYPE=Circumstance
+Earned Gift (Mesmerizing)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Mesmerizing (Su) %/day|MesmerizingUsage				DEFINE:MesmerizingUsage|(1+CHA)
+Earned Gift (Mind Reading)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Mind Reading (Su) %/day (DC%)|MindReadingUsage|MindReadingDC	DEFINE:MindReadingDC|(10+INT+(TL/3))	DEFINE:MindReadingUsage|(1+INT)
+Earned Gift (Precognitive)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Precognitive (Su) %/day|PrecognitiveUsage				DEFINE:PrecognitiveUsage|(1+WIS)
+Earned Gift (Persuasive)				VISIBLE:YES				SOURCEPAGE:p.21																																												BONUS:SKILL|Diplomacy,Gather Information|4|TYPE=Competence
+Earned Gift (Telekinetic)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Telekinetic (Su)
+Earned Gift (Wild Talent - Greater)			VISIBLE:YES				SOURCEPAGE:p.21	SA:Greater Wild Talent (Su) %/day|WildTalentGUsage			DEFINE:WildTalentGUsage|(1+(TL/5))
+
+
+
+###Block:Prestige Races
+# Template Name				Visible	Damage Reduction	Template												Source Page			Special Ability																		Define															Required Lvl	Required Template					Prohibited Template										Combat bonus						Bonus to HP			Misc bonus		Add to base move			Multiply base more									Bonus to skill																						Bonus to nb of slots	Stat bonus					Modify VAR						Class Skill			Move			Spell Res.	Vision								Natural Attacks
+Feral Creature				VISIBLE:YES																	SOURCEPAGE:p.62		SA:Cold Resistance (5)(Ex)																																PRELEVEL:4									!PRETEMPLATE:Barked Creature|Scaled Creature (Serpent)|Scaled Creature (Wyrm)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Wild Creature				VISIBLE:YES																	SOURCEPAGE:p.62																																						PRELEVEL:5		PRETEMPLATE:Feral Creature																																																																																																											NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8
+Snouted Creature				VISIBLE:YES																	SOURCEPAGE:p.63		SA:Scent (Ex)																																		PRELEVEL:6		PRETEMPLATE:Wild Creature
+Tailed Creature (Beast)			VISIBLE:YES																	SOURCEPAGE:p.63		SA:Prehensile Tail (Ex)																																	PRELEVEL:7		PRETEMPLATE:Snouted Creature																																																																								BONUS:SLOTS|HANDS|1
+
+Immunized Creature			VISIBLE:YES																	SOURCEPAGE:p.63		SA:Immune to Disease (Ex)	SA: +6 racial bonus vs. all poisons																										PRELEVEL:9																																																																																		BONUS:STAT|CON|2
+Sinewed Creature				VISIBLE:YES																	SOURCEPAGE:p.63																																						PRELEVEL:11		PRETEMPLATE:Immunized Creature																							BONUS:HP|CURRENTMAX|TL																																																	BONUS:STAT|STR|2
+Metabolized Creature			VISIBLE:YES																	SOURCEPAGE:p.63		SA:+1 attack or standard action per round																														PRELEVEL:13		PRETEMPLATE:Sinewed Creature																																				BONUS:MOVEMULT|TYPE=Walk,TYPE=Fly,TYPE=Climb,TYPE=Hover,TYPE=Swim|2																													BONUS:STAT|DEX|2|TYPE=Inherent
+
+Gilled Creature				VISIBLE:YES																	SOURCEPAGE:p.63																																						PRELEVEL:4
+Aquatic Creature				VISIBLE:YES				TEMPLATE:CHOOSE:Gain Swim Speed (40')|Increase Swim Speed (20')			SOURCEPAGE:p.63																																						PRELEVEL:6		PRETEMPLATE:Gilled Creature																																																BONUS:SKILL|Swim|10|TYPE=Racial
+Deep Creature				VISIBLE:YES																	SOURCEPAGE:p.63																																						PRELEVEL:8		PRETEMPLATE:Aquatic Creature																																																																																																		VISION:Underwater Darkvision (120'),Darkvision (60')
+
+Fair Creature				VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:7																																																						BONUS:SKILL|Bluff,Diplomacy,Perform,Perform%|4|TYPE=Competence																		BONUS:STAT|CHA|2
+Empowered Creature			VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:8		PRETEMPLATE:Fair Creature																																																BONUS:SKILL|Animal Empathy,Handle Animal|4|TYPE=Competence																			BONUS:STAT|CHA|2											CSKILL:Use Magic Device
+Foul Creature				VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:10		PRETEMPLATE:Empowered Creature																																															BONUS:SKILL|Gather Information,Intimidate|4|TYPE=Competence
+
+Barked Creature				VISIBLE:YES																	SOURCEPAGE:p.64		SA:Electrical Resistance (5)(Ex)																															PRELEVEL:4									!PRETEMPLATE:Feral Creature|Scaled Creature (Serpent)|Scaled Creature (Wyrm)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Photosynthesizing Creature		VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:7		PRETEMPLATE:Barked Creature
+Regenerating Creature			VISIBLE:YES																	SOURCEPAGE:p.64		SA:Regeneration (2)(Ex)																																	PRELEVEL:10		PRETEMPLATE:Photosynthesizing Creature
+Green Creature				VISIBLE:YES																	SOURCEPAGE:p.64																																						PRELEVEL:14		PRETEMPLATE:Regenerating Creature
+
+Centered Creature				VISIBLE:YES																	SOURCEPAGE:p.65																																						PRELEVEL:6																																																						BONUS:SKILL|Concentration|4|TYPE=Insight
+Enterprising Creature			VISIBLE:YES																	SOURCEPAGE:p.65																																						PRELEVEL:8		PRETEMPLATE:Centered Creature																																																BONUS:SKILL|TYPE=Knowledge|4|TYPE=Competence																					BONUS:STAT|INT|2
+Enlightened Creature			VISIBLE:YES																	SOURCEPAGE:p.65																																						PRELEVEL:8		PRETEMPLATE:Enterprising Creature																																															BONUS:SKILL|Sense Motive,Innuendo|4|TYPE=Competence																				BONUS:STAT|WIS|2
+
+Shelled Creature				VISIBLE:YES																	SOURCEPAGE:p.65		SA:Shell armor (Ex) (Shell Armor)																															PRELEVEL:8
+Insulated Creature			VISIBLE:YES	DR:2/-															SOURCEPAGE:p.65		SA:Cold Resistance (10)(Ex)	SA:Fire Resistance (10)(Ex)																											PRELEVEL:10		PRETEMPLATE:Shelled Creature
+Shielded Creature				VISIBLE:YES																	SOURCEPAGE:p.66		SA:Acid Resistance (10)(Ex)	SA:Electrical Resistance (10)(Ex)																										PRELEVEL:12		PRETEMPLATE:Insulated Creature
+Impervious Creature			VISIBLE:YES																	SOURCEPAGE:p.66		SA:Sonic Resistance (10)(Ex)																																PRELEVEL:13		PRETEMPLATE:Shielded Creature
+
+Spined Creature				VISIBLE:YES																	SOURCEPAGE:p.66		SA:+1d% damage with natural weapons|NaturalWeaponDamageBonus										DEFINE:NaturalWeaponDamageBonus|6											PRELEVEL:3
+Spiked Creature				VISIBLE:YES																	SOURCEPAGE:p.66																																						PRELEVEL:4		PRETEMPLATE:Spined Creature																																																																																		BONUS:VAR|NaturalWeaponDamageBonus|2																			NATURALATTACKS:Spikes,Weapon.Natural.Ranged.Piercing,*1,1d8
+Tainted Creature				VISIBLE:YES																	SOURCEPAGE:p.66		SA:Poisoned Spikes (DC%)(Ex)|PoisonedSpikesDC													DEFINE:PoisonedSpikesDC|15+CON											PRELEVEL:7		PRETEMPLATE:Spiked Creature
+
+Sharpened Creature			VISIBLE:YES																	SOURCEPAGE:p.66																																						PRELEVEL:5																																																						BONUS:SKILL|Listen,Spot,Search|4|TYPE=Competence																																										VISION:Low-light
+Enhanced Creature				VISIBLE:YES																	SOURCEPAGE:p.66		SA:Scent (Ex)																																		PRELEVEL:7		PRETEMPLATE:Sharpened Creature
+Watchful Creature				VISIBLE:YES																	SOURCEPAGE:p.66																																						PRELEVEL:9		PRETEMPLATE:Enhanced Creature																																																																																																		VISION:All Around Vision
+Heightened Creature			VISIBLE:YES																	SOURCEPAGE:p.67																																						PRELEVEL:11		PRETEMPLATE:Watchful Creature																																																BONUS:SKILL|Balance,TYPE=Craft,Disable Device,Forgery,Intuit Direction,Open Lock,Perform,Perform%,Pick Pocket,Tumble,Use Rope|4|TYPE=Competence
+
+Scaled Creature (Serpent)		VISIBLE:YES																	SOURCEPAGE:p.67		SA:Acid Resistance (5)(Ex)																																PRELEVEL:4									!PRETEMPLATE:Feral Creature|Barked Creature|Scaled Creature (Wyrm)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Fanged Creature				VISIBLE:YES																	SOURCEPAGE:p.67		SA:Poisoned Bite (DC%)(Ex)|PoisonedBiteDC														DEFINE:PoisonedBiteDC|15+CON												PRELEVEL:6		PRETEMPLATE:Scaled Creature (Serpent)																																																																																																									NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing.Poison,*1,1d4
+Spitting Creature				VISIBLE:YES																	SOURCEPAGE:p.67		SA:Spit Attack %/day (DC%)(Ex)|SpitAttackUsage|PoisonedBiteDC										DEFINE:SpitAttackUsage|3+max(CON,0)											PRELEVEL:7		PRETEMPLATE:Fanged Creature																																																																																																											NATURALATTACKS:Spit,Weapon.Natural.Ranged.RangedTouch.Poison,*1,1d4
+Tailed Creature (Tailed)		VISIBLE:YES																	SOURCEPAGE:p.67		SA:Prehensile Tail (Ex)																																	PRELEVEL:8		PRETEMPLATE:Spitting Creature																																																																								BONUS:SLOTS|HANDS|1
+
+Shadowed Creature				VISIBLE:YES																	SOURCEPAGE:p.68																																						PRELEVEL:6																						BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE																									BONUS:SKILL|Hide|6|TYPE=Circumstance
+Shaded Creature				VISIBLE:YES				TEMPLATE:CHOOSE:Gain Spell Resistance 15|Increase Spell Resistance by 10	SOURCEPAGE:p.68																																						PRELEVEL:9		PRETEMPLATE:Shadowed Creature
+Veiled Creature				VISIBLE:YES																	SOURCEPAGE:p.68		SA:Incorporeal (Ex)																																	PRELEVEL:13		PRETEMPLATE:Shaded Creature
+
+Lunged Creature				VISIBLE:YES																	SOURCEPAGE:p.68																																						PRELEVEL:4
+Legged Creature				VISIBLE:YES																	SOURCEPAGE:p.68		SA:Breathe Air (Ex)																																	PRELEVEL:5		PRETEMPLATE:Lunged Creature
+Winged Creature				VISIBLE:YES																	SOURCEPAGE:p.68		SA:Wings (Ex)																																		PRELEVEL:8		PRETEMPLATE:Legged Creature																																																																																													MOVE:Fly,70
+Vacuum Creature				VISIBLE:YES																	SOURCEPAGE:p.69																																						PRELEVEL:10		PRETEMPLATE:Winged Creature
+Adept Creature				VISIBLE:YES				TEMPLATE:CHOOSE:Gain Swim Speed (20')|Increase Swim Speed (20')			SOURCEPAGE:p.69																																						PRELEVEL:12		PRETEMPLATE:Vacuum Creature																															BONUS:MOVEADD|TYPE=Fly|20
+
+Scaled Creature (Wyrm)			VISIBLE:YES																	SOURCEPAGE:p.69		SA:Fire Resistance (5)(Ex)																																PRELEVEL:4									!PRETEMPLATE:Feral Creature|Barked Creature|Scaled Creature (Serpent)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Flying Creature				VISIBLE:YES																	SOURCEPAGE:p.69																																						PRELEVEL:8		PRETEMPLATE:Scaled Creature (Wyrm)																																																																																												MOVE:Fly,70
+Kindled Creature				VISIBLE:YES																	SOURCEPAGE:p.69		SA:Cold Resistance (5)(Ex)	SA:Breath Weapon %/day (Fire/DC%/%d6)|BreathWeaponUsage|BreathWeaponDC|BreathWeaponDice	DEFINE:BreathWeaponUsage|TL/5	DEFINE:BreathWeaponDC|(TL/2)+10+CON	DEFINE:BreathWeaponDice|TL	PRELEVEL:11		PRETEMPLATE:Flying Creature
+Chromatic Creature			VISIBLE:YES																	SOURCEPAGE:p.69		SA:Spell Turning (Ex) %/day|SpellTurning	SA:Hypnotic Pattern (Ex) 1 levels/day							DEFINE:SpellTurning|TL													PRELEVEL:14		PRETEMPLATE:Kindled Creature
+
+
+#Workarounds
+
+# Aquatic Creature and Adept Creature workaround - template choose
+#Aquatic
+Gain Swim Speed (40')			VISIBLE:NO																	SOURCEPAGE:p.63																																																																																																																																										MOVE:Swim,40
+#Adept
+Gain Swim Speed (20')			VISIBLE:NO																	SOURCEPAGE:p.69																																																																																																																																										MOVE:Swim,20
+#both
+Increase Swim Speed (20')		VISIBLE:NO																	SOURCEPAGE:p.63 p.69																																																																											BONUS:MOVEADD|TYPE=Swim|20
+
+# Shaded Creature spell resistance workaround
+Gain Spell Resistance 15		VISIBLE:NO																	SOURCEPAGE:p.68																																																																																																																																													SR:15
+Increase Spell Resistance by 10	VISIBLE:NO																	SOURCEPAGE:p.68																																																																									BONUS:MISC|SR|10

@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>
+			|NAME| - |PLAYERNAME| (|POOL.COST| Points) in GMGEN
+			Statblock Format
+		</title>
+		<!--
+			Adapted from csheet_dnd_WotC_Statblock.htm to make more palatable for GMGEN
+			==Ross M. Lodge
+			 alink="#8b0000" link="#0099cc" vlink="#0099cc"
+		-->
+		<style type="text/css">
+			a:link {color: #006699}     /* unvisited link */
+			a:visited {color: #006699}  /* visited link */
+			a:hover {color: #006699}   /* mouse over link */
+			a:active {color: #006699}   /* selected link */
+			.type {color:#555555;font-weight:bold}
+			.highlight {color:#FF0000}
+			.dialog {color:#006699}
+		</style>
+	</head>
+	<body class="Normal" lang="EN-US">
+		<p class="gork">
+			<font size="+1">
+				 <b>
+						|NAME|, |GENDER| |RACE||%REGION| From |REGION|.|%||CLASSLIST|
+				 </b>
+			</font>
+		</p>
+		<p>
+			<font class="type">CR</font> |CR|;
+			<font class="type">Size:</font> |SIZE|;
+			<font class="type">Type</font> |TYPE|;
+			<font class="type">HD</font> |HITDICE|;
+			<font class="type">hp</font> |HP|;
+			<font class="type">Init</font> <font class="highlight">|INITIATIVEMOD|</font> (|STAT.1.MOD| Dex, |INITIATIVEMISC| Misc);
+			<font class="type">Spd</font> |MOVEMENT|;
+			<font class="type">AC</font> <font class="highlight">|AC.Total|</font> (flatfooted <font class="highlight">|AC.Flatfooted|</font>, touch <font class="highlight">|AC.Touch|</font>);
+			<font class="type">Melee:</font> <a href="attack:Melee\|ATTACK.MELEE.TOTAL|" class="highlight">|ATTACK.MELEE.TOTAL|</a>;
+			<font class="type">Ranged:</font> <a href="attack:Ranged\|ATTACK.RANGED.TOTAL|" class="highlight">|ATTACK.RANGED.TOTAL|</a>;
+			<!--<font class="type">Weapons:</font>|FOR.0,100,1, [a href="attack:\%\"]\WEAPON.%.NAME\ \WEAPON.%.TOTALHIT\ \WEAPON.%.RANGE\/\WEAPON.%.TYPE\ (\WEAPON.%.DAMAGE\ \WEAPON.%.CRIT\/x\WEAPON.%.MULT\ \WEAPON.%.HAND\ \WEAPON.%.SIZE\ \WEAPON.%.SPROP\)[/a] , , or ,1|-->
+			<font class="type">Weapons:</font>
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
+		<a href="attack:|WEAPON.%weap.NAME|\|WEAPON.%weap.TOTALHIT|\|WEAPON.%weap.RANGE|\|WEAPON.%weap.TYPE|\|WEAPON.%weap.DAMAGE|\|WEAPON.%weap.CRIT|\|WEAPON.%weap.MULT|\|WEAPON.%weap.HAND|\|WEAPON.%weap.SIZE|\|WEAPON.%weap.SPROP|" class="dialog">
+			|WEAPON.%weap.NAME| |WEAPON.%weap.TOTALHIT| |WEAPON.%weap.RANGE|/|WEAPON.%weap.TYPE| (|WEAPON.%weap.DAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP|)
+		</a> or
+|ENDFOR|
+			<a href="attack:Unarmed\|WEAPONH.TOTALHIT|\\B\|WEAPONH.DAMAGE|\|WEAPONH.CRIT|\|WEAPONH.MULT|" class="dialog">
+				Unarmed |WEAPONH.TOTALHIT| (|WEAPONH.DAMAGE| |WEAPONH.CRIT|/x|WEAPONH.MULT|);
+			</a>
+			<font class="type">SA:</font> |SPECIALLIST|;
+			<font class="type">Vision:</font> |VISION|
+			<font class="type">AL:</font> |ALIGNMENT.SHORT|;
+			<font class="type">Sv:</font> Fort <font class="highlight">|CHECK.FORTITUDE.TOTAL|</font>, Ref <font class="highlight">|CHECK.REFLEX.TOTAL|</font>, Will <font class="highlight">|CHECK.WILLPOWER.TOTAL|</font>;
+|FOR,%stat,0,COUNT[STATS]-1,1,1|
+			<font class="type">|STAT.%stat.NAME|</font>
+			|STAT.%stat|&nbsp;(|STAT.%stat.MOD|)
+|ENDFOR|
+		</p>
+		<div style="MARGIN: 0px 10px">
+			<p>
+				<font class="type">Skills and Feats:</font>&nbsp;
+|FOR,%skill,0,COUNT[SKILLS]-1,1,1|
+				<a href="skill:|SKILL.%skill|\|SKILL.%skill.TOTAL|" class="dialog">
+					|SKILL.%skill| (|SKILL.%skill.TOTAL|)
+				</a>,
+|ENDFOR|;
+				|FEATLIST|
+			</p>
+			<p>
+				<font class="type">Possessions:</font>&nbsp;
+				|FOR.0,(COUNT[EQUIPMENT]+1),1,&nbsp;\EQ.%.QTY\&nbsp;\EQ.%.NAME\, ,COMMA,1|
+			</p>
+			<p>
+				|%DOMAIN.1|
+				<br>
+				<font class="type">Deity:</font> |DEITY|<br>
+				<font class="type">Domains:</font>&nbsp;
+				|FOR.1,100,1,\DOMAIN.%\ (\DOMAIN.%.POWER\), , ,2| |%|
+				|%SPELLLISTBOOK0.0.1|
+			</p>
+         <!-- Start Spells -->
+			<p>
+            <!-- Start Racial Innate Spells -->
+|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+|IIF(%spellrace:0)|
+            <!-- No innate spells -->
+|ELSE|
+|FOR,%spellbook,1,1,1,1|
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK%class.%level.%spellbook|
+            <font class="type">Racial Innate Spells</font>
+            <br>
+            <!-- Start Racial Innate Spell listing -->
+|FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
+<a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+</a>
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|),
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+            <!-- End Racial Innate Spells -->
+            <!-- Start Other Innate Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+            <br>
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK%class.%level.%spellbook|
+            <br>
+            <font class="type">|SPELLBOOKNAME.%spellbook| Innate Spells</font>
+            <br>
+|FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
+<a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+</a>
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|),
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+            <!-- End Other Innate Spells -->
+|ENDIF|
+|ENDFOR|
+            <!-- End Innate Spells -->
+|FOR,%spellbook,0,0,1,0|
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|%SPELLLISTCLASS%class|
+            <!-- START Spell list Header Table (Known) -->
+            <br>
+            <font class="type">|SPELLLISTCLASS.%class|
+|IIF(SPELLLISTCLASS.%class:Psychic Warrior.OR.SPELLLISTCLASS.%class:Psion)|
+ Powers
+|ELSE|
+ Spells Known
+|ENDIF|
+            </font>
+            <br>
+            <!-- End Spell List Header Table (Known) -->
+            <!-- Start Known Spells -->
+|FOR,%level,0,9,1,1|
+|FOR,%spellcount,COUNT[SPELLSINBOOK%class.%spellbook.%level],COUNT[SPELLSINBOOK%class.%spellbook.%level],1,0|
+|IIF(%spellcount:0)|
+|ELSE|
+            <br>
+            <font class="type">Level %level</font>
+            <br>
+|FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
+<a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+</a>,
+|IIF(SPELLLISTCLASS.%class:Psychic Warrior.OR.SPELLLISTCLASS.%class:Psion)|
+|FOR,%ppcost,(%level*2)-1,(%level*2)-1,1,1|
+|IIF(%ppcost:-1)|
+            <i>PP:</i> 0/1
+|ELSE|
+            <i>PP:</i> %ppcost
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+            <br>
+|%|
+|ENDFOR|
+|ENDFOR|
+            <!-- End Known Spells -->
+            <!-- ================================================================ -->
+            <!-- Start Prepared Spells -->
+|FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
+|IIF(%memorised:0)|
+|ELSE|
+            <!-- Start Regular Prepared -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
+|FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
+|IIF(%foo:0.OR.%bar:0)|
+            <br>
+            <font class="type">|SPELLBOOKNAME.%spellbook| Spellbook:</font>
+            <br>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+            <br>
+            <font class="type">|SPELLLISTCLASS.%class|</font>
+            <br>
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK%class.%spellbook.%level],COUNT[SPELLSINBOOK%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+            <!-- no memorized spells for SPELLSINBOOK%class %spellbook %level -->
+|ELSE|
+            <br>
+            <font class="type">Level %level</font>
+            <br>
+|FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
+<a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
+|SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+</a>
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|),
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+<!-- END FOR,%spellcount,COUNT[SPELLSINBOOK%class.%spellbook.0],COUNT[SPELLSINBOOK%class.%spellbook.0],1,0 -->
+|ENDFOR|
+<!-- END SPELLLISTCLASS%class -->
+|%|
+<!-- END FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1 -->
+|ENDFOR|
+|ELSE|
+|ENDIF|
+<!-- END FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
+|ENDFOR|
+<!-- END FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+|ENDFOR|
+<!-- END FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0 -->
+|ENDFOR|
+<!-- ### END class Spellbook memorized spells ### -->
+<!-- START FALSE IIF(%memorised:0) -->
+|ENDIF|
+|ENDFOR|
+<!-- ### END MEMORIZED ### -->
+
+            <!-- End Prepared Spells -->
+			</p>
+		</div>
+	</body>
+</html>

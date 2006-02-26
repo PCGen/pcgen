@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Mar 18 13:59:18 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+#Wand Name			Output name			Type				Weight		Base item	EQMod											Sourcepage
+# Equipment Name		Output Name				Type					Weight	Base Item for EQMOD	Modifier													Source Page
+Wand (True Filch)		OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane		WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[True Filch]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]		SOURCEPAGE:p.53
+Wand (Detect Traps)	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Detect Traps]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:p.53
+Wand (Distraction)	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Distraction]SPELLLEVEL[1/2]CASTERLEVEL[1]CHARGES[50]		SOURCEPAGE:p.56
+Wand (Invisible Object)	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Invisible Object]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]	SOURCEPAGE:p.56

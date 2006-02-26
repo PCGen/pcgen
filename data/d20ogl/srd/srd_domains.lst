@@ -1,0 +1,27 @@
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# the SPELLS tag in the Animal Domain for 'speak with animals' was removed because as of version 5.7.14 SPELLS doesn't work in domain.lst files
+
+# Domain Name	Required AL		Class Skill				Choose										Feat					Special Ability		Define		Caster level								Modify VAR		Source Page				Description
+Air																						FEAT:Rebuke Air|Turn Earth																					SOURCEPAGE:srdspelli.rtf	DESC:Turn or Destroy earth creatures as a good cleric turns undead.  Rebuke or command air creatures as an evil cleric rebukes undead. 3 + CHA modifier attempts per day.
+Animal					CSKILL:Knowledge (Nature)																																					SOURCEPAGE:srdspelli.rtf	DESC:You cast Animal Friendship once per day. Knowledge(nature) is a class skill.
+Chaos			PREALIGN:CG,CN,CE																													BONUS:CASTERLEVEL|DESCRIPTOR.Chaotic|1|PRERULE:SYS_DOMAIN				SOURCEPAGE:srdspelli.rtf	DESC:You cast chaos spells at +1 caster level.
+Death																																															SOURCEPAGE:srdspelli.rtf	DESC:You may use a death touch once per day.  It is a spell-like ability that is a death effect.  You must succeed at a melee touch attack against a living creature. Roll 1d6 per your cleric level, if the total is greater than the creature's current hit points, it dies.
+Destruction																										SA:Smite %/day|Smite	DEFINE:Smite|0											BONUS:VAR|Smite|1	SOURCEPAGE:srdspelli.rtf	DESC:You gain the smite power, a supernatural ability to make a single melee attack with +4 bonus to hit and damage bonus equal to your cleric level once per day.
+Earth																						FEAT:Rebuke Earth|Turn Air																					SOURCEPAGE:srdspelli.rtf	DESC:Turn or destroy air creatures as a good cleric and rebuke or command earth creatures as an evil cleric. 3 + CHA modifier attempts per day.
+Evil			PREALIGN:LE,NE,CE																													BONUS:CASTERLEVEL|DESCRIPTOR.Evil|1|PRERULE:SYS_DOMAIN				SOURCEPAGE:srdspelli.rtf	DESC:You cast evil spells at +1 caster level.
+Fire																						FEAT:Rebuke Fire|Turn Water																					SOURCEPAGE:srdspelli.rtf	DESC:Turn or destroy water creatures as a good cleric.  Rebuke or command fire creatures as an evil cleric. 3 + CHA modifier attempts per day.
+Good			PREALIGN:LG,NG,CG																													BONUS:CASTERLEVEL|DESCRIPTOR.Good|1|PRERULE:SYS_DOMAIN				SOURCEPAGE:srdspelli.rtf	DESC:You cast good spells at +1 caster level.
+Healing																																	BONUS:CASTERLEVEL|SUBSCHOOL.Healing|1|PRERULE:SYS_DOMAIN				SOURCEPAGE:srdspelli.rtf	DESC:You cast healing spells at +1 caster level.
+Knowledge					CSKILL:TYPE.Knowledge																									BONUS:CASTERLEVEL|SCHOOL.Divination|1|PRERULE:SYS_DOMAIN				SOURCEPAGE:srdspelli.rtf	DESC:All knowledge skills are class skills.  You cast divinations at +1 caster level.
+Law			PREALIGN:LG,LN,LE																													BONUS:CASTERLEVEL|DESCRIPTOR.Lawful|1|PRERULE:SYS_DOMAIN				SOURCEPAGE:srdspelli.rtf	DESC:You cast law spells at +1 caster level.
+Luck																																															SOURCEPAGE:srdspelli.rtf	DESC:You gain the power of good fortune.  Once per day this extraordinary ability allows you to re-roll one roll.
+Magic																																															SOURCEPAGE:srdspelli.rtf	DESC:Use scrolls, wands and other devices with spell completion or spell trigger activation as a wizard of one-half your cleric level (stacks with wizard levels).
+Plant						CSKILL:Knowledge (Nature)												FEAT:Rebuke Plant																							SOURCEPAGE:srdspelli.rtf	DESC:Rebuke or command plant creatures as an evil cleric. 3 + CHA modifier attempts per day. Knowledge(nature) is a class skill.
+Protection																																														SOURCEPAGE:srdspelli.rtf	DESC:You can generate a protective ward, a spell-like ability to grant someone you touch a resistance bonus on their next saving throw equal to your level. It's an abjuration effect that lasts one hour, once per day.
+Strength																																														SOURCEPAGE:srdspelli.rtf	DESC:You can perform a feat of strength, as a supernatural ability, with a bonus to Strength equal to your level.  It lasts 1 round, once per day.
+Sun																																															SOURCEPAGE:srdspelli.rtf	DESC:Once per day you can perform a greater turning against undead in place of a regular turning (or rebuking). Undead creatures that are affected are destroyed.
+Travel					CSKILL:Wilderness Lore																																						SOURCEPAGE:srdspelli.rtf	DESC:For a total of 1 round per your cleric level per day you can act normally regardless of magical effects that impede movement.  Wilderness Lore is a class skill.
+Trickery					CSKILL:Bluff|Disguise|Hide																																					SOURCEPAGE:srdspelli.rtf	DESC:Bluff, Disguise and Hide are class skills.
+War											CHOOSE:WEAPONPROF|1|DEITYWEAPON[WEAPONPROF][FEAT=Weapon Focus]																										SOURCEPAGE:srdspelli.rtf	DESC:Free Martial Weapon Proficiency and Weapon Focus with the deity's favored weapon.
+Water																						FEAT:Rebuke Water|Turn Fire																					SOURCEPAGE:srdspelli.rtf	DESC:Turn or destroy fire creatures as a good cleric and rebuke or command water creatures as an evil cleric. 3 + CHA modifier attempts per day.

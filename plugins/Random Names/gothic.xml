@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="gothic-male-rule" title="Ostrogoth/Visigoth" usage="final">
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="10">
+			<GETLIST idref="gothic-male-given-rule" title="Given"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="gothic-male-given-rule" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gothic-male-given-rule" title="Father"/>
+			<SPACE/>
+			<GETLIST idref="gothic-son" title="Son"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="gothic-male-given-rule" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gothic-cognomento" title="Cognomento"/>
+			<SPACE/>
+			<GETLIST idref="gothic-male-given-rule" title="Father"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="gothic-male-given-rule" title="Given" usage="public">
+		<RULE weight="4">
+			<GETLIST idref="gothic-male" title="Given"/>
+		</RULE>
+		<RULE weight="7">
+			<GETLIST idref="gothic-syl1" title="Given"/>
+			<GETLIST idref="gothic-male-syl2" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="gothic-female-rule" title="Ostrogoth/Visigoth" usage="final">
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="10">
+			<GETLIST idref="gothic-female-given-rule" title="Given"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="gothic-female-given-rule" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gothic-cognomento" title="Cognomento"/>
+			<SPACE/>
+			<GETLIST idref="gothic-male-given-rule" title="Father"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="gothic-female-given-rule" title="Given" usage="public">
+		<RULE weight="4">
+			<GETLIST idref="gothic-female" title="Given"/>
+		</RULE>
+		<RULE weight="7">
+			<GETLIST idref="gothic-syl1" title="Given"/>
+			<GETLIST idref="gothic-female-syl2" title="Given"/>
+		</RULE>
+	</RULESET>
+	<LIST id="gothic-cognomento" title="Cognomento">
+		<VALUE>cognomento<SUBVALUE type="meaning">Nicknamed</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="gothic-son" title="Son">
+		<VALUE>sunus<SUBVALUE type="meaning">Son</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="gothic-male" title="Given">
+		<VALUE>Achiulf</VALUE>
+		<VALUE>Agil</VALUE>
+		<VALUE>Airmanareiks</VALUE>
+		<VALUE>Alaric</VALUE>
+		<VALUE>Alatheus</VALUE>
+		<VALUE>Alhareiks</VALUE>
+		<VALUE>Amala</VALUE>
+		<VALUE>Amalafrid</VALUE>
+		<VALUE>Amalaric</VALUE>
+		<VALUE>Andagis</VALUE>
+		<VALUE>Andela</VALUE>
+		<VALUE>Ansila</VALUE>
+		<VALUE>Aoric</VALUE>
+		<VALUE>Athala</VALUE>
+		<VALUE>Athalaric</VALUE>
+		<VALUE>Athanagild</VALUE>
+		<VALUE>Athanaric</VALUE>
+		<VALUE>Athavulf</VALUE>
+		<VALUE>Audawulfs</VALUE>
+		<VALUE>Augis</VALUE>
+		<VALUE>Beremud</VALUE>
+		<VALUE>Cniva</VALUE>
+		<VALUE>Ediulf</VALUE>
+		<VALUE>Eisarn</VALUE>
+		<VALUE>Ermanaric</VALUE>
+		<VALUE>Eurich</VALUE>
+		<VALUE>Eutharic</VALUE>
+		<VALUE>Friderich</VALUE>
+		<VALUE>Frithugairns</VALUE>
+		<VALUE>Fritigern</VALUE>
+		<VALUE>Gaisumunths</VALUE>
+		<VALUE>Geberich</VALUE>
+		<VALUE>Gesimund</VALUE>
+		<VALUE>Gisalic</VALUE>
+		<VALUE>Gunthigis</VALUE>
+		<VALUE>Hachiulf</VALUE>
+		<VALUE>Harjareiks</VALUE>
+		<VALUE>Hermanaric</VALUE>
+		<VALUE>Hermangild</VALUE>
+		<VALUE>Hildebad</VALUE>
+		<VALUE>Hildireths</VALUE>
+		<VALUE>Himnerith</VALUE>
+		<VALUE>Hunamunths</VALUE>
+		<VALUE>Hunawilja</VALUE>
+		<VALUE>Hunimund</VALUE>
+		<VALUE>Leuvigild</VALUE>
+		<VALUE>Liuva</VALUE>
+		<VALUE>Nidada</VALUE>
+		<VALUE>Oduulf</VALUE>
+		<VALUE>Ovida</VALUE>
+		<VALUE>Recared</VALUE>
+		<VALUE>Respa</VALUE>
+		<VALUE>Retemer</VALUE>
+		<VALUE>Ricimer</VALUE>
+		<VALUE>Safrac</VALUE>
+		<VALUE>Sarus</VALUE>
+		<VALUE>Segeric</VALUE>
+		<VALUE>Thaurismunths</VALUE>
+		<VALUE>Theodahad</VALUE>
+		<VALUE>Theodoric</VALUE>
+		<VALUE>Theodorid</VALUE>
+		<VALUE>Thiudigisclus</VALUE>
+		<VALUE>Thiudimer</VALUE>
+		<VALUE>Thiudis</VALUE>
+		<VALUE>Thorismud</VALUE>
+		<VALUE>Thuruar</VALUE>
+		<VALUE>Totila</VALUE>
+		<VALUE>Valamir</VALUE>
+		<VALUE>Valaravans</VALUE>
+		<VALUE>Valia</VALUE>
+		<VALUE>Vandalarius</VALUE>
+		<VALUE>Veduc</VALUE>
+		<VALUE>Vidimer</VALUE>
+		<VALUE>Vinitharius</VALUE>
+		<VALUE>Vultuulf</VALUE>
+		<VALUE>Walahrabns</VALUE>
+		<VALUE>Walja</VALUE>
+		<VALUE>Wandilaharjis</VALUE>
+		<VALUE>Winithaharjis</VALUE>
+	</LIST>
+	<LIST id="gothic-syl1" title="Syl1">
+		<VALUE>Ahta<SUBVALUE type="meaning">Terrible-</SUBVALUE></VALUE>
+		<VALUE>Airmana<SUBVALUE type="meaning">Lofty-</SUBVALUE></VALUE>
+		<VALUE>Alh<SUBVALUE type="meaning">Temple-</SUBVALUE></VALUE>
+		<VALUE>Amala<SUBVALUE type="meaning">Effort/Toil-</SUBVALUE></VALUE>
+		<VALUE>Anda<SUBVALUE type="meaning">Spirit/Courage-</SUBVALUE></VALUE>
+		<VALUE>Ans<SUBVALUE type="meaning">God-</SUBVALUE></VALUE>
+		<VALUE>Athala<SUBVALUE type="meaning">Noble-</SUBVALUE></VALUE>
+		<VALUE>Athana<SUBVALUE type="meaning">Year-</SUBVALUE></VALUE>
+		<VALUE>Atta<SUBVALUE type="meaning">Father-</SUBVALUE></VALUE>
+		<VALUE>Auda<SUBVALUE type="meaning">Wealth-</SUBVALUE></VALUE>
+		<VALUE>Badwa<SUBVALUE type="meaning">Battle-</SUBVALUE></VALUE>
+		<VALUE>Baltha<SUBVALUE type="meaning">Bold-</SUBVALUE></VALUE>
+		<VALUE>Daga<SUBVALUE type="meaning">Day-</SUBVALUE></VALUE>
+		<VALUE>Filu<SUBVALUE type="meaning">Much-</SUBVALUE></VALUE>
+		<VALUE>Frithu<SUBVALUE type="meaning">Peace-</SUBVALUE></VALUE>
+		<VALUE>Gaisu<SUBVALUE type="meaning">Spear-</SUBVALUE></VALUE>
+		<VALUE>Gawi<SUBVALUE type="meaning">Country-</SUBVALUE></VALUE>
+		<VALUE>Goda<SUBVALUE type="meaning">Good-</SUBVALUE></VALUE>
+		<VALUE>Guda<SUBVALUE type="meaning">God-</SUBVALUE></VALUE>
+		<VALUE>Guntha<SUBVALUE type="meaning">Battle-</SUBVALUE></VALUE>
+		<VALUE>Harja<SUBVALUE type="meaning">Army-</SUBVALUE></VALUE>
+		<VALUE>Hauha<SUBVALUE type="meaning">High-</SUBVALUE></VALUE>
+		<VALUE>Hildi<SUBVALUE type="meaning">War-</SUBVALUE></VALUE>
+		<VALUE>Huna<SUBVALUE type="meaning">Hun-</SUBVALUE></VALUE>
+		<VALUE>Liuda<SUBVALUE type="meaning">People-</SUBVALUE></VALUE>
+		<VALUE>Mahta<SUBVALUE type="meaning">Mighty-</SUBVALUE></VALUE>
+		<VALUE>Nantha<SUBVALUE type="meaning">Brave-</SUBVALUE></VALUE>
+		<VALUE>Ragina<SUBVALUE type="meaning">Counsel-</SUBVALUE></VALUE>
+		<VALUE>Reda<SUBVALUE type="meaning">Counsel-</SUBVALUE></VALUE>
+		<VALUE>Reika<SUBVALUE type="meaning">Ruller/King-</SUBVALUE></VALUE>
+		<VALUE>Sigisa<SUBVALUE type="meaning">Victory-</SUBVALUE></VALUE>
+		<VALUE>Sunya<SUBVALUE type="meaning">True-</SUBVALUE></VALUE>
+		<VALUE>Swintha<SUBVALUE type="meaning">Strong-</SUBVALUE></VALUE>
+		<VALUE>Thauris<SUBVALUE type="meaning">Daring-</SUBVALUE></VALUE>
+		<VALUE>Thiuda<SUBVALUE type="meaning">People-</SUBVALUE></VALUE>
+		<VALUE>Thrasa<SUBVALUE type="meaning">Confidence-</SUBVALUE></VALUE>
+		<VALUE>Waihti<SUBVALUE type="meaning">Fighting-</SUBVALUE></VALUE>
+		<VALUE>Wandila<SUBVALUE type="meaning">Vandal-</SUBVALUE></VALUE>
+		<VALUE>Wili<SUBVALUE type="meaning">Will-</SUBVALUE></VALUE>
+		<VALUE>Winitha<SUBVALUE type="meaning">Wend-</SUBVALUE></VALUE>
+		<VALUE>Wulfa<SUBVALUE type="meaning">Wolf-</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="gothic-male-syl2" title="Syl2">
+		<VALUE>badws<SUBVALUE type="meaning">War</SUBVALUE></VALUE>
+		<VALUE>bairhts<SUBVALUE type="meaning">Bright</SUBVALUE></VALUE>
+		<VALUE>balths<SUBVALUE type="meaning">Bold</SUBVALUE></VALUE>
+		<VALUE>friths<SUBVALUE type="meaning">Peaceful</SUBVALUE></VALUE>
+		<VALUE>funs<SUBVALUE type="meaning">Ready/Eager</SUBVALUE></VALUE>
+		<VALUE>gairns<SUBVALUE type="meaning">Desiring</SUBVALUE></VALUE>
+		<VALUE>gais<SUBVALUE type="meaning">Spear</SUBVALUE></VALUE>
+		<VALUE>gauya<SUBVALUE type="meaning">Citizen</SUBVALUE></VALUE>
+		<VALUE>harjis<SUBVALUE type="meaning">Army</SUBVALUE></VALUE>
+		<VALUE>liufs<SUBVALUE type="meaning">Dear</SUBVALUE></VALUE>
+		<VALUE>mers<SUBVALUE type="meaning">Famous</SUBVALUE></VALUE>
+		<VALUE>munths<SUBVALUE type="meaning">Protector</SUBVALUE></VALUE>
+		<VALUE>nanths<SUBVALUE type="meaning">Daring</SUBVALUE></VALUE>
+		<VALUE>reiks<SUBVALUE type="meaning">Ruler/King</SUBVALUE></VALUE>
+		<VALUE>reths<SUBVALUE type="meaning">Counsel</SUBVALUE></VALUE>
+		<VALUE>swinths<SUBVALUE type="meaning">Strong</SUBVALUE></VALUE>
+		<VALUE>wakrs<SUBVALUE type="meaning">Watchful</SUBVALUE></VALUE>
+		<VALUE>wulfs<SUBVALUE type="meaning">Wolf</SUBVALUE></VALUE>
+		<VALUE>ila<SUBVALUE type="meaning">Little</SUBVALUE></VALUE>
+		<VALUE>ika<SUBVALUE type="meaning">Little</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="gothic-female" title="Given">
+		<VALUE>Adosinda</VALUE>
+		<VALUE>Aeliuba</VALUE>
+		<VALUE>Agnitruedia</VALUE>
+		<VALUE>Ailo</VALUE>
+		<VALUE>Alabera</VALUE>
+		<VALUE>Alatrudia</VALUE>
+		<VALUE>Alduara</VALUE>
+		<VALUE>Aliverta</VALUE>
+		<VALUE>Amalaberga</VALUE>
+		<VALUE>Amalafrida</VALUE>
+		<VALUE>Amalasuentha</VALUE>
+		<VALUE>Andeleova</VALUE>
+		<VALUE>Anilo</VALUE>
+		<VALUE>Ansobrida</VALUE>
+		<VALUE>Ansoi</VALUE>
+		<VALUE>Aragunti</VALUE>
+		<VALUE>Argilo</VALUE>
+		<VALUE>Aruildi</VALUE>
+		<VALUE>Astragundia</VALUE>
+		<VALUE>Astroildi</VALUE>
+		<VALUE>Badosinda</VALUE>
+		<VALUE>Barili</VALUE>
+		<VALUE>Berildi</VALUE>
+		<VALUE>Brunhild</VALUE>
+		<VALUE>Cenabrida</VALUE>
+		<VALUE>Cenosinda</VALUE>
+		<VALUE>Cenusinda</VALUE>
+		<VALUE>Cixilo</VALUE>
+		<VALUE>Daildi</VALUE>
+		<VALUE>Egilo</VALUE>
+		<VALUE>Eillo</VALUE>
+		<VALUE>Eilo</VALUE>
+		<VALUE>Eldoara</VALUE>
+		<VALUE>Eldontia</VALUE>
+		<VALUE>Elduara</VALUE>
+		<VALUE>Elo</VALUE>
+		<VALUE>Emilo</VALUE>
+		<VALUE>Erelieva</VALUE>
+		<VALUE>Ermenberga</VALUE>
+		<VALUE>Ermesenda</VALUE>
+		<VALUE>Ermesinda</VALUE>
+		<VALUE>Ermosinda</VALUE>
+		<VALUE>Ermoygia</VALUE>
+		<VALUE>Evermud</VALUE>
+		<VALUE>Fachilo</VALUE>
+		<VALUE>Fakilo</VALUE>
+		<VALUE>Faquilo</VALUE>
+		<VALUE>Fredenanda</VALUE>
+		<VALUE>Fredesinda</VALUE>
+		<VALUE>Frogildi</VALUE>
+		<VALUE>Froili</VALUE>
+		<VALUE>Froiliuba</VALUE>
+		<VALUE>Froilo</VALUE>
+		<VALUE>Fruilo</VALUE>
+		<VALUE>Galswinth</VALUE>
+		<VALUE>Geloyrae</VALUE>
+		<VALUE>Genusinda</VALUE>
+		<VALUE>Giloira</VALUE>
+		<VALUE>Giluira</VALUE>
+		<VALUE>Gisclauara</VALUE>
+		<VALUE>Gisclaura</VALUE>
+		<VALUE>Gissilauara</VALUE>
+		<VALUE>Gogildi</VALUE>
+		<VALUE>Gogina</VALUE>
+		<VALUE>Goina</VALUE>
+		<VALUE>Goisuintha</VALUE>
+		<VALUE>Gomesinda</VALUE>
+		<VALUE>Goncina</VALUE>
+		<VALUE>Gondilo</VALUE>
+		<VALUE>Gonza</VALUE>
+		<VALUE>Gudigeva</VALUE>
+		<VALUE>Gudoegia</VALUE>
+		<VALUE>Guduigia</VALUE>
+		<VALUE>Guinildi</VALUE>
+		<VALUE>Guinilli</VALUE>
+		<VALUE>Guncina</VALUE>
+		<VALUE>Gunderona</VALUE>
+		<VALUE>Gundigeua</VALUE>
+		<VALUE>Gunthswinth</VALUE>
+		<VALUE>Guntildi</VALUE>
+		<VALUE>Heldoara</VALUE>
+		<VALUE>Hermesendis</VALUE>
+		<VALUE>Hildoara</VALUE>
+		<VALUE>Honosinda</VALUE>
+		<VALUE>Icka</VALUE>
+		<VALUE>Ildoie</VALUE>
+		<VALUE>Illoigia</VALUE>
+		<VALUE>Isilo</VALUE>
+		<VALUE>Ispasanda</VALUE>
+		<VALUE>Leouildi</VALUE>
+		<VALUE>Leovigoto</VALUE>
+		<VALUE>Leudesinda</VALUE>
+		<VALUE>Leuvina</VALUE>
+		<VALUE>Liuilo</VALUE>
+		<VALUE>Mathesuentha</VALUE>
+		<VALUE>Modildi</VALUE>
+		<VALUE>Ninilo</VALUE>
+		<VALUE>Nunilo</VALUE>
+		<VALUE>Nunilu</VALUE>
+		<VALUE>Nunnilo</VALUE>
+		<VALUE>Ostrogotha</VALUE>
+		<VALUE>Penetrudia</VALUE>
+		<VALUE>Quinigia</VALUE>
+		<VALUE>Quinilli</VALUE>
+		<VALUE>Ragesenda</VALUE>
+		<VALUE>Ranilo</VALUE>
+		<VALUE>Reccesuinda</VALUE>
+		<VALUE>Recciberga</VALUE>
+		<VALUE>Recesinda</VALUE>
+		<VALUE>Reciberga</VALUE>
+		<VALUE>Recoire</VALUE>
+		<VALUE>Recosinda</VALUE>
+		<VALUE>Regesenda</VALUE>
+		<VALUE>Roilo</VALUE>
+		<VALUE>Senderiga</VALUE>
+		<VALUE>Senetrudia</VALUE>
+		<VALUE>Sesila</VALUE>
+		<VALUE>Sesoira</VALUE>
+		<VALUE>Siclauara</VALUE>
+		<VALUE>Sigesgundia</VALUE>
+		<VALUE>Simildi</VALUE>
+		<VALUE>Sindeleoba</VALUE>
+		<VALUE>Sindiuerga</VALUE>
+		<VALUE>Sisegundie</VALUE>
+		<VALUE>Siseguntia</VALUE>
+		<VALUE>Sisiguntis</VALUE>
+		<VALUE>Sisildi</VALUE>
+		<VALUE>Soniefrada</VALUE>
+		<VALUE>Spasanda</VALUE>
+		<VALUE>Subildi</VALUE>
+		<VALUE>Suinthiliuba</VALUE>
+		<VALUE>Sunildi</VALUE>
+		<VALUE>Teodilli</VALUE>
+		<VALUE>Teodogoncia</VALUE>
+		<VALUE>Teodoriga</VALUE>
+		<VALUE>Teodosinda</VALUE>
+		<VALUE>Theudesinda</VALUE>
+		<VALUE>Thiudigoto</VALUE>
+		<VALUE>Thuresmuda</VALUE>
+		<VALUE>Tota</VALUE>
+		<VALUE>Trasildi</VALUE>
+		<VALUE>Trudildi</VALUE>
+		<VALUE>Trudilli</VALUE>
+		<VALUE>Uadauara</VALUE>
+		<VALUE>Ubitilde</VALUE>
+		<VALUE>Uisflauara</VALUE>
+		<VALUE>Uistrilo</VALUE>
+		<VALUE>Vadamerca</VALUE>
+		<VALUE>Vilocia</VALUE>
+		<VALUE>Zenecida</VALUE>
+	</LIST>
+	<LIST id="gothic-female-syl2" title="Syl2">
+		<VALUE>berga</VALUE>
+		<VALUE>brida<SUBVALUE type="meaning">Bride</SUBVALUE></VALUE>
+		<VALUE>gundia</VALUE>
+		<VALUE>gunthis<SUBVALUE type="meaning">Battle</SUBVALUE></VALUE>
+		<VALUE>gunths<SUBVALUE type="meaning">Battle</SUBVALUE></VALUE>
+		<VALUE>hild<SUBVALUE type="meaning">War</SUBVALUE></VALUE>
+		<VALUE>hildis<SUBVALUE type="meaning">War</SUBVALUE></VALUE>
+		<VALUE>hilds<SUBVALUE type="meaning">War</SUBVALUE></VALUE>
+		<VALUE>ildi</VALUE>
+		<VALUE>ilo</VALUE>
+		<VALUE>inda</VALUE>
+		<VALUE>swintha<SUBVALUE type="meaning">Strong</SUBVALUE></VALUE>
+		<VALUE>trudia</VALUE>
+	</LIST>
+</GENERATOR>
+

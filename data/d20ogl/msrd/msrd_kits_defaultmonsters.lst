@@ -1,0 +1,572 @@
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Tue Dec 13 06:15:56 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+#MSRD Errors?
+#Too many skill ranks: Bear, Dinosaur (Deinonychus)
+#Skill rank too high for level: Bear, Cat (should Jump get bonus from DEX instead of STR like Climb does?)
+#Fiend (Carrion/Rotlord) Bite attack damage bonus too high
+#Default Fiend (Blade/Skinhusker) Armblades attack TOHIT too high (Size L not calculated?)
+#Goblin Move Silently should be +4 but is already +5 without skill ranks (Racial bonus not included?)
+#Should Monkey have a racial skill bonus +8 to Balance?
+#Monstrous Plant (Flytrap), Wolf Bite attack TOHIT too high
+#Terrestrial Effluvium Slam attack TOHIT too high, DAMAGE off
+
+STARTPACK:Default Ape	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ape]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Ape	!PRERACE:1,%
+NAME:Ape
+SKILL:Climb		RANK:5
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Bat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Bat	!PRERACE:1,%
+NAME:Bat
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+SKILL:Move Silently	RANK:4
+
+STARTPACK:Default Bear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bear]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Bear	!PRERACE:1,%
+NAME:Bear
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+SKILL:Climb		RANK:5
+
+STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+RACE:Bugbear	!PRERACE:1,%
+NAME:Bugbear
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Personal Firearms Proficiency	FREE:YES
+FEAT:Alertness
+GEAR:Leather Jacket			LOCATION:Equipped
+GEAR:Metal Baton				LOCATION:Primary Hand
+GEAR:Holster (Hip)			LOCATION:Equipped
+GEAR:Colt Python (.357 revolver)	LOCATION:Carried
+GEAR:Bullet (.357/50)			LOCATION:Carried
+GEAR:Clothing Outfit (Casual)		LOCATION:Torso
+
+STARTPACK:Default Cat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cat]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Cat	!PRERACE:1,%
+NAME:Cat
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+SKILL:Jump		RANK:4
+
+STARTPACK:Default Crocodile (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crocodile (Huge)]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Crocodile (Huge)	!PRERACE:1,%
+NAME:Crocodile (Huge)
+SKILL:Hide		RANK:7
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Crocodile (Medium-Size)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crocodile (Medium-Size)]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Crocodile (Medium-Size)	!PRERACE:1,%
+NAME:Crocodile (Medium-Size)
+SKILL:Hide		RANK:6
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Dinosaur (Deinonychus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Deinonychus)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Dinosaur (Deinonychus)	!PRERACE:1,%
+NAME:Dinosaur (Deinonychus)
+SKILL:Hide		RANK:5
+SKILL:Jump		RANK:2
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+SKILL:Survival	RANK:2
+SKILL:Jump		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+SKILL:Survival	RANK:2
+
+STARTPACK:Default Dog (Medium-Size)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dog (Medium-Size)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Dog (Medium-Size)	!PRERACE:1,%
+NAME:Dog (Medium-Size)
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Swim		RANK:3
+
+STARTPACK:Default Dog (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dog (Small)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Dog (Small)	!PRERACE:1,%
+NAME:Dog (Small)
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Swim		RANK:4
+
+STARTPACK:Default Ferret	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ferret]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Ferret	!PRERACE:1,%
+NAME:Ferret
+SKILL:Climb			RANK:1
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:3
+
+STARTPACK:Default Fiend (Carrion/Rotlord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Carrion/Rotlord)]
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Fiend (Carrion/Rotlord)	!PRERACE:1,%
+NAME:Fiend (Carrion/Rotlord)
+SKILL:Climb			RANK:5
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Search		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Survival		RANK:5
+SKILL:TYPE=Knowledge	RANK:5
+FEAT:Multiattack
+FEAT:Track
+
+STARTPACK:Default Fiend (Blade/Skinhusker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Blade/Skinhusker)]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Fiend (Blade/Skinhusker)	!PRERACE:1,%
+NAME:Fiend (Blade/Skinhusker)
+SKILL:Intimidate		RANK:9
+SKILL:Listen		RANK:9
+SKILL:TYPE=Knowledge	RANK:5
+SKILL:TYPE=Knowledge	RANK:4
+SKILL:Search		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Survival		RANK:9
+FEAT:Cleave
+FEAT:Power Attack
+LANGAUTO:Latin
+
+STARTPACK:Default Fiend (Vomit/Festergog)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Vomit/Festergog)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Fiend (Vomit/Festergog)	!PRERACE:1,%
+NAME:Fiend (Vomit/Festergog)
+SKILL:Bluff			RANK:12
+SKILL:Climb			RANK:12
+SKILL:Intimidate		RANK:12
+SKILL:Listen		RANK:12
+SKILL:Search		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spot			RANK:12
+SKILL:Survival		RANK:12
+SKILL:TYPE=Knowledge	RANK:12
+SKILL:TYPE=Knowledge	RANK:12
+SKILL:TYPE=Knowledge	RANK:12
+FEAT:Blind-Fight
+FEAT:Frightful Presence
+FEAT:Iron Will
+FEAT:Power Attack
+
+STARTPACK:Default Gargoyle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+RACE:Gargoyle	!PRERACE:1,%
+NAME:Gargoyle
+SKILL:Hide		RANK:7
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Multiattack
+
+STARTPACK:Default Gnoll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnoll]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Gnoll	!PRERACE:1,%
+NAME:Gnoll
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Personal Firearms Proficiency
+GEAR:Metal Baton				LOCATION:Primary Hand
+GEAR:TEC-9 (9mm machine pistol)	LOCATION:Carried
+GEAR:Bullet (9mm/50)			LOCATION:Carried
+GEAR:Fatigues				LOCATION:Torso
+
+STARTPACK:Default Goblin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Goblin	!PRERACE:1,%
+NAME:Goblin
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+GEAR:Knife					LOCATION:Primary Hand
+GEAR:Colt Python (.357 revolver)	LOCATION:Carried
+GEAR:Bullet (.357)			QTY:25	LOCATION:Carried
+GEAR:Holster (Hip)			LOCATION:Equipped
+GEAR:Walkie-Talkie (Basic)		LOCATION:Carried
+
+STARTPACK:Default Golem (Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Golem (Flesh)	!PRERACE:1,%
+NAME:Flesh Golem
+
+STARTPACK:Default Golem (Advanced Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
+KIT:Default Golem (Flesh)
+STAT:STR=19|DEX=9|CON=10|INT=10|WIS=11|CHA=11
+CLASS:Construct	LEVEL:11
+NAME:Advanced Flesh Golem
+
+STARTPACK:Default Hawk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hawk]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Hawk	!PRERACE:1,%
+NAME:Hawk
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Herd Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Herd Animal	!PRERACE:1,%
+NAME:Herd Animal
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Horse	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horse]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Horse	!PRERACE:1,%
+NAME:Horse
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Invisible Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Invisible Stalker	!PRERACE:1,%
+NAME:Invisible Stalker
+SKILL:Listen		RANK:9
+SKILL:Search		RANK:9
+SKILL:Move Silently	RANK:11
+SKILL:Spot			RANK:11
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Default Invisible Stalker (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
+KIT:Default Invisible Stalker
+NAME:Advanced Invisible Stalker
+CLASS:Elemental (Air/Fire)	LEVEL:4
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:3
+SKILL:Search		RANK:2
+SKILL:Spot			RANK:2
+FEAT:Dodge
+
+STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Kobold	!PRERACE:1,%
+NAME:Kobold
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:3
+GEAR:Knife					LOCATION:Carried
+GEAR:Pathfinder (.22 revolver)	LOCATION:Primary Hand
+GEAR:Bullet (.22)				QTY:10	LOCATION:Carried
+
+STARTPACK:Default Medusa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Medusa]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Medusa	!PRERACE:1,%
+NAME:Medusa
+SKILL:Bluff			RANK:9
+SKILL:Disguise		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Move Silently	RANK:7
+FEAT:Personal Firearms Proficiency
+FEAT:Point Blank Shot
+FEAT:Weapon Finesse (Snakes)
+GEAR:Knife					LOCATION:Carried
+GEAR:Glock 17 (9mm autoloader)	LOCATION:Primary Hand
+GEAR:Bullet (9mm/50)			LOCATION:Carried
+GEAR:Holster (Concealed carry)	LOCATION:Equipped
+GEAR:Clothing Outfit (Casual)		LOCATION:Torso
+GEAR:Outerwear (Overcoat)		LOCATION:Body
+LANGAUTO:English
+LANGAUTO:Spanish
+
+STARTPACK:Default Minotaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Minotaur	!PRERACE:1,%
+NAME:Minotaur
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Jump		RANK:4
+FEAT:Archaic Weapons Proficiency|Simple Weapons Proficiency	FREE:YES
+FEAT:Power Attack
+FEAT:Great Fortitude
+GEAR:Club	SIZE:H	LOCATION:Both Hands
+
+STARTPACK:Default Monkey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monkey]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Monkey	!PRERACE:1,%
+NAME:Monkey
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+SKILL:Climb		RANK:9
+SKILL:Balance	RANK:8
+
+STARTPACK:Default Monstrous Plant (Flytrap)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Monstrous Plant (Flytrap)	!PRERACE:1,%
+NAME:Monstrous Flytrap
+
+STARTPACK:Default Monstrous Plant (Advanced Flytrap)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
+KIT:Default Monstrous Plant (Flytrap)
+STAT:STR=18|DEX=11|CON=15|INT=10|WIS=10|CHA=10
+CLASS:Plant	LEVEL:11
+NAME:Advanced Monstrous Flytrap
+
+STARTPACK:Default Monstrous Spider (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Colossal)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Colossal)	!PRERACE:1,%
+NAME:Colossal Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Monstrous Spider (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Gargantuan)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Gargantuan)	!PRERACE:1,%
+NAME:Gargantuan Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Monstrous Spider (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Huge)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Huge)	!PRERACE:1,%
+NAME:Huge Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Monstrous Spider (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Large)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Large)	!PRERACE:1,%
+NAME:Large Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Monstrous Spider (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Medium)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Medium)	!PRERACE:1,%
+NAME:Medium Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Monstrous Spider (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Small)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Small)	!PRERACE:1,%
+NAME:Small Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Monstrous Spider (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Tiny)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Monstrous Spider (Tiny)	!PRERACE:1,%
+NAME:Tiny Monstrous Spider
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Mummy	!PRERACE:1,%
+NAME:Mummy
+SKILL:Hide			RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:5
+SKILL:Listen		RANK:5
+FEAT:Alertness
+FEAT:Toughness (+3 HP)
+LANGAUTO:Egyptian
+
+STARTPACK:Default Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+RACE:Ogre	!PRERACE:1,%
+NAME:Ogre
+SKILL:Climb		RANK:1
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Weapon Focus (Huge Club)
+GEAR:Club	SIZE:H	LOCATION:Both Hands
+
+STARTPACK:Default Ooze (Terrestrial Effluvium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Terrestrial Effluvium)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Ooze (Terrestrial Effluvium)	!PRERACE:1,%
+NAME:Terrestrial Effluvium
+
+STARTPACK:Default Owl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Owl]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Owl	!PRERACE:1,%
+NAME:Owl
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Puppeteer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Puppeteer	!PRERACE:1,%
+NAME:Puppeteer
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Rat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Rat	!PRERACE:1,%
+NAME:Rat
+SKILL:Climb			RANK:2
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Swim			RANK:4
+
+STARTPACK:Default Raven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raven]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Raven	!PRERACE:1,%
+NAME:Raven
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Robot (Diminutive)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Diminutive)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Robot (Diminutive)	!PRERACE:1,%
+NAME:Diminutive Robot
+
+STARTPACK:Default Robot (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Tiny)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Robot (Tiny)	!PRERACE:1,%
+NAME:Tiny Robot
+
+STARTPACK:Default Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Shark	!PRERACE:1,%
+NAME:Shark
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+
+STARTPACK:Default Snake (Constrictor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Constrictor)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Snake (Constrictor)	!PRERACE:1,%
+NAME:Constrictor Snake
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Snake (Tiny/Viper)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Tiny/Viper)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Snake (Tiny/Viper)	!PRERACE:1,%
+NAME:Snake (Tiny/Viper)
+SKILL:Climb		RANK:1
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+
+STARTPACK:Default Tiger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tiger]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Tiger	!PRERACE:1,%
+NAME:Tiger
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+SKILL:Swim			RANK:5
+
+STARTPACK:Default Toad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Toad	!PRERACE:1,%
+NAME:Toad
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+
+STARTPACK:Default Tooth Fairy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tooth Fairy]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+RACE:Tooth Fairy	!PRERACE:1,%
+NAME:Tooth Fairy
+SKILL:Bluff			RANK:3
+SKILL:TYPE=Craft		RANK:2
+SKILL:Decipher Script	RANK:3
+SKILL:Disguise		RANK:3
+SKILL:Escape Artist	RANK:3
+SKILL:Hide			RANK:3
+SKILL:Intimidate		RANK:3
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Search		RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Sleight of Hand	RANK:3
+SKILL:Spot			RANK:3
+SKILL:Tumble		RANK:3
+FEAT:Improved Initiative
+FEAT:Renown
+GEAR:Knife	LOCATION:Primary Hand
+
+STARTPACK:Default Troglodyte	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Troglodyte	!PRERACE:1,%
+NAME:Troglodyte
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+FEAT:Multiattack
+GEAR:Sap		LOCATION:Carried
+GEAR:Javelin	LOCATION:Primary Hand
+GEAR:Backpack	LOCATION:Equipped
+
+STARTPACK:Default Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Troll	!PRERACE:1,%
+NAME:Troll
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Multiattack
+
+STARTPACK:Default Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Wolf	!PRERACE:1,%
+NAME:Wolf
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:3
+
+STARTPACK:Default Wyrm (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyrm (Adult)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Wyrm (Adult)	!PRERACE:1,%
+NAME:Wyrm (Adult)
+SKILL:Listen		RANK:19
+SKILL:Move Silently	RANK:18
+SKILL:Search		RANK:19
+SKILL:Spot			RANK:19
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus(Sting)
+
+STARTPACK:Default Wyrm (Hatchling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyrm (Hatchling)]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Wyrm (Hatchling)	!PRERACE:1,%
+NAME:Wyrm (Hatchling)
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Search		RANK:7
+SKILL:Spot			RANK:7
+FEAT:Alertness
+FEAT:Weapon Focus(Sting)
+
+#
+# End
+#

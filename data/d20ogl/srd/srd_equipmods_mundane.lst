@@ -1,0 +1,30 @@
+# CVS $Revision: 1.21 $ $Author: eddyanthony $ -- Thu Sep  1 00:51:17 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# Still need to take the separate entry weapons for Spiked Armor/Shield
+
+# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Choose Naming Option	Source Page				Required Type			Prohibited Type						BONUS:EQM					BONUS:EQMARMOR					Modify the item cost									Bonus to skill					Weapon prop. bonus				Apply to both heads
+Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood														BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300								BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+Masterwork		KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood							BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																											ASSIGNTOALL:YES
+Masterwork		KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																										BONUS:SKILL|Perform|2|TYPE=Circumstance								ASSIGNTOALL:YES
+Masterwork		KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQM|WEIGHTADD|1|PRETYPE:Thief								BONUS:ITEMCOST|TYPE=Thief|20																						ASSIGNTOALL:YES
+
+###Block: Base Materials
+
+# Modifier Name	Unique Key	Type														Cost		Visible		Type granted	Choose Naming Option	Source Page				Prohibited Type						Apply to both heads
+Wood			KEY:WOOD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal	ASSIGNTOALL:YES
+Steel			KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
+
+###Block: Armor Accesories
+
+# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		BONUS:EQM			BONUS:EQMWEAPON			Special Property	Automaticaly Added to Inventory
+Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor	BONUS:EQM|WEIGHTADD|10						SPROP:Spiked	AUTO:EQUIP|Armor Spikes
+Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Shield|Armor	BONUS:EQM|WEIGHTADD|5	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf									BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5						SPROP:Locked
+Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
+
+# Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0												NAMEOPT:NONAME		SOURCEPAGE:p.																																																																		CHOOSE:Select desired TYPE(s)|TYPE=ALL
+
+###Block:EXCLUDEEQ: Any item with the properties listed will not be allowed to be edited
+# Modifier Name	Visible	Type granted
+EXCLUDEEQ_MUNDANE	VISIBLE:NO	ITYPE:Masterwork.Silvered.Adamantine.Mithral.Darkwood

@@ -1,0 +1,80 @@
+/*
+ * KitSkillAdd.java
+ * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on September 23, 2002, 8:55 PM
+ */
+package pcgen.core.kit;
+
+import pcgen.core.Skill;
+
+/**
+ * <code>KitSkillAdd</code>.
+ *
+ * @author Bryan McRoberts <merton_monk@yahoo.com>
+ * @version $Revision: 1.12 $
+ */
+public final class KitSkillAdd //implements java.io.Serializable
+{
+	private Skill skill = null;
+	private double ranks = 0.0;
+	private int cost = 0;
+
+	public KitSkillAdd(final Skill argSkill, double aRanks, int aCost)
+	{
+		skill = argSkill;
+		ranks = aRanks;
+		cost = aCost;
+	}
+
+	public double getRanks()
+	{
+		return ranks;
+	}
+
+	public Skill getSkill()
+	{
+		return skill;
+	}
+
+	/**
+	 * @param aRanks
+	 * @deprecated Unused - remove 5.9.5
+	 */
+	public void setRanks(double aRanks)
+	{
+		ranks = aRanks;
+	}
+
+	/**
+	 * Get cost
+	 * @return cost
+	 */
+	public int getCost()
+	{
+		return cost;
+	}
+
+	/**
+	 * @param aCost
+	 * @deprecated Unused - remove 5.9.5
+	 */
+	public void setCost(final int aCost)
+	{
+		cost = aCost;
+	}
+}

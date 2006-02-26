@@ -1,0 +1,28 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Mon Jan  3 21:09:17 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+# Language	Type			Var. Min. Value
+Abyssal	TYPE:Spoken
+Aquan		TYPE:Spoken
+Auran		TYPE:Spoken
+Celestial	TYPE:Spoken
+Common	TYPE:Spoken
+Draconic	TYPE:Spoken
+Dwarven	TYPE:Spoken
+Elven		TYPE:Spoken
+Gnome		TYPE:Spoken
+Goblin	TYPE:Spoken
+Giant		TYPE:Spoken
+Gnoll		TYPE:Spoken
+Halfling	TYPE:Spoken
+Ignan		TYPE:Spoken
+Infernal	TYPE:Spoken
+Orc		TYPE:Spoken
+Sylvan	TYPE:Spoken
+Terran	TYPE:Spoken
+Undercommon	TYPE:Spoken
+Literacy	TYPE:Special
+Druidic	TYPE:Special	PREVARGTEQ:DruidicLanguage,1
+
+# From MM
+Drow		TYPE:Spoken

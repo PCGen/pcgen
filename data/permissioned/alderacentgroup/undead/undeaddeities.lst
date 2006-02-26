@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead|SOURCESHORT:Undead|SOURCEWEB:http://alderac.com/d20
+
+# Deity Name	Product Identity?	Domains						Clergy AL				Desciption of Deity/Title							Holy Item	Deity Weapon		ALIGN		PANTHEON				Source Page
+Demortus		NAMEISPI:YES	DOMAINS:Evil,Undead,Spirit			FOLLOWERALIGN:0123456789	DESC:Lord of Unlife, the Eternal One, Deathstealer			SYMBOL:None	DEITYWEAP:Dagger		ALIGN:LE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68
+Gnawbone		NAMEISPI:YES	DOMAINS:Evil,Undead,Chaos			FOLLOWERALIGN:0123456789	DESC:the Ghoul King, Deatheater						SYMBOL:None	DEITYWEAP:Club		ALIGN:CE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68
+Lochai		NAMEISPI:YES	DOMAINS:Death,Destruction,War,Plague	FOLLOWERALIGN:0123456789	DESC:Deathbringer, Lifescourge						SYMBOL:None	DEITYWEAP:Scythe		ALIGN:CN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.68
+Rei sul Vadoch	NAMEISPI:YES	DOMAINS:Death,Knowledge,Rulership		FOLLOWERALIGN:0123456789	DESC:King of the Dead, Death Lord						SYMBOL:None	DEITYWEAP:Longsword	ALIGN:LN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.69
+Necronius		NAMEISPI:YES	DOMAINS:Death,Undead,Evil,Rot			FOLLOWERALIGN:0123456789	DESC:Bloodletter, Lifedrainer							SYMBOL:None	DEITYWEAP:Rapier		ALIGN:LE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.69
+Necury		NAMEISPI:YES	DOMAINS:Death,Protection,Travel		FOLLOWERALIGN:0123456789	DESC:the Guide, Death's Messenger, Soulfriend				SYMBOL:None	DEITYWEAP:Sword (Short)	ALIGN:LN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.69
+Selina		NAMEISPI:YES	DOMAINS:Death,Knowledge,Spirit		FOLLOWERALIGN:0123456789	DESC:Lady of Spirits, the Ghost Queen					SYMBOL:None	DEITYWEAP:Sickle		ALIGN:CN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.69-70
+Shofayt		NAMEISPI:YES	DOMAINS:Death,Knowledge,Law			FOLLOWERALIGN:0123456789	DESC:the Judge of the Dead, Incorruptible, the Final Justice	SYMBOL:None	DEITYWEAP:Warhammer	ALIGN:N	PANTHEON:Lords of the Dead	SOURCEPAGE:p.70

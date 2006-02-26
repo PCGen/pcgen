@@ -1,0 +1,108 @@
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Avalanche Press - Jade and Steel|SOURCESHORT:JadeSteel|SOURCEWEB:http://www.avalanchepress.com
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Alchemist	HD:6		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat						Required Skill		Req. Spell Type
+CLASS:Alchemist	PREFEAT:2,Brew Potion,Skill Focus (Alchemy)	PRESKILL:1,Alchemy=10	PRESPELLTYPE:Arcane,1,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft
+1	ADD:SPELLCASTER(Arcane)	SA:Brewing Bonus
+2	ADD:SPELLCASTER(Arcane)	SA:Brew Elixir
+3	ADD:SPELLCASTER(Arcane)	SA:Brew Tablet
+4	ADD:SPELLCASTER(Arcane)	SA:Analyze Chemical
+5	ADD:SPELLCASTER(Arcane)	SA:Brew Paint	SA:Chemical Resistance
+6	ADD:SPELLCASTER(Arcane)	SA:Substitute
+7	ADD:SPELLCASTER(Arcane)	SA:Brew Oil
+8	ADD:SPELLCASTER(Arcane)	SA:Brew Superior Elixir
+9	ADD:SPELLCASTER(Arcane)	SA:Brew Gas
+10	ADD:SPELLCASTER(Arcane)	SA:Elixir of Life
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Save checks bonus									Combat bonus
+CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	ABB:DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required AL		Req. Att.	Required Feat
+CLASS:Dim Mak Practitioner	PREALIGN:LG,LN,LE	PREATT:3	PREFEAT:3,Improved Unarmed Strike,Improved Trip,Improved Initiative
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE.Profession|Swim|Tumble
+1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SA:Chakra Strike %|ChakraStrike	SA:Student of Perfection	BONUS:VAR|ChakraStrike|1	BONUS:COMBAT|AC|MonkAC|PREVARGT:MonkACChk,0	DEFINE:MonkACChk|MonkAC+WIS	DEFINE:ChakraStrike|0	DEFINE:MonkAC|min(floor(CL/5),4)
+2	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Extra Stunning Attacks
+3	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Atemi Attack									BONUS:VAR|ChakraStrike|1
+4	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SA:Withering Strike
+5	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12												BONUS:VAR|ChakraStrike|1
+6	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Blinding Strike
+7	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Crippling Strike
+8	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Paralyze Strke
+9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Quivering Palm
+10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Distant Blow
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Diviner	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill					Required Spell School
+CLASS:Diviner	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana),Scry=8	PRESPELLSCHOOL:Divination,7,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Diviner	STARTSKILLPTS:2	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
+# Class Name	Use Spell List
+CLASS:Diviner	SPELLLIST:1|Wizard
+1	ADD:SPELLCASTER(Arcane)	SA:Augury
+2	ADD:SPELLCASTER(Arcane)	SA:Insight %|DivInsight		DEFINE:DivInsight|CL/2
+3	ADD:SPELLCASTER(Arcane)	SA:Divination
+4	ADD:SPELLCASTER(Arcane)
+5	ADD:SPELLCASTER(Arcane)	SA:Inspiration %|Inspiration	DEFINE:Inspiration|(CL-1)/4
+6	ADD:SPELLCASTER(Arcane)
+7	ADD:SPELLCASTER(Arcane)	SA:Find The Path
+8	ADD:SPELLCASTER(Arcane)
+9	ADD:SPELLCASTER(Arcane)
+10	ADD:SPELLCASTER(Arcane)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Geometer	HD:8		TYPE:PC.Prestige	ABB:Geo		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat						Required Skill									Req. Spell Type
+CLASS:Geometer	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana),Knowledge (Religion),Spellcraft=8	PRESPELLTYPE:Divine,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Geometer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE.Profession|Search|Sense Motive|Spellcraft
+# Class Name	Use Spell List
+CLASS:Geometer	SPELLLIST:1|Cleric
+1	ADD:SPELLCASTER(ANY)	SA:Enchant Area %|EnchantArea	SA:Harmony Within	DEFINE:EnchantArea|(CL+1)/2
+2	ADD:SPELLCASTER(ANY)	SA:Harmony's Blessing
+3	ADD:SPELLCASTER(ANY)
+4	ADD:SPELLCASTER(ANY)	SA:Harmony Without
+5	ADD:SPELLCASTER(ANY)
+6	ADD:SPELLCASTER(ANY)	SA:Harmony's Touch
+7	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)	SA:Harmony's Shield
+9	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)	SA:Perfect Harmony
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Save checks bonus									Combat bonus
+CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	ABB:IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required AL		Req. Att.	Required Feat
+CLASS:Iron Hand Disciple	PREALIGN:LG,LN,LE	PREATT:4	PREFEAT:3,Improved Unarmed Strike,Great Fortitude,Power Attack
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE.Profession|Swim|Tumble
+1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			SA:Iron Hand attack	SA:Student of Perfection						BONUS:COMBAT|AC|MonkAC|PREVARGT:MonkACChk,0	DEFINE:MonkACChk|MonkAC+WIS	DEFINE:MonkAC|min(floor(CL/5),4)
+2	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12			SA:Crushing Blow %|CrushingBlow				BONUS:VAR|CrushingBlow|1									DEFINE:CrushingBlow|0
+3	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12			SA:Breaking Blow
+4	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	DR:2/+1	SA:Body Hardening %|BodyHarden	SA:Heart of Iron	BONUS:VAR|BodyHarden|1		BONUS:COMBAT|AC|1|TYPE=Deflection			DEFINE:BodyHarden|0
+5	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12												BONUS:VAR|CrushingBlow|1
+6	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	DR:4/+1										BONUS:VAR|BodyHarden|1		BONUS:COMBAT|AC|1|TYPE=Deflection
+7	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8												BONUS:VAR|CrushingBlow|1
+8	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	DR:6/+1										BONUS:VAR|BodyHarden|1		BONUS:COMBAT|AC|1|TYPE=Deflection
+9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SA:Heart of Steel
+10	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10			SA:Iron Body
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	ABB:SwS		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat
+CLASS:Sword Saint	PREATT:6	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring Attack
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sword Saint	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Religion)|Tumble
+1	SA:Flurry of Blows
+2	SA:Still Mind
+3												ADD:FEAT(Deflect Arrows)
+4					BONUS:COMBAT|TOHIT|2|TYPE=Enhancement	ADD:FEAT(Superior Weapon Focus)
+5	SA:Leap of The Clouds
+6												ADD:FEAT(Lightning Reflexes)
+7					BONUS:COMBAT|DAMAGE|2|TYPE=Enhancement	ADD:FEAT(Superior Weapon Specialization)
+8	SA:Perfect Balance
+9	SA:Wholeness of Body
+10	SA:Spellcleaver

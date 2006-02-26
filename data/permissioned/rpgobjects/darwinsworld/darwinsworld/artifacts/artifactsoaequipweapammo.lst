@@ -1,0 +1,78 @@
+# CVS $Revision: 1.2 $ $Author: kingpaul $ -- Wed Jan 26 22:46:55 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients|SOURCESHORT:ArtifactsA|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# Equipment Name					Type							Cost		Weight	Base Quantity	Source Page
+Cartridge Carbine Glazer			TYPE:Ammunition.Standard.CCart.Metal	COST:21	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Carbine Glazer (10)			TYPE:Ammunition.Standard.CCart.Metal	COST:210	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Carbine HC				TYPE:Ammunition.Standard.CCart.Metal	COST:11	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Carbine HC (10)			TYPE:Ammunition.Standard.CCart.Metal	COST:105	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Carbine HP				TYPE:Ammunition.Standard.CCart.Metal	COST:11	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Carbine HP (10)			TYPE:Ammunition.Standard.CCart.Metal	COST:105	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Carbine JHP				TYPE:Ammunition.Standard.CCart.Metal	COST:14	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Carbine JHP (10)			TYPE:Ammunition.Standard.CCart.Metal	COST:140	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Carbine Rubber			TYPE:Ammunition.Standard.CCart.Rubber	COST:8	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Carbine Rubber (10)			TYPE:Ammunition.Standard.CCart.Rubber	COST:75	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Pistol Glazer				TYPE:Ammunition.Standard.PCart.Metal	COST:9	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Pistol Glazer (10)			TYPE:Ammunition.Standard.PCart.Metal	COST:90	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Pistol HC				TYPE:Ammunition.Standard.PCart.Metal	COST:6	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Pistol HC (10)			TYPE:Ammunition.Standard.PCart.Metal	COST:60	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Pistol HP				TYPE:Ammunition.Standard.PCart.Metal	COST:6	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Pistol HP (10)			TYPE:Ammunition.Standard.PCart.Metal	COST:60	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Pistol JHP				TYPE:Ammunition.Standard.PCart.Metal	COST:8	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Pistol JHP (10)			TYPE:Ammunition.Standard.PCart.Metal	COST:80	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Pistol Rubber				TYPE:Ammunition.Standard.PCart.Rubber	COST:5	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Pistol Rubber (10)			TYPE:Ammunition.Standard.PCart.Rubber	COST:45	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Rifle Glazer				TYPE:Ammunition.Standard.RCart.Metal	COST:27	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Rifle Glazer (10)			TYPE:Ammunition.Standard.RCart.Metal	COST:270	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Rifle HC				TYPE:Ammunition.Standard.RCart.Metal	COST:14	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Rifle HC (10)				TYPE:Ammunition.Standard.RCart.Metal	COST:135	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Rifle HP				TYPE:Ammunition.Standard.RCart.Metal	COST:14	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Rifle HP (10)				TYPE:Ammunition.Standard.RCart.Metal	COST:135	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Rifle JHP				TYPE:Ammunition.Standard.RCart.Metal	COST:18	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Rifle JHP (10)			TYPE:Ammunition.Standard.RCart.Metal	COST:180	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge Rifle Rubber				TYPE:Ammunition.Standard.RCart.Rubber	COST:10	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge Rifle Rubber (10)			TYPE:Ammunition.Standard.RCart.Rubber	COST:100	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge SMG Glazer				TYPE:Ammunition.Standard.SCart.Metal	COST:24	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge SMG Glazer (10)			TYPE:Ammunition.Standard.SCart.Metal	COST:240	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge SMG HC					TYPE:Ammunition.Standard.SCart.Metal	COST:12	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge SMG HC (10)				TYPE:Ammunition.Standard.SCart.Metal	COST:120	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge SMG HP					TYPE:Ammunition.Standard.SCart.Metal	COST:12	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge SMG HP (10)				TYPE:Ammunition.Standard.SCart.Metal	COST:120	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge SMG JHP					TYPE:Ammunition.Standard.SCart.Metal	COST:16	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge SMG JHP (10)				TYPE:Ammunition.Standard.SCart.Metal	COST:160	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Cartridge SMG Rubber				TYPE:Ammunition.Standard.SCart.Rubber	COST:9	WT:.1					SOURCEPAGE:pp. 25, 27
+Cartridge SMG Rubber (10)			TYPE:Ammunition.Standard.SCart.Rubber	COST:90	WT:1		BASEQTY:10		SOURCEPAGE:pp. 25, 27
+Harmonic Cell (Unlimited)			TYPE:Ammunition.Charges.Power			COST:24000	WT:0		BASEQTY:9999	SOURCEPAGE:pp. 34, 41
+Machinegun Belt Cartridge Glazer (100)	TYPE:Ammunition.Standard.Metal		COST:2750	WT:10		BASEQTY:100		SOURCEPAGE:pp. 25, 27
+Machinegun Belt Cartridge HC (100)		TYPE:Ammunition.Standard.Metal		COST:1400	WT:10		BASEQTY:100		SOURCEPAGE:pp. 25, 27
+Machinegun Belt Cartridge HP (100)		TYPE:Ammunition.Standard.Metal		COST:1400	WT:10		BASEQTY:100		SOURCEPAGE:pp. 25, 27
+Machinegun Belt Cartridge JHP (100)		TYPE:Ammunition.Standard.Metal		COST:1850	WT:10		BASEQTY:100		SOURCEPAGE:pp. 25, 27
+Machinegun Belt Cartridge Rubber (100)	TYPE:Ammunition.Standard.Metal		COST:1050	WT:10		BASEQTY:100		SOURCEPAGE:pp. 25, 27
+Minifusion Cell (1)				TYPE:Ammunition.Charges.Power			COST:100	WT:0					SOURCEPAGE:pp. 34, 41
+Minifusion Cell (10)				TYPE:Ammunition.Charges.Power			COST:1000	WT:0		BASEQTY:10		SOURCEPAGE:pp. 34, 41
+Plutonium Clip  (1)				TYPE:Ammunition.Charges.Plutomium		COST:150	WT:0					SOURCEPAGE:pp. 35, 41
+Plutonium Clip  (10)				TYPE:Ammunition.Charges.Plutomium		COST:1500	WT:0		BASEQTY:10		SOURCEPAGE:pp. 35, 41
+Power Backpack (1)				TYPE:Ammunition.Charges.Power			COST:50	WT:4					SOURCEPAGE:pp. 34, 41
+Power Backpack (50)				TYPE:Ammunition.Charges.Power			COST:2500	WT:4		BASEQTY:50		SOURCEPAGE:pp. 34, 41
+Power Beltpack (1)				TYPE:Ammunition.Charges.Power			COST:50	WT:2					SOURCEPAGE:pp. 34, 41
+Power Beltpack (25)				TYPE:Ammunition.Charges.Power			COST:1250	WT:2		BASEQTY:25		SOURCEPAGE:pp. 34, 41
+Power Cell (1 year)				TYPE:Ammunition.Charges.Power			COST:90	WT:0		BASEQTY:999		SOURCEPAGE:pp. 34, 41
+Power Clip (1)					TYPE:Ammunition.Charges.Power			COST:50	WT:0					SOURCEPAGE:pp. 34, 41
+Power Clip (10)					TYPE:Ammunition.Charges.Power			COST:500	WT:0		BASEQTY:10		SOURCEPAGE:pp. 34, 41
+Power Pack (5 years)				TYPE:Ammunition.Charges.Power			COST:750	WT:3		BASEQTY:999		SOURCEPAGE:pp. 34, 41
+Projectiles Cannon				TYPE:Ammunition.Standard.Cannon.Metal	COST:1000	WT:75					SOURCEPAGE:pp. 25, 41
+Projectiles Gauss					TYPE:Ammunition.Mass.Gauss.Metal		COST:8	WT:.2					SOURCEPAGE:pp. 34, 41
+Projectiles Gauss (10)				TYPE:Ammunition.Mass.Gauss.Metal		COST:80	WT:2		BASEQTY:10		SOURCEPAGE:pp. 34, 41
+Projectiles Gauss (30)				TYPE:Ammunition.Mass.Gauss.Metal		COST:240	WT:6		BASEQTY:30		SOURCEPAGE:pp. 34, 41
+Projectiles Gauss ATG				TYPE:Ammunition.Mass.GaussA.Metal		COST:35	WT:5					SOURCEPAGE:pp. 34, 41
+Projectiles Gauss ATG (10)			TYPE:Ammunition.Mass.GaussA.Metal		COST:350	WT:50		BASEQTY:10		SOURCEPAGE:pp. 34, 41
+Projectiles Gauss Cannon			TYPE:Ammunition.Mass.GaussC.Metal		COST:2000	WT:50					SOURCEPAGE:pp. 34, 41
+Projectiles EST					TYPE:Ammunition.Mass.EST.Metal		COST:5	WT:.3					SOURCEPAGE:pp. 34, 41
+Projectiles EST (10)				TYPE:Ammunition.Mass.EST.Metal		COST:50	WT:3		BASEQTY:10		SOURCEPAGE:pp. 34, 41
+Shotgun Shells					TYPE:Ammunition.Standard.Shell.Metal	COST:12	WT:.15				SOURCEPAGE:pp. 34, 41
+Shotgun Shells (20)				TYPE:Ammunition.Standard.Shell.Metal	COST:240	WT:3		BASEQTY:20		SOURCEPAGE:pp. 34, 41
+Shotgun Shells Rubber				TYPE:Ammunition.Standard.Shell.Rubber	COST:5	WT:.15				SOURCEPAGE:pp. 34, 41
+Shotgun Shells Rubber (20)			TYPE:Ammunition.Standard.Shell.Rubber	COST:90	WT:3		BASEQTY:20		SOURCEPAGE:pp. 34, 41
+Shotgun Shells Slugs				TYPE:Ammunition.Standard.Shell.Metal	COST:8	WT:.15				SOURCEPAGE:pp. 34, 41
+Shotgun Shells Slugs (20)			TYPE:Ammunition.Standard.Shell.Metal	COST:160	WT:3		BASEQTY:20		SOURCEPAGE:pp. 34, 41

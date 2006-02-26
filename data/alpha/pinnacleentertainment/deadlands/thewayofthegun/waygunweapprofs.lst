@@ -1,0 +1,89 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun|SOURCESHORT:WayotGun|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Weapon Name						Type
+Acid Gun							TYPE:Exotic
+Adams Revolver (Pistol/SA)				TYPE:Pistol
+American Pepperbox (Derringer/SA)			TYPE:Pistol
+Army Pistol (Pistol/SA)					TYPE:Pistol
+Augusta Revolver (Pistol/SA)				TYPE:Pistol
+Bullard Express (Rifle)					TYPE:Rifle
+Chuchu Pistol (Derringer/DA)				TYPE:Pistol
+Colt Army-Thuer (Pistol/SA)				TYPE:Pistol
+Colt Derringer (Derringer/SA)				TYPE:Pistol
+Colt Dragoon No. 3 (Pistol/SA)			TYPE:Pistol
+Colt Frontier (Pistol/DA)				TYPE:Pistol
+Colt Lightning Repeater (Rifle)			TYPE:Rifle
+Colt Navy Revolver (Pistol/SA)			TYPE:Pistol
+Colt New Line .30 (Pistol/SA)				TYPE:Pistol
+Colt New Line .38 (Pistol/SA)				TYPE:Pistol
+Colt Old-Line (Pistol/SA)				TYPE:Pistol
+Colt Open Top (Pistol/SA)				TYPE:Pistol
+Colt Open Top Pocket (Pistol/SA)			TYPE:Pistol
+Colt Paterson Belt Model (Pistol/SA)		TYPE:Pistol
+Colt Peacemaker (Pistol/DA)				TYPE:Pistol
+Colt Pocket (Pistol/SA)					TYPE:Pistol
+Colt Police (Pistol/SA)					TYPE:Pistol
+Colt Revolving Rifle (Rifle)				TYPE:Rifle
+Colt Walker (Pistol/SA)					TYPE:Pistol
+Cooper Navy (Pistol/DA)					TYPE:Pistol
+English 1840 Model (Derringer/SA)			TYPE:Pistol
+Evans Old Model Sporter (Rifle)			TYPE:Rifle
+Forehand and Wadsworth .44 (Pistol/SA)		TYPE:Pistol
+Freeman Army Revolver (Pistol/SA)			TYPE:Pistol
+Gatling Rifle						TYPE:Automatic
+Gatling Shotgun						TYPE:Automatic
+Hotchkiss Repeating Rifle (Rifle)			TYPE:Rifle
+Joslyn Army Revolver (Pistol/SA)			TYPE:Pistol
+Kerr's Patent Revolver (Pistol/DA)			TYPE:Pistol
+Kerr's Patent Revolver (Pistol/SA)			TYPE:Pistol
+Leech and Rigdon Revolver (Pistol/SA)		TYPE:Pistol
+LeMat Carbine and Shotgun (Rifle)			TYPE:Rifle
+LeMat Revolver and Shotgun (Pistol/SA)		TYPE:Pistol
+Marston Pistol (Derringer/DA)				TYPE:Pistol
+Merwin Hulbert Army (Pistol/SA)			TYPE:Pistol
+Merwin Hulbert Pocket (Pistol/DA)			TYPE:Pistol
+Navy Pistol (Pistol/SA)					TYPE:Pistol
+Palm Pistol (Derringer/DA)				TYPE:Pistol
+Pettengill Army (Pistol/DA)				TYPE:Pistol
+Remington Army (Pistol/SA)				TYPE:Pistol
+Remington Double Derringer (Derringer/SA)		TYPE:Pistol
+Remington Model 1871 (Rifle)				TYPE:Rifle
+Remington Navy (Pistol/SA)				TYPE:Pistol
+Remington New Model (Pistol/SA)			TYPE:Pistol
+Remington Rider (Derringer/SA)			TYPE:Pistol
+Remington Single-Action (Pistol/SA)			TYPE:Pistol
+Remington-Beals Pocket (Pistol/SA)			TYPE:Pistol
+Remington-Eliot Derringer (Derringer/DA)		TYPE:Pistol
+Robbins and Lawrence Pepperbox (Derringer/SA)	TYPE:Pistol
+Roger and Spencer Army (Pistol/SA)			TYPE:Pistol
+Savage and North Navy (Pistol/SA)			TYPE:Pistol
+Sharps 1855 Carbine (Rifle)				TYPE:Rifle
+Sharps 1859 Rifle (Rifle)				TYPE:Rifle
+Sharps 1869 Rifle (Rifle)				TYPE:Rifle
+Sharps 1874 Rifle (Rifle)				TYPE:Rifle
+Sharps Derringer (Derringer/DA)			TYPE:Pistol
+Smith and Wesson Baby Russian (Pistol/SA)		TYPE:Pistol
+Smith and Wesson DA (Pistol/DA)			TYPE:Pistol
+Smith and Wesson Frontier (Pistol/DA)		TYPE:Pistol
+Smith and Wesson No. 1 (Pistol/SA)			TYPE:Pistol
+Smith and Wesson No. 2 (Pistol/SA)			TYPE:Pistol
+Smith and Wesson No. 3 .44 (Pistol/SA)		TYPE:Pistol
+Smith and Wesson No. 3 .45 (Pistol/SA)		TYPE:Pistol
+Smith and Wesson Russian (Pistol/SA)		TYPE:Pistol
+Spencer Carbine .52 (Rifle)				TYPE:Rifle
+Springfield 1873 (Rifle)				TYPE:Rifle
+US Model 1822 (Rifle)					TYPE:Rifle
+US Model 1842 (Rifle)					TYPE:Rifle
+US Model 1855 (Rifle)					TYPE:Rifle
+Volcanic Carbine .38 (Rifle)				TYPE:Rifle
+Volcanic Carbine .41 (Rifle)				TYPE:Rifle
+Volcanic Pistol .31 (Pistol/SA)			TYPE:Pistol
+Volcanic Pistol .41 (Pistol/SA)			TYPE:Pistol
+Volcanic Pistol-Carbine (Pistol/SA)			TYPE:Pistol
+Volcanic Repeating Pistol (Pistol/SA)		TYPE:Pistol
+W. Irving Knuckle-Duster (Pistol/SA)		TYPE:Pistol
+Wesson and Leavitt Pocket (Pistol/SA)		TYPE:Pistol
+Whitworth (Rifle)						TYPE:Rifle
+Williamson Single-Shot (Derringer/SA)		TYPE:Pistol
+Winchester '66 (Rifle)					TYPE:Rifle

@@ -1,0 +1,98 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Rakshasa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Rakshasa]
+RACE:Rakshasa	!PRERACE:%
+NAME:Rakshasa
+ALIGN:LE
+SKILL:Spot			RANK:8
+SKILL:Move Silently	RANK:11
+SKILL:Diplomacy		RANK:4
+SKILL:Bluff			RANK:10
+SKILL:Concentration	RANK:10
+SKILL:Disguise		RANK:10
+SKILL:Listen		RANK:10
+SKILL:Perform (Oratory)	RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Spellcraft		RANK:10
+SKILL:Intimidate		RANK:2
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Dodge
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow|Bear's Endurance|Charm Person|Detect Magic|Haste|Invisibility|Light|Mage Armor|Mage Hand|Magic Missile|Message|Read Magic|Resistance|Shield|Silent Image|Suggestion|Touch of Fatigue
+
+STARTPACK:Default Rast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Rast]
+RACE:Rast	!PRERACE:%
+NAME:Rast
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+FEAT:Improved Initiative
+FEAT:Toughness
+STAT:CON=11|INT=11|WIS=11|STR=10|DEX=10|CHA=10
+
+STARTPACK:Default Ravid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ravid]
+RACE:Ravid	!PRERACE:%
+NAME:Ravid
+ALIGN:TN
+SKILL:Escape Artist	RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Survival		RANK:6
+FEAT:Improved Initiative
+FEAT:Multiattack
+STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Remorhaz	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Remorhaz]
+RACE:Remorhaz	!PRERACE:%
+NAME:Remorhaz
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:7
+FEAT:Awesome Blow
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
+
+STARTPACK:Default Roc	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Roc]
+RACE:Roc	!PRERACE:%
+NAME:Roc
+ALIGN:TN
+SKILL:Hide		RANK:7
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Wingover
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Roper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Roper]
+RACE:Roper	!PRERACE:%
+NAME:Roper
+SKILL:Climb		RANK:8
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:8
+SKILL:Hide		RANK:13
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Weapon Focus(Strand)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+TEMPLATE:Default Roper
+
+STARTPACK:Default Rust Monster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Rust Monster]
+RACE:Rust Monster	!PRERACE:%
+NAME:Rust Monster
+ALIGN:TN
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Track
+STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10

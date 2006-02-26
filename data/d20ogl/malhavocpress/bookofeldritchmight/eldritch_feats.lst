@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+#Spell names and other proper names from The Book of Eldritch Might are
+#	©2001-2003 Monte J. Cook and are used here with his permission.
+
+
+# Feat Name					Type			Required Class			Required Stat	Description																														Multiple?	Choose																																							Source Page
+Conjure Mastery				TYPE:Eldritch	PRECLASS:1,Spellcaster=7	PRESTAT:1,CHA=17	DESC:Conjured creatures have a +2 on STR, DEX and CON																																																																	SOURCEPAGE:p.4
+Etch Object Rune				TYPE:ItemCreation	PRECLASS:1,Spellcaster=5				DESC:You can etch objects like scrolls																																																																			SOURCEPAGE:p.4
+Item Image					TYPE:Eldritch	PRECLASS:1,Spellcaster=7	PRESTAT:1,INT=17	DESC:You can create a tattoo on your body to store magical items.  Process takes 8 hours and costs 1/10 of the item's value.																																																					SOURCEPAGE:p.4
+Lace Spell (Elemental Energies)	TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You can lace your spells that target a single creature with elemental energy, of your choosing, that deals an additional 1d6 damage if target takes damage from the original spell.																																											SOURCEPAGE:p.5
+Lace Spell (Enemy Bane)			TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You give your spells extra damage against a particular type of creature.  If damage occurs, target creature type takes an additional 20% of damage.						MULT:YES	CHOOSE:Aberrations|Animals|Beasts|Constructs|Dragons|Elementals|Fey|Giants|Magical Beasts|Monstrous Humanoid|Oozes|Outsiders (Chaotic)|Outsiders (Evil)|Outsiders (Good)|Outsiders (Lawful)|Plants|Shapechangers|Undead|Vermin|Humanoid type	SOURCEPAGE:p.5
+Lace Spell (Holy/Unholy)		TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You lace your spells with holy or unholy energy.  The spell DC increases by 2 against the opposite alignment.												MULT:YES	CHOOSE:NUMCHOICES=1|Holy|Unholy																																			SOURCEPAGE:p.5
+Lace Spell (Lawful/Chaotic)		TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You lace your spells with lawful or chaotic energy.  The spell DC increases by 2 against the opposite alignment.												MULT:YES	CHOOSE:NUMCHOICES=1|Lawful|Chaotic																																			SOURCEPAGE:p.5
+Manufacture Magic Poison		TYPE:ItemCreation	PRECLASS:1,Spellcaster=5				DESC:Can create magical poisons																																																																				SOURCEPAGE:p.6
+Mirror Sight				TYPE:Eldritch	PRECLASS:1,Spellcaster=1	PRESTAT:1,CHA=19	DESC:Can use a mirror for a special sort of scrying																																																																	SOURCEPAGE:p.6
+
+###Block: From the Print version, and from Monte's Website
+# Feat Name		Type			Required Stat	Description																					Bonus to skill
+Dreamspeaking	TYPE:General	PRESTAT:1,WIS=13	DESC:You can interpret the dreams that you have, or that others have
+Ranged Expertise	TYPE:General	PRESTAT:1,INT=13	DESC:You are trained at using your ranged combat skill for defense as well as offense
+Forced Swiftness	TYPE:General	PRESTAT:1,STR=13	DESC:You can run when the armor you are wearing or the amount of gear you are carrying normally would prevent you from running
+Nimble Fingers	TYPE:General				DESC:You have dexterous fingers and good hand-to-eye coordination												BONUS:SKILL|Disable Device,Open Lock|2
+Athleticism		TYPE:General				DESC:You use your physique and agility to their utmost													BONUS:SKILL|Climb,Jump|2
+Agile Limbs		TYPE:General				DESC:You are limber and dexterous, allowing you to move gracefully											BONUS:SKILL|Balance,Move Silently|2
+Outdoorsman		TYPE:General				DESC:You are trained particularly well for life in the wild													BONUS:SKILL|Handle Animal,Wilderness Lore|2
+Magical Talent	TYPE:General				DESC:The mystical and eldritch secrets are clear to you													BONUS:SKILL|Knowledge (Arcana),Spellcraft|2

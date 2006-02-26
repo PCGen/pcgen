@@ -1,0 +1,141 @@
+# CVS $Revision: 1.3 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# I just can't seem to figure out the demiform boots... someone else is welcome to them.
+SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
+##Wondrous Items
+# Equipment Name						Type											Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page						Virtual Feat					Combat bonus						Bonus to skill								Stat bonus					Special Property
+Amulet of Healing (Cure Light Wounds 1/day)	TYPE:Magic.Wondrous.Amulet											COST:360	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Light Wounds 2/day)	TYPE:Magic.Wondrous.Amulet											COST:360	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Light Wounds 3/day)	TYPE:Magic.Wondrous.Amulet											COST:360	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Light Wounds 4/day)	TYPE:Magic.Wondrous.Amulet											COST:360	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Light Wounds 5/day)	TYPE:Magic.Wondrous.Amulet											COST:360	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Moderate Wounds 1/day)	TYPE:Magic.Wondrous.Amulet											COST:2160	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Moderate Wounds 2/day)	TYPE:Magic.Wondrous.Amulet											COST:2160	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Moderate Wounds 3/day)	TYPE:Magic.Wondrous.Amulet											COST:2160	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Moderate Wounds 4/day)	TYPE:Magic.Wondrous.Amulet											COST:2160	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Moderate Wounds 5/day)	TYPE:Magic.Wondrous.Amulet											COST:2160	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Serious Wounds 1/day)	TYPE:Magic.Wondrous.Amulet											COST:5400	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Serious Wounds 2/day)	TYPE:Magic.Wondrous.Amulet											COST:5400	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Serious Wounds 3/day)	TYPE:Magic.Wondrous.Amulet											COST:5400	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Serious Wounds 4/day)	TYPE:Magic.Wondrous.Amulet											COST:5400	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Serious Wounds 5/day)	TYPE:Magic.Wondrous.Amulet											COST:5400	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Critical Wounds 1/day)	TYPE:Magic.Wondrous.Amulet											COST:10080	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Critical Wounds 2/day)	TYPE:Magic.Wondrous.Amulet											COST:10080	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Critical Wounds 3/day)	TYPE:Magic.Wondrous.Amulet											COST:10080	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Critical Wounds 4/day)	TYPE:Magic.Wondrous.Amulet											COST:10080	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Cure Critical Wounds 5/day)	TYPE:Magic.Wondrous.Amulet											COST:10080	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Healing Circle 1/day)		TYPE:Magic.Wondrous.Amulet											COST:16200	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Healing Circle 2/day)		TYPE:Magic.Wondrous.Amulet											COST:16200	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Healing Circle 3/day)		TYPE:Magic.Wondrous.Amulet											COST:16200	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Healing Circle 4/day)		TYPE:Magic.Wondrous.Amulet											COST:16200	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Healing Circle 5/day)		TYPE:Magic.Wondrous.Amulet											COST:16200	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Heal 1/day)			TYPE:Magic.Wondrous.Amulet											COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Heal 2/day)			TYPE:Magic.Wondrous.Amulet											COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Heal 3/day)			TYPE:Magic.Wondrous.Amulet											COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Heal 4/day)			TYPE:Magic.Wondrous.Amulet											COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Amulet of Healing (Heal 5/day)			TYPE:Magic.Wondrous.Amulet											COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
+Arcane Battle Robes					TYPE:Magic.Wondrous.Robe											COST:108500	WT:5																SOURCEPAGE:pg. 38-39, Wondrous Items								BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE																		SPROP:See text
+Bag of Bones						TYPE:Magic.Wondrous												COST:18000	WT:1																SOURCEPAGE:pg. 39-40, Wondrous Items																																SPROP:See text
+Bandolier of Potion Storage				TYPE:Magic.Wondrous.Container							CONTAINS:-1|Potion=25	COST:2000	WT:3																SOURCEPAGE:pg. 40-41, Wondrous Items																																SPROP:See text
+Band of Ferociousness					TYPE:Magic.Wondrous												COST:34500	WT:.25															SOURCEPAGE:pg. 41, Wondrous Items									BONUS:COMBAT|DAMAGE,TOHIT|2|TYPE=Enhancement																	SPROP:See text
+Basin of the Sea						TYPE:Magic.Wondrous												COST:39000	WT:.5,25															SOURCEPAGE:pg. 41, Wondrous Items																																	SPROP:See text
+Binding Bandage						TYPE:Magic.Wondrous												COST:1200	WT:.5																SOURCEPAGE:pg. 41, Wondrous Items																																	SPROP:See text
+Book of Hidden Lore +1					TYPE:Magic.Wondrous.Book											COST:1020	WT:2																SOURCEPAGE:pg. 42, Wondrous Items																																	SPROP:See text
+Book of Hidden Lore +2					TYPE:Magic.Wondrous.Book											COST:4160	WT:2																SOURCEPAGE:pg. 42, Wondrous Items																																	SPROP:See text
+Book of Hidden Lore +3					TYPE:Magic.Wondrous.Book											COST:9360	WT:2																SOURCEPAGE:pg. 42, Wondrous Items																																	SPROP:See text
+Boots of the Mist Master				TYPE:Magic.Wondrous.Boot											COST:75800	WT:0		SLOTS:2													SOURCEPAGE:pg. 42-43, Wondrous Items																																SPROP:See text
+Bracelet of the Sun's Blessed Light			TYPE:Magic.Wondrous												COST:59400	WT:0																SOURCEPAGE:pg. 43, Wondrous Items																																	SPROP:See text
+# The Bracer of Shuriken Launching are broken. I don't know how to fix them - É.B
+Bracer of Shuriken Launching +1			TYPE:Magic.Wondrous.Weapon.Exotic.Ranged.Slashing.Metal.Shuriken	CONTAINS:-1|Thrown=12	COST:5000	WT:3				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d1	RANGE:10	SOURCEPAGE:pg. 44, Wondrous Items		VFEAT:Exotic Weapon Proficiency(Shuriken)	BONUS:COMBAT|DAMAGE,TOHIT|1|TYPE=Enhancement																	SPROP:See text
+Bracer of Shuriken Launching +2			TYPE:Magic.Wondrous.Weapon.Exotic.Ranged.Slashing.Metal.Shuriken	CONTAINS:-1|Thrown=12	COST:12000	WT:3				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d1	RANGE:10	SOURCEPAGE:pg. 44, Wondrous Items		VFEAT:Exotic Weapon Proficiency(Shuriken)	BONUS:COMBAT|DAMAGE,TOHIT|2|TYPE=Enhancement																	SPROP:See text
+Bracer of Shuriken Launching +3			TYPE:Magic.Wondrous.Weapon.Exotic.Ranged.Slashing.Metal.Shuriken	CONTAINS:-1|Thrown=12	COST:22000	WT:3				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d1	RANGE:10	SOURCEPAGE:pg. 44, Wondrous Items		VFEAT:Exotic Weapon Proficiency(Shuriken)	BONUS:COMBAT|DAMAGE,TOHIT|3|TYPE=Enhancement																	SPROP:See text
+Buskins of Brute Force					TYPE:Magic.Wondrous.Boot											COST:7000	WT:2		SLOTS:2													SOURCEPAGE:pg. 44, Wondrous Items																																	SPROP:See text
+Cinder Boots						TYPE:Magic.Wondrous.Boot											COST:57000	WT:1		SLOTS:2													SOURCEPAGE:pg. 44-45, Wondrous Items																BONUS:SKILL|Move Silently|-2|TYPE=Circumstance									SPROP:See text
+Circlet of Continual Flame				TYPE:Magic.Wondrous.Headgear											COST:130	WT:0																SOURCEPAGE:pg. 45, Wondrous Items																																	SPROP:See text
+Cloak of Feathers						TYPE:Magic.Wondrous.Cape											COST:25000	WT:1																SOURCEPAGE:pg. 45, Wondrous Items																																	SPROP:See text
+Cloak of Hastur						TYPE:Magic.Wondrous.Cape											COST:9000	WT:2																SOURCEPAGE:pg. 45-46, Wondrous Items																BONUS:SKILL|Hide|15|TYPE=Circumstance										SPROP:See text
+Cloak of Sorrow						TYPE:Magic.Wondrous.Cape											COST:58500	WT:1																SOURCEPAGE:pg. 46, Wondrous Items																	BONUS:SKILL|Bluff,Diplomacy,Disguise|8|TYPE=Circumstance							SPROP:See text
+Cloak of the Woodlands					TYPE:Magic.Wondrous.Cape											COST:2160	WT:2																SOURCEPAGE:pg. 46, Wondrous Items																	BONUS:SKILL|Hide|2|TYPE=Circumstance										SPROP:See text
+Coffer of Mending						TYPE:Magic.Wondrous.Container							CONTAINS:5			COST:1000	WT:6																SOURCEPAGE:pg. 47, Wondrous Items																																	SPROP:See text
+Collar of Alertness					TYPE:Magic.Wondrous												COST:3000	WT:.25															SOURCEPAGE:pg. 47, Wondrous Items		VFEAT:Alertness																													SPROP:See text
+Crescent Riding Boots					TYPE:Magic.Wondrous.Boot											COST:4530	WT:0		SLOTS:2													SOURCEPAGE:pg. 47, Wondrous Items									BONUS:COMBAT|DAMAGE,TOHIT|1|TYPE=Enhancement	BONUS:SKILL|Ride|5|TYPE=Circumstance										SPROP:See text
+Cube of Ice							TYPE:Magic.Wondrous												COST:360	WT:0																SOURCEPAGE:pg. 47-48, Wondrous Items																																SPROP:See text
+Cummerbund of Crushing					TYPE:Magic.Wondrous.Vest											COST:19240	WT:0																SOURCEPAGE:pg. 48, Wondrous Items																											BONUS:STAT|STR|2|TYPE=Enhancement	SPROP:See text
+##Curio Charm
+Beads of Remembrance					TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 48, Wondrous Items																																	SPROP:See text
+Bowl of Time						TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 48-49, Wondrous Items																																SPROP:See text
+Cloak of Massage						TYPE:Magic.Wondrous.Cloak											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Cleaning Tail						TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Crying Comb							TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Dish of Warming						TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Fork of Freshness						TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Frosty Goblet						TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Glove of Proper Disposal				TYPE:Magic.Wondrous.Glove.Tool										COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Glow Fairy							TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Good Luck Charm						TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 49, Wondrous Items																																	SPROP:See text
+Pillow of Blissful Rest					TYPE:Magic.Wondrous.Tool											COST:400	WT:1																SOURCEPAGE:pg. 49-50, Wondrous Items																																SPROP:See text
+Pin of Fellowship						TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 50, Wondrous Items																																	SPROP:See text
+Pipe of Direction						TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 50, Wondrous Items																																	SPROP:See text
+Rainbow Headdress						TYPE:Magic.Wondrous.Headgear											COST:400	WT:1																SOURCEPAGE:pg. 50, Wondrous Items																																	SPROP:See text
+Scarf of Avoidance					TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 50, Wondrous Items																																	SPROP:See text
+Sparkling Sphere						TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 50, Wondrous Items																																	SPROP:See text
+Stinging Thimble						TYPE:Magic.Wondrous												COST:400	WT:1																SOURCEPAGE:pg. 50, Wondrous Items																																	SPROP:See text
+##Demiform Boots - these need a more experience lst monkey!
+#Boots of the Centaur					TYPE:Magic.Wondrous.Boot											COST:64000	WT:1		SLOTS:2													SOURCEPAGE:pg. 51, Wondrous Items																																										SPROP:See text		DEFINE:LOCK.STR|18,LOCK.DEX|14,LOCK.CON|15
+#Boots of the Harpy					TYPE:Magic.Wondrous.Boot											COST:64000	WT:1		SLOTS:2													SOURCEPAGE:pg. 51, Wondrous Items																																										SPROP:See text		DEFINE:LOCK.STR|10,LOCK.DEX|15,LOCK.CON|10
+#Boots of the Merfolk					TYPE:Magic.Wondrous.Boot											COST:56000	WT:1		SLOTS:2													SOURCEPAGE:pg. 51, Wondrous Items																																										SPROP:See text		DEFINE:LOCK.STR|10,LOCK.DEX|12,LOCK.CON|12
+#Boots of the Sphinx					TYPE:Magic.Wondrous.Boot											COST:80000	WT:1		SLOTS:2													SOURCEPAGE:pg. 51, Wondrous Items																																										SPROP:See text		DEFINE:LOCK.STR|25,LOCK.DEX|10,LOCK.CON|19
+Devout Tear							TYPE:Magic.Wondrous												COST:77232	WT:0																SOURCEPAGE:pg. 51-52, Wondrous Items																BONUS:SKILL|Knowledge (Religion)|2|TYPE=Automatic								SPROP:See text
+Earcuffs of Message Sending				TYPE:Magic.Wondrous												COST:2000	WT:0																SOURCEPAGE:pg. 52, Wondrous Items																																	SPROP:See text
+Egg Shell of Petrifaction				TYPE:Magic.Wondrous												COST:3300	WT:0																SOURCEPAGE:pg. 52-53, Wondrous Items																																SPROP:See text
+Eyes of Terror						TYPE:Magic.Wondrous.Eyegear											COST:28000	WT:0																SOURCEPAGE:pg. 53, Wondrous Items																	BONUS:SKILL|Intimidation|5|TYPE=Automatic										SPROP:See text
+Familiar's Collar						TYPE:Magic.Wondrous												COST:7200	WT:0																SOURCEPAGE:pg. 53-54, Wondrous Items								BONUS:COMBAT|DAMAGE,TOHIT,HP|1|TYPE=Enhancement																	SPROP:See text
+Feedbag of the Favored Mount				TYPE:Magic.Wondrous												COST:24800	WT:5																SOURCEPAGE:pg. 54, Wondrous Items																																	SPROP:See text
+Fred's Glasses of Knowledge				TYPE:Magic.Wondrous.Eyegear											COST:4000	WT:.25															SOURCEPAGE:pg. 54, Wondrous Items																																	SPROP:See text
+Fred's Glasses of Stone					TYPE:Magic.Wondrous.Eyegear											COST:132000	WT:.5																SOURCEPAGE:pg. 54, Wondrous Items																																	SPROP:See text
+Float Cloak							TYPE:Magic.Wondrous.Cloak											COST:6000	WT:1																SOURCEPAGE:pg. 54-55, Wondrous Items																																SPROP:See text
+Gauze of Gentle Repose (3 days)			TYPE:Magic.Wondrous												COST:300	WT:12																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Gauze of Gentle Repose (4 days)			TYPE:Magic.Wondrous												COST:400	WT:12																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Gauze of Gentle Repose (5 days)			TYPE:Magic.Wondrous												COST:500	WT:12																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Gauze of Gentle Repose (6 days)			TYPE:Magic.Wondrous												COST:600	WT:12																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Gauze of Gentle Repose (7 days)			TYPE:Magic.Wondrous												COST:700	WT:12																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Gauze of Gentle Repose (14 days)			TYPE:Magic.Wondrous												COST:1400	WT:12																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Gloves of Wound Transfer				TYPE:Magic.Wondrous.Glove											COST:10700	WT:0																SOURCEPAGE:pg. 55, Wondrous Items																																	SPROP:See text
+Heart Token							TYPE:Magic.Wondrous												COST:5100	WT:.25															SOURCEPAGE:pg. 55-56, Wondrous Items																																SPROP:See text
+Helm of the Night						TYPE:Magic.Wondrous.Headgear											COST:6400	WT:2																SOURCEPAGE:pg. 56, Wondrous Items																																	SPROP:See text
+Helm of Trap Searching +5				TYPE:Magic.Wondrous.Headgear											COST:500	WT:3																SOURCEPAGE:pg. 56, Wondrous Items																	BONUS:SKILL|Search|5|TYPE=Automatic											SPROP:See text
+Helm of Trap Searching +10				TYPE:Magic.Wondrous.Headgear											COST:2000	WT:3																SOURCEPAGE:pg. 56, Wondrous Items																	BONUS:SKILL|Search|10|TYPE=Automatic										SPROP:See text
+Helm of Trap Searching +15				TYPE:Magic.Wondrous.Headgear											COST:4500	WT:3																SOURCEPAGE:pg. 56, Wondrous Items																	BONUS:SKILL|Search|15|TYPE=Automatic										SPROP:See text
+Helm of Trap Searching +20				TYPE:Magic.Wondrous.Headgear											COST:8000	WT:3																SOURCEPAGE:pg. 56, Wondrous Items																	BONUS:SKILL|Search|20|TYPE=Automatic										SPROP:See text
+Helper Stone						TYPE:Magic.Wondrous												COST:2700	WT:5																SOURCEPAGE:pg. 57, Wondrous Items																																	SPROP:See text
+Hyboreal Torque						TYPE:Magic.Wondrous.Amulet											COST:47600	WT:0																SOURCEPAGE:pg. 57, Wondrous Items																																	SPROP:See text
+Permanent Inkpen						TYPE:Magic.Wondrous.Tool											COST:2000	WT:0																SOURCEPAGE:pg. 57, Wondrous Items																																	SPROP:See text
+Jack of 'Thieves'						TYPE:Magic.Wondrous.Vest											COST:18400	WT:5																SOURCEPAGE:pg. 57, Wondrous Items									BONUS:COMBAT|AC|1|TYPE=Luck				BONUS:SKILL|Tumble|2|TYPE=Automatic											SPROP:See text
+Lucky Underwear						TYPE:Magic.Wondrous												COST:600	WT:1																SOURCEPAGE:pg. 57, Wondrous Items																																	SPROP:See text
+Medallion of Soul Containment				TYPE:Magic.Wondrous.Amulet											COST:25000	WT:0																SOURCEPAGE:pg. 58-59, Wondrous Items																																SPROP:See text
+Moving Pictures (Lesser)				TYPE:Magic.Wondrous												COST:4800	WT:2																SOURCEPAGE:pg. 59, Wondrous Items																																	SPROP:See text
+Moving Pictures (Greater)				TYPE:Magic.Wondrous												COST:10650	WT:2																SOURCEPAGE:pg. 59, Wondrous Items																																	SPROP:See text
+Muzzle of Terror						TYPE:Magic.Wondrous												COST:56000	WT:0																SOURCEPAGE:pg. 59, Wondrous Items																																	SPROP:See text
+Nalee's Magic Cover of Replication			TYPE:Magic.Wondrous												COST:90000	WT:2																SOURCEPAGE:pg. 59-60, Wondrous Items																																SPROP:See text
+Nails of the Shrew					TYPE:Magic.Wondrous.Gauntlets											COST:58000	WT:2		SLOTS:2													SOURCEPAGE:pg. 60, Wondrous Items																	BONUS:SKILL|Open Lock|10|TYPE=Competence										SPROP:See text
+Never Empty Canteen					TYPE:Magic.Wondrous												COST:500	WT:2																SOURCEPAGE:pg. 60, Wondrous Items																																	SPROP:See text
+Pack Saddle of Holding					TYPE:Magic.Wondrous.Container							CONTAINS:*500		COST:6000	WT:25																SOURCEPAGE:pg. 60-61, Wondrous Items																																SPROP:See text
+Pebble of Doom						TYPE:Magic.Wondrous.Thrown.Weapon.Simple.Bludgeoning.Ranged						COST:40000	WT:2												DAMAGE:8D6	RANGE:10	SOURCEPAGE:pg. 61, Wondrous Items																																	SPROP:See text
+Pellets of Smokey Disappearance			TYPE:Magic.Wondrous.Thrown.Weapon.Simple.Bludgeoning.Ranged						COST:1250	WT:.01											DAMAGE:0D0	RANGE:10	SOURCEPAGE:pg. 61-62, Wondrous Items								BONUS:COMBAT|TOHIT|-4|TYPE=Enhancement																		SPROP:See text
+Pouch of Magical Stones					TYPE:Magic.Wondrous.Container							CONTAINS:3|3		COST:720	WT:3																SOURCEPAGE:pg. 62, Wondrous Items																																	SPROP:See text
+Pouch of the Silk Worm					TYPE:Magic.Wondrous												COST:1200	WT:1																SOURCEPAGE:pg. 62, Wondrous Items																																	SPROP:See text
+Puma Cloak							TYPE:Magic.Wondrous.Cloak											COST:4200	WT:1																SOURCEPAGE:pg. 62-63, Wondrous Items																BONUS:SKILL|Jump|5,|Listen,Search,Spot|2										SPROP:See text
+Rasta's Strobe Stones					TYPE:Magic.Wondrous												COST:1500	WT:0																SOURCEPAGE:pg. 63, Wondrous Items																																	SPROP:See text
+Saddlebags of Holding (Type 1)			TYPE:Magic.Wondrous.Container							CONTAINS:*250		COST:3500	WT:15																SOURCEPAGE:pg. 63-64, Wondrous Items																																SPROP:See text
+Scabbard of Poised Response				TYPE:Magic.Wondrous												COST:4000	WT:1																SOURCEPAGE:pg. 64, Wondrous Items		VFEAT:Quick Draw																													SPROP:See text
+Scroll Case of Secured Storage (Small)		TYPE:Magic.Wondrous.Container							CONTAINS:3			COST:37800	WT:3																SOURCEPAGE:pg. 64, Wondrous Items																																	SPROP:See text
+Scroll Case of Secured Storage (Medium)		TYPE:Magic.Wondrous.Container							CONTAINS:4			COST:37800	WT:4																SOURCEPAGE:pg. 64, Wondrous Items																																	SPROP:See text
+Scroll Case of Secured Storage (Large)		TYPE:Magic.Wondrous.Container							CONTAINS:5			COST:37800	WT:5																SOURCEPAGE:pg. 64, Wondrous Items																																	SPROP:See text
+Shore of Tuning						TYPE:Magic.Wondrous.Tool											COST:8000	WT:0																SOURCEPAGE:pg. 64-65, Wondrous Items																BONUS:SKILL|Perform|20|TYPE=Circumstance										SPROP:See text
+Spade of Digging						TYPE:Magic.Wondrous.Tool											COST:7560	WT:1																SOURCEPAGE:pg. 65, Wondrous Items																																	SPROP:See text
+Spider Dust							TYPE:Magic.Wondrous												COST:50	WT:.25															SOURCEPAGE:pg. 65, Wondrous Items																																	SPROP:See text
+Steve's Hot-plate						TYPE:Magic.Wondrous.Tool											COST:5400	WT:1																SOURCEPAGE:pg. 65, Wondrous Items																																	SPROP:See text
+Steve's Spinning Plate					TYPE:Magic.Wondrous												COST:6000	WT:.5																SOURCEPAGE:pg. 65-66, Wondrous Items																																SPROP:See text
+Tree Acorn							TYPE:Magic.Wondrous												COST:300	WT:.1																SOURCEPAGE:pg. 66, Wondrous Items																																	SPROP:See text
+Twin Journals						TYPE:Magic.Wondrous.Book											COST:17000	WT:3																SOURCEPAGE:pg. 66, Wondrous Items																																	SPROP:See text
+Viper Flute							TYPE:Magic.Wondrous.Instrument										COST:12000	WT:.5																SOURCEPAGE:pg. 66-67, Wondrous Items																																SPROP:See text
+Xions Color-gloves					TYPE:Magic.Wondrous.Glove											COST:4000	WT:1		SLOTS:2													SOURCEPAGE:pg. 67, Wondrous Items																	BONUS:SKILL|Hide,Disguise|3|TYPE=Circumstance									SPROP:See text

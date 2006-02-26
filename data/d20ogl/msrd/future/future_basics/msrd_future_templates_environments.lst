@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Dec 30 01:52:51 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Template Name						Visible	Source Page					Combat bonus						Add to base move							Bonus to skill								MOVECLONE			Temporary effect description
+Environment - High Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-2|TYPE=HighG|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|-5|TYPE=HighG|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Strength|-10|TYPE=HighG|PREAPPLY:ANYPC					TEMPDESC:Apply this if you are in a High Gravity Environment.
+Environment - Low Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf									BONUS:MOVEADD|TYPE.Walk|5|TYPE=LowG|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Strength|10|TYPE=LowG|PREAPPLY:ANYPC						TEMPDESC:Apply this if you are in a Low Gravity Environment.
+Environment - Low Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-2|TYPE=LowG|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|5|TYPE=LowG|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Strength|10|TYPE=LowG|PREAPPLY:ANYPC						TEMPDESC:Apply this if you are in a Low Gravity Environment and do not have Zero G Training.
+Environment - Zero Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf																		BONUS:SKILL|TYPE.Strength|20|TYPE=ZeroG|PREAPPLY:ANYPC	MOVECLONE:Walk,0,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment.
+Environment - Zero Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	BONUS:COMBAT|TOHIT|-4|TYPE=ZeroG|PREAPPLY:ANYPC										BONUS:SKILL|TYPE.Strength|20|TYPE=ZeroG|PREAPPLY:ANYPC	MOVECLONE:Walk,0,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment and do not have Zero G Training.
+
+#
+# End
+#

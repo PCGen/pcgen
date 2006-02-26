@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth|SOURCESHORT:DenizensTE|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+
+#Simple Melee Weapons
+#MEDIUM --------------------------------------------------------------------------------------------------------
+# Equipment Name	Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Special Property
+Focus Sword		PROFICIENCY:Sword (Bastard/[HANDS])	TYPE:Weapon.Simple.Melee.Slashing.Standard.Force	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	SIZE:M	SOURCEPAGE:p. 24	SPROP:Ignores non-living matter (armor).

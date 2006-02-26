@@ -1,0 +1,199 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 14:59:42 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by ?? & Barak)
+
+# Spoken
+# Language				Type						Source Page
+Afrikaans				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Akkadian (aka Babylonian)	TYPE:Spoken.Ancient.Semitic		SOURCEPAGE:p. 90
+Alabama				TYPE:Spoken.Muskogean			SOURCEPAGE:p. 90
+Algonkin				TYPE:Spoken.Algonquian			SOURCEPAGE:p. 90
+Ancient Greek			TYPE:Spoken.Ancient.Attic		SOURCEPAGE:p. 90
+Ancient Hebrew			TYPE:Spoken.Ancient.Semitic		SOURCEPAGE:p. 90
+Apache				TYPE:Spoken.Athapaskan			SOURCEPAGE:p. 90
+Arabic				TYPE:Spoken.Semitic			SOURCEPAGE:p. 90
+Aramaic				TYPE:Spoken.Ancient.Semitic		SOURCEPAGE:p. 90
+Arapaho				TYPE:Spoken.Algonquian			SOURCEPAGE:p. 90
+Armenian				TYPE:Spoken.Armenian			SOURCEPAGE:p. 90
+Azerbaijani				TYPE:Spoken.Turkic			SOURCEPAGE:p. 90
+Belorussian				TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Blackfoot				TYPE:Spoken.Algonquian			SOURCEPAGE:p. 90
+Bulgarian				TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Burmese				TYPE:Spoken.Tibeto-Burman		SOURCEPAGE:p. 90
+Caddo					TYPE:Spoken.Caddoan			SOURCEPAGE:p. 90
+Cantonese				TYPE:Spoken.Chinese			SOURCEPAGE:p. 90
+Cherokee				TYPE:Spoken.Iroquoian			SOURCEPAGE:p. 90
+Cheyenne				TYPE:Spoken.Algonquian			SOURCEPAGE:p. 90
+Chickasaw				TYPE:Spoken.Muskogean			SOURCEPAGE:p. 90
+Chipewayan				TYPE:Spoken.Athapaskan			SOURCEPAGE:p. 90
+Choctaw				TYPE:Spoken.Muskogean			SOURCEPAGE:p. 90
+Comanche				TYPE:Spoken.Uto-Aztecan			SOURCEPAGE:p. 90
+Coptic				TYPE:Spoken.Ancient.Hamo-Semitic	SOURCEPAGE:p. 90
+Creek					TYPE:Spoken.Muskogean			SOURCEPAGE:p. 90
+Crow					TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Czech					TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Dakota				TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Danish				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Dutch					TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+English				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Estonian				TYPE:Spoken.Finno-Lappic		SOURCEPAGE:p. 90
+Farsi					TYPE:Spoken.Iranian			SOURCEPAGE:p. 90
+Finnish				TYPE:Spoken.Finno-Lappic		SOURCEPAGE:p. 90
+Flemish				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+French				TYPE:Spoken.Romance			SOURCEPAGE:p. 90
+Gaelic (Irish)			TYPE:Spoken.Celtic			SOURCEPAGE:p. 90
+Gaelic (Scots)			TYPE:Spoken.Celtic			SOURCEPAGE:p. 90
+German				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Greek					TYPE:Spoken.Attic				SOURCEPAGE:p. 90
+Hebrew				TYPE:Spoken.Semitic			SOURCEPAGE:p. 90
+Hindi					TYPE:Spoken.Indic				SOURCEPAGE:p. 90
+Ho-Chunk				TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Hungarian (aka Magyar)		TYPE:Spoken.Ugric				SOURCEPAGE:p. 90
+Icelandic				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Iowa					TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Iroquois				TYPE:Spoken.Iroquoian			SOURCEPAGE:p. 90
+Italian				TYPE:Spoken.Romance			SOURCEPAGE:p. 90
+Japanese				TYPE:Spoken.Japanese			SOURCEPAGE:p. 90
+Kiowa					TYPE:Spoken.Uto-Aztecan			SOURCEPAGE:p. 90
+Korean				TYPE:Spoken.Korean			SOURCEPAGE:p. 90
+Lakota				TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Lapp					TYPE:Spoken.Finno-Lappic		SOURCEPAGE:p. 90
+Latin					TYPE:Spoken.Ancient.Romance		SOURCEPAGE:p. 90
+Latvian				TYPE:Spoken.Baltic			SOURCEPAGE:p. 90
+Lithuanian				TYPE:Spoken.Baltic			SOURCEPAGE:p. 90
+Mandan				TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Mandarin				TYPE:Spoken.Chinese			SOURCEPAGE:p. 90
+Middle Egyptian			TYPE:Spoken.Ancient.Hamo-Semitic	SOURCEPAGE:p. 90
+Morse Code				TYPE:Spoken.Signaling			SOURCEPAGE:p. 90
+Nakota				TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Navaho				TYPE:Spoken.Athapaskan			SOURCEPAGE:p. 90
+Nez Perce				TYPE:Spoken.Sahaptian			SOURCEPAGE:p. 90
+Norwegian				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Osage					TYPE:Spoken.Siouian			SOURCEPAGE:p. 90
+Pashto				TYPE:Spoken.Iranian			SOURCEPAGE:p. 90
+Pawnee				TYPE:Spoken.Caddoan			SOURCEPAGE:p. 90
+Polish				TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Portuguese				TYPE:Spoken.Romance			SOURCEPAGE:p. 90
+Punjabi				TYPE:Spoken.Indic				SOURCEPAGE:p. 90
+Romanian				TYPE:Spoken.Romance			SOURCEPAGE:p. 90
+Russian				TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Sahaptin (Yakima)			TYPE:Spoken.Sahaptian			SOURCEPAGE:p. 90
+Sahaptin (Umatilla)		TYPE:Spoken.Sahaptian			SOURCEPAGE:p. 90
+Sanskrit				TYPE:Spoken.Ancient.Indic		SOURCEPAGE:p. 90
+Semaphore				TYPE:Spoken.Signaling			SOURCEPAGE:p. 90
+Seminole				TYPE:Spoken.Muskogean			SOURCEPAGE:p. 90
+Serbo-Croatian			TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Shawnee				TYPE:Spoken.Algonquian			SOURCEPAGE:p. 90
+Sherpa				TYPE:Spoken.Tibeto-Burman		SOURCEPAGE:p. 90
+Shoshone				TYPE:Spoken.Uto-Aztecan			SOURCEPAGE:p. 90
+Sign Language			TYPE:Spoken.Signaling			SOURCEPAGE:p. 90
+Slovak				TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Smoke Signals			TYPE:Spoken.Signaling			SOURCEPAGE:p. 90
+Spanish				TYPE:Spoken.Romance			SOURCEPAGE:p. 90
+Swedish				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+Tibetan				TYPE:Spoken.Tibeto-Burman		SOURCEPAGE:p. 90
+Turkish				TYPE:Spoken.Turkic			SOURCEPAGE:p. 90
+Tuscarora				TYPE:Spoken.Iroquoian			SOURCEPAGE:p. 90
+Ukrainian				TYPE:Spoken.Slavic			SOURCEPAGE:p. 90
+Urdu					TYPE:Spoken.Indic				SOURCEPAGE:p. 90
+Ute					TYPE:Spoken.Uto-Aztecan			SOURCEPAGE:p. 90
+Uzbek					TYPE:Spoken.Turkic			SOURCEPAGE:p. 90
+Welsh					TYPE:Spoken.Celtic			SOURCEPAGE:p. 90
+Wichita				TYPE:Spoken.Caddoan			SOURCEPAGE:p. 90
+Yiddish				TYPE:Spoken.Germanic			SOURCEPAGE:p. 90
+
+# Written
+# Language				Type						Source Page
+Afrikaans				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Akkadian (aka Babylonian)	TYPE:Written.Ancient.Semitic		SOURCEPAGE:p. 90
+Alabama				TYPE:Written.Muskogean			SOURCEPAGE:p. 90
+Algonkin				TYPE:Written.Algonquian			SOURCEPAGE:p. 90
+Ancient Greek			TYPE:Written.Ancient.Attic		SOURCEPAGE:p. 90
+Ancient Hebrew			TYPE:Written.Ancient.Semitic		SOURCEPAGE:p. 90
+Apache				TYPE:Written.Athapaskan			SOURCEPAGE:p. 90
+Arabic				TYPE:Written.Semitic			SOURCEPAGE:p. 90
+Aramaic				TYPE:Written.Ancient.Semitic		SOURCEPAGE:p. 90
+Arapaho				TYPE:Written.Algonquian			SOURCEPAGE:p. 90
+Armenian				TYPE:Written.Armenian			SOURCEPAGE:p. 90
+Azerbaijani				TYPE:Written.Turkic			SOURCEPAGE:p. 90
+Belorussian				TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Blackfoot				TYPE:Written.Algonquian			SOURCEPAGE:p. 90
+Bulgarian				TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Burmese				TYPE:Written.Tibeto-Burman		SOURCEPAGE:p. 90
+Caddo					TYPE:Written.Caddoan			SOURCEPAGE:p. 90
+Cantonese				TYPE:Written.Chinese			SOURCEPAGE:p. 90
+Cherokee				TYPE:Written.Iroquoian			SOURCEPAGE:p. 90
+Cheyenne				TYPE:Written.Algonquian			SOURCEPAGE:p. 90
+Chickasaw				TYPE:Written.Muskogean			SOURCEPAGE:p. 90
+Chipewayan				TYPE:Written.Athapaskan			SOURCEPAGE:p. 90
+Choctaw				TYPE:Written.Muskogean			SOURCEPAGE:p. 90
+Comanche				TYPE:Written.Uto-Aztecan		SOURCEPAGE:p. 90
+Coptic				TYPE:Written.Ancient.Hamo-Semitic	SOURCEPAGE:p. 90
+Creek					TYPE:Written.Muskogean			SOURCEPAGE:p. 90
+Crow					TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Czech					TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Dakota				TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Danish				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Dutch					TYPE:Written.Germanic			SOURCEPAGE:p. 90
+English				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Estonian				TYPE:Written.Finno-Lappic		SOURCEPAGE:p. 90
+Farsi					TYPE:Written.Iranian			SOURCEPAGE:p. 90
+Finnish				TYPE:Written.Finno-Lappic		SOURCEPAGE:p. 90
+Flemish				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+French				TYPE:Written.Romance			SOURCEPAGE:p. 90
+Gaelic (Irish)			TYPE:Written.Celtic			SOURCEPAGE:p. 90
+Gaelic (Scots)			TYPE:Written.Celtic			SOURCEPAGE:p. 90
+German				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Greek					TYPE:Written.Attic			SOURCEPAGE:p. 90
+Hebrew				TYPE:Written.Semitic			SOURCEPAGE:p. 90
+Hindi					TYPE:Written.Indic			SOURCEPAGE:p. 90
+Ho-Chunk				TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Hungarian (aka Magyar)		TYPE:Written.Ugric			SOURCEPAGE:p. 90
+Icelandic				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Iowa					TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Iroquois				TYPE:Written.Iroquoian			SOURCEPAGE:p. 90
+Italian				TYPE:Written.Romance			SOURCEPAGE:p. 90
+Japanese				TYPE:Written.Japanese			SOURCEPAGE:p. 90
+Kiowa					TYPE:Written.Uto-Aztecan		SOURCEPAGE:p. 90
+Korean				TYPE:Written.Korean			SOURCEPAGE:p. 90
+Lakota				TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Lapp					TYPE:Written.Finno-Lappic		SOURCEPAGE:p. 90
+Latin					TYPE:Written.Ancient.Romance		SOURCEPAGE:p. 90
+Latvian				TYPE:Written.Baltic			SOURCEPAGE:p. 90
+Lithuanian				TYPE:Written.Baltic			SOURCEPAGE:p. 90
+Mandan				TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Mandarin				TYPE:Written.Chinese			SOURCEPAGE:p. 90
+Middle Egyptian			TYPE:Written.Ancient.Hamo-Semitic	SOURCEPAGE:p. 90
+Nakota				TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Navaho				TYPE:Written.Athapaskan			SOURCEPAGE:p. 90
+Nez Perce				TYPE:Written.Sahaptian			SOURCEPAGE:p. 90
+Norwegian				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Osage					TYPE:Written.Siouian			SOURCEPAGE:p. 90
+Pashto				TYPE:Written.Iranian			SOURCEPAGE:p. 90
+Pawnee				TYPE:Written.Caddoan			SOURCEPAGE:p. 90
+Polish				TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Portuguese				TYPE:Written.Romance			SOURCEPAGE:p. 90
+Punjabi				TYPE:Written.Indic			SOURCEPAGE:p. 90
+Romanian				TYPE:Written.Romance			SOURCEPAGE:p. 90
+Russian				TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Sahaptin (Yakima)			TYPE:Written.Sahaptian			SOURCEPAGE:p. 90
+Sahaptin (Umatilla)		TYPE:Written.Sahaptian			SOURCEPAGE:p. 90
+Sanskrit				TYPE:Written.Ancient.Indic		SOURCEPAGE:p. 90
+Seminole				TYPE:Written.Muskogean			SOURCEPAGE:p. 90
+Serbo-Croatian			TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Shawnee				TYPE:Written.Algonquian			SOURCEPAGE:p. 90
+Sherpa				TYPE:Written.Tibeto-Burman		SOURCEPAGE:p. 90
+Shoshone				TYPE:Written.Uto-Aztecan		SOURCEPAGE:p. 90
+Slovak				TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Spanish				TYPE:Written.Romance			SOURCEPAGE:p. 90
+Swedish				TYPE:Written.Germanic			SOURCEPAGE:p. 90
+Tibetan				TYPE:Written.Tibeto-Burman		SOURCEPAGE:p. 90
+Turkish				TYPE:Written.Turkic			SOURCEPAGE:p. 90
+Tuscarora				TYPE:Written.Iroquoian			SOURCEPAGE:p. 90
+Ukrainian				TYPE:Written.Slavic			SOURCEPAGE:p. 90
+Urdu					TYPE:Written.Indic			SOURCEPAGE:p. 90
+Ute					TYPE:Written.Uto-Aztecan		SOURCEPAGE:p. 90
+Uzbek					TYPE:Written.Turkic			SOURCEPAGE:p. 90
+Welsh					TYPE:Written.Celtic			SOURCEPAGE:p. 90
+Wichita				TYPE:Written.Caddoan			SOURCEPAGE:p. 90
+Yiddish				TYPE:Written.Germanic			SOURCEPAGE:p. 90

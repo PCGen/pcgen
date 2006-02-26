@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Behemoth3 - Masters and Minions - Horde Book 2: Maze of the Minotaur
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+TYPE:Alpha Datasets
+#TYPE:Behemoth3.Masters and Minions
+SOURCELONG:Maze of the Minotaur
+SOURCESHORT:MotM
+SOURCEWEB:http://www.behemoth3.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v. 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Masters and Minions Horde Book 2: Maze of the Minotaur Copyright (c) 2004, Behemoth3, Inc.; Author Brian Stith.
+COPYRIGHT:PCGen dataset conversion for Masters and Minions Horde Book 2: Maze of the Minotaur Copyright 2004-2005, PCGen Data team (Including, but not limited to Aaron Divinsky (boomer70), Eddy Anthony)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+CLASS:mazeminotaur_classes.lst
+FEAT:mazeminotaur_feats_hidden.lst
+RACE:mazeminotaur_races.lst
+EQUIPMENT:mazeminotaur_equip.lst
+TEMPLATE:mazeminotaur_templates.lst
+KIT:mazeminotaur_kits.lst
+
+#
+# End
+#

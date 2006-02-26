@@ -1,0 +1,104 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Mon Jan  9 22:54:42 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Dawnforge|SOURCESHORT:DF|SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Ratheof Blithwyn
+
+###Block: Lowlander Stat Adjustments
+# Feat Name		Type					Visible	Required Feat				Prohibited Feat					Stat bonus
+Strength -2		TYPE:LowlanderStatPenalty	VISIBLE:NO							!PREFEAT:1,LowlanderStrengthIncrease	BONUS:STAT|STR|-2
+Dexterity -2	TYPE:LowlanderStatPenalty	VISIBLE:NO							!PREFEAT:1,LowlanderDexterityIncrease	BONUS:STAT|DEX|-2
+Constitution -2	TYPE:LowlanderStatPenalty	VISIBLE:NO							!PREFEAT:1,LowlanderConstitutionIncrease	BONUS:STAT|CON|-2
+Intelligence -2	TYPE:LowlanderStatPenalty	VISIBLE:NO							!PREFEAT:1,LowlanderIntelligenceIncrease	BONUS:STAT|INT|-2
+Wisdom -2		TYPE:LowlanderStatPenalty	VISIBLE:NO							!PREFEAT:1,LowlanderWisdomIncrease		BONUS:STAT|WIS|-2
+Charisma -2		TYPE:LowlanderStatPenalty	VISIBLE:NO							!PREFEAT:1,LowlanderCharismaIncrease	BONUS:STAT|CHA|-2
+
+Strength +2		TYPE:LowlanderStatBonus		VISIBLE:NO	PREFEAT:1,TYPE.LowlanderStatPenalty	!PREFEAT:1,Strength -2				BONUS:STAT|STR|2
+Dexterity +2	TYPE:LowlanderStatBonus		VISIBLE:NO	PREFEAT:1,TYPE.LowlanderStatPenalty	!PREFEAT:1,Dexterity -2				BONUS:STAT|DEX|2
+Constitution +2	TYPE:LowlanderStatBonus		VISIBLE:NO	PREFEAT:1,TYPE.LowlanderStatPenalty	!PREFEAT:1,Constitution -2			BONUS:STAT|CON|2
+Intelligence +2	TYPE:LowlanderStatBonus		VISIBLE:NO	PREFEAT:1,TYPE.LowlanderStatPenalty	!PREFEAT:1,Intelligence -2			BONUS:STAT|INT|2
+Wisdom +2		TYPE:LowlanderStatBonus		VISIBLE:NO	PREFEAT:1,TYPE.LowlanderStatPenalty	!PREFEAT:1,Wisdom -2				BONUS:STAT|WIS|2
+Charisma +2		TYPE:LowlanderStatBonus		VISIBLE:NO	PREFEAT:1,TYPE.LowlanderStatPenalty	!PREFEAT:1,Charisma -2				BONUS:STAT|CHA|2
+
+###Block: Resistance
+# Feat Name		Type				Visible	Special Ability																	Define
+Fire Resistance	TYPE:EnergyResistances	VISIBLE:NO	SA:Fire Resistance (%)|FireResistance|PREVAREQ:FireImmunity,0	SA:Immunity to Fire|PREVARGT:FireImmunity,0	DEFINE:FireImmunity|0	DEFINE:FireResistance|0
+
+
+###Block:Shaman
+# Feat Name		Type					Visible	Special Ability			Stackable?	Multiple?	Choose
+Elemental Form	TYPE:ShamanElementalForm	VISIBLE:NO	SA:Elemental Form (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:Air|Earth|Fire|Water
+
+
+###Block: Shapers Divine focuses
+# Feat Name			Type				Visible	Special Ability																		Spells																		Virtual Feat			Choose a Feat					Combat bonus								Bonus to skill
+Divine Focus Alignment	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Alignment (Domains:Chaos, Good, Evil, Lawful)	SA:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper=10	SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Undetectable Alignment,12+CHA
+Divine Focus Defense	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Defense (Domains:Protection, Sun, Travel)																																												BONUS:COMBAT|AC|1	BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10
+Divine Focus Elemental	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Elemental (Domains:Air, Earth, Fire, Water)	SA:Elemental resistance 10
+Divine Focus Nature	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Nature (Domains:Animal, Healing, Plant)	SA:Animals and plants cannot attack you|PRECLASS:1,Shaper=10																																											BONUS:SKILL|Handle Animal,Heal,Survival|2
+Divine Focus Power	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Power (Domains:Destruction, Strength, War)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Harm,16+CHA|PRECLASS:1,Shaper=10								ADD:FEAT(Martial Weapon Proficiency)
+Divine Focus Shadow	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Shadow (Domains:Luck, Magic, Trickery)	SA:You can choose to re-roll any dice roll once per day.				SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Spell Immunity,14+CHA|PRECLASS:1,Shaper=10
+Divine Focus Vitality	TYPE:ShaperDivineFocus	VISIBLE:NO	SA:Vitality (Domains:Death, Life, Knowledge)													SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Divine Power,14+CHA|PRECLASS:1,Shaper=10	VFEAT:Endurance|Toughness
+#TODO: elemental resistance chooser
+
+###Block: Shapers Specialties
+# Feat Name			Type				Visible	Required Feat				Special Ability
+Specialty Chaos		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Alignment	SA:Specialty (Chaos)
+Specialty Good		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Alignment	SA:Specialty (Good)
+Specialty Evil		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Alignment	SA:Specialty (Evil)
+Specialty Lawful		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Alignment	SA:Specialty (Lawful)
+Specialty Protection	TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Defense	SA:Specialty (Protection)
+Specialty Sun		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Defense	SA:Specialty (Sun)
+Specialty Travel		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Defense	SA:Specialty (Travel)
+Specialty Air		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Elemental	SA:Specialty (Air)
+Specialty Earth		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Elemental	SA:Specialty (Earth)
+Specialty Fire		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Elemental	SA:Specialty (Fire)
+Specialty Water		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Elemental	SA:Specialty (Water)
+Specialty Animal		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Nature		SA:Specialty (Animal)
+Specialty Healing		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Nature		SA:Specialty (Healing)
+Specialty Plant		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Nature		SA:Specialty (Plant)
+Specialty Destruction	TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Power		SA:Specialty (Destruction)
+Specialty Strength	TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Power		SA:Specialty (Strength)
+Specialty War		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Power		SA:Specialty (War)
+Specialty Luck		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Shadow		SA:Specialty (Luck)
+Specialty Magic		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Shadow		SA:Specialty (Magic)
+Specialty Trickery	TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Shadow		SA:Specialty (Trickery)
+Specialty Death		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Vitality	SA:Specialty (Death)
+Specialty Life		TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Vitality	SA:Specialty (Life)
+Specialty Knowledge	TYPE:ShaperSpecialty	VISIBLE:NO	PREFEAT:1,Divine Focus Vitality	SA:Specialty (Knowledge)
+
+
+###Block: Spirit Adepts Powers
+# Feat Name		Type				Visible	Special Ability
+Improved Movement	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (+5 to Climb, Jump or Swim checks)	SA:Level 2 - (+15 to Climb and double speed, +15 to Jump and no max distance, +15 to Swim and double speed)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Dimension door, horizontal jump any distance, levitate)|PRECLASS:1,Spirit Adept=11
+Smite Enemies	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (One attack deals +2d6 points of damage as a full round action)	SA:Level 2 - (One attack deals +2d6 points of damage as a normal action)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (All attacks in one round deal +2d6 damage)|PRECLASS:1,Spirit Adept=11
+Burst of Speed	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Burst of speed +20 ft. for one minute)	SA:Level 2 - (Burst of speed +40 ft. for one minute)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Burst of speed +60 ft. for one minute)|PRECLASS:1,Spirit Adept=11
+Evasive Action	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Evasive action, +2 AC, +4 vs. attacks of opportunity for one minute)	SA:Level 2 - (Evasive action, +4 AC, no attacks of opportunity for one minute)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Evasive action, +4 AC, no attacks of opportunity, 20pct. miss chance for one minute)|PRECLASS:1,Spirit Adept=11
+Piercing Strike	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Strike as a magic weapon for one minute)	SA:Level 2 - (Strike as a weapon of your alignment for one minute)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Strike as an adamantine weapon for one minute)|PRECLASS:1,Spirit Adept=11
+Purify Self		TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Slow poison or remove disease (self only))	SA:Level 2 - (Neutralize poison or lesser restoration (self only))|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Restoration or remove curse (self only))|PRECLASS:1,Spirit Adept=11
+Heightened Senses	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (+4 bonus to Listen and Spot for ten minutes	SA:Level 2 - (+10 bonus to Listen and Spot for ten minutes)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (+20 bonus to Listen and Spot for one hour)|PRECLASS:1,Spirit Adept=11
+True Vision		TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Sense Invisibility (reduces miss chance, can target within 15 feet))	SA:Level 2 - (See invisibility for ten minutes)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (True seeing for ten minutes)|PRECLASS:1,Spirit Adept=11
+Spirit Warrior	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Detect undead and outsiders (those with no connection to the Spirit))	SA:Level 2 - (Ghost touch for one minute)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Melee attacks gain ghost touch and disruption ability for one minute)|PRECLASS:1,Spirit Adept=11
+Extreme Focus	TYPE:SpiritAdeptPowers	VISIBLE:NO	SA:Level 1 - (Extreme Focus, +4 to skill used under pressure)	SA:Level 2 - (Extreme Focus, +8 to skill used under pressure, and can Take 10)|PRECLASS:1,Spirit Adept=6	SA:Level 3 - (Automatic 20 on skill check, +15 bonus, even under pressure)|PRECLASS:1,Spirit Adept=11
+
+
+###Block: Doppelganger Alternate Forms
+# Feat Name					Type				Visible	Var. Min. Value				Special Ability
+Alternate Form (Dwarf)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Dwarf)
+Alternate Form (Dawn Elf)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Dawn Elf)
+Alternate Form (Night Elf)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Night Elf)
+Alternate Form (Gnome)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Gnome)
+Alternate Form (Halfling)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Halfling)
+Alternate Form (Highlander Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Highlander Human)
+Alternate Form (Lowlander Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Lowlander Human)
+Alternate Form (Saltblood Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Saltblood Human)
+Alternate Form (Trueborn Human)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Trueborn Human)
+Alternate Form (Lizardfolk)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Lizardfolk)
+Alternate Form (Minotaur)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Minotaur)
+Alternate Form (Ogre)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Ogre)
+Alternate Form (Orc)			TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Orc)
+Alternate Form (Tiefling)		TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Tiefling)
+Alternate Form (Thinblood Yuan-ti)	TYPE:DoppelAltForm	VISIBLE:NO	PREVARGTEQ:AlternateFormChoices,1	SA:Alternate Form (Thinblood Yuan-ti)
+
+
+#
+# EOF
+#

@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="pictish-historical-all-male-rule" title="Pictish" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="2">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-genetive-byname-rule" title="Genetive Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-medieval-genetive-byname-rule" title="Genetive Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-historical-classical-male-rule" title="Pictish (Early)" usage="final">
+		<CATEGORY title="Historical: Ancient (until 200)"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="2">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-genetive-byname-rule" title="Genetive Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="pictish-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-historical-medieval-male-rule" title="Pictish (Late)" usage="final">
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="2">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-medieval-genetive-byname-rule" title="Genetive Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-historical-all-female-rule" title="Pictish" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="2">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-genetive-byname-rule" title="Genetive Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="scottish-gaelic-female-rule" title="Gaelic Name"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-historical-classical-female-rule" title="Pictish (Early)" usage="final">
+		<CATEGORY title="Historical: Ancient (until 200)"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="2">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-genetive-byname-rule" title="Genetive Byname"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="pictish-female-given" title="Given"/>
+			<SPACE/>
+			<GETRULE idref="pictish-classical-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="scottish-gaelic-female-rule" title="Gaelic Name"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-historical-medieval-female-rule" title="Pictish (Late)" usage="final">
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETRULE idref="scottish-gaelic-female-rule" title="Gaelic Name"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-medieval-genetive-byname-rule" title="Genetive Byname" usage="public">
+		<RULE weight="2">
+			<GETLIST idref="pictish-frater" title="Of"/>
+			<SPACE/>
+			<GETLIST idref="pictish-medieval-genetive" title="Byname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="pictish-medieval-genetive" title="Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-classical-genetive-byname-rule" title="Genetive Byname" usage="public">
+		<RULE weight="2">
+			<GETLIST idref="pictish-frater" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="pictish-genetive" title="Byname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-filia" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="pictish-female-genetive" title="Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="pictish-classical-locative-byname-rule" title="Locative Byname" usage="public">
+		<RULE weight="1">
+			<GETLIST idref="pictish-tribal-byname-nom-pl" title="Tribal Byname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="pictish-tribal-byname-nom-adj" title="Tribal Byname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="pictish-natione" title="Natione"/>
+			<SPACE/>
+			<GETLIST idref="pictish-tribal-byname-nom-adj" title="Tribal Byname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="pictish-nationis" title="Nationis"/>
+			<SPACE/>
+			<GETLIST idref="pictish-tribal-byname-genetive" title="Genetive Tribal Byname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="pictish-locative-byname" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<LIST id="pictish-mac" title="Mac">
+		<VALUE>mac</VALUE>
+		<VALUE>map</VALUE>
+	</LIST>
+	<LIST id="pictish-nationis" title="Nationis">
+		<VALUE>nationis</VALUE>
+	</LIST>
+	<LIST id="pictish-natione" title="Natione">
+		<VALUE>natione</VALUE>
+	</LIST>
+	<LIST id="pictish-filia" title="Filia">
+		<VALUE>filia</VALUE>
+		<VALUE>neptis</VALUE>
+	</LIST>
+	<LIST id="pictish-frater" title="Frater">
+		<VALUE>frater</VALUE>
+		<VALUE>nepos</VALUE>
+		<VALUE>filius</VALUE>
+	</LIST>
+	<LIST id="pictish-female-given" title="Given">
+		<VALUE>Bodicca</VALUE>
+		<VALUE>Barita</VALUE>
+		<VALUE>Cartimandua</VALUE>
+		<VALUE>Cunoarda</VALUE>
+		<VALUE>Cunovinda</VALUE>
+		<VALUE>Cvinda</VALUE>
+		<VALUE>Huctia</VALUE>
+		<VALUE>Tancorix</VALUE>
+		<VALUE>Verctissa</VALUE>
+		<VALUE>Verica</VALUE>
+	</LIST>
+	<LIST id="pictish-male-given" title="Given">
+		<VALUE>Calgacus</VALUE>
+		<VALUE>Argentocoxus</VALUE>
+		<VALUE>Lossio</VALUE>
+		<VALUE>Uepogenus</VALUE>
+		<VALUE>Adcobrovatus</VALUE>
+		<VALUE>Amminius</VALUE>
+		<VALUE>Amminius</VALUE>
+		<VALUE>Apullius</VALUE>
+		<VALUE>Arviragus</VALUE>
+		<VALUE>Bodiccius</VALUE>
+		<VALUE>Brigomaglos</VALUE>
+		<VALUE>Cacumattus</VALUE>
+		<VALUE>Caranacus</VALUE>
+		<VALUE>Caratacus</VALUE>
+		<VALUE>Cassivellaunus</VALUE>
+		<VALUE>Catavignus</VALUE>
+		<VALUE>Ceanatis</VALUE>
+		<VALUE>Cingetorix</VALUE>
+		<VALUE>Cintugnatus</VALUE>
+		<VALUE>Cintusmus</VALUE>
+		<VALUE>Cistumucus</VALUE>
+		<VALUE>Cogidubnos</VALUE>
+		<VALUE>Commius</VALUE>
+		<VALUE>Crotus</VALUE>
+		<VALUE>Cunittus</VALUE>
+		<VALUE>Cunobarrus</VALUE>
+		<VALUE>Cunobelinus</VALUE>
+		<VALUE>Cunomorus</VALUE>
+		<VALUE>Cunopectus</VALUE>
+		<VALUE>Cunovindus</VALUE>
+		<VALUE>Dubnovellaunus</VALUE>
+		<VALUE>Dumnocoveros</VALUE>
+		<VALUE>Dumnovellaunos</VALUE>
+		<VALUE>Enemnogenus</VALUE>
+		<VALUE>Enestinus</VALUE>
+		<VALUE>Ivomagus</VALUE>
+		<VALUE>Litugenus</VALUE>
+		<VALUE>Lugotorix</VALUE>
+		<VALUE>Mandubracius</VALUE>
+		<VALUE>Maslorius</VALUE>
+		<VALUE>Maglorius</VALUE>
+		<VALUE>Matugenus</VALUE>
+		<VALUE>Melisus</VALUE>
+		<VALUE>Morirex</VALUE>
+		<VALUE>Motius</VALUE>
+		<VALUE>Nectovelius</VALUE>
+		<VALUE>Prasutagus</VALUE>
+		<VALUE>Rianorix</VALUE>
+		<VALUE>Sacc(i)us</VALUE>
+		<VALUE>Segovax</VALUE>
+		<VALUE>Senaculus</VALUE>
+		<VALUE>Sennianus</VALUE>
+		<VALUE>Senorix</VALUE>
+		<VALUE>Setibogius</VALUE>
+		<VALUE>Tamesubugus</VALUE>
+		<VALUE>Tancorix</VALUE>
+		<VALUE>Tasciovanus</VALUE>
+		<VALUE>Taximagulus</VALUE>
+		<VALUE>Tincommius</VALUE>
+		<VALUE>Togodumnus</VALUE>
+		<VALUE>Vellocatus</VALUE>
+		<VALUE>Venutius</VALUE>
+		<VALUE>Vindex</VALUE>
+		<VALUE>Vindomorucius</VALUE>
+		<VALUE>Virssuccius</VALUE>
+	</LIST>
+	<LIST id="pictish-medieval-male-given" title="Given">
+		<VALUE>Alpin</VALUE>
+		<VALUE>Alpinos</VALUE>
+		<VALUE>Ambicatos</VALUE>
+		<VALUE>Artbranan</VALUE>
+		<VALUE>Artobranagnos</VALUE>
+		<VALUE>Bliesblituth</VALUE>
+		<VALUE>Bredei</VALUE>
+		<VALUE>Brude</VALUE>
+		<VALUE>Caeltigern</VALUE>
+		<VALUE>Cailotigernacos</VALUE>
+		<VALUE>Cal</VALUE>
+		<VALUE>Canaul</VALUE>
+		<VALUE>Canutulachama</VALUE>
+		<VALUE>Carvorst</VALUE>
+		<VALUE>Cemoyth</VALUE>
+		<VALUE>Cimoiod</VALUE>
+		<VALUE>Cimoit</VALUE>
+		<VALUE>Cimoitos</VALUE>
+		<VALUE>Cind</VALUE>
+		<VALUE>Cinid</VALUE>
+		<VALUE>Cinidos</VALUE>
+		<VALUE>Cint</VALUE>
+		<VALUE>Cintos</VALUE>
+		<VALUE>Denbecan</VALUE>
+		<VALUE>Denbechan</VALUE>
+		<VALUE>Deo</VALUE>
+		<VALUE>Deoardivois</VALUE>
+		<VALUE>Deocilunon</VALUE>
+		<VALUE>Deoord</VALUE>
+		<VALUE>Deototreic</VALUE>
+		<VALUE>Diu</VALUE>
+		<VALUE>Dn becan</VALUE>
+		<VALUE>Dn becanos</VALUE>
+		<VALUE>Dnbecan</VALUE>
+		<VALUE>Dnbecanos</VALUE>
+		<VALUE>Don becan</VALUE>
+		<VALUE>Don becanos</VALUE>
+		<VALUE>Donbecan</VALUE>
+		<VALUE>Donbecanos</VALUE>
+		<VALUE>Drest</VALUE>
+		<VALUE>Drost</VALUE>
+		<VALUE>Drosten</VALUE>
+		<VALUE>Druisten</VALUE>
+		<VALUE>Drust</VALUE>
+		<VALUE>Drustagnos</VALUE>
+		<VALUE>Drustos</VALUE>
+		<VALUE>Edarnan</VALUE>
+		<VALUE>Elpin</VALUE>
+		<VALUE>Emcad</VALUE>
+		<VALUE>Emcat</VALUE>
+		<VALUE>Emcath</VALUE>
+		<VALUE>Etharnan</VALUE>
+		<VALUE>Fechir</VALUE>
+		<VALUE>Fecir</VALUE>
+		<VALUE>Fed</VALUE>
+		<VALUE>Fet</VALUE>
+		<VALUE>Galam</VALUE>
+		<VALUE>Galanan</VALUE>
+		<VALUE>Gant</VALUE>
+		<VALUE>Gart</VALUE>
+		<VALUE>Gartnait</VALUE>
+		<VALUE>Gartnaith</VALUE>
+		<VALUE>Gede</VALUE>
+		<VALUE>Gest</VALUE>
+		<VALUE>Gilgidi</VALUE>
+		<VALUE>Gnith</VALUE>
+		<VALUE>Grid</VALUE>
+		<VALUE>Grit</VALUE>
+		<VALUE>Gritos</VALUE>
+		<VALUE>Guib</VALUE>
+		<VALUE>Guidid</VALUE>
+		<VALUE>Guist</VALUE>
+		<VALUE>Gurcich</VALUE>
+		<VALUE>Gust</VALUE>
+		<VALUE>Gustos</VALUE>
+		<VALUE>Leo</VALUE>
+		<VALUE>Maroleo</VALUE>
+		<VALUE>Morleo</VALUE>
+		<VALUE>Mund</VALUE>
+		<VALUE>Naiton</VALUE>
+		<VALUE>Nechtan</VALUE>
+		<VALUE>Nectanos</VALUE>
+		<VALUE>Oinogustos</VALUE>
+		<VALUE>Olfinecta</VALUE>
+		<VALUE>Ongust</VALUE>
+		<VALUE>Onnuist</VALUE>
+		<VALUE>Ougenos</VALUE>
+		<VALUE>Pant</VALUE>
+		<VALUE>Ru</VALUE>
+		<VALUE>Talorc</VALUE>
+		<VALUE>Talorcagnos</VALUE>
+		<VALUE>Talorcan</VALUE>
+		<VALUE>Talorcos</VALUE>
+		<VALUE>Talorg</VALUE>
+		<VALUE>Talorgen</VALUE>
+		<VALUE>Taran</VALUE>
+		<VALUE>Taranos</VALUE>
+		<VALUE>Udrost</VALUE>
+		<VALUE>Uen</VALUE>
+		<VALUE>Uepos</VALUE>
+		<VALUE>Uip</VALUE>
+		<VALUE>Uirolec</VALUE>
+		<VALUE>Uist</VALUE>
+		<VALUE>Unuist</VALUE>
+		<VALUE>Urochan</VALUE>
+		<VALUE>Uroican</VALUE>
+		<VALUE>Usconbuts</VALUE>
+		<VALUE>Uuen</VALUE>
+		<VALUE>Uuidid</VALUE>
+		<VALUE>Uurad</VALUE>
+		<VALUE>Uuradec</VALUE>
+		<VALUE>Uurat</VALUE>
+		<VALUE>Uurcich</VALUE>
+		<VALUE>Uuredeg</VALUE>
+		<VALUE>Uurguist</VALUE>
+		<VALUE>Uurgust</VALUE>
+		<VALUE>Uurlech</VALUE>
+		<VALUE>Uust</VALUE>
+		<VALUE>Vepogenos</VALUE>
+		<VALUE>Vipog</VALUE>
+		<VALUE>Viratos</VALUE>
+		<VALUE>Virocagnos</VALUE>
+		<VALUE>Virogustos</VALUE>
+		<VALUE>Virolectos</VALUE>
+		<VALUE>Virotacos</VALUE>
+		<VALUE>Wdrost</VALUE>
+		<VALUE>Wrad</VALUE>
+		<VALUE>Wradech</VALUE>
+		<VALUE>Wrguist</VALUE>
+		<VALUE>Wroican</VALUE>
+	</LIST>
+	<LIST id="pictish-genetive" title="Genetive">
+		<VALUE>Calgaci</VALUE>
+		<VALUE>Argentocoxi</VALUE>
+		<VALUE>Lossi</VALUE>
+		<VALUE>Uepogeni</VALUE>
+		<VALUE>Adcobrovati</VALUE>
+		<VALUE>Ammini</VALUE>
+		<VALUE>Ammini</VALUE>
+		<VALUE>Apulli</VALUE>
+		<VALUE>Arviragi</VALUE>
+		<VALUE>Bodicci</VALUE>
+		<VALUE>Brigomagli</VALUE>
+		<VALUE>Cacumatti</VALUE>
+		<VALUE>Caranaci</VALUE>
+		<VALUE>Carataci</VALUE>
+		<VALUE>Cassivellauni</VALUE>
+		<VALUE>Catavigni</VALUE>
+		<VALUE>Ceanatis</VALUE>
+		<VALUE>Cingetorigis</VALUE>
+		<VALUE>Cintugnati</VALUE>
+		<VALUE>Cintusmi</VALUE>
+		<VALUE>Cistumuci</VALUE>
+		<VALUE>Cogidubni</VALUE>
+		<VALUE>Commii</VALUE>
+		<VALUE>Croti</VALUE>
+		<VALUE>Cunitti</VALUE>
+		<VALUE>Cunobarri</VALUE>
+		<VALUE>Cunobelini</VALUE>
+		<VALUE>Cunomori</VALUE>
+		<VALUE>Cunopecti</VALUE>
+		<VALUE>Cunovindi</VALUE>
+		<VALUE>Dubnovellauni</VALUE>
+		<VALUE>Dumnocoveri</VALUE>
+		<VALUE>Dumnovellauni</VALUE>
+		<VALUE>Enemnogeni</VALUE>
+		<VALUE>Enestini</VALUE>
+		<VALUE>Ivomagi</VALUE>
+		<VALUE>Litugeni</VALUE>
+		<VALUE>Lugotorigis</VALUE>
+		<VALUE>Mandubraci</VALUE>
+		<VALUE>Maslori</VALUE>
+		<VALUE>Maglori</VALUE>
+		<VALUE>Matugeni</VALUE>
+		<VALUE>Melisi</VALUE>
+		<VALUE>Moriregis</VALUE>
+		<VALUE>Moti</VALUE>
+		<VALUE>Nectoveli</VALUE>
+		<VALUE>Prasutagi</VALUE>
+		<VALUE>Rianorigis</VALUE>
+		<VALUE>Sacci</VALUE>
+		<VALUE>Segovagis</VALUE>
+		<VALUE>Senaculi</VALUE>
+		<VALUE>Senniani</VALUE>
+		<VALUE>Senorigis</VALUE>
+		<VALUE>Setibogi</VALUE>
+		<VALUE>Tamesubugi</VALUE>
+		<VALUE>Tancorigis</VALUE>
+		<VALUE>Tasciovani</VALUE>
+		<VALUE>Taximaguli</VALUE>
+		<VALUE>Tincommi</VALUE>
+		<VALUE>Togodumni</VALUE>
+		<VALUE>Vellocati</VALUE>
+		<VALUE>Venuti</VALUE>
+		<VALUE>Vindegis</VALUE>
+		<VALUE>Vindomoruci</VALUE>
+		<VALUE>Virssucci</VALUE>
+	</LIST>
+	<LIST id="pictish-medieval-genetive" title="Genetive">
+		<VALUE>Achivir</VALUE>
+		<VALUE>Aniel</VALUE>
+		<VALUE>Artcois</VALUE>
+		<VALUE>Artocoxos</VALUE>
+		<VALUE>Bargoit</VALUE>
+		<VALUE>Belinos</VALUE>
+		<VALUE>Bili</VALUE>
+		<VALUE>Buthud</VALUE>
+		<VALUE>Buthut</VALUE>
+		<VALUE>Derelei</VALUE>
+		<VALUE>Donnel</VALUE>
+		<VALUE>Dumnovellos</VALUE>
+		<VALUE>Enfidich</VALUE>
+		<VALUE>Enfret</VALUE>
+		<VALUE>Entifidich</VALUE>
+		<VALUE>Girom</VALUE>
+		<VALUE>Gyrom</VALUE>
+		<VALUE>Lugutrinos</VALUE>
+		<VALUE>Lutrin</VALUE>
+		<VALUE>Maglocunos</VALUE>
+		<VALUE>Mailcon</VALUE>
+		<VALUE>Muircholach</VALUE>
+		<VALUE>Munait</VALUE>
+		<VALUE>Uerb</VALUE>
+		<VALUE>Uerp</VALUE>
+		<VALUE>Uuid</VALUE>
+		<VALUE>Uuthoil</VALUE>
+		<VALUE>Wid</VALUE>
+		<VALUE>Wirp</VALUE>
+		<VALUE>Wthoil</VALUE>
+	</LIST>
+	<LIST id="pictish-female-genetive" title="Genetive">
+		<VALUE>Bodiccae</VALUE>
+		<VALUE>Baritae</VALUE>
+		<VALUE>Cartimanduae</VALUE>
+		<VALUE>Cunoardae</VALUE>
+		<VALUE>Cunovindae</VALUE>
+		<VALUE>Cvindae</VALUE>
+		<VALUE>Huctiae</VALUE>
+		<VALUE>Tancorigis</VALUE>
+		<VALUE>Verctissae</VALUE>
+		<VALUE>Vericae</VALUE>
+	</LIST>
+	<LIST id="pictish-tribal-byname-nom-pl" title="Tribal Byname">
+		<VALUE>Caereni</VALUE>
+		<VALUE>Caledonii</VALUE>
+		<VALUE>Cornavii</VALUE>
+		<VALUE>Decantae</VALUE>
+		<VALUE>Epidii</VALUE>
+		<VALUE>Lugi</VALUE>
+		<VALUE>Smertae</VALUE>
+		<VALUE>Taezali</VALUE>
+		<VALUE>Vacomagi</VALUE>
+		<VALUE>Venicones</VALUE>
+	</LIST>
+	<LIST id="pictish-tribal-byname-genetive" title="Genetive Tribal Byname">
+		<VALUE>Caerenorum</VALUE>
+		<VALUE>Caledoniorum</VALUE>
+		<VALUE>Cornaviorum</VALUE>
+		<VALUE>Decantarum</VALUE>
+		<VALUE>Epidiorum</VALUE>
+		<VALUE>Lugorum</VALUE>
+		<VALUE>Smertarum</VALUE>
+		<VALUE>Taezalorum</VALUE>
+		<VALUE>Vacomagorum</VALUE>
+		<VALUE>Veniconum</VALUE>
+	</LIST>
+	<LIST id="pictish-tribal-byname-nom-adj" title="Tribal Byname">
+		<VALUE>Caerenacus</VALUE>
+		<VALUE>Caerenus</VALUE>
+		<VALUE>Caledoniacus</VALUE>
+		<VALUE>Caledonius</VALUE>
+		<VALUE>Cornaviacus</VALUE>
+		<VALUE>Cornavius</VALUE>
+		<VALUE>Decantacus</VALUE>
+		<VALUE>Decantus</VALUE>
+		<VALUE>Epidiacus</VALUE>
+		<VALUE>Epidius</VALUE>
+		<VALUE>Lugiacus</VALUE>
+		<VALUE>Lugus</VALUE>
+		<VALUE>Smertacus</VALUE>
+		<VALUE>Smertus</VALUE>
+		<VALUE>Taezalacus</VALUE>
+		<VALUE>Taezalus</VALUE>
+		<VALUE>Vacomagacus</VALUE>
+		<VALUE>Vacomagus</VALUE>
+		<VALUE>Veniconacus</VALUE>
+		<VALUE>Veniconis</VALUE>
+	</LIST>
+	<LIST id="pictish-locative-byname" title="Locative Byname">
+		<VALUE>Alauna</VALUE>
+		<VALUE>Alaunae</VALUE>
+		<VALUE>Alaunanus</VALUE>
+		<VALUE>Alaunensis</VALUE>
+		<VALUE>Bannatia</VALUE>
+		<VALUE>Bannatiae</VALUE>
+		<VALUE>Bannatianus</VALUE>
+		<VALUE>Bannatiensis</VALUE>
+		<VALUE>Carnonacae</VALUE>
+		<VALUE>Carnonacanus</VALUE>
+		<VALUE>Carnonacarum</VALUE>
+		<VALUE>Carnonacensis</VALUE>
+		<VALUE>Creones</VALUE>
+		<VALUE>Creonianus</VALUE>
+		<VALUE>Creoniensis</VALUE>
+		<VALUE>Creoninus</VALUE>
+		<VALUE>Creonium</VALUE>
+		<VALUE>Creonum</VALUE>
+		<VALUE>Devana</VALUE>
+		<VALUE>Devanae</VALUE>
+		<VALUE>Devananus</VALUE>
+		<VALUE>Devanensis</VALUE>
+		<VALUE>Dumna</VALUE>
+		<VALUE>Dumnae</VALUE>
+		<VALUE>Dumnanus</VALUE>
+		<VALUE>Dumnensis</VALUE>
+		<VALUE>Epidianus</VALUE>
+		<VALUE>Epidiensis</VALUE>
+		<VALUE>Epidii</VALUE>
+		<VALUE>Epidium</VALUE>
+		<VALUE>Malaianus</VALUE>
+		<VALUE>Malaiensis</VALUE>
+		<VALUE>Malaii</VALUE>
+		<VALUE>Malaius</VALUE>
+		<VALUE>Orcades</VALUE>
+		<VALUE>Orcadianus</VALUE>
+		<VALUE>Orcadiensis</VALUE>
+		<VALUE>Orcadinus</VALUE>
+		<VALUE>Orcadium</VALUE>
+		<VALUE>Orcadum</VALUE>
+		<VALUE>Orrea</VALUE>
+		<VALUE>Orreae</VALUE>
+		<VALUE>Orreanus</VALUE>
+		<VALUE>Scetianus</VALUE>
+		<VALUE>Scetiensis</VALUE>
+		<VALUE>Scetinus</VALUE>
+		<VALUE>Scetis</VALUE>
+		<VALUE>Tamia</VALUE>
+		<VALUE>Tamiae</VALUE>
+		<VALUE>Tamianus</VALUE>
+		<VALUE>Tamiensis</VALUE>
+		<VALUE>Tarvedanus</VALUE>
+		<VALUE>Tarvedensis</VALUE>
+		<VALUE>Tarvedi</VALUE>
+		<VALUE>Tarvedum</VALUE>
+		<VALUE>Tuesianus</VALUE>
+		<VALUE>Tuesiensis</VALUE>
+		<VALUE>Tuesinus</VALUE>
+		<VALUE>Tuesis</VALUE>
+		<VALUE>Verubianus</VALUE>
+		<VALUE>Verubiensis</VALUE>
+		<VALUE>Verubii</VALUE>
+		<VALUE>Verubium</VALUE>
+		<VALUE>Virvedranus</VALUE>
+		<VALUE>Virvedrensis</VALUE>
+		<VALUE>Virvedri</VALUE>
+		<VALUE>Virvedrum</VALUE>
+	</LIST>
+	<LIST id="pictish-byname" title="Byname">
+		<VALUE>Diuberr</VALUE>
+		<VALUE>Erilich</VALUE>
+		<VALUE>Erilith</VALUE>
+		<VALUE>Gaed brechach</VALUE>
+		<VALUE>Gurthinmoch</VALUE>
+		<VALUE>Ini</VALUE>
+		<VALUE>Loc</VALUE>
+		<VALUE>Mor</VALUE>
+		<VALUE>Morbet</VALUE>
+		<VALUE>Olgudach</VALUE>
+		<VALUE>Uecla</VALUE>
+		<VALUE>Uetla</VALUE>
+	</LIST>
+</GENERATOR>
+

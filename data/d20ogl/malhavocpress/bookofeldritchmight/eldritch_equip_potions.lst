@@ -1,0 +1,34 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Nov 28 04:21:47 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+#Spell names and other proper names from The Book of Eldritch Might are
+#	©2001-2005 Monte J. Cook and are used here with his permission.
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+###Block: Potions
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page
+Potion (Acidic Curse)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.10
+Potion (Bolt of Conjuring)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.11
+Potion (Bone Tattoo)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.11
+Potion (Devlin's Barb)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.12
+Potion (Devlin's Venomblade)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.12
+Potion (Dragonskin)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.13
+Potion (Enchanting Flavor)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.13
+Potion (Enhance Magical Flow)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.13
+Potion (Foil Tracer)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.14
+Potion (Greater Sleep)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.15
+Potion (Guilt)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.15
+Potion (Icebolt)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.15
+Potion (Mark of Air)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.17
+Potion (Mark of Earth)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.17
+Potion (Mark of Fire)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.17
+Potion (Mark of Frost)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.17
+Potion (Mark of Water)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.18
+Potion (Mental Alarm)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.18
+Potion (Minor Ward)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.18
+Potion (Precise Vision)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.20
+Potion (Silent Sound)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:50	WT:0		SOURCEPAGE:p.21
+Potion (Static Veil)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.21
+Potion (Thief Ward)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.22
+Potion (Tongue of Angels)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.22
+Potion (Tongue of Fiends)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:25	WT:0		SOURCEPAGE:p.22
+Potion (Undaunted Fixture)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:300	WT:0		SOURCEPAGE:p.22

@@ -1,0 +1,32 @@
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $
+CAMPAIGN:Green Ronin - Arcana - Societies of Magic
+RANK:9
+GAMEMODE:3e
+TYPE:Green Ronin Publishing.Supplement
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic
+SOURCESHORT:ArcanaSoM
+SOURCEWEB:http://www.greenronin.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Legions of Hell, Copyright 2001, Green Ronin Publishing; Author Chris Pramas.
+COPYRIGHT:Arcana: Societies of Magic, Copyright 2001, Kevin Brennan and James Maliszewski
+COPYRIGHT:PCGen dataset conversion for Arcana: Societies of Magic Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:readme.txt
+
+CLASS:arcanaclasses.lst
+DEITY:arcanadeities.lst
+DOMAIN:arcanadomains.lst
+EQUIPMENT:arcanaequip.lst
+EQUIPMENT:arcanaequiprings.lst
+EQUIPMENT:arcanaequipwondrousitems.lst
+FEAT:arcanafeats.lst
+SPELL:arcanaspells.lst
+TEMPLATE:arcanatemplates.lst
+
+# For the Evasion and Improved Evasion, Uncanny Dodge, and Monk hidden pseudo feats.
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst
+

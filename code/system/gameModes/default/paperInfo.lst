@@ -1,0 +1,9 @@
+#						top		bottom	left		right
+#		height	width		margin	margin	margin	margin
+A4		297mm		210mm		10mm		15mm		10mm		10mm
+A5		148mm		210mm		10mm		15mm		10mm		10mm
+B5		257mm		182mm		10mm		15mm		10mm		10mm
+#
+Executive	10.5in	7.25in	.4in		.6in		.4in		.4in
+Legal		14in		8.5in		.4in		.6in		.4in		.4in
+Letter	11in		8.5in		.4in		.6in		.4in		.4in

@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+
+# Feat Name				Type			Req. Att.	Required Feat					Required Race	Required Skill	Required Stat	Description																Multiple?	Source Page
+Cabalistic Spellcasting		TYPE:Elemental																																						SOURCEPAGE:p.
+Close-Order Fighting		TYPE:General	PREATT:3																	DESC:You understand how to work with a fighting partner, and can give the soldier on your left cover.			SOURCEPAGE:p.
+Cooperative Spellcasting	TYPE:Elemental																																						SOURCEPAGE:p.
+Dead Shot				TYPE:General	PREATT:4														PRESTAT:1,DEX=13	DESC:You are a skilled marksman and have learned to hit targets hiding behind cover.					SOURCEPAGE:p.
+Empower Spell			TYPE:Elemental																																						SOURCEPAGE:p.
+Enlarge Spell			TYPE:Elemental																																						SOURCEPAGE:p.
+Extend Spell			TYPE:Elemental																																						SOURCEPAGE:p.
+Improved Mounted Combat		TYPE:General			PREFEAT:1,Mounted Combat						PRESKILL:1,Ride=6	PRESTAT:1,DEX=13	DESC:You have mastered mounted combat and are able to protect your mount in combat.						SOURCEPAGE:p.
+Improvised Weapon			TYPE:General	PREATT:4																	DESC:You are adept at grabbing any small object and using it as an effective weapon.					SOURCEPAGE:p.
+Maximize Spell			TYPE:Elemental																																						SOURCEPAGE:p.
+Pinpoint Accuracy			TYPE:General			PREFEAT:2,Point Blank Shot,Precise Shot							PRESTAT:1,DEX=13	DESC:You can take your time aiming to make sure you hit your target.								SOURCEPAGE:p.
+Quicken Spell			TYPE:Elemental																																						SOURCEPAGE:p.
+Recognize Omen			TYPE:General										PRERACE:Ork					PRESTAT:1,WIS=13	DESC:You can see tidings of good and evil in the events that happen around you.						SOURCEPAGE:p.
+Second Wind				TYPE:General																			DESC:You can control and focus your body to shake off fatigue.									SOURCEPAGE:p.
+Set Spear				TYPE:General																			DESC:You know how to effectively use polearms against mounted charges.								SOURCEPAGE:p.
+Shared Spellcasting		TYPE:Elemental																																						SOURCEPAGE:p.
+Silent Spell			TYPE:Elemental																																						SOURCEPAGE:p.
+Spell Focus				TYPE:Elemental																																						SOURCEPAGE:p.
+Still Spell				TYPE:Elemental																																						SOURCEPAGE:p.
+Subduing Strike			TYPE:General	PREATT:2														PRESTAT:1,DEX=13	DESC:You learned to better use normally lethal weapons to knock your opponents unconscious.		MULT:YES	SOURCEPAGE:p.

@@ -1,0 +1,51 @@
+# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Mon Jan  3 21:10:14 2005 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# input by Ruemere, email: ruemere@poczta.onet.pl
+
+# languages from races.rtf and various monsters*.rtf
+# SPECIAL: all class specific languages gained new TYPE value: class (Cleric etc)
+
+#	everyone's language
+# Language			Type							Var. Min. Value
+Common			TYPE:Spoken.Written.Read
+
+#	racial languages (base races)
+Dwarven			TYPE:Spoken.Written.Read
+Elven				TYPE:Spoken.Written.Read
+Gnome				TYPE:Spoken.Written.Read
+Halfling			TYPE:Spoken.Written.Read
+
+#	other languages (races.rtf)
+Giant				TYPE:Spoken
+Gnoll				TYPE:Spoken
+Goblin			TYPE:Spoken
+Orc				TYPE:Spoken
+Terran			TYPE:Spoken
+Undercommon			TYPE:Spoken
+
+#	class-specific languages (i.e. they are on the list of bonus languages for classes)
+Abyssal			TYPE:Spoken.Written.Read.Cleric
+Celestial			TYPE:Spoken.Written.Read.Cleric
+Draconic			TYPE:Spoken.Written.Read.Wizard
+Infernal			TYPE:Spoken.Written.Read.Cleric
+Sylvan			TYPE:Spoken.Written.Read.Druid
+Druidic			TYPE:Spoken.Written.Read.Druid.Secret	PREVARGTEQ:DruidicLanguage,1
+
+# 	other languages (found in monsters*.rtf)
+#		assuming that all non-basic languages are of Spoken type, i.e. that they do not possess any alphabet (exceptions happen, of course)
+Aboleth			TYPE:Spoken
+Aquan				TYPE:Spoken.Written.Read
+Auran				TYPE:Spoken.Written.Read
+Blink Dog			TYPE:Spoken
+Drow Sign Language	TYPE:Spoken
+Ettin Pidgin		TYPE:Spoken
+Formian			TYPE:Spoken
+Grimlock			TYPE:Spoken
+Ignan				TYPE:Spoken.Written.Read
+Sahuagin			TYPE:Spoken
+Sphinx			TYPE:Spoken
+Treant			TYPE:Spoken
+#		Telepathy - special language for: Couatl, Dretches and Formian Queens
+Telepathy			TYPE:Spoken
+Worg				TYPE:Spoken

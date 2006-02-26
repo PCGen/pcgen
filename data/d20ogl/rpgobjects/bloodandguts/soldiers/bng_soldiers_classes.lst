@@ -1,0 +1,63 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Wed Jan 26 23:36:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Guts - Soldiers|SOURCESHORT:BnG-S|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Airman	HD:6		TYPE:PC.Advanced	SOURCEPAGE:p.1	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat														Required Skill		Required Text
+CLASS:Airman	PREATT:2	PREFEAT:1,Aircraft Operation	PREFEAT:1,Fixed Wing Vehicle Weapons,Helicopter Vehicle Weapons	PRESKILL:1,Pilot=6	PRETEXT:Active or Reserve Duty (any one branch of service)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Airman	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations|Concentration|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Paradrop|Pilot|Repair|Spot
+1						BONUS:VAR|AirSuperiority|1									FEATAUTO:Air Superiority
+2						BONUS:VAR|Strafing|(CL+3)/5									FEATAUTO:Strafing
+3															ADD:FEAT(TYPE=Airman)
+4	SA:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL/4)+2	DEFINE:AirSupport|0
+5						BONUS:VAR|AirSuperiority|1
+6															ADD:FEAT(TYPE=Airman)
+9															ADD:FEAT(TYPE=Airman)
+10	SA:Ace
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Grunt		HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat																					Required Skill					Required Text
+CLASS:Grunt		PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PREFEAT:1,MOS Armor 1,MOS Combat Engineering 1,MOS Field Artillery 1,MOS Infantry/Rifleman 1	PRESKILL:2,Craft (Structural),Repair=3	PRETEXT:Active or Reserve Duty (Us Army)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Grunt		STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Gamble|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Repair|Spot|Survival
+1	SA:Defensive Position +%|DefensivePosition	BONUS:VAR|DefensivePosition|(CL/5)+1	DEFINE:DefensivePosition|0
+2	SA:Trench Warfare +%|TrenchWarfare			BONUS:VAR|TrenchWarfare|(CL+3)/5		DEFINE:TrenchWarfare|0
+3																					ADD:FEAT(TYPE=Grunt,TYPE=MOS)
+4	SA:Hurry Up (Medium)
+6																					ADD:FEAT(TYPE=Grunt,TYPE=MOS)
+8	SA:Hurry Up and Wait																						VFEAT:Forced March
+9																					ADD:FEAT(TYPE=Grunt,TYPE=MOS)
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Leatherneck	HD:10		TYPE:PC.Advanced	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat									Required Skill				Required Text
+CLASS:Leatherneck	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,MOS Infantry/Rifleman 1	PRESKILL:2,Intimidate,Survival=3	PRETEXT:Active or Reserve Duty (US Marine Corps)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Leatherneck	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Gamble|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Repair|Spot|Swim|Survival
+1																							ADD:FEAT(TYPE=LeatherneckTerrain)
+2	SA:Tough as Nails							BONUS:HP|CURRENTMAX|CL	BONUS:SKILL|Intimidate|CL
+3																							ADD:FEAT(TYPE=Leatherneck)
+4	SA:First Wave +%|FirstWave	BONUS:VAR|FirstWave|1										DEFINE:FirstWave|0
+5																							ADD:FEAT(TYPE=LeatherneckTerrain)
+6																							ADD:FEAT(TYPE=Leatherneck)
+7						BONUS:VAR|FirstWave|1
+8																							ADD:FEAT(TYPE=LeatherneckTerrain)
+9																							ADD:FEAT(TYPE=Leatherneck)
+10																													FEATAUTO:Semper Fi
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Specialist	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Specialist	STARTSKILLPTS:8	CSKILL:Climb|Computer Use|Concentration|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Technology)|Navigate|Repair|Research|Swim
+1									ADD:FEAT(Speed of the Essence)
+2									ADD:FEAT(TYPE=Specialist)
+3	SA:Smart Defense		BONUS:COMBAT|AC|INT
+4									ADD:FEAT(TYPE=Specialist)
+5	SA:Qualified Expert
+6									ADD:FEAT(TYPE=Specialist)
+7									ADD:FEAT(TYPE=SmartResilience)
+8									ADD:FEAT(TYPE=Specialist)
+9									ADD:FEAT(TYPE=SmartResilience)
+10									ADD:FEAT(TYPE=Specialist)

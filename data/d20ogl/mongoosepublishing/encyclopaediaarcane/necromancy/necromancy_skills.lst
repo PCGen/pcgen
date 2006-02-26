@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy|SOURCESHORT:Necromancy|SOURCEWEB:http://www.mongoosepublishing.com
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Knowledge (Anatomy)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.10
+Knowledge (Necrology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.10
+Knowledge (Spirit Lore)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.10

@@ -1,0 +1,526 @@
+# CVS $Revision: 1.5 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Aboleth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aboleth]
+ALIGN:LE
+RACE:Aboleth	!PRERACE:%
+NAME:Aboleth
+SKILL:Concentration	RANK:11
+SKILL:Listen		RANK:11
+SKILL:Spot			RANK:11
+SKILL:TYPE=Knowledge	RANK:11
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Iron Will
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Default Achaierai	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Achaierai]
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+RACE:Achaierai	!PRERACE:%
+NAME:Achaierai
+ALIGN:LE
+SKILL:Balance		RANK:9
+SKILL:Climb			RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+SKILL:Jump			RANK:9
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Spring Attack
+
+STARTPACK:Default Allip	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Allip]
+STAT:INT=10|WIS=11|STR=10|DEX=10|CON=10|CHA=10
+RACE:Allip	!PRERACE:%
+NAME:Allip
+ALIGN:NE
+SKILL:Search	RANK:4
+SKILL:Intimidate	RANK:3
+SKILL:Hide		RANK:7
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Angel (Astral Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Astral Deva)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Angel (Astral Deva)	!PRERACE:%
+NAME:Angel, Astral Deva
+ALIGN:LG|NG|CG
+SKILL:Diplomacy				RANK:15
+SKILL:Listen				RANK:15
+SKILL:Spot					RANK:15
+SKILL:Concentration			RANK:15
+SKILL:Escape Artist			RANK:15
+SKILL:Hide					RANK:15
+SKILL:TYPE=Knowledge|TYPE=Craft	RANK:15	COUNT:3
+SKILL:Intimidate				RANK:15
+SKILL:Move Silently			RANK:15
+SKILL:Sense Motive			RANK:15
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Power Attack
+GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.DISRPT
+
+STARTPACK:Default Angel (Planetar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Planetar)]
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+RACE:Angel (Planetar)	!PRERACE:%
+NAME:Angel, Planetar
+ALIGN:LG|NG|CG
+SKILL:Diplomacy				RANK:17
+SKILL:Concentration			RANK:17
+SKILL:Escape Artist			RANK:17
+SKILL:Hide					RANK:17
+SKILL:Intimidate				RANK:17
+SKILL:Listen				RANK:17
+SKILL:Move Silently			RANK:17
+SKILL:Search				RANK:17
+SKILL:Sense Motive			RANK:17
+SKILL:Spot					RANK:17
+SKILL:TYPE=Knowledge|TYPE=Craft	RANK:17	COUNT:4
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Power Attack
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W
+DEITY:None	DOMAIN:Destruction|Good
+# ERATTA: Circle of Doom is not a 3.5 spell.  Inflict Light Wounds (Mass) is the Destruction domain spell at 5th level.
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Banishment|Bear's Endurance|Bless=2|Break Enchantment|Bull's Strength=2|Cause Fear|Consecrate|Contagion|Create Water|Cure Critical Wounds (Mass)|Cure Moderate Wounds (Mass)|Daylight|Death Ward|Detect Magic|Dictum|Disintegrate|Dismissal|Dispel Evil|Dispel Magic (Greater)|Divine Favor=2|Doom|Eagle's Splendor|Entropic Shield|Guidance|Harm|Heal|Heroes' Feast|Hold Person|Holy Aura|Holy Word|Implosion|Inflict Critical Wounds|Inflict Light Wounds|Invisibility Purge|Mark of Justice|Neutralize Poison=2|Plane Shift|Prayer=2|Regenerate|Resistance=2|Righteous Might|Shield of Faith|Shield of Law|Summon Monster III|Summon Monster IV|Summon Monster IX|Virtue|Wind Wall
+
+STARTPACK:Default Angel (Solar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Solar)]
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+RACE:Angel (Solar)	!PRERACE:%
+NAME:Angel, Solar
+ALIGN:LG|NG|CG
+SKILL:Diplomacy				RANK:23
+SKILL:Concentration			RANK:25
+SKILL:Escape Artist			RANK:25
+SKILL:Hide					RANK:25
+SKILL:Listen				RANK:25
+SKILL:Move Silently			RANK:25
+SKILL:Search				RANK:25
+SKILL:Sense Motive			RANK:25
+SKILL:Spellcraft				RANK:21
+SKILL:Spot					RANK:25
+SKILL:TYPE=Knowledge|TYPE=Craft	RANK:25	COUNT:5
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Mobility
+FEAT:Power Attack
+FEAT:Track
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS2W.BOWSTR|5
+GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS5W.DANCE
+DEITY:None	DOMAIN:Air|War
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon|Banishment|Bear's Endurance=2|Bless=2|Break Enchantment|Bull's Strength=2|Cause Fear|Chain Lightning|Consecrate|Control Weather|Control Winds|Create Water|Cure Critical Wounds (Mass)=2|Cure Moderate Wounds (Mass)|Daylight|Death Ward=2|Destruction|Detect Magic|Dictum|Dismissal=2|Dispel Evil|Divine Favor=2|Divine Power|Eagle's Splendor|Elemental Swarm|Entropic Shield|Ethereal Jaunt|Etherealness|Fire Storm|Guidance=2|Heal (Mass)|Heroes' Feast|Holy Aura|Holy Word|Invisibility Purge|Magic Circle against Evil|Magic Vestment|Miracle|Neutralize Poison=2|Obscuring Mist|Plane Shift|Prayer=2|Protection from Energy|Regenerate|Resistance=2|Righteous Might=2|Shield of Faith|Spiritual Weapon|Storm of Vengeance|Symbol of Pain|Undeath to Death|Whirlwind|Wind Wall|Word of Recall
+
+STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Tiny)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Tiny)	!PRERACE:%
+NAME:Animated Object, Tiny
+ALIGN:TN
+
+STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Small)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Small)	!PRERACE:%
+NAME:Animated Object, Small
+ALIGN:TN
+
+STARTPACK:Default Animated Object (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Medium)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Medium)	!PRERACE:%
+NAME:Animated Object, Medium
+ALIGN:TN
+
+STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Large)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Large)	!PRERACE:%
+NAME:Animated Object, Large
+ALIGN:TN
+
+STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Huge)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Huge)	!PRERACE:%
+NAME:Animated Object, Huge
+ALIGN:TN
+
+STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Gargantuan)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Gargantuan)	!PRERACE:%
+NAME:Animated Object, Gargantuan
+ALIGN:TN
+
+STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Colossal)]
+STAT:INT=10|WIS=10|STR=10|DEX=10|CON=10|CHA=10
+RACE:Animated Object (Colossal)	!PRERACE:%
+NAME:Animated Object, Colossal
+ALIGN:TN
+
+STARTPACK:Default Ankheg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ankheg]
+RACE:Ankheg	!PRERACE:%
+NAME:Ankheg
+ALIGN:TN
+SKILL:Climb		RANK:3
+SKILL:Listen	RANK:3
+FEAT:Alertness
+FEAT:Toughness
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+
+STARTPACK:Default Aranea	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aranea]
+ALIGN:TN
+RACE:Aranea	!PRERACE:%
+NAME:Aranea
+SKILL:Climb			RANK:6
+SKILL:Concentration	RANK:6
+SKILL:Jump			RANK:3
+SKILL:Escape Artist	RANK:3
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound|Light|Mage Armor|Resistance|Silent Image|Sleep
+
+STARTPACK:Default Archon (Hound)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archon (Hound)]
+RACE:Archon (Hound)	!PRERACE:%
+NAME:Hound Archon
+ALIGN:LG
+SKILL:Jump			RANK:9
+SKILL:Concentration	RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+SKILL:Survival		RANK:9
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Track
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Archon (Lantern)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archon (Lantern)]
+RACE:Archon (Lantern)	!PRERACE:%
+NAME:Lantern Archon
+ALIGN:LG
+SKILL:Concentration		RANK:4
+SKILL:Diplomacy			RANK:4
+SKILL:Knowledge (The Planes)	RANK:4
+SKILL:Listen			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Spot				RANK:4
+FEAT:Improved Initiative
+STAT:DEX=11|WIS=11|STR=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Archon (Trumpet)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archon (Trumpet)]
+RACE:Archon (Trumpet)	!PRERACE:%
+NAME:Trumpet Archon
+ALIGN:LG
+SKILL:Diplomacy				RANK:15
+SKILL:Ride					RANK:15
+SKILL:Concentration			RANK:15
+SKILL:Escape Artist			RANK:15
+SKILL:Handle Animal			RANK:15
+SKILL:Listen				RANK:15
+SKILL:Move Silently			RANK:15
+SKILL:Perform (Wind Instruments)	RANK:15
+SKILL:Sense Motive			RANK:15
+SKILL:Spot					RANK:15
+SKILL:TYPE=Knowledge			RANK:15
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Power Attack
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS4W
+DEITY:None	DOMAIN:Good|Law
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Banishment|Blade Barrier|Bless=2|Bull's Strength=2|Consecrate|Cure Light Wounds (Mass)|Cure Serious Wounds (Mass)|Daylight|Detect Magic|Dictum|Dismissal|Dispel Evil|Divine Favor=2|Divine Power|Heal|Holy Smite|Holy Word|Invisibility Purge|Light|Magic Circle against Chaos|Magic Vestment|Neutralize Poison|Owl's Wisdom=2|Plane Shift|Protection from Chaos|Protection from Energy=2|Purify Food and Drink|Raise Dead|Read Magic|Resistance=2|Restoration (Lesser)|Sanctuary|Shield of Faith|Spell Immunity|Undeath to Death
+
+STARTPACK:Default Arrowhawk (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Adult)]
+RACE:Arrowhawk (Adult)	!PRERACE:%
+NAME:Adult Arrowhawk
+ALIGN:TN
+SKILL:Escape Artist		RANK:10
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Move Silently		RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+SKILL:Survival			RANK:10
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Weapon Finesse
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Arrowhawk (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Elder)]
+RACE:Arrowhawk (Elder)	!PRERACE:%
+NAME:Elder Arrowhawk
+ALIGN:TN
+SKILL:Escape Artist		RANK:18
+SKILL:Knowledge (The Planes)	RANK:18
+SKILL:Listen			RANK:18
+SKILL:Move Silently		RANK:18
+SKILL:Search			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Spot				RANK:18
+SKILL:Survival			RANK:18
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Weapon Finesse
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Arrowhawk (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Juvenile)]
+RACE:Arrowhawk (Juvenile)	!PRERACE:%
+NAME:Juvenile Arrowhawk
+ALIGN:TN
+SKILL:Escape Artist		RANK:6
+SKILL:Knowledge (The Planes)	RANK:6
+SKILL:Listen			RANK:6
+SKILL:Move Silently		RANK:6
+SKILL:Search			RANK:6
+SKILL:Sense Motive		RANK:6
+SKILL:Spot				RANK:6
+SKILL:Survival			RANK:6
+FEAT:Dodge
+FEAT:Weapon Finesse
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Assassin Vine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Assassin Vine]
+RACE:Assassin Vine	!PRERACE:%
+NAME:Assassin Vine
+ALIGN:TN
+STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
+
+STARTPACK:Default Athach	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Athach]
+ALIGN:CE
+RACE:Athach	!PRERACE:%
+NAME:Athach
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Climb		RANK:1
+SKILL:Jump		RANK:8
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Multiweapon Fighting
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
+GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
+GEAR:Morningstar	SIZE:PC	LOCATION:Secondary Hand
+GEAR:Morningstar	SIZE:PC	LOCATION:Secondary Hand1
+GEAR:Hide		SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Avoral	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Avoral]
+RACE:Avoral	!PRERACE:%
+NAME:Avoral
+ALIGN:NG
+SKILL:Bluff			RANK:10
+SKILL:Concentration	RANK:10
+SKILL:Handle Animal	RANK:10
+SKILL:Hide			RANK:10
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Spellcraft		RANK:10
+SKILL:Spot			RANK:10
+SKILL:TYPE=Knowledge	RANK:10
+FEAT:Empower Spell Like Ability(Magic Missile)
+FEAT:Flyby Attack
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Azer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Azer]
+RACE:Azer	!PRERACE:%
+NAME:Azer
+ALIGN:LN
+SKILL:Appraise	RANK:5
+SKILL:Listen	RANK:5
+SKILL:Search	RANK:5
+SKILL:Spot		RANK:5
+SKILL:Climb		RANK:5
+SKILL:TYPE=Craft	RANK:5	COUNT:2
+SKILL:Hide		RANK:5
+SKILL:Jump		RANK:5
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
+GEAR:Shield (Heavy/Wood)	SIZE:PC	LOCATION:Equipped
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shortspear			SIZE:PC	LOCATION:Carried
+GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Barghest	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barghest]
+RACE:Barghest	!PRERACE:%
+NAME:Barghest
+ALIGN:LE
+SKILL:Move Silently	RANK:8
+SKILL:Bluff			RANK:9
+SKILL:Hide			RANK:9
+SKILL:Jump			RANK:9
+SKILL:Intimidate		RANK:9
+SKILL:Listen		RANK:9
+SKILL:Search		RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+SKILL:Survival		RANK:9
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Barghest (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barghest (Greater)]
+RACE:Barghest (Greater)	!PRERACE:%
+NAME:Greater Barghest
+ALIGN:LE
+SKILL:Jump			RANK:10
+SKILL:Bluff			RANK:12
+SKILL:Climb			RANK:12
+SKILL:Concentration	RANK:12
+SKILL:Hide			RANK:12
+SKILL:Listen		RANK:12
+SKILL:Move Silently	RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spot			RANK:12
+SKILL:Intimidate		RANK:12
+SKILL:Tumble		RANK:12
+SKILL:Survival		RANK:12
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Track
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Basilisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Basilisk]
+RACE:Basilisk	!PRERACE:%
+NAME:Basilisk
+ALIGN:TN
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Hide		RANK:1
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Great Fortitude
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+
+STARTPACK:Default Basilisk (Abyssal/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Basilisk]
+RACE:Basilisk (Abyssal/Greater)	!PRERACE:%
+NAME:Abyssal Greater Basilisk
+ALIGN:CE
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:8
+SKILL:Hide		RANK:5
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Improved Natural Attack(Bite)
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus(Bite)
+STAT:STR=10|CON=11|CHA=11|DEX=10|INT=11|WIS=10
+
+STARTPACK:Default Behir	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Behir]
+ALIGN:TN
+RACE:Behir	!PRERACE:%
+NAME:Behir
+SKILL:Hide	RANK:12
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Power Attack
+FEAT:Track
+STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
+
+STARTPACK:Default Belker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Belker]
+ALIGN:NE
+RACE:Belker	!PRERACE:%
+NAME:Belker
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Multiattack
+FEAT:Weapon Finesse
+STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
+
+STARTPACK:Default Blink Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blink Dog]
+ALIGN:LG
+RACE:Blink Dog	!PRERACE:%
+NAME:Blink Dog
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Survival		RANK:3
+SKILL:Sense Motive	RANK:2
+FEAT:Iron Will
+FEAT:Run
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Bodak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bodak]
+RACE:Bodak	!PRERACE:%
+NAME:Bodak
+ALIGN:CE
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:8
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Weapon Focus(Slam)
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Bralani	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bralani]
+RACE:Bralani	!PRERACE:%
+NAME:Bralani
+ALIGN:CG
+SKILL:Concentration	RANK:9
+SKILL:Escape Artist	RANK:9
+SKILL:Handle Animal	RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+SKILL:Tumble		RANK:9
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Improved Initiative
+STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS1W.HOLY_R.BOWSTR|4
+GEAR:Scimitar			SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.HOLY_M
+
+STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bugbear]
+ALIGN:CE
+RACE:Bugbear	!PRERACE:%
+NAME:Bugbear
+SKILL:Climb			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Weapon Focus(Morningstar)
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+GEAR:Leather			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
+GEAR:Morningstar			SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Bulette	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bulette]
+RACE:Bulette	!PRERACE:%
+NAME:Bulette
+ALIGN:TN
+SKILL:Listen	RANK:6
+SKILL:Jump		RANK:6
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Track
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10

@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Apr 23 15:21:45 2003 -- reformated by prettylst.pl v1.27 (build 277)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+
+# Equipment Name		Product Identity?	Output Name				Type					Cost		Weight	Source Page
+Arrow (Wingripper)	NAMEISPI:YES	OUTPUTNAME:Wingripper Arrow	TYPE:Ammunition.Medium.Arrow	COST:.3	WT:.15	SOURCEPAGE:p.44

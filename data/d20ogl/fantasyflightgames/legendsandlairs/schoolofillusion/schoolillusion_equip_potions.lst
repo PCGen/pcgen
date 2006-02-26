@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jun  5 21:22:36 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# Original entry by: Ratheof Blithwyn
+
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page
+Potion (Perfect Placement)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:6500	WT:0		SOURCEPAGE:p.59
+Potion (Revulsion)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:1000	WT:0		SOURCEPAGE:p.59

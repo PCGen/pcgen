@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 15 17:04:12 2003 -- reformated by prettylst.pl v1.32 (build 339)
+CAMPAIGN:Fantasy Community Council - Netbook of Magical Treasures
+GAMEMODE:3e
+TYPE:FanCC.Web Enhancement
+RANK:6
+SOURCELONG:Netbook of Magical Treasures
+SOURCESHORT:NboMT
+SOURCEWEB:http://www.d20magicitems.org/
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:&copy 2002 Fan Community Council
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:FanCC_NBoMT.txt
+#EXTRAFILE:issues.txt
+#EXTRAFILE:Magical_Items.pdf
+
+# Equipment
+EQUIPMOD:magical_treasures_equipmod_magic.lst
+
+EQUIPMENT:magical_treasures_equip_armorshieldsspecific.lst
+EQUIPMENT:magical_treasures_equip_artifacts.lst
+EQUIPMENT:magical_treasures_equip_potions.lst
+EQUIPMENT:magical_treasures_equip_rings.lst
+EQUIPMENT:magical_treasures_equip_rodstaffswands.lst
+EQUIPMENT:magical_treasures_equip_scrolls.lst
+EQUIPMENT:magical_treasures_equip_weapammospecific.lst
+EQUIPMENT:magical_treasures_equip_weapmeleespecific.lst
+EQUIPMENT:magical_treasures_equip_weaprangedspecific.lst
+EQUIPMENT:magical_treasures_equip_wondrousitems.lst

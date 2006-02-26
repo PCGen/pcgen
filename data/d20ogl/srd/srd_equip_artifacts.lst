@@ -1,0 +1,32 @@
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+#Original Entry by: DJ Chair
+
+###Block:Minor Artifacts
+# Equipment Name			Required Proficiency	Type															Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page						Spell Res.	Spells																																													Weapon prop. bonus					Special Property
+Book of Infinite Spells						TYPE:Magic.Artifact.Minor											WT:3																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:This work bestows upon any character of any class the ability to use the spells within its pages
+Deck of Many Things						TYPE:Magic.Artifact.Minor											WT:0																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:See text
+Hammer of Thunderbolts		PROFICIENCY:Warhammer	TYPE:Magic.Artifact.Minor.Weapon.Martial.Melee.Metal.Thrown.Bludgeoning.Hammer.Specific	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:srdmagicitemsartifacts.rtf																																																	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement	SPROP:See text
+Philosopher's Stone						TYPE:Magic.Artifact.Minor											WT:3																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:See text
+Sphere of Annihilation						TYPE:Magic.Artifact.Minor											WT:0																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:Any matter that comes in contact with a sphere is instantly sucked into the void, gone, and utterly destroyed
+Staff of the Magi							TYPE:Magic.Artifact.Minor											WT:5																SOURCEPAGE:srdmagicitemsartifacts.rtf	SR:23		SPELLS:Artifact|TIMES=-1|Detect Magic|Enlarge|Hold Portal|Light|Mage Armor|Mage Hand	SPELLS:Artifact|TIMES=1|Dispel Magic|Fireball|Ice Storm|Invisibility|Knock|Lightning Bolt|Passwall|Plane Shift|Pyrotechnics|Summon Monster IX|Telekinesis|Wall of Fire|Web|Whirlwind									SPROP:Retributive Strike, See text
+Talisman of Pure Gold						TYPE:Magic.Artifact.Minor											WT:0																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:A good divine spellcaster who possesses this item can cause a flaming crack to open at the feet of an evil divine spellcaster who is up to 100 feet away
+Talisman of Ultimate Evil					TYPE:Magic.Artifact.Minor											WT:0																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:An evil divine spellcaster who possesses this item can cause a flaming crack to open at the feet of a good divine spellcaster who is up to 100 feet away
+Talisman of Reluctant Wishes					TYPE:Magic.Artifact.Minor											WT:1																SOURCEPAGE:srdmagicitemsartifacts.rtf																																																									SPROP:See text
+
+###Block:Major artifacts
+# Equipment Name		Type					Weight	Source Page						Spells						Special Property
+The Saint's Mace		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf	SPELLS:Artifact|TIMES=-1|Searing Light	SPROP:See text
+The Moaning Diamond	TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf	SPELLS:Artifact|TIMES=3|Stone Shape		SPROP:See text
+Black Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Fly once per round
+Blue Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Haste once per round
+Brass Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Teleport once per round
+Bronze Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Scrying once per round
+Copper Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Suggestion once per round
+Gold Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Special.
+Green Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Spectral force once per round
+Red Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Wall of Fire once per round
+Silver Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Cure Critical Wounds once per round
+White Dragon Orb		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text. Protection from Elements (cold only) once per round
+The Shadowstaff		TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text
+The Shield of the Sun	TYPE:Magic.Artifact.Major	WT:0		SOURCEPAGE:srdmagicitemsartifacts.rtf								SPROP:See text

@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Nov 18 04:21:56 2002 -- reformated by prettylst.pl v1.19 (build 213)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+# Equipment Name	Type						Cost		Weight	Source Page
+Harpoon Spear	TYPE:Ammunition.Exotic.Wooden.Spear	COST:5.0	WT:5.0	SOURCEPAGE:p.328

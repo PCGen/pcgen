@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue|SOURCESHORT:QuintRogue|SOURCEWEB:http://mongoosepublishing.com
+# Weapon Name		Type
+Blowgun			TYPE:Exotic
+Gauntlets (Clawed)	TYPE:Martial
+Lariat			TYPE:Exotic
+Crossbow (Sniper's)	TYPE:Exotic

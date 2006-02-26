@@ -1,0 +1,21 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jul 27 01:11:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+###Block: feats
+# Feat Name			Type			Required Class				Required Feat			Description																					Source Page
+Continual Power		TYPE:Metapsionic							PREFEAT:1,TYPE=Metapsionic	DESC:You can manifest a power that repeats its effect each round while you maintain concentration.						SOURCEPAGE:p.42
+Creature Capacitor	TYPE:Psionic							PREFEAT:1,Inner Strength	DESC:You can store part of your daily unused power points per day (equal to manifester level) in an internal crystal capacitor.	SOURCEPAGE:p.42
+Sequester Power		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Inner Strength	DESC:You get additional power points per day for every power you sequester.										SOURCEPAGE:p.42
+Transcend Limits		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3						DESC:Increase spending limit on metapsionically enhanced powers												SOURCEPAGE:p.42
+
+###Block : hidden feats for subdisciplines.
+# Feat Name					Type					Visible	Special Ability						BONUS:DC
+Psychometabolism Subdiscipline	TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Psychometabolism psionic subdiscipline.	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline
+Psychokinesis Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Psychokinesis psionic subdiscipline.		BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline
+Psychoportation Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Psychoportation psionic subdiscipline.		BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline
+Metacreativity Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Metacreativity psionic subdiscipline.		BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline
+Clairsentience Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Clairsentience psionic subdiscipline.		BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline
+Telepathy Subdiscipline			TYPE:Special.Subdiscipline	VISIBLE:NO	SA:Telepathy psionic subdiscipline.			BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
+
+###block: weapon proficiencies
+# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+Soulknife ITCK Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Sword (Short)

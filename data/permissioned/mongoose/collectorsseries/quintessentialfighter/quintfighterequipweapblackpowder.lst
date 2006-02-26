@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+#A tag needs to be made for accuracy penalties that these weapons suffer.
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+
+#Firearms ----------------------------------------------------------------------------------------------------------
+# Equipment Name			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Fuse Gun (Large)			TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder	COST:50	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.56
+Fuse Gun (Small)			TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder	COST:20	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12	RANGE:10	SIZE:S	SOURCEPAGE:p.56
+Matchlock Pistol			TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder	COST:300	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:30	SIZE:S	SOURCEPAGE:p.57
+Matchlock Rifle			TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder	COST:600	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12	RANGE:60	SIZE:M	SOURCEPAGE:p.57
+Wheelock/Flintlock Pistol	TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder	COST:750	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S	SOURCEPAGE:p.57
+Wheelock/Flintlock Rifle	TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder	COST:1200	WT:11		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12	RANGE:100	SIZE:M	SOURCEPAGE:p.57
+
+#Ammunition
+Blackpowder (100)			TYPE:Ammunition.Blackpowder						COST:60	WT:1																SOURCEPAGE:p.57
+Blackpowder				TYPE:Ammunition.Blackpowder						COST:.6	WT:.01															SOURCEPAGE:p.57
+

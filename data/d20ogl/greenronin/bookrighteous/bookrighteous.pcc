@@ -1,0 +1,33 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $
+CAMPAIGN:Green Ronin - Arcana - The Book of the Righteous
+RANK:9
+GAMEMODE:3e
+PUBNAMELONG:Green Ronin
+PUBNAMESHORT:Ronin
+PUBNAMEWEB:http://www.greenronin.com
+TYPE:Green Ronin Publishing.Supplement
+SOURCELONG:Arcana - The Book of the Righteous
+SOURCESHORT:BookRight
+SOURCEWEB:http://www.greenronin.com
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Creature Catalog, 2001, Scott Green, http://www.enworld.org/cc
+COPYRIGHT:The Book of the Righteous, Copyright 2002, Aaron Loeb
+COPYRIGHT:PCGen dataset conversion for The Book of the Righteous, Copyright 2002-2004, PCGen Data Team (including, but not limited to: Michael Beaver, Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:ogl.txt
+#EXTRAFILE:errata.txt
+
+CLASS:bookrighteous_classes.lst
+CLASS:bookrighteous_classes_prestige.lst
+DEITY:bookrighteous_deities.lst
+DOMAIN:bookrighteous_domains.lst
+FEAT:bookrighteous_feats.lst
+FEAT:bookrighteous_feats_hidden.lst
+SKILL:bookrighteous_skills.lst
+SPELL:bookrighteous_spells.lst
+RACE:bookrighteous_races.lst
+EQUIPMENT:bookrighteous_equip_wondrousitems.lst
+EQUIPMENT:bookrighteous_equip_artifacts.lst
+EQUIPMENT:bookrighteous_equip_staffs.lst

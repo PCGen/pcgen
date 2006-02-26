@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE lookuptable SYSTEM "../encounter.dtd" >
+<lookuptable name="table 4-1">
+	<row>
+<!-- Encounter Level -->
+		<item>EL</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+		<item>10</item>
+		<item>11</item>
+		<item>12</item>
+		<item>Matched</item>
+		<item>Mixed1</item>
+		<item>Mixed2</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>1</item>
+<!-- one creature -->
+		<item>1</item>
+<!-- two creature -->
+		<item>1/2</item>
+<!-- three creature -->
+		<item>1/3</item>
+<!-- four creature -->
+		<item>1/4</item>
+<!-- five creature -->
+		<item>1/6</item>
+<!-- six creature -->
+		<item>1/6</item>
+<!-- seven creature -->
+		<item>1/8</item>
+<!-- eight creature -->
+		<item>1/8</item>
+<!-- nine creature -->
+		<item>1/8</item>
+<!-- ten creature -->
+		<item>1/8</item>
+<!-- eleven creature -->
+		<item>1/8</item>
+<!-- twelve creature -->
+		<item>1/8</item>
+<!-- matched pair creature -->
+		<item>1/2</item>
+<!-- mixed pair creature one -->
+		<item>1/2</item>
+<!-- mixed pair creature two -->
+		<item>1/3</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>2</item>
+<!-- one creature -->
+		<item>2</item>
+<!-- two creature -->
+		<item>1</item>
+<!-- three creature -->
+		<item>1/2</item>
+<!-- four creature -->
+		<item>1/2</item>
+<!-- five creature -->
+		<item>1/3</item>
+<!-- six creature -->
+		<item>1/3</item>
+<!-- seven creature -->
+		<item>1/4</item>
+<!-- eight creature -->
+		<item>1/4</item>
+<!-- nine creature -->
+		<item>1/4</item>
+<!-- ten creature -->
+		<item>1/6</item>
+<!-- eleven creature -->
+		<item>1/6</item>
+<!-- twelve creature -->
+		<item>1/6</item>
+<!-- matched pair creature -->
+		<item>1</item>
+<!-- mixed pair creature one -->
+		<item>1</item>
+<!-- mixed pair creature two -->
+		<item>1/2</item>
+	</row>	
+	<row>
+<!-- Encounter Level -->
+		<item>3</item>
+<!-- one creature -->
+		<item>3</item>
+<!-- two creature -->
+		<item>2</item>
+<!-- three creature -->
+		<item>1</item>
+<!-- four creature -->
+		<item>1</item>
+<!-- five creature -->
+		<item>1/2</item>
+<!-- six creature -->
+		<item>1/2</item>
+<!-- seven creature -->
+		<item>1/3</item>
+<!-- eight creature -->
+		<item>1/3</item>
+<!-- nine creature -->
+		<item>1/4</item>
+<!-- ten creature -->
+		<item>1/4</item>
+<!-- eleven creature -->
+		<item>1/4</item>
+<!-- twelve creature -->
+		<item>1/4</item>
+<!-- matched pair creature -->
+		<item>1</item>
+<!-- mixed pair creature one -->
+		<item>2</item>
+<!-- mixed pair creature two -->
+		<item>1</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>4</item>
+<!-- one creature -->
+		<item>4</item>
+<!-- two creature -->
+		<item>2</item>
+<!-- three creature -->
+		<item>2</item>
+<!-- four creature -->
+		<item>1</item>
+<!-- five creature -->
+		<item>1</item>
+<!-- six creature -->
+		<item>1/2</item>
+<!-- seven creature -->
+		<item>1/2</item>
+<!-- eight creature -->
+		<item>1/2</item>
+<!-- nine creature -->
+		<item>1/3</item>
+<!-- ten creature -->
+		<item>1/3</item>
+<!-- eleven creature -->
+		<item>1/3</item>
+<!-- twelve creature -->
+		<item>1/3</item>
+<!-- matched pair creature -->
+		<item>2</item>
+<!-- mixed pair creature one -->
+		<item>3</item>
+<!-- mixed pair creature two -->
+		<item>1</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>5</item>
+<!-- one creature -->
+		<item>5</item>
+<!-- two creature -->
+		<item>3</item>
+<!-- three creature -->
+		<item>2</item>
+<!-- four creature -->
+		<item>1</item>
+<!-- five creature -->
+		<item>1</item>
+<!-- six creature -->
+		<item>1</item>
+<!-- seven creature -->
+		<item>1/2</item>
+<!-- eight creature -->
+		<item>1/2</item>
+<!-- nine creature -->
+		<item>1/2</item>
+<!-- ten creature -->
+		<item>1/2</item>
+<!-- eleven creature -->
+		<item>1/2</item>
+<!-- twelve creature -->
+		<item>1/2</item>
+<!-- matched pair creature -->
+		<item>3</item>
+<!-- mixed pair creature one -->
+		<item>4</item>
+<!-- mixed pair creature two -->
+		<item>2</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>6</item>
+<!-- one creature -->
+		<item>6</item>
+<!-- two creature -->
+		<item>4</item>
+<!-- three creature -->
+		<item>3</item>
+<!-- four creature -->
+		<item>2</item>
+<!-- five creature -->
+		<item>2</item>
+<!-- six creature -->
+		<item>1</item>
+<!-- seven creature -->
+		<item>1</item>
+<!-- eight creature -->
+		<item>1</item>
+<!-- nine creature -->
+		<item>1</item>
+<!-- ten creature -->
+		<item>1/2</item>
+<!-- eleven creature -->
+		<item>1/2</item>
+<!-- twelve creature -->
+		<item>1/2</item>
+<!-- matched pair creature -->
+		<item>4</item>
+<!-- mixed pair creature one -->
+		<item>5</item>
+<!-- mixed pair creature two -->
+		<item>3</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>7</item>
+<!-- one creature -->
+		<item>7</item>
+<!-- two creature -->
+		<item>5</item>
+<!-- three creature -->
+		<item>4</item>
+<!-- four creature -->
+		<item>3</item>
+<!-- five creature -->
+		<item>2</item>
+<!-- six creature -->
+		<item>2</item>
+<!-- seven creature -->
+		<item>1</item>
+<!-- eight creature -->
+		<item>1</item>
+<!-- nine creature -->
+		<item>1</item>
+<!-- ten creature -->
+		<item>1/2</item>
+<!-- eleven creature -->
+		<item>1/2</item>
+<!-- twelve creature -->
+		<item>1/2</item>
+<!-- matched pair creature -->
+		<item>5</item>
+<!-- mixed pair creature one -->
+		<item>6</item>
+<!-- mixed pair creature two -->
+		<item>4</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>8</item>
+<!-- one creature -->
+		<item>8</item>
+<!-- two creature -->
+		<item>6</item>
+<!-- three creature -->
+		<item>5</item>
+<!-- four creature -->
+		<item>4</item>
+<!-- five creature -->
+		<item>3</item>
+<!-- six creature -->
+		<item>3</item>
+<!-- seven creature -->
+		<item>2</item>
+<!-- eight creature -->
+		<item>2</item>
+<!-- nine creature -->
+		<item>2</item>
+<!-- ten creature -->
+		<item>1</item>
+<!-- eleven creature -->
+		<item>1</item>
+<!-- twelve creature -->
+		<item>1</item>
+<!-- matched pair creature -->
+		<item>6</item>
+<!-- mixed pair creature one -->
+		<item>7</item>
+<!-- mixed pair creature two -->
+		<item>5</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>9</item>
+<!-- one creature -->
+		<item>9</item>
+<!-- two creature -->
+		<item>8</item>
+<!-- three creature -->
+		<item>7</item>
+<!-- four creature -->
+		<item>6</item>
+<!-- five creature -->
+		<item>5</item>
+<!-- six creature -->
+		<item>4</item>
+<!-- seven creature -->
+		<item>3</item>
+<!-- eight creature -->
+		<item>3</item>
+<!-- nine creature -->
+		<item>3</item>
+<!-- ten creature -->
+		<item>2</item>
+<!-- eleven creature -->
+		<item>2</item>
+<!-- twelve creature -->
+		<item>2</item>
+<!-- matched pair creature -->
+		<item>7</item>
+<!-- mixed pair creature one -->
+		<item>8</item>
+<!-- mixed pair creature two -->
+		<item>6</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>10</item>
+<!-- one creature -->
+		<item>10</item>
+<!-- two creature -->
+		<item>8</item>
+<!-- three creature -->
+		<item>7</item>
+<!-- four creature -->
+		<item>6</item>
+<!-- five creature -->
+		<item>5</item>
+<!-- six creature -->
+		<item>5</item>
+<!-- seven creature -->
+		<item>4</item>
+<!-- eight creature -->
+		<item>4</item>
+<!-- nine creature -->
+		<item>4</item>
+<!-- ten creature -->
+		<item>3</item>
+<!-- eleven creature -->
+		<item>3</item>
+<!-- twelve creature -->
+		<item>3</item>
+<!-- matched pair creature -->
+		<item>8</item>
+<!-- mixed pair creature one -->
+		<item>9</item>
+<!-- mixed pair creature two -->
+		<item>7</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>11</item>
+<!-- one creature -->
+		<item>11</item>
+<!-- two creature -->
+		<item>9</item>
+<!-- three creature -->
+		<item>8</item>
+<!-- four creature -->
+		<item>7</item>
+<!-- five creature -->
+		<item>6</item>
+<!-- six creature -->
+		<item>6</item>
+<!-- seven creature -->
+		<item>5</item>
+<!-- eight creature -->
+		<item>5</item>
+<!-- nine creature -->
+		<item>5</item>
+<!-- ten creature -->
+		<item>4</item>
+<!-- eleven creature -->
+		<item>4</item>
+<!-- twelve creature -->
+		<item>4</item>
+<!-- matched pair creature -->
+		<item>9</item>
+<!-- mixed pair creature one -->
+		<item>10</item>
+<!-- mixed pair creature two -->
+		<item>8</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>12</item>
+<!-- one creature -->
+		<item>12</item>
+<!-- two creature -->
+		<item>10</item>
+<!-- three creature -->
+		<item>9</item>
+<!-- four creature -->
+		<item>8</item>
+<!-- five creature -->
+		<item>7</item>
+<!-- six creature -->
+		<item>7</item>
+<!-- seven creature -->
+		<item>6</item>
+<!-- eight creature -->
+		<item>6</item>
+<!-- nine creature -->
+		<item>6</item>
+<!-- ten creature -->
+		<item>5</item>
+<!-- eleven creature -->
+		<item>5</item>
+<!-- twelve creature -->
+		<item>5</item>
+<!-- matched pair creature -->
+		<item>10</item>
+<!-- mixed pair creature one -->
+		<item>11</item>
+<!-- mixed pair creature two -->
+		<item>9</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>13</item>
+<!-- one creature -->
+		<item>13</item>
+<!-- two creature -->
+		<item>11</item>
+<!-- three creature -->
+		<item>10</item>
+<!-- four creature -->
+		<item>9</item>
+<!-- five creature -->
+		<item>8</item>
+<!-- six creature -->
+		<item>8</item>
+<!-- seven creature -->
+		<item>7</item>
+<!-- eight creature -->
+		<item>7</item>
+<!-- nine creature -->
+		<item>7</item>
+<!-- ten creature -->
+		<item>6</item>
+<!-- eleven creature -->
+		<item>6</item>
+<!-- twelve creature -->
+		<item>6</item>
+<!-- matched pair creature -->
+		<item>11</item>
+<!-- mixed pair creature one -->
+		<item>12</item>
+<!-- mixed pair creature two -->
+		<item>10</item>
+	</row>
+	<row>
+<!-- Encounter Level -->
+		<item>14</item>
+<!-- one creature -->
+		<item>14</item>
+<!-- two creature -->
+		<item>12</item>
+<!-- three creature -->
+		<item>11</item>
+<!-- four creature -->
+		<item>10</item>
+<!-- five creature -->
+		<item>9</item>
+<!-- six creature -->
+		<item>9</item>
+<!-- seven creature -->
+		<item>8</item>
+<!-- eight creature -->
+		<item>8</item>
+<!-- nine creature -->
+		<item>8</item>
+<!-- ten creature -->
+		<item>7</item>
+<!-- eleven creature -->
+		<item>7</item>
+<!-- twelve creature -->
+		<item>7</item>
+<!-- matched pair creature -->
+		<item>12</item>
+<!-- mixed pair creature one -->
+		<item>13</item>
+<!-- mixed pair creature two -->
+		<item>11</item>
+	</row>
+
+	<row>
+<!-- Encounter Level -->
+		<item>15</item>
+<!-- one creature -->
+		<item>15</item>
+<!-- two creature -->
+		<item>13</item>
+<!-- three creature -->
+		<item>12</item>
+<!-- four creature -->
+		<item>11</item>
+<!-- five creature -->
+		<item>10</item>
+<!-- six creature -->
+		<item>10</item>
+<!-- seven creature -->
+		<item>9</item>
+<!-- eight creature -->
+		<item>9</item>
+<!-- nine creature -->
+		<item>9</item>
+<!-- ten creature -->
+		<item>8</item>
+<!-- eleven creature -->
+		<item>8</item>
+<!-- twelve creature -->
+		<item>8</item>
+<!-- matched pair creature -->
+		<item>13</item>
+<!-- mixed pair creature one -->
+		<item>14</item>
+<!-- mixed pair creature two -->
+		<item>12</item>
+	</row>
+
+
+	<row>
+<!-- Encounter Level -->
+		<item>16</item>
+<!-- one creature -->
+		<item>16</item>
+<!-- two creature -->
+		<item>14</item>
+<!-- three creature -->
+		<item>13</item>
+<!-- four creature -->
+		<item>12</item>
+<!-- five creature -->
+		<item>11</item>
+<!-- six creature -->
+		<item>11</item>
+<!-- seven creature -->
+		<item>10</item>
+<!-- eight creature -->
+		<item>10</item>
+<!-- nine creature -->
+		<item>10</item>
+<!-- ten creature -->
+		<item>9</item>
+<!-- eleven creature -->
+		<item>9</item>
+<!-- twelve creature -->
+		<item>9</item>
+<!-- matched pair creature -->
+		<item>14</item>
+<!-- mixed pair creature one -->
+		<item>15</item>
+<!-- mixed pair creature two -->
+		<item>13</item>
+	</row>
+
+	<row>
+<!-- Encounter Level -->
+		<item>17</item>
+<!-- one creature -->
+		<item>17</item>
+<!-- two creature -->
+		<item>15</item>
+<!-- three creature -->
+		<item>14</item>
+<!-- four creature -->
+		<item>13</item>
+<!-- five creature -->
+		<item>12</item>
+<!-- six creature -->
+		<item>12</item>
+<!-- seven creature -->
+		<item>11</item>
+<!-- eight creature -->
+		<item>11</item>
+<!-- nine creature -->
+		<item>11</item>
+<!-- ten creature -->
+		<item>10</item>
+<!-- eleven creature -->
+		<item>10/</item>
+<!-- twelve creature -->
+		<item>10</item>
+<!-- matched pair creature -->
+		<item>15</item>
+<!-- mixed pair creature one -->
+		<item>16</item>
+<!-- mixed pair creature two -->
+		<item>14</item>
+	</row>
+
+	<row>
+<!-- Encounter Level -->
+		<item>18</item>
+<!-- one creature -->
+		<item>18</item>
+<!-- two creature -->
+		<item>16</item>
+<!-- three creature -->
+		<item>15</item>
+<!-- four creature -->
+		<item>14</item>
+<!-- five creature -->
+		<item>13</item>
+<!-- six creature -->
+		<item>13</item>
+<!-- seven creature -->
+		<item>12</item>
+<!-- eight creature -->
+		<item>12</item>
+<!-- nine creature -->
+		<item>12</item>
+<!-- ten creature -->
+		<item>11</item>
+<!-- eleven creature -->
+		<item>11/</item>
+<!-- twelve creature -->
+		<item>11</item>
+<!-- matched pair creature -->
+		<item>16</item>
+<!-- mixed pair creature one -->
+		<item>17</item>
+<!-- mixed pair creature two -->
+		<item>15</item>
+	</row>
+
+	<row>
+<!-- Encounter Level -->
+		<item>19</item>
+<!-- one creature -->
+		<item>19</item>
+<!-- two creature -->
+		<item>17</item>
+<!-- three creature -->
+		<item>16</item>
+<!-- four creature -->
+		<item>15</item>
+<!-- five creature -->
+		<item>14</item>
+<!-- six creature -->
+		<item>14</item>
+<!-- seven creature -->
+		<item>13</item>
+<!-- eight creature -->
+		<item>13</item>
+<!-- nine creature -->
+		<item>13</item>
+<!-- ten creature -->
+		<item>12</item>
+<!-- eleven creature -->
+		<item>12/</item>
+<!-- twelve creature -->
+		<item>12</item>
+<!-- matched pair creature -->
+		<item>17</item>
+<!-- mixed pair creature one -->
+		<item>18</item>
+<!-- mixed pair creature two -->
+		<item>16</item>
+	</row>
+
+	<row>
+<!-- Encounter Level -->
+		<item>20</item>
+<!-- one creature -->
+		<item>20</item>
+<!-- two creature -->
+		<item>18</item>
+<!-- three creature -->
+		<item>17</item>
+<!-- four creature -->
+		<item>16</item>
+<!-- five creature -->
+		<item>15</item>
+<!-- six creature -->
+		<item>15</item>
+<!-- seven creature -->
+		<item>14</item>
+<!-- eight creature -->
+		<item>14</item>
+<!-- nine creature -->
+		<item>14</item>
+<!-- ten creature -->
+		<item>13</item>
+<!-- eleven creature -->
+		<item>13/</item>
+<!-- twelve creature -->
+		<item>13</item>
+<!-- matched pair creature -->
+		<item>18</item>
+<!-- mixed pair creature one -->
+		<item>19</item>
+<!-- mixed pair creature two -->
+		<item>17</item>
+	</row>
+</lookuptable>

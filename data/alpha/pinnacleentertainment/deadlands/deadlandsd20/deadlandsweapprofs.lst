@@ -1,0 +1,63 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Weapon Name					Type			Nb Hands
+Axe (Wood)						TYPE:Simple
+Ballard '72 (Rifle)				TYPE:Rifle
+Bolas							TYPE:Exotic
+Brass Knuckles					TYPE:Simple
+Cavalry Saber					TYPE:Martial
+Club							TYPE:Simple
+Club (Small)					TYPE:Simple
+Colt Army (Pistol/SA)				TYPE:Pistol
+Colt Buntline Special (Pistol/SA)		TYPE:Pistol
+Colt Dragoon (Pistol/SA)			TYPE:Pistol
+Colt Frontier 1873 (Pistol/SA)		TYPE:Pistol
+Colt Lightning (Pistol/DA)			TYPE:Pistol
+Colt Navy (Pistol/SA)				TYPE:Pistol
+Colt Peacemaker (Pistol/SA)			TYPE:Pistol
+Colt Revolving Shotgun (Shotgun)		TYPE:Shotgun
+Colt Thunderer (Pistol/DA)			TYPE:Pistol
+Colt-Patterson Model 36 (Rifle)		TYPE:Rifle
+Derringer (Derringer/SA)			TYPE:Pistol
+Double Barrel (Shotgun)				TYPE:Shotgun
+Dynamite stick					TYPE:Simple
+Enfield Musket (Rifle)				TYPE:Rifle
+Flamethrower					TYPE:Exotic
+Gatling Gun						TYPE:Automatic
+Gatling Pistol					TYPE:Automatic
+Gunnison Independence (Pistol/SA)		TYPE:Pistol
+Gunnison Rubicon (Pistol/DA)			TYPE:Pistol
+Hatchet						TYPE:Simple
+Henry Rifle (Rifle)				TYPE:Rifle
+Knife (Bowie)					TYPE:Simple
+Knife (Flint/Bone)				TYPE:Simple
+Knife (Hunting)					TYPE:Simple
+Knuckle-Duster (Derringer/SA)			TYPE:Pistol
+Lance							TYPE:Simple
+Lariat						TYPE:Exotic
+LeMat Pistol and Shotgun (Pistol/SA)	TYPE:Pistol
+Nitro (Vial)					TYPE:Simple
+Pick-axe						TYPE:Exotic
+Rifle Bayonet					TYPE:Exotic		HANDS:2
+Rupertus Pepperbox (Derringer/SA)		TYPE:Pistol
+Scattergun (Shotgun)				TYPE:Shotgun
+Sharps Big .50 (Rifle)				TYPE:Rifle
+Sharps Carbine (Rifle)				TYPE:Rifle
+Shortbow						TYPE:Martial	HANDS:2
+Shortbow (Composite)				TYPE:Martial	HANDS:2
+Single Barrel (Shotgun)				TYPE:Shotgun
+Skullcrusher					TYPE:Simple
+Spencer Carbine .56 (Rifle)			TYPE:Rifle
+Springfield .58 (Rifle)				TYPE:Rifle
+Smith and Wesson Schofield (Pistol/SA)	TYPE:Pistol
+Starr Army Revolver (Pistol/DA)		TYPE:Pistol
+Tomahawk						TYPE:Simple
+Tyler Alamo (Pistol/SA)				TYPE:Pistol
+Tyler Texan (Rifle)				TYPE:Rifle
+Unarmed Strike					TYPE:Simple
+War Club (Bladed)					TYPE:Simple
+Wesson Dagger-Pistol (Derringer/SA)		TYPE:Pistol
+Winchester '73 (Rifle)				TYPE:Rifle
+Winchester '76 (Rifle)				TYPE:Rifle
+Winchester Lever-Action (Shotgun)		TYPE:Shotgun

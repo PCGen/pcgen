@@ -1,0 +1,22 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:Avalanche - Jade and Steel
+GAMEMODE:3e
+TYPE:Avalanche Press.Supplement
+RANK:9
+SOURCELONG:Avalanche Press - Jade and Steel
+SOURCESHORT:JadeSteel
+SOURCEWEB:http://www.avalanchepress.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Jade and Steel Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:jadesteelclasses.lst
+FEAT:jadesteelfeats.lst
+#EQUIPMENT:jadesteelequipwondrousitems.lst
+EQUIPMENT:jadesteelequipweapmelee.lst
+
+
+

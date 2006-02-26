@@ -1,0 +1,19 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Thu Aug 12 22:12:40 2004 -- reformated by prettylst.pl v1.33 (build 411)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+# Psionic Attacks
+
+# Weapon Name	Type			Nb Hands
+Static Charge	TYPE:Psionic	HANDS:0
+Cryokinesis		TYPE:Psionic	HANDS:0
+Photokinesis	TYPE:Psionic	HANDS:0
+Pyrokinesis		TYPE:Psionic	HANDS:0
+Poltergeist		TYPE:Psionic	HANDS:0
+
+#
+# End
+#

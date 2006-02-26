@@ -1,0 +1,32 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Oct 23 02:07:46 2005 -- reformated by prettylst.pl v1.35 (build 487)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Paul King
+
+# Class Name		Hit Dice	Type			Max Level	Source Page				Save checks bonus												Combat bonus		Modify VAR
+CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Req. Att.	Required Feat																															Required Skill
+CLASS:Psionic Agent	PREATT:2	PREFEAT:1,Wild Talent (Burst),Wild Talent (Daze),Wild Talent (Detect Psionics),Wild Talent (Far Hand),Wild Talent (Far Punch),Wild Talent (Finger of Fire),Wild Talent (Missive),Wild Talent (Verve)	PRESKILL:2,Hide,Move Silently=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Psionic Agent	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Agent|CL
+###Block: powers
+1	SPELLLEVEL:CLASS|Psionic Agent=0|Burst,Detect Psionics,Far Punch,Finger of Fire,Missive,Verve
+1	SPELLLEVEL:CLASS|Psionic Agent=1|Combat Precognition,Lesser Concussion
+1	SPELLLEVEL:CLASS|Psionic Agent=2|Combat Focus,Combat Prescience,Darkvision,Levitate,Sensitivity to Psychic Impressions
+1	SPELLLEVEL:CLASS|Psionic Agent=3|Metaphysical Weapon
+###Block: standard
+1	KNOWN:2		SA:Psionic Skills		BONUS:VAR|PowerPoints|2	DEFINE:PowerPoints|0
+2	KNOWN:3						BONUS:VAR|PowerPoints|1													FEATAUTO:Psionic Focus
+3	KNOWN:3,1						BONUS:VAR|PowerPoints|1					ADD:FEAT(TYPE=PsionicAgent,TYPE=Metapsionic)
+4	KNOWN:3,2		SA:Draw Power		BONUS:VAR|PowerPoints|1
+5	KNOWN:3,3,1		SA:Charged Shot		BONUS:VAR|PowerPoints|3
+6	KNOWN:3,3,2						BONUS:VAR|PowerPoints|3					ADD:FEAT(TYPE=PsionicAgent,TYPE=Metapsionic)
+7	KNOWN:3,3,2,1	SA:Combat Manifestation	BONUS:VAR|PowerPoints|5
+8	KNOWN:3,3,3,1					BONUS:VAR|PowerPoints|5													FEATAUTO:Power Penetration
+9	KNOWN:3,3,3,2					BONUS:VAR|PowerPoints|5					ADD:FEAT(TYPE=PsionicAgent,TYPE=Metapsionic)
+10	KNOWN:3,3,3,2,1	SA:Deadly Aim		BONUS:VAR|PowerPoints|7
+
+#
+# End
+#

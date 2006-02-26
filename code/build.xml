@@ -1,0 +1,4490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+build.xml - an Ant build file for PCGEN
+
+$Id: build.xml,v 1.158 2006/02/22 00:49:08 soulcatcher Exp $
+
+====================================================================
+Warning: changes to the build.xml will _NOT_ be reflected in the
+autobuilds on rpg.plambert.net until plambert@plambert.net or
+wduncan@plambert.net are notified of the changes.  This is to ensure
+the security of the autobuild server.  Thanks!  -plambert
+====================================================================
+
+STANDARD TARGETS
+================
+
+fetch-devel - update from CVS read-write
+fetch-anon - update from CVS read-only
+fetch-data - export data files from PCGen:DM CVS read-only
+fetch-docs - export doc files from PCGenDocs CVS read-only
+fetch-sheets - export outputsheets files from PCGenDocs CVS read-only
+all - clean, [fetch-anon/devel], build, test, docs, deploy
+main - the default build process (build)
+clean - clean out the output directories
+real-clean - clean, clean-data, clean-docs, clean-sheets
+build - do an [incremental] build (compile, jar, extras)
+test - Run unit tests. Requires xxx?-optional.jar from Ant website,
+	   plus junit.jar to be in lib directory of ANT_HOME.
+run - Run PCGen
+docs - do the API documenation (targets pcgen/doc/api)
+deploy - ship the jars, wars, whatever to the execution system
+
+complete - runs clean fetch-data fetch-docs fetch-sheets fetch-devel all; for testing complete cycle
+
+BUILD
+=====
+
+Build uses new target directories pcgen/build and pcgen/bin.
+
+Once you run build (after clean) you should be able to run
+the resulting jar file.  There is a batch file "pcgendev.bat" which
+copies pcgen.jar from the bin directory and runs the program.
+
+DEPLOY
+======
+
+Uses target directory pcgen/dist and creates zip files for
+pcgen.zip, data.zip, manual.zip, jars.zip and src.jar.
+These files can be renamed and used for releases.
+
+-->
+
+<project name="pcgen" default="main" basedir=".">
+
+	<property name="bin.dir" value="bin" />
+	<property name="build.dir" value="build" />
+	<property name="build.classes.dir" value="${build.dir}/classes" />
+	<property name="build.testclasses.dir" value="${build.dir}/testclasses" />
+	<property name="build.src.dir" value="${build.dir}/src" />
+	<property name="build.rpt.dir" value="${build.dir}/rpt" />
+	<property name="coverage.dir" value="${build.dir}/coverage" />
+	<property name="coverage.rpt.dir" value="${build.rpt.dir}/coverage" />
+	<property name="dist.dir" value="${basedir}/dist" />
+	<property name="doc.dir" value="${basedir}/doc/api" />
+	<property name="etc.dir" value="${basedir}/etc" />
+	<property name="plugins.dir" value="${basedir}/plugins" />
+	<property name="outputplugins.dir" value="${plugins.dir}/outputplugins" />
+	<property name="lstplugins.dir" value="${plugins.dir}/lstplugins" />
+	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
+	<property name="src.java.dir" value="${basedir}/src/java" />
+	<property name="src.test.java.dir" value="${basedir}/src/test" />
+	<property name="lib.dir" value="lib" />
+	<property name="lib.ncss" value="${basedir}/lib/javancss" />
+	<property name="plugin.dir" value="${basedir}/plugins" />
+		<!-- TODO: go back to ${basedir}/data}; c:\foo/data v. data -->
+	<property name="src.data.dir" value="data" />
+	<property name="src.docs.dir" value="docs" />
+	<property name="src.outputsheets.dir" value="outputsheets" />
+	<property name="docs.manual.dir" value="${basedir}/doc/" />
+	<property name="docs.overview" value="${src.java.dir}/pcgen/overview.html" />
+	<property name="src.xml.dir" value="${basedir}/xml" />
+
+	<!-- For anonymous CVS -->
+	<property name="fetch.passfile" value="anon-cvs.passfile" />
+	<property name="fetch.cvsroot" value=":pserver:anonymous@cvs.sourceforge.net/cvsroot" />
+
+	<!-- Choose compiler. Values are "classic", "modern", "jikes", "jvc"-->
+	<property name="build.compiler" value="modern" />
+
+	<!-- For writing the jar -->
+	<property name="jar.bin.file" value="pcgen.jar" />
+	<property name="jar.extra.jars" value="xercesImpl-2.5.0.jar avalon-framework-cvs-20020806.jar xml-apis.jar xalan-2.5.2.jar batik.jar fop.jar kunststoff.jar skinlf.jar wraplf.jar jep-2.24.jar jdom.jar MRJ141Stubs.jar djep-2.24.jar RngPack-1.1a.jar tracerapi.jar" />
+	<property name="manifest.file" value="manifest" />
+	<property name="manifest.main.class" value="pcgen.core.Main" />
+	<property name="default.main.class" value="pcgen.gui.pcGenGUI" />
+	<property name="manifest.extra.jars" value="${lib.dir}/xercesImpl-2.5.0.jar ${lib.dir}/avalon-framework-cvs-20020806.jar ${lib.dir}/xml-apis.jar ${lib.dir}/xalan-2.5.2.jar ${lib.dir}/batik.jar ${lib.dir}/fop.jar ${lib.dir}/kunststoff.jar ${lib.dir}/skinlf.jar ${lib.dir}/wraplf.jar ${lib.dir}/jep-2.24.jar ${lib.dir}/jdom.jar ${lib.dir}/MRJ141Stubs.jar ${lib.dir}/djep-2.24.jar ${lib.dir}/RngPack-1.1a.jar ${lib.dir}/tracerapi.jar" />
+
+	<!-- Text files always shipped along -->
+	<property name="project.install.file" value="INSTALL" />
+	<property name="project.license.file" value="LICENSE" />
+	<property name="project.readme.file" value="README" />
+	<property name="project.todo.file" value="TODO" />
+
+	<property name="project.dist.files" value="${project.license.file} ${project.install.file} ${project.readme.file} ${project.todo.file}" />
+
+	<!-- For installation -->
+	<property name="bin.pcgen.bat" value="pcgen.bat" />
+	<property name="bin.pcgenlowmem.bat" value="pcgen_low_mem.bat" />
+	<property name="bin.pcgen.sh" value="pcgen.sh" />
+
+	<!-- For packaging -->
+	<property name="jar.src.file" value="src.jar" />
+	<property name="zip.bins.file" value="pcgen.zip" />
+	<property name="zip.resources.file" value="data.zip" />
+	<property name="zip.jars.file" value="jars.zip" />
+	<property name="zip.manual.file" value="manual.zip" />
+	<property name="zip.autobuild.file" value="autobuild.zip"/>
+
+	<path id="project.classpath">
+		<pathelement path="${build.classes.dir}" />
+		<pathelement location="${bin.dir}/${jar.bin.file}" />
+		<fileset dir="${lib.dir}" includes="${jar.extra.jars}" />
+	</path>
+
+	<path id="javadoc.classpath">
+		<pathelement path="${build.classes.dir} ${lib.dir}/junit.jar" />
+		<pathelement location="${bin.dir}/${jar.bin.file}" />
+		<fileset dir="${lib.dir}" includes="${jar.extra.jars}" />
+	</path>
+
+
+	<!-- For testing -->
+	<property name="test.jar.file" value="pcgen-tests.jar" />
+	<property name="test.manifest.file" value="manifest-tests" />
+	<property name="test.framework.class" value="AllJUnitTests" />
+	<property name="test.jar.extra.jars" value="${jar.extra.jars} junit.jar xmlunit1.0.jar" />
+	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${lib.dir}/junit.jar ${lib.dir}/xmlunit1.0.jar" />
+	<property name="test.all-output.file" value="TEST-test.AllJUnitTests.txt" />
+
+	<property name="test.bin.pcgen.bat" value="pcgen-tests.bat" />
+	<property name="test.bin.pcgen.sh" value="pcgen-tests.sh" />
+
+	<path id="test.project.classpath">
+		<pathelement path="${build.classes.dir}" />
+		<pathelement path="${build.testclasses.dir}" />
+		<pathelement location="${bin.dir}/${jar.bin.file}" />
+		<pathelement location="${bin.dir}/${test.jar.file}" />
+		<fileset dir="${lib.dir}" includes="${test.jar.extra.jars}" />
+	</path>
+
+
+	<!-- Internal targets:
+	   init, init-release, compile, jar (link), staging
+-->
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.classes.dir}" />
+		<mkdir dir="${build.testclasses.dir}" />
+		<mkdir dir="${build.dir}/test-results/xml" />
+		<mkdir dir="${build.src.dir}/pcgen/util" />
+		<mkdir dir="${build.rpt.dir}" />
+	</target>
+
+	<target name="compile-compile" depends="init, properties" description="Compile JavaCC sources">
+		<javacc target="${src.java.dir}/pcgen/util/DiceExpression.jj" javacchome="${lib.dir}" outputdirectory="${build.src.dir}/pcgen/util" />
+	</target>
+
+	<target name="compile" depends="compile-compile" description="Compile Java sources">
+		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.4" target="1.4" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="compile13" depends="compile-compile">
+		<javac debug="true" deprecation="true" destdir="${build.classes.dir}" srcdir="${src.java.dir}:${build.src.dir}" excludes="plugin/**,gmgen/**" memoryInitialSize="128m" memoryMaximumSize="512m">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="compile-optimize" depends="compile-compile" description="Compile Java sources">
+		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="No" optimize="Yes" memoryInitialSize="128m" memoryMaximumSize="512m">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="properties" depends="init" description="Copy property files">
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${src.java.dir}" includes="**/*.properties" />
+			<fileset dir="${src.java.dir}" includes="**/*.gif" />
+			<fileset dir="${src.java.dir}" includes="**/*.png" />
+			<fileset dir="${src.java.dir}" includes="**/*.jpg" />
+		</copy>
+	</target>
+
+	<target name="jar" depends="compile, manifest" description="Build (Link) program jar files">
+		<mkdir dir="${bin.dir}" />
+		<jar jarfile="${bin.dir}/${jar.bin.file}" manifest="${manifest.file}">
+			<fileset dir="${src.java.dir}" includes="images/" />
+			<fileset dir="${build.classes.dir}" excludes="test/**,src/**,plugin/**" />
+			<fileset dir="." includes="${project.license.file}" />
+		</jar>
+	</target>
+
+	<target name="jar-plugin" depends="manifest,makedirs" description="Build (Link) plugin jar files">
+		<jar jarfile="${plugins.dir}/Network.jar" manifest="${src.java.dir}/plugin/network/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/network/*.class" />
+					<include name="plugin/network/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/Encounter.jar" manifest="${src.java.dir}/plugin/encounter/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/encounter/*.class" />
+					<include name="plugin/encounter/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/CharacterSheet.jar" manifest="${src.java.dir}/plugin/charactersheet/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/charactersheet/*.class" />
+					<include name="plugin/charactersheet/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/Experience.jar" manifest="${src.java.dir}/plugin/experience/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/experience/*.class" />
+					<include name="plugin/experience/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/DoomsdayBook.jar" manifest="${src.java.dir}/plugin/doomsdaybook/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/doomsdaybook/*.class" />
+					<include name="plugin/doomsdaybook/gui/*.class" />
+					<include name="plugin/doomsdaybook/util/*.class" />
+					<include name="pcgen/gui/resource/copy.png" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/Initiative.jar" manifest="${src.java.dir}/plugin/initiative/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/initiative/*.class" />
+					<include name="plugin/initiative/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/PCGTracker.jar" manifest="${src.java.dir}/plugin/pcgtracker/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pcgtracker/*.class" />
+					<include name="plugin/pcgtracker/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/Overland.jar" manifest="${src.java.dir}/plugin/overland/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/overland/*.class" />
+					<include name="plugin/overland/gui/*.class" />
+					<include name="plugin/overland/util/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/Notes.jar" manifest="${src.java.dir}/plugin/notes/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/notes/*.class" />
+					<include name="plugin/notes/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${plugins.dir}/DiceBag.jar" manifest="${src.java.dir}/plugin/dicebag/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/dicebag/*.class" />
+					<include name="plugin/dicebag/gui/*.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-AC.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ACToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-AGE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/AgeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-ALTHP.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/AltHPToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-BASEMOVEMENT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/BaseMovementToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-BIO.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/BioToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-BIRTHDAY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/BirthdayToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-BIRTHPLACE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/BirthplaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-BONUSLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/BonusListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-BR.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/BRToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CASTERLEVEL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/CasterLevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CATCHPHRASE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/CatchPhraseToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CLASSABB.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ClassAbbToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CLASSLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ClassListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CLASS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ClassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-COLOR.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ColorToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CR.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/CRToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DAMAGE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DamageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEFENSE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DefenseToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEITY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DESC.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DescToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DFEATALL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DFeatAllToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DIR.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DirToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-ECL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/EclToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-EQCONTAINERS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/EqContainersToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-EQCONTAINER.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/EqContainerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-EQCONTAINERW.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/EqContainerwToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-EQSET.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/EqSetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-EXPORT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ExportToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-EXP.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ExpToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FACE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FAVOREDLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FavoredListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FEATALLLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FeatAllListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FEATAUTO.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FeatAutoToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FEATAUTOLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FeatAutoListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FEATPOINTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FeatPointsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FOLLOWEROF.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FollowerOfToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-GENDER.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/GenderToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-GOLD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/GoldToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-HANDED.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/HandedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-HITDICE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/HitDiceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-HPROLL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/HPRollToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-INITIATIVEBONUS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/InitiativeBonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-INITIATIVEMOD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/InitiativeModToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-INTERESTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/InterestsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-LANGUAGES.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/LanguagesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-LENGTH.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/LengthToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-LEVEL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/LevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-LOCATION.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/LocationToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MAXCCSKILLLEVEL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/MaxCCSkillLevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MAXDEX.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/MaxDexToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MAXSKILLLEVEL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/MaxSkillLevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MAXSPELLLEVEL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/MaxSpellLevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MISC.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/MiscToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MOVE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/MoveToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-NAME.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/NameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-NOTE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/NoteToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PAPERINFO.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/PaperInfoToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PERSONALITY1.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/Personality1Token.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PERSONALITY2.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/Personality2Token.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PHOBIAS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/PhobiasToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PIPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/PipeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PLAYERNAME.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/PlayerNameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-POOL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/PoolToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PORTRAIT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/PortraitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-PROHIBITEDLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ProhibitedListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-RACE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/RaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-RACETYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/RaceTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-RACESUBTYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/RaceSubTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-REGION.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/RegionToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-RESIDENCE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ResidenceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SIZEMOD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SizeModToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SIZE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SKILLLEVEL.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SkillLevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SKILLLISTMODS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SkillListModsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SKILLSUBSET.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SkillSubsetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SKILLTYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SkillTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPECIALABILITY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpecialAbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPECIALLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpecialListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPEECHTENDANCY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpeechTendancyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLBOOKNAME.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellBookNameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTBOOK.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListBookToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTCAST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListCastToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTCLASS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListClassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTDCSTAT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListDcStatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTDC.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListDcToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTKNOWN.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListKnownToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTMEMORIZE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListMemorizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLLISTTYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellListTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLMEM.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellMemToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLPOINTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SpellPointsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SUBREGION.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SubRegionToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-TABNAME.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/TabNameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-TEMPBONUS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/TempBonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-TEMPLATELIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/TemplateListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-TEMPLATE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/TemplateToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-TOTALLEVELS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/TotalLevelsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-TYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/TypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-UNITSET.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/UnitSetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-VFEAT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/VFeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-VFEATLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/VFeatListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-VISION.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/VisionToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-WEAPONO.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/WeaponoToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-WEAPONP.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/WeaponpToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-WEAPONPROFS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/WeaponProfsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-ADD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/AddLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-AUTO.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/AutoLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/BonusLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-CHANGEPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ChangeprofLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ChooseLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-CSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/CskillLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-CCSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/CcskillLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-DEFINE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/DefineLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-DESC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/DescLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-DESCISPI.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/DescispiLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-DR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/DrLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-HITDIE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/HitdieLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-KEY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/KeyLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-KIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/KitLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-LANGAUTO.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/LangautoLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-MOVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/MoveLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-MOVEA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/MoveaLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-MOVECLONE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/MovecloneLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/NameLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-NAMEISPI.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/NameispiLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-NATURALATTACKS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/NaturalattacksLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-OUTPUTNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/OutputnameLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-REGION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/RegionLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-REMOVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/RemoveLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-SA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/SaLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-SPELLS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/SpellsLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/SpelllevelLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-SR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/SrLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-TEMPDESC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/TempdescLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-TEMPLATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/TemplateLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-TYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/TypeLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-UDAM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/UdamLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-UMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/UmultLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-UNENCUMBEREDMOVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/UnencumberedmoveLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-VISION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/VisionLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Ability tokens-->
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-ADDSPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/AddspelllevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-BENEFIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/BenefitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-CATEGORY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/CategoryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-COST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/CostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-MODIFYABILITYCHOICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/ModifyabilitychoiceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-MODIFYFEATCHOICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/ModifyfeatchoiceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-MULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/MultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-STACK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/StackToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/AbilityLstToken-VISIBLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/ability/VisibleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Campaign tokens-->
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/AbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-BIOSET.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/BiosetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-BOOKTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/BooktypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CAMPAIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/CampaignToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CLASSSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/ClassskillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CLASSSPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/ClassspellToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/ClassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-COINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/CoinsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-COMPANIONMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/CompanionmodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-COPYRIGHT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/CopyrightToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-DEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/DeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-DOMAIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/DomainToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-EQUIPMENT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/EquipmentToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-EQUIPMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/EquipmodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-GAMEMODE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/GamemodeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-GENRE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/GenreToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-HELP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/HelpToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-HIDETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/HidetypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-INFOTEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/InfotextToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-ISD20.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/Isd20Token.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-ISLICENSED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/IslicensedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-ISOGL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/IsoglToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-KIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/KitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-LANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/LanguageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-LICENSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/LicenseToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-LSTEXCLUDE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/LstexcludeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-OPTION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/OptionToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-PCC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/PccToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-PUBNAMELONG.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/PubnamelongToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-PUBNAMESHORT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/PubnameshortToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-PUBNAMEWEB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/PubnamewebToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-RACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/RaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-RANK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/RankToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-REQSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/ReqskillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-SETTING.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/SettingToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-SHOWINMENU.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/ShowinmenuToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-SKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/SkillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-SPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/SpellToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-TEMPLATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/TemplateToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-WEAPONPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/campaign/WeaponprofToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Class tokens-->
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/AbbToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-AC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/AcToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-ADDDOMAINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/AdddomainsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-ATTACKCYCLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/AttackcycleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-BAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/BabToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-BONUSSPELLSTAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/BonusspellstatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-CASTAS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/CastasToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-CAST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/CastToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-CRFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/CrformulaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-DEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/DeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-DOMAIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/DomainToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-EXCHANGELEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ExchangelevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-EXCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ExclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-FEATAUTO.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/FeatautoToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSPELLFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/HasspellformulaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/HassubclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-HD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/HdToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-ISMONSTER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/IsmonsterToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-ITEMCREATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ItemcreateToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-KNOWNSPELLSFROMSPECIALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/KnownspellsfromspecialtyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-KNOWNSPELLS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/KnownspellsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-KNOWN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/KnownToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-LANGBONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/LangbonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-LEVELSPERFEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/LevelsperfeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-MAXLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/MaxlevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-MEMORIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/MemorizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-MODTOSKILLS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ModtoskillsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-MONNONSKILLHD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/MonnonskillhdToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-MONSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/MonskillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-PRERACETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/PreracetypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-PROHIBITED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ProhibitedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-PROHIBITSPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ProhibitspellToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SKILLLIST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SkilllistToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SPECIALTYKNOWN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SpecialtyknownToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SPELLBOOK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SpellbookToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SPELLLIST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SpelllistToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SPELLSTAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SpellstatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SPELLTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SpelltypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-STARTSKILLPTS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/StartskillptsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-SUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/SubclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-TEMPLATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/TemplateToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-UATT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/UattToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-VFEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/VfeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-VISIBLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/VisibleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-WEAPONBONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/WeaponbonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-XPPENALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/XppenaltyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-XTRAFEATS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/XtrafeatsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- CompanionMod tokens-->
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-COPYMASTERBAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/CopymasterbabToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-COPYMASTERCHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/CopymastercheckToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-COPYMASTERHD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/CopymasterhdToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-FOLLOWER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/FollowerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-HD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/HdToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-MASTERBONUSRACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/MasterbonusraceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-SWITCHRACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/SwitchraceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-RACETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/RaceTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CompanionModLstToken-USEMASTERSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/companionmod/UsemasterskillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Deity tokens-->
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-ALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/AlignToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-APPEARANCE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/AppearanceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-DEITYWEAP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/DeityweapToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-DOMAINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/DomainsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-FOLLOWERALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/FolloweralignToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-PANTHEON.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/PantheonToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-RACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/RaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-SYMBOL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/SymbolToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-TITLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/TitleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DeityLstToken-WORSHIPPERS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deity/WorshippersToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Domain tokens-->
+		<jar jarfile="${lstplugins.dir}/DomainLstToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/domain/AbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DomainLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/domain/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/DomainLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/domain/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Equipment tokens-->
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ACCHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AccheckToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-AC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AcToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ALTCRITICAL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AltcriticalToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ALTCRITMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AltcritmultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ALTCRITRANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AltcritrangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ALTDAMAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AltdamageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ALTEQMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AlteqmodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-ALTTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/AlttypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-BASEITEM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/BaseitemToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-BASEQTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/BaseqtyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-BONUSTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/BonustypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-CHOOSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/ChooseToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-CONTAINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/ContainsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-COST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/CostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-CRITMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/CritmultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-CRITRANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/CritrangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-DAMAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/DamageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-EDR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/EdrToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-EQMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/EqmodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-FUMBLERANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/FumblerangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-HANDS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/HandsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-LONGNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/LongnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-MAXDEX.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/MaxdexToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-MODS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/ModsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-PROFICIENCY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/ProficiencyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-RANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/RangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-RATEOFFIRE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/RateoffireToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-REACH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/ReachToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-SIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/SizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-SLOTS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/SlotsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-SPELLFAILURE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/SpellfailureToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-SPROP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/SpropToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-WIELD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/WieldToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-WT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/WtToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Equipment Modifier tokens-->
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-ADDPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/AddprofToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-ARMORTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/ArmortypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-ASSIGNTOALL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/AssigntoallToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/BonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-CHARGES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/ChargesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-COSTDOUBLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/CostdoubleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-COSTPRE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/CostpreToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-COST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/CostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-FUMBLERANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/FumblerangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-IGNORES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/IgnoresToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-ITYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/ItypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-NAMEOPT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/NameoptToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-PLUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/PlusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-REPLACES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/ReplacesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-SPROP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/SpropToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentModifierLstToken-VISIBLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipmentmodifier/VisibleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Race tokens-->
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-AC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/AcToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-AL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/AlToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-BAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/BabToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-CR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/CrToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-FACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/FaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-FAVCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/FavclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-HANDS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/HandsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-HITDICEADVANCEMENT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/HitdiceadvancementToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-HITDICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/HitdiceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-HITDIE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/HitdieToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-INIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/InitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-LANGBONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/LangbonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-LANGNUM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/LangnumToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-LEGS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/LegsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-LEVELADJUSTMENT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/LeveladjustmentToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-MFEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/MfeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-MONCCSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/MonccskillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-MONCSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/MoncskillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-MONSTERCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/MonsterclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-PROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/ProfToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-RACENAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/RacenameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-RACESUBTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/RacesubtypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-RACETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/RacetypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-REACH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/ReachToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-SIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/SizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-SKILLMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/SkillmultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-SKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/SkillToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-STARTFEATS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/StartfeatsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-WEAPONBONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/WeaponbonusToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-XTRASKILLPTSPERLVL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/XtraskillptsperlvlToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Skill tokens-->
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-ACCHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/AccheckToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-CLASSES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/ClassesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-EXCLUSIVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/ExclusiveToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-KEYSTAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/KeystatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-ROOT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/RootToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-USEUNTRAINED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/UseuntrainedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-VISIBLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/VisibleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Spell tokens-->
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-CASTTIMES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/CasttimeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-CLASSES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/ClassesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-COMPS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/CompsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-COST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/CostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-CT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/CtToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-DESCRIPTOR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/DescriptorToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-DOMAIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/DomainToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-DURATION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/DurationToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-ITEM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/ItemToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-PPCOST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/PpcostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-RANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/RangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-SAVEINFO.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/SaveinfoToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-SCHOOL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/SchoolToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-SPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/SpelllevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-SPELLRES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/SpellresToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-STAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/StatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-SUBSCHOOL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/SubschoolToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-TARGETAREA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/TargetareaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-VARIANTS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/VariantsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-XPCOST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/spell/XpcostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- SubClass tokens:
+			   CHOICE, COST, PROHIBITCOST, SUBCLASSLEVEL, SUBCLASS
+		-->
+		<jar jarfile="${lstplugins.dir}/SubClassLstToken-CHOICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/subclass/ChoiceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SubClassLstToken-COST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/subclass/CostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SubClassLstToken-PROHIBITCOST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/subclass/ProhibitcostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SubClassLstToken-SUBCLASSLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/subclass/SubclasslevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SubClassLstToken-SUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/subclass/SubclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- WeaponProf tokens-->
+		<jar jarfile="${lstplugins.dir}/WeaponProfLstToken-HANDS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/weaponprof/HandsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/WeaponProfLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/weaponprof/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+
+		<!-- System tokens-->
+		<!-- GameMode tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ACABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AcabbrevToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ACNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AcnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ACTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/ActypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ADDWITHMETAMAGICMSG.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AddwithmetamagicmsgToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALIGNMENTNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AlignmentnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALLOWAUTORESIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AllowautoresizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALLOWEDMODES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AllowedmodesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALTHPABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AlthpabbrevToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALTHPNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/AlthpnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BababbrevToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABATTCYC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BabattcycToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABMAXATT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BabmaxattToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABMAXLVL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BabmaxlvlToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABMINVAL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BabminvalToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BASEDICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BasediceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BONUS_ACFLAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Bonus_acflatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BONUS_ACTOUCH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Bonus_actouchToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BONUSFEATLEVELSTARTINTERVAL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BonusfeatlevelstartintervalToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BONUSSTACKS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BonusstacksToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BONUSSTATLEVELSTARTINTERVAL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/BonusstatlevelstartintervalToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CHECKSMAXLVL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/ChecksmaxlvlToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CLASSTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/ClasstypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CURRENCYUNITABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/CurrencyunitabbrevToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CURRENCYUNIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/CurrencyunitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DAMAGERESISTANCE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/DamageresistanceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DEFAULTSPELLBOOK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/DefaultspellbookToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DEFAULTUNITSET.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/DefaultunitsetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/DeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYORDER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/DisplayorderToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYVARIABLE1NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Displayvariable1nameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYVARIABLE1TEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Displayvariable1textToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYVARIABLE2NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Displayvariable2nameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYVARIABLE2TEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Displayvariable2textToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYVARIABLE3NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Displayvariable3nameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DISPLAYVARIABLE3TEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Displayvariable3textToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-EQSIZEPENALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/EqsizepenaltyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HIDDENEQUIPTYPES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/HiddenequiptypesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HIDDENFEATTYPES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/HiddenfeattypesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HIDDENSKILLTYPES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/HiddenskilltypesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/HpabbrevToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/HpformulaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/HpnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-LEVELMSG.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/LevelmsgToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-MENUENTRY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/MenuentryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-MENUTOOLTIP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/MenutooltipToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-PLUSCOST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/PluscostToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-POINTPOOLNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/PointpoolnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-RANGEPENALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/RangepenaltyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-RANKMODFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/RankmodformulaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ROLLMETHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/RollmethodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SHORTRANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/ShortrangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SHOWCLASSDEFENSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/ShowclassdefenseToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SHOWTAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/ShowtabToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SKILLCOST_CLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Skillcost_classToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SKILLCOST_CROSSCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Skillcost_crossclassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SKILLCOST_EXCLUSIVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/Skillcost_exclusiveToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SKILLMULTIPLIER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/SkillmultiplierToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SKILLTANKTEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/SkillRankTextToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SPELLBASEDC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/SpellbasedcToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SPELLRANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/SpellrangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SQUARESIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/SquaresizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-STATROLLTEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/StatRollTextToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-TAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/TabToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-UNITSET.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/UnitsetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-WCSTEPSFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/WcstepsformulaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-WEAPONCATEGORY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/WeaponcategoryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-WEAPONPROFPENALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/WeaponprofpenaltyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-WEAPONTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/WeapontypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-WIELDCATEGORY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/WieldcategoryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- GameMode: BaseDice tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-BaseDiceLstToken-BASEDICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/basedice/BasediceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-BaseDiceLstToken-DOWN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/basedice/DownToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-BaseDiceLstToken-UP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/basedice/UpToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- GameMode: EqSizePenalty tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-EqSizePenaltyToken-EQSIZEPENALTY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/eqsizepenalty/EqsizepenaltyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- GameMode: RollMethod tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-RollMethodToken-ROLLMETHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/rollmethod/RollmethodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-RollMethodToken-METHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/rollmethod/MethodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- GameMode: Tab tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-TabToken-CONTEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/tab/ContextToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-TabToken-NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/tab/NameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-TabToken-STATTABLEHIDDENCOLUMNS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/tab/StattablehiddencolumnsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-TabToken-TAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/tab/TabToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-TabToken-VISIBLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/tab/VisibleToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- GameMode: UnitSet tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-DISTANCEFACTOR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/DistancefactorToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-DISTANCEPATTERN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/DistancepatternToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-DISTANCEUNIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/DistanceunitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-HEIGHTFACTOR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/HeightfactorToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-HEIGHTPATTERN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/HeightpatternToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-HEIGHTUNIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/HeightunitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-WEIGHTFACTOR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/WeightfactorToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-WEIGHTPATTERN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/WeightpatternToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-UnitSetToken-WEIGHTUNIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/unitset/WeightunitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- GameMode: WieldCategory tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-DAMAGEMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/DamagemultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-DOWN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/DownToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-FINESSABLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/FinessableToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-HANDS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/HandsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-SIZEDIFF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/SizediffToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-UP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/UpToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-WieldCategory-ZERO.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/wieldcategory/ZeroToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- RuleCheck tokens-->
+		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-DEFAULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/rules/DefaultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-DESC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/rules/DescToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-EXCLUDE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/rules/ExcludeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/rules/NameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-PARM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/rules/ParmToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/RuleCheckLstToken-VAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/rules/VarToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- SizeAdjustment tokens-->
+		<jar jarfile="${systemlstplugins.dir}/SizeAdjustmentLstToken-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/sizeadjustment/AbbToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/SizeAdjustmentLstToken-ISDEFAULTSIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/sizeadjustment/IsdefaultsizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- StatsAndChecks tokens-->
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-ALIGNMENTNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/AlignmentnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-BONUSSPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/BonusspelllevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-CHECKNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/ChecknameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecksLstToken-STATNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/StatnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- StatsAndChecks: Alignment tokens-->
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/alignment/AbbToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-ALIGNMENTNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/alignment/AlignmentnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-VALIDFORDEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/alignment/ValidfordeityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-AlignmentLstToken-VALIDFORFOLLOWER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/alignment/ValidforfollowerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- StatsAndChecks: Bonus Spell tokens-->
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-BonusSpellLstToken-BASESTATSCORE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/bonusspell/BasestatscoreToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-BonusSpellLstToken-BONUSSPELLLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/bonusspell/BonusspelllevelToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-BonusSpellLstToken-STATRANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/bonusspell/StatrangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- StatsAndChecks: Check tokens-->
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-CheckLstToken-CHECKNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/check/ChecknameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- StatsAndChecks: Stat tokens-->
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/stat/AbbToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-PENALTYVAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/stat/PenaltyvarToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-STATMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/stat/StatmodToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-STATNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/stat/StatnameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-STATRANGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/stat/StatrangeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="jar-deprecated-plugin" depends="manifest" description="Build (Link) plugin jar files">
+		<jar jarfile="${lstplugins.dir}/LstToken-DEPRECATED-SPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/SpellLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-DEPRECATED-GAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/GameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/CampaignLstToken-DEPRECATED-LICENSED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/LicensedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="manifest" description="Write the Java manifest">
+		<echo file="${manifest.file}">Manifest-Version: 1.2
+Main-Class: ${manifest.main.class}
+Class-Path: ${manifest.extra.jars}
+</echo>
+	</target>
+
+	<target name="scripts" depends="init" description="Write program scripts">
+		<!--
+	<echo file="${bin.dir}/${bin.pcgen.bat}" message="java -Dpcgen.filter=filter.ini -Dpcgen.options=options.ini -jar ${jar.bin.file}">
+		-->
+		<echo file="${bin.dir}/${bin.pcgen.bat}">REM PCGEN.BAT
+REM ==================
+REM
+REM This script should only be used if you have more then 256MB of RAM and if you
+REM don't mind committing at least 128MB of these to PCGEN.
+REM The value after -Xmx is the maximum amount of memory that PCGen will be allowed to use.
+REM It defaults to 64MB.
+REM The value after -Xms is the starting memory, using both then to speed up PCGEN.
+REM To load all sources takes more than the default 64MB.
+java -Xms128m -Xmx256m -jar ${jar.bin.file}
+</echo>
+		<echo file="${bin.dir}/${bin.pcgenlowmem.bat}">REM PCGEN_LOW_MEM.BAT
+REM Uncomment the following line and comment out the last line
+REM if you have Out of Memory problems. The value after -Xmx is the
+REM maximum amount of memory that PCGen will be allowed to use.
+REM It defaults to 64MB.
+REM The value after -Xms is the starting memory, using both then to speed up PCGEN.
+REM java -Xms128m -Xmx256m -jar ${jar.bin.file}
+REM To load all sources takes more than the default 64MB.
+java -Xmx96m -jar ${jar.bin.file}
+</echo>
+		<echo file="${bin.dir}/${bin.pcgen.sh}">#!/bin/sh
+cd `dirname $$0`
+
+pcgendir="$$HOME/.pcgen"
+
+if [ ! -d "$$pcgendir" ]
+then
+	mkdir "$$pcgendir" || exit 2
+fi
+
+if [ "x$$BROWSER" = x ]
+then
+	case "$$WINDOWMANAGER" in
+		*kde ) BROWSER=kde-open ;;
+		*gdm ) BROWSER=gnome-open ;;
+		* ) BROWSER=netscape ;;
+	esac
+fi
+
+# To load all sources takes more than the default 64MB.
+javaargs="-Xms128m -Xmx256m"
+pcgenargs=""
+whosearg=java
+
+while [ "x$$1" != x ]
+do
+	case "$$1" in
+	-h ) cat &lt;&lt;EOM
+usage: $$0 [java-options] [-- pcgen-options]
+	For java options, try 'java -h' and 'java -X -h'.
+	Useful java property defines:
+		-DBROWSER=/path/to/browser
+		-Dpcgen.filter=/path/to/filter.ini
+		-Dpcgen.options=/path/to/options.ini
+	This script recognizes the BROWSER environment variable.
+EOM
+		exit 0
+		;;
+	-- ) whosearg=pcgen
+		;;
+	* ) if [ "$$whosearg" = java ]
+		then
+			javaargs="$$javaargs $$1"
+		else
+			pcgenargs="$$pcgenargs $$1"
+		fi
+		;;
+	esac
+	shift
+done
+
+# PCGen related properties:
+#
+# pcgen.filter  - the full path to the file name containing the filter settings
+# pcgen.options - the full path to the file name containing the options
+#
+# Both of these properties are optional.  Default behaviour is to get the
+# files from the "user.dir" directory.
+#
+# Additional properties:
+#     -DBROWSER="$BROWSER"
+#     -Dpcgen.filter=/path/to/filter.ini
+#     -Dpcgen.options=/path/to/options.ini
+
+exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
+</echo>
+
+		<chmod file="${bin.dir}/${bin.pcgen.sh}" perm="+x" />
+
+		<!-- Correct the EOL for the scripts -->
+		<fixcrlf srcdir="${bin.dir}"
+			eol="crlf"
+			includes="*.bat"
+		/>
+		<fixcrlf srcdir="${bin.dir}"
+			eol="lf"
+			eof="remove"
+			includes="*.sh"
+		/>
+	</target>
+
+	<target name="build-extra" depends="scripts" description="Extra build steps" />
+
+
+	<!-- Top level targets.
+		build, test, clean, deploy, run
+		publish, fetch, docs/javadocs,
+		all, main
+-->
+
+	<target name="rebuild" depends="clean, fetch-devel, build" description="Clean, refresh from CVS, and build the jar file." />
+
+	<target name="all" depends="clean, build, test, emma.report, javaNcss, docs, deploy" description="Everything except refetch from CVS." />
+
+	<target name="complete" depends="clean, fetch-devel, build, fetch-data, fetch-docs, fetch-sheets, test, emma.report, javaNcss, docs, deploy" description="Everything including developer refresh from CVS." />
+
+	<target name="main" depends="build, test" description="[default] Do an (incremental) build." />
+
+	<target name="main13" depends="build13" description="Do an (incremental) build." />
+
+	<target name="docs" depends="compile-compile" description="Build Java API documentation">
+		<mkdir dir="${doc.dir}" />
+		<javadoc sourcepath="${src.java.dir}:${build.src.dir}" destdir="${doc.dir}" packagenames="pcgen.*,gmgen.*,plugin.*" classpathref="javadoc.classpath" author="true" version="true" use="true" package="true" splitindex="true" windowtitle="PCGen Packages" doctitle="&lt;h1&gt;PCGen Packages&lt;/h1&gt;" overview="${docs.overview}" maxmemory="256m">
+			<group title="PCGen Base Packages" packages="pcgen" />
+			<group title="PCGen Core Packages" packages="pcgen.core" />
+			<group title="PCGen GUI Packages" packages="pcgen.gui" />
+			<group title="PCGen Utility Packages" packages="pcgen.util" />
+			<group title="PCGen XML Packages" packages="pcgen.xml" />
+			<group title="GMGen Packages" packages="gmgen.*" />
+			<group title="Network Plugin" packages="plugin.network,plugin.network.*" />
+			<group title="Character Sheet Plugin" packages="plugin.charactersheet,plugin.charactersheet.*" />
+			<group title="Dicebag Plugin" packages="plugin.dicebag,plugin.dicebag.*" />
+			<group title="Random Name Generator Plugin" packages="plugin.doomsdaybook,plugin.doomsdaybook.*" />
+			<group title="Encounter Plugin" packages="plugin.encounter,plugin.encounter.*" />
+			<group title="Experience Plugin" packages="plugin.experience,plugin.experience.*" />
+			<group title="Initiative Plugin" packages="plugin.initiative,plugin.initiative.*" />
+			<group title="Notes Plugin" packages="plugin.notes,plugin.notes.*" />
+			<group title="Overland Travel Plugin" packages="plugin.overland,plugin.overland.*" />
+			<group title="Character Tracker Plugin" packages="plugin.pcgtracker,plugin.pcgtracker.*" />
+			<group title="Lst Tokens" packages="plugin.lsttokens,plugin.lsttokens.*" />
+			<group title="Output Tokens" packages="plugin.exporttokens,plugin.exporttokens.*" />
+		</javadoc>
+	</target>
+
+	<target name="build" depends="emma, compile, instrument, jar, jar-plugin, build-extra" description="Do an [incremental] build (compile, jar).">
+		<!-- fix for UNIXen; harmless on Windows -->
+		<chmod file="pcgendev.sh" perm="a+rx" />
+		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
+	</target>
+
+	<target name="build13" depends="compile13, jar, build-extra" description="Do an [incremental] build (compile, jar).">
+		<!-- fix for UNIXen; harmless on Windows -->
+		<chmod file="pcgendev.sh" perm="a+rx" />
+		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
+	</target>
+
+	<target name="build-optimize" depends="compile-optimize, jar, jar-plugin, build-extra" description="Do an [incremental] build (compile, jar) with optimization on.">
+		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
+	</target>
+
+	<!-- Packaging targets -->
+
+	<target name="deploy" depends="jar.src, zip.bins, zip.resources, zip.jars, zip.manual" description="Ship the jars, wars, whatever to the execution system.">
+	</target>
+
+	<target name="jar.src">
+		<mkdir dir="${dist.dir}" />
+		<jar jarfile="${dist.dir}/${jar.src.file}" basedir="${src.java.dir}" excludes="**/CVS/*, test, **/test/*" />
+	</target>
+
+	<target name="zip.bins">
+		<mkdir dir="${dist.dir}" />
+		<zip zipfile="${dist.dir}/${zip.bins.file}">
+			<fileset dir="." includes="${project.dist.files}" />
+			<fileset dir="${bin.dir}">
+				<include name="pcgen.jar" />
+				<include name="pcgen.sh" />
+				<include name="pcgen.bat" />
+			</fileset>
+			<fileset dir=".">
+				<include name="templates/**" />
+				<exclude name="**/CVS/*" />
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="zip.resources">
+		<mkdir dir="${dist.dir}" />
+		<zip zipfile="${dist.dir}/${zip.resources.file}">
+			<fileset dir="${src.data.dir}" />
+		</zip>
+	</target>
+
+	<target name="zip.jars">
+		<mkdir dir="${dist.dir}" />
+		<zip zipfile="${dist.dir}/${zip.jars.file}">
+			<fileset dir=".">
+				<include name="lib/**" />
+				<exclude name="**/CVS/*" />
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="zip.manual">
+		<mkdir dir="${dist.dir}" />
+		<zip zipfile="${dist.dir}/${zip.manual.file}">
+			<fileset dir="${docs.manual.dir}" />
+		</zip>
+	</target>
+
+  <target name="zip.autobuild">
+	<mkdir dir="${dist.dir}"/>
+	<zip zipfile="${dist.dir}/${zip.autobuild.file}">
+	  <fileset dir="." includes="${project.dist.files}"/>
+	  <fileset dir="${bin.dir}">
+		<include name="pcgen.jar" />
+		<include name="pcgen.sh" />
+		<include name="pcgen.bat" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="outputsheets/**" />
+		<exclude name="**/CVS/*" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="lib/**" />
+		<exclude name="**/CVS/*" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="data/**"/>
+		<exclude name="**/CVS/*" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="${docs.manual.dir}" />
+		<exclude name="**/CVS/*" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="plugins/**" />
+		<exclude name="**/CVS/*" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="system/**" />
+		<exclude name="**/CVS/*" />
+	  </fileset>
+	  <fileset dir=".">
+		<include name="characters/CodeMonkey.pcg" />
+	  </fileset>
+	</zip>
+  </target>
+
+	<target name="gzip" depends="gzip.bins, gzip.resources" description="Ship the jars, wars, whatever to the execution system.">
+	</target>
+
+	<target name="gzip.bins">
+		<mkdir dir="${dist.dir}" />
+		<tar tarfile="${dist.dir}/pcgen.tar">
+			<tarfileset dir="." includes="${project.dist.files}" />
+			<tarfileset dir="${bin.dir}">
+				<include name="pcgen.jar" />
+				<include name="pcgen.sh" />
+				<include name="pcgen.bat" />
+			</tarfileset>
+			<tarfileset dir=".">
+				<include name="templates/**" />
+				<exclude name="**/CVS/*" />
+			</tarfileset>
+		</tar>
+		<gzip zipfile="${dist.dir}/pcgen.tar.gz" src="${dist.dir}/pcgen.tar" />
+	</target>
+
+	<target name="gzip.resources">
+		<mkdir dir="${dist.dir}" />
+		<tar tarfile="${dist.dir}/data.tar">
+			<tarfileset dir="${src.data.dir}" />
+		</tar>
+		<gzip zipfile="${dist.dir}/data.tar.gz" src="${dist.dir}/data.tar" />
+	</target>
+
+
+
+	<!-- Maintenance targets -->
+
+	<target name="clean" depends="makedirs" description="Clean all working files">
+		<delete dir="${build.dir}" />
+		<delete dir="${bin.dir}" />
+		<delete dir="${doc.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete file="${manifest.file}" />
+		<delete file="${test.manifest.file}" />
+		<delete file="${test.all-output.file}" />
+		<delete>
+			<fileset dir="${plugins.dir}" includes="*.jar"/>
+		</delete>
+		<delete>
+			<fileset dir="${outputplugins.dir}" includes="*.jar"/>
+		</delete>
+		<delete>
+			<fileset dir="${lstplugins.dir}" includes="*.jar"/>
+		</delete>
+		<delete>
+			<fileset dir="${systemlstplugins.dir}" includes="*.jar"/>
+		</delete>
+	</target>
+
+	<target name="makedirs" description="Creates any needed directories">
+		<mkdir dir="${outputplugins.dir}" />
+		<mkdir dir="${lstplugins.dir}" />
+		<mkdir dir="${systemlstplugins.dir}" />
+	</target>
+
+	<target name="real-clean" depends="clean, clean-data, clean-docs, clean-sheets, clean-inifiles" description="Clean everything back to initial checkout" />
+
+
+	<!-- CVS targets -->
+
+	<target name="fetch-devel" description="Get the latest source from the CVS tree as a developer; this gives read-write access to the sources.">
+		<cvs command="-qz3 update -PRd ." />
+	</target>
+
+	<target name="fetch-anon" description="Get the latest source anonymously from the CVS tree; this gives read-only access to the sources.">
+		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgen A
+</echo>
+		<cvs cvsRoot="${fetch.cvsroot}/pcgen" passfile="${fetch.passfile}" command="-qz3 update -PRd ." />
+		<delete file="${fetch.passfile}" />
+	</target>
+
+	<target name="fetch-data" depends="clean-data" description="Get the latest data files anonymously from the PCGen:DM CVS tree; this gives read-only access to the data files.">
+		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgendm A
+</echo>
+		<cvs cvsRoot="${fetch.cvsroot}/pcgendm" passfile="${fetch.passfile}" command="export -d ${src.data.dir} -D now pcgendm/development/data" />
+		<delete file="${fetch.passfile}" />
+	</target>
+
+	<target name="clean-data" description="Remove data directory">
+		<delete dir="${src.data.dir}" />
+	</target>
+
+	<target name="fetch-docs" depends="clean-docs" description="Get the latest doc files anonymously from the PCGenDocs CVS tree; this gives read-only access to the doc files.">
+		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgendocs/pcgendocs A
+</echo>
+		<cvs cvsRoot="${fetch.cvsroot}/pcgendocs" passfile="${fetch.passfile}" command="export -d ${src.docs.dir} -D now pcgendocs/docs" />
+		<delete file="${fetch.passfile}" />
+	</target>
+
+	<target name="clean-docs" description="Remove docs directory">
+		<delete dir="${src.docs.dir}" />
+	</target>
+
+	<target name="fetch-sheets" depends="clean-sheets" description="Get the latest output sheet files anonymously from the PCGenDocs CVS tree; this gives read-only access to the sheet files.">
+		<echo file="${fetch.passfile}">/1 ${fetch.cvsroot}/pcgendocs/pcgendocs A
+</echo>
+		<cvs cvsRoot="${fetch.cvsroot}/pcgendocs" passfile="${fetch.passfile}" command="export -d ${src.outputsheets.dir} -D now pcgendocs/outputsheets" />
+		<delete file="${fetch.passfile}" />
+	</target>
+
+	<target name="clean-sheets" description="Remove outputsheets directory">
+		<delete dir="${src.outputsheets.dir}" />
+	</target>
+
+	<target name="clean-inifiles" description="Remove runtime .ini files">
+		<delete file="filepaths.ini" />
+		<delete file="filter.ini" />
+		<delete file="options.ini" />
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- Creates a report on pcgen source, comments, complexity -->
+	<!-- ****************************************************** -->
+	<target name="javaNcss" depends="init" description="Create JavaNCSS report">
+		<taskdef name="javancss" classname="javancss.JavancssAntTask">
+			<classpath>
+				<fileset dir="${lib.ncss}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</taskdef>
+
+		<property name="ncssLog" value="${build.rpt.dir}/javaNcssReport.xml" />
+		<property name="ncssHtml" value="${build.rpt.dir}/javaNcssReport.html" />
+
+		<echo message="Creating JavaNCSS report for ${ant.project.name}" />
+
+		<javancss srcdir="${src.java.dir}" includes="**/*.java"
+				  abortOnFail="false" ccnPerFuncMax="10" generateReport="true"
+				  outputfile="${ncssLog}" format="xml" />
+
+		<style in="${ncssLog}" out="${ncssHtml}" style="${lib.ncss}/javancss2html.xsl">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</style>
+
+	</target>
+
+
+	<!-- EMMA
+
+		 EMMA is a code coverage system that intruments the class files
+		 rather than the source files.
+
+	-->
+	<path id="emma.lib">
+		<pathelement location="${lib.dir}/emma.jar" />
+		<pathelement location="${lib.dir}/emma_ant.jar" />
+	</path>
+	<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+
+	<!-- turn on EMMA code coverage for the project.
+		 At the moment the code coverage will only be turned on
+		 when ant is run with -Demma.enabled=true
+
+		 To always use code coverage uncomment the following
+		 line.
+	-->
+	<target name="emma" description="turns on EMMA instrumentation/reporting">
+		<!--property name="emma.enabled" value="true" /-->
+	</target>
+
+	<!-- The target for the instrumented files is the same as the
+		 original location, this is so that the rest of the build
+		 script works transparently and does not need to know if
+		 code coverage has been turned on or not.
+
+		 If Instrumenting is working properly you should see output like this:
+		 [emma.instr] processing instrumentation path ...
+		 [emma.instr] instrumentation path processed in 33828 ms
+		 [emma.instr] [2010 class(es) instrumented, 0 resource(s) copied]
+		 [emma.instr] metadata merged into [C:\Documents and Settings\wardc\My Documents\src\pcgen-5.7.1\build\coverage\metadata.emma] {in 2656 ms}
+	-->
+	<path id="instrument.path">
+		<pathelement location="${build.classes.dir}" />
+	</path>
+	<target name="instrument" depends="emma, compile"
+			description="instruments all of the class files">
+		<emma enabled="${emma.enabled}">
+			<instr instrpathref="instrument.path" destdir="${build.classes.dir}"
+				   metadatafile="${coverage.dir}/metadata.emma" merge="true"
+				   mode="overwrite" />
+		</emma>
+	</target>
+
+
+
+	<!-- Dump the EMMA code coverate stats in a variety of formats.
+
+		 If instrumenting has been switched on the output should look
+		 something like this:
+
+		 emma.report:
+		 [emma.report] 2 file(s) read and merged in 391 ms
+		 [emma.report] writing [txt] report to [C:\Documents and Settings\wardc\My Documents\src\pcgen-5.7.1\build\coverage\coverage.txt] ...
+		 [emma.report] writing [xml] report to [C:\Documents and Settings\wardc\My Documents\src\pcgen-5.7.1\build\coverage\coverage.xml] ...
+		 [emma.report] writing [html] report to [C:\Documents and Settings\wardc\My Documents\src\pcgen-5.7.1\build\coverage\coverage.html] ...
+	-->
+	<target name="emma.report" depends="emma">
+		<mkdir dir="${coverage.rpt.dir}" />
+		<emma enabled="${emma.enabled}">
+			<report sourcepath="${src.java.dir}">
+				<fileset dir="${coverage.dir}">
+					<include name="*.emma" />
+				</fileset>
+
+				<txt outfile="${coverage.rpt.dir}/coverage.txt" />
+				<xml outfile="${coverage.rpt.dir}/coverage.xml" />
+				<html outfile="${coverage.rpt.dir}/coverage.html" />
+			</report>
+		</emma>
+	</target>
+
+
+	<!-- Clover targets
+
+	Clover is not currently used. Some of the java files are so
+	large and complicated that when we add the compile time
+	instrumentation code the java compiler dies with an
+	out of memory exception.
+
+	Until the code is refactored sufficiently that clover will
+	run, all code coverage will be done with EMMA.
+
+	-->
+
+	<!-- If we specify a classpath when we try to load the
+		 taskdefs and typedefs then we do not need clover on
+		 the CLASSPATH. This is a lot better than the way that
+		 the clvoer docs say to do this. -->
+	<path id="clover.lib">
+		<pathelement location="${lib.dir}/clover.jar" />
+	</path>
+	<taskdef resource="clovertasks" classpathref="clover.lib" />
+	<typedef resource="clovertypes" classpathref="clover.lib" />
+	<property name="clover.dir" value="${build.dir}/clover" />
+
+	<target name="clover" depends="init">
+		<mkdir dir="${clover.dir}" />
+		<clover-setup initstring="${clover.dir}/clover.db">
+			<files>
+				<exclude name="**/*Test.java" />
+			</files>
+		</clover-setup>
+	</target>
+
+	<target name="clover.report">
+		<clover-report>
+			<current outfile="${clover.dir}/current.xml" />
+		</clover-report>
+		<clover-report>
+			<current outfile="${clover.dir}/current.pdf">
+				<format type="pdf" />
+			</current>
+		</clover-report>
+		<clover-report>
+			<current outfile="${clover.dir}/clover_html" title="My Project"
+					 summary="true">
+				<format type="html" />
+			</current>
+		</clover-report>
+	</target>
+
+
+	<!-- Testing targets -->
+	<target name="test" depends="dotest, failure.notice, success.notice"
+		description="Run test suite (include lib/junit.jar and xmlunit1.0.jar in CLASSPATH)">
+	</target>
+
+	<target name="dotest" depends="testclean, test.jar">
+		<junit fork="yes" printsummary="on" failureproperty="junitfailure">
+			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+			<jvmarg value="-Demma.coverage.out.merge=true" />
+			<formatter type="plain" />
+			<formatter type="xml" />
+			<classpath>
+				<path refid="test.project.classpath" />
+				<path refid="emma.lib" />
+			</classpath>
+			<batchtest todir="${build.dir}/test-results/xml">
+				<fileset dir="${src.test.java.dir}">
+					<include name="**/*Test.java" />
+					<exclude name="**/AllJUnitTests.java" />
+					<exclude name="pcgen/core/Test.java" />
+				</fileset>
+			</batchtest>
+			<!-- test name="${test.framework.class}" / -->
+		</junit>
+
+		<mkdir dir="${build.rpt.dir}/test-results" />
+		<junitreport todir="${build.rpt.dir}/test-results">
+			<fileset dir="${build.dir}/test-results/xml">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${build.rpt.dir}/test-results" />
+		</junitreport>
+
+		<echo message="JUnit report output to ${basedir}/${build.rpt.dir}/test-results"/>
+	</target>
+
+	<target name="failure.notice" if="junitfailure">
+	  <tstamp>
+		<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z"/>
+	  </tstamp>
+	  <echo message="Finished at ${finish.time}"/>
+	  <echo message="One or more JUnit tests failed."/>
+	</target>
+
+	<target name="success.notice" unless="junitfailure">
+	  <tstamp>
+		<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z"/>
+	  </tstamp>
+	  <echo message="Finished at ${finish.time}"/>
+	  <echo message="Success! All JUnit tests passed."/>
+	</target>
+
+	<target name="testclean">
+		<delete dir="${build.dir}/test-results/xml" />
+		<mkdir dir="${build.dir}/test-results/xml" />
+	</target>
+
+	<target name="test.jar" depends="test.compile, test.manifest">
+		<jar jarfile="${bin.dir}/${test.jar.file}" manifest="${test.manifest.file}" basedir="${build.testclasses.dir}" includes="**/*Test.class  **/*Tests.class test/**" />
+	</target>
+
+	<target name="test.compile" depends="jar, jar-plugin">
+		<mkdir dir="${build.testclasses.dir}" />
+		<javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m">
+			<classpath refid="test.project.classpath" />
+		</javac>
+	</target>
+
+	<target name="test.manifest" depends="init">
+		<echo file="${test.manifest.file}">Manifest-Version: 1.2
+Class-Path: ${test.manifest.extra.jars}
+</echo>
+	</target>
+
+
+	<target name="test.scripts" depends="init">
+		<echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit1.0.jar;lib/xercesImpl-2.2.1.jar;lib/avalon-framework-cvs-20020806.jar;lib/xml-apis.jar;lib/xalan-2.4.1.jar;lib/batik.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/wraplf.jar;lib/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+</echo>
+		<echo file="${bin.dir}/${test.bin.pcgen.sh}">#!/bin/sh
+java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/junit.jar:lib/xmlunit1.0.jar:lib/xercesImpl-2.2.1.jar:lib/avalon-framework-cvs-20020806.jar:lib/xml-apis.jar:lib/xalan-2.4.1.jar:lib/batik.jar:lib/fop.jar:lib/kunststoff.jar:lib/skinlf.jar:lib/wraplf.jar:lib/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+</echo>
+		<chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
+	</target>
+
+
+	<!--
+  <target name="testgui" depends="test.jar, test.scripts"
+		  description="Run test GUI suite (include lib/junit.jar lib/xmlunit1.0.jar in CLASSPATH)">
+	<junit printsummary="true">
+	  <classpath refid="test.project.classpath"/>
+	  <test name="${test.framework.class}" />
+	</junit>
+  </target>
+-->
+
+</project>

@@ -1,0 +1,113 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:3.0 SRD
+VERSION:5.6.0-1
+ROLLMETHOD:1|EXPRESSION:roll(4,6,[2,3,4])
+PURCHASEPOINTS:N|TYPE:
+POOLPOINTS:0
+GAMEMODE:3e
+TABLABEL:0
+AUTOSPELLS:Y
+LOADCOMPANIONS:N
+USETEMPMODS:N
+AUTOSORTGEAR:Y
+AUTOSORTSKILLS:Y
+
+# Character Bio
+CHARACTERNAME:SWizSam
+TABNAME:
+PLAYERNAME:
+HEIGHT:39
+WEIGHT:37
+AGE:36
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:12
+STAT:DEX|SCORE:10
+STAT:CON|SCORE:14
+STAT:INT|SCORE:13
+STAT:WIS|SCORE:13
+STAT:CHA|SCORE:7
+ALIGN:TN
+RACE:Halfling
+
+# Character Class(es)
+CLASS:Wizard|SUBCLASS:Transmuter|LEVEL:1|SKILLPOOL:0|SPELLBASE:INT|CANCASTPERDAY:3,1|PROHIBITED:Enchantment,Illusion
+CLASSABILITIESLEVEL:Wizard=1|HITPOINTS:4|SPECIALTIES:[SPECIALTY:Transmutation]|SKILLSGAINED:12
+
+# Character Experience
+EXPERIENCE:0
+
+# Character Templates
+
+# Character Region
+
+# Character Skills
+SKILL:Climb|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:Wizard|RANKS:2.0|COST:2|CLASSSKILL:N]
+SKILL:Craft (Calligraphy)|OUTPUTORDER:2|CLASSBOUGHT:[CLASS:Wizard|RANKS:4.0|COST:1|CLASSSKILL:Y]
+SKILL:Craft (Leatherworking)|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Wizard|RANKS:4.0|COST:1|CLASSSKILL:Y]
+
+# Character Languages
+LANGUAGE:Common|LANGUAGE:Halfling
+
+# Character Feats
+FEAT:Blind-Fight|TYPE:GENERAL.FIGHTER|DESC:In melee, every time a character misses because of concealment, the character can reroll the miss chance percentile roll one time to see if the character actually hit.
+FEATPOOL:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Quarterstaff]
+
+# Character Equipment
+MONEY:0.00
+EQUIPSET:Default Set|ID:0.1
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:None|DEITYDOMAINS:[DOMAIN:Air|DOMAIN:Animal|DOMAIN:Chaos|DOMAIN:Death|DOMAIN:Destruction|DOMAIN:Earth|DOMAIN:Evil|DOMAIN:Fire|DOMAIN:Good|DOMAIN:Healing|DOMAIN:Knowledge|DOMAIN:Law|DOMAIN:Luck|DOMAIN:Magic|DOMAIN:Plant|DOMAIN:Protection|DOMAIN:Strength|DOMAIN:Sun|DOMAIN:Travel|DOMAIN:Trickery|DOMAIN:War|DOMAIN:Water]|ALIGNALLOW:012345678|DESC:None|HOLYITEM:None|DEITYFAVWEAP:[]|DEITYALIGN:
+
+# Character Spells Information
+SPELLNAME:Cause Fear|TIMES:1|CLASS:Wizard|BOOK:Known Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Wizard]
+SPELLNAME:Chill Touch|TIMES:1|CLASS:Wizard|BOOK:Known Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Wizard]
+SPELLNAME:Comprehend Languages|TIMES:1|CLASS:Wizard|BOOK:Known Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Wizard]
+SPELLNAME:Detect Secret Doors|TIMES:1|CLASS:Wizard|BOOK:Known Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Wizard]
+SPELLNAME:Detect Undead|TIMES:1|CLASS:Wizard|BOOK:Known Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Wizard]
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+
+# Character Master/Follower
+
+# Character Notes Tab
+NOTE:New Item|ID:0|PARENTID:-1|VALUE:New Value
+
+# Kits
+
+# Chosen Armor Profs
+
+# Age Set Selections
+AGESET:0:0:0:0:0:0:0:0:0:0

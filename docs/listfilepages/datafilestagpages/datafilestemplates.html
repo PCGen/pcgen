@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilestemplates.html,v 1.13 2005/12/19 18:09:09 eddyanthony Exp $
+		$Author: eddyanthony $
+		$Date: 2005/12/19 18:09:09 $
+		$Revision: 1.13 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on the content of PCGen Template Files.
+	-->
+	<head>
+		<title>Template Files</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Template Files</h1>
+		
+		<p>A Template is a series of special 'ideas' that are applied to a character.</p>
+		
+		<p>These 'ideas' take the form of Undead, Lycanthropy Celestial, Outsider, etc, and
+			enhance your character is some way. Each template is one line only and the first 
+			field must be the template name.</p>
+
+		<p></p><a name="BONUSFEATS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> BONUSFEATS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus feats)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is for granting additional feats.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUSFEATS:1</code></p>
+		<p class="indent3">One bonus feat is given.</p>
+
+		<p></p><a name="BONUSSKILLPOINTS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> BONUSSKILLPOINTS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus skill points)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This numeric value provided will be * (multiplied) by 4 at 1st level and 
+			granted each level after that.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUSSKILLPOINTS:2</code></p>
+		<p class="indent3">Two bonus skill points are given.</p>
+
+		<p></p><a name="BONUSMONSKILLPTS"></a><hr>
+		<p class="new">*** New 5.7.7</p>
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:MONSKILLPTS|LOCKNUMBER|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Skill points)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This will override the base skill points for monster HD.
+			This tag will work retroactively.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:MONSKILLPTS|LOCKNUMBER|6</code></p>
+		<p class="indent3">This template will set 6 as the base skill points for any monster levels.</p>
+
+		<p></p><a name="CHOOSELANGAUTO"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:LANGAUTO:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited choice of Automatic Languages that do not count 
+			against the limit determined by a Stat.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:LANGAUTO:Abyssal|Infernal</code></p>
+		<p class="indent3">&quot;Abyssal&quot; &amp; &quot;Infernal&quot; are granted as bonus langauges.</p>
+
+		<p></p><a name="CR"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CR:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating adjustment)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is the amount the characters CR is increased by this template.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CR:2</code></p>
+		<p class="indent3">The character's challenge rating is increased by two.</p>
+
+		<p></p><a name="FAVOREDCLASS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> FAVOREDCLASS:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or
+		  &quot;Any&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Determines the Race's favored class.</li>
+			<li>2 or more classes separated by | (pipe)will grant all of the classes as Favored.</li>
+			<li>Special type 'Any' will grant the character's highest level class as Favored.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>FAVOREDCLASS:Wizard|Fighter</code></p>
+		<p class="indent3">The character's favored classes are Wizard and Fighter.</p>
+
+		<p></p><a name="FEAT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of feats granted to a Race.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>FEAT:Blind-Fight|Alertness</code></p>
+		<p class="indent3">Gives the &quot;Blind-Fight&quot; &amp; &quot;Alertness&quot; bonus feats.</p>
+
+		<p></p><a name="GENDERLOCK"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> GENDERLOCK:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Male, Female, Neuter)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets the character's Gender and disables the ability to change it.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>GENDERLOCK:Female</code></p>
+		<p class="indent3">The characters gender is set to and locked as &quot;Female&quot;.</p>
+
+		<p></p><a name="HD"></a><hr>
+		<p class="new">*** Updated 4.3.8</p>
+		<p class="indent0"><strong>Tag Name:</strong> HD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Calculation (range or minimum natural Hit Dice)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>The numeric values supplied are a range (1-3) or minimum (4+) hit dice the character must have
+				before an ability is granted to the character.</li>
+			<li>This is Natural Hit Dice, not character level.</li>
+			<li>The text may contain the following tags:<br />
+				<ul>
+					<li>CR - <a href="#CR">Challenge Rating</a></li>
+					<li>DR - <a href="../globalfilestagpages/globalfilesother.html#DR">Damage Reduction</a></li>
+					<li>FEAT - <a href="#FEAT">Feat</a></li>
+					<li>SA - <a href="../globalfilestagpages/globalfilesother.html#SA">Special Ability</a></li>
+					<li>SR - <a href="../globalfilestagpages/globalfilesother.html#SR">Spell Resistance</a></li>
+				</ul>
+			</li>
+			<li>This may appear more than once in a template.</li>
+		</ul>
+   	<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>HD:1-3:DR:5/1</code></p>
+		<p class="indent3">Grants Damage Reduction of 5/+1 if natural hit dice is between one and three.</p>
+		<p class="indent2"><code>HD:1+:SR:15</code></p>
+		<p class="indent3">Grants Spell Resistance of 15 if natural hit dice is greater than one.</p>
+		<p class="indent2"><code>HD:2-7:CR:2</code></p>
+		<p class="indent3">Grants an increase in Challenge Rating of two if natural hit dice is between two and seven.</p>
+		<p class="indent2"><code>HD:15+:SA:Uncanny Dodge</code></p>
+		<p class="indent3">Grants the &quot;Uncanny Dodge&quot; special ability if natural hit
+		  dice is grater than fifteen.</p>
+		<p class="indent2"><code>HD:10+:FEAT:Alertness</code></p>
+		<p class="indent3">Grants the &quot;Alertness&quot; feat if natural hit dice is greater
+		  than ten.</p>
+
+		<p></p><a name="HITDICESIZE"></a><hr>
+		<p class="new">*** Deprecated, use <a href="#HITDIE">HITDIE</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> HITDICESIZE:x|y</p>
+		
+		<p></p><a name="HITDIE"></a><hr>
+		<p class="new">*** New 5.7.8 - Updated 5.9.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> HITDIE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice size)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %+Number (Amount added to Hit Dice)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %-Number (Amount subtracted from Hit Dice)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %*Number (Amount Hit Dice is multiplied by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %/Number (Amount Hit Dice is divided by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %upNumber (Amount Hit Dice size is stepped up by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %downNumber (Amount Hit Dice size is stepped down by)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> CLASS=&lt;class name&gt; (Optional, Specific class the HITDIE will be applied to)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> CLASS.TYPE=&lt;class type name&gt; (Optional, Specific class type the HITDIE will be applied to)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Specifies the new Hit Dice size the template grants to the 
+  			creature and retroactively recalculates hit points based on the new Hit Dice size. 
+  			When using the step up function the steps are d4,d6,d8,d10 and stops at d12. 
+  			When using the step down function the steps are d12,d10,d8,d6 and stops at d4. 
+			Regardless of the number it will never allow a hit die below 1.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HITDIE:12</code></p>
+		<p class="indent3">The character now has a Hit Dice of 12.</p>
+		<p class="indent2"><code>HITDIE:%+2</code></p>
+		<p class="indent3">Adds 2 to the current Hit Dice size.</p>
+		<p class="indent2"><code>HITDIE:%-4</code></p>
+		<p class="indent3">Subtracts 4 from the current Hit Dice size.</p>
+		<p class="indent2"><code>HITDIE:%*3</code></p>
+		<p class="indent3">Multiplies the current Hit Dice size by 3.</p>
+		<p class="indent2"><code>HITDIE:%/2</code></p>
+		<p class="indent3">Divides the current Hit Dice size by 2.</p>
+		<p class="indent2"><code>HITDIE:%up2</code></p>
+		<p class="indent3">Steps up the Hit Dice size by two steps. If the creature has a Hit Die of d6 it will be stepped up to d10.</p>
+		<p class="indent2"><code>HITDIE:%down1</code></p>
+		<p class="indent3">Steps down the Hit Dice size by one step. If the creature has a Hit Die of d6 it will be stepped down to d4.</p>
+		<p class="indent2"><code>HITDIE:%up1|CLASS.TYPE=Monster</code></p>
+		<p class="indent3">Steps up the Hit Dice size by one step for any Monster class levels the creature has. 
+			If the creature has a Monster class Hit Die of d8 it will be stepped up to d10.</p>
+		
+		<p></p><a name="LANGAUTO"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LANGAUTO:x,x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a comma delimited list of languages that the character automatically gains.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LANGAUTO:Common,Gnome</code></p>
+		<p class="indent3">The characters gains the &quot;Common&quot; &amp; &quot;Gnome&quot; languages
+		  automatically.</p>
+
+		<p></p><a name="LANGBONUS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LANGBONUS:x,x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (TYPE=&lt;Language
+		  Type&gt;)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (&quot;ALL&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a , (comma) delimited list of the languages a character can
+			choose from based upon their Intelligence stat</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LANGBONUS:TYPE=Spoken,Draconic</code></p>
+		<p class="indent3">Add all &quot;Spoken&quot; type languages &amp; &quot;Draconic&quot; 
+			to the list of languages that can be taken when creating a character.</p>
+
+		<p></p><a name="LEVEL"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LEVEL:x:y:z</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level at which the benefit is granted)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> CR:z (Challenge Rating)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> DR:z (Damage Reduction)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> FEAT:z (Automatic Feat)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> SA:z (Special Ability)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> SR:z (Spell Resistance)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number or Text (Must be valid for the tag used)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Grants the character an ability at the level specified.</li>
+			<li>This is the characters total character level.</li>
+			<li>The text may contain the following tags:<br />
+				<ul>
+					<li>CR - <a href="#CR">Challenge Rating</a></li>
+					<li>DR - <a href="../globalfilestagpages/globalfilesother.html#DR">Damage Reduction</a></li>
+					<li>FEAT - <a href="#FEAT">Feat</a></li>
+					<li>SA - <a href="../globalfilestagpages/globalfilesother.html#SA">Special Ability</a></li>
+					<li>SR - <a href="../globalfilestagpages/globalfilesother.html#SR">Spell Resistance</a></li>
+				</ul>
+			</li>
+			<li>This may appear more than once in a template.</li>
+			<li>Feats added by this tag are considered automatic feats and do not count against a PC's feat pool.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>LEVEL:1:DR:5/+1</code></p>
+		<p class="indent3">Grants Damage Reduction of 5/+1 at Level 1.</p>
+		<p class="indent2"><code>LEVEL:2:SR:15</code></p>
+		<p class="indent3">Grants Spell Resistance of 15 at Level 2.</p>
+		<p class="indent2"><code>LEVEL:3:CR:2</code></p>
+		<p class="indent3">Grants an increase in Challenge Rating of two at Level 3.</p>
+		<p class="indent2"><code>LEVEL:4:SA:Uncanny Dodge</code></p>
+		<p class="indent3">Grants the &quot;Uncanny Dodge&quot; special ability at Level 4.</p>
+		<p class="indent2"><code>LEVEL:5:FEAT:Alertness</code></p>
+		<p class="indent3">Grants the &quot;Alertness&quot; feat at Level 5.</p>
+		<p class="indent2"><code>LEVEL:6:FEAT:TYPE.Fighter</code></p>
+		<p class="indent3">Produces a popup menu at Level 6 from which a PC can choose a fighter feat.</p>
+
+		<p></p><a name="LEVELADJUSTMENT"></a><hr>
+		<p class="new">*** Updated 5.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> LEVELADJUSTMENT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level Adjustment)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Raises the Effective Character Level (ECL) of the creature by the number supplied.</p>
+		<p class="indent2">This is factored in when determining how much experience is needed to raise a characters level. 
+			For example, a 1st level character with a Level adjustment of 3 would need the same amount of experience to reach 2nd level 
+			as a 4th level character with no level adjustments would need to reach 5th level.</p>
+		<p class="indent2">The Level Adjustment is added to Monster Hit Dice and/or Character Levels 
+			to determine the Effective Character Level (ECL) of the creature.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
+		<p class="indent3">Effective Character Level is raised by one.</p>
+
+		<p></p><a name="MOVEA"></a><hr>
+		
+		<p class="new">*** Deprecated 4.3.8. Use 
+		<a href="../globalfilestagpages/globalfilesbonus.html#MOVEADD">BONUS:MOVEADD</a> or 
+		<a href="../globalfilestagpages/globalfilesbonus.html#POSTMOVEADD">BONUS:POSTMOVEADD</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> MOVEA:x,y</p>
+
+		<p></p><a name="NATURALATTACKS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of attacks)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag is used to define non-equipment attacks a race may possess.</p>
+		<p class="indent2">This is a , (comma) and | (pipe) delimited list of the natural attacks a creature has. 
+		If the creature has multiple attacks pipes are used to separate the entries. Commas are used to delimit 
+		variables within a single attack listing. All four variables separated by three commas must be present or PCGen 
+		will hang when attempting to load the .pcc file.</p>
+		<p class="indent2">The first variable (w) is the name of the natural weapon.</p>
+		<p class="indent2">The second set of variables (x) are the natural weapon types. 
+  		Types should be delimited with periods (.). This must always start with &quot;Weapon&quot; 
+  		and &quot;Natural&quot; and must be followed by either &quot;Melee&quot; or &quot;Ranged&quot;. 
+  		After that the weapons damage types are listed which can be &quot;Bludgeoning&quot;, 
+  		&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</p>
+		<p class="indent2">The third variable (y) is the number of attacks of this type 
+  		that the creature possesses. If the is an asterisk in front of the number it indicates 
+  		that the number of attacks is non-iterative, that is it is not based on the 
+  		creatures attack progression but rather how many of the natural weapons it possesses.</p>
+		<p class="indent2">The final variable is the damage the natural weapon does. This 
+  		is entered in the standard dice notation such as &quot;1d8&quot; and &quot;4d10&quot;.</p>
+		<p class="indent2">The NATURALATTACKS tag creates a proficiency for the its attacks on the fly 
+		which allows the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the 
+		NATURALATTACKS tag to create a Bite attack you could then use 
+		<code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> to add 2 to the attack and damage rolls.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
+			1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
+		<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
+
+		<p></p><a name="NONPP"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> NONPP:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Non proficiency penalty)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets he character's penalty for non proficiency in a weapon to the specified numeric value
+			(This can only be a negative number or zero).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>NONPP:-2</code></p>
+		<p class="indent3">The non proficiency penalty is minus two.</p>
+
+		<p></p><a name="RACESUBTYPE"></a><hr>
+		<p class="new">*** New 5.9.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> RACESUBTYPE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Subtype)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> .REMOVE.Text (Removes Creature Subtypes)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Adds or removes additional Subtypes to the creature.</li>
+			<li>Initial Subtypes are defined by the <a href="datafilesraces.html#RACESUBTYPE">RACESUBTYPE</a> race tag.</li>
+			<li>Examples include:<br />
+				Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar, 
+				Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water 
+				as well as Humaniod subraces such as Elf, Orc, Dwarf, etc..</li> 
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>
+		<p class="indent3">Adds the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>
+		<p class="indent2"><code>RACESUBTYPE:.REMOVE.Evil</code></p>
+		<p class="indent3">Removes the &quot;Evil&quot; subtype.</p>
+		<p class="indent2"><code>RACESUBTYPE:.REMOVE.Extraplanar|Native</code></p>
+		<p class="indent3">Removes the &quot;Extraplanar&quot; subtype and adds &quot;Native&quot; subtype.</p>
+
+		<p></p><a name="RACETYPE"></a><hr>
+		<p class="new">*** New 5.9.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> RACETYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Changes the Type of creature the race is from the initial Type defined by 
+    		<a href="datafilesraces.html#RACETYPE">RACETYPE</a> in the race line.</li>
+			<li>A Creature may only have one RACETYPE at any given time.</li>
+			<li>Currently existing selections from the Monster List include:<br />
+				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid, 
+				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and 
+				Vermin</li> 
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACETYPE:Undead</code></p>
+		<p class="indent3">The Creature is now of the &quot;Undead&quot; type.</p>
+
+		<p></p><a name="REGION"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> REGION:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Regoin name or
+		  &quot;Yes&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This sets the name of the region the character is from, the default is none.</li>
+			<li>If Yes is specified then it will place the name of the template in parenthesis after 
+				the race on character sheet output.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>REGION:Timbuktu</code></p>
+		<p class="indent3">Character is from &quot;Timbuktu&quot;.</p>
+
+		<p></p><a name="REMOVABLE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> REMOVABLE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This denotes whether a character can remove a template once it is chosen.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>REMOVABLE:NO</code></p>
+		<p class="indent3">The template may not be removed if taken.</p>
+		
+		<p></p><a name="REMOVE"></a><hr>
+		<p class="new">*** New 5.8</p>
+		<p class="indent0"><strong>Tag Name:</strong> REMOVE:FEAT(x,x)y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of feat)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Name of feat type)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> CLASS.Text (Name of feat type)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> CHOICE (pops a chooser box)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of feats to remove, Optional)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> ALL (Removes all indicated feats without prompting)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Provides options for removing feats, this works with hidden feats as well as standard feats 
+			but not on those applied with the VFEAT or MFEAT tags. The (y) variable is optional, 
+			if not present the tag simply removes whatever feats are specified in variable (x).</p>
+		<p class="indent1"><strong>Where it can be used:</strong></p>
+		<p class="indent2">Works in class and template files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>REMOVE:FEAT(Alertness)</code></p>
+		<p class="indent3">Removes the Alertness feat, no choice is presented, the feat is simply removed.</p>
+		<p class="indent2"><code>REMOVE:FEAT(TYPE.Fighter)3</code></p>
+		<p class="indent3">Presents a list of Fighter type feats and allows the removal of up to 3.</p>
+		<p class="indent2"><code>REMOVE:FEAT(CHOICE)2</code></p>
+		<p class="indent3">Presents a list of all feats the character has and allow removal of 2 of them. 
+			If a feat has a COST:# associated with it, it returns that # back to the feat pool.</p>
+		<p class="indent2"><code>REMOVE:FEAT(CLASS.Paladin)ALL</code></p>
+		<p class="indent3">Removes all feats that have been granted/taken by the Paladin Class.</p>
+
+		<p></p><a name="SIZE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Size is used in determining TO-HIT, AC, and affects some skills 
+			(F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SIZE:M</code></p>
+		<p class="indent3">Character is &quot;Medium&quot; size.</p>
+
+		<p></p><a name="SUBRACE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SUBRACE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Subrace name
+		  or &quot;Yes&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+		  <li>This sets the name of the sub race the character is, the default is none.</li>
+		  <li>If Yes is specified then it will place the name of the template in parenthesis 
+		    after the race on character sheet output.</li>
+		  <li>SUBRACE should only be used once in a teplate line.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SUBRACE:Monkey Ooze</code></p>
+		<p class="indent3">The character is part of the &quot;Monkey Ooze&quot; sub race.</p>
+
+		<p></p><a name="SUBREGION"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SUBREGION:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Sub region name
+		  or &quot;Yes&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This sets the name of the sub region the character is from, the default is none.</li>
+			<li>If Yes is specified then it will place the name of the template in parenthesis 
+				after the region on character sheet output.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SUBREGION:South Side</code></p>
+		<p class="indent3">The character is from the &quot;South Side&quot; subregion.</p>
+
+		<p></p><a name="TEMPLATE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of templates that are granted to the character.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
+		<p class="indent3">The character is given the &quot;Incorporeal&quot;, &quot;Undead&quot; &amp; &quot;Celestial&quot;
+		  templates.</p>
+
+		<p></p><a name="TEMPLATECHOOSE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:CHOOSE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">CHOOSE will supply a popup window of the choices presented in the tag that 
+		are | (pipe) delimited (The user is allowed only ONE choice from the list.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
+		<p class="indent3">The character is given the choice between &quot;Celestial&quot; or &quot;Outsider&quot;.</p>
+
+		<p></p><a name="TEMPLATEADDCHOICE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:ADDCHOICE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of template choices that are added to 
+			the list presented by the original TEMPLATE:CHOOSE tag found here or in other lst files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
+		<p class="indent3">The character has &quot;Demihuman&quot; and &quot;Beast&quot; added to the choice list.</p>
+
+		<p></p><a name="TYPE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Defines the Type of creature members of the template are.</li>
+			<li>Important for matching up with Monster HD, and for references to
+				race, such as the Rangers Favored Enemy</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TYPE:Outsider</code></p>
+		<p class="indent3">Is a &quot;Outsider&quot; if this template is selected.</p>
+
+		<p></p><a name="WEAPONBONUS"></a><hr>
+		<p class="new">*** Updated 5.7.12</p>
+		<p class="indent0"><strong>Tag Name:</strong> WEAPONBONUS:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the race as 
+			a choice of ONE of the listed weapons.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>WEAPONBONUS:Rapier|Longbow</code></p>
+		<p class="indent3">The race receives bonus proficiency in &quot;Rapier&quot; or &quot;Longbow&quot;.</p>
+		<p class="indent2"><code>WEAPONBONUS:TYPE.Simple</code></p>
+		<p class="indent3">The race receives bonus proficiency in any one Simple weapon.</p>
+
+		<p></p><a name="VISIBLE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (YES, NO, DISPLAY, EXPORT)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>YES - Shows the Template name in PCGen and on export to a character sheet 
+				(This is the default setting).</li>
+			<li>NO - Hides the Template name in PCGen and on export to a character sheet.</li>
+			<li>DISPLAY - Displays the Template name in PCGen but not on the character sheet.</li>
+			<li>EXPORT - Hides the Template name from PCGen but displays it on the character sheet.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>VISIBLE:YES</code></p>
+		<p class="indent3">Shows the Template name in PCGen and on export to a character sheet.</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilestemplates.html,v $ ($Revision: 1.13 $) last updated $Date: 2005/12/19 18:09:09 $ by $Author: eddyanthony $</p> -->
+	</body>
+
+</html>

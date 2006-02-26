@@ -1,0 +1,29 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Ogre Barbarian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ogre]
+NAME:Ogre
+STAT:STR=16|DEX=13|CON=14|INT=12|WIS=10|CHA=8
+RACE:Ogre	!PRERACE:%
+ALIGN:CE
+SKILL:Climb		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Toughness
+FEAT:Weapon Focus (Greatclub)
+CLASS:Barbarian	LEVEL:4
+SKILL:Hide		RANK:1
+SKILL:Jump		RANK:1
+FEAT:Power Attack
+GEAR:Hide				SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS1A
+GEAR:Ring of Protection +1	LOCATION:Equipped
+GEAR:Greatclub			SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Elder Black Pudding	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ooze (Black Pudding)]
+RACE:Ooze (Black Pudding)	!PRERACE:%
+NAME:Elder Black Pudding
+ALIGN:TN
+STAT:STR=12|DEX=10|CON=12|WIS=10|CHA=10
+CLASS:Ooze	LEVEL:10
+

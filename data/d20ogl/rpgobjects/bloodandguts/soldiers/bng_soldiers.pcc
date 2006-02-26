@@ -1,0 +1,26 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Guts - Soldiers
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Blood and Guts
+ISOGL:YES
+SOURCELONG:Blood and Guts - Soldiers
+SOURCESHORT:BnG-S
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Blood and Guts Copyright 2003, RPGObjects; Author Charles Rice
+COPYRIGHT:Blood and Guts: Soldiers Copyright 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Blood and Guts: Soldiers Copyright 2004-2005, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Frank Kliewe.
+
+INFOTEXT:Requires the use of Blood and Guts: Modern Military
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:bng_soldiers_classes.lst
+FEAT:bng_soldiers_feats.lst
+FEAT:bng_soldiers_feats_hidden.lst
+FEAT:bng_soldiers_feats_hidden_mod.lst
+FEAT:bng_soldiers_feats_mod.lst
+SKILL:bng_soldiers_skills_mod.lst

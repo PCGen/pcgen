@@ -1,0 +1,69 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Jan  4 20:31:25 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Inevitable (Kolyarut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inevitable (Kolyarut)]
+STAT:DEX=11|WIS=11|STR=10|CON=10|INT=10|CHA=10
+RACE:Inevitable (Kolyarut)	!PRERACE:%
+NAME:Inevitable (Kolyarut)
+ALIGN:LN
+SKILL:Listen			RANK:6
+SKILL:Spot				RANK:6
+SKILL:Diplomacy			RANK:2
+SKILL:Disguise			RANK:5
+SKILL:Gather Information	RANK:5
+SKILL:Search			RANK:5
+SKILL:Sense Motive		RANK:5
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Great Fortitude
+FEAT:Lightning Reflexes
+FEAT:Quicken Spell Like Ability(Suggestion)
+GEAR:Banded Mail	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W
+
+STARTPACK:Default Inevitable (Marut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inevitable (Marut)]
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+RACE:Inevitable (Marut)	!PRERACE:%
+NAME:Inevitable (Marut)
+ALIGN:LN
+SKILL:Concentration		RANK:9
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Listen			RANK:9
+SKILL:Search			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Diplomacy			RANK:2
+FEAT:Ability Focus(Fists)
+FEAT:Awesome Blow
+FEAT:Combat Casting
+FEAT:Great Fortitude
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Inevitable (Zelekhut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inevitable (Zelekhut)]
+RACE:Inevitable (Zelekhut)	!PRERACE:%
+NAME:Inevitable (Zelekhut)
+ALIGN:LN
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Diplomacy		RANK:2
+SKILL:Search		RANK:5
+SKILL:Sense Motive	RANK:5
+FEAT:Great Fortitude
+FEAT:Ride By Attack
+FEAT:Spirited Charge
+STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
+GEAR:Barding (Full Plate)	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Invisible Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Invisible Stalker]
+RACE:Invisible Stalker	!PRERACE:%
+NAME:Invisible Stalker
+SKILL:Listen		RANK:11
+SKILL:Move Silently	RANK:11
+SKILL:Search		RANK:11
+SKILL:Spot			RANK:11
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Focus(Slam)
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10

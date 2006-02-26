@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesweaponproficiencies.html,v 1.1 2003/12/09 00:16:37 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2003/12/09 00:16:37 $
+		$Revision: 1.1 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on the content of PCGen Weapon Proficiency Files.
+	-->
+	<head>
+		<title>Weapon Proficiency Files</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Weapon Proficiency Files</h1>
+		
+		<p>The weapon proficiency list file is to set what each weapon category a weapon 
+		belongs to (Simple, Martial, Exotic, Natural) so that PCGen can determine whether 
+		or not a character qualifies to use that weapon or not. The 1st field is the name 
+		field, there is no tag for it, just the name of the weapon proficiency.</p>
+
+		<p></p><a name="HANDS"></a><hr>
+		<p class="new">*** Updated</p>
+		<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (minimum number of hands required to use the weapon)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>The minimum number of hands required to use the weapon.</li>
+			<li>Defaults to a value of 1.</li>
+			<li>#IFLARGERTHANWEAPON is a flag that checks if the characters size is larger than the character.
+				<ul>
+					<li>If true, the character is granted that prof.</li>
+					<li>If not, the proficiency does not apply.</li>
+				</ul>
+			</li>
+			<li>Used for Exotic 1-Hand weapons that are martial if wielded with both hands.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>HANDS:2</code></p>
+		<p class="indent3">Weapon is weilded with two hands.</p>
+		<p class="indent2"><code>HANDS:1IFLARGERTHANWEAPON</code></p>
+		<p class="indent3">Weapon is weilded with one hand if the PC is larger than the weapon size.</p>
+		
+		<p></p><a name="SIZE"></a><hr>
+		
+		<p class="new">*** Removed - Weapon <a href="datafilesequipment.html#SIZE">SIZE</a> is now set in Equipment files</p>
+		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This determines if the weapon is light, one-handed or two-handed for 
+			the character's race (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, 
+			G=Gargantuan, C=Colossal).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SIZE:M</code></p>
+		<p class="indent3">Weapon is &quot;Medium&quot; size.</p>
+
+		<p></p><a name="TYPE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This defines for PCGen what type of weapon proficiency it is for 
+			characters to be able to use the weapon.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TYPE:Simple</code></p>
+		<p class="indent3">Characters with &quot;Simple&quot; weapon proficiency can use this weapon.</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesweaponproficiencies.html,v $ ($Revision: 1.1 $) last updated $Date: 2003/12/09 00:16:37 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

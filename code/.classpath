@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="build/src"/>
+	<classpathentry kind="src" path="src/java"/>
+	<classpathentry kind="src" path="src/test"/>
+	<classpathentry sourcepath="JRE_SRC" kind="var" path="JRE_LIB"/>
+	<classpathentry kind="lib" path="lib/avalon-framework-cvs-20020806.jar"/>
+	<classpathentry kind="lib" path="lib/batik.jar"/>
+	<classpathentry kind="lib" path="lib/fop.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/kunststoff.jar"/>
+	<classpathentry kind="lib" path="lib/skinlf.jar"/>
+	<classpathentry kind="lib" path="lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="lib/themes/aquathemepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/bbjthemepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/beosthemepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/macosthemepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/modernthemepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/themepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/whistlerthemepack.zip"/>
+	<classpathentry kind="lib" path="lib/themes/xplunathemepack.zip"/>
+	<classpathentry kind="lib" path="lib/xercesImpl-2.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/xalan-2.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/MRJ141Stubs.jar"/>
+	<classpathentry kind="lib" path="lib/djep-2.24.jar"/>
+	<classpathentry kind="lib" path="lib/RngPack-1.1a.jar"/>
+	<classpathentry kind="lib" path="lib/jep-2.24.jar"/>
+	<classpathentry kind="lib" path="lib/xmlunit1.0.jar"/>
+	<classpathentry kind="lib" path="lib/javacc.jar"/>
+	<classpathentry kind="lib" path="lib/wraplf.jar"/>
+	<classpathentry kind="output" path="build.eclipse"/>
+</classpath>

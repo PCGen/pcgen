@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Mon Mar 14 23:02:18 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Beaver
+
+###Block:Weapon
+# Modifier Name	Unique Key		Type			Cost		Visible	Type granted	Choose Naming Option	Source Page				Special Property
+# Equipment Name	Type		Cost		Source Page		Special Property													ASSIGNTOALL		ITYPE			KEY
+# Modifier Name	Unique Key	Type		Cost		Type granted	Source Page		Special Property													Apply to both heads
+Icewood		KEY:ICEWD	TYPE:Weapon	COST:0	ITYPE:Masterwork	SOURCEPAGE:p.127	SPROP:Cost one-half of the standard resources of time, components and energy to enchant	ASSIGNTOALL:Y

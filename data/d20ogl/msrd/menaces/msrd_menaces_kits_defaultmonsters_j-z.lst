@@ -1,0 +1,567 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Fri Dec  9 05:38:28 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by Frank Kliewe
+
+#MSRD Errors?
+#Too many Feats: Kinori
+#Skill Rank too high for level: Man o War (Giant),Mothfolk, Small Star Doppelganger
+#More Skill Ranks than Points: Megalodon (Advanced), Mongolian Death Worm (Advanced), Neothelid, Whisperer in the Dark
+#Attack TOHIT too high:Advanced Litter Brute, Megalodon (Advanced), Robot (Police Assault Drone), Snake (Cobra/Black Mamba),
+#Luciferan has Colt Python but no Personal Firearms Proficiency
+#Rogue Tulpa (Advanced) lists secondary attack as "+6", but it should be "+16"
+#Scorpion skill Hide should be 15, is already 20 without ranks
+#Snake (Hoop) Balance and Climb should be 7, both are already 13 without ranks, Hide should be 8, is already 9, Listen and Spot
+#	should be 4, are already 5
+#Snake (Advanced Hoop) Balance should be 6, is already 12 without ranks, Hide should be 3, is already 4, Listen and Spot should
+#	be 4, are already 5
+#Tiny Star Doppelganger has probably typo in skill Move Silently 11, if it is 1 than skill ranks would be correct.
+
+STARTPACK:Default Jynx	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jynx]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Jynx	!PRERACE:1,%
+NAME:Jynx
+SKILL:Balance		RANK:4
+SKILL:Climb			RANK:4
+SKILL:Disable Device	RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Jump			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Pilot			RANK:4
+SKILL:Repair		RANK:1
+SKILL:Search		RANK:4
+SKILL:Spot			RANK:4
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Weapon Finesse (Claw)
+
+STARTPACK:Default Kinori	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kinori]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+RACE:Kinori	!PRERACE:1,%
+NAME:Kinori
+FEAT:Multiattack
+FEAT:Archaic Weapons Proficiency
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:3
+SKILL:Survival		RANK:5
+SKILL:Swim			RANK:1
+
+STARTPACK:Default Litter Brute	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Litter Brute]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Litter Brute	!PRERACE:1,%
+NAME:Litter Brute
+
+STARTPACK:Default Litter Brute (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Litter Brute (Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Litter Brute (Advanced)	!PRERACE:1,%
+NAME:Advanced Litter Brute
+
+STARTPACK:Default Luciferan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Luciferan]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Luciferan	!PRERACE:1,%
+NAME:Luciferan
+SKILL:Knowledge (Arcane Lore)	RANK:5
+FEAT:Personal Firearms Proficiency
+GEAR:Colt Python (.357 revolver)	LOCATION:Primary Hand
+GEAR:Bullet (.357)			QTY:12
+LANGAUTO:English
+
+STARTPACK:Default Man o War (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Man o War (Giant)]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Man o War (Giant)	!PRERACE:1,%
+NAME:Giant Man-'o-War
+SKILL:Hide			RANK:10
+SKILL:Move Silently	RANK:6
+
+STARTPACK:Default Mapinguari	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mapinguari]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Mapinguari	!PRERACE:1,%
+NAME:Mapinguari
+SKILL:Climb		RANK:4
+SKILL:Listen	RANK:4
+
+STARTPACK:Default Mapinguari (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mapinguari (Advanced)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Mapinguari (Advanced)	!PRERACE:1,%
+NAME:Advanced Mapinguari
+SKILL:Climb		RANK:4
+SKILL:Listen	RANK:4
+
+STARTPACK:Default Megalodon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon]
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+RACE:Megalodon	!PRERACE:1,%
+NAME:Megalodon
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Default Megalodon (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon (Advanced)]
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+RACE:Megalodon (Advanced)	!PRERACE:1,%
+NAME:Advanced Megalodon
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+SKILL:Hide		RANK:4
+
+STARTPACK:Default Mongolian Death Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongolian Death Worm]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Mongolian Death Worm	!PRERACE:1,%
+NAME:Mongolian Death Worm
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:7
+
+STARTPACK:Default Mongolian Death Worm (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongolian Death Worm (Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Mongolian Death Worm (Advanced)	!PRERACE:1,%
+NAME:Advanced Mongolian Death Worm
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:7
+FEAT:Alertness
+
+STARTPACK:Default Monitor Lizard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monitor Lizard]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Monitor Lizard	!PRERACE:1,%
+NAME:Monitor Lizard
+SKILL:Climb		RANK:6
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+
+STARTPACK:Default Montauk Monster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Montauk Monster]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Montauk Monster	!PRERACE:1,%
+NAME:Montauk Monster
+SKILL:Climb			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+FEAT:Alertness
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Montauk Monster (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Montauk Monster (Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Montauk Monster (Advanced)	!PRERACE:1,%
+NAME:Advanced Montauk Monster
+SKILL:Climb			RANK:12
+SKILL:Listen		RANK:12
+SKILL:Move Silently	RANK:12
+SKILL:Spot			RANK:12
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+
+STARTPACK:Default Mothfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mothfolk]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Mothfolk	!PRERACE:1,%
+NAME:Mothfolk
+SKILL:Balance		RANK:2
+SKILL:Climb			RANK:2
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Stealthy
+
+STARTPACK:Default Neothelid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Neothelid	!PRERACE:1,%
+NAME:Neothelid
+SKILL:Climb		RANK:28
+SKILL:Listen	RANK:28
+SKILL:Swim		RANK:25
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Sunder
+FEAT:Weapon Focus (Tentacle Rake)
+
+STARTPACK:Default Night Terror	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Terror]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Night Terror	!PRERACE:1,%
+NAME:Night Terror
+SKILL:Bluff						RANK:3
+SKILL:Climb						RANK:2
+SKILL:Disguise					RANK:2
+SKILL:Escape Artist				RANK:1
+SKILL:Hide						RANK:3
+SKILL:Intimidate					RANK:6
+SKILL:Knowledge (Behavioral Sciences)	RANK:5
+SKILL:Listen					RANK:3
+SKILL:Move Silently				RANK:4
+SKILL:Search					RANK:2
+SKILL:Sense Motive				RANK:6
+SKILL:Spot						RANK:3
+FEAT:Improved Initiative
+FEAT:Renown
+GEAR:Cleaver				LOCATION:Primary Hand
+GEAR:Collection of beheaded Dolls	LOCATION:Carried
+
+STARTPACK:Default Robot (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Small)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Robot (Small)	!PRERACE:1,%
+NAME:Small Robot
+
+STARTPACK:Default Robot (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Medium)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Robot (Medium)	!PRERACE:1,%
+NAME:Medium Robot
+
+STARTPACK:Default Robot (Police Assault Drone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Police Assault Drone)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Robot (Police Assault Drone)	!PRERACE:1,%
+NAME:Police Assault Drone
+GEAR:Mossberg (12 gauge shotgun)	LOCATION:Both Hands
+
+STARTPACK:Default Rod	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rod]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Rod	!PRERACE:1,%
+NAME:Rod
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+
+STARTPACK:Default Rogue Tulpa	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rogue Tulpa]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Rogue Tulpa	!PRERACE:1,%
+NAME:Rogue Tulpa
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:2
+SKILL:Search		RANK:8
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Default Rogue Tulpa (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rogue Tulpa (Advanced)]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Rogue Tulpa (Advanced)	!PRERACE:1,%
+NAME:Advanced Rogue Tulpa
+SKILL:Listen		RANK:11
+SKILL:Move Silently	RANK:3
+SKILL:Search		RANK:11
+SKILL:Spot			RANK:11
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Sasquatch (Weren)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sasquatch (Weren)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Sasquatch (Weren)	!PRERACE:1,%
+NAME:Sasquatch (Weren)
+SKILL:Climb		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+
+STARTPACK:Default Satanic Ichor	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Satanic Ichor	!PRERACE:1,%
+NAME:Satanic Ichor
+
+STARTPACK:Default Satanic Ichor (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor (Advanced)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Satanic Ichor (Advanced)	!PRERACE:1,%
+NAME:Advanced Satanic Ichor
+
+STARTPACK:Default Scorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Scorpion	!PRERACE:1,%
+NAME:Scorpion
+SKILL:Climb	RANK:4
+SKILL:Spot	RANK:3
+
+STARTPACK:Default Sea Serpent	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Sea Serpent	!PRERACE:1,%
+NAME:Sea Serpent
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Sea Serpent (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent (Advanced)]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Sea Serpent (Advanced)	!PRERACE:1,%
+NAME:Advanced Sea Serpent
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Sewer Sludge	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sewer Sludge]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Sewer Sludge	!PRERACE:1,%
+NAME:Sewer Sludge
+
+STARTPACK:Default Sewer Sludge (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sewer Sludge (Advanced)]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+RACE:Sewer Sludge (Advanced)	!PRERACE:1,%
+NAME:Advanced Sewer Sludge
+
+STARTPACK:Default Shark (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Huge)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Shark (Huge)	!PRERACE:1,%
+NAME:Shark, Huge
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+
+STARTPACK:Default Skin Feaster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Skin Feaster	!PRERACE:1,%
+NAME:Skin Feaster
+SKILL:Climb		RANK:6
+SKILL:Jump		RANK:6
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+
+STARTPACK:Default Skin Feaster (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster (Advanced)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Skin Feaster (Advanced)	!PRERACE:1,%
+NAME:Advanced Skin Feaster
+SKILL:Climb		RANK:5
+SKILL:Jump		RANK:5
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:8
+FEAT:Agile Riposte
+FEAT:Dodge
+
+STARTPACK:Default Snake (Cobra)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Cobra)]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=11|CHA=10
+RACE:Snake (Cobra)	!PRERACE:1,%
+NAME:Snake, Cobra
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Snake (Black Mamba)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Black Mamba)]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=11|CHA=10
+RACE:Snake (Black Mamba)	!PRERACE:1,%
+NAME:Snake, Black Mamba
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Snake (Hoop)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Hoop)]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Snake (Hoop)	!PRERACE:1,%
+NAME:Hoop Snake
+
+STARTPACK:Default Snake (Advanced Hoop)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Advanced Hoop)]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Snake (Advanced Hoop)	!PRERACE:1,%
+NAME:Advanced Hoop Snake
+
+STARTPACK:Default Star Doppelganger (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Star Doppelganger	!PRERACE:1,%
+NAME:Tiny Star Doppelganger
+SKILL:Climb				RANK:2
+SKILL:Craft (Electronic)	RANK:4
+SKILL:Craft (Mechanical)	RANK:4
+SKILL:Drive				RANK:4
+SKILL:Hide				RANK:2
+SKILL:Listen			RANK:4
+SKILL:Pilot				RANK:4
+SKILL:Spot				RANK:4
+SKILL:Swim				RANK:2
+FEAT:Alertness
+FEAT:Athletic
+FEAT:Builder
+
+STARTPACK:Default Star Doppelganger (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Star Doppelganger	!PRERACE:1,%
+NAME:Small Star Doppelganger
+CLASS:Aberration	LEVEL:1
+SKILL:Climb				RANK:2
+SKILL:Craft (Electronic)	RANK:4
+SKILL:Craft (Mechanical)	RANK:4
+SKILL:Drive				RANK:4
+SKILL:Hide				RANK:3
+SKILL:Pilot				RANK:4
+SKILL:Spot				RANK:4
+SKILL:Swim				RANK:2
+SKILL:Move Silently		RANK:7
+FEAT:Alertness
+FEAT:Athletic
+FEAT:Builder
+
+STARTPACK:Default Star Doppelganger (Medium-size)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Star Doppelganger	!PRERACE:1,%
+NAME:Medium-size Star Doppelganger
+CLASS:Aberration	LEVEL:3
+SKILL:Climb				RANK:3
+SKILL:Craft (Electronic)	RANK:4
+SKILL:Craft (Mechanical)	RANK:4
+SKILL:Drive				RANK:4
+SKILL:Listen			RANK:4
+SKILL:Hide				RANK:4
+SKILL:Move Silently		RANK:4
+SKILL:Pilot				RANK:4
+SKILL:Spot				RANK:4
+SKILL:Swim				RANK:3
+FEAT:Alertness
+FEAT:Athletic
+FEAT:Builder
+
+STARTPACK:Default Star Doppelganger (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Star Doppelganger	!PRERACE:1,%
+NAME:Large Star Doppelganger
+CLASS:Aberration	LEVEL:7
+SKILL:Climb				RANK:5
+SKILL:Craft (Electronic)	RANK:4
+SKILL:Craft (Mechanical)	RANK:4
+SKILL:Drive				RANK:4
+SKILL:Listen			RANK:4
+SKILL:Hide				RANK:5
+SKILL:Move Silently		RANK:1
+SKILL:Pilot				RANK:4
+SKILL:Spot				RANK:4
+SKILL:Swim				RANK:5
+FEAT:Alertness
+FEAT:Athletic
+FEAT:Builder
+FEAT:Power Attack
+
+STARTPACK:Default Star Doppelganger (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Star Doppelganger	!PRERACE:1,%
+NAME:Huge Star Doppelganger
+CLASS:Aberration	LEVEL:15
+SKILL:Climb				RANK:8
+SKILL:Craft (Electronic)	RANK:4
+SKILL:Craft (Mechanical)	RANK:4
+SKILL:Drive				RANK:4
+SKILL:Listen			RANK:4
+SKILL:Hide				RANK:8
+SKILL:Move Silently		RANK:2
+SKILL:Pilot				RANK:4
+SKILL:Spot				RANK:4
+SKILL:Swim				RANK:8
+FEAT:Alertness
+FEAT:Athletic
+FEAT:Builder
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Power Attack
+
+STARTPACK:Default Thought Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Thought Eater	!PRERACE:1,%
+NAME:Thought Eater
+SKILL:Hide		RANK:6
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+
+STARTPACK:Default Thunderbird (Chick)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird (Chick)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+RACE:Thunderbird (Chick)	!PRERACE:1,%
+NAME:Thunderbird (Chick)
+SKILL:Hide			RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Thunderbird (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird (Adult)]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Thunderbird (Adult)	!PRERACE:1,%
+NAME:Thunderbird (Adult)
+SKILL:Hide			RANK:6
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:9
+SKILL:Speak Language	RANK:1
+FEAT:Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Default Toxic Sludge	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxic Sludge]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Toxic Sludge	!PRERACE:1,%
+NAME:Toxic Sludge
+
+STARTPACK:Default Toxic Sludge (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxic Sludge (Advanced)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+RACE:Toxic Sludge (Advanced)	!PRERACE:1,%
+NAME:Advanced Toxic Sludge
+
+STARTPACK:Default Udoroot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+RACE:Udoroot	!PRERACE:1,%
+NAME:Udoroot
+
+STARTPACK:Default Udoroot (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot (Advanced)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+RACE:Udoroot (Advanced)	!PRERACE:1,%
+NAME:Advanced Udoroot
+
+STARTPACK:Default Whisperer in the Dark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whisperer in the Dark]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Whisperer in the Dark	!PRERACE:1,%
+NAME:Whisperer in the Dark
+SKILL:Concentration	RANK:8
+SKILL:Hide			RANK:14
+SKILL:Intimidate		RANK:10
+SKILL:Listen		RANK:8
+SKILL:Search		RANK:10
+SKILL:Sense Motive	RANK:6
+SKILL:Spot			RANK:8
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Frightful Presence
+FEAT:Improved Initiative
+
+STARTPACK:Default Yeti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeti]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+RACE:Yeti	!PRERACE:1,%
+NAME:Yeti
+SKILL:Climb			RANK:6
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Survival		RANK:6
+LANGAUTO:Giant
+
+STARTPACK:Default Yeti (Advanced)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeti (Advanced)]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+RACE:Yeti (Advanced)	!PRERACE:1,%
+NAME:Abominable Snowman (Advanced Yeti)
+SKILL:Climb			RANK:1
+SKILL:Hide			RANK:11
+SKILL:Move Silently	RANK:10
+SKILL:Survival		RANK:11
+FEAT:Power Attack
+FEAT:Track
+LANGAUTO:Giant
+
+STARTPACK:Default Zap	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zap]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+RACE:Zap	!PRERACE:1,%
+NAME:Zap
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:4
+
+STARTPACK:Default Zeikune	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zeikune]
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+RACE:Zeikune	!PRERACE:1,%
+NAME:Zeikune
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+FEAT:Improved Initiative

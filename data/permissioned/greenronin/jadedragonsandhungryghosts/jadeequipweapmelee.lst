@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Green Ronin Publishing  - Jade Dragons and Hungry Ghosts|SOURCESHORT:JadeDaHG|SOURCEWEB:http://www.greenronin.com
+
+# Equipment Name	Type							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
+Tiger Claws		TYPE:Weapon.Exotic.Melee.Piercing.Metal	COST:4	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:p.54

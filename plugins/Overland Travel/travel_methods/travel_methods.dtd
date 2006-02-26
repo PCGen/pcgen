@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : travel_methods.dtd
+    Created on : July 28, 2003, 12:55 PM
+    Author     : Juliean Galak
+    Description:
+        DTD for a document holding travel methods and associated speeds
+-->
+
+<!ELEMENT table (method*)>
+<!ELEMENT method (name, speed)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT speed (#PCDATA)>

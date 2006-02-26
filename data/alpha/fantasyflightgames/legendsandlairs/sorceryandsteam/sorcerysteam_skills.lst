@@ -1,0 +1,40 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Skill Name						Key Stat	Untrained?		Type						Bonus to skill																													Source Page
+Drive								KEYSTAT:DEX				TYPE:Dexterity																																			SOURCEPAGE:p.100
+Munitions							KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Dexterity																																			SOURCEPAGE:p.101
+Use Steamcraft Device					KEYSTAT:INT				TYPE:Intelligence																																			SOURCEPAGE:p.102
+
+Craft (Clockworks)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft																																		SOURCEPAGE:p.98
+Craft (Explosives)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft																																		SOURCEPAGE:p.98
+Craft (Gunsmithing)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft																																		SOURCEPAGE:p.98
+Craft (Steamcraft)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft																																		SOURCEPAGE:p.98
+
+
+Knowledge (Clockworks)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Tech																																SOURCEPAGE:p.99
+Knowledge (Crime and Criminals)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.100
+Knowledge (Engine Programming)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Tech																																SOURCEPAGE:p.99
+Knowledge (Firearms)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Tech																																SOURCEPAGE:p.99
+Knowledge (Law)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge																																	SOURCEPAGE:p.100
+Knowledge (Steamcraft)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Tech																																SOURCEPAGE:p.99
+
+# MODs to knowledge skills to add Tech to SRD skill TYPEs, this makes it a Artificer class skill
+Knowledge (Architecture and Engineering).MOD						TYPE:Tech
+Knowledge (Geology).MOD										TYPE:Tech
+Knowledge (Minerals).MOD									TYPE:Tech
+
+Profession (Detective)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Detective)|2|PRESKILL:1,Search=5|TYPE=Synergy.STACK																			SOURCEPAGE:p.99
+Profession (Doctor)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																																		SOURCEPAGE:p.99
+Profession (Policeman)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Policeman)|2|PRESKILL:1,Diplomacy,Intimidate=5|TYPE=Synergy.STACK																	SOURCEPAGE:p.99
+Profession (Profiler)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Profiler)|2|PRESKILL:1,Diplomacy,Intimidate=5|TYPE=Synergy.STACK	BONUS:SKILL|Profession (Profiler)|2|PRESKILLTOT:Diplomacy,Intimidate=10|TYPE=Synergy.STACK	SOURCEPAGE:p.99
+Profession (Surgeon)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																																		SOURCEPAGE:p.99
+
+# Added to support Urban Druid prereqs
+Craft (Musical Instrument)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft																																		SOURCEPAGE:p.31
+Craft (Woodworking)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft																																		SOURCEPAGE:p.31
+
+#
+# end
+#

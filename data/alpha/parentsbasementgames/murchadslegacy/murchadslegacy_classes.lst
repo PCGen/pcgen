@@ -1,0 +1,201 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sun Nov 27 12:57:12 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Chain Dancer	HD:10		TYPE:PC.Prestige	ABB:CnDcr		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL-1|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat		Required Skill
+CLASS:Chain Dancer	PREATT:6	PREFEAT:1,Desolati	PRESKILL:1,Perform (Spiked Chain Dancing)=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Jump|Listen|Move Silently|TYPE.Perform|Search|Sense Motive|Spot|Survival|Tumble|Use Rope
+###Block: Enthral
+2	SA:Enthrall (Ex) %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4		BONUS:VAR|EnthralledCreatures|CL	DEFINE:EnthralledCreatures|0
+2	SA:Master Enthrall (Ex) - %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0
+4																							BONUS:VAR|EnthrallDuration|CL
+###Block: Normal Level Progression
+1	SA:Chain Parry (Ex) +%|ChainParryAC			BONUS:VAR|ChainParryAC|CL	BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	FEATAUTO:Weapon Specialization(Chain (Spiked))
+3	SA:Weapon Use (Elongated Spiked Chain)
+5	SA:Weapon Proficiency (Elongated Spiked Chain)
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Homefront Guardian	HD:6		TYPE:PC.Prestige	ABB:HfG		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL-1|TYPE=Base.REPLACE
+# Class Name			Required Feat	Required Skill					Required Text
+CLASS:Homefront Guardian	PREFEAT:1,Home	PRESKILL:3,Bluff,Hide,Move Silently=8	PRETEXT:Must have slain one person with the Remarian cultural feat.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Poison Use																					ADD:FEAT(Homefront Guardian Skill Bonus)1
+2	SA:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0								FEATAUTO:Sneak Attack
+3	SA:Homeblood use																					ADD:FEAT(Homefront Guardian Skill Bonus)1
+5	SA:Homeblood Immunity (Ex)																			ADD:FEAT(Homefront Guardian Skill Bonus)1
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
+CLASS:Imperial Legionnaire	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL-1)/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Feat		Required Skill														Required Stat						Required Text																												Req. Weapond Prof.
+CLASS:Imperial Legionnaire	PREATT:6	PREFEAT:1,Remarian	PRESKILL:1,Knowledge (Local/Remaria)=8	PRESKILL:1,Knowledge (History),Knowledge (War)=5	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PREWEAPONPROF:1,Longsword
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim|Use Rope
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+###Block: Normal Progression
+1	SA:Aid Soul (Su) +%|AidSoulHitPoints	SA:Soulbind (Su)		BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))																							BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC	TEMPDESC:At first level the Legionnaire gains 2 hit points per other Legionnaire that he is currently bound with, this benefit increases at higher levels. This temporary bonus will add these hit points.	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires
+2	SA:Enhanced Defense (Ex) +%|EnhancedDefenseAC				BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1													BONUS:COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense|PREAPPLY:PC													TEMPDESC:The Legionnaire is more aware of the area around him, granting him a bonus to Armor Class, but it is dependent on being near the other members of the octus and being soulbound.				DEFINE:EnhancedDefenseAC|0
+3	SA:Awareness (Su)
+4	SA:Protect Comrade (Ex)
+6	SA:Sight Through the Soul (Su)	SA:Soul Enforcement (Su)										BONUS:CHECKS|BASE.Willpower|2
+9	SA:True Awareness (Ex)																	BONUS:CHECKS|BASE.Reflex|2|TYPE=TrueAwareness|PREAPPLY:PC																									TEMPDESC:The Legionnaire gains a +2 bonus to all Reflex saving throws as long as he is within 100' of his leader (or 200' if the leader is a Primarch).
+10	SA::Primarch (Su)
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
+CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL-1)/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Skill			Required Text												Req. Weapond Prof.
+CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE.Perform|Ride|Speak Language
+1	SA:Nobility	ADD:FEAT(TYPE.Passion)1
+3			ADD:FEAT(TYPE.PureHeart)1
+5			ADD:FEAT(TYPE.Passion)1
+6			ADD:FEAT(TYPE.PureHeart)1
+9			ADD:FEAT(TYPE.PureHeart)1
+10			ADD:FEAT(TYPE.Passion)1
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Orc Skin Artist	HD:6		TYPE:PC.Prestige	ABB:SnArt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL-1|TYPE=Base.REPLACE
+# Class Name		Required Feat		Required Race				Required Skill					Req. Spell Type
+CLASS:Orc Skin Artist	PREFEAT:1,Scribe Scroll	PRERACE:Half-orc,Orc (Gadohig),Orc%	PRESKILL:1,Profession (Skin Art/Tattoo)=8	PRESPELLTYPE:Arcane|Divine,1,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Orc Skin Artist	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Handle Animal|Heal|TYPE.Profession|Spellcraft|Use Magic Device
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Orc Skin Artist|CL
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Orc Skin Artist=0|Create Water,Cure Minor Wounds,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Touch of Fatigue
+1	SPELLLEVEL:CLASS|Orc Skin Artist=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
+1	SPELLLEVEL:CLASS|Orc Skin Artist=2|Aid,Animal Trance,Bear's Endurance,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Delay Poison,Invisibility,Mirror Image,Resist Energy,Scorching Ray,See Invisibility,Web
+1	SPELLLEVEL:CLASS|Orc Skin Artist=3|Animate Dead,Bestow Curse,Contagion,Continual Flame,Cure Serious Wounds,Daylight,Deeper Darkness,Lightning Bolt,Neutralize Poison,Remove Curse,Remove Disease,Tongues
+1	SPELLLEVEL:CLASS|Orc Skin Artist=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
+#1	SPELLLEVEL:CLASS|Orc Skin Artist=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Skin Art
+1	SA:Skin Art (Cantrips)|PREVAREQ:SkinArtProgression,1			BONUS:VAR|SkinArtProgression|(CL+1)/2	DEFINE:SkinArtProgression|0
+1	SA:Skin Art (Level 1 Spells)|PREVAREQ:SkinArtProgression,2
+1	SA:Skin Art (Level 2 Spells)|PREVAREQ:SkinArtProgression,3
+1	SA:Skin Art (Level 3 Spells)|PREVAREQ:SkinArtProgression,4
+1	SA:Skin Art (Level 4 Spells)|PREVARGTEQ:SkinArtProgression,5
+###Block Normal Level progression
+1	CAST:3
+2	CAST:3,1		SA:Remove Tattoo (Su)
+3	CAST:3,1
+4	CAST:4,2,1		SA:Augmentation (+%)|AugmentationBonus	BONUS:VAR|AugmentationBonus|2	DEFINE:AugmentationBonus|0
+5	CAST:4,2,2
+6	CAST:4,3,2,1	SA:Remove Magical Tattoo (Su)			BONUS:VAR|AugmentationBonus|2
+7	CAST:5,3,3,2
+8	CAST:5,4,3,2,1								BONUS:VAR|AugmentationBonus|2
+9	CAST:5,4,4,3,2
+10	CAST:6,5,4,3,2	SA:Ward
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus												Combat bonus
+CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Race					Required Skill												Req. Spell Type
+CLASS:Stargazer	PRERACE:Elf%,Half-Elf,Halfling%,Human	PRESKILL:3,Concentration,Knowledge (Astronomy),Spellcraft=7	PRESKILL:1,Survival=4	PRESPELLTYPE:Divine,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Stargazer	STARTSKILLPTS:3	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Heal|Knowledge (Astronomy)|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft
+SUBCLASS:Stargazer (Bonfire)			COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - Polaris	SA:May not cast Spells from the School of Necromancy			BONUS:VAR|SSBonfireLvl|1		FEATAUTO:Star Sign (Bonfire)
+SUBCLASS:Stargazer (Rainbow Dragon)		COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - Forgotten Child	SA:May not cast Spells from the School of Enchantment		BONUS:VAR|SSRainbowDragonLvl|1	FEATAUTO:Star Sign (Rainbow Dragon)
+SUBCLASS:Stargazer (The Faceless)		COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - The Guide	SA:May not cast Spells from the School of Divination			BONUS:VAR|SSFacelessLvl|1		FEATAUTO:Star Sign (The Faceless)
+SUBCLASS:Stargazer (The Guide)		COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - The Faceless	SA:May not cast Spells from the School of Illusion		BONUS:VAR|SSGuideLvl|1			FEATAUTO:Star Sign (The Guide)
+SUBCLASS:Stargazer (The Blacksmith)		COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - Imaginos the Grand	SA:May not cast Spells from the School of Evocation	BONUS:VAR|SSBlacksmithLvl|1		FEATAUTO:Star Sign (The Blacksmith)
+SUBCLASS:Stargazer (Forgotten Child)	COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - Rainbow Dragon	SA:May not cast Spells from the School of Conjuration		BONUS:VAR|SSForgottenLvl|1		FEATAUTO:Star Sign (Forgotten Child)
+SUBCLASS:Stargazer (Polaris)			COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - Bonfire	SA:May not cast Spells from the School of Abjuration			BONUS:VAR|SSPolarisLvl|1		FEATAUTO:Star Sign (Polaris)
+SUBCLASS:Stargazer (Imaginos the Grand)	COST:0
+SUBCLASSLEVEL:1	SA:Opposing Sign - The Blacksmith	SA:May not cast Spells from the School of Transmutation	BONUS:VAR|SSImaginosLvl|1		FEATAUTO:Star Sign (Imaginos the Grand)
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level Progression
+1	ADD:SPELLCASTER(ANY)	SA:Navigation
+2	ADD:SPELLCASTER(ANY)
+3	ADD:SPELLCASTER(ANY)
+4	ADD:SPELLCASTER(ANY)	SA:Fortune Telling (Su)
+5									ADD:FEAT(TYPE.StarSign)1
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)					ADD:FEAT(TYPE.StarSign)1
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Steadfast Knight	HD:10		TYPE:PC.Prestige	ABB:SfKnt		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat				Required Skill					Required Text						Req. Weapond Prof.
+CLASS:Steadfast Knight	PREATT:3	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:2,Knowledge (Nature),Survival=10	PRETEXT:You must impress two Steadfast Knights	PREWEAPONPROF:1,Longbow
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge (Local/Launhym)|Knowledge (Nature)|Ride|Swim|Use Rope|Survival
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level					Use Spell List
+CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+###Block: level progression
+1	CAST:0,0		SA:Launhym Nobility	SA:Oath (Su)	BONUS:VAR|SteadfastHitPoints|CL	FEATAUTO:Oath (Active)|Oath (Direct Action)
+2	CAST:0,1
+3	CAST:0,1,1
+4	CAST:0,1,1		SA:Nobility
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0	SA:Blood Oath (Su)										FEATAUTO:Blood Oath (Active)|Blood Oath (Direct Action)
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Steel Dragons	HD:12		TYPE:PC.Prestige	ABB:StDrg		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat		Required Skill
+CLASS:Steel Dragons	PREATT:3	PREFEAT:1,Galkarnan	PRESKILL:1,Craft (Alchemy)=8	PRESKILL:4,Craft (Gunsmithing),Listen,Spot,Tumble=4	PRESKILL:2,Knowledge (Architecture and Engineering),Spellcraft=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowledge|Listen|Spellcraft|Spot|Tumble
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Level Progression
+1																																					FEATAUTO:Alertness
+2																																	ADD:FEAT(TYPE.Gunnery)1
+4						SA:Magical Alertness (Ex) +%|MagicalAlertnessBonus							BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
+5																																	ADD:FEAT(TYPE.Gunnery)1
+7						SA:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
+8																																	ADD:FEAT(TYPE.Gunnery)1
+10	SA:.CLEAR.Magical Alertness	SA:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus						BONUS:VAR|MagicalAlertnessBonus|4
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|min(3,(var("CL=Shadowtamer")-1))|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat	Required Skill																					Required Spell School
+CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:Necromancy,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Gather Information|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Lure of the Dammed	SA:Summon Shadow Beast	BONUS:VAR|ShadowBeast|CL							DEFINE:ShadowBeast|0
+2	ADD:SPELLCASTER(ANY)
+3	ADD:SPELLCASTER(ANY)
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)	SA:Damned												BONUS:COMBAT|AC|2	BONUS:STAT|STR|2					TEMPLATE:Damned Spell Resistance
+
+#
+# End
+#

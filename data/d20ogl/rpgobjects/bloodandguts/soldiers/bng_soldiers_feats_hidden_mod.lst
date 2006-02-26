@@ -1,0 +1,39 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 26 23:36:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Guts - Soldiers|SOURCESHORT:BnG-S|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+
+# Feat Name								Type
+Bluff(class skill).MOD						TYPE:LegalServicesSkills.RecruitingSkills.SupplySkills
+Communication Operations(class skill).MOD			TYPE:AirDefenseSkills
+Computer Use(class skill).MOD					TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.SupplySkills
+Demolitions(class skill).MOD					TYPE:AirDefenseSkills
+Diplomacy(class skill).MOD					TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Disable Device(class skill).MOD				TYPE:AirDefenseSkills
+Drive(class skill).MOD						TYPE:AirDefenseSkills
+Forgery(class skill).MOD					TYPE:SupplySkills
+Gather Information(class skill).MOD				TYPE:LegalServicesSkills.SupplySkills
+Hide(class skill).MOD						TYPE:AirDefenseSkills
+Knowledge (Art - class skill).MOD				TYPE:AdministrativeSkills
+Knowledge (Behavioral Sciences - class skill).MOD	TYPE:LegalServicesSkills.RecruitingSkills.ReligiousSkills
+Knowledge (Business - class skill).MOD			TYPE:AdministrativeSkills.LegalServicesSkills
+Knowledge (Civics - class skill).MOD			TYPE:LegalServicesSkills
+Knowledge (Current Events - class skill).MOD		TYPE:AdministrativeSkills.RecruitingSkills
+Knowledge (History - class skill).MOD			TYPE:ReligiousSkills
+Knowledge (Popular Culture - class skill).MOD		TYPE:AdministrativeSkills.RecruitingSkills
+Knowledge (Tactics - class skill).MOD			TYPE:AirDefenseSkills
+Knowledge (Technology - class skill).MOD			TYPE:AirDefenseSkills
+Knowledge (Theology and Philosophy - class skill).MOD	TYPE:ReligiousSkills
+Listen(class skill).MOD						TYPE:AdministrativeSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Navigate(class skill).MOD					TYPE:AirDefenseSkills
+Perform (Act - class skill).MOD				TYPE:AdministrativeSkills
+Perform (Dance - class skill).MOD				TYPE:AdministrativeSkills
+Perform (Keyboards - class skill).MOD			TYPE:AdministrativeSkills
+Perform (Percussion Instruments - class skill).MOD	TYPE:AdministrativeSkills
+Perform (Sing - class skill).MOD				TYPE:AdministrativeSkills
+Perform (Stand-Up - class skill).MOD			TYPE:AdministrativeSkills
+Perform (Stringed Instruments - class skill).MOD	TYPE:AdministrativeSkills
+Perform (Wind Instruments - class skill).MOD		TYPE:AdministrativeSkills
+Repair(class skill).MOD						TYPE:AirDefenseSkills.SupplySkills
+Research(class skill).MOD					TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Sense Motive(class skill).MOD					TYPE:LegalServicesSkills.RecruitingSkills.SupplySkills
+Spot(class skill).MOD						TYPE:AirDefenseSkills.ReligiousSkills
+Treat Injury(class skill).MOD					TYPE:ReligiousSkills

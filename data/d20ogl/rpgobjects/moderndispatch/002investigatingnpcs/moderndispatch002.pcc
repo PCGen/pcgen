@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Jan 20 16:37:03 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Modern Dispatch - #2 - Investigating NPCs
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Modern Dispatch
+GENRE:Modern
+BOOKTYPE:Magazine
+SETTING:Generic
+ISOGL:YES
+SOURCELONG:Modern Dispatch #2 - Investigating NPCs
+SOURCESHORT:MD02-INPCs
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3987
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Dispatch #2 2004, RPGObjects; Author Charles Rice, Chris Davis
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #2 Copyright 2006, PCGen Data team, including, but not limited to, Frank Kliewe.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:moderndispatch002_equip.lst
+FEAT:moderndispatch002_feats.lst
+TEMPLATE:moderndispatch002_templates.lst

@@ -1,0 +1,6 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Dec 13 21:53:19 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+
+# Spell Name	Classes of caster					School		Type				Components	Casting Time	Range			Target Area										Duration					Save Info		Spell Resistance	Description		Source Page
+Locate Owner	CLASSES:Cleric,Paladin,Sorcerer,Wizard=2	SCHOOL:Divination	TYPE:Arcane.Divine	COMPS:V S F	CASTTIME:1 action	RANGE:Long		TARGETAREA:Object									DURATION:(CASTERLEVEL*10) minutes	SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.20
+Mists of Undeath	CLASSES:Wizard=8					SCHOOL:Necromancy	TYPE:Arcane			COMPS:V S M	CASTTIME:1 action	RANGE:Medium	TARGETAREA:(floor(CASTERLEVEL/2)*5+25)' cloud, up to 20' high	DURATION:Special				SAVEINFO:Special	SPELLRES:No		DESC:See text	SOURCEPAGE:p.50

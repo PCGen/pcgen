@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Thu Jan 29 06:07:03 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+# Equipment Name		Required Proficiency		Type							Contains				Cost		Weight	Critical Hit Multiplier		Critical Hit Range		Damage			Range		Size		Source Page
+Combat Soaker		PROFICIENCY:Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:-1|Holy Water=6	COST:120	WT:5		CRITMULT:See Description	CRITRANGE:See Description	DAMAGE:See Description	RANGE:5	SIZE:M	SOURCEPAGE:94
+Combat Soaker (powered)	PROFICIENCY:Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:-1|Holy Water=6	COST:220	WT:5		CRITMULT:See Description	CRITRANGE:See Description	DAMAGE:See Description	RANGE:10	SIZE:M	SOURCEPAGE:94

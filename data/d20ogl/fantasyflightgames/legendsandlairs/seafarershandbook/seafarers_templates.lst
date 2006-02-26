@@ -1,0 +1,21 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Sep  2 23:10:28 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+
+# Aquatic Elf Varients
+# Template Name	Visible		Source Page		Special Ability	Required Race			Add to base move								Bonus to skill				FAVOREDCLASS		Automaticaly Gained Weapon Prof.			MOVECLONE				Removable?		SUBRACE			Vision
+Coral Elf					SOURCEPAGE:p.10				PRERACE:Elf (Aquatic) (SFHB)																	FAVOREDCLASS:Wizard	AUTO:WEAPONPROF|Shortspear|Crossbow (Light)						REMOVABLE:NO	SUBRACE:Coral		VISION:Low-light (120')
+Kelp Elf					SOURCEPAGE:p.10				PRERACE:Elf (Aquatic) (SFHB)																	FAVOREDCLASS:Ranger	AUTO:WEAPONPROF|Shortspear|Net								REMOVABLE:NO	SUBRACE:Kelp		VISION:Low-light (150')
+
+# Half merrow varients
+Tailed		VISIBLE:EXPORT	SOURCEPAGE:p.8				PRERACE:Half-Merrow		BONUS:MOVEADD|TYPE=Swim|10	BONUS:MOVEADD|TYPE=Walk|-25	BONUS:SKILL|Swim|8|TYPE=Racial																		REMOVABLE:NO	SUBRACE:Tailed
+Non-Tailed		VISIBLE:EXPORT	SOURCEPAGE:p.8	SA:Amphibious	PRERACE:Half-Merrow												BONUS:SKILL|Swim|6|TYPE=Racial																		REMOVABLE:NO	SUBRACE:Non-Tailed
+
+# Aquatic Template
+Aquatic					SOURCEPAGE:p.94	SA:Waterbreathing																BONUS:SKILL|Swim|8|TYPE=Racial													MOVECLONE:Walk,0,Swim,*1				SUBRACE:Aquatic
+
+# Aquatic template needs work on swim speed.
+# Template gives PC a Swim speed equal to the Fly speed if there is one
+# or between 100% and 150% of the PC's walk speed (DM's choice)
+# This can't be coded at this time.

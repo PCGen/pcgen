@@ -1,0 +1,114 @@
+# CVS $Revision: 1.24 $ $Author: tir-gwaith $ -- Tue Mar 29 15:03:28 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# RSRD Entry by: jaymecox
+
+###Block:Special Mount
+# Class of the Master	Type				Hit Dice	Spell Res.	Special Ability													Define						Combat bonus						Add to base move																																			Stat bonus		Automaticaly Gained Armor Prof.
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				SA:Share saving throws	SA:Empathic Link	SA:Share spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																						BONUS:STAT|STR|1	AUTO:ARMORPROF|TYPE.Barding
+FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				SA:Improved Speed (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:Fly=1	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				SA:Command creatures of its kind										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																						BONUS:STAT|STR|1
+FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																	DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																						BONUS:STAT|STR|1
+FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
+FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
+FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
+FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
+FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
+#
+
+###Block:Fiendish Servant
+# Class of the Master	Type				Hit Dice	Spell Res.	Special Ability														Define						Combat bonus						Stat bonus
+FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				SA:Empathic Link (Su)	SA:Share spells	SA:Share saving throws	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				SA:Speak with Blackguard (Ex)												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2				SA:Blood Bond (Ex)													DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																		DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
+#
+
+###Block: Undead Companion
+# Class of the Master			Type				Hit Dice	Spell Res.	Virtual Feat	Special Ability																				Define						Combat bonus						Stat bonus		Modify VAR
+FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				VFEAT:Smite Good	SA:Empathic Link (Su)	SA:Share spells	SA:Share saving throws	SA:Improved Evasion (Ex)	SA:Can not be Turned or Rebuked	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3
+FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2							SA:Speak with Blackguard (Ex)																		DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2							SA:Blood Bond (Ex)																			DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																											DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
+#
+
+###Block:Familiar
+# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP		USEMASTERSKILL		Special Ability									Define						Combat bonus						SWITCHRACE
+FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast	SWITCHRACE:Beast|Magical Beast
+FOLLOWER:FMLevel=3	TYPE:Familiar																			SA:Deliver touch spells								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=5	TYPE:Familiar																			SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=7	TYPE:Familiar																			SA:Speak with animals of its kind						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=9	TYPE:Familiar																														DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																													DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																		SA:Scry on familiar								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																													DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																													DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																													DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
+#
+
+###Block:Familiar Bonuses to Master
+# Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Bat			TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
+MASTERBONUSRACE:Cat			TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
+MASTERBONUSRACE:Hawk			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Lizard			TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Owl			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Raven			TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
+#
+
+###Block:Animal Companion
+# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Stat bonus
+FOLLOWER:CompLevel=1	TYPE:Animal Companion									SA:Link (Ex)	SA:Share Spells (Ex)
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SA:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2								SA:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+#
+
+
+###Block:Animal Companion Size work-around
+#
+# These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
+# This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
+
+# Class of the Master	Type				BONUS:SIZEMOD
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
+
+
+###Block:Shadowdancer summoned Shadow
+# Class of the Master		Type				Hit Dice	Special Ability																		Modify VAR
+FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		SA:Communiate with Master	SA:Cannot Create Spawn	SA:Cannot be turned, rebuked, or commanded by any third party	BONUS:VAR|ShadowSpawnBlock|1
+FOLLOWER:ShadowCompanion=6	TYPE:Shadow Companion	HD:2
+FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
+
+###Block:Normal Mount
+# Class of the Master	Type		Automaticaly Gained Armor Prof.
+FOLLOWER:NORMALMOUNT=1	TYPE:Mount	AUTO:ARMORPROF|TYPE.Barding

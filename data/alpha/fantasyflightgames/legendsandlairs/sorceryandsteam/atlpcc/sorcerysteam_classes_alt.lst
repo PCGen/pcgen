@@ -1,0 +1,118 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+### Steampunk MODs to base classes
+
+# Class Name	Automaticaly Gained Weapon Prof.
+CLASS:Bard.MOD	AUTO:WEAPONPROF|TYPE.Firearms
+# Class Name	Class Skill
+CLASS:Bard.MOD	CSKILL:Munitions
+
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Cleric.MOD	CSKILL:.CLEAR		CSKILL:Alchemy|Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Steamcraft)|TYPE.Profession|Scry|Spellcraft
+
+# Class Name	Class Skill
+CLASS:Fighter.MOD	CSKILL:Munitions|TYPE.Profession
+
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Monk.MOD	CSKILL:.CLEAR.Perform	CSKILL:TYPE.Knowledge
+
+# Class Name	Class Skill
+CLASS:Paladin.MOD	CSKILL:Munitions
+
+# Class Name	Removed Class Skill		Class Skill
+CLASS:Ranger.MOD	CSKILL:.CLEAR.Handle Animal	CSKILL:Munitions
+
+# Class Name	Automaticaly Gained Weapon Prof.
+CLASS:Rogue.MOD	AUTO:WEAPONPROF|TYPE.Firearms
+# Class Name	Class Skill
+CLASS:Rogue.MOD	CSKILL:Munitions
+
+# Class Name		Class Skill
+CLASS:Sorcerer.MOD	CSKILL:Knowledge (Steamcraft)
+
+# Class Name		Automaticaly Gained Weapon Prof.
+CLASS:Street Runner.MOD	AUTO:WEAPONPROF|TYPE.Firearms
+
+### Alternate base classes for Steampunk setting
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Ex Class		Source Page		Automatic Languages		Bonus Languages	Define			Save checks bonus												Combat bonus					Modify VAR
+CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid	SOURCEPAGE:p. 31	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
+# Class Name	Required AL
+CLASS:Urban Druid	PREALIGN:LN,NG,TN,NE,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Urban Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Knowledge (Local)|TYPE.Profession|Scry|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
+CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Urban Druid|CL	SPELLLIST:1|Druid
+###Block:Proficiencies
+1	FEATAUTO:Druid Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Wildshape Abilities Block
+#
+# To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
+#
+5	BONUS:VAR|DruidWildShape|CL																																																														DEFINE:DruidWildShape|0	FEATAUTO:Wild Shape
+5	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|2|PREVARGTEQ:DruidWildShape,18
+5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
+5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+###Block: Level progression
+1	CAST:3,1				SA:Nature Sense	SA:Animal Companion
+2	CAST:4,2				SA:Hidden Paths
+3	CAST:4,2,1				SA:Trackless Step
+4	CAST:5,3,2				SA:Taint Ward
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1			SA:Venom Immunity
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1		SA:Timeless Body
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Define			Save checks bonus												Combat bonus					Modify VAR
+CLASS:Urban Ranger	HD:10		TYPE:Base.PC	ABB:UrRgr		SOURCEPAGE:p. 33	LANGAUTO:Literacy		DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL/2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Urban Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level									Use Spell List
+CLASS:Urban Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Ranger|CL/2|PRECLASS:1,Urban Ranger=4	SPELLLIST:1|Ranger
+###Block:Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Level progression
+1				ADD:FEAT(TYPE=RangerFavored)	VFEAT:Ambidexterity|Two-Weapon Fighting	FEATAUTO:Track
+4	CAST:0,0
+5	CAST:0,0		ADD:FEAT(TYPE=RangerFavored)
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1		ADD:FEAT(TYPE=RangerFavored)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1	ADD:FEAT(TYPE=RangerFavored)
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	ADD:FEAT(TYPE=RangerFavored)
+
+#
+# end
+#

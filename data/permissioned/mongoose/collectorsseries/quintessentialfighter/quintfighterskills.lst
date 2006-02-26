@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 17 10:07:22 2002 -- reformated by prettylst.pl v1.19 (build 215)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Knowledge (Military)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+

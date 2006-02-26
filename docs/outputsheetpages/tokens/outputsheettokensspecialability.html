@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensspecialability.html,v 1.3 2003/12/27 02:57:25 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2003/12/27 02:57:25 $
+		$Revision: 1.3 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H. Olafsson - shoATtnDOTis
+		
+		Description:
+		Provides information on the use of Output Sheet Tokens: Special Ability Related.
+	-->
+	<head>
+			<title>Special Ability Related Output Sheet Tokens</title>
+			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Special Ability Related Output Sheet Tokens</h1>
+
+		<p></p><a name="CLASS"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> CLASS.x.SALIST</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The x-th class in the character's class list - 0-based index).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the Special Abilities granted by the x-th class.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CLASS.0.SALIST</code></p>
+		<p class="indent3">Displays the Special Abilities granted by the characters 1<sup>st</sup> class.</p>
+
+		<p></p><a name="PROHIBITEDLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> PROHIBITEDLIST</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">A Specialist Wizard must choose some prohibited schools. The selected school will be
+			displayed in this list.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PROHIBITEDLIST</code></p>
+		<p class="indent3">Displays a comma delimited list of prohibitions</p>
+
+		<p></p><a name="RACE.ABILITYLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> RACE.ABILITYLIST</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays a comma delimited list of the characters racial special abilities.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACE.ABILITYLIST</code></p>
+		<p class="indent3">Displays a comma delimited list of the characters racial special abilities.</p>
+
+		<p></p><a name="SPECIALLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SPECIALLIST</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays a comma delimited list of the characters special abilities.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SPECIALLIST</code></p>
+		<p class="indent3">Displays a comma delimited list of the characters special abilities.</p>
+
+		<p></p><a name="SPECIALABILITY"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SPECIALABILITY.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (The x-th special ability in the character's special 
+		ability list - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the x-th special ability in the character's special ability list.</li>
+			<li>DESCRIPTION - Displays the description of the x-th special ability in the character's special ability list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the name or description of a character's special abilities.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SPECIALABILITY.0.DESCRIPTION</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> special ability in the character's special ability list.</p>
+
+		<p></p><a name="TEMP"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> TEMP.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The special ability's position in the character's 
+		special ability list - 0-based index).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the name of the characters x-th Special Ability.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMP.0</code></p>
+		<p class="indent3">Displays the name of the characters 1<sup>st</sup> Special Ability.</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensspecialability.html,v $ ($Revision: 1.3 $) last updated $Date: 2003/12/27 02:57:25 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

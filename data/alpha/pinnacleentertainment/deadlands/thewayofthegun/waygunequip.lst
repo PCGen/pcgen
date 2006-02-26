@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun|SOURCESHORT:WayotGun|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name		Type				Contains		Cost		Weight	Source Page		Bonus to skill
+Auto-Fanner			TYPE:Goods.Special				COST:75	WT:1		SOURCEPAGE:p.35
+Concealment holster	TYPE:Goods.Special	CONTAINS:4|Any=4	COST:5	WT:1		SOURCEPAGE:p.36	BONUS:SKILL|Holdout|3
+Gatling rifle cylinder	TYPE:Goods.Special				COST:200	WT:3		SOURCEPAGE:p.35
+Gatling shotgun belt	TYPE:Goods.Special				COST:200	WT:3		SOURCEPAGE:p.35
+Gillett belt		TYPE:Goods.Special				COST:20	WT:1		SOURCEPAGE:p.36
+Springsleeve holster	TYPE:Goods.Special	CONTAINS:4|Any=4	COST:11	WT:1		SOURCEPAGE:p.36
+Swivelling holster	TYPE:Goods.Special	CONTAINS:4|Any=4	COST:20	WT:1		SOURCEPAGE:p.36

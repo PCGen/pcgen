@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue|SOURCESHORT:QuintRogue|SOURCEWEB:http://mongoosepublishing.com
+
+# Equipment Name		Required Proficiency		Type									Contains			Cost		Weight	Critical Hit Range	Damage	Range		Size		Source Page			Special Property
+Blowgun								TYPE:Weapon.Exotic.Ranged.Piercing.Container		CONTAINS:-1|Needle=1	COST:10	WT:2						DAMAGE:1d1	RANGE:10	SIZE:M	SOURCEPAGE:p.53		SPROP:Ammunition can be poisoned. (See text)
+Crossbow (Sniper's)	PROFICIENCY:Crossbow (Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Metal.Container	CONTAINS:-1|Bolt=1	COST:250	WT:7		CRITRANGE:2			DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.53		SPROP:Proficient user can sneak attack at 120'. (See text)
+Lariat								TYPE:Weapon.Exotic.Ranged.Nonmetal								COST:1	WT:8						DAMAGE:0d0	RANGE:10	SIZE:M	SOURCEPAGE:p.53-55	SPROP:Can ensnare target. (See text)

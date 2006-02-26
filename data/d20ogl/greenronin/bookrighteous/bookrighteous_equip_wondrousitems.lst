@@ -1,0 +1,18 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 17 04:06:55 2004 -- reformated by prettylst.pl v1.32 (build 339)
+SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
+# Original Entry by: Beaver
+
+# Equipment Name				Type					Cost		Weight	Source Page		Spell Res.	Save checks bonus							Combat bonus				Bonus to skill					Stat bonus					Special Property
+Stole of Sacrifice (Shalimyr)		TYPE:Magic.Wondrous.Vest	COST:2500	WT:0		SOURCEPAGE:p.265																															SPROP:Sustains wearer without food or water
+Stole of Inspiration (Zeenkeef)	TYPE:Magic.Wondrous.Vest	COST:2000	WT:0		SOURCEPAGE:p.265																		BONUS:SKILL|Craft,Preform|10|TYPE=Insight
+Stole of Beauty (Aymara)		TYPE:Magic.Wondrous.Vest	COST:6000	WT:0		SOURCEPAGE:p.265																		BONUS:SKILL|Preform|10|TYPE=Insight		BONUS:STAT|CHA|2|TYPE=Enhancement
+Stole of Heroism (Darmon)		TYPE:Magic.Wondrous.Vest	COST:10000	WT:0		SOURCEPAGE:p.265			BONUS:CHECKS|Fortitude,Reflex,Willpower|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck
+Stole of the Wrestler (Canelle)	TYPE:Magic.Wondrous.Vest	COST:16000	WT:0		SOURCEPAGE:p.265																									BONUS:STAT|STR|4|TYPE=Enhancement
+Stole of Nobility (Naryne)		TYPE:Magic.Wondrous.Vest	COST:16000	WT:0		SOURCEPAGE:p.265																									BONUS:STAT|CHA|4|TYPE=Enhancement
+Stole of the Hunter (Thellyne)	TYPE:Magic.Wondrous.Vest	COST:16000	WT:0		SOURCEPAGE:p.265																									BONUS:STAT|DEX|4|TYPE=Enhancement
+Stole of Health (Rontra)		TYPE:Magic.Wondrous.Vest	COST:16000	WT:0		SOURCEPAGE:p.265																									BONUS:STAT|CON|4|TYPE=Enhancement
+Stole of the Judge (Maal)		TYPE:Magic.Wondrous.Vest	COST:16000	WT:0		SOURCEPAGE:p.265																									BONUS:STAT|WIS|4|TYPE=Enhancement
+Stole of the Sacred (Mormekar)	TYPE:Magic.Wondrous.Vest	COST:30000	WT:0		SOURCEPAGE:p.265																															SPROP:Grants Negative energy protection while worn.
+Stole of the Mage Guard (Tinel)	TYPE:Magic.Wondrous.Vest	COST:30000	WT:0		SOURCEPAGE:p.265	SR:15
+Stole of Protection (Terak)		TYPE:Magic.Wondrous.Vest	COST:32000	WT:0		SOURCEPAGE:p.265												BONUS:COMBAT|AC|4|TYPE=Deflection
+Stole of Healing (Morwyn)		TYPE:Magic.Wondrous.Vest	COST:36000	WT:0		SOURCEPAGE:p.265																															SPROP:Allows caster to recast one healing spell up to 6th level once per day

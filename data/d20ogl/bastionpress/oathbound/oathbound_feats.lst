@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+# Feat Name						Type				Visible	Req. Att.	Required Class		Required Feat							Required Stat	Special Ability					Description		Multiple?	Choose										Bonus to skill				Source Page
+Avoid Blow						TYPE:Special		VISIBLE:YES			PRECLASS:1,Vigilante=10																				DESC:See Text																				SOURCEPAGE:p.321
+Evolve						TYPE:General		VISIBLE:YES																										DESC:See Text																				SOURCEPAGE:p.321
+Exotic Weapon Proficiency II (Rang Blade)	TYPE:General.Fighter	VISIBLE:YES	PREATT:6					PREFEAT:1,Exotic Weapon Proficiency (Rang Blade)	PRESTAT:1,INT=12								DESC:See Text	MULT:NO																		SOURCEPAGE:p.329
+
+# Special hidden feats for Gift workarounds (xxxtemplate.lst)
+Talented						TYPE:Gift.Hidden		VISIBLE:NO																													MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|TYPE.Profession|1	BONUS:SKILL|LIST|6|TYPE=Competence
+Focused						TYPE:Gift.Hidden		VISIBLE:NO																			SA:+1 caster level for %CHOICE spells				MULT:YES	CHOOSE:NUMCHOICES=1|SCHOOLS|1
+
+# Special hidden feats for Prestige Race workarounds (xxxtemplate.lst) - does not seem to work
+#WildCreatureBite		TYPE:PrestigeRace.Hidden	VISIBLE:NO	DESC:See Text																				BONUS:WEAPONPROF=Bite%|CRITMULTADD|1	MULT:YES																																																																																																		SOURCEPAGE:p.63
+

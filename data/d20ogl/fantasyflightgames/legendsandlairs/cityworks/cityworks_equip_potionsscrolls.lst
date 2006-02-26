@@ -1,0 +1,26 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Fri Mar 18 09:08:20 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - City Works|SOURCESHORT:CW|SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+# Potion Name				Output name			Type			Cost		Weight		Sourcepage
+# Equipment Name				Output Name				Type						Cost		Weight	Required Feat				Source Page
+Potion (Erad's Silent Killer)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:300	WT:0								SOURCEPAGE:p.35
+Potion (Silent Steel)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0								SOURCEPAGE:p.36
+Potion (Outcast's Curse)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:750	WT:0		PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
+
+# Scroll Name				Type				Cost		Weight	Source Page
+Scroll (Erad's Silent Killer)							TYPE:Magic.Scroll.Arcane		COST:150	WT:.01							SOURCEPAGE:p.35
+Scroll (Friends)									TYPE:Magic.Scroll.Arcane		COST:25	WT:.01							SOURCEPAGE:p.36
+Scroll (Silent Steel)								TYPE:Magic.Scroll.Arcane.Divine	COST:25	WT:.01							SOURCEPAGE:p.36
+
+# Urbanmancy Prestige Spells
+
+Scroll (Call Loyal Servant)							TYPE:Magic.Scroll.Arcane.Divine	COST:2275	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
+Scroll (City Elemental I)							TYPE:Magic.Scroll.Arcane.Divine	COST:700	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
+Scroll (City Elemental II)							TYPE:Magic.Scroll.Arcane.Divine	COST:1650	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
+Scroll (City Elemental III)							TYPE:Magic.Scroll.Arcane.Divine	COST:3000	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
+Scroll (City's Whispers)							TYPE:Magic.Scroll.Arcane.Divine	COST:25	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
+Scroll (Lord of the City)							TYPE:Magic.Scroll.Arcane.Divine	COST:3825	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
+Scroll (Outcast's Curse)							TYPE:Magic.Scroll.Arcane.Divine	COST:375	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
+Scroll (Tales of Stone and Wood)						TYPE:Magic.Scroll.Arcane.Divine	COST:150	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
+Scroll (Voice of Authority)							TYPE:Magic.Scroll.Arcane.Divine	COST:1125	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39

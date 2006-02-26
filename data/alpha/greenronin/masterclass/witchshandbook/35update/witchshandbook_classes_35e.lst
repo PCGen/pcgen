@@ -1,0 +1,47 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec  3 03:54:03 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Beaver
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+# Class Name			Output Name		Hit Dice	Type			Abbreviation	Subclass?		Ex Class		Source Page		Automatic Languages	Bonus Languages			Save checks bonus												Combat bonus
+CLASS:Witch (Green Ronin)	OUTPUTNAME:Witch	HD:4		TYPE:Base.PC	ABB:GRWtch		HASSUBCLASS:NO	EXCLASS:Ex Witch	SOURCEPAGE:p.6	LANGAUTO:Literacy		LANGBONUS:Draconic,Giant	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Witch (Green Ronin)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft|Swim|Survival
+# Class Name			Spell Stat		Spell Type		Spellbook		Caster level
+CLASS:Witch (Green Ronin)	SPELLSTAT:WIS	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Witch (Green Ronin)|CL
+# Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Simple	FEATAUTO:Simple Weapon Proficiency
+###Block: Spell List
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=0|Arcane Mark,Cure Minor Wounds,Dancing Lights,Daze,Detect Magic,Detect Poison,Flare,Ghost Sound,Know Direction,Light,Mage Hand,Mending,Message,Open/Close,Prestidigitation,Read Magic,Resistance,Virtue
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=1|Alarm,Animate Rope,Cause Fear,Charm Person,Command,Comprehend Languages,Cure Light Wounds,Detect Secret Doors,Disguise Self,Doom,Endure Elements,Expeditious Retreat,Feather Fall,Hideous Laughter,Hypnotism,Identify,Lesser Confusion,Magic Aura,Mount,Obscure Object,Obscuring Mist,Remove Fear,Silent Image,Sleep,Summon Monster I,Undetectable Alignment,Unseen Servant,Ventriloquism
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=2|Alter Self,Animal Messenger,Animal Trance,Bear's Endurance,Bull's Strength,Blindness/Deafness,Blur,Calm Emotions,Cat's Grace,Continual Flame,Cure Moderate Wounds,Darkness,Daze Monster,Delay Poison,Detect Thoughts,Eagle's Splendor,Enthrall,Fox's Cunning,Heroism,Hold Person,Hypnotic Pattern,Invisibility,Locate Object,Magic Mouth,Minor Image,Misdirection,Owl's Wisdom,Phantom Trap,Protection from Arrows,Pyrotechnics,Rage,Scare,Silence,Speak with Animals,Suggestion,Summon Monster II,Summon Swarm,Tongues,Touch of Idiocy,Whispering Wind
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=3|Arcane Sight,Bestow Curse,Charm Monster,Clairaudience/Clairvoyance,Confusion,Create Food and Water,Crushing Despair,Cure Serious Wounds,Daylight,Deep Slumber,Dispel Magic,Displacement,Fear,Gaseous Form,Geas (Lesser),Glibness,Good Hope,Haste,Invisibility Sphere,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Major Image,Phantom Steed,Ray of Exhaustion,Remove Blindness/Deafness,Remove Curse,Scrying,Secret Page,See Invisibility,Slow,Summon Monster III,Tiny Hut
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=4|Animate Dead,Arcane Eye,Break Enchantment,Contagion,Cure Critical Wounds,Detect Scrying,Dimension Door,Discern Lies,Divination,Dominate Person,Freedom of Movement,Giant Vermin,Hallucinatory Terrain,Hold Monster,Invisibility (Greater),Locate Creature,Minor Creation,Neutralize Poison,Polymorph,Rainbow Pattern,Repel Vermin,Secret Chest,Secure Shelter,Shadow Conjuration,Speak with Plants,Summon Monster IV,Zone of Silence
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=5|Animal Growth,Atonement,Baleful Polymorph,Command (Greater),Cure Light Wounds (Mass),Dispel Magic (Greater),Dream,False Vision,Feeblemind,Heroism (Greater),Magic Jar,Major Creation,Mind Fog,Mirage Arcana,Mislead,Nightmare,Overland Flight,Persistent Image,Scrying (Greater),Seeming,Sending,Sahdow Evocation,Shadow Walk,Summon Monster V,Waves of Fatigue,Witch's Private Sanctum
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=6|Analyze Dweomer,Animate Objects,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Charm Monster (Mass),Control Weather,Cure Moderate Wounds (Mass),Eagle's Splendor (Mass),Eyebite,Find the Path,Flesh to Stone,Fox's Cunning (Mass),Geas/Quest,Guards and Wards,Heroes' Feast,Irresistible Dance,Legend Lore,Owl's Wisdom (Mass),Permanent Image,Programmed Image,Project Image,Suggestion (Mass),Summon Monster VI,True Seeing
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=7|Arcane Sight (Greater),Creeping Doom,Finger of Death,Insanity,Invisibility (Mass),Limited Wish,Liveoak,Repel Wood,Sequester,Summon Monster VII,Transport via Plants,Veil,Vision
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=8|Antipathy,Discern Location,Horrid Wilting,Polymorph Any Object,Protection from Spells,Prying Eyes (Greater),Screen,Sympathy,Trap the Soul
+1	SPELLLEVEL:CLASS|Witch (Green Ronin)=9|Earthquake,Foresight,Freedom,Imprisonment,Refuge,Shapechange,Wail of the Banshee,Weird,Wish
+###Block: Normal Progression
+1	CAST:5,3				SA:Familiar
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4								ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4		SA:A thousand faces
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4						ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4		SA:Timeless Body
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,6					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
+
+
+

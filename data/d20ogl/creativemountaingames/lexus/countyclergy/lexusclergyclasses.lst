@@ -1,0 +1,33 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Wed Aug  4 21:03:21 2004 -- reformated by prettylst.pl v1.33 (build 379)
+SOURCELONG:Culture Class - County Clergy|SOURCESHORT:CountyClg|SOURCEWEB:http://www.creativemountaingames.com
+# Original Entry by: Barak
+
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Save checks bonus												Combat bonus
+CLASS:County Clergy	NAMEISPI:YES	HD:6		TYPE:Base.NPC	ABB:Clr		BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:County Clergy	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Gather Information|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Sense Motive|Spellcraft
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
+CLASS:County Clergy	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|County Clergy|CL
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Progression
+1	CAST:3,1		SA:Spontaneous casting
+2	CAST:3,1
+3	CAST:3,2
+4	CAST:3,2,0
+5	CAST:3,2,1
+6	CAST:3,2,1
+7	CAST:3,3,2
+8	CAST:3,3,2,0
+9	CAST:3,3,2,1
+10	CAST:3,3,2,1
+11	CAST:3,3,3,2
+12	CAST:3,3,3,2,0
+13	CAST:3,3,3,2,1
+14	CAST:3,3,3,2,1
+15	CAST:3,3,3,3,2
+16	CAST:3,3,3,3,2,0
+17	CAST:3,3,3,3,2,1
+18	CAST:3,3,3,3,2,1
+19	CAST:3,3,3,3,3,2
+20	CAST:3,3,3,3,3,2

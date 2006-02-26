@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 23 02:16:54 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern Dispatch #10 - Near-Future Firearms|SOURCESHORT:MD10-NFF|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3994
+#Original Entry by: Frank Kliewe
+
+# Modifier Name		Unique Key			Type		Visible		Source Page		Required Type	Special Property
+Air Tazer CT SOCOM	KEY:AIR_TAZER_CT_SOCOM	TYPE:Weapon	VISIBLE:QUALIFY	SOURCEPAGE:p.4	PRETYPE:1,Firearm	SPROP:incl. Air Tazer (1d6 Electricity damage + paralyze, Range Increment 5ft.)
+#COST:6 (add. DC)

@@ -1,0 +1,52 @@
+# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:3.5 RSRD Psionics
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:RSRD
+SETTING:RSRD
+TYPE:RSRD.Partial
+SOURCELONG:RSRD Psionics
+SOURCESHORT:RSRDPsionic
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky)
+
+INFOTEXT:RSRD Psionics portions only.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:notes.txt
+
+# Psionics
+BIOSET:rsrd_biosettings_base_psionic.lst
+RACE:rsrd_races__base_psionic.lst
+#RACE:rsrd_races_psionic.lst
+RACE:rsrd_races_psionic_a_o.lst
+RACE:rsrd_races_psionic_p_z.lst
+TEMPLATE:rsrd_templates_psionic.lst
+SKILL:rsrd_skills_psionic.lst
+FEAT:rsrd_feats_psionic.lst
+FEAT:rsrd_feats_psionic_hidden.lst
+WEAPONPROF:rsrd_weaponprofs_psionic.lst
+CLASS:rsrd_classes_psionic.lst
+CLASS:rsrd_classes_psionic_prestige.lst
+EQUIPMENT:rsrd_equip_psionic.lst
+EQUIPMENT:rsrd_equip_weap_psionic.lst
+EQUIPMOD:rsrd_equipmods_psionic.lst
+EQUIPMOD:rsrd_equipmods_psionic_enhancing.lst
+DOMAIN:rsrd_domains_psionic.lst
+SPELL:rsrd_powers_psionic.lst
+SPELL:rsrd_spells_psionic.lst
+COMPANIONMOD:rsrd_companionmods_psionic.lst
+LANGUAGE:rsrd_languages_psionic.lst
+
+# Stuff from the main RSRD that needs to be loaded for no error reports.
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden.lst
+CLASS:@/d20ogl/srd35/rsrd_classes_monsters.lst
+
+# Default Monster Kits
+KIT:rsrd_kits_psionic_races__base.lst
+KIT:rsrd_kits_psionic_races_a_o.lst
+KIT:rsrd_kits_psionic_races_p_z.lst

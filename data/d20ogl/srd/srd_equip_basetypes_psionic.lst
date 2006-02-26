@@ -1,0 +1,9 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue May 17 01:35:11 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# Original Entry by byngl
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+# Equipment Name	Type					Cost		Weight	MODS			Source Page
+Crawling Tattoo	TYPE:PsionicTattoo.Crawling	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:srdpsionicitems.rtf
+Dorje			TYPE:Dorje				COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Tattoo	TYPE:PsionicTattoo		COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:srdpsionicitems.rtf
+Power Stone		TYPE:PowerStone			COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:srdpsionicitems.rtf

@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name			Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus
+Unarmed Strike								TYPE:Weapon.Unarmed.Melee.Bludgeoning.Monk		COST:0	WT:0										DAMAGE:1d3				SIZE:T	SOURCEPAGE:p.72
+Brass Knuckles			PROFICIENCY:Unarmed Strike	TYPE:Weapon.Simple.Melee.Unarmed.Bludgeoning		COST:1	WT:1										DAMAGE:1d4						SOURCEPAGE:p.72
+Knife (Flint/Bone)							TYPE:Weapon.Simple.Melee.Piercing				COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4				SIZE:T	SOURCEPAGE:p.72
+Knife (Hunting)								TYPE:Weapon.Simple.Melee.Ranged.Piercing.Thrown		COST:2	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4		RANGE:10	SIZE:T	SOURCEPAGE:p.72
+Club (Small)								TYPE:Weapon.Simple.Melee.Bludgeoning			COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4				SIZE:S	SOURCEPAGE:p.72
+Hatchet									TYPE:Weapon.Simple.Melee.Ranged.Slashing			COST:3	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6				SIZE:S	SOURCEPAGE:p.72
+Knife (Bowie)								TYPE:Weapon.Simple.Melee.Ranged.Piercing.Slashing	COST:4	WT:2		CRITMULT:x3			CRITRANGE:2			DAMAGE:1d4+1	RANGE:10	SIZE:S	SOURCEPAGE:p.72
+Tomahawk									TYPE:Weapon.Simple.Melee.Ranged.Slashing			COST:3	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:S	SOURCEPAGE:p.72
+Club										TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown	COST:0	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:M	SOURCEPAGE:p.72
+Skullcrusher								TYPE:Weapon.Simple.Melee.Bludgeoning			COST:4	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6+1			SIZE:M	SOURCEPAGE:p.72
+War Club (Bladed)								TYPE:Weapon.Simple.Melee.Bludgeoning.Slashing		COST:4	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.72
+Axe (Wood)									TYPE:Weapon.Simple.Melee.Slashing				COST:.5	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8				SIZE:L	SOURCEPAGE:p.72
+
+#Martial Melee Weapons Name
+Cavalry Saber								TYPE:Weapon.Martial.Melee.Slashing				COST:15	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.72
+
+#Exotic Melee Weapons
+Pick-axe									TYPE:Weapon.Exotic.Melee.Piercing				COST:2	WT:12		CRITMULT:x4			CRITRANGE:2			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.73
+Rifle Bayonet								TYPE:Weapon.Exotic.Melee.Piercing.Bludgeoning		COST:3	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6				SIZE:L	SOURCEPAGE:p.73
+
+#Specific
+Bowie's Last Knife		PROFICIENCY:Knife (Bowie)	TYPE:Magic.Weapon.Simple.Melee.Piercing			COST:18154	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4				SIZE:T	SOURCEPAGE:p.196	BONUS:WEAPON|DAMAGE,TOHIT|3
+Cortez's Sword			PROFICIENCY:Longsword		TYPE:Magic.Weapon.Martial.Melee.Slashing			COST:18165	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.196	BONUS:WEAPON|DAMAGE,TOHIT|3
+Crazy Horse's Coup Stick	PROFICIENCY:Skullcrusher	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning		COST:2704	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6+1			SIZE:M	SOURCEPAGE:p.196

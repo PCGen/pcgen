@@ -1,0 +1,48 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers|SOURCESHORT:BnS-MPS|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+
+# Feat Name					Type
+Advanced Combat Martial Arts.MOD	TYPE:Mercenary
+Advanced Firearms Proficiency.MOD	TYPE:Mercenary
+Alertness.MOD				TYPE:Smuggler
+Armor Proficiency (Heavy).MOD		TYPE:Mercenary
+Armor Proficiency (Light).MOD		TYPE:Mercenary.Pirate
+Armor Proficiency (Medium).MOD	TYPE:Mercenary.Pirate
+Armor Proficiency (Powered).MOD	TYPE:Mercenary.Pirate
+Attentive.MOD				TYPE:Smuggler
+Banter.MOD					TYPE:Merchant
+Black Market.MOD				TYPE:Merchant
+Brawl.MOD					TYPE:Mercenary.Pirate
+Burst Fire.MOD				TYPE:Mercenary
+Charismatic Plus.MOD			TYPE:Merchant
+Cleave.MOD					TYPE:Mercenary
+Combat Martial Arts.MOD			TYPE:Mercenary.Pirate
+Deceptive.MOD				TYPE:Merchant.Smuggler
+Exotic Firearms Proficiency.MOD	TYPE:Mercenary
+Exotic Melee Weapon Proficiency.MOD	TYPE:Mercenary
+Frightful Presence.MOD			TYPE:Pirate
+Great Cleave.MOD				TYPE:Mercenary
+Improved Brawl.MOD			TYPE:Mercenary
+Improved Combat Martial Arts.MOD	TYPE:Mercenary
+Low Profile.MOD				TYPE:Smuggler
+Meticulous.MOD				TYPE:Smuggler
+Midas Touch.MOD				TYPE:Merchant
+Peacemaker.MOD				TYPE:Merchant
+Personal Firearms Proficiency.MOD	TYPE:Merchant
+Power Attack.MOD				TYPE:Mercenary.Pirate
+Renown.MOD					TYPE:Mercenary.Merchant.Pirate
+Rumor Monger.MOD				TYPE:Merchant
+Salvage.MOD					TYPE:Pirate.Smuggler
+Spacer.MOD					TYPE:Pirate.Smuggler
+Speed Dial.MOD				TYPE:Merchant
+Starship Battle Run.MOD			TYPE:Pirate
+Starship Gunnery.MOD			TYPE:Pirate.Smuggler
+Starship Operation.MOD			TYPE:Pirate.Smuggler
+Stealthy.MOD				TYPE:Smuggler
+Sunder.MOD					TYPE:Mercenary.Pirate
+Trustworthy.MOD				TYPE:Pirate
+Vehicle Expert.MOD			TYPE:Smuggler
+Weapon Focus.MOD				TYPE:Mercenary.Pirate
+Well Connected.MOD			TYPE:Merchant
+Windfall.MOD				TYPE:Merchant
+Zero G Training.MOD			TYPE:Mercenary.Smuggler

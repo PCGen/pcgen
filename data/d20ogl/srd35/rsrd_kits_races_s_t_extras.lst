@@ -1,0 +1,48 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Greater Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shadow]
+RACE:Shadow	!PRERACE:%
+NAME:Greater Shadow
+ALIGN:CE
+STAT:DEX=11|INT=10|WIS=10|CHA=12
+SKILL:Hide		RANK:6
+SKILL:Listen	RANK:2
+SKILL:Search	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Dodge
+CLASS:Undead	LEVEL:6
+SKILL:Hide		RANK:6
+SKILL:Listen	RANK:2
+SKILL:Search	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Mobility
+FEAT:Spring Attack
+
+STARTPACK:Troll Hunter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll]
+RACE:Troll	!PRERACE:%
+NAME:Troll Hunter
+ALIGN:CE
+STAT:STR=13|DEX=8|CON=10|INT=14|WIS=17|CHA=14
+SKILL:Listen				RANK:9
+SKILL:Spot					RANK:9
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Power Attack
+CLASS:Ranger	LEVEL:6
+LEVELABILITY:Ranger=1	ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Elf))
+LEVELABILITY:Ranger=2	ABILITY:PROMPT:FEAT(TYPE.RangerCombatStyle)|CHOICE:Two Weapon Fighting Combat Style
+LEVELABILITY:Ranger=5	ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Human))
+LEVELABILITY:Ranger=5	ABILITY:PROMPT:FEAT(TYPE.FavoredEnemyBonus)|CHOICE:Favored Bonus__Humanoid_Elf
+SKILL:Knowledge (Nature)		RANK:6
+SKILL:Knowledge (Dungeoneering)	RANK:6
+SKILL:Move Silently			RANK:9
+SKILL:Search				RANK:6
+SKILL:Survival				RANK:11
+FEAT:Cleave
+FEAT:Improved Natural Armor
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS1A
+GEAR:Battleaxe	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W
+GEAR:Javelin	SIZE:PC	LOCATION:Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Entangle|Resist Energy

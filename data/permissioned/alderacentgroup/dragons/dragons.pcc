@@ -1,0 +1,28 @@
+# CVS $Revision: 1.7 $ $Author: ericbeaudoin $
+CAMPAIGN:AEG - Dragons Source Book
+GAMEMODE:3e
+TYPE:Alderac Entertainment Group.Sourcebook
+RANK:9
+SOURCELONG:Alderac Entertainment Group - Dragons
+SOURCESHORT:Dragons
+SOURCEWEB:http://alderac.com/d20
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Dragons Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:dragonsclasses.lst
+DEITY:dragonsdeities.lst
+EQUIPMENT:dragonsequip.lst
+EQUIPMENT:dragonsequippotionspoisons.lst
+EQUIPMENT:dragonsequipwondrousitems.lst
+EQUIPMENT:dragonsequipweapmelee.lst
+EQUIPMENT:dragonsequipweapmeleespecific.lst
+EQUIPMENT:dragonsequipweapammospecific.lst
+EQUIPMOD:dragonsequipmods.lst
+FEAT:dragonsfeats.lst
+SKILL:dragonsskills.lst
+SPELL:dragonsspells.lst
+WEAPONPROF:dragonsweapprofs.lst

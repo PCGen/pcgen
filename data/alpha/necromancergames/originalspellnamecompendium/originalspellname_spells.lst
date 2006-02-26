@@ -1,0 +1,34 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 12:06:48 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Original Spell Name Compendium|SOURCESHORT:SpellName|SOURCEWEB:http://www.necromancergames.com/legal.html
+# Original Entry by: Tir Gwaith
+
+# Spell Name						Output Name				Description							Source Page
+Clenched Fist.MOD						OUTPUTNAME:Bigsby's [NAME]
+Crushing Hand.MOD						OUTPUTNAME:Bigsby's [NAME]
+Forceful Hand.MOD						OUTPUTNAME:Bigsby's [NAME]
+Grasping Hand.MOD						OUTPUTNAME:Bigsby's [NAME]
+Interposing Hand.MOD					OUTPUTNAME:Bigsby's [NAME]
+Instant Summons.MOD					OUTPUTNAME:Drawmiij's [NAME]
+Black Tentacles.MOD					OUTPUTNAME:Evar's [NAME]
+Secret Chest.MOD						OUTPUTNAME:Leomand's [NAME]
+Secure Shelter.MOD					OUTPUTNAME:Leomand's [NAME]
+Tiny Hut.MOD						OUTPUTNAME:Leomand's [NAME]
+Phantom Trap.MOD						OUTPUTNAME:Leomand's Trap
+Acid Arrow.MOD						OUTPUTNAME:Mel's [NAME]
+Mage's Disjunction.MOD					OUTPUTNAME:Morden's [NAME]
+Mage's Faithful Hound.MOD				OUTPUTNAME:Morden's [NAME]
+Mage's Lucubration.MOD					OUTPUTNAME:Morden's [NAME]
+Mage's Magnificent Mansion.MOD			OUTPUTNAME:Morden's [NAME]
+Mage's Sword.MOD						OUTPUTNAME:Morden's [NAME]
+Magic Aura.MOD						OUTPUTNAME:Nystal's [NAME]
+Magic Aura.COPY=Nystal's Undetectable Aura
+Nystal's Undetectable Aura.MOD								DESC:Masks a magic item's aura from detection.	SOURCEPAGE:p.8
+Freezing Sphere.MOD					OUTPUTNAME:Otluke's [NAME]
+Resilient Sphere.MOD					OUTPUTNAME:Otluke's [NAME]
+Telekinetic Sphere.MOD					OUTPUTNAME:Otluke's [NAME]
+Irresistible Dance.MOD					OUTPUTNAME:Oto's [NAME]
+Mnemonic Enhancer.MOD					OUTPUTNAME:Rarey's [NAME]
+Telepathic Bond.MOD					OUTPUTNAME:Rarey's [NAME]
+Hideous Laughter.MOD					OUTPUTNAME:Tashaa's [NAME]
+Floating Disk.MOD						OUTPUTNAME:Tensor's [NAME]
+Transformation.MOD					OUTPUTNAME:Tensor's [NAME]

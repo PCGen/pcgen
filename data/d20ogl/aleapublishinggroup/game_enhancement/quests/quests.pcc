@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Thu Feb  9 01:12:51 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:APG - Quests
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+TYPE:Alea Publishing Group.Game Enhancement
+SOURCELONG:Quests
+SOURCESHORT:Quests
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document (draft and final versions) Copyright 1999, 2000, 2001, 2002, 2003, 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document (draft and final versions) Copyright 2002, 2003, 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Future System Reference Document (draft and final versions) Copyright 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Honor and Corruption Copyright 2005, Alea Publishing Group.
+COPYRIGHT:Quests: Game Enhancement Copyright 2005, Alea Publishing Group
+COPYRIGHT:PCGen dataset conversion for Quests Copyright 2006, PCgen Data team (Including, but not limited to Paul W. King)
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:quests_class_prestige.lst
+EQUIPMOD:quests_equipmod.lst
+FEAT:quests_feat.lst
+FEAT:quests_feat_hidden.lst
+KIT:quests_kit.lst
+RACE:quests_race.lst
+SKILL:quests_skill.lst
+SPELL:quests_spell.lst

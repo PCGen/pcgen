@@ -1,0 +1,90 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+
+# Class Name		Product Identity?	Hit Dice	Type					Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Psionic.Prestige	ABB:CoA		SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat										Required Skill				Req. Spell Type
+CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:Psionic,1,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Psicraft|Spot
+###Block: Level progression
+1	ADD:SPELLCASTER(Psionic)	SA:Power Sharing I
+2	ADD:SPELLCASTER(Psionic)
+3	ADD:SPELLCASTER(Psionic)
+4	ADD:SPELLCASTER(Psionic)	SA:Power Sharing II
+5						SA:Colorless Fire DC%, % times/day (Psi-like)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(cl("Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	ADD:FEAT(TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+6	ADD:SPELLCASTER(Psionic)
+7	ADD:SPELLCASTER(Psionic)	SA:Power Sharing III
+8	ADD:SPELLCASTER(Psionic)
+9	ADD:SPELLCASTER(Psionic)
+10						SA:Colorless Rain DC%, % times/day (Psi-like)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(cl("Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	ADD:FEAT(TYPE=Psionic,TYPE=Metapsionic,TYPE=ItemCreation)
+
+###Block: variant prestige classes
+
+#In the text Metamind states it receives a bouns caster level per level. The chart is different, I went with the text.
+
+# Class Name		Output Name			Hit Dice	Type					Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	ABB:MMd		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat			Required Skill								Req. Spell Type
+CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:1,Psicraft=4	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:Psionic,1,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
+###Block: Psicrystal info
+1	SA:Cognizance Psicrystal %|PowerPsicrystal	BONUS:VAR|PowerPsicrystal|2*floor(((cl("Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5
+###Block: sequestration
+1	SA:Sequestration %|SequesVar	BONUS:VAR|SequesVar|cl("Metamind ITCK")	DEFINE:SequesVar|1
+###Block: Level progression
+1	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)	ADD:FEAT(Power Sequestration)
+2	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+3	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+4	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+5	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+6	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+7	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+8	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+9	ADD:SPELLCASTER(Psionic)								ADD:FEAT(Power Sequestration)
+10	ADD:SPELLCASTER(Psionic)	SA:Font of Power ~ one minute/day (Ps)	ADD:FEAT(Power Sequestration)
+
+
+# Class Name		Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
+CLASS:Blade Manifester	HD:8		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat						Required Stat
+CLASS:Blade Manifester	PREFEAT:2,MindBlade Wielder,MindBlade Shape	PRESTAT:1,WIS=15
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Blade Manifester	STARTSKILLPTS:2	CSKILL:Autohynosis|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE.Profession|Spot|Tumble
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
+CLASS:Blade Manifester	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Blade Manifester|CL	SPELLLIST:1|Psychic Warrior
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	BONUS:VAR|BladeManifesterML|CL	BONUS:VAR|BladeManifesterML|var("BL=Blade Manifester")																									DEFINE:BladeManifesterML|0	TEMPLATE:Psionic
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BladeManifesterML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BladeManifesterML,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:BladeManifesterML,4
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:BladeManifesterML,5	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:BladeManifesterML,6	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:BladeManifesterML,7	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:BladeManifesterML,8
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:BladeManifesterML,9	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:BladeManifesterML,10
+1	BONUS:VAR|BonusPowerPoints|(WIS*BladeManifesterML)/2|TYPE=BladeManifesterBonusPP
+
+###Block: Level progression
+1	KNOWN:0,1
+2	KNOWN:0,2		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+3	KNOWN:0,3		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+4	KNOWN:0,3,1
+5	KNOWN:0,3,2		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+6	KNOWN:0,3,3		BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+7	KNOWN:0,3,3,1
+8	KNOWN:0,3,3,2	BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+9	KNOWN:0,3,3,3	BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+10	KNOWN:0,3,3,3,1	BONUS:VAR|MindBladeECL|cl("Blade Manifester")
+
+###Block: Monster class for Mind Grub Collective
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Mind Grub Collective	HD:8		TYPE:Monster	MAXLEVEL:8	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Required Race			Reg. Race Type
+CLASS:Mind Grub Collective	PRERACE:Mind Grub Collective	PRERACETYPE:Aberration
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Mind Grub Collective	STARTSKILLPTS:2	MODTOSKILLS:YES
+1	ADD:SPELLCASTER(Psion)1
+2					BONUS:PCLEVEL|Psion|1
+3					BONUS:PCLEVEL|Psion|1
+4					BONUS:PCLEVEL|Psion|1
+5					BONUS:PCLEVEL|Psion|1
+7					BONUS:PCLEVEL|Psion|1
+8					BONUS:PCLEVEL|Psion|1	BONUS:PCLEVEL|Psion|1

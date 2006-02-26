@@ -1,0 +1,18 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  9 13:38:13 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Legends of the Ancients - Carthage|SOURCESHORT:LoAC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Intimidate|Jump|Ride|Sense Motive|Survival|Swim
+1																									AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	FEATAUTO:Weapon Focus|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency|Martial Weapon Proficiency
+2																					VFEAT:Improved Feint
+3					BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3																FEATAUTO:Color of Money
+4																	ADD:FEAT(TYPE=Fighter)
+7	SA:Mercenary's Revenge
+8																	ADD:FEAT(TYPE=Fighter)
+13																	ADD:FEAT(TYPE=Fighter)
+15					BONUS:VAR|ColorOfMoneyBonus|-1
+16					BONUS:VAR|ColorOfMoneyBonus|1
+17																	ADD:FEAT(TYPE=Fighter)
+19																	ADD:FEAT(TYPE=Fighter)

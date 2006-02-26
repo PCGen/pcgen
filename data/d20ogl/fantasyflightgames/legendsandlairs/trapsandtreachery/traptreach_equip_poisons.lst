@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Equipment Name		Type			Cost		Weight	Source Page
+Belladonna			TYPE:Goods.Poison	COST:.5	WT:0		SOURCEPAGE:p.43
+Caustic Alkali		TYPE:Goods.Poison	COST:15	WT:0		SOURCEPAGE:p.43
+Final Touch			TYPE:Goods.Poison	COST:516.7	WT:0		SOURCEPAGE:p.43
+Foxglove			TYPE:Goods.Poison	COST:5	WT:0		SOURCEPAGE:p.43
+Hellebore			TYPE:Goods.Poison	COST:.8	WT:0		SOURCEPAGE:p.43
+Locoweed			TYPE:Goods.Poison	COST:1	WT:0		SOURCEPAGE:p.43
+Opium				TYPE:Goods.Poison	COST:10	WT:0		SOURCEPAGE:p.43
+Poison Ivy			TYPE:Goods.Poison	COST:.5	WT:0		SOURCEPAGE:p.43
+Psilocybe			TYPE:Goods.Poison	COST:1	WT:0		SOURCEPAGE:p.43
+Ragweed Pollen		TYPE:Goods.Poison	COST:0	WT:0		SOURCEPAGE:p.43
+Toadstool			TYPE:Goods.Poison	COST:.6	WT:0		SOURCEPAGE:p.43
+Draught of Wounding	TYPE:Magic.Poison	COST:1520	WT:0		SOURCEPAGE:p.46
+Enfeebling Sting		TYPE:Magic.Poison	COST:3300	WT:0		SOURCEPAGE:p.46
+Ghastly Mist		TYPE:Magic.Poison	COST:300	WT:0		SOURCEPAGE:p.46
+Paste of Pestilence	TYPE:Magic.Poison	COST:1400	WT:0		SOURCEPAGE:p.46
+Powder of Paralysis	TYPE:Magic.Poison	COST:3750	WT:0		SOURCEPAGE:p.46
+Seasoning of Shrinking	TYPE:Magic.Poison	COST:300	WT:0		SOURCEPAGE:p.47
+Hideous Laughing Venom	TYPE:Magic.Poison	COST:450	WT:0		SOURCEPAGE:p.47
+Touch of the Unholy	TYPE:Magic.Poison	COST:1400	WT:0		SOURCEPAGE:p.47
+Will-Breaker		TYPE:Magic.Poison	COST:1600	WT:0		SOURCEPAGE:p.48

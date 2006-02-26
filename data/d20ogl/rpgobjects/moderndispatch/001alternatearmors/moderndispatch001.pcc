@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jan 19 16:04:15 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Modern Dispatch - #1 - Alternate Armors
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Modern Dispatch
+GENRE:Modern
+BOOKTYPE:Magazine
+SETTING:Generic
+ISOGL:YES
+SOURCELONG:Modern Dispatch #1 - Alternate Armors
+SOURCESHORT:MD01-AA
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3260
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Dispatch #1 2004, RPGObjects; Author Charles Rice, Chris Davis
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #1 Copyright 2006, PCGen Data team, including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:moderndispatch001_equip_armor.lst
+EQUIPMENT:moderndispatch001_equip_weap_ranged_firearms.lst
+EQUIPMOD:moderndispatch001_equipmods.lst
+FEAT:moderndispatch001_feats.lst
+
+# Reference for .MOD/.COPY
+EQUIPMENT:@\d20ogl\msrd\arcana\msrd_arcana_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Hide Armor|Scale Mail|Breastplate|Splint Mail|Banded Mail|Half Plate)

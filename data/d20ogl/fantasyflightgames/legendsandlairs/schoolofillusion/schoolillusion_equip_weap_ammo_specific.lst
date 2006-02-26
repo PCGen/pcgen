@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jun  6 00:36:58 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# Original entry by: Ratheof Blithwyn
+
+# Equipment Name		Type						Cost		Weight	Source Page		Weapon prop. bonus
+Bolt of Madness		TYPE:Magic.Ammunition.Specific.Bolt	COST:1287	WT:0		SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|2
+Greater Bolt of Madness	TYPE:Magic.Ammunition.Specific.Bolt	COST:2807	WT:0		SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|2
+Bolt of True Seeking	TYPE:Magic.Ammunition.Specific.Bolt	COST:230	WT:0		SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|1

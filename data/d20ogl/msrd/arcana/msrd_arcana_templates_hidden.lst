@@ -1,0 +1,93 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Fri Nov 18 03:39:14 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Template Name	Visible	Source Page					Special Ability															Removable?
+Shadowkind		VISIBLE:NO	SOURCEPAGE:ArcanaShadowkind.rtf	SA:Shadowkind	SA:Can only be resurrected within 1d4 hours after death|PRETYPE:1,Humanoid,Dragon	REMOVABLE:NO
+
+###Block: Celestial Immunities
+# Template Name			Visible	Source Page					Special Ability				Prohibited Template
+Acid Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Acid Immunity (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Resistance 20
+Ballistic Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Ballistic Immunity (Ex)
+Cold Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Cold Immunity (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Resistance 20
+Electricity Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Electricity Immunity (Ex)		!PRETEMPLATE:Electricty Resistance 10	!PRETEMPLATE:Electricty Resistance 20
+Fire Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Fire Immunity (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Resistance 20
+Piercing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Piercing Immunity (Ex)
+Poison Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Poison Immunity (Ex)
+Radiation Immunity		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Radiation Immunity (Ex)
+Slashing Immunity			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Slashing Immunity (Ex)
+Sonic/Concussion Immunity	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Sonic/Concussion Immunity (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Resistance 20
+
+###Block: Celestial Resistances
+# Template Name				Visible	Source Page					Special Ability					Prohibited Template
+Acid Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Acid Resistance 10 (Ex)			!PRETEMPLATE:Acid Resistance 20	!PRETEMPLATE:Acid Immunity
+Acid Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Acid Resistance 20 (Ex)			!PRETEMPLATE:Acid Resistance 10	!PRETEMPLATE:Acid Immunity
+Cold Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Cold Resistance 10 (Ex)			!PRETEMPLATE:Cold Resistance 20	!PRETEMPLATE:Cold Immunity
+Cold Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Cold Resistance 20 (Ex)			!PRETEMPLATE:Cold Resistance 10	!PRETEMPLATE:Cold Immunity
+Electricity Resistance 10		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Electricity Resistance 10 (Ex)		!PRETEMPLATE:Electricity Resistance 20	!PRETEMPLATE:Electricity Immunity
+Electricity Resistance 20		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Electricity Resistance 20 (Ex)		!PRETEMPLATE:Electricity Resistance 10	!PRETEMPLATE:Electricity Immunity
+Fire Resistance 10			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Fire Resistance 10 (Ex)			!PRETEMPLATE:Fire Resistance 20	!PRETEMPLATE:Fire Immunity
+Fire Resistance 20			VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Fire Resistance 20 (Ex)			!PRETEMPLATE:Fire Resistance 10	!PRETEMPLATE:Fire Immunity
+Sonic/Concussion Resistance 10	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Sonic/Concussion Resistance 10 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 20	!PRETEMPLATE:Sonic/Concussion Immunity
+Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Sonic/Concussion Resistance 20 (Ex)	!PRETEMPLATE:Sonic/Concussion Resistance 10	!PRETEMPLATE:Sonic/Concussion Immunity
+
+###Block: DR
+# Template Name	Visible	Damage Reduction	Source Page					Prohibited Template
+5/silver		VISIBLE:NO	DR:5/Silver		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Silver	!PRETEMPLATE:15/Silver
+10/silver		VISIBLE:NO	DR:10/Silver	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Silver	!PRETEMPLATE:15/Silver
+20/silver		VISIBLE:NO	DR:20/Silver	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Silver	!PRETEMPLATE:10/Silver
+5/wood		VISIBLE:NO	DR:5/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Wood	!PRETEMPLATE:15/Wood
+10/wood		VISIBLE:NO	DR:10/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Wood	!PRETEMPLATE:15/Wood
+20/wood		VISIBLE:NO	DR:20/Wood		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Wood	!PRETEMPLATE:10/Wood
+5/ballistic		VISIBLE:NO	DR:5/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Ballistic	!PRETEMPLATE:15/Ballistic
+10/ballistic	VISIBLE:NO	DR:10/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Ballistic	!PRETEMPLATE:15/Ballistic
+20/ballistic	VISIBLE:NO	DR:20/Ballistic	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Ballistic	!PRETEMPLATE:10/Ballistic
+5/bludgeoning	VISIBLE:NO	DR:5/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Bludgeoning	!PRETEMPLATE:15/Bludgeoning
+10/bludgeoning	VISIBLE:NO	DR:10/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Bludgeoning	!PRETEMPLATE:15/Bludgeoning
+20/bludgeoning	VISIBLE:NO	DR:20/Bludgeoning	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Bludgeoning	!PRETEMPLATE:10/Bludgeoning
+5/piercing		VISIBLE:NO	DR:5/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Piercing	!PRETEMPLATE:15/Piercing
+10/piercing		VISIBLE:NO	DR:10/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Piercing	!PRETEMPLATE:15/Piercing
+20/piercing		VISIBLE:NO	DR:20/Piercing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Piercing	!PRETEMPLATE:10/Piercing
+5/slashing		VISIBLE:NO	DR:5/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/Slashing	!PRETEMPLATE:15/Slashing
+10/slashing		VISIBLE:NO	DR:10/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Slashing	!PRETEMPLATE:15/Slashing
+20/slashing		VISIBLE:NO	DR:20/Slashing	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/Slashing	!PRETEMPLATE:10/Slashing
+5/+1			VISIBLE:NO	DR:5/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
+10/+1			VISIBLE:NO	DR:10/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
+15/+1			VISIBLE:NO	DR:15/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
+20/+1			VISIBLE:NO	DR:20/+1		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
+5/+2			VISIBLE:NO	DR:5/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
+10/+2			VISIBLE:NO	DR:10/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:15/+2	!PRETEMPLATE:20/+2
+15/+2			VISIBLE:NO	DR:15/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:20/+2
+20/+2			VISIBLE:NO	DR:20/+2		SOURCEPAGE:ArcanaCreatures.rtf	!PRETEMPLATE:5/+1	!PRETEMPLATE:10/+1	!PRETEMPLATE:15/+1	!PRETEMPLATE:20/+1	!PRETEMPLATE:5/+2	!PRETEMPLATE:10/+2	!PRETEMPLATE:15/+2
+
+###Block: Demonic Auto
+# Template Name	Damage Reduction	Template						Source Page					Special Ability						Type				Vision
+Demonic Auto	DR:20/+1		TEMPLATE:Construct	TEMPLATE:Outsider	SOURCEPAGE:ArcanaCreatures.rtf	SA:No limbs	SA:Trample (Ex)	SA:Repairable	TYPE:Construct.Outsider	VISION:Darkvision (120)
+
+###Block: borrowed from RSRD
+# Template Name	Visible	Source Page						Special Ability																																							Define			Combat bonus
+Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX
+
+###Block: Half-dragon
+# Template Name	Visible	Stat bonus		Move
+Wings			VISIBLE:NO				MOVE:Fly,30
+No Wings		VISIBLE:NO	BONUS:STAT|STR|4
+
+###Block: Liquefied Zombie
+# Template Name			CR	Visible	Required Size
+Liquefied Zombie (Fine)		CR:0	VISIBLE:NO	PRESIZEEQ:F
+Liquefied Zombie (Diminutive)	CR:0	VISIBLE:NO	PRESIZEEQ:D
+Liquefied Zombie (Tiny)		CR:0	VISIBLE:NO	PRESIZEEQ:T
+Liquefied Zombie (Small)	CR:1	VISIBLE:NO	PRESIZEEQ:S
+Liquefied Zombie (Medium)	CR:2	VISIBLE:NO	PRESIZEEQ:M
+Liquefied Zombie (Large)	CR:4	VISIBLE:NO	PRESIZEEQ:L
+Liquefied Zombie (Huge)		CR:5	VISIBLE:NO	PRESIZEEQ:H
+Liquefied Zombie (Gargantuan)	CR:7	VISIBLE:NO	PRESIZEEQ:G
+Liquefied Zombie (Colossal)	CR:10	VISIBLE:NO	PRESIZEEQ:C
+
+###Block: Species Traits
+# Template Name	Visible	Source Page					Special Ability
+Aquatic		VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	SA:Can move in water without making Swim checks, and cannot drown in water
+
+#
+# End
+#

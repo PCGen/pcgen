@@ -1,0 +1,61 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Mar 18 13:33:52 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment|SOURCESHORT:Enchantment|SOURCEWEB:http://mongoosepublishing.com
+#ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
+
+#Potion Name			Output name			Type			Cost		Weight		Sourcepage
+# Equipment Name				Output Name				Type					Cost		Weight	Source Page
+Potion (Beyond Words)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.27
+Potion (Confidante)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.29
+Potion (Enhance Bond)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Favour's Focus I)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Favour's Focus II)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.32
+Potion (Favour's Focus III)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.32
+Potion (Greater Daze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.35
+Potion (Kenning the Heart)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.36
+Potion (Moment's Pause)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.37
+Potion (Piercing Gaze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Rapturous Touch)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Seductive Smile)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Thrall's Understanding)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.39
+Potion (Wave of Hesitation)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.41
+
+#Scroll name			Type				Cost		Weight		Source Page
+#9 Clr, Drd, Wiz		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01
+Scroll (Beyond Words)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.27
+Scroll (Bonded Souls)								TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.27
+Scroll (Bonded Thoughts)							TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.27
+Scroll (Camaraderie)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.28
+Scroll (Change of Heart)							TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.28
+Scroll (Confidante)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.29
+Scroll (Dazing Aura)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.29
+Scroll (Dolorous Touch)								TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.30
+Scroll (Enamouring Touch)							TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.30
+Scroll (Endless Daze)								TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.31
+Scroll (Enhance Bond)								TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.31
+Scroll (Favour's Focus I)							TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.31
+Scroll (Favour's Focus II)							TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus III)							TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus IV)							TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus IV)							TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus VI)							TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.33
+Scroll (Favour's Focus VII)							TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.33
+Scroll (Favour's Focus VIII)							TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.34
+Scroll (Favour's Focus IX)							TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.34
+Scroll (Fractured Unity)							TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.34
+Scroll (Friendship)								TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.35
+Scroll (Greater Daze)								TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.35
+Scroll (Hatred's Puppet)							TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.35
+Scroll (Kenning the Heart)							TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.36
+Scroll (Kenning the Mind)							TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.36
+Scroll (Kenning the Soul)							TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.36
+Scroll (Lingering Daze)								TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.37
+Scroll (Moment's Pause)								TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.37
+Scroll (Piercing Gaze)								TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.38
+Scroll (Rapturous Touch)							TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.38
+Scroll (Seductive Smile)							TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.38
+Scroll (Shattered Will)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.39
+Scroll (Thrall's Understanding)						TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.39
+Scroll (Torment of Loss)							TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.40
+Scroll (Undying Loyalty)							TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.40
+Scroll (Wall of Distraction)							TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.41
+Scroll (Wave of Hesitation)							TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.41

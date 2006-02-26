@@ -1,0 +1,583 @@
+# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Thu Jan  5 02:13:28 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Gargoyle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gargoyle]
+RACE:Gargoyle	!PRERACE:%
+NAME:Gargoyle
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+FEAT:Toughness
+STAT:STR=11|WIS=11|CHA=11|DEX=10|CON=10|INT=10
+
+STARTPACK:Default Genie (Djinni)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Genie (Djinni)]
+RACE:Genie (Djinni)	!PRERACE:%
+NAME:Genie (Djinni)
+ALIGN:CG
+SKILL:Appraise		RANK:10
+SKILL:Concentration	RANK:10
+SKILL:Escape Artist	RANK:10
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Spellcraft		RANK:10
+SKILL:Spot			RANK:10
+SKILL:TYPE=Craft		RANK:10
+SKILL:TYPE=Knowledge	RANK:10
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Genie (Efreeti)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Genie (Efreeti)]
+RACE:Genie (Efreeti)	!PRERACE:%
+NAME:Genie (Efreeti)
+ALIGN:LE
+SKILL:Bluff			RANK:13
+SKILL:Concentration	RANK:13
+SKILL:Listen		RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Spellcraft		RANK:13
+SKILL:Spot			RANK:13
+SKILL:Intimidate		RANK:13
+SKILL:TYPE=Craft		RANK:13
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Quicken Spell Like Ability(Scorching Ray)
+STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
+
+STARTPACK:Default Genie (Janni)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Genie (Janni)]
+RACE:Genie (Janni)	!PRERACE:%
+NAME:Genie (Janni)
+SKILL:Escape Artist	RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Appraise		RANK:9
+SKILL:Concentration	RANK:9
+SKILL:Listen		RANK:9
+SKILL:Ride			RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+SKILL:TYPE=Craft		RANK:9
+SKILL:TYPE=Craft		RANK:9
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Mobility
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+GEAR:Chainmail	SIZE:PC	LOCATION:Equipped
+GEAR:Longbow	SIZE:PC	LOCATION:Carried
+GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Ghaele	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ghaele]
+RACE:Ghaele	!PRERACE:%
+NAME:Ghaele
+ALIGN:CG
+SKILL:Concentration	RANK:13
+SKILL:Escape Artist	RANK:13
+SKILL:Handle Animal	RANK:13
+SKILL:Hide			RANK:13
+SKILL:Listen		RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Spot			RANK:13
+SKILL:Ride			RANK:13
+SKILL:TYPE=Knowledge	RANK:13	COUNT:2
+FEAT:Combat Expertise
+FEAT:Improved Disarm
+FEAT:Improved Initiative
+FEAT:Improved Trip
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS4W.HOLY_M
+DEITY:None
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Animal Shapes|Banishment|Bear's Endurance|Blade Barrier|Bless|Calm Animals|Chain Lightning|Command|Control Winds|Cure Minor Wounds|Daylight|Death Ward|Detect Magic|Dismissal|Divine Favor|Divine Power|Flame Strike|Gaseous Form|Guidance|Heal|Hold Animal|Holy Word|Light|Obscuring Mist|Prayer|Raise Dead|Remove Curse|Remove Paralysis|Resistance|Restoration|Restoration (Lesser)|Sanctuary|Searing Light|Shield of Faith|Summon Monster VII|Summon Nature's Ally IV|True Seeing|Virtue|Water Breathing|Zone of Truth
+
+
+STARTPACK:Default Ghoul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ghoul]
+RACE:Ghoul	!PRERACE:%
+NAME:Ghoul
+ALIGN:CE
+SKILL:Balance		RANK:4
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:4
+SKILL:Jump			RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:5
+FEAT:Multiattack
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Ghoul (Ghast)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ghoul (Ghast)]
+RACE:Ghoul (Ghast)	!PRERACE:%
+NAME:Ghoul (Ghast)
+ALIGN:CE
+SKILL:Climb			RANK:6
+SKILL:Jump			RANK:6
+SKILL:Spot			RANK:6
+SKILL:Balance		RANK:4
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+FEAT:Multiattack
+FEAT:Toughness
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Giant (Cloud)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Cloud)]
+RACE:Giant (Cloud)	!PRERACE:%
+NAME:Giant (Cloud)
+SKILL:Sense Motive			RANK:6
+SKILL:Perform (String Instruments)	RANK:1
+SKILL:Climb					RANK:9
+SKILL:Intimidate				RANK:10
+SKILL:Listen				RANK:12
+SKILL:Spot					RANK:12
+SKILL:TYPE=Craft				RANK:10
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Overrun
+FEAT:Iron Will
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
+GEAR:Morningstar	SIZE:G	LOCATION:Both Hands
+
+STARTPACK:Default Giant (Fire)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Fire)]
+RACE:Giant (Fire)	!PRERACE:%
+NAME:Giant (Fire)
+SKILL:Climb		RANK:6
+SKILL:Intimidate	RANK:6
+SKILL:Jump		RANK:6
+SKILL:Spot		RANK:12
+SKILL:TYPE=Craft	RANK:6
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Overrun
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
+GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Giant (Frost)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Frost)]
+RACE:Giant (Frost)	!PRERACE:%
+NAME:Giant (Frost)
+SKILL:Jump		RANK:6
+SKILL:Intimidate	RANK:6
+SKILL:Climb		RANK:6
+SKILL:Spot		RANK:10
+SKILL:TYPE=Craft	RANK:6
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Overrun
+FEAT:Improved Sunder
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
+GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Giant (Hill)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Hill)]
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+RACE:Giant (Hill)	!PRERACE:%
+NAME:Giant (Hill)
+SKILL:Climb		RANK:3
+SKILL:Jump		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:6
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Improved Sunder
+FEAT:Weapon Focus(Greatclub)
+GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
+GEAR:Hide		SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Giant (Stone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Stone)]
+RACE:Giant (Stone)	!PRERACE:%
+NAME:Giant (Stone)
+SKILL:Hide	RANK:11
+SKILL:Spot	RANK:11
+SKILL:Climb	RANK:6
+SKILL:Jump	RANK:6
+FEAT:Combat Reflexes
+FEAT:Iron Will
+FEAT:Point Blank Shot
+FEAT:Power Attack
+FEAT:Precise Shot
+STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
+GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
+GEAR:Hide		SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Giant (Storm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Storm)]
+RACE:Giant (Storm)	!PRERACE:%
+NAME:Giant (Storm)
+SKILL:Swim			RANK:4
+SKILL:Climb			RANK:10
+SKILL:Intimidate		RANK:10
+SKILL:Jump			RANK:12
+SKILL:Listen		RANK:10
+SKILL:Perform (Sing)	RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Concentration	RANK:20
+SKILL:Spot			RANK:20
+SKILL:TYPE=Craft		RANK:10
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|14
+GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Gibbering Mouther	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gibbering Mouther]
+RACE:Gibbering Mouther	!PRERACE:%
+NAME:Gibbering Mouther
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:3
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
+
+STARTPACK:Default Girallon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Girallon]
+RACE:Girallon	!PRERACE:%
+NAME:Girallon
+ALIGN:TN
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:5
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Toughness
+STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Gnoll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gnoll]
+RACE:Gnoll	!PRERACE:%
+NAME:Gnoll
+SKILL:Spot		RANK:3
+SKILL:Listen	RANK:2
+FEAT:Power Attack
+STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
+GEAR:Battleaxe			SIZE:PC	LOCATION:Primary Hand
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Leather			SIZE:PC	LOCATION:Equipped
+GEAR:Shortbow			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Golem (Clay)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Clay)]
+RACE:Golem (Clay)	!PRERACE:%
+NAME:Clay Golem
+ALIGN:TN
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Golem (Flesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Flesh)]
+RACE:Golem (Flesh)	!PRERACE:%
+NAME:Flesh Golem
+ALIGN:TN
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Golem (Iron)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Iron)]
+RACE:Golem (Iron)	!PRERACE:%
+NAME:Iron Golem
+ALIGN:TN
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Golem (Stone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Stone)]
+RACE:Golem (Stone)	!PRERACE:%
+NAME:Stone Golem
+ALIGN:TN
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Golem (Stone/Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Stone)]
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+RACE:Golem (Stone)	!PRERACE:%
+NAME:Greater Stone Golem
+ALIGN:TN
+CLASS:Construct (Mindless)	LEVEL:28
+
+STARTPACK:Default Gorgon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gorgon]
+RACE:Gorgon	!PRERACE:%
+NAME:Gorgon
+ALIGN:TN
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Iron Will
+STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
+
+STARTPACK:Default Gray Render	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gray Render]
+RACE:Gray Render	!PRERACE:%
+NAME:Gray Render
+SKILL:Hide		RANK:6
+SKILL:Survival	RANK:2
+SKILL:Spot		RANK:5
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+FEAT:Track
+STAT:STR=11|INT=11|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Grick	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Grick]
+RACE:Grick	!PRERACE:%
+NAME:Grick
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+STAT:CON=11|INT=11|CHA=11|STR=10|DEX=10|WIS=10
+
+STARTPACK:Default Griffon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Griffon]
+RACE:Griffon	!PRERACE:%
+NAME:Griffon
+ALIGN:TN
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Iron Will
+FEAT:Multiattack
+FEAT:Weapon Focus(Bite)
+STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
+
+STARTPACK:Default Grimlock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Grimlock]
+RACE:Grimlock	!PRERACE:%
+NAME:Grimlock
+SKILL:Listen	RANK:4
+SKILL:Climb		RANK:2
+SKILL:Hide		RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Battleaxe	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Gnome (Svirfneblin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gnome (Svirfneblin)]
+RACE:Gnome (Svirfneblin)	!PRERACE:%
+NAME:Svirfneblin
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+CLASS:Warrior	LEVEL:1
+SKILL:Hide	RANK:2
+SKILL:Spot	RANK:2
+FEAT:Toughness
+GEAR:Banded Mail		SIZE:PC	LOCATION:Equipped
+GEAR:Buckler		SIZE:PC	LOCATION:Equipped
+GEAR:Pick (Heavy)		SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Goblin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Goblin]
+RACE:Goblin	!PRERACE:%
+NAME:Goblin
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:NE
+CLASS:Warrior	LEVEL:1
+SKILL:Hide			RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+GEAR:Leather			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
+GEAR:Morningstar			SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Hag (Annis)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hag (Annis)]
+RACE:Hag (Annis)	!PRERACE:%
+NAME:Hag (Annis)
+SKILL:Bluff		RANK:8
+SKILL:Hide		RANK:8
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+SKILL:Diplomacy	RANK:2
+SKILL:Intimidate	RANK:2
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Great Fortitude
+STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
+
+STARTPACK:Default Hag (Green)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hag (Green)]
+RACE:Hag (Green)	!PRERACE:%
+NAME:Hag (Green)
+SKILL:Hide					RANK:8
+SKILL:Listen				RANK:8
+SKILL:Spot					RANK:8
+SKILL:Concentration			RANK:6
+SKILL:TYPE=Craft|TYPE=Knowledge	RANK:6
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Combat Casting
+FEAT:Great Fortitude
+STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
+
+STARTPACK:Default Hag (Sea)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hag (Sea)]
+RACE:Hag (Sea)	!PRERACE:%
+NAME:Hag (Sea)
+SKILL:Hide					RANK:3
+SKILL:Listen				RANK:3
+SKILL:Spot					RANK:3
+SKILL:TYPE=Craft|TYPE=Knowledge	RANK:3
+FEAT:Alertness
+FEAT:Toughness
+STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Harpy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Harpy]
+RACE:Harpy	!PRERACE:%
+NAME:Harpy
+SKILL:Bluff			RANK:2
+SKILL:Intimidate		RANK:2
+SKILL:Listen		RANK:2
+SKILL:Perform (Oratory)	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Persuasive
+STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
+GEAR:Club	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Hell Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hell Hound]
+RACE:Hell Hound	!PRERACE:%
+NAME:Hell Hound
+ALIGN:LE
+SKILL:Jump			RANK:7
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+SKILL:Survival		RANK:7
+FEAT:Improved Initiative
+FEAT:Run
+FEAT:Track
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Hippogriff	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hippogriff]
+RACE:Hippogriff	!PRERACE:%
+NAME:Hippogriff
+ALIGN:TN
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Dodge
+FEAT:Wingover
+STAT:DEX=11|WIS=11|STR=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Default Hobgoblin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hobgoblin]
+RACE:Hobgoblin	!PRERACE:%
+NAME:Hobgoblin
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:LE
+CLASS:Warrior	LEVEL:1
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Alertness
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Equipped
+GEAR:Javelin			SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Default Homunculus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Homunculus]
+RACE:Homunculus	!PRERACE:%
+NAME:Homunculus
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Lightning Reflexes
+STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Howler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Howler]
+RACE:Howler	!PRERACE:%
+NAME:Howler
+ALIGN:CE
+SKILL:Climb			RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Search		RANK:9
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Hydra (Eight Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Eight Headed)]
+RACE:Hydra (Eight Headed)	!PRERACE:%
+NAME:Hydra (Eight Headed)
+SKILL:Spot		RANK:6
+SKILL:Listen	RANK:5
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Eleven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Eleven Headed)]
+RACE:Hydra (Eleven Headed)	!PRERACE:%
+NAME:Hydra (Eleven Headed)
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Blind Fight
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Five Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Five Headed)]
+RACE:Hydra (Five Headed)	!PRERACE:%
+NAME:Hydra (Five Headed)
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Iron Will
+FEAT:Toughness
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Nine Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Nine Headed)]
+RACE:Hydra (Nine Headed)	!PRERACE:%
+NAME:Hydra (Nine Headed)
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Blind Fight
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Seven Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Seven Headed)]
+RACE:Hydra (Seven Headed)	!PRERACE:%
+NAME:Hydra (Seven Headed)
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Six Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Six Headed)]
+RACE:Hydra (Six Headed)	!PRERACE:%
+NAME:Hydra (Six Headed)
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Ten Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Ten Headed)]
+RACE:Hydra (Ten Headed)	!PRERACE:%
+NAME:Hydra (Ten Headed)
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:7
+FEAT:Blind Fight
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Default Hydra (Twelve Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hydra (Twelve Headed)]
+RACE:Hydra (Twelve Headed)	!PRERACE:%
+NAME:Hydra (Twelve Headed)
+SKILL:Spot		RANK:8
+SKILL:Listen	RANK:7
+FEAT:Blind Fight
+FEAT:Improved Natural Attack(Bite)
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Focus(Bite)
+STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10

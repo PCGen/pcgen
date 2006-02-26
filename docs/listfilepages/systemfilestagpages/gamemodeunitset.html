@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+	
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on the use of PCGen Game Mode:Level List.
+	-->
+	<head>
+			<title>Game Mode:Unit Set List</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+	
+		<h1>Game Mode: unitset.lst</h1>
+		
+		<p class="new">*** Deprecated 5.9.5</p>
+		
+		<p class="indent1"><strong>This file has been deprecated and removed from the release. 
+		This function is now implemented with the <a href="gamemodemiscinfolist.html#UNITSET">UNITSET</a> 
+		miscinfo.lst tag.</strong></p><hr>
+		
+		<p>The unitSet.lst file contains the definition for unit sets that can be used 
+		  in the game mode. Unit sets can be selected on the language tab of the preferences 
+		  dialog, by name. The &quot;imperial&quot; unit set is hard-coded into PCGen, 
+		  so the program can run without this file, but it is possible to change the &quot;imperial&quot; 
+		  set by changing the entry in this file.</p>
+		<p>The Default Unit Set is set in the miscinfo.lst file with the 
+		<a href="gamemodemiscinfolist.html#DEFAULTUNITSET">DEFAULTUNITSET</a> 
+		  tag and will default to Imperial if not present.</p>
+		<p>The 'factor' is the conversion factor to the standard imperial set, which is 
+		  inches for height, feet for distances and pounds for weights.</p>
+		<p>The string 'unit' is appended to the value and set off from the value by a 
+		  space. If you want the unit to follow directly after the value, prefix the string 
+		  with '~'. The string 'ftin' is hard-coded to give results of the format x'y&quot;.</p>
+		<p>The 'pattern' string is a pattern for formatting the output of the value, so 
+		  you can specify e.g. how many decimal digits are printed. The pattern follows 
+		  the definition of the Java class DecimaFormat and can be found 
+		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html" target="_blank">here</a>.</p>
+		 
+	</body>
+
+</html>

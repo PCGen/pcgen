@@ -1,0 +1,48 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Wed Jan 12 21:48:08 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Blood and Space - Prometheus Rising|SOURCESHORT:BnS-PR|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+
+# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Human Computer	HD:6		TYPE:PC.Advanced	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Required Race	Required Skill
+CLASS:Human Computer	PRERACE:Menome	PRESKILL:3,Computer Use,Research,Knowledge (Tactics)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Human Computer	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Computer Use|Concentration|Demolitions|Diplomacy|Disable Device|Disguise|Drive|Forgery|Gather Information|Hide|Intimidate|Investigate|TYPE.Knowledge|Listen|Move Silently|Navigate|Pilot|Repair|Research|Sense Motive|Spot
+1	SA:Skill Download (% ranks)|SkillDownload	BONUS:VAR|SkillDownload|1														DEFINE:SkillDownload|0
+2	SA:Smart Defense										BONUS:COMBAT|AC|INT
+3																														ADD:FEAT(TYPE=HumanComputer)
+4	SA:Smart Resilience																										ADD:FEAT(TYPE=HumanComputerSaves)
+5								BONUS:VAR|SkillDownload|4
+6																														ADD:FEAT(TYPE=HumanComputer)
+7	SA:Heightened Precision
+8	SA:Total Recall														BONUS:SKILL|Computer Use,TYPE.Knowledge,Research|CL
+9																														ADD:FEAT(TYPE=HumanComputer)
+10								BONUS:VAR|SkillDownload|5
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Sensitive	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat			Required Skill
+CLASS:Sensitive	PREFEAT:1,TYPE=BasePsionic	PRESKILL:2,Sense Motive,Knowledge (Behavioral Sciences)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sensitive	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Gather Information|Handle Animal|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Theology and Philosophy)|Navigate|Pilot|Sense Motive|Treat Injury
+1	SA:Recognition
+2				BONUS:VAR|Psyche|CL/2
+3								ADD:FEAT(TYPE=Sensitive,TYPE=PsionicPowerFeat,TYPE=BasePsionic)
+5	SA:Awakening					ADD:FEAT(TYPE=SensitiveAwakening)
+6								ADD:FEAT(TYPE=Sensitive,TYPE=PsionicPowerFeat,TYPE=BasePsionic)
+7								ADD:FEAT(TYPE=SensitiveAwakening)
+9								ADD:FEAT(TYPE=Sensitive,TYPE=PsionicPowerFeat,TYPE=BasePsionic)
+
+# Class Name		Output Name				Hit Dice	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Xeno Archaelogist	OUTPUTNAME:Xeno-Archaelogist	HD:6		SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Required Feat				Required Skill
+CLASS:Xeno Archaelogist	PREFEAT:1,Alien Weapons Proficiency	PRESKILL:2,Knowledge (Technology),Decipher Script=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Xeno Archaelogist	STARTSKILLPTS:8	CSKILL:Climb|Computer Use|Decipher Script|Disable Device|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Repair|Research|Search|Survival|Treat Injury
+1	SA:Alien Lore +%|AlienLore		BONUS:VAR|AlienLore|(CL/4)+1	DEFINE:AlienLore|0
+2	SA:Xenology (DC % + PL)|Xenology	BONUS:VAR|Xenology|25		DEFINE:Xenology|0
+3																ADD:FEAT(TYPE=xenoArch)
+5							BONUS:VAR|Xenology|-5
+6																ADD:FEAT(TYPE=xenoArch)
+7	SA:Major Discovery												ADD:FEAT(TYPE=XenoMajorDiscovery)
+9																ADD:FEAT(TYPE=xenoArch)
+10							BONUS:VAR|Xenology|-5

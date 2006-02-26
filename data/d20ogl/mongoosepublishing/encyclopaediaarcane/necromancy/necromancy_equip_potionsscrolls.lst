@@ -1,0 +1,63 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Mar 18 13:39:59 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy|SOURCESHORT:Necromancy|SOURCEWEB:http://www.mongoosepublishing.com
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+#Potion Name			Output name			Type			Cost		Weight		Sourcepage
+# Equipment Name					Output Name				Type					Cost		Weight	Source Page
+Animate Animal					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:25	WT:0		SOURCEPAGE:p.19
+Animate Skeleton					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.20
+Animate Zombie					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.20
+Bleeding Wound					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.21
+Bones of Steel					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.21
+Chill Blood						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.22
+Death's Shadow					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.22
+Detect Dead						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:25	WT:0		SOURCEPAGE:p.23
+Identify Undead					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:25	WT:0		SOURCEPAGE:p.25
+Invigoration of Undeath				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.25
+Protection from Undead				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.25
+Sensory Link					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.28
+Shadow Horror					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.28
+Shadow Mastery					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.28
+Skull Snare						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:25	WT:0		SOURCEPAGE:p.30
+Strike Barren					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.31
+Undead Conduit					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:750	WT:0		SOURCEPAGE:p.32
+Voice of Deathly Whispers			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.32
+Visage of the Dead				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:300	WT:0		SOURCEPAGE:p.32
+Wound							OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion			COST:50	WT:0		SOURCEPAGE:p.33
+
+#Scroll name				Type				Cost		Weight		Source Page
+Scroll of (Animate Animal)								TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.19
+Scroll of (Animate Skeleton)								TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.20
+Scroll of (Animate Zombie)								TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.20
+Scroll of (Annihilation)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.21
+Scroll of (Bleeding Wound)								TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.21
+Scroll of (Bones of Steel)								TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.21
+Scroll of (Chill Blood)									TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.22
+Scroll of (Death's Shadow)								TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.22
+Scroll of (Detect Dead)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.23
+Scroll of (Flesh Made Foul)								TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.23
+Scroll of (Ghoulish Curse)								TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.23
+Scroll of (Graft Weapons)								TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.24
+Scroll of (Identify Undead)								TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.25
+Scroll of (Invigoration of Undeath)							TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.25
+Scroll of (Longevity)									TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.25
+Scroll of (Protection from Undead)							TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.25
+Scroll of (Raise City)									TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.26
+Scroll of (Raise Death Fleet)								TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01	SOURCEPAGE:p.26
+Scroll of (Raise Death Hulk)								TYPE:Magic.Scroll.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.27
+Scroll of (Recall Spirit)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.28
+Scroll of (Sensory Link)								TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.28
+Scroll of (Shadow Horror)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.28
+Scroll of (Shadow Mastery)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.28
+Scroll of (Shadow Skin)									TYPE:Magic.Scroll.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.29
+Scroll of (Shrieking Missile)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.29
+Scroll of (Skeletal Spikes)								TYPE:Magic.Scroll.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.30
+Scroll of (Skull Snare)									TYPE:Magic.Scroll.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.30
+Scroll of (Strike Barren)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.31
+Scroll of (Threshold of Unlife)							TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.31
+Scroll of (Undead Conduit)								TYPE:Magic.Scroll.Arcane	COST:375	WT:.01	SOURCEPAGE:p.32
+Scroll of (Unfetter Undead)								TYPE:Magic.Scroll.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.32
+Scroll of (Voice of Deathly Whispers)						TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.32
+Scroll of (Visage of the Dead)							TYPE:Magic.Scroll.Arcane	COST:150	WT:.01	SOURCEPAGE:p.32
+Scroll of (Wall of Bone)								TYPE:Magic.Scroll.Arcane	COST:700	WT:.01	SOURCEPAGE:p.33
+Scroll of (Wound)										TYPE:Magic.Scroll.Arcane	COST:25	WT:.01	SOURCEPAGE:p.33

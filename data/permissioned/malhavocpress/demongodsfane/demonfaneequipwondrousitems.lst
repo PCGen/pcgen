@@ -1,0 +1,10 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Jul  2 19:24:14 2003 -- reformated by prettylst.pl v1.29 (build 288)
+SOURCELONG:Malhavoc Press - Demon God's Fane|SOURCESHORT:DemGodFane|SOURCEWEB:http://www.montecook.com
+# Equipment Name				Product Identity?	Type					Cost		Weight	Source Page
+Inherent Power Boost Amulet (+1 DC)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:1000	WT:0		SOURCEPAGE:p.
+Inherent Power Boost Amulet (+2 DC)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:4000	WT:0		SOURCEPAGE:p.
+Inherent Power Boost Amulet (+3 DC)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:9000	WT:0		SOURCEPAGE:p.
+Inherent Power Boost Amulet (+4 DC)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:16000	WT:0		SOURCEPAGE:p.
+Inherent Power Boost Amulet (+5 DC)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:25000	WT:0		SOURCEPAGE:p.
+Talisman of Turn Resistance (+4)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:4000	WT:0		SOURCEPAGE:p.
+Talisman of Turn Resistance (+6)	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:12000	WT:0		SOURCEPAGE:p.

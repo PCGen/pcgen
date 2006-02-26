@@ -1,0 +1,41 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Wed Feb 12 05:38:41 2003 -- reformated by prettylst.pl v1.24 (build 252)
+#Original Entry by: kingpaul, Updated by Beaver and Tir Gwaith
+CAMPAIGN:MP - Book of Hallowed Might - Source Book
+GAMEMODE:3e
+TYPE:Malhavoc Press.Supplement
+RANK:9
+SOURCELONG:Malhavoc Press - Book of Hallowed Might
+SOURCESHORT:BoHM
+SOURCEWEB:http://www.montecook.com
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:d20 System rules and content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Hallowed Might Copyright 2002, Monte J. Cook.  All rights reserved
+COPYRIGHT:PCGen dataset conversion for The Book of Hallowed Might Copyright 2003-2005, PCGen Data Team (including, but not limited to: Paul W. King, Michael Beaver, Andrew McDougall (Tir Gwaith))
+INFOTEXT:Spell names and other proper names from The Book of Hallowed Might are ©2001-2003 Monte J. Cook and are used here with his permission.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+DOMAIN:hallowedmight_domains.lst
+SPELL:hallowedmight_spells.lst
+FEAT:hallowedmight_feats.lst
+FEAT:hallowedmight_feats_hidden.lst
+TEMPLATE:hallowedmight_templates.lst
+CLASS:hallowedmight_classes.lst
+EQUIPMOD:hallowedmight_equipmods.lst
+EQUIPMENT:hallowedmight_equip_armorshields_specific.lst
+EQUIPMENT:hallowedmight_equip_weap_specific.lst
+RACE:hallowedmight_races.lst
+SKILL:hallowedmight_skills.lst
+
+FEAT:@\d20ogl\srd\srd_feats_hidden.lst
+
+#Not done yet
+EQUIPMENT:hallowedmight_equip_potions.lst
+EQUIPMENT:hallowedmight_equip_rings.lst
+EQUIPMENT:hallowedmight_equip_wondrousitems.lst
+EQUIPMENT:hallowedmight_equip_potionsscrolls.lst
+EQUIPMENT:hallowedmight_equip_rodsstaffswands.lst

@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+#Armor and Shields				TYPE									Cost		Weight	Base AC	Max Dex Mod	AC Check Penalty	Arcane Spell Fail	Movement Rate	Hands Required		Pre-required Size
+# Equipment Name			Required Proficiency		Type								Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Nb Hands	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Cloth										TYPE:Armor.Light.Suit					COST:20	WT:10		ACCHECK:0														MAXDEX:8		SOURCEPAGE:p.	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Leather									TYPE:Armor.Light.Suit					COST:30	WT:15		ACCHECK:0														MAXDEX:6		SOURCEPAGE:p.	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Studded Leather								TYPE:Armor.Light.Suit					COST:45	WT:20		ACCHECK:-1														MAXDEX:5		SOURCEPAGE:p.	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Chain Shirt									TYPE:Armor.Light.Shirt					COST:60	WT:25		ACCHECK:-2														MAXDEX:4		SOURCEPAGE:p.	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Hide										TYPE:Armor.Medium.Suit					COST:28	WT:25		ACCHECK:-3														MAXDEX:4		SOURCEPAGE:p.	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Scale Mail									TYPE:Armor.Medium.Suit					COST:50	WT:30		ACCHECK:-4														MAXDEX:3		SOURCEPAGE:p.	SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Chainmail									TYPE:Armor.Medium.Suit					COST:100	WT:40		ACCHECK:-5														MAXDEX:2		SOURCEPAGE:p.	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Platemail									TYPE:Armor.Medium.Suit					COST:250	WT:30		ACCHECK:-4														MAXDEX:3		SOURCEPAGE:p.	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Splint Mail									TYPE:Armor.Heavy.Suit					COST:150	WT:45		ACCHECK:-7														MAXDEX:0		SOURCEPAGE:p.	SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Banded Mail									TYPE:Armor.Heavy.Suit					COST:175	WT:35		ACCHECK:-6														MAXDEX:1		SOURCEPAGE:p.	SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Half-Plate									TYPE:Armor.Heavy.Suit					COST:600	WT:50		ACCHECK:-7														MAXDEX:0		SOURCEPAGE:p.	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Full Plate									TYPE:Armor.Heavy.Suit					COST:1500	WT:50		ACCHECK:-6														MAXDEX:1		SOURCEPAGE:p.	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Buckler									TYPE:Shield							COST:15	WT:5		ACCHECK:-1												HANDS:0				SOURCEPAGE:p.	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Pavaise									TYPE:Shield							COST:30	WT:45		ACCHECK:-10																	SOURCEPAGE:p.	SPELLFAILURE:50
+Shield (Small/Wooden)							TYPE:Shield.Wooden					COST:3	WT:5		ACCHECK:-1																	SOURCEPAGE:p.	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Shield (Small/Steel)							TYPE:Shield							COST:9	WT:6		ACCHECK:-1																	SOURCEPAGE:p.	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Shield (Large/Wooden)							TYPE:Shield.Wooden					COST:7	WT:10		ACCHECK:-2																	SOURCEPAGE:p.	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Shield (Large/Steel)							TYPE:Shield							COST:20	WT:15		ACCHECK:-2																	SOURCEPAGE:p.	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Shield (Tower)								TYPE:Shield							COST:20	WT:45		ACCHECK:-10																	SOURCEPAGE:p.	SPELLFAILURE:50		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Armor Spikes			PROFICIENCY:Armor Spikes	TYPE:Armor.Weapon.Martial.Melee.Piercing		COST:50	WT:10					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	HANDS:0				SOURCEPAGE:p.
+Shield Spikes			PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Piercing		COST:10	WT:5					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6						SOURCEPAGE:p.
+Shield Bash (Small)		PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Bludgeoning	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3						SOURCEPAGE:p.
+Shield Bash (Med. or Lg.)	PROFICIENCY:Shieldbash		TYPE:Armor.Weapon.Martial.Melee.Bludgeoning	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4						SOURCEPAGE:p.
+Gauntlets (Locked)		PROFICIENCY:Unarmed Strike	TYPE:Armor							COST:8	WT:5																				SOURCEPAGE:p.

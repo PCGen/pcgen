@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jan 26 23:35:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Relics 2nd Edition|SOURCESHORT:BnR2|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
+
+# Feat Name		Type			Visible	Special Ability						Define
+Inflict Wounds	TYPE:ClassAbility	VISIBLE:NO	SA:Inflict Wounds +%d8|InflictWounds		DEFINE:InflictWounds|0
+Sneak Attack	TYPE:Special	VISIBLE:NO	SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0

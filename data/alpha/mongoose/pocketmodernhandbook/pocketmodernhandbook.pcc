@@ -1,0 +1,53 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+# Modified by Beaver for the MMPH
+CAMPAIGN:Mongoose Modern Pocket Handbook
+RANK:1
+GAMEMODE:Modern
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Mongoose.Pocket Handbook
+ISOGL:YES
+SOURCELONG:Mongoose Modern Pocket Handbook
+SOURCESHORT:MMPH
+SOURCEWEB:http://www.mongoosepublishing.com
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2003, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Michael Beaver
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SKILL:@\d20ogl\msrd\msrd_skills.lst
+CLASS:@\d20ogl\msrd\msrd_classes_base.lst
+CLASS:@\d20ogl\msrd\msrd_classes_npc.lst
+CLASS:@\d20ogl\msrd\msrd_classes_advanced.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_armor.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_vehicles.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_ammo.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_melee.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_ranged.lst
+EQUIPMOD:@\d20ogl\msrd\msrd_equipmods.lst
+FEAT:@\d20ogl\msrd\msrd_feats.lst
+FEAT:@\d20ogl\msrd\msrd_feats_hidden.lst
+FEAT:@\d20ogl\msrd\msrd_feats_occupations.lst
+RACE:@\d20ogl\msrd\msrd_races.lst
+WEAPONPROF:@\d20ogl\msrd\msrd_weaponprofs.lst
+LANGUAGE:@\d20ogl\msrd\msrd_languages.lst
+TEMPLATE:@\d20ogl\msrd\msrd_templates.lst
+TEMPLATE:@\d20ogl\msrd\msrd_templates_fiends.lst
+
+# FX
+SPELL:@\d20ogl\msrd\msrd_powers.lst
+SPELL:@\d20ogl\msrd\msrd_spells.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_armor_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_potion_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_ring_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_scrolls_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_staffs_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_tattoos_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_wands_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_melee_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_ranged_specific.lst
+EQUIPMENT:@\d20ogl\msrd\msrd_equip_wonderousitems.lst
+EQUIPMOD:@\d20ogl\msrd\msrd_equipmods_fx.lst

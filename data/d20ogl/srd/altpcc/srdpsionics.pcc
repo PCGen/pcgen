@@ -1,0 +1,38 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $
+CAMPAIGN:3.0 SRD Psionics
+RANK:3
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:SRD
+TYPE:SRD.Partial
+SOURCELONG:SRD Psionics
+SOURCESHORT:SRDPsionic
+SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Sigurdur H. Olafsson)
+
+INFOTEXT:SRD Psionics portions only.
+
+SKILL:@/d20ogl/srd/srd_skills_psionic.lst
+CLASS:@/d20ogl/srd/srd_classes_psionic.lst
+COMPANIONMOD:@/d20ogl/srd/srd_companion_mods_psionic.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_basetypes_psionic.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_psionic.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_weap_melee_psionic.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip_dorjes_psionic.lst
+FEAT:@/d20ogl/srd/srd_feats_psionic.lst
+FEAT:@/d20ogl/srd/srd_feats_hidden_psionic.lst
+RACE:@/d20ogl/srd/srd_races__psionic.lst
+SPELL:@/d20ogl/srd/srd_spells_psionic.lst
+WEAPONPROF:@/d20ogl/srd/srd_weapprofs_psionic.lst
+EQUIPMOD:@/d20ogl/srd/srd_equipmods_psionic.lst
+TEMPLATE:@/d20ogl/srd/srd_templates_psionic.lst
+EQUIPMOD:@/d20ogl/srd/srd_equipmods_magic.lst
+
+# Stuff from Monster Manual
+WEAPONPROF:@/d20ogl/srd/srd_weapprofs_natural.lst
+TEMPLATE:@/d20ogl/srd/srd_templates_types.lst
+CLASS:@/d20ogl/srd/srd_classes_creature_types.lst

@@ -1,0 +1,9 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+#####Vehicle Weapons
+#	Cannons (Exotic Firearms Proficiency[cannons] feat)
+# Equipment Name			Required Proficiency	Type								Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page							Special Property			Rate of Fire
+BMP2 30mm cannon			PROFICIENCY:Cannon	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d12		RANGE:150	SIZE:H	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Linked Ammo ,Mil(+3)	RATEOFFIRE:A
+M1A2 ABrams tank cannon		PROFICIENCY:Cannon	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:150	SIZE:H	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:1 int ,Mil(+3)		RATEOFFIRE:Single
+M2A2 Bradley 25mm cannon	PROFICIENCY:Cannon	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d12		RANGE:150	SIZE:H	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Linked Ammo ,Mil(+3)	RATEOFFIRE:A

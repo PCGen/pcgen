@@ -1,0 +1,151 @@
+package gmgen.gui;
+
+import javax.swing.event.DocumentEvent.EventType;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.text.*;
+import javax.swing.text.html.HTML.Tag;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.StyleSheet;
+import javax.swing.undo.UndoableEdit;
+import java.util.Enumeration;
+
+/**
+ * <code>ExtendedHTMLDocument</code> is used by Swing for improved HTML
+ * rendering over the standard <code>HTMLDocument</code>.  Hence, it contains
+ * methods <em>never called by PCGen</em>, so code analysis tools will flag
+ * methods as unused.  This is fine.  Do not remove or deprecate them.
+ *
+ * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @version $Id: ExtendedHTMLDocument.java,v 1.11 2005/11/16 16:26:18 karianna Exp $
+ */
+public class ExtendedHTMLDocument extends HTMLDocument {
+	private static final Element[] EMPTY_ELEMENT_ARRAY = new Element[0];
+
+	/**
+	 * Constructs a new, default <code>ExtendedHTMLDocument</code>.  Used by
+	 * Swing.
+	 *
+	 * @see HTMLDocument#HTMLDocument()
+	 */
+	public ExtendedHTMLDocument() {
+		// Constructor
+	}
+
+	/**
+	 * Constructs a new <code>ExtendedHTMLDocument</code> with the given
+	 * <var>content</var> and <var>style</var>.  Used by Swing.
+	 *
+	 * @param content the document contents
+	 * @param styles the stylesheet
+	 *
+	 * @see HTMLDocument#HTMLDocument(Content, StyleSheet)
+	 */
+	public ExtendedHTMLDocument(Content content, StyleSheet styles) {
+		super(content, styles);
+	}
+
+	/**
+	 * Constructs a new <code>ExtendedHTMLDocument</code> with the given
+	 * <var>styles</var>.  Used by Swing.
+	 *
+	 * @param styles the stylesheet
+	 *
+	 * @see HTMLDocument#HTMLDocument(StyleSheet)
+	 */
+	public ExtendedHTMLDocument(StyleSheet styles) {
+		super(styles);
+	}
+
+	/**
+	 * Removes elements.  Used by Swing.
+	 *
+	 * @param e the element to remove
+	 * @param index the element position
+	 * @param count how many to remove
+	 *
+	 * @throws BadLocationException if there are not elements enough
+	 *
+	 * @see Content#remove(int, int)
+	 */
+	public void removeElements(Element e, int index, int count)
+			throws BadLocationException {
+		writeLock();
+
+		int start = e.getElement(index).getStartOffset();
+		int end = e.getElement((index + count) - 1).getEndOffset();
+
+		try {
+			Element[] removed = new Element[count];
+			Element[] added = EMPTY_ELEMENT_ARRAY;
+
+			for (int counter = 0; counter < count; counter++) {
+				removed[counter] = e.getElement(counter + index);
+			}
+
+			DefaultDocumentEvent dde= new DefaultDocumentEvent(
+					start, end - start, EventType.REMOVE);
+			((AbstractDocument.BranchElement) e).replace(
+					index, removed.length, added);
+			dde.addEdit(new ElementEdit(e, index, removed, added));
+
+			UndoableEdit u = getContent().remove(start, end - start);
+
+			if (u != null) {
+				dde.addEdit(u);
+			}
+
+			postRemoveUpdate(dde);
+			dde.end();
+			fireRemoveUpdate(dde);
+
+			if (u != null) {
+				fireUndoableEditUpdate(new UndoableEditEvent(this, dde));
+			}
+		} finally {
+			writeUnlock();
+		}
+	}
+
+	/**
+	 * Replaces attributes on a tag.  Used by Swing.
+	 *
+	 * @param e the element to edit
+	 * @param a the attributes to change
+	 * @param tag the tag to edit
+	 */
+	public void replaceAttributes(Element e, AttributeSet a, Tag tag) {
+		writeLock();
+		if ((e != null) && (a != null)) {
+			try {
+				int start = e.getStartOffset();
+				DefaultDocumentEvent changes = new DefaultDocumentEvent(
+						start, e.getEndOffset() - start, EventType.CHANGE);
+				AttributeSet sCopy = a.copyAttributes();
+				changes.addEdit(new AttributeUndoableEdit(e, sCopy, false));
+
+				MutableAttributeSet attr
+						= (MutableAttributeSet) e.getAttributes();
+				Enumeration aNames = attr.getAttributeNames();
+				Object value;
+				Object aName;
+
+				while (aNames.hasMoreElements()) {
+					aName = aNames.nextElement();
+					value = attr.getAttribute(aName);
+
+					if ((value != null) && !value.toString()
+							.equalsIgnoreCase(tag.toString())) {
+						attr.removeAttribute(aName);
+					}
+				}
+
+				attr.addAttributes(a);
+				changes.end();
+				fireChangedUpdate(changes);
+				fireUndoableEditUpdate(new UndoableEditEvent(this, changes));
+			} finally {
+				writeUnlock();
+			}
+		}
+	}
+}

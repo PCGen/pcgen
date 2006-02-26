@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 14:59:42 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by Paul King)
+
+# Race Name	Favored Class	Skills/Level		Starting Feats	Size		Move			Reach		Bonus Languages	Type			Source Page		Choose
+Human		FAVCLASS:Any	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	REACH:5	LANGBONUS:ALL	TYPE:Humanoid	SOURCEPAGE:p. 24	CHOOSE:LANGAUTO:TYPE=Spoken

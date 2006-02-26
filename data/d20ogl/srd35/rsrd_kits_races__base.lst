@@ -1,0 +1,65 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Dwarf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dwarf%]
+RACE:Dwarf	!PRERACE:%
+NAME:Dwarf
+ALIGN:LG
+CLASS:Warrior	LEVEL:1
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Weapon Focus (Waraxe (Dwarven/Exotic))
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Shortbow			SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Default Elf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elf%]
+RACE:Elf	!PRERACE:%
+NAME:Elf
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:CG	PRERACE:Elf,[Elf (Wood)]
+ALIGN:TN	PRERACE:Elf (Wood)
+CLASS:Warrior	LEVEL:1
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:1
+SKILL:Search	RANK:1
+SKILL:Spot		RANK:1	FREE:YES
+FEAT:Weapon Focus (Longbow)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Equipped
+GEAR:Longbow			SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Default Gnome	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gnome%]
+RACE:Gnome	!PRERACE:%
+NAME:Gnome
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:NG
+CLASS:Warrior	LEVEL:1
+SKILL:Hide	RANK:2
+SKILL:Spot	RANK:2
+FEAT:Weapon Focus (Crossbow (Light))
+GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Halfling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Halfling%]
+RACE:Halfling	!PRERACE:%
+NAME:Halfling
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+CLASS:Warrior	LEVEL:1
+SKILL:Hide		RANK:1
+SKILL:Jump		RANK:2
+SKILL:LISTEN	RANK:2
+FEAT:Weapon Focus (Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+

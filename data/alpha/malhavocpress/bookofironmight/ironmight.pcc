@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Sep  8 10:04:01 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Book of Iron Might
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Malhavoc Press
+TYPE:Malhavoc Press.Book of Iron Might
+SOURCELONG:Book of Iron Might
+SOURCESHORT:BoIM
+SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000–2004, Wizards of the Coast, Inc.
+COPYRIGHT:d20 System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.; authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins,David Noonan, Rich Redman, and Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Iron Might Copyright 2004 Monte J. Cook. All rights reserved.
+COPYRIGHT:Monte Cook’s Arcana Unearthed Copyright 2003 Monte J. Cook. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for the Book of Iron Might Copyright 2005-2006, PCGen Data team (Including, but not limited to Paul W. King, Andrew McDougall (Tir Gwaith))
+INFOTEXT:Proper names from The Book of Iron Might are Copyright 2004-2005 Monte J. Cook and are used here with his permission.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+BIOSET:ironmight_biosettings.lst
+EQUIPMENT:ironmight_equip.lst
+FEAT:ironmight_feats.lst
+SKILL:ironmight_skills.lst
+RACE:ironmight_races.lst
+TEMPLATE:ironmight_templates.lst

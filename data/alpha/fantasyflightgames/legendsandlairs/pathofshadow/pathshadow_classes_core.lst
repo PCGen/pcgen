@@ -1,0 +1,141 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Dec  9 13:32:29 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# Original entry by: Blithwyn
+SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+#
+# Issue: Spell selection: The Chameleon can only use spells from the the shools of Abjuration, Divination, Enchantment, Illusion.
+#   This is now enforced with the spelllist and prohibit tags which isn't the best solution. If another material has other shools these would be wrongly allowed.
+#   On the other hand .MODding the spells is even worse since this would restrict the Chameleon to SRD spells.
+#
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Chameleon	HD:6		TYPE:Base.PC	ABB:Chm		SOURCEPAGE:Chap.3, Chameleon	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Speak Language|Spellcraft|Swim
+# Class Name	Spell Stat		Spell Type		Spell Scoll Prohibited							Caster level				Use Spell List
+CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Chameleon|CL	SPELLLIST:1|Wizard
+###Block: Sneak Attack
+1								BONUS:VAR|SneakAttack|(CL+1)/4													FEATAUTO:Sneak Attack
+##Block: Quick Change
+1	SA:Quick Change (% disguises)|Disguises	BONUS:VAR|Disguises|(CL+10)/5		BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	DEFINE:Disguises|0
+###Block: Weapon and Armor proficiencies
+1	AUTO:WEAPONPROF|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
+1																											FEATAUTO:Armor Proficiency (Light)
+###Block: Normal progression
+1	CAST:2
+2	CAST:3,0																									VFEAT:Evasion
+3	CAST:3,1
+4	CAST:3,2,0
+5	CAST:3,3,1
+6	CAST:3,3,2			SA:Masked Aura
+7	CAST:3,3,2,0
+8	CAST:3,3,3,1
+9	CAST:3,3,3,2
+10	CAST:3,3,3,2,0						ADD:FEAT(Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+11	CAST:3,3,3,3,1
+12	CAST:3,3,3,3,2
+13	CAST:3,3,3,3,2,0		SA:Hidden Thoughts
+14	CAST:4,3,3,3,3,1						ADD:FEAT(Defensive Roll,Skill Mastery,Slippery Mind,Traps,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+15	CAST:4,4,3,3,3,2
+16	CAST:4,4,4,3,3,2,0
+17	CAST:4,4,4,4,3,3,1
+18	CAST:4,4,4,4,4,3,2					ADD:FEAT(TYPE=ChameleonSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+19	CAST:4,4,4,4,4,4,3
+20	CAST:4,4,4,4,4,4,4
+
+#
+# Issue (sort of): Deceptive Oration consists of 4 SA that has skill ranks as prereqs.
+#   These could be added but I haven't found a way to make that prereq work so that they only show up (OS) if prereqs are met.
+#
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		SOURCEPAGE:Chap.3, Con Artist	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
+###Block: Weapon and Armor proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal progression
+1	SA:Deceptive Oration (%/day)|DeceptiveOration	SA:Second Attempt	BONUS:VAR|DeceptiveOration|CL															DEFINE:DeceptiveOration|0
+3	SA:Assess Mark (gullibility)
+6	SA:Assess Mark (desires)
+10																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+11																	BONUS:SKILL|Bluff,Diplomacy,Gather Information|floor((CL-8)/3)*2|TYPE=Circumstance
+13																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+16																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+19																																				ADD:FEAT(Skill Mastery,Slippery Mind,TYPE=ConArtistSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
+
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		SOURCEPAGE:Chap.3, Delver	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block: Weapon and Armor proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal progression
+1	SA:Delver Notebook	SA:Traps						ADD:FEAT(Martial Weapon Proficiency,Exotic Weapon Proficiency)
+2																																																		VFEAT:Evasion
+3							BONUS:VAR|UncannyDodge|1																																										FEATAUTO:Uncanny Dodge
+7												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+6							BONUS:VAR|UncannyDodge|1
+10												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+11							BONUS:VAR|UncannyDodge|1
+13												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+14							BONUS:VAR|UncannyDodge|1
+16												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+17							BONUS:VAR|UncannyDodge|1
+19												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus)
+20							BONUS:VAR|UncannyDodge|1
+
+
+# Psychic Thief
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page					Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Psychic Thief	HD:6		TYPE:Base.PC	ABB:PsyThf		SOURCEPAGE:Chap.3, Psychic Thief	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Psionic Device|Use Rope
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Thief|CL
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Psychic Thief=0|Bolt,Burst,Catfall,Control Shadow,Daze,Detect Psionics,Distract,Elfsight,Far Hand,Float,Know Direction,Talons,Valor,Verve
+1	SPELLLEVEL:CLASS|Psychic Thief=1|Call Weaponry,Compression,Conceal Thoughts,Expanded Vision,Feather Fall,Feel Light,Feel Sound,Hear Light,Hustle,Know Location,Lesser Mindlink,Object Reading,Spider Climb
+1	SPELLLEVEL:CLASS|Psychic Thief=2|Body Equilibrium,Chameleon,Darkvision,Invisibility,Knock,Levitate,Sensitivity to Psychic Impressions,Sudden Minor Creation,Vigilance
+1	SPELLLEVEL:CLASS|Psychic Thief=3|Danger Sense,Dimension Slide,Displacement,False Sensory Input,Nondetection,Poison Sense,Ubiquitous Vision
+1	SPELLLEVEL:CLASS|Psychic Thief=4|Amplified Invisibility,Dimension Door,Fate of One,Freedom of Movement,Mindwipe,Steadfast Perception,Tailor Memory
+1	SPELLLEVEL:CLASS|Psychic Thief=5|Adapt Body,Clairtangency,Mind Probe,Sending,Sense Psionics,Teleport
+1	SPELLLEVEL:CLASS|Psychic Thief=6|Aura Alteration,Ethereal Jaunt,Retrieve,Suspend Life,True Seeing
+###Block: Weapon and Armor Proficiencies
+1	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M	FEATAUTO:Armor Proficiency (Light)
+###Block: sneak attack
+1	BONUS:VAR|SneakAttack|(CL+3)/4	FEATAUTO:Sneak Attack
+###Block: Manifester stuff
+1	BONUS:VAR|Manifester|CL	DEFINE:Manifester|0	DEFINE:PSIONLEVEL|CL
+1					DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0
+1					DEFINE:POWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
+1					DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
+###Block: Psychic Thief Powers
+1	SA:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|CL+2
+###Block: normal progression
+1	KNOWN:2					BONUS:VAR|BASEPOWERPOINTS|2						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)2
+2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1																																						FEATAUTO:Evasion
+3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)																							FEATAUTO:Uncanny Dodge
+4	KNOWN:3,2					BONUS:VAR|BASEPOWERPOINTS|1
+5	KNOWN:3,3,1					BONUS:VAR|BASEPOWERPOINTS|3
+6	KNOWN:3,3,2			SA:Traps	BONUS:VAR|BASEPOWERPOINTS|3
+7	KNOWN:3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|5						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+8	KNOWN:3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|UncannyDodge|1
+9	KNOWN:3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|5						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+10	KNOWN:3,3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|7						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+11	KNOWN:3,3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|7
+12	KNOWN:3,3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|7						ADD:FEAT(Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation)	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+13	KNOWN:3,3,3,3,2,1				BONUS:VAR|BASEPOWERPOINTS|9	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+14	KNOWN:3,3,3,3,3,1				BONUS:VAR|BASEPOWERPOINTS|9
+15	KNOWN:3,3,3,3,3,2				BONUS:VAR|BASEPOWERPOINTS|9						ADD:FEAT(Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation)	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+16	KNOWN:3,3,3,3,3,2,1			BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+17	KNOWN:3,3,3,3,3,3,1			BONUS:VAR|BASEPOWERPOINTS|11
+18	KNOWN:3,3,3,3,3,3,2			BONUS:VAR|BASEPOWERPOINTS|11						ADD:FEAT(Defensive Roll,Opportunist,Skill Mastery,Slippery Mind,TYPE=General,TYPE=Metapsionic,TYPE=Psionic,TYPE=Psion-ItemCreation)
+19	KNOWN:3,4,3,3,3,3,2			BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|UncannyDodge|1
+20	KNOWN:3,4,3,3,3,3,3			BONUS:VAR|BASEPOWERPOINTS|11
+

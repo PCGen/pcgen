@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Oct 27 19:28:17 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 207)
+SOURCELONG:Alderac Entertainment Group - Dungeons|SOURCESHORT:Dungeons|SOURCEWEB:http://alderac.com/d20
+# Equipment Name		Type				Cost		Weight	Source Page
+Globe (Trap Springing)	TYPE:Goods.General	COST:30	WT:4		SOURCEPAGE:p.
+Rope (Instant)		TYPE:Goods.Alchemical	COST:75	WT:5		SOURCEPAGE:p.
+Glue (Instant)		TYPE:Goods.Alchemical	COST:120	WT:2		SOURCEPAGE:p.
+Staff (Tool)		TYPE:Goods.Tools		COST:40	WT:4		SOURCEPAGE:p.

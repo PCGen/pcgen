@@ -1,0 +1,148 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Thu Jan 27 02:14:04 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Blood and Guts - War on Terror|SOURCESHORT:BnG-WoT|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Demagogue	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat					Required Skill
+CLASS:Demagogue	PREFEAT:3,Conviction,Enemy,Leadership	PRESKILL:2,Bluff,Intimidate=5	PRESKILL:2,Craft (Writing),Diplomacy=10
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Demagogue	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Sense Motive
+1	SA:Cult of Personality
+2													ADD:FEAT(TYPE=Demagogue)
+3	SA:Manifesto
+4													ADD:FEAT(TYPE=Demagogue)
+5	SA:Holy War +%|HolyWar	BONUS:VAR|HolyWar|(CL-3)/2	DEFINE:HolyWar|0
+6													ADD:FEAT(TYPE=Demagogue)
+8													ADD:FEAT(TYPE=Demagogue)
+10													ADD:FEAT(TYPE=Demagogue)
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Guerilla	HD:8		TYPE:PC.Advanced	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat				Required Skill
+CLASS:Guerilla	PREATT:3	PREFEAT:2,Conviction,Home Turf	PRESKILL:2,Knowledge (Current Events),Knowledge (Tactics)=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Guerilla	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Drive|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Spot
+1	SA:Guerilla Warfare
+2					ADD:FEAT(TYPE=Guerilla)
+3	SA:Suicidal Attack
+4					ADD:FEAT(TYPE=Guerilla)
+5					ADD:FEAT(TYPE=GuerillaWarfare)
+6					ADD:FEAT(TYPE=Guerilla)
+7					ADD:FEAT(TYPE=GuerillaWarfare)
+8					ADD:FEAT(TYPE=Guerilla)
+9					ADD:FEAT(TYPE=GuerillaWarfare)
+10					ADD:FEAT(TYPE=Guerilla)
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Organizer	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name	Required Feat					Required Skill
+CLASS:Organizer	PREFEAT:3,Conviction,Leadership,Windfall	PRESKILL:3,Computer Use,Gather Information,Knowledge (Business)=5	PRESKILL:1,Diplomacy=10
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Organizer	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Computer Use|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Sense Motive
+1	SA:Wealth +%|OrganizerWealth		BONUS:VAR|OrganizerWealth|CL/3+1	DEFINE:OrganizerWealth|0	ADD:FEAT(Windfall)
+2	SA:Shadow Contact (low level)
+3																		ADD:FEAT(Windfall)
+4																		ADD:FEAT(TYPE=Organizer)
+5	SA:Shadow Contact (mid level)
+6																		ADD:FEAT(Windfall)
+7	SA:Small Bills
+8	SA:Shadow Contact (high level)
+9																		ADD:FEAT(Windfall)
+10	SA:Untraceable
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Psyop		HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name	Required Feat																					Required Skill							Required Text
+CLASS:Psyop		PREFEAT:6,Interrogation,Psychological Warfare,Personal Firearms Proficiency,MOS Intelligence 3,Jump School,Defense Language Institute	PRESKILL:3,Craft (Writing),Diplomacy,Intimidate=5	PRETEXT:Active or Reserve Duty (US Army)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Psyop		STARTSKILLPTS:8	CSKILL:Bluff|Climb|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Tactics)|Move Silently|Paradrop|Read/Write Language|Sense Motive|Speak Language
+1	SA:Talk Down One Opponent within 15 ft, Will DC %|10+CL+CHA|PREVARLT:CL,5
+2																											ADD:FEAT(TYPE=Psyop)
+3	SA:Grace Under Pressure (Psyop) %/day|GraceUnderPressurePsyop			BONUS:VAR|GraceUnderPressurePsyop|CL/3	DEFINE:GraceUnderPressurePsyop|0
+4																											ADD:FEAT(TYPE=Psyop)
+5	SA:Talk Down % Opponents within 15 ft, Will DC %|CHA|10+CL+CHA|PREVARLT:CL,10
+7																											ADD:FEAT(TYPE=Psyop)
+8	SA:Sow Distrust, Will DC %|10+CL+CHA
+10	SA:Talk Down all opponents within 30 ft, Will DC %|10+CL+CHA
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:SWAT		HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name	Req. Att.	Required Feat							Required Skill								Required Text
+CLASS:SWAT		PREATT:5	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:4,Climb,Hide,Intimidate,Knowledge (Tactics)=5	PRETEXT:Active Duty (one police force)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:SWAT		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Hide|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Tactics)|Move Silently|Sense Motive|Spot|Swim
+1	SA:Quick Response +%|QuickResponse	BONUS:VAR|QuickResponse|1	BONUS:COMBAT|INITIATIVE|QuickResponse	BONUS:SKILL|Intimidate|QuickResponse				DEFINE:QuickResponse|0
+2	SA:Nonlethal Force
+3							BONUS:VAR|QuickResponse|1
+4																																	ADD:FEAT(TYPE=SWAT)
+5	SA:Reconnaissance																BONUS:SKILL|Spot|CL
+6							BONUS:VAR|QuickResponse|1
+7	SA:Plan																	BONUS:SKILL|Knoweldge (Tactics)|2
+8																																	ADD:FEAT(TYPE=SWAT)
+9	SA:Ambush																	BONUS:SKILL|Hide|var("SKILLRANK=Knowledge (Tactics)")/2
+10							BONUS:VAR|QuickResponse|1
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Terrorist	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
+# Class Name	Req. Att.	Required Feat					Required Skill								Required Text
+CLASS:Terrorist	PREATT:7	PREFEAT:3,Antithesis,Conviction,Enemy	PRESKILL:4,Demolitions,Disable Device,Hide,Move Silently=8	PRETEXT:One group or cause related to Enemy and Antithesis feats
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Intimidate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Read/Write Language|Search|Sense Motive|Speak Language|Survival
+1	SA:Suicidal Attack
+### will need help on figuring out how to deal with Fanaticism
+2	SA:Fanaticism									ADD:FEAT(TYPE=Terrorist)
+3						BONUS:VAR|SneakAttack|(CL-1)/2						FEATAUTO:Sneak Attack
+4												ADD:FEAT(TYPE=Terrorist)
+5	SA:Improved Suicidal Attack
+6												ADD:FEAT(TYPE=Terrorist)
+7
+8												ADD:FEAT(TYPE=Terrorist)
+9
+10												ADD:FEAT(TYPE=Terrorist)
+
+# Class Name					Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:US Secret Service Protective Detail	HD:12		TYPE:PC.Prestige	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name					Req. Att.	Required Feat								Required Skill											Required Text
+CLASS:US Secret Service Protective Detail	PREATT:5	PREFEAT:3,Personal Firearms Proficiency,Alertness,Teamwork	PRESKILL:1,Knowledge (Tactics)=5	PRESKILL:3,Listen,Sense Motive,Spot=8	PRETEXT:Active Duty (US Secret Service)
+# Class Name					Skill Pts/Lvl	Class Skill
+CLASS:US Secret Service Protective Detail	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Tactics)|Listen|Sense Motive|Spot
+1	SA:Harms Way
+2	SA:Human Shield +%|HumanShield	BONUS:VAR|HumanShield|CL/5+1	DEFINE:HumanShield|0
+3	SA:Sentinel
+4							BONUS:VAR|DefensivePosition|1					FEATAUTO:Defensive Position
+6							BONUS:VAR|DefensivePosition|1
+7	SA:Counter Attack
+8							BONUS:VAR|DefensivePosition|1
+9	SA:Advance Warning
+
+# Class Name	Hit Dice	Type			Save checks bonus												Combat bonus		Modify VAR
+CLASS:Y12 SRT	HD:10		TYPE:PC.Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name	Req. Att.	Required Feat																Required Skill					Required Text
+CLASS:Y12 SRT	PREATT:8	PREFEAT:7,Personal Firearms Proficiency,Teamwork,Point Blank Shot,Dodge,Mobility,Shot on the Run,MOS NBC 1	PRESKILL:3,Investigate,Listen,Spot=8	PRETEXT:Active Duty (Depart of Energy)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|Drive|Hide|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Tactics)|Listen|Move Silently|Sense Motive|Spot
+1	SA:Mental Toughness
+2																									ADD:FEAT(TYPE=Y12SRT,TYPE=PoliceTraining)
+3	SA:Grace Under Pressure (Y12 SRT) +%|GraceUnderPressureY12SRT	BONUS:VAR|GraceUnderPressureY12SRT|CL/3	DEFINE:GraceUnderPressureY12SRT|0
+4																									ADD:FEAT(TYPE=Y12SRT,TYPE=PoliceTraining)
+5												BONUS:VAR|DefensivePosition|1																FEATAUTO:Defensive Position
+6																									ADD:FEAT(TYPE=Y12SRT,TYPE=PoliceTraining)
+7												BONUS:VAR|DefensivePosition|1
+8																									ADD:FEAT(TYPE=Y12SRT,TYPE=PoliceTraining)
+10																									ADD:FEAT(TYPE=Y12SRT,TYPE=PoliceTraining)
+
+# Class Name	Hit Dice	Type			Save checks bonus													Combat bonus		Modify VAR
+CLASS:Zealot	HD:8		TYPE:PC.Advanced	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat			Required Skill				Required Text
+CLASS:Zealot	PREATT:2	PREFEAT:1,Enemy,Conviction	PRESKILL:2,Demolitions,Intimidate=3	PRETEXT:One group or cause related to Enemy and Antithesis feats
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Zealot	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Drive|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Spot
+### need help on how to do Fanaticism...just like the Terrorist
+1	SA:Fanaticism
+2					ADD:FEAT(TYPE=Zealot)
+3	SA:Suicidal Attack
+4					ADD:FEAT(TYPE=Zealot)
+6					ADD:FEAT(TYPE=Zealot)
+7	SA:Hatred
+8					ADD:FEAT(TYPE=Zealot)
+10					ADD:FEAT(TYPE=Zealot)

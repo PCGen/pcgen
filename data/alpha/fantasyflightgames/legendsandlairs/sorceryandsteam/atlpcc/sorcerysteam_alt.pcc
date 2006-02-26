@@ -1,0 +1,23 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $
+CAMPAIGN:FFG - Sorcery and Steam - Full Steampunk Campaign
+GAMEMODE:3e
+TYPE:Fantasy Flight Games.Sourcebook.Optional
+RANK:7
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam
+SOURCESHORT:SAS
+SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+ISD20:YES
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arenson
+COPYRIGHT:Swashbuckling Adventures Copyright 2002, Alderac Entertainment Group.
+COPYRIGHT:Sorcery and Steam Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for Fantasy Flight Games Sorcery and Steam Copyright 2003, PCgen Data team (Including, but not limited to) Eddy Anthony
+INFOTEXT:Load this source if your campaign is the Full Steampunk Campaign where firearms are common. You must also load the main Sorcery and Steam files to use this
+
+LSTEXCLUDE:sorcerysteamequipweapranged.lst
+LSTEXCLUDE:sorcerysteamweapprofs.lst
+
+CLASS:sorcerysteam_classes_alt.lst
+EQUIPMENT:sorcerysteam_equip_weap_ranged_alt.lst
+WEAPONPROF:sorcerysteam_weaponprofs_alt.lst

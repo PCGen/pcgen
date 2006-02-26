@@ -1,0 +1,172 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: TaluronIscandar
+
+###block: non-epic rings in epic srd
+# Equipment Name					Output Name								Type			Cost		Weight	Source Page					Special Property
+Ring (Universal Energy Resistance/Minor)	OUTPUTNAME:Ring of Universal Energy Resistance, Minor	TYPE:Magic.Ring	COST:84000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	SPROP:Absorbs 10 points of damage from all types of energy (fire, cold, electricity, acid, sonic)
+
+###block: epic rings
+# Equipment Name						Output Name									Type				Cost			Weight	Source Page					Virtual Feat		Damage Reduction	Save checks bonus				Combat bonus				Multiply spell cast/day				Modify VAR						Special Property
+Ring of Adamant Law															TYPE:Magic.Epic.Ring	COST:250000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	VFEAT:Negative Levels				BONUS:CHECKS|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|4|TYPE=Deflection								BONUS:VAR|NegLevels|1|PREALIGN:6,7,8	SPROP:SR 25 v choatic spells and spells cast by chaotic creatures. If a chaotic creature succeeds on a melee attack against the warded creature, the attacker is slowed (DC 22, Will negates, as the slow spell). Block possession and mental infuence.
+Ring of Chaotic Fury															TYPE:Magic.Epic.Ring	COST:250000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	VFEAT:Negative Levels				BONUS:CHECKS|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|4|TYPE=Deflection								BONUS:VAR|NegLevels|1|PREALIGN:0,1,2	SPROP:SR 25 v lawful spells and spells cast by lawful creatures. If a lawful creature succeeds on a melee attack against the warded creature, the attacker is slowed (DC 22, Will negates, as the slow spell). Block possession and mental infuence.
+Ring (Energy Immunity/Acid)				OUTPUTNAME:Ring of Energy Immunity (Acid)				TYPE:Magic.Epic.Ring	COST:240000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Provides the wearer with immunity to Acid damage
+Ring (Energy Immunity/Cold)				OUTPUTNAME:Ring of Energy Immunity (Cold)				TYPE:Magic.Epic.Ring	COST:240000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Provides the wearer with immunity to Cold damage
+Ring (Energy Immunity/Electricity)			OUTPUTNAME:Ring of Energy Immunity (Electricity)		TYPE:Magic.Epic.Ring	COST:240000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Provides the wearer with immunity to Electrical damage
+Ring (Energy Immunity/Fire)				OUTPUTNAME:Ring of Energy Immunity (Fire)				TYPE:Magic.Epic.Ring	COST:240000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Provides the wearer with immunity to Fire damage
+Ring (Energy Immunity/Sonic)				OUTPUTNAME:Ring of Energy Immunity (Sonic)			TYPE:Magic.Epic.Ring	COST:240000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Provides the wearer with immunity to Sonic damage
+Ring (Protection +6)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:720000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf														BONUS:COMBAT|AC|6|TYPE=Deflection
+Ring (Protection +7)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:980000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf														BONUS:COMBAT|AC|7|TYPE=Deflection
+Ring (Protection +8)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:1280000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf														BONUS:COMBAT|AC|8|TYPE=Deflection
+Ring (Protection +9)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:1620000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf														BONUS:COMBAT|AC|9|TYPE=Deflection
+Ring (Protection +10)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:2000000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf														BONUS:COMBAT|AC|10|TYPE=Deflection
+Ring (Wizardry V)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:250000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=5|2
+Ring (Wizardry VI)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:360000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=6|2
+Ring (Wizardry VII)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:490000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=7|2
+Ring (Wizardry VIII)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:640000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=8|2
+Ring (Wizardry IX)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Epic.Ring	COST:810000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=9|2
+Ring of Ineffable Evil															TYPE:Magic.Epic.Ring	COST:250000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	VFEAT:Negative Levels				BONUS:CHECKS|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|4|TYPE=Deflection								BONUS:VAR|NegLevels|1|PREALIGN:0,3,6	SPROP:SR 25 v good spells and spells cast by good creatures. If a good creature succeeds on a melee attack against the warded creature, the attacker takes 1d6 temporary Strength damage (DC 22, Fortitude negates). Block possession and mental infuence.
+Ring of Ironskin																TYPE:Magic.Epic.Ring	COST:400000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf					DR:15/Adamantine
+Ring of Rapid Healing															TYPE:Magic.Epic.Ring	COST:300000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Grants Fast Healing 3
+Ring of Sequestering															TYPE:Magic.Epic.Ring	COST:300000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:upon command, the wearer gains the benefits of a sequester spell without becoming comatose
+Ring of Universal Energy Immunity													TYPE:Magic.Epic.Ring	COST:2160000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:energy immunity for all types of energy
+Ring (Universal Energy Resistance/Greater)	OUTPUTNAME:Ring of Universal Energy Resistance, Greater	TYPE:Magic.Epic.Ring	COST:308000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf																																		SPROP:Absorbs 30 points of damage from all types of energy (fire, cold, electricity, acid, sonic)
+Ring of Virtuous Good															TYPE:Magic.Epic.Ring	COST:250000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	VFEAT:Negative Levels				BONUS:CHECKS|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|4|TYPE=Deflection								BONUS:VAR|NegLevels|1|PREALIGN:2,5,8	SPROP:SR 25 v evil spells and spells cast by evil creatures. If an evil creature succeeds on a melee attack against the warded creature, the attacker is blinded (DC 22, Fortitude negates, as the blindness/deafness spell). Block possession and mental infuence.
+Ring of Weaponbreaking															TYPE:Magic.Epic.Ring	COST:600000		WT:0		SOURCEPAGE:epicMagicItemsOther.rtf					DR:15/Adamantine																											SPROP:Any weapon that successfully strikes the wearer must also make a Fortitude saving throw (DC 20) or be shattered into pieces.
+
+
+###block: epic psionics rings
+# Note:rsrd psionics does not include psionic rings but epic srd does include them
+# the may be more applicable to 3.0/srd psionics than 3.5/rsrd psionics
+# Equipment Name			Output Name				Type				Cost		Weight	Source Page					Modify VAR
+Ring (Epic Psionics V)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:250000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|43
+Ring (Epic Psionics VI)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:360000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|63
+Ring (Epic Psionics VII)	OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:490000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|87
+Ring (Epic Psionics IX)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:640000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|115
+Ring (Epic Psionics X)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:810000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|147
+
+
+###Block:Rods
+# Equipment Name		Output Name					Required Proficiency		Type												Alternative Type				Cost			Weight	Required AL	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	MODS		Size		Source Page					Spell Res.	Damage Reduction	Save checks bonus								Combat bonus				Stat bonus					Modify VAR										Weapon prop. bonus					Special Property					Automaticaly Added to Inventory
+Rod (Besiegement)		OUTPUTNAME:Rod of [NAME]		PROFICIENCY:Mace (Light)	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace									COST:447745		WT:6				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light				SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
+Rod (Epic Absorption)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:1500000	WT:5																											EQMOD:CHARGED_ITEM_50|CHARGES[150]								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Epic Cancellation)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:330000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Epic Might)		OUTPUTNAME:Rod of [NAME]		PROFICIENCY:Mace (Heavy)	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace									COST:4293432	WT:5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8																SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|6|TYPE=Enhancement								AUTO:EQUIP|Battleaxe (Epic Might)|Longsword (Epic Might)|Longspear (Epic Might)|Shortspear (Epic Might)
+Rod (Epic Negation)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:446000		WT:5																											EQMOD:CHARGED_ITEM_3|CHARGES[3]								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Epic Rulership)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:575000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Epic Spellcaster)	OUTPUTNAME:Rod of the [NAME]							TYPE:Magic.Epic.Rod															COST:245400		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Epic Splendor)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:297400		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf																						BONUS:STAT|CHA|8|TYPE=Enhancement
+Rod (Excellent Magic)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:650000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Fortification)	OUTPUTNAME:Rod of [NAME]		PROFICIENCY:Mace (Light)	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace									COST:465665		WT:6				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light				SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
+Rod (Invulnerability)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:600000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf	SR:32		DR:15/Adamantine	BONUS:CHECKS|Fortitude,Reflex,Willpower|5|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPR=NaturalArmor																										SPROP:Wielder is immune to critical hits.
+Rod (Nightmares)		OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:284000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Paradise)		OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:610000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (The Path)		OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:306870		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf
+Rod (Restless Death)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Epic.Rod															COST:625000		WT:5																																								SOURCEPAGE:epicMagicItemsOther.rtf																												BONUS:VAR|TurnDamagePlusUndead|4	BONUS:VAR|TurnLevelUndead|4
+Rod (Wyrm/Black)		OUTPUTNAME:Rod of the Black Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1562600	WT:4		PREALIGN:CE	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Blue)		OUTPUTNAME:Rod of the Blue Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1782200	WT:4		PREALIGN:LE	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Brass)		OUTPUTNAME:Rod of the Brass Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1458200	WT:4		PREALIGN:CG	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Bronze)		OUTPUTNAME:Rod of the Bronze Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1670600	WT:4		PREALIGN:LG	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Copper)		OUTPUTNAME:Rod of the Copper Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1562600	WT:4		PREALIGN:CG	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Green)		OUTPUTNAME:Rod of the Green Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1670600	WT:4		PREALIGN:LE	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Gold)		OUTPUTNAME:Rod of the Gold Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1897400	WT:4		PREALIGN:LG	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Red)		OUTPUTNAME:Rod of the Red Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1897400	WT:4		PREALIGN:CE	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/Silver)		OUTPUTNAME:Rod of the Silver Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1782200	WT:4		PREALIGN:LG	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Rod (Wyrm/White)		OUTPUTNAME:Rod of the White Wyrm	PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:1458200	WT:4		PREALIGN:CE	CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded	MODS:NO	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																							BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+
+
+###Block: weapons for Rod of Epic Might selections
+# Equipment Name		Output Name						Required Proficiency	Type															Cost			Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	MODS		Range		Size		Source Page					Weapon prop. bonus					Special Property
+Battleaxe (Epic Might)	OUTPUTNAME:+8 Battleaxe				PROFICIENCY:Battleaxe	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Axe				COST:1280310	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	MODS:NO			SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|8|TYPE=Enhancement
+Longsword (Epic Might)	OUTPUTNAME:+3 Longsword of Fiery Blasting	PROFICIENCY:Longsword	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:1620315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	MODS:NO			SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:+3d6 fire damage. On a critical hit deals +3d6 additional fire damage.
+Longspear (Epic Might)	OUTPUTNAME:+10 Longspear			PROFICIENCY:Longspear	TYPE:Magic.Epic.Enhancement.Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear	COST:2000305	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	WIELD:TwoHanded	MODS:NO			SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|10|TYPE=Enhancement
+Shortspear (Epic Might)	OUTPUTNAME:+10 Shortspear			PROFICIENCY:Shortspear	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear	COST:2000302	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded	MODS:NO	RANGE:20	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|10|TYPE=Enhancement
+
+
+###Block: Staves
+# Equipment Name		Output Name					Required Proficiency		Type														Alternative Type				Cost			Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page					Weapon prop. bonus					Special Property
+Staff (Cosmos)		OUTPUTNAME:Staff of the [NAME]						TYPE:Magic.Epic.Staff																	COST:683437		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Domination)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:464400		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Fiery Power)	OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:500000		WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:Absorbs 30 points of Fire damage
+Staff (The Hierophants)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:501187		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Mighty Force)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:265000		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Nature's Fury)	OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:500000		WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Staff (Necromancy)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:1505312	WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Planar Might)	OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Epic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:460000		WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:Outsider bane
+Staff (Prism)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:326812		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Rapid Barrage)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:417750		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Spheres)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:228375		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Walls)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:275625		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+Staff (Winter)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Epic.Staff																	COST:292500		WT:4																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:epicMagicItemsOther.rtf
+
+
+###Block: Epic Wondrous Items
+# Equipment Name				Type						Cost			Weight	Slot Needed	Source Page					Virtual Feat	Spell Res.	Save checks bonus								Combat bonus					Multiply base more		Bonus to skill								Bonus to skill point/L		Stat bonus
+Amulet of Epic Natural Armor +6	TYPE:Magic.Epic.Wondrous.Amulet	COST:720000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|6|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +7	TYPE:Magic.Epic.Wondrous.Amulet	COST:980000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|7|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +8	TYPE:Magic.Epic.Wondrous.Amulet	COST:1280000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|8|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +9	TYPE:Magic.Epic.Wondrous.Amulet	COST:1620000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|9|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +10	TYPE:Magic.Epic.Wondrous.Amulet	COST:2000000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|10|TYPE=NaturalArmor
+Belt of Epic Strength +8		TYPE:Magic.Epic.Wondrous.Belt		COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|STR|8|TYPE=Enhancement
+Belt of Epic Strength +10		TYPE:Magic.Epic.Wondrous.Belt		COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|STR|10|TYPE=Enhancement
+Belt of Epic Strength +12		TYPE:Magic.Epic.Wondrous.Belt		COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|STR|12|TYPE=Enhancement
+Boots of Swiftness			TYPE:Magic.Epic.Wondrous.Boot		COST:256000		WT:1		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf	VFEAT:Evasion																				BONUS:MOVEMULT|TYPE.Walk|2	BONUS:SKILL|Balance,Climb,Jump,Tumble|20|TYPE=Competence						BONUS:STAT|DEX|6|TYPE=Enhancement
+Bracers of Epic Armor +11		TYPE:Magic.Epic.Wondrous.Bracer	COST:1210000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|11|TYPE=Armor.REPLACE
+Bracers of Epic Armor +12		TYPE:Magic.Epic.Wondrous.Bracer	COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|12|TYPE=Armor.REPLACE
+Bracers of Epic Armor +13		TYPE:Magic.Epic.Wondrous.Bracer	COST:1690000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|13|TYPE=Armor.REPLACE
+Bracers of Epic Armor +14		TYPE:Magic.Epic.Wondrous.Bracer	COST:1960000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|14|TYPE=Armor.REPLACE
+Bracers of Epic Armor +15		TYPE:Magic.Epic.Wondrous.Bracer	COST:2250000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																BONUS:COMBAT|AC|15|TYPE=Armor.REPLACE
+Bracers of Epic Health +8		TYPE:Magic.Epic.Wondrous.Bracer	COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CON|8|TYPE=Enhancement
+Bracers of Epic Health +10		TYPE:Magic.Epic.Wondrous.Bracer	COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CON|10|TYPE=Enhancement
+Bracers of Epic Health +12		TYPE:Magic.Epic.Wondrous.Bracer	COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CON|12|TYPE=Enhancement
+Bracers of Relentless Might		TYPE:Magic.Epic.Wondrous.Bracer	COST:4384000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CON|12|TYPE=Enhancement	BONUS:STAT|STR|12|TYPE=Enhancement
+Cabinet of Feasting			TYPE:Magic.Epic.Wondrous		COST:288000		WT:20				SOURCEPAGE:epicMagicItemsOther.rtf
+Cloak of Epic Charisma +8		TYPE:Magic.Epic.Wondrous.Cape		COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CHA|8|TYPE=Enhancement
+Cloak of Epic Charisma +10		TYPE:Magic.Epic.Wondrous.Cape		COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CHA|10|TYPE=Enhancement
+Cloak of Epic Charisma +12		TYPE:Magic.Epic.Wondrous.Cape		COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|CHA|12|TYPE=Enhancement
+Cloak of Epic Resistance +6		TYPE:Magic.Epic.Wondrous.Cape		COST:360000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf						BONUS:CHECKS|Fortitude,Reflex,Willpower|6|TYPE=Resistance
+Cloak of Epic Resistance +7		TYPE:Magic.Epic.Wondrous.Cape		COST:490000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf						BONUS:CHECKS|Fortitude,Reflex,Willpower|7|TYPE=Resistance
+Cloak of Epic Resistance +8		TYPE:Magic.Epic.Wondrous.Cape		COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf						BONUS:CHECKS|Fortitude,Reflex,Willpower|8|TYPE=Resistance
+Cloak of Epic Resistance +9		TYPE:Magic.Epic.Wondrous.Cape		COST:810000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf						BONUS:CHECKS|Fortitude,Reflex,Willpower|9|TYPE=Resistance
+Cloak of Epic Resistance +10		TYPE:Magic.Epic.Wondrous.Cape		COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf						BONUS:CHECKS|Fortitude,Reflex,Willpower|10|TYPE=Resistance
+Gate Key					TYPE:Magic.Epic.Wondrous		COST:378000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf
+Gloves of Epic Dexterity +8		TYPE:Magic.Epic.Wondrous.Glove	COST:640000		WT:0		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|DEX|8|TYPE=Enhancement
+Gloves of Epic Dexterity +10		TYPE:Magic.Epic.Wondrous.Glove	COST:1000000	WT:0		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|DEX|10|TYPE=Enhancement
+Gloves of Epic Dexterity +12		TYPE:Magic.Epic.Wondrous.Glove	COST:1440000	WT:0		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|DEX|12|TYPE=Enhancement
+Headband of Epic Intellect +8		TYPE:Magic.Epic.Wondrous.Headgear	COST:640000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																						BONUS:SKILLPOINTS|NUMBER|-4	BONUS:STAT|INT|8|TYPE=Enhancement
+Headband of Epic Intellect +10	TYPE:Magic.Epic.Wondrous.Headgear	COST:1000000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																						BONUS:SKILLPOINTS|NUMBER|-5	BONUS:STAT|INT|10|TYPE=Enhancement
+Headband of Epic Intellect +12	TYPE:Magic.Epic.Wondrous.Headgear	COST:1440000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																						BONUS:SKILLPOINTS|NUMBER|-6	BONUS:STAT|INT|12|TYPE=Enhancement
+Horseshoes of the Peerless Steed	TYPE:Magic.Epic.Wondrous		COST:217000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf
+Mantle of Epic Spell Resistance	TYPE:Magic.Epic.Wondrous.Cape		COST:290000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf				SR:40
+Mantle of Great Stealth			TYPE:Magic.Epic.Wondrous.Cape		COST:242000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																												BONUS:SKILL|Hide,Move Silently|30
+Periapt of Epic Wisdom +8		TYPE:Magic.Epic.Wondrous.Amulet	COST:640000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|WIS|8|TYPE=Enhancement
+Periapt of Epic Wisdom +10		TYPE:Magic.Epic.Wondrous.Amulet	COST:1000000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|WIS|10|TYPE=Enhancement
+Periapt of Epic Wisdom +12		TYPE:Magic.Epic.Wondrous.Amulet	COST:1440000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:STAT|WIS|12|TYPE=Enhancement
+
+###Block: Epic Wondrous Items - Circlet of Eyes is a Variant of robe of eyes used by the Sample Force Dragon, Adult
+# Equipment Name	Type					Cost		Weight	Source Page					Vision											Bonus to skill						Special Property
+Circlet of Eyes	TYPE:Magic.Wondrous.Headgear	COST:120000	WT:0		SOURCEPAGE:EpicMonsters(A-E).rtf	VISION:See Invisibility (120')|See Etheral (120')|Darkvision (120')	BONUS:SKILL|Search,Spot|10|TYPE=Competence	SPROP:Can't avert eyes from Gaze Attack
+
+###Block: Artifacts
+#minor
+# Equipment Name				Required Proficiency				Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Size		Source Page				Stat bonus
+Everfull Purse											TYPE:Artifact.Minor											COST:0	WT:0.5																											SOURCEPAGE:epicArtifacts.rtf
+Libram of Gainful Conjuration									TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Libram of Ineffable Damnation									TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Libram of Silver Magic										TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Manual of Puissant Skill at Arms								TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Manual of Stealthly Pilfering									TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Rogue's Dice											TYPE:Artifact.Minor											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+
+#major
+Axe of the Dwarvish Lords		PROFICIENCY:Waraxe (Dwarven/[Hands])	TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.STEEL.PLUS_6_WEAP.THROW	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:Dwarf%
+Codex of the Infinite Planes									TYPE:Artifact.Major											COST:0	WT:100																											SOURCEPAGE:epicArtifacts.rtf
+Cup of the Demigod										TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Talisman of the Demigod										TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Eye of the Orc											TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Golem Armor												TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Invulnerable Coat											TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Iron Gauntlet of War										TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Ring of Nine Facets										TYPE:Artifact.Major.Ring										COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+
+

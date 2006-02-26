@@ -1,0 +1,7 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Mar 18 15:44:00 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Dawnforge|SOURCESHORT:DF|SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Tir Gwaith
+
+# Weapon Name	Type
+Gore			TYPE:Natural
+Powerful Charge	TYPE:Natural

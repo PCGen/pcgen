@@ -1,0 +1,57 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Modern System - Gangland|SOURCESHORT:Gangland|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
+# Original Entry by: Paul W. King
+
+###Block: feat
+# Feat Name		Type			Description														Choose a Feat				Modify VAR			Source Page
+Criminal Record	TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	ADD:FEAT(TYPE=CriminalRecord)2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
+
+###Block: advanced occupations
+# Feat Name	Type						Required Feat						Required Skill				Description																																													Stackable?	Multiple?	Choose					Bonus to skill										Source Page
+Arsonist	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Craft (Chemical)=4		DESC:Whether the insurance on a building needs to be collected or you just love to watch things burn, a fire is sometimes just what you need.																							STACK:NO	MULT:YES	CHOOSE:Craft (Chemical)|Demolitions	BONUS:SKILL|Craft (Chemical),Demolitions|2*COUNT[FEATNAME=Arsonist]	SOURCEPAGE:p.4
+Card Shark	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Gamble=4			DESC:You make your living in the world of professional gambling (both legal and illegal).																																STACK:NO	MULT:YES	CHOOSE:Gamble|Sleight of Hand		BONUS:SKILL|Gamble,Sleight of Hand|2*COUNT[FEATNAME=Card Shark]		SOURCEPAGE:p.4
+Cat Burglar	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Climb=4			DESC:You area  skilled "second story man"																																								STACK:NO	MULT:YES	CHOOSE:Balance|Climb			BONUS:SKILL|Balance,Climb|2*COUNT[FEATNAME=Cat Burglar]			SOURCEPAGE:p.5
+Con Artist	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Bluff=4			DESC:You are a master at gaining the trust of others for illicit purposes.																																		STACK:NO	MULT:YES	CHOOSE:Bluff|Diplomacy			BONUS:SKILL|Bluff,Diplomacy|2*COUNT[FEATNAME=Con Artist]			SOURCEPAGE:p.5
+Fixer		TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Gamble=4			DESC:Similar to the card shark but rather than play the games yourself you make money from those who watch them. Sometimes this will involve finding out illicit information to predict what will happen and sometimes on convincing the participants to affect a desired outcome.	STACK:NO	MULT:YES	CHOOSE:Diplomacy|Gamble			BONUS:SKILL|Diplomacy,Gamble|2*COUNT[FEATNAME=Fixer]				SOURCEPAGE:p.5
+Hacker	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Computer Use=4		DESC:You are a criminal in the virtual world, using the virus instead of the gun. This advanced occupation also includes using identity theft to gain information required to gain illicit access to checking account and credit card accounts.							STACK:NO	MULT:YES	CHOOSE:Gamble|Forgery			BONUS:SKILL|Computer Use,Forgery|2*COUNT[FEATNAME=Hacker]			SOURCEPAGE:p.5
+Loan Shark	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Intimidate=4			DESC:You loan money at exorbitant rates and collect by any means necessary.																																		STACK:NO	MULT:YES	CHOOSE:Gamble|Intimidate		BONUS:SKILL|Gamble,Intimidate|2*COUNT[FEATNAME=Loan Shark]			SOURCEPAGE:p.5
+Safecracker	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Disable Device=4		DESC:You are skilled in the art of opening things without a key.																																				STACK:NO	MULT:YES	CHOOSE:Demolitions|Disable Device	BONUS:SKILL|Demolitions,Disable Device|2*COUNT[FEATNAME=Safecracker]	SOURCEPAGE:p.5
+Stalker	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Gather Information=4	DESC:Whether you follow your targets for money or to indulge a sick fascination no one can stop you from knowing their whereabouts.																									STACK:NO	MULT:YES	CHOOSE:Gather Information|Hide	BONUS:SKILL|Gather Information,Hide|2*COUNT[FEATNAME=Stalker]		SOURCEPAGE:p.5
+Wheelman	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Drive=4			DESC:You make your living driving criminals to their meetings, making sure they are not disturbed along the way by police or rival criminals																							STACK:NO	MULT:YES	CHOOSE:Drive|Spot				BONUS:SKILL|Drive,Spot|2*COUNT[FEATNAME=Wheelman]				SOURCEPAGE:p.5
+
+###Block: .MOD feats for TYPE addition
+# Feat Name						Type
+Disable Device(class skill).MOD		TYPE:CriminalRecord
+Disable Device(+1 to skill).MOD		TYPE:CriminalRecord
+Disguise(class skill).MOD			TYPE:CriminalRecord
+Disguise(+1 to skill).MOD			TYPE:CriminalRecord
+Forgery(class skill).MOD			TYPE:CriminalRecord
+Forgery(+1 to skill).MOD			TYPE:CriminalRecord
+Gamble(class skill).MOD				TYPE:CriminalRecord
+Gamble(+1 to skill).MOD				TYPE:CriminalRecord
+Hide(class skill).MOD				TYPE:CriminalRecord
+Hide(+1 to skill).MOD				TYPE:CriminalRecord
+Knowledge (Streetwise - class skill).MOD	TYPE:CriminalRecord
+Knowledge (Streetwise - +1 to skill).MOD	TYPE:CriminalRecord
+Move Silently(class skill).MOD		TYPE:CriminalRecord
+Move Silently(+1 to skill).MOD		TYPE:CriminalRecord
+Sleight of Hand(class skill).MOD		TYPE:CriminalRecord
+Sleight of Hand(+1 to skill).MOD		TYPE:CriminalRecord
+
+Alertness.MOD					TYPE:Hitman
+Archaic Weapons Proficiency.MOD		TYPE:Hitman
+Armor Proficiency (Light).MOD			TYPE:Hitman.Vigilante
+Armor Proficiency (Medium).MOD		TYPE:Hitman.Vigilante
+Brawl.MOD						TYPE:Hitman
+Burst Fire.MOD					TYPE:Vigilante
+Confident.MOD					TYPE:Hitman.Vigilante
+Double Tap.MOD					TYPE:Hitman.Vigilante
+Drive-By Attack.MOD				TYPE:Hitman.Vigilante
+Far Shot.MOD					TYPE:Hitman
+Low Profile.MOD					TYPE:Hitman.Vigilante
+Point Blank Shot.MOD				TYPE:Hitman.Vigilante
+Precise Shot.MOD					TYPE:Vigilante
+Quick Draw.MOD					TYPE:Hitman.Vigilante
+Quick Reload.MOD					TYPE:Hitman.Vigilante
+Renown.MOD						TYPE:Hitman.Vigilante
+

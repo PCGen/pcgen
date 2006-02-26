@@ -1,0 +1,50 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Fantasy Flight Games - City Works|SOURCESHORT:CW|SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+# Original Entry by: Eddy Anthony
+
+REGION:None
+
+STARTPACK:Acrobat Starting Package	PRECLASS:1,Acrobat=1	SOURCEPAGE:p.17
+GEAR:Leather
+GEAR:Quarterstaff
+GEAR:Crossbow (Light)
+GEAR:Bolt (Crossbow)	QTY:20
+SKILL:Balance		RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Jump			RANK:4
+SKILL:Tumble		RANK:4
+FEAT:Improved Initiative
+FEAT:Dodge				PRERACE:Human	PRESTAT:1,DEX=13
+FEAT:Expertise			PRERACE:Human	PRESTAT:1,INT=13
+
+
+STARTPACK:Assassin Starting Package	PRECLASS:1,Assassin (CW)=1	SOURCEPAGE:p.21
+GEAR:Leather
+GEAR:Greatsword		PRERACE:Dwarf%,Elf%,Half-Elf,Half-Orc,Human
+GEAR:Longsword		PRERACE:Gnome,Halfling
+GEAR:Crossbow (Light)
+GEAR:Bolt (Crossbow)	QTY:20
+SKILL:Bluff			RANK:4
+SKILL:Disguise		RANK:4
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+FEAT:Exotic Weapon Proficiency (Kukri)
+FEAT:Improved Initiative			PRERACE:Human
+GEAR:Kukri
+
+
+STARTPACK:Pit Fighter Starting Package	PRECLASS:1,Pit Fighter=1	SOURCEPAGE:p.25
+GEAR:Studded Leather
+GEAR:Chain (Spiked)
+GEAR:Net
+GEAR:Javelin		QTY:3
+SKILL:Heal		RANK:4
+SKILL:Intimidate	RANK:4
+FEAT:Combat Reflexes					PRESTAT:1,DEX=12
+FEAT:Weapon Focus(Chain (Spiked))
+FEAT:Exotic Weapon Proficiency(Net)
+FEAT:Exotic Weapon Proficiency(Chain (Spiked))
+
+#
+# end
+#

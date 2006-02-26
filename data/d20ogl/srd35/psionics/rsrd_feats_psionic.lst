@@ -1,0 +1,198 @@
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: Arknight
+#     Variables - HasPsionics, ManifesterLvl
+# updated entry - TaluronIscandar
+#	removed variable, replace with (!)PRETEMPLATE:Psionic and PRECLASS:1,SPELLCASTER.Psionic=x
+
+# Need to have feat add skillpoints for Open Minded
+
+###Block: General Feats
+# Feat Name		Type				Required AL		Req. Att.	Required Check Base		Required Feat						Required Skill					Required Stat	Prohibited Template	Description		Stackable?	Multiple?	Choose			Template		Bonus to skill						Modify VAR				Source Page
+Antipsionic Magic	TYPE:General																				PRESKILL:1,Spellcraft=5							!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Autonomous		TYPE:General																																		DESC:See Text												BONUS:SKILL|Autohypnosis,Knowledge (Psionics)|2						SOURCEPAGE:PsionicFeats.rtf
+Chaotic Mind	TYPE:General		PREALIGN:CG,CN,CE																							PRESTAT:1,CHA=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Cloak Dance		TYPE:General																				PRESKILL:2,Hide=10,Perform (Dance)=2								DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Closed Mind		TYPE:General																														!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Deadly Precision	TYPE:General					PREATT:5																					PRESTAT:1,DEX=15					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Force of Will	TYPE:General												PREFEAT:1,Iron Will															!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Greater Manyshot	TYPE:General.Fighter				PREATT:6						PREFEAT:3,Manyshot,Point Blank Shot,Rapid Shot								PRESTAT:1,DEX=17					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Hostile Mind	TYPE:General																											PRESTAT:1,CHA=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Mental Resistance	TYPE:General							PRECHECKBASE:1,Willpower=2																			!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Mind Over Body	TYPE:General																											PRESTAT:1,CON=13					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Open Minded		TYPE:General																																		DESC:See Text	STACK:YES	MULT:YES	CHOOSE:5 skill points																	SOURCEPAGE:PsionicFeats.rtf
+Psionic Affinity	TYPE:General																																		DESC:See Text												BONUS:SKILL|Psicraft,Use Psionic Device|2							SOURCEPAGE:PsionicFeats.rtf
+Psionic Hole	TYPE:General																											PRESTAT:1,CON=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Reckless Offense	TYPE:General					PREATT:1																												DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Stand Still		TYPE:General																											PRESTAT:1,STR=13					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Wild Talent		TYPE:General																																		DESC:See Text									TEMPLATE:Psionic									BONUS:VAR|BasePowerPoints|2	SOURCEPAGE:PsionicFeats.rtf
+
+###Block: Psionic Feats
+# Feat Name				Type			Required AL		Req. Att.	Required Class				Required Feat							Required Skill			Required Stat	Required Template		Define			Description		Stackable?	Multiple?	Choose													Choose a Feat					Modify VAR				Source Page
+Aligned Attack (Chaos)		TYPE:Psionic	PREALIGN:CG,CN,CE	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Aligned Attack (Evil)		TYPE:Psionic	PREALIGN:LE,NE,CE	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Aligned Attack (Good)		TYPE:Psionic	PREALIGN:LG,NG,CG	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Aligned Attack (Law)		TYPE:Psionic	PREALIGN:LG,LN,LE	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Body Fuel				TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Boost Construct			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Combat Manifestation		TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Deep Impact				TYPE:Psionic				PREATT:5							PREFEAT:1,Psionic Weapon										PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Expanded Knowledge		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=3																		PRETEMPLATE:Psionic					DESC:See Text			MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Psionic|1|(MAXLEVEL-1)[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]													SOURCEPAGE:PsionicFeats.rtf
+Fell Shot				TYPE:Psionic				PREATT:5							PREFEAT:2,Point Blank Shot,Psionic Shot								PRESTAT:1,DEX=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Focused Sunder			TYPE:Psionic												PREFEAT:2,Power Attack,Improved Sunder								PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Ghost Attack			TYPE:Psionic				PREATT:3																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Greater Power Penetration	TYPE:Psionic												PREFEAT:1,Power Penetration													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Greater Power Specialization	TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=12	PREFEAT:2,Power Specialization,Weapon Focus (Ray)									PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Greater Psionic Endowment	TYPE:Psionic												PREFEAT:1,Psionic Endowment													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Greater Psionic Fist		TYPE:Psionic				PREATT:5							PREFEAT:1,Psionic Fist											PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Greater Psionic Shot		TYPE:Psionic				PREATT:5							PREFEAT:2,Point Blank Shot,Psionic Shot											PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Greater Psionic Weapon		TYPE:Psionic				PREATT:5							PREFEAT:1,Psionic Weapon										PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Improved Psicrystal		TYPE:Psionic												PREFEAT:1,Psicrystal Affinity													PRETEMPLATE:Psionic					DESC:See Text	STACK:YES	MULT:YES	CHOOSE:Add one Psicrystal personality								ADD:FEAT(TYPE=PsicrystalPersonality)1	BONUS:VAR|PCrystalLevel|1	SOURCEPAGE:PsionicFeats.rtf
+Inquisitor				TYPE:Psionic																										PRESTAT:1,WIS=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Mental Leap				TYPE:Psionic																					PRESKILL:1,Jump=5			PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Metamorphic Transfer		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=5															PRESTAT:1,WIS=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Narrow Mind				TYPE:Psionic																										PRESTAT:1,WIS=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Overchannel				TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Power Penetration			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Power Specialization		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Weapon Focus (Ray)													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psicrystal Affinity		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=1																		PRETEMPLATE:Psionic	DEFINE:PCrystalLevel|0	DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psicrystal Containment		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Psicrystal Affinity													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Body			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See text	STACK:YES	MULT:YES	CHOOSE:Add 2 hit points											ADD:FEAT(Psionic Body Hit Points)							SOURCEPAGE:PsionicFeats.rtf
+Psionic Charge			TYPE:Psionic												PREFEAT:1,Speed of Thought										PRESTAT:1,DEX=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Dodge			TYPE:Psionic												PREFEAT:1,Dodge												PRESTAT:1,DEX=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Endowment			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Fist			TYPE:Psionic																										PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Meditation		TYPE:Psionic																					PRESKILL:1,Concentration=7	PRESTAT:1,WIS=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Shot			TYPE:Psionic												PREFEAT:1,Point Blank Shot													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psionic Talent			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text	STACK:YES	MULT:YES	CHOOSE:Add Power Points											ADD:FEAT(Psionic Talent Power Points)						SOURCEPAGE:PsionicFeats.rtf
+Psionic Weapon			TYPE:Psionic																										PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Rapid Metabolism			TYPE:Psionic																										PRESTAT:1,CON=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Return Shot				TYPE:Psionic				PREATT:3							PREFEAT:3,Fell Shot,Point Blank Shot,Psionic Shot									PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Sidestep Charge			TYPE:Psionic												PREFEAT:1,Dodge												PRESTAT:1,DEX=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Speed of Thought			TYPE:Psionic																										PRESTAT:1,WIS=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Talented				TYPE:Psionic												PREFEAT:1,Overchannel														PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Unavoidable Strike		TYPE:Psionic				PREATT:5							PREFEAT:1,Psionic Fist											PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Up the Walls			TYPE:Psionic																										PRESTAT:1,WIS=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Wounding Attack			TYPE:Psionic				PREATT:8																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+
+###Block: Metapsionics
+# Feat Name			Type			Required Feat			Required Template		Description		Source Page
+Burrowing Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Chain Power			TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Delay Power			TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Empower Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Enlarge Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Extend Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Maximize Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Opportunity Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Quicken Power		TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Split Psionic Ray		TYPE:Metapsionic	PREFEAT:1,TYPE=Metapsionic	PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Twin Power			TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Unconditional Power	TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Widen Power			TYPE:Metapsionic						PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+
+###Block: Item Creation
+# Feat Name				Type			Required Class				Required Feat								Required Template		Description		Source Page
+Craft Cognizance Crystal	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=3											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Craft Dorje				TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=5											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Craft Psicrown			TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=12											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Craft Psionic Arms and Armor	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=5											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Craft Psionic Construct		TYPE:ItemCreation							PREFEAT:2,Craft Psionic Arms and Armor,Craft Universal Item	PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Craft Universal Item		TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=3											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Imprint Stone			TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=1											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+Scribe Tattoo			TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Psionic=3											PRETEMPLATE:Psionic	DESC:See Text	SOURCEPAGE:PsionicFeats.rtf
+
+#
+#
+# This lower section is for the Benefits section in the SRD.
+# Please do not use Benefit sections from feats when submitting new datasets.
+# We want to make sure we stay publisher friendly, and using the benefits section can remove the need to own the source.
+#	- Tir Gwaith
+#
+#
+
+###Block: Feat Descriptions
+# Feat Name					Description
+Aligned Attack (Chaos).MOD		DESC:Your melee or ranged attack overcomes your opponent's alignment-based damage reduction and deals additional damage.
+Aligned Attack (Evil).MOD		DESC:Your melee or ranged attack overcomes your opponent's alignment-based damage reduction and deals additional damage.
+Aligned Attack (Good).MOD		DESC:Your melee or ranged attack overcomes your opponent's alignment-based damage reduction and deals additional damage.
+Aligned Attack (Law).MOD		DESC:Your melee or ranged attack overcomes your opponent's alignment-based damage reduction and deals additional damage.
+Antipsionic Magic.MOD			DESC:Your spells are more potent when used against psionic characters and creatures.
+Autonomous.MOD				DESC:You have a knack for psionic self-sufficiency.
+Body Fuel.MOD				DESC:You can expand your power point total at the expense of your health.
+Boost Construct.MOD			DESC:Your astral constructs have more abilities.
+Burrowing Power.MOD			DESC:Your powers sometimes bypass barriers.
+Chain Power.MOD				DESC:You can manifest powers that arc to hit other targets in addition to the primary target.
+Chaotic Mind.MOD				DESC:The turbulence of your thoughts prevents others from gaining insight into your actions.
+Cloak Dance.MOD				DESC:You are skilled at using optical tricks to make yourself seem to be where you are not.
+Closed Mind.MOD				DESC:Your mind is better able to resist psionics than normal.
+Combat Manifestation.MOD		DESC:You are adept at manifesting powers in combat.
+Craft Cognizance Crystal.MOD		DESC:You can create psionic cognizance crystals that store power points.
+Craft Dorje.MOD				DESC:You can create slender crystal wands called dorjes than manifest powers when charges are expended.
+Craft Psicrown.MOD			DESC:You can create psicrowns, which have multiple psionic effects.
+Craft Psionic Arms and Armor.MOD	DESC:You can create psionic weapons, armor, and shields.
+Craft Psionic Construct.MOD		DESC:You can create golems and other psionic automatons that obey your orders.
+Craft Universal Item.MOD		DESC:You can create universal psionic items.
+Deadly Precision.MOD			DESC:You empty your mind of all distracting emotion, becoming an instrument of deadly precision.
+Deep Impact.MOD				DESC:You can strike your foe with a melee weapon as if making a touch attack.
+Delay Power.MOD				DESC:You can manifest powers that go off up to 5 rounds later.
+Empower Power.MOD				DESC:You can manifest powers to greater effect.
+Enlarge Power.MOD				DESC:You can manifest powers farther than normal.
+Expanded Knowledge.MOD			DESC:You learn another power.
+Extend Power.MOD				DESC:You can manifest powers that last longer than normal.
+Fell Shot.MOD				DESC:You can strike your foe with a ranged weapon as if making a touch attack.
+Focused Sunder.MOD			DESC:You can sense the stress points on others' weapons.
+Force of Will.MOD				DESC:You are able to resist psionic attacks with extreme force of will.
+Ghost Attack.MOD				DESC:Your deadly strikes against incorporeal foes always find their mark.
+Greater Manyshot.MOD			DESC:You are skilled at firing many arrows at once, even at different opponents.
+Greater Power Penetration.MOD		DESC:Your powers are especially potent at breaking through power resistance.
+Greater Power Specialization.MOD	DESC:You deal more damage with your powers.
+Greater Psionic Endowment.MOD		DESC:You can use meditation to focus your powers.
+Greater Psionic Fist.MOD		DESC:You can charge your unarmed strike or natural weapon with additional damage potential.
+Greater Psionic Shot.MOD		DESC:You can charge your ranged attacks with additional damage potential.
+Greater Psionic Weapon.MOD		DESC:You can charge your melee weapon with additional damage potential.
+Hostile Mind.MOD				DESC:Your mind recoils violently against those who use psionics against you.
+Imprint Stone.MOD				DESC:You can create power stones to store psionic powers.
+Improved Psicrystal.MOD			DESC:You can upgrade your psicrystal.
+Inquisitor.MOD				DESC:You know when others lie.
+Maximize Power.MOD			DESC:You can manifest powers to maximum effect.
+Mental Leap.MOD				DESC:You can make amazing jumps.
+Mental Resistance.MOD			DESC:Your mind is armored against mental intrusion.
+Metamorphic Transfer.MOD		DESC:You can gain a supernatural ability of a metamorphed form.
+Mind Over Body.MOD			DESC:Your ability damage heals more rapidly.
+Narrow Mind.MOD				DESC:Your ability to concentrate is as keen as an arrowhead, allowing you to gain your psionic focus even in the most turbulent situations.
+Open Minded.MOD				DESC:You are naturally able to reroute your memory, mind, and skill expertise. You immediately gain an extra 5 skill points. You spend these skill points as normal. If you spend them on a cross-class skills they count as 1/2 ranks. You cannot exceed the normal maximum ranks for your level in any skill.
+Opportunity Power.MOD			DESC:You can make power-enhanced attacks of opportunity.
+Overchannel.MOD				DESC:You burn your life force to strengthen your powers.
+Power Penetration.MOD			DESC:Your powers are especially potent, breaking through power resistance more readily than normal.
+Power Specialization.MOD		DESC:You deal more damage with your powers.
+Psicrystal Affinity.MOD			DESC:You have created a psicrystal.
+Psicrystal Containment.MOD		DESC:Your psicrystal has advanced enough that it can hold a psionic focus that you store within it.
+Psionic Affinity.MOD			DESC:You have a knack for psionic endeavors.
+Psionic Body.MOD				DESC:Your mind reinforces your body.
+Psionic Charge.MOD			DESC:You can charge in a crooked line.
+Psionic Dodge.MOD				DESC:You are proficient at dodging blows.
+Psionic Endowment.MOD			DESC:You can endow your manifestations with more concentrated focus.
+Psionic Fist.MOD				DESC:You can charge your unarmed strike or natural weapon with additional damage potential.
+Psionic Hole.MOD				DESC:You are anathema to psionic creatures and characters.
+Psionic Meditation.MOD			DESC:You can focus your mind faster than normal, even under duress.
+Psionic Shot.MOD				DESC:You can charge your ranged attacks with additional damage potential.
+Psionic Talent.MOD			DESC:You gain additional power points to supplement those you already had.
+Psionic Weapon.MOD			DESC:You can charge your melee weapon with additional damage potential.
+Quicken Power.MOD				DESC:You can manifest a power with a moment's thought.
+Rapid Metabolism.MOD			DESC:Your wounds heal rapidly.
+Reckless Offense.MOD			DESC:You can shift your focus from defense to offense.
+Return Shot.MOD				DESC:You can return incoming arrows, as well as crossbow bolts, spears, and other projectile or thrown weapons.
+Scribe Tattoo.MOD				DESC:You can create psionic tattoos, which store powers within their designs.
+Sidestep Charge.MOD			DESC:You are skilled at dodging past charging opponents and taking advantage when they miss.
+Speed of Thought.MOD			DESC:The energy of your mind energizes the alacrity of your body.
+Split Psionic Ray.MOD			DESC:You can affect two targets with a single ray.
+Stand Still.MOD				DESC:You can prevent foes from fleeing or closing.
+Talented.MOD				DESC:You can overchannel powers with less cost to yourself.
+Twin Power.MOD				DESC:You can manifest a power simultaneously with another power just like it.
+Unavoidable Strike.MOD			DESC:You can make an unarmed strike or use a natural weapon against your foe as if delivering a touch attack.
+Unconditional Power.MOD			DESC:Disabling conditions do not hold you back.
+Up the Walls.MOD				DESC:You can run on walls for brief distances.
+Widen Power.MOD				DESC:You can increase the area of your powers.
+Wild Talent.MOD				DESC:Your mind wakes to a previously unrealized talent for psionics.
+Wounding Attack.MOD			DESC:Your vicious attacks wound your foe.

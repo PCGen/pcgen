@@ -1,0 +1,52 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Mar  1 21:09:32 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Spell Name	Classes of caster			School			Spell Descriptors		Type		Components	Casting Time			Range		Target Area		Duration					Save Info				Spell Resistance	Description		Source Page		Item
+Fatal Error		CLASSES:Verman Corrupter=3	SCHOOL:Enchantment	DESCRIPTOR:Compulsion	TYPE:Divine	COMPS:S	CASTTIME:1 action			RANGE:Close	TARGETAREA:None	DURATION:1 rd/lvl or Special		SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 170	ITEM:Potion
+Misaligned Aura	CLASSES:Verman Corrupter=1	SCHOOL:Illusion						TYPE:Divine	COMPS:V S	CASTTIME:1 action			RANGE:Close	TARGETAREA:None	DURATION:1 hr/lvl				SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 169	ITEM:Potion
+Rewrite		CLASSES:Verman Corrupter=2	SCHOOL:Transformation					TYPE:Divine	COMPS:V S M	CASTTIME:1 action + Special	RANGE:Touch	TARGETAREA:None	DURATION:1 page of written text/lvl	SAVEINFO:None (See Text)	SPELLRES:No		DESC:See Text	SOURCEPAGE:p. 169	ITEM:Potion
+
+
+###Block: SPELL.MOD generated from the old CLASSSPELL files
+# Spell Name			Classes of caster			Domains granting the spell
+Aid.MOD									DOMAINS:Sktak Windrider Mount=2
+Bestow Curse.MOD			CLASSES:Verman Corrupter=3
+Blindness/Deafness.MOD		CLASSES:Verman Corrupter=2
+Cause Fear.MOD			CLASSES:Verman Corrupter=1
+Change Self.MOD			CLASSES:Verman Corrupter=1
+Charm Monster.MOD			CLASSES:Verman Corrupter=4
+Charm Person.MOD			CLASSES:Verman Corrupter=1
+Confusion.MOD			CLASSES:Verman Corrupter=3
+Create Food and Water.MOD	CLASSES:Sktak Windrider=3
+Cure Light Wounds.MOD							DOMAINS:Sktak Windrider Mount=2
+Cure Moderate Wounds.MOD	CLASSES:Sktak Windrider=4
+Darkness.MOD			CLASSES:Verman Corrupter=2
+Deeper Darkness.MOD		CLASSES:Verman Corrupter=3
+Desecrate.MOD			CLASSES:Verman Corrupter=2
+Divine Favor.MOD			CLASSES:Sktak Windrider=1
+Doom.MOD				CLASSES:Verman Corrupter=1
+Endure Elements.MOD		CLASSES:Sktak Windrider=2
+Fear.MOD				CLASSES:Verman Corrupter=3
+Fly.MOD									DOMAINS:Sktak Windrider Mount=3
+Freedom of Movement.MOD							DOMAINS:Sktak Windrider Mount=4
+Giant Vermin.MOD			CLASSES:Verman Corrupter=3
+Grease.MOD				CLASSES:Verman Corrupter=1
+Hallucinatory Terrain.MOD	CLASSES:Verman Corrupter=4
+Invisibility.MOD			CLASSES:Verman Corrupter=3
+Magic Fang.MOD								DOMAINS:Sktak Windrider Mount=1
+Magic Vestment.MOD		CLASSES:Sktak Windrider=3
+Misdirection.MOD			CLASSES:Verman Corrupter=2
+Mount.MOD				CLASSES:Sktak Windrider=1
+Poison.MOD				CLASSES:Verman Corrupter=4
+Protection from Elements.MOD	CLASSES:Sktak Windrider=4
+Resist Elements.MOD		CLASSES:Sktak Windrider=3
+Rusting Grasp.MOD			CLASSES:Verman Corrupter=4
+Shatter.MOD				CLASSES:Verman Corrupter=2
+Shield of Faith.MOD		CLASSES:Sktak Windrider=1
+Speak with Animals.MOD		CLASSES:Sktak Windrider=1
+Suggestion.MOD			CLASSES:Verman Corrupter=2
+Summon Nature's Ally I.MOD	CLASSES:Sktak Windrider=2
+Summon Nature's Ally II.MOD	CLASSES:Sktak Windrider=4
+Unholy Blight.MOD			CLASSES:Verman Corrupter=4
+Ventriloquism.MOD			CLASSES:Verman Corrupter=1
+Warp Wood.MOD			CLASSES:Verman Corrupter=2

@@ -1,0 +1,6 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Sat Oct  1 19:23:02 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+# Deity Name	Product Identity?	Domains								Clergy AL			Desciption of Deity/Title						Holy Item	Deity Weapon	ALIGN		PANTHEON		Source Page
+Arym-Ahya		NAMEISPI:YES	DOMAINS:Air,Good,Healing,Law,Protection,Sun		FOLLOWERALIGN:013		DESC:Queen of the Sky, Starry Oracle, Mother of Dragons	SYMBOL:None	DEITYWEAP:None	ALIGN:LG	PANTHEON:Draconic	SOURCEPAGE:p.18-19
+Nhym-Nadaal		NAMEISPI:YES	DOMAINS:Animal,Chaos,Magic,Strength,Water,Travel	FOLLOWERALIGN:13457	DESC:King of the Sea, Leviathan					SYMBOL:None	DEITYWEAP:None	ALIGN:N	PANTHEON:Draconic	SOURCEPAGE:p.18-19
+Ragoth-Rhyx		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Fire,Trickery,War	FOLLOWERALIGN:578		DESC:Behemoth, Mad Prophet, Father of Dragons			SYMBOL:None	DEITYWEAP:None	ALIGN:CE	PANTHEON:Draconic	SOURCEPAGE:p.18-19

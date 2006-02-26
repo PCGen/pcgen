@@ -1,0 +1,4 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Aug 14 07:07:17 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Domain Name	Class Skill							Source Page			Description										List of Domain Spells by Level
+Thievery		CSKILL:Pick Pocket|Open Lock|Move Silently	SOURCEPAGE:p.52-53	DESC:Pick Pocket, Open Locks, and Move Silently are class skills.	SPELLLEVEL:DOMAIN|Thievery=1|Knock|Thievery=2|True Filch|Thievery=3|Perfect Crime|Thievery=4|Detect Traps|Thievery=5|Dimension Door|Thievery=6|Greater Knock|Thievery=7|Discern Location|Thievery=8|Lair|Thievery=9|Steal Body

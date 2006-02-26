@@ -1,0 +1,93 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Sep 30 00:29:57 2003 -- reformated by prettylst.pl v1.29 (build 301)
+# Original Entry by: Tir Gwaith
+
+#
+#
+# This file is for the Benefits section in the SRD.
+# Please do not use Benefit sections from feats when submitting new datasets.
+# We want to make sure we stay publisher friendly, and using the benefits section can remove the need to own the source.
+#	- Tir Gwaith
+#
+#
+
+
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# Feat Name					Description
+Alertness.MOD				DESC:The character gets a +2 bonus on all Listen checks and Spot checks.
+Ambidexterity.MOD				DESC:The character ignores all penalties for using an off hand. The character is neither left-handed nor right-handed.
+Armor Proficiency (Heavy).MOD		DESC:When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
+Armor Proficiency (Light).MOD		DESC:When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
+Armor Proficiency (Medium).MOD	DESC:When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
+Blind-Fight.MOD				DESC:In melee, every time a character misses because of concealment, the character can reroll the miss chance percentile roll one time to see if the character actually hit.
+Brew Potion.MOD				DESC:The character can create a potion of any spell of 3rd level or lower that the character knows and that targets a creature or creatures.
+Cleave.MOD					DESC::If the character deals a creature enough damage to make it drop (typically by dropping it to below 0 hit points, killing it, etc.), the character gets an immediate, extra melee attack against another creature in the immediate vicinity.
+Combat Casting.MOD			DESC:The character gets a +4 bonus to Concentration checks made to cast a spell while on the defensive.
+Combat Reflexes.MOD			DESC:When foes leave themselves open, the character may make a number of additional attacks of opportunity equal to the character's Dexterity modifier.
+Craft Magic Arms and Armor.MOD	DESC:The character can create any magic weapon, armor, or shield whose prerequisites the character meets.
+Craft Rod.MOD				DESC:The character can create any rod whose prerequisites the character meets.
+Craft Staff.MOD				DESC:The character can create any staff whose prerequisites the character meets.
+Craft Wand.MOD				DESC:The character can create a wand of any spell of 4th level or lower that the character knows.
+Craft Wondrous Item.MOD			DESC:The character can create any miscellaneous magic item whose prerequisites the character meet.
+Deflect Arrows.MOD			DESC:The character must have at least one hand free (holding nothing) to use this feat. Once per round when the character would normally be hit with a ranged weapon, the character may make a Reflex saving throw against a DC of 20 (if the ranged weapon has a magical bonus to attack, the DC increases by that amount). If the character succeeds, the character deflects the weapon. The character must be aware of the attack and not flat-footed. Attempting to deflect a ranged weapon doesn't count as an action. Exceptional ranged weapons can't be deflected.
+Dodge.MOD					DESC:During the character's action, the character designates an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
+Empower Spell.MOD				DESC:All variable, numeric effects of an empowered spell are increased by one-half.
+Endurance.MOD				DESC:Whenever the character makes a check for performing a physical action that extends over a period of time (running, swimming, holding the character's breath, and so on), the character gets a +4 bonus to the check.
+Enlarge Spell.MOD				DESC:An enlarged spell has its range doubled.
+Exotic Weapon Proficiency.MOD		DESC:The character makes attack rolls with the weapon normally.
+Expertise.MOD				DESC:When the character uses the attack action or full attack action in melee, the character can take a penalty of as much as -5 on the character's attack and add the same number (up to +5) to the character's Armor Class.
+Extend Spell.MOD				DESC:An extended spell lasts twice as long as normal.
+Extra Turning.MOD				DESC:Allows a character to turn undead four more times per day than normal.
+Far Shot.MOD				DESC:When the character uses a projectile weapon, such as a bow, its range increment increases by one-half (multiply by 1.5). When the character uses a thrown weapon, its range increment is doubled.
+Forge Ring.MOD				DESC:The character can create any ring whose prerequisites the character meets.
+Great Cleave.MOD				DESC:As Cleave, except that the character has no limit to the number of times the character can use it per round.
+Great Fortitude.MOD			DESC:The character gets a +2 bonus to all Fortitude saving throws.
+Heighten Spell.MOD			DESC:A heightened spell has a higher spell level than normal (up to 9th level).
+Improved Bull Rush.MOD			DESC:When the character performs a bull rush, the character does not draw an attack of opportunity from the defender.
+Improved Critical.MOD			DESC:When using the weapon the character selected, the character's threat range is doubled.
+Improved Disarm.MOD			DESC:The character does not suffer an attack of opportunity when the character attempts to disarm an opponent, nor does the opponent have a chance to disarm.
+Improved Initiative.MOD			DESC:The character gets a +4 bonus on initiative checks.
+Improved Trip.MOD				DESC:If the character trips an opponent in melee combat, the character immediately gets a melee attack against that opponent as if the character hadn't used the character's attack for the trip attempt.
+Improved Two-Weapon Fighting.MOD	DESC:In addition to the standard single extra attack the character gets with an off-hand weapon, the character gets a second attack with the off-hand weapon, albeit at a -5 penalty.
+Improved Unarmed Strike.MOD		DESC:The character is considered to be armed even when unarmed.
+Iron Will.MOD				DESC:The character gets a +2 bonus to all Will saving throws.
+Leadership.MOD				DESC:Having this feat enables the character to attract loyal companions and devoted followers, subordinates who assist her.
+Lightning Reflexes.MOD			DESC:The character gets a +2 bonus to all Reflex saving throws.
+Martial Weapon Proficiency.MOD	DESC:The character makes attack rolls with the weapon normally.
+Maximize Spell.MOD			DESC:All variable, numeric effects of a maximized spell are maximized.
+Mobility.MOD				DESC:The character gets a +4 dodge bonus to Armor Class against attacks of opportunity caused when the character moves out of or within a threatened area.
+Mounted Archery.MOD			DESC:The penalty the character suffers when using a ranged weapon from horseback is halved.
+Mounted Combat.MOD			DESC:Once per round when the character's mount is hit in combat, the character may make a Ride check to negate the hit.
+Multiattack.MOD				DESC:The creature's secondary attacks with natural weapons suffer only a -2 penalty.
+Multidexterity.MOD			DESC:The creature ignores all penalties for using an off hand.
+Multiweapon Fighting.MOD		DESC:Penalties for fighting with multiple weapons are reduced by 2.
+Point Blank Shot.MOD			DESC:The character gets a +1 bonus to attack and damage rolls with ranged weapons at ranges of up to 30 feet.
+Power Attack.MOD				DESC:On the character's action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls.
+Precise Shot.MOD				DESC:The character can shoot or throw ranged weapons at an opponent engaged in melee without suffering the standard -4 penalty.
+Quick Draw.MOD				DESC:The character can draw a weapon as a free action instead of as a move-equivalent action.
+Quicken Spell.MOD				DESC:Casting a quickened spell is a free action.
+Rapid Shot.MOD				DESC:The character can get one extra attack per round with a ranged weapon.
+Ride-By Attack.MOD			DESC:When the character is mounted and uses the charge action, the character may move and attack as with a standard charge and then move again (continuing the straight line of the charge).
+Run.MOD					DESC:When running, the character moves five times normal speed instead of four times normal speed.
+Scribe Scroll.MOD				DESC:The character can create a scroll of any spell that the character knows.
+Shield Proficiency.MOD			DESC:The character can use a shield and suffer only the standard penalties.
+Shot on the Run.MOD			DESC:When using the attack action with a ranged weapon, the character can move both before and after the attack, provided that the character's total distance moved is not greater than the character's speed.
+Silent Spell.MOD				DESC:A silent spell can be cast with no verbal components.
+Simple Weapon Proficiency.MOD		DESC:The character makes attack rolls with simple weapons normally.
+Skill Focus.MOD				DESC:The character gets a +2 bonus on all skill checks with that skill.
+Spell Penetration.MOD			DESC:The character gets a +2 bonus to caster level checks (1d20+caster level) to beat a creature's spell resistance.
+Spell Focus.MOD				DESC:Choose a school of magic, such as Illusion. The character's spells of that school are more potent than normal.
+Spell Mastery.MOD				DESC:Each time the wizard takes this feat, choose a number of spells equal to the wizard's Intelligence modifier (they must be spells that the wizard already knows). From that point on, the wizard can prepare those spells without referring to a spellbook.
+Spirited Charge.MOD			DESC:When mounted and using the charge action, the character deals double damage with a melee weapon (or triple damage with a lance).
+Spring Attack.MOD				DESC:When using the attack action with a melee weapon, the character can move both before and after the attack, provided that the character's total distance moved is not greater than the character's speed.
+Still Spell.MOD				DESC:A still spell can be cast with no somatic components.
+Stunning Fist.MOD				DESC:Declare that the character is using the feat before making an attack roll. It forces a foe damaged by the character's unarmed attack to make a Fortitude saving throw in addition to dealing damage normally. If the defender fails his saving throw, he is stunned for 1 round.
+Sunder.MOD					DESC:When the character strikes at an opponent's weapon, the character does not provoke an attack of opportunity.
+Toughness.MOD				DESC:The character gains +3 hit points.
+Track.MOD					DESC:To find tracks or to follow them for one mile requires a Wilderness Lore check.
+Trample.MOD					DESC:When the character attempts to overrun an opponent while mounted, the target may not choose to avoid the character.
+Two-Weapon Fighting.MOD			DESC:The character's penalties for fighting with two weapons are reduced by 2.
+Weapon Finesse.MOD			DESC:With the selected weapon, the character may use a Dexterity modifier instead of a Strength modifier on attack rolls.
+Weapon Focus.MOD				DESC:The character adds +1 to all attack rolls the character makes using the selected weapon.
+Weapon Specialization.MOD		DESC:The character adds +2 to all damage inflicted with the weapon the character has specialized with.
+Whirlwind Attack.MOD			DESC:When the character performs the full attack action, he or she can give up all regular attacks and instead make one melee attack at the full base attack bonus against each opponent within 5 feet.
+

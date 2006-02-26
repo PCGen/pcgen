@@ -1,0 +1,17 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
+
+# Equipment Name			Output Name					Required Proficiency		Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	MODS			Size		Source Page		Combat bonus						Bonus to skill							Special Property	Special Ability
+Potion (Fey Sight)		OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion	COST:250	WT:0																					SOURCEPAGE:p.48
+Potion (Dreaming)			OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion	COST:300	WT:0																					SOURCEPAGE:p.48
+Potion (Enchanted Sleep)	OUTPUTNAME:Potion of [NAME]							TYPE:Magic.Potion	COST:250	WT:0																					SOURCEPAGE:p.48
+Ring (Fey Blessing)		OUTPUTNAME:Ring of [NAME]							TYPE:Magic.Ring	COST:4000	WT:0																					SOURCEPAGE:p.49
+Ring (Predator)			OUTPUTNAME:Ring of the [NAME]							TYPE:Magic.Ring	COST:8000	WT:0																					SOURCEPAGE:p.49									BONUS:SKILL|Hide,Move Silently|10|TYPE=Competence				SA:Trackless Step
+Rod (Fey Lacating)		OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod	COST:23000	WT:0																					SOURCEPAGE:p.49
+Rod (Dreaming)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod	COST:23000	WT:0																					SOURCEPAGE:p.49
+Rod (Fey Blood)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod	COST:23000	WT:0																					SOURCEPAGE:p.49
+Staff (Wanderer)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff	COST:90000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6					SIZE:L	SOURCEPAGE:p.49	BONUS:COMBAT|DAMAGE,TOHIT|2|TYPE=Enchantment
+Staff (Protection)		OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff	COST:45000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6					SIZE:L	SOURCEPAGE:p.49	BONUS:COMBAT|DAMAGE,TOHIT|3|TYPE=Enchantment										SPROP:Defending
+
+# Fey Token requires a MOD but there are no MODs set up for it, perhaps it needs to be a mod since a fey token can be any object
+Fey Token															TYPE:Token		COST:0	WT:0																MODS:REQUIRED			SOURCEPAGE:p.50

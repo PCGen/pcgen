@@ -1,0 +1,29 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $
+CAMPAIGN:AEG - Evil Source Book
+GAMEMODE:3e
+TYPE:Alderac Entertainment Group.Sourcebook
+RANK:9
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil
+SOURCESHORT:Evil
+SOURCEWEB:http://alderac.com/d20
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Evil Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, Paul "Yes, that Paul" Grosse)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+DEITY:evil_deities.lst
+DOMAIN:evil_domains.lst
+SPELL:evil_spells.lst
+
+RACE:evil_races.lst
+SKILL:evil_skills.lst
+
+CLASS:evil_classes.lst
+FEAT:evil_feats.lst
+
+EQUIPMENT:evil_equip_potionsscrolls.lst
+EQUIPMENT:evil_equip_rodsstaffswands.lst
+EQUIPMENT:evil_equip_wondrousitems.lst
+EQUIPMENT:evil_equip_artifacts.lst

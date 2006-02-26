@@ -1,0 +1,93 @@
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:3.5 RSRD Monsters
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:RSRD
+SETTING:RSRD
+TYPE:RSRD.Partial
+SOURCELONG:RSRD Monsters
+SOURCESHORT:RSRDMonster
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky)
+
+INFOTEXT:Subset of the RSRD that contains the Monsters
+#
+#    This is a place holder till we have actual names of files
+#
+
+#######
+####### CLASS:@/d20ogl/srd35/rsrdclassesdragon.lst
+####### CLASS:@/d20ogl/srd35/rsrdclassescreaturespecific.lst
+####### CLASS:@/d20ogl/srd35/rsrdclassescreaturetypes.lst
+####### EQUIPMENT:@/d20ogl/srd35/rsrdequip.lst|(INCLUDE:Camel|Elephant|Giant Eagle|Giant Owl|Griffon|Hippogriff|Nightmare|Pegasus|Spider Eater|Worg)
+####### LANGUAGE:@/d20ogl/srd35/rsrdlanguages.lst|(INCLUDE:Drow)
+FEAT:@/d20ogl/srd35/rsrd_feats_monster.lst
+CLASS:@/d20ogl/srd35/rsrd_classes_monsters.lst
+CLASS:@/d20ogl/srd35/rsrd_classes_monsters_specific.lst
+
+RACE:@/d20ogl/srd35/rsrd_races_a_b.lst
+RACE:@/d20ogl/srd35/rsrd_races_c_d.lst
+RACE:@/d20ogl/srd35/rsrd_races_e_f.lst
+RACE:@/d20ogl/srd35/rsrd_races_g_h.lst
+RACE:@/d20ogl/srd35/rsrd_races_i_j.lst
+RACE:@/d20ogl/srd35/rsrd_races_k_l.lst
+RACE:@/d20ogl/srd35/rsrd_races_m_n.lst
+RACE:@/d20ogl/srd35/rsrd_races_o_p.lst
+RACE:@/d20ogl/srd35/rsrd_races_q_r.lst
+RACE:@/d20ogl/srd35/rsrd_races_s_t.lst
+RACE:@/d20ogl/srd35/rsrd_races_u_v.lst
+RACE:@/d20ogl/srd35/rsrd_races_w_x.lst
+RACE:@/d20ogl/srd35/rsrd_races_y_z.lst
+RACE:@/d20ogl/srd35/rsrd_races_y_z.lst
+RACE:@/d20ogl/srd35/rsrd_races__animals.lst
+RACE:@/d20ogl/srd35/rsrd_races__base.lst
+RACE:@/d20ogl/srd35/rsrd_races__dragons.lst
+RACE:@/d20ogl/srd35/rsrd_races__vermin.lst
+####### SKILL:@/d20ogl/srd35/rsrdskills.lst|(INCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
+TEMPLATE:@/d20ogl/srd35/rsrd_templates_monsters.lst
+TEMPLATE:@/d20ogl/srd35/rsrd_templates_types.lst
+
+TEMPLATE:@/d20ogl/srd35/rsrd_templates.lst
+FEAT:@/d20ogl/srd35/rsrd_feats_templates.lst
+
+####### TEMPLATE:@/d20ogl/srd35/rsrdtemplates.lst
+WEAPONPROF:@/d20ogl/srd35/rsrd_weaponprofs_natural.lst
+#######
+####### # Mounts also in the PHB
+####### EQUIPMENT:@/d20ogl/srd35/rsrdequip.lst|(INCLUDE:Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
+#######
+####### # For the Evasion and Improved Evasion pseudo-feats
+####### FEAT:@/d20ogl/srd35/rsrdfeatshidden.lst|(INCLUDE:Evasion|Improved Evasion)
+
+# Default Monster Kits
+KIT:@/d20ogl/srd35/rsrd_kits_races__animals.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races__dragons.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races__vermin.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_a_b.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_a_b_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_c_d.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_e_f.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_g_h.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_g_h_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_i_j.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_k_l.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_k_l_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_m_n.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_m_n_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_o_p.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_o_p_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_q_r.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_s_t.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_s_t_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_u_v.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_u_v_extras.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_w_x.lst
+KIT:@/d20ogl/srd35/rsrd_kits_races_y_z.lst
+
+#
+# End
+#

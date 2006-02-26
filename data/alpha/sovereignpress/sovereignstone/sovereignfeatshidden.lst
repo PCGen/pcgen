@@ -1,0 +1,16 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+
+###Block: Hidden Racial Feats
+# Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose								ADD:FAVOREDCLASS		Bonus to skill		Cost		Source Page
+Dunkargan Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:Human (Dunkargan)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Fighter|Rogue				ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
+Karnuan Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:Human (Karnuan)		PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Mounted Warrior|Soldier		ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
+Nimorean Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:Human (Nimorean)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
+Nimran Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:Human (Nimran)		PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Sailor|Elemental Mage (Earth)	ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
+Trevenici Classes	TYPE:General	VISIBLE:NO	PRELEVELMAX:1	PRERACE:Human (Trevenici)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Barbarian|Fighter			ADD:FAVOREDCLASS|LIST							SOURCEPAGE:p.
+Unhorsed Dwarf	TYPE:General	VISIBLE:NO				PRERACE:Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2			CHOOSE:SKILLSNAMED|Craft%|Profession%|1							BONUS:SKILL|LIST|2	COST:.5	SOURCEPAGE:p.
+
+###Block: Proficiencies
+# Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
+Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Shortbow (Composite)|Longbow|Longbow (Composite)|Sword (Short)|Handaxe
+Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident

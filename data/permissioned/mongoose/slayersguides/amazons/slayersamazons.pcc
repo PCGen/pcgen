@@ -1,0 +1,21 @@
+# CVS $Revision: 1.6 $ $Author: ericbeaudoin $
+CAMPAIGN:Mongoose - Slayers Guide - Amazons
+GAMEMODE:3e
+TYPE:Mongoose.Accessory.Slayers Guides
+RANK:9
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons
+SOURCESHORT:SGtAmazons
+SOURCEWEB:http://mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from The Slayer's Guide to Amazons Copyright 2001, Mongoose Publishing.
+COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Amazons Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:slayersamazonsclasses.lst
+DEITY:slayersamazonsdeities.lst
+DOMAIN:slayersamazonsdomains.lst
+SPELL:slayersamazonsspells.lst

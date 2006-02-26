@@ -1,0 +1,169 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Jun 24 11:47:20 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Maze of the Minotaur|SOURCESHORT:MotM|SOURCEWEB:http://www.behemoth3.com/
+# Original Entry by: Aaron Divinsky
+
+### Because this class does not gain a HD at every level the following changes had to be incorporated:
+### 1) Set Hit Die Size to 1 and then subtract those HP.
+### 2) Have to subtract skill points.
+### 3) Adjust feat pool because feats are granted based on HD, this will have to be done manually by the user.
+
+### TODO: The stat bonuses here aren't classified as racial in GUI
+### TODO: Max skill ranks reflect the level not hit dice.  Is this right?
+### TODO: The FACE/REACH numbers do not appear to get adjusted with the size bump at level 5
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Minotaur	HD:8		TYPE:Monster	MAXLEVEL:8	SOURCEPAGE:p. 18	BONUS:CHECKS|BASE.Fortitude|CL/4	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|((CL+1)/3)+2	BONUS:COMBAT|BAB|((CL+1)*2)/3|TYPE=Base.REPLACE
+# Class Name	Required Race
+CLASS:Minotaur	PRERACE:Minotaur (Variant)
+# Class Name	Skill Pts/Lvl
+CLASS:Minotaur	STARTSKILLPTS:2
+1	BONUS:VAR|ScentRange|((CL+2)/3)*10
+2											BONUS:STAT|STR|2|TYPE=Racial
+4											BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial
+5							BONUS:SIZEMOD|NUMBER|1											TEMPLATE:Natural Cunning
+6											BONUS:STAT|STR|TYPE=Racial
+8											BONUS:STAT|CON|2								TEMPLATE:Minotaur Favored Class
+###Block: Natural Armor
+1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+
+###Block: Undo the changes made by size change
+5	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	BONUS:STAT|CON|-4
+
+###Block: Non Hit Dice Level Work arounds
+3	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+6	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+
+
+### The source implies that the characters race changes to Bull Lord once he takes a level in this class.
+### This is implemented by adding a Bull Lord template with SUBRACE:YES, the race will now output Minotaur (Bull Lord)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Automatic Languages
+CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	LANGAUTO:Common
+# Class Name	Required Class
+CLASS:Bull Lord	PRECLASS:1,Minotaur=8
+# Class Name	Skill Pts/Lvl
+CLASS:Bull Lord	STARTSKILLPTS:2
+
+###Block: Proficiencies
+1	FEATAUTO:Martial Weapon Proficiency|All Martial Weapon Proficiencies	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+
+###Block: Progression
+1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2	TEMPLATE:Bull Lord
+2																		FEATAUTO:Great Fortitude
+3						BONUS:STAT|STR|2
+4						BONUS:STAT|CON|2										FEATAUTO:Pounce
+6						BONUS:STAT|STR|2										FEATAUTO:Onslaught
+7																		FEATAUTO:Improved Bull Rush
+8						BONUS:STAT|STR|2
+9												TEMPLATE:Minotaur Favored Class	FEATAUTO:Freedom
+
+###Block: Natural Armor
+2	BONUS:COMBAT|AC|CL/2|TYPE=NaturalArmor.REPLACE
+9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+
+###Block: Checks
+3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|1
+5	BONUS:CHECKS|BASE.Fortitude|1
+6	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|1
+
+###Block: BAB
+2	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+3	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+5	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+6	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+8	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+
+###Block: Non Hit Dice Level Work arounds
+1	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-(max(1,2+INT)*4)
+4	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+7	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+9	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page
+CLASS:Minotrice	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:p. 20
+# Class Name	Required Race
+CLASS:Minotrice	PRERACE:Minotrice
+# Class Name	Skill Pts/Lvl
+CLASS:Minotrice	STARTSKILLPTS:2
+
+###Block: Progression
+1	BONUS:VAR|ScentRange|((CL+1)/2)*10
+2							BONUS:STAT|STR|2	BONUS:STAT|DEX|2
+3							BONUS:STAT|CON|2	BONUS:STAT|WIS|2
+4													TEMPLATE:Natural Cunning
+5																			FEATAUTO:Pack Tactics
+6							BONUS:STAT|STR|2	BONUS:STAT|DEX|2	TEMPLATE:Minotrice Favored Class
+###Block: Natural Armor
+2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+
+###Block: Checks
+1	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|2
+3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|1
+5	BONUS:CHECKS|BASE.Fortitude|1
+6	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|1
+
+###Block: BAB
+1	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+3	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+5	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+6	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+
+###Block: Non Hit Dice Level Work arounds
+2	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+4	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+
+
+# Class Name			Hit Dice	Type			Max Level	Source Page
+CLASS:Minotrice Maze Mage	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p. 22
+# Class Name			Required Race
+CLASS:Minotrice Maze Mage	PRERACE:Minotrice Maze Mage
+# Class Name			Skill Pts/Lvl
+CLASS:Minotrice Maze Mage	STARTSKILLPTS:2
+# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level							Use Spell List
+CLASS:Minotrice Maze Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Minotrice Maze Mage|floor(CL+1/2)	SPELLLIST:1|Druid
+
+###Block: Progression
+1	CAST:3,1		BONUS:VAR|ScentRange|((CL+2)/3)*10
+2	CAST:3,1								BONUS:STAT|STR|2	BONUS:STAT|DEX|2
+3	CAST:4,2														TEMPLATE:Natural Cunning
+4	CAST:4,2								BONUS:STAT|CON|2	BONUS:STAT|WIS|2
+5	CAST:4,2,1
+6	CAST:4,2,1								BONUS:STAT|STR|2	BONUS:STAT|DEX|2
+7	CAST:5,3,2
+8	CAST:5,3,2
+9	CAST:5,3,2,1													TEMPLATE:Minotrice Maze Mage Favored Class
+
+###Block: Natural Armor
+2	BONUS:COMBAT|AC|CL/2|TYPE=NaturalArmor.REPLACE
+
+###Block: Checks
+1	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|2
+3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|1
+5	BONUS:CHECKS|BASE.Fortitude|1
+7	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|1
+9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|1
+
+###Block: BAB
+1	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+3	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+5	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+7	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+8	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+9	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+
+###Block: Non Hit Dice Level Work arounds
+2	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+4	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+6	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)
+
+#
+# End
+#

@@ -1,0 +1,66 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Thu Aug 12 22:17:32 2004 -- reformated by prettylst.pl v1.33 (build 411)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Skill Name					Key Stat	Untrained?		Type				Source Page		Bonus to skill rank
+Native Language (Afrikaans)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (American Sign Languages)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Arabic (Egyptian))		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Arabic (Modern))		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Armenian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Assyrian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Azerbaijani)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Bantu)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Bosnian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Cherokee)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Cheyenne)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Chinese)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Croatian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Czech)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Danish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Dutch)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (English)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Farsi)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Finnnish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (French)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Georian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (German)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Greek (Ancient))		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Greek (Modern))		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Haitian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Hungarian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Icelandic)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Inodnesian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Italian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Japanese)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Khmer)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Kiwi)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Latin)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Latvian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Lithuanian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Malay)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Navajo)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Norwegian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Polish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Portuguese)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Romanian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Russian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Sanskrit)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Serbian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Slovak)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Slovenian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Spanish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Swahili)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Swedish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Tagalog)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Thai)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Turkish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Ukranian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Vietnamese)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+
+#
+# End
+#

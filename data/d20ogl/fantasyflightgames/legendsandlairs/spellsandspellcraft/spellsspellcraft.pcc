@@ -1,0 +1,29 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Mon Jun 17 17:46:40 2002 -- reformated by prettylst.pl v1.14
+CAMPAIGN:FFG - Spells and Spellcraft - Source Book
+GAMEMODE:3e
+TYPE:Fantasy Flight Games.Sourcebook
+RANK:9
+SOURCELONG:Fantasy Flight Games - Spells and Spellcraft
+SOURCESHORT:Spellcraft
+SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Spells &amp Spellcraft Copyroght 2002, Fantasy Flight, Inc.
+COPYRIGHT:PCGen dataset conversion for Spells and Spellcraft Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King, Paul Grosse)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+SPELL:spellsspellcraft_spells.lst
+FEAT:spellsspellcraft_feats.lst
+EQUIPMENT:spellsspellcraft_equip_wondrousitems.lst
+EQUIPMENT:spellsspellcraft_equip_weap_melee.lst
+EQUIPMENT:spellsspellcraft_equip_rodsstaffswands.lst
+EQUIPMENT:spellsspellcraft_equip_potions.lst
+EQUIPMENT:spellsspellcraft_equip_rings.lst
+EQUIPMENT:spellsspellcraft_equip_armorshields.lst
+EQUIPMENT:spellsspellcraft_equip_familiars.lst
+EQUIPMENT:spellsspellcraft_equip_potionsscrolls.lst
+

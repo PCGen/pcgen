@@ -1,0 +1,29 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+# Equipment Name			Product Identity?	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			% of Spell Failure	Virtual Feat		Vision			Combat bonus					Bonus to skill										Modify VAR													Special Property
+Armor of the Sea Monarchs	NAMEISPI:YES	TYPE:Magic.Armor.Medium.Suit.Specific	COST:116350	WT:30		ACCHECK:-3		MAXDEX:3		SOURCEPAGE:p.154		SPELLFAILURE:25										BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Chain Shirt of Serpents		NAMEISPI:YES	TYPE:Magic.Armor.Light.Suit.Specific	COST:134845	WT:25		ACCHECK:-1		MAXDEX:4		SOURCEPAGE:p.154		SPELLFAILURE:25										BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Iron Shield of Vesh		NAMEISPI:YES	TYPE:Magic.Shield.Specific			COST:26070	WT:10		ACCHECK:-1					SOURCEPAGE:p.155		SPELLFAILURE:15										BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Mantle of Hope			NAMEISPI:YES	TYPE:Magic.Collar.Headgear.Specific		COST:43770	WT:0								SOURCEPAGE:p.155																																															SPROP:+2 AC vs Undead, Regeneration 1 (damage caused by Undead only)
+Mantle of the Ice Bear		NAMEISPI:YES	TYPE:Magic.Armor.Medium.Suit.Specific	COST:33165	WT:25		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.155		SPELLFAILURE:20										BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Mantle of the Lawkeeper		NAMEISPI:YES	TYPE:Magic.Armor.Light.Suit.Specific	COST:5560	WT:15		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.156		SPELLFAILURE:10										BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE	BONUS:SKILL|Sense Motive|10|TYPE=Insight
+Monarch's Plate			NAMEISPI:YES	TYPE:Magic.Armor.Heavy.Suit.Specific	COST:48650	WT:50		ACCHECK:-5		MAXDEX:1		SOURCEPAGE:p.156		SPELLFAILURE:35										BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE
+Shadowork Armor			NAMEISPI:YES	TYPE:Magic.Armor.Light.Suit.Specific	COST:1160	WT:15		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.156		SPELLFAILURE:10										BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	BONUS:SKILL|Hide,Move Silently|5|TYPE=EquipmentCircumstance
+Snakeskin Armor			NAMEISPI:YES	TYPE:Magic.Armor.Light.Suit.Specific	COST:25160	WT:15		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.156		SPELLFAILURE:10		VFEAT:Negative Levels					BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE	BONUS:SKILL|Escape Artist,Move Silently|10|TYPE=EquipmentCircumstance	BONUS:VAR|NegLevels|1|PREALIGN:1,4,7	BONUS:VAR|NegLevels|2|PREALIGN:0,3,6
+Virduk's Bane			NAMEISPI:YES	TYPE:Magic.Shield.Specific			COST:18630	WT:22.5	ACCHECK:-8					SOURCEPAGE:p.156-157	SPELLFAILURE:50										BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Wight Armor				NAMEISPI:YES	TYPE:Magic.Armor.Heavy.Suit.Specific	COST:676650	WT:50		ACCHECK:-5		MAXDEX:1		SOURCEPAGE:p.157		SPELLFAILURE:35						VISION:Darkvision (60')	BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE	BONUS:SKILL|Hide|10|TYPE=EquipmentCircumstance
+
+###Block: Clothborn needs to become an eqmod
+# Equipment Name			Product Identity?	Output Name					Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Banded Mail (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Banded Mail		TYPE:Magic.Armor.Light.Suit.Specific	COST:25400	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Breastplate (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Breastplate		TYPE:Magic.Armor.Light.Suit.Specific	COST:16350	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Chain Shirt (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Chain Shirt		TYPE:Magic.Armor.Light.Suit.Specific	COST:9250	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Chainmail (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Chainmail		TYPE:Magic.Armor.Light.Suit.Specific	COST:16300	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Full Plate (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Full Plate		TYPE:Magic.Armor.Light.Suit.Specific	COST:65650	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Half-Plate (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Half-Plate		TYPE:Magic.Armor.Light.Suit.Specific	COST:49750	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Hide (Clothborn)			NAMEISPI:YES	OUTPUTNAME:[NAME] Hide			TYPE:Magic.Armor.Light.Suit.Specific	COST:4165	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Leather (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Leather		TYPE:Magic.Armor.Light.Suit.Specific	COST:1160	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Scale Mail (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Scale Mail		TYPE:Magic.Armor.Light.Suit.Specific	COST:9200	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Splint Mail (Clothborn)		NAMEISPI:YES	OUTPUTNAME:[NAME] Splint Mail		TYPE:Magic.Armor.Light.Suit.Specific	COST:25350	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Studded Leather (Clothborn)	NAMEISPI:YES	OUTPUTNAME:[NAME] Studded Leather	TYPE:Magic.Armor.Light.Suit.Specific	COST:4175	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.154	SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE

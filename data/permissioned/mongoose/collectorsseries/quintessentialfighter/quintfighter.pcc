@@ -1,0 +1,32 @@
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $
+CAMPAIGN:Mongoose - Collectors Series - Quintessential Fighter
+GAMEMODE:3e
+TYPE:Mongoose.Supplement.Collectors Series
+RANK:9
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter
+SOURCESHORT:QuintFight
+SOURCEWEB:http://mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from The Quintessential Fighter Copyright 2001, Mongoose Publishing.
+COPYRIGHT:PCGen dataset conversion for The Quintessential Fighter Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:quintfighterclasses.lst
+EQUIPMENT:quintfighterequiparmorshields.lst
+EQUIPMENT:quintfighterequipweapammo.lst
+EQUIPMENT:quintfighterequipweapblackpowder.lst
+EQUIPMENT:quintfighterequipweapranged.lst
+EQUIPMENT:quintfighterequipweapmelee.lst
+EQUIPMENT:quintfighterequip.lst
+EQUIPMENT:@/d20ogl/srd/srd_equip.lst|(INCLUDE:Ballista|Catapult (Heavy)|Catapult (Light))
+EQUIPMOD:@/d20ogl/srd/srd_equipmods_mundane.lst
+FEAT:quintfighterfeats.lst
+SKILL:quintfighterskills.lst
+WEAPONPROF:quintfighterweapprofs.lst
+
+
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Uncanny Dodge|Sneak Attack)

@@ -1,0 +1,4 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+# Domain Name	Spells							Source Page		Description
+Missionary		SPELLS:Innate|TIMES=1|Comprehend Languages	SOURCEPAGE:p.34	DESC:Comprehend Languages 1/day

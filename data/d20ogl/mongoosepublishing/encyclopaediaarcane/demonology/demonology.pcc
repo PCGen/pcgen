@@ -1,0 +1,24 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $
+CAMPAIGN:Mongoose - Encyclopaedia Arcane - Demonology
+GAMEMODE:3e
+TYPE:Mongoose.Supplement.Encyclopaedia Arcane
+RANK:9
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology
+SOURCESHORT:Demonology
+SOURCEWEB:http://www.mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Encyclopaedia Arcane - Demonology Copyright 2003, PCGen Data Team (including, but not limited to: Andrew McDougall (Tir Gwaith), Paul W. King, wizoffice2001)
+
+
+# Do not remove the EXTRAFILE comment.
+
+#EXTRAFILE:OGL.txt
+CLASS:demonology_classes.lst
+EQUIPMENT:demonology_equip_artifacts.lst
+EQUIPMENT:demonology_equip_rings.lst
+EQUIPMENT:demonology_equip_rodsstaffswands.lst
+EQUIPMENT:demonology_equip_weap_melee_specific.lst
+EQUIPMENT:demonology_equip_wondrousitems.lst
+FEAT:demonology_feats.lst
+SKILL:demonology_skills.lst

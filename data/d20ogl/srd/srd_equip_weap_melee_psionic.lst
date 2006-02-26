@@ -1,0 +1,6 @@
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Sat Mar 26 21:33:11 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+
+# Equipment Name	Output Name			Type										Cost		Weight	Var. Min. Value			Critical Hit Multiplier	Critical Hit Range	Damage	MODS		Range		Size		Source Page					BONUS:EQMWEAPON																															Weapon prop. bonus
+Mind Blade		OUTPUTNAME:Mind-Blade	TYPE:Psionic.Weapon.Martial.Melee.Ranged.Standard.Slashing	COST:0	WT:0		PREVARGTEQ:MNDBLADEALLOWED,1	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	MODS:NO	RANGE:0	SIZE:S	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:EQMWEAPON|RANGEADD|MindBladeRANGE|TYPE=PsionicWeapon|PREVARGT:MindBladeEnchantment,0	BONUS:EQMWEAPON|DAMAGESIZE|MindBladeDAMAGESIZEADJ|TYPE=PsionicWeapon|PREVARGT:MindBladeEnchantment,0	BONUS:WEAPON|DAMAGE,TOHIT|MindBladeEnchantment|TYPE=PsionicWeapon|PREVARGT:MindBladeEnchantment,0

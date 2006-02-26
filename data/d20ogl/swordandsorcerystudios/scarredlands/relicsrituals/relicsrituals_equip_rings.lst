@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Aug  6 19:18:34 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+# Equipment Name				Product Identity?	Output Name						Type			Cost		Weight	Source Page			Combat bonus			Bonus to skill
+Ring (Asaathi Battle)			NAMEISPI:YES	OUTPUTNAME:[NAME] Ring				TYPE:Magic.Ring	COST:40100	WT:0		SOURCEPAGE:p.168		BONUS:COMBAT|AC|1|TYPE=Armor
+Ring (Dimitri's)				NAMEISPI:YES	OUTPUTNAME:[NAME] Ring				TYPE:Magic.Ring	COST:14000	WT:0		SOURCEPAGE:p.168
+Ring (Kyel/Lesser)			NAMEISPI:YES	OUTPUTNAME:Lesser Rings of Kyel		TYPE:Magic.Ring	COST:31750	WT:0		SOURCEPAGE:p.168-169	BONUS:COMBAT|AC|3|TYPE=Armor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|5
+Ring (Magic Animal)			NAMEISPI:YES	OUTPUTNAME:[NAME] Ring				TYPE:Magic.Ring	COST:7050	WT:0		SOURCEPAGE:p.169
+Ring (Maiden of Weaponcall)		NAMEISPI:YES	OUTPUTNAME:[NAME]					TYPE:Magic.Ring	COST:97200	WT:0		SOURCEPAGE:p.169
+Ring (Platinum Ring of Hedrada)	NAMEISPI:YES	OUTPUTNAME:[NAME]					TYPE:Magic.Ring	COST:78800	WT:0		SOURCEPAGE:p.169
+Ring (Alarm)				NAMEISPI:YES	OUTPUTNAME:Ring of [NAME]			TYPE:Magic.Ring	COST:4200	WT:0		SOURCEPAGE:p.170
+Ring (Madriel's Blessing)		NAMEISPI:YES	OUTPUTNAME:Ring of [NAME]			TYPE:Magic.Ring	COST:55600	WT:0		SOURCEPAGE:p.170
+Ring (Scribing/Greater)			NAMEISPI:YES	OUTPUTNAME:Ring of Scribing (Greater)	TYPE:Magic.Ring	COST:30000	WT:0		SOURCEPAGE:p.170
+Ring (Scribing/Lesser)			NAMEISPI:YES	OUTPUTNAME:Ring of Scribing (Lesser)	TYPE:Magic.Ring	COST:6000	WT:0		SOURCEPAGE:p.170
+Ring (True Sacrifice)			NAMEISPI:YES	OUTPUTNAME:Ring of [NAME]			TYPE:Magic.Ring	COST:168000	WT:0		SOURCEPAGE:p.170-171
+Ring (Pack)					NAMEISPI:YES	OUTPUTNAME:Rings of the [NAME]		TYPE:Magic.Ring	COST:63000	WT:0		SOURCEPAGE:p.171
+Ring (Windfury)				NAMEISPI:YES	OUTPUTNAME:Ring of [NAME]			TYPE:Magic.Ring	COST:60480	WT:0		SOURCEPAGE:p.171

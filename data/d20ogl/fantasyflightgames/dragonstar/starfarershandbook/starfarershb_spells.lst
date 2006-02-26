@@ -1,0 +1,72 @@
+# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+# Spell Name			Classes of caster								Domains granting the spell	School			Spell Descriptors							Type				Components		Casting Time		Range			Target Area												Duration									Save Info						Spell Resistance				Description		Source Page		Item
+Cause Critical Damage		CLASSES:Wizard,Technomancer=4											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Contruct or object touched							DURATION:Instantaneous							SAVEINFO:Will half (constructs)		SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.145
+Cause Light Damage		CLASSES:Wizard,Technomancer=1											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Contruct or object touched							DURATION:Instantaneous							SAVEINFO:Will half (constructs)		SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.145
+Cause Minor Damage		CLASSES:Wizard=0													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Contruct or object touched							DURATION:Instantaneous							SAVEINFO:Will half (constructs)		SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.145
+Cause Moderate Damage		CLASSES:Wizard,Technomancer=2											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Contruct or object touched							DURATION:Instantaneous							SAVEINFO:Will half (constructs)		SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.145
+Cause Serious Damage		CLASSES:Wizard,Technomancer=3											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Contruct or object touched							DURATION:Instantaneous							SAVEINFO:Will half (constructs)		SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.145
+Demolish				CLASSES:Wizard=6													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Close		TARGETAREA:Contruct or object touched							DURATION:Instantaneous							SAVEINFO:None					SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.145
+Detect Surveillance		CLASSES:Technomancer=1|Bard,Wizard=3									SCHOOL:Divination											TYPE:Arcane			COMPS:V S M		CASTTIME:1 action		RANGE:120 feet	TARGETAREA:120' radios emanation								DURATION:24 hours								SAVEINFO:None					SPELLRES:No					DESC:See text	SOURCEPAGE:p.145
+Endure Radiation			CLASSES:Cleric,Druid,Paladin,Wizard,Technomancer=1							SCHOOL:Abjuration		DESCRIPTOR:Radiation						TYPE:Arcane.Divine	COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Creature touched									DURATION:24 hours								SAVEINFO:None					SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.146	ITEM:Potion
+Electric Scry			CLASSES:Bard=1|Druid,Wizard,Technomancer=2|Cleric=3							SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:V S F DF	CASTTIME:1 action		RANGE:Special	TARGETAREA:Special										DURATION:1 minute/level							SAVEINFO:None					SPELLRES:No					DESC:See text	SOURCEPAGE:p.146
+Greater Electric Scry		CLASSES:Bard=4|Cleric,Druid,Wizard=5									SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:V S F DF	CASTTIME:1 action		RANGE:Special	TARGETAREA:Special										DURATION:1 minute/level							SAVEINFO:None					SPELLRES:No					DESC:See text	SOURCEPAGE:p.146
+Instant Reboot			CLASSES:Bard,Cleric,Wizard,Technomancer=2									SCHOOL:Transmutation										TYPE:Arcane.Divine	COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Reflex negates				SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.146
+Irradiate				CLASSES:Druid,Wizard=8							DOMAINS:Sun=8			SCHOOL:Evocation		DESCRIPTOR:Radiation						TYPE:Arcane.Divine	COMPS:V S DF	CASTTIME:1 action		RANGE:Medium	TARGETAREA:Beam 5' wide x 100' +10'/level long, starting right before you	DURATION:1 round/level or until all beams are exhausted	SAVEINFO:Reflex half and negates		SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.146
+Magic Bullets			CLASSES:Bard,Cleric,Paladin,Ranger,Wizard,Technomancer=2						SCHOOL:Transmutation										TYPE:Arcane.Divine	COMPS:V S F DF	CASTTIME:1 action		RANGE:Touch		TARGETAREA:One clip										DURATION:1 minute/level (D)						SAVEINFO:Will negates (Harmless, object)	SPELLRES:Yes (Harmless, object)	DESC:See text	SOURCEPAGE:p.147
+Mass Restore			CLASSES:Wizard=8													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Close		TARGETAREA:25' radius +5'/2 levels								DURATION:Instantaneous							SAVEINFO:None					SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.147
+Power Down				CLASSES:Bard,Cleric,Wizard,Technomancer=2									SCHOOL:Transmutation										TYPE:Arcane.Divine	COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Reflex negates				SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.147
+Protection From Radiation	CLASSES:Ranger=2|Cleric,Druid,Paladin,Wizard,Technomancer=3						SCHOOL:Abjuration		DESCRIPTOR:Radiation						TYPE:Arcane.Divine	COMPS:V S DF	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Creature touched									DURATION:10 minutes/level (D)						SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.147	ITEM:Potion
+Reattach				CLASSES:Wizard=7													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:3 full rounds	RANGE:Touch		TARGETAREA:One object (up to 250 lbs/caster level)					DURATION:Instantaneous							SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.147
+Recreate				CLASSES:Wizard=9													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:10 minutes	RANGE:Touch		TARGETAREA:One object (up to 250 lbs/caster level)					DURATION:Instantaneous							SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.147
+Refuel				CLASSES:Wizard,Technomancer=2											SCHOOL:Evocation											TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:None					SPELLRES:No					DESC:See text	SOURCEPAGE:p.148
+Reinforce				CLASSES:Wizard,Technomancer=1											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:1 minute/level							SAVEINFO:Will negates (Harmless, object)	SPELLRES:Yes (Harmless, object)	DESC:See text	SOURCEPAGE:p.148
+Repair Circle			CLASSES:Wizard=5													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:20 feet	TARGETAREA:All objects/constructs within 20' radius burst centered on you	DURATION:Instantaneous							SAVEINFO:Will half (Harmless)			SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.148
+Repair Critical Damage		CLASSES:Wizard,Technomancer=4											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Will half (Harmless)			SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.148
+Repair Light Damage		CLASSES:Wizard,Technomancer=1											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Will half (Harmless)			SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.148
+Repair Minor Damage		CLASSES:Wizard=0													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Will half (Harmless)			SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.148
+Repair Moderate Damage		CLASSES:Wizard,Technomancer=2											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Will half (Harmless)			SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.148
+Repair Serious Damage		CLASSES:Wizard,Technomancer=3											SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object										DURATION:Instantaneous							SAVEINFO:Will half (Harmless)			SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.149
+Resist Radiation			CLASSES:Ranger=1|Cleric,Druid,Paladin,Wizard,Technomancer=2						SCHOOL:Abjuration		DESCRIPTOR:Radiation						TYPE:Arcane			COMPS:V S DF	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Creature touched									DURATION:1 minute/level							SAVEINFO:None					SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.149	ITEM:Potion
+Restore				CLASSES:Wizard=6													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:One object (up to 250 lbs/caster level)					DURATION:Instantaneous							SAVEINFO:None					SPELLRES:Yes (Harmless)			DESC:See text	SOURCEPAGE:p.149
+Total Protection			CLASSES:Paladin=4|Cleric,Druid,Wizard=5									SCHOOL:Abjuration		DESCRIPTOR:Fire|Acid|Cold|Electricity|Sonic|Radiation	TYPE:Arcane.Divine	COMPS:V S DF	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Creature touched									DURATION:1 hour/level (D)						SAVEINFO:None					SPELLRES:Yes				DESC:See text	SOURCEPAGE:p.149	ITEM:Potion
+Tractor Beam			CLASSES:Wizard=7													SCHOOL:Transmutation										TYPE:Arcane			COMPS:V S		CASTTIME:1 action		RANGE:Long		TARGETAREA:Creature or object up to 250 lbs/level					DURATION:Concentration (up to 1 minute/level)			SAVEINFO:Will negates (object)		SPELLRES:Yes (object)			DESC:See text	SOURCEPAGE:p.149	ITEM:Potion
+
+
+###Block: SPELL.MOD generated from the old CLASSSPELL files
+# Spell Name			Classes of caster
+Animate Rope.MOD			CLASSES:Technomancer=1
+Arcane Lock.MOD			CLASSES:Technomancer=2
+Continual Flame.MOD		CLASSES:Technomancer=2
+Detect Secret Doors.MOD		CLASSES:Technomancer=1
+Endure Elements.MOD		CLASSES:Technomancer=1
+Enlarge.MOD				CLASSES:Technomancer=1
+Erase.MOD				CLASSES:Technomancer=1
+Explosive Runes.MOD		CLASSES:Technomancer=3
+Fire Trap.MOD			CLASSES:Technomancer=4
+Floating Disk.MOD			CLASSES:Technomancer=1
+Greater Magic Weapon.MOD	CLASSES:Technomancer=3
+Hold Portal.MOD			CLASSES:Technomancer=1
+Identify.MOD			CLASSES:Technomancer=1
+Keen Edge.MOD			CLASSES:Technomancer=3
+Knock.MOD				CLASSES:Technomancer=2
+Locate Object.MOD			CLASSES:Technomancer=2
+Mage Armor.MOD			CLASSES:Technomancer=1
+Magic Aura.MOD			CLASSES:Technomancer=1
+Magic Weapon.MOD			CLASSES:Technomancer=1
+Minor Creation.MOD		CLASSES:Technomancer=4
+Obscure Object.MOD		CLASSES:Technomancer=2
+Protection from Arrows.MOD	CLASSES:Technomancer=2
+Protection from Elements.MOD	CLASSES:Technomancer=3
+Pyrotechnics.MOD			CLASSES:Technomancer=2
+Reduce.MOD				CLASSES:Technomancer=1
+Resist Elements.MOD		CLASSES:Technomancer=2
+Shatter.MOD				CLASSES:Technomancer=2
+Shocking Grasp.MOD		CLASSES:Technomancer=1
+Shrink Item.MOD			CLASSES:Technomancer=3
+Stoneskin.MOD			CLASSES:Technomancer=4
+Trap.MOD				CLASSES:Technomancer=2
+True Strike.MOD			CLASSES:Technomancer=1
+Undetectable Aura.MOD		CLASSES:Technomancer=1
+Unseen Servant.MOD		CLASSES:Technomancer=1

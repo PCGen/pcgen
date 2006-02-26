@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqprintingissues.html,v 1.2 2004/01/04 20:08:14 letohnereg Exp $
+		$Author: letohnereg $
+		$Date: 2004/01/04 20:08:14 $
+		$Revision: 1.2 $
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H. Olafsson - shoATtnDOTis
+
+		Description:
+		PCGen FAQ Output and Printing Issues.
+	-->
+	<head>
+		<title>Output and Printing Issues</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Output and Printing Issues</h1>
+		
+		<ol>
+			<li>
+				<p><span class="underline">How do I get the character sheets to only print out the skills my character has?</span></p>
+				
+				<p>There is a list box in the lower right hand corner of the Skills tab that
+				determines which skills show up on the character sheet (called &quot;Include skills&quot;).</p>
+					
+				<ul>
+					<li><strong>All</strong> - includes all skills.</li>
+					<li><strong>Untrained</strong> - includes skills with ranks and untrained.</li>
+					<li><strong>None</strong> - should include only those with ranks.</li>
+				</ul>
+			</li>
+			<p></p>	
+			<li>
+				<p><span class="underline">I try to preview a character or bring up the Doc, and nothing happens.</span></p>
+
+				<p>Since PCGen is cross-platform it's hard to assume what browser you're using.
+				Click on the menu item Settings-&gt;Preferences and a dialog box will appear.</p>
+					
+				<p>One of the options under Locations is to set your Browser Path. For Windows users that will most likely be:<br />
+				<code>C:\Program Files\InternetExplorer\iexplore.exe</code></p>
+			</li>
+			
+			<li>
+				<p><span class="underline">I click on the print icon and get a warning about missing files.</span></p>
+					
+				<p>The pdf_new.zip library is required if you want to print directly from PCGen - otherwise you can
+				view the files in your browser or adobe acrobat (pdf files) and print from there. The pdf_new.zip
+				file is located at:<br />
+				<a href="http://prdownloads.sourceforge.net/pcgen/pdf_new.zip">http://prdownloads.sourceforge.net/pcgen/pdf_new.zip</a></p>
+				
+				<p>Unzip it into the lib subdirectory where you installed PCGen. Then you'll need to re-launch PCGen for it 
+				to find it properly.</p>
+			</li>
+
+			<li>
+				<p><span class="underline">Does PCGen support any command line exporting functionality?</span></p>
+					
+				
+				<p>For this to work you must have the 'Load Campaign Data with character' box checked and type the following all on one line.</p>
+				<p>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm -Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</p>				
+			</li>
+		</ol>
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqprintingissues.html,v $ ($Revision: 1.2 $) last updated $Date: 2004/01/04 20:08:14 $ by $Author: letohnereg $</p> -->
+	</body>
+
+</html>

@@ -1,0 +1,167 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+# Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
+
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat										Required Skill				Req. Spell Type
+CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:Psionic,1,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
+###Block: Level Progression
+1	ADD:SPELLCASTER(Psionic)	SA:Power Sharing I
+2	ADD:SPELLCASTER(Psionic)
+3	ADD:SPELLCASTER(Psionic)																																										ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+4	ADD:SPELLCASTER(Psionic)	SA:Power Sharing II
+5						SA:Colorless Fire DC% % times/day (Sp)|ColorlessFireDC|ColorlessFireTimes	BONUS:VAR|ColorlessFireDC|(17+BASESPELLSTAT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0
+6	ADD:SPELLCASTER(Psionic)																																										ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+7	ADD:SPELLCASTER(Psionic)	SA:Power Sharing III
+8	ADD:SPELLCASTER(Psionic)
+9	ADD:SPELLCASTER(Psionic)																																										ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+10						SA:Colorless Rain DC%, % times/day (Sp)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+BASESPELLSTAT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0
+
+# Class Name	Output Name		Hit Dice	Type			Subclass?		Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	HASSUBCLASS:YES	SOURCEPAGE:p.37	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Psion ITCK	STARTSKILLPTS:4
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Psion ITCK	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
+SUBCLASS:Seer	CHOICE:Clairsentience	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
+SUBCLASSLEVEL:1	ADD:FEAT(Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Telepathy Subdiscipline)2
+SUBCLASS:Shaper	CHOICE:Metacreativity	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
+SUBCLASSLEVEL:1	ADD:FEAT(Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline)2
+SUBCLASS:Savant	CHOICE:Psychokinesis	SPELLSTAT:CON	CSKILL:Autohypnosis|Concentration|Disable Device|Knowledge (Psionics)|Open Lock|Pick Pocket|Psicraft|Remote View|Search
+SUBCLASSLEVEL:1	ADD:FEAT(Psychometabolism Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline)2
+SUBCLASS:Egoist	CHOICE:Psychometabolism	SPELLSTAT:STR	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Psionics)|Psicraft|Stabilize Self|Swim
+SUBCLASSLEVEL:1	ADD:FEAT(Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline)2
+SUBCLASS:Nomad	CHOICE:Psychoportation	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Intuit Direction|Jump|Knowledge (Psionics)|Psicraft|Remote View|Ride|Swim|Use Rope
+SUBCLASSLEVEL:1	ADD:FEAT(Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline,Telepathy Subdiscipline)2
+SUBCLASS:Telepath	CHOICE:Telepathy		SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
+SUBCLASSLEVEL:1	ADD:FEAT(Psychometabolism Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Metacreativity Subdiscipline,Clairsentience Subdiscipline)2
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+# FEATAUTO:PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
+# due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
+# variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
+# Use ADD:SPELLCASTER(Psionic) in PrC's that add to manifester level.
+# Code those that have KNOWN tags similar to this but change the VAR names, i.e. PsionML becomes PsychicWarriorML,
+# PsionBonusPP becomes MetamindBonusPP, etc
+1																																													FEATAUTO:PsionicClass
+1	BONUS:VAR|PsionMLITCK|CL	BONUS:VAR|PsionMLITCK|var("BL=Psion ITCK")																												DEFINE:PsionMLITCK|0
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsionMLITCK,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsionMLITCK,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsionMLITCK,4
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionMLITCK,5	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionMLITCK,6	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionMLITCK,7	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionMLITCK,8
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionMLITCK,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionMLITCK,10	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionMLITCK,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionMLITCK,12
+1	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionMLITCK,13	BONUS:VAR|BasePowerPoints|24|PREVARGTEQ:PsionMLITCK,14	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionMLITCK,15	BONUS:VAR|BasePowerPoints|19|PREVARGTEQ:PsionMLITCK,16
+1	BONUS:VAR|BasePowerPoints|22|PREVARGTEQ:PsionMLITCK,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionMLITCK,18	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionMLITCK,19	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionMLITCK,20
+#bonus power points
+1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-1)/4))*2+1|PREVARGTEQ:PsionMLITCK,1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-2)/4))*2+3|PREVARGTEQ:PsionMLITCK,3
+1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-3)/4))*2+5|PREVARGTEQ:PsionMLITCK,5	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-4)/4))*2+7|PREVARGTEQ:PsionMLITCK,7
+1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-5)/4))*2+9|PREVARGTEQ:PsionMLITCK,9	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-6)/4))*2+11|PREVARGTEQ:PsionMLITCK,11
+1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PsionMLITCK,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PsionMLITCK,15
+1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PsionMLITCK,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionMLITCK,19
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Level progression
+1												SA:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3											FEATAUTO:Psicrystal
+1	KNOWN:3,1				SPECIALTYKNOWN:1,1																						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)5
+2	KNOWN:4,1				SPECIALTYKNOWN:1,1
+3	KNOWN:4,2				SPECIALTYKNOWN:1,1																						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+4	KNOWN:5,2,0				SPECIALTYKNOWN:1,1,1
+5	KNOWN:5,3,1				SPECIALTYKNOWN:1,1,1																						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+6	KNOWN:6,3,1,0			SPECIALTYKNOWN:1,1,1,1
+7	KNOWN:6,4,2,1			SPECIALTYKNOWN:1,1,1,1																						ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+8	KNOWN:7,4,2,1,0			SPECIALTYKNOWN:1,1,1,1,1
+9	KNOWN:7,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1																					ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+10	KNOWN:8,4,3,2,1,0			SPECIALTYKNOWN:1,1,1,1,1,1
+11	KNOWN:8,4,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1,1																					ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
+12	KNOWN:8,4,4,3,3,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1
+13	KNOWN:8,4,4,3,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1
+14	KNOWN:8,4,4,3,3,2,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
+15	KNOWN:8,4,4,3,3,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
+16	KNOWN:8,4,4,3,3,3,2,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1
+17	KNOWN:8,4,4,3,3,3,2,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1
+18	KNOWN:8,4,4,3,3,3,2,2,1,0	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
+19	KNOWN:8,4,4,3,3,3,2,2,2,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
+20	KNOWN:8,4,4,3,3,3,2,2,2,2	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
+
+###Block: variant prestige classes
+
+# Class Name		Output Name			Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
+CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat			Required Skill						Req. Spell Type
+CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psionics)=6	PRESPELLTYPE:Psionic,1,2	PRESPELLTYPE:Psionic,2,0
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft|Remote View
+###Block: Level progression
+1																												FEATAUTO:Psicrystal
+1																							DEFINE:PowerPsicrystal|5
+1	ADD:SPELLCASTER(Psionic)	SA:Power Psicrystal %|PowerPsicrystal	BONUS:VAR|PCrystalLevel|1
+2	ADD:SPELLCASTER(Psionic)	SA:Freely Manifest 1st ~ 3/day		BONUS:VAR|PCrystalLevel|1
+3	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+4	ADD:SPELLCASTER(Psionic)	SA:Freely Manifest 2nd ~ 3/day		BONUS:VAR|PCrystalLevel|1
+5	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+6						SA:Freely Manifest 3rd ~ 3/day
+7	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+8						SA:Freely Manifest 4th ~ 3/day
+9	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+10						SA:Apotheosis ~ one hour/day
+
+# Class Name			Output Name				Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
+CLASS:Pyrokineticist ITCK	OUTPUTNAME:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required AL		Required Skill								Req. Known Spell			Req. Spell Type								Required Text
+CLASS:Pyrokineticist ITCK	PREALIGN:CG,CN,CE	PRESKILL:1,Alchemy=8	PRESKILL:1,Knowledge (Psionics)=4	PRESPELL:1,Control Flames	PRESPELLTYPE:Psionic,1,2	PRESPELLTYPE:Psionic,2,0	PRETEXT:Must have set fire to a structure of any size just to watch it burn
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
+###Block: Level progression
+1						SA:Fire Lash (PP 11+)	SA:Touch Aflame (PP 1+)
+2	ADD:SPELLCASTER(Psionic)	SA:Hand Afire (PP 9+)	SA:Fire Adaptation (PP 3+)	BONUS:VAR|PCrystalLevel|1
+3						SA:Bolt of Fire (costs 3 PP)
+4	ADD:SPELLCASTER(Psionic)	SA:Weapon Afire (PP 9+)						BONUS:VAR|PCrystalLevel|1
+5						SA:Breath of the Dragon
+6	ADD:SPELLCASTER(Psionic)	SA:Firewalk (1 PP/10 feet)					BONUS:VAR|PCrystalLevel|1
+7						SA:Nimbus (costs 9 PP/min)
+8	ADD:SPELLCASTER(Psionic)	SA:Fear no Fire (PP 19+)					BONUS:VAR|PCrystalLevel|1
+9						SA:Heat Death (costs 13 PP)
+10	ADD:SPELLCASTER(Psionic)	SA:Fire Lord (PP 21+)						BONUS:VAR|PCrystalLevel|1
+
+
+# Class Name	Output Name		Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
+CLASS:Slayer ITCK	OUTPUTNAME:Slayer	HD:10		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat	Required Skill											Required Text																		Var. Min. Value
+CLASS:Slayer ITCK	PREATT:3	PREFEAT:1,Track	PRESKILL:1,Knowledge (Mortal Enemy Lore)=1	PRESKILL:1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PREVARGTEQ:BasePowerPoints,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency
+###Block: Level progression
+1	ADD:SPELLCASTER(Psionic)	SA:Favored Enemy (Mortal Enemy)	SA:Mortal Enemy Sense % ft range|EnemySense	BONUS:VAR|PCrystalLevel|1	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|60
+2																																		ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+3	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+4						SA:Lucid Buffer
+5	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+6						SA:Cerebral Blind (15+ PP)
+7	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+8						SA:Breach Power Resistance
+9	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+10						SA:Blast Feedback
+
+# Class Name		Output Name			Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
+CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Skill						Var. Min. Value
+CLASS:Soulknife ITCK	PREATT:3	PRESKILL:2,Move Silently,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohynosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
+###Block: Mind Blade
+1	SA:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	AUTO:EQUIP|Mind Blade
+2	SA:Throw Mind-Blade	SA:Mind-Blade +%|MindBladeEnchantment		BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0
+###Block: Proficiencies
+1	FEATAUTO:Soulknife ITCK Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Level progression
+2	ADD:SPELLCASTER(Psionic)	SA:Imbed Power				BONUS:VAR|PCrystalLevel|1
+4	ADD:SPELLCASTER(Psionic)	SA:Imbed Psionic Attack			BONUS:VAR|PCrystalLevel|1
+6	ADD:SPELLCASTER(Psionic)	SA:Free Draw	SA:Sever Life	BONUS:VAR|PCrystalLevel|1
+8	ADD:SPELLCASTER(Psionic)	SA:Upgrade					BONUS:VAR|PCrystalLevel|1	BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
+10	ADD:SPELLCASTER(Psionic)	SA:Knife to the Soul			BONUS:VAR|PCrystalLevel|1
+

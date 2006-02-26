@@ -1,0 +1,44 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+
+# not sure how to increase a spell's spell point cost through metamagic.  these feats will be commented out
+# until i figure it out.
+
+# Empower Spell.MOD	ADDSPELLPOINTS:4
+# Enlage Spell.MOD	ADDSPELLPOINTS:2
+# Extend Spell.MOD	ADDSPELLPOINTS:2
+# Maximize Spell.MOD	ADDSPELLPOINTS:6
+# Quicken Spell.MOD	ADDSPELLPOINTS:8
+# Silent Spell.MOD	ADDSPELLPOINTS:2
+# Still Spell.MOD		ADDSPELLPOINTS:2
+# Widen Spell.MOD		ADDSPELLPOINTS:6
+
+# Feat Name			Type
+Acrobatic.MOD		TYPE:BaseCriminal
+Agile.MOD			TYPE:BaseCriminal
+Alertness.MOD		TYPE:BaseCriminal.CommonSerf
+Animal Affinity.MOD	TYPE:CommonSerf.RobberBaron.Hermit
+Athletic.MOD		TYPE:ConnomSerf
+Blind Fight.MOD		TYPE:RobberBaron
+Combat Reflexes.MOD	TYPE:RobberBaron
+Combat Expertise.MOD	TYPE:RobberBaron
+Deceitful.MOD		TYPE:BaseCriminal.RobberBaron
+Deft Hands.MOD		TYPE:BaseCriminal
+Diligent.MOD		TYPE:Hermit
+Endurance.MOD		TYPE:CommonSerf.Hermit
+Great Fortitude.MOD	TYPE:Hermit
+Improved Critical.MOD	TYPE:RobberBaron
+Improved Disarm.MOD	TYPE:RobberBaron
+Improved Initiative.MOD	TYPE:RobberBaron
+Improved Trip.MOD		TYPE:RobberBaron
+#Innate Spell.MOD		TYPE:Hermit
+Iron Will.MOD		TYPE:Hermit
+Negotiator.MOD		TYPE:Hermit
+Persuasive.MOD		TYPE:RobberBaron
+Nimble Fingers.MOD	TYPE:BaseCriminal
+Quick Draw.MOD		TYPE:RobberBaron
+Scribe Scroll.MOD		TYPE:Hermit
+Self Sufficient.MOD	TYPE:BaseCriminal.Hermit
+Stealthy.MOD		TYPE:BaseCriminal
+Toughness.MOD		TYPE:Hermit
+Weapon Focus.MOD		TYPE:RobberBaron

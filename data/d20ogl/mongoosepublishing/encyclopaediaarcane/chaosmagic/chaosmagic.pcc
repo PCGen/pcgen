@@ -1,0 +1,20 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $
+CAMPAIGN:Mongoose - Encyclopaedia Arcane - Chaos Magic
+GAMEMODE:3e
+TYPE:Mongoose.Supplement.Encyclopaedia Arcane
+RANK:9
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic
+SOURCESHORT:ChaosMagic
+SOURCEWEB:http://www.mongoosepublishing.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Open game content from Encyclopaedia Arcane - Chaos Magic Copyright 2001, Mongoose Publishing.
+COPYRIGHT:PCGen dataset conversion for Encyclopaedia Arcane - Chaos Magic Copyright 2003, PCGen Data Team (including, but not limited to: Andrew McDougall (Tir Gwaith), Paul W. King, wizoffice2001)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:chaosmagic_classes.lst
+SKILL:chaosmagic_skills.lst
+FEAT:chaosmagic_feats.lst

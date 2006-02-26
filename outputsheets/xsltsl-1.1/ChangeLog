@@ -1,0 +1,90 @@
+2002-01-07	Steve Ball	<Steve.Ball@zveno.com>
+
+	* VERSION: Version 1.1 released.
+
+
+2002-01-05	Jason Diamond	<jason@injektilo.org>
+	* date-time.xsl, test/date-time.test.xsl:
+	Implemented the %I and %p codes in format-date-time
+	courtesy of Hans Stoop <hstoop@opentext.com>.
+
+2002-01-05	Steve Ball	<Steve.Ball@zveno.com>
+	* markup.xsl, test/markup.test.xsl
+	Added new markup module.
+
+2002-01-05	Jason Diamond	<jason@injektilo.org>
+	* test/gentest.test.xsl, test/results.xsl, test/results.css:
+	Tests results now use an XML format that can be styled for
+	viewing in a browser.
+
+2002-01-04	Jason Diamond	<jason@injektilo.org>
+	* string.xsl, test/string.test.xsl:
+	Added substring-before-last template.
+	* uri.xsl, test/uri.test.xsl:
+	Added resolve-uri template.
+
+2001-12-16	Steve Ball	<Steve.Ball@zveno.com>
+	* node.xsl:
+	Applied patch #447412 to handle all node types.
+
+2001-12-14	Reinout van Rees	<R.vanRees@ct.tudelft.nl>
+	* string.xsl:
+	Added improved unicode upper/lowercase handling.
+	Added to-camelcase template for converting strings into one
+	UpperCamelCase or lowerCamelCase word.
+
+2001-12-14	Steve Ball	<Steve.Ball@zveno.com>
+	* string.xsl:
+	Renamed variables.  Some XSLT processors don't cope
+	with QNames for variable names.
+
+2001-11-03	Steve Ball	<Steve.Ball@zveno.com>
+
+	* VERSION: Version 1.0 released.
+
+2001-11-03	Steve Ball	<Steve.Ball@zveno.com>
+	* Added doc/allxsl2jref.xsl, doc/makehtml.xsl,
+	doc/build.xml.  These automate building the documentation
+	set.
+
+2001-11-01	Steve Ball	<Steve Ball@zveno.com>
+	* Added string-match, character-first to string.xsl
+
+2001-10-29	Leo Monus	<Leo.Monus@zveno.com>
+	* Added substring-after-at, insert-at, backward
+	to string.xsl.
+
+2001-??-??	Steve Ball	<Steve.Ball@zveno.com>
+
+	* VERSION: Version 0.3 released.
+
+2001-05-09	Steve Ball	<Steve.Ball@zveno.com>
+	* XML Namespace root changed from 
+	http://xsltsl.sourceforge.net to
+	http://xsltsl.org
+	* Added test/gentest.xsl to generate test.xsl
+
+2001-??-??	Steve Ball	<Steve.Ball@zveno.com>
+
+	* VERSION: Version 0.2 released.
+
+2001-04-13	Jason Diamond	<jason@injektilo.org>
+
+	* Added uri.xsl
+	* Added uri.test.xsl
+
+2001-04-07	Steve Ball	<Steve.Ball@zveno.com>
+
+	* string.xsl, test/string.test.xsl
+	  Added str:substring-before-first, 'all' parameter to capitalise.
+	  capitalise by default capitalises all words in a string.
+	* Changed documentation namespace URI to http://xsltsl.sourceforge.net/xsl/documentation/1.0
+	  since new elements have been added.
+	* Added documentation for DocBook extensions.
+	* Added example stylesheet module.
+	* Added node.xsl
+
+2001-04-04	Steve Ball	<Steve.Ball@zveno.com>
+
+	* VERSION: Version 0.1 released.
+

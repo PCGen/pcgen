@@ -1,0 +1,121 @@
+# CVS $Revision: 1.16 $ $Author: eddyanthony $ -- Sun Sep  4 18:09:06 2005 -- reformated by prettylst.pl v1.35 (build 469)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+###Block: Hidden Universal Template--------------------------------------------------
+
+# Template Name	Visible	Choose a Feat				Removable?
+Agent			VISIBLE:NO	ADD:FEAT(TYPE=StartingNationality)1	REMOVABLE:NO
+
+#Agent					VISIBLE:NO		REMOVABLE:NO	SA:Action Dice - %, Action Die Type - d%, Personal Budget % bp, Mission Budget % bp, Gadget Points %|ACTIONDICE|ACTIONDIETYPE|BUDGETPOINTS|MISSIONBUDGET|GADGETPOINTS
+
+###Block: Mission Budget Temporary Bonuses--------------------------------------------------
+
+# Template Name			Visible	Modify VAR													Removable?
+Mission Threat Code - Yellow	VISIBLE:NO	BONUS:VAR|MISSIONBUDGET|15|PREAPPLY:ANYPC	BONUS:VAR|GADGETPOINTS|2|PREAPPLY:ANYPC	REMOVABLE:YES
+Mission Threat Code - Red	VISIBLE:NO	BONUS:VAR|MISSIONBUDGET|25|PREAPPLY:ANYPC	BONUS:VAR|GADGETPOINTS|4|PREAPPLY:ANYPC	REMOVABLE:YES
+Mission Threat Code - Black	VISIBLE:NO	BONUS:VAR|MISSIONBUDGET|35|PREAPPLY:ANYPC	BONUS:VAR|GADGETPOINTS|6|PREAPPLY:ANYPC	REMOVABLE:YES
+
+###Block: Eperimental stuff --------------------------------------------------
+
+#Native Languages	VISIBLE:DISPLAY		REMOVABLE:YES	ADD:Native Languages (Afrikaans,American Sign Languages,Apache,Arabic-Egyptian,Arabic-Modern,Armenian,Assyrian,Azerbaijani,Bantu,Bosnian,Cherokee,Cheyenne,Chinese,Croatian,Czech,Danish,Dutch,English,Farsi,Finnnish,French,Georian,German,Greek-Ancient,Greek-Modern,Haitian,Hebrew,Hungarian,Icelandic,Inodnesian,Italian,Japanese,Khmer,Kiwi,Korean,Latin,Latvian,Lithuanian,Malay,Navajo,Norwegian,Polish,Portuguese,Romanian,Russian,Sanskrit,Serbian,Slovak,Slovenian,Spanish,Swahili,Swedish,Tagalog,Thai,Turkish,Ukranian,Vietnamese)NATIVELANGUAGES
+
+
+###Block: Department templates--------------------------------------------------
+
+# Template Name				Visible	Level																																						Removable?
+D-0 Home Office Template		VISIBLE:NO	LEVEL:1:FEAT:D-0 Class Skills	LEVEL:1:FEAT:D-0 Class Skills	LEVEL:4:FEAT:D-0 Class Skills	LEVEL:8:FEAT:D-0 Class Skills	LEVEL:12:FEAT:D-0 Class Skills	LEVEL:16:FEAT:D-0 Class Skills	LEVEL:20:FEAT:D-0 Class Skills	REMOVABLE:NO
+D-2 Military Operations Template	VISIBLE:NO	LEVEL:1:FEAT:D-2 Skill Bonus	LEVEL:4:FEAT:D-2 Skill Bonus	LEVEL:8:FEAT:D-2 Skill Bonus	LEVEL:12:FEAT:D-2 Skill Bonus	LEVEL:16:FEAT:D-2 Skill Bonus	LEVEL:20:FEAT:D-2 Skill Bonus									REMOVABLE:NO
+
+# These were set up because of this bug - [ 900842 ] Feats not checked when granted from TEMPLATE
+# But as long as a specific feat is called and not a feat type it works fine, I'm saving these for now
+
+# D-0 Home Office Templates
+
+#D-0 Level 1 Abilities		VISIBLE:YES		REMOVABLE:NO	PRERACE:D-0 Home Office				PRELEVEL:1		ADD:FEAT(D-0 Class Skills)1	ADD:FEAT(D-0 Class Skills)1
+#D-0 Level 4 Abilities		VISIBLE:YES		REMOVABLE:NO	PRERACE:D-0 Home Office				PRELEVEL:4		ADD:FEAT(D-0 Class Skills)1
+#D-0 Level 8 Abilities		VISIBLE:YES		REMOVABLE:NO	PRERACE:D-0 Home Office				PRELEVEL:8		ADD:FEAT(D-0 Class Skills)1
+#D-0 Level 12 Abilities		VISIBLE:YES		REMOVABLE:NO	PRERACE:D-0 Home Office				PRELEVEL:12		ADD:FEAT(D-0 Class Skills)1
+#D-0 Level 16 Abilities		VISIBLE:YES		REMOVABLE:NO	PRERACE:D-0 Home Office				PRELEVEL:16		ADD:FEAT(D-0 Class Skills)1
+#D-0 Level 20 Abilities		VISIBLE:YES		REMOVABLE:NO	PRERACE:D-0 Home Office				PRELEVEL:20		ADD:FEAT(D-0 Class Skills)1
+
+# D-2 Military Operations
+
+#D-2 Level 1 Abilities		VISIBLE:DISPLAY	REMOVABLE:NO	PRERACE:D-2 Military Operations		PRELEVEL:1		ADD:FEAT(D-2 Skill Bonus)1
+#D-2 Level 4 Abilities		VISIBLE:DISPLAY	REMOVABLE:NO	PRERACE:D-2 Military Operations		PRELEVEL:4		ADD:FEAT(D-2 Skill Bonus)1
+#D-2 Level 8 Abilities		VISIBLE:DISPLAY	REMOVABLE:NO	PRERACE:D-2 Military Operations		PRELEVEL:8		ADD:FEAT(D-2 Skill Bonus)1
+#D-2 Level 12 Abilities		VISIBLE:DISPLAY	REMOVABLE:NO	PRERACE:D-2 Military Operations		PRELEVEL:12		ADD:FEAT(D-2 Skill Bonus)1
+#D-2 Level 16 Abilities		VISIBLE:DISPLAY	REMOVABLE:NO	PRERACE:D-2 Military Operations		PRELEVEL:16		ADD:FEAT(D-2 Skill Bonus)1
+#D-2 Level 20 Abilities		VISIBLE:DISPLAY	REMOVABLE:NO	PRERACE:D-2 Military Operations		PRELEVEL:20		ADD:FEAT(D-2 Skill Bonus)1
+
+###Block: Nationalities
+
+# Template Name			Visible		Define			Var. Max. Value			Modify VAR				REGION			Removable?
+Nationality - American		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:American		REMOVABLE:YES
+Nationality - Assyrian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Assyrian		REMOVABLE:YES
+Nationality - Bosnian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Bosnian		REMOVABLE:YES
+Nationality - Bantu		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Bantu		REMOVABLE:YES
+Nationality - British		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:British		REMOVABLE:YES
+Nationality - Canadian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Canadian		REMOVABLE:YES
+Nationality - Chinese		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Chinese		REMOVABLE:YES
+Nationality - Croatian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Croatian		REMOVABLE:YES
+Nationality - Czech		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Czech		REMOVABLE:YES
+Nationality - Danish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Danish		REMOVABLE:YES
+Nationality - Dutch		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Dutch		REMOVABLE:YES
+Nationality - Egyptian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Egyptian		REMOVABLE:YES
+Nationality - Finnnish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Finnnish		REMOVABLE:YES
+Nationality - French		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:French		REMOVABLE:YES
+Nationality - Georian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Georian		REMOVABLE:YES
+Nationality - German		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:German		REMOVABLE:YES
+Nationality - Greek		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Greek		REMOVABLE:YES
+Nationality - Haitian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Haitian		REMOVABLE:YES
+Nationality - Hungarian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Hungarian		REMOVABLE:YES
+Nationality - Icelandic		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Icelandic		REMOVABLE:YES
+Nationality - Inodnesian	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Inodnesian		REMOVABLE:YES
+Nationality - Isreali		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Isreali		REMOVABLE:YES
+Nationality - Italian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Italian		REMOVABLE:YES
+Nationality - Japanese		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Japanese		REMOVABLE:YES
+Nationality - Mexican		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Mexican		REMOVABLE:YES
+Nationality - North Korean	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:North Korean	REMOVABLE:YES
+Nationality - Norwegian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Norwegian		REMOVABLE:YES
+Nationality - Polish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Polish		REMOVABLE:YES
+Nationality - Portuguese	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Portuguese		REMOVABLE:YES
+Nationality - Romanian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Romanian		REMOVABLE:YES
+Nationality - Russian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Russian		REMOVABLE:YES
+Nationality - Saudi Arabia	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Saudi Arabia	REMOVABLE:YES
+Nationality - Serbian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Serbian		REMOVABLE:YES
+Nationality - South Korean	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:South Korean	REMOVABLE:YES
+Nationality - Spanish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Spanish		REMOVABLE:YES
+Nationality - Swedish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Swedish		REMOVABLE:YES
+Nationality - Thai		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Thai			REMOVABLE:YES
+Nationality - Turkish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Turkish		REMOVABLE:YES
+Nationality - Ukranian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Ukranian		REMOVABLE:YES
+Nationality - Vietnamese	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Vietnamese		REMOVABLE:YES
+
+###Block: Temporary Bonus Templates
+
+# Template Name				Visible	Source Page		Combat bonus									Bonus to skill						Stat bonus							Choose								Temporary effect description
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:p.177																				BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.177																				BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:p.177																				BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.177																				BONUS:STAT|INT|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.177																				BONUS:STAT|WIS|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:p.177																				BONUS:STAT|CHA|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points
+Blinded					VISIBLE:NO	SOURCEPAGE:p.177	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC	BONUS:SKILL|STAT.STR,STAT.DEX|-4|PREAPPLY:ANYPC																		TEMPDESC:You cannot see
+Deafened					VISIBLE:NO	SOURCEPAGE:p.177	BONUS:COMBAT|INITIATIVE|-4|PREAPPLY:ANYPC																														TEMPDESC:You cannot hear
+Entangled					VISIBLE:NO	SOURCEPAGE:p.177	BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC													BONUS:STAT|DEX|-4|PREAPPLY:ANYPC												TEMPDESC:You are ensnared
+Prone						VISIBLE:NO	SOURCEPAGE:p.177	BONUS:COMBAT|TOHIT.MELEE|-4|PREAPPLY:ANYPC																													TEMPDESC:You are on the ground
+Stunned					VISIBLE:NO	SOURCEPAGE:p.177	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																										TEMPDESC:You are stunned, you drop everything held, and cannot take actions
+
+###Block: Combat Templates
+
+# Template Name		Visible	Source Page		Combat bonus					Modify VAR																													Temporary effect description
+Fighting Defensively	VISIBLE:NO	SOURCEPAGE:p.171	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC	TEMPDESC:You are fighting defensively when attacking
+Total Defense		VISIBLE:NO	SOURCEPAGE:p.171								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
+
+#
+# End
+#

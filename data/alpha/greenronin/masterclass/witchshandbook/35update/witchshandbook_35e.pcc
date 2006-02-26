@@ -1,0 +1,39 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Aug 31 18:40:00 2004 -- reformated by prettylst.pl v1.33 (build 421)
+#Orginal Entry: Beaver
+CAMPAIGN:The Witch's Handbook
+GAMEMODE:35e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Green Ronin Publishing.Supplement.Master Class
+RANK:6
+PUBNAMELONG:Green Ronin
+PUBNAMESHORT:Ronin
+PUBNAMEWEB:http://www.greenronin.com
+SOURCELONG:The Witch's Handbook
+SOURCESHORT:witchhandbook
+SOURCEWEB:http://www.greenronin.com
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Witch's Handbook, Copyright 2002, Green Ronin Publishing;Author Steven Kenson
+COPYRIGHT:Relics & Rituals, Copyright 2001, Clark Peterson
+COPYRIGHT:PCGen dataset conversion for The Witch's Handbook 2001-2004, Including, but not limited to Michael Beaver and Anders Lindgren (Blithwyn)
+
+# This alternate pcc is based on "Witch's Handbook 3.5 Update (version 2.0)" from http://www.greenronin.com/errata/index.php?id=1302
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:witchshandbook_classes_35e.lst
+CLASS:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_classes_prestige.lst
+SPELL:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_spells.lst
+FEAT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_feats.lst
+FEAT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_feats_hidden.lst
+SKILL:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_skills.lst
+
+EQUIPMENT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_equip_poisons.lst
+EQUIPMENT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_equip_potions.lst
+EQUIPMENT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_equip_rodsstaffswands.lst
+EQUIPMENT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_equip_weap_melee_specific.lst
+EQUIPMENT:@/alpha/greenronin/masterclass/witchshandbook/witchshandbook_equip_wondrousitems.lst
+EQUIPMENT:witchshandbook_equip_wondrousitems2.lst

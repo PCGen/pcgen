@@ -1,0 +1,43 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+# Weapon Name		Type
+Antennae			TYPE:Natural
+Arm				TYPE:Natural
+Barbed Axe Handle		TYPE:Simple
+Beak				TYPE:Natural
+Bite				TYPE:Natural
+Blue Flame			TYPE:Natural
+Butt				TYPE:Natural
+Central Beak		TYPE:Natural
+Claw				TYPE:Natural
+Charge			TYPE:Natural
+Enhanced Weapon		TYPE:Natural
+Gore				TYPE:Natural
+Grapple			TYPE:Natural
+Hoof				TYPE:Natural
+Hook				TYPE:Natural
+Horn				TYPE:Natural
+Ice Dart			TYPE:Natural
+Kick				TYPE:Natural
+Physical Manipulation	TYPE:Natural
+Punch				TYPE:Natural
+Rake				TYPE:Natural
+Judge's Gun Scythe	TYPE:Exotic
+Macahuitl			TYPE:Simple
+Slam				TYPE:Natural
+Slap				TYPE:Natural
+Snakes			TYPE:Natural
+Spikes			TYPE:Natural
+Sting				TYPE:Natural
+Strand			TYPE:Natural
+Tail Slap			TYPE:Natural
+Tail Spike			TYPE:Natural
+Tail Strike			TYPE:Natural
+Tentacle			TYPE:Natural
+Thorns			TYPE:Natural
+Thrown Items (Blunt)	TYPE:Natural
+Thrown Items (Sharp)	TYPE:Natural
+Touch				TYPE:Natural
+Trample			TYPE:Natural
+Wing				TYPE:Natural

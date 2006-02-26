@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+# Author: David Culliford (dculliford@yahoo.com)
+
+# Original Entry by: dlm1065
+
+# Deity Name	Domains	Clergy AL			Desciption of Deity/Title	Holy Item		Source Page
+None			DOMAINS:ALL	FOLLOWERALIGN:012345678	DESC:None				SYMBOL:None		SOURCEPAGE:Non file in RSRD why none
+One God		DOMAINS:ALL	FOLLOWERALIGN:012345678	DESC:The One True God		SYMBOL:Crusifix	SOURCEPAGE:p50
+Old Faith		DOMAINS:ALL	FOLLOWERALIGN:012345678	DESC:The older pagan faiths	SYMBOL:None		SOURCEPAGE:p50

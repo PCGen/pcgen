@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="deverry-fantasy-male-rule" title="Deverry Human" usage="final">
+		<CATEGORY title="Fantasy: Human"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="deverry-fantasy-male-syl1" title="Syllable 1"/>
+			<GETLIST idref="deverry-fantasy-male-syl2" title="Syllable 2"/>
+			<GETLIST idref="deverry-fantasy-male-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="deverry-fantasy-female-rule" title="Deverry Human" usage="final">
+		<CATEGORY title="Fantasy: Human"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="deverry-fantasy-female-syl1" title="Syllable 1"/>
+			<GETLIST idref="deverry-fantasy-female-syl2" title="Syllable 2"/>
+			<GETLIST idref="deverry-fantasy-female-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="deverry-fantasy-elven-male-rule" title="Deverry Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="deverry-fantasy-elven-syl1" title="Syllable 1"/>
+			<GETLIST idref="deverry-fantasy-elven-syl2" title="Syllable 2"/>
+			<GETLIST idref="deverry-fantasy-elven-male-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="deverry-fantasy-elven-female-rule" title="Deverry Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="deverry-fantasy-elven-syl1" title="Syllable 1"/>
+			<GETLIST idref="deverry-fantasy-elven-syl2" title="Syllable 2"/>
+			<GETLIST idref="deverry-fantasy-elven-female-syl3" title="Syllable 3"/>
+		</RULE>
+	</RULESET>
+	<LIST id="deverry-fantasy-male-syl1" title="Syllable 1">
+		<VALUE>Aeth</VALUE>
+		<VALUE>Addr</VALUE>
+		<VALUE>Bl</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Car</VALUE>
+		<VALUE>D</VALUE>
+		<VALUE>G</VALUE>
+		<VALUE>Gl</VALUE>
+		<VALUE>Gw</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>Ow</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>Rh</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>T</VALUE>
+		<VALUE>V</VALUE>
+		<VALUE>Yr</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-male-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>eo</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-male-syl3" title="Syllable 3">
+		<VALUE>bryn</VALUE>
+		<VALUE>c</VALUE>
+		<VALUE>cyn</VALUE>
+		<VALUE>dd</VALUE>
+		<VALUE>ddry</VALUE>
+		<VALUE>ddyn</VALUE>
+		<VALUE>doc</VALUE>
+		<VALUE>dry</VALUE>
+		<VALUE>gwyn</VALUE>
+		<VALUE>llyn</VALUE>
+		<VALUE>myr</VALUE>
+		<VALUE>n</VALUE>
+		<VALUE>nnyn</VALUE>
+		<VALUE>nry</VALUE>
+		<VALUE>nvan</VALUE>
+		<VALUE>nyc</VALUE>
+		<VALUE>r</VALUE>
+		<VALUE>rcyn</VALUE>
+		<VALUE>rraent</VALUE>
+		<VALUE>ran</VALUE>
+		<VALUE>ryn</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-female-syl1" title="Syllable 1">
+		<VALUE>Al</VALUE>
+		<VALUE>Br</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Cl</VALUE>
+		<VALUE>D</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>Gw</VALUE>
+		<VALUE>J</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>Mer</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>Ys</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-female-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>ea</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+		<VALUE>w</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-female-syl3" title="Syllable 3">
+		<VALUE>brylla</VALUE>
+		<VALUE>cla</VALUE>
+		<VALUE>dda</VALUE>
+		<VALUE>ll</VALUE>
+		<VALUE>lla</VALUE>
+		<VALUE>llyra</VALUE>
+		<VALUE>lonna</VALUE>
+		<VALUE>lyan</VALUE>
+		<VALUE>na</VALUE>
+		<VALUE>ngwen</VALUE>
+		<VALUE>niver</VALUE>
+		<VALUE>noic</VALUE>
+		<VALUE>ra</VALUE>
+		<VALUE>rka</VALUE>
+		<VALUE>ryan</VALUE>
+		<VALUE>ssa</VALUE>
+		<VALUE>vyan</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-elven-syl1" title="Syllable 1">
+		<VALUE>Ad</VALUE>
+		<VALUE>Adr</VALUE>
+		<VALUE>Al</VALUE>
+		<VALUE>Alb</VALUE>
+		<VALUE>Alod</VALUE>
+		<VALUE>Ann</VALUE>
+		<VALUE>B</VALUE>
+		<VALUE>Ban</VALUE>
+		<VALUE>Ber</VALUE>
+		<VALUE>Cal</VALUE>
+		<VALUE>Car</VALUE>
+		<VALUE>Carr</VALUE>
+		<VALUE>Cont</VALUE>
+		<VALUE>Dall</VALUE>
+		<VALUE>Dar</VALUE>
+		<VALUE>Dev</VALUE>
+		<VALUE>Eb</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>Elb</VALUE>
+		<VALUE>En</VALUE>
+		<VALUE>Far</VALUE>
+		<VALUE>Gann</VALUE>
+		<VALUE>Gav</VALUE>
+		<VALUE>Hal</VALUE>
+		<VALUE>Jav</VALUE>
+		<VALUE>Jenn</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>Land</VALUE>
+		<VALUE>Man</VALUE>
+		<VALUE>Mer</VALUE>
+		<VALUE>Nan</VALUE>
+		<VALUE>Ran</VALUE>
+		<VALUE>Tal</VALUE>
+		<VALUE>Tal</VALUE>
+		<VALUE>Val</VALUE>
+		<VALUE>Wyl</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-elven-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>a</VALUE>
+		<VALUE>abe</VALUE>
+		<VALUE>abri</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>ala</VALUE>
+		<VALUE>alae</VALUE>
+		<VALUE>ale</VALUE>
+		<VALUE>ama</VALUE>
+		<VALUE>amae</VALUE>
+		<VALUE>ana</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>ede</VALUE>
+		<VALUE>ena</VALUE>
+		<VALUE>ere</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>oba</VALUE>
+		<VALUE>obre</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-elven-male-syl3" title="Syllable 3">
+		<VALUE>danten</VALUE>
+		<VALUE>dar</VALUE>
+		<VALUE>ddlaen</VALUE>
+		<VALUE>ladar</VALUE>
+		<VALUE>ldar</VALUE>
+		<VALUE>lden</VALUE>
+		<VALUE>mario</VALUE>
+		<VALUE>ndar</VALUE>
+		<VALUE>ndario</VALUE>
+		<VALUE>nnon</VALUE>
+		<VALUE>ntar</VALUE>
+		<VALUE>raen</VALUE>
+		<VALUE>rel</VALUE>
+		<VALUE>ryn</VALUE>
+		<VALUE>ssi</VALUE>
+		<VALUE>ver</VALUE>
+	</LIST>
+	<LIST id="deverry-fantasy-elven-female-syl3" title="Syllable 3">
+		<VALUE>gyn</VALUE>
+		<VALUE>ny</VALUE>
+		<VALUE>ria</VALUE>
+		<VALUE>ndra</VALUE>
+		<VALUE>nna</VALUE>
+		<VALUE>na</VALUE>
+		<VALUE>lia</VALUE>
+		<VALUE>clya</VALUE>
+		<VALUE>beriel</VALUE>
+		<VALUE>nderiel</VALUE>
+		<VALUE>ntariel</VALUE>
+		<VALUE>nteriel</VALUE>
+		<VALUE>riel</VALUE>
+		<VALUE>teriel</VALUE>
+	</LIST>
+</GENERATOR>
+

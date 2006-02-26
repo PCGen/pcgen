@@ -1,0 +1,53 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Nov  9 19:52:32 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Andargor (andargor@yahoo.com)
+
+###Block: Ghost Abilities
+# Feat Name			Type			Visible	Special Ability
+Corrupting Gaze		TYPE:GhostAbility	VISIBLE:NO	SA:Corrupting Gaze (Su) DC%|GhostAbilityDC
+Corrupting Touch		TYPE:GhostAbility	VISIBLE:NO	SA:Corrupting Touch (Su) DC%|GhostAbilityDC
+Draining Touch		TYPE:GhostAbility	VISIBLE:NO	SA:Draining Touch (Su) DC%|GhostAbilityDC
+Frightful Moan		TYPE:GhostAbility	VISIBLE:NO	SA:Frightful Moan (Su) DC%|GhostAbilityDC
+Horrific Appearance	TYPE:GhostAbility	VISIBLE:NO	SA:Horrific Appearance (Su) DC%|GhostAbilityDC
+Malevolence			TYPE:GhostAbility	VISIBLE:NO	SA:Malevolence (Su) DC%|15+max(CHA,0)|PRETEMPLATE:Ghost
+Telekinesis			TYPE:GhostAbility	VISIBLE:NO	SA:Telekinesis (Su) DC%|GhostAbilityDC
+
+###Block: Half Dragon Abilities
+# Feat Name		Type				Visible	PRESIZEGT	Special Ability	MOVECLONE
+Half Dragon Wings	TYPE:HalfDragonWings	VISIBLE:NO	PRESIZEGT:M	SA:Wings (Ex)	MOVECLONE:Walk,0,Fly,*2
+
+###Block: Used for Half Dragon and Half Fiend
+# Feat Name				Type					Visible	Required Size	Natural Attacks
+Natural Weapons (Fine)		TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Natural Weapons (Diminutive)	TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Natural Weapons (Tiny)		TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
+Natural Weapons (Small)		TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Natural Weapons (Medium)	TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Natural Weapons (Large)		TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Natural Weapons (Huge)		TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Natural Weapons (Gargantuan)	TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
+Natural Weapons (Colossal)	TYPE:TemplateNaturalWeapons	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,3d6
+
+###Block: Used for Skeletons
+# Feat Name				Type					Visible	Required Size	Natural Attacks
+Skeleton Weapons (Fine)		TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Skeleton Weapons (Diminutive)	TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Skeleton Weapons (Tiny)		TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
+Skeleton Weapons (Small)	TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Skeleton Weapons (Medium)	TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Skeleton Weapons (Large)	TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Skeleton Weapons (Huge)		TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Skeleton Weapons (Gargantuan)	TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
+Skeleton Weapons (Colossal)	TYPE:SkeletonNaturalWeapons	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8
+
+###Block: Used for Vampires and Zombies
+# Feat Name				Type			Visible	Required Size	Natural Attacks
+Slam Weapons (Fine)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1
+Slam Weapons (Diminutive)	TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Slam Weapons (Tiny)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Slam Weapons (Small)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Slam Weapons (Medium)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Slam Weapons (Large)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Slam Weapons (Huge)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Slam Weapons (Gargantuan)	TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Slam Weapons (Colossal)		TYPE:SlamWeapons	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6

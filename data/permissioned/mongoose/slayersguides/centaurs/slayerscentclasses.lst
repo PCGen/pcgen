@@ -1,0 +1,11 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sun Aug 10 22:44:55 2003 -- reformated by prettylst.pl v1.29 (build 300)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Centaurs|SOURCESHORT:SGtCentaur|SOURCEWEB:http://mongoosepublishing.com
+# Technically, the HD size should be the same as the first class level, I think....
+#	(from P.23) Not viable, so using their Examples from p.29 to get the info (well, and MM)
+
+# Class Name	Hit Dice	Type			Max Level	Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Centaur	HD:8		TYPE:Monster	MAXLEVEL:3	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Race			Reg. Race Type
+CLASS:Centaur	PRERACE:Centaur (Mongoose)	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl
+CLASS:Centaur	STARTSKILLPTS:0

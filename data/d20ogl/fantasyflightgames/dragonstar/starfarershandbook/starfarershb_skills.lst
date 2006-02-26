@@ -1,0 +1,54 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Mon Jul 21 14:32:47 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+#note: need to come back and add integrated toolkits from soulmech/robot upgrades to all kits so neg goes away when the have kit
+
+
+
+
+
+# Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Classes																			Type			Required Feat				Bonus to skill																									Source Page
+Alchemy		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence							BONUS:SKILL|Alchemy|2|PRESKILL:1,Knowledge (Chemistry)=5|TYPE=Synergy.STACK															SOURCEPAGE:p.70
+Heal			KEYSTAT:WIS																												TYPE:Wisdom								BONUS:SKILL|Heal|2|PRESKILL:1,Profession (Herbalist)=5|TYPE=Synergy.STACK	BONUS:SKILL|Heal|4|PRESKILL:1,Profession (Pharmacist)=5|TYPE=Synergy.STACK		SOURCEPAGE:p.74
+
+Cryptography	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Rogue|Loremaster																TYPE:Intelligence																																		SOURCEPAGE:p.78
+Demolitions		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Fighter|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior							TYPE:Intelligence	PREFEAT:1,Technical Proficiency	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)	SOURCEPAGE:p.79
+Freefall		KEYSTAT:DEX				ACHECK:YES			CLASSES:Barbarian|Druid|Fighter|Monk|Paladin|Ranger|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior	TYPE:Dexterity																																		SOURCEPAGE:p.79
+Pilot			KEYSTAT:DEX				ACHECK:YES			CLASSES:Fighter|Paladin|Ranger|Rogue|Blackguard|Aristocrat|Warrior									TYPE:Dexterity	PREFEAT:1,Technical Proficiency																												SOURCEPAGE:p.80
+Navigate		KEYSTAT:INT								CLASSES:Bard|Druid|Ranger|Rogue|Wizard														TYPE:Intelligence																																		SOURCEPAGE:p.81
+Repair		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence	PREFEAT:1,Technical Proficiency																												SOURCEPAGE:p.82
+Research		KEYSTAT:WIS								CLASSES:Bard|Cleric|Wizard|Loremaster														TYPE:Wisdom																																			SOURCEPAGE:p.82
+Urban Lore		KEYSTAT:WIS								CLASSES:Bard|Rogue|Aristocrat																TYPE:Wisdom																																			SOURCEPAGE:p.83
+Use Device		KEYSTAT:INT								CLASSES:Bard|Rogue|Loremaster																TYPE:Intelligence	PREFEAT:1,Technical Proficiency																												SOURCEPAGE:p.84
+
+###Block: New Crafts, Knowledge, and Professions
+# Skill Name																					Key Stat	Untrained?		Type						Required Feat				Source Page
+
+# Skill Name				Key Stat	Untrained?		Type						Required Feat				Bonus to skill																			Source Page
+Craft (Biotechnology)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency																						SOURCEPAGE:p.71
+Craft (Electronics)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency	BONUS:SKILL|Craft (Electronics)|-2|!PREITEM:1,Toolkit (Specialized-Electronics),Toolkit (Masterwork Specialized-Electronics)	SOURCEPAGE:p.71
+Craft (Gunsmithing)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency																						SOURCEPAGE:p.71
+Craft (Mechanics)				KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency	BONUS:SKILL|Craft (Mechanics)|-2|!PREITEM:1,Toolkit (Specialized-Mechanics),Toolkit (Masterwork Specialized-Mechanics)		SOURCEPAGE:p.71
+Craft (Metallurgy)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency																						SOURCEPAGE:p.71
+Craft (Pharmaceuticals)			KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency																						SOURCEPAGE:p.71
+Craft (Printing)				KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency																						SOURCEPAGE:p.71
+Craft (Robotics)				KEYSTAT:INT				TYPE:Intelligence.Craft			PREFEAT:1,Technical Proficiency	BONUS:SKILL|Craft (Robotics)|-2|!PREITEM:1,Toolkit (Specialized-Robotics),Toolkit (MasterworkSpecialized-Robotics)		SOURCEPAGE:p.71
+Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science																												SOURCEPAGE:p.75
+Knowledge (Biology)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science																												SOURCEPAGE:p.75
+Knowledge (Chemistry)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science																												SOURCEPAGE:p.75
+Knowledge (Mathematics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science																												SOURCEPAGE:p.75
+Knowledge (Physics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Science																												SOURCEPAGE:p.75
+Profession (Accountant)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Attorney)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Banker)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Computer Programmer)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Construction Worker)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Engineer)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Manager)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Miner)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Physician)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Pilot)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Psychologist)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Scientist)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Teacher)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77
+Profession (Pharmacist)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																														SOURCEPAGE:p.77

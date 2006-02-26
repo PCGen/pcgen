@@ -1,0 +1,5 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Aug 29 20:44:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology|SOURCESHORT:Demonology|SOURCEWEB:http://www.mongoosepublishing.com
+# Equipment Name	Type						Cost		Weight	Source Page
+Ring of the Balor	TYPE:Magic.Artifact.Minor.Ring	COST:999999	WT:-		SOURCEPAGE:p.43
+

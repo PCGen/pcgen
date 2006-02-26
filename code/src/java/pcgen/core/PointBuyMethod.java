@@ -1,0 +1,175 @@
+/*
+ * PointBuyMethod.java
+ * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on August 17, 2002, 11:45 PM
+ *
+ * $Id: PointBuyMethod.java,v 1.19 2005/10/20 23:40:10 binkley Exp $
+ */
+package pcgen.core;
+
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
+import pcgen.core.prereq.PrereqHandler;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
+/**
+ * <code>PointBuyMethod</code>.
+ *
+ * @author Greg Bingleman <byngl@hotmail.com>
+ * @version $Revision: 1.19 $
+ */
+public final class PointBuyMethod
+{
+	private String methodName = "";
+	private String pointFormula = "0";
+	private ArrayList bonusList = null;
+
+	public PointBuyMethod(final String argMethodName, final String argPointFormula)
+	{
+		methodName = argMethodName;
+		pointFormula = argPointFormula;
+	}
+
+	public String getMethodName()
+	{
+		return methodName;
+	}
+
+	public String getPointFormula()
+	{
+		return pointFormula;
+	}
+
+	public void setPointFormula(final String argFormula)
+	{
+		pointFormula = argFormula;
+	}
+
+	public String toString()
+	{
+		return methodName;
+	}
+
+	public String getDescription()
+	{
+		String desc = methodName;
+		if (!pointFormula.equals("0"))
+		{
+			desc += " (" + pointFormula + ')';
+		}
+		return desc;
+	}
+
+	public void addBonusList(final BonusObj aBonus)
+	{
+		if (bonusList == null)
+		{
+			bonusList = new ArrayList();
+		}
+		bonusList.add(aBonus);
+	}
+
+	public List getBonusList()
+	{
+		return bonusList;
+	}
+
+	public List getBonusListOfType(final String aType, final String aName)
+	{
+		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
+	}
+
+	/**
+	 * returns all BonusObj's that are "active"
+	 * @return active bonuses
+	 */
+	public List getActiveBonuses()
+	{
+		final List aList = new ArrayList();
+
+		List aBonusList = getBonusList();
+		if (aBonusList != null)
+		{
+			for (Iterator ab = aBonusList.iterator(); ab.hasNext();)
+			{
+				final BonusObj aBonus = (BonusObj) ab.next();
+
+				if (aBonus.isApplied())
+				{
+					aList.add(aBonus);
+				}
+			}
+		}
+
+		return aList;
+	}
+
+	/**
+	 * Sets all the BonusObj's to "active"
+	 * @param aPC
+	 */
+	public void activateBonuses(final PlayerCharacter aPC)
+	{
+		List aBonusList = getBonusList();
+		if (aBonusList == null)
+		{
+			return;
+		}
+		for (Iterator ab = aBonusList.iterator(); ab.hasNext();)
+		{
+			final BonusObj aBonus = (BonusObj) ab.next();
+			aBonus.setApplied(false);
+
+			if (aBonus.hasPreReqs())
+			{
+				//TODO: This is a hack to avoid VARs etc in feat defs being qualified
+				// for when Bypass feat prereqs is selected. Should we be passing in
+				// the BonusObj here to allow it to be referenced in Qualifies statements?
+				if (PrereqHandler.passesAll(aBonus.getPrereqList(), aPC, null))
+				{
+					aBonus.setApplied(true);
+				}
+				else
+				{
+					aBonus.setApplied(false);
+				}
+			}
+			else
+			{
+				aBonus.setApplied(true);
+			}
+		}
+	}
+/*
+	public void deactivateBonuses()
+	{
+		if (bonusList != null)
+		{
+			for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+			{
+				final BonusObj aBonus = (BonusObj) ab.next();
+				aBonus.setApplied(false);
+			}
+		}
+	}
+*/
+}

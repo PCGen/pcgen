@@ -1,0 +1,14 @@
+# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Sat Oct  1 19:49:06 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods|SOURCESHORT:TouchbtG|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Deity Name				Domains					Clergy AL			Desciption of Deity/Title					Holy Item																	Deity Weapon							ALIGN		PANTHEON		Source Page
+Raeksen					DOMAINS:Destruction,Good,Protection	FOLLOWERALIGN:367		DESC:The Just, The Mad						SYMBOL:A scale representing justice for all											DEITYWEAP:Quarterstaff						ALIGN:CG	PANTHEON:Penumbra	SOURCEPAGE:p.44
+Calaam					DOMAINS:Law,Good,Endings		FOLLOWERALIGN:013		DESC:Lord of Endings, Gatekeeper of the Netherworld	SYMBOL:A person inside of an angel													DEITYWEAP:Club|Handaxe|Hammer (Light)|Pick|Scythe|Net	ALIGN:LG	PANTHEON:Penumbra	SOURCEPAGE:p.57
+The Wild					DOMAINS:Animal,Plant,Earth		FOLLOWERALIGN:13457	DESC:None								SYMBOL:A circle of thorns														DEITYWEAP:None							ALIGN:TN	PANTHEON:Penumbra	SOURCEPAGE:p.62
+Syllisia					DOMAINS:Destruction,Earth,Plant	FOLLOWERALIGN:578		DESC:Lady of the Conquering Root				SYMBOL:A crumbling tower embraced by a green root										DEITYWEAP:Club							ALIGN:CN	PANTHEON:Penumbra	SOURCEPAGE:p.74
+Bohnaraii					DOMAINS:Good,Luck,Nobility-p		FOLLOWERALIGN:036		DESC:Patroness of Nobility					SYMBOL:Large hands between which stands a bearded man in a loincloth with upraised hands.				DEITYWEAP:Rapier							ALIGN:NG	PANTHEON:Penumbra	SOURCEPAGE:p.86
+The Legion of Ten Thousand Heroes	DOMAINS:Rage,Strength,War		FOLLOWERALIGN:012345678	DESC:None								SYMBOL:3 horizontal spear points. The top and bottom ones pointing right. The middle one pointing left.	DEITYWEAP:Greataxe						ALIGN:CN	PANTHEON:Penumbra	SOURCEPAGE:p.105
+The Divine Wolf				DOMAINS:Animal,Strength,Trickery	FOLLOWERALIGN:13457	DESC:None								SYMBOL:Wolf paws																DEITYWEAP:None							ALIGN:TN	PANTHEON:Penumbra	SOURCEPAGE:p.116
+
+#Could not find entry for Ras'Tan in the book or index but the book is not organized to find things easily. Commenting out instead of deleting just in case I missed it.
+#Ras'Tan					DOMAINS:Sun,Time-p,Knowledge,Missionary	FOLLOWERALIGN:0346	DESC:The All-Knower					SYMBOL:The Temporal Crystal														DEITYWEAP:Scimitar						ALIGN:NG				SOURCEPAGE:p.?

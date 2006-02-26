@@ -1,0 +1,22 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $
+CAMPAIGN:PE - Deadlands Web Enhancements
+GAMEMODE:Deadlands
+TYPE:Pinnacle Entertainment.Deadlands.Web
+RANK:4
+SOURCELONG:Pinnacle Entertainment (PE) - Deadlands Web Enhancements
+SOURCESHORT:DeadlndWeb
+SOURCEWEB:http://www.peginc.com
+ISOGL:YES
+COPYRIGHT:Missing Section 15 Information
+COPYRIGHT:PCGen dataset conversion for Deadlands Web Enhancements Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001, Eddy Anthony (MoSaT))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:deadlandswebmonclasses.lst
+EQUIPMENT:deadlandswebequipweapmelee.lst
+RACE:deadlandswebmonraces.lst
+SPELL:deadlandswebspells.lst
+TEMPLATE:deadlandswebmontemplates.lst
+WEAPONPROF:deadlandswebmonweapprofs.lst
+WEAPONPROF:deadlandswebweapprofs.lst

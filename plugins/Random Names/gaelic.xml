@@ -1,0 +1,2828 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="irish-gaelic-male-rule" title="Irish Gaelic" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-male-descriptive-byname" title="Descriptive Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-male-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-male-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="irish-gaelic-female-rule" title="Irish Gaelic" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-ui" title="Ui"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-ui" title="Ui"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean-ui" title="Inghean Ui"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="irish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean-ui" title="Inghean Ui"/>
+			<SPACE/>
+			<GETLIST idref="irish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="scottish-gaelic-male-rule" title="Scottish Gaelic" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-male-descriptive-byname" title="Descriptive Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-male-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-male-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mac" title="Mac"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="scottish-gaelic-female-rule" title="Scottish Gaelic" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-mhic" title="Mhic"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-ui" title="Ui"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean" title="Inghean"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited-no-dtlnr" title="Genetive"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-ui" title="Ui"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean-ui" title="Inghean Ui"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="scottish-gaelic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-female-descriptive-byname" title="Descriptive Byname"/>
+			<SPACE/>
+			<GETLIST idref="gaelic-inghean-ui" title="Inghean Ui"/>
+			<SPACE/>
+			<GETLIST idref="scottish-gaelic-genetive-lenited" title="Lenited Genetive"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="scottish-gaelic-genetive-rule" title="Genetive" usage="private">
+		<RULE weight="3">
+			<GETLIST idref="scottish-gaelic-genetive" title="Given"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="scottish-gaelic-genetive-lenited" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="irish-gaelic-genetive-rule" title="Genetive" usage="private">
+		<RULE weight="3">
+			<GETLIST idref="irish-gaelic-genetive" title="Given"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="irish-gaelic-genetive-lenited" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="gaelic-mhic-ui-rule" title="Mhic" usage="private">
+		<RULE weight="3">
+			<GETLIST idref="gaelic-mhic" title="Mhic"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="gaelic-ui" title="Ui"/>
+		</RULE>
+	</RULESET>
+	<LIST id="gaelic-mac" title="Mac">
+		<VALUE weight="5">mac</VALUE>
+		<VALUE>&#243;</VALUE>
+	</LIST>
+	<LIST id="gaelic-mhic" title="Mhic">
+		<VALUE weight="5">mhic</VALUE>
+		<VALUE weight="2">mec</VALUE>
+	</LIST>
+	<LIST id="gaelic-ui" title="Ui">
+		<VALUE weight="3">u&#237;</VALUE>
+		<VALUE>to&#237;sech clainne</VALUE>
+	</LIST>
+	<LIST id="gaelic-inghean" title="Inghean">
+		<VALUE weight="3">inghean</VALUE>
+		<VALUE>ingen</VALUE>
+	</LIST>
+	<LIST id="gaelic-inghean-ui" title="Inghean Ui">
+		<VALUE>inghean u&#237;</VALUE>
+	</LIST>
+	<LIST id="scottish-gaelic-male-given" title="Given">
+		<VALUE>Abner</VALUE>
+		<VALUE>Ab&#233;l</VALUE>
+		<VALUE>Adomn&#225;n</VALUE>
+		<VALUE>Aed</VALUE>
+		<VALUE>Aedc</VALUE>
+		<VALUE>Affiath</VALUE>
+		<VALUE>Ailch&#250;</VALUE>
+		<VALUE>Ailer&#225;n</VALUE>
+		<VALUE>Ailill</VALUE>
+		<VALUE>Aindrias</VALUE>
+		<VALUE>Aind&#237;les</VALUE>
+		<VALUE>Ainmere</VALUE>
+		<VALUE>Airard</VALUE>
+		<VALUE>Airbertach</VALUE>
+		<VALUE>Alaxandar </VALUE>
+		<VALUE>Alguine</VALUE>
+		<VALUE>Algune</VALUE>
+		<VALUE>Amalgaid</VALUE>
+		<VALUE>Amla&#237;b</VALUE>
+		<VALUE>Anfud&#225;n</VALUE>
+		<VALUE>Anmchaid</VALUE>
+		<VALUE>Aodh</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Artt</VALUE>
+		<VALUE>Art&#250;r</VALUE>
+		<VALUE>Ass&#237;d</VALUE>
+		<VALUE>August&#237;n</VALUE>
+		<VALUE>Awley</VALUE>
+		<VALUE>Baiscend</VALUE>
+		<VALUE>Banb&#225;n</VALUE>
+		<VALUE>Ba&#237;th&#237;n</VALUE>
+		<VALUE>Beoll&#225;n</VALUE>
+		<VALUE>Blathmac</VALUE>
+		<VALUE>Bran</VALUE>
+		<VALUE>Bresalc</VALUE>
+		<VALUE>Bressa</VALUE>
+		<VALUE>Brian</VALUE>
+		<VALUE>Brianc</VALUE>
+		<VALUE>Bricc&#233;ne</VALUE>
+		<VALUE>Brotch&#250;</VALUE>
+		<VALUE>Br&#243;ccan</VALUE>
+		<VALUE>Br&#243;cc&#237;n</VALUE>
+		<VALUE>B&#225;ethchellach</VALUE>
+		<VALUE>B&#225;ethgalach</VALUE>
+		<VALUE>B&#225;eth&#237;ne</VALUE>
+		<VALUE>B&#225;et&#225;n</VALUE>
+		<VALUE>B&#233;cc</VALUE>
+		<VALUE>B&#250;adach&#225;n</VALUE>
+		<VALUE>Caerell</VALUE>
+		<VALUE>Caicher</VALUE>
+		<VALUE>Cailte</VALUE>
+		<VALUE>Cainneach</VALUE>
+		<VALUE>Cainnec</VALUE>
+		<VALUE>Cainnech</VALUE>
+		<VALUE>Cairbre</VALUE>
+		<VALUE>Cairpre</VALUE>
+		<VALUE>Cano</VALUE>
+		<VALUE>Carthach</VALUE>
+		<VALUE>Catha</VALUE>
+		<VALUE>Cathal</VALUE>
+		<VALUE>Cathassach</VALUE>
+		<VALUE>Causant&#237;n</VALUE>
+		<VALUE>Ca&#237;lte</VALUE>
+		<VALUE>Cellach</VALUE>
+		<VALUE>Cellachc</VALUE>
+		<VALUE>Cellach&#225;n</VALUE>
+		<VALUE>Cenn</VALUE>
+		<VALUE>Cenn-f&#225;elad</VALUE>
+		<VALUE>Cenn&#233;dig</VALUE>
+		<VALUE>Cenn&#233;tig</VALUE>
+		<VALUE>Cerball</VALUE>
+		<VALUE>Cernach</VALUE>
+		<VALUE>Cett</VALUE>
+		<VALUE>Cian</VALUE>
+		<VALUE>Cill&#237;ne</VALUE>
+		<VALUE>Cinaed</VALUE>
+		<VALUE>Cin&#225;ed</VALUE>
+		<VALUE>Clemens</VALUE>
+		<VALUE>Cobthach</VALUE>
+		<VALUE>Colb&#225;n</VALUE>
+		<VALUE>Colcu</VALUE>
+		<VALUE>Colm&#225;n</VALUE>
+		<VALUE>Columb</VALUE>
+		<VALUE>Comgeall</VALUE>
+		<VALUE>Comgell</VALUE>
+		<VALUE>Conaing</VALUE>
+		<VALUE>Conall</VALUE>
+		<VALUE>Conchobar</VALUE>
+		<VALUE>Conchobor</VALUE>
+		<VALUE>Condlae</VALUE>
+		<VALUE>Congal</VALUE>
+		<VALUE>Congalach</VALUE>
+		<VALUE>Congalachc</VALUE>
+		<VALUE>Conlae</VALUE>
+		<VALUE>Connlac</VALUE>
+		<VALUE>Corcc</VALUE>
+		<VALUE>Cormac</VALUE>
+		<VALUE>Cormac&#225;n</VALUE>
+		<VALUE>Coscrach</VALUE>
+		<VALUE>Crimthann</VALUE>
+		<VALUE>Crin&#225;n</VALUE>
+		<VALUE>Crundm&#225;el</VALUE>
+		<VALUE>Cuil&#233;n</VALUE>
+		<VALUE>Cuindles</VALUE>
+		<VALUE>Cummascach</VALUE>
+		<VALUE>C&#225;irthenn</VALUE>
+		<VALUE>C&#250;</VALUE>
+		<VALUE>C&#250; L&#237;</VALUE>
+		<VALUE>C&#250; L&#237;i</VALUE>
+		<VALUE>C&#250;&#225;n</VALUE>
+		<VALUE>Dani&#233;l</VALUE>
+		<VALUE>Dau&#237;d</VALUE>
+		<VALUE>Demm&#225;n</VALUE>
+		<VALUE>Diarmait</VALUE>
+		<VALUE>Domhnall</VALUE>
+		<VALUE>Domnall</VALUE>
+		<VALUE>Domnallc</VALUE>
+		<VALUE>Domongart</VALUE>
+		<VALUE>Donchad</VALUE>
+		<VALUE>Donnachac</VALUE>
+		<VALUE>Donnchad</VALUE>
+		<VALUE>Donnchadc</VALUE>
+		<VALUE>Donnchadh</VALUE>
+		<VALUE>Donndub&#225;n</VALUE>
+		<VALUE>Donngal</VALUE>
+		<VALUE>Dub</VALUE>
+		<VALUE>Dubgall</VALUE>
+		<VALUE>Dubhghall</VALUE>
+		<VALUE>Dubne</VALUE>
+		<VALUE>Dubni</VALUE>
+		<VALUE>Dubthach</VALUE>
+		<VALUE>Duibne</VALUE>
+		<VALUE>Duinechaid</VALUE>
+		<VALUE>Dunchad</VALUE>
+		<VALUE>D&#225;ire</VALUE>
+		<VALUE>D&#225;lach</VALUE>
+		<VALUE>D&#237;cuill</VALUE>
+		<VALUE>D&#237;glach</VALUE>
+		<VALUE>D&#237;mmae</VALUE>
+		<VALUE>D&#237;nertach</VALUE>
+		<VALUE>D&#250;nchad</VALUE>
+		<VALUE>D&#250;ngal</VALUE>
+		<VALUE>D&#250;ngalc</VALUE>
+		<VALUE>D&#250;nlang</VALUE>
+		<VALUE>Echmh&#237;lidh</VALUE>
+		<VALUE>Eochaid</VALUE>
+		<VALUE>Eochaidc</VALUE>
+		<VALUE>Eochu</VALUE>
+		<VALUE>Eoin</VALUE>
+		<VALUE>Ercc</VALUE>
+		<VALUE>Failge</VALUE>
+		<VALUE>Fa&#237;lbe</VALUE>
+		<VALUE>Fearghus</VALUE>
+		<VALUE>Fechtnach</VALUE>
+		<VALUE>Fedacch</VALUE>
+		<VALUE>Fedelmid</VALUE>
+		<VALUE>Feradac</VALUE>
+		<VALUE>Feradach</VALUE>
+		<VALUE>Feradachc</VALUE>
+		<VALUE>Ferchertne</VALUE>
+		<VALUE>Ferdomnach</VALUE>
+		<VALUE>Ferdorcha</VALUE>
+		<VALUE>Fergal</VALUE>
+		<VALUE>Fergus</VALUE>
+		<VALUE>Fiachna</VALUE>
+		<VALUE>Fiachnac</VALUE>
+		<VALUE>Fiachra</VALUE>
+		<VALUE>Fiachu</VALUE>
+		<VALUE>Find</VALUE>
+		<VALUE>Findchad</VALUE>
+		<VALUE>Finguine</VALUE>
+		<VALUE>Finnchad</VALUE>
+		<VALUE>Finnch&#250;</VALUE>
+		<VALUE>Fintan</VALUE>
+		<VALUE>Fin&#225;n</VALUE>
+		<VALUE>Fionghuine</VALUE>
+		<VALUE>Flaithbertach</VALUE>
+		<VALUE>Flaithem</VALUE>
+		<VALUE>Flaithr&#237;</VALUE>
+		<VALUE>Fland, Flann</VALUE>
+		<VALUE>Flann</VALUE>
+		<VALUE>Flannac&#225;n</VALUE>
+		<VALUE>Fogartach</VALUE>
+		<VALUE>Forann&#225;n</VALUE>
+		<VALUE>Forbassach</VALUE>
+		<VALUE>Fothad</VALUE>
+		<VALUE>Fothud</VALUE>
+		<VALUE>F&#225;elad</VALUE>
+		<VALUE>F&#225;el&#225;n</VALUE>
+		<VALUE>F&#237;nghin</VALUE>
+		<VALUE>F&#237;ngin</VALUE>
+		<VALUE>F&#237;nnechta</VALUE>
+		<VALUE>Gadra</VALUE>
+		<VALUE>Garalt</VALUE>
+		<VALUE>Garnait</VALUE>
+		<VALUE>Gartnait</VALUE>
+		<VALUE>Gerald</VALUE>
+		<VALUE>Geralt</VALUE>
+		<VALUE>Ger&#243;itin</VALUE>
+		<VALUE>Gilla Br&#233;nainn</VALUE>
+		<VALUE>Gilla Comgaill</VALUE>
+		<VALUE>Gilla Mochutu</VALUE>
+		<VALUE>Gilla P&#225;traic</VALUE>
+		<VALUE>Gilla na N&#225;em</VALUE>
+		<VALUE>Gille Aindr&#233;is</VALUE>
+		<VALUE>Gille Brigte</VALUE>
+		<VALUE>Gille Call&#237;ne</VALUE>
+		<VALUE>Gille Cholaim</VALUE>
+		<VALUE>Gille Chr&#237;osd</VALUE>
+		<VALUE>Gille Coimded</VALUE>
+		<VALUE>Gille Colaim</VALUE>
+		<VALUE>Gille Cr&#237;st</VALUE>
+		<VALUE>Gille Eascoib</VALUE>
+		<VALUE>Gille Epscoip</VALUE>
+		<VALUE>Gille M&#237;ch&#233;il</VALUE>
+		<VALUE>Gille Petair</VALUE>
+		<VALUE>Gille-Aindr&#233;is</VALUE>
+		<VALUE>Gille-Brigte</VALUE>
+		<VALUE>Gille-Call&#237;ne</VALUE>
+		<VALUE>Gille-Coimded</VALUE>
+		<VALUE>Gille-Colaim</VALUE>
+		<VALUE>Gille-Cr&#237;st</VALUE>
+		<VALUE>Gille-M&#237;cael</VALUE>
+		<VALUE>Gille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Gille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Gille-Petair</VALUE>
+		<VALUE>Gilli-Petair</VALUE>
+		<VALUE>Giric</VALUE>
+		<VALUE>Glass&#225;n</VALUE>
+		<VALUE>Gormgilla</VALUE>
+		<VALUE>Gorm&#225;n</VALUE>
+		<VALUE>Griogair</VALUE>
+		<VALUE>Guaire</VALUE>
+		<VALUE>G&#225;eth&#237;nec</VALUE>
+		<VALUE>G&#233;bennach</VALUE>
+		<VALUE>Idad</VALUE>
+		<VALUE>Ided</VALUE>
+		<VALUE>Imchad</VALUE>
+		<VALUE>Indrechtach</VALUE>
+		<VALUE>Labraid</VALUE>
+		<VALUE>Lachtn&#225;n</VALUE>
+		<VALUE>Lenn&#225;n</VALUE>
+		<VALUE>Liber</VALUE>
+		<VALUE>Lochloinn</VALUE>
+		<VALUE>Loingsech</VALUE>
+		<VALUE>Lorcc&#225;n</VALUE>
+		<VALUE>Luachra</VALUE>
+		<VALUE>Lugaid</VALUE>
+		<VALUE>Lulach</VALUE>
+		<VALUE>L&#233;od</VALUE>
+		<VALUE>L&#233;ot</VALUE>
+		<VALUE>L&#243;egaire</VALUE>
+		<VALUE>Mac Bethad</VALUE>
+		<VALUE>Mac Dobarchon</VALUE>
+		<VALUE>Mac Laisre</VALUE>
+		<VALUE>Mac-Bead</VALUE>
+		<VALUE>Mac-Bethad</VALUE>
+		<VALUE>Mac-Dobarchon</VALUE>
+		<VALUE>Mac-Dubbac&#237;n</VALUE>
+		<VALUE>Mael Brigde</VALUE>
+		<VALUE>Mael Coluim</VALUE>
+		<VALUE>Mael Domnaich</VALUE>
+		<VALUE>Mael-Bric&#237;n</VALUE>
+		<VALUE>Mael-Brigte</VALUE>
+		<VALUE>Mael-Coluim</VALUE>
+		<VALUE>Mael-Domnig</VALUE>
+		<VALUE>Mael-F&#233;ch&#237;n</VALUE>
+		<VALUE>Mael-F&#233;ich&#237;n</VALUE>
+		<VALUE>Mael-Giric</VALUE>
+		<VALUE>Mael-Muire</VALUE>
+		<VALUE>Mael-Petir</VALUE>
+		<VALUE>Mael-Snechta</VALUE>
+		<VALUE>Magnus</VALUE>
+		<VALUE>Maine</VALUE>
+		<VALUE>Mal-Bric&#237;n</VALUE>
+		<VALUE>Mal-Brigte</VALUE>
+		<VALUE>Mal-Coloum</VALUE>
+		<VALUE>Mal-Coluim</VALUE>
+		<VALUE>Mal-Colum</VALUE>
+		<VALUE>Mal-F&#233;ch&#237;n</VALUE>
+		<VALUE>Mal-Girc</VALUE>
+		<VALUE>Mal-Moire</VALUE>
+		<VALUE>Mal-Petir</VALUE>
+		<VALUE>Mal-Snecte</VALUE>
+		<VALUE>Mal-&#230;ch&#237;n</VALUE>
+		<VALUE>Mal-&#233;ch&#237;n</VALUE>
+		<VALUE>Malachy</VALUE>
+		<VALUE>Male-Domni</VALUE>
+		<VALUE>Mara</VALUE>
+		<VALUE>Marc&#225;n</VALUE>
+		<VALUE>Martan</VALUE>
+		<VALUE>Matad&#237;n</VALUE>
+		<VALUE>Matain</VALUE>
+		<VALUE>Matheus</VALUE>
+		<VALUE>Mathgamain</VALUE>
+		<VALUE>Matne</VALUE>
+		<VALUE>Morand</VALUE>
+		<VALUE>Morgann</VALUE>
+		<VALUE>Morgant</VALUE>
+		<VALUE>Morgunn</VALUE>
+		<VALUE>Moriartogh</VALUE>
+		<VALUE>Moridac</VALUE>
+		<VALUE>Morrann</VALUE>
+		<VALUE>Mugr&#243;n</VALUE>
+		<VALUE>Muirchertach</VALUE>
+		<VALUE>Muirchertachc</VALUE>
+		<VALUE>Muiredach</VALUE>
+		<VALUE>Muirgius</VALUE>
+		<VALUE>Murchad</VALUE>
+		<VALUE>M&#225;el Bric&#237;n</VALUE>
+		<VALUE>M&#225;el D&#250;inc</VALUE>
+		<VALUE>M&#225;el Mithig</VALUE>
+		<VALUE>M&#225;el Muad</VALUE>
+		<VALUE>M&#225;el Ruanaid</VALUE>
+		<VALUE>M&#225;el Sechnaill</VALUE>
+		<VALUE>M&#225;el &#205;su</VALUE>
+		<VALUE>M&#225;el-d&#250;in</VALUE>
+		<VALUE>M&#225;el-ruanaid</VALUE>
+		<VALUE>M&#225;el-tuili</VALUE>
+		<VALUE>M&#225;elodor</VALUE>
+		<VALUE>M&#225;el&#225;n</VALUE>
+		<VALUE>M&#225;enach</VALUE>
+		<VALUE>M&#243;enach</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>Nechtan</VALUE>
+		<VALUE>Nectan</VALUE>
+		<VALUE>Niall</VALUE>
+		<VALUE>Nicholas</VALUE>
+		<VALUE>Nuadu</VALUE>
+		<VALUE>Odar</VALUE>
+		<VALUE>Oiss&#233;ne</VALUE>
+		<VALUE>Olibh&#233;ar</VALUE>
+		<VALUE>Orthanach</VALUE>
+		<VALUE>Oscar</VALUE>
+		<VALUE>Padraig</VALUE>
+		<VALUE>Pait&#237;n</VALUE>
+		<VALUE>Patrick</VALUE>
+		<VALUE>Petr&#225;n</VALUE>
+		<VALUE>Piarag</VALUE>
+		<VALUE>Ragallach</VALUE>
+		<VALUE>Ragnall</VALUE>
+		<VALUE>Rebach&#225;n</VALUE>
+		<VALUE>Rechtabra</VALUE>
+		<VALUE>Rechtabrac</VALUE>
+		<VALUE>Robartach</VALUE>
+		<VALUE>Rosa</VALUE>
+		<VALUE>Rossa</VALUE>
+		<VALUE>Ro&#237;</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>Ruiss&#237;ne</VALUE>
+		<VALUE>Rumann</VALUE>
+		<VALUE>R&#237;gbardd&#225;n</VALUE>
+		<VALUE>R&#243;n&#225;n</VALUE>
+		<VALUE>Scandal</VALUE>
+		<VALUE>Scandl&#225;n</VALUE>
+		<VALUE>Scoth&#237;ne</VALUE>
+		<VALUE>Sechnassach</VALUE>
+		<VALUE>Selbach</VALUE>
+		<VALUE>Senach</VALUE>
+		<VALUE>Sench&#225;n</VALUE>
+		<VALUE>Siacas</VALUE>
+		<VALUE>Sitric</VALUE>
+		<VALUE>Sleimhne</VALUE>
+		<VALUE>Somhairle</VALUE>
+		<VALUE>Suibne</VALUE>
+		<VALUE>S&#225;erbrethach</VALUE>
+		<VALUE>S&#233;ig&#237;ne</VALUE>
+		<VALUE>S&#233;tnae</VALUE>
+		<VALUE>S&#237;thech</VALUE>
+		<VALUE>Tadc</VALUE>
+		<VALUE>Tairdelbach</VALUE>
+		<VALUE>Tanaide</VALUE>
+		<VALUE>Tigernach</VALUE>
+		<VALUE>Tigern&#225;nc</VALUE>
+		<VALUE>Tipraite</VALUE>
+		<VALUE>Toimic&#237;n</VALUE>
+		<VALUE>Toimilin</VALUE>
+		<VALUE>Tomag</VALUE>
+		<VALUE>Tom&#225;s</VALUE>
+		<VALUE>Tressach</VALUE>
+		<VALUE>Trian</VALUE>
+		<VALUE>Tr&#225;ill&#237;n</VALUE>
+		<VALUE>Tr&#225;l&#237;n</VALUE>
+		<VALUE>Tuathal</VALUE>
+		<VALUE>Uaithne</VALUE>
+		<VALUE>Uillec</VALUE>
+		<VALUE>&#193;dam</VALUE>
+		<VALUE>&#193;ed</VALUE>
+		<VALUE>&#193;edgen</VALUE>
+		<VALUE>&#193;engus</VALUE>
+		<VALUE>&#198;d</VALUE>
+		<VALUE>&#201;icnech&#225;n</VALUE>
+		<VALUE>&#201;nnae</VALUE>
+		<VALUE>&#201;nri</VALUE>
+		<VALUE>&#201;ogan</VALUE>
+		<VALUE>&#201;rennach</VALUE>
+		<VALUE>&#211;engus</VALUE>
+		<VALUE>&#211;enuc&#225;n</VALUE>
+		<VALUE>&#211;lchobar</VALUE>
+	</LIST>
+	<LIST id="irish-gaelic-male-given" title="Given">
+		<VALUE>Ab&#233;l</VALUE>
+		<VALUE>Adomn&#225;n</VALUE>
+		<VALUE>Aedc</VALUE>
+		<VALUE>Affiath</VALUE>
+		<VALUE>Ailch&#250;</VALUE>
+		<VALUE>Ailer&#225;n</VALUE>
+		<VALUE>Ailill</VALUE>
+		<VALUE>Aind&#237;les</VALUE>
+		<VALUE>Ainmere</VALUE>
+		<VALUE>Airard</VALUE>
+		<VALUE>Airbertach</VALUE>
+		<VALUE>Amalgaid</VALUE>
+		<VALUE>Amla&#237;b</VALUE>
+		<VALUE>Anfud&#225;n</VALUE>
+		<VALUE>Anmchaid</VALUE>
+		<VALUE>Artt</VALUE>
+		<VALUE>Art&#250;r</VALUE>
+		<VALUE>Ass&#237;d</VALUE>
+		<VALUE>August&#237;n</VALUE>
+		<VALUE>Awley</VALUE>
+		<VALUE>Baiscend</VALUE>
+		<VALUE>Banb&#225;n</VALUE>
+		<VALUE>Beoll&#225;n</VALUE>
+		<VALUE>Blathmac</VALUE>
+		<VALUE>Bran</VALUE>
+		<VALUE>Bresalc</VALUE>
+		<VALUE>Bressa</VALUE>
+		<VALUE>Bressal</VALUE>
+		<VALUE>Brianc</VALUE>
+		<VALUE>Bricc&#233;ne</VALUE>
+		<VALUE>Brotch&#250;</VALUE>
+		<VALUE>Br&#243;ccan</VALUE>
+		<VALUE>B&#225;ethchellach</VALUE>
+		<VALUE>B&#225;ethgalach</VALUE>
+		<VALUE>B&#225;eth&#237;ne</VALUE>
+		<VALUE>B&#225;et&#225;n</VALUE>
+		<VALUE>B&#233;cc</VALUE>
+		<VALUE>B&#250;adach&#225;n</VALUE>
+		<VALUE>Caicher</VALUE>
+		<VALUE>Cailte</VALUE>
+		<VALUE>Cairbre</VALUE>
+		<VALUE>Cairpre</VALUE>
+		<VALUE>Cano</VALUE>
+		<VALUE>Carthach</VALUE>
+		<VALUE>Catha</VALUE>
+		<VALUE>Cathal</VALUE>
+		<VALUE>Cathassach</VALUE>
+		<VALUE>Causant&#237;n</VALUE>
+		<VALUE>Ca&#237;lte</VALUE>
+		<VALUE>Cellach</VALUE>
+		<VALUE>Cellachc</VALUE>
+		<VALUE>Cellach&#225;n</VALUE>
+		<VALUE>Cenn</VALUE>
+		<VALUE>Cenn-f&#225;elad</VALUE>
+		<VALUE>Cenn&#233;tig</VALUE>
+		<VALUE>Cerball</VALUE>
+		<VALUE>Cernach</VALUE>
+		<VALUE>Cett</VALUE>
+		<VALUE>Cian</VALUE>
+		<VALUE>Cill&#237;ne</VALUE>
+		<VALUE>Cin&#225;ed</VALUE>
+		<VALUE>Clemens</VALUE>
+		<VALUE>Cobthach</VALUE>
+		<VALUE>Colcu</VALUE>
+		<VALUE>Colm&#225;n</VALUE>
+		<VALUE>Columb</VALUE>
+		<VALUE>Conaing</VALUE>
+		<VALUE>Conall</VALUE>
+		<VALUE>Conchobar</VALUE>
+		<VALUE>Conchobor</VALUE>
+		<VALUE>Condlae</VALUE>
+		<VALUE>Congal</VALUE>
+		<VALUE>Congalach</VALUE>
+		<VALUE>Congalachc</VALUE>
+		<VALUE>Conlae</VALUE>
+		<VALUE>Connlac</VALUE>
+		<VALUE>Corcc</VALUE>
+		<VALUE>Cormac</VALUE>
+		<VALUE>Cormac&#225;n</VALUE>
+		<VALUE>Coscrach</VALUE>
+		<VALUE>Crimthann</VALUE>
+		<VALUE>Crin&#225;n</VALUE>
+		<VALUE>Crundm&#225;el</VALUE>
+		<VALUE>Cuil&#233;n</VALUE>
+		<VALUE>Cuindles</VALUE>
+		<VALUE>Cummascach</VALUE>
+		<VALUE>C&#225;irthenn</VALUE>
+		<VALUE>C&#250;</VALUE>
+		<VALUE>C&#250;&#225;n</VALUE>
+		<VALUE>Dani&#233;l</VALUE>
+		<VALUE>Demm&#225;n</VALUE>
+		<VALUE>Diarmait</VALUE>
+		<VALUE>Domnall</VALUE>
+		<VALUE>Domnallc</VALUE>
+		<VALUE>Donnchad</VALUE>
+		<VALUE>Donnchadc</VALUE>
+		<VALUE>Donndub&#225;n</VALUE>
+		<VALUE>Donngal</VALUE>
+		<VALUE>Dub</VALUE>
+		<VALUE>Dubthach</VALUE>
+		<VALUE>Duinechaid</VALUE>
+		<VALUE>Dunchad</VALUE>
+		<VALUE>D&#225;ire</VALUE>
+		<VALUE>D&#225;lach</VALUE>
+		<VALUE>D&#237;cuill</VALUE>
+		<VALUE>D&#237;glach</VALUE>
+		<VALUE>D&#237;mmae</VALUE>
+		<VALUE>D&#237;nertach</VALUE>
+		<VALUE>D&#250;nchad</VALUE>
+		<VALUE>D&#250;ngal</VALUE>
+		<VALUE>D&#250;ngalc</VALUE>
+		<VALUE>D&#250;nlang</VALUE>
+		<VALUE>Echmh&#237;lidh</VALUE>
+		<VALUE>Eochaid</VALUE>
+		<VALUE>Eochaidc</VALUE>
+		<VALUE>Eochu</VALUE>
+		<VALUE>Ercc</VALUE>
+		<VALUE>Failge</VALUE>
+		<VALUE>Fa&#237;lbe</VALUE>
+		<VALUE>Fechtnach</VALUE>
+		<VALUE>Fedacch</VALUE>
+		<VALUE>Fedelmid</VALUE>
+		<VALUE>Feradach</VALUE>
+		<VALUE>Feradachc</VALUE>
+		<VALUE>Ferchertne</VALUE>
+		<VALUE>Ferdomnach</VALUE>
+		<VALUE>Ferdorcha</VALUE>
+		<VALUE>Fergal</VALUE>
+		<VALUE>Fergus</VALUE>
+		<VALUE>Fiachna</VALUE>
+		<VALUE>Fiachnac</VALUE>
+		<VALUE>Fiachra</VALUE>
+		<VALUE>Fiachu</VALUE>
+		<VALUE>Find</VALUE>
+		<VALUE>Findchad</VALUE>
+		<VALUE>Finguine</VALUE>
+		<VALUE>Finnchad</VALUE>
+		<VALUE>Finnch&#250;</VALUE>
+		<VALUE>Fintan</VALUE>
+		<VALUE>Fin&#225;n</VALUE>
+		<VALUE>Flaithbertach</VALUE>
+		<VALUE>Flaithem</VALUE>
+		<VALUE>Flaithr&#237;</VALUE>
+		<VALUE>Fland</VALUE>
+		<VALUE>Fland, Flann</VALUE>
+		<VALUE>Flann</VALUE>
+		<VALUE>Flannac&#225;n</VALUE>
+		<VALUE>Fogartach</VALUE>
+		<VALUE>Forann&#225;n</VALUE>
+		<VALUE>Forbassach</VALUE>
+		<VALUE>Fothad</VALUE>
+		<VALUE>Fothud</VALUE>
+		<VALUE>F&#225;elad</VALUE>
+		<VALUE>F&#225;el&#225;n</VALUE>
+		<VALUE>F&#237;nghin</VALUE>
+		<VALUE>F&#237;ngin</VALUE>
+		<VALUE>F&#237;nnechta</VALUE>
+		<VALUE>Gadra</VALUE>
+		<VALUE>Garalt</VALUE>
+		<VALUE>Gerald</VALUE>
+		<VALUE>Geralt</VALUE>
+		<VALUE>Ger&#243;itin</VALUE>
+		<VALUE>Gilla Br&#233;nainn</VALUE>
+		<VALUE>Gilla Comgaill</VALUE>
+		<VALUE>Gilla Mochutu</VALUE>
+		<VALUE>Gilla P&#225;traic</VALUE>
+		<VALUE>Gilla na N&#225;em</VALUE>
+		<VALUE>Glass&#225;n</VALUE>
+		<VALUE>Gormgilla</VALUE>
+		<VALUE>Gorm&#225;n</VALUE>
+		<VALUE>Guaire</VALUE>
+		<VALUE>G&#225;eth&#237;nec</VALUE>
+		<VALUE>G&#233;bennach</VALUE>
+		<VALUE>Imchad</VALUE>
+		<VALUE>Indrechtach</VALUE>
+		<VALUE>Labraid</VALUE>
+		<VALUE>Lachtn&#225;n</VALUE>
+		<VALUE>Lenn&#225;n</VALUE>
+		<VALUE>Liber</VALUE>
+		<VALUE>Loingsech</VALUE>
+		<VALUE>Lorcc&#225;n</VALUE>
+		<VALUE>Luachra</VALUE>
+		<VALUE>Lugaid</VALUE>
+		<VALUE>L&#243;egaire</VALUE>
+		<VALUE>Mac Bethad</VALUE>
+		<VALUE>Mac Laisre</VALUE>
+		<VALUE>Magnus</VALUE>
+		<VALUE>Maine</VALUE>
+		<VALUE>Malachy</VALUE>
+		<VALUE>Mara</VALUE>
+		<VALUE>Marc&#225;n</VALUE>
+		<VALUE>Martan</VALUE>
+		<VALUE>Matheus</VALUE>
+		<VALUE>Mathgamain</VALUE>
+		<VALUE>Morand</VALUE>
+		<VALUE>Moriartogh</VALUE>
+		<VALUE>Morrann</VALUE>
+		<VALUE>Mugr&#243;n</VALUE>
+		<VALUE>Muirchertach</VALUE>
+		<VALUE>Muirchertachc</VALUE>
+		<VALUE>Muiredach</VALUE>
+		<VALUE>Muirgius</VALUE>
+		<VALUE>Murchad</VALUE>
+		<VALUE>M&#225;el D&#250;inc</VALUE>
+		<VALUE>M&#225;el Mithig</VALUE>
+		<VALUE>M&#225;el Muad</VALUE>
+		<VALUE>M&#225;el Ruanaid</VALUE>
+		<VALUE>M&#225;el Sechnaill</VALUE>
+		<VALUE>M&#225;el &#205;su</VALUE>
+		<VALUE>M&#225;el-d&#250;in</VALUE>
+		<VALUE>M&#225;el-ruanaid</VALUE>
+		<VALUE>M&#225;el-tuili</VALUE>
+		<VALUE>M&#225;elodor</VALUE>
+		<VALUE>M&#225;el&#225;n</VALUE>
+		<VALUE>M&#225;enach</VALUE>
+		<VALUE>M&#243;enach</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>Niall</VALUE>
+		<VALUE>Nicholas</VALUE>
+		<VALUE>Nuadu</VALUE>
+		<VALUE>Odar</VALUE>
+		<VALUE>Oiss&#233;ne</VALUE>
+		<VALUE>Olibh&#233;ar</VALUE>
+		<VALUE>Orthanach</VALUE>
+		<VALUE>Oscar</VALUE>
+		<VALUE>Pait&#237;n</VALUE>
+		<VALUE>Patrick</VALUE>
+		<VALUE>Petr&#225;n</VALUE>
+		<VALUE>Piarag</VALUE>
+		<VALUE>Ragallach</VALUE>
+		<VALUE>Ragnall</VALUE>
+		<VALUE>Rebach&#225;n</VALUE>
+		<VALUE>Rechtabra</VALUE>
+		<VALUE>Rechtabrac</VALUE>
+		<VALUE>Robartach</VALUE>
+		<VALUE>Rosa</VALUE>
+		<VALUE>Rossa</VALUE>
+		<VALUE>Ro&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>Ruiss&#237;ne</VALUE>
+		<VALUE>Rumann</VALUE>
+		<VALUE>R&#237;gbardd&#225;n</VALUE>
+		<VALUE>R&#243;n&#225;n</VALUE>
+		<VALUE>Scandal</VALUE>
+		<VALUE>Scandl&#225;n</VALUE>
+		<VALUE>Scoth&#237;ne</VALUE>
+		<VALUE>Sechnassach</VALUE>
+		<VALUE>Selbach</VALUE>
+		<VALUE>Senach</VALUE>
+		<VALUE>Sench&#225;n</VALUE>
+		<VALUE>Siacas</VALUE>
+		<VALUE>Sitric</VALUE>
+		<VALUE>Sleimhne</VALUE>
+		<VALUE>Suibne</VALUE>
+		<VALUE>S&#225;erbrethach</VALUE>
+		<VALUE>S&#233;ig&#237;ne</VALUE>
+		<VALUE>S&#233;tnae</VALUE>
+		<VALUE>Tadc</VALUE>
+		<VALUE>Tairdelbach</VALUE>
+		<VALUE>Tanaide</VALUE>
+		<VALUE>Tigernach</VALUE>
+		<VALUE>Tigern&#225;nc</VALUE>
+		<VALUE>Tipraite</VALUE>
+		<VALUE>Toimic&#237;n</VALUE>
+		<VALUE>Toimilin</VALUE>
+		<VALUE>Tomag</VALUE>
+		<VALUE>Tom&#225;s</VALUE>
+		<VALUE>Tressach</VALUE>
+		<VALUE>Trian</VALUE>
+		<VALUE>Tuathal</VALUE>
+		<VALUE>TuathalAbner</VALUE>
+		<VALUE>Uaithne</VALUE>
+		<VALUE>Uillec</VALUE>
+		<VALUE>&#193;dam</VALUE>
+		<VALUE>&#193;ed</VALUE>
+		<VALUE>&#193;edgen</VALUE>
+		<VALUE>&#193;engus</VALUE>
+		<VALUE>&#201;icnech&#225;n</VALUE>
+		<VALUE>&#201;nnae</VALUE>
+		<VALUE>&#201;nri</VALUE>
+		<VALUE>&#201;ogan</VALUE>
+		<VALUE>&#201;rennach</VALUE>
+		<VALUE>&#211;engus</VALUE>
+		<VALUE>&#211;enuc&#225;n</VALUE>
+		<VALUE>&#211;lchobar</VALUE>
+	</LIST>
+	<LIST id="scottish-gaelic-female-given" title="Given">
+		<VALUE>Ablach</VALUE>
+		<VALUE>Affraic</VALUE>
+		<VALUE>Afraig</VALUE>
+		<VALUE>Agais</VALUE>
+		<VALUE>Agan</VALUE>
+		<VALUE>Agnes</VALUE>
+		<VALUE>Aibhil&#237;n</VALUE>
+		<VALUE>Ailbe</VALUE>
+		<VALUE>Aileann</VALUE>
+		<VALUE>Ailion&#243;ra</VALUE>
+		<VALUE>Ailleann</VALUE>
+		<VALUE>Anlaith</VALUE>
+		<VALUE>Ar&#243;c</VALUE>
+		<VALUE>A&#237;binn</VALUE>
+		<VALUE>Barrdub</VALUE>
+		<VALUE>Barrfind</VALUE>
+		<VALUE>Beathag</VALUE>
+		<VALUE>Ben Laigen</VALUE>
+		<VALUE>Ben Mide</VALUE>
+		<VALUE>Ben Muman</VALUE>
+		<VALUE>Bredach</VALUE>
+		<VALUE>Brigit</VALUE>
+		<VALUE>B&#233; F&#225;il</VALUE>
+		<VALUE>B&#233;binn</VALUE>
+		<VALUE>Cacht</VALUE>
+		<VALUE>Caillech Domnaill</VALUE>
+		<VALUE>Caillech Finnen</VALUE>
+		<VALUE>Cainnech</VALUE>
+		<VALUE>Cairistiona</VALUE>
+		<VALUE>Caiss&#233;ne</VALUE>
+		<VALUE>Caiter&#237;na</VALUE>
+		<VALUE>Caitrina</VALUE>
+		<VALUE>Catan</VALUE>
+		<VALUE>Ca&#237;ntigern</VALUE>
+		<VALUE>Ca&#237;rech</VALUE>
+		<VALUE>Cecily</VALUE>
+		<VALUE>Cellach</VALUE>
+		<VALUE>Ciar</VALUE>
+		<VALUE>Cnes</VALUE>
+		<VALUE>Coblaith</VALUE>
+		<VALUE>Cocrich</VALUE>
+		<VALUE>Conchenn</VALUE>
+		<VALUE>Condal</VALUE>
+		<VALUE>Cr&#237;n&#243;c</VALUE>
+		<VALUE>Cumman</VALUE>
+		<VALUE>Dailfind</VALUE>
+		<VALUE>Dearbhorgaill</VALUE>
+		<VALUE>Dearbh&#225;il</VALUE>
+		<VALUE>Deirdre</VALUE>
+		<VALUE>Der Bforgaill</VALUE>
+		<VALUE>Derb&#225;il</VALUE>
+		<VALUE>Dianaim</VALUE>
+		<VALUE>Doirend</VALUE>
+		<VALUE>Dub Essa</VALUE>
+		<VALUE>Dub Lemna</VALUE>
+		<VALUE>Dubchoblaig</VALUE>
+		<VALUE>Dubgilla</VALUE>
+		<VALUE>D&#250;insech</VALUE>
+		<VALUE>D&#250;nlaith</VALUE>
+		<VALUE>Ealusaid</VALUE>
+		<VALUE>Echrad</VALUE>
+		<VALUE>Eithne</VALUE>
+		<VALUE>Ellbr&#237;g</VALUE>
+		<VALUE>Eta&#237;n</VALUE>
+		<VALUE>Ete</VALUE>
+		<VALUE>Euginia</VALUE>
+		<VALUE>Fa&#237;lenn</VALUE>
+		<VALUE>Fedelm</VALUE>
+		<VALUE>Finbil</VALUE>
+		<VALUE>Finnecht</VALUE>
+		<VALUE>Fionnghuala</VALUE>
+		<VALUE>Flann</VALUE>
+		<VALUE>Forbflaith</VALUE>
+		<VALUE>Forbhlaith</VALUE>
+		<VALUE>F&#237;ne</VALUE>
+		<VALUE>Garb</VALUE>
+		<VALUE>Gelg&#233;is</VALUE>
+		<VALUE>Geraldine</VALUE>
+		<VALUE>Gerr&#243;c</VALUE>
+		<VALUE>Giles</VALUE>
+		<VALUE>Gnathnad</VALUE>
+		<VALUE>Gormal</VALUE>
+		<VALUE>Gormlaith</VALUE>
+		<VALUE>Gorm&#225;n</VALUE>
+		<VALUE>Gruoch</VALUE>
+		<VALUE>Inderb</VALUE>
+		<VALUE>Iosbail</VALUE>
+		<VALUE>Iosobal</VALUE>
+		<VALUE>Laighb</VALUE>
+		<VALUE>Laiglib</VALUE>
+		<VALUE>Lann</VALUE>
+		<VALUE>Lathir</VALUE>
+		<VALUE>Lerben</VALUE>
+		<VALUE>Lerthan</VALUE>
+		<VALUE>L&#237; Ban</VALUE>
+		<VALUE>L&#237;gach</VALUE>
+		<VALUE>Mairghread</VALUE>
+		<VALUE>Maol Mhuire</VALUE>
+		<VALUE>Marioun</VALUE>
+		<VALUE>Marsail</VALUE>
+		<VALUE>Marsaili</VALUE>
+		<VALUE>Martha</VALUE>
+		<VALUE>Muirenn</VALUE>
+		<VALUE>Muirgel</VALUE>
+		<VALUE>Muirgheal</VALUE>
+		<VALUE>M&#225;el Etich</VALUE>
+		<VALUE>M&#225;el Fabaill</VALUE>
+		<VALUE>M&#225;el Mide</VALUE>
+		<VALUE>M&#225;el Muire</VALUE>
+		<VALUE>M&#225;ire</VALUE>
+		<VALUE>M&#225;rgr&#233;g</VALUE>
+		<VALUE>M&#243;r</VALUE>
+		<VALUE>M&#243;r Muman</VALUE>
+		<VALUE>Nuala</VALUE>
+		<VALUE>N&#225;rbflaith</VALUE>
+		<VALUE>Raghnailt</VALUE>
+		<VALUE>Ragnailt</VALUE>
+		<VALUE>R&#243;is</VALUE>
+		<VALUE>Sadb</VALUE>
+		<VALUE>Samthann</VALUE>
+		<VALUE>Sebdann</VALUE>
+		<VALUE>Selblaith</VALUE>
+		<VALUE>Seonaid</VALUE>
+		<VALUE>Sinech</VALUE>
+		<VALUE>Sitheag</VALUE>
+		<VALUE>Suaibsech</VALUE>
+		<VALUE>S&#225;erlaith</VALUE>
+		<VALUE>S&#233;tach</VALUE>
+		<VALUE>S&#237;n</VALUE>
+		<VALUE>S&#237;thmaith</VALUE>
+		<VALUE>Tailefhlaith</VALUE>
+		<VALUE>Taileflaith</VALUE>
+		<VALUE>Tailltiu</VALUE>
+		<VALUE>Temair</VALUE>
+		<VALUE>Tuathflaith</VALUE>
+		<VALUE>T&#225;ethen</VALUE>
+		<VALUE>T&#243;mnat</VALUE>
+		<VALUE>Uallach</VALUE>
+		<VALUE>Uasal</VALUE>
+		<VALUE>&#193;edammair</VALUE>
+		<VALUE>&#193;ine</VALUE>
+		<VALUE>&#201;riu</VALUE>
+		<VALUE>&#201;ta&#237;n</VALUE>
+		<VALUE>&#201;ua</VALUE>
+		<VALUE>&#205;te</VALUE>
+		<VALUE>&#211;rlaith</VALUE>
+		<VALUE>&#211;rnat</VALUE>
+	</LIST>
+	<LIST id="irish-gaelic-female-given" title="Given">
+		<VALUE>Ablach</VALUE>
+		<VALUE>Affraic</VALUE>
+		<VALUE>Aibhilin</VALUE>
+		<VALUE>Aibhil&#237;n</VALUE>
+		<VALUE>Ailbe</VALUE>
+		<VALUE>Ailbhe</VALUE>
+		<VALUE>Aileann</VALUE>
+		<VALUE>Ailion&#243;ra</VALUE>
+		<VALUE>Ailleann</VALUE>
+		<VALUE>Aine</VALUE>
+		<VALUE>Alis</VALUE>
+		<VALUE>Allbi</VALUE>
+		<VALUE>Anabla</VALUE>
+		<VALUE>Anlaith</VALUE>
+		<VALUE>Ann&#225;bla</VALUE>
+		<VALUE>Arlaith</VALUE>
+		<VALUE>Ar&#243;c</VALUE>
+		<VALUE>A&#237;binn</VALUE>
+		<VALUE>Barrdhubh</VALUE>
+		<VALUE>Barrdub</VALUE>
+		<VALUE>Barrfind</VALUE>
+		<VALUE>Be Bind</VALUE>
+		<VALUE>Be Binn</VALUE>
+		<VALUE>Bean Laighean</VALUE>
+		<VALUE>Bean Mhumhan</VALUE>
+		<VALUE>Bean Mh&#237;</VALUE>
+		<VALUE>Bebinn</VALUE>
+		<VALUE>Ben Laigen</VALUE>
+		<VALUE>Ben Mide</VALUE>
+		<VALUE>Ben Midi</VALUE>
+		<VALUE>Ben Muman</VALUE>
+		<VALUE>Brigit</VALUE>
+		<VALUE>B&#233; F&#225;il</VALUE>
+		<VALUE>B&#233;binn</VALUE>
+		<VALUE>B&#233;ibhinn</VALUE>
+		<VALUE>Cacht</VALUE>
+		<VALUE>Caillech Domnaill</VALUE>
+		<VALUE>Caillech Finnen</VALUE>
+		<VALUE>Cainnech</VALUE>
+		<VALUE>Caiss&#233;ne</VALUE>
+		<VALUE>Caiterfina</VALUE>
+		<VALUE>Caiter&#237;na</VALUE>
+		<VALUE>Caitilin</VALUE>
+		<VALUE>Caitil&#237;n</VALUE>
+		<VALUE>Caitr&#237;ona</VALUE>
+		<VALUE>Catan</VALUE>
+		<VALUE>Catherfina</VALUE>
+		<VALUE>Catilin</VALUE>
+		<VALUE>Catirfina</VALUE>
+		<VALUE>Ca&#237;ntigern</VALUE>
+		<VALUE>Ca&#237;rech</VALUE>
+		<VALUE>Cecily</VALUE>
+		<VALUE>Cellach</VALUE>
+		<VALUE>Ciar</VALUE>
+		<VALUE>Cnes</VALUE>
+		<VALUE>Cobhlaith</VALUE>
+		<VALUE>Coblaith</VALUE>
+		<VALUE>Cocrich</VALUE>
+		<VALUE>Conchenn</VALUE>
+		<VALUE>Condal</VALUE>
+		<VALUE>Cristina</VALUE>
+		<VALUE>Cr&#237;n&#243;c</VALUE>
+		<VALUE>Cumman</VALUE>
+		<VALUE>Dailfind</VALUE>
+		<VALUE>Der Bforgaill</VALUE>
+		<VALUE>Derbail</VALUE>
+		<VALUE>Derbforgaill</VALUE>
+		<VALUE>Derborgaill</VALUE>
+		<VALUE>Derb&#225;il</VALUE>
+		<VALUE>Dianaim</VALUE>
+		<VALUE>Doirend</VALUE>
+		<VALUE>Droichet</VALUE>
+		<VALUE>Dub Ch&#225;bblaigh</VALUE>
+		<VALUE>Dub Essa</VALUE>
+		<VALUE>Dub Lemna</VALUE>
+		<VALUE>Dubchablaig</VALUE>
+		<VALUE>Dubchoblaig</VALUE>
+		<VALUE>Dubesa</VALUE>
+		<VALUE>Dubgilla</VALUE>
+		<VALUE>Dubh Essa</VALUE>
+		<VALUE>Dubh Themrach</VALUE>
+		<VALUE>Dubhchobhlaigh</VALUE>
+		<VALUE>Dubh&#243;c</VALUE>
+		<VALUE>Dubthemrach</VALUE>
+		<VALUE>D&#250;insech</VALUE>
+		<VALUE>D&#250;nlaith</VALUE>
+		<VALUE>Echrad</VALUE>
+		<VALUE>Eilonora</VALUE>
+		<VALUE>Eithne</VALUE>
+		<VALUE>Elec</VALUE>
+		<VALUE>Elinora</VALUE>
+		<VALUE>Ellbr&#237;g</VALUE>
+		<VALUE>Enig</VALUE>
+		<VALUE>Etain</VALUE>
+		<VALUE>Eta&#237;n</VALUE>
+		<VALUE>Euginia</VALUE>
+		<VALUE>Fa&#237;lenn</VALUE>
+		<VALUE>Fedelm</VALUE>
+		<VALUE>Finbil</VALUE>
+		<VALUE>Findguala</VALUE>
+		<VALUE>Finnecht</VALUE>
+		<VALUE>Finnghuala</VALUE>
+		<VALUE>Finngh&#250;ala</VALUE>
+		<VALUE>Finnguala</VALUE>
+		<VALUE>Fionnghuala</VALUE>
+		<VALUE>Flann</VALUE>
+		<VALUE>Forbflaith</VALUE>
+		<VALUE>F&#237;ne</VALUE>
+		<VALUE>Gabthur</VALUE>
+		<VALUE>Garb</VALUE>
+		<VALUE>Gelg&#233;is</VALUE>
+		<VALUE>Geraldine</VALUE>
+		<VALUE>Gerr&#243;c</VALUE>
+		<VALUE>Giles</VALUE>
+		<VALUE>Gnathnad</VALUE>
+		<VALUE>Gormlaith</VALUE>
+		<VALUE>Gorm&#225;n</VALUE>
+		<VALUE>Graine</VALUE>
+		<VALUE>Graine/Grainne</VALUE>
+		<VALUE>Grainne</VALUE>
+		<VALUE>Grane</VALUE>
+		<VALUE>Gr&#225;inne</VALUE>
+		<VALUE>Imag</VALUE>
+		<VALUE>Inderb</VALUE>
+		<VALUE>Inghean Dubh</VALUE>
+		<VALUE>Isib&#233;l</VALUE>
+		<VALUE>Iuliana</VALUE>
+		<VALUE>Lann</VALUE>
+		<VALUE>Lasair Fhina</VALUE>
+		<VALUE>Lasairfina</VALUE>
+		<VALUE>Lasair&#237;ona</VALUE>
+		<VALUE>Lasarfina</VALUE>
+		<VALUE>Lasur Fina</VALUE>
+		<VALUE>Lathir</VALUE>
+		<VALUE>Lerben</VALUE>
+		<VALUE>Lerthan</VALUE>
+		<VALUE>L&#237; Ban</VALUE>
+		<VALUE>L&#237;gach</VALUE>
+		<VALUE>Mairghrec</VALUE>
+		<VALUE>Maol Mh&#237;</VALUE>
+		<VALUE>Margrec</VALUE>
+		<VALUE>Margreg</VALUE>
+		<VALUE>Martha</VALUE>
+		<VALUE>Meadhbh</VALUE>
+		<VALUE>Mor</VALUE>
+		<VALUE>Mor Muman</VALUE>
+		<VALUE>Muine</VALUE>
+		<VALUE>Muirenn</VALUE>
+		<VALUE>Muirgel</VALUE>
+		<VALUE>M&#225;el Etich</VALUE>
+		<VALUE>M&#225;el Fabaill</VALUE>
+		<VALUE>M&#225;el Mide</VALUE>
+		<VALUE>M&#225;el Muire</VALUE>
+		<VALUE>M&#225;ire</VALUE>
+		<VALUE>M&#225;irghr&#233;ad</VALUE>
+		<VALUE>M&#225;rgr&#233;g</VALUE>
+		<VALUE>M&#243;r</VALUE>
+		<VALUE>M&#243;r Mhumhan</VALUE>
+		<VALUE>M&#243;r Muman</VALUE>
+		<VALUE>Nuala</VALUE>
+		<VALUE>Nuala </VALUE>
+		<VALUE>N&#225;rbflaith</VALUE>
+		<VALUE>Oilen</VALUE>
+		<VALUE>On&#243;ra</VALUE>
+		<VALUE>Raghnailt</VALUE>
+		<VALUE>Ragnailt</VALUE>
+		<VALUE>Rois</VALUE>
+		<VALUE>R&#243;is</VALUE>
+		<VALUE>Sadb</VALUE>
+		<VALUE>Sadb </VALUE>
+		<VALUE>Samthann</VALUE>
+		<VALUE>Sebdann</VALUE>
+		<VALUE>Selblaith</VALUE>
+		<VALUE>Siban</VALUE>
+		<VALUE>Sib&#225;n</VALUE>
+		<VALUE>Sile</VALUE>
+		<VALUE>Sinech</VALUE>
+		<VALUE>Siubh&#225;n</VALUE>
+		<VALUE>Slaine</VALUE>
+		<VALUE>Sla&#237;ne</VALUE>
+		<VALUE>Sorcha</VALUE>
+		<VALUE>Suaibsech</VALUE>
+		<VALUE>S&#225;erlaith</VALUE>
+		<VALUE>S&#233;tach</VALUE>
+		<VALUE>S&#237;le</VALUE>
+		<VALUE>S&#237;n</VALUE>
+		<VALUE>S&#237;thmaith</VALUE>
+		<VALUE>Tailefhlaith</VALUE>
+		<VALUE>Taileflaith</VALUE>
+		<VALUE>Tailltiu</VALUE>
+		<VALUE>Temair</VALUE>
+		<VALUE>Tuathflaith</VALUE>
+		<VALUE>T&#225;ethen</VALUE>
+		<VALUE>T&#243;mnat</VALUE>
+		<VALUE>Uallach</VALUE>
+		<VALUE>Uasal</VALUE>
+		<VALUE>Una</VALUE>
+		<VALUE>&#193;edammair</VALUE>
+		<VALUE>&#193;ine</VALUE>
+		<VALUE>&#201;adaoin</VALUE>
+		<VALUE>&#201;riu</VALUE>
+		<VALUE>&#201;ta&#237;n</VALUE>
+		<VALUE>&#205;te</VALUE>
+		<VALUE>&#211;rlaith</VALUE>
+		<VALUE>&#211;rnat</VALUE>
+		<VALUE>&#218;na</VALUE>
+	</LIST>
+	<LIST id="scottish-gaelic-genetive" title="Genetive">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bat&#237;n</VALUE>
+		<VALUE>Beicce</VALUE>
+		<VALUE>Blaithmeic</VALUE>
+		<VALUE>Brain</VALUE>
+		<VALUE>Bressail</VALUE>
+		<VALUE>Brocc&#225;in</VALUE>
+		<VALUE>B&#225;et&#225;in</VALUE>
+		<VALUE>Caennaig</VALUE>
+		<VALUE>Caerill</VALUE>
+		<VALUE>Cainnaig</VALUE>
+		<VALUE>Cairpri</VALUE>
+		<VALUE>Cannech</VALUE>
+		<VALUE>Carthaich</VALUE>
+		<VALUE>Carthaig</VALUE>
+		<VALUE>Cathail</VALUE>
+		<VALUE>Celaig</VALUE>
+		<VALUE>Cellaich</VALUE>
+		<VALUE>Cenn&#233;dig</VALUE>
+		<VALUE>Cerbaill</VALUE>
+		<VALUE>Cernaich</VALUE>
+		<VALUE>Cernaig</VALUE>
+		<VALUE>Cill&#237;ni</VALUE>
+		<VALUE>Cinaeda</VALUE>
+		<VALUE>Cinatha</VALUE>
+		<VALUE>Cinn-f&#225;elad</VALUE>
+		<VALUE>Cin&#225;eda</VALUE>
+		<VALUE>Cobthaich</VALUE>
+		<VALUE>Cobthaig</VALUE>
+		<VALUE>Colgan</VALUE>
+		<VALUE>Colm&#225;in</VALUE>
+		<VALUE>Coluimb</VALUE>
+		<VALUE>Conaill</VALUE>
+		<VALUE>Conchobair</VALUE>
+		<VALUE>Conchobuir</VALUE>
+		<VALUE>Condlae</VALUE>
+		<VALUE>Congaile</VALUE>
+		<VALUE>Congalaich</VALUE>
+		<VALUE>Conlae</VALUE>
+		<VALUE>Cormaic</VALUE>
+		<VALUE>Crimthaind</VALUE>
+		<VALUE>Crimthainn</VALUE>
+		<VALUE>Crundma&#237;l</VALUE>
+		<VALUE>Crunnma&#237;l</VALUE>
+		<VALUE>Cuircc</VALUE>
+		<VALUE>Cul&#233;oin</VALUE>
+		<VALUE>Cul&#233;on</VALUE>
+		<VALUE>Cummascaich</VALUE>
+		<VALUE>Cummascaig</VALUE>
+		<VALUE>C&#225;irthind</VALUE>
+		<VALUE>C&#225;irthinn</VALUE>
+		<VALUE>C&#250;&#225;in</VALUE>
+		<VALUE>Dau&#237;d</VALUE>
+		<VALUE>Diarmata</VALUE>
+		<VALUE>Domnaill</VALUE>
+		<VALUE>Donnchada</VALUE>
+		<VALUE>Donnchaid</VALUE>
+		<VALUE>Donnchid</VALUE>
+		<VALUE>Donngaile</VALUE>
+		<VALUE>Dubthaig</VALUE>
+		<VALUE>Duinechda</VALUE>
+		<VALUE>D&#225;ire</VALUE>
+		<VALUE>D&#237;mmai</VALUE>
+		<VALUE>D&#250;nchda</VALUE>
+		<VALUE>D&#250;ngaile</VALUE>
+		<VALUE>D&#250;nlaing</VALUE>
+		<VALUE>D&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fa&#237;lbe</VALUE>
+		<VALUE>Feideilmid</VALUE>
+		<VALUE>Feidelmid</VALUE>
+		<VALUE>Feidlimid</VALUE>
+		<VALUE>Feradaig</VALUE>
+		<VALUE>Ferdomnaig</VALUE>
+		<VALUE>Fergaile</VALUE>
+		<VALUE>Fergusa</VALUE>
+		<VALUE>Fiachach</VALUE>
+		<VALUE>Fiachnae</VALUE>
+		<VALUE>Fiachrach</VALUE>
+		<VALUE>Find</VALUE>
+		<VALUE>Findchada</VALUE>
+		<VALUE>Finguni</VALUE>
+		<VALUE>Finnachta</VALUE>
+		<VALUE>Fintain</VALUE>
+		<VALUE>Fin&#225;in</VALUE>
+		<VALUE>Flaind</VALUE>
+		<VALUE>Flainn</VALUE>
+		<VALUE>Flaithbertaich</VALUE>
+		<VALUE>Flaithbertaig</VALUE>
+		<VALUE>Fogartaich</VALUE>
+		<VALUE>Fogartaig</VALUE>
+		<VALUE>Forann&#225;in</VALUE>
+		<VALUE>Fothaid</VALUE>
+		<VALUE>F&#225;el&#225;in</VALUE>
+		<VALUE>Garnait</VALUE>
+		<VALUE>Gille-M&#237;cael</VALUE>
+		<VALUE>Gille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Gille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Giric</VALUE>
+		<VALUE>Guaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Maili-tuile</VALUE>
+		<VALUE>Maine</VALUE>
+		<VALUE>Mal-Colaim</VALUE>
+		<VALUE>Matni</VALUE>
+		<VALUE>Ma&#237;l-Bric&#237;n, Mal-Bric&#237;n</VALUE>
+		<VALUE>Ma&#237;l-Brigte</VALUE>
+		<VALUE>Ma&#237;l-Choluim</VALUE>
+		<VALUE>Mec-Bead</VALUE>
+		<VALUE>Meic-Dobarchon</VALUE>
+		<VALUE>Meic-Dobarcon</VALUE>
+		<VALUE>Meic-Dubbac&#237;n</VALUE>
+		<VALUE>Mol&#237;ne</VALUE>
+		<VALUE>Morcunn</VALUE>
+		<VALUE>Morcunt</VALUE>
+		<VALUE>Morgainn</VALUE>
+		<VALUE>Mo&#237;l-Brigte</VALUE>
+		<VALUE>Muirchertaig</VALUE>
+		<VALUE>Muiredaich</VALUE>
+		<VALUE>Muiredaig</VALUE>
+		<VALUE>Murchada</VALUE>
+		<VALUE>Muredig</VALUE>
+		<VALUE>Muridaig</VALUE>
+		<VALUE>M&#225;el-duin</VALUE>
+		<VALUE>M&#225;el-ruanaid</VALUE>
+		<VALUE>M&#225;eludir</VALUE>
+		<VALUE>M&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Scandl&#225;in</VALUE>
+		<VALUE>Sechnassaich</VALUE>
+		<VALUE>Sechnassaig</VALUE>
+		<VALUE>Senaich</VALUE>
+		<VALUE>Senaig</VALUE>
+		<VALUE>Suibne</VALUE>
+		<VALUE>S&#233;tna</VALUE>
+		<VALUE>S&#233;tnae</VALUE>
+		<VALUE>S&#237;thig</VALUE>
+		<VALUE>Taidc</VALUE>
+		<VALUE>Tigernaich</VALUE>
+		<VALUE>Tigernaig</VALUE>
+		<VALUE>Tipraite</VALUE>
+		<VALUE>Trena</VALUE>
+		<VALUE>Treno</VALUE>
+		<VALUE>Triain</VALUE>
+		<VALUE>Tr&#225;l&#237;n</VALUE>
+		<VALUE>Tuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="irish-gaelic-genetive" title="Genetive">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bat&#237;n</VALUE>
+		<VALUE>Beicce</VALUE>
+		<VALUE>Blaithmeic</VALUE>
+		<VALUE>Brain</VALUE>
+		<VALUE>Bressail</VALUE>
+		<VALUE>Brocc&#225;in</VALUE>
+		<VALUE>B&#225;et&#225;in</VALUE>
+		<VALUE>Caennaig</VALUE>
+		<VALUE>Caerill</VALUE>
+		<VALUE>Cainnaig</VALUE>
+		<VALUE>Cairpri</VALUE>
+		<VALUE>Cannech</VALUE>
+		<VALUE>Carthaich</VALUE>
+		<VALUE>Carthaig</VALUE>
+		<VALUE>Cathail</VALUE>
+		<VALUE>Celaig</VALUE>
+		<VALUE>Cellaich</VALUE>
+		<VALUE>Cenn&#233;dig</VALUE>
+		<VALUE>Cerbaill</VALUE>
+		<VALUE>Cernaich</VALUE>
+		<VALUE>Cernaig</VALUE>
+		<VALUE>Cill&#237;ni</VALUE>
+		<VALUE>Cinaeda</VALUE>
+		<VALUE>Cinatha</VALUE>
+		<VALUE>Cinn-f&#225;elad</VALUE>
+		<VALUE>Cin&#225;eda</VALUE>
+		<VALUE>Cobthaich</VALUE>
+		<VALUE>Cobthaig</VALUE>
+		<VALUE>Colgan</VALUE>
+		<VALUE>Colm&#225;in</VALUE>
+		<VALUE>Coluimb</VALUE>
+		<VALUE>Conaill</VALUE>
+		<VALUE>Conchobair</VALUE>
+		<VALUE>Conchobuir</VALUE>
+		<VALUE>Condlae</VALUE>
+		<VALUE>Congaile</VALUE>
+		<VALUE>Congalaich</VALUE>
+		<VALUE>Conlae</VALUE>
+		<VALUE>Cormaic</VALUE>
+		<VALUE>Crimthaind</VALUE>
+		<VALUE>Crimthainn</VALUE>
+		<VALUE>Crundma&#237;l</VALUE>
+		<VALUE>Crunnma&#237;l</VALUE>
+		<VALUE>Cuircc</VALUE>
+		<VALUE>Cul&#233;oin</VALUE>
+		<VALUE>Cul&#233;on</VALUE>
+		<VALUE>Cummascaich</VALUE>
+		<VALUE>Cummascaig</VALUE>
+		<VALUE>C&#225;irthind</VALUE>
+		<VALUE>C&#225;irthinn</VALUE>
+		<VALUE>C&#250;&#225;in</VALUE>
+		<VALUE>Dau&#237;d</VALUE>
+		<VALUE>Diarmata</VALUE>
+		<VALUE>Domnaill</VALUE>
+		<VALUE>Donnchada</VALUE>
+		<VALUE>Donnchaid</VALUE>
+		<VALUE>Donnchid</VALUE>
+		<VALUE>Donngaile</VALUE>
+		<VALUE>Dubthaig</VALUE>
+		<VALUE>Duinechda</VALUE>
+		<VALUE>D&#225;ire</VALUE>
+		<VALUE>D&#237;mmai</VALUE>
+		<VALUE>D&#250;nchda</VALUE>
+		<VALUE>D&#250;ngaile</VALUE>
+		<VALUE>D&#250;nlaing</VALUE>
+		<VALUE>D&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fa&#237;lbe</VALUE>
+		<VALUE>Feideilmid</VALUE>
+		<VALUE>Feidelmid</VALUE>
+		<VALUE>Feidlimid</VALUE>
+		<VALUE>Feradaig</VALUE>
+		<VALUE>Ferdomnaig</VALUE>
+		<VALUE>Fergaile</VALUE>
+		<VALUE>Fergusa</VALUE>
+		<VALUE>Fiachach</VALUE>
+		<VALUE>Fiachnae</VALUE>
+		<VALUE>Fiachrach</VALUE>
+		<VALUE>Find</VALUE>
+		<VALUE>Findchada</VALUE>
+		<VALUE>Finguni</VALUE>
+		<VALUE>Finnachta</VALUE>
+		<VALUE>Fintain</VALUE>
+		<VALUE>Fin&#225;in</VALUE>
+		<VALUE>Flaind</VALUE>
+		<VALUE>Flainn</VALUE>
+		<VALUE>Flaithbertaich</VALUE>
+		<VALUE>Flaithbertaig</VALUE>
+		<VALUE>Fogartaich</VALUE>
+		<VALUE>Fogartaig</VALUE>
+		<VALUE>Forann&#225;in</VALUE>
+		<VALUE>Fothaid</VALUE>
+		<VALUE>F&#225;el&#225;in</VALUE>
+		<VALUE>Garnait</VALUE>
+		<VALUE>Gille-M&#237;cael</VALUE>
+		<VALUE>Gille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Gille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Giric</VALUE>
+		<VALUE>Guaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Maili-tuile</VALUE>
+		<VALUE>Maine</VALUE>
+		<VALUE>Mal-Colaim</VALUE>
+		<VALUE>Matni</VALUE>
+		<VALUE>Ma&#237;l-Bric&#237;n</VALUE>
+		<VALUE>Mal-Bric&#237;n</VALUE>
+		<VALUE>Ma&#237;l-Brigte</VALUE>
+		<VALUE>Ma&#237;l-Choluim</VALUE>
+		<VALUE>Mec-Bead</VALUE>
+		<VALUE>Meic-Dobarchon</VALUE>
+		<VALUE>Meic-Dobarcon</VALUE>
+		<VALUE>Meic-Dubbac&#237;n</VALUE>
+		<VALUE>Mol&#237;ne</VALUE>
+		<VALUE>Morcunn</VALUE>
+		<VALUE>Morcunt</VALUE>
+		<VALUE>Morgainn</VALUE>
+		<VALUE>Mo&#237;l-Brigte</VALUE>
+		<VALUE>Muirchertaig</VALUE>
+		<VALUE>Muiredaich</VALUE>
+		<VALUE>Muiredaig</VALUE>
+		<VALUE>Murchada</VALUE>
+		<VALUE>Muredig</VALUE>
+		<VALUE>Muridaig</VALUE>
+		<VALUE>M&#225;el-duin</VALUE>
+		<VALUE>M&#225;el-ruanaid</VALUE>
+		<VALUE>M&#225;eludir</VALUE>
+		<VALUE>M&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Scandl&#225;in</VALUE>
+		<VALUE>Sechnassaich</VALUE>
+		<VALUE>Sechnassaig</VALUE>
+		<VALUE>Senaich</VALUE>
+		<VALUE>Senaig</VALUE>
+		<VALUE>Suibne</VALUE>
+		<VALUE>S&#233;tna</VALUE>
+		<VALUE>S&#233;tnae</VALUE>
+		<VALUE>S&#237;thig</VALUE>
+		<VALUE>Taidc</VALUE>
+		<VALUE>Tigernaich</VALUE>
+		<VALUE>Tigernaig</VALUE>
+		<VALUE>Tipraite</VALUE>
+		<VALUE>Trena</VALUE>
+		<VALUE>Treno</VALUE>
+		<VALUE>Triain</VALUE>
+		<VALUE>Tr&#225;l&#237;n</VALUE>
+		<VALUE>Tuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="scottish-gaelic-genetive-lenited" title="Genetive Lenited">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bhat&#237;n</VALUE>
+		<VALUE>Bheicce</VALUE>
+		<VALUE>Bhlaithmeic</VALUE>
+		<VALUE>Bhrain</VALUE>
+		<VALUE>Bhressail</VALUE>
+		<VALUE>Bhrocc&#225;in</VALUE>
+		<VALUE>Bh&#225;et&#225;in</VALUE>
+		<VALUE>Chaennaig</VALUE>
+		<VALUE>Chaerill</VALUE>
+		<VALUE>Chainnaig</VALUE>
+		<VALUE>Chairpri</VALUE>
+		<VALUE>Channech</VALUE>
+		<VALUE>Charthaich</VALUE>
+		<VALUE>Charthaig</VALUE>
+		<VALUE>Chathail</VALUE>
+		<VALUE>Chelaig</VALUE>
+		<VALUE>Chellaich</VALUE>
+		<VALUE>Chenn&#233;dig</VALUE>
+		<VALUE>Cherbaill</VALUE>
+		<VALUE>Chernaich</VALUE>
+		<VALUE>Chernaig</VALUE>
+		<VALUE>Chill&#237;ni</VALUE>
+		<VALUE>Chinaeda</VALUE>
+		<VALUE>Chinatha</VALUE>
+		<VALUE>Chinn-f&#225;elad</VALUE>
+		<VALUE>Chin&#225;eda</VALUE>
+		<VALUE>Chobthaich</VALUE>
+		<VALUE>Chobthaig</VALUE>
+		<VALUE>Cholgan</VALUE>
+		<VALUE>Cholm&#225;in</VALUE>
+		<VALUE>Choluimb</VALUE>
+		<VALUE>Chonaill</VALUE>
+		<VALUE>Chonchobair</VALUE>
+		<VALUE>Chonchobuir</VALUE>
+		<VALUE>Chondlae</VALUE>
+		<VALUE>Chongaile</VALUE>
+		<VALUE>Chongalaich</VALUE>
+		<VALUE>Chonlae</VALUE>
+		<VALUE>Chormaic</VALUE>
+		<VALUE>Chrimthaind</VALUE>
+		<VALUE>Chrimthainn</VALUE>
+		<VALUE>Chrundma&#237;l</VALUE>
+		<VALUE>Chrunnma&#237;l</VALUE>
+		<VALUE>Chuircc</VALUE>
+		<VALUE>Chul&#233;oin</VALUE>
+		<VALUE>Chul&#233;on</VALUE>
+		<VALUE>Chummascaich</VALUE>
+		<VALUE>Chummascaig</VALUE>
+		<VALUE>Ch&#225;irthind</VALUE>
+		<VALUE>Ch&#225;irthinn</VALUE>
+		<VALUE>Ch&#250;&#225;in</VALUE>
+		<VALUE>Dhau&#237;d</VALUE>
+		<VALUE>Dhiarmata</VALUE>
+		<VALUE>Dhomnaill</VALUE>
+		<VALUE>Dhonnchada</VALUE>
+		<VALUE>Dhonnchaid</VALUE>
+		<VALUE>Dhonnchid</VALUE>
+		<VALUE>Dhonngaile</VALUE>
+		<VALUE>Dhubthaig</VALUE>
+		<VALUE>Dhuinechda</VALUE>
+		<VALUE>Dh&#225;ire</VALUE>
+		<VALUE>Dh&#237;mmai</VALUE>
+		<VALUE>Dh&#250;nchda</VALUE>
+		<VALUE>Dh&#250;ngaile</VALUE>
+		<VALUE>Dh&#250;nlaing</VALUE>
+		<VALUE>Dh&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fha&#237;lbe</VALUE>
+		<VALUE>Fheideilmid</VALUE>
+		<VALUE>Fheidelmid</VALUE>
+		<VALUE>Fheidlimid</VALUE>
+		<VALUE>Fheradaig</VALUE>
+		<VALUE>Fherdomnaig</VALUE>
+		<VALUE>Fhergaile</VALUE>
+		<VALUE>Fhergusa</VALUE>
+		<VALUE>Fhiachach</VALUE>
+		<VALUE>Fhiachnae</VALUE>
+		<VALUE>Fhiachrach</VALUE>
+		<VALUE>Fhind</VALUE>
+		<VALUE>Fhindchada</VALUE>
+		<VALUE>Fhinguni</VALUE>
+		<VALUE>Fhinnachta</VALUE>
+		<VALUE>Fhintain</VALUE>
+		<VALUE>Fhin&#225;in</VALUE>
+		<VALUE>Fhlaind</VALUE>
+		<VALUE>Fhlainn</VALUE>
+		<VALUE>Fhlaithbertaich</VALUE>
+		<VALUE>Fhlaithbertaig</VALUE>
+		<VALUE>Fhogartaich</VALUE>
+		<VALUE>Fhogartaig</VALUE>
+		<VALUE>Fhorann&#225;in</VALUE>
+		<VALUE>Fhothaid</VALUE>
+		<VALUE>Fh&#225;el&#225;in</VALUE>
+		<VALUE>Gharnait</VALUE>
+		<VALUE>Ghille-M&#237;cael</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Ghiric</VALUE>
+		<VALUE>Ghuaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Mhaili-tuile</VALUE>
+		<VALUE>Mhaine</VALUE>
+		<VALUE>Mhal-Colaim</VALUE>
+		<VALUE>Mhatni</VALUE>
+		<VALUE>Mha&#237;l-Bric&#237;n, Mal-Bric&#237;n</VALUE>
+		<VALUE>Mha&#237;l-Brigte</VALUE>
+		<VALUE>Mha&#237;l-Choluim</VALUE>
+		<VALUE>Mhec-Bead</VALUE>
+		<VALUE>Mheic-Dobarchon</VALUE>
+		<VALUE>Mheic-Dobarcon</VALUE>
+		<VALUE>Mheic-Dubbac&#237;n</VALUE>
+		<VALUE>Mhol&#237;ne</VALUE>
+		<VALUE>Mhorcunn</VALUE>
+		<VALUE>Mhorcunt</VALUE>
+		<VALUE>Mhorgainn</VALUE>
+		<VALUE>Mho&#237;l-Brigte</VALUE>
+		<VALUE>Mhuirchertaig</VALUE>
+		<VALUE>Mhuiredaich</VALUE>
+		<VALUE>Mhuiredaig</VALUE>
+		<VALUE>Mhurchada</VALUE>
+		<VALUE>Mhuredig</VALUE>
+		<VALUE>Mhuridaig</VALUE>
+		<VALUE>Mh&#225;el-duin</VALUE>
+		<VALUE>Mh&#225;el-ruanaid</VALUE>
+		<VALUE>Mh&#225;eludir</VALUE>
+		<VALUE>Mh&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Shcandl&#225;in</VALUE>
+		<VALUE>Shechnassaich</VALUE>
+		<VALUE>Shechnassaig</VALUE>
+		<VALUE>Shenaich</VALUE>
+		<VALUE>Shenaig</VALUE>
+		<VALUE>Shuibne</VALUE>
+		<VALUE>Sh&#233;tna</VALUE>
+		<VALUE>Sh&#233;tnae</VALUE>
+		<VALUE>Sh&#237;thig</VALUE>
+		<VALUE>Thaidc</VALUE>
+		<VALUE>Thigernaich</VALUE>
+		<VALUE>Thigernaig</VALUE>
+		<VALUE>Thipraite</VALUE>
+		<VALUE>Threna</VALUE>
+		<VALUE>Threno</VALUE>
+		<VALUE>Thriain</VALUE>
+		<VALUE>Thr&#225;l&#237;n</VALUE>
+		<VALUE>Thuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="irish-gaelic-genetive-lenited" title="Genetive Lenited">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bat&#237;n</VALUE>
+		<VALUE>Beicce</VALUE>
+		<VALUE>Blaithmeic</VALUE>
+		<VALUE>Brain</VALUE>
+		<VALUE>Bressail</VALUE>
+		<VALUE>Brocc&#225;in</VALUE>
+		<VALUE>B&#225;et&#225;in</VALUE>
+		<VALUE>Chaennaig</VALUE>
+		<VALUE>Chaerill</VALUE>
+		<VALUE>Chainnaig</VALUE>
+		<VALUE>Chairpri</VALUE>
+		<VALUE>Channech</VALUE>
+		<VALUE>Charthaich</VALUE>
+		<VALUE>Charthaig</VALUE>
+		<VALUE>Chathail</VALUE>
+		<VALUE>Chelaig</VALUE>
+		<VALUE>Chellaich</VALUE>
+		<VALUE>Chenn&#233;dig</VALUE>
+		<VALUE>Cherbaill</VALUE>
+		<VALUE>Chernaich</VALUE>
+		<VALUE>Chernaig</VALUE>
+		<VALUE>Chill&#237;ni</VALUE>
+		<VALUE>Chinaeda</VALUE>
+		<VALUE>Chinatha</VALUE>
+		<VALUE>Chinn-f&#225;elad</VALUE>
+		<VALUE>Chin&#225;eda</VALUE>
+		<VALUE>Chobthaich</VALUE>
+		<VALUE>Chobthaig</VALUE>
+		<VALUE>Cholgan</VALUE>
+		<VALUE>Cholm&#225;in</VALUE>
+		<VALUE>Choluimb</VALUE>
+		<VALUE>Chonaill</VALUE>
+		<VALUE>Chonchobair</VALUE>
+		<VALUE>Chonchobuir</VALUE>
+		<VALUE>Chondlae</VALUE>
+		<VALUE>Chongaile</VALUE>
+		<VALUE>Chongalaich</VALUE>
+		<VALUE>Chonlae</VALUE>
+		<VALUE>Chormaic</VALUE>
+		<VALUE>Chrimthaind</VALUE>
+		<VALUE>Chrimthainn</VALUE>
+		<VALUE>Chrundma&#237;l</VALUE>
+		<VALUE>Chrunnma&#237;l</VALUE>
+		<VALUE>Chuircc</VALUE>
+		<VALUE>Chul&#233;oin</VALUE>
+		<VALUE>Chul&#233;on</VALUE>
+		<VALUE>Chummascaich</VALUE>
+		<VALUE>Chummascaig</VALUE>
+		<VALUE>Ch&#225;irthind</VALUE>
+		<VALUE>Ch&#225;irthinn</VALUE>
+		<VALUE>Ch&#250;&#225;in</VALUE>
+		<VALUE>Dhau&#237;d</VALUE>
+		<VALUE>Dhiarmata</VALUE>
+		<VALUE>Dhomnaill</VALUE>
+		<VALUE>Dhonnchada</VALUE>
+		<VALUE>Dhonnchaid</VALUE>
+		<VALUE>Dhonnchid</VALUE>
+		<VALUE>Dhonngaile</VALUE>
+		<VALUE>Dhubthaig</VALUE>
+		<VALUE>Dhuinechda</VALUE>
+		<VALUE>Dh&#225;ire</VALUE>
+		<VALUE>Dh&#237;mmai</VALUE>
+		<VALUE>Dh&#250;nchda</VALUE>
+		<VALUE>Dh&#250;ngaile</VALUE>
+		<VALUE>Dh&#250;nlaing</VALUE>
+		<VALUE>Dh&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fha&#237;lbe</VALUE>
+		<VALUE>Fheideilmid</VALUE>
+		<VALUE>Fheidelmid</VALUE>
+		<VALUE>Fheidlimid</VALUE>
+		<VALUE>Fheradaig</VALUE>
+		<VALUE>Fherdomnaig</VALUE>
+		<VALUE>Fhergaile</VALUE>
+		<VALUE>Fhergusa</VALUE>
+		<VALUE>Fhiachach</VALUE>
+		<VALUE>Fhiachnae</VALUE>
+		<VALUE>Fhiachrach</VALUE>
+		<VALUE>Fhind</VALUE>
+		<VALUE>Fhindchada</VALUE>
+		<VALUE>Fhinguni</VALUE>
+		<VALUE>Fhinnachta</VALUE>
+		<VALUE>Fhintain</VALUE>
+		<VALUE>Fhin&#225;in</VALUE>
+		<VALUE>Fhlaind</VALUE>
+		<VALUE>Fhlainn</VALUE>
+		<VALUE>Fhlaithbertaich</VALUE>
+		<VALUE>Fhlaithbertaig</VALUE>
+		<VALUE>Fhogartaich</VALUE>
+		<VALUE>Fhogartaig</VALUE>
+		<VALUE>Fhorann&#225;in</VALUE>
+		<VALUE>Fhothaid</VALUE>
+		<VALUE>Fh&#225;el&#225;in</VALUE>
+		<VALUE>Gharnait</VALUE>
+		<VALUE>Ghille-M&#237;cael</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Ghiric</VALUE>
+		<VALUE>Ghuaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Mhaili-tuile</VALUE>
+		<VALUE>Mhaine</VALUE>
+		<VALUE>Mhal-Colaim</VALUE>
+		<VALUE>Mhatni</VALUE>
+		<VALUE>Mha&#237;l-Bric&#237;n</VALUE>
+		<VALUE>Mhal-Bric&#237;n</VALUE>
+		<VALUE>Mha&#237;l-Brigte</VALUE>
+		<VALUE>Mha&#237;l-Choluim</VALUE>
+		<VALUE>Mhec-Bead</VALUE>
+		<VALUE>Mheic-Dobarchon</VALUE>
+		<VALUE>Mheic-Dobarcon</VALUE>
+		<VALUE>Mheic-Dubbac&#237;n</VALUE>
+		<VALUE>Mhol&#237;ne</VALUE>
+		<VALUE>Mhorcunn</VALUE>
+		<VALUE>Mhorcunt</VALUE>
+		<VALUE>Mhorgainn</VALUE>
+		<VALUE>Mho&#237;l-Brigte</VALUE>
+		<VALUE>Mhuirchertaig</VALUE>
+		<VALUE>Mhuiredaich</VALUE>
+		<VALUE>Mhuiredaig</VALUE>
+		<VALUE>Mhurchada</VALUE>
+		<VALUE>Mhuredig</VALUE>
+		<VALUE>Mhuridaig</VALUE>
+		<VALUE>Mh&#225;el-duin</VALUE>
+		<VALUE>Mh&#225;el-ruanaid</VALUE>
+		<VALUE>Mh&#225;eludir</VALUE>
+		<VALUE>Mh&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Scandl&#225;in</VALUE>
+		<VALUE>Shechnassaich</VALUE>
+		<VALUE>Shechnassaig</VALUE>
+		<VALUE>Shenaich</VALUE>
+		<VALUE>Shenaig</VALUE>
+		<VALUE>Shuibne</VALUE>
+		<VALUE>Sh&#233;tna</VALUE>
+		<VALUE>Sh&#233;tnae</VALUE>
+		<VALUE>Sh&#237;thig</VALUE>
+		<VALUE>Thaidc</VALUE>
+		<VALUE>Thigernaich</VALUE>
+		<VALUE>Thigernaig</VALUE>
+		<VALUE>Thipraite</VALUE>
+		<VALUE>Threna</VALUE>
+		<VALUE>Threno</VALUE>
+		<VALUE>Thriain</VALUE>
+		<VALUE>Thr&#225;l&#237;n</VALUE>
+		<VALUE>Thuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="scottish-gaelic-genetive-lenited-no-c" title="Genetive Lenited">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bhat&#237;n</VALUE>
+		<VALUE>Bheicce</VALUE>
+		<VALUE>Bhlaithmeic</VALUE>
+		<VALUE>Bhrain</VALUE>
+		<VALUE>Bhressail</VALUE>
+		<VALUE>Bhrocc&#225;in</VALUE>
+		<VALUE>Bh&#225;et&#225;in</VALUE>
+		<VALUE>Caennaig</VALUE>
+		<VALUE>Caerill</VALUE>
+		<VALUE>Cainnaig</VALUE>
+		<VALUE>Cairpri</VALUE>
+		<VALUE>Cannech</VALUE>
+		<VALUE>Carthaich</VALUE>
+		<VALUE>Carthaig</VALUE>
+		<VALUE>Cathail</VALUE>
+		<VALUE>Celaig</VALUE>
+		<VALUE>Cellaich</VALUE>
+		<VALUE>Cenn&#233;dig</VALUE>
+		<VALUE>Cerbaill</VALUE>
+		<VALUE>Cernaich</VALUE>
+		<VALUE>Cernaig</VALUE>
+		<VALUE>Cill&#237;ni</VALUE>
+		<VALUE>Cinaeda</VALUE>
+		<VALUE>Cinatha</VALUE>
+		<VALUE>Cinn-f&#225;elad</VALUE>
+		<VALUE>Cin&#225;eda</VALUE>
+		<VALUE>Cobthaich</VALUE>
+		<VALUE>Cobthaig</VALUE>
+		<VALUE>Colgan</VALUE>
+		<VALUE>Colm&#225;in</VALUE>
+		<VALUE>Coluimb</VALUE>
+		<VALUE>Conaill</VALUE>
+		<VALUE>Conchobair</VALUE>
+		<VALUE>Conchobuir</VALUE>
+		<VALUE>Condlae</VALUE>
+		<VALUE>Congaile</VALUE>
+		<VALUE>Congalaich</VALUE>
+		<VALUE>Conlae</VALUE>
+		<VALUE>Cormaic</VALUE>
+		<VALUE>Crimthaind</VALUE>
+		<VALUE>Crimthainn</VALUE>
+		<VALUE>Crundma&#237;l</VALUE>
+		<VALUE>Crunnma&#237;l</VALUE>
+		<VALUE>Cuircc</VALUE>
+		<VALUE>Cul&#233;oin</VALUE>
+		<VALUE>Cul&#233;on</VALUE>
+		<VALUE>Cummascaich</VALUE>
+		<VALUE>Cummascaig</VALUE>
+		<VALUE>C&#225;irthind</VALUE>
+		<VALUE>C&#225;irthinn</VALUE>
+		<VALUE>C&#250;&#225;in</VALUE>
+		<VALUE>Dhau&#237;d</VALUE>
+		<VALUE>Dhiarmata</VALUE>
+		<VALUE>Dhomnaill</VALUE>
+		<VALUE>Dhonnchada</VALUE>
+		<VALUE>Dhonnchaid</VALUE>
+		<VALUE>Dhonnchid</VALUE>
+		<VALUE>Dhonngaile</VALUE>
+		<VALUE>Dhubthaig</VALUE>
+		<VALUE>Dhuinechda</VALUE>
+		<VALUE>Dh&#225;ire</VALUE>
+		<VALUE>Dh&#237;mmai</VALUE>
+		<VALUE>Dh&#250;nchda</VALUE>
+		<VALUE>Dh&#250;ngaile</VALUE>
+		<VALUE>Dh&#250;nlaing</VALUE>
+		<VALUE>Dh&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fha&#237;lbe</VALUE>
+		<VALUE>Fheideilmid</VALUE>
+		<VALUE>Fheidelmid</VALUE>
+		<VALUE>Fheidlimid</VALUE>
+		<VALUE>Fheradaig</VALUE>
+		<VALUE>Fherdomnaig</VALUE>
+		<VALUE>Fhergaile</VALUE>
+		<VALUE>Fhergusa</VALUE>
+		<VALUE>Fhiachach</VALUE>
+		<VALUE>Fhiachnae</VALUE>
+		<VALUE>Fhiachrach</VALUE>
+		<VALUE>Fhind</VALUE>
+		<VALUE>Fhindchada</VALUE>
+		<VALUE>Fhinguni</VALUE>
+		<VALUE>Fhinnachta</VALUE>
+		<VALUE>Fhintain</VALUE>
+		<VALUE>Fhin&#225;in</VALUE>
+		<VALUE>Fhlaind</VALUE>
+		<VALUE>Fhlainn</VALUE>
+		<VALUE>Fhlaithbertaich</VALUE>
+		<VALUE>Fhlaithbertaig</VALUE>
+		<VALUE>Fhogartaich</VALUE>
+		<VALUE>Fhogartaig</VALUE>
+		<VALUE>Fhorann&#225;in</VALUE>
+		<VALUE>Fhothaid</VALUE>
+		<VALUE>Fh&#225;el&#225;in</VALUE>
+		<VALUE>Gharnait</VALUE>
+		<VALUE>Ghille-M&#237;cael</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Ghiric</VALUE>
+		<VALUE>Ghuaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Mhaili-tuile</VALUE>
+		<VALUE>Mhaine</VALUE>
+		<VALUE>Mhal-Colaim</VALUE>
+		<VALUE>Mhatni</VALUE>
+		<VALUE>Mha&#237;l-Bric&#237;n, Mal-Bric&#237;n</VALUE>
+		<VALUE>Mha&#237;l-Brigte</VALUE>
+		<VALUE>Mha&#237;l-Choluim</VALUE>
+		<VALUE>Mhec-Bead</VALUE>
+		<VALUE>Mheic-Dobarchon</VALUE>
+		<VALUE>Mheic-Dobarcon</VALUE>
+		<VALUE>Mheic-Dubbac&#237;n</VALUE>
+		<VALUE>Mhol&#237;ne</VALUE>
+		<VALUE>Mhorcunn</VALUE>
+		<VALUE>Mhorcunt</VALUE>
+		<VALUE>Mhorgainn</VALUE>
+		<VALUE>Mho&#237;l-Brigte</VALUE>
+		<VALUE>Mhuirchertaig</VALUE>
+		<VALUE>Mhuiredaich</VALUE>
+		<VALUE>Mhuiredaig</VALUE>
+		<VALUE>Mhurchada</VALUE>
+		<VALUE>Mhuredig</VALUE>
+		<VALUE>Mhuridaig</VALUE>
+		<VALUE>Mh&#225;el-duin</VALUE>
+		<VALUE>Mh&#225;el-ruanaid</VALUE>
+		<VALUE>Mh&#225;eludir</VALUE>
+		<VALUE>Mh&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Shcandl&#225;in</VALUE>
+		<VALUE>Shechnassaich</VALUE>
+		<VALUE>Shechnassaig</VALUE>
+		<VALUE>Shenaich</VALUE>
+		<VALUE>Shenaig</VALUE>
+		<VALUE>Shuibne</VALUE>
+		<VALUE>Sh&#233;tna</VALUE>
+		<VALUE>Sh&#233;tnae</VALUE>
+		<VALUE>Sh&#237;thig</VALUE>
+		<VALUE>Thaidc</VALUE>
+		<VALUE>Thigernaich</VALUE>
+		<VALUE>Thigernaig</VALUE>
+		<VALUE>Thipraite</VALUE>
+		<VALUE>Threna</VALUE>
+		<VALUE>Threno</VALUE>
+		<VALUE>Thriain</VALUE>
+		<VALUE>Thr&#225;l&#237;n</VALUE>
+		<VALUE>Thuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="irish-gaelic-genetive-lenited-no-c" title="Genetive Lenited">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bat&#237;n</VALUE>
+		<VALUE>Beicce</VALUE>
+		<VALUE>Blaithmeic</VALUE>
+		<VALUE>Brain</VALUE>
+		<VALUE>Bressail</VALUE>
+		<VALUE>Brocc&#225;in</VALUE>
+		<VALUE>B&#225;et&#225;in</VALUE>
+		<VALUE>Caennaig</VALUE>
+		<VALUE>Caerill</VALUE>
+		<VALUE>Cainnaig</VALUE>
+		<VALUE>Cairpri</VALUE>
+		<VALUE>Cannech</VALUE>
+		<VALUE>Carthaich</VALUE>
+		<VALUE>Carthaig</VALUE>
+		<VALUE>Cathail</VALUE>
+		<VALUE>Celaig</VALUE>
+		<VALUE>Cellaich</VALUE>
+		<VALUE>Cenn&#233;dig</VALUE>
+		<VALUE>Cerbaill</VALUE>
+		<VALUE>Cernaich</VALUE>
+		<VALUE>Cernaig</VALUE>
+		<VALUE>Cill&#237;ni</VALUE>
+		<VALUE>Cinaeda</VALUE>
+		<VALUE>Cinatha</VALUE>
+		<VALUE>Cinn-f&#225;elad</VALUE>
+		<VALUE>Cin&#225;eda</VALUE>
+		<VALUE>Cobthaich</VALUE>
+		<VALUE>Cobthaig</VALUE>
+		<VALUE>Colgan</VALUE>
+		<VALUE>Colm&#225;in</VALUE>
+		<VALUE>Coluimb</VALUE>
+		<VALUE>Conaill</VALUE>
+		<VALUE>Conchobair</VALUE>
+		<VALUE>Conchobuir</VALUE>
+		<VALUE>Condlae</VALUE>
+		<VALUE>Congaile</VALUE>
+		<VALUE>Congalaich</VALUE>
+		<VALUE>Conlae</VALUE>
+		<VALUE>Cormaic</VALUE>
+		<VALUE>Crimthaind</VALUE>
+		<VALUE>Crimthainn</VALUE>
+		<VALUE>Crundma&#237;l</VALUE>
+		<VALUE>Crunnma&#237;l</VALUE>
+		<VALUE>Cuircc</VALUE>
+		<VALUE>Cul&#233;oin</VALUE>
+		<VALUE>Cul&#233;on</VALUE>
+		<VALUE>Cummascaich</VALUE>
+		<VALUE>Cummascaig</VALUE>
+		<VALUE>C&#225;irthind</VALUE>
+		<VALUE>C&#225;irthinn</VALUE>
+		<VALUE>C&#250;&#225;in</VALUE>
+		<VALUE>Dhau&#237;d</VALUE>
+		<VALUE>Dhiarmata</VALUE>
+		<VALUE>Dhomnaill</VALUE>
+		<VALUE>Dhonnchada</VALUE>
+		<VALUE>Dhonnchaid</VALUE>
+		<VALUE>Dhonnchid</VALUE>
+		<VALUE>Dhonngaile</VALUE>
+		<VALUE>Dhubthaig</VALUE>
+		<VALUE>Dhuinechda</VALUE>
+		<VALUE>Dh&#225;ire</VALUE>
+		<VALUE>Dh&#237;mmai</VALUE>
+		<VALUE>Dh&#250;nchda</VALUE>
+		<VALUE>Dh&#250;ngaile</VALUE>
+		<VALUE>Dh&#250;nlaing</VALUE>
+		<VALUE>Dh&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fha&#237;lbe</VALUE>
+		<VALUE>Fheideilmid</VALUE>
+		<VALUE>Fheidelmid</VALUE>
+		<VALUE>Fheidlimid</VALUE>
+		<VALUE>Fheradaig</VALUE>
+		<VALUE>Fherdomnaig</VALUE>
+		<VALUE>Fhergaile</VALUE>
+		<VALUE>Fhergusa</VALUE>
+		<VALUE>Fhiachach</VALUE>
+		<VALUE>Fhiachnae</VALUE>
+		<VALUE>Fhiachrach</VALUE>
+		<VALUE>Fhind</VALUE>
+		<VALUE>Fhindchada</VALUE>
+		<VALUE>Fhinguni</VALUE>
+		<VALUE>Fhinnachta</VALUE>
+		<VALUE>Fhintain</VALUE>
+		<VALUE>Fhin&#225;in</VALUE>
+		<VALUE>Fhlaind</VALUE>
+		<VALUE>Fhlainn</VALUE>
+		<VALUE>Fhlaithbertaich</VALUE>
+		<VALUE>Fhlaithbertaig</VALUE>
+		<VALUE>Fhogartaich</VALUE>
+		<VALUE>Fhogartaig</VALUE>
+		<VALUE>Fhorann&#225;in</VALUE>
+		<VALUE>Fhothaid</VALUE>
+		<VALUE>Fh&#225;el&#225;in</VALUE>
+		<VALUE>Gharnait</VALUE>
+		<VALUE>Ghille-M&#237;cael</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Ghiric</VALUE>
+		<VALUE>Ghuaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Mhaili-tuile</VALUE>
+		<VALUE>Mhaine</VALUE>
+		<VALUE>Mhal-Colaim</VALUE>
+		<VALUE>Mhatni</VALUE>
+		<VALUE>Mha&#237;l-Bric&#237;n</VALUE>
+		<VALUE>Mhal-Bric&#237;n</VALUE>
+		<VALUE>Mha&#237;l-Brigte</VALUE>
+		<VALUE>Mha&#237;l-Choluim</VALUE>
+		<VALUE>Mhec-Bead</VALUE>
+		<VALUE>Mheic-Dobarchon</VALUE>
+		<VALUE>Mheic-Dobarcon</VALUE>
+		<VALUE>Mheic-Dubbac&#237;n</VALUE>
+		<VALUE>Mhol&#237;ne</VALUE>
+		<VALUE>Mhorcunn</VALUE>
+		<VALUE>Mhorcunt</VALUE>
+		<VALUE>Mhorgainn</VALUE>
+		<VALUE>Mho&#237;l-Brigte</VALUE>
+		<VALUE>Mhuirchertaig</VALUE>
+		<VALUE>Mhuiredaich</VALUE>
+		<VALUE>Mhuiredaig</VALUE>
+		<VALUE>Mhurchada</VALUE>
+		<VALUE>Mhuredig</VALUE>
+		<VALUE>Mhuridaig</VALUE>
+		<VALUE>Mh&#225;el-duin</VALUE>
+		<VALUE>Mh&#225;el-ruanaid</VALUE>
+		<VALUE>Mh&#225;eludir</VALUE>
+		<VALUE>Mh&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Scandl&#225;in</VALUE>
+		<VALUE>Shechnassaich</VALUE>
+		<VALUE>Shechnassaig</VALUE>
+		<VALUE>Shenaich</VALUE>
+		<VALUE>Shenaig</VALUE>
+		<VALUE>Shuibne</VALUE>
+		<VALUE>Sh&#233;tna</VALUE>
+		<VALUE>Sh&#233;tnae</VALUE>
+		<VALUE>Sh&#237;thig</VALUE>
+		<VALUE>Thaidc</VALUE>
+		<VALUE>Thigernaich</VALUE>
+		<VALUE>Thigernaig</VALUE>
+		<VALUE>Thipraite</VALUE>
+		<VALUE>Threna</VALUE>
+		<VALUE>Threno</VALUE>
+		<VALUE>Thriain</VALUE>
+		<VALUE>Thr&#225;l&#237;n</VALUE>
+		<VALUE>Thuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="scottish-gaelic-genetive-lenited-no-dtlnr" title="Genetive Lenited">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bhat&#237;n</VALUE>
+		<VALUE>Bheicce</VALUE>
+		<VALUE>Bhlaithmeic</VALUE>
+		<VALUE>Bhrain</VALUE>
+		<VALUE>Bhressail</VALUE>
+		<VALUE>Bhrocc&#225;in</VALUE>
+		<VALUE>Bh&#225;et&#225;in</VALUE>
+		<VALUE>Chaennaig</VALUE>
+		<VALUE>Chaerill</VALUE>
+		<VALUE>Chainnaig</VALUE>
+		<VALUE>Chairpri</VALUE>
+		<VALUE>Channech</VALUE>
+		<VALUE>Charthaich</VALUE>
+		<VALUE>Charthaig</VALUE>
+		<VALUE>Chathail</VALUE>
+		<VALUE>Chelaig</VALUE>
+		<VALUE>Chellaich</VALUE>
+		<VALUE>Chenn&#233;dig</VALUE>
+		<VALUE>Cherbaill</VALUE>
+		<VALUE>Chernaich</VALUE>
+		<VALUE>Chernaig</VALUE>
+		<VALUE>Chill&#237;ni</VALUE>
+		<VALUE>Chinaeda</VALUE>
+		<VALUE>Chinatha</VALUE>
+		<VALUE>Chinn-f&#225;elad</VALUE>
+		<VALUE>Chin&#225;eda</VALUE>
+		<VALUE>Chobthaich</VALUE>
+		<VALUE>Chobthaig</VALUE>
+		<VALUE>Cholgan</VALUE>
+		<VALUE>Cholm&#225;in</VALUE>
+		<VALUE>Choluimb</VALUE>
+		<VALUE>Chonaill</VALUE>
+		<VALUE>Chonchobair</VALUE>
+		<VALUE>Chonchobuir</VALUE>
+		<VALUE>Chondlae</VALUE>
+		<VALUE>Chongaile</VALUE>
+		<VALUE>Chongalaich</VALUE>
+		<VALUE>Chonlae</VALUE>
+		<VALUE>Chormaic</VALUE>
+		<VALUE>Chrimthaind</VALUE>
+		<VALUE>Chrimthainn</VALUE>
+		<VALUE>Chrundma&#237;l</VALUE>
+		<VALUE>Chrunnma&#237;l</VALUE>
+		<VALUE>Chuircc</VALUE>
+		<VALUE>Chul&#233;oin</VALUE>
+		<VALUE>Chul&#233;on</VALUE>
+		<VALUE>Chummascaich</VALUE>
+		<VALUE>Chummascaig</VALUE>
+		<VALUE>Ch&#225;irthind</VALUE>
+		<VALUE>Ch&#225;irthinn</VALUE>
+		<VALUE>Ch&#250;&#225;in</VALUE>
+		<VALUE>Dau&#237;d</VALUE>
+		<VALUE>Diarmata</VALUE>
+		<VALUE>Domnaill</VALUE>
+		<VALUE>Donnchada</VALUE>
+		<VALUE>Donnchaid</VALUE>
+		<VALUE>Donnchid</VALUE>
+		<VALUE>Donngaile</VALUE>
+		<VALUE>Dubthaig</VALUE>
+		<VALUE>Duinechda</VALUE>
+		<VALUE>D&#225;ire</VALUE>
+		<VALUE>D&#237;mmai</VALUE>
+		<VALUE>D&#250;nchda</VALUE>
+		<VALUE>D&#250;ngaile</VALUE>
+		<VALUE>D&#250;nlaing</VALUE>
+		<VALUE>D&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fha&#237;lbe</VALUE>
+		<VALUE>Fheideilmid</VALUE>
+		<VALUE>Fheidelmid</VALUE>
+		<VALUE>Fheidlimid</VALUE>
+		<VALUE>Fheradaig</VALUE>
+		<VALUE>Fherdomnaig</VALUE>
+		<VALUE>Fhergaile</VALUE>
+		<VALUE>Fhergusa</VALUE>
+		<VALUE>Fhiachach</VALUE>
+		<VALUE>Fhiachnae</VALUE>
+		<VALUE>Fhiachrach</VALUE>
+		<VALUE>Fhind</VALUE>
+		<VALUE>Fhindchada</VALUE>
+		<VALUE>Fhinguni</VALUE>
+		<VALUE>Fhinnachta</VALUE>
+		<VALUE>Fhintain</VALUE>
+		<VALUE>Fhin&#225;in</VALUE>
+		<VALUE>Fhlaind</VALUE>
+		<VALUE>Fhlainn</VALUE>
+		<VALUE>Fhlaithbertaich</VALUE>
+		<VALUE>Fhlaithbertaig</VALUE>
+		<VALUE>Fhogartaich</VALUE>
+		<VALUE>Fhogartaig</VALUE>
+		<VALUE>Fhorann&#225;in</VALUE>
+		<VALUE>Fhothaid</VALUE>
+		<VALUE>Fh&#225;el&#225;in</VALUE>
+		<VALUE>Gharnait</VALUE>
+		<VALUE>Ghille-M&#237;cael</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Ghiric</VALUE>
+		<VALUE>Ghuaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Mhaili-tuile</VALUE>
+		<VALUE>Mhaine</VALUE>
+		<VALUE>Mhal-Colaim</VALUE>
+		<VALUE>Mhatni</VALUE>
+		<VALUE>Mha&#237;l-Bric&#237;n, Mal-Bric&#237;n</VALUE>
+		<VALUE>Mha&#237;l-Brigte</VALUE>
+		<VALUE>Mha&#237;l-Choluim</VALUE>
+		<VALUE>Mhec-Bead</VALUE>
+		<VALUE>Mheic-Dobarchon</VALUE>
+		<VALUE>Mheic-Dobarcon</VALUE>
+		<VALUE>Mheic-Dubbac&#237;n</VALUE>
+		<VALUE>Mhol&#237;ne</VALUE>
+		<VALUE>Mhorcunn</VALUE>
+		<VALUE>Mhorcunt</VALUE>
+		<VALUE>Mhorgainn</VALUE>
+		<VALUE>Mho&#237;l-Brigte</VALUE>
+		<VALUE>Mhuirchertaig</VALUE>
+		<VALUE>Mhuiredaich</VALUE>
+		<VALUE>Mhuiredaig</VALUE>
+		<VALUE>Mhurchada</VALUE>
+		<VALUE>Mhuredig</VALUE>
+		<VALUE>Mhuridaig</VALUE>
+		<VALUE>Mh&#225;el-duin</VALUE>
+		<VALUE>Mh&#225;el-ruanaid</VALUE>
+		<VALUE>Mh&#225;eludir</VALUE>
+		<VALUE>Mh&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Shcandl&#225;in</VALUE>
+		<VALUE>Shechnassaich</VALUE>
+		<VALUE>Shechnassaig</VALUE>
+		<VALUE>Shenaich</VALUE>
+		<VALUE>Shenaig</VALUE>
+		<VALUE>Shuibne</VALUE>
+		<VALUE>Sh&#233;tna</VALUE>
+		<VALUE>Sh&#233;tnae</VALUE>
+		<VALUE>Sh&#237;thig</VALUE>
+		<VALUE>Taidc</VALUE>
+		<VALUE>Tigernaich</VALUE>
+		<VALUE>Tigernaig</VALUE>
+		<VALUE>Tipraite</VALUE>
+		<VALUE>Trena</VALUE>
+		<VALUE>Treno</VALUE>
+		<VALUE>Triain</VALUE>
+		<VALUE>Tr&#225;l&#237;n</VALUE>
+		<VALUE>Tuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="irish-gaelic-genetive-lenited-no-dtlnr" title="Genetive Lenited">
+		<VALUE>Ailella</VALUE>
+		<VALUE>Airt</VALUE>
+		<VALUE>Amalgada</VALUE>
+		<VALUE>Arcill</VALUE>
+		<VALUE>Bhat&#237;n</VALUE>
+		<VALUE>Bheicce</VALUE>
+		<VALUE>Bhlaithmeic</VALUE>
+		<VALUE>Bhrain</VALUE>
+		<VALUE>Bhressail</VALUE>
+		<VALUE>Bhrocc&#225;in</VALUE>
+		<VALUE>Bh&#225;et&#225;in</VALUE>
+		<VALUE>Chaennaig</VALUE>
+		<VALUE>Chaerill</VALUE>
+		<VALUE>Chainnaig</VALUE>
+		<VALUE>Chairpri</VALUE>
+		<VALUE>Channech</VALUE>
+		<VALUE>Charthaich</VALUE>
+		<VALUE>Charthaig</VALUE>
+		<VALUE>Chathail</VALUE>
+		<VALUE>Chelaig</VALUE>
+		<VALUE>Chellaich</VALUE>
+		<VALUE>Chenn&#233;dig</VALUE>
+		<VALUE>Cherbaill</VALUE>
+		<VALUE>Chernaich</VALUE>
+		<VALUE>Chernaig</VALUE>
+		<VALUE>Chill&#237;ni</VALUE>
+		<VALUE>Chinaeda</VALUE>
+		<VALUE>Chinatha</VALUE>
+		<VALUE>Chinn-f&#225;elad</VALUE>
+		<VALUE>Chin&#225;eda</VALUE>
+		<VALUE>Chobthaich</VALUE>
+		<VALUE>Chobthaig</VALUE>
+		<VALUE>Cholgan</VALUE>
+		<VALUE>Cholm&#225;in</VALUE>
+		<VALUE>Choluimb</VALUE>
+		<VALUE>Chonaill</VALUE>
+		<VALUE>Chonchobair</VALUE>
+		<VALUE>Chonchobuir</VALUE>
+		<VALUE>Chondlae</VALUE>
+		<VALUE>Chongaile</VALUE>
+		<VALUE>Chongalaich</VALUE>
+		<VALUE>Chonlae</VALUE>
+		<VALUE>Chormaic</VALUE>
+		<VALUE>Chrimthaind</VALUE>
+		<VALUE>Chrimthainn</VALUE>
+		<VALUE>Chrundma&#237;l</VALUE>
+		<VALUE>Chrunnma&#237;l</VALUE>
+		<VALUE>Chuircc</VALUE>
+		<VALUE>Chul&#233;oin</VALUE>
+		<VALUE>Chul&#233;on</VALUE>
+		<VALUE>Chummascaich</VALUE>
+		<VALUE>Chummascaig</VALUE>
+		<VALUE>Ch&#225;irthind</VALUE>
+		<VALUE>Ch&#225;irthinn</VALUE>
+		<VALUE>Ch&#250;&#225;in</VALUE>
+		<VALUE>Dau&#237;d</VALUE>
+		<VALUE>Diarmata</VALUE>
+		<VALUE>Domnaill</VALUE>
+		<VALUE>Donnchada</VALUE>
+		<VALUE>Donnchaid</VALUE>
+		<VALUE>Donnchid</VALUE>
+		<VALUE>Donngaile</VALUE>
+		<VALUE>Dubthaig</VALUE>
+		<VALUE>Duinechda</VALUE>
+		<VALUE>D&#225;ire</VALUE>
+		<VALUE>D&#237;mmai</VALUE>
+		<VALUE>D&#250;nchda</VALUE>
+		<VALUE>D&#250;ngaile</VALUE>
+		<VALUE>D&#250;nlaing</VALUE>
+		<VALUE>D&#250;nlainge</VALUE>
+		<VALUE>Echach</VALUE>
+		<VALUE>Echuid</VALUE>
+		<VALUE>Eircc</VALUE>
+		<VALUE>Eochada</VALUE>
+		<VALUE>Fha&#237;lbe</VALUE>
+		<VALUE>Fheideilmid</VALUE>
+		<VALUE>Fheidelmid</VALUE>
+		<VALUE>Fheidlimid</VALUE>
+		<VALUE>Fheradaig</VALUE>
+		<VALUE>Fherdomnaig</VALUE>
+		<VALUE>Fhergaile</VALUE>
+		<VALUE>Fhergusa</VALUE>
+		<VALUE>Fhiachach</VALUE>
+		<VALUE>Fhiachnae</VALUE>
+		<VALUE>Fhiachrach</VALUE>
+		<VALUE>Fhind</VALUE>
+		<VALUE>Fhindchada</VALUE>
+		<VALUE>Fhinguni</VALUE>
+		<VALUE>Fhinnachta</VALUE>
+		<VALUE>Fhintain</VALUE>
+		<VALUE>Fhin&#225;in</VALUE>
+		<VALUE>Fhlaind</VALUE>
+		<VALUE>Fhlainn</VALUE>
+		<VALUE>Fhlaithbertaich</VALUE>
+		<VALUE>Fhlaithbertaig</VALUE>
+		<VALUE>Fhogartaich</VALUE>
+		<VALUE>Fhogartaig</VALUE>
+		<VALUE>Fhorann&#225;in</VALUE>
+		<VALUE>Fhothaid</VALUE>
+		<VALUE>Fh&#225;el&#225;in</VALUE>
+		<VALUE>Gharnait</VALUE>
+		<VALUE>Ghille-M&#237;cael</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;il</VALUE>
+		<VALUE>Ghille-M&#237;ch&#233;l</VALUE>
+		<VALUE>Ghiric</VALUE>
+		<VALUE>Ghuaire</VALUE>
+		<VALUE>Hidid</VALUE>
+		<VALUE>Idid</VALUE>
+		<VALUE>Imchada</VALUE>
+		<VALUE>Indrechtaich</VALUE>
+		<VALUE>Indrechtaig</VALUE>
+		<VALUE>Lugdach</VALUE>
+		<VALUE>Luloig</VALUE>
+		<VALUE>L&#225;egaire</VALUE>
+		<VALUE>L&#243;egairi</VALUE>
+		<VALUE>Mhaili-tuile</VALUE>
+		<VALUE>Mhaine</VALUE>
+		<VALUE>Mhal-Colaim</VALUE>
+		<VALUE>Mhatni</VALUE>
+		<VALUE>Mha&#237;l-Bric&#237;n</VALUE>
+		<VALUE>Mhal-Bric&#237;n</VALUE>
+		<VALUE>Mha&#237;l-Brigte</VALUE>
+		<VALUE>Mha&#237;l-Choluim</VALUE>
+		<VALUE>Mhec-Bead</VALUE>
+		<VALUE>Mheic-Dobarchon</VALUE>
+		<VALUE>Mheic-Dobarcon</VALUE>
+		<VALUE>Mheic-Dubbac&#237;n</VALUE>
+		<VALUE>Mhol&#237;ne</VALUE>
+		<VALUE>Mhorcunn</VALUE>
+		<VALUE>Mhorcunt</VALUE>
+		<VALUE>Mhorgainn</VALUE>
+		<VALUE>Mho&#237;l-Brigte</VALUE>
+		<VALUE>Mhuirchertaig</VALUE>
+		<VALUE>Mhuiredaich</VALUE>
+		<VALUE>Mhuiredaig</VALUE>
+		<VALUE>Mhurchada</VALUE>
+		<VALUE>Mhuredig</VALUE>
+		<VALUE>Mhuridaig</VALUE>
+		<VALUE>Mh&#225;el-duin</VALUE>
+		<VALUE>Mh&#225;el-ruanaid</VALUE>
+		<VALUE>Mh&#225;eludir</VALUE>
+		<VALUE>Mh&#243;enaig</VALUE>
+		<VALUE>Nath-&#237;</VALUE>
+		<VALUE>N&#233;ill</VALUE>
+		<VALUE>Rechtabrat</VALUE>
+		<VALUE>Ruadr&#237;</VALUE>
+		<VALUE>Ruaidr&#237;</VALUE>
+		<VALUE>R&#243;n&#225;in</VALUE>
+		<VALUE>Shcandl&#225;in</VALUE>
+		<VALUE>Shechnassaich</VALUE>
+		<VALUE>Shechnassaig</VALUE>
+		<VALUE>Shenaich</VALUE>
+		<VALUE>Shenaig</VALUE>
+		<VALUE>Shuibne</VALUE>
+		<VALUE>Sh&#233;tna</VALUE>
+		<VALUE>Sh&#233;tnae</VALUE>
+		<VALUE>Sh&#237;thig</VALUE>
+		<VALUE>Taidc</VALUE>
+		<VALUE>Tigernaich</VALUE>
+		<VALUE>Tigernaig</VALUE>
+		<VALUE>Tipraite</VALUE>
+		<VALUE>Trena</VALUE>
+		<VALUE>Treno</VALUE>
+		<VALUE>Triain</VALUE>
+		<VALUE>Tr&#225;l&#237;n</VALUE>
+		<VALUE>Tuathail</VALUE>
+		<VALUE>&#193;eda</VALUE>
+		<VALUE>&#193;engusa</VALUE>
+		<VALUE>&#201;da</VALUE>
+		<VALUE>&#201;nnai</VALUE>
+		<VALUE>&#201;ogain</VALUE>
+		<VALUE>&#211;engusa</VALUE>
+	</LIST>
+	<LIST id="gaelic-male-descriptive-byname" title="Descriptive Byname">
+		<VALUE>All&#225;n</VALUE>
+		<VALUE>Benn&#225;n</VALUE>
+		<VALUE>Boru</VALUE>
+		<VALUE>Brithem</VALUE>
+		<VALUE>B&#225;n</VALUE>
+		<VALUE>Caille</VALUE>
+		<VALUE>Can&#243;ne<SUBVALUE type="meaning">of the canon</SUBVALUE></VALUE>
+		<VALUE>Catha an D&#250;na<SUBVALUE type="meaning">[of] the battle of Down</SUBVALUE></VALUE>
+		<VALUE>Cennmagair</VALUE>
+		<VALUE>Crobderg<SUBVALUE type="meaning">of the Wine-red hand</SUBVALUE></VALUE>
+		<VALUE>Cualann</VALUE>
+		<VALUE>C&#225;ech</VALUE>
+		<VALUE>Dam&#225;n<SUBVALUE type="meaning">little stag, little ox</SUBVALUE></VALUE>
+		<VALUE>Donn<SUBVALUE type="meaning">brown, brown-haired</SUBVALUE></VALUE>
+		<VALUE>Fe&#243;rna</VALUE>
+		<VALUE>Finn<SUBVALUE type="meaning">fair, bright white, light-hued</SUBVALUE></VALUE>
+		<VALUE>Finnliath</VALUE>
+		<VALUE>Fland</VALUE>
+		<VALUE>Flann<SUBVALUE type="meaning">bright red, blood red</SUBVALUE></VALUE>
+		<VALUE>Fledach</VALUE>
+		<VALUE>Frassach</VALUE>
+		<VALUE>Gl&#250;ndub</VALUE>
+		<VALUE>Mainistrech<SUBVALUE type="meaning">monastery, abbey</SUBVALUE></VALUE>
+		<VALUE>Menn</VALUE>
+		<VALUE>Mide</VALUE>
+		<VALUE>Muillethan</VALUE>
+		<VALUE>M&#225;elgarb</VALUE>
+		<VALUE>Ornide</VALUE>
+		<VALUE>R&#250;anaid<SUBVALUE type="meaning">champion, strong man</SUBVALUE></VALUE>
+		<VALUE>Sacart</VALUE>
+		<VALUE>Sinna</VALUE>
+		<VALUE>Sl&#225;ne</VALUE>
+		<VALUE>Sotal<SUBVALUE type="meaning">the arrogant</SUBVALUE></VALUE>
+		<VALUE>an Eich Gil<SUBVALUE type="meaning">[of] the bright steed</SUBVALUE></VALUE>
+		<VALUE>na Saide Buide</VALUE>
+	</LIST>
+	<LIST id="gaelic-female-descriptive-byname" title="Descriptive Byname">
+		<VALUE>Caomhanach<SUBVALUE type="meaning">[of the] O'Caemhain [family]</SUBVALUE></VALUE>
+		<VALUE>Cham<SUBVALUE type="meaning">Crooked, refers to physical appearance, posture</SUBVALUE></VALUE>
+		<VALUE>Dubh<SUBVALUE type="meaning">Black (hair)</SUBVALUE></VALUE>
+		<VALUE>an Einigh<SUBVALUE type="meaning">the Hospitable</SUBVALUE></VALUE>
+		<VALUE>M&#243;r<SUBVALUE type="meaning">Big</SUBVALUE></VALUE>
+		<VALUE>Mugain<SUBVALUE type="meaning">a young (unmarried) girl</SUBVALUE></VALUE>
+		<VALUE>na Muimneach<SUBVALUE type="meaning">the Momonian [Munster-woman]</SUBVALUE></VALUE>
+		<VALUE>Occ<SUBVALUE type="meaning">Young</SUBVALUE></VALUE>
+		<VALUE>Ph&#233;cach<SUBVALUE type="meaning">Gaudy/Showy</SUBVALUE></VALUE>
+		<VALUE>B&#225;n<SUBVALUE type="meaning">white, fair</SUBVALUE></VALUE>
+	</LIST>
+</GENERATOR>
+
+

@@ -1,0 +1,500 @@
+// Emacs, this is -*- java -*- code.
+
+/*
+ * DiceExpression.java
+ * Copyright 2002, 2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License
+ * as published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+ * USA
+ *
+ * Created on January 28, 2002.
+ *
+ * $Id: DiceExpression.jj,v 1.18 2005/09/23 15:11:39 byngl Exp $
+ */
+
+options {
+	LOOKAHEAD = 1;
+	STATIC = false;
+	IGNORE_CASE = true;
+}
+
+PARSER_BEGIN(DiceExpression)
+package pcgen.util;
+
+import java.io.StringReader;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Stack;
+import pcgen.util.Logging;
+import pcgen.util.SimpleCharStream;
+
+/**
+ * An expression evaluator for dice with simple arithmetic and
+ * functions.
+ *
+ * @version 1.0
+ * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ */
+public class DiceExpression extends DiceExpressionFunctions {
+	/**
+	 * A bad integer value.
+	 */
+	public static final int BAD_VALUE = Integer.MIN_VALUE;
+	
+	private String dieExpression = "";
+
+	/**
+	 * Argument stack.  This holds our arguments as the are parsed
+	 * (pushed) and evaluated (popped).
+	 */
+	private Stack argStack = new Stack();
+
+	/**
+	 * Construct from a String: arrange for
+	 * <code>ByteArrayInputString</code> to run on the string.
+	 *
+	 * @param expression String dice expression
+	 */
+	public DiceExpression(String expression)
+	{
+		dieExpression = expression;
+	}
+
+	private void initialize()
+	{
+		argStack.clear();
+
+		StringReader stream = new StringReader(dieExpression);
+
+		// Copied out from Reader constructor.
+		jj_input_stream = new SimpleCharStream(stream, 1, 1);
+		token_source = new DiceExpressionTokenManager(jj_input_stream);
+		token = new Token();
+		jj_ntk = -1;
+		jj_gen = 0;
+
+		for (int i = 0; i < 14; i++)
+		{
+			jj_la1[i] = -1;
+		}
+
+		for (int i = 0; i < jj_2_rtns.length; i++)
+		{
+			jj_2_rtns[i] = new JJCalls();
+		}
+	}
+
+	/**
+	 * Testing harness.
+	 *
+	 * @param args String[] command-line arguments
+	 * @throws ParseException
+	 */
+	public static void main(String[] args)
+		throws ParseException
+	{
+		for (int i = 0, x = args.length; i < x; ++i)
+		{
+			DiceExpression parser = new DiceExpression(args[i]);
+
+			try
+			{
+				int r = parser.rollDice();
+
+				if (r == BAD_VALUE)
+				{
+					System.exit(0);
+				}
+
+
+				System.out.println (args[i] + " = " + r);
+			}
+
+			catch (ParseException ex)
+			{
+				Logging.debugPrint("Exiting.");
+				throw ex;
+			}
+		}
+	}
+
+	/**
+	 * Set up required global variables for certain function calls
+	 *
+	 * @param funcname String name of function call
+	 */
+	private static void initFunction(String funcname)
+	{
+		if (funcname.equals("maxroll"))
+		{
+			setMaxRoll(true);
+		}
+	}
+	
+	/**
+	 * Build error string for bad function calls.
+	 *
+	 * @param funcname String name of function call
+	 * @param args int number of <code>int</code> args
+	 *
+	 * @return String error string
+	 */
+	private static String badfun(String funcname, Object[] args)
+	{
+		String s = "Bad function: " + funcname + "(";
+
+		if (args.length > 0)
+		{
+			if (args[0] instanceof Integer) s += "int";
+		}
+		else
+		{
+			s += "int[]";
+		}
+
+		for (int i = 1; i < args.length; ++i)
+		{
+			if (args[i] instanceof Integer)
+			{
+				s += ",int";
+			}
+			else
+			{
+				s += ",int[]";
+			}
+		}
+
+		s += ")";
+
+		return s;
+	}
+
+	/**
+	 * Prepare argument list for invoke.
+	 *
+	 * @param args Object[] array of arguments
+	 *
+	 * @return Object[] one step closer
+	 */
+	private static Object[] repack(Object[] args)
+	{
+		for (int i = 0; i < args.length; ++i)
+		{
+			if (args[i] instanceof Integer)
+			{
+				continue;
+			}
+
+			Object[] vector = (Object[]) args[i];
+			int[] ints = new int[vector.length];
+
+			for (int j = 0; j < ints.length; ++j)
+			{
+				ints[j] = ((Integer) vector[j]).intValue();
+			}
+
+			args[i] = ints;
+		}
+
+		return args;
+	}
+
+	/**
+	 * Work out the arguments list for <code>Method.invoke</code>.
+	 * Only support <code>int</code> and <code>int[]</code>.
+	 *
+	 * @param args Object[] array of arguments
+	 *
+	 * @return Class[] method signature
+	 */
+	private static Class[] typesOf(Object[] args)
+	{
+		Class[] types = new Class[args.length];
+
+		for (int i = 0; i < args.length; ++i)
+		{
+			if (args[i] instanceof Integer)
+			{
+				types[i] = int.class;
+			}
+			else
+			{
+				types[i] = int[].class;
+			}
+		}
+
+		return types;
+	}
+}
+PARSER_END(DiceExpression)
+
+SKIP :
+{
+ 	" "
+  |	"\r"
+  |	"\t"
+  |	"\n"
+}
+
+TOKEN : /* OPERATORS */
+{
+	< PLUS: "+" >
+	| < MINUS: "-" >
+	| < MULTIPLY: "*" >
+	| < DIVIDE: "/" >
+	| < REMAINDER: "%" >
+	| < EXP: "**" >
+	| < DICE: "d" >
+	| < PERCENTILE: "d%" > /* TODO: ambiguous, i.e., dd% */
+}
+
+TOKEN : /* numeric constants */
+{
+	< CONSTANT: <INTEGER> >
+	| < #INTEGER: ( <DIGIT> )+ >
+	| < #DIGIT: ["0" - "9"] >
+}
+
+/**
+ * <strong>BUG:</strong> Functions cannot start with the letter 'd'
+ * (or 'D').  This simplifies lexing/parsing considerably.
+ */
+
+TOKEN : /* Function names */
+{
+	< ID: ( <NON_D_LETTER> ) ( <DIGIT> | <LETTER> )* >
+	| < #NON_D_LETTER: ["a"-"c", "e"-"z", "A"-"C", "E"-"Z"] >
+	| < #LETTER: ["a"-"z", "A"-"Z"] >
+}
+
+int rollDice() :
+{	initialize(); setMaxRoll(false); }
+{
+	sum() <EOF>
+	{
+		return ((Integer) argStack.pop()).intValue();
+	}
+	| <EOF>
+	{
+		return BAD_VALUE;
+	}
+}
+
+void sum() :
+{ Token x; }
+{
+	term() ( ( x = <PLUS> | x = <MINUS> ) term()
+	{
+		int a = ((Integer) argStack.pop()).intValue();
+		int b = ((Integer) argStack.pop()).intValue();
+
+		if ( x.kind == PLUS )
+		{
+			argStack.push(new Integer(b + a));
+		}
+		else
+		{
+			argStack.push(new Integer(b - a));
+		}
+	} )*
+}
+
+void term() :
+{ Token x; }
+{
+	exp() ( ( x = <MULTIPLY> | x = <DIVIDE> | x = <REMAINDER> ) exp()
+	{
+		int a = ((Integer) argStack.pop()).intValue();
+		int b = ((Integer) argStack.pop()).intValue();
+
+		if ( x.kind == MULTIPLY )
+		{
+			argStack.push(new Integer(b * a));
+		}
+		else if ( x.kind == DIVIDE )
+		{
+			argStack.push(new Integer(b / a));
+		}
+		else
+		{
+			argStack.push(new Integer(b % a));
+		}
+	} )*
+}
+
+void exp() :
+{ }
+{
+	unary() ( LOOKAHEAD( <EXP> ) <EXP> exp()
+	{
+		int a = ((Integer) argStack.pop()).intValue();
+		int b = ((Integer) argStack.pop()).intValue();
+
+		argStack.push(new Integer(pow(b, a)));
+	} )*
+}
+
+void unary() :
+{ Token x; }
+{
+	( x = <PLUS> | x = <MINUS> ) dice()
+	{
+		int a = ((Integer) argStack.pop()).intValue();
+
+		if ( x.kind == PLUS )
+		{
+			argStack.push(new Integer(a));
+		}
+		else
+		{
+			argStack.push(new Integer(- a));
+		}
+	}
+	| unary_die()
+	| dice()
+}
+
+void unary_die() :
+{ }
+{
+	<DICE> dice()
+	{
+		int a = ((Integer) argStack.pop()).intValue();
+
+		argStack.push(new Integer(roll(1, a)));
+	}
+}
+
+void dice() :
+{ }
+{
+	element() ( <DICE> element()
+	{
+		int a = ((Integer) argStack.pop()).intValue();
+		int b = ((Integer) argStack.pop()).intValue();
+
+		argStack.push(new Integer(roll(b, a)));
+	} )*
+}
+
+void element() :
+{ }
+{
+	<PERCENTILE>
+	{
+		argStack.push(new Integer(roll(1, 100)));
+	}
+	| <CONSTANT>
+	{
+		try
+		{
+			argStack.push(Integer.valueOf(token.image));
+		}
+		catch (NumberFormatException ee)
+		{
+			argStack.push(new Integer(BAD_VALUE));
+		}
+	}
+	| function()
+	| "(" sum() ")"
+}
+
+void simple_arg_list() :
+{ int nargs = 0; }
+{
+	[ sum() { ++nargs; } ( "," sum() { ++nargs; } )* ]
+	{
+		Object[] args = new Object[nargs];
+
+		for (int i = nargs; --i >= 0; )
+		{
+			args[i] = argStack.pop();
+		}
+
+		argStack.push(args); // simple args don't get repacked
+	}
+}
+
+void full_arg() :
+{ }
+{
+	( "[" simple_arg_list() "]" )
+	| sum()
+}
+
+void complex_arg_list() :
+{ int nargs = 0; }
+{
+	[ full_arg() { ++nargs; } ( "," full_arg() { ++nargs; } )* ]
+	{
+		// Reverse the ordering from the stack.
+		Object[] args = new Object[nargs];
+
+		for (int i = nargs; --i >= 0; )
+		{
+			args[i] = argStack.pop();
+		}
+
+		argStack.push(repack(args)); // complex args get repacked
+	}
+}
+
+void function() :
+{ String funcname; }
+{
+	<ID> { funcname = token.image; initFunction(funcname); } "(" complex_arg_list() ")"
+	{
+		Object[] args = (Object[]) argStack.pop();
+		Class[] types = typesOf(args);
+		Method method = null;
+
+		//
+		// maxroll() simply sets a flag so all generated rolls are the maximum possible value.
+		// The value of the argument is the value we want to return
+		//
+		if (("maxroll".equals(funcname)) && (args.length == 1))
+		{
+			setMaxRoll(false);
+			argStack.push(args[0]);
+			return;
+		}
+		
+		try
+		{
+			method = DiceExpression.class.getMethod(
+				funcname, types);
+			argStack.push(method.invoke(null, args));
+		}
+		catch (InvocationTargetException itex)
+		{
+			Throwable realEx = itex.getTargetException();
+
+			Logging.errorPrint(badfun(funcname, args) + ": "
+				+ realEx, itex);
+			argStack.push(new Integer(BAD_VALUE));
+
+			return;
+		}
+		catch (Exception ex)
+		{
+			Logging.errorPrint(badfun(funcname, args) + " ["
+				+ method + "]", ex);
+			argStack.push(new Integer(BAD_VALUE));
+
+			return;
+		}
+	}
+}
+

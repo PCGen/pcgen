@@ -1,0 +1,23 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 12:08:11 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Silverthorne Games - Kressmer's Bizarre Grimoire - Seven Illusions
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Evernor
+TYPE:Silverthorne Games.Evernor.Kressmer's Bizzare Grimoire
+SOURCELONG:Seven Illusions
+SOURCESHORT:7Illu
+SOURCEWEB:http://www.silverthornegames.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a, © 2000, Wizards of the Coast, Inc.
+COPYRIGHT:d20 System Reference Document, © 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Kressmer's Bizarre Grimoire, © 2004-2006 Silverthorne Games; Authors: Ian S. Johnston and Christopher Coyle.
+COPYRIGHT:PCGen dataset conversion for Seven Illusions Copyright 2005, PCGen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith))
+ISLICENSED:YES
+LICENSE:<p><b>Silverthorne Games - Kressmer's Bizarre Grimoire - Seven Illusions</b></p> <p><b>Designation of Product Identity: The following items are hereby designated as Product Identity in accordance with Section 1(e) of the Open Game License, version 1.0: Any and all Silverthorne Games logos and identifying marks and trade dress, including all Silverthorne Games Product and Product Line names including but not limited to Kressmer's Bizarre Grimoire and the Realms of Evernor, including but not limited to the following spell names:</b></p> <p>Bellamy's Bitter Brew, Bellamy's Blathering Babble, Bellamy's Bountiful Beard, Bellamy's Effusive Earwax, Bellamy's Forceful Feedback, Bellamy's Monstrous Musk, Bellamy's Proper Burial, Falgell's Coat of Quills, Falgell's Floating Mirror, Falgell's Quick Switch, Hedreth's Hellish Halitosis, Jynx's Black Cat, Kressmer's Inverted Text, Kressmer's Moment of Deflection, Kressmer's Whistling Servant, Milara's Befuddling Mist, Milara's Perfume, Pashaw's Shadow Puppet, Saermund's Inviolate Sphere, Saermund's Plasmic Sheath, Treffla's Spectral Brambles,  </p> <p><b>The above Product Identity is not Open Game Content.</b></p> <p><b>Subject to the Product Identity designation above, use of these PI elements is granted to PCGen solely for listing spell names for no other use. All designated PI elements are Copyright 2004-2006 Silverthorne Games, all rights reserved, and are used with permission.</b></p><br>
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SPELL:sevenillusions_spells.lst
+

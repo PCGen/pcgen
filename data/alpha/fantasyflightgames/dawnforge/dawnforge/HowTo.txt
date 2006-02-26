@@ -1,0 +1,14 @@
+load with Core Rules for the 3.5 revised edition. 
+
+Racial progression is at this point NOT automatic, add appropriate template for each level.
+(When code freq has come through it will fire choices automagically and I can throw away all the 210 templates)
+
+Talent/Transformation Skills:
+They are a major headache but they work. Pick this and you have to go through 2*5 choosers.
+Two choosers for each +1 on a skill.
+This setup is in part to ensure the max +3 limit. 
+
+
+To progress in a legendary path choose the template "Legendary Path 1st Circle",..
+This will give you choices of the paths that you are qualified for.
+Note that the Legend Points prereq is not implemented.

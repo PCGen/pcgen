@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Jan 27 03:58:53 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Weapon Name			Type			Nb Hands
+Cane (Rapier)			TYPE:Martial
+Cane (Fighting)			TYPE:Simple
+Cestus (Impression)		TYPE:Simple
+Canteen (Combat)			TYPE:Simple
+Combat Soaker			TYPE:Simple		HANDS:2
+Bayonet (Wand)			TYPE:Simple
+Helmet (Horned)			TYPE:Martial
+Helmet (Smash)			TYPE:Martial
+Knife (Sacrificial)		TYPE:Exotic
+Saw Edge Buckler			TYPE:Exotic
+Smash Buckler			TYPE:Exotic
+Trench Knife			TYPE:Simple
+Truncheon (Spring Loaded)	TYPE:Simple

@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
+Barbed Axe Handle		TYPE:Weapon.Simple.Melee.Piercing.Slashing.Bludgeoning	COST:.25	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	SIZE:M	SOURCEPAGE:p.
+
+#Martial Melee Weapons Name
+Macahuitl			TYPE:Weapon.Martial.Melee.Slashing					COST:15	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	SIZE:M	SOURCEPAGE:p.
+
+#Exotic Melee Weapons
+Judge's Gun Scythe	TYPE:Weapon.Exotic.Melee.Piercing.Slashing			COST:18	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	SIZE:S	SOURCEPAGE:p.

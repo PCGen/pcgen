@@ -1,0 +1,45 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Mon Nov 28 10:47:01 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
+# Original Entry by: Beaver
+
+# Currently not referenced by a class:
+#	Transference
+#	Test of Souls
+#	Rontra's Blessing
+#	Greater Transference
+
+# Spell Name		Domains granting the spell	School			Sub-School			Spell Descriptors						Components		Casting Time		Range			Target Area				Duration									Save Info						Spell Resistance		Cost			Description														Source Page
+Afflatus			DOMAINS:Inspiration=3		SCHOOL:Evocation		SUBSCHOOL:Sonic										COMPS:V DF		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Touch			DURATION:1 Week or until discharged					SAVEINFO:None					SPELLRES:Yes (Harmless)				DESC:+10 Bonus on Craft, Perform, Profession								SOURCEPAGE:p.259
+Anwyn's Elysian Palace	DOMAINS:Home=9			SCHOOL:Transmutation													COMPS:V S DF XP	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Touch			DURATION:Instantaneous							SAVEINFO:Will negates				SPELLRES:Yes		COST:5,000		DESC:Transports Caster and one other to a palace of Anwyn (See Text)				SOURCEPAGE:p.259
+Bind Oath			DOMAINS:Justice=3			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Language Dependant|Mind Affecting	COMPS:V S DF	CASTTIME:10 minutes	RANGE:Touch		TARGETAREA:Mind-Affecting	DURATION:Perminent (see text)						SAVEINFO:None					SPELLRES:Yes					DESC:Bind a subject to an oath he/she voluntarily swears						SOURCEPAGE:p.260
+Constellation		DOMAINS:Night=7			SCHOOL:Evocation														COMPS:V S DF	CASTTIME:1 minute		RANGE:Touch		TARGETAREA:None			DURATION:See Text, Concentration					SAVEINFO:None					SPELLRES:No						DESC:Converse with other via the stars									SOURCEPAGE:p.260
+Detect Return		DOMAINS:The Dead=1		SCHOOL:Divination														COMPS:V S		CASTTIME:1 action		RANGE:60'		TARGETAREA:None			DURATION:Concentration, up to 10mins/level			SAVEINFO:None					SPELLRES:Yes					DESC:Detect whether a living being has been brought back from the dead				SOURCEPAGE:p.260
+Fact to Fiction		DOMAINS:Truth=9			SCHOOL:Evocation														COMPS:V S DF XP	CASTTIME:1 action		RANGE:See Text	TARGETAREA:None			DURATION:See Text								SAVEINFO:See Text					SPELLRES:Yes		COST:2,500		DESC:Can udo a single recent event										SOURCEPAGE:p.261
+Fair Light			DOMAINS:Beauty=3			SCHOOL:Evocation						DESCRIPTOR:Light						COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Touch			DURATION:10 minutes/level						SAVEINFO:None					SPELLRES:No						DESC:Centered on Caster												SOURCEPAGE:p.261
+Greater Afflatus		DOMAINS:Inspiration=9		SCHOOL:Evocation		SUBSCHOOL:Sonic										COMPS:V DF		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Touch			DURATION:1 Week per level						SAVEINFO:None					SPELLRES:Yes (Harmless)				DESC:+20 Bonus on Craft, Perform, Profession								SOURCEPAGE:p.261
+Greater Repair		DOMAINS:The Forge=9		SCHOOL:Transmutation													COMPS:V S XP	CASTTIME:1 action		RANGE:Close		TARGETAREA:None			DURATION:Instantaneous							SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)	COST:15,000		DESC:As per 'Make Whole' except the subject can be missing significant pieces of object	SOURCEPAGE:p.261
+Greater Return		DOMAINS:The Dead=8		SCHOOL:Necromancy		SUBSCHOOL:Sonic										COMPS:V		CASTTIME:1 action		RANGE:30'		TARGETAREA:None			DURATION:Instantaneous							SAVEINFO:Fort, partial				SPELLRES:Yes					DESC:Return being back to the dead										SOURCEPAGE:p.261
+Greater Transference						SCHOOL:Abjuration														COMPS:V S F		CASTTIME:1 action		RANGE:Close		TARGETAREA:None			DURATION:1 hour/level (D)						SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)				DESC:More powerfull 'Transference' with line of sight							SOURCEPAGE:p.262
+Imprison Soul		DOMAINS:The Dead=9		SCHOOL:Necromany														COMPS:V S F		CASTTIME:1 action		RANGE:Close		TARGETAREA:None			DURATION:Perminent							SAVEINFO:Will negates				SPELLRES:No						DESC:Non-evil based version of Soul Bind									SOURCEPAGE:p.262
+Mark of Evil		DOMAINS:Justice=4			SCHOOL:Transmutation													COMPS:V S DF	CASTTIME:10 minutes	RANGE:Touch		TARGETAREA:None			DURATION:Perminent (See text)						SAVEINFO:None					SPELLRES:Yes					DESC:Places a magical mark on targets immortal soul							SOURCEPAGE:p.262
+Moonbeam			DOMAINS:Night=6			SCHOOL:Evocation														COMPS:V S DF	CASTTIME:1 action		RANGE:Medium	TARGETAREA:Sleep			DURATION:1 round/level or until all beams are exhausted	SAVEINFO:Reflex, Will Negates (See text)	SPELLRES:Yes					DESC:Creates shafts of moonlight										SOURCEPAGE:p.262
+Moonglow			DOMAINS:Night=8			SCHOOL:Abjuration														COMPS:V S F		CASTTIME:1 action		RANGE:20'		TARGETAREA:None			DURATION:1 round/level							SAVEINFO:See Text					SPELLRES:Yes		COST:750gp opal	DESC:Protect subjects with glow of the moon								SOURCEPAGE:p.263
+North Star			DOMAINS:Night=4			SCHOOL:Evocation														COMPS:V DF		CASTTIME:1 action		RANGE:See Text	TARGETAREA:None			DURATION:10 minutes/level						SAVEINFO:See text					SPELLRES:None					DESC:Call upon the power of the north star								SOURCEPAGE:p.263
+Rontra's Blessing							SCHOOL:Transmutation													COMPS:V S DF	CASTTIME:1 action		RANGE:Touch		TARGETAREA:None			DURATION:Instantaneous							SAVEINFO:None (See text)			SPELLRES:No						DESC:Provides a blessing on pregnancy									SOURCEPAGE:p.263
+Shibboleth			DOMAINS:Justice=8			SCHOOL:Evocation		SUBSCHOOL:Sonic										COMPS:V		CASTTIME:1 action		RANGE:30'		TARGETAREA:None			DURATION:Instantaneous							SAVEINFO:None					SPELLRES:Yes					DESC:Brings about effects from the speaking of a word (See text)					SOURCEPAGE:p.263
+Shooting Stars		DOMAINS:Night=9			SCHOOL:Evocation		SUBSCHOOL:Cold										COMPS:V S DF	CASTTIME:1 action		RANGE:See Text	TARGETAREA:None			DURATION:Instantaneous							SAVEINFO:None, Reflex for half (See text)	SPELLRES:Yes					DESC:Calls shooting stars down from the night sky							SOURCEPAGE:p.264
+Test of Souls							SCHOOL:Universal						DESCRIPTOR:Mind Affecting				COMPS:V		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Mind-Affecting	DURATION:1 hour								SAVEINFO:None					SPELLRES:Yes (Harmless)				DESC:Tests the strength of a persons heart								SOURCEPAGE:p.264
+Touch of Return		DOMAINS:The Dead=4		SCHOOL:Necromancy		SUBSCHOOL:Death										COMPS:V S		CASTTIME:1 action		RANGE:Touch		TARGETAREA:None			DURATION:Instantaneous							SAVEINFO:Fortitude partial			SPELLRES:Yes					DESC:'Slay Living' that only works on the previously dead						SOURCEPAGE:p.264
+Transference							SCHOOL:Abjuration														COMPS:V S F		CASTTIME:1 action		RANGE:Close		TARGETAREA:None			DURATION:1 hour/level (D)						SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)				DESC:As per 'Shield Other' with some important differences.						SOURCEPAGE:p.264
+
+###Block: Extrapolated from spell lists and SRD.
+# Spell Name			School			Sub-School		Type		Components	Casting Time	Range		Target Area										Duration			Save Info		Spell Resistance		Description							Source Page		Item
+Heal Animal Companion		SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V, S	CASTTIME:1 action	RANGE:Touch	TARGETAREA:The character's animal companion touched			DURATION:Instantaneous	SAVEINFO:None	SPELLRES:Yes (Harmless)	DESC:As heal on animal companion.			SOURCEPAGE:p.52	ITEM:Potion
+Heal Mount/Animal Companion	SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V, S	CASTTIME:1 action	RANGE:Touch	TARGETAREA:The character's mount or animal companion touched	DURATION:Instantaneous	SAVEINFO:None	SPELLRES:Yes (Harmless)	DESC:As heal on mount or animal companion.	SOURCEPAGE:p.154	ITEM:Potion
+
+###Block:Modifying base spells with God's names
+# Spell Name		Output Name
+Tiny Hut.MOD		OUTPUTNAME:Anwyn's [NAME]
+Secure Shelter.MOD	OUTPUTNAME:Anwyn's [NAME]
+Secret Chest.MOD		OUTPUTNAME:Anwyn's [NAME]
+Magnificent Mansion.MOD	OUTPUTNAME:Anwyn's [NAME]

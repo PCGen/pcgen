@@ -1,0 +1,24 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Sep  2 23:01:13 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# Original Entry by: Eddy Anthony
+
+# Equipment Name				Type							Contains		Cost		Size		Source Page		Special Property
+Ahenken-Athi's Floating Palace	TYPE:Goods.Transportation.Ships.Container	CONTAINS:896003	COST:143726	SIZE:C	SOURCEPAGE:p.110	SPROP:Bull of the Sea	SPROP:Fire tested	SPROP:Transport x20
+Assault Barge				TYPE:Goods.Transportation.Ships.Container	CONTAINS:1000	COST:1925	SIZE:L	SOURCEPAGE:p.112	SPROP:Fire tested
+Barbarian Longship			TYPE:Goods.Transportation.Ships.Container	CONTAINS:22400	COST:9205	SIZE:H	SOURCEPAGE:p.113	SPROP:Oceanworthy	SPROP:Wave Rider
+Blade-Sail Fast Trader			TYPE:Goods.Transportation.Ships.Container	CONTAINS:100800	COST:20000	SIZE:H	SOURCEPAGE:p.116	SPROP:Oceanworthy	SPROP:Cleaver Construction
+Cog						TYPE:Goods.Transportation.Ships.Container	CONTAINS:44800	COST:10205	SIZE:H	SOURCEPAGE:p.118	SPROP:Oceanworthy	SPROP:Transport
+Dragon Turtle-Class Troop Transport	TYPE:Goods.Transportation.Ships.Container	CONTAINS:336000	COST:27200	SIZE:G	SOURCEPAGE:p.121	SPROP:Oceanworthy	SPROP:Wave Rider
+Druid Lairship				TYPE:Goods.Transportation.Ships.Container	CONTAINS:22400	COST:112500	SIZE:H	SOURCEPAGE:p.122	SPROP:Fire tested	SPROP:Oceanworthy	SPROP:Tough Old Girl
+Dwarf Ironback				TYPE:Goods.Transportation.Ships.Container	CONTAINS:336000	COST:115750	SIZE:G	SOURCEPAGE:p.125	SPROP:Turret	SPROP:War Dog
+Deep Crawler				TYPE:Goods.Transportation.Ships.Container	CONTAINS:2240	COST:0	SIZE:C	SOURCEPAGE:p.127	SPROP:Oceanworthy	SPROP:Bull of the Sea	SPROP:Grace Under Pressure
+Iron Whale					TYPE:Goods.Transportation.Ships.Container	CONTAINS:22400	COST:103000	SIZE:H	SOURCEPAGE:p.129	SPROP:Oceanworthy	SPROP:Cleaver Construction	SPROP:Grace Under Pressure
+Keelboat (SFHB)				TYPE:Goods.Transportation.Ships.Container	CONTAINS:17920	COST:1350	SIZE:L	SOURCEPAGE:p.131	SPROP:Built To Last
+Lawbringer					TYPE:Goods.Transportation.Ships.Container	CONTAINS:22400	COST:16400	SIZE:H	SOURCEPAGE:p.132	SPROP:Bull of the Sea	SPROP:Tough Old Girl	SPROP:Wind Rider
+Sahuagin Corsair				TYPE:Goods.Transportation.Ships.Container	CONTAINS:40320	COST:1975	SIZE:L	SOURCEPAGE:p.134	SPROP:Transport
+Salvage Vessel				TYPE:Goods.Transportation.Ships.Container	CONTAINS:44800	COST:6900	SIZE:H	SOURCEPAGE:p.137	SPROP:Transport
+Slave Ship					TYPE:Goods.Transportation.Ships.Container	CONTAINS:336000	COST:18285	SIZE:G	SOURCEPAGE:p.138	SPROP:Tough Old Girl	SPROP:Wind Rider
+Triton Chariot				TYPE:Goods.Transportation.Ships.Container	CONTAINS:17920	COST:1175	SIZE:L	SOURCEPAGE:p.140	SPROP:Built to Last
+War Galley					TYPE:Goods.Transportation.Ships.Container	CONTAINS:448000	COST:21720	SIZE:C	SOURCEPAGE:p.142	SPROP:Bull of the Sea
+Warship (SFHB)				TYPE:Goods.Transportation.Ships.Container	CONTAINS:448000	COST:26500	SIZE:C	SOURCEPAGE:p.144	SPROP:Reinforced Sails	SPROP:Wave Rider
+Wizard's Towership			TYPE:Goods.Transportation.Ships.Container	CONTAINS:44800	COST:36510	SIZE:H	SOURCEPAGE:p.149	SPROP:Spell resistance	SPROP:Transport	SPROP:Wave Rider

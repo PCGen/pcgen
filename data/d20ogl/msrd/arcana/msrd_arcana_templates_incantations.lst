@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jul 14 12:44:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Template Name					Visible		Source Page					Removable?		Spells
+Known Incantation (Baleful Polymorph)	VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Baleful Polymorph,17+CHA
+Known Incantation (Bibliolalia)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Bibliolalia,16
+Known Incantation (Body Double)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Body Double,19
+Known Incantation (Caduceus)			VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Caduceus,15
+Known Incantation (Cast into Shadow)	VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Cast into Shadow,17+CHA
+Known Incantation (Control Weather)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Control Weather,17
+Known Incantation (Create Clone)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Create Clone,16
+Known Incantation (Create Golem)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Create Golem,16
+Known Incantation (Create Undead)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Create Undead,15
+Known Incantation (Dedicate Site)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Dedicate Site,17
+Known Incantation (Greater Dispel Magic)	VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Greater Dispel Magic,16
+Known Incantation (Mystic Veil)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Mystic Veil,17
+Known Incantation (Polymorph)			VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Polymorph,16
+Known Incantation (Possession)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Possession,16+CHA
+Known Incantation (Quartz Compulsion)	VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Quartz Compulsion,18+CHA
+Known Incantation (Satellite Tracking)	VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Satellite Tracking,17
+Known Incantation (Sigil of Algos)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Sigil of Algos,16+CHA
+Known Incantation (Sigil of Lyssa)		VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Sigil of Lyssa,18+CHA
+Known Incantation (Subjugate Outsider)	VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Subjugate Outsider,16+CHA
+Known Incantation (Teleport)			VISIBLE:DISPLAY	SOURCEPAGE:ArcanaIncantations.rtf	REMOVABLE:YES	SPELLS:Incantation|TIMES=-1|CASTERLEVEL=1|Teleport,15
+#
+# End
+#

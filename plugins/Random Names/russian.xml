@@ -1,0 +1,3458 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<!--Male Rules-->
+	<RULESET id="russian-historical-male-rule" title="Russian" usage="final">
+		<CATEGORY title="Sex: Male"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="2">
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-male-patrynomic-rule" title="Russian Patrynomic" usage="public">
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="9">
+			<GETLIST idref="russian-male-christian-patronymic" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="12">
+			<GETLIST idref="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-modifier" title="Grandson of"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-christian-patronymic" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-male-modifier" title="Grandson of"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-male-surname-rule" title="Russian Surname" usage="public">
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="russian-historical-male-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-male-locative-byname-rule" title="Russian Locative Byname" usage="public">
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="83">
+			<GETLIST idref="russian-locative-consinants" title="Location"/>
+			<GETLIST idref="russian-conj-locative-consinants-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-ts" title="Location"/>
+			<GETLIST idref="russian-conj-locative-ts-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-t" title="Location"/>
+			<GETLIST idref="russian-conj-locative-t-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="22">
+			<GETLIST idref="russian-locative-sk" title="Location"/>
+			<GETLIST idref="russian-conj-locative-sk-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="29">
+			<GETLIST idref="russian-locative-a" title="Location"/>
+			<GETLIST idref="russian-conj-locative-a-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-e" title="Location"/>
+			<GETLIST idref="russian-conj-locative-e" title="Conjugation"/>
+		</RULE>
+		<RULE weight="11">
+			<GETLIST idref="russian-locative-i" title="Location"/>
+			<GETLIST idref="russian-conj-locative-i" title="Conjugation"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-o" title="Location"/>
+			<GETLIST idref="russian-conj-locative-o-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-u" title="Location"/>
+			<GETLIST idref="russian-conj-locative-u-male" title="Conjugation"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="russian-locative-y" title="Location"/>
+			<GETLIST idref="russian-conj-locative-y" title="Conjugation"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-ii" title="Location"/>
+		</RULE>
+		<RULE weight="41">
+			<GETLIST idref="russian-locative-skii" title="Location"/>
+		</RULE>
+	</RULESET>
+	<!--Female Rules-->
+	<RULESET id="russian-historical-female-rule" title="Russian" usage="final">
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-female-patrynomic-rule" title="Russian Patrynomic" usage="public">
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="9">
+			<GETLIST idref="russian-female-christian-patronymic" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="12">
+			<GETLIST idref="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-modifier" title="Grandson of"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-christian-patronymic" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-modifier" title="Grandson of"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-female-surname-rule" title="Russian Surname" usage="public">
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-byname" title="Byname"/>
+		</RULE>
+		<RULE weight="9">
+			<GETLIST idref="russian-male-christian-patronymic" title="Christian Patronymic Name"/>
+			<GETLIST idref="russian-conj-patronomic-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="12">
+			<GETLIST idref="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+			<GETLIST idref="russian-conj-patronomic-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="russian-historical-female-locative-byname-rule" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-female-locative-byname-rule" title="Russian Locative Byname" usage="public">
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="83">
+			<GETLIST idref="russian-locative-consinants" title="Location"/>
+			<GETLIST idref="russian-conj-locative-consinants-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-ts" title="Location"/>
+			<GETLIST idref="russian-conj-locative-ts-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-t" title="Location"/>
+			<GETLIST idref="russian-conj-locative-t-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="22">
+			<GETLIST idref="russian-locative-sk" title="Location"/>
+			<GETLIST idref="russian-conj-locative-sk-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="29">
+			<GETLIST idref="russian-locative-a" title="Location"/>
+			<GETLIST idref="russian-conj-locative-a-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-e" title="Location"/>
+			<GETLIST idref="russian-conj-locative-e" title="Conjugation"/>
+		</RULE>
+		<RULE weight="11">
+			<GETLIST idref="russian-locative-i" title="Location"/>
+			<GETLIST idref="russian-conj-locative-i" title="Conjugation"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-o" title="Location"/>
+			<GETLIST idref="russian-conj-locative-o-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-u" title="Location"/>
+			<GETLIST idref="russian-conj-locative-u-female" title="Conjugation"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="russian-locative-y" title="Location"/>
+			<GETLIST idref="russian-conj-locative-y" title="Conjugation"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-ii" title="Location"/>
+		</RULE>
+		<RULE weight="41">
+			<GETLIST idref="russian-locative-skii" title="Location"/>
+		</RULE>
+	</RULESET>
+	<!-- Towns -->
+	<RULESET id="russian-historical-village-rule" title="Russian Location" usage="final">
+		<CATEGORY title="Sex: Other"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="83">
+			<GETLIST idref="russian-locative-consinants" title="Village"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-ts" title="Village"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-t" title="Village"/>
+		</RULE>
+		<RULE weight="22">
+			<GETLIST idref="russian-locative-sk" title="Village"/>
+		</RULE>
+		<RULE weight="29">
+			<GETLIST idref="russian-locative-a" title="Village"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-e" title="Village"/>
+		</RULE>
+		<RULE weight="11">
+			<GETLIST idref="russian-locative-i" title="Village"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-o" title="Village"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-u" title="Village"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="russian-locative-y" title="Village"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-ii" title="Village"/>
+		</RULE>
+		<RULE weight="41">
+			<GETLIST idref="russian-locative-skii" title="Village"/>
+		</RULE>
+	</RULESET>
+	<!--Names-->
+	<LIST id="russian-male-christian" title="Christian Name">
+		<VALUE>Aleksei</VALUE>
+		<VALUE>Andrei</VALUE>
+		<VALUE>Boris</VALUE>
+		<VALUE>Dmitrii</VALUE>
+		<VALUE>Fedor</VALUE>
+		<VALUE>Foma</VALUE>
+		<VALUE>Georgii<SUBVALUE type="meaning">George</SUBVALUE></VALUE>
+		<VALUE>Grigorii<SUBVALUE type="meaning">Gregory</SUBVALUE></VALUE>
+		<VALUE>Iakov</VALUE>
+		<VALUE>Iosif<SUBVALUE type="meaning">Joseph</SUBVALUE></VALUE>
+		<VALUE>Ivan<SUBVALUE type="meaning">John</SUBVALUE></VALUE>
+		<VALUE>Kuz'ma</VALUE>
+		<VALUE>Maksim</VALUE>
+		<VALUE>Matfei</VALUE>
+		<VALUE>Mixail</VALUE>
+		<VALUE>Nikita</VALUE>
+		<VALUE>Pavel</VALUE>
+		<VALUE>Semen</VALUE>
+		<VALUE>Sidor</VALUE>
+		<VALUE>Stepan<SUBVALUE type="meaning">Stephen</SUBVALUE></VALUE>
+		<VALUE>Vasilij</VALUE>
+		<VALUE>Zaxarii<SUBVALUE type="meaning">Zachary</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-female-christian" title="Christian Name">
+		<VALUE>Akulina</VALUE>
+		<VALUE>Anastasiia</VALUE>
+		<VALUE>Anna</VALUE>
+		<VALUE>Dominika</VALUE>
+		<VALUE>Domna</VALUE>
+		<VALUE>Ekaterina</VALUE>
+		<VALUE>Elizaveta</VALUE>
+		<VALUE>Evdokiia</VALUE>
+		<VALUE>Evfimiia</VALUE>
+		<VALUE>Evfrosiniia</VALUE>
+		<VALUE>Fekla</VALUE>
+		<VALUE>Feodosiia</VALUE>
+		<VALUE>Fetiniia</VALUE>
+		<VALUE>Fevroniia</VALUE>
+		<VALUE>Iriniia</VALUE>
+		<VALUE>Iulianiia</VALUE>
+		<VALUE>Kharitaniia</VALUE>
+		<VALUE>Khristina</VALUE>
+		<VALUE>Kseniia</VALUE>
+		<VALUE>Maremeiana</VALUE>
+		<VALUE>Mariia</VALUE>
+		<VALUE>Marina</VALUE>
+		<VALUE>Melaniia</VALUE>
+		<VALUE>Miropiia</VALUE>
+		<VALUE>Pelageia</VALUE>
+		<VALUE>Sofiia</VALUE>
+		<VALUE>Tatiana</VALUE>
+		<VALUE>Varvara</VALUE>
+	</LIST>
+	<LIST id="russian-male-old-russian" title="Old Russian Name">
+		<VALUE>Abotur</VALUE>
+		<VALUE>Androgast</VALUE>
+		<VALUE>Artsybashev</VALUE>
+		<VALUE>Babaik</VALUE>
+		<VALUE>Baburka</VALUE>
+		<VALUE>Baibol</VALUE>
+		<VALUE>Baiboroda</VALUE>
+		<VALUE>Baidik</VALUE>
+		<VALUE>Bakhmat</VALUE>
+		<VALUE>Bakun</VALUE>
+		<VALUE>Balaban</VALUE>
+		<VALUE>Balagur</VALUE>
+		<VALUE>Balaka</VALUE>
+		<VALUE>Balamut</VALUE>
+		<VALUE>Barak</VALUE>
+		<VALUE>Baran</VALUE>
+		<VALUE>Basalai</VALUE>
+		<VALUE>Basarab</VALUE>
+		<VALUE>Batyl</VALUE>
+		<VALUE>Bavyka</VALUE>
+		<VALUE>Bazhen</VALUE>
+		<VALUE>Beglets</VALUE>
+		<VALUE>Belakniginia</VALUE>
+		<VALUE>Beloborod</VALUE>
+		<VALUE>Belotelets</VALUE>
+		<VALUE>Berendei</VALUE>
+		<VALUE>Besomyka</VALUE>
+		<VALUE>Bezded</VALUE>
+		<VALUE>Bezdruk</VALUE>
+		<VALUE>Bezgodov</VALUE>
+		<VALUE>Bezkoryst</VALUE>
+		<VALUE>Bezkostii</VALUE>
+		<VALUE>Beznos</VALUE>
+		<VALUE>Bezzhen</VALUE>
+		<VALUE>Bitmut</VALUE>
+		<VALUE>Bitomir</VALUE>
+		<VALUE>Blagomil</VALUE>
+		<VALUE>Blizbor</VALUE>
+		<VALUE>Blizradost'</VALUE>
+		<VALUE>Blizuta</VALUE>
+		<VALUE>Bludek</VALUE>
+		<VALUE>Bobrishch</VALUE>
+		<VALUE>Bobruevich'</VALUE>
+		<VALUE>Bogdan</VALUE>
+		<VALUE>Bogomil</VALUE>
+		<VALUE>Bogukhval</VALUE>
+		<VALUE>Boian</VALUE>
+		<VALUE>Bok</VALUE>
+		<VALUE>Bolda</VALUE>
+		<VALUE>Boldan</VALUE>
+		<VALUE>Bolemil</VALUE>
+		<VALUE>Boleslav</VALUE>
+		<VALUE>Boletikh</VALUE>
+		<VALUE>Borzdukha</VALUE>
+		<VALUE>Bot</VALUE>
+		<VALUE>Bozhidar</VALUE>
+		<VALUE>Bradatyi</VALUE>
+		<VALUE>Brail</VALUE>
+		<VALUE>Bratomir</VALUE>
+		<VALUE>Brno</VALUE>
+		<VALUE>Budai</VALUE>
+		<VALUE>Buiak</VALUE>
+		<VALUE>Buian</VALUE>
+		<VALUE>Buinosov</VALUE>
+		<VALUE>Bukal</VALUE>
+		<VALUE>Burdukin</VALUE>
+		<VALUE>Buzdai</VALUE>
+		<VALUE>Bykut</VALUE>
+		<VALUE>Chabon</VALUE>
+		<VALUE>Chacha</VALUE>
+		<VALUE>Chada</VALUE>
+		<VALUE>Chadek</VALUE>
+		<VALUE>Chadobor</VALUE>
+		<VALUE>Chan</VALUE>
+		<VALUE>Chapinoga</VALUE>
+		<VALUE>Chasnik</VALUE>
+		<VALUE>Chastobor</VALUE>
+		<VALUE>Chastolov</VALUE>
+		<VALUE>Chava</VALUE>
+		<VALUE>Chebotai</VALUE>
+		<VALUE>Chekhoslav</VALUE>
+		<VALUE>Cheleg</VALUE>
+		<VALUE>Chelpanov</VALUE>
+		<VALUE>Chernek</VALUE>
+		<VALUE>Chernoguz</VALUE>
+		<VALUE>Chertoprud</VALUE>
+		<VALUE>Chestibor</VALUE>
+		<VALUE>Chestimir</VALUE>
+		<VALUE>Chikal</VALUE>
+		<VALUE>Chila</VALUE>
+		<VALUE>Chipyshtan</VALUE>
+		<VALUE>Chir</VALUE>
+		<VALUE>Chiugai</VALUE>
+		<VALUE>Chort</VALUE>
+		<VALUE>Chubar</VALUE>
+		<VALUE>Chudobor</VALUE>
+		<VALUE>Chuzhekrai</VALUE>
+		<VALUE>Chvr'nega</VALUE>
+		<VALUE>Dabisha</VALUE>
+		<VALUE>Dabizhiv</VALUE>
+		<VALUE>Dalebor</VALUE>
+		<VALUE>Debritskii</VALUE>
+		<VALUE>Dedlelets</VALUE>
+		<VALUE>Deian</VALUE>
+		<VALUE>Demon'</VALUE>
+		<VALUE>Denintsa</VALUE>
+		<VALUE>Dereviaka</VALUE>
+		<VALUE>Derzhikrai</VALUE>
+		<VALUE>Derzhislav</VALUE>
+		<VALUE>Desen'</VALUE>
+		<VALUE>Detko</VALUE>
+		<VALUE>Deva</VALUE>
+		<VALUE>Didodrag'</VALUE>
+		<VALUE>Dikarev</VALUE>
+		<VALUE>Dimut</VALUE>
+		<VALUE>Dinara</VALUE>
+		<VALUE>Divosh'</VALUE>
+		<VALUE>Dobrak</VALUE>
+		<VALUE>Dobromil</VALUE>
+		<VALUE>Dobrovit</VALUE>
+		<VALUE>Dod</VALUE>
+		<VALUE>Dogatk</VALUE>
+		<VALUE>Doisen</VALUE>
+		<VALUE>Dokuchai</VALUE>
+		<VALUE>Dokuka</VALUE>
+		<VALUE>Dolginka</VALUE>
+		<VALUE>Dolgorukoi</VALUE>
+		<VALUE>Dolzhivliudkovich'</VALUE>
+		<VALUE>Domabor</VALUE>
+		<VALUE>Domagnev</VALUE>
+		<VALUE>Domagost'</VALUE>
+		<VALUE>Domarod</VALUE>
+		<VALUE>Domaslav</VALUE>
+		<VALUE>Domazhir</VALUE>
+		<VALUE>Dorogomil</VALUE>
+		<VALUE>Dragobud</VALUE>
+		<VALUE>Dragoman</VALUE>
+		<VALUE>Dragomuzh</VALUE>
+		<VALUE>Drozd</VALUE>
+		<VALUE>Druzhina</VALUE>
+		<VALUE>Dubakov</VALUE>
+		<VALUE>Dudorov</VALUE>
+		<VALUE>Dugan</VALUE>
+		<VALUE>Duma</VALUE>
+		<VALUE>Dunai</VALUE>
+		<VALUE>Dupekh</VALUE>
+		<VALUE>Dushatka</VALUE>
+		<VALUE>Dvorianinov</VALUE>
+		<VALUE>Egidei</VALUE>
+		<VALUE>Egnut'ev</VALUE>
+		<VALUE>Elbuzin</VALUE>
+		<VALUE>Elets</VALUE>
+		<VALUE>Elistratov</VALUE>
+		<VALUE>Ezh</VALUE>
+		<VALUE>Franke</VALUE>
+		<VALUE>Gaiduk</VALUE>
+		<VALUE>Galichanin</VALUE>
+		<VALUE>Gladkoi</VALUE>
+		<VALUE>Glazynia</VALUE>
+		<VALUE>Gleb</VALUE>
+		<VALUE>Gliadei</VALUE>
+		<VALUE>Glukhoi</VALUE>
+		<VALUE>Glupysh</VALUE>
+		<VALUE>Gnevash</VALUE>
+		<VALUE>Godava</VALUE>
+		<VALUE>Gogol'</VALUE>
+		<VALUE>Goimir</VALUE>
+		<VALUE>Golindukha</VALUE>
+		<VALUE>Golodnoi</VALUE>
+		<VALUE>Golostelov</VALUE>
+		<VALUE>Golova</VALUE>
+		<VALUE>Golozub</VALUE>
+		<VALUE>Goluba</VALUE>
+		<VALUE>Gomziak</VALUE>
+		<VALUE>Gondelik</VALUE>
+		<VALUE>Gorbatoi</VALUE>
+		<VALUE>Gordebor</VALUE>
+		<VALUE>Gordunovets</VALUE>
+		<VALUE>Gorkun</VALUE>
+		<VALUE>Gorlitsa</VALUE>
+		<VALUE>Gornostai</VALUE>
+		<VALUE>Gorodila</VALUE>
+		<VALUE>Goshkui</VALUE>
+		<VALUE>Gostimira</VALUE>
+		<VALUE>Govorish</VALUE>
+		<VALUE>Grabarov</VALUE>
+		<VALUE>Grachk</VALUE>
+		<VALUE>Grechin</VALUE>
+		<VALUE>Gridata</VALUE>
+		<VALUE>Grimislav</VALUE>
+		<VALUE>Grom</VALUE>
+		<VALUE>Gromadka</VALUE>
+		<VALUE>Groznata</VALUE>
+		<VALUE>Gruban</VALUE>
+		<VALUE>Grudtsyn</VALUE>
+		<VALUE>Guba</VALUE>
+		<VALUE>Gubar</VALUE>
+		<VALUE>Gudimir</VALUE>
+		<VALUE>Gugnia</VALUE>
+		<VALUE>Guliai</VALUE>
+		<VALUE>Gundor</VALUE>
+		<VALUE>Gurdeva</VALUE>
+		<VALUE>Gusak</VALUE>
+		<VALUE>Gvozd'</VALUE>
+		<VALUE>Gyneth</VALUE>
+		<VALUE>Iablanik</VALUE>
+		<VALUE>Iaglin</VALUE>
+		<VALUE>Iagoda</VALUE>
+		<VALUE>Iaket</VALUE>
+		<VALUE>Iarmola</VALUE>
+		<VALUE>Iarognev</VALUE>
+		<VALUE>Iaroliub</VALUE>
+		<VALUE>Iaropolk</VALUE>
+		<VALUE>Ikagala</VALUE>
+		<VALUE>Ikmor</VALUE>
+		<VALUE>Imram</VALUE>
+		<VALUE>Inokhodets</VALUE>
+		<VALUE>Inozem</VALUE>
+		<VALUE>Iskretsov</VALUE>
+		<VALUE>Istlen'e</VALUE>
+		<VALUE>Istok</VALUE>
+		<VALUE>Istoma</VALUE>
+		<VALUE>Itselia</VALUE>
+		<VALUE>Iugrin</VALUE>
+		<VALUE>Iundil</VALUE>
+		<VALUE>Iuraga</VALUE>
+		<VALUE>Iurukai</VALUE>
+		<VALUE>Izborianin</VALUE>
+		<VALUE>Iziugildei</VALUE>
+		<VALUE>Izmaragd</VALUE>
+		<VALUE>Izmira</VALUE>
+		<VALUE>Izoslav</VALUE>
+		<VALUE>Kabak</VALUE>
+		<VALUE>Kaftannik</VALUE>
+		<VALUE>Kaidal</VALUE>
+		<VALUE>Kaitas</VALUE>
+		<VALUE>Kakmuzh</VALUE>
+		<VALUE>Kaliman</VALUE>
+		<VALUE>Kalina</VALUE>
+		<VALUE>Kallimakh</VALUE>
+		<VALUE>Kallistrat</VALUE>
+		<VALUE>Kamaret</VALUE>
+		<VALUE>Kandeva</VALUE>
+		<VALUE>Karamysh</VALUE>
+		<VALUE>Kargapolets</VALUE>
+		<VALUE>Kashpar</VALUE>
+		<VALUE>Kasper</VALUE>
+		<VALUE>Kawalek</VALUE>
+		<VALUE>Kazatul</VALUE>
+		<VALUE>Kazdoia</VALUE>
+		<VALUE>Kazhara</VALUE>
+		<VALUE>Kedruta</VALUE>
+		<VALUE>Khabar</VALUE>
+		<VALUE>Khabra</VALUE>
+		<VALUE>Khabrek</VALUE>
+		<VALUE>Khamtala</VALUE>
+		<VALUE>Kheron</VALUE>
+		<VALUE>Khlanovik</VALUE>
+		<VALUE>Khmelev</VALUE>
+		<VALUE>Khodets</VALUE>
+		<VALUE>Khodivoi</VALUE>
+		<VALUE>Khomiak</VALUE>
+		<VALUE>Khorobrit</VALUE>
+		<VALUE>Khorvat</VALUE>
+		<VALUE>Khotebor</VALUE>
+		<VALUE>Khovralev</VALUE>
+		<VALUE>Khr'vatin</VALUE>
+		<VALUE>Khrabra</VALUE>
+		<VALUE>Khrandruzhik</VALUE>
+		<VALUE>Khrapa</VALUE>
+		<VALUE>Khrel</VALUE>
+		<VALUE>Khren</VALUE>
+		<VALUE>Khromonogoi</VALUE>
+		<VALUE>Khrusnitskii</VALUE>
+		<VALUE>Khudashka</VALUE>
+		<VALUE>Khukal</VALUE>
+		<VALUE>Khvalibog</VALUE>
+		<VALUE>Khvalibud</VALUE>
+		<VALUE>Khvalislava</VALUE>
+		<VALUE>Kilibaka</VALUE>
+		<VALUE>Kinzhalk</VALUE>
+		<VALUE>Kipchak</VALUE>
+		<VALUE>Kisel</VALUE>
+		<VALUE>Klen</VALUE>
+		<VALUE>Klepach</VALUE>
+		<VALUE>Kliapik</VALUE>
+		<VALUE>Klim</VALUE>
+		<VALUE>Klobuk</VALUE>
+		<VALUE>Klopot</VALUE>
+		<VALUE>Knizhebaev</VALUE>
+		<VALUE>Kobyla</VALUE>
+		<VALUE>Kochkar</VALUE>
+		<VALUE>Koilov</VALUE>
+		<VALUE>Kokh</VALUE>
+		<VALUE>Kolbints</VALUE>
+		<VALUE>Kolibaba</VALUE>
+		<VALUE>Kolmogor</VALUE>
+		<VALUE>Kolpak</VALUE>
+		<VALUE>Kon'</VALUE>
+		<VALUE>Kondyrev</VALUE>
+		<VALUE>Kopiatar</VALUE>
+		<VALUE>Kornach</VALUE>
+		<VALUE>Kosachik</VALUE>
+		<VALUE>Koselug</VALUE>
+		<VALUE>Koshuta</VALUE>
+		<VALUE>Kosmata</VALUE>
+		<VALUE>Kostrov</VALUE>
+		<VALUE>Koukol</VALUE>
+		<VALUE>Kouman'</VALUE>
+		<VALUE>Kouplen'</VALUE>
+		<VALUE>Kovyl'</VALUE>
+		<VALUE>Kozeiko</VALUE>
+		<VALUE>Kozel</VALUE>
+		<VALUE>Kraichen'</VALUE>
+		<VALUE>Krakra</VALUE>
+		<VALUE>Kralena</VALUE>
+		<VALUE>Krapiva</VALUE>
+		<VALUE>Krasek</VALUE>
+		<VALUE>Krasnolepov</VALUE>
+		<VALUE>Krasnosheia</VALUE>
+		<VALUE>Kravar</VALUE>
+		<VALUE>Krebitskii</VALUE>
+		<VALUE>Krestovolodovich</VALUE>
+		<VALUE>Kribodrev</VALUE>
+		<VALUE>Krik</VALUE>
+		<VALUE>Krivonos</VALUE>
+		<VALUE>Krivosheia</VALUE>
+		<VALUE>Krivosud</VALUE>
+		<VALUE>Krunevichovna</VALUE>
+		<VALUE>Kubata</VALUE>
+		<VALUE>Kubei</VALUE>
+		<VALUE>Kudenevich</VALUE>
+		<VALUE>Kunata</VALUE>
+		<VALUE>Kundum</VALUE>
+		<VALUE>Kupin</VALUE>
+		<VALUE>Kurbaba</VALUE>
+		<VALUE>Kuritsa</VALUE>
+		<VALUE>Kurostrovets</VALUE>
+		<VALUE>Kvasena</VALUE>
+		<VALUE>Kyge</VALUE>
+		<VALUE>Labkovich</VALUE>
+		<VALUE>Ladimir</VALUE>
+		<VALUE>Lakogin</VALUE>
+		<VALUE>Lala</VALUE>
+		<VALUE>Latskositsch</VALUE>
+		<VALUE>Lavrin</VALUE>
+		<VALUE>Lazuta</VALUE>
+		<VALUE>Lebed'</VALUE>
+		<VALUE>Lekar'</VALUE>
+		<VALUE>Lelek</VALUE>
+		<VALUE>Lepekh</VALUE>
+		<VALUE>Leskalov</VALUE>
+		<VALUE>Lestvitsa</VALUE>
+		<VALUE>Levash</VALUE>
+		<VALUE>Likhach</VALUE>
+		<VALUE>Likholist</VALUE>
+		<VALUE>Likhopek</VALUE>
+		<VALUE>Likhovid</VALUE>
+		<VALUE>Lisimakh</VALUE>
+		<VALUE>Liubimir</VALUE>
+		<VALUE>Liudemuslus</VALUE>
+		<VALUE>Liutobor</VALUE>
+		<VALUE>Liutognev</VALUE>
+		<VALUE>Lizogub</VALUE>
+		<VALUE>Loboda</VALUE>
+		<VALUE>Lovanta</VALUE>
+		<VALUE>Loza</VALUE>
+		<VALUE>Luarsab</VALUE>
+		<VALUE>Lugben</VALUE>
+		<VALUE>Lukan</VALUE>
+		<VALUE>Lysyi</VALUE>
+		<VALUE>Machinevik</VALUE>
+		<VALUE>Makhnik</VALUE>
+		<VALUE>Mal</VALUE>
+		<VALUE>Malbuga</VALUE>
+		<VALUE>Malina</VALUE>
+		<VALUE>Malovek</VALUE>
+		<VALUE>Man'sur</VALUE>
+		<VALUE>Manak</VALUE>
+		<VALUE>Mantur</VALUE>
+		<VALUE>Marakushev</VALUE>
+		<VALUE>Margarit</VALUE>
+		<VALUE>Markhotka</VALUE>
+		<VALUE>Marotsel</VALUE>
+		<VALUE>Martol</VALUE>
+		<VALUE>Materna</VALUE>
+		<VALUE>Mavrozhtik</VALUE>
+		<VALUE>Mechislav</VALUE>
+		<VALUE>Medenka</VALUE>
+		<VALUE>Mekh</VALUE>
+		<VALUE>Mel'gunov</VALUE>
+		<VALUE>Menshak</VALUE>
+		<VALUE>Meretek</VALUE>
+		<VALUE>Mestiata</VALUE>
+		<VALUE>Miakish</VALUE>
+		<VALUE>Migacha</VALUE>
+		<VALUE>Mil</VALUE>
+		<VALUE>Miledok</VALUE>
+		<VALUE>Milgost</VALUE>
+		<VALUE>Miloneg</VALUE>
+		<VALUE>Miloslav</VALUE>
+		<VALUE>Mirognev</VALUE>
+		<VALUE>Miroslav</VALUE>
+		<VALUE>Mladen</VALUE>
+		<VALUE>Mlogikon</VALUE>
+		<VALUE>Mnislav</VALUE>
+		<VALUE>Moimir</VALUE>
+		<VALUE>Moislav</VALUE>
+		<VALUE>Molibog</VALUE>
+		<VALUE>Momchil</VALUE>
+		<VALUE>Moramash</VALUE>
+		<VALUE>Moroz</VALUE>
+		<VALUE>Motsok</VALUE>
+		<VALUE>Movil</VALUE>
+		<VALUE>Moymar</VALUE>
+		<VALUE>Mrakota</VALUE>
+		<VALUE>Mstidrug</VALUE>
+		<VALUE>Mstislav</VALUE>
+		<VALUE>Mukhin</VALUE>
+		<VALUE>Mutimir</VALUE>
+		<VALUE>Muzhedrag</VALUE>
+		<VALUE>Myslibor</VALUE>
+		<VALUE>Mztignev</VALUE>
+		<VALUE>Nacepule</VALUE>
+		<VALUE>Nachimir</VALUE>
+		<VALUE>Nadbor</VALUE>
+		<VALUE>Nagai</VALUE>
+		<VALUE>Naglaz</VALUE>
+		<VALUE>Nagoi</VALUE>
+		<VALUE>Nagrad</VALUE>
+		<VALUE>Naidun</VALUE>
+		<VALUE>Nakhod</VALUE>
+		<VALUE>Nakovitz</VALUE>
+		<VALUE>Namest</VALUE>
+		<VALUE>Nanul</VALUE>
+		<VALUE>Narushk</VALUE>
+		<VALUE>Naslav</VALUE>
+		<VALUE>Navorot</VALUE>
+		<VALUE>Nebracha</VALUE>
+		<VALUE>Nechai</VALUE>
+		<VALUE>Nedan</VALUE>
+		<VALUE>Nedobroi</VALUE>
+		<VALUE>Neglaz</VALUE>
+		<VALUE>Negomir</VALUE>
+		<VALUE>Negul</VALUE>
+		<VALUE>Nekras</VALUE>
+		<VALUE>Nelep</VALUE>
+		<VALUE>Neman</VALUE>
+		<VALUE>Nemeikshevich'</VALUE>
+		<VALUE>Nemysl</VALUE>
+		<VALUE>Nepitushchoi</VALUE>
+		<VALUE>Nerad</VALUE>
+		<VALUE>Neratai</VALUE>
+		<VALUE>Nesgovorka</VALUE>
+		<VALUE>Netka</VALUE>
+		<VALUE>Netmir</VALUE>
+		<VALUE>Netsvetai</VALUE>
+		<VALUE>Neugod</VALUE>
+		<VALUE>Neusek</VALUE>
+		<VALUE>Neustroi</VALUE>
+		<VALUE>Neusyna</VALUE>
+		<VALUE>Nevelskoi</VALUE>
+		<VALUE>Never</VALUE>
+		<VALUE>Nevzor</VALUE>
+		<VALUE>Nezhek</VALUE>
+		<VALUE>Nezhenik</VALUE>
+		<VALUE>Neznanich</VALUE>
+		<VALUE>Ninek</VALUE>
+		<VALUE>Noszal</VALUE>
+		<VALUE>Novaden'</VALUE>
+		<VALUE>Nutil</VALUE>
+		<VALUE>Obel</VALUE>
+		<VALUE>Obezka</VALUE>
+		<VALUE>Obiden</VALUE>
+		<VALUE>Oblak</VALUE>
+		<VALUE>Oblesh</VALUE>
+		<VALUE>Obrad</VALUE>
+		<VALUE>Obrad'ts</VALUE>
+		<VALUE>Obran</VALUE>
+		<VALUE>Obyzora</VALUE>
+		<VALUE>Odinets</VALUE>
+		<VALUE>Odolba</VALUE>
+		<VALUE>Ogibalov</VALUE>
+		<VALUE>Ognev</VALUE>
+		<VALUE>Ogorodnik</VALUE>
+		<VALUE>Okhota</VALUE>
+		<VALUE>Okol</VALUE>
+		<VALUE>Okras</VALUE>
+		<VALUE>Ol'shanits'k'i</VALUE>
+		<VALUE>Olbeg</VALUE>
+		<VALUE>Oleshtena</VALUE>
+		<VALUE>Onodrag</VALUE>
+		<VALUE>Onoslawa</VALUE>
+		<VALUE>Onshuk</VALUE>
+		<VALUE>Opranin</VALUE>
+		<VALUE>Orash</VALUE>
+		<VALUE>Orekh</VALUE>
+		<VALUE>Orel</VALUE>
+		<VALUE>Osel</VALUE>
+		<VALUE>Osobei</VALUE>
+		<VALUE>Ostoi</VALUE>
+		<VALUE>Ostrokhvost</VALUE>
+		<VALUE>Ostropolets</VALUE>
+		<VALUE>Ostrorog</VALUE>
+		<VALUE>Otaslav</VALUE>
+		<VALUE>Otkulia</VALUE>
+		<VALUE>Otmar</VALUE>
+		<VALUE>Otnia</VALUE>
+		<VALUE>Otrad</VALUE>
+		<VALUE>Otrok</VALUE>
+		<VALUE>Ovchina</VALUE>
+		<VALUE>Ozerov</VALUE>
+		<VALUE>Ozornoi</VALUE>
+		<VALUE>Pabesh</VALUE>
+		<VALUE>Pak'rat</VALUE>
+		<VALUE>Pakhoruk</VALUE>
+		<VALUE>Pakoslav</VALUE>
+		<VALUE>Paladin</VALUE>
+		<VALUE>Palmuta</VALUE>
+		<VALUE>Panchino</VALUE>
+		<VALUE>Panulka</VALUE>
+		<VALUE>Pardush</VALUE>
+		<VALUE>Paseka</VALUE>
+		<VALUE>Pasynok</VALUE>
+		<VALUE>Pavlimir</VALUE>
+		<VALUE>Pchelka</VALUE>
+		<VALUE>Pekhar'</VALUE>
+		<VALUE>Pekucha</VALUE>
+		<VALUE>Peniuga</VALUE>
+		<VALUE>Perdun</VALUE>
+		<VALUE>Peredslava</VALUE>
+		<VALUE>Peregud</VALUE>
+		<VALUE>Peremil</VALUE>
+		<VALUE>Peresvet</VALUE>
+		<VALUE>Permiak</VALUE>
+		<VALUE>Pervoi</VALUE>
+		<VALUE>Piata</VALUE>
+		<VALUE>Piknosek</VALUE>
+		<VALUE>Piskun</VALUE>
+		<VALUE>Pivovar</VALUE>
+		<VALUE>Plav</VALUE>
+		<VALUE>Plen'</VALUE>
+		<VALUE>Poboi</VALUE>
+		<VALUE>Pochekai</VALUE>
+		<VALUE>Pochepets</VALUE>
+		<VALUE>Podiva</VALUE>
+		<VALUE>Podizlaus</VALUE>
+		<VALUE>Podnosov</VALUE>
+		<VALUE>Podorozhnoi</VALUE>
+		<VALUE>Podpope</VALUE>
+		<VALUE>Podrez</VALUE>
+		<VALUE>Podtelok</VALUE>
+		<VALUE>Podzhar</VALUE>
+		<VALUE>Pokhval</VALUE>
+		<VALUE>Polevod</VALUE>
+		<VALUE>Poliud</VALUE>
+		<VALUE>Polko</VALUE>
+		<VALUE>Pomil</VALUE>
+		<VALUE>Popel'nik</VALUE>
+		<VALUE>Popliashnia</VALUE>
+		<VALUE>Potania</VALUE>
+		<VALUE>Pozdei</VALUE>
+		<VALUE>Pozvizd</VALUE>
+		<VALUE>Pravotarkh</VALUE>
+		<VALUE>Prdota</VALUE>
+		<VALUE>Preaputsik</VALUE>
+		<VALUE>Predimir</VALUE>
+		<VALUE>Predislav</VALUE>
+		<VALUE>Predpolk</VALUE>
+		<VALUE>Preliub</VALUE>
+		<VALUE>Preliut</VALUE>
+		<VALUE>Priamogliadov</VALUE>
+		<VALUE>Pribeg</VALUE>
+		<VALUE>Pribil</VALUE>
+		<VALUE>Pribislav</VALUE>
+		<VALUE>Pribyslava</VALUE>
+		<VALUE>Prichik</VALUE>
+		<VALUE>Pridimir</VALUE>
+		<VALUE>Priiaslav</VALUE>
+		<VALUE>Prikupovich</VALUE>
+		<VALUE>Primysl</VALUE>
+		<VALUE>Prisnets</VALUE>
+		<VALUE>Pristan</VALUE>
+		<VALUE>Pristup</VALUE>
+		<VALUE>Prodan</VALUE>
+		<VALUE>Prodasa</VALUE>
+		<VALUE>Prosdoka</VALUE>
+		<VALUE>Prosegor</VALUE>
+		<VALUE>Prosimir</VALUE>
+		<VALUE>Proskuriak</VALUE>
+		<VALUE>Prostokisha</VALUE>
+		<VALUE>Prosvel</VALUE>
+		<VALUE>Protiva</VALUE>
+		<VALUE>Protivek</VALUE>
+		<VALUE>Protivog</VALUE>
+		<VALUE>Prozor</VALUE>
+		<VALUE>Prud</VALUE>
+		<VALUE>Prugan</VALUE>
+		<VALUE>Prus</VALUE>
+		<VALUE>Ptak</VALUE>
+		<VALUE>Pul'kheriia</VALUE>
+		<VALUE>Pulov</VALUE>
+		<VALUE>Pur'cha</VALUE>
+		<VALUE>Pustodol</VALUE>
+		<VALUE>Putil</VALUE>
+		<VALUE>Rabets</VALUE>
+		<VALUE>Rachlav</VALUE>
+		<VALUE>Radetech</VALUE>
+		<VALUE>Radigrad</VALUE>
+		<VALUE>Radogost'</VALUE>
+		<VALUE>Radoslav</VALUE>
+		<VALUE>Raichik</VALUE>
+		<VALUE>Rakhman</VALUE>
+		<VALUE>Rakita</VALUE>
+		<VALUE>Ralko</VALUE>
+		<VALUE>Randar'</VALUE>
+		<VALUE>Rapota</VALUE>
+		<VALUE>Raspopa</VALUE>
+		<VALUE>Rasputa</VALUE>
+		<VALUE>Rastislaus</VALUE>
+		<VALUE>Ratibor</VALUE>
+		<VALUE>Ratlits</VALUE>
+		<VALUE>Ratsek</VALUE>
+		<VALUE>Raven</VALUE>
+		<VALUE>Razumeik</VALUE>
+		<VALUE>Razvod</VALUE>
+		<VALUE>Regen</VALUE>
+		<VALUE>Rezovka</VALUE>
+		<VALUE>Rodislav</VALUE>
+		<VALUE>Rogatoi</VALUE>
+		<VALUE>Rogvolod</VALUE>
+		<VALUE>Rokgala</VALUE>
+		<VALUE>Rolanda</VALUE>
+		<VALUE>Rosliak</VALUE>
+		<VALUE>Rozhai</VALUE>
+		<VALUE>Rozmechich</VALUE>
+		<VALUE>Rozmes</VALUE>
+		<VALUE>Rozvad</VALUE>
+		<VALUE>Rozvar</VALUE>
+		<VALUE>Ruba</VALUE>
+		<VALUE>Ruda</VALUE>
+		<VALUE>Rukavok</VALUE>
+		<VALUE>Rumianets</VALUE>
+		<VALUE>Rusak</VALUE>
+		<VALUE>Rut</VALUE>
+		<VALUE>Rybolov</VALUE>
+		<VALUE>Rymola</VALUE>
+		<VALUE>Rynakov</VALUE>
+		<VALUE>Sabota</VALUE>
+		<VALUE>Saburov</VALUE>
+		<VALUE>Sadovnik</VALUE>
+		<VALUE>Salogub</VALUE>
+		<VALUE>Samodelka</VALUE>
+		<VALUE>Sarub</VALUE>
+		<VALUE>Sarvil</VALUE>
+		<VALUE>Sasin</VALUE>
+		<VALUE>Sbor</VALUE>
+		<VALUE>Sbyslav</VALUE>
+		<VALUE>Sebeslaus</VALUE>
+		<VALUE>Sebud'</VALUE>
+		<VALUE>Sedelnik</VALUE>
+		<VALUE>Sedlek</VALUE>
+		<VALUE>Sekula</VALUE>
+		<VALUE>Selekuevits</VALUE>
+		<VALUE>Semidushnoi</VALUE>
+		<VALUE>Semislav</VALUE>
+		<VALUE>Serdiatnitskii</VALUE>
+		<VALUE>Serebrianik</VALUE>
+		<VALUE>Seroslav</VALUE>
+		<VALUE>Serpukhovitin</VALUE>
+		<VALUE>Sestran</VALUE>
+		<VALUE>Setekh</VALUE>
+		<VALUE>Sevruk</VALUE>
+		<VALUE>Sezema</VALUE>
+		<VALUE>Shamrai</VALUE>
+		<VALUE>Sharap</VALUE>
+		<VALUE>Shchedroi</VALUE>
+		<VALUE>Shchegol'</VALUE>
+		<VALUE>Shchekarov</VALUE>
+		<VALUE>Shchenkurskoi</VALUE>
+		<VALUE>Shchepata</VALUE>
+		<VALUE>Shchepotev</VALUE>
+		<VALUE>Shcherba</VALUE>
+		<VALUE>Shchit</VALUE>
+		<VALUE>Shchokur</VALUE>
+		<VALUE>Shchuka</VALUE>
+		<VALUE>Sheia</VALUE>
+		<VALUE>Shestnik</VALUE>
+		<VALUE>Shibeka</VALUE>
+		<VALUE>Shigolov</VALUE>
+		<VALUE>Shimukhla</VALUE>
+		<VALUE>Shirokonos</VALUE>
+		<VALUE>Shishka</VALUE>
+		<VALUE>Shkara</VALUE>
+		<VALUE>Shliakhta</VALUE>
+		<VALUE>Shpalek</VALUE>
+		<VALUE>Shuba</VALUE>
+		<VALUE>Shubnoi</VALUE>
+		<VALUE>Shuiga</VALUE>
+		<VALUE>Shum</VALUE>
+		<VALUE>Shupek</VALUE>
+		<VALUE>Shupliak</VALUE>
+		<VALUE>Sinitsa</VALUE>
+		<VALUE>Sirak</VALUE>
+		<VALUE>Siriabin</VALUE>
+		<VALUE>Sirnut</VALUE>
+		<VALUE>Siveko</VALUE>
+		<VALUE>Skaraga</VALUE>
+		<VALUE>Skobel'</VALUE>
+		<VALUE>Skolazubov</VALUE>
+		<VALUE>Skopek</VALUE>
+		<VALUE>Skorek</VALUE>
+		<VALUE>Skorodum</VALUE>
+		<VALUE>Skoruta</VALUE>
+		<VALUE>Skupoi</VALUE>
+		<VALUE>Slabnia</VALUE>
+		<VALUE>Sladoi</VALUE>
+		<VALUE>Slavimir</VALUE>
+		<VALUE>Slugo</VALUE>
+		<VALUE>Smar</VALUE>
+		<VALUE>Smedin'skii</VALUE>
+		<VALUE>Smokva</VALUE>
+		<VALUE>Smoligo</VALUE>
+		<VALUE>Sobol'</VALUE>
+		<VALUE>Sokolnik</VALUE>
+		<VALUE>Sokor</VALUE>
+		<VALUE>Solezlaus</VALUE>
+		<VALUE>Solovei</VALUE>
+		<VALUE>Sopach</VALUE>
+		<VALUE>Sorikhin</VALUE>
+		<VALUE>Span</VALUE>
+		<VALUE>Spasitel'</VALUE>
+		<VALUE>Spevak</VALUE>
+		<VALUE>Spitoslava</VALUE>
+		<VALUE>Sporo</VALUE>
+		<VALUE>Spudinka</VALUE>
+		<VALUE>Stanimir</VALUE>
+		<VALUE>Staroselskoi</VALUE>
+		<VALUE>Stolpin</VALUE>
+		<VALUE>Strakhota</VALUE>
+		<VALUE>Stranimir</VALUE>
+		<VALUE>Strastoterpets</VALUE>
+		<VALUE>Stratymir</VALUE>
+		<VALUE>Strazhek</VALUE>
+		<VALUE>Stroislav</VALUE>
+		<VALUE>Stupitsa</VALUE>
+		<VALUE>Subota</VALUE>
+		<VALUE>Sudik</VALUE>
+		<VALUE>Sudimir</VALUE>
+		<VALUE>Suik</VALUE>
+		<VALUE>Suk</VALUE>
+		<VALUE>Sukhopar</VALUE>
+		<VALUE>Sukhoshchek</VALUE>
+		<VALUE>Sulesh</VALUE>
+		<VALUE>Sulislav</VALUE>
+		<VALUE>Sulivoi</VALUE>
+		<VALUE>Surovets</VALUE>
+		<VALUE>Susor</VALUE>
+		<VALUE>Sveprav</VALUE>
+		<VALUE>Sverad</VALUE>
+		<VALUE>Sviatopluk</VALUE>
+		<VALUE>Sviatoslav</VALUE>
+		<VALUE>Svinoluk</VALUE>
+		<VALUE>Svinopas</VALUE>
+		<VALUE>Sviolad</VALUE>
+		<VALUE>Svoislav</VALUE>
+		<VALUE>Syna</VALUE>
+		<VALUE>Taitemeri</VALUE>
+		<VALUE>Talerka</VALUE>
+		<VALUE>Tamislav</VALUE>
+		<VALUE>Tank</VALUE>
+		<VALUE>Taskaev</VALUE>
+		<VALUE>Tatomir</VALUE>
+		<VALUE>Tekhomil</VALUE>
+		<VALUE>Telepen'</VALUE>
+		<VALUE>Telogreia</VALUE>
+		<VALUE>Temir</VALUE>
+		<VALUE>Tenbai</VALUE>
+		<VALUE>Teodol</VALUE>
+		<VALUE>Tepa</VALUE>
+		<VALUE>Terebunets</VALUE>
+		<VALUE>Terpimir</VALUE>
+		<VALUE>Tetera</VALUE>
+		<VALUE>Tevtivil</VALUE>
+		<VALUE>Tiekhoradovik</VALUE>
+		<VALUE>Tirun</VALUE>
+		<VALUE>Toivod</VALUE>
+		<VALUE>Tolislav</VALUE>
+		<VALUE>Tolstopiat</VALUE>
+		<VALUE>Tomeslav</VALUE>
+		<VALUE>Topor</VALUE>
+		<VALUE>Toshui</VALUE>
+		<VALUE>Trakhoniotov</VALUE>
+		<VALUE>Travyga</VALUE>
+		<VALUE>Trebemysl</VALUE>
+		<VALUE>Tret'iak</VALUE>
+		<VALUE>Trifonka</VALUE>
+		<VALUE>Trnak</VALUE>
+		<VALUE>Troekurov</VALUE>
+		<VALUE>Tsapal</VALUE>
+		<VALUE>Tsar'</VALUE>
+		<VALUE>Tselik</VALUE>
+		<VALUE>Tsen</VALUE>
+		<VALUE>Tsvetk</VALUE>
+		<VALUE>Tsyplenok</VALUE>
+		<VALUE>Tugomir</VALUE>
+		<VALUE>Tukhon</VALUE>
+		<VALUE>Turbasov</VALUE>
+		<VALUE>Tverchan</VALUE>
+		<VALUE>Tverdila</VALUE>
+		<VALUE>Tvorimir</VALUE>
+		<VALUE>Ubichest</VALUE>
+		<VALUE>Ubichest'</VALUE>
+		<VALUE>Ubogoi</VALUE>
+		<VALUE>Udr</VALUE>
+		<VALUE>Uglechenin</VALUE>
+		<VALUE>Ugol</VALUE>
+		<VALUE>Ugrim</VALUE>
+		<VALUE>Ulgul</VALUE>
+		<VALUE>Umyl</VALUE>
+		<VALUE>Unebos</VALUE>
+		<VALUE>Uneg</VALUE>
+		<VALUE>Unemysl</VALUE>
+		<VALUE>Unislav</VALUE>
+		<VALUE>Upyr'</VALUE>
+		<VALUE>Urman</VALUE>
+		<VALUE>Urmen'</VALUE>
+		<VALUE>Urosh</VALUE>
+		<VALUE>Usemir</VALUE>
+		<VALUE>Uspenskoi</VALUE>
+		<VALUE>Uta</VALUE>
+		<VALUE>Uvratichevik</VALUE>
+		<VALUE>Uzh</VALUE>
+		<VALUE>Vabka</VALUE>
+		<VALUE>Valit</VALUE>
+		<VALUE>Varovitsa</VALUE>
+		<VALUE>Vatolin</VALUE>
+		<VALUE>Vatslav</VALUE>
+		<VALUE>Vavrata</VALUE>
+		<VALUE>Vecheslov</VALUE>
+		<VALUE>Vechislav</VALUE>
+		<VALUE>Vekenega</VALUE>
+		<VALUE>Vekoshkyn</VALUE>
+		<VALUE>Vel'mudr</VALUE>
+		<VALUE>Velezlaus</VALUE>
+		<VALUE>Velpridek</VALUE>
+		<VALUE>Venedim</VALUE>
+		<VALUE>Veremid</VALUE>
+		<VALUE>Verkhotrav</VALUE>
+		<VALUE>Verkhovod</VALUE>
+		<VALUE>Verkhuslava</VALUE>
+		<VALUE>Veseloi</VALUE>
+		<VALUE>Vesniak</VALUE>
+		<VALUE>Viachena</VALUE>
+		<VALUE>Viacheslav</VALUE>
+		<VALUE>Vidimk</VALUE>
+		<VALUE>Vil'kin</VALUE>
+		<VALUE>Vladimir</VALUE>
+		<VALUE>Vlakhusha</VALUE>
+		<VALUE>Voislav</VALUE>
+		<VALUE>Volborzovich</VALUE>
+		<VALUE>Volchok</VALUE>
+		<VALUE>Volia</VALUE>
+		<VALUE>Volk</VALUE>
+		<VALUE>Vorobei</VALUE>
+		<VALUE>Vorona</VALUE>
+		<VALUE>Vrachka</VALUE>
+		<VALUE>Vratena</VALUE>
+		<VALUE>Vsebor</VALUE>
+		<VALUE>Vseslav</VALUE>
+		<VALUE>Vyl'chik</VALUE>
+		<VALUE>Vyshemir</VALUE>
+		<VALUE>Vysheslav</VALUE>
+		<VALUE>Vysokoi</VALUE>
+		<VALUE>Vzrad</VALUE>
+		<VALUE>Vzvoryka</VALUE>
+		<VALUE>Zabela</VALUE>
+		<VALUE>Zabirai</VALUE>
+		<VALUE>Zadora</VALUE>
+		<VALUE>Zadvornov</VALUE>
+		<VALUE>Zaiats</VALUE>
+		<VALUE>Zamen</VALUE>
+		<VALUE>Zaprudin</VALUE>
+		<VALUE>Zaran</VALUE>
+		<VALUE>Zarol</VALUE>
+		<VALUE>Zashchitovskii</VALUE>
+		<VALUE>Zastolbskoi</VALUE>
+		<VALUE>Zavalin</VALUE>
+		<VALUE>Zavernin</VALUE>
+		<VALUE>Zavid</VALUE>
+		<VALUE>Zdan</VALUE>
+		<VALUE>Zdebor</VALUE>
+		<VALUE>Zderad</VALUE>
+		<VALUE>Zdiliut</VALUE>
+		<VALUE>Zelenia</VALUE>
+		<VALUE>Zemiatnin</VALUE>
+		<VALUE>Zern</VALUE>
+		<VALUE>Zhaba</VALUE>
+		<VALUE>Zhadk</VALUE>
+		<VALUE>Zhalob</VALUE>
+		<VALUE>Zharenoi</VALUE>
+		<VALUE>Zhavoronok</VALUE>
+		<VALUE>Zhegota</VALUE>
+		<VALUE>Zhegulia</VALUE>
+		<VALUE>Zhelezkovets</VALUE>
+		<VALUE>Zhelibor</VALUE>
+		<VALUE>Zherebil</VALUE>
+		<VALUE>Zhiroslav</VALUE>
+		<VALUE>Zhivana</VALUE>
+		<VALUE>Zhiznobud</VALUE>
+		<VALUE>Zhoravitskii</VALUE>
+		<VALUE>Zhupan</VALUE>
+		<VALUE>Zhurav</VALUE>
+		<VALUE>Zlatoslav</VALUE>
+		<VALUE>Zlygostev</VALUE>
+		<VALUE>Zmeika</VALUE>
+		<VALUE>Znaybog</VALUE>
+		<VALUE>Zorynich</VALUE>
+		<VALUE>Zub</VALUE>
+		<VALUE>Zubovolok</VALUE>
+		<VALUE>Zverintsov</VALUE>
+		<VALUE>Zvezdochet</VALUE>
+		<VALUE>Zvonimir</VALUE>
+	</LIST>
+	<LIST id="russian-female-old-russian" title="Old Russian Name">
+		<VALUE>Abotura</VALUE>
+		<VALUE>Androgasta</VALUE>
+		<VALUE>Artsybasheva</VALUE>
+		<VALUE>Babaika</VALUE>
+		<VALUE>Baburka</VALUE>
+		<VALUE>Baibola</VALUE>
+		<VALUE>Baiboroda</VALUE>
+		<VALUE>Baidika</VALUE>
+		<VALUE>Bakhmata</VALUE>
+		<VALUE>Bakuna</VALUE>
+		<VALUE>Balabana</VALUE>
+		<VALUE>Balagura</VALUE>
+		<VALUE>Balaka</VALUE>
+		<VALUE>Balamuta</VALUE>
+		<VALUE>Baraka</VALUE>
+		<VALUE>Barana</VALUE>
+		<VALUE>Basalaia</VALUE>
+		<VALUE>Basaraba</VALUE>
+		<VALUE>Batyla</VALUE>
+		<VALUE>Bavyka</VALUE>
+		<VALUE>Bazhena</VALUE>
+		<VALUE>Begletsa</VALUE>
+		<VALUE>Belakniginia</VALUE>
+		<VALUE>Beloboroda</VALUE>
+		<VALUE>Beloteletsa</VALUE>
+		<VALUE>Berendeia</VALUE>
+		<VALUE>Besomyka</VALUE>
+		<VALUE>Bezdeda</VALUE>
+		<VALUE>Bezdruka</VALUE>
+		<VALUE>Bezgodova</VALUE>
+		<VALUE>Bezkorysta</VALUE>
+		<VALUE>Bezkostiia</VALUE>
+		<VALUE>Beznosa</VALUE>
+		<VALUE>Bezubaia</VALUE>
+		<VALUE>Bezzhena</VALUE>
+		<VALUE>Bitmuta</VALUE>
+		<VALUE>Bitomira</VALUE>
+		<VALUE>Blagomila</VALUE>
+		<VALUE>Blizbora</VALUE>
+		<VALUE>Blizradost'a</VALUE>
+		<VALUE>Blizuta</VALUE>
+		<VALUE>Bludeka</VALUE>
+		<VALUE>Bobrishcha</VALUE>
+		<VALUE>Bobruevich'a</VALUE>
+		<VALUE>Bogdana</VALUE>
+		<VALUE>Bogomila</VALUE>
+		<VALUE>Bogukhvala</VALUE>
+		<VALUE>Boiana</VALUE>
+		<VALUE>Boka</VALUE>
+		<VALUE>Boldana</VALUE>
+		<VALUE>Bolemila</VALUE>
+		<VALUE>Boleslava</VALUE>
+		<VALUE>Boletikha</VALUE>
+		<VALUE>Borzdukha</VALUE>
+		<VALUE>Bota</VALUE>
+		<VALUE>Bozhidara</VALUE>
+		<VALUE>Bradatyia</VALUE>
+		<VALUE>Braila</VALUE>
+		<VALUE>Bratomira</VALUE>
+		<VALUE>Brnoa</VALUE>
+		<VALUE>Budaia</VALUE>
+		<VALUE>Buiana</VALUE>
+		<VALUE>Buinosova</VALUE>
+		<VALUE>Bukala</VALUE>
+		<VALUE>Burdukina</VALUE>
+		<VALUE>Buzdaia</VALUE>
+		<VALUE>Bykuta</VALUE>
+		<VALUE>Chabona</VALUE>
+		<VALUE>Chacha</VALUE>
+		<VALUE>Chada</VALUE>
+		<VALUE>Chadeka</VALUE>
+		<VALUE>Chadobora</VALUE>
+		<VALUE>Chana</VALUE>
+		<VALUE>Chapinoga</VALUE>
+		<VALUE>Chasnika</VALUE>
+		<VALUE>Chastobora</VALUE>
+		<VALUE>Chastolova</VALUE>
+		<VALUE>Chava</VALUE>
+		<VALUE>Chebotaia</VALUE>
+		<VALUE>Chekhoslava</VALUE>
+		<VALUE>Chelega</VALUE>
+		<VALUE>Chelpanova</VALUE>
+		<VALUE>Chernoguza</VALUE>
+		<VALUE>Chertopruda</VALUE>
+		<VALUE>Chestibora</VALUE>
+		<VALUE>Chestimira</VALUE>
+		<VALUE>Chikala</VALUE>
+		<VALUE>Chila</VALUE>
+		<VALUE>Chipyshtana</VALUE>
+		<VALUE>Chira</VALUE>
+		<VALUE>Chiudka</VALUE>
+		<VALUE>Chiugaia</VALUE>
+		<VALUE>Chubara</VALUE>
+		<VALUE>Chudobora</VALUE>
+		<VALUE>Chuzhekraia</VALUE>
+		<VALUE>Chvr'nega</VALUE>
+		<VALUE>Dabisha</VALUE>
+		<VALUE>Dabizhiva</VALUE>
+		<VALUE>Dalebora</VALUE>
+		<VALUE>Debritskiia</VALUE>
+		<VALUE>Dedenia</VALUE>
+		<VALUE>Dedleletsa</VALUE>
+		<VALUE>Deiana</VALUE>
+		<VALUE>Demon'a</VALUE>
+		<VALUE>Denintsa</VALUE>
+		<VALUE>Deretka</VALUE>
+		<VALUE>Dereviaka</VALUE>
+		<VALUE>Derzhikraia</VALUE>
+		<VALUE>Derzhislava</VALUE>
+		<VALUE>Desen'a</VALUE>
+		<VALUE>Detkoa</VALUE>
+		<VALUE>Deva</VALUE>
+		<VALUE>Didodrag'a</VALUE>
+		<VALUE>Dikareva</VALUE>
+		<VALUE>Dimuta</VALUE>
+		<VALUE>Dinara</VALUE>
+		<VALUE>Divosh'a</VALUE>
+		<VALUE>Dobraka</VALUE>
+		<VALUE>Dobromila</VALUE>
+		<VALUE>Dobrovita</VALUE>
+		<VALUE>Doda</VALUE>
+		<VALUE>Dogatka</VALUE>
+		<VALUE>Doisena</VALUE>
+		<VALUE>Dokuchaia</VALUE>
+		<VALUE>Dokuka</VALUE>
+		<VALUE>Dolginka</VALUE>
+		<VALUE>Dolgorukoia</VALUE>
+		<VALUE>Dolzhivliudkovich'a</VALUE>
+		<VALUE>Domabora</VALUE>
+		<VALUE>Domagneva</VALUE>
+		<VALUE>Domagost'a</VALUE>
+		<VALUE>Domaroda</VALUE>
+		<VALUE>Dorogomila</VALUE>
+		<VALUE>Dragobuda</VALUE>
+		<VALUE>Dragomana</VALUE>
+		<VALUE>Dragomuzha</VALUE>
+		<VALUE>Druzhina</VALUE>
+		<VALUE>Dubakova</VALUE>
+		<VALUE>Dudorova</VALUE>
+		<VALUE>Dugana</VALUE>
+		<VALUE>Duma</VALUE>
+		<VALUE>Dunaia</VALUE>
+		<VALUE>Dupekha</VALUE>
+		<VALUE>Dushatka</VALUE>
+		<VALUE>Dvorianinova</VALUE>
+		<VALUE>Egideia</VALUE>
+		<VALUE>Egnut'eva</VALUE>
+		<VALUE>Elbuzina</VALUE>
+		<VALUE>Eletsa</VALUE>
+		<VALUE>Elistratova</VALUE>
+		<VALUE>Ezha</VALUE>
+		<VALUE>Frankea</VALUE>
+		<VALUE>Gaiduka</VALUE>
+		<VALUE>Galichanina</VALUE>
+		<VALUE>Gladkoia</VALUE>
+		<VALUE>Glazynia</VALUE>
+		<VALUE>Gleba</VALUE>
+		<VALUE>Gliadeia</VALUE>
+		<VALUE>Glukhoia</VALUE>
+		<VALUE>Glupysha</VALUE>
+		<VALUE>Gnevasha</VALUE>
+		<VALUE>Godava</VALUE>
+		<VALUE>Gogol'a</VALUE>
+		<VALUE>Goimira</VALUE>
+		<VALUE>Golindukha</VALUE>
+		<VALUE>Golodnoia</VALUE>
+		<VALUE>Golostelova</VALUE>
+		<VALUE>Golova</VALUE>
+		<VALUE>Golozuba</VALUE>
+		<VALUE>Goluba</VALUE>
+		<VALUE>Gomziaka</VALUE>
+		<VALUE>Gondelika</VALUE>
+		<VALUE>Gorbatoia</VALUE>
+		<VALUE>Gordebora</VALUE>
+		<VALUE>Gordunovetsa</VALUE>
+		<VALUE>Gorkuna</VALUE>
+		<VALUE>Gorlitsa</VALUE>
+		<VALUE>Gornostaia</VALUE>
+		<VALUE>Gorodila</VALUE>
+		<VALUE>Goshkuia</VALUE>
+		<VALUE>Gostiata</VALUE>
+		<VALUE>Gostimira</VALUE>
+		<VALUE>Govorisha</VALUE>
+		<VALUE>Grabarova</VALUE>
+		<VALUE>Grachka</VALUE>
+		<VALUE>Gridata</VALUE>
+		<VALUE>Grimislava</VALUE>
+		<VALUE>Groma</VALUE>
+		<VALUE>Gromadka</VALUE>
+		<VALUE>Groznata</VALUE>
+		<VALUE>Grubana</VALUE>
+		<VALUE>Grudtsyna</VALUE>
+		<VALUE>Gubara</VALUE>
+		<VALUE>Gudimira</VALUE>
+		<VALUE>Gugnia</VALUE>
+		<VALUE>Guliaia</VALUE>
+		<VALUE>Gundora</VALUE>
+		<VALUE>Gurdeva</VALUE>
+		<VALUE>Gusaka</VALUE>
+		<VALUE>Gvozd'a</VALUE>
+		<VALUE>Gynetha</VALUE>
+		<VALUE>Iablanika</VALUE>
+		<VALUE>Iaglina</VALUE>
+		<VALUE>Iagoda</VALUE>
+		<VALUE>Iaketa</VALUE>
+		<VALUE>Iarina</VALUE>
+		<VALUE>Iarmola</VALUE>
+		<VALUE>Iarogneva</VALUE>
+		<VALUE>Iaroliuba</VALUE>
+		<VALUE>Iaropolka</VALUE>
+		<VALUE>Ikagala</VALUE>
+		<VALUE>Ikmora</VALUE>
+		<VALUE>Imrama</VALUE>
+		<VALUE>Inokhodetsa</VALUE>
+		<VALUE>Inozema</VALUE>
+		<VALUE>Iskretsova</VALUE>
+		<VALUE>Istlen'ea</VALUE>
+		<VALUE>Istoka</VALUE>
+		<VALUE>Istoma</VALUE>
+		<VALUE>Itselia</VALUE>
+		<VALUE>Iugrina</VALUE>
+		<VALUE>Iundila</VALUE>
+		<VALUE>Iuraga</VALUE>
+		<VALUE>Iurukaia</VALUE>
+		<VALUE>Izborianina</VALUE>
+		<VALUE>Iziugildeia</VALUE>
+		<VALUE>Izmaragda</VALUE>
+		<VALUE>Izmira</VALUE>
+		<VALUE>Izoslava</VALUE>
+		<VALUE>Kabaka</VALUE>
+		<VALUE>Kaftannika</VALUE>
+		<VALUE>Kaidala</VALUE>
+		<VALUE>Kaitasa</VALUE>
+		<VALUE>Kakmuzha</VALUE>
+		<VALUE>Kalimana</VALUE>
+		<VALUE>Kalina</VALUE>
+		<VALUE>Kallimakha</VALUE>
+		<VALUE>Kallistrata</VALUE>
+		<VALUE>Kamareta</VALUE>
+		<VALUE>Kandeva</VALUE>
+		<VALUE>Karamysha</VALUE>
+		<VALUE>Kargapoletsa</VALUE>
+		<VALUE>Kashpara</VALUE>
+		<VALUE>Kaspera</VALUE>
+		<VALUE>Kawaleka</VALUE>
+		<VALUE>Kazatula</VALUE>
+		<VALUE>Kazdoia</VALUE>
+		<VALUE>Kazhara</VALUE>
+		<VALUE>Kedruta</VALUE>
+		<VALUE>Khabara</VALUE>
+		<VALUE>Khabra</VALUE>
+		<VALUE>Khabreka</VALUE>
+		<VALUE>Khamtala</VALUE>
+		<VALUE>Kherona</VALUE>
+		<VALUE>Khlanovika</VALUE>
+		<VALUE>Khmeleva</VALUE>
+		<VALUE>Khodetsa</VALUE>
+		<VALUE>Khodivoia</VALUE>
+		<VALUE>Khomiaka</VALUE>
+		<VALUE>Khorobrita</VALUE>
+		<VALUE>Khorvata</VALUE>
+		<VALUE>Khotebora</VALUE>
+		<VALUE>Khovraleva</VALUE>
+		<VALUE>Khr'vatina</VALUE>
+		<VALUE>Khrabra</VALUE>
+		<VALUE>Khrandruzhika</VALUE>
+		<VALUE>Khrapa</VALUE>
+		<VALUE>Khrela</VALUE>
+		<VALUE>Khrena</VALUE>
+		<VALUE>Khromonogoia</VALUE>
+		<VALUE>Khrusnitskiia</VALUE>
+		<VALUE>Khudashka</VALUE>
+		<VALUE>Khukala</VALUE>
+		<VALUE>Khvaliboga</VALUE>
+		<VALUE>Khvalibuda</VALUE>
+		<VALUE>Khvalislava</VALUE>
+		<VALUE>Kilibaka</VALUE>
+		<VALUE>Kinzhalka</VALUE>
+		<VALUE>Kipchaka</VALUE>
+		<VALUE>Klena</VALUE>
+		<VALUE>Klepacha</VALUE>
+		<VALUE>Kliapika</VALUE>
+		<VALUE>Klima</VALUE>
+		<VALUE>Klobuka</VALUE>
+		<VALUE>Klopota</VALUE>
+		<VALUE>Knizhebaeva</VALUE>
+		<VALUE>Kobyla</VALUE>
+		<VALUE>Kochkara</VALUE>
+		<VALUE>Koilova</VALUE>
+		<VALUE>Kokha</VALUE>
+		<VALUE>Kolbintsa</VALUE>
+		<VALUE>Kolibaba</VALUE>
+		<VALUE>Kolmogora</VALUE>
+		<VALUE>Kolpaka</VALUE>
+		<VALUE>Kon'a</VALUE>
+		<VALUE>Kondyreva</VALUE>
+		<VALUE>Kopiatara</VALUE>
+		<VALUE>Kornacha</VALUE>
+		<VALUE>Kosachika</VALUE>
+		<VALUE>Koseluga</VALUE>
+		<VALUE>Kosenila</VALUE>
+		<VALUE>Koshuta</VALUE>
+		<VALUE>Kosmata</VALUE>
+		<VALUE>Kostrova</VALUE>
+		<VALUE>Koukola</VALUE>
+		<VALUE>Kouman'a</VALUE>
+		<VALUE>Kouplen'a</VALUE>
+		<VALUE>Kovyl'a</VALUE>
+		<VALUE>Kozeikoa</VALUE>
+		<VALUE>Kraichen'a</VALUE>
+		<VALUE>Krakra</VALUE>
+		<VALUE>Kralena</VALUE>
+		<VALUE>Krapiva</VALUE>
+		<VALUE>Kraseka</VALUE>
+		<VALUE>Krasnolepova</VALUE>
+		<VALUE>Krasnosheia</VALUE>
+		<VALUE>Kravara</VALUE>
+		<VALUE>Krebitskiia</VALUE>
+		<VALUE>Krestovolodovicha</VALUE>
+		<VALUE>Kribodreva</VALUE>
+		<VALUE>Krika</VALUE>
+		<VALUE>Krivonosa</VALUE>
+		<VALUE>Krivosheia</VALUE>
+		<VALUE>Krivosuda</VALUE>
+		<VALUE>Krunevichovna</VALUE>
+		<VALUE>Kubata</VALUE>
+		<VALUE>Kubeia</VALUE>
+		<VALUE>Kudenevicha</VALUE>
+		<VALUE>Kunata</VALUE>
+		<VALUE>Kunduma</VALUE>
+		<VALUE>Kupina</VALUE>
+		<VALUE>Kurbaba</VALUE>
+		<VALUE>Kurostrovetsa</VALUE>
+		<VALUE>Kvasena</VALUE>
+		<VALUE>Kygea</VALUE>
+		<VALUE>Labkovicha</VALUE>
+		<VALUE>Ladimira</VALUE>
+		<VALUE>Lakogina</VALUE>
+		<VALUE>Lala</VALUE>
+		<VALUE>Latskositscha</VALUE>
+		<VALUE>Lavrina</VALUE>
+		<VALUE>Lazuta</VALUE>
+		<VALUE>Lebed'a</VALUE>
+		<VALUE>Lekar'a</VALUE>
+		<VALUE>Leleka</VALUE>
+		<VALUE>Lepekha</VALUE>
+		<VALUE>Leskalova</VALUE>
+		<VALUE>Lestvitsa</VALUE>
+		<VALUE>Levasha</VALUE>
+		<VALUE>Likhacha</VALUE>
+		<VALUE>Likholista</VALUE>
+		<VALUE>Likhopeka</VALUE>
+		<VALUE>Likhovida</VALUE>
+		<VALUE>Lisimakha</VALUE>
+		<VALUE>Liubimira</VALUE>
+		<VALUE>Liudemuslusa</VALUE>
+		<VALUE>Liutobora</VALUE>
+		<VALUE>Liutogneva</VALUE>
+		<VALUE>Lizoguba</VALUE>
+		<VALUE>Loboda</VALUE>
+		<VALUE>Lovanta</VALUE>
+		<VALUE>Loza</VALUE>
+		<VALUE>Luarsaba</VALUE>
+		<VALUE>Lugbena</VALUE>
+		<VALUE>Lukana</VALUE>
+		<VALUE>Lysyia</VALUE>
+		<VALUE>Machinevika</VALUE>
+		<VALUE>Makhnika</VALUE>
+		<VALUE>Malbuga</VALUE>
+		<VALUE>Malina</VALUE>
+		<VALUE>Maloveka</VALUE>
+		<VALUE>Man'sura</VALUE>
+		<VALUE>Manaka</VALUE>
+		<VALUE>Mantura</VALUE>
+		<VALUE>Marakusheva</VALUE>
+		<VALUE>Margarita</VALUE>
+		<VALUE>Markhotka</VALUE>
+		<VALUE>Marotsela</VALUE>
+		<VALUE>Martola</VALUE>
+		<VALUE>Materna</VALUE>
+		<VALUE>Mavrozhtika</VALUE>
+		<VALUE>Mechislava</VALUE>
+		<VALUE>Medenka</VALUE>
+		<VALUE>Mekha</VALUE>
+		<VALUE>Mel'gunova</VALUE>
+		<VALUE>Menshaka</VALUE>
+		<VALUE>Mereteka</VALUE>
+		<VALUE>Mestiata</VALUE>
+		<VALUE>Miakisha</VALUE>
+		<VALUE>Migacha</VALUE>
+		<VALUE>Miledoka</VALUE>
+		<VALUE>Milgosta</VALUE>
+		<VALUE>Milka</VALUE>
+		<VALUE>Milonega</VALUE>
+		<VALUE>Mirogneva</VALUE>
+		<VALUE>Mladena</VALUE>
+		<VALUE>Mlogikona</VALUE>
+		<VALUE>Mnislava</VALUE>
+		<VALUE>Moimira</VALUE>
+		<VALUE>Moislava</VALUE>
+		<VALUE>Moliboga</VALUE>
+		<VALUE>Momchila</VALUE>
+		<VALUE>Moramasha</VALUE>
+		<VALUE>Moroza</VALUE>
+		<VALUE>Motsoka</VALUE>
+		<VALUE>Movila</VALUE>
+		<VALUE>Moymara</VALUE>
+		<VALUE>Mrakota</VALUE>
+		<VALUE>Mstidruga</VALUE>
+		<VALUE>Mukhina</VALUE>
+		<VALUE>Mutimira</VALUE>
+		<VALUE>Muzhedraga</VALUE>
+		<VALUE>Myslibora</VALUE>
+		<VALUE>Mztigneva</VALUE>
+		<VALUE>Nacepulea</VALUE>
+		<VALUE>Nachimira</VALUE>
+		<VALUE>Nadbora</VALUE>
+		<VALUE>Nagaia</VALUE>
+		<VALUE>Naglaza</VALUE>
+		<VALUE>Nagoia</VALUE>
+		<VALUE>Nagrada</VALUE>
+		<VALUE>Naiduna</VALUE>
+		<VALUE>Nakhoda</VALUE>
+		<VALUE>Nakovitza</VALUE>
+		<VALUE>Namesta</VALUE>
+		<VALUE>Nanula</VALUE>
+		<VALUE>Narushka</VALUE>
+		<VALUE>Naslava</VALUE>
+		<VALUE>Navorota</VALUE>
+		<VALUE>Nebracha</VALUE>
+		<VALUE>Nechaia</VALUE>
+		<VALUE>Nedana</VALUE>
+		<VALUE>Nedobroia</VALUE>
+		<VALUE>Neglaza</VALUE>
+		<VALUE>Negomira</VALUE>
+		<VALUE>Negoshka</VALUE>
+		<VALUE>Negula</VALUE>
+		<VALUE>Nekrasa</VALUE>
+		<VALUE>Nelepa</VALUE>
+		<VALUE>Nemana</VALUE>
+		<VALUE>Nemeikshevich'a</VALUE>
+		<VALUE>Nemysla</VALUE>
+		<VALUE>Nepitushchoia</VALUE>
+		<VALUE>Nerada</VALUE>
+		<VALUE>Nerataia</VALUE>
+		<VALUE>Nesgovorka</VALUE>
+		<VALUE>Netka</VALUE>
+		<VALUE>Netmira</VALUE>
+		<VALUE>Netsvetaia</VALUE>
+		<VALUE>Neugoda</VALUE>
+		<VALUE>Neuseka</VALUE>
+		<VALUE>Neustroia</VALUE>
+		<VALUE>Neusyna</VALUE>
+		<VALUE>Nevelskoia</VALUE>
+		<VALUE>Nevera</VALUE>
+		<VALUE>Nevzora</VALUE>
+		<VALUE>Nezhenika</VALUE>
+		<VALUE>Nezhka</VALUE>
+		<VALUE>Neznanicha</VALUE>
+		<VALUE>Nineka</VALUE>
+		<VALUE>Noszala</VALUE>
+		<VALUE>Novaden'a</VALUE>
+		<VALUE>Nutila</VALUE>
+		<VALUE>Obela</VALUE>
+		<VALUE>Obezka</VALUE>
+		<VALUE>Obidena</VALUE>
+		<VALUE>Oblaka</VALUE>
+		<VALUE>Oblesha</VALUE>
+		<VALUE>Obrad'tsa</VALUE>
+		<VALUE>Obrada</VALUE>
+		<VALUE>Obrana</VALUE>
+		<VALUE>Obyzora</VALUE>
+		<VALUE>Odinetsa</VALUE>
+		<VALUE>Odolba</VALUE>
+		<VALUE>Ogibalova</VALUE>
+		<VALUE>Ogneva</VALUE>
+		<VALUE>Ogorodnika</VALUE>
+		<VALUE>Okhota</VALUE>
+		<VALUE>Okola</VALUE>
+		<VALUE>Okrasa</VALUE>
+		<VALUE>Ol'shanits'k'ia</VALUE>
+		<VALUE>Olbega</VALUE>
+		<VALUE>Oleshtena</VALUE>
+		<VALUE>Onodraga</VALUE>
+		<VALUE>Onoslawa</VALUE>
+		<VALUE>Onshuka</VALUE>
+		<VALUE>Opranina</VALUE>
+		<VALUE>Orasha</VALUE>
+		<VALUE>Orela</VALUE>
+		<VALUE>Osela</VALUE>
+		<VALUE>Osobeia</VALUE>
+		<VALUE>Ostoia</VALUE>
+		<VALUE>Ostrokhvosta</VALUE>
+		<VALUE>Ostropoletsa</VALUE>
+		<VALUE>Ostroroga</VALUE>
+		<VALUE>Otaslava</VALUE>
+		<VALUE>Otkulia</VALUE>
+		<VALUE>Otmara</VALUE>
+		<VALUE>Otnia</VALUE>
+		<VALUE>Otrada</VALUE>
+		<VALUE>Otroka</VALUE>
+		<VALUE>Ovchina</VALUE>
+		<VALUE>Ozerova</VALUE>
+		<VALUE>Ozornoia</VALUE>
+		<VALUE>Pabesha</VALUE>
+		<VALUE>Pak'rata</VALUE>
+		<VALUE>Pakhoruka</VALUE>
+		<VALUE>Pakoslava</VALUE>
+		<VALUE>Paladina</VALUE>
+		<VALUE>Palmuta</VALUE>
+		<VALUE>Panchinoa</VALUE>
+		<VALUE>Panulka</VALUE>
+		<VALUE>Pardusha</VALUE>
+		<VALUE>Paseka</VALUE>
+		<VALUE>Pasynoka</VALUE>
+		<VALUE>Pavlimira</VALUE>
+		<VALUE>Pchelka</VALUE>
+		<VALUE>Pekhar'a</VALUE>
+		<VALUE>Pekucha</VALUE>
+		<VALUE>Peniuga</VALUE>
+		<VALUE>Perduna</VALUE>
+		<VALUE>Peredeslava</VALUE>
+		<VALUE>Peredslava</VALUE>
+		<VALUE>Pereguda</VALUE>
+		<VALUE>Peremila</VALUE>
+		<VALUE>Peresveta</VALUE>
+		<VALUE>Permiaka</VALUE>
+		<VALUE>Pervoia</VALUE>
+		<VALUE>Piata</VALUE>
+		<VALUE>Piknoseka</VALUE>
+		<VALUE>Piskuna</VALUE>
+		<VALUE>Pivovara</VALUE>
+		<VALUE>Plava</VALUE>
+		<VALUE>Plen'a</VALUE>
+		<VALUE>Poboia</VALUE>
+		<VALUE>Pochekaia</VALUE>
+		<VALUE>Pochepetsa</VALUE>
+		<VALUE>Podiva</VALUE>
+		<VALUE>Podizlausa</VALUE>
+		<VALUE>Podnosova</VALUE>
+		<VALUE>Podorozhnoia</VALUE>
+		<VALUE>Podpopea</VALUE>
+		<VALUE>Podreza</VALUE>
+		<VALUE>Podteloka</VALUE>
+		<VALUE>Podzhara</VALUE>
+		<VALUE>Pokhvala</VALUE>
+		<VALUE>Polevoda</VALUE>
+		<VALUE>Poliuda</VALUE>
+		<VALUE>Polkoa</VALUE>
+		<VALUE>Pomila</VALUE>
+		<VALUE>Popel'nika</VALUE>
+		<VALUE>Popliashnia</VALUE>
+		<VALUE>Potania</VALUE>
+		<VALUE>Pozdeia</VALUE>
+		<VALUE>Pozvizda</VALUE>
+		<VALUE>Pravotarkha</VALUE>
+		<VALUE>Prdota</VALUE>
+		<VALUE>Preaputsika</VALUE>
+		<VALUE>Predimira</VALUE>
+		<VALUE>Predislava</VALUE>
+		<VALUE>Predpolka</VALUE>
+		<VALUE>Preliuba</VALUE>
+		<VALUE>Preliuta</VALUE>
+		<VALUE>Priamogliadova</VALUE>
+		<VALUE>Pribega</VALUE>
+		<VALUE>Pribila</VALUE>
+		<VALUE>Pribislava</VALUE>
+		<VALUE>Pribyslava</VALUE>
+		<VALUE>Prichika</VALUE>
+		<VALUE>Pridimira</VALUE>
+		<VALUE>Priiaslava</VALUE>
+		<VALUE>Prikupovicha</VALUE>
+		<VALUE>Primysla</VALUE>
+		<VALUE>Prisnetsa</VALUE>
+		<VALUE>Pristana</VALUE>
+		<VALUE>Pristupa</VALUE>
+		<VALUE>Prodana</VALUE>
+		<VALUE>Prodasa</VALUE>
+		<VALUE>Prosdoka</VALUE>
+		<VALUE>Prosegora</VALUE>
+		<VALUE>Prosimira</VALUE>
+		<VALUE>Proskuriaka</VALUE>
+		<VALUE>Prostokisha</VALUE>
+		<VALUE>Prosvela</VALUE>
+		<VALUE>Protiva</VALUE>
+		<VALUE>Protiveka</VALUE>
+		<VALUE>Protivoga</VALUE>
+		<VALUE>Prozora</VALUE>
+		<VALUE>Pruda</VALUE>
+		<VALUE>Prugana</VALUE>
+		<VALUE>Prusa</VALUE>
+		<VALUE>Ptaka</VALUE>
+		<VALUE>Pul'kheriia</VALUE>
+		<VALUE>Pulova</VALUE>
+		<VALUE>Pur'cha</VALUE>
+		<VALUE>Pustodola</VALUE>
+		<VALUE>Putila</VALUE>
+		<VALUE>Rabetsa</VALUE>
+		<VALUE>Rachlava</VALUE>
+		<VALUE>Radetecha</VALUE>
+		<VALUE>Radigrada</VALUE>
+		<VALUE>Radogost'a</VALUE>
+		<VALUE>Raichika</VALUE>
+		<VALUE>Rakhmana</VALUE>
+		<VALUE>Rakita</VALUE>
+		<VALUE>Ralkoa</VALUE>
+		<VALUE>Randar'a</VALUE>
+		<VALUE>Rapota</VALUE>
+		<VALUE>Raspopa</VALUE>
+		<VALUE>Rasputa</VALUE>
+		<VALUE>Rastislausa</VALUE>
+		<VALUE>Ratibora</VALUE>
+		<VALUE>Ratlitsa</VALUE>
+		<VALUE>Ratseka</VALUE>
+		<VALUE>Ravena</VALUE>
+		<VALUE>Razumeika</VALUE>
+		<VALUE>Razvoda</VALUE>
+		<VALUE>Regena</VALUE>
+		<VALUE>Rezovka</VALUE>
+		<VALUE>Rodislava</VALUE>
+		<VALUE>Rogatoia</VALUE>
+		<VALUE>Rogvoloda</VALUE>
+		<VALUE>Rokgala</VALUE>
+		<VALUE>Rolanda</VALUE>
+		<VALUE>Rosliaka</VALUE>
+		<VALUE>Rozhaia</VALUE>
+		<VALUE>Rozmechicha</VALUE>
+		<VALUE>Rozmesa</VALUE>
+		<VALUE>Rozvada</VALUE>
+		<VALUE>Rozvara</VALUE>
+		<VALUE>Ruba</VALUE>
+		<VALUE>Ruda</VALUE>
+		<VALUE>Rukavoka</VALUE>
+		<VALUE>Rumianetsa</VALUE>
+		<VALUE>Rusaka</VALUE>
+		<VALUE>Ruta</VALUE>
+		<VALUE>Rybolova</VALUE>
+		<VALUE>Rymola</VALUE>
+		<VALUE>Rynakova</VALUE>
+		<VALUE>Sabota</VALUE>
+		<VALUE>Saburova</VALUE>
+		<VALUE>Sadovnika</VALUE>
+		<VALUE>Saloguba</VALUE>
+		<VALUE>Samodelka</VALUE>
+		<VALUE>Saruba</VALUE>
+		<VALUE>Sarvila</VALUE>
+		<VALUE>Sasina</VALUE>
+		<VALUE>Sbora</VALUE>
+		<VALUE>Sbyslava</VALUE>
+		<VALUE>Sebeslausa</VALUE>
+		<VALUE>Sebud'a</VALUE>
+		<VALUE>Sedelnika</VALUE>
+		<VALUE>Sedleka</VALUE>
+		<VALUE>Sekula</VALUE>
+		<VALUE>Selekuevitsa</VALUE>
+		<VALUE>Semidushnoia</VALUE>
+		<VALUE>Semislava</VALUE>
+		<VALUE>Serdiatnitskiia</VALUE>
+		<VALUE>Serebrianika</VALUE>
+		<VALUE>Seroslava</VALUE>
+		<VALUE>Serpukhovitina</VALUE>
+		<VALUE>Sestrana</VALUE>
+		<VALUE>Setekha</VALUE>
+		<VALUE>Sevruka</VALUE>
+		<VALUE>Sezema</VALUE>
+		<VALUE>Shamraia</VALUE>
+		<VALUE>Sharapa</VALUE>
+		<VALUE>Shchedroia</VALUE>
+		<VALUE>Shchegol'a</VALUE>
+		<VALUE>Shchekarova</VALUE>
+		<VALUE>Shchenkurskoia</VALUE>
+		<VALUE>Shchepata</VALUE>
+		<VALUE>Shchepoteva</VALUE>
+		<VALUE>Shcherba</VALUE>
+		<VALUE>Shchita</VALUE>
+		<VALUE>Shchokura</VALUE>
+		<VALUE>Shchuka</VALUE>
+		<VALUE>Sheia</VALUE>
+		<VALUE>Shestnika</VALUE>
+		<VALUE>Shibeka</VALUE>
+		<VALUE>Shigolova</VALUE>
+		<VALUE>Shimukhla</VALUE>
+		<VALUE>Shirokonosa</VALUE>
+		<VALUE>Shishka</VALUE>
+		<VALUE>Shkara</VALUE>
+		<VALUE>Shliakhta</VALUE>
+		<VALUE>Shpaleka</VALUE>
+		<VALUE>Shubnoia</VALUE>
+		<VALUE>Shuiga</VALUE>
+		<VALUE>Shuma</VALUE>
+		<VALUE>Shupeka</VALUE>
+		<VALUE>Shupliaka</VALUE>
+		<VALUE>Sinitsa</VALUE>
+		<VALUE>Siraka</VALUE>
+		<VALUE>Siriabina</VALUE>
+		<VALUE>Sirnuta</VALUE>
+		<VALUE>Sivekoa</VALUE>
+		<VALUE>Skaraga</VALUE>
+		<VALUE>Skobel'a</VALUE>
+		<VALUE>Skolazubova</VALUE>
+		<VALUE>Skopeka</VALUE>
+		<VALUE>Skoreka</VALUE>
+		<VALUE>Skoroduma</VALUE>
+		<VALUE>Skoruta</VALUE>
+		<VALUE>Skupoia</VALUE>
+		<VALUE>Slabnia</VALUE>
+		<VALUE>Sladoia</VALUE>
+		<VALUE>Slavimira</VALUE>
+		<VALUE>Slugoa</VALUE>
+		<VALUE>Smara</VALUE>
+		<VALUE>Smedin'skiia</VALUE>
+		<VALUE>Smokva</VALUE>
+		<VALUE>Smoligoa</VALUE>
+		<VALUE>Sokolnika</VALUE>
+		<VALUE>Sokora</VALUE>
+		<VALUE>Solezlausa</VALUE>
+		<VALUE>Soloveia</VALUE>
+		<VALUE>Sopacha</VALUE>
+		<VALUE>Sorikhina</VALUE>
+		<VALUE>Spana</VALUE>
+		<VALUE>Spasitel'a</VALUE>
+		<VALUE>Spevaka</VALUE>
+		<VALUE>Spitoslava</VALUE>
+		<VALUE>Sporoa</VALUE>
+		<VALUE>Spudinka</VALUE>
+		<VALUE>Stanimira</VALUE>
+		<VALUE>Staroselskoia</VALUE>
+		<VALUE>Stolpina</VALUE>
+		<VALUE>Strakhota</VALUE>
+		<VALUE>Stranimira</VALUE>
+		<VALUE>Strastoterpetsa</VALUE>
+		<VALUE>Stratymira</VALUE>
+		<VALUE>Strazheka</VALUE>
+		<VALUE>Stroislava</VALUE>
+		<VALUE>Stupitsa</VALUE>
+		<VALUE>Subota</VALUE>
+		<VALUE>Sudika</VALUE>
+		<VALUE>Sudimira</VALUE>
+		<VALUE>Suika</VALUE>
+		<VALUE>Suka</VALUE>
+		<VALUE>Sukhopara</VALUE>
+		<VALUE>Sukhoshcheka</VALUE>
+		<VALUE>Sulesha</VALUE>
+		<VALUE>Sulislava</VALUE>
+		<VALUE>Sulivoia</VALUE>
+		<VALUE>Surovetsa</VALUE>
+		<VALUE>Susora</VALUE>
+		<VALUE>Sveprava</VALUE>
+		<VALUE>Sverada</VALUE>
+		<VALUE>Sviatopluka</VALUE>
+		<VALUE>Svinoluka</VALUE>
+		<VALUE>Svinopasa</VALUE>
+		<VALUE>Sviolada</VALUE>
+		<VALUE>Svoislava</VALUE>
+		<VALUE>Syna</VALUE>
+		<VALUE>Taitemeria</VALUE>
+		<VALUE>Talerka</VALUE>
+		<VALUE>Tamislava</VALUE>
+		<VALUE>Tanka</VALUE>
+		<VALUE>Taskaeva</VALUE>
+		<VALUE>Tatomira</VALUE>
+		<VALUE>Tekhomila</VALUE>
+		<VALUE>Telepen'a</VALUE>
+		<VALUE>Telogreia</VALUE>
+		<VALUE>Temira</VALUE>
+		<VALUE>Tenbaia</VALUE>
+		<VALUE>Teodola</VALUE>
+		<VALUE>Tepa</VALUE>
+		<VALUE>Terebunetsa</VALUE>
+		<VALUE>Terpimira</VALUE>
+		<VALUE>Tetera</VALUE>
+		<VALUE>Tevtivila</VALUE>
+		<VALUE>Tiekhoradovika</VALUE>
+		<VALUE>Tiruna</VALUE>
+		<VALUE>Toivoda</VALUE>
+		<VALUE>Tolislava</VALUE>
+		<VALUE>Tolstopiata</VALUE>
+		<VALUE>Tomeslava</VALUE>
+		<VALUE>Topora</VALUE>
+		<VALUE>Toshuia</VALUE>
+		<VALUE>Trakhoniotova</VALUE>
+		<VALUE>Travyga</VALUE>
+		<VALUE>Trebemysla</VALUE>
+		<VALUE>Tret'iaka</VALUE>
+		<VALUE>Trifonka</VALUE>
+		<VALUE>Trnaka</VALUE>
+		<VALUE>Troekurova</VALUE>
+		<VALUE>Tsapala</VALUE>
+		<VALUE>Tsar'a</VALUE>
+		<VALUE>Tselika</VALUE>
+		<VALUE>Tsena</VALUE>
+		<VALUE>Tsvetka</VALUE>
+		<VALUE>Tsyplenoka</VALUE>
+		<VALUE>Tugomira</VALUE>
+		<VALUE>Tukhona</VALUE>
+		<VALUE>Turbasova</VALUE>
+		<VALUE>Tverchana</VALUE>
+		<VALUE>Tverdila</VALUE>
+		<VALUE>Tvorimira</VALUE>
+		<VALUE>Ubichest'a</VALUE>
+		<VALUE>Ubichesta</VALUE>
+		<VALUE>Ubogoia</VALUE>
+		<VALUE>Udra</VALUE>
+		<VALUE>Uglechenina</VALUE>
+		<VALUE>Ugola</VALUE>
+		<VALUE>Ugrima</VALUE>
+		<VALUE>Ulgula</VALUE>
+		<VALUE>Umyla</VALUE>
+		<VALUE>Unebosa</VALUE>
+		<VALUE>Unega</VALUE>
+		<VALUE>Unemysla</VALUE>
+		<VALUE>Unislava</VALUE>
+		<VALUE>Upyr'a</VALUE>
+		<VALUE>Urmana</VALUE>
+		<VALUE>Urmen'a</VALUE>
+		<VALUE>Urosha</VALUE>
+		<VALUE>Usemira</VALUE>
+		<VALUE>Uspenskoia</VALUE>
+		<VALUE>Uta</VALUE>
+		<VALUE>Uvratichevika</VALUE>
+		<VALUE>Uzha</VALUE>
+		<VALUE>Vabka</VALUE>
+		<VALUE>Valita</VALUE>
+		<VALUE>Varovitsa</VALUE>
+		<VALUE>Vatolina</VALUE>
+		<VALUE>Vatslava</VALUE>
+		<VALUE>Vavrata</VALUE>
+		<VALUE>Vecheslova</VALUE>
+		<VALUE>Vechislava</VALUE>
+		<VALUE>Vekenega</VALUE>
+		<VALUE>Vekoshkyna</VALUE>
+		<VALUE>Vel'mudra</VALUE>
+		<VALUE>Velezlausa</VALUE>
+		<VALUE>Velprideka</VALUE>
+		<VALUE>Venedima</VALUE>
+		<VALUE>Veremida</VALUE>
+		<VALUE>Verkhotrava</VALUE>
+		<VALUE>Verkhovoda</VALUE>
+		<VALUE>Verkhuslava</VALUE>
+		<VALUE>Veseloia</VALUE>
+		<VALUE>Vesniaka</VALUE>
+		<VALUE>Viachena</VALUE>
+		<VALUE>Vidimka</VALUE>
+		<VALUE>Vil'kina</VALUE>
+		<VALUE>Vladimira</VALUE>
+		<VALUE>Vlakhusha</VALUE>
+		<VALUE>Volborzovicha</VALUE>
+		<VALUE>Volia</VALUE>
+		<VALUE>Volka</VALUE>
+		<VALUE>Vorobeia</VALUE>
+		<VALUE>Vorona</VALUE>
+		<VALUE>Vrachka</VALUE>
+		<VALUE>Vratena</VALUE>
+		<VALUE>Vsebora</VALUE>
+		<VALUE>Vseslava</VALUE>
+		<VALUE>Vyl'chika</VALUE>
+		<VALUE>Vyshemira</VALUE>
+		<VALUE>Vysheslava</VALUE>
+		<VALUE>Vysokoia</VALUE>
+		<VALUE>Vzrada</VALUE>
+		<VALUE>Vzvoryka</VALUE>
+		<VALUE>Zabela</VALUE>
+		<VALUE>Zabiraia</VALUE>
+		<VALUE>Zadora</VALUE>
+		<VALUE>Zadvornova</VALUE>
+		<VALUE>Zamena</VALUE>
+		<VALUE>Zaprudina</VALUE>
+		<VALUE>Zarana</VALUE>
+		<VALUE>Zarola</VALUE>
+		<VALUE>Zashchitovskiia</VALUE>
+		<VALUE>Zastolbskoia</VALUE>
+		<VALUE>Zavalina</VALUE>
+		<VALUE>Zavernina</VALUE>
+		<VALUE>Zdana</VALUE>
+		<VALUE>Zdebora</VALUE>
+		<VALUE>Zderada</VALUE>
+		<VALUE>Zdiliuta</VALUE>
+		<VALUE>Zelenia</VALUE>
+		<VALUE>Zemiatnina</VALUE>
+		<VALUE>Zerna</VALUE>
+		<VALUE>Zhaba</VALUE>
+		<VALUE>Zhadka</VALUE>
+		<VALUE>Zhaloba</VALUE>
+		<VALUE>Zharenoia</VALUE>
+		<VALUE>Zhavoronoka</VALUE>
+		<VALUE>Zhegota</VALUE>
+		<VALUE>Zhegulia</VALUE>
+		<VALUE>Zhelezkovetsa</VALUE>
+		<VALUE>Zhelibora</VALUE>
+		<VALUE>Zherebila</VALUE>
+		<VALUE>Zhivana</VALUE>
+		<VALUE>Zhoravitskiia</VALUE>
+		<VALUE>Zhupana</VALUE>
+		<VALUE>Zhurava</VALUE>
+		<VALUE>Zlatoslava</VALUE>
+		<VALUE>Zlygosteva</VALUE>
+		<VALUE>Zmeika</VALUE>
+		<VALUE>Znayboga</VALUE>
+		<VALUE>Zorynicha</VALUE>
+		<VALUE>Zubovoloka</VALUE>
+		<VALUE>Zverintsova</VALUE>
+		<VALUE>Zvezdocheta</VALUE>
+		<VALUE>Zvonimira</VALUE>
+	</LIST>
+	<!--Patronymics-->
+	<LIST id="russian-male-christian-patronymic" title="Christian Patronymic Name">
+		<VALUE>Alekseev<SUBVALUE type="meaning">Son of Aleksei</SUBVALUE></VALUE>
+		<VALUE>Andreev<SUBVALUE type="meaning">Son of Andrei</SUBVALUE></VALUE>
+		<VALUE>Borisov<SUBVALUE type="meaning">Son of Boris</SUBVALUE></VALUE>
+		<VALUE>Dmitriev<SUBVALUE type="meaning">Son of Dmitrii</SUBVALUE></VALUE>
+		<VALUE>Fedorov<SUBVALUE type="meaning">Son of Fedor</SUBVALUE></VALUE>
+		<VALUE>Fomin<SUBVALUE type="meaning">Son of Foma</SUBVALUE></VALUE>
+		<VALUE>Fominich<SUBVALUE type="meaning">Son of Foma</SUBVALUE></VALUE>
+		<VALUE>Georgiev<SUBVALUE type="meaning">Son of Georgii</SUBVALUE></VALUE>
+		<VALUE>Grigoriev<SUBVALUE type="meaning">Son of Grigorii</SUBVALUE></VALUE>
+		<VALUE>Iakol'<SUBVALUE type="meaning">Son of Iakov</SUBVALUE></VALUE>
+		<VALUE>Iecifovich<SUBVALUE type="meaning">Son of Iosif</SUBVALUE></VALUE>
+		<VALUE>Ivanov<SUBVALUE type="meaning">Son of Ivan</SUBVALUE></VALUE>
+		<VALUE>Ivanovich<SUBVALUE type="meaning">Son of Ivan</SUBVALUE></VALUE>
+		<VALUE>Kuz'mich<SUBVALUE type="meaning">Son of Kuz'ma</SUBVALUE></VALUE>
+		<VALUE>Maksimov<SUBVALUE type="meaning">Son of Maksim</SUBVALUE></VALUE>
+		<VALUE>Matfeevich<SUBVALUE type="meaning">Son of Matfei</SUBVALUE></VALUE>
+		<VALUE>Mikhailovich<SUBVALUE type="meaning">Son of Mixail</SUBVALUE></VALUE>
+		<VALUE>Nikitin<SUBVALUE type="meaning">Son of Nikita</SUBVALUE></VALUE>
+		<VALUE>Pavlov<SUBVALUE type="meaning">Son of Pavel</SUBVALUE></VALUE>
+		<VALUE>Semenov<SUBVALUE type="meaning">Son of Semen</SUBVALUE></VALUE>
+		<VALUE>Sidorov<SUBVALUE type="meaning">Son of Sidor</SUBVALUE></VALUE>
+		<VALUE>Stepanov<SUBVALUE type="meaning">Son of Stepan</SUBVALUE></VALUE>
+		<VALUE>Vasilievich<SUBVALUE type="meaning">Son of Vasilij</SUBVALUE></VALUE>
+		<VALUE>Zakhariev<SUBVALUE type="meaning">Son of Zaxarii</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-female-christian-patronymic" title="Christian Patronymic Name">
+		<VALUE>Alekseeva<SUBVALUE type="meaning">Daughter of Aleksei</SUBVALUE></VALUE>
+		<VALUE>Andreeva<SUBVALUE type="meaning">Daughter of Andrei</SUBVALUE></VALUE>
+		<VALUE>Borisova<SUBVALUE type="meaning">Daughter of Boris</SUBVALUE></VALUE>
+		<VALUE>Dmitrieva<SUBVALUE type="meaning">Daughter of Dmitrii</SUBVALUE></VALUE>
+		<VALUE>Fedorova<SUBVALUE type="meaning">Daughter of Fedor</SUBVALUE></VALUE>
+		<VALUE>Fomina<SUBVALUE type="meaning">Daughter of Foma</SUBVALUE></VALUE>
+		<VALUE>Georgieva<SUBVALUE type="meaning">Daughter of Georgii</SUBVALUE></VALUE>
+		<VALUE>Grigorieva<SUBVALUE type="meaning">Daughter of Grigorii</SUBVALUE></VALUE>
+		<VALUE>Iakova<SUBVALUE type="meaning">Daughter of Iakov</SUBVALUE></VALUE>
+		<VALUE>Iosifova<SUBVALUE type="meaning">Daughter of Iosif</SUBVALUE></VALUE>
+		<VALUE>Ivanova<SUBVALUE type="meaning">Daughter of Ivan</SUBVALUE></VALUE>
+		<VALUE>Kuz'mina<SUBVALUE type="meaning">Daughter of Kuz'ma</SUBVALUE></VALUE>
+		<VALUE>Maksimova<SUBVALUE type="meaning">Daughter of Maksim</SUBVALUE></VALUE>
+		<VALUE>Matfeeva<SUBVALUE type="meaning">Daughter of Matfei</SUBVALUE></VALUE>
+		<VALUE>Mikhailova<SUBVALUE type="meaning">Daughter of Mixail</SUBVALUE></VALUE>
+		<VALUE>Nikitina<SUBVALUE type="meaning">Daughter of Nikita</SUBVALUE></VALUE>
+		<VALUE>Pavlova<SUBVALUE type="meaning">Daughter of Pavel</SUBVALUE></VALUE>
+		<VALUE>Semenova<SUBVALUE type="meaning">Daughter of Semen</SUBVALUE></VALUE>
+		<VALUE>Sidorova<SUBVALUE type="meaning">Daughter of Sidor</SUBVALUE></VALUE>
+		<VALUE>Stepanova<SUBVALUE type="meaning">Daughter of Stepan</SUBVALUE></VALUE>
+		<VALUE>Vasilieva<SUBVALUE type="meaning">Daughter of Vasilij</SUBVALUE></VALUE>
+		<VALUE>Zakharieva<SUBVALUE type="meaning">Daughter of Zaxarii</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name">
+		<VALUE>Boldin<SUBVALUE type="meaning">Son of Bolda</SUBVALUE></VALUE>
+		<VALUE>Buiakov<SUBVALUE type="meaning">Son of Buiak</SUBVALUE></VALUE>
+		<VALUE>Chernekov<SUBVALUE type="meaning">Son of Chernek</SUBVALUE></VALUE>
+		<VALUE>Chortov<SUBVALUE type="meaning">Son of Chort</SUBVALUE></VALUE>
+		<VALUE>Domaslavov<SUBVALUE type="meaning">Son of Domaslav</SUBVALUE></VALUE>
+		<VALUE>Domazhirov<SUBVALUE type="meaning">Son of Domazhir</SUBVALUE></VALUE>
+		<VALUE>Drozdov<SUBVALUE type="meaning">Son of Drozd</SUBVALUE></VALUE>
+		<VALUE>Grechinov<SUBVALUE type="meaning">Son of Grechin</SUBVALUE></VALUE>
+		<VALUE>Gubin<SUBVALUE type="meaning">Son of Guba</SUBVALUE></VALUE>
+		<VALUE>Kiselev<SUBVALUE type="meaning">Son of Kisel</SUBVALUE></VALUE>
+		<VALUE>Kozlov<SUBVALUE type="meaning">Son of Kozel</SUBVALUE></VALUE>
+		<VALUE>Kuritsev<SUBVALUE type="meaning">Son of Kuritsa</SUBVALUE></VALUE>
+		<VALUE>Malov<SUBVALUE type="meaning">Son of Mal</SUBVALUE></VALUE>
+		<VALUE>Milov<SUBVALUE type="meaning">Son of Mil</SUBVALUE></VALUE>
+		<VALUE>Miloslavov<SUBVALUE type="meaning">Son of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Milov<SUBVALUE type="meaning">Son of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Miroslavov<SUBVALUE type="meaning">Son of Miroslav</SUBVALUE></VALUE>
+		<VALUE>Mstislavov<SUBVALUE type="meaning">Son of Mstislav</SUBVALUE></VALUE>
+		<VALUE>Nezhkov<SUBVALUE type="meaning">Son of Nezhek</SUBVALUE></VALUE>
+		<VALUE>Orekhov<SUBVALUE type="meaning">Son of Orekh</SUBVALUE></VALUE>
+		<VALUE>Radoslavov<SUBVALUE type="meaning">Son of Radoslav</SUBVALUE></VALUE>
+		<VALUE>Sbyslavov<SUBVALUE type="meaning">Son of Sbyslav</SUBVALUE></VALUE>
+		<VALUE>Shchukin<SUBVALUE type="meaning">Son of Shchuka</SUBVALUE></VALUE>
+		<VALUE>Shubin<SUBVALUE type="meaning">Son of Shuba</SUBVALUE></VALUE>
+		<VALUE>Sobol&#245;tsev<SUBVALUE type="meaning">Son of Sobol'</SUBVALUE></VALUE>
+		<VALUE>Stanimirov<SUBVALUE type="meaning">Son of Stanimir</SUBVALUE></VALUE>
+		<VALUE>Sviatoslavov<SUBVALUE type="meaning">Son of Sviatoslav</SUBVALUE></VALUE>
+		<VALUE>Tvorimirov<SUBVALUE type="meaning">Son of Tvorimir</SUBVALUE></VALUE>
+		<VALUE>Viacheslavov<SUBVALUE type="meaning">Son of Viacheslav</SUBVALUE></VALUE>
+		<VALUE>Voislavov<SUBVALUE type="meaning">Son of Voislav</SUBVALUE></VALUE>
+		<VALUE>Volchkov<SUBVALUE type="meaning">Son of Volchok</SUBVALUE></VALUE>
+		<VALUE>Zaitsev<SUBVALUE type="meaning">Son of Zaiats</SUBVALUE></VALUE>
+		<VALUE>Zavidov<SUBVALUE type="meaning">Son of Zavid</SUBVALUE></VALUE>
+		<VALUE>Zhiroslavov<SUBVALUE type="meaning">Son of Zhiroslav</SUBVALUE></VALUE>
+		<VALUE>Zhiznobudov<SUBVALUE type="meaning">Son of Zhiznobud</SUBVALUE></VALUE>
+		<VALUE>Zubov<SUBVALUE type="meaning">Son of Zub</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name">
+		<VALUE>Boldina<SUBVALUE type="meaning">Daughter of Bolda</SUBVALUE></VALUE>
+		<VALUE>Buiakova<SUBVALUE type="meaning">Daughter of Buiak</SUBVALUE></VALUE>
+		<VALUE>Chernekova<SUBVALUE type="meaning">Daughter of Chernek</SUBVALUE></VALUE>
+		<VALUE>Chortova<SUBVALUE type="meaning">Daughter of Chort</SUBVALUE></VALUE>
+		<VALUE>Domaslavova<SUBVALUE type="meaning">Daughter of Domaslav</SUBVALUE></VALUE>
+		<VALUE>Domazhirova<SUBVALUE type="meaning">Daughter of Domazhir</SUBVALUE></VALUE>
+		<VALUE>Drozdova<SUBVALUE type="meaning">Daughter of Drozd</SUBVALUE></VALUE>
+		<VALUE>Grechinova<SUBVALUE type="meaning">Daughter of Grechin</SUBVALUE></VALUE>
+		<VALUE>Gubina<SUBVALUE type="meaning">Daughter of Guba</SUBVALUE></VALUE>
+		<VALUE>Kiseleva<SUBVALUE type="meaning">Daughter of Kisel</SUBVALUE></VALUE>
+		<VALUE>Kozlova<SUBVALUE type="meaning">Daughter of Kozel</SUBVALUE></VALUE>
+		<VALUE>Kuritseva<SUBVALUE type="meaning">Daughter of Kuritsa</SUBVALUE></VALUE>
+		<VALUE>Malova<SUBVALUE type="meaning">Daughter of Mal</SUBVALUE></VALUE>
+		<VALUE>Milova<SUBVALUE type="meaning">Daughter of Mil</SUBVALUE></VALUE>
+		<VALUE>Miloslavova<SUBVALUE type="meaning">Daughter of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Milov<SUBVALUE type="meaning">Daughter of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Miroslavova<SUBVALUE type="meaning">Daughter of Miroslav</SUBVALUE></VALUE>
+		<VALUE>Mstislavova<SUBVALUE type="meaning">Daughter of Mstislav</SUBVALUE></VALUE>
+		<VALUE>Nezhkova<SUBVALUE type="meaning">Daughter of Nezhek</SUBVALUE></VALUE>
+		<VALUE>Orekhova<SUBVALUE type="meaning">Daughter of Orekh</SUBVALUE></VALUE>
+		<VALUE>Radoslavova<SUBVALUE type="meaning">Daughter of Radoslav</SUBVALUE></VALUE>
+		<VALUE>Sbyslavova<SUBVALUE type="meaning">Daughter of Sbyslav</SUBVALUE></VALUE>
+		<VALUE>Shchukina<SUBVALUE type="meaning">Daughter of Shchuka</SUBVALUE></VALUE>
+		<VALUE>Shubina<SUBVALUE type="meaning">Daughter of Shuba</SUBVALUE></VALUE>
+		<VALUE>Sobol&#245;tseva<SUBVALUE type="meaning">Daughter of Sobol'</SUBVALUE></VALUE>
+		<VALUE>Stanimirova<SUBVALUE type="meaning">Daughter of Stanimir</SUBVALUE></VALUE>
+		<VALUE>Sviatoslavova<SUBVALUE type="meaning">Daughter of Sviatoslav</SUBVALUE></VALUE>
+		<VALUE>Tvorimirova<SUBVALUE type="meaning">Daughter of Tvorimir</SUBVALUE></VALUE>
+		<VALUE>Viacheslavova<SUBVALUE type="meaning">Daughter of Viacheslav</SUBVALUE></VALUE>
+		<VALUE>Voislavova<SUBVALUE type="meaning">Daughter of Voislav</SUBVALUE></VALUE>
+		<VALUE>Volchkova<SUBVALUE type="meaning">Daughter of Volchok</SUBVALUE></VALUE>
+		<VALUE>Zaitseva<SUBVALUE type="meaning">Daughter of Zaiats</SUBVALUE></VALUE>
+		<VALUE>Zavidova<SUBVALUE type="meaning">Daughter of Zavid</SUBVALUE></VALUE>
+		<VALUE>Zhiroslavova<SUBVALUE type="meaning">Daughter of Zhiroslav</SUBVALUE></VALUE>
+		<VALUE>Zhiznobudova<SUBVALUE type="meaning">Daughter of Zhiznobud</SUBVALUE></VALUE>
+		<VALUE>Zubova<SUBVALUE type="meaning">Daughter of Zub</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-female-modifier" title="Modifier">
+		<VALUE>doch'</VALUE>
+		<VALUE>zhena</VALUE>
+		<VALUE>vdova</VALUE>
+		<VALUE>devka</VALUE>
+		<VALUE>mat'</VALUE>
+		<VALUE>vnuka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
+		<VALUE>vnuchka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-male-modifier" title="Modifier">
+		<VALUE>vnuk<SUBVALUE type="meaning">grandson of</SUBVALUE></VALUE>
+	</LIST>
+	<!--Bynames-->
+	<LIST id="russian-male-byname" title="Byname">
+		<VALUE>Afim'i</VALUE>
+		<VALUE>Beloi</VALUE>
+		<VALUE>Bezborodov</VALUE>
+		<VALUE>Dolgonosov</VALUE>
+		<VALUE>Dorogoi</VALUE>
+		<VALUE>Korotkii</VALUE>
+		<VALUE>Krasnyi</VALUE>
+		<VALUE>Negodiaev</VALUE>
+		<VALUE>Nepotseluev</VALUE>
+		<VALUE>Pervoi</VALUE>
+		<VALUE>Shirokii</VALUE>
+	</LIST>
+	<LIST id="russian-female-byname" title="Byname">
+		<VALUE>Afim'ia</VALUE>
+		<VALUE>Belaia</VALUE>
+		<VALUE>Dolgonosova</VALUE>
+		<VALUE>Dorogaia</VALUE>
+		<VALUE>Korotkaia</VALUE>
+		<VALUE>Krasnaia</VALUE>
+		<VALUE>Negodiaeva</VALUE>
+		<VALUE>Nepotselueva</VALUE>
+		<VALUE>Pervaia</VALUE>
+		<VALUE>Shirokaia</VALUE>
+	</LIST>
+	<LIST id="russian-conj-patronomic-female" title="Conjugation">
+		<VALUE>skaia</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-consinants-male" title="Conjugation">
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skogo</VALUE>
+		<VALUE>tsev</VALUE>
+		<VALUE>edt</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-consinants-female" title="Conjugation">
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skaia</VALUE>
+		<VALUE>skogo</VALUE>
+		<VALUE>tsev</VALUE>
+		<VALUE>edt</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-ts-male" title="Conjugation">
+		<VALUE>kii</VALUE>
+		<VALUE>koi</VALUE>
+		<VALUE>kyi</VALUE>
+		<VALUE>kogo</VALUE>
+		<VALUE>ev</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-ts-female" title="Conjugation">
+		<VALUE>kii</VALUE>
+		<VALUE>koi</VALUE>
+		<VALUE>kyi</VALUE>
+		<VALUE>kaia</VALUE>
+		<VALUE>kogo</VALUE>
+		<VALUE>ev</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-t-male" title="Conjugation">
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skaia</VALUE>
+		<VALUE>skogo</VALUE>
+		<VALUE>sev</VALUE>
+		<VALUE>edt</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-t-female" title="Conjugation">
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skogo</VALUE>
+		<VALUE>sev</VALUE>
+		<VALUE>edt</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-a-male" title="Conjugation">
+		<VALUE>inin</VALUE>
+		<VALUE>itin</VALUE>
+		<VALUE>in</VALUE>
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skogo</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-a-female" title="Conjugation">
+		<VALUE>inin</VALUE>
+		<VALUE>itin</VALUE>
+		<VALUE>in</VALUE>
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skaia</VALUE>
+		<VALUE>skogo</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-e" title="Conjugation">
+		<VALUE>dt</VALUE>
+		<VALUE>tsev</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-i" title="Conjugation">
+		<VALUE>n</VALUE>
+		<VALUE>anin</VALUE>
+		<VALUE>nin</VALUE>
+		<VALUE>tin</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-o-male" title="Conjugation">
+		<VALUE>v</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-o-female" title="Conjugation">
+		<VALUE>va</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-u-male" title="Conjugation">
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skogo</VALUE>
+		<VALUE>tsev</VALUE>
+		<VALUE>dt</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-u-female" title="Conjugation">
+		<VALUE>skii</VALUE>
+		<VALUE>skoi</VALUE>
+		<VALUE>skyi</VALUE>
+		<VALUE>skaia</VALUE>
+		<VALUE>skogo</VALUE>
+		<VALUE>tsev</VALUE>
+		<VALUE>dt</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-y" title="Conjugation">
+		<VALUE>n</VALUE>
+		<VALUE>anin</VALUE>
+		<VALUE>nin</VALUE>
+		<VALUE>tin</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-sk-male" title="Conjugation">
+		<VALUE>ogo</VALUE>
+		<VALUE>yi</VALUE>
+		<VALUE>oi</VALUE>
+		<VALUE>ii</VALUE>
+	</LIST>
+	<LIST id="russian-conj-locative-sk-female" title="Conjugation">
+		<VALUE>ogo</VALUE>
+		<VALUE>aia</VALUE>
+		<VALUE>yi</VALUE>
+		<VALUE>oi</VALUE>
+		<VALUE>ii</VALUE>
+	</LIST>
+	<LIST id="russian-locative-consinants" title="Locative">
+		<VALUE>Alatyr'</VALUE>
+		<VALUE>Aleksin</VALUE>
+		<VALUE>Andreev</VALUE>
+		<VALUE>Arvamas</VALUE>
+		<VALUE>Astrakhan</VALUE>
+		<VALUE>Azov</VALUE>
+		<VALUE>B'iakhan'</VALUE>
+		<VALUE>Bar</VALUE>
+		<VALUE>Barduev</VALUE>
+		<VALUE>Baroch</VALUE>
+		<VALUE>Baruch</VALUE>
+		<VALUE>Bazavluk</VALUE>
+		<VALUE>Belev</VALUE>
+		<VALUE>Belgorod</VALUE>
+		<VALUE>Belz</VALUE>
+		<VALUE>Berbend</VALUE>
+		<VALUE>Berezov</VALUE>
+		<VALUE>Bezhitskii Verkh</VALUE>
+		<VALUE>Bialystok</VALUE>
+		<VALUE>Bilgorod</VALUE>
+		<VALUE>Bilhorod</VALUE>
+		<VALUE>Bogoliubov</VALUE>
+		<VALUE>Boguslavl'</VALUE>
+		<VALUE>Bokhmach</VALUE>
+		<VALUE>Boldyzh</VALUE>
+		<VALUE>Bolokhov</VALUE>
+		<VALUE>Bolshev</VALUE>
+		<VALUE>Boriso-Glebov</VALUE>
+		<VALUE>Borisov</VALUE>
+		<VALUE>Borisov-Glebov</VALUE>
+		<VALUE>Bran'</VALUE>
+		<VALUE>Bratslav</VALUE>
+		<VALUE>Briagin</VALUE>
+		<VALUE>Brody</VALUE>
+		<VALUE>Bron</VALUE>
+		<VALUE>Bryn</VALUE>
+		<VALUE>Bulgar</VALUE>
+		<VALUE>Bulich</VALUE>
+		<VALUE>Bykoven</VALUE>
+		<VALUE>Bylev</VALUE>
+		<VALUE>Chelm</VALUE>
+		<VALUE>Chemerin</VALUE>
+		<VALUE>Cherdyn'</VALUE>
+		<VALUE>Chernigov</VALUE>
+		<VALUE>Chernihiv</VALUE>
+		<VALUE>Chernobyl'</VALUE>
+		<VALUE>Chersonesus</VALUE>
+		<VALUE>Chersoneus</VALUE>
+		<VALUE>Cherven</VALUE>
+		<VALUE>Cherven'</VALUE>
+		<VALUE>Chiurnaev</VALUE>
+		<VALUE>Chmielnik</VALUE>
+		<VALUE>Churnaev</VALUE>
+		<VALUE>Czerwien</VALUE>
+		<VALUE>Dankov</VALUE>
+		<VALUE>Daugavpils</VALUE>
+		<VALUE>Dedoslavl'</VALUE>
+		<VALUE>Demon</VALUE>
+		<VALUE>Derevich</VALUE>
+		<VALUE>Dmitrov</VALUE>
+		<VALUE>Dobriatin</VALUE>
+		<VALUE>Dobrochkov</VALUE>
+		<VALUE>Dobryn</VALUE>
+		<VALUE>Domagoshch</VALUE>
+		<VALUE>Dorogichin</VALUE>
+		<VALUE>Dorogobuzh</VALUE>
+		<VALUE>Dorostol</VALUE>
+		<VALUE>Drogichin</VALUE>
+		<VALUE>Drohiczyn</VALUE>
+		<VALUE>Duben</VALUE>
+		<VALUE>Dubok</VALUE>
+		<VALUE>Dveren</VALUE>
+		<VALUE>Elblag</VALUE>
+		<VALUE>Frombork</VALUE>
+		<VALUE>Galich</VALUE>
+		<VALUE>Galych</VALUE>
+		<VALUE>Gdov</VALUE>
+		<VALUE>Gertsik</VALUE>
+		<VALUE>Glebl'</VALUE>
+		<VALUE>Glebov</VALUE>
+		<VALUE>Glukhov</VALUE>
+		<VALUE>Goltav</VALUE>
+		<VALUE>Gomel'</VALUE>
+		<VALUE>Goroden</VALUE>
+		<VALUE>Gorodets Radilov</VALUE>
+		<VALUE>Gorodok</VALUE>
+		<VALUE>Goroshin</VALUE>
+		<VALUE>Gubin</VALUE>
+		<VALUE>Gur'gev</VALUE>
+		<VALUE>Halych</VALUE>
+		<VALUE>Hapsal</VALUE>
+		<VALUE>Homel'</VALUE>
+		<VALUE>Iam</VALUE>
+		<VALUE>Iaropolch</VALUE>
+		<VALUE>Iaropolch'</VALUE>
+		<VALUE>Iaroslavl'</VALUE>
+		<VALUE>Iaryshev</VALUE>
+		<VALUE>Isker</VALUE>
+		<VALUE>Iskorosten'</VALUE>
+		<VALUE>Itil'</VALUE>
+		<VALUE>Iur'ev</VALUE>
+		<VALUE>Iurichev</VALUE>
+		<VALUE>Ivan</VALUE>
+		<VALUE>Ivan-gorod</VALUE>
+		<VALUE>Ivangorod</VALUE>
+		<VALUE>Iziaslavl'</VALUE>
+		<VALUE>Izmail</VALUE>
+		<VALUE>Jaroslaw</VALUE>
+		<VALUE>Kadam</VALUE>
+		<VALUE>Kaliningrad</VALUE>
+		<VALUE>Kanev</VALUE>
+		<VALUE>Kankor</VALUE>
+		<VALUE>Kapan</VALUE>
+		<VALUE>Karachev</VALUE>
+		<VALUE>Kargopol'</VALUE>
+		<VALUE>Kashin</VALUE>
+		<VALUE>Kashlyk</VALUE>
+		<VALUE>Kasimov</VALUE>
+		<VALUE>Kaunas</VALUE>
+		<VALUE>Kazan'</VALUE>
+		<VALUE>Kekholm</VALUE>
+		<VALUE>Kem'</VALUE>
+		<VALUE>Kerch'</VALUE>
+		<VALUE>Kergedan</VALUE>
+		<VALUE>Ketrzyn</VALUE>
+		<VALUE>Khalep</VALUE>
+		<VALUE>Khersones</VALUE>
+		<VALUE>Khliapen'</VALUE>
+		<VALUE>Khlynov</VALUE>
+		<VALUE>Khmil'nyk</VALUE>
+		<VALUE>Kholm</VALUE>
+		<VALUE>Khorobor</VALUE>
+		<VALUE>Khorobor'</VALUE>
+		<VALUE>Khotshin</VALUE>
+		<VALUE>Kiev</VALUE>
+		<VALUE>Kirillov</VALUE>
+		<VALUE>Klin</VALUE>
+		<VALUE>Koenigsberg</VALUE>
+		<VALUE>Kolodiazhen</VALUE>
+		<VALUE>Komov</VALUE>
+		<VALUE>Koponov</VALUE>
+		<VALUE>Kopys</VALUE>
+		<VALUE>Kopys'</VALUE>
+		<VALUE>Korchev</VALUE>
+		<VALUE>Korsun</VALUE>
+		<VALUE>Korsun'</VALUE>
+		<VALUE>Kosh-Kar</VALUE>
+		<VALUE>Kotel'nich</VALUE>
+		<VALUE>Kotlas</VALUE>
+		<VALUE>Kozar'</VALUE>
+		<VALUE>Krasn</VALUE>
+		<VALUE>Krichev</VALUE>
+		<VALUE>Krom</VALUE>
+		<VALUE>Krull'</VALUE>
+		<VALUE>Krupl'</VALUE>
+		<VALUE>Ksniatin</VALUE>
+		<VALUE>Kuchelmin</VALUE>
+		<VALUE>Kudnovo Selo</VALUE>
+		<VALUE>Kukenois</VALUE>
+		<VALUE>Kulikovo</VALUE>
+		<VALUE>Kunil'</VALUE>
+		<VALUE>Kurmysh</VALUE>
+		<VALUE>Kwidzyn</VALUE>
+		<VALUE>Kysylyn</VALUE>
+		<VALUE>L'viv</VALUE>
+		<VALUE>L'vov</VALUE>
+		<VALUE>Ldishev</VALUE>
+		<VALUE>Lewartow</VALUE>
+		<VALUE>Liatychiv</VALUE>
+		<VALUE>Lidzbark</VALUE>
+		<VALUE>Listven</VALUE>
+		<VALUE>Liubachev</VALUE>
+		<VALUE>Liubech</VALUE>
+		<VALUE>Lomza</VALUE>
+		<VALUE>Luben</VALUE>
+		<VALUE>Lublin</VALUE>
+		<VALUE>Lubno</VALUE>
+		<VALUE>Luchin</VALUE>
+		<VALUE>Lukoml'</VALUE>
+		<VALUE>Lybuty</VALUE>
+		<VALUE>Malbork</VALUE>
+		<VALUE>Malotin</VALUE>
+		<VALUE>Mangup</VALUE>
+		<VALUE>Medyn'</VALUE>
+		<VALUE>Memel</VALUE>
+		<VALUE>Mikhailov</VALUE>
+		<VALUE>Mikulin</VALUE>
+		<VALUE>Mogilev</VALUE>
+		<VALUE>Moscow</VALUE>
+		<VALUE>Mozyr'</VALUE>
+		<VALUE>Mstislavl'</VALUE>
+		<VALUE>Munarev</VALUE>
+		<VALUE>Murav'in</VALUE>
+		<VALUE>Murom</VALUE>
+		<VALUE>Mutizhir</VALUE>
+		<VALUE>Naliuch</VALUE>
+		<VALUE>Narym</VALUE>
+		<VALUE>Navahrudak</VALUE>
+		<VALUE>Nebl'</VALUE>
+		<VALUE>Neiatin</VALUE>
+		<VALUE>Nekoloch'</VALUE>
+		<VALUE>Nemogardas</VALUE>
+		<VALUE>Nesvizh</VALUE>
+		<VALUE>Nezhatin</VALUE>
+		<VALUE>Nezhegorod</VALUE>
+		<VALUE>Niasvizh</VALUE>
+		<VALUE>Nikulitsyn</VALUE>
+		<VALUE>Nizhnii Novgorod</VALUE>
+		<VALUE>Nizhyn</VALUE>
+		<VALUE>Nosov</VALUE>
+		<VALUE>Novgorod</VALUE>
+		<VALUE>Novgorod Sviatopolch</VALUE>
+		<VALUE>Novogrudok</VALUE>
+		<VALUE>Novosil</VALUE>
+		<VALUE>Novosil'</VALUE>
+		<VALUE>Novyi Torg</VALUE>
+		<VALUE>Obolv'</VALUE>
+		<VALUE>Obrov</VALUE>
+		<VALUE>Obskii Gorodok</VALUE>
+		<VALUE>Obskiigorodok</VALUE>
+		<VALUE>Ochakov</VALUE>
+		<VALUE>Odoev</VALUE>
+		<VALUE>Ol'gov</VALUE>
+		<VALUE>Ol'gov Novyi Gorodok</VALUE>
+		<VALUE>Oprosh</VALUE>
+		<VALUE>Orekhov</VALUE>
+		<VALUE>Orel</VALUE>
+		<VALUE>Oreshek</VALUE>
+		<VALUE>Orgoshch</VALUE>
+		<VALUE>Orlov</VALUE>
+		<VALUE>Ornas</VALUE>
+		<VALUE>Oskol</VALUE>
+		<VALUE>Ostrog</VALUE>
+		<VALUE>Ovruch</VALUE>
+		<VALUE>Patsin</VALUE>
+		<VALUE>Patsyn'</VALUE>
+		<VALUE>Pelym</VALUE>
+		<VALUE>Pereiaslavl'</VALUE>
+		<VALUE>Perekop</VALUE>
+		<VALUE>Peremid'</VALUE>
+		<VALUE>Peremil'</VALUE>
+		<VALUE>Peremyshl'</VALUE>
+		<VALUE>Peresechen</VALUE>
+		<VALUE>Perm</VALUE>
+		<VALUE>Pesochen</VALUE>
+		<VALUE>Piarnu</VALUE>
+		<VALUE>Piriatin</VALUE>
+		<VALUE>Piten</VALUE>
+		<VALUE>Plav</VALUE>
+		<VALUE>Podol</VALUE>
+		<VALUE>Pogost Ivan'</VALUE>
+		<VALUE>Pogost Olon's'</VALUE>
+		<VALUE>Pogost Rakul'</VALUE>
+		<VALUE>Pogost Sabel'</VALUE>
+		<VALUE>Pogost Svir'</VALUE>
+		<VALUE>Pogost Tudovor</VALUE>
+		<VALUE>Pogost Vel'</VALUE>
+		<VALUE>Polkosten</VALUE>
+		<VALUE>Polksten'</VALUE>
+		<VALUE>Popash'</VALUE>
+		<VALUE>Porkhov</VALUE>
+		<VALUE>Posechen</VALUE>
+		<VALUE>Potsin</VALUE>
+		<VALUE>Poznan</VALUE>
+		<VALUE>Preslav</VALUE>
+		<VALUE>Priluk</VALUE>
+		<VALUE>Przemysl</VALUE>
+		<VALUE>Pskov</VALUE>
+		<VALUE>Pustozerskii Ostrog</VALUE>
+		<VALUE>Putivl'</VALUE>
+		<VALUE>Radogoshch</VALUE>
+		<VALUE>Radonezh</VALUE>
+		<VALUE>Radoshch</VALUE>
+		<VALUE>Raguilov</VALUE>
+		<VALUE>Razdory</VALUE>
+		<VALUE>Rechitsa</VALUE>
+		<VALUE>Reszel</VALUE>
+		<VALUE>Reval</VALUE>
+		<VALUE>Riazan'</VALUE>
+		<VALUE>Rimov</VALUE>
+		<VALUE>Roden</VALUE>
+		<VALUE>Rogachev</VALUE>
+		<VALUE>Rogov</VALUE>
+		<VALUE>Roman</VALUE>
+		<VALUE>Romanov</VALUE>
+		<VALUE>Romen</VALUE>
+		<VALUE>Roslavl</VALUE>
+		<VALUE>Rostislavl'</VALUE>
+		<VALUE>Rostov</VALUE>
+		<VALUE>Rozan</VALUE>
+		<VALUE>Rzev</VALUE>
+		<VALUE>Rzhev</VALUE>
+		<VALUE>Sakov</VALUE>
+		<VALUE>Sambir</VALUE>
+		<VALUE>Sandomierz</VALUE>
+		<VALUE>Sanok</VALUE>
+		<VALUE>Sansin</VALUE>
+		<VALUE>Sapogyn'</VALUE>
+		<VALUE>Saratov</VALUE>
+		<VALUE>Sarkel</VALUE>
+		<VALUE>Sebezh</VALUE>
+		<VALUE>Sech</VALUE>
+		<VALUE>Selpils</VALUE>
+		<VALUE>Semender</VALUE>
+		<VALUE>Semenov</VALUE>
+		<VALUE>Semych</VALUE>
+		<VALUE>Semyn'</VALUE>
+		<VALUE>Sepukhov</VALUE>
+		<VALUE>Sereger</VALUE>
+		<VALUE>Sharukan'</VALUE>
+		<VALUE>Shchekarev</VALUE>
+		<VALUE>Shepol'</VALUE>
+		<VALUE>Shestakov</VALUE>
+		<VALUE>Sibir</VALUE>
+		<VALUE>Sich</VALUE>
+		<VALUE>Slonim</VALUE>
+		<VALUE>Smotrych</VALUE>
+		<VALUE>Sologyn'</VALUE>
+		<VALUE>Spash</VALUE>
+		<VALUE>Starodub</VALUE>
+		<VALUE>Strezhev</VALUE>
+		<VALUE>Subak</VALUE>
+		<VALUE>Sugrov</VALUE>
+		<VALUE>Sumskii Ostrog</VALUE>
+		<VALUE>Surozh</VALUE>
+		<VALUE>Suzdal'</VALUE>
+		<VALUE>Sviatoslavl'</VALUE>
+		<VALUE>Svinukhi</VALUE>
+		<VALUE>Syzran'</VALUE>
+		<VALUE>Tabriz</VALUE>
+		<VALUE>Talinn</VALUE>
+		<VALUE>Tanais</VALUE>
+		<VALUE>Tannenberg</VALUE>
+		<VALUE>Tebriz</VALUE>
+		<VALUE>Temnikov</VALUE>
+		<VALUE>Terebovl'</VALUE>
+		<VALUE>Terskii Gorodok</VALUE>
+		<VALUE>Teshilov</VALUE>
+		<VALUE>Tesov</VALUE>
+		<VALUE>Tikhomel'</VALUE>
+		<VALUE>Tikhoml'</VALUE>
+		<VALUE>Tiumen'</VALUE>
+		<VALUE>Tlebov</VALUE>
+		<VALUE>Tmutarakan'</VALUE>
+		<VALUE>Tolmach'</VALUE>
+		<VALUE>Torchev</VALUE>
+		<VALUE>Torun</VALUE>
+		<VALUE>Torzhok</VALUE>
+		<VALUE>Tovarov</VALUE>
+		<VALUE>Trepol'</VALUE>
+		<VALUE>Tripol'</VALUE>
+		<VALUE>Trubech</VALUE>
+		<VALUE>Tsar'gorod</VALUE>
+		<VALUE>Tsaritsyn</VALUE>
+		<VALUE>Tumashch'</VALUE>
+		<VALUE>Turov</VALUE>
+		<VALUE>Tver'</VALUE>
+		<VALUE>Uglich</VALUE>
+		<VALUE>Ukek</VALUE>
+		<VALUE>Unenezh</VALUE>
+		<VALUE>Ust'-Vym'</VALUE>
+		<VALUE>Ust-Nem</VALUE>
+		<VALUE>Ustilog</VALUE>
+		<VALUE>Ustiug</VALUE>
+		<VALUE>Uzmen</VALUE>
+		<VALUE>V'iakhan'</VALUE>
+		<VALUE>Valaam</VALUE>
+		<VALUE>Varin</VALUE>
+		<VALUE>Vasil'ev</VALUE>
+		<VALUE>Vasilev</VALUE>
+		<VALUE>Velikii Ustiug</VALUE>
+		<VALUE>Vereshchin</VALUE>
+		<VALUE>Verkh</VALUE>
+		<VALUE>Verkhotur'</VALUE>
+		<VALUE>Vernev</VALUE>
+		<VALUE>Vilnius</VALUE>
+		<VALUE>Vitichev</VALUE>
+		<VALUE>Vitrik</VALUE>
+		<VALUE>Vladimir</VALUE>
+		<VALUE>Voin'</VALUE>
+		<VALUE>Voldyzh</VALUE>
+		<VALUE>Volodarev</VALUE>
+		<VALUE>Volodymyr</VALUE>
+		<VALUE>Volyn'</VALUE>
+		<VALUE>Voni</VALUE>
+		<VALUE>Vorob'in</VALUE>
+		<VALUE>Vorobiin</VALUE>
+		<VALUE>Voronazh'</VALUE>
+		<VALUE>Voronezh</VALUE>
+		<VALUE>Vosviach'</VALUE>
+		<VALUE>Vovogrudok</VALUE>
+		<VALUE>Vsevolozh</VALUE>
+		<VALUE>Vshchizh</VALUE>
+		<VALUE>Vyborg</VALUE>
+		<VALUE>Vygoshev</VALUE>
+		<VALUE>Vyr'</VALUE>
+		<VALUE>Vyshegrad</VALUE>
+		<VALUE>Vyshgorod</VALUE>
+		<VALUE>Vyshnii Volochek</VALUE>
+		<VALUE>Vzdvizhen'</VALUE>
+		<VALUE>Zapol'skii Iam</VALUE>
+		<VALUE>Zarub</VALUE>
+		<VALUE>Zbarazh</VALUE>
+		<VALUE>Zbyrazh</VALUE>
+		<VALUE>Zdvizhden'</VALUE>
+		<VALUE>Zhabachev</VALUE>
+		<VALUE>Zhelan'</VALUE>
+		<VALUE>Zhelian'</VALUE>
+		<VALUE>Zhidichin</VALUE>
+		<VALUE>Zhitomir</VALUE>
+		<VALUE>Zhytomyr</VALUE>
+		<VALUE>Zopish</VALUE>
+		<VALUE>Zubtsov</VALUE>
+		<VALUE>Zvenigorod</VALUE>
+		<VALUE>Zvizhden</VALUE>
+	</LIST>
+	<LIST id="russian-locative-ts" title="Locative">
+		<VALUE>Blets</VALUE>
+		<VALUE>Donets</VALUE>
+		<VALUE>Elets</VALUE>
+		<VALUE>Emenets</VALUE>
+		<VALUE>Gorodets</VALUE>
+		<VALUE>Gorokhovets</VALUE>
+		<VALUE>Ilomanets</VALUE>
+		<VALUE>Kamenets</VALUE>
+		<VALUE>Kremenets</VALUE>
+		<VALUE>Kremianets</VALUE>
+		<VALUE>Olonets</VALUE>
+		<VALUE>Osterskii Gorodets</VALUE>
+		<VALUE>Pereiaslavets</VALUE>
+		<VALUE>Pogost Ust'-Emets</VALUE>
+		<VALUE>Poragopustets</VALUE>
+		<VALUE>Preslavets</VALUE>
+		<VALUE>Rostovets</VALUE>
+		<VALUE>Rustovets</VALUE>
+		<VALUE>Semots</VALUE>
+		<VALUE>Tatinets</VALUE>
+		<VALUE>Toropets</VALUE>
+		<VALUE>Zhizhets</VALUE>
+	</LIST>
+	<LIST id="russian-locative-t" title="Locative">
+		<VALUE>Bagut</VALUE>
+		<VALUE>Blestovit</VALUE>
+		<VALUE>Derbent</VALUE>
+		<VALUE>Dobryi Sot</VALUE>
+		<VALUE>Dorpat</VALUE>
+		<VALUE>Ignach'-Krest</VALUE>
+		<VALUE>Ivan-pogost</VALUE>
+		<VALUE>Piatra Neamt</VALUE>
+		<VALUE>Pomozdin Pogost</VALUE>
+		<VALUE>Onut</VALUE>
+		<VALUE>Siniia Most</VALUE>
+		<VALUE>Siret</VALUE>
+		<VALUE>Solkhat</VALUE>
+		<VALUE>Surgut</VALUE>
+		<VALUE>Svinort</VALUE>
+		<VALUE>Usviat</VALUE>
+		<VALUE>Voiadoutov Pogost</VALUE>
+		<VALUE>Voldutovpogost</VALUE>
+	</LIST>
+	<LIST id="russian-locative-sk" title="Locative">
+		<VALUE>Ez'sk</VALUE>
+		<VALUE>Arkhangel'sk</VALUE>
+		<VALUE>Bobruisk</VALUE>
+		<VALUE>Borovsk</VALUE>
+		<VALUE>Bozhesk</VALUE>
+		<VALUE>Brest Litovsk</VALUE>
+		<VALUE>Briansk</VALUE>
+		<VALUE>Buzhsk</VALUE>
+		<VALUE>Chern'chesk</VALUE>
+		<VALUE>Chernechesk</VALUE>
+		<VALUE>Chernesk</VALUE>
+		<VALUE>Chertoryisk</VALUE>
+		<VALUE>Chichersk</VALUE>
+		<VALUE>Debriansk</VALUE>
+		<VALUE>Demenesk</VALUE>
+		<VALUE>Deviagorsk</VALUE>
+		<VALUE>Driutesk</VALUE>
+		<VALUE>Driutsk</VALUE>
+		<VALUE>Drutsk</VALUE>
+		<VALUE>Eniseisk</VALUE>
+		<VALUE>Gol'sk</VALUE>
+		<VALUE>Golotichesk</VALUE>
+		<VALUE>Izborsk</VALUE>
+		<VALUE>Klechesk</VALUE>
+		<VALUE>Koltesk</VALUE>
+		<VALUE>Korchesk</VALUE>
+		<VALUE>Korech'sk</VALUE>
+		<VALUE>Kozel'sk</VALUE>
+		<VALUE>Kozelsk</VALUE>
+		<VALUE>Kursk</VALUE>
+		<VALUE>Liubutsk</VALUE>
+		<VALUE>Lobyn'sk</VALUE>
+		<VALUE>Lobynsk</VALUE>
+		<VALUE>Logozhsk</VALUE>
+		<VALUE>Luchesk</VALUE>
+		<VALUE>Mchenesk</VALUE>
+		<VALUE>Men'sk</VALUE>
+		<VALUE>Menesk</VALUE>
+		<VALUE>Mensk</VALUE>
+		<VALUE>Mezchesk</VALUE>
+		<VALUE>Mich'sk</VALUE>
+		<VALUE>Michsk</VALUE>
+		<VALUE>Milesk</VALUE>
+		<VALUE>Minsk</VALUE>
+		<VALUE>Moroviisk</VALUE>
+		<VALUE>Mosal'sk</VALUE>
+		<VALUE>Mozhaiask</VALUE>
+		<VALUE>Mozhaisk</VALUE>
+		<VALUE>Mtsensk</VALUE>
+		<VALUE>Murovinsk</VALUE>
+		<VALUE>Myl'sk</VALUE>
+		<VALUE>Nerin'sk</VALUE>
+		<VALUE>Nerinsk</VALUE>
+		<VALUE>Luts'k</VALUE>
+		<VALUE>Lutsk</VALUE>
+		<VALUE>Obdorsk</VALUE>
+		<VALUE>Obolensk</VALUE>
+		<VALUE>Odrsk</VALUE>
+		<VALUE>Orel'sk</VALUE>
+		<VALUE>Ozhsk</VALUE>
+		<VALUE>Paleostrovsk</VALUE>
+		<VALUE>Perevitsk</VALUE>
+		<VALUE>Pinsk</VALUE>
+		<VALUE>Plesensk</VALUE>
+		<VALUE>Plesnesk</VALUE>
+		<VALUE>Polatsk</VALUE>
+		<VALUE>Polotsk</VALUE>
+		<VALUE>Poltesk</VALUE>
+		<VALUE>Pos. Pyban'sk</VALUE>
+		<VALUE>Presnensk</VALUE>
+		<VALUE>Pronsk</VALUE>
+		<VALUE>Proposhesk</VALUE>
+		<VALUE>Pultusk</VALUE>
+		<VALUE>Riazhsk</VALUE>
+		<VALUE>Ropesk</VALUE>
+		<VALUE>Ryl'sk</VALUE>
+		<VALUE>Seiiazhsk</VALUE>
+		<VALUE>Serensk</VALUE>
+		<VALUE>Serpeisk</VALUE>
+		<VALUE>Shatsk</VALUE>
+		<VALUE>Shenkursk</VALUE>
+		<VALUE>Shumsk</VALUE>
+		<VALUE>Sinel'sk</VALUE>
+		<VALUE>Sevsk</VALUE>
+		<VALUE>Sluchesk</VALUE>
+		<VALUE>Slutsk</VALUE>
+		<VALUE>Smolensk</VALUE>
+		<VALUE>Snovsk</VALUE>
+		<VALUE>Suteisk</VALUE>
+		<VALUE>Sviiazhsk</VALUE>
+		<VALUE>Sviril'sk</VALUE>
+		<VALUE>Tobol'sk</VALUE>
+		<VALUE>Torchesk</VALUE>
+		<VALUE>Trubchevsk</VALUE>
+		<VALUE>Trubetsk</VALUE>
+		<VALUE>Turiisk</VALUE>
+		<VALUE>Ugrovesk</VALUE>
+		<VALUE>Ushesk</VALUE>
+		<VALUE>Vasil'sursk</VALUE>
+		<VALUE>Verkhovsk</VALUE>
+		<VALUE>Verzhavsk</VALUE>
+		<VALUE>Vitebsk</VALUE>
+		<VALUE>Vitembsk</VALUE>
+		<VALUE>Vitsebsk</VALUE>
+		<VALUE>Volkovyisk</VALUE>
+		<VALUE>Volokolamsk</VALUE>
+		<VALUE>Vorotynsk</VALUE>
+		<VALUE>Zarechesk</VALUE>
+	</LIST>
+	<LIST id="russian-locative-a" title="Locative">
+		<VALUE>Aleksandrova Sloboda</VALUE>
+		<VALUE>Baia</VALUE>
+		<VALUE>Bakota</VALUE>
+		<VALUE>Balakhna</VALUE>
+		<VALUE>Bania Rodna</VALUE>
+		<VALUE>Baseia</VALUE>
+		<VALUE>Bel'chitsa</VALUE>
+		<VALUE>Belaia Vezha</VALUE>
+		<VALUE>Belaia Vezhna</VALUE>
+		<VALUE>Borisoglebskaia Sloboda</VALUE>
+		<VALUE>Braila</VALUE>
+		<VALUE>Caffa</VALUE>
+		<VALUE>Cetatea Alba</VALUE>
+		<VALUE>Chernigoga</VALUE>
+		<VALUE>Chukhloma</VALUE>
+		<VALUE>Davidova</VALUE>
+		<VALUE>Dubintsa</VALUE>
+		<VALUE>Dubrovitsa</VALUE>
+		<VALUE>Dubrovka</VALUE>
+		<VALUE>El'na</VALUE>
+		<VALUE>Elat'ma</VALUE>
+		<VALUE>Elgava</VALUE>
+		<VALUE>Elna</VALUE>
+		<VALUE>Gnoinitsa</VALUE>
+		<VALUE>Goshcha</VALUE>
+		<VALUE>Grodna</VALUE>
+		<VALUE>Hoshcha</VALUE>
+		<VALUE>Hrodna</VALUE>
+		<VALUE>Iama</VALUE>
+		<VALUE>Iasa</VALUE>
+		<VALUE>Iskona</VALUE>
+		<VALUE>Kafa</VALUE>
+		<VALUE>Kaffa</VALUE>
+		<VALUE>Kaluga</VALUE>
+		<VALUE>Karela</VALUE>
+		<VALUE>Kasplia</VALUE>
+		<VALUE>Kiazhta</VALUE>
+		<VALUE>Kideksha</VALUE>
+		<VALUE>Kiliia</VALUE>
+		<VALUE>Kineshma</VALUE>
+		<VALUE>Klaipeda</VALUE>
+		<VALUE>Kola</VALUE>
+		<VALUE>Kolomna</VALUE>
+		<VALUE>Kolomyia</VALUE>
+		<VALUE>Korela</VALUE>
+		<VALUE>Kostroma</VALUE>
+		<VALUE>Kotel'nitsa</VALUE>
+		<VALUE>Kurba</VALUE>
+		<VALUE>Ladoga</VALUE>
+		<VALUE>Lopastitsa</VALUE>
+		<VALUE>Ltava</VALUE>
+		<VALUE>Lutava</VALUE>
+		<VALUE>Matrega</VALUE>
+		<VALUE>Milcovia</VALUE>
+		<VALUE>Miliniska</VALUE>
+		<VALUE>Mologa</VALUE>
+		<VALUE>Moravitsa</VALUE>
+		<VALUE>Moreva</VALUE>
+		<VALUE>Morova</VALUE>
+		<VALUE>Moskva</VALUE>
+		<VALUE>Muravitsa</VALUE>
+		<VALUE>Narva</VALUE>
+		<VALUE>Nerekhta</VALUE>
+		<VALUE>Olbia</VALUE>
+		<VALUE>Opochka</VALUE>
+		<VALUE>Ormina</VALUE>
+		<VALUE>Orsha</VALUE>
+		<VALUE>Orzhitsa</VALUE>
+		<VALUE>Peresolnitsa</VALUE>
+		<VALUE>Perevolochna</VALUE>
+		<VALUE>Perevoloka</VALUE>
+		<VALUE>Pinega</VALUE>
+		<VALUE>Pogost Iuskola</VALUE>
+		<VALUE>Pogost Kukueva gora</VALUE>
+		<VALUE>Pogost Lipna</VALUE>
+		<VALUE>Pogost Masnega</VALUE>
+		<VALUE>Pogost Pinega</VALUE>
+		<VALUE>Pogost Pinera</VALUE>
+		<VALUE>Pogost Poma</VALUE>
+		<VALUE>Pogost Puita</VALUE>
+		<VALUE>Pogost Toima</VALUE>
+		<VALUE>Pogost Ust'-Vaga</VALUE>
+		<VALUE>Pomezania</VALUE>
+		<VALUE>Posotina</VALUE>
+		<VALUE>Rakoma</VALUE>
+		<VALUE>Ria</VALUE>
+		<VALUE>Riga</VALUE>
+		<VALUE>Rodnia</VALUE>
+		<VALUE>Rosukha</VALUE>
+		<VALUE>Rsha</VALUE>
+		<VALUE>Rusa</VALUE>
+		<VALUE>Ruza</VALUE>
+		<VALUE>Rzhevka</VALUE>
+		<VALUE>Samara</VALUE>
+		<VALUE>Sarai-Berka</VALUE>
+		<VALUE>Sartakha</VALUE>
+		<VALUE>Shemakha</VALUE>
+		<VALUE>Shiluva</VALUE>
+		<VALUE>Shuia</VALUE>
+		<VALUE>Silistria</VALUE>
+		<VALUE>Soldaia</VALUE>
+		<VALUE>Sosnitsa</VALUE>
+		<VALUE>Staraia Ladoga</VALUE>
+		<VALUE>Staraia Rusa</VALUE>
+		<VALUE>Staritsa</VALUE>
+		<VALUE>Suceava</VALUE>
+		<VALUE>Tana</VALUE>
+		<VALUE>Tara</VALUE>
+		<VALUE>Tarusa</VALUE>
+		<VALUE>Terebovlia</VALUE>
+		<VALUE>Tighina</VALUE>
+		<VALUE>Tismianitsa</VALUE>
+		<VALUE>Tomakivka</VALUE>
+		<VALUE>Totma</VALUE>
+		<VALUE>Tula</VALUE>
+		<VALUE>Tysmainitsa</VALUE>
+		<VALUE>Ufa</VALUE>
+		<VALUE>Ukani</VALUE>
+		<VALUE>Ukhtoma</VALUE>
+		<VALUE>Unzha</VALUE>
+		<VALUE>Ushitsa</VALUE>
+		<VALUE>Ust'-Emtsa</VALUE>
+		<VALUE>Ust'-Tsil'ma</VALUE>
+		<VALUE>Ust'-Vaga</VALUE>
+		<VALUE>Ustiuzhna</VALUE>
+		<VALUE>Varguza</VALUE>
+		<VALUE>Vekshchen'ga</VALUE>
+		<VALUE>Venitsa</VALUE>
+		<VALUE>Vereia</VALUE>
+		<VALUE>Viashnia</VALUE>
+		<VALUE>Viatka</VALUE>
+		<VALUE>Viaz'ma</VALUE>
+		<VALUE>Viazma</VALUE>
+		<VALUE>Vilna</VALUE>
+		<VALUE>Vinnytsia</VALUE>
+		<VALUE>Vizna</VALUE>
+		<VALUE>Vladimir-na-Kliaz'ma</VALUE>
+		<VALUE>Vlodava</VALUE>
+		<VALUE>Vobonitsa</VALUE>
+		<VALUE>Vologda</VALUE>
+		<VALUE>Warmia</VALUE>
+		<VALUE>Zennia Velikaia</VALUE>
+		<VALUE>Zheldia</VALUE>
+		<VALUE>Zhmuda</VALUE>
+	</LIST>
+	<LIST id="russian-locative-e" title="Locative">
+		<VALUE>Beloberezh'e</VALUE>
+		<VALUE>Berest'e</VALUE>
+		<VALUE>Bleve</VALUE>
+		<VALUE>Bologoe</VALUE>
+		<VALUE>Durbe</VALUE>
+		<VALUE>Gertsike</VALUE>
+		<VALUE>Gorodets Radilov na Volge</VALUE>
+		<VALUE>Gorodishche na Sare</VALUE>
+		<VALUE>Iasenskoe</VALUE>
+		<VALUE>Ilukste</VALUE>
+		<VALUE>Kopor'e</VALUE>
+		<VALUE>Kulikovo Pole</VALUE>
+		<VALUE>Luki Velikie</VALUE>
+		<VALUE>Lukoml'skoe Gorodishche</VALUE>
+		<VALUE>Mezhibozh'e</VALUE>
+		<VALUE>Mezhimost'e</VALUE>
+		<VALUE>Olesh'e</VALUE>
+		<VALUE>Pogost-na-More</VALUE>
+		<VALUE>Stolp'e</VALUE>
+		<VALUE>Ugleche Pole</VALUE>
+		<VALUE>Ust'e</VALUE>
+		<VALUE>Verkhoture</VALUE>
+		<VALUE>Zaporozh'e</VALUE>
+		<VALUE>Gorodok na Ostre</VALUE>
+	</LIST>
+	<LIST id="russian-locative-i" title="Locative">
+		<VALUE>Bakhchisarai</VALUE>
+		<VALUE>Berevoi</VALUE>
+		<VALUE>Berezyi</VALUE>
+		<VALUE>Bezhichi</VALUE>
+		<VALUE>Bulichi</VALUE>
+		<VALUE>Dedogostichi</VALUE>
+		<VALUE>Dernovoi</VALUE>
+		<VALUE>Dobryi</VALUE>
+		<VALUE>Gomii</VALUE>
+		<VALUE>Gostinichi</VALUE>
+		<VALUE>Haji-bei</VALUE>
+		<VALUE>Kamianets-Podil's'kyi</VALUE>
+		<VALUE>Khodynichi</VALUE>
+		<VALUE>Khvalimichi</VALUE>
+		<VALUE>Korsun'-na-Rosi</VALUE>
+		<VALUE>Krasnyi</VALUE>
+		<VALUE>Krazhiai</VALUE>
+		<VALUE>Marianichi</VALUE>
+		<VALUE>Nebolchi</VALUE>
+		<VALUE>Nimikori</VALUE>
+		<VALUE>Novoe Sarai</VALUE>
+		<VALUE>Ol'zhitsi</VALUE>
+		<VALUE>Panivtsi</VALUE>
+		<VALUE>Pogonovichi</VALUE>
+		<VALUE>Pogost Tervinichi</VALUE>
+		<VALUE>Pogost Volok na Mshi</VALUE>
+		<VALUE>Polonoi</VALUE>
+		<VALUE>Prupoi</VALUE>
+		<VALUE>Radauti</VALUE>
+		<VALUE>Rei</VALUE>
+		<VALUE>Sarai</VALUE>
+		<VALUE>Serebrianyi</VALUE>
+		<VALUE>Sheki</VALUE>
+		<VALUE>Shiauliai</VALUE>
+		<VALUE>Siauliai</VALUE>
+		<VALUE>Spaso-Kamennyi</VALUE>
+		<VALUE>Tetiushi</VALUE>
+		<VALUE>Trakai</VALUE>
+		<VALUE>Ust'-Pashi</VALUE>
+		<VALUE>Uvetichi</VALUE>
+		<VALUE>Valuiki</VALUE>
+		<VALUE>Varniai</VALUE>
+		<VALUE>Velikie-Luki</VALUE>
+		<VALUE>Viipuri</VALUE>
+		<VALUE>Vil'iandi</VALUE>
+		<VALUE>Vruchi</VALUE>
+		<VALUE>Zaroi</VALUE>
+		<VALUE>Zartyi</VALUE>
+		<VALUE>Zarytyi</VALUE>
+		<VALUE>Zheldi</VALUE>
+		<VALUE>Zhelni</VALUE>
+		<VALUE>Zhelnii</VALUE>
+		<VALUE>Zhidchichi</VALUE>
+		<VALUE>Polonnyi</VALUE>
+	</LIST>
+	<LIST id="russian-locative-ii" title="Locative">
+		<VALUE>Cherkassii</VALUE>
+		<VALUE>Novgorod Nizhnii</VALUE>
+		<VALUE>Ustiug Velikii</VALUE>
+		<VALUE>Vruchii</VALUE>
+	</LIST>
+	<LIST id="russian-locative-o" title="Locative">
+		<VALUE>Beloe Selo</VALUE>
+		<VALUE>Beloozero</VALUE>
+		<VALUE>Belozero</VALUE>
+		<VALUE>Berestechko</VALUE>
+		<VALUE>Braniewo</VALUE>
+		<VALUE>Cembalo</VALUE>
+		<VALUE>Dubno</VALUE>
+		<VALUE>Gorodno</VALUE>
+		<VALUE>Igorevo Selo</VALUE>
+		<VALUE>Kor'dio</VALUE>
+		<VALUE>Kovno</VALUE>
+		<VALUE>Krevo</VALUE>
+		<VALUE>L'to</VALUE>
+		<VALUE>Liubno</VALUE>
+		<VALUE>Mazhevo Selo</VALUE>
+		<VALUE>Moncastro</VALUE>
+		<VALUE>Paozero</VALUE>
+		<VALUE>Pleso</VALUE>
+		<VALUE>Prozorovo</VALUE>
+		<VALUE>Riapolovo</VALUE>
+		<VALUE>Rogisdino</VALUE>
+		<VALUE>S. Meltenovo</VALUE>
+		<VALUE>Truso</VALUE>
+		<VALUE>Vosporo</VALUE>
+	</LIST>
+	<LIST id="russian-locative-u" title="Locative">
+		<VALUE>Baku</VALUE>
+		<VALUE>Barysau</VALUE>
+		<VALUE>Mahiliou</VALUE>
+		<VALUE>Tartu</VALUE>
+		<VALUE>Turau</VALUE>
+	</LIST>
+	<LIST id="russian-locative-y" title="Locative">
+		<VALUE>Bendery</VALUE>
+		<VALUE>Benitsy</VALUE>
+		<VALUE>Bezhitsy</VALUE>
+		<VALUE>Bobrovnitsy</VALUE>
+		<VALUE>Bortnitsy</VALUE>
+		<VALUE>Cheboksary</VALUE>
+		<VALUE>Dubrovitsy</VALUE>
+		<VALUE>Iazhelbitsy</VALUE>
+		<VALUE>Isady</VALUE>
+		<VALUE>Kholmogory</VALUE>
+		<VALUE>Livny</VALUE>
+		<VALUE>Lodeinitsy</VALUE>
+		<VALUE>Solodovintsy</VALUE>
+		<VALUE>Teliutsy</VALUE>
+		<VALUE>Vrochnitsy</VALUE>
+	</LIST>
+	<LIST id="russian-locative-skii" title="Locative">
+		<VALUE>Belgorod Riazanskii</VALUE>
+		<VALUE>Bozhskii</VALUE>
+		<VALUE>Galich Merskii</VALUE>
+		<VALUE>Goroden Volynskii</VALUE>
+		<VALUE>Gorodets Meshcherskii</VALUE>
+		<VALUE>Iaroslavl' Galitskii</VALUE>
+		<VALUE>Iur'ev Pol'skii</VALUE>
+		<VALUE>Iur'ev-Pobol'skii</VALUE>
+		<VALUE>Moklekov Galitskii</VALUE>
+		<VALUE>Nikola-Zarazskii</VALUE>
+		<VALUE>Novgorod Severskii</VALUE>
+		<VALUE>Novgorod Velikii</VALUE>
+		<VALUE>Novgorodok Litovskii</VALUE>
+		<VALUE>Pereiaslavl' Russkii</VALUE>
+		<VALUE>Pereiaslavl' Zalesskii</VALUE>
+		<VALUE>Pereiaslavl'-Riazanskii</VALUE>
+		<VALUE>Pudozhskoi</VALUE>
+		<VALUE>Sarskaia</VALUE>
+		<VALUE>Shuiskaia</VALUE>
+		<VALUE>Slobodskoi</VALUE>
+		<VALUE>Sol' Kamskaia</VALUE>
+		<VALUE>Sol' Velikaia</VALUE>
+		<VALUE>Sol' Vychegodskaia</VALUE>
+		<VALUE>Solovetskii</VALUE>
+		<VALUE>Sorskii</VALUE>
+		<VALUE>Starodub Riapolovskii</VALUE>
+		<VALUE>Starodub Severskii</VALUE>
+		<VALUE>Valaamskii</VALUE>
+		<VALUE>Vasilev Galitskii</VALUE>
+		<VALUE>Vasilev Smolenskii</VALUE>
+		<VALUE>Verkhne-Chusovskii</VALUE>
+		<VALUE>Verkhnii Chusovskii</VALUE>
+		<VALUE>Vetskaia</VALUE>
+		<VALUE>Volok Lamskii</VALUE>
+		<VALUE>Volok Slovinskii</VALUE>
+		<VALUE>Voloklamskii</VALUE>
+		<VALUE>Vsevolozh Chernigovskii</VALUE>
+		<VALUE>Zvenigorod Chervenskii</VALUE>
+		<VALUE>Zvenigorod Kievskii</VALUE>
+		<VALUE>Gorodok Volynskii</VALUE>
+		<VALUE>Iziaslavl' Galitskii</VALUE>
+	</LIST>
+</GENERATOR>
+

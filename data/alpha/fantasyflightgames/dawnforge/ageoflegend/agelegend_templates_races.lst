@@ -1,0 +1,68 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Sep 22 17:33:53 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn
+
+
+
+#These templates are all added from the race.
+# Template Name				Visible	Source Page		Stat bonus																			Removable?
+Racial Progression Ghost Elf		VISIBLE:NO	SOURCEPAGE:p.24	BONUS:STAT|DEX|2|PRELEVEL:3	BONUS:STAT|CON|2|PRELEVEL:5	BONUS:STAT|STR|2|PRELEVEL:7	BONUS:STAT|WIS|2|PRELEVEL:9	REMOVABLE:NO
+Racial Progression Moon Elf		VISIBLE:NO	SOURCEPAGE:p.26	BONUS:STAT|INT|2|PRELEVEL:3	BONUS:STAT|CHA|2|PRELEVEL:5	BONUS:STAT|INT|2|PRELEVEL:7	BONUS:STAT|DEX|2|PRELEVEL:9	REMOVABLE:NO
+Racial Progression Wood Elf		VISIBLE:NO	SOURCEPAGE:p.32	BONUS:STAT|STR|2|PRELEVEL:3	BONUS:STAT|DEX|2|PRELEVEL:5	BONUS:STAT|WIS|2|PRELEVEL:7	BONUS:STAT|DEX|2|PRELEVEL:9	REMOVABLE:NO
+Racial Progression Forest Wight	VISIBLE:NO	SOURCEPAGE:p.72	BONUS:STAT|DEX|2|PRELEVEL:3	BONUS:STAT|STR|2|PRELEVEL:5	BONUS:STAT|INT|2|PRELEVEL:7	BONUS:STAT|STR|2|PRELEVEL:9	REMOVABLE:NO
+
+
+###Block: The progression blocks
+# Template Name				Visible	Source Page		Required Lvl	Required Race			ADD:FEAT														Removable?
+# Ghost Elf Racial progressions
+# Template Name				Visible	Source Page		Required Lvl	Required Race		Choose a Feat													Removable?
+Ghost Elf Progression level 01	VISIBLE:YES	SOURCEPAGE:p.24				PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent1)					REMOVABLE:NO
+Ghost Elf Progression level 02	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:2		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTransformation,TYPE=GhostElfRacialTransformation2)		REMOVABLE:NO
+Ghost Elf Progression level 03	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:3		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent3)					REMOVABLE:NO
+Ghost Elf Progression level 04	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:4		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTransformation,TYPE=GhostElfRacialTransformation4)		REMOVABLE:NO
+Ghost Elf Progression level 05	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:5		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent5)					REMOVABLE:NO
+Ghost Elf Progression level 06	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:6		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTransformation,TYPE=GhostElfRacialTransformation6)		REMOVABLE:NO
+Ghost Elf Progression level 07	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:7		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent7)					REMOVABLE:NO
+Ghost Elf Progression level 08	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:8		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTransformation,TYPE=GhostElfRacialTransformation8)		REMOVABLE:NO
+Ghost Elf Progression level 09	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:9		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTalent,TYPE=GhostElfRacialTalent9)					REMOVABLE:NO
+Ghost Elf Progression level 10	VISIBLE:YES	SOURCEPAGE:p.24	PRELEVEL:10		PRERACE:Elf (Ghost)	ADD:FEAT(TYPE=GhostElfRacialTransformation,TYPE=GhostElfRacialTransformation10)		REMOVABLE:NO
+
+# Moon Elf Racial progressions
+Moon Elf Progression level 01		VISIBLE:YES	SOURCEPAGE:p.26				PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTalent,TYPE=MoonElfRacialTalent1)					REMOVABLE:NO
+Moon Elf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:2		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTransformation,TYPE=MoonElfRacialTransformation2)			REMOVABLE:NO
+Moon Elf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:3		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTalent,TYPE=MoonElfRacialTalent3)					REMOVABLE:NO
+Moon Elf Progression level 04		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:4		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTransformation,TYPE=MoonElfRacialTransformation4)			REMOVABLE:NO
+Moon Elf Progression level 05		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:5		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTalent,TYPE=MoonElfRacialTalent5)					REMOVABLE:NO
+Moon Elf Progression level 06		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:6		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTransformation,TYPE=MoonElfRacialTransformation6)			REMOVABLE:NO
+Moon Elf Progression level 07		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:7		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTalent,TYPE=MoonElfRacialTalent7)					REMOVABLE:NO
+Moon Elf Progression level 08		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:8		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTransformation,TYPE=MoonElfRacialTransformation8)			REMOVABLE:NO
+Moon Elf Progression level 09		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:9		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTalent,TYPE=MoonElfRacialTalent9)					REMOVABLE:NO
+Moon Elf Progression level 10		VISIBLE:YES	SOURCEPAGE:p.26	PRELEVEL:10		PRERACE:Elf (Moon)	ADD:FEAT(TYPE=MoonElfRacialTransformation,TYPE=MoonElfRacialTransformation10)			REMOVABLE:NO
+
+# Wood Elf Racial progressions
+Wood Elf Progression level 01		VISIBLE:YES	SOURCEPAGE:p.32				PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTalent,TYPE=WoodElfRacialTalent1)					REMOVABLE:NO
+Wood Elf Progression level 02		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:2		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTransformation,TYPE=WoodElfRacialTransformation2)			REMOVABLE:NO
+Wood Elf Progression level 03		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:3		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTalent,TYPE=WoodElfRacialTalent3)					REMOVABLE:NO
+Wood Elf Progression level 04		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:4		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTransformation,TYPE=WoodElfRacialTransformation4)			REMOVABLE:NO
+Wood Elf Progression level 05		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:5		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTalent,TYPE=WoodElfRacialTalent5)					REMOVABLE:NO
+Wood Elf Progression level 06		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:6		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTransformation,TYPE=WoodElfRacialTransformation6)			REMOVABLE:NO
+Wood Elf Progression level 07		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:7		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTalent,TYPE=WoodElfRacialTalent7)					REMOVABLE:NO
+Wood Elf Progression level 08		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:8		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTransformation,TYPE=WoodElfRacialTransformation8)			REMOVABLE:NO
+Wood Elf Progression level 09		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:9		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTalent,TYPE=WoodElfRacialTalent9)					REMOVABLE:NO
+Wood Elf Progression level 10		VISIBLE:YES	SOURCEPAGE:p.32	PRELEVEL:10		PRERACE:Elf (Wood)(DF)	ADD:FEAT(TYPE=WoodElfRacialTransformation,TYPE=WoodElfRacialTransformation10)			REMOVABLE:NO
+
+# Forest Wight Racial progressions
+Forest Wight Progression level 01	VISIBLE:YES	SOURCEPAGE:p.72				PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTalent,TYPE=ForestWightRacialTalent1)				REMOVABLE:NO
+Forest Wight Progression level 02	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:2		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTransformation,TYPE=ForestWightRacialTransformation2)	REMOVABLE:NO
+Forest Wight Progression level 03	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:3		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTalent,TYPE=ForestWightRacialTalent3)				REMOVABLE:NO
+Forest Wight Progression level 04	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:4		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTransformation,TYPE=ForestWightRacialTransformation4)	REMOVABLE:NO
+Forest Wight Progression level 05	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:5		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTalent,TYPE=ForestWightRacialTalent5)				REMOVABLE:NO
+Forest Wight Progression level 06	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:6		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTransformation,TYPE=ForestWightRacialTransformation6)	REMOVABLE:NO
+Forest Wight Progression level 07	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:7		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTalent,TYPE=ForestWightRacialTalent7)				REMOVABLE:NO
+Forest Wight Progression level 08	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:8		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTransformation,TYPE=ForestWightRacialTransformation8)	REMOVABLE:NO
+Forest Wight Progression level 09	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:9		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTalent,TYPE=ForestWightRacialTalent9)				REMOVABLE:NO
+Forest Wight Progression level 10	VISIBLE:YES	SOURCEPAGE:p.72	PRELEVEL:10		PRERACE:Forest Wight	ADD:FEAT(TYPE=ForestWightRacialTransformation,TYPE=ForestWightRacialTransformation10)	REMOVABLE:NO
+
+#
+# EOF
+#

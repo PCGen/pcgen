@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 27 07:51:18 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block: Minor Artifacts, Weapons
+# Equipment Name	Required Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Spells						Multiply spell cast/day				Weapon prop. bonus					Special Property
+Bluewand		PROFICIENCY:Greatsword	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:0	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:STEEL.BANE_M|Magical Beast.KEEN	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.185								BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2	BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
+Hungersword		PROFICIENCY:Longsword	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:0	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL.UNHLY_M				WIELD:OneHanded	RANGE:30	SIZE:M	SOURCEPAGE:p.186	SPELLS:Hungersword|TIMES=1|Mark of Death								BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:Absorbs good spells, that can be used as damage bonus. Bestows 1 negative level with each strike
+
+###Block: Minor Artifacts, Wondrous
+# Equipment Name		Type					Cost		Weight	Source Page
+Book of the Darkwing	TYPE:Magic.Wondrous		COST:0	WT:3		SOURCEPAGE:p.185
+Gresval's Clock		TYPE:Magic.Wondrous		COST:0	WT:7		SOURCEPAGE:p.185
+Liquid Power		TYPE:Magic.Wondrous		COST:0	WT:1		SOURCEPAGE:p.186
+Vallis Staff		TYPE:Magic.Wondrous.Staff	COST:0	WT:1		SOURCEPAGE:p.186
+
+###Block: Major Artifacts, Weapons
+# Equipment Name			Output Name						Required Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Size		Source Page		Spells										Weapon prop. bonus					Special Property
+Paraden (Blade of the Nexus)	OUTPUTNAME:Paraden, Blade of the Nexus	PROFICIENCY:Greatsword	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:0	WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:STEEL.KEEN	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.188	SPELLS:Paraden|TIMES=-1|Window to Elsewhere|Doorway to Elsewhere	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:3x/day, casts bolt of energy for 15d6 damage
+
+###Block: Major Artifacts, Wondrous
+# Equipment Name			Type					Cost		Weight	Source Page		Spell Res.	Damage Reduction	Spells													Stat bonus								Special Property
+Black Grail				TYPE:Magic.Wondrous		COST:0	WT:1		SOURCEPAGE:p.186						SPELLS:Black Grail|TIMES=1|Sudden Wave|Cone of Cold|Wall of Ice|Summon Monster VII	BONUS:STAT|STR,CON,CHA|2|TYPE=Enhancement			SPROP:While held, Charisma bonus is +4
+The Book of Eldritch Might	TYPE:Magic.Wondrous.Book	COST:0	WT:1		SOURCEPAGE:p.187
+Medusa Crown			TYPE:Magic.Wondrous.Headgear	COST:0	WT:1		SOURCEPAGE:p.187
+Staff of Eldritch Might		TYPE:Magic.Wondrous.Staff	COST:0	WT:1		SOURCEPAGE:p.188
+Tears of the Gods			TYPE:Magic.Wondrous		COST:0	WT:1		SOURCEPAGE:p.188	SR:28		DR:20/Magic																BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4|TYPE=Divine	SPROP:Negates 50% of all critical hits. 1x/day becomes an elder water elemental

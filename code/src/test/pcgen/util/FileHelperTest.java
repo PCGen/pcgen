@@ -1,0 +1,156 @@
+/**
+ * FileHelperTest.java
+ * Copyright 2003 (C) John Watson <john@sleazyweasel.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Current Ver: $Revision: 1.8 $
+ * Last Editor: $Author: karianna $
+ * Last Edited: $Date: 2005/12/01 16:40:45 $
+ */
+package pcgen.util;
+
+import pcgen.PCGenTestCase;
+
+import java.io.File;
+
+/**
+ * FileHelperTest
+ */
+public class FileHelperTest extends PCGenTestCase {
+
+	/**
+	 * Constructs a new <code>FileHelperTest</code>.
+	 *
+	 * @see PCGenTestCase#PCGenTestCase()
+	 */
+	public FileHelperTest()
+	{
+		super();
+	}
+
+	/**
+	 * Constructs a new <code>FileHelperTest</code> with the given
+	 * <var>name</var>.
+	 *
+	 * @param name the test case name
+	 *
+	 * @see PCGenTestCase#PCGenTestCase(String)
+	 */
+	public FileHelperTest(final String name)
+	{
+		super(name);
+	}
+
+	/**
+	 * Test the relative paths
+	 * @throws Exception
+	 */
+	public void testRelativePaths() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File sameDir = new File("/one/two/three/four/bar.txt");
+		final String path = FileHelper.findRelativePath(base, sameDir);
+		assertEquals("wrong when same directory", "bar.txt", path);
+	}
+
+	/**
+	 * Test relative paths but back one (../)
+	 * @throws Exception
+	 */
+	public void testRelativePathBack1() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File backOneDir = new File("/one/two/three/bar.txt");
+		final String path = FileHelper.findRelativePath(base, backOneDir);
+		assertEquals("wrong when back one directory", "../bar.txt", path);
+	}
+
+	/**
+	 * Test relative path back two (../../)
+	 * @throws Exception
+	 */
+	public void testRelativePathBack2() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File backTwoDirs = new File("/one/two/bar.txt");
+		final String path = FileHelper.findRelativePath(base, backTwoDirs);
+		assertEquals("wrong when back two directories", "../../bar.txt", path);
+	}
+
+	/**
+	 * Test realtive path one ahead (./foobar)
+	 * @throws Exception
+	 */
+	public void testRelativePathAhead1() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File aheadOneDir = new File("/one/two/three/four/five/bar.txt");
+		final String path = FileHelper.findRelativePath(base, aheadOneDir);
+		assertEquals("wrong when ahead one directory",
+			"five" + File.separator + "bar.txt", path);
+	}
+
+	/**
+	 * Test realtive path one ahead (./foobar/foobar)
+	 * @throws Exception
+	 */
+	public void testRelativePathAhead2() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File aheadTwoDirs = new File("/one/two/three/four/five/six/bar.txt");
+		final String path = FileHelper.findRelativePath(base, aheadTwoDirs);
+		assertEquals("wrong when ahead two directories",
+			"five" + File.separator + "six" + File.separator + "bar.txt", path);
+	}
+
+	/**
+	 * Test realtive path different branch
+	 * @throws Exception
+	 */
+	public void testRelativePathDifferentBranch() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File onADifferentBranch = new File("/one/two/buckle/my/shoe.txt");
+		final String path = FileHelper.findRelativePath(base, onADifferentBranch);
+		assertEquals("wrong when on a different branch",
+			"../../buckle" + File.separator + "my" + File.separator + "shoe.txt", path);
+	}
+
+	/**
+	 * Test realtive path, unrelated
+	 * @throws Exception
+	 */
+	public void testRelativePathUnrelated() throws Exception
+	{
+		final File base = new File("/one/two/three/four/foo.txt");
+
+		final File completelyUnrelated = new File(
+			"/and/now/for/something/completely/different.txt");
+		final String path = FileHelper.findRelativePath(base, completelyUnrelated);
+		assertEquals("wrong when completely different", "../../../../and"
+			+ File.separator
+			+ "now"
+			+ File.separator
+			+ "for"
+			+ File.separator + "something" + File.separator + "completely" + File.separator + "different.txt", path);
+	}
+}

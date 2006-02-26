@@ -1,0 +1,5 @@
+# CVS $Revision: 1.5 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Spell Name	Classes of caster			School		Sub-School		Type		Components	Casting Time	Range		Target Area																				Duration			Save Info			Spell Resistance	Description		Source Page
+Wall of Will	CLASSES:Sorcerer,Wizard=6	SCHOOL:Evocation	SUBSCHOOL:Force	TYPE:Arcane	COMPS:V S M	CASTTIME:1 hour	RANGE:Close	TARGETAREA:Wall whose area is up to one 10-ft. square/level or a sphere or hemisphere with a radius of up to 1 ft./level	DURATION:Permanent	SAVEINFO:Will, see text	SPELLRES:No		DESC:See text	SOURCEPAGE:p.38

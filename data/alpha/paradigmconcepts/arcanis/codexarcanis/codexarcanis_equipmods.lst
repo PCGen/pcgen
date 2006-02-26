@@ -1,0 +1,22 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Sep  7 23:14:49 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+# Greater Mastercraft
+
+# Modifier Name		Unique Key		Type							Cost			Type granted	Source Page		Required Type	Modify the item cost			Weapon prop. bonus		Special Property										Apply to both heads
+Greater Mastercraft	KEY:WEAPGRMW	TYPE:Weapon.Masterwork.GreaterMastercraft				ITYPE:Masterwork	SOURCEPAGE:p.184				BONUS:ITEMCOST|TYPE=Weapon|600	BONUS:WEAPON|TOHIT,DAMAGE|1	SPROP:+10 Hardness									ASSIGNTOALL:Y
+Greater Mastercraft	KEY:FLINTGRMW	TYPE:Weapon.Masterwork.GreaterMastercraft	COST:BASECOST*5				SOURCEPAGE:p.184	PRETYPE:Firearms							BONUS:WEAPON|TOHIT|2		SPROP:+10 Hardness
+Greater Mastercraft	KEY:TOOLSGRMW	TYPE:Tools.Masterwork.GreaterMastercraft	COST:BASECOST*3				SOURCEPAGE:p.184															SPROP:+10 Hardness	SPROP:+3 circumstance bonus to related checks
+
+###Block: Altherian Steel
+
+# Modifier Name	Unique Key			Type							Cost		Type granted		Source Page		Required Type			BONUS:EQM				Special Property
+Altherian Steel	KEY:WEAPALTHST		TYPE:Weapon.AltherianSteel.BaseMaterial	COST:WT*200	ITYPE:Altherian Steel	SOURCEPAGE:p.178	PRETYPE:Metal								SPROP:+5 hardness vs Electrical effects
+Altherian Steel	KEY:LTMEDARMALTHST	TYPE:Armor.AltherianSteel.BaseMaterial	COST:1000	ITYPE:Altherian Steel	SOURCEPAGE:p.178	PRETYPE:Light|Medium,Metal	BONUS:EQM|WEIGHTMULT|0.8	SPROP:Electrical Resistance 5
+Altherian Steel	KEY:HVYARMALTHST		TYPE:Armor.AltherianSteel.BaseMaterial	COST:9000	ITYPE:Altherian Steel	SOURCEPAGE:p.178	PRETYPE:Heavy,Metal		BONUS:EQM|WEIGHTMULT|0.8	SPROP:Electrical Resistance 10
+Altherian Steel	KEY:SHIELDALTHST		TYPE:Shield.AltherianSteel.BaseMaterial	COST:1000	ITYPE:Altherian Steel	SOURCEPAGE:p.178	PRETYPE:Metal
+
+#
+# End
+#

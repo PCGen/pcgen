@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Thu Apr 17 20:36:11 2003 -- reformated by pretty~1.pl v1.27 (build 277)
+SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
+##Scrolls
+# Equipment Name		Type					Cost		Weight	Source Page				Special Property
+Scroll (Tutorial 1st)	TYPE:Magic.Scroll.Arcane	COST:100	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 2nd)	TYPE:Magic.Scroll.Arcane	COST:250	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 3rd)	TYPE:Magic.Scroll.Arcane	COST:505	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 4th)	TYPE:Magic.Scroll.Arcane	COST:865	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 5th)	TYPE:Magic.Scroll.Arcane	COST:1325	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 6th)	TYPE:Magic.Scroll.Arcane	COST:1900	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 7th)	TYPE:Magic.Scroll.Arcane	COST:2565	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 8th)	TYPE:Magic.Scroll.Arcane	COST:3340	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text
+Scroll (Tutorial 9th)	TYPE:Magic.Scroll.Arcane	COST:4220	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text

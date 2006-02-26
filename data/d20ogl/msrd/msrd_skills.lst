@@ -1,0 +1,84 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Mon Sep 13 17:48:31 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: Paul King & Tir Gwaith
+
+#A character without a demolitions kit takes a -4 penalty on Demolitions checks
+#	Thinking about doing a BONUS:SKILL|Demolitions|-4|!PREITEM.....
+#A character without a disguise kit takes a -4 penalty on Disguise checks.
+#A character without a forgery kit takes a -4 penalty on Forgery checks
+#Collecting evidence requires an evidence kit. If the character does not have the appropriate kit,
+#	the character takes a -4 penalty on his or her check.
+
+
+#	Same thing...
+# - Tir Gwaith
+
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type					Source Page				Choose
+Balance					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity			SOURCEPAGE:msrdskillsi.rtf
+Bluff						KEYSTAT:CHA								TYPE:Charisma			SOURCEPAGE:msrdskillsi.rtf
+Climb						KEYSTAT:STR				ACHECK:YES			TYPE:Strength			SOURCEPAGE:msrdskillsi.rtf
+Computer Use				KEYSTAT:INT								TYPE:Intelligence			SOURCEPAGE:msrdskillsi.rtf
+Concentration				KEYSTAT:CON								TYPE:Constitution			SOURCEPAGE:msrdskillsi.rtf
+Control Shape				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom				SOURCEPAGE:msrdcreatures.rtf
+Craft (Chemical)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Craft (Electronic)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Craft (Mechanical)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Craft (Pharmaceutical)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Craft (Structural)			KEYSTAT:INT								TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Craft (Visual Art)			KEYSTAT:INT								TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Craft (Writing)				KEYSTAT:INT								TYPE:Intelligence.Craft		SOURCEPAGE:msrdskillsi.rtf
+Decipher Script				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence			SOURCEPAGE:msrdskillsi.rtf
+Demolitions					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence			SOURCEPAGE:msrdskillsi.rtf
+Diplomacy					KEYSTAT:CHA								TYPE:Charisma			SOURCEPAGE:msrdskillsi.rtf
+Disable Device				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence			SOURCEPAGE:msrdskillsi.rtf
+Disguise					KEYSTAT:CHA								TYPE:Charisma			SOURCEPAGE:msrdskillsi.rtf
+Drive						KEYSTAT:DEX								TYPE:Dexterity			SOURCEPAGE:msrdskillsi.rtf
+Escape Artist				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity			SOURCEPAGE:msrdskillsi.rtf
+Forgery					KEYSTAT:INT								TYPE:Intelligence			SOURCEPAGE:msrdskillsi.rtf
+Gamble					KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsi.rtf
+Gather Information			KEYSTAT:CHA								TYPE:Charisma			SOURCEPAGE:msrdskillsii.rtf
+Handle Animal				KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma			SOURCEPAGE:msrdskillsii.rtf
+Hide						KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity			SOURCEPAGE:msrdskillsii.rtf
+Intimidate					KEYSTAT:CHA								TYPE:Charisma			SOURCEPAGE:msrdskillsii.rtf
+Investigate					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence			SOURCEPAGE:msrdskillsii.rtf
+Jump						KEYSTAT:STR				ACHECK:YES			TYPE:Strength			SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Arcane Lore)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Art)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Behavioral Sciences)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Business)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Civics)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Current Events)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Earth and Life Sciences)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (History)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Physical Sciences)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Popular Culture)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Streetwise)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Technology)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Knowledge (Theology and Philosophy)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge	SOURCEPAGE:msrdskillsii.rtf
+Listen					KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsii.rtf
+Move Silently				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity			SOURCEPAGE:msrdskillsii.rtf
+Navigate					KEYSTAT:INT								TYPE:Intelligence			SOURCEPAGE:msrdskillsii.rtf
+Perform (Act)				KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Dance)				KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Keyboards)			KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Percussion Instruments)	KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Sing)				KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Stand-Up)			KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Stringed Instruments)	KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Perform (Wind Instruments)		KEYSTAT:CHA								TYPE:Charisma.Perform		SOURCEPAGE:msrdskillsii.rtf
+Pilot						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity			SOURCEPAGE:msrdskillsii.rtf
+Profession					KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsii.rtf
+Read/Write Language					USEUNTRAINED:NO					TYPE:None.Language		SOURCEPAGE:msrdskillsii.rtf	CHOOSE:Language(Written)
+Repair					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence			SOURCEPAGE:msrdskillsii.rtf
+Research					KEYSTAT:INT								TYPE:Intelligence			SOURCEPAGE:msrdskillsii.rtf
+Ride						KEYSTAT:DEX								TYPE:Dexterity			SOURCEPAGE:msrdskillsii.rtf
+Search					KEYSTAT:INT								TYPE:Intelligence			SOURCEPAGE:msrdskillsii.rtf
+Sense Motive				KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsii.rtf
+Sleight of Hand				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity			SOURCEPAGE:msrdskillsii.rtf
+Speak Language						USEUNTRAINED:NO					TYPE:None.Language		SOURCEPAGE:msrdskillsii.rtf	CHOOSE:Language(Spoken)
+Spot						KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsii.rtf
+Survival					KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsii.rtf
+Swim						KEYSTAT:STR				ACHECK:YES			TYPE:Strength			SOURCEPAGE:msrdskillsii.rtf
+Treat Injury				KEYSTAT:WIS								TYPE:Wisdom				SOURCEPAGE:msrdskillsii.rtf
+Tumble					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity			SOURCEPAGE:msrdskillsii.rtf

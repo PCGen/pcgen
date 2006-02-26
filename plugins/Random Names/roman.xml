@@ -1,0 +1,1224 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="roman-historical-male-rule" title="Roman" usage="final">
+		<CATEGORY title="Sex: Male"/>
+		<CATEGORY title="Historical: Ancient (until 200)"/>
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="15">
+			<GETLIST idref="roman-male-praenomen" title="Praenomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-male-nomen" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-cognomen" title="Cognomen"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="roman-male-praenomen" title="Praenomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-male-nomen" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-cognomen" title="Cognomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-tribe" title="Tribe"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="roman-male-praenomen" title="Praenomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-male-nomen" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-cognomen" title="Cognomen"/>
+			<SPACE/>
+			<GETRULE idref="roman-agnomen-rule" title="Agnomen"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="roman-historical-female-rule" title="Roman" usage="final">
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Historical: Ancient (until 200)"/>
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="15">
+			<GETRULE idref="roman-historical-female-nomen-rule" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-cognomen" title="Cognomen"/>
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="roman-historical-female-nomen-rule" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-cognomen" title="Cognomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-tribe" title="Tribe"/>
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="roman-historical-female-nomen-rule" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-cognomen" title="Cognomen"/>
+			<SPACE/>
+			<GETRULE idref="roman-agnomen-rule" title="Agnomen"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="roman-historical-female-nomen-rule" title="Nomen" usage="public">
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="4">
+			<GETLIST idref="roman-female-nomen" title="Nomen"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="roman-female-genetive-nomen" title="Genetive Nomen"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="roman-female-genetive-nomen" title="Genetive Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-female-number" title="Number"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="roman-agnomen-rule" title="Agnomen" usage="public">
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="roman-cognomen" title="Agnomen"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="roman-historical-village-rule" title="Roman Location" usage="final">
+		<CATEGORY title="Sex: Other"/>
+		<CATEGORY title="Historical: Ancient (until 200)"/>
+		<CATEGORY title="Historical: Early Middle Ages (200-800)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="1">
+			<GETRULE idref="roman-historical-female-nomen-rule" title="Nomen"/>
+			<SPACE/>
+			<GETLIST idref="roman-village" title="Village"/>
+		</RULE>
+	</RULESET>
+	<LIST id="roman-male-praenomen" title="Praenomen">
+		<VALUE>Caius</VALUE>
+		<VALUE>Gaius</VALUE>
+		<VALUE>Cnaeus</VALUE>
+		<VALUE>Gnaeus</VALUE>
+		<VALUE>Titus</VALUE>
+		<VALUE>Tiberius</VALUE>
+		<VALUE>Quintus</VALUE>
+		<VALUE>Aulus</VALUE>
+		<VALUE>Decimus</VALUE>
+		<VALUE>Lucius</VALUE>
+		<VALUE>Marcus</VALUE>
+		<VALUE>Postumus</VALUE>
+		<VALUE>Publius</VALUE>
+		<VALUE>Quadratus</VALUE>
+		<VALUE>Sextus</VALUE>
+		<VALUE>Servius</VALUE>
+		<VALUE>Spurius</VALUE>
+		<VALUE>Primus</VALUE>
+		<VALUE>Tertius</VALUE>
+		<VALUE>Flavius</VALUE>
+		<VALUE>Cassius</VALUE>
+	</LIST>
+	<LIST id="roman-male-nomen" title="Nomen">
+		<VALUE>Abudius</VALUE>
+		<VALUE>Adaucius</VALUE>
+		<VALUE>Aelius</VALUE>
+		<VALUE>Aemilius</VALUE>
+		<VALUE>Aeresius</VALUE>
+		<VALUE>Afranius</VALUE>
+		<VALUE>Albius</VALUE>
+		<VALUE>Ammonius</VALUE>
+		<VALUE>Antonius</VALUE>
+		<VALUE>Apuleius</VALUE>
+		<VALUE>Arrenius</VALUE>
+		<VALUE>Anicius</VALUE>
+		<VALUE>Antonius</VALUE>
+		<VALUE>Artorius</VALUE>
+		<VALUE>Audacilius</VALUE>
+		<VALUE>Aufidius</VALUE>
+		<VALUE>Aurelius</VALUE>
+		<VALUE>Babudius</VALUE>
+		<VALUE>Caecilius</VALUE>
+		<VALUE>Caelius</VALUE>
+		<VALUE>Caesennius</VALUE>
+		<VALUE>Caesidius</VALUE>
+		<VALUE>Calidius</VALUE>
+		<VALUE>Calpurnius</VALUE>
+		<VALUE>Cammidius</VALUE>
+		<VALUE>Cammius</VALUE>
+		<VALUE>Camurius</VALUE>
+		<VALUE>Carausius</VALUE>
+		<VALUE>Cassius</VALUE>
+		<VALUE>Celerinius</VALUE>
+		<VALUE>Censorius</VALUE>
+		<VALUE>Claudius</VALUE>
+		<VALUE>Clodius</VALUE>
+		<VALUE>Cornelius</VALUE>
+		<VALUE>Curtius</VALUE>
+		<VALUE>Decrius</VALUE>
+		<VALUE>Desticius</VALUE>
+		<VALUE>Didius</VALUE>
+		<VALUE>Domitius</VALUE>
+		<VALUE>Duccius</VALUE>
+		<VALUE>Ecimius</VALUE>
+		<VALUE>Eprius</VALUE>
+		<VALUE>Exomnius</VALUE>
+		<VALUE>Fabius</VALUE>
+		<VALUE>Fannius</VALUE>
+		<VALUE>Favonius</VALUE>
+		<VALUE>Flavius</VALUE>
+		<VALUE>Gargilius</VALUE>
+		<VALUE>Grattius</VALUE>
+		<VALUE>Helvidius</VALUE>
+		<VALUE>Helvius</VALUE>
+		<VALUE>Honorius</VALUE>
+		<VALUE>Hortensius</VALUE>
+		<VALUE>Hosidius</VALUE>
+		<VALUE>Ingenuius</VALUE>
+		<VALUE>Julius</VALUE>
+		<VALUE>Juventius</VALUE>
+		<VALUE>Larcius</VALUE>
+		<VALUE>Latinius</VALUE>
+		<VALUE>Liburnius</VALUE>
+		<VALUE>Licinius</VALUE>
+		<VALUE>Ligustinius</VALUE>
+		<VALUE>Livius</VALUE>
+		<VALUE>Lollius</VALUE>
+		<VALUE>Lousius</VALUE>
+		<VALUE>Lucretius</VALUE>
+		<VALUE>Maenius</VALUE>
+		<VALUE>Manlius</VALUE>
+		<VALUE>Mannius</VALUE>
+		<VALUE>Marius</VALUE>
+		<VALUE>Menius</VALUE>
+		<VALUE>Mercatius</VALUE>
+		<VALUE>Messorius</VALUE>
+		<VALUE>Minicius</VALUE>
+		<VALUE>Mommius</VALUE>
+		<VALUE>Mummius</VALUE>
+		<VALUE>Mucius</VALUE>
+		<VALUE>Munatius</VALUE>
+		<VALUE>Mussius</VALUE>
+		<VALUE>Mustius</VALUE>
+		<VALUE>Nectovelius</VALUE>
+		<VALUE>Nemonius</VALUE>
+		<VALUE>Neratius</VALUE>
+		<VALUE>Nestorius</VALUE>
+		<VALUE>Octavius</VALUE>
+		<VALUE>Olcinius</VALUE>
+		<VALUE>Oppius</VALUE>
+		<VALUE>Ostorius</VALUE>
+		<VALUE>Paternius</VALUE>
+		<VALUE>Peltrasius</VALUE>
+		<VALUE>Petillius</VALUE>
+		<VALUE>Petronius</VALUE>
+		<VALUE>Plautius</VALUE>
+		<VALUE>Platorius</VALUE>
+		<VALUE>Poenius</VALUE>
+		<VALUE>Pompeius</VALUE>
+		<VALUE>Pomponius</VALUE>
+		<VALUE>Pontius</VALUE>
+		<VALUE>Porcius</VALUE>
+		<VALUE>Postumius</VALUE>
+		<VALUE>Praesentius</VALUE>
+		<VALUE>Pupius</VALUE>
+		<VALUE>Quinctilius</VALUE>
+		<VALUE>Roscius</VALUE>
+		<VALUE>Rustius</VALUE>
+		<VALUE>Rutilius</VALUE>
+		<VALUE>Saturius</VALUE>
+		<VALUE>Sallustius</VALUE>
+		<VALUE>Saufeius</VALUE>
+		<VALUE>Scribonius</VALUE>
+		<VALUE>Sempronius</VALUE>
+		<VALUE>Septimius</VALUE>
+		<VALUE>Sertorius</VALUE>
+		<VALUE>Simplicius</VALUE>
+		<VALUE>Sittius</VALUE>
+		<VALUE>Socellius</VALUE>
+		<VALUE>Spurius</VALUE>
+		<VALUE>Statilius</VALUE>
+		<VALUE>Statorius</VALUE>
+		<VALUE>Suetonius</VALUE>
+		<VALUE>Sulpicius</VALUE>
+		<VALUE>Tabellius</VALUE>
+		<VALUE>Tadius</VALUE>
+		<VALUE>Terentius</VALUE>
+		<VALUE>Tertinius</VALUE>
+		<VALUE>Thoranius</VALUE>
+		<VALUE>Titius</VALUE>
+		<VALUE>Trebellius</VALUE>
+		<VALUE>Tuccius</VALUE>
+		<VALUE>Ulpius</VALUE>
+		<VALUE>Valerius</VALUE>
+		<VALUE>Varius</VALUE>
+		<VALUE>Velius</VALUE>
+		<VALUE>Veranius</VALUE>
+		<VALUE>Vesnius</VALUE>
+		<VALUE>Vettius</VALUE>
+		<VALUE>Vibius</VALUE>
+		<VALUE>Virius</VALUE>
+		<VALUE>Vitellius</VALUE>
+		<VALUE>Volteius</VALUE>
+		<VALUE>Volusius</VALUE>
+	</LIST>
+	<LIST id="roman-female-nomen" title="Nomen">
+		<VALUE>Abudia Megiste</VALUE>
+		<VALUE>Allia Potestas</VALUE>
+		<VALUE>Antiochis</VALUE>
+		<VALUE>Antonia Thallusa</VALUE>
+		<VALUE>Appulia</VALUE>
+		<VALUE>Aristarete</VALUE>
+		<VALUE>Arria</VALUE>
+		<VALUE>Artemis</VALUE>
+		<VALUE>Athenodora</VALUE>
+		<VALUE>Atia</VALUE>
+		<VALUE>Aurelia Leite</VALUE>
+		<VALUE>Aurelia Philmatio</VALUE>
+		<VALUE>Bassilla</VALUE>
+		<VALUE>Caprasia</VALUE>
+		<VALUE>Cassia Secunda</VALUE>
+		<VALUE>Claudia</VALUE>
+		<VALUE>Clodia</VALUE>
+		<VALUE>Cornelia</VALUE>
+		<VALUE>Didymarion</VALUE>
+		<VALUE>Didyme</VALUE>
+		<VALUE>Dionysia</VALUE>
+		<VALUE>Domnina</VALUE>
+		<VALUE>Drusilla</VALUE>
+		<VALUE>Epicydilla</VALUE>
+		<VALUE>Epidia</VALUE>
+		<VALUE>Epria</VALUE>
+		<VALUE>Eucharis</VALUE>
+		<VALUE>Extricata</VALUE>
+		<VALUE>Fannia</VALUE>
+		<VALUE>Flavia Publia Nimachis</VALUE>
+		<VALUE>Flavia Sabina</VALUE>
+		<VALUE>Gaia Afrania</VALUE>
+		<VALUE>Gnome</VALUE>
+		<VALUE>Hedea</VALUE>
+		<VALUE>Helvia</VALUE>
+		<VALUE>Hilara</VALUE>
+		<VALUE>Hortensia</VALUE>
+		<VALUE>Irene</VALUE>
+		<VALUE>Isidora</VALUE>
+		<VALUE>Italia</VALUE>
+		<VALUE>Julia Domna</VALUE>
+		<VALUE>Julia Livilla</VALUE>
+		<VALUE>Julia Pye</VALUE>
+		<VALUE>Junia Theodora</VALUE>
+		<VALUE>Lalla</VALUE>
+		<VALUE>Larcia Horaea</VALUE>
+		<VALUE>Licinia</VALUE>
+		<VALUE>Magnilla</VALUE>
+		<VALUE>Melino</VALUE>
+		<VALUE>Melitine</VALUE>
+		<VALUE>Messalina</VALUE>
+		<VALUE>Minicia Marcella</VALUE>
+		<VALUE>Minucia Asste</VALUE>
+		<VALUE>Modia Quintia</VALUE>
+		<VALUE>Murdia</VALUE>
+		<VALUE>Musa</VALUE>
+		<VALUE>Mussia Dionysia</VALUE>
+		<VALUE>Nitocris</VALUE>
+		<VALUE>Olympias</VALUE>
+		<VALUE>Olympionica</VALUE>
+		<VALUE>Paezusa</VALUE>
+		<VALUE>Panthia</VALUE>
+		<VALUE>Parthenia</VALUE>
+		<VALUE>Perenice</VALUE>
+		<VALUE>Phamphile</VALUE>
+		<VALUE>Phyllis</VALUE>
+		<VALUE>Pobicia Aphe</VALUE>
+		<VALUE>Politta</VALUE>
+		<VALUE>Posilla Senenia</VALUE>
+		<VALUE>Primilla</VALUE>
+		<VALUE>Quarta Senenia</VALUE>
+		<VALUE>Recepta</VALUE>
+		<VALUE>Sallustia Athenais</VALUE>
+		<VALUE>Saufeia Thalea</VALUE>
+		<VALUE>Scholastica</VALUE>
+		<VALUE>Semiramis</VALUE>
+		<VALUE>Socratea</VALUE>
+		<VALUE>Statilla</VALUE>
+		<VALUE>Statillia Tyrannis</VALUE>
+		<VALUE>Sulpicia</VALUE>
+		<VALUE>Telephoris</VALUE>
+		<VALUE>Terentia Prima</VALUE>
+		<VALUE>Tertia Aemilia</VALUE>
+		<VALUE>Thuria</VALUE>
+		<VALUE>Timarete</VALUE>
+		<VALUE>Tryphosa</VALUE>
+		<VALUE>Urbana</VALUE>
+		<VALUE>Venuleia Sosis</VALUE>
+	</LIST>
+	<LIST id="roman-female-genetive-nomen" title="Genetive Nomen">
+		<VALUE>Abuda</VALUE>
+		<VALUE>Adauca</VALUE>
+		<VALUE>Aela</VALUE>
+		<VALUE>Aemila</VALUE>
+		<VALUE>Aeresa</VALUE>
+		<VALUE>Afrana</VALUE>
+		<VALUE>Alba</VALUE>
+		<VALUE>Ammona</VALUE>
+		<VALUE>Antona</VALUE>
+		<VALUE>Apuleii</VALUE>
+		<VALUE>Arrena</VALUE>
+		<VALUE>Anica</VALUE>
+		<VALUE>Antona</VALUE>
+		<VALUE>Artora</VALUE>
+		<VALUE>Audacila</VALUE>
+		<VALUE>Aufida</VALUE>
+		<VALUE>Aurela</VALUE>
+		<VALUE>Babuda</VALUE>
+		<VALUE>Caecila</VALUE>
+		<VALUE>Caela</VALUE>
+		<VALUE>Caesenna</VALUE>
+		<VALUE>Caesida</VALUE>
+		<VALUE>Calida</VALUE>
+		<VALUE>Calpurna</VALUE>
+		<VALUE>Cammida</VALUE>
+		<VALUE>Camma</VALUE>
+		<VALUE>Camura</VALUE>
+		<VALUE>Carausa</VALUE>
+		<VALUE>Cassa</VALUE>
+		<VALUE>Celerina</VALUE>
+		<VALUE>Censora</VALUE>
+		<VALUE>Clauda</VALUE>
+		<VALUE>Cloda</VALUE>
+		<VALUE>Cornela</VALUE>
+		<VALUE>Curta</VALUE>
+		<VALUE>Decra</VALUE>
+		<VALUE>Destica</VALUE>
+		<VALUE>Dida</VALUE>
+		<VALUE>Domita</VALUE>
+		<VALUE>Ducca</VALUE>
+		<VALUE>Ecima</VALUE>
+		<VALUE>Epra</VALUE>
+		<VALUE>Exomna</VALUE>
+		<VALUE>Faba</VALUE>
+		<VALUE>Fanna</VALUE>
+		<VALUE>Favona</VALUE>
+		<VALUE>Flava</VALUE>
+		<VALUE>Gargila</VALUE>
+		<VALUE>Gratta</VALUE>
+		<VALUE>Helvida</VALUE>
+		<VALUE>Helva</VALUE>
+		<VALUE>Honora</VALUE>
+		<VALUE>Hortensa</VALUE>
+		<VALUE>Hosida</VALUE>
+		<VALUE>Ingenua</VALUE>
+		<VALUE>Jula</VALUE>
+		<VALUE>Juventa</VALUE>
+		<VALUE>Larca</VALUE>
+		<VALUE>Latina</VALUE>
+		<VALUE>Liburna</VALUE>
+		<VALUE>Licina</VALUE>
+		<VALUE>Ligustina</VALUE>
+		<VALUE>Liva</VALUE>
+		<VALUE>Lolla</VALUE>
+		<VALUE>Lousa</VALUE>
+		<VALUE>Lucreta</VALUE>
+		<VALUE>Maena</VALUE>
+		<VALUE>Manla</VALUE>
+		<VALUE>Manna</VALUE>
+		<VALUE>Mara</VALUE>
+		<VALUE>Mena</VALUE>
+		<VALUE>Mercata</VALUE>
+		<VALUE>Messora</VALUE>
+		<VALUE>Minica</VALUE>
+		<VALUE>Momma</VALUE>
+		<VALUE>Mumma</VALUE>
+		<VALUE>Muca</VALUE>
+		<VALUE>Munata</VALUE>
+		<VALUE>Mussa</VALUE>
+		<VALUE>Musta</VALUE>
+		<VALUE>Nectovela</VALUE>
+		<VALUE>Nemona</VALUE>
+		<VALUE>Nerata</VALUE>
+		<VALUE>Nestora</VALUE>
+		<VALUE>Octava</VALUE>
+		<VALUE>Olcina</VALUE>
+		<VALUE>Oppa</VALUE>
+		<VALUE>Ostora</VALUE>
+		<VALUE>Paterna</VALUE>
+		<VALUE>Peltrasa</VALUE>
+		<VALUE>Petilla</VALUE>
+		<VALUE>Petrona</VALUE>
+		<VALUE>Plauta</VALUE>
+		<VALUE>Platora</VALUE>
+		<VALUE>Poena</VALUE>
+		<VALUE>Pompii</VALUE>
+		<VALUE>Pompona</VALUE>
+		<VALUE>Ponta</VALUE>
+		<VALUE>Porca</VALUE>
+		<VALUE>Postuma</VALUE>
+		<VALUE>Praesenta</VALUE>
+		<VALUE>Pupa</VALUE>
+		<VALUE>Quinctila</VALUE>
+		<VALUE>Rosca</VALUE>
+		<VALUE>Rusta</VALUE>
+		<VALUE>Rutila</VALUE>
+		<VALUE>Satura</VALUE>
+		<VALUE>Sallusta</VALUE>
+		<VALUE>Saufii</VALUE>
+		<VALUE>Scribona</VALUE>
+		<VALUE>Semprona</VALUE>
+		<VALUE>Septima</VALUE>
+		<VALUE>Sertora</VALUE>
+		<VALUE>Simplica</VALUE>
+		<VALUE>Sitta</VALUE>
+		<VALUE>Socella</VALUE>
+		<VALUE>Spura</VALUE>
+		<VALUE>Statila</VALUE>
+		<VALUE>Statora</VALUE>
+		<VALUE>Suetona</VALUE>
+		<VALUE>Sulpica</VALUE>
+		<VALUE>Tabella</VALUE>
+		<VALUE>Tada</VALUE>
+		<VALUE>Terenta</VALUE>
+		<VALUE>Tertina</VALUE>
+		<VALUE>Thorana</VALUE>
+		<VALUE>Tita</VALUE>
+		<VALUE>Trebella</VALUE>
+		<VALUE>Tucca</VALUE>
+		<VALUE>Ulpa</VALUE>
+		<VALUE>Valera</VALUE>
+		<VALUE>Vara</VALUE>
+		<VALUE>Vela</VALUE>
+		<VALUE>Verana</VALUE>
+		<VALUE>Vesna</VALUE>
+		<VALUE>Vetta</VALUE>
+		<VALUE>Viba</VALUE>
+		<VALUE>Vira</VALUE>
+		<VALUE>Vitella</VALUE>
+		<VALUE>Voltii</VALUE>
+		<VALUE>Volusa</VALUE>
+	</LIST>
+	<LIST id="roman-cognomen" title="Cognomen">
+		<VALUE>Aelianus</VALUE>
+		<VALUE>Agricola</VALUE>
+		<VALUE>Agrippa</VALUE>
+		<VALUE>Albanus</VALUE>
+		<VALUE>Albinus</VALUE>
+		<VALUE>Aprilis</VALUE>
+		<VALUE>Arcanus</VALUE>
+		<VALUE>Avitus</VALUE>
+		<VALUE>Balbus</VALUE>
+		<VALUE>Bassus</VALUE>
+		<VALUE>Bellicianus</VALUE>
+		<VALUE>Betto</VALUE>
+		<VALUE>Caelianus</VALUE>
+		<VALUE>Capito</VALUE>
+		<VALUE>Castus</VALUE>
+		<VALUE>Cattianus</VALUE>
+		<VALUE>Celer</VALUE>
+		<VALUE>Cerialis</VALUE>
+		<VALUE>Civilis</VALUE>
+		<VALUE>Clemens</VALUE>
+		<VALUE>Coranus</VALUE>
+		<VALUE>Corvinus</VALUE>
+		<VALUE>Crescens</VALUE>
+		<VALUE>Crispus</VALUE>
+		<VALUE>Dexter</VALUE>
+		<VALUE>Dida</VALUE>
+		<VALUE>Disertus</VALUE>
+		<VALUE>Donatus</VALUE>
+		<VALUE>Drusus</VALUE>
+		<VALUE>Erasinus</VALUE>
+		<VALUE>Facilis</VALUE>
+		<VALUE>Faustus</VALUE>
+		<VALUE>Felicissimus</VALUE>
+		<VALUE>Felix</VALUE>
+		<VALUE>Festus</VALUE>
+		<VALUE>Fidus</VALUE>
+		<VALUE>Firmus</VALUE>
+		<VALUE>Flavinus</VALUE>
+		<VALUE>Fortunatus</VALUE>
+		<VALUE>Frontinus</VALUE>
+		<VALUE>Fronto</VALUE>
+		<VALUE>Fuscus</VALUE>
+		<VALUE>Gaianus</VALUE>
+		<VALUE>Galba</VALUE>
+		<VALUE>Gallienus</VALUE>
+		<VALUE>Gallus</VALUE>
+		<VALUE>Gemellus</VALUE>
+		<VALUE>Genialis</VALUE>
+		<VALUE>Geta</VALUE>
+		<VALUE>Gracchus</VALUE>
+		<VALUE>Homullus</VALUE>
+		<VALUE>Honoratus</VALUE>
+		<VALUE>Ingenuus</VALUE>
+		<VALUE>Justus</VALUE>
+		<VALUE>Libo</VALUE>
+		<VALUE>Longinus</VALUE>
+		<VALUE>Lucullus</VALUE>
+		<VALUE>Lupus</VALUE>
+		<VALUE>Macer</VALUE>
+		<VALUE>Macrinus</VALUE>
+		<VALUE>Macro</VALUE>
+		<VALUE>Magnus</VALUE>
+		<VALUE>Mansuetus</VALUE>
+		<VALUE>Marcellus</VALUE>
+		<VALUE>Maritimus</VALUE>
+		<VALUE>Martialis</VALUE>
+		<VALUE>Martius</VALUE>
+		<VALUE>Masala</VALUE>
+		<VALUE>Masavo</VALUE>
+		<VALUE>Maternus</VALUE>
+		<VALUE>Maurus</VALUE>
+		<VALUE>Maximus</VALUE>
+		<VALUE>Melito</VALUE>
+		<VALUE>Messalinus</VALUE>
+		<VALUE>Mettellus</VALUE>
+		<VALUE>Modianus</VALUE>
+		<VALUE>Montanus</VALUE>
+		<VALUE>Natalis</VALUE>
+		<VALUE>Nepos</VALUE>
+		<VALUE>Nerva</VALUE>
+		<VALUE>Noricus</VALUE>
+		<VALUE>Novanus</VALUE>
+		<VALUE>Paetus</VALUE>
+		<VALUE>Panthera</VALUE>
+		<VALUE>Paulinus</VALUE>
+		<VALUE>Pertinax</VALUE>
+		<VALUE>Petra</VALUE>
+		<VALUE>Picens</VALUE>
+		<VALUE>Pius</VALUE>
+		<VALUE>Probus</VALUE>
+		<VALUE>Proclus</VALUE>
+		<VALUE>Pudens</VALUE>
+		<VALUE>Pulcher</VALUE>
+		<VALUE>Quadratus</VALUE>
+		<VALUE>Quietus</VALUE>
+		<VALUE>Romanus</VALUE>
+		<VALUE>Rufinus</VALUE>
+		<VALUE>Rufus</VALUE>
+		<VALUE>Rusticus</VALUE>
+		<VALUE>Sabinus</VALUE>
+		<VALUE>Saenus</VALUE>
+		<VALUE>Saturninus</VALUE>
+		<VALUE>Savius</VALUE>
+		<VALUE>Scapula</VALUE>
+		<VALUE>Scipio</VALUE>
+		<VALUE>Secundus</VALUE>
+		<VALUE>Seianus</VALUE>
+		<VALUE>Senecio</VALUE>
+		<VALUE>Severus</VALUE>
+		<VALUE>Silanus</VALUE>
+		<VALUE>Silvanus</VALUE>
+		<VALUE>SolonSolus</VALUE>
+		<VALUE>Speratus</VALUE>
+		<VALUE>Strabo</VALUE>
+		<VALUE>Suavis</VALUE>
+		<VALUE>Super</VALUE>
+		<VALUE>Surinus</VALUE>
+		<VALUE>Thurinus</VALUE>
+		<VALUE>Valens</VALUE>
+		<VALUE>Venator</VALUE>
+		<VALUE>Verus</VALUE>
+		<VALUE>Viator</VALUE>
+		<VALUE>Victor</VALUE>
+		<VALUE>Vindex</VALUE>
+		<VALUE>Virilis</VALUE>
+		<VALUE>Vitalis</VALUE>
+	</LIST>
+	<LIST id="roman-tribe" title="Tribe">
+		<VALUE>AEM<SUBVALUE type="meaning">Aemilia</SUBVALUE></VALUE>
+		<VALUE>FAB<SUBVALUE type="meaning">Fabia</SUBVALUE></VALUE>
+		<VALUE>PAP<SUBVALUE type="meaning">Papiria</SUBVALUE></VALUE>
+		<VALUE>SET<SUBVALUE type="meaning">Sergia</SUBVALUE></VALUE>
+		<VALUE>ANI<SUBVALUE type="meaning">Aniensis</SUBVALUE></VALUE>
+		<VALUE>FAL<SUBVALUE type="meaning">Falerna</SUBVALUE></VALUE>
+		<VALUE>POL<SUBVALUE type="meaning">Pollia</SUBVALUE></VALUE>
+		<VALUE>STE<SUBVALUE type="meaning">Stellatina</SUBVALUE></VALUE>
+		<VALUE>ARN<SUBVALUE type="meaning">Arnensis</SUBVALUE></VALUE>
+		<VALUE>GAL<SUBVALUE type="meaning">Galeria</SUBVALUE></VALUE>
+		<VALUE>POM<SUBVALUE type="meaning">Pomptina</SUBVALUE></VALUE>
+		<VALUE>SVC<SUBVALUE type="meaning">Suburana</SUBVALUE></VALUE>
+		<VALUE>CAM<SUBVALUE type="meaning">Camilia</SUBVALUE></VALUE>
+		<VALUE>HOR<SUBVALUE type="meaning">Horatia</SUBVALUE></VALUE>
+		<VALUE>PVB<SUBVALUE type="meaning">Publilia</SUBVALUE></VALUE>
+		<VALUE>TER<SUBVALUE type="meaning">Terentina</SUBVALUE></VALUE>
+		<VALUE>CLA<SUBVALUE type="meaning">Claudia</SUBVALUE></VALUE>
+		<VALUE>LEM<SUBVALUE type="meaning">Lemonia</SUBVALUE></VALUE>
+		<VALUE>PVP<SUBVALUE type="meaning">Pupinia</SUBVALUE></VALUE>
+		<VALUE>TRO<SUBVALUE type="meaning">Tromentina</SUBVALUE></VALUE>
+		<VALUE>CLU<SUBVALUE type="meaning">Clustumina</SUBVALUE></VALUE>
+		<VALUE>MAEC<SUBVALUE type="meaning">Maecia</SUBVALUE></VALUE>
+		<VALUE>QVIR<SUBVALUE type="meaning">Quirina</SUBVALUE></VALUE>
+		<VALUE>VEL<SUBVALUE type="meaning">Velina</SUBVALUE></VALUE>
+		<VALUE>COL<SUBVALUE type="meaning">Collina</SUBVALUE></VALUE>
+		<VALUE>MEN<SUBVALUE type="meaning">Menenia</SUBVALUE></VALUE>
+		<VALUE>ROM<SUBVALUE type="meaning">Romilia</SUBVALUE></VALUE>
+		<VALUE>VOL<SUBVALUE type="meaning">Voltina</SUBVALUE></VALUE>
+		<VALUE>COR<SUBVALUE type="meaning">Cornelia</SUBVALUE></VALUE>
+		<VALUE>OVF<SUBVALUE type="meaning">Oufentina</SUBVALUE></VALUE>
+		<VALUE>SAB<SUBVALUE type="meaning">Sabatina</SUBVALUE></VALUE>
+		<VALUE>VOT<SUBVALUE type="meaning">Voturia</SUBVALUE></VALUE>
+		<VALUE>ESQ<SUBVALUE type="meaning">Esquilina</SUBVALUE></VALUE>
+		<VALUE>PAL<SUBVALUE type="meaning">Palantina</SUBVALUE></VALUE>
+		<VALUE>SCAP<SUBVALUE type="meaning">Scaptia</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="roman-female-number" title="Number">
+		<VALUE>Prima</VALUE>
+		<VALUE>Una</VALUE>
+		<VALUE>Major</VALUE>
+		<VALUE>Maxima</VALUE>
+		<VALUE>Secunda</VALUE>
+		<VALUE>Minima</VALUE>
+		<VALUE>Minor</VALUE>
+		<VALUE>Tertia</VALUE>
+	</LIST>
+	<LIST id="roman-village" title="Village">
+		<VALUE>Aballava</VALUE>
+		<VALUE>Aballo</VALUE>
+		<VALUE>Aballum</VALUE>
+		<VALUE>Abdera</VALUE>
+		<VALUE>Abrittus</VALUE>
+		<VALUE>Abritus</VALUE>
+		<VALUE>Abudiacum</VALUE>
+		<VALUE>Abula</VALUE>
+		<VALUE>Abusina</VALUE>
+		<VALUE>Acci</VALUE>
+		<VALUE>Acinipo</VALUE>
+		<VALUE>Acrae</VALUE>
+		<VALUE>Acyra</VALUE>
+		<VALUE>Ad Anisum</VALUE>
+		<VALUE>Ad Flexum</VALUE>
+		<VALUE>Ad Iuvense</VALUE>
+		<VALUE>Ad Mauros</VALUE>
+		<VALUE>Ad Mediam</VALUE>
+		<VALUE>Ad Novas</VALUE>
+		<VALUE>Ad Statuas</VALUE>
+		<VALUE>Adana</VALUE>
+		<VALUE>Ader</VALUE>
+		<VALUE>Adraa</VALUE>
+		<VALUE>Adramyttium</VALUE>
+		<VALUE>Aelia Capitolina</VALUE>
+		<VALUE>Aelium Cetium</VALUE>
+		<VALUE>Aeminium</VALUE>
+		<VALUE>Aemona</VALUE>
+		<VALUE>Aenus</VALUE>
+		<VALUE>Aequinoctium</VALUE>
+		<VALUE>Aesica</VALUE>
+		<VALUE>Agathe</VALUE>
+		<VALUE>Agedincum</VALUE>
+		<VALUE>Agrigentum</VALUE>
+		<VALUE>Aguntum</VALUE>
+		<VALUE>Ala Nova</VALUE>
+		<VALUE>Albanum</VALUE>
+		<VALUE>Almus</VALUE>
+		<VALUE>Altinum</VALUE>
+		<VALUE>Ambiani</VALUE>
+		<VALUE>Ambracia</VALUE>
+		<VALUE>Amida</VALUE>
+		<VALUE>Anchialus</VALUE>
+		<VALUE>Anderida</VALUE>
+		<VALUE>Anhialo</VALUE>
+		<VALUE>Anicium</VALUE>
+		<VALUE>Anio</VALUE>
+		<VALUE>Antioch</VALUE>
+		<VALUE>Antipolis</VALUE>
+		<VALUE>Antium</VALUE>
+		<VALUE>Apamea</VALUE>
+		<VALUE>Aphrodisias</VALUE>
+		<VALUE>Apollonia</VALUE>
+		<VALUE>Apollonia Pontica</VALUE>
+		<VALUE>Apulum</VALUE>
+		<VALUE>Aqua Viva</VALUE>
+		<VALUE>Aquae Cutiliae</VALUE>
+		<VALUE>Aquae Helveticae</VALUE>
+		<VALUE>Aquae Sextiae</VALUE>
+		<VALUE>Aquae Sulis</VALUE>
+		<VALUE>Aquileia</VALUE>
+		<VALUE>Aquincum</VALUE>
+		<VALUE>Aquis Voconis</VALUE>
+		<VALUE>Aquisgranium</VALUE>
+		<VALUE>Aquitania</VALUE>
+		<VALUE>Arausio</VALUE>
+		<VALUE>Arbeia</VALUE>
+		<VALUE>Arcadiopolis</VALUE>
+		<VALUE>Arcidava</VALUE>
+		<VALUE>Arelape</VALUE>
+		<VALUE>Arelate</VALUE>
+		<VALUE>Argentoratum</VALUE>
+		<VALUE>Ariminium</VALUE>
+		<VALUE>Armorica</VALUE>
+		<VALUE>Arrabona</VALUE>
+		<VALUE>Arsinoe</VALUE>
+		<VALUE>Arverni</VALUE>
+		<VALUE>Ascalon</VALUE>
+		<VALUE>Asisium</VALUE>
+		<VALUE>Asturica</VALUE>
+		<VALUE>Athenae</VALUE>
+		<VALUE>Atrans</VALUE>
+		<VALUE>Atrebatum</VALUE>
+		<VALUE>Augusta Emerita</VALUE>
+		<VALUE>Augusta Praetoria</VALUE>
+		<VALUE>Augusta Raurica</VALUE>
+		<VALUE>Augusta Taurinorum</VALUE>
+		<VALUE>Augusta Trajana</VALUE>
+		<VALUE>Augusta Trebecorum</VALUE>
+		<VALUE>Augusta Treverorum</VALUE>
+		<VALUE>Augusta Trevirorum</VALUE>
+		<VALUE>Augusta Vindelicorum</VALUE>
+		<VALUE>Augustianis</VALUE>
+		<VALUE>Augustobona</VALUE>
+		<VALUE>Augustodunum</VALUE>
+		<VALUE>Augustonementum</VALUE>
+		<VALUE>Aurelia</VALUE>
+		<VALUE>Aurelia Aquensi</VALUE>
+		<VALUE>Aurelianum</VALUE>
+		<VALUE>Autricum</VALUE>
+		<VALUE>Avennio</VALUE>
+		<VALUE>Aventicum</VALUE>
+		<VALUE>Baelo</VALUE>
+		<VALUE>Baeloe</VALUE>
+		<VALUE>Baeterrae</VALUE>
+		<VALUE>Baetulo</VALUE>
+		<VALUE>Baiae</VALUE>
+		<VALUE>Barcino</VALUE>
+		<VALUE>Barium</VALUE>
+		<VALUE>Basti</VALUE>
+		<VALUE>Batavis</VALUE>
+		<VALUE>Bedriacum</VALUE>
+		<VALUE>Belgica</VALUE>
+		<VALUE>Belginum</VALUE>
+		<VALUE>Beneventum</VALUE>
+		<VALUE>Bergomum</VALUE>
+		<VALUE>Bergula</VALUE>
+		<VALUE>Beroe Augusta Trajana</VALUE>
+		<VALUE>Berytus</VALUE>
+		<VALUE>Berzobis</VALUE>
+		<VALUE>Bethar</VALUE>
+		<VALUE>Bilbilis</VALUE>
+		<VALUE>Bilbilis Italica</VALUE>
+		<VALUE>Bisanthe</VALUE>
+		<VALUE>Blariacum</VALUE>
+		<VALUE>Bona</VALUE>
+		<VALUE>Bononia</VALUE>
+		<VALUE>Bononia Malata</VALUE>
+		<VALUE>Bostra</VALUE>
+		<VALUE>Bracara Augusta</VALUE>
+		<VALUE>Bremetennacum Veteranorum</VALUE>
+		<VALUE>Brigantium</VALUE>
+		<VALUE>Brigetio</VALUE>
+		<VALUE>Britannia</VALUE>
+		<VALUE>Brivas</VALUE>
+		<VALUE>Brixellum</VALUE>
+		<VALUE>Brundisium</VALUE>
+		<VALUE>Budalia</VALUE>
+		<VALUE>Burdigala</VALUE>
+		<VALUE>Burrium</VALUE>
+		<VALUE>Byblus</VALUE>
+		<VALUE>Byzantium</VALUE>
+		<VALUE>Caenophrurium</VALUE>
+		<VALUE>Caesaraugusta</VALUE>
+		<VALUE>Caesarea</VALUE>
+		<VALUE>Caesarea Maritima</VALUE>
+		<VALUE>Caesarea Mazaca</VALUE>
+		<VALUE>Caesarodunum</VALUE>
+		<VALUE>Caesena</VALUE>
+		<VALUE>Calagurris</VALUE>
+		<VALUE>Calagurris Iulia Nasica</VALUE>
+		<VALUE>Calceus Herculis</VALUE>
+		<VALUE>Caledonia</VALUE>
+		<VALUE>Callatis</VALUE>
+		<VALUE>Calleva Atrebatum</VALUE>
+		<VALUE>Cambria</VALUE>
+		<VALUE>Campi Catalaunii</VALUE>
+		<VALUE>Campona</VALUE>
+		<VALUE>Camulodunum</VALUE>
+		<VALUE>Canatha</VALUE>
+		<VALUE>Cannabiaca</VALUE>
+		<VALUE>Cannae</VALUE>
+		<VALUE>Cantabrigia</VALUE>
+		<VALUE>Caprae</VALUE>
+		<VALUE>Caprera</VALUE>
+		<VALUE>Capsa</VALUE>
+		<VALUE>Carcaso</VALUE>
+		<VALUE>Carmo</VALUE>
+		<VALUE>Carmona</VALUE>
+		<VALUE>Carnotum</VALUE>
+		<VALUE>Carnuntum</VALUE>
+		<VALUE>Carrhae</VALUE>
+		<VALUE>Carteia</VALUE>
+		<VALUE>Cartennae</VALUE>
+		<VALUE>Carthago</VALUE>
+		<VALUE>Carthago Nova</VALUE>
+		<VALUE>Cascantum</VALUE>
+		<VALUE>Castellum Flevum</VALUE>
+		<VALUE>Castellum apud Confluentes</VALUE>
+		<VALUE>Castra Batavorum</VALUE>
+		<VALUE>Castra Batvorum</VALUE>
+		<VALUE>Castra Martis</VALUE>
+		<VALUE>Castra Regina</VALUE>
+		<VALUE>Castra ad Herculem</VALUE>
+		<VALUE>Castrum Octavianum</VALUE>
+		<VALUE>Castulo</VALUE>
+		<VALUE>Cataractonium</VALUE>
+		<VALUE>Cauca</VALUE>
+		<VALUE>Celaenae</VALUE>
+		<VALUE>Celeia</VALUE>
+		<VALUE>Celsa</VALUE>
+		<VALUE>Cenabum Aureliani</VALUE>
+		<VALUE>Cenebelum</VALUE>
+		<VALUE>Chalcedon</VALUE>
+		<VALUE>Chrysopolis</VALUE>
+		<VALUE>Chullu</VALUE>
+		<VALUE>Cibalae</VALUE>
+		<VALUE>Cillium</VALUE>
+		<VALUE>Cilurnum</VALUE>
+		<VALUE>Circesium</VALUE>
+		<VALUE>Cirpi</VALUE>
+		<VALUE>Cirta</VALUE>
+		<VALUE>Claudiopolis</VALUE>
+		<VALUE>Clunia</VALUE>
+		<VALUE>Clusium</VALUE>
+		<VALUE>Colonia Agrippina(e)</VALUE>
+		<VALUE>Colonia Agrippinensium</VALUE>
+		<VALUE>Colonia Augusta Emerita</VALUE>
+		<VALUE>Colonia Baelo Claudia</VALUE>
+		<VALUE>Colonia Caecilia Metellinum</VALUE>
+		<VALUE>Colonia Caesar Augusta</VALUE>
+		<VALUE>Colonia Claudia Savaria</VALUE>
+		<VALUE>Colonia Flavia Scupi</VALUE>
+		<VALUE>Colonia Iulia Gemella Acci</VALUE>
+		<VALUE>Colonia Iulia Illici Augusta</VALUE>
+		<VALUE>Colonia Iulia Romula</VALUE>
+		<VALUE>Colonia Norba Caesarina</VALUE>
+		<VALUE>Colonia Patricia</VALUE>
+		<VALUE>Colonia Ulpia Traiana</VALUE>
+		<VALUE>Colonia Ulpia Trajana</VALUE>
+		<VALUE>Colonia Victrix Iulia Celsa</VALUE>
+		<VALUE>Colonia Victrix Iulia Lepida</VALUE>
+		<VALUE>Comagena</VALUE>
+		<VALUE>Complutum</VALUE>
+		<VALUE>Comum</VALUE>
+		<VALUE>Concordia Sagittaria</VALUE>
+		<VALUE>Condate Redones</VALUE>
+		<VALUE>Conimbriga</VALUE>
+		<VALUE>Constantia</VALUE>
+		<VALUE>Constantinopolis</VALUE>
+		<VALUE>Corduba</VALUE>
+		<VALUE>Coria</VALUE>
+		<VALUE>Coriallum</VALUE>
+		<VALUE>Corinium</VALUE>
+		<VALUE>Coriovallum</VALUE>
+		<VALUE>Corisopitum</VALUE>
+		<VALUE>Coristopitum</VALUE>
+		<VALUE>Cortoriacum</VALUE>
+		<VALUE>Corvinium</VALUE>
+		<VALUE>Cuicul</VALUE>
+		<VALUE>Cularo</VALUE>
+		<VALUE>Cunetio</VALUE>
+		<VALUE>Curia</VALUE>
+		<VALUE>Cyrene</VALUE>
+		<VALUE>Danaster</VALUE>
+		<VALUE>Danum</VALUE>
+		<VALUE>Danuvius</VALUE>
+		<VALUE>Dertona</VALUE>
+		<VALUE>Dertosa</VALUE>
+		<VALUE>Derventio</VALUE>
+		<VALUE>Deva</VALUE>
+		<VALUE>Dianinum</VALUE>
+		<VALUE>Dierna</VALUE>
+		<VALUE>Diocletianopolis</VALUE>
+		<VALUE>Dionysopolis</VALUE>
+		<VALUE>Drobeta</VALUE>
+		<VALUE>Dubris</VALUE>
+		<VALUE>Dunum</VALUE>
+		<VALUE>Duranius</VALUE>
+		<VALUE>Durnovaria</VALUE>
+		<VALUE>Durocorotum</VALUE>
+		<VALUE>Durostorum</VALUE>
+		<VALUE>Durovernum Cantiacorum</VALUE>
+		<VALUE>Dyrrachium</VALUE>
+		<VALUE>Ebrus</VALUE>
+		<VALUE>Eburacum</VALUE>
+		<VALUE>Eburodunum</VALUE>
+		<VALUE>Egara</VALUE>
+		<VALUE>Emerita</VALUE>
+		<VALUE>Emesa</VALUE>
+		<VALUE>Emona</VALUE>
+		<VALUE>Emporiae</VALUE>
+		<VALUE>Epidamnus</VALUE>
+		<VALUE>Faesulae</VALUE>
+		<VALUE>Favianis</VALUE>
+		<VALUE>Flavia Solva</VALUE>
+		<VALUE>Florentia</VALUE>
+		<VALUE>Forum Claudii Vallensium</VALUE>
+		<VALUE>Forum Hadriani</VALUE>
+		<VALUE>Forum Iulii</VALUE>
+		<VALUE>Gades</VALUE>
+		<VALUE>Gandava</VALUE>
+		<VALUE>Gariannonum</VALUE>
+		<VALUE>Garumna</VALUE>
+		<VALUE>Geneva</VALUE>
+		<VALUE>Gerasa</VALUE>
+		<VALUE>Germania</VALUE>
+		<VALUE>Gerulata</VALUE>
+		<VALUE>Gesoriacum</VALUE>
+		<VALUE>Glannaventa</VALUE>
+		<VALUE>Glevum</VALUE>
+		<VALUE>Gorsium</VALUE>
+		<VALUE>Graccurris</VALUE>
+		<VALUE>Gratianopolis</VALUE>
+		<VALUE>Hadrianopolis</VALUE>
+		<VALUE>Haga-Comitis</VALUE>
+		<VALUE>Heliopolis</VALUE>
+		<VALUE>Heraclea</VALUE>
+		<VALUE>Heraclea Lyncestis</VALUE>
+		<VALUE>Herculea</VALUE>
+		<VALUE>Hibernia</VALUE>
+		<VALUE>Hierosolyma</VALUE>
+		<VALUE>Hippo Regius</VALUE>
+		<VALUE>Hispalis</VALUE>
+		<VALUE>Histria</VALUE>
+		<VALUE>Iaurinum</VALUE>
+		<VALUE>Iberia</VALUE>
+		<VALUE>Ilerda</VALUE>
+		<VALUE>Illici</VALUE>
+		<VALUE>Intercisa</VALUE>
+		<VALUE>Ioviacum</VALUE>
+		<VALUE>Isara</VALUE>
+		<VALUE>Isca</VALUE>
+		<VALUE>Isca Dumnoniorum</VALUE>
+		<VALUE>Istropolis</VALUE>
+		<VALUE>Istrus</VALUE>
+		<VALUE>Isurium</VALUE>
+		<VALUE>Italica</VALUE>
+		<VALUE>Iulia Concordia</VALUE>
+		<VALUE>Iulia Traducta</VALUE>
+		<VALUE>Labacum</VALUE>
+		<VALUE>Lascuta</VALUE>
+		<VALUE>Latopolis</VALUE>
+		<VALUE>Lauriacum</VALUE>
+		<VALUE>Lavatrae</VALUE>
+		<VALUE>Lederata</VALUE>
+		<VALUE>Legio</VALUE>
+		<VALUE>Lentia</VALUE>
+		<VALUE>Letocetum</VALUE>
+		<VALUE>Leucarum</VALUE>
+		<VALUE>Liburnum</VALUE>
+		<VALUE>Liger</VALUE>
+		<VALUE>Lihnidos</VALUE>
+		<VALUE>Limonum</VALUE>
+		<VALUE>Lincium</VALUE>
+		<VALUE>Lindinis</VALUE>
+		<VALUE>Lindum</VALUE>
+		<VALUE>Londinium</VALUE>
+		<VALUE>Lucentum</VALUE>
+		<VALUE>Lucus Augusti</VALUE>
+		<VALUE>Lugdunum</VALUE>
+		<VALUE>Lugdunum Batavorum</VALUE>
+		<VALUE>Lugio</VALUE>
+		<VALUE>Luguvalium</VALUE>
+		<VALUE>Lusitania</VALUE>
+		<VALUE>Lussonium</VALUE>
+		<VALUE>Lutetia Parisiorum</VALUE>
+		<VALUE>Madauros</VALUE>
+		<VALUE>Magador</VALUE>
+		<VALUE>Malaca</VALUE>
+		<VALUE>Malata Bonenia</VALUE>
+		<VALUE>Mamucium</VALUE>
+		<VALUE>Marcianopolis</VALUE>
+		<VALUE>Massilia</VALUE>
+		<VALUE>Matrica</VALUE>
+		<VALUE>Mazaca</VALUE>
+		<VALUE>Mediolanum</VALUE>
+		<VALUE>Mediolanum Aulercorum</VALUE>
+		<VALUE>Mediolanum Santonum</VALUE>
+		<VALUE>Melitene</VALUE>
+		<VALUE>Melta</VALUE>
+		<VALUE>Messambria</VALUE>
+		<VALUE>Messana</VALUE>
+		<VALUE>Metellinum</VALUE>
+		<VALUE>Metis</VALUE>
+		<VALUE>Misenum</VALUE>
+		<VALUE>Moenum</VALUE>
+		<VALUE>Mogentianae</VALUE>
+		<VALUE>Moguntiacum</VALUE>
+		<VALUE>Mons Bellona</VALUE>
+		<VALUE>Montana</VALUE>
+		<VALUE>Moridunum</VALUE>
+		<VALUE>Municipium Augusta Bilbilis</VALUE>
+		<VALUE>Mursa</VALUE>
+		<VALUE>Mutina</VALUE>
+		<VALUE>Naissus</VALUE>
+		<VALUE>Napoca</VALUE>
+		<VALUE>Narbo</VALUE>
+		<VALUE>Neapolis</VALUE>
+		<VALUE>Nemausus</VALUE>
+		<VALUE>Nervia Glevensium</VALUE>
+		<VALUE>Neviodunum</VALUE>
+		<VALUE>Nevirnum</VALUE>
+		<VALUE>Nidum</VALUE>
+		<VALUE>Norba</VALUE>
+		<VALUE>Novae</VALUE>
+		<VALUE>Noviodunum Aeduorum</VALUE>
+		<VALUE>Noviomagus</VALUE>
+		<VALUE>Noviomagus Batavodurum</VALUE>
+		<VALUE>Novioritum</VALUE>
+		<VALUE>Novodunum</VALUE>
+		<VALUE>Numantia</VALUE>
+		<VALUE>Obulco</VALUE>
+		<VALUE>Octodurus</VALUE>
+		<VALUE>Odessus</VALUE>
+		<VALUE>Oea</VALUE>
+		<VALUE>Oenipontum</VALUE>
+		<VALUE>Olicana</VALUE>
+		<VALUE>Olisipo</VALUE>
+		<VALUE>Onuba</VALUE>
+		<VALUE>Opitergium</VALUE>
+		<VALUE>Osca</VALUE>
+		<VALUE>Osset</VALUE>
+		<VALUE>Ossonoba</VALUE>
+		<VALUE>Palmyra</VALUE>
+		<VALUE>Parentium</VALUE>
+		<VALUE>Patavium</VALUE>
+		<VALUE>Pautalia</VALUE>
+		<VALUE>Pax Iulia</VALUE>
+		<VALUE>Perinthus</VALUE>
+		<VALUE>Perusia</VALUE>
+		<VALUE>Philadelphia</VALUE>
+		<VALUE>Philippopolis</VALUE>
+		<VALUE>Pisae</VALUE>
+		<VALUE>Placentia</VALUE>
+		<VALUE>Podium Aniciense</VALUE>
+		<VALUE>Poetovio</VALUE>
+		<VALUE>Pola</VALUE>
+		<VALUE>Pompaelo</VALUE>
+		<VALUE>Pompeii</VALUE>
+		<VALUE>Pons Aelius</VALUE>
+		<VALUE>Portus</VALUE>
+		<VALUE>Portus Adurni</VALUE>
+		<VALUE>Portus Cale</VALUE>
+		<VALUE>Portus Itius</VALUE>
+		<VALUE>Posonium</VALUE>
+		<VALUE>Potaissa</VALUE>
+		<VALUE>Praetorium Agrippinae</VALUE>
+		<VALUE>Praetorium Latobicorum</VALUE>
+		<VALUE>Ptolemais</VALUE>
+		<VALUE>Pumbedita</VALUE>
+		<VALUE>Puteoli</VALUE>
+		<VALUE>Quinque-Ecclesiis</VALUE>
+		<VALUE>Raetinium</VALUE>
+		<VALUE>Raphae</VALUE>
+		<VALUE>Ratae Coritanorum</VALUE>
+		<VALUE>Ratea Colitanorum</VALUE>
+		<VALUE>Ratiara</VALUE>
+		<VALUE>Ravenna</VALUE>
+		<VALUE>Regulbium</VALUE>
+		<VALUE>Resapha</VALUE>
+		<VALUE>Rhaedestus</VALUE>
+		<VALUE>Rhegium</VALUE>
+		<VALUE>Rhenus</VALUE>
+		<VALUE>Rhodanos</VALUE>
+		<VALUE>Rigomagus</VALUE>
+		<VALUE>Risinium</VALUE>
+		<VALUE>Roma</VALUE>
+		<VALUE>Rotomagus</VALUE>
+		<VALUE>Rusaddir</VALUE>
+		<VALUE>Rusicade</VALUE>
+		<VALUE>Rutupiae</VALUE>
+		<VALUE>Sabratha</VALUE>
+		<VALUE>Saguntum</VALUE>
+		<VALUE>Saldae</VALUE>
+		<VALUE>Salmantica</VALUE>
+		<VALUE>Salonae</VALUE>
+		<VALUE>Salva</VALUE>
+		<VALUE>Samarobriva</VALUE>
+		<VALUE>Sarmizegethusa</VALUE>
+		<VALUE>Savaria</VALUE>
+		<VALUE>Scarbantia</VALUE>
+		<VALUE>Scupi</VALUE>
+		<VALUE>Segobriga</VALUE>
+		<VALUE>Segontium</VALUE>
+		<VALUE>Segovia</VALUE>
+		<VALUE>Segusio</VALUE>
+		<VALUE>Selymbria</VALUE>
+		<VALUE>Sempronium</VALUE>
+		<VALUE>Senones</VALUE>
+		<VALUE>Serdica</VALUE>
+		<VALUE>Sergiopolis</VALUE>
+		<VALUE>Sexaginta Prista</VALUE>
+		<VALUE>Sicca Veneria</VALUE>
+		<VALUE>Simitthu</VALUE>
+		<VALUE>Singidunum</VALUE>
+		<VALUE>Sinope</VALUE>
+		<VALUE>Sippar</VALUE>
+		<VALUE>Sirmium</VALUE>
+		<VALUE>Siscia</VALUE>
+		<VALUE>Solva</VALUE>
+		<VALUE>Sopianae</VALUE>
+		<VALUE>Sopronium</VALUE>
+		<VALUE>Sorviodurum</VALUE>
+		<VALUE>Sozopolis</VALUE>
+		<VALUE>Spalatum</VALUE>
+		<VALUE>Stobi</VALUE>
+		<VALUE>Storgozia</VALUE>
+		<VALUE>Sucidava</VALUE>
+		<VALUE>Sufetula</VALUE>
+		<VALUE>Syene</VALUE>
+		<VALUE>Syracusae</VALUE>
+		<VALUE>Taparura</VALUE>
+		<VALUE>Tarentum</VALUE>
+		<VALUE>Tarraco</VALUE>
+		<VALUE>Tarvisium</VALUE>
+		<VALUE>Taurinum</VALUE>
+		<VALUE>Tentyra</VALUE>
+		<VALUE>Tergeste</VALUE>
+		<VALUE>Thugga</VALUE>
+		<VALUE>Thysdrus</VALUE>
+		<VALUE>Ticinum</VALUE>
+		<VALUE>Tigurum</VALUE>
+		<VALUE>Tingi</VALUE>
+		<VALUE>Toletum</VALUE>
+		<VALUE>Tomis</VALUE>
+		<VALUE>Traiectum Eriditum</VALUE>
+		<VALUE>Traiectum ad Mosam</VALUE>
+		<VALUE>Trapezus</VALUE>
+		<VALUE>Trebizond</VALUE>
+		<VALUE>Treviri</VALUE>
+		<VALUE>Tricciana</VALUE>
+		<VALUE>Tridentum</VALUE>
+		<VALUE>Trimontium</VALUE>
+		<VALUE>Tripolis</VALUE>
+		<VALUE>Tropaeum Traiani</VALUE>
+		<VALUE>Tupusuctu</VALUE>
+		<VALUE>Turiaso</VALUE>
+		<VALUE>Turiaso Silbis</VALUE>
+		<VALUE>Turicim</VALUE>
+		<VALUE>Turnacum Nerviorum</VALUE>
+		<VALUE>Tyras</VALUE>
+		<VALUE>Tyrus</VALUE>
+		<VALUE>Ugernum</VALUE>
+		<VALUE>Ulcisia Castra</VALUE>
+		<VALUE>Ulpia Novomagus</VALUE>
+		<VALUE>Urbs Victrix Osca</VALUE>
+		<VALUE>Utinum</VALUE>
+		<VALUE>Valcum</VALUE>
+		<VALUE>Valentia</VALUE>
+		<VALUE>Valentia Edetanorum</VALUE>
+		<VALUE>Varadinum</VALUE>
+		<VALUE>Veldidena</VALUE>
+		<VALUE>Venetiae</VALUE>
+		<VALUE>Venta Belgarum</VALUE>
+		<VALUE>Venta Silurum</VALUE>
+		<VALUE>Vernementum</VALUE>
+		<VALUE>Verulamium</VALUE>
+		<VALUE>Vesunna</VALUE>
+		<VALUE>Vetera</VALUE>
+		<VALUE>Vicentia</VALUE>
+		<VALUE>Vicus Belginum</VALUE>
+		<VALUE>Vienna</VALUE>
+		<VALUE>Viminiacum</VALUE>
+		<VALUE>Vindobona</VALUE>
+		<VALUE>Vindomora</VALUE>
+		<VALUE>Vindonissa</VALUE>
+		<VALUE>Vinovia</VALUE>
+		<VALUE>Vinovium</VALUE>
+		<VALUE>Viroconium Cornoviorum</VALUE>
+		<VALUE>Vitudurum</VALUE>
+		<VALUE>Vizeliacum</VALUE>
+		<VALUE>Xanthus</VALUE>
+		<VALUE>Zama Regia</VALUE>
+		<VALUE>Zela</VALUE>
+		<VALUE>Zeugma</VALUE>
+	</LIST>
+</GENERATOR>
+

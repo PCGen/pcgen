@@ -1,0 +1,56 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Mon Nov 28 04:34:45 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+#Spell names and other proper names from The Book of Eldritch Might are
+#	©2001-2003 Monte J. Cook and are used here with his permission.
+
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus															Combat bonus
+CLASS:Embermage	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat									Required Skill				Req. Known Spell																																																																																																																																																		Req. Spell Type
+CLASS:Embermage	PREFEAT:3,Endurance,Spell Focus (Evocation),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=10	PRESPELL:3,Burning Hands,Continual Flame,Delayed Blast Fireball,Elemental Swarm,Endure Elements,Fireball,Fire Seeds,Fire Shield,Fire Storm,Fire Trap,Flame Arrow,Flame Blade,Flame Strike,Flaming Sphere,Greater Planar Ally,Greater Planar Binding,Heat Metal,Incendiary Cloud,Lesser Planar Ally,Lesser Planar Binding,Meteor Swarm,Planar Ally,Planar Binding,Produce Flame,Protection from Elements,Pyrotechnics,Resist Elements,Summon Monster I,Summon Monster II,Summon Monster III,Summon Monster IV,Summon Monster V,Summon Monster VI,Summon Monster VII,Summon Monster VIII,Summon Monster IX,Summon Nature's Ally I,Summon Nature's Ally II,Summon Nature's Ally III,Summon Nature's Ally IV,Summon Nature's Ally V,Summon Nature's Ally VI,Summon Nature's Ally VII,Summon Nature's Ally VIII,Summon Nature's Ally IX,Wall of Fire,Chains of Vengeance,Flaming Corrosion,Greater Mark of Fire,Mark of Fire	PRESPELLTYPE:Arcane,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Embermage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Burning Touch
+2					SA:Burning Blood
+3	ADD:SPELLCASTER(ANY)
+4					SA:Fingers of Fire
+5	ADD:SPELLCASTER(ANY)
+6					SA:Burning Blood Backlash
+7	ADD:SPELLCASTER(ANY)
+8					SA:Tongue of Fire
+9	ADD:SPELLCASTER(ANY)	SA:Eyes of Fire
+10					SA:Implosion
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus															Combat bonus
+CLASS:Graven One	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat									Required Language					Required Skill								Req. Known Spell																																													Req. Spell Type
+CLASS:Graven One	PREFEAT:4,Etch Object Rune,Item Image,Scribe Scroll,Toughness	PRELANG:3,Draconic,Celestial,Infernal	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=7	PRESPELL:3,Arcane Mark,Mark of Justice,Greater Mark of Air,Greater Mark of Earth,Greater Mark of Fire,Greater Mark of Frost,Greater Mark of Water,Mark of Air,Mark of Death,Mark of Earth,Mark of Fire,Mark of Frost,Mark of Water	PRESPELL:3,Erase,Explosive Runes,Sepia Snake Sigil	PRESPELLTYPE:Arcane,1,4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Graven One	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Scry|Search|Spellcraft
+1	ADD:SPELLCASTER(ANY)						SA:Flesh Rune
+2										SA:Tattoo of Power (1 Tattoo)
+3	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Tattoo of Power	SA:Tattoo of Power (% Tattoos)|TattooPower					DEFINE:TattooPower|2
+4										SA:Graven Image (% HD)|GravenHD							DEFINE:GravenHD|floor((var("CL=Graven One")-2)/2)*5
+5	ADD:SPELLCASTER(ANY)														BONUS:VAR|TattooPower|1
+7	ADD:SPELLCASTER(ANY)														BONUS:VAR|TattooPower|1
+9	ADD:SPELLCASTER(ANY)														BONUS:VAR|TattooPower|1
+
+# Mirror Master Removed since it isn't working.. Need the ability to add spells from a list into classspells and knownspells.
+# -- Tir Gwaith
+
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+#CLASS:Mirror Master		HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name		Required Feat						Required Skill							Req. Spell Type
+#CLASS:Mirror Master	PREFEAT:2,Craft Wondrous Item,Mirror Sight	PRESKILL:2,Knowledge (Arcana),Craft (Glassmaking)=5	PRESPELLTYPE:Arcane,1,3
+# Class Name		Skill Pts/Lvl	Class Skill
+#CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intuit Direction|Knowledge (Arcana)|Knowledge (The Planes)|TYPE.Profession|Scry|Search|Sense Motive|Spellcraft|Spot
+#1	ADD:SPELLCASTER(ANY)					SA:Mirror Thoughts
+#2					CAST:0,1,1			SA:Mirrored Eyes
+#3	ADD:SPELLCASTER(ANY)	CAST:0,1,1
+#4					CAST:0,1,1,1,1		SA:Piercing Gaze
+#5	ADD:SPELLCASTER(ANY)	CAST:0,1,1,1,1
+#6					CAST:0,1,1,1,1,1		SA:Mirror Step (Dimension Door)
+#7	ADD:SPELLCASTER(ANY)	CAST:0,1,1,1,1,1
+#8					CAST:0,1,1,1,1,1,1	SA:Mirror Step (Teleport)
+#9	ADD:SPELLCASTER(ANY)	CAST:0,1,1,1,1,1,1
+#10					CAST:0,1,1,1,1,1,1,1	SA:Mirror Step (Plane Shift)

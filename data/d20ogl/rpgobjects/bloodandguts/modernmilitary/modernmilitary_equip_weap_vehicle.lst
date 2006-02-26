@@ -1,0 +1,32 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Equipment Name	Type											Critical Hit Multiplier	Critical Hit Range	Damage		Range			Size		Source Page		Special Property		Rate of Fire
+.50 Machinegun	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:A
+20 mm Cannon	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:4d10		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:A
+25 mm Cannon	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:4d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:A
+30 mm Cannon	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:4d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:A
+40 mm Cannon	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:5d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:S
+70 mm Rockets	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine 7 or 19	RATEOFFIRE:S
+105 mm Cannon	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine 1		RATEOFFIRE:1
+AMRAAM		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12		RANGE:200		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+Harpoon		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:200		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+Hellfire		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+JDAM			TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons																	SIZE:H	SOURCEPAGE:p.77
+Maverick		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:300		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+Minigun		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:3d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:A
+Mk 19			TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons														RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine linked	RATEOFFIRE:S
+Mk 46 Torpedo	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:8d6		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+Mk 48 Torpedo	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:200		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:varies
+Mk 83 Bomb		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12		RANGE:300		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+Mk 84 Bomb		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:12d12	RANGE:300		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+Phoenix		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12		RANGE:500		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+Sidewinder		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+Sonar Buoys		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons														RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+Sparrow		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12		RANGE:250		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
+Stinger		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+Tomahawk		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:12d12	RANGE:5280000	SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:varies
+TOW			TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+
+Howitzer		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons.IndirectFire	CRITMULT:x2			CRITRANGE:1			DAMAGE:14d6		RANGE:76560		SIZE:H	SOURCEPAGE:p.77					RATEOFFIRE:1/6 rds

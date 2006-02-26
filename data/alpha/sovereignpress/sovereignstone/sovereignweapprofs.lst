@@ -1,0 +1,60 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+
+# Weapon Name		Type			Nb Hands
+Armor Spikes		TYPE:Martial
+Axe (Throwing)		TYPE:Martial
+Battleaxe			TYPE:Martial
+Blowgun			TYPE:Exotic
+Byrglaif			TYPE:Exotic
+Club				TYPE:Simple
+Crossbow (Heavy)		TYPE:Simple		HANDS:2
+Crossbow (Light)		TYPE:Simple		HANDS:2
+Dagger			TYPE:Simple
+Dart				TYPE:Simple
+Falchion			TYPE:Martial
+Flail (Dire)		TYPE:Exotic
+Flail				TYPE:Martial
+Flensing Blade		TYPE:Exotic
+Gauntlet			TYPE:Simple
+Gauntlet (Spiked)		TYPE:Simple
+Glaive			TYPE:Martial
+Greataxe			TYPE:Martial
+Greatclub			TYPE:Martial
+Guisarme			TYPE:Martial
+Halberd			TYPE:Martial
+Halfspear			TYPE:Simple
+Hammer (Light)		TYPE:Martial
+Handaxe			TYPE:Martial
+Hirglaif			TYPE:Exotic
+Javelin			TYPE:Simple
+Lance				TYPE:Martial
+Longbow			TYPE:Martial	HANDS:2
+Longbow (Composite)	TYPE:Martial	HANDS:2
+Longbow (Dwarven)		TYPE:Exotic
+Longspear			TYPE:Martial
+Mace				TYPE:Simple
+Morningstar			TYPE:Simple
+Net				TYPE:Exotic
+Pick				TYPE:Martial
+Quarterstaff		TYPE:Simple		HANDS:2
+Ranseur			TYPE:Martial
+Rapier			TYPE:Martial
+Sabre (Cavalry)		TYPE:Exotic
+Sap				TYPE:Martial
+Scimitar			TYPE:Martial
+Scythe			TYPE:Martial
+Shieldbash			TYPE:Martial	HANDS:0
+Shortbow			TYPE:Martial	HANDS:2
+Shortbow (Composite)	TYPE:Martial	HANDS:2
+Shortspear			TYPE:Simple
+Sickle			TYPE:Simple
+Sling				TYPE:Simple
+Greatsword			TYPE:Martial
+Longsword			TYPE:Martial
+Sword (Short)		TYPE:Martial
+Terbosh			TYPE:Exotic
+Trident			TYPE:Martial
+Unarmed Strike		TYPE:Simple
+Warhammer			TYPE:Martial
+Whip				TYPE:Exotic

@@ -1,0 +1,38 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+
+# Weapon Name		Type			Nb Hands	Weapon prop. bonus
+Bolas (3 Ball)		TYPE:Exotic
+Chakram			TYPE:Exotic
+Crossbow (Siege)		TYPE:Exotic
+Sword (Crescent)		TYPE:Exotic
+Dagger (Double Bladed)	TYPE:Exotic
+Foot Bow			TYPE:Exotic		HANDS:2	BONUS:WEAPON|DAMAGE|STRMIN0
+Iron Breaker		TYPE:Exotic		HANDS:1
+Mancatcher			TYPE:Exotic		HANDS:2
+Sword-Breaker		TYPE:Exotic
+Sword-Catcher		TYPE:Exotic
+Aclis				TYPE:Martial
+Angle Knife			TYPE:Martial
+Ankus				TYPE:Martial
+Axe (Carpenter's)		TYPE:Simple
+Bec de Corbin		TYPE:Martial	HANDS:2
+Bladed Bow			TYPE:Martial	HANDS:2	BONUS:WEAPON|DAMAGE|STRMIN0
+Flamberge			TYPE:Martial
+Flametongue			TYPE:Martial
+Flax				TYPE:Martial
+Gladius			TYPE:Martial
+Half Moon Spear		TYPE:Martial
+Karvar			TYPE:Martial
+Khopesh			TYPE:Martial
+Pike				TYPE:Martial	HANDS:2
+Pilum				TYPE:Martial
+Spider Throwing Knife	TYPE:Martial
+Staff Sling			TYPE:Martial	HANDS:2	BONUS:WEAPON|DAMAGE|STRMIN0
+Sword (Cane)		TYPE:Martial
+Sword (Guantlet)		TYPE:Martial
+Sword-Pike			TYPE:Martial	HANDS:2
+Sword (Tulwar)		TYPE:Martial
+War Rake			TYPE:Martial	HANDS:2
+Sawtooth			TYPE:Simple
+Spiked Helmet		TYPE:Simple

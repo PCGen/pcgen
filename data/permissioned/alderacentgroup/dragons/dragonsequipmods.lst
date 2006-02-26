@@ -1,0 +1,5 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Wed Apr 23 14:46:25 2003 -- reformated by prettylst.pl v1.27 (build 277)
+SOURCELONG:Alderac Entertainment Group - Dragons|SOURCESHORT:Dragons|SOURCEWEB:http://alderac.com/d20
+
+# Modifier Name	Product Identity?	Type		Plus		Source Page		Required Type					Modify VAR						Special Property																		Virtual Feat
+Accord		NAMEISPI:YES	TYPE:Weapon	PLUS:4	SOURCEPAGE:p.67	PRETYPE:EQMODTYPE=MagicalEnhancement	BONUS:VAR|NegLevels|1|PREALIGN:2,5,8	SPROP:Any promise made while touching weapon becomes geas, those touching can not lie, +2d6 lawful damage vs. chaos	VFEAT:Negative Levels

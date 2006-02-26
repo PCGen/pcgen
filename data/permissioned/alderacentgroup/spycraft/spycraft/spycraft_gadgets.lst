@@ -1,0 +1,142 @@
+# CVS $Revision: 1.9 $ $Author: eddyanthony $ -- Fri Apr  8 22:18:28 2005 -- reformated by prettylst.pl v1.35 (build 469)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Equipment Name						Product Identity?	Required Proficiency		Type											Contains				Cost		Weight	Critical Hit Range	Fumble Range	Damage		MODS			Range		Size		Source Page		Combat bonus							Special Property
+Attache Case (Standard)					NAMEISPI:YES						TYPE:Gadget.Standard.Attache.Container					CONTAINS:40				COST:1	WT:5																	SIZE:S	SOURCEPAGE:p.132
+
+Backpack (Balloon in a box)				NAMEISPI:YES						TYPE:Gadget.Standard.Backpack												COST:2	WT:10																	SIZE:S	SOURCEPAGE:p.133										SPROP:Spot DC 15
+Backpack (Collapsible glider wings)			NAMEISPI:YES						TYPE:Gadget.Standard.Backpack												COST:2	WT:5																	SIZE:S	SOURCEPAGE:p.133										SPROP:Spot DC 15
+Backpack (Jetpack)					NAMEISPI:YES						TYPE:Gadget.Standard.Backpack												COST:4	WT:10																	SIZE:S	SOURCEPAGE:p.133										SPROP:Spot DC 5
+Backpack (White noise generator)			NAMEISPI:YES						TYPE:Gadget.Standard.Backpack												COST:3	WT:3																	SIZE:S	SOURCEPAGE:p.133										SPROP:Spot DC 20
+
+Belt (Standard)						NAMEISPI:YES						TYPE:Gadget.Standard.Belt												COST:1	WT:.5																	SIZE:S	SOURCEPAGE:p.133
+
+Bug detector (External)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.134
+Bug detector (Acoustic)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:4	WT:-																	SIZE:T	SOURCEPAGE:p.134
+
+Business Card (Contact poison)			NAMEISPI:YES						TYPE:Gadget.Standard													COST:.5	WT:-																	SIZE:T	SOURCEPAGE:p.134
+Business Card (Frame job)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:.2	WT:-																	SIZE:T	SOURCEPAGE:p.134
+Business Card (Razor's edge)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:.2	WT:-																	SIZE:T	SOURCEPAGE:p.134
+Business Card (Tracking device)			NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.135
+
+Cigarette (Dartgun)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:.5	WT:-																	SIZE:T	SOURCEPAGE:p.135
+Cigarette (Flamethrower)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:3	WT:-																	SIZE:T	SOURCEPAGE:p.135
+Cigarette (Grenade)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:T	SOURCEPAGE:p.135
+Cigarette (Pistol)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.135
+Cigarette (Spray)						NAMEISPI:YES						TYPE:Gadget.Standard													COST:.5	WT:-																	SIZE:T	SOURCEPAGE:p.135
+Cigarette (Welder)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.135
+
+Clothing (Cold suit)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:5	WT:1																	SIZE:M	SOURCEPAGE:p.135
+Clothing (liner)						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:1																	SIZE:M	SOURCEPAGE:p.135
+Clothing (multi environment suit)			NAMEISPI:YES						TYPE:Gadget.Standard													COST:6	WT:1																	SIZE:M	SOURCEPAGE:p.136
+Clothing (Bungee suspenders)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:1																	SIZE:T	SOURCEPAGE:p.136
+Clothing (Chameleon suit)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:5	WT:1																	SIZE:M	SOURCEPAGE:p.136
+Clothing (Panic button)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.136
+Clothing (Tie camera)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.136
+Clothing (Trauma suit)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:8	WT:-																	SIZE:M	SOURCEPAGE:p.136
+
+Earring (Endless prism)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.136
+Earring (Micro grenade)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.136
+Poison lipstick						NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:T	SOURCEPAGE:p.136
+Taser cufflinks						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:1																	SIZE:T	SOURCEPAGE:p.136
+Woman's compact						NAMEISPI:YES						TYPE:Gadget.Standard													COST:3	WT:-																	SIZE:T	SOURCEPAGE:p.136
+
+Document Scanner						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:2																	SIZE:T	SOURCEPAGE:p.137
+ENIGMA Plus							NAMEISPI:YES						TYPE:Gadget.Standard													COST:4	WT:5																	SIZE:T	SOURCEPAGE:p.137
+Memory paper						NAMEISPI:YES						TYPE:Gadget.Standard													COST:.5	WT:-																	SIZE:T	SOURCEPAGE:p.137
+Microfiche reader						NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:T	SOURCEPAGE:p.137
+
+DNA analyzer						NAMEISPI:YES						TYPE:Gadget.Standard													COST:3	WT:3																	SIZE:T	SOURCEPAGE:p.138
+Fingerprint camera					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:.5																	SIZE:T	SOURCEPAGE:p.138
+Fingerprint film						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.138
+Toiletry kit portable chem lab			NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:4																	SIZE:T	SOURCEPAGE:p.138
+
+Explosive (Pen)						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.138
+Explosive (Magnetic flask)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:.25																SIZE:T	SOURCEPAGE:p.138
+Explosive (Micro burst gel)				NAMEISPI:YES						TYPE:Gadget.Standard													COST:1.25	WT:1																	SIZE:T	SOURCEPAGE:p.138
+
+Glasses							NAMEISPI:YES						TYPE:Gadget.Standard.Glasses.Eyegear										COST:0	WT:-												MODS:REQUIRED			SIZE:T	SOURCEPAGE:p.139
+
+Contact lenses (Faceprint)				NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:3	WT:-																	SIZE:F	SOURCEPAGE:p.139
+Contact lenses (Hypnosis)				NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.139
+Contact lenses (Iris)					NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.139
+Contact lenses (LCD)					NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:1	WT:-																	SIZE:F	SOURCEPAGE:p.139
+Contact lenses (Magnet eyes)				NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.139
+Contact lenses (Other directional glasses)	NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:1	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (Sealed lenses)			NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (Starlight lenses)			NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:1	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (Telescopic lenses)			NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (Thermpgraphic lenses)		NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (Translator lenses)			NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:3	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (Transmitter lenses)			NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Contact lenses (X ray lenses)				NAMEISPI:YES						TYPE:Gadget.Standard.Eyegear												COST:2	WT:-																	SIZE:F	SOURCEPAGE:p.140
+Otherman drops						NAMEISPI:YES						TYPE:Gadget.Standard													COST:.33	WT:-																	SIZE:F	SOURCEPAGE:p.139
+
+Shoe (Standard)						NAMEISPI:YES						TYPE:Gadget.Standard.Shoe.Boot											COST:1	WT:2																	SIZE:T	SOURCEPAGE:p.141
+
+Sonic sensor						NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:T	SOURCEPAGE:p.142
+Danger sensor						NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:T	SOURCEPAGE:p.142
+White cone generator					NAMEISPI:YES						TYPE:Gadget.Standard													COST:4	WT:-																	SIZE:T	SOURCEPAGE:p.142
+
+Voice modulator (External unit)			NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.142
+Voice modulator (Larynx implant)			NAMEISPI:YES						TYPE:Gadget.Standard													COST:4	WT:-																	SIZE:T	SOURCEPAGE:p.142
+
+Tri-ference analysis					NAMEISPI:YES						TYPE:Gadget.Standard.Software												COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.142
+Video gyro-pack						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.143
+Voice triger						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.143
+
+Tooth (Hollow)						NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:D	SOURCEPAGE:p.143
+Tooth (Radio)						NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:D	SOURCEPAGE:p.143
+Tooth (Suiside pill)					NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:D	SOURCEPAGE:p.143
+
+Bullet tracers						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:D	SOURCEPAGE:p.143
+Echo tracers						NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:D	SOURCEPAGE:p.143
+
+Watch (Standard)						NAMEISPI:YES						TYPE:Gadget.Standard.Watch												COST:1	WT:-																	SIZE:T	SOURCEPAGE:p.144
+
+# Weapons
+
+AF Hush Puppy						NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:3	WT:3		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d10+2				RANGE:20	SIZE:S	SOURCEPAGE:p.145										SPROP:Silent
+
+Quick mine							NAMEISPI:YES						TYPE:Gadget.Standard													COST:2	WT:-																	SIZE:D	SOURCEPAGE:p.145
+
+# Umbrella guns
+
+Umbrella gun (.22 LR Saturday Night Special)	NAMEISPI:YES	PROFICIENCY:Revolver		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:1		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d6+1				RANGE:10	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service .38 Special)			NAMEISPI:YES	PROFICIENCY:Revolver		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:2		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d6+2				RANGE:15	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service .357 Magnum)			NAMEISPI:YES	PROFICIENCY:Revolver		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:3		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:2d4+1				RANGE:20	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service .44 Magnum)			NAMEISPI:YES	PROFICIENCY:Revolver		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:3		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:2d6+2				RANGE:20	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Hunting .44 Magnum)			NAMEISPI:YES	PROFICIENCY:Revolver		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:5		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:2d6+2				RANGE:25	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Pocket .22 LR)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:1		CRITRANGE:1			FUMBLERANGE:1-4	DAMAGE:1d6+1				RANGE:10	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Backup .380 ACP)			NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:2		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d8					RANGE:10	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Backup 7.65mm)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:2		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d6					RANGE:10	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Backup 9X19mm)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:2		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d10					RANGE:15	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Backup .40 SW)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:2		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d12					RANGE:15	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Backup .45 ACP)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:2		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d10+2				RANGE:15	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service 9X19mm)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:3		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d10					RANGE:20	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service .40 SW)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:3		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d12					RANGE:20	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service .45 ACP)			NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:3		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d10+2				RANGE:20	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Service .50 Magnum)			NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:6		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:2d8					RANGE:30	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Target 9X19mm)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:5		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d10					RANGE:30	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Target .45 ACP)				NAMEISPI:YES	PROFICIENCY:Pistol		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Handgun							COST:2	WT:5		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d10+2				RANGE:30	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Mace spray)				NAMEISPI:YES	PROFICIENCY:Spray			TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Handgun								COST:2	WT:2		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:Special				RANGE:2	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Dart Gun)					NAMEISPI:YES	PROFICIENCY:Dart Gun		TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Handgun								COST:2	WT:4		CRITRANGE:1			FUMBLERANGE:1-2	DAMAGE:1d4+Toxin				RANGE:15	SIZE:S	SOURCEPAGE:p.145
+Umbrella gun (Submachinegun .380 ACP)		NAMEISPI:YES	PROFICIENCY:Submachinegun	TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Submachinegun						COST:2	WT:5		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:1d8					RANGE:20	SIZE:M	SOURCEPAGE:p.145
+Umbrella gun (Submachinegun 9X19mm)			NAMEISPI:YES	PROFICIENCY:Submachinegun	TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Submachinegun						COST:2	WT:6		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d10					RANGE:50	SIZE:M	SOURCEPAGE:p.145
+Umbrella gun (Submachinegun .45 ACP)		NAMEISPI:YES	PROFICIENCY:Submachinegun	TYPE:Gadget.Standard.Weapon.Ranged.Piercing.Firearm.Submachinegun						COST:2	WT:7		CRITRANGE:2			FUMBLERANGE:1-2	DAMAGE:1d10+2				RANGE:50	SIZE:M	SOURCEPAGE:p.145
+
+# Weapon Enhancements
+
+Personalized fighting knife				NAMEISPI:YES	PROFICIENCY:Knife			TYPE:Gadget.Standard.Weapon.Melee.Ranged.Piercing.Thrown							COST:1	WT:1		CRITRANGE:1			FUMBLERANGE:1	DAMAGE:1d4					RANGE:5	SIZE:S	SOURCEPAGE:p.146	BONUS:COMBAT|TOHIT|1	BONUS:COMBAT|DAMAGE.Melee|1
+
+Spring-loaded weapon holster				NAMEISPI:YES						TYPE:Gadget.Standard.Bracer.Container					CONTAINS:-1|Handgun=1		COST:1	WT:-																	SIZE:D	SOURCEPAGE:p.146
+Knife launcher						NAMEISPI:YES						TYPE:Gadget.Standard.Bracer.Container					CONTAINS:-1|Throwing knife=1	COST:1	WT:-																	SIZE:D	SOURCEPAGE:p.146
+Remote-operated gun mount				NAMEISPI:YES						TYPE:Gadget.Standard													COST:1	WT:-																	SIZE:M	SOURCEPAGE:p.146
+
+#
+# End
+#

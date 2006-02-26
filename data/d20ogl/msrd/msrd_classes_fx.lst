@@ -1,0 +1,148 @@
+# CVS $Revision: 1.24 $ $Author: frank_kliewe $ -- Wed Jan  4 16:58:59 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus									Combat bonus					Modify VAR
+CLASS:Shadow Slayer	HD:8		TYPE:Advanced.PC	ABB:Shad		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL/2)+(1/2)	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat
+CLASS:Shadow Slayer	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Information|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Tumble
+1	SA:Detect Shadow (%/day)|ShadowSlayerLevel	BONUS:VAR|ShadowSlayerLevel|CL		DEFINE:ShadowSlayerLevel|0
+2	SA:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	BONUS:VAR|ShadowSlayerHalfLevel|CL/2	DEFINE:ShadowSlayerHalfLevel|0
+3																						ADD:FEAT(TYPE=ShadowSlayer)
+4	SA:Slayer Weapon (+%)|ShadowSlayerHalfLevel
+5																						ADD:FEAT(TYPE=ShadowEnemy)
+6																						ADD:FEAT(TYPE=ShadowSlayer)
+7																						ADD:FEAT(TYPE=ShadowEnemy)
+8	SA:Fast Healing
+9																						ADD:FEAT(TYPE=ShadowSlayer)
+10	SA:Word of Slaying
+
+# Class Name	Hit Dice	Type			Max Level	Save checks bonus													Combat bonus					Modify VAR
+CLASS:Occultist	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat			Required Skill
+CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script,Knowledge (Arcane Lore),Research=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Occultist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Drive|Investigate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:NO	BONUS:CASTERLEVEL|Occultist|CL
+1	SA:Spell Resistance (%)|OccultistRes	BONUS:VAR|OccultistRes|CL	DEFINE:OccultistRes|5
+2	SA:Arcane Research(Scrolls)
+3																	ADD:FEAT(TYPE=Occultist)
+4	SA:Shadow Contact
+5	SA:Bind Shadow Creature
+6																	ADD:FEAT(TYPE=Occultist)
+7	SA:Arcane Research(Items)
+8	SA:Bind Shadow Creature
+9																	ADD:FEAT(TYPE=Occultist)
+10	SA:Banish
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus													Combat bonus					Modify VAR
+CLASS:Telepath	HD:6		TYPE:Advanced.PC	ABB:Tele		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat		Required Skill
+CLASS:Telepath	PREFEAT:1,Wild Talent	PRESKILL:3,Bluff,Diplomacy,Gather Information=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Telepath	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Telepath|CL
+# FEATAUTO:PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
+# due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
+# variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
+# Use ADD:SPELLCASTER(Telepath) in PrC's that add to manifester level.
+# Code those that have KNOWN tags similar to this but change the VAR names, i.e. TelepathML becomes BattlemindML,
+# TelepathBonusPP becomes BattlemindBonusPP, etc
+1	BONUS:VAR|TelepathML|var("CL=Telepath")	BONUS:VAR|TelepathML|var("BL=Telepath")					DEFINE:TelepathML|0	FEATAUTO:PsionicClass
+1	BONUS:VAR|BasePowerPoints|2
+1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:TelepathML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:TelepathML,3
+1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:TelepathML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:TelepathML,5
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:TelepathML,6	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:TelepathML,7
+1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:TelepathML,8	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:TelepathML,9
+1	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:TelepathML,10
+1	BONUS:VAR|BonusPowerPoints|max(((CHA*2)-1),0)
+###Block: Normal Level Progression
+1	KNOWN:3,1
+2	KNOWN:3,2		SA:Trigger Power (% powers|TelepathTriggerCount								DEFINE:TelepathTriggerCount|1
+3	KNOWN:3,3																						ADD:FEAT(TYPE=Telepath)
+4	KNOWN:4,3,1		SA:Power crystal
+5	KNOWN:4,3,2											BONUS:VAR|TelepathTriggerCount|1
+6	KNOWN:4,3,2,1																					ADD:FEAT(TYPE=Telepath)
+7	KNOWN:5,4,3,2	SA:+4 to Concentation while manifesting defensively
+8	KNOWN:5,4,3,2,1										BONUS:VAR|TelepathTriggerCount|1
+9	KNOWN:5,4,3,3,2																					ADD:FEAT(TYPE=Telepath)
+10	KNOWN:6,4,3,3,2,1	SA:Maximize Power
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus													Combat bonus						Modify VAR
+CLASS:Battle Mind	HD:8		TYPE:Advanced.PC	ABB:Batt		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat		Required Skill
+CLASS:Battle Mind	PREATT:3	PREFEAT:1,Wild Talent	PRESKILL:1,Jump=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Battle Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|Profession|Read/Write Language|Speak Language|Spot|Swim
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Mind|CL
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	BONUS:VAR|BattlemindML|var("CL=Battle Mind")	BONUS:VAR|BattlemindML|var("BL=Battle Mind")			DEFINE:BattlemindML|0	FEATAUTO:PsionicClass
+1	BONUS:VAR|BasePowerPoints|2
+1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,3
+1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:BattlemindML,5
+1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:BattlemindML,6	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,7
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,8	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,9
+1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:BattlemindML,10
+###Block: Normal Level Progression
+1	KNOWN:2
+2	KNOWN:3		SA:Imprint Tattoo												AUTO:EQUIP|PsiBLade|!PRECLASS:1,Battle Mind=3
+3	KNOWN:3,1											ADD:FEAT(TYPE=Battlemind)	AUTO:EQUIP|PsiBLade+1|!PRECLASS:1,Battle Mind=5
+4	KNOWN:3,2																AUTO:EQUIP|PsiShield|!PRECLASS:1,Battle Mind=8
+5	KNOWN:3,3,1		SA:+4 to Concentation while manifesting defensively						AUTO:EQUIP|PsiBLade+2|!PRECLASS:1,Battle Mind=7
+6	KNOWN:3,3,2											ADD:FEAT(TYPE=Battlemind)
+7	KNOWN:3,3,2,1															AUTO:EQUIP|PsiBLade+3|!PRECLASS:1,Battle Mind=9
+8	KNOWN:3,3,3,1															AUTO:EQUIP|PsiShield, Improved
+9	KNOWN:3,3,3,2										ADD:FEAT(TYPE=Battlemind)	AUTO:EQUIP|PsiBLade+4|!PRECLASS:1,Battle Mind=10
+10	KNOWN:3,3,3,2,1															AUTO:EQUIP|Ultimate PsiBlade
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Define		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FMLevel|CL	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Mage		PRESKILL:4,Craft (Chemical),Decipher Script,Knowledge (Arcane Lore),Research=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
+1	CAST:3,1		SA:Summon Familiar
+2	CAST:4,2														FEATAUTO:Scribe Scroll
+3	CAST:4,2,1										ADD:FEAT(TYPE=Mage)	FEATAUTO:Brew Potion
+4	CAST:4,3,2														FEATAUTO:Scribe Tattoo
+5	CAST:4,3,2,1									ADD:FEAT(Spell Mastery)
+6	CAST:4,3,3,2									ADD:FEAT(TYPE=Mage)
+7	CAST:4,4,3,2,1	SA:+4 to Concentation while casting defensively
+8	CAST:4,4,3,3,2									ADD:FEAT(Spell Mastery)
+9	CAST:4,4,4,3,2,1									ADD:FEAT(TYPE=Mage)
+10	CAST:4,4,4,3,3,2													FEATAUTO:Maximize Spell
+
+
+# Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus						Modify VAR
+CLASS:Acolyte	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Skill
+CLASS:Acolyte	PREATT:2	PRESKILL:3,Knowledge (Theology and Philosophy),Listen,Sense Motive=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spellcraft|Treat Injury
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Acolyte|CL
+###Block: Turning
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	FEATAUTO:Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnLevel|var("CL=Acolyte")		DEFINE:ExtraTurningQual|1
+2	BONUS:VAR|TurnDamagePlus|var("CL=Acolyte")
+2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
+###Block: Standard block
+1	CAST:3,1
+2	CAST:4,2		SA:Turn or Rebuke Undead (Su)
+3	CAST:4,2,1										ADD:FEAT(TYPE=Acolyte)
+4	CAST:5,3,2		SA:Spontaneous Casting
+5	CAST:5,3,2,1	SA:+4 to Concentation while casting defensively
+6	CAST:5,3,3,2									ADD:FEAT(TYPE=Acolyte)
+7	CAST:6,4,3,2,1	SA:Turn or Rebuke Magical Beasts (Su)
+8	CAST:6,4,3,3,2	SA:Turn or Rebuke Outsiders (Su)
+9	CAST:6,4,4,3,2,1									ADD:FEAT(TYPE=Acolyte)
+10	CAST:6,4,4,3,3,2													FEATAUTO:Maximize Spell
+

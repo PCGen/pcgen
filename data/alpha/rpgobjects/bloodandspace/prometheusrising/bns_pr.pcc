@@ -1,0 +1,28 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Space - Prometheus Rising
+RANK:6
+GAMEMODE:Modern
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:RPGObjects.Blood and Space
+ISOGL:YES
+SOURCELONG:Blood and Space - Prometheus Rising
+SOURCESHORT:BnS-PR
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Blood and Space 2: Prometheus Rising Copyright 2004, RPGObjects; Author Charles Rice, Chris Davis
+COPYRIGHT:PCGen dataset conversion for Blood and Space 2: Prometheus Rising Copyright 2004, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT).
+
+INFOTEXT:This dataset requires the use of the MSRD Future dataset
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:bns_pr_classes_advanced.lst
+FEAT:bns_pr_feats.lst
+FEAT:bns_pr_feats_hidden.lst
+FEAT:bns_pr_feats_mod.lst
+FEAT:bns_pr_feats_occupation.lst
+FEAT:bns_pr_feats_occupation_mod.lst
+RACE:bns_pr_race.lst

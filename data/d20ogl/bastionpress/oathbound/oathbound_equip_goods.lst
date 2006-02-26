@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Nov 11 22:31:17 2003 -- reformated by prettylst.pl v1.31 (build 327)
+SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+# mundane equipment
+
+# Equipment Name		Type					Cost		Weight	Base Quantity	Source Page
+Ceptu Sling			TYPE:Goods.Oathbound		COST:70.0	WT:5.0				SOURCEPAGE:p.29, p.329
+Sap Gum (Pack of 12)	TYPE:Goods.Oathbound		COST:1.0	WT:0.1	BASEQTY:12		SOURCEPAGE:p.329
+Sap Strip (6ft.)		TYPE:Goods.Oathbound		COST:30.0	WT:0.5				SOURCEPAGE:p.329
+Ta'rarra Spores		TYPE:Goods.Drugs.Oathbound	COST:750.0	WT:0.0				SOURCEPAGE:p.329

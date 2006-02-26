@@ -1,0 +1,197 @@
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Sat Dec 10 02:35:29 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# Original Entry by: Ratheof Blithwyn
+
+#
+# Core class
+#
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Devoted Evoker	HD:4		TYPE:Base.PC	ABB:Evoc		MAXLEVEL:20	SOURCEPAGE:p.4	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required AL
+CLASS:Devoted Evoker	PREALIGN:LN,LE,TN,NE,CN,CE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Devoted Evoker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level				Use Spell List
+CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Evoker|CL	SPELLLIST:1|Wizard
+###Block: Proficiencies
+1	FEATAUTO:Devoded Evoker Weapon Proficiencies
+###Block: Evocation DC bonus
+1	BONUS:DC|SCHOOL.Evocation|EvocationFocus	DEFINE:EvocationFocus|0
+###Block: Normal Level Progression
+1	CAST:4,2				SA:Devotion																			ADD:FEAT(TYPE=EvocationMastery)
+2	CAST:5,3				SA:Augment evocation (% levels)|AugmentEvocation	BONUS:VAR|AugmentEvocation|CL/4+1	DEFINE:AugmentEvocation|0
+3	CAST:5,3,2				SA:Evocation focus (+%)|EvocationFocus			BONUS:VAR|EvocationFocus|CL/6+1
+4	CAST:5,4,3
+5	CAST:5,4,3,2																													VFEAT:Evasion
+6	CAST:5,4,4,3
+7	CAST:5,5,4,3,2
+8	CAST:5,5,4,4,3
+9	CAST:5,5,5,4,3,2
+10	CAST:5,5,5,4,4,3																							ADD:FEAT(TYPE=EvocationMastery)
+11	CAST:5,5,5,5,4,3,2
+12	CAST:5,5,5,5,4,4,3
+13	CAST:5,5,5,5,5,4,3,2
+14	CAST:5,5,5,5,5,4,4,3
+15	CAST:5,5,5,5,5,5,4,3,2		SA:Evocation Resistance (Ex)
+16	CAST:5,5,5,5,5,5,4,4,3
+17	CAST:5,5,5,5,5,5,5,4,3,2
+18	CAST:5,5,5,5,5,5,5,4,4,3
+19	CAST:5,5,5,5,5,5,5,5,4,4
+20	CAST:5,5,5,5,5,5,5,5,5,5																					ADD:FEAT(TYPE=EvocationMastery)
+
+
+#
+# Prestige classes
+#
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Arcane Architect	HD:4		TYPE:PC.Prestige	ABB:Arch		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat						Required Skill														Req. Known Spell		Req. Spell Type
+CLASS:Arcane Architect	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:1,TYPE.Craft=10	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=10	PRESPELL:1,Tiny Hut	PRESPELLTYPE:Arcane,2,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Architect	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Search|Speak Language|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Locate Flaw (+%, +%d6)|LocateFlaw|LocateFlawDie				BONUS:VAR|LocateFlaw|2	BONUS:VAR|LocateFlawDie|1				DEFINE:LocateFlaw|0	DEFINE:LocateFlawDie|0
+2	ADD:SPELLCASTER(ANY)	SA:Energy Enhancement %/day|EnergyEnhancement					BONUS:VAR|EnergyEnhancement|CL/2							DEFINE:EnergyEnhancement|0
+3	ADD:SPELLCASTER(ANY)	SA:Augment Construct (+%, +%d4)|AugmentConstruct|AugmentConstructDie	BONUS:VAR|AugmentConstruct|CL/3	BONUS:VAR|AugmentConstructDie|CL/3	DEFINE:AugmentConstruct|0	DEFINE:AugmentConstructDie|0
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)													BONUS:VAR|LocateFlaw|2	BONUS:VAR|LocateFlawDie|1
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)													BONUS:VAR|LocateFlaw|2	BONUS:VAR|LocateFlawDie|1
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)													BONUS:VAR|LocateFlaw|2	BONUS:VAR|LocateFlawDie|1
+10	ADD:SPELLCASTER(ANY)
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Guardian of the Flame	HD:4		TYPE:PC.Prestige	ABB:GuFl		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required AL		Required Feat							Required Skill		Req. Known Spell		Req. Spell Type
+CLASS:Guardian of the Flame	PREALIGN:LG,NG,CG	PREFEAT:2,Lightning Reflexes,Spell Focus(Evocation)	PRESKILL:1,Spellcraft=8	PRESPELL:1,Fireball	PRESPELLTYPE:Arcane,2,3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Guardian of the Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Search|Speak Language|Spellcraft
+1	ADD:SPELLCASTER(ANY)					SA:Shape Flames (+%)|ShapeFlames	BONUS:VAR|ShapeFlames|10	DEFINE:ShapeFlames|0
+2	ADD:SPELLCASTER(ANY)					SA:Absorb Heat (%)|AbsorbHeat		BONUS:VAR|AbsorbHeat|5		DEFINE:AbsorbHeat|0
+3	ADD:SPELLCASTER(ANY)
+4	ADD:SPELLCASTER(ANY)											BONUS:VAR|ShapeFlames|10
+5	ADD:SPELLCASTER(ANY)											BONUS:VAR|AbsorbHeat|5
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)											BONUS:VAR|ShapeFlames|20
+8	ADD:SPELLCASTER(ANY)											BONUS:VAR|AbsorbHeat|5
+9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Shape Flames	SA:Shape Flames (immune)
+10	ADD:SPELLCASTER(ANY)											BONUS:VAR|AbsorbHeat|5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Illuminator	HD:4		TYPE:PC.Prestige	ABB:Ill		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Illuminator	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Scry|Search|Speak Language|Spellcraft|Spot
+1	ADD:SPELLCASTER(ANY)					SA:Piercing Gaze (illumination)
+2	ADD:SPELLCASTER(ANY)					SA:Light Mastery (+%)|LightMastery			BONUS:VAR|LightMastery|CL/2	DEFINE:LightMastery|0
+3	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Piercing Gaze	SA:Piercing Gaze (burn for %d6)|PiercingGaze	BONUS:VAR|PiercingGaze|2	DEFINE:PiercingGaze|0
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)													BONUS:VAR|PiercingGaze|2
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)					SA:Solar Aura % ft. radius|SolarAura		BONUS:VAR|SolarAura|5		DEFINE:SolarAura|0
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)													BONUS:VAR|SolarAura|5
+10	ADD:SPELLCASTER(ANY)
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Feat		Required Skill							Req. Known Spell			Req. Spell Type
+CLASS:Maestro of Dissonance	PREFEAT:1,Blindfight	PRESKILL:2,Listen,Perform=4	PRESKILL:1,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:Arcane,2,3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
+1	ADD:SPELLCASTER(ANY)	VISION:Blindsight (MaestroBlindsight')	SA:Blindsight % ft.|MaestroBlindsight	BONUS:VAR|MaestroBlindsight|15	DEFINE:MaestroBlindsight|0
+2	ADD:SPELLCASTER(ANY)
+3	ADD:SPELLCASTER(ANY)								SA:Amplify Sounds (+%)|AmplifySounds	BONUS:VAR|AmplifySounds|CL/3		DEFINE:AmplifySounds|0
+4	ADD:SPELLCASTER(ANY)															BONUS:VAR|MaestroBlindsight|15
+5	ADD:SPELLCASTER(ANY)																										ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)															BONUS:VAR|MaestroBlindsight|15
+8	ADD:SPELLCASTER(ANY)																										ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+9	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)								SA:Deafening Cry					BONUS:VAR|MaestroBlindsight|15
+
+
+# Hammer (Gnome Hooked) not in the SRD
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat								Required Skill										Req. Known Spell		Req. Spell Type
+CLASS:Order of Akmon	PREFEAT:3,Combat Casting,Spell Focus(Evocation),Still Spell	PRESKILL:2,Concentration,Knowledge (Arcana)=8	PRESKILL:1,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:Arcane,2,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
+1	FEATAUTO:Simple Weapon Proficiency|Order of Akmon Weapon Proficiencies
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER(ANY)						SA:Hammer of Force (0-level and 1st level)
+2	ADD:SPELLCASTER(ANY)						SA:Irresistible Force (+%)|IrresistibleForce	BONUS:VAR|IrresistibleForce|1	DEFINE:IrresistibleForce|0
+3	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Hammer of Force	SA:Hammer of Force (2nd level)
+4	ADD:SPELLCASTER(ANY)														BONUS:VAR|IrresistibleForce|1
+5	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Hammer of Force	SA:Hammer of Force (3rd level)
+6	ADD:SPELLCASTER(ANY)														BONUS:VAR|IrresistibleForce|1
+7	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Hammer of Force	SA:Hammer of Force (4th level)
+8	ADD:SPELLCASTER(ANY)														BONUS:VAR|IrresistibleForce|1
+9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Hammer of Force	SA:Hammer of Force (5th level)
+10	ADD:SPELLCASTER(ANY)						SA:Fearful Force
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Spark		HD:4		TYPE:PC.Prestige	ABB:Sprk		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill		Req. Known Spell			Req. Spell Type
+CLASS:Spark		PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Spellcraft=8	PRESPELL:1,Lightning Bolt	PRESPELLTYPE:Arcane,3,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Spark		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Speak Language|Spellcraft|Wilderness Lore
+1	ADD:SPELLCASTER(ANY)							SA:Hold the Lightning
+2	ADD:SPELLCASTER(ANY)							SA:Electrical Mastery (+%)|ElectricalMastery		BONUS:VAR|ElectricalMastery|CL/2	DEFINE:ElectricalMastery|0
+3	ADD:SPELLCASTER(ANY)							SA:Electricity Resistance %|ElectricityResistance	BONUS:VAR|ElectricityResistance|10	DEFINE:ElectricityResistance|0
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)																BONUS:VAR|ElectricityResistance|5
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)																BONUS:VAR|ElectricityResistance|5
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Electricity Resistance	SA:Electricity Immunity
+10	ADD:SPELLCASTER(ANY)							SA:Catch the Lightning
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Unmaker	HD:4		TYPE:PC.Prestige	ABB:Unm		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat					Required Skill				Req. Known Spell		Req. Spell Type
+CLASS:Unmaker	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Brew Potion,Great Fortitude	PRESKILL:1,Alchemy,Spellcraft=8	PRESPELL:1,Acid Burst	PRESPELLTYPE:Arcane,3,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+1	ADD:SPELLCASTER(ANY)							SA:Corrode Life (+%d4)|CorrodeLife				BONUS:VAR|CorrodeLife|(CL+3)/4	DEFINE:CorrodeLife|0
+2	ADD:SPELLCASTER(ANY)							SA:Increased Causticity (one material)
+3	ADD:SPELLCASTER(ANY)							SA:Ignore Acid Resistance (%)|IgnoreAcidResistance	BONUS:VAR|IgnoreAcidResistance|2	DEFINE:IgnoreAcidResistance|0
+4	ADD:SPELLCASTER(ANY)							SA:Vapor Form (%/day)|VaporForm				BONUS:VAR|VaporForm|CL/4		DEFINE:VaporForm|0
+5	ADD:SPELLCASTER(ANY)
+6	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Increased Causticity	SA:Increased Causticity (two materials)
+7	ADD:SPELLCASTER(ANY)																BONUS:VAR|IgnoreAcidResistance|2
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)							SA:Acid Bolt
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill												Req. Known Spell					Req. Spell Type
+CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Knowledge (Nature),Wilderness Lore=4	PRESKILL:1,Knowledge (Arcana)=8	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:Arcane,3,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wintermage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Hide|Listen|Knowledge (Nature)|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft|Spot|Wilderness Lore
+1	ADD:SPELLCASTER(ANY)						SA:Icewalking
+2	ADD:SPELLCASTER(ANY)						SA:Cold Resistance %|ColdResistance				BONUS:VAR|ColdResistance|5		DEFINE:ColdResistance|0
+3	ADD:SPELLCASTER(ANY)						SA:Bolts of Frost (%d6/spell level)|BoltsofFrost	BONUS:VAR|BoltsofFrost|(CL+1)/4	DEFINE:BoltsofFrost|0
+4	ADD:SPELLCASTER(ANY)															BONUS:VAR|ColdResistance|5
+5	ADD:SPELLCASTER(ANY)						SA:Aspect of Winter
+6	ADD:SPELLCASTER(ANY)															BONUS:VAR|ColdResistance|5
+7	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)															BONUS:VAR|ColdResistance|5
+9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Aspect of Winter	SA:Greater Aspect of Winter
+10	ADD:SPELLCASTER(ANY)						SA:Cool the Flames
+
+
+
+#
+# end
+#

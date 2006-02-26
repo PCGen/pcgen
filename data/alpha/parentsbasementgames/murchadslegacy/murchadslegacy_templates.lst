@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon May 16 23:21:26 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Template Name		Visible	Template							PRESRGTEQ	PRESRLT	Misc bonus		Spell Res.
+Damned Spell Resistance	VISIBLE:NO	TEMPLATE:CHOOSE:Damned (SA)|Damned (No SA)
+Damned (No SA)		VISIBLE:NO											PRESRLT:1				SR:TL+10
+Damned (SA)			VISIBLE:NO									PRESRGTEQ:1			BONUS:MISC|SR|4
+
+#
+# End
+#

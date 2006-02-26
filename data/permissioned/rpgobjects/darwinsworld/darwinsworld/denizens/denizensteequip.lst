@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
+SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth|SOURCESHORT:DenizensTE|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+#Symbiotic Partner
+# Equipment Name				Type				Cost		Source Page		Virtual Feat		Bonus to skill
+Animal Companion (Cat)			TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track
+Animal Companion (Coyote)		TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track	BONUS:SKILL|Move Silently|2
+Animal Companion (Dog)			TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track
+Animal Companion (Horse)		TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track
+Animal Companion (Ravening Dog)	TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track
+Animal Companion (Snoffle Hog)	TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track
+Animal Companion (Wolf)			TYPE:Goods.Symbiot	COST:100	SOURCEPAGE:p.38	VFEAT:Alertness|Track

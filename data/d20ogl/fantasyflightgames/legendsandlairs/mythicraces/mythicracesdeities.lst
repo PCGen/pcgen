@@ -1,0 +1,35 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Oct  1 21:37:18 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# No description for the Nature domain is given in the book.
+
+# Deity Name	Product Identity?	Domains							Clergy AL			Desciption of Deity/Title						Holy Item								Deity Weapon								ALIGN		PANTHEON			Source Page
+Limpang-Lahai	NAMEISPI:YES	DOMAINS:Air,Good,Knowledge				FOLLOWERALIGN:367		DESC:Aaleear Goddess of art and music				SYMBOL:None								DEITYWEAP:None								ALIGN:CG	PANTHEON:Aaleear		SOURCEPAGE:p.7
+Tangled Woman	NAMEISPI:YES	DOMAINS:Animal,Nature,Plant				FOLLOWERALIGN:0346	DESC:Aaleear Goddess of nature					SYMBOL:None								DEITYWEAP:None								ALIGN:NG	PANTHEON:Aaleear		SOURCEPAGE:p.7
+Hollos the Archer	NAMEISPI:YES	DOMAINS:Destruction,Law,War				FOLLOWERALIGN:013		DESC:Aaleear God of war							SYMBOL:None								DEITYWEAP:Feybow								ALIGN:LG	PANTHEON:Aaleear		SOURCEPAGE:p.7
+Salamos		NAMEISPI:YES	DOMAINS:Good,Healing,Plant,Protection		FOLLOWERALIGN:0346	DESC:The Oak Father							SYMBOL:None								DEITYWEAP:None								ALIGN:NG	PANTHEON:Coivald		SOURCEPAGE:p.38
+Peridus		NAMEISPI:YES	DOMAINS:Death,Evil,Magic				FOLLOWERALIGN:125		DESC:Diabolical Lord of Death						SYMBOL:None								DEITYWEAP:None								ALIGN:LE	PANTHEON:The Curst	SOURCEPAGE:p.43
+Sealgairean		NAMEISPI:YES	DOMAINS:Animal,Knowledge,Plant,Strength		FOLLOWERALIGN:4678	DESC:The Hunter								SYMBOL:None								DEITYWEAP:None								ALIGN:CN	PANTHEON:Mhvinntir	SOURCEPAGE:p.75
+Dy'Madra		NAMEISPI:YES	DOMAINS:Air,Good,Luck					FOLLOWERALIGN:367		DESC:Goddess Of Air, Clouds, Sotmrs, and Wind			SYMBOL:Bolt of lightning surrounded by storm clouds	DEITYWEAP:None								ALIGN:CG	PANTHEON:Niomus		SOURCEPAGE:p.82
+The Sea		NAMEISPI:YES	DOMAINS:Knowledge,Law,Protection,Travel,Water	FOLLOWERALIGN:012		DESC:The Sea								SYMBOL:None								DEITYWEAP:None								ALIGN:LN	PANTHEON:Ooloi		SOURCEPAGE:p.88
+Buer			NAMEISPI:YES	DOMAINS:Animal,Strength,Travel,War			FOLLOWERALIGN:4678	DESC:Lord of the wilderness, war, and physical prowess	SYMBOL:None								DEITYWEAP:Shortspear							ALIGN:CN	PANTHEON:Aaleear		SOURCEPAGE:p.104
+Hmecsoba		NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery				FOLLOWERALIGN:578		DESC:The wicked trickster						SYMBOL:None								DEITYWEAP:None								ALIGN:CE	PANTHEON:Aaleear		SOURCEPAGE:p.104
+Allasyrain		NAMEISPI:YES	DOMAINS:Air,Good,Healing				FOLLOWERALIGN:367		DESC:god of winds								SYMBOL:None								DEITYWEAP:None								ALIGN:CG	PANTHEON:Siarran		SOURCEPAGE:p.136
+Trevk and Ellayk	NAMEISPI:YES	DOMAINS:Air,Law,War,Water,Evil			FOLLOWERALIGN:012		DESC:Lord and Lady of rain and springs				SYMBOL:None								DEITYWEAP:Scimitar|Lance|Shortbow|Shortbow (Composite)	ALIGN:LN	PANTHEON:Sktak		SOURCEPAGE:p.142
+Ehromen		NAMEISPI:YES	DOMAINS:Destruction,Evil,Trickery			FOLLOWERALIGN:258		DESC:the demon								SYMBOL:None								DEITYWEAP:None								ALIGN:NE	PANTHEON:Sktak		SOURCEPAGE:p.142
+Y'llan		NAMEISPI:YES	DOMAINS:ALL							FOLLOWERALIGN:012345678	DESC:The mother with a thousand faces				SYMBOL:None								DEITYWEAP:None										PANTHEON:Uthuk		SOURCEPAGE:p.159
+
+#Animen Higher Self		?	SOURCE:p.19 (Animen)
+#Ba en Aset				?	SOURCE:p.25 (Artathi)
+#Ulmagnus				?	SOURCE:p.32 (Blickish)
+#Chevelle				?	SOURCE:p.32 (Blickish)
+#Ehlana				?	SOURCE:p.38 (Coivald)
+#Oberon				?	SOURCE:p.55 (Fairy)
+#Titania				?	SOURCE:p.55 (Fairy)
+#Phynnod				?	SOURCE:p.55 (Fairy)
+#Seelie 2-4				?	SOURCE:p.55 (Fairy)
+#Dark Titania			?	SOURCE:p.55 (Fairy)
+#Unseelie 2-4			?	SOURCE:p.55 (Fairy)
+#Nether Gods			?	SOURCE:p.55 (Fairy)
+#Hegretta				?	SOURCE:p.111,117 (Rhonians and Rhoode)
+#Orlem				?	SOURCE:p.99 (Quissians)

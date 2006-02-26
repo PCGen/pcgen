@@ -1,0 +1,10 @@
+# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+
+# Feat Name			Type			Req. Att.	Required Feat				Required Skill				Req. Spell Type		Required Stat	Description														ADD:FAVOREDCLASS			Source Page
+Draconic Bloodline	TYPE:General																						DESC:You are distantly descended from a dragon, +1 on Saves vs. chosen type of energy	ADD:FAVOREDCLASS|Sorcerer	SOURCEPAGE:p.
+Improved Subdual Damage	TYPE:General			PREFEAT:1,Expertise																DESC:You do +2 subdual damage																SOURCEPAGE:p.55
+Minor Combat Magic	TYPE:General																			PRESTAT:1,INT=10	DESC:You are trained in basic spellcasting													SOURCEPAGE:p.55
+Opportunity Knocks	TYPE:General			PREFEAT:1,Combat Reflexes															DESC:Make AOOs against foes who are normally safe from them											SOURCEPAGE:p.55
+Secret of Spellcraft	TYPE:General									PRESKILL:1,Knowledge (Arcana)=6	PRESPELLTYPE:Any,1,4				DESC:You are more skilled at researching new spells												SOURCEPAGE:p.40
+Unarmed Sunder		TYPE:General	PREATT:3	PREFEAT:1,Improved Unarmed Strike											PRESTAT:1,STR=15	DESC:Your unarmed strikes against a foe's weapon do not incur an AOO									SOURCEPAGE:p.11

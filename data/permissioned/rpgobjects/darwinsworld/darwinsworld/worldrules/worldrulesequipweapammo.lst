@@ -1,0 +1,20 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+
+# Equipment Name		Type						Cost		Weight	Base Quantity	Source Page
+Bullets, Pistol		TYPE:Ammunition.Standard.Metal	COST:3	WT:.2					SOURCEPAGE:pp.51,52
+Bullets, Pistol (10)	TYPE:Ammunition.Standard.Metal	COST:30	WT:2		BASEQTY:10		SOURCEPAGE:pp.51,52
+Bullets, Rifle		TYPE:Ammunition.Standard.Metal	COST:3	WT:.2					SOURCEPAGE:pp.51,52
+Bullets, Rifle (10)	TYPE:Ammunition.Standard.Metal	COST:30	WT:2		BASEQTY:10		SOURCEPAGE:pp.51,52
+Cartridge, Carbine	TYPE:Ammunition.Standard.Metal	COST:3.5	WT:.03				SOURCEPAGE:pp.51,52
+Cartridge, Carbine (20)	TYPE:Ammunition.Standard.Metal	COST:70	WT:.5		BASEQTY:20		SOURCEPAGE:pp.51,52
+Cartridge, Pistol		TYPE:Ammunition.Standard.Metal	COST:4	WT:.03				SOURCEPAGE:pp.51,52
+Cartridge, Pistol (10)	TYPE:Ammunition.Standard.Metal	COST:40	WT:.25	BASEQTY:10		SOURCEPAGE:pp.51,52
+Cartridge, Rifle		TYPE:Ammunition.Standard.Metal	COST:3	WT:.03				SOURCEPAGE:pp.51,52
+Cartridge, Rifle (30)	TYPE:Ammunition.Standard.Metal	COST:90	WT:.75	BASEQTY:30		SOURCEPAGE:pp.51,52
+Cartridge, SMG		TYPE:Ammunition.Standard.Metal	COST:2.7	WT:.03				SOURCEPAGE:pp.51,52
+Cartridge, SMG (30)	TYPE:Ammunition.Standard.Metal	COST:80	WT:.75	BASEQTY:30		SOURCEPAGE:pp.51,52
+Metal BBs			TYPE:Ammunition.Standard.Metal	COST:.2	WT:.04				SOURCEPAGE:pp.51,52
+Metal BBs (100)		TYPE:Ammunition.Standard.Metal	COST:20	WT:4		BASEQTY:100		SOURCEPAGE:pp.51,52
+Shotgun Shells		TYPE:Ammunition.Standard.Metal	COST:4	WT:.03				SOURCEPAGE:pp.51,52
+Shotgun Shells (20)	TYPE:Ammunition.Standard.Metal	COST:80	WT:.5		BASEQTY:20		SOURCEPAGE:pp.51,52

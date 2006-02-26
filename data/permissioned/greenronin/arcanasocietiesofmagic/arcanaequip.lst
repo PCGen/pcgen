@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+# Equipment Name	Type			Cost		Weight	Source Page
+Afiki			TYPE:Goods.Drug	COST:100	WT:0		SOURCEPAGE:p.
+Dreamgrass		TYPE:Goods.Drug	COST:2	WT:0		SOURCEPAGE:p.
+Elven Wine		TYPE:Goods.Drug	COST:1	WT:1		SOURCEPAGE:p.
+Fearbane		TYPE:Goods.Drug	COST:50	WT:0		SOURCEPAGE:p.
+Icefire		TYPE:Goods.Drug	COST:200	WT:0		SOURCEPAGE:p.
+Narawdwi		TYPE:Goods.Drug	COST:75	WT:0		SOURCEPAGE:p.
+Zombie Dust		TYPE:Goods.Drug	COST:150	WT:0		SOURCEPAGE:p.

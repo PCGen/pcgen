@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sat Jan 24 23:02:59 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Skill Name			Key Stat	Untrained?		Type					Source Page
+Craft (Printmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:84
+Knowledge (The Business)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:72
+Knowledge (Celebrities)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:72
+Knowledge (Tactics)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:77
+Knowledge (XCrawl)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:79
+Photography				KEYSTAT:DEX				TYPE:Dexterity			SOURCEPAGE:90
+Profession (Agent)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:72
+Profession (Bodyguard)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:74
+Profession (Coach)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:76

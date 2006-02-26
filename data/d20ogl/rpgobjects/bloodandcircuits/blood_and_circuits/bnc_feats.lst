@@ -1,0 +1,44 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Dec 30 17:52:35 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Blood and Circuits|SOURCESHORT:BNC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+
+#Modified Called Shot to output its limits in SA and added a choice. This should only select ranged weapons, which can't be done yet. -- Frank Kliewe
+
+# Feat Name				Type				Req. Att.	Required Feat				Required Lvl	Required Skill																		Required Stat	Required Text		Special Ability														Description																																	Stackable?	Multiple?	Choose																											Choose a Feat			Bonus to skill						Source Page
+Advanced Armor Design		TYPE:General													PRESKILL:1,Craft (Mechanical)=10	PRESKILL:1,Knowledge (Physical Sciences)=8	PRESKILL:1,Knowledge (Technology)=5																								DESC:You are able to design and build futuristic armors.																																																																						SOURCEPAGE:p.11
+Advanced Electronic Design	TYPE:General													PRESKILL:1,Craft (Electronic)=10	PRESKILL:1,Knowledge (Physical Sciences)=8	PRESKILL:1,Knowledge (Technology)=5																								DESC:You are able to design and build futuristic electronics.																																																																					SOURCEPAGE:p.12
+Advanced Weapon Design		TYPE:General													PRESKILL:1,Craft (Mechanical)=10	PRESKILL:1,Knowledge (Physical Sciences)=8	PRESKILL:1,Knowledge (Technology)=5																								DESC:You are able to design and build futuristic weapons.																																																																						SOURCEPAGE:p.12
+Advanced Vehicle Design		TYPE:General													PRESKILL:1,Craft (Mechanical)=10	PRESKILL:1,Knowledge (Physical Sciences)=8	PRESKILL:1,Knowledge (Technology)=5																								DESC:You are able to design and build futuristic vehicles.																																																																						SOURCEPAGE:p.12
+Armory				TYPE:General																																																								DESC:You have access to sophisticated armor.																													MULT:YES	CHOOSE:+5 to Wealth to buy armor																																				SOURCEPAGE:p.12
+Arsenal				TYPE:General																																																								DESC:You have access to a large variety of weapons.																												MULT:YES	CHOOSE:+5 to Wealth to buy weapons																																				SOURCEPAGE:p.12
+Called Shot				TYPE:General		PREATT:7	PREFEAT:2,Weapon Focus,Sharpshooter																															SA:Called Shot -%/+%d6|2*var("COUNT[FEATNAME=Called Shot]")|var("COUNT[FEATNAME=Called Shot]")	DESC:You excel with one ranged weapon.																												STACK:YES	MULT:YES	CHOOSE:FEAT=Weapon Focus																																					SOURCEPAGE:p.12
+Combat Driving			TYPE:General													PRESKILL:1,Drive=4																																								DESC:You are highly skilled at using normal vehicles in combat.																																																																					SOURCEPAGE:p.12
+Cutting Edge			TYPE:General																																				PRETEXT:GM permission																	DESC:You have access to next-generation technology.																												MULT:YES	CHOOSE:+1 to PL availability																																					SOURCEPAGE:p.13
+Handyman				TYPE:General																																																								DESC:You are skilled at building and fixing items.																												MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)	ADD:FEAT(TYPE.HandymanCraft)	BONUS:SKILL|Repair|2	BONUS:SKILL|LIST|2	SOURCEPAGE:p.13
+Henchman				TYPE:General																																																								DESC:You have a group of followers.																																																																										SOURCEPAGE:p.13
+Mass Production			TYPE:General				PREFEAT:1,Workforce			PRELEVEL:10		PRESKILL:1,Knowledge (Business)=5																																						DESC:You are able to reduce costs on items you make in bulk because of an attention to detail and knowledge of mass production techniques.																																																								SOURCEPAGE:p.14
+Perfectionist			TYPE:General.Dedicated																																PRESTAT:1,WIS=13																					DESC:Your dedication to your craft is remarkable, causing you to generate items with fewer bugs. However your care causes you to take your time, choosing to do your project right rather than rush it.																																														SOURCEPAGE:p.15
+Ricochet				TYPE:General		PREATT:7	PREFEAT:2,Weapon Focus,Sharpshooter																																															DESC:You can bounce your ranged attacks to catch an opponent off guard.																																																																				SOURCEPAGE:p.15
+Ricochet (Improved)		TYPE:General		PREATT:9	PREFEAT:1,Ricochet																																																	DESC:You can bounce your weapon off multiple opponents before your weapon returns to you.																																																																	SOURCEPAGE:p.15
+Signaling				TYPE:General																																																								DESC:You are skilled at performing non-electronic methods of communication.																																																																			SOURCEPAGE:p.15
+Workforce				TYPE:General				PREFEAT:1,Henchman			PRELEVEL:5																						PRESTAT:1,INT=13																					DESC:Your henchmen are skilled workers able to aid you in building devices.																																																																			SOURCEPAGE:p.16
+
+# The following feats are from other sources and are not included here
+## MSRD Base
+### Aircraft Operation
+### Surface Vehcile Operation
+## MSRD Future
+### Armor Proficiency (Powered)
+### Mastercrafter
+## Blood and Guts: Modern Military
+### Cover Fire
+### Electronic Warfare
+### Evasive Maneuvers
+### Fixed Wing Vehicle Weapons
+### Formation Flying
+### Helicopter Vehicle Weapons
+### Jump School
+### Radar Operation
+### Sonar Operation
+### Teamwork
+### Tank/APC Weapons
+### Wingman

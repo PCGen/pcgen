@@ -1,0 +1,96 @@
+# CVS $Revision: 1.8 $ $Author: eddyanthony $ -- Tue Jan 18 13:34:00 2005 -- reformated by prettylst.pl v1.34 (build 451)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Computer Upgrades
+
+# Modifier Name			Product Identity?	Unique Key				Type						Cost		Type granted	Source Page		Required Type		Weapon prop. bonus
++1								KEY:COMPUTER_PLUS_1		TYPE:Computer				COST:0				SOURCEPAGE:p.128
++2								KEY:COMPUTER_PLUS_2		TYPE:Computer				COST:3				SOURCEPAGE:p.128
++3								KEY:COMPUTER_PLUS_3		TYPE:Computer				COST:6				SOURCEPAGE:p.128
+
+# Attache case add ons
+
+Booby trapped			NAMEISPI:YES	KEY:BOOBY_TRAPPED			TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Copycat				NAMEISPI:YES	KEY:COPYCAT				TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Counter surveillance		NAMEISPI:YES	KEY:COUNTER_SURVEILLANCE	TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Magic box				NAMEISPI:YES	KEY:MAGIC_BOX			TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Portable PC				NAMEISPI:YES	KEY:PORTABLE_PC			TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Safe passage			NAMEISPI:YES	KEY:SAFE_PASSAGE			TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Submachine gun			NAMEISPI:YES	KEY:SUBMACHINE_GUN		TYPE:Attache				COST:1				SOURCEPAGE:p.132
+Surveillance			NAMEISPI:YES	KEY:SURVEILLANCE			TYPE:Attache				COST:1				SOURCEPAGE:p.132
+
+# Belt add ons
+
+Lockpick set			NAMEISPI:YES	KEY:LOCKPICK_SET			TYPE:Belt					COST:1				SOURCEPAGE:p.133
+Razor's edge			NAMEISPI:YES	KEY:RAZORS_EDGE			TYPE:Belt					COST:1				SOURCEPAGE:p.133
+
+# Add ons for Glasses
+
+Faceprint				NAMEISPI:YES	KEY:FACEPRINT_LENSES		TYPE:Glasses				COST:3				SOURCEPAGE:p.139
+Hypnosis				NAMEISPI:YES	KEY:HYPNOSIS_LENSES		TYPE:Glasses				COST:2				SOURCEPAGE:p.139
+Iris					NAMEISPI:YES	KEY:IRIS_LENSES			TYPE:Glasses				COST:2				SOURCEPAGE:p.139
+LCD					NAMEISPI:YES	KEY:LCD_LENSES			TYPE:Glasses				COST:1				SOURCEPAGE:p.139
+Magnet eyes				NAMEISPI:YES	KEY:MAGNET_EYES_LENSES		TYPE:Glasses				COST:2				SOURCEPAGE:p.139
+Other directional glasses	NAMEISPI:YES	KEY:OTHER_DIRECTIONAL_GLASSES	TYPE:Glasses				COST:1				SOURCEPAGE:p.140
+Sealed lenses			NAMEISPI:YES	KEY:SEALED_LENSES			TYPE:Glasses				COST:2				SOURCEPAGE:p.140
+Starlight lenses			NAMEISPI:YES	KEY:STARLIGHT_LENSES		TYPE:Glasses				COST:1				SOURCEPAGE:p.140
+Telescopic lenses			NAMEISPI:YES	KEY:TELESCOPIC_LENSES		TYPE:Glasses				COST:2				SOURCEPAGE:p.140
+Thermpgraphic lenses		NAMEISPI:YES	KEY:THERMPGRAPHIC_LENSES	TYPE:Glasses				COST:2				SOURCEPAGE:p.140
+Translator lenses			NAMEISPI:YES	KEY:TRANSLATOR_LENSES		TYPE:Glasses				COST:3				SOURCEPAGE:p.140
+Transmitter lenses		NAMEISPI:YES	KEY:TRANSMITTER_LENSES		TYPE:Glasses				COST:2				SOURCEPAGE:p.140
+X ray lenses			NAMEISPI:YES	KEY:X_RAY_LENSES			TYPE:Glasses				COST:2				SOURCEPAGE:p.140
+
+# Shoe add ons
+
+Blade					NAMEISPI:YES	KEY:BLADE_SHOE			TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+Gun					NAMEISPI:YES	KEY:GUN_SHOE			TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+Homing beacon			NAMEISPI:YES	KEY:HOMING_BEACON_SHOE		TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+Phone					NAMEISPI:YES	KEY:PHONE_SHOE			TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+Roller/ice blades			NAMEISPI:YES	KEY:ROLLER_ICE_BLADES_SHOE	TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+Shock tip				NAMEISPI:YES	KEY:SHOCK_TIP_SHOE		TYPE:Shoe					COST:2				SOURCEPAGE:p.141
+Suction				NAMEISPI:YES	KEY:SUCTION_SHOE			TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+Treads				NAMEISPI:YES	KEY:TREADS_SHOE			TYPE:Shoe					COST:1				SOURCEPAGE:p.141
+
+# Bug options
+
+Non-sinusoidal transmission	NAMEISPI:YES	KEY:NON_SINUSOIDAL		TYPE:Bug					COST:2				SOURCEPAGE:p.142
+Piezo-bug				NAMEISPI:YES	KEY:PIEZO_BUG			TYPE:Bug					COST:2				SOURCEPAGE:p.142
+Tri-ference photography		NAMEISPI:YES	KEY:TRI_FERENCE_PHOTOGRAPHY	TYPE:Camera					COST:1				SOURCEPAGE:p.142
+
+# Watch options
+
+Explosive				NAMEISPI:YES	KEY:EXPLOSIVE_WATCH		TYPE:Watch					COST:1				SOURCEPAGE:p.144
+Garrote				NAMEISPI:YES	KEY:GARROTE_WATCH			TYPE:Watch					COST:1				SOURCEPAGE:p.144
+GPS					NAMEISPI:YES	KEY:GPS_WATCH			TYPE:Watch					COST:1				SOURCEPAGE:p.144
+Memory cache			NAMEISPI:YES	KEY:MEMORY_CACHE_WATCH		TYPE:Watch					COST:4				SOURCEPAGE:p.144
+Poison spike			NAMEISPI:YES	KEY:POISON_SPIKE_WATCH		TYPE:Watch					COST:3				SOURCEPAGE:p.144
+Rotary saw				NAMEISPI:YES	KEY:ROTARY_SAW_WATCH		TYPE:Watch					COST:1				SOURCEPAGE:p.145
+
+# Weapon Enhancements
+
+Breakdown gun			NAMEISPI:YES	KEY:BREAKDOWN_GUN			TYPE:Pistol					COST:3				SOURCEPAGE:p.145
+CBQ					NAMEISPI:YES	KEY:CBQ_WEAPON			TYPE:Submachinegun.Shotgun.Rifle	COST:1	ITYPE:Silenced	SOURCEPAGE:p.145
+All-in-one				NAMEISPI:YES	KEY:ALL_IN_ONE			TYPE:Revolver				COST:2				SOURCEPAGE:p.145
+Cloaking device			NAMEISPI:YES	KEY:CLOAKING_DEVICE		TYPE:Weapon					COST:2				SOURCEPAGE:p.145
+Dummy line				NAMEISPI:YES	KEY:DUMMY_LINE			TYPE:Weapon					COST:1				SOURCEPAGE:p.145
+Hush Puppy				NAMEISPI:YES	KEY:HUSH_PUPPY			TYPE:Submachinegun			COST:1				SOURCEPAGE:p.146	PRETYPE:Silenced
+Machine pistol			NAMEISPI:YES	KEY:MACHINE_PISTOL		TYPE:Pistol					COST:1				SOURCEPAGE:p.146
+Match grade weapon		NAMEISPI:YES	KEY:MATCH_GRADE_WEAPON		TYPE:Firearm				COST:2	ITYPE:Match grade	SOURCEPAGE:p.146					BONUS:WEAPON|TOHIT|1
+Silenced revolver			NAMEISPI:YES	KEY:SILENCED_REVOLVER		TYPE:Revolver				COST:1				SOURCEPAGE:p.145
+Weapon accurizing			NAMEISPI:YES	KEY:WEAPON_ACCURIZING		TYPE:Firearm				COST:2				SOURCEPAGE:p.146	PRETYPE:Match grade	BONUS:WEAPON|TOHIT|1
+
+###Block:Weapon Accessories
+
+# Modifier Name	Product Identity?	Unique Key			Type			Cost		Source Page		Special Property
+Flash Suppressor	NAMEISPI:YES	KEY:FLASH_SUPPRESSOR	TYPE:Firearm	COST:1	SOURCEPAGE:p.130	SPROP:Opponents suffer a -4 penalty to their Spot checks to track you by muzzle fire when you are using a Flash Suppressor
+Silencer		NAMEISPI:YES	KEY:SILENCER		TYPE:Firearm	COST:2	SOURCEPAGE:p.130	SPROP:Opponents receive a -4 penalty to Listen checks when trying to locate someone firing a weapon with a silencer attached
+Telescopic Sight	NAMEISPI:YES	KEY:TELESCOPIC_SIGHT	TYPE:Firearm	COST:2	SOURCEPAGE:p.130	SPROP:A telescopic sight allows you to ignore the range penalties from the first and every other range increment
+Laser Sight		NAMEISPI:YES	KEY:LASER_SIGHT		TYPE:Firearm	COST:2	SOURCEPAGE:p.130	SPROP:A laser sight grants a +2 circumstance bonus to all ranged attack rolls effective up to 50 feet
+
+#
+# End
+#

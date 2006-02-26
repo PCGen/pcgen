@@ -1,0 +1,268 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 14:59:42 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by Phantom of Krankor)
+
+# Equipment Name			Output Name					Type					Contains			Cost		Weight		Base Quantity	Source Page
+###Block: Coins and Metals
+#Gold Coins
+# Equipment Name		Type			Cost		Weight	Source Page
+Double Eagle		TYPE:Goods.Coin	COST:20	WT:.0833	SOURCEPAGE:p. 128
+Gold Eagle			TYPE:Goods.Coin	COST:10	WT:.04	SOURCEPAGE:p. 128
+Half Eagle			TYPE:Goods.Coin	COST:5	WT:.02	SOURCEPAGE:p. 128
+Three-Dollar Piece	TYPE:Goods.Coin	COST:3	WT:.0133	SOURCEPAGE:p. 128
+Quarter Eagle		TYPE:Goods.Coin	COST:2.5	WT:.01	SOURCEPAGE:p. 128
+#Silver Coins
+Morgan Silver Dollar	TYPE:Goods.Coin	COST:1	WT:.0667	SOURCEPAGE:p. 128
+Liberty Dollar (Mexico)	TYPE:Goods.Coin	COST:1	WT:.0667	SOURCEPAGE:p. 128
+Half Dollar			TYPE:Goods.Coin	COST:.5	WT:.0333	SOURCEPAGE:p. 128
+Quarter Dollar		TYPE:Goods.Coin	COST:.25	WT:.0167	SOURCEPAGE:p. 128
+Dime				TYPE:Goods.Coin	COST:.1	WT:.0056	SOURCEPAGE:p. 128
+Half Dime			TYPE:Goods.Coin	COST:.05	WT:.0028	SOURCEPAGE:p. 128
+#Copper/Bronze Coins
+Two-Cent Piece (Bronze)	TYPE:Goods.Coin	COST:.02	WT:.0133	SOURCEPAGE:p. 128
+Indian Cent (Copper)	TYPE:Goods.Coin	COST:.01	WT:.01	SOURCEPAGE:p. 128
+#Metals
+Silver (1 oz.)		TYPE:Goods.Metal	COST:.65	WT:.0625	SOURCEPAGE:p. 128
+Gold (1 oz.)		TYPE:Goods.Metal	COST:20	WT:.0625	SOURCEPAGE:p. 128
+
+###Block: Licenses
+# Equipment Name		Output Name				Type				Cost		Weight	Source Page
+License (Licensed)	OUTPUTNAME:[NAME] License	TYPE:Goods.License	COST:5	WT:0		SOURCEPAGE:p. 130
+License (Restricted)	OUTPUTNAME:[NAME] License	TYPE:Goods.License	COST:20	WT:0		SOURCEPAGE:p. 130
+License (Military)	OUTPUTNAME:[NAME] License	TYPE:Goods.License	COST:80	WT:0		SOURCEPAGE:p. 130
+License (Illegal)		OUTPUTNAME:[NAME] License	TYPE:Goods.License	COST:350	WT:0		SOURCEPAGE:p. 130
+
+###Block: Clothing and Personal Items
+# Equipment Name			Output Name					Type				Cost		Weight	Base Quantity	Source Page
+Bandana										TYPE:Goods.Clothing	COST:.1	WT:0					SOURCEPAGE:p. 156
+Boots (Military)			OUTPUTNAME:[NAME] Boots			TYPE:Goods.Clothing	COST:5	WT:3.5				SOURCEPAGE:p. 156
+Boots (Cowboy)			OUTPUTNAME:[NAME] Boots			TYPE:Goods.Clothing	COST:5	WT:3.5				SOURCEPAGE:p. 156
+Boots (Custom)			OUTPUTNAME:[NAME] Boots			TYPE:Goods.Clothing	COST:25	WT:3.5				SOURCEPAGE:p. 156
+Buckskin Shirt									TYPE:Goods.Clothing	COST:2	WT:3					SOURCEPAGE:p. 156
+Buckskin Trousers									TYPE:Goods.Clothing	COST:1.75	WT:3					SOURCEPAGE:p. 156
+Buffalo Robe									TYPE:Goods.Clothing	COST:10	WT:40					SOURCEPAGE:p. 156
+Candles (Wax/1 Dozen)		OUTPUTNAME:Wax Candles (12)		TYPE:Goods.Personal	COST:.1	WT:1		BASEQTY:12		SOURCEPAGE:p. 156
+Cap (Broadcloth)			OUTPUTNAME:[NAME] Cap			TYPE:Goods.Clothing	COST:.5	WT:0					SOURCEPAGE:p. 156
+Cartridge Belt									TYPE:Goods.Clothing	COST:1	WT:2					SOURCEPAGE:p. 156
+Chaps (Leather)			OUTPUTNAME:[NAME] Chaps			TYPE:Goods.Clothing	COST:4.5	WT:6.5				SOURCEPAGE:p. 156
+Chaps (Sheepskin)			OUTPUTNAME:[NAME] Chaps			TYPE:Goods.Clothing	COST:4.5	WT:6.5				SOURCEPAGE:p. 156
+Cigar (Cheroot)			OUTPUTNAME:[NAME] Cigar			TYPE:Goods.Personal	COST:.05	WT:0					SOURCEPAGE:p. 156
+Cigar (High Quality)		OUTPUTNAME:[NAME] Cigar			TYPE:Goods.Personal	COST:.125	WT:0					SOURCEPAGE:p. 156
+Dress											TYPE:Goods.Clothing	COST:1.5	WT:4					SOURCEPAGE:p. 156
+Gloves										TYPE:Goods.Clothing	COST:2	WT:0					SOURCEPAGE:p. 156
+Hat (Derby)				OUTPUTNAME:[NAME] Hat			TYPE:Goods.Clothing	COST:2	WT:.5					SOURCEPAGE:p. 156
+Hat (Cowboy)			OUTPUTNAME:[NAME] Hat			TYPE:Goods.Clothing	COST:3	WT:1					SOURCEPAGE:p. 156
+Hat (Stetson)			OUTPUTNAME:[NAME] Hat			TYPE:Goods.Clothing	COST:20	WT:1					SOURCEPAGE:p. 156
+Hat (Lady's Feathered)		OUTPUTNAME:[NAME] Hat			TYPE:Goods.Clothing	COST:4	WT:1					SOURCEPAGE:p. 156
+Hat (Sombrero)			OUTPUTNAME:[NAME] Hat			TYPE:Goods.Clothing	COST:3.5	WT:.5					SOURCEPAGE:p. 156
+Holster (Fancy)			OUTPUTNAME:[NAME] Holster		TYPE:Goods.Clothing	COST:5	WT:.5					SOURCEPAGE:p. 156
+Holster (Plain)			OUTPUTNAME:[NAME] Holster		TYPE:Goods.Clothing	COST:1	WT:.5					SOURCEPAGE:p. 156
+Holster (Shoulder)		OUTPUTNAME:[NAME] Holster		TYPE:Goods.Clothing	COST:1.5	WT:.5					SOURCEPAGE:p. 156
+Holster (Swivel)			OUTPUTNAME:[NAME] Holster		TYPE:Goods.Clothing	COST:3.75	WT:.5					SOURCEPAGE:p. 156
+Knife (Pocket)			OUTPUTNAME:Pocketknife			TYPE:Goods.Personal	COST:.5	WT:0					SOURCEPAGE:p. 156
+Matches (Safety/240)		OUTPUTNAME:Safety Matches (240)	TYPE:Goods.Personal	COST:.1	WT:0		BASEQTY:240		SOURCEPAGE:p. 156
+Mirror (Brush and Comb Set)	OUTPUTNAME:Mirror, [NAME]		TYPE:Goods.Personal	COST:3	WT:2					SOURCEPAGE:p. 156
+Overcoat (Cloth)			OUTPUTNAME:[NAME] Overcoat		TYPE:Goods.Clothing	COST:8	WT:10					SOURCEPAGE:p. 156
+Overcoat (Fur)			OUTPUTNAME:[NAME] Overcoat		TYPE:Goods.Clothing	COST:15	WT:20					SOURCEPAGE:p. 156
+Razor (Straight)			OUTPUTNAME:[NAME] Razor			TYPE:Goods.Personal	COST:1	WT:0					SOURCEPAGE:p. 156
+Shirt (Average Quality)		OUTPUTNAME:[NAME] Shirt			TYPE:Goods.Clothing	COST:.5	WT:0					SOURCEPAGE:p. 156
+Shirt (Good Quality)		OUTPUTNAME:[NAME] Shirt			TYPE:Goods.Clothing	COST:1	WT:0					SOURCEPAGE:p. 156
+Shirt (Women's/Good Quality)	OUTPUTNAME:[NAME] Shirt			TYPE:Goods.Clothing	COST:1.5	WT:0					SOURCEPAGE:p. 156
+Shoes (Men's)			OUTPUTNAME:[NAME] Shoes			TYPE:Goods.Clothing	COST:3.5	WT:2					SOURCEPAGE:p. 156
+Shoes (Women's)			OUTPUTNAME:[NAME] Shoes			TYPE:Goods.Clothing	COST:3.5	WT:2					SOURCEPAGE:p. 156
+Skirt (Women's)			OUTPUTNAME:[NAME] Skirt			TYPE:Goods.Clothing	COST:4	WT:0					SOURCEPAGE:p. 156
+Slicker (Rain)			OUTPUTNAME:[NAME] Slicker		TYPE:Goods.Clothing	COST:4	WT:4.5				SOURCEPAGE:p. 156
+Soap (Cake)										TYPE:Goods.Personal	COST:.03	WT:0					SOURCEPAGE:p. 156
+Socks (1 Pair)									TYPE:Goods.Clothing	COST:.01	WT:0					SOURCEPAGE:p. 156
+Spurs (Plain)			OUTPUTNAME:[NAME] Spurs			TYPE:Goods.Clothing	COST:1.5	WT:0					SOURCEPAGE:p. 156
+Spurs (Fancy)			OUTPUTNAME:[NAME] Spurs			TYPE:Goods.Clothing	COST:10	WT:0					SOURCEPAGE:p. 156
+Suit (Men's Plain)		OUTPUTNAME:[NAME] Suit			TYPE:Goods.Clothing	COST:5	WT:6					SOURCEPAGE:p. 156
+Suit (Men's Fancy)		OUTPUTNAME:[NAME] Suit			TYPE:Goods.Clothing	COST:12	WT:6					SOURCEPAGE:p. 156
+Suit (Women's)			OUTPUTNAME:[NAME] Suit			TYPE:Goods.Clothing	COST:12	WT:6					SOURCEPAGE:p. 156
+Tobacco (1 Oz.)									TYPE:Goods.Personal	COST:.1	WT:.0625				SOURCEPAGE:p. 156
+Travel Trunk (Steamer)		OUTPUTNAME:[NAME] Trunk			TYPE:Goods.Personal	COST:5	WT:25					SOURCEPAGE:p. 156
+Trousers										TYPE:Goods.Clothing	COST:1.5	WT:3					SOURCEPAGE:p. 156
+Watch (Pocket with Chain)	OUTPUTNAME:Pocketwatch with Chain	TYPE:Goods.Personal	COST:4	WT:05					SOURCEPAGE:p. 156
+Wrap (Women's)			OUTPUTNAME:[NAME] Wrap			TYPE:Goods.Clothing	COST:15	WT:0					SOURCEPAGE:p. 156
+Vest											TYPE:Goods.Clothing	COST:1	WT:0					SOURCEPAGE:p. 156
+
+###Block: Provisions
+# Equipment Name			Output Name					Type				Cost		Weight	Base Quantity	Source Page
+Bacon (Side)			OUTPUTNAME:[NAME] of Bacon		TYPE:Goods.Provisions	COST:6	WT:40					SOURCEPAGE:p. 157
+Beef (Side)				OUTPUTNAME:[NAME] of Beef		TYPE:Goods.Provisions	COST:5	WT:65					SOURCEPAGE:p. 157
+Beef (Dried)			OUTPUTNAME:[NAME] Beef			TYPE:Goods.Provisions	COST:.2	WT:1					SOURCEPAGE:p. 157
+Beer (Glass)			OUTPUTNAME:[NAME] of Beer		TYPE:Goods.Provisions	COST:.05	WT:0					SOURCEPAGE:p. 157
+Beer (Small Keg)			OUTPUTNAME:[NAME] of Beer		TYPE:Goods.Provisions	COST:2	WT:10					SOURCEPAGE:p. 157
+Chewing Gum (100 Pieces)	OUTPUTNAME:[NAME] of Chewing Gum	TYPE:Goods.Provisions	COST:.25	WT:5					SOURCEPAGE:p. 157
+Chocolate (8 Oz. Tin)		OUTPUTNAME:[NAME] of Chocolate	TYPE:Goods.Provisions	COST:.1	WT:.5		BASEQTY:100		SOURCEPAGE:p. 157
+Coffee (2 Lb. Tin)		OUTPUTNAME:[NAME] of Coffee		TYPE:Goods.Provisions	COST:.5	WT:2					SOURCEPAGE:p. 157
+Corned Beef										TYPE:Goods.Provisions	COST:5.75	WT:100				SOURCEPAGE:p. 157
+Crackers										TYPE:Goods.Provisions	COST:1.5	WT:25					SOURCEPAGE:p. 157
+Flour (Sack)			OUTPUTNAME:[NAME] of Flour		TYPE:Goods.Provisions	COST:20	WT:50					SOURCEPAGE:p. 157
+Jerky (Pouch)			OUTPUTNAME:[NAME] of Jerky		TYPE:Goods.Provisions	COST:.15	WT:1					SOURCEPAGE:p. 157
+Meal (Average)			OUTPUTNAME:[NAME] Meal			TYPE:Goods.Provisions	COST:.25	WT:0					SOURCEPAGE:p. 157
+Meal (Good)				OUTPUTNAME:[NAME] Meal			TYPE:Goods.Provisions	COST:.75	WT:0					SOURCEPAGE:p. 157
+Meal (Aboard Train)		OUTPUTNAME:Meal [NAME]			TYPE:Goods.Provisions	COST:1.5	WT:0					SOURCEPAGE:p. 157
+Oatmeal (Sack)			OUTPUTNAME:[NAME] of Oatmeal		TYPE:Goods.Provisions	COST:4	WT:50					SOURCEPAGE:p. 157
+Rations (1 Week)			OUTPUTNAME:[NAME]'s Rations		TYPE:Goods.Provisions	COST:10	WT:10					SOURCEPAGE:p. 157
+Root Beer (Bottle)		OUTPUTNAME:[NAME] of Root Beer	TYPE:Goods.Provisions	COST:.1	WT:1					SOURCEPAGE:p. 157
+Sugar											TYPE:Goods.Provisions	COST:.1	WT:1					SOURCEPAGE:p. 157
+Tea (8 Oz. Tin)			OUTPUTNAME:[NAME] of Tea		TYPE:Goods.Provisions	COST:.5	WT:.5					SOURCEPAGE:p. 157
+Whiskey (Shot)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions	COST:.1	WT:0					SOURCEPAGE:p. 157
+Whiskey (Bottle)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions	COST:2	WT:3					SOURCEPAGE:p. 157
+
+###Block: Outdoor Equipment
+# Equipment Name			Output Name				Type				Cost		Weight	Source Page
+Bed Roll									TYPE:Goods.Outdoor	COST:4	WT:10		SOURCEPAGE:p. 157
+Binoculars (5x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor	COST:15	WT:2.5	SOURCEPAGE:p. 157
+Binoculars (10x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor	COST:25	WT:3		SOURCEPAGE:p. 157
+Canteen									TYPE:Goods.Outdoor	COST:.5	WT:1		SOURCEPAGE:p. 157
+Compass									TYPE:Goods.Outdoor	COST:2	WT:0		SOURCEPAGE:p. 157
+Gun Cleaning Kit								TYPE:Goods.Outdoor	COST:1.5	WT:1		SOURCEPAGE:p. 157
+Oil for Lamps (1 Gallon)	OUTPUTNAME:[NAME] Lamp Oil	TYPE:Goods.Outdoor	COST:.1	WT:8		SOURCEPAGE:p. 157
+Oil Lamp									TYPE:Goods.Outdoor	COST:1.5	WT:4		SOURCEPAGE:p. 157
+Scabbard (Rifle)			OUTPUTNAME:[NAME] Scabbard	TYPE:Goods.Outdoor	COST:2.5	WT:2		SOURCEPAGE:p. 157
+Tent (Miner's)			OUTPUTNAME:[NAME] Tent		TYPE:Goods.Outdoor	COST:6	WT:30		SOURCEPAGE:p. 157
+Trail Cook's Kit								TYPE:Goods.Outdoor	COST:3	WT:80		SOURCEPAGE:p. 157
+Trap with Chain (5"/Mink)	OUTPUTNAME:Mink Trap		TYPE:Goods.Outdoor	COST:.25	WT:2.5	SOURCEPAGE:p. 157
+Trap with Chain (6.5"/Beaver)	OUTPUTNAME:Beaver Trap		TYPE:Goods.Outdoor	COST:.39	WT:3		SOURCEPAGE:p. 157
+Trap with Chain (8"/Wolf)	OUTPUTNAME:Wolf Trap		TYPE:Goods.Outdoor	COST:1.85	WT:9		SOURCEPAGE:p. 157
+Trap with Chain (16"/Bear)	OUTPUTNAME:Bear Trap		TYPE:Goods.Outdoor	COST:11.75	WT:17		SOURCEPAGE:p. 157
+
+###Block: Animals, Livestock and Pelts
+# Equipment Name		Output Name				Type				Cost		Weight	Source Page
+Beaver (Pelt)		OUTPUTNAME:Beaver [NAME]	TYPE:Goods.Pelt		COST:2	WT:5		SOURCEPAGE:p. 158
+Buffalo (Hide)		OUTPUTNAME:Buffalo [NAME]	TYPE:Goods.Pelt		COST:5	WT:40		SOURCEPAGE:p. 158
+Burro									TYPE:Goods.Livestock	COST:30	WT:0		SOURCEPAGE:p. 158
+Cattle (Calf)		OUTPUTNAME:[NAME]			TYPE:Goods.Livestock	COST:5	WT:0		SOURCEPAGE:p.158
+Cattle (Yearling)		OUTPUTNAME:[NAME]			TYPE:Goods.Livestock	COST:10	WT:0		SOURCEPAGE:p. 158
+Cattle (Railhead)		OUTPUTNAME:[NAME]			TYPE:Goods.Livestock	COST:30	WT:0		SOURCEPAGE:p. 158
+Coyote (Skin)		OUTPUTNAME:Coyote [NAME]	TYPE:Goods.Pelt		COST:.75	WT:0		SOURCEPAGE:p. 158
+Coyote (Bounty)		OUTPUTNAME:Coyote [NAME]	TYPE:Goods.Pelt		COST:.75	WT:0		SOURCEPAGE:p. 158
+Horse (Excellent)		OUTPUTNAME:[NAME] Horse		TYPE:Goods.Livestock	COST:150	WT:0		SOURCEPAGE:p. 158
+Horse (Good)		OUTPUTNAME:[NAME] Horse		TYPE:Goods.Livestock	COST:100	WT:0		SOURCEPAGE:p. 158
+Horse (Fair)		OUTPUTNAME:[NAME] Horse		TYPE:Goods.Livestock	COST:50	WT:0		SOURCEPAGE:p. 158
+Horse (Poor)		OUTPUTNAME:[NAME] Horse		TYPE:Goods.Livestock	COST:20	WT:0		SOURCEPAGE:p. 158
+Jackrabbit (Pelt)		OUTPUTNAME:Jackrabbit [NAME]	TYPE:Goods.Pelt		COST:.05	WT:.5		SOURCEPAGE:p. 158
+Lynx (Pelt)			OUTPUTNAME:Lynx [NAME]		TYPE:Goods.Pelt		COST:1	WT:6		SOURCEPAGE:p. 158
+Mule									TYPE:Goods.Livestock	COST:50	WT:0		SOURCEPAGE:p. 158
+Oxen (Yoke of Two)	OUTPUTNAME:[NAME] Oxen		TYPE:Goods.Livestock	COST:150	WT:0		SOURCEPAGE:p. 158
+Pony									TYPE:Goods.Livestock	COST:50	WT:0		SOURCEPAGE:p. 158
+Puma (Pelt)			OUTPUTNAME:Puma [NAME]		TYPE:Goods.Pelt		COST:2	WT:10		SOURCEPAGE:p. 158
+Raccoon (Pelt)		OUTPUTNAME:Raccoon [NAME]	TYPE:Goods.Pelt		COST:.5	WT:1		SOURCEPAGE:p. 158
+Sheep									TYPE:Goods.Livestock	COST:5	WT:0		SOURCEPAGE:p. 158
+Wolverine (Pelt)		OUTPUTNAME:Wolverine [NAME]	TYPE:Goods.Pelt		COST:1	WT:4		SOURCEPAGE:p. 158
+
+###Block: Houshold Items
+# Equipment Name			Output Name					Type				Cost		Weight	Source Page
+Bedroom Set										TYPE:Goods.Household	COST:21	WT:275	SOURCEPAGE:p. 158
+Cook Stove										TYPE:Goods.Household	COST:40	WT:300	SOURCEPAGE:p. 158
+Cookware Set									TYPE:Goods.Household	COST:3	WT:80		SOURCEPAGE:p. 158
+Dining Room Set									TYPE:Goods.Household	COST:50	WT:400	SOURCEPAGE:p. 158
+Dishes (Setting for Six)							TYPE:Goods.Household	COST:12	WT:80		SOURCEPAGE:p. 158
+Glassware (Setting for Six)							TYPE:Goods.Household	COST:8	WT:40		SOURCEPAGE:p. 158
+Oil Lamp (Fancy Parlor Type)	OUTPUTNAME:Fancy Parlor Oil Lamp	TYPE:Goods.Household	COST:1.5	WT:10		SOURCEPAGE:p. 158
+Parlor Suite									TYPE:Goods.Household	COST:40	WT:325	SOURCEPAGE:p. 158
+Sewing Machine									TYPE:Goods.Household	COST:25	WT:50		SOURCEPAGE:p. 158
+Silverware (Setting for Six)							TYPE:Goods.Household	COST:5	WT:4		SOURCEPAGE:p. 158
+
+###Block: Land
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page
+Homestead (160 Acres)							TYPE:Goods.Land	COST:10	WT:0		SOURCEPAGE:p. 158
+Townsite (320 Acres)							TYPE:Goods.Land	COST:400	WT:0		SOURCEPAGE:p. 158
+Townsite Quarter (80 Acres)						TYPE:Goods.Land	COST:100	WT:0		SOURCEPAGE:p. 158
+Town Lot (Poor Location)	OUTPUTNAME:[NAME] Town Lot	TYPE:Goods.Land	COST:50	WT:0		SOURCEPAGE:p. 158
+Town Lot (Main Street)		OUTPUTNAME:[NAME] Town Lot	TYPE:Goods.Land	COST:400	WT:0		SOURCEPAGE:p. 158
+Town Lot (Choice Location)	OUTPUTNAME:[NAME] Town Lot	TYPE:Goods.Land	COST:1000	WT:0		SOURCEPAGE:p. 158
+
+###Block: Business Supplies
+# Equipment Name		Output Name					Type				Cost		Weight	Base Quantity	Source Page
+Cash Box With Lock							TYPE:Goods.Business	COST:1	WT:2					SOURCEPAGE:p. 159
+Envelopes (1 Dozen)	OUTPUTNAME:[NAME] Envelopes		TYPE:Goods.Business	COST:.05	WT:0		BASEQTY:12		SOURCEPAGE:p. 159
+Handcuffs									TYPE:Goods.Business	COST:2	WT:1					SOURCEPAGE:p. 159
+Paper (100 Sheets)	OUTPUTNAME:[NAME] of Paper		TYPE:Goods.Business	COST:.5	WT:0		BASEQTY:100		SOURCEPAGE:p. 159
+Pen (Fountain)		OUTPUTNAME:[NAME] Pen			TYPE:Goods.Business	COST:3	WT:0					SOURCEPAGE:p. 159
+Pen (Quill)			OUTPUTNAME:[NAME] Pen			TYPE:Goods.Business	COST:.05	WT:0					SOURCEPAGE:p. 159
+Pencils (1 Dozen)		OUTPUTNAME:[NAME] Pencils		TYPE:Goods.Business	COST:25	WT:0		BASEQTY:12		SOURCEPAGE:p. 159
+Postcard									TYPE:Goods.Business	COST:.01	WT:0					SOURCEPAGE:p. 159
+Printing Press (Small)	OUTPUTNAME:[NAME] Printing Press	TYPE:Goods.Business	COST:45	WT:50					SOURCEPAGE:p. 159
+Steel Safe (Small)	OUTPUTNAME:[NAME] Steel Safe		TYPE:Goods.Business	COST:15	WT:300				SOURCEPAGE:p. 159
+Steel Safe (Large)	OUTPUTNAME:[NAME] Steel Safe		TYPE:Goods.Business	COST:80	WT:2000				SOURCEPAGE:p. 159
+Telegraph Key								TYPE:Goods.Business	COST:25	WT:5					SOURCEPAGE:p. 159
+Tombstone									TYPE:Goods.Business	COST:11	WT:50					SOURCEPAGE:p. 159
+Typewriter									TYPE:Goods.Business	COST:35	WT:20					SOURCEPAGE:p. 159
+
+###Block: Medical Equipment
+# Equipment Name				Output Name					Type				Cost		Weight	Source Page
+Doctor's Bag with Instruments								TYPE:Goods.Medical	COST:25	WT:15		SOURCEPAGE:p. 159
+Ether (1 Dose)				OUTPUTNAME:[NAME] of Ether		TYPE:Goods.Medical	COST:.25	WT:0		SOURCEPAGE:p. 159
+Eyeglasses											TYPE:Goods.Medical	COST:2	WT:0		SOURCEPAGE:p. 159
+Laudanum (1 Dose)				OUTPUTNAME:[NAME] of Laudanum		TYPE:Goods.Medical	COST:.35	WT:0		SOURCEPAGE:p. 159
+Nitrous Oxide (1 Dose)			OUTPUTNAME:[NAME] of Nitrous Oxide	TYPE:Goods.Medical	COST:.25	WT:0		SOURCEPAGE:p. 159
+Quinine											TYPE:Goods.Medical	COST:.5	WT:0		SOURCEPAGE:p. 159
+Veterinary Bag with Instruments							TYPE:Goods.Medical	COST:22	WT:20		SOURCEPAGE:p. 159
+
+###Block: Tools and Kits
+# Equipment Name			Output Name					Type				Cost		Weight	Base Quantity	Source Page		Bonus to skill
+Anvil											TYPE:Goods.Tools		COST:15	WT:80					SOURCEPAGE:p. 160
+Axe											TYPE:Goods.Tools		COST:1	WT:5					SOURCEPAGE:p. 160
+Barbed Wire (50 Yards)		OUTPUTNAME:[NAME] of Barbed Wire	TYPE:Goods.Tools		COST:1	WT:20					SOURCEPAGE:p. 160
+Blacksmith's Tool Set								TYPE:Goods.Toolkit	COST:15	WT:100				SOURCEPAGE:p. 160
+Blasting Caps (1 Dozen)		OUTPUTNAME:[NAME] Blasting Caps	TYPE:Goods.Tools		COST:.5	WT:0		BASEQTY:12		SOURCEPAGE:p. 160
+Carpenter's Tool Set								TYPE:Goods.Toolkit	COST:21	WT:30					SOURCEPAGE:p. 160
+Chemical Kit									TYPE:Goods.Toolkit	COST:80	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Chemical)|CircumstanceAdjustment|TYPE=Circumstance
+Demolitions Kit									TYPE:Goods.Toolkit	COST:11	WT:20					SOURCEPAGE:p. 160	BONUS:SKILL|Demolitions|CircumstanceAdjustment|TYPE=Circumstance
+Disguise Kit									TYPE:Goods.Toolkit	COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Disguise|CircumstanceAdjustment|TYPE=Circumstance
+Druggist's Kit									TYPE:Goods.Toolkit	COST:110	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Pharmaceutical)|CircumstanceAdjustment|TYPE=Circumstance
+Dynamite (Stick)			OUTPUTNAME:[NAME] of Dynamite		TYPE:Goods.Tools		COST:.25	WT:.5					SOURCEPAGE:p. 160
+Electric Detonator								TYPE:Goods.Tools		COST:5	WT:1					SOURCEPAGE:p. 160
+Electrical Tool Kit								TYPE:Goods.Toolkit	COST:110	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Electric)|CircumstanceAdjustment|TYPE=Circumstance
+Evidence Kit									TYPE:Goods.Toolkit	COST:14	WT:10					SOURCEPAGE:p. 160	BONUS:SKILL|Investigate|CircumstanceAdjustment|TYPE=Circumstance
+First Aid Kit									TYPE:Goods.Toolkit	COST:5	WT:5					SOURCEPAGE:p. 160
+Forgery Kit										TYPE:Goods.Toolkit	COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
+Fuse (1 Yard)			OUTPUTNAME:[NAME] of Fuse		TYPE:Goods.Tools		COST:.05	WT:0					SOURCEPAGE:p. 160
+Handsaw										TYPE:Goods.Tools		COST:1.5	WT:2					SOURCEPAGE:p. 160
+Hammer										TYPE:Goods.Tools		COST:.5	WT:2					SOURCEPAGE:p. 160
+Lantern										TYPE:Goods.Tools		COST:.8	WT:2					SOURCEPAGE:p. 160
+Lockpick Set									TYPE:Goods.Toolkit	COST:8	WT:1					SOURCEPAGE:p. 160
+Mechanical Tool Kit								TYPE:Goods.Toolkit	COST:30	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Mechanical)|CircumstanceAdjustment|TYPE=Circumstance	BONUS:SKILL|Craft (Structural)|CircumstanceAdjustment|TYPE=Circumstance
+Medical Kit										TYPE:Goods.Toolkit	COST:25	WT:15					SOURCEPAGE:p. 160
+Ore Car										TYPE:Goods.Tools		COST:15	WT:150				SOURCEPAGE:p. 160
+Pan											TYPE:Goods.Tools		COST:.1	WT:.5					SOURCEPAGE:p. 160
+Pick											TYPE:Goods.Tools		COST:1	WT:4					SOURCEPAGE:p. 160
+Plow (Horse Drawn)		OUTPUTNAME:[NAME] Plow			TYPE:Goods.Tools		COST:6.5	WT:80					SOURCEPAGE:p. 160
+Rope (1 Yard)			OUTPUTNAME:[NAME] of Rope		TYPE:Goods.Tools		COST:.05	WT:0					SOURCEPAGE:p. 160
+Scales										TYPE:Goods.Tools		COST:3	WT:10					SOURCEPAGE:p. 160
+Shovel										TYPE:Goods.Tools		COST:1	WT:6					SOURCEPAGE:p. 160
+Surgeon's Kit									TYPE:Goods.Toolkit	COST:35	WT:20					SOURCEPAGE:p. 160
+Wirecutters										TYPE:Goods.Tools		COST:2.5	WT:2					SOURCEPAGE:p. 160
+Wheelbarrow (Steel/Miner's)	OUTPUTNAME:Steel Wheelbarrow		TYPE:Goods.Tools		COST:6	WT:80					SOURCEPAGE:p. 160
+
+
+###Block: Shops and Laboratories
+# Equipment Name		Type			Cost		Weight	Source Page
+Chemist's Laboratory	TYPE:Goods.Shops	COST:4500	WT:0		SOURCEPAGE:p. 160
+Electrician Shop		TYPE:Goods.Shops	COST:4500	WT:0		SOURCEPAGE:p. 160
+Field Hospital		TYPE:Goods.Shops	COST:2000	WT:0		SOURCEPAGE:p. 160
+Smithy			TYPE:Goods.Shops	COST:1000	WT:0		SOURCEPAGE:p. 160
+
+###Block: Entertainment
+# Equipment Name		Output Name				Type					Cost		Weight	Base Quantity	Source Page
+Banjo									TYPE:Goods.Entertainment	COST:12.5	WT:12					SOURCEPAGE:p. 162
+Bible									TYPE:Goods.Entertainment	COST:5	WT:2					SOURCEPAGE:p. 162
+Bugle									TYPE:Goods.Entertainment	COST:8	WT:3					SOURCEPAGE:p. 162
+Deck of Marked Cards						TYPE:Goods.Entertainment	COST:1.25	WT:0					SOURCEPAGE:p. 162
+Dice									TYPE:Goods.Entertainment	COST:.25	WT:0					SOURCEPAGE:p. 162
+Guitar								TYPE:Goods.Entertainment	COST:8	WT:10					SOURCEPAGE:p. 162
+Harmonica								TYPE:Goods.Entertainment	COST:.5	WT:0					SOURCEPAGE:p. 162
+Newspaper								TYPE:Goods.Entertainment	COST:.01	WT:0					SOURCEPAGE:p. 162
+Novel (Paperback)		OUTPUTNAME:[NAME] Novel		TYPE:Goods.Entertainment	COST:.1	WT:0					SOURCEPAGE:p. 162
+Piano (Upright)		OUTPUTNAME:[NAME] Piano		TYPE:Goods.Entertainment	COST:100	WT:800				SOURCEPAGE:p. 162
+Poker Chips (1000)	OUTPUTNAME:[NAME] Poker Chips	TYPE:Goods.Entertainment	COST:3	WT:1		BASEQTY:1000	SOURCEPAGE:p. 162
+Stereoscope								TYPE:Goods.Entertainment	COST:.75	WT:1					SOURCEPAGE:p. 162
+Trombone								TYPE:Goods.Entertainment	COST:9	WT:5					SOURCEPAGE:p. 162
+Trumpet								TYPE:Goods.Entertainment	COST:11	WT:4					SOURCEPAGE:p. 162
+Coronet								TYPE:Goods.Entertainment	COST:11	WT:4					SOURCEPAGE:p. 162
+Violin								TYPE:Goods.Entertainment	COST:9.5	WT:4					SOURCEPAGE:p. 162
+Fiddle								TYPE:Goods.Entertainment	COST:9.5	WT:4					SOURCEPAGE:p. 162
+

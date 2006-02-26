@@ -1,0 +1,22 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 12:06:48 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Necromancer Games - Original Spell Name Compendium
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Core
+TYPE:Necromancer Games.Supplement
+SOURCELONG:Original Spell Name Compendium
+SOURCESHORT:SpellName
+SOURCEWEB:http://www.necromancergames.com/legal.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Original Spell Name Compendium Copyright 2002 Clark Peterson; based on NPC-named spells from the Player's Handbook that were renamed in the System Reference Document. The Compendium can be found on the legal page of www.necromancergames.com.
+COPYRIGHT:PCGen dataset conversion for the Original Spell Name Compendium Copyright 2005, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Eddy Anthony (MoSaT))
+INFOTEXT:This Compendium uses OGC from the SRD and renames the changed spells, providing names similar but not identical to their original name so that publishers may use names close to the names of the spells in the Player's Handbook.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SPELL:originalspellname_spells.lst

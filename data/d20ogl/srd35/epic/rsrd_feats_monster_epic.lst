@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Oct 26 23:48:43 2005 -- reformated by prettylst.pl v1.35 (build 506)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Feat Name						Output Name						Type		Var. Min. Value		Description																																																																															Source Page
+Empower Spell Like Ability (Draconic)	OUTPUTNAME:Empower Spell-Like Ability	TYPE:Epic	PREVARGTEQ:EpicDragon,1	DESC:An epic dragon can apply the Empower Spell feat to one of its spell-like abilities that it can use at least twice per day. If the dragon has limited use of the spell-like ability, the empowered ability uses up two uses of the ability. If the dragon can use the ability at will, there is no cost for empowering the ability. The dragon does not need to specify a spell-like ability when it chooses this feat; it can apply the feat to any spell-like ability it possesses.		SOURCEPAGE:EpicMonsters(A-E).rtf
+Maximize Spell Like Ability			OUTPUTNAME:Maximize Spell-Like Ability	TYPE:Epic	PREVARGTEQ:EpicDragon,1	DESC:The dragon can apply the Maximize Spell feat to one of its spell-like abilities that it can use at least three times per day. If the dragon has limited use of the spell-like ability, the maximized ability uses up three uses of the ability. If the dragon can use the ability at will, there is no cost for maximizing the ability. The dragon does not need to specify a spell-like ability when it chooses this feat; it can apply the feat to any spell-like ability it possesses.	SOURCEPAGE:EpicMonsters(A-E).rtf
+
+#
+# End
+#

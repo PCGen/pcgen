@@ -1,0 +1,35 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Wed Jan 28 01:12:34 2004 -- reformated by prettylst.pl v1.32 (build 343)
+CAMPAIGN:Sellout Sourcebook
+RANK:3
+GAMEMODE:Xcrawl
+GENRE:Modern
+BOOKTYPE:Xcrawl
+SETTING:Xcrawl
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Pandahead Productions.XCrawl
+SOURCELONG:Sellout! Sourcebook
+SOURCESHORT:Sellout
+SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Xcrawl: Sellout, Copyright 2003, Pandahead Productions
+COPYRIGHT:PCGen dataset conversion for XCrawl: Sellout Copyright 2004, PCGen Data Team (including, but not limited to: Paul W. King)
+INFOTEXT:Requires the loading of the SRD as well
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Basics
+CLASS:sellout_classes_prestige.lst
+EQUIPMENT:sellout_equip.lst
+EQUIPMENT:sellout_equip_armor_shields.lst
+EQUIPMENT:sellout_equip_weap_ammo.lst
+EQUIPMENT:sellout_equip_weap_melee.lst
+EQUIPMENT:sellout_equip_weap_ranged.lst
+EQUIPMOD:sellout_equip_mods_mundane.lst
+FEAT:sellout_feats.lst
+RACE:sellout_races.lst
+SKILL:sellout_skills.lst
+TEMPLATE:sellout_templates.lst
+WEAPONPROF:sellout_weap_profs.lst

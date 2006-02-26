@@ -1,0 +1,14 @@
+# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Jan 16 11:38:29 2005 -- reformated by prettylst.pl v1.34 (build 451)
+
+SOURCELONG:Future System Reference Document|SOURCESHORT:FSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Feat Name			Type			Visible	Special Ability									Define															Save checks bonus							Combat bonus						Stat bonus							Modify VAR										Source Page
+Cyborg			TYPE:Special	VISIBLE:NO	SA:Electricity Vulnerability|PREVAREQ:ElectricalVulnerability,0	DEFINE:ElectricalVulnerability|0	DEFINE:ImplantLimit|max(1+CON,0)	DEFINE:ImplantTotal|0																										BONUS:VAR|NegLevels|max(0,(ImplantTotal-ImplantLimit))		SOURCEPAGE:FutureCybernetics.rtf
+
+Activated Rage Implant	TYPE:Special	VISIBLE:NO																												BONUS:CHECKS|Willpower|2|TYPE=CyberRage|PREAPPLY:PC	BONUS:COMBAT|AC|-2|TYPE=CyberRage|PREAPPLY:PC	BONUS:STAT|CON,STR|4|TYPE=CyberRage|PREAPPLY:PC
+Skill Implants		TYPE:Special	VISIBLE:NO												DEFINE:SkillImplantTotal|0	DEFINE:SkillPlexusTotal|0																																BONUS:VAR|ImplantTotal|max(SkillPlexusTotal,SkillImplantTotal)
+Feat Implants		TYPE:Special	VISIBLE:NO												DEFINE:FeatImplantTotal|0	DEFINE:FeatPlexusTotal|0																																BONUS:VAR|ImplantTotal|max(FeatPlexusTotal,FeatImplantTotal)
+
+#
+# End
+#

@@ -1,0 +1,53 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Dec  9 22:23:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name		Max Level
+CLASS:Barbarian.MOD	MAXLEVEL:100
+24	REPEATLEVEL:4	ADD:FEAT(Armor Skin,Chaotic Rage,Damage Reduction,Devastating Critical,Dire Charge,Epic Endurance,Epic Prowess,Epic Speed,Epic Toughness,Epic Weapon Focus,Fast Healing,Incite Rage,Legendary Climber,Legendary Leaper,Legendary Rider,Legendary Tracker,Legendary Wrestler,Mighty Rage,Overwhelming Critical,Ruinous Rage,Terrifying Rage,Thundering Rage)
+
+# Class Name	Max Level
+CLASS:Bard.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(Augmented Alchemy,Deafening Song,Epic Inspiration,Epic Leadership,Epic Reputation,Epic Skill Focus,Group Inspiration,Hindering Song,Improved Combat Casting,Improved Metamagic,Improved Spell Capacity,Inspire Excellence,Lasting Inspiration,Master Staff,Master Wand,Music of the Gods,Permanent Emanation,Polyglot,Ranged Inspiration,Rapid Inspiration,Reactive Countersong,Spell Knowledge,Spell Opportunity,Spell Stowaway,Tenacious Magic)
+
+# Class Name	Max Level
+CLASS:Cleric.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(Armor Skin,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Bonus Domain,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Ignore Material Components,Improved Alignment Based Casting,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Multispell,Negative Energy Burst,Permanent Emanation,Planar Turning,Positive Energy Aura,Spectral Strike,Spell Opportunity,Spell Stowaway,Spontaneous Domain Access,Spontaneous Spell,Tenacious Magic,Undead Mastery,Zone of Animation)
+
+# Class Name	Max Level
+CLASS:Druid.MOD	MAXLEVEL:100
+22				BONUS:VAR|WildShapeTimes|(CL-18)/4
+24	REPEATLEVEL:4							ADD:FEAT(Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Colossal Wild Shape,Diminutive Wild Shape,Dragon Wild Shape,Energy Resistance,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Fast Healing,Fine Wild Shape,Gargantuan Wild Shape,Ignore Material Components,Improved Combat Casting,Improved Elemental Wild Shape,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Magical Beast Companion,Magical Beast Wild Shape,Multispell,Perfect Health,Permanent Emanation,Plant Wild Shape,Spell Opportunity,Spell Stowaway,Spontaneous Spell,Tenacious Magic,Vermin Wild Shape)
+
+# Class Name	Max Level
+CLASS:Fighter.MOD	MAXLEVEL:100
+22	REPEATLEVEL:2	ADD:FEAT(Armor Skin,Combat Archery,Damage Reduction,Devastating Critical,Dire Charge,Distant Shot,Energy Resistance,Epic Endurance,Epic Leadership,Epic Prowess,Epic Toughness,Epic Weapon Focus,Epic Weapon Specialization,Exceptional Deflection,Improved Combat Reflexes,Improved Manyshot,Improved Stunning Fist,Improved Whirlwind Attack,Infinite Deflection,Instant Reload,Legendary Commander,Legendary Rider,Legendary Wrestler,Overwhelming Critical,Penetrate Damage Reduction,Perfect Two Weapon Fighting,Reflect Arrows,Spellcasting Harrier,Storm of Throws,Superior Initiative,Swarm of Arrows,TYPE=Fighter,Two Weapon Rend,Uncanny Accuracy)
+
+# Class Name	Max Level
+CLASS:Monk.MOD	MAXLEVEL:100
+25	REPEATLEVEL:5	ADD:FEAT(Armor Skin,Blinding Speed,Damage Reduction,Energy Resistance,Epic Prowess,Epic Speed,Epic Toughness,Exceptional Deflection,Fast Healing,Improved Combat Reflexes,Improved Spell Resistance,Improved Stunning Fist,Improved Ki Strike,Infinite Deflection,Keen Strike,Legendary Climber,Legendary Wrestler,Reflect Arrows,Righteous Strike,Self Concealment,Shattering Strike,Vorpal Strike)
+
+# Class Name	Max Level
+CLASS:Paladin.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(Armor Skin,Devastating Critical,Epic Leadership,Epic Prowess,Epic Reputation,Epic Toughness,Epic Weapon Focus,Great Smiting,Holy Strike,Improved Aura of Courage,Improved Combat Casting,Improved Spell Capacity,Legendary Commander,Legendary Rider,Overwhelming Critical,Perfect Health,Permanent Emanation,Planar Turning,Positive Energy Aura,Spectral Strike,Spontaneous Spell,Widen Aura of Courage)
+
+# Class Name	Max Level
+CLASS:Ranger.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(Bane of Enemies,Blinding Speed,Combat Archery,Death of Enemies,Distant Shot,Epic Endurance,Epic Prowess,Epic Speed,Epic Toughness,Epic Weapon Focus,Fast Healing,Improved Combat Casting,Improved Favored Enemy,Improved Manyshot,Improved Spell Capacity,Legendary Climber,Legendary Rider,Legendary Tracker,Perfect Health,Perfect Two Weapon Fighting,Permanent Emanation,Spontaneous Spell,Storm of Throws,Swarm of Arrows,Two Weapon Rend,Uncanny Accuracy)
+25	REPEATLEVEL:5	ADD:FEAT(TYPE=FavoredEnemy)	ADD:FEAT(TYPE=FavoredEnemyBonus)
+
+# Class Name	Max Level
+CLASS:Rogue.MOD	MAXLEVEL:100
+24	REPEATLEVEL:4	ADD:FEAT(Blinding Speed,Combat Archery,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Reputation,Epic Skill Focus,Epic Speed,Improved Combat Reflexes,Improved Sneak Attack,Legendary Climber,Lingering Damage,Self Concealment,Sneak Attack of Opportunity,Spellcasting Harrier,Superior Initiative,TYPE=RogueAbilities,Trap Sense,Uncanny Accuracy)
+
+# Class Name		Max Level
+CLASS:Sorcerer.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(Augmented Alchemy,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Energy Resistance,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Familiar Spell,Ignore Material Components,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Master Staff,Master Wand,Multispell,Permanent Emanation,Spell Knowledge,Spell Opportunity,Spell Stowaway)
+
+# Class Name	Max Level
+CLASS:Wizard.MOD	MAXLEVEL:100
+23	REPEATLEVEL:3	ADD:FEAT(Augmented Alchemy,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Combat Casting,Craft Epic Magic Arms and Armor,Craft Epic Rod,Craft Epic Staff,Craft Epic Wondrous Item,Efficient Item Creation,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Familiar Spell,Forge Epic Ring,Ignore Material Components,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Multispell,Permanent Emanation,Scribe Epic Scroll,Spell Focus,Spell Knowledge,Spell Mastery,Spell Opportunity,Spell Penetration,Spell Stowaway,Spontaneous Spell,TYPE=ItemCreation,TYPE=Metamagic,Tenacious Magic)
+
+#
+# End
+#

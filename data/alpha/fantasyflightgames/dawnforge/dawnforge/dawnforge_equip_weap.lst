@@ -1,0 +1,32 @@
+# CVS $Revision: 1.4 $ $Author: tmilam $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+SOURCELONG:Dawnforge|SOURCESHORT:DF|SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+# Original Entry by: Ratheof Blithwyn
+
+
+####Block: Exotic Weapons
+#------light---------
+# Equipment Name	Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Nb Hands	Wield Category	Range		Size		Source Page
+Degger		PROFICIENCY:Degger		TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Metal.Saltblood.Piercing.Degger							COST:4	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6							WIELD:Light				SIZE:M	SOURCEPAGE:p.92
+Serrated Horncaps	PROFICIENCY:Gore			TYPE:Weapon.Melee.Exotic.Standard.Metal.Minotaur.Slashing.Gore									COST:75	WT:5		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					HANDS:0	WIELD:Light				SIZE:M	SOURCEPAGE:p.92
+Wristblade		PROFICIENCY:Wristblade		TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Metal.Elf.Piercing.Wristblade							COST:20	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6							WIELD:Light				SIZE:M	SOURCEPAGE:p.92
+
+#-----one handed -------
+Mürblade		PROFICIENCY:Mürblade		TYPE:Weapon.Melee.Exotic.Double.Standard.Metal.Dwarf.Slashing.Mürblade		ALTTYPE:Weapon.Melee.Piercing		COST:50	WT:8		CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d6				WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.92
+Shineblade		PROFICIENCY:Shineblade		TYPE:Weapon.Melee.Exotic.Double.Standard.Metal.Elf.Slashing.Shineblade		ALTTYPE:Weapon.Melee.Metal.Slashing	COST:50	WT:4		CRITMULT:x2			CRITRANGE:2			ALTCRITICAL:x2		ALTCRITRANGE:2			DAMAGE:1d8	ALTDAMAGE:1d8				WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.92
+
+#-----two handed -------
+Angel's Blade	PROFICIENCY:Angel's Blade	TYPE:Weapon.Melee.Exotic.Standard.Metal.Trueborn.Slashing.Sword									COST:150	WT:8		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6							WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.92
+Bladestaff		PROFICIENCY:Bladestaff		TYPE:Weapon.Melee.Exotic.Standard.Metal.Lowlander.Slashing.Bladestaff								COST:20	WT:8		CRITMULT:x4			CRITRANGE:1												DAMAGE:2d4							WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.92
+Chainball		PROFICIENCY:Chainball		TYPE:Weapon.Melee.Exotic.Reach.Standard.Metal.Halfling.Bludgeoning.Chainball							COST:10	WT:8		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8							WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.92
+Hookchain		PROFICIENCY:Hookchain		TYPE:Weapon.Melee.Exotic.Reach.Standard.Metal.Tiefling.Piercing.Hookchain							COST:25	WT:8		CRITMULT:x2			CRITRANGE:1												DAMAGE:2d4							WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.92
+Horned Club		PROFICIENCY:Horned Club		TYPE:Weapon.Melee.Exotic.Standard.Wooden.Ogre.Bludgeoning.Club									COST:5	WT:8		CRITMULT:x2			CRITRANGE:1												DAMAGE:2d8							WIELD:OneHanded			SIZE:L	SOURCEPAGE:p.92
+#Horned Club only Large...
+
+#Exotic Ranged
+# Equipment Name	Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Nb Hands	Wield Category	Range		Size		Source Page
+Dragnet		PROFICIENCY:Dragnet		TYPE:Weapon.Exotic.Ranged.Standard.Trueborn.Thrown											COST:25	WT:8																														RANGE:5			SOURCEPAGE:p.92
+Fangcaps		PROFICIENCY:Fangcaps		TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Thinblood.Projectile									COST:2	WT:0		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d2										RANGE:5			SOURCEPAGE:p.92
+Returner		PROFICIENCY:Returner		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Lizardfolk.Thrown									COST:2	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6										RANGE:30			SOURCEPAGE:p.92
+Spiked Ball		PROFICIENCY:Spiked Ball		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Halfling.Thrown										COST:5	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4										RANGE:20			SOURCEPAGE:p.92
+Wristbolt		PROFICIENCY:Wristbolt		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Elf.Projectile										COST:1	WT:.5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4										RANGE:30			SOURCEPAGE:p.92
+

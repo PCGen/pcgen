@@ -1,0 +1,30 @@
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Modern System - Gangland|SOURCESHORT:Gangland|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
+# Original Entry by: Paul W. King
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
+1				BONUS:VAR|BloodMoney|((CL+4)/4)*2					FEATAUTO:Blood Money
+2				BONUS:VAR|DirtyDeeds|(CL+5)/5						FEATAUTO:Dirty Deeds
+3										ADD:FEAT(TYPE=Hitman)
+6										ADD:FEAT(TYPE=Hitman)
+7	SA:Calling Card
+9										ADD:FEAT(TYPE=Hitman)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Vigilante	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Vigilante	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Structural)|Demolitions|Disguise|Drive|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Sense Motive
+1										ADD:FEAT(Weapon Focus)
+2					BONUS:VAR|VigilanteBonus|CL/2						FEATAUTO:Vigilante
+3										ADD:FEAT(TYPE=Vigilante)
+5	SA:Hunter and Hunted
+6										ADD:FEAT(TYPE=Vigilante)
+7	SA:Urban Legend
+9										ADD:FEAT(TYPE=Vigilante)

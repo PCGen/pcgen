@@ -1,0 +1,15 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Template Name			CR	Visible	Template																																													Source Page		Special Ability				Required AL	Combat bonus						Stat bonus								Removable?
+Dragon Bloodspawn (Black)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Acid		PREALIGN:CE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Blue)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Electricity	PREALIGN:LE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Green)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Acid		PREALIGN:LE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Red)			VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Fire		PREALIGN:LE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (White)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Cold		PREALIGN:LE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Brass)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Fire		PREALIGN:CG	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Bronze)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Electricity	PREALIGN:LG	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Copper)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Acid		PREALIGN:CG	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Gold)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Fire		PREALIGN:LG	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn (Silver)		VISIBLE:NO																																															SOURCEPAGE:p.31	SA:Resistance 20 to Cold		PREALIGN:LG	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE										REMOVABLE:YES
+Dragon Bloodspawn			CR:1			TEMPLATE:CHOOSE:Dragon Bloodspawn (Black)|Dragon Bloodspawn (Blue)|Dragon Bloodspawn (Green)|Dragon Bloodspawn (Red)|Dragon Bloodspawn (White)|Dragon Bloodspawn (Brass)|Dragon Bloodspawn (Bronze)|Dragon Bloodspawn (Copper)|Dragon Bloodspawn (Gold)|Dragon Bloodspawn (Silver)	SOURCEPAGE:p.31																	BONUS:STAT|STR|4	BONUS:STAT|CON|2	BONUS:STAT|CHA|2	REMOVABLE:YES

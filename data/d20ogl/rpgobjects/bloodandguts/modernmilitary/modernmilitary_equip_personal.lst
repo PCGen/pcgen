@@ -1,0 +1,14 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Fri Dec 30 02:55:50 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Equipment Name			Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Vision				Special Property
+Hazmat Suit								TYPE:Goods.Personal.Robe						COST:20	WT:50												SIZE:L	SOURCEPAGE:p.63						SPROP:Res (+1)
+JSL Suit								TYPE:Goods.Personal.Robe						COST:15	WT:9.6											SIZE:M	SOURCEPAGE:p.63						SPROP:Res (+1)
+M-9 Bayonet				PROFICIENCY:Dagger	TYPE:Goods.Personal.Weapon.Melee.Slashing.Standard.Steel	COST:15	WT:1		CRITMULT:2			CRITRANGE:2			DAMAGE:1d6	SIZE:T	SOURCEPAGE:p.63
+M-40 Protective Mask						TYPE:Goods.Personal.Headgear						COST:15	WT:4.4											SIZE:S	SOURCEPAGE:p.63
+Modular Load Carrying System					TYPE:Goods.Personal							COST:15	WT:16.8											SIZE:M	SOURCEPAGE:p.63
+Modular Sleeping Bag						TYPE:Goods.Personal							COST:15	WT:10.6											SIZE:M	SOURCEPAGE:p.63
+NBC Suit								TYPE:Goods.Personal.Robe						COST:25	WT:50												SIZE:L	SOURCEPAGE:p.63						SPROP:Mil (+3)
+Night Vision Goggles						TYPE:Goods.Personal.Eyegear						COST:20	WT:1.5											SIZE:S	SOURCEPAGE:p.63	VISION:Darkvision (150')	SPROP:Res (+1)
+Soldier Intercom							TYPE:Goods.Personal.Tools.Electronic				COST:20	WT:1.4											SIZE:T	SOURCEPAGE:p.63						SPROP:Res (+1)

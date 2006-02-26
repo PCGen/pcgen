@@ -1,0 +1,480 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Wed Dec  7 18:08:59 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
+# Original Entry by: Ratheof Blithwyn and Tir-Gwaith
+
+
+#
+# Prestige classes
+#
+
+###########################
+### Dwarves of Aradath
+###########################
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL			Req. Att.	Required Feat			Required Race		Required Text
+CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Concentration|Diplomacy|Jump|Listen|TYPE.Profession|Sense Motive|Spot|Swim
+1																																			AUTO:WEAPONPROF|Mürblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1																																																FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+1									SA:Soul Blade (+%)|SoulBlade			BONUS:VAR|SoulBlade|(CL+1)/2	DEFINE:SoulBlade|0
+2									SA:Shield Brother (full round action)																VFEAT:Combat Expertise
+4	SA:.CLEAR.Shield Brother (full round action)	SA:Shield Brother (standard action)
+6	SA:.CLEAR.Shield Brother (standard action)	SA:Shield Brother (move action)
+8									SA:Greater Combat Expertise
+10																									SPELLS:Innate|TIMES=1|Foresight
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat			Required Race		Required Skill																		Req. Spell Type
+CLASS:Forge Magus	PREFEAT:3,TYPE.ItemCreation	PRERACE:Dwarf (DF)	PRESKILL:4,Craft (Armorsmithing),Craft (Weaponsmithing),Craft (Sculpting),Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane,1,5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Forge Magus	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
+1	ADD:SPELLCASTER(Arcane)	SA:Essence Drain (max %)|EssenceDrain	SA:Guild Membership	BONUS:VAR|EssenceDrain|75	DEFINE:EssenceDrain|0
+2	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|150
+3	ADD:SPELLCASTER(Arcane)	SA:Speed Forging									BONUS:VAR|EssenceDrain|225
+4	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|300
+5	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|375
+6	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|450
+7	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|525
+8	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|600
+9	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|675
+10	ADD:SPELLCASTER(Arcane)												BONUS:VAR|EssenceDrain|750
+#add guild stuff?...
+
+
+###########################
+### Fey of the Sildanyr
+###########################
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Warden of the Watch	HD:8		TYPE:PC.Prestige	ABB:WWa		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Race								Required Skill																																								Req. Spell Type		Required Text	Req. Weapond Prof.
+CLASS:Warden of the Watch	PREATT:4	PRERACE:Elf (Dawn),Elf (Ghost),Elf (Moon),Elf (Wood)(DF)	PRESKILL:1,Knowledge (History)=5	PRESKILL:3,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=5	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRESPELLTYPE:Arcane,1,2	PRETEXT:See Text.	PREWEAPONPROF:1,TYPE.Sword	PREWEAPONPROF:1,TYPE.Shortbow,TYPE.Longbow
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Warden of the Watch	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Handle Animal|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local Sildanyr)|Knowledge (Local Valhedar Dominion)|Listen|TYPE.Profession|Ride|Sense Motive|Spellcraft|Spot|Swim
+1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)
+###block: Normal progression
+1					SA:Mind the Pattern
+2	ADD:SPELLCASTER(ANY)
+3					SA:Direct Fire (+%)|DirectFire	BONUS:VAR|DirectFire|CL/3	DEFINE:DirectFire|0
+4	ADD:SPELLCASTER(ANY)
+5					SA:Words of Command
+6	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)	SA:Songs of Trust
+10	ADD:SPELLCASTER(ANY)	SA:True Sight													SPELLS:Innate|TIMES=-1|Detect Evil
+#Warden of the Watch/Wall??
+#Sense/Mind the Pattern??
+#Direct Fire levels 2,5,8 or 3.6.9?
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Night Hunter	HD:8		TYPE:PC.Prestige	ABB:NHu		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL			Req. Att.	Required Feat			Required Race		Required Text
+CLASS:Night Hunter	PREALIGN:LN,NG,TN,NE,CN	PREATT:6	PREFEAT:2,Alertness,Stealthy	PRERACE:Elf (Night)	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
+1																AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1	SA:Heart of Darkness	BONUS:VISION|DarkVision|30	ADD:FEAT(TYPE=NightHunterGift)
+3										ADD:FEAT(TYPE=NightHunterGift)
+4	SA:Form of Darkness
+5										ADD:FEAT(TYPE=NightHunterGift)
+7										ADD:FEAT(TYPE=NightHunterGift)
+9										ADD:FEAT(TYPE=NightHunterGift)
+#zzzdevelop Form of Darkness...level 4,7,10
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Fey Traveler	HD:4		TYPE:PC.Prestige	ABB:FTr		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat						Required Language	Required Race		Required Skill										Req. Spell Type		Required Text
+CLASS:Fey Traveler	PREFEAT:2,Improved Fading,Color of the Wind	PRELANG:1,Sylvan	PRERACE:Gnome (DF)	PRESKILL:1,Knowledge (Nature)=8	PRESKILL:1,Knowledge (The Planes)=6	PRESPELLTYPE:Any,1,2	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Fey Traveler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Knowledge (The Planes)|Sense Motive|Sleight of Hand|Spellcraft
+1	ADD:SPELLCASTER(ANY)	SA:Traveler's Gift (%/day)|TravelersGift	BONUS:VAR|TravelersGift|(CL+1)/2	DEFINE:TravelersGift|0
+2					SA:Traveler's Stride
+3	ADD:SPELLCASTER(ANY)
+4																						ADD:FEAT(TYPE=FeyTravelerChoice)
+5	ADD:SPELLCASTER(ANY)
+6					SA:Traveler's Crossing
+7	ADD:SPELLCASTER(ANY)
+8																						ADD:FEAT(TYPE=FeyTravelerChoice)
+9	ADD:SPELLCASTER(ANY)
+10					SA:Traveler's Promise
+
+
+###########################
+### Humans of Ambria
+###########################
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Warrior of the Lodge	HD:10		TYPE:PC.Prestige	ABB:WaL		MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL				Req. Att.	Required Feat		Required Text
+CLASS:Warrior of the Lodge	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:6	PREFEAT:2,TYPE.Fighter	PRETEXT:See Text.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Warrior of the Lodge	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Survival|Swim
+1									SA:Haunted	SA:Share Strength (1st honored enemy)
+2									SA:Bloody Badges								VFEAT:Combat Expertise
+4	SA:.CLEAR.Share Strength (1st honored enemy)	SA:Share Strength (2nd honored enemy)
+5									SA:Share Mind
+7	SA:.CLEAR.Share Strength (2nd honored enemy)	SA:Share Strength (3rd honored enemy)
+8									SA:Share Spirit
+10	SA:.CLEAR.Share Strength (3rd honored enemy)	SA:Share Magic	SA:Share Strength (4th honored enemy)
+
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Brother of the Panthic Order	HD:4		TYPE:PC.Prestige	ABB:BPO		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name				Multiple Requirements							Required Skill
+CLASS:Brother of the Panthic Order	PREMULT:1,[PRESPELLTYPE:Any,1,3],[PRESA:1,Spirit Sense II]	PRESKILL:3,Knowledge (Arcana),Knowledge (Nature),Spellcraft=6
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Brother of the Panthic Order	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Spellcraft
+1					SA:Seal of the Order	ADD:FEAT(Panthic Order First Guide)
+2	ADD:SPELLCASTER(ANY)
+4	ADD:SPELLCASTER(ANY)					ADD:FEAT(Panthic Order Second Guide)
+6	ADD:SPELLCASTER(ANY)
+7									ADD:FEAT(Panthic Order Third Guide)
+8	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)					ADD:FEAT(Panthic Order Fourth Guide)
+#not sure how Spirit Sense II will be coded..... SA for now....
+#can more be done with the guides?...
+#TODO: ADD:SPELLCASTER should include option to advance in spirit adept!!
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Griffin Guard	HD:10		TYPE:PC.Prestige	ABB:GrG		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat		Required Skill									Required Text
+CLASS:Griffin Guard	PREATT:6	PREFEAT:1,Weapon Focus	PRESKILL:2,Knowledge (Geography),Heal=2	PRESKILL:1,Survival=8	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Griffin Guard	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Heal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
+1									AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1														FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	SA:Griffin's Hate
+2	SA:Forestwalker
+4	SA:Griffin's Wings		ADD:FEAT(Evasion)
+6	SA:Griffin's Eye
+8	SA:Griffin's Talons
+10	SA:Spirit of the Griffin
+#TODO:Griffin's Hate!!!!!
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Disciple of Mystery	HD:6		TYPE:PC.Prestige	ABB:DMy		MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required AL		Multiple Requirements							Required Skill
+CLASS:Disciple of Mystery	PREALIGN:LG,LN,LE	PREMULT:1,[PRESPELLTYPE:Any,1,3],[PRESA:1,Spirit Sense II]	PRESKILL:1,Concentration=8	PRESKILL:2,TYPE.Knowledge=4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Disciple of Mystery	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Jump|Listen|Knowledge (Arcana)|Knowledge (History)|TYPE.Profession|Search|Sense Motive|Spot|Swim
+1	ADD:SPELLCASTER(ANY)																	ADD:FEAT(TYPE.DiscipleMysteryDiscipline)
+2	ADD:SPELLCASTER(ANY)	SA:Rite of Mystery +%|RiteMystery	BONUS:VAR|RiteMystery|floor(CL/2)*2	DEFINE:RiteMystery|0
+3	ADD:SPELLCASTER(ANY)																	ADD:FEAT(TYPE.DiscipleMysteryDiscipline)
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)																	ADD:FEAT(TYPE.DiscipleMysteryDiscipline)
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)																	ADD:FEAT(TYPE.DiscipleMysteryDiscipline)
+8	ADD:SPELLCASTER(ANY)
+9	ADD:SPELLCASTER(ANY)																	ADD:FEAT(TYPE.DiscipleMysteryDiscipline)
+10	ADD:SPELLCASTER(ANY)
+#not sure how Spirit Sense II will be coded..... SA for now....
+#TODO: ADD:SPELLCASTER should include option to advance in spirit adept!!
+
+
+###########################
+### Humanoids of the Norh
+###########################
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Lone Walker	HD:12		TYPE:PC.Prestige	ABB:LWa		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat						Required Race		Required Skill
+CLASS:Lone Walker	PREATT:6	PREFEAT:3,Endurance,Great Fortitude,Iron Will	PRERACE:Minotaur (DF)	PRESKILL:1,Knowledge (History)=4	PRESKILL:1,Survival=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lone Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jump|Knowledge (History)|Listen|TYPE.Profession|Search|Spot|Survival|Swim|Tumble
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+###Block: Normal Progression
+1	SA:Long Stride
+2	SA:Ashes and Dust
+4	SA:Duskwalker
+6	SA:Banner Carrier
+8	SA:Hope of the Future
+10	SA:Rise from the Ashes
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Bound Ambassador	HD:6		TYPE:PC.Prestige	ABB:BAm		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat		Required Race					Required Skill											Required Text
+CLASS:Bound Ambassador	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:4	PREFEAT:1,Negotiator	PRERACE:Ogre (Stormfells),Ogre (wild)	PRESKILL:2,Bluff,Diplomacy=8	PRESKILL:2,Gather Information,Sense Motive=6	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bound Ambassador	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
+CLASS:Bound Ambassador	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bound Ambassador|CL	SPELLLIST:1|Bard
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Progression
+1	CAST:0,0		KNOWN:0,2		SA:Master's Sign	SA:Poise +%|Poise	BONUS:VAR|Poise|floor((CL+1)/2)*2	BONUS:SKILL|STAT.CHA|floor((CL+1)/2)*2|TYPE=Competence	DEFINE:Poise|0
+2	CAST:0,1,0		KNOWN:0,3
+3	CAST:0,2,1,0	KNOWN:0,3,2
+4	CAST:0,3,2,1,0	KNOWN:0,4,3
+5	CAST:0,3,3,2,1	KNOWN:0,4,3,2	SA:Master's Will
+6	CAST:0,3,3,3,2	KNOWN:0,4,4,3
+7	CAST:0,3,3,3,3	KNOWN:0,4,4,3,2
+8	CAST:0,3,3,3,3	KNOWN:0,4,4,4,3
+9	CAST:0,3,3,3,3	KNOWN:0,4,4,4,3
+10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4	SA:Master's Voice
+# 0-level spells should ideally be excluded somehow...
+# Spells per day must be wrong!! Should probably be the same as Circle Walker.
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Orc Adapter	HD:8		TYPE:PC.Prestige	ABB:OAd		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Race	Required Skill																Required Text
+CLASS:Orc Adapter	PREALIGN:LG,LN,LE	PRERACE:Orc (DF)	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRETEXT:The character must have contact with at least one non-orc culture.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Orc Adapter	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Disable Device|Diplomacy|Gather Information|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Survival|Use Rope
+1						ADD:FEAT(Orc Adapter Cultural Study)
+2	SA:Adopt Talent (TBD)
+3	SA:Familiar Eye (TBD)
+5	SA:Adopt Transformation (TBD)
+#TODO:Cultural Study: these are similar to some of the doppelganger alternate form ability. need to set up the racial traits to choose from....
+#same goes for Adopt Talent and Adopt Transformation and Familiar Eye...
+#!!so for now this class is basically broken!!
+
+
+###########################
+### Races of the Frontier
+###########################
+#Wilderness Guide
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Circle Walker	HD:8		TYPE:PC.Prestige	ABB:CWa		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Race			Required Text
+CLASS:Circle Walker	PREATT:4	PRERACE:Doppelganger (DF)	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Circle Walker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Circle Walker	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Circle Walker|CL
+1	SPELLLEVEL:CLASS|Circle Walker=1|Animate Rope,Cause Fear,Disguise Self,Ghost Sound,Magic Aura,Obscuring Mist,Silent Image,Ventriloquism
+1	SPELLLEVEL:CLASS|Circle Walker=2|Cat's Grace,Darkness,Detect Thoughts,Hypnotic Pattern,Invisibility,Minor Image,Misdirection,Obscure Object,Rope Trick
+1	SPELLLEVEL:CLASS|Circle Walker=3|Dispel Magic,Invisibility Sphere,Magic Circle,Major Image,Nondetection,Suggestion
+1	SPELLLEVEL:CLASS|Circle Walker=4|Dimension Door,Detect Scrying,Greater Invisibility,Hallucinatory Terrain,Illusory Wall,Polymorph,Scrying
+###Block: Normal progression
+1	CAST:0,0		KNOWN:0,2		SA:Face the Challenge	DEFINE:SmiteEvil|0	DEFINE:SmiteGood|0	ADD:FEAT(TYPE.CircleWalkerGift)
+2	CAST:0,1		KNOWN:0,3
+3	CAST:0,2,0		KNOWN:0,3,2		SA:The Great Oath										ADD:FEAT(TYPE.CircleWalkerGift)	ADD:FEAT(TYPE.CircleWalkerChoice)
+4	CAST:0,3,1		KNOWN:0,4,3
+5	CAST:0,3,2,0	KNOWN:0,4,3,2													ADD:FEAT(TYPE.CircleWalkerGift)
+6	CAST:0,3,3,1	KNOWN:0,4,4,3
+7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2													ADD:FEAT(TYPE.CircleWalkerGift)
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3
+9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3													ADD:FEAT(TYPE.CircleWalkerGift)
+10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4	SA:Master of the Circle
+#zzzzzzzAdd PRE racial talents Alternate Form and Quick Form
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Swindler	HD:6		TYPE:PC.Prestige	ABB:Swi		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Req. Att.	Required Feat		Required Skill
+CLASS:Swindler	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:1,Negotiator	PRESKILL:3,Bluff,Diplomacy,Sense Motive=8	PRESKILL:5,Appraise,Balance,Bluff,Climb,TYPE.Craft,Decipher Script,Diplomacy,Disable Device,Disguise,Escape Artist,Forgery,Gather Information,Hide,Intimidate,Jump,Knowledge (Local),Listen,Move Silently,Open Lock,TYPE.Perform,TYPE.Profession,Search,Sense Motive,Sleight of Hand,Spot,Swim,Tumble,Use Magic Device,Use Rope=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|TYPE.Perform|Search|Sense Motive|Spot
+1	SA:Charismatic +%|Charismatic	SA:Performer's Art	BONUS:VAR|Charismatic|floor((CL+2)/3)*2	BONUS:SKILL|Bluff,Diplomacy,Gather Information|floor((CL+2)/3)*2|TYPE=Competence	DEFINE:Charismatic|0
+2	SA:Eye for a Mark
+5	SA:Words Cut Deep (%/day)|WordsCutDeep			BONUS:VAR|WordsCutDeep|(CL-3)/2																DEFINE:WordsCutDeep|0
+8	SA:Blind with Conceptions
+10	SA:Words that Bind
+#Performer's Art not quite doable. One problem is that different classes has different progression for sneak attacks, another problem is how to add...only possible for very specific cases the way sneak is set up.
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Wilderness Guide	HD:8		TYPE:PC.Prestige	ABB:WGu		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat				Required Skill								Required Text
+CLASS:Wilderness Guide	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:6	PREFEAT:2,Self Sufficient,Track	PRESKILL:1,Survival=8	PRESKILL:1,Knowledge (Nature)=6	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Wilderness Guide	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Survival|Swim|Use Rope
+# Class Name		Spell Stat		Spell Type		Memorize		Caster level					Use Spell List
+CLASS:Wilderness Guide	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Wilderness Guide|CL	SPELLLIST:1|Ranger
+1	CAST:0,0		KNOWN:0,2		SA:Call of the Wild	BONUS:SKILL|Survival|4
+2	CAST:0,1		KNOWN:0,3										ADD:FEAT(TYPE.WildernessGuideGift)
+3	CAST:0,2,0		KNOWN:0,3,2
+4	CAST:0,3,1		KNOWN:0,4,3										ADD:FEAT(TYPE.WildernessGuideGift)
+5	CAST:0,3,2,0	KNOWN:0,4,3,2
+6	CAST:0,3,3,1	KNOWN:0,4,4,3									ADD:FEAT(TYPE.WildernessGuideGift)
+7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3									ADD:FEAT(TYPE.WildernessGuideGift)
+9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
+10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4									ADD:FEAT(TYPE.WildernessGuideGift)
+
+
+##############################
+### Tieflings of the Dominion
+##############################
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Diabolist	HD:6		TYPE:PC.Prestige	ABB:Dia		MAXLEVEL:10	SOURCEPAGE:p.94	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat							Required Skill								Req. Known Spell			Required Text
+CLASS:Diabolist	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Augment Summoning,Spell Focus(Conjuration)	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=6	PRESPELL:1,Summon Monster II	PRETEXT:See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Diabolist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Arcana)|Knowledge (The Planes)|TYPE.Profession|Sense Motive|Spellcraft|Use Magic Device
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Progression
+1	ADD:SPELLCASTER(Arcane)	SA:Empower Summoning	SA:Locate Pit	SPELLS:Innate|TIMES=CL|Locate Infernal Gateway
+2	ADD:SPELLCASTER(Arcane)
+3	ADD:SPELLCASTER(Arcane)	SA:Guardian Fiend
+4	ADD:SPELLCASTER(Arcane)	SA:Extend Summoning
+5	ADD:SPELLCASTER(Arcane)
+6	ADD:SPELLCASTER(Arcane)	SA:Prepare Pit					SPELLS:Innate|TIMES=1|Unhallow
+7	ADD:SPELLCASTER(Arcane)	SA:Quicken Summoning
+8	ADD:SPELLCASTER(Arcane)
+9	ADD:SPELLCASTER(Arcane)	SA:Craft Pit													FEATAUTO:Craft Summoning Pit
+10	ADD:SPELLCASTER(Arcane)	SA:Bind Summoning
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Bravo		HD:8		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL				Req. Att.	Required Feat						Required Skill
+CLASS:Bravo		PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:7	PREFEAT:1,Quick Draw	PREFEAT:1,Weapon Focus	PRESKILL:1,Intimidation=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Bravo		STARTSKILLPTS:2	CSKILL:Bluff|Climb|Escape Artist|Handle Animal|Intimidate|Jump|TYPE.Profession|Spot|Use Rope
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|TYPE.Martial.Melee	FEATAUTO:Simple Weapon Proficiency
+1							FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal Progression
+1	SA:Savvy Defense
+2	SA:Delayed Strike
+3						ADD:FEAT(Combat Expertise,Disabling Duelist,Dodge,Expert Duelist,Improved Disarm,Improved Initiative,Improved Sunder,Mobility,Skilled Duelist,Spring Attack)
+4	SA:Deadly Throw
+5	SA:Undermine
+6						ADD:FEAT(Combat Expertise,Disabling Duelist,Dodge,Expert Duelist,Improved Disarm,Improved Initiative,Improved Sunder,Mobility,Skilled Duelist,Spring Attack)
+7	SA:Improved Delayed Strike
+8	SA:Improved Deadly Throw
+9						ADD:FEAT(Combat Expertise,Disabling Duelist,Dodge,Expert Duelist,Improved Disarm,Improved Initiative,Improved Sunder,Mobility,Skilled Duelist,Spring Attack)
+10	SA:Street Lord			ADD:FEAT(Leadership)
+#PRE Weapon Focus should be for a Light or OneHanded melee weapon....
+#WEAPONPROF Martial.Melee AND Light....+ choices for two more OneHanded
+#Savvy Defense....
+#Improved Deadly Throw...
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Manipulator	HD:6		TYPE:PC.Prestige	ABB:Man		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat				Required Skill
+CLASS:Manipulator	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Negotiator,Persuasive	PRESKILL:2,Bluff,Diplomacy,Intimidate,Sense Motive=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Manipulator	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Sense Motive|Speak Language
+###Block: Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Progression
+1	SA:Charming Gaze %/day|CharmingGaze					BONUS:VAR|CharmingGaze|(CL+2)/3							DEFINE:CharmingGaze|0
+2	SA:Presence +%|Presence							BONUS:VAR|Presence|floor((CL+1)/3)*2						DEFINE:Presence|0
+3	SA:Silver Tounge %/day|SilverTounge	SA:Inside Information	BONUS:VAR|SilverTounge|CL/3			BONUS:SKILLPOOL|NUMBER|3	DEFINE:SilverTounge|0
+4	SA:Mindshield
+5	SA:Commitment
+6																		BONUS:SKILLPOOL|NUMBER|3
+9																		BONUS:SKILLPOOL|NUMBER|3
+10	SA:Mass Suggestion
+#Inside Information gives skill points that should only possible to spend to Knowledge skills...might be possible, only adding to skill pool for now
+
+
+###############################
+### Trueborn of the Kingsmarch
+###############################
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Knight Adamant	HD:10		TYPE:PC.Prestige	ABB:KAd		MAXLEVEL:10	SOURCEPAGE:p.107	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat			Required Text
+CLASS:Knight Adamant	PREALIGN:LG,LN,NG	PREATT:7	PREFEAT:2,Cleave,Power Attack	PRETEXT:The character must be a disciple of Alharra.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Knight Adamant	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TYPE.Profession|Ride|Sense Motive|Spot
+1																						AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1																											FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+1	SA:Headlong
+2	SA:Disrupt Concentration
+3	SA:Aura of Valor (%/day)|AuraValor	BONUS:VAR|AuraValor|CL/3	DEFINE:AuraValor|0
+4																SPELLS:Innate|TIMES=-1|Detect Evil
+5	SA:Improved Power Attack
+7	SA:Shield Followthrough
+8	SA:Shining Beacon
+10	SA:Restore the Balance
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Disciple of St. Baedras	HD:10		TYPE:PC.Prestige	ABB:Baed		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Feat					Required Text
+CLASS:Disciple of St. Baedras	PREATT:6	PREFEAT:2,Combat Expertise,Sneak Attack	PRETEXT:See Text.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Disciple of St. Baedras	STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Hide|Intimidate|Move Silently|Sense Motive|Sleight of Hand|Spot|Tumble
+1																																													AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1																																																		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)	FEATAUTO:Shield Proficiency
+1					BONUS:VAR|SneakAttack|(CL+2)/3																																								FEATAUTO:Sneak Attack
+2	SA:Defend the Cause							ADD:FEAT(Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist)
+3	SA:Bravado
+5											ADD:FEAT(Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist)
+6	SA:Surprise Move
+8											ADD:FEAT(Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist)
+9	SA:Gouge
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Lion of the Host	HD:10		TYPE:PC.Prestige	ABB:Lion		MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL				Req. Att.	Required Feat			Required Skill				Req. Spell Type		Required Text
+CLASS:Lion of the Host	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Toughness	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:Divine,1,2	PRETEXT:See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Lion of the Host	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|TYPE.Profession|Survival|Swim
+1																			AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
+1																								FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+1	ADD:SPELLCASTER(ANY)	SA:Word of Faith %/day|WordFaith	BONUS:VAR|WordFaith|1	DEFINE:WordFaith|0
+2	ADD:SPELLCASTER(ANY)	SA:Vigor (sleep)
+3	ADD:SPELLCASTER(ANY)	SA:Restful Touch
+4	ADD:SPELLCASTER(ANY)	SA:Extend Summoning
+5	ADD:SPELLCASTER(ANY)	SA:Vigor (diseases)
+6	ADD:SPELLCASTER(ANY)							BONUS:VAR|WordFaith|1
+7	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)	SA:Vigor (poisons)
+9	ADD:SPELLCASTER(ANY)	SA:Dominating Presence
+10	ADD:SPELLCASTER(ANY)							BONUS:VAR|WordFaith|1
+#Word of Faith. Table says one thing description another...(going with the table)
+#Restful Touch. Table says one thing description another...(going with the table)
+
+
+###########################
+### Zangala
+###########################
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
+CLASS:The Unbroken	HD:12		TYPE:PC.Prestige	ABB:Unb		MAXLEVEL:10	SOURCEPAGE:p.116	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat									Required Skill												Required Text
+CLASS:The Unbroken	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:1,Concentration=8	PRESKILL:3,Escape Artist,Sense Motive,Survival=4	PRETEXT:The character must be a former slave who has spent at least one year in slavery.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:The Unbroken	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Concentration|Escape Artist|Hide|Sense Motive|Spot|Survival
+1	FEATAUTO:Simple Weapon Proficiency|Armor Proficiency (Light)
+###Block: Normal level progression
+1							SA:Pain Immunity (Ex)	SA:Force of Will (Ex) +%|ForceOfWill				BONUS:VAR|ForceOfWill|floor((CL+1)/2)*2	DEFINE:ForceOfWill|0	ADD:FEAT(TYPE.UnbrokenResistance)
+2							SA:Fortress of the Mind (Ex) +4 bonus against Charm effects
+4	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Ignore Charm effects																	ADD:FEAT(TYPE.UnbrokenResistance)
+6	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Ignore Charm effects and +4 against Compulsion effects
+7																																ADD:FEAT(TYPE.UnbrokenResistance)
+8	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Ignore Charm and Compulsion effects
+10	SA:.CLEAR.Fortress of the Mind	SA:Fortress of the Mind (Ex) Immune to all Mind-Affecting spells and effects.
+#Todo: Resistance abilities
+
+##############################
+### Appendix: Legendary Items
+##############################
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Binder	HD:6		TYPE:PC.Prestige	ABB:Bind		MAXLEVEL:10	SOURCEPAGE:p.124	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat										Required Skill		Req. Spell Type
+CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus(Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane|Divine,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Binder	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
+1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)
+###Block: Normal level progression
+1	ADD:SPELLCASTER(ANY)	SA:Hightened Crafting (Ex)	ADD:FEAT(Bind Item)
+2	ADD:SPELLCASTER(ANY)						ADD:FEAT(TYPE.AnySchool)
+3	ADD:SPELLCASTER(ANY)						ADD:FEAT(TYPE.ItemCreation)
+4	ADD:SPELLCASTER(ANY)	SA:Metamagic Crafting I (Ex)	ADD:FEAT(TYPE.AnySchool)
+5	ADD:SPELLCASTER(ANY)						ADD:FEAT(Bind Item)
+6	ADD:SPELLCASTER(ANY)						ADD:FEAT(TYPE.AnySchool)
+7	ADD:SPELLCASTER(ANY)	SA:Metamagic Crafting II (Ex)	ADD:FEAT(TYPE.ItemCreation)
+8	ADD:SPELLCASTER(ANY)						ADD:FEAT(TYPE.AnySchool)
+9	ADD:SPELLCASTER(ANY)						ADD:FEAT(Bind Item)
+10	ADD:SPELLCASTER(ANY)	SA:Quick Crafting (Ex)		ADD:FEAT(TYPE.AnySchool)
+# TODO: the choice feats (TYPE.AnySchool and Bind Item)
+
+
+
+
+
+#
+# end
+#

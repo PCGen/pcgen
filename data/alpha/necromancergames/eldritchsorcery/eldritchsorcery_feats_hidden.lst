@@ -1,0 +1,8 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Sep 16 09:19:42 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Eldritch Sorcery|SOURCESHORT:EldSor|SOURCEWEB:http://www.necromancergames.com/
+# Original Entry by: Tir Gwaith
+
+###Block: Expansions on Turn/Rebuke
+# Feat Name	Type					Visible	Special Ability																					Define																																						Source Page
+Rebuke Cold	TYPE:Special.Turning.TurnCold	VISIBLE:NO	SA:Rebuke Cold (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesCold|TurnLevelCold|TurnDiceCold|TurnDieSizeCold|TurnDamagePlusCold	DEFINE:TurnTimesCold|TurnTimesBase	DEFINE:TurnLevelCold|TurnLevelBase	DEFINE:TurnDiceCold|TurnDiceBase	DEFINE:TurnDieSizeCold|TurnDieSizeBase	DEFINE:TurnDamagePlusCold|TurnDamagePlusBase	DEFINE:TurnCheckCold|TurnCheckBase	SOURCEPAGE:p.17
+Rebuke Ooze	TYPE:Special.Turning.TurnOoze	VISIBLE:NO	SA:Rebuke Ooze (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesOoze|TurnLevelOoze|TurnDiceOoze|TurnDieSizeOoze|TurnDamagePlusOoze	DEFINE:TurnTimesOoze|TurnTimesBase	DEFINE:TurnLevelOoze|TurnLevelBase	DEFINE:TurnDiceOoze|TurnDiceBase	DEFINE:TurnDieSizeOoze|TurnDieSizeBase	DEFINE:TurnDamagePlusOoze|TurnDamagePlusBase	DEFINE:TurnCheckOoze|TurnCheckBase	SOURCEPAGE:p.19

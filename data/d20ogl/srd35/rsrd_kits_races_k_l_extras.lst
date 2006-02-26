@@ -1,0 +1,31 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Golden Protector	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lammasu]
+NAME:Golden Protector
+STAT:STR=8|DEX=15|CON=14|INT=10|WIS=14|CHA=12
+RACE:Lammasu	!PRERACE:%
+ALIGN:LG
+CLASS:Lammasu	LEVEL:3
+TEMPLATE:Celestial|Half Dragon (Gold)
+DEITY:None	DOMAIN:Good|Healing
+SKILL:Concentration		RANK:13
+SKILL:Diplomacy			RANK:13
+SKILL:Knowledge (Arcana)	RANK:13
+SKILL:Listen			RANK:13
+SKILL:Sense Motive		RANK:13
+SKILL:Spot				RANK:13
+SKILL:Knowledge (The Planes)	RANK:13
+SKILL:Search			RANK:13
+SKILL:Spellcraft			RANK:6
+SKILL:Survival			RANK:6
+SKILL:Spellcraft			RANK:7	FREE:YES
+SKILL:Survival			RANK:7	FREE:YES
+FEAT:Blind Fight
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus (Claw)
+GEAR:Bracers of Armor +2	SIZE:PC	LOCATION:Equipped
+GEAR:Ring (Protection +1)	SIZE:PC	LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Bear's Endurance|Bless=2|Bull's Strength|Daylight|Detect Evil|Detect Magic|Dismissal|Dispel Magic|Divine Favor=2|Entropic Shield|Guidance=2|Holy Smite|Light|Magic Circle against Evil|Neutralize Poison|Protection from Evil|Read Magic|Remove Curse|Resist Energy|Resistance|Restoration (Lesser)
+

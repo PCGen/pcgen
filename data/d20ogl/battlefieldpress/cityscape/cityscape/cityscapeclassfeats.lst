@@ -1,0 +1,54 @@
+# CVS $Revision: 1.5 $ $Author: eddyanthony $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+# Original Entry by: Tir Gwaith
+# Feat Name				Output Name				Type				Visible	Clear Prereq.	Required Class				Required Feat											Prohibited Feat			Special Ability						Define									Description		Stackable?	Multiple?	Choose																										Weapon prof. bonus				Source Page
+Favored Enemy I.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=1														!PREFEAT:1,Favored Enemy I
+Favored Enemy II.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=5	PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
+Favored Enemy III.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
+Favored Enemy IV.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
+Favored Enemy V.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V
+
+# Contacts
+Underworld Contact (Low)						TYPE:Contact		VISIBLE:NO																												SA:Underworld Contact (Low)
+Net Contact (Low)								TYPE:Contact		VISIBLE:NO																												SA:Net Contact (Low)
+Police Contact (Low)							TYPE:Contact		VISIBLE:NO																												SA:Police Contact (Low)
+Occult Contact (Low)							TYPE:Contact		VISIBLE:NO																												SA:Occult Contact (Low)
+Customs Contact (Low)							TYPE:Contact		VISIBLE:NO																												SA:Customs Contact (Low)
+Political Contact (Low)							TYPE:Contact		VISIBLE:NO																												SA:Political Contact (Low)
+Corporate Contact (Low)							TYPE:Contact		VISIBLE:NO																												SA:Corporate Contact (Low)
+Other Contact (Low)							TYPE:Contact		VISIBLE:NO																												SA:Other Contact (Low)
+# Low
+Underworld Contact (Medium)						TYPE:Contact		VISIBLE:NO										PREFEAT:1,Underworld Contact (Low)													SA:Underworld Contact (Medium)
+Net Contact (Medium)							TYPE:Contact		VISIBLE:NO										PREFEAT:1,Net Contact (Low)														SA:Net Contact (Medium)
+Police Contact (Medium)							TYPE:Contact		VISIBLE:NO										PREFEAT:1,Police Contact (Low)													SA:Police Contact (Medium)
+Occult Contact (Medium)							TYPE:Contact		VISIBLE:NO										PREFEAT:1,Occult Contact (Low)													SA:Occult Contact (Medium)
+Customs Contact (Medium)						TYPE:Contact		VISIBLE:NO										PREFEAT:1,Customs Contact (Low)													SA:Customs Contact (Medium)
+Political Contact (Medium)						TYPE:Contact		VISIBLE:NO										PREFEAT:1,Political Contact (Low)													SA:Political Contact (Medium)
+Corporate Contact (Medium)						TYPE:Contact		VISIBLE:NO										PREFEAT:1,Corporate Contact (Low)													SA:Corporate Contact (Medium)
+Other Contact (Medium)							TYPE:Contact		VISIBLE:NO										PREFEAT:1,Other Contact (Low)														SA:Other Contact (Medium)
+# High
+Underworld Contact (High)						TYPE:Contact		VISIBLE:NO										PREFEAT:2,Underworld Contact (Low),Underworld Contact (Medium)								SA:Underworld Contact (High)
+Net Contact (High)							TYPE:Contact		VISIBLE:NO										PREFEAT:2,Net Contact (Low),Net Contact (Medium)										SA:Net Contact (High)
+Police Contact (High)							TYPE:Contact		VISIBLE:NO										PREFEAT:2,Police Contact (Low),Police Contact (Medium)									SA:Police Contact (High)
+Occult Contact (High)							TYPE:Contact		VISIBLE:NO										PREFEAT:2,Occult Contact (Low),Occult Contact (Medium)									SA:Occult Contact (High)
+Customs Contact (High)							TYPE:Contact		VISIBLE:NO										PREFEAT:2,Customs Contact (Low),Customs Contact (Medium)									SA:Customs Contact (High)
+Political Contact (High)						TYPE:Contact		VISIBLE:NO										PREFEAT:2,Political Contact (Low),Political Contact (Medium)								SA:Political Contact (High)
+Corporate Contact (High)						TYPE:Contact		VISIBLE:NO										PREFEAT:2,Corporate Contact (Low),Corporate Contact (Medium)								SA:Corporate Contact (High)
+Other Contact (High)							TYPE:Contact		VISIBLE:NO										PREFEAT:2,Other Contact (Low),Other Contact (Medium)										SA:Other Contact (High)
+
+# Mechanist Favored Techs
+Favored Tech I								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=1																!PREFEAT:1,Favored Tech I	SA:Favored Tech (%CHOICE) +%|FavoredTech1		DEFINE:FavoredTech1|COUNT[FEATTYPE=FavoredTech]								MULT:YES	CHOOSE:COUNT=1|Aircraft|Armor|Ground vehicles|Electronics|Explosives|Handguns|Heavy weapons|Machines|Melee weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech II								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=5			PREFEAT:1,Favored Tech I									!PREFEAT:1,Favored Tech II	SA:Favored Tech (%CHOICE) +%|FavoredTech2		DEFINE:FavoredTech2|COUNT[FEATTYPE=FavoredTech]-1							MULT:YES	CHOOSE:COUNT=1|Aircraft|Armor|Ground vehicles|Electronics|Explosives|Handguns|Heavy weapons|Machines|Melee weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech III								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=10			PREFEAT:2,Favored Tech I,Favored Tech II							!PREFEAT:1,Favored Tech III	SA:Favored Tech (%CHOICE) +%|FavoredTech3		DEFINE:FavoredTech3|COUNT[FEATTYPE=FavoredTech]-2							MULT:YES	CHOOSE:COUNT=1|Aircraft|Armor|Ground vehicles|Electronics|Explosives|Handguns|Heavy weapons|Machines|Melee weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech IV								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=15			PREFEAT:3,Favored Tech I,Favored Tech II,Favored Tech III				!PREFEAT:1,Favored Tech IV	SA:Favored Tech (%CHOICE) +%|FavoredTech4		DEFINE:FavoredTech4|COUNT[FEATTYPE=FavoredTech]-3							MULT:YES	CHOOSE:COUNT=1|Aircraft|Armor|Ground vehicles|Electronics|Explosives|Handguns|Heavy weapons|Machines|Melee weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+Favored Tech V								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=20			PREFEAT:4,Favored Tech I,Favored Tech II,Favored Tech III,Favored Tech IV	!PREFEAT:1,Favored Tech V	SA:Favored Tech (%CHOICE) +%|FavoredTech5		DEFINE:FavoredTech5|COUNT[FEATTYPE=FavoredTech]-4							MULT:YES	CHOOSE:COUNT=1|Aircraft|Armor|Ground vehicles|Electronics|Explosives|Handguns|Heavy weapons|Machines|Melee weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
+
+#Techie Mastercraft
+Mastercraft (Electronic)						TYPE:MasterElectronic	VISIBLE:NO				PRECLASS:1,Techie=5																					SA:Mastercraft (Electronic) +%|MasterElectronic	DEFINE:MasterElectronic|COUNT[FEATTYPE=MasterElectronic]				STACK:YES	MULT:YES	CHOOSE:Electronic
+Mastercraft (Mechanical)						TYPE:MasterMechanical	VISIBLE:NO				PRECLASS:1,Techie=5																					SA:Mastercraft (Mechanical) +%|MasterMechanical	DEFINE:MasterMechanical|COUNT[FEATTYPE=MasterMechanical]				STACK:YES	MULT:YES	CHOOSE:Mechanical
+
+# Soldier Favored Weapon
+Favored Weapon								TYPE:Special							PRECLASS:1,Soldier=2																																							DESC:See Text	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST																								BONUS:WEAPONPROF=%LIST|TOHIT|2		SOURCEPAGE:p.
+Soldier Improved Critical	OUTPUTNAME:Improved Critical	TYPE:Special							PRECLASS:1,Soldier=5			PREFEAT:1,Weapon Specialization																															DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFS|LIST																								BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:p.
+Greater Weapon Specialization						TYPE:Special							PRECLASS:1,Soldier=8			PREFEAT:2,Weapon Specialization,Favored Weapon																													DESC:See Text	STACK:NO	MULT:YES	CHOOSE:COUNT=1|WEAPONPROFS|LIST																						BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:p.
+

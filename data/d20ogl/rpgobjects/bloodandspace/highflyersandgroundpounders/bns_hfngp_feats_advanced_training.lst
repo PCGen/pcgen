@@ -1,0 +1,11 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Jan 12 21:48:08 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Blood and Space - High Flyers and Ground Pounders|SOURCESHORT:BnS-HFnGP|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
+
+# Feat Name				Output Name					Type				Required Feat			Required Skill				Required Stat		Description																					Source Page
+Assault Training									TYPE:AdvancedTraining																DESC:You have received specialized training in the boarding and seizing of enemy spacecraft, space stations and planetary bases.	SOURCEPAGE:p.13
+High G Assault Training		OUTPUTNAME:High-G Assault Training	TYPE:AdvancedTraining												PRESTAT:1,STR=13		DESC:You have received advanced training in combat in high-G environments.										SOURCEPAGE:p.13
+Log G Assault Training		OUTPUTNAME:Low-G Assault Training	TYPE:AdvancedTraining	PREFEAT:1,Zero G Training											DESC:You have received advanced training in combat in low-G environments.										SOURCEPAGE:p.14
+NCO School										TYPE:AdvancedTraining	PREFEAT:1,Teamwork		PRESKILL:1,Knowledge (Tactics)=5					DESC:You have both training and experience to command others.												SOURCEPAGE:p.14
+Officer Candidate School							TYPE:AdvancedTraining	PREFEAT:1,Teamwork								PRESTAT:2,INT=13,CHA=13	DESC:You have graduated from an elite officer-training program allowing you to begin your military career as an officer.		SOURCEPAGE:p.14
+Xenomorph Assault Training							TYPE:AdvancedTraining																DESC:You have received advanced training in meeting new life forms and new civilizations… and killing them.					SOURCEPAGE:p.14
+Zero G Assault Training		OUTPUTNAME:Zero-G Assault Training	TYPE:AdvancedTraining	PREFEAT:1,Zero G Training											DESC:You have received advanced training in microgravity environments.											SOURCEPAGE:p.14

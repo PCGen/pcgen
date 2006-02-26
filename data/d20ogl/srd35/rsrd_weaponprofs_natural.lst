@@ -1,0 +1,32 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri May  7 21:08:24 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Weapon Name	Type
+Antennae		TYPE:Natural
+Arm			TYPE:Natural
+Arms			TYPE:Natural
+Bite			TYPE:Natural
+Butt			TYPE:Natural
+Crush			TYPE:Natural
+Claw			TYPE:Natural
+Electricity Shock	TYPE:Natural
+Gore			TYPE:Natural
+Hoof			TYPE:Natural
+Horn			TYPE:Natural
+Pincer		TYPE:Natural
+Poison Snakes	TYPE:Natural
+Quill			TYPE:Natural
+Ray			TYPE:Natural
+Slam			TYPE:Natural
+Spikes		TYPE:Natural
+Stamp			TYPE:Natural
+Sting			TYPE:Natural
+Strand		TYPE:Natural
+Tail			TYPE:Natural
+Tail Slap		TYPE:Natural
+Tail Sweep		TYPE:Natural
+Talons		TYPE:Natural
+Tendril		TYPE:Natural
+Tentacle		TYPE:Natural
+Touch			TYPE:Natural
+Wing			TYPE:Natural
+

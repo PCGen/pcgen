@@ -1,0 +1,30 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu May 19 18:29:12 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Equipment Name			Type							Contains			Cost		Weight	Source Page
+Homeblood (deteriorated)	TYPE:Goods.Liquid.Poison							COST:300	WT:.0625	SOURCEPAGE:p.20
+Homeblood (pure)			TYPE:Goods.Liquid.Poison							COST:4500	WT:.0625	SOURCEPAGE:p.20
+
+Powder Horn				TYPE:Goods.GunPowder								COST:7	WT:3		SOURCEPAGE:p.20
+Powder Keg				TYPE:Goods.GunPowder								COST:43	WT:20		SOURCEPAGE:p.20
+Barge					TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=-1	COST:400	WT:40000	SOURCEPAGE:p.22
+Hoakyn				TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=-1	COST:35	WT:400	SOURCEPAGE:p.22
+
+###Block: Special Armor
+
+# Equipment Name	Type						Cost		Weight	AC Penalty Check	Modifier	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Special Property
+Jousting Armor	TYPE:Armor.Heavy.Suit.Standard	COST:2000	WT:70		ACCHECK:-9		EQMOD:STEEL	MAXDEX:0		SOURCEPAGE:p.22	SPELLFAILURE:50		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	SPROP:This armor is designed to take a lance hit from a mounted charge. All such attacks do not do double damage as is standard, but do normal damage instead.
+
+###Block: Special Weapons
+
+# Equipment Name			Output Name				Required Proficiency		Type												Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach		Size		Source Page
+Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:Chain (Spiked)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain	COST:25	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:STEEL	WIELD:TwoHanded	REACH:15	SIZE:M	SOURCEPAGE:p.24
+
+###Block: Tools
+# Equipment Name			Type							Cost		Weight	Source Page		Bonus to skill
+Artisan's Tools (Gunsmithing)	TYPE:Goods.Tools.Artisan.GunsmithingTools	COST:5	WT:5		SOURCEPAGE:p.36	BONUS:SKILL|Craft (Gunsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
+
+#
+# End
+#

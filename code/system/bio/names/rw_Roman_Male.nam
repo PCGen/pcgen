@@ -1,0 +1,336 @@
+//Roman Male Names
+[RULES]
+75	[PRAENOMEN]	[NOMEN]	[COGNOMEN]
+95	[PRAENOMEN]	[NOMEN]	[COGNOMEN]	[TRIBE]
+100	[PRAENOMEN]	[NOMEN]	[COGNOMEN]	[COGNOMEN]
+
+[PRAENOMEN]
+Caius 
+Gaius 
+Cnaeus 
+Gnaeus 
+Titus 
+Tiberius 
+Quintus 
+Aulus 
+Decimus 
+Lucius 
+Marcus 
+Postumus 
+Publius 
+Quadratus 
+Sextus 
+Servius 
+Spurius 
+Primus 
+Tertius 
+Flavius 
+Cassius 
+
+[NOMEN]
+Abudius
+Adaucius
+Aelius
+Aemilius
+Aeresius
+Afranius
+Albius
+Ammonius
+Antonius
+Apuleius
+Arrenius
+Anicius
+Antonius
+Artorius
+Audacilius
+Aufidius
+Aurelius
+Babudius
+Caecilius
+Caelius
+Caesennius
+Caesidius
+Calidius
+Calpurnius
+Cammidius
+Cammius
+Camurius
+Carausius
+Cassius
+Celerinius
+Censorius
+Claudius
+Clodius
+Cornelius
+Curtius
+Decrius
+Desticius
+Didius
+Domitius
+Duccius
+Ecimius
+Eprius
+Exomnius
+Fabius
+Fannius
+Favonius
+Flavius
+Gargilius
+Grattius
+Helvidius
+Helvius
+Honorius
+Hortensius
+Hosidius
+Ingenuius
+Julius
+Juventius
+Larcius
+Latinius
+Liburnius
+Licinius
+Ligustinius
+Livius
+Lollius
+Lousius
+Lucretius
+Maenius
+Manlius
+Mannius
+Marius
+Menius
+Mercatius
+Messorius
+Minicius
+Mommius
+Mummius
+Mucius
+Munatius
+Mussius
+Mustius
+Nectovelius
+Nemonius
+Neratius
+Nestorius
+Octavius
+Olcinius
+Oppius
+Ostorius
+Paternius
+Peltrasius
+Petillius
+Petronius
+Plautius
+Platorius
+Poenius
+Pompeius
+Pomponius
+Pontius
+Porcius
+Postumius
+Praesentius
+Pupius
+Quinctilius
+Roscius
+Rustius
+Rutilius
+Saturius
+Sallustius
+Saufeius
+Scribonius
+Sempronius
+Septimius
+Sertorius
+Simplicius
+Sittius
+Socellius
+Spurius
+Statilius
+Statorius
+Suetonius
+Sulpicius
+Tabellius
+Tadius
+Terentius
+Tertinius
+Thoranius
+Titius
+Trebellius
+Tuccius
+Ulpius
+Valerius
+Varius
+Velius
+Veranius
+Vesnius
+Vettius
+Vibius
+Virius
+Vitellius
+Volteius
+Volusius
+
+[COGNOMEN]
+ Aelianus
+ Agricola
+ Agrippa
+ Albanus
+ Albinus
+ Aprilis
+ Arcanus
+ Avitus
+ Balbus
+ Bassus
+ Bellicianus
+ Betto
+ Caelianus
+ Capito
+ Castus
+ Cattianus
+ Celer
+ Cerialis
+ Civilis
+ Clemens
+ Coranus
+ Corvinus
+ Crescens
+ Crispus
+ Dexter
+ Dida
+ Disertus
+ Donatus
+ Drusus
+ Erasinus
+ Facilis
+ Faustus
+ Felicissimus
+ Felix
+ Festus
+ Fidus
+ Firmus
+ Flavinus
+ Fortunatus
+ Frontinus
+ Fronto
+ Fuscus
+ Gaianus
+ Galba
+ Gallienus
+ Gallus
+ Gemellus
+ Genialis
+ Geta
+ Gracchus
+ Homullus
+ Honoratus
+ Ingenuus
+ Justus
+ Libo
+ Longinus
+ Lucullus
+ Lupus
+ Macer
+ Macrinus
+ Macro
+ Magnus
+ Mansuetus
+ Marcellus
+ Maritimus
+ Martialis
+ Martius
+ Masala
+ Masavo
+ Maternus
+ Maurus
+ Maximus
+ Melito
+ Messalinus
+ Mettellus
+ Modianus
+ Montanus
+ Natalis
+ Nepos
+ Nerva
+ Noricus
+ Novanus
+ Paetus
+ Panthera
+ Paulinus
+ Pertinax
+ Petra
+ Picens
+ Pius
+ Probus
+ Proclus
+ Pudens
+ Pulcher
+ Quadratus
+ Quietus
+ Romanus
+ Rufinus
+ Rufus
+ Rusticus
+ Sabinus
+ Saenus
+ Saturninus
+ Savius
+ Scapula
+ Scipio
+ Secundus
+ Seianus
+ Senecio
+ Severus
+ Silanus
+ Silvanus
+ SolonSolus
+ Speratus
+ Strabo
+ Suavis
+ Super
+ Surinus
+ Thurinus
+ Valens
+ Venator
+ Verus
+ Viator
+ Victor
+ Vindex
+ Virilis
+ Vitalis
+
+[TRIBE]
+ Aemilia
+ Fabia
+ Papiria
+ Sergia
+ Aniensis
+ Falerna
+ Pollia
+ Stellatina
+ Arnensis
+ Galeria
+ Pomptina
+ Suburana
+ Camilia
+ Horatia
+ Publilia
+ Terentina
+ Claudia
+ Lemonia
+ Pupinia
+ Tromentina
+ Clustumina
+ Maecia
+ Quirina
+ Velina
+ Collina
+ Menenia
+ Romilia
+ Voltina
+ Cornelia
+ Oufentina
+ Sabatina
+ Voturia
+ Esquilina
+ Palantina
+ Scaptia

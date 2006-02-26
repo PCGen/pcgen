@@ -1,0 +1,108 @@
+# CVS $Revision: 1.20 $ $Author: tir-gwaith $
+CAMPAIGN:3.0 SRD
+RANK:1
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:SRD
+TYPE:SRD.Complete
+SOURCELONG:System Reference Document
+SOURCESHORT:SRD
+SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Paul W. King, Chris Chandler (Barak), Sigurdur H. Olafsson)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+# Basics
+DEITY:srd_deities.lst
+FEAT:srd_feats_hidden.lst
+TEMPLATE:srd_templates_types.lst
+
+CLASS:srd_classes_base.lst
+CLASS:srd_classes_prestige.lst
+DOMAIN:srd_domains.lst
+LANGUAGE:srd_languages.lst
+FEAT:srd_feats.lst
+FEAT:srd_feats_descriptions.lst
+RACE:srd_races__phb.lst
+SKILL:srd_skills.lst
+SPELL:srd_spells.lst
+WEAPONPROF:srd_weapprofs.lst
+KIT:srd_starting_kits.lst
+
+# Stuff for Companions and Followers
+COMPANIONMOD:srd_companion_mods.lst
+
+# Hiding Internal Types
+HIDETYPE:EQUIP|ArmorsmithingTools|BasketweavingTools|BookbindingTools|BowmakingTools|BlacksmithingTools|CalligraphyTools|CarpentryTools|CobblingTools
+HIDETYPE:EQUIP|GemcuttingTools|LeatherworkingTools|LocksmithingTools|PaintingTools|PotteryTools|SculptureTools|ShipmakingTools|StoneworkingTools
+HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools
+
+# Equipment
+EQUIPMOD:srd_equipmods_mundane.lst
+EQUIPMOD:srd_equipmods_magic.lst
+
+EQUIPMENT:srd_equip.lst
+EQUIPMENT:srd_equip_basetypes.lst
+EQUIPMENT:srd_equip_coinsgems.lst
+
+EQUIPMENT:srd_equip_wondrousitems.lst
+EQUIPMENT:srd_equip_rodsstaffswands.lst
+EQUIPMENT:srd_equip_rings.lst
+EQUIPMENT:srd_equip_scrolls.lst
+EQUIPMENT:srd_equip_potions_poisons.lst
+EQUIPMENT:srd_equip_artifacts.lst
+
+EQUIPMENT:srd_equip_armorshields.lst
+EQUIPMENT:srd_equip_armorshields_specific.lst
+
+EQUIPMENT:srd_equip_weap_melee.lst
+EQUIPMENT:srd_equip_weap_ranged.lst
+EQUIPMENT:srd_equip_weap_ammo.lst
+EQUIPMENT:srd_equip_weap_ammo_specific.lst
+EQUIPMENT:srd_equip_weap_melee_specific.lst
+EQUIPMENT:srd_equip_weap_ranged_specific.lst
+
+# Creatures
+CLASS:srd_classes_creature_specific.lst
+CLASS:srd_classes_creature_types.lst
+CLASS:srd_classes_dragon.lst
+RACE:srd_races__animals.lst
+RACE:srd_races__dragons.lst
+RACE:srd_races__vermin.lst
+RACE:srd_races_abc.lst
+RACE:srd_races_d.lst
+RACE:srd_races_ef.lst
+RACE:srd_races_gh.lst
+RACE:srd_races_ikl.lst
+RACE:srd_races_mn.lst
+RACE:srd_races_opr.lst
+RACE:srd_races_st.lst
+RACE:srd_races_uvw.lst
+RACE:srd_races_xyz.lst
+
+TEMPLATE:srd_templates.lst
+TEMPLATE:srd_templates_creatures.lst
+TEMPLATE:srd_templates_types.lst
+WEAPONPROF:srd_weapprofs_natural.lst
+
+# Psionics
+CLASS:srd_classes_psionic.lst
+COMPANIONMOD:srd_companion_mods_psionic.lst
+EQUIPMOD:srd_equipmods_psionic.lst
+EQUIPMENT:srd_equip_basetypes_psionic.lst
+EQUIPMENT:srd_equip_psionic.lst
+EQUIPMENT:srd_equip_weap_melee_psionic.lst
+EQUIPMENT:srd_equip_dorjes_psionic.lst
+FEAT:srd_feats_psionic.lst
+FEAT:srd_feats_hidden_psionic.lst
+RACE:srd_races__psionic.lst
+SKILL:srd_skills_psionic.lst
+SPELL:srd_spells_psionic.lst
+TEMPLATE:srd_templates_psionic.lst
+WEAPONPROF:srd_weapprofs_psionic.lst

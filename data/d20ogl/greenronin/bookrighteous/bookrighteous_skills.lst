@@ -1,0 +1,19 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Mar 15 18:50:42 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
+# Original Entry by: Beaver
+
+# Skill Name			Key Stat	Untrained?		Exclusive?		Type					Source Page
+Famous				KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma			SOURCEPAGE:p.256
+Profession (Teacher)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.93
+Knowledge (Hell)			KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.156
+Knowledge (Heaven)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.271
+
+
+
+### Stuff found while doing cross checking with Prettylst.  Either in CSKILL listings, or PRExxx
+Profession (Politician)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.
+Knowledge (Lost Treasures)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Boating)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Navagation)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Sea Lore)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Cartography)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.

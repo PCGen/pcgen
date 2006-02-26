@@ -1,0 +1,1545 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="arabic-historical-male-rule" title="Arabic" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="arabic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="arabic-male-cognomen" title="Cognomen"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="arabic-male-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="arabic-male-locative" title="Locative Byname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="arabic-historical-female-rule" title="Arabic" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="arabic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="arabic-female-cognomen" title="Cognomen"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="arabic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="arabic-male-locative" title="Locative Byname"/>
+			<GETLIST idref="arabic-female-locative-suffix" title="Suffix"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="arabic-female-given" title="Given"/>
+			<SPACE/>
+			<GETLIST idref="arabic-al" title="al"/>
+			<GETLIST idref="arabic-male-given" title="Patrynomic"/>
+			<GETLIST idref="arabic-female-patrynomic-suffix" title="Suffix"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="arabic-historical-location-rule" title="Arabic Locaton" usage="final">
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Other"/>
+		<RULE weight="24">
+			<GETLIST idref="arabic-historical-location-name-rule" title="Location"/>
+		</RULE>
+		<RULE weight="8">
+			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
+			<SPACE/>
+			<GETLIST idref="arabic-historical-location-name-rule" title="Location"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
+			<SPACE/>
+			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
+			<SPACE/>
+			<GETLIST idref="arabic-historical-location-name-rule" title="Location"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="arabic-historical-location-name-rule" title="Arabic Locaton" usage="public">
+		<RULE weight="2">
+			<GETLIST idref="arabic-location" title="Location"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="arabic-al" title="al"/>
+			<GETLIST idref="arabic-location" title="Location"/>
+		</RULE>
+	</RULESET>
+	<LIST id="arabic-male-given" title="Given">
+		<VALUE>'Abd al-Aziz</VALUE>
+		<VALUE>'Abd al-Baki</VALUE>
+		<VALUE>'Abd al-Hamid</VALUE>
+		<VALUE>'Abd al-Latif</VALUE>
+		<VALUE>'Abd al-Malik</VALUE>
+		<VALUE>'Abd al-Muttalib</VALUE>
+		<VALUE>'Abd al-Rahman</VALUE>
+		<VALUE>'Abdu'llah</VALUE>
+		<VALUE>'Ali</VALUE>
+		<VALUE>'Amr</VALUE>
+		<VALUE>'Anbar</VALUE>
+		<VALUE>'Attiyah</VALUE>
+		<VALUE>'Ayyad</VALUE>
+		<VALUE>'Isa</VALUE>
+		<VALUE>'Ubaida</VALUE>
+		<VALUE>'Umar</VALUE>
+		<VALUE>'Uthman</VALUE>
+		<VALUE>A'id</VALUE>
+		<VALUE>Aban</VALUE>
+		<VALUE>Abbad</VALUE>
+		<VALUE>Abbas</VALUE>
+		<VALUE>Abd al-Aziz</VALUE>
+		<VALUE>Abd al-Basir</VALUE>
+		<VALUE>Abd al-Gafur</VALUE>
+		<VALUE>Abd al-Haqq</VALUE>
+		<VALUE>Abd al-Jabbar</VALUE>
+		<VALUE>Abd al-Jalil</VALUE>
+		<VALUE>Abd al-Kabir</VALUE>
+		<VALUE>Abd al-Karim</VALUE>
+		<VALUE>Abd al-Majid</VALUE>
+		<VALUE>Abd al-Malik</VALUE>
+		<VALUE>Abd al-Mun'im</VALUE>
+		<VALUE>Abd al-Qadir</VALUE>
+		<VALUE>Abd al-Rahim</VALUE>
+		<VALUE>Abd al-Rahman</VALUE>
+		<VALUE>Abd al-Salam</VALUE>
+		<VALUE>Abd al-Samad</VALUE>
+		<VALUE>Abd al-Wahhab</VALUE>
+		<VALUE>Abd al-Wahid</VALUE>
+		<VALUE>Abd al-Warit</VALUE>
+		<VALUE>Abdu'llah</VALUE>
+		<VALUE>Abraha</VALUE>
+		<VALUE>Abu Ahmad</VALUE>
+		<VALUE>Abu Badr Ahmad</VALUE>
+		<VALUE>Abu Bakr</VALUE>
+		<VALUE>Abu Bashir</VALUE>
+		<VALUE>Abu Dawud</VALUE>
+		<VALUE>Abu Habib</VALUE>
+		<VALUE>Abu Hamzah</VALUE>
+		<VALUE>Abu Hassan</VALUE>
+		<VALUE>Abu Hazim</VALUE>
+		<VALUE>Abu Hurayrah</VALUE>
+		<VALUE>Abu Idris</VALUE>
+		<VALUE>Abu Ishaq</VALUE>
+		<VALUE>Abu Ja`far</VALUE>
+		<VALUE>Abu Jurayj</VALUE>
+		<VALUE>Abu Kathir</VALUE>
+		<VALUE>Abu Khuzaymah Ilban `Isa</VALUE>
+		<VALUE>Abu Muhammad</VALUE>
+		<VALUE>Abu Nasr</VALUE>
+		<VALUE>Abu Ndrah</VALUE>
+		<VALUE>Abu Rifa`ah</VALUE>
+		<VALUE>Abu Sa`id</VALUE>
+		<VALUE>Abu Sahl</VALUE>
+		<VALUE>Abu Shaybah</VALUE>
+		<VALUE>Abu Shu`ayb</VALUE>
+		<VALUE>Abu Tayyib</VALUE>
+		<VALUE>Abu Yazid</VALUE>
+		<VALUE>Abu `Abdullah</VALUE>
+		<VALUE>Abu `Abdullah Muhammad</VALUE>
+		<VALUE>Abu `Ali</VALUE>
+		<VALUE>Abu `Amr</VALUE>
+		<VALUE>Abu `Amr Muhammad</VALUE>
+		<VALUE>Abu `Ubaydah</VALUE>
+		<VALUE>Abu `Umayr `Isa</VALUE>
+		<VALUE>Abu `Uthman</VALUE>
+		<VALUE>Abul-Asshab</VALUE>
+		<VALUE>Abul-Aswad</VALUE>
+		<VALUE>Abul-Darda' Hashim</VALUE>
+		<VALUE>Abul-Dunya</VALUE>
+		<VALUE>Abul-Fadl</VALUE>
+		<VALUE>Abul-Fadl Nadr</VALUE>
+		<VALUE>Abul-Faraj</VALUE>
+		<VALUE>Abul-Fath</VALUE>
+		<VALUE>Abul-Hasan</VALUE>
+		<VALUE>Abul-Hawari</VALUE>
+		<VALUE>Abul-Husayn</VALUE>
+		<VALUE>Abul-Juwayriyyah</VALUE>
+		<VALUE>Abul-Khayr</VALUE>
+		<VALUE>Abul-Mughayyis</VALUE>
+		<VALUE>Abul-Musawir</VALUE>
+		<VALUE>Abul-Qasim</VALUE>
+		<VALUE>Abul-Tayyib</VALUE>
+		<VALUE>Abul-Ward</VALUE>
+		<VALUE>Abul-Zinad</VALUE>
+		<VALUE>Abul-`Abbas</VALUE>
+		<VALUE>Affan</VALUE>
+		<VALUE>Aflah</VALUE>
+		<VALUE>Ahmad</VALUE>
+		<VALUE>Ahyad</VALUE>
+		<VALUE>Ali</VALUE>
+		<VALUE>Amir</VALUE>
+		<VALUE>Amira</VALUE>
+		<VALUE>Amr</VALUE>
+		<VALUE>Anas</VALUE>
+		<VALUE>Asad</VALUE>
+		<VALUE>Asbag</VALUE>
+		<VALUE>Asbat</VALUE>
+		<VALUE>Asim</VALUE>
+		<VALUE>Aslam</VALUE>
+		<VALUE>Atiq</VALUE>
+		<VALUE>Atta'</VALUE>
+		<VALUE>Attab</VALUE>
+		<VALUE>Attiyah</VALUE>
+		<VALUE>Aws</VALUE>
+		<VALUE>Ayman</VALUE>
+		<VALUE>Ayshun</VALUE>
+		<VALUE>Ayyub</VALUE>
+		<VALUE>Ba`eeth<SUBVALUE type="meaning">Raiser from the Dead (referring to the final judgement)</SUBVALUE></VALUE>
+		<VALUE>Baaqiy<SUBVALUE type="meaning">Eternal (in the future)</SUBVALUE></VALUE>
+		<VALUE>Baari<SUBVALUE type="meaning">Skilled Worker</SUBVALUE></VALUE>
+		<VALUE>Baaya`</VALUE>
+		<VALUE>Badr</VALUE>
+		<VALUE>Bakhtiyar</VALUE>
+		<VALUE>Bakr</VALUE>
+		<VALUE>Balban</VALUE>
+		<VALUE>Balj</VALUE>
+		<VALUE>Baqi</VALUE>
+		<VALUE>Baqiyya</VALUE>
+		<VALUE>Baqiyyah</VALUE>
+		<VALUE>Barmak</VALUE>
+		<VALUE>Barr<SUBVALUE type="meaning">Good</SUBVALUE></VALUE>
+		<VALUE>Basasiri</VALUE>
+		<VALUE>Baseet<SUBVALUE type="meaning">Uncloser</SUBVALUE></VALUE>
+		<VALUE>Bashhar</VALUE>
+		<VALUE>Bashir</VALUE>
+		<VALUE>Bashshar</VALUE>
+		<VALUE>Basir<SUBVALUE type="meaning">Seeing</SUBVALUE></VALUE>
+		<VALUE>Batin<SUBVALUE type="meaning">Hidden</SUBVALUE></VALUE>
+		<VALUE>Battah</VALUE>
+		<VALUE>Bishr</VALUE>
+		<VALUE>Bursuq</VALUE>
+		<VALUE>Butrus</VALUE>
+		<VALUE>Buwayh</VALUE>
+		<VALUE>Da'ud</VALUE>
+		<VALUE>Darras</VALUE>
+		<VALUE>Dawud</VALUE>
+		<VALUE>Dharr</VALUE>
+		<VALUE>Dhu Nun</VALUE>
+		<VALUE>Dinar</VALUE>
+		<VALUE>Duqaq</VALUE>
+		<VALUE>Durayd</VALUE>
+		<VALUE>Fadl</VALUE>
+		<VALUE>Faris</VALUE>
+		<VALUE>Farqad</VALUE>
+		<VALUE>Farraj</VALUE>
+		<VALUE>Fath</VALUE>
+		<VALUE>Fatih<SUBVALUE type="meaning">Opener, Conqueror</SUBVALUE></VALUE>
+		<VALUE>Firas</VALUE>
+		<VALUE>Galib</VALUE>
+		<VALUE>Garsiyya</VALUE>
+		<VALUE>Ghaffaar<SUBVALUE type="meaning">Pardoner</SUBVALUE></VALUE>
+		<VALUE>Ghafoor<SUBVALUE type="meaning">Forgiver</SUBVALUE></VALUE>
+		<VALUE>Ghanai'm</VALUE>
+		<VALUE>Ghanee<SUBVALUE type="meaning">Sufficient</SUBVALUE></VALUE>
+		<VALUE>Ghazi</VALUE>
+		<VALUE>Ha`iy<SUBVALUE type="meaning">Life</SUBVALUE></VALUE>
+		<VALUE>Habib</VALUE>
+		<VALUE>Habushun</VALUE>
+		<VALUE>Hadi<SUBVALUE type="meaning">Guide</SUBVALUE></VALUE>
+		<VALUE>Hafiz<SUBVALUE type="meaning">Preserver</SUBVALUE></VALUE>
+		<VALUE>Hafs</VALUE>
+		<VALUE>Hajib</VALUE>
+		<VALUE>Hajj</VALUE>
+		<VALUE>Hajja</VALUE>
+		<VALUE>Hajjaj</VALUE>
+		<VALUE>Hakam</VALUE>
+		<VALUE>Hakim-al-Mutlaq<SUBVALUE type="meaning">Judge of Judges</SUBVALUE></VALUE>
+		<VALUE>Hakim<SUBVALUE type="meaning">Wise</SUBVALUE></VALUE>
+		<VALUE>Halim<SUBVALUE type="meaning">Clement</SUBVALUE></VALUE>
+		<VALUE>Hamdan</VALUE>
+		<VALUE>Hamdin</VALUE>
+		<VALUE>Hamdun</VALUE>
+		<VALUE>Hameed<SUBVALUE type="meaning">Praiseworthy</SUBVALUE></VALUE>
+		<VALUE>Hamid</VALUE>
+		<VALUE>Hammad</VALUE>
+		<VALUE>Hamzah</VALUE>
+		<VALUE>Hanbal</VALUE>
+		<VALUE>Hani</VALUE>
+		<VALUE>Hanif</VALUE>
+		<VALUE>Haqq<SUBVALUE type="meaning">Truth</SUBVALUE></VALUE>
+		<VALUE>Haris</VALUE>
+		<VALUE>Harith</VALUE>
+		<VALUE>Haroun</VALUE>
+		<VALUE>Harun</VALUE>
+		<VALUE>Hasan</VALUE>
+		<VALUE>Hashim</VALUE>
+		<VALUE>Hasib<SUBVALUE type="meaning">Reckoner (Noble)</SUBVALUE></VALUE>
+		<VALUE>Hassan</VALUE>
+		<VALUE>Hatim<SUBVALUE type="meaning">Mighty</SUBVALUE></VALUE>
+		<VALUE>Hayyan</VALUE>
+		<VALUE>Hazm</VALUE>
+		<VALUE>Hilal</VALUE>
+		<VALUE>Hisham</VALUE>
+		<VALUE>Humam</VALUE>
+		<VALUE>Hurmuz</VALUE>
+		<VALUE>Husain</VALUE>
+		<VALUE>Husayn</VALUE>
+		<VALUE>Ibrahim</VALUE>
+		<VALUE>Idris</VALUE>
+		<VALUE>Isa</VALUE>
+		<VALUE>Isfandiyar</VALUE>
+		<VALUE>Ishandiyar</VALUE>
+		<VALUE>Ishaq</VALUE>
+		<VALUE>Isma'il</VALUE>
+		<VALUE>Isma`il</VALUE>
+		<VALUE>Isra'il</VALUE>
+		<VALUE>Ja'bar</VALUE>
+		<VALUE>Ja'far</VALUE>
+		<VALUE>Ja'lal</VALUE>
+		<VALUE>Ja'mal</VALUE>
+		<VALUE>Ja'qub</VALUE>
+		<VALUE>Ja`far</VALUE>
+		<VALUE>Jaami<SUBVALUE type="meaning">Gatherer</SUBVALUE></VALUE>
+		<VALUE>Jabbar<SUBVALUE type="meaning">Compelling</SUBVALUE></VALUE>
+		<VALUE>Jabir</VALUE>
+		<VALUE>Jahhaf</VALUE>
+		<VALUE>Jahwar</VALUE>
+		<VALUE>Jalaf</VALUE>
+		<VALUE>Jaleel<SUBVALUE type="meaning">Glorious</SUBVALUE></VALUE>
+		<VALUE>Jalid</VALUE>
+		<VALUE>Jameel<SUBVALUE type="meaning">Beneficent</SUBVALUE></VALUE>
+		<VALUE>Jamil</VALUE>
+		<VALUE>Jarir</VALUE>
+		<VALUE>Jasib</VALUE>
+		<VALUE>Jattab</VALUE>
+		<VALUE>Jawar</VALUE>
+		<VALUE>Jawhar</VALUE>
+		<VALUE>Jawsa</VALUE>
+		<VALUE>Jibril</VALUE>
+		<VALUE>Jubair</VALUE>
+		<VALUE>Jurdik</VALUE>
+		<VALUE>Ka'im</VALUE>
+		<VALUE>Kabeer<SUBVALUE type="meaning">Very Great</SUBVALUE></VALUE>
+		<VALUE>Kamal</VALUE>
+		<VALUE>Kamil</VALUE>
+		<VALUE>Kareem<SUBVALUE type="meaning">Generous</SUBVALUE></VALUE>
+		<VALUE>Kathir</VALUE>
+		<VALUE>Kaysan</VALUE>
+		<VALUE>Khabeer<SUBVALUE type="meaning">He Who Knows</SUBVALUE></VALUE>
+		<VALUE>Khafeez<SUBVALUE type="meaning">Abaser</SUBVALUE></VALUE>
+		<VALUE>Khalaaq<SUBVALUE type="meaning">Creator</SUBVALUE></VALUE>
+		<VALUE>Khalaf</VALUE>
+		<VALUE>Khalid</VALUE>
+		<VALUE>Khalidi</VALUE>
+		<VALUE>Khalil</VALUE>
+		<VALUE>Khashram</VALUE>
+		<VALUE>Khayr</VALUE>
+		<VALUE>Khurdadhbih</VALUE>
+		<VALUE>Khuzaymah</VALUE>
+		<VALUE>Kulayb</VALUE>
+		<VALUE>Kutaiba</VALUE>
+		<VALUE>Labid</VALUE>
+		<VALUE>Lahab</VALUE>
+		<VALUE>Lateef<SUBVALUE type="meaning">Gracious</SUBVALUE></VALUE>
+		<VALUE>Lu'la'a</VALUE>
+		<VALUE>Lu'lu'</VALUE>
+		<VALUE>Lubb</VALUE>
+		<VALUE>Luqman</VALUE>
+		<VALUE>Ma'mun</VALUE>
+		<VALUE>Ma`mar</VALUE>
+		<VALUE>Mahbub</VALUE>
+		<VALUE>Mahmud</VALUE>
+		<VALUE>Majeed<SUBVALUE type="meaning">Glorious</SUBVALUE></VALUE>
+		<VALUE>Majlad</VALUE>
+		<VALUE>Majnun</VALUE>
+		<VALUE>Makhid</VALUE>
+		<VALUE>Makki</VALUE>
+		<VALUE>Malik</VALUE>
+		<VALUE>Malik-al-Mulk<SUBVALUE type="meaning">King of the Kingdom</SUBVALUE></VALUE>
+		<VALUE>Malik<SUBVALUE type="meaning">King</SUBVALUE></VALUE>
+		<VALUE>Manee'<SUBVALUE type="meaning">Withholder (Impregnable)</SUBVALUE></VALUE>
+		<VALUE>Mannaan<SUBVALUE type="meaning">Giver of Good</SUBVALUE></VALUE>
+		<VALUE>Mansur</VALUE>
+		<VALUE>Marwan</VALUE>
+		<VALUE>Marzuq</VALUE>
+		<VALUE>Mas'ud</VALUE>
+		<VALUE>Masarra</VALUE>
+		<VALUE>Maslama</VALUE>
+		<VALUE>Masruq</VALUE>
+		<VALUE>Matar</VALUE>
+		<VALUE>Mateen<SUBVALUE type="meaning">Firm, Robust</SUBVALUE></VALUE>
+		<VALUE>Maudad</VALUE>
+		<VALUE>Mawhab</VALUE>
+		<VALUE>Maymun</VALUE>
+		<VALUE>Mihran</VALUE>
+		<VALUE>Mika'il</VALUE>
+		<VALUE>Miqsam</VALUE>
+		<VALUE>Miswar</VALUE>
+		<VALUE>Mu'awiya</VALUE>
+		<VALUE>Mu'in</VALUE>
+		<VALUE>Mu`akhherr<SUBVALUE type="meaning">Fulfiller (End, Ender)</SUBVALUE></VALUE>
+		<VALUE>Mu`ammar</VALUE>
+		<VALUE>Mu`awiyah</VALUE>
+		<VALUE>Mu`idd<SUBVALUE type="meaning">Restorer (deliver, payment)</SUBVALUE></VALUE>
+		<VALUE>Mu`in</VALUE>
+		<VALUE>Mubarak</VALUE>
+		<VALUE>Mubdee<SUBVALUE type="meaning">Beginner</SUBVALUE></VALUE>
+		<VALUE>Mufarrij</VALUE>
+		<VALUE>Mufawwiz</VALUE>
+		<VALUE>Mughnee<SUBVALUE type="meaning">Sufficer (Free from Want)</SUBVALUE></VALUE>
+		<VALUE>Muhammad</VALUE>
+		<VALUE>Muharib</VALUE>
+		<VALUE>Muhaymin<SUBVALUE type="meaning">Helper in Peril, Protector (Passionate Love)</SUBVALUE></VALUE>
+		<VALUE>Muhyee <SUBVALUE type="meaning">Quickener, Bringer to Life</SUBVALUE></VALUE>
+		<VALUE>Mujahid</VALUE>
+		<VALUE>Mujeeb<SUBVALUE type="meaning">Hearer of Prayer, Glorification</SUBVALUE></VALUE>
+		<VALUE>Mukeed<SUBVALUE type="meaning">Maintainer, Assurer</SUBVALUE></VALUE>
+		<VALUE>Mukhallad</VALUE>
+		<VALUE>Mukhbeer<SUBVALUE type="meaning">One Who Informs</SUBVALUE></VALUE>
+		<VALUE>Mumeed<SUBVALUE type="meaning">Slayer (Limit, end)</SUBVALUE></VALUE>
+		<VALUE>Mumeen<SUBVALUE type="meaning">Faithful</SUBVALUE></VALUE>
+		<VALUE>Mundir</VALUE>
+		<VALUE>Munqidh</VALUE>
+		<VALUE>Muntaqim<SUBVALUE type="meaning">Avenger (Vengeance)</SUBVALUE></VALUE>
+		<VALUE>Muqaddeem<SUBVALUE type="meaning">Forewarner</SUBVALUE></VALUE>
+		<VALUE>Muqallad</VALUE>
+		<VALUE>Muqsit<SUBVALUE type="meaning">Equitable</SUBVALUE></VALUE>
+		<VALUE>Muqtadir<SUBVALUE type="meaning">Powerful</SUBVALUE></VALUE>
+		<VALUE>Murshid</VALUE>
+		<VALUE>Mus'ab</VALUE>
+		<VALUE>Musa</VALUE>
+		<VALUE>Musaddid</VALUE>
+		<VALUE>Musawwir<SUBVALUE type="meaning">Sculptor</SUBVALUE></VALUE>
+		<VALUE>Musaykah</VALUE>
+		<VALUE>Musqsim</VALUE>
+		<VALUE>Muta'alee<SUBVALUE type="meaning">One above reproach (Highest)</SUBVALUE></VALUE>
+		<VALUE>Mutakabbeer<SUBVALUE type="meaning">Majestic</SUBVALUE></VALUE>
+		<VALUE>Mutarrif</VALUE>
+		<VALUE>Mutawakkil</VALUE>
+		<VALUE>Muwas</VALUE>
+		<VALUE>Nadr</VALUE>
+		<VALUE>Nafi'<SUBVALUE type="meaning">Favorably Inclined (to be useful, profitable)</SUBVALUE></VALUE>
+		<VALUE>Najah</VALUE>
+		<VALUE>Najih</VALUE>
+		<VALUE>Nasir</VALUE>
+		<VALUE>Nasr</VALUE>
+		<VALUE>Nizar</VALUE>
+		<VALUE>Noor<SUBVALUE type="meaning">Light</SUBVALUE></VALUE>
+		<VALUE>Nuh</VALUE>
+		<VALUE>Nusayr</VALUE>
+		<VALUE>Othman</VALUE>
+		<VALUE>Qabisah</VALUE>
+		<VALUE>Qadeer<SUBVALUE type="meaning">Providence, Fate, Omnipotent</SUBVALUE></VALUE>
+		<VALUE>Qadir</VALUE>
+		<VALUE>Qaraja</VALUE>
+		<VALUE>Qasim</VALUE>
+		<VALUE>Qatn</VALUE>
+		<VALUE>Qawee<SUBVALUE type="meaning">Mighty, Strong of Mind</SUBVALUE></VALUE>
+		<VALUE>Qays</VALUE>
+		<VALUE>Qayyoom<SUBVALUE type="meaning">Self Sustaining, Straight</SUBVALUE></VALUE>
+		<VALUE>Qtatdah</VALUE>
+		<VALUE>Quahhar<SUBVALUE type="meaning">Conqueror, Violence, Force</SUBVALUE></VALUE>
+		<VALUE>Quddos<SUBVALUE type="meaning">Holy One</SUBVALUE></VALUE>
+		<VALUE>Quraysh</VALUE>
+		<VALUE>Qutaiba</VALUE>
+		<VALUE>Qutaybah</VALUE>
+		<VALUE>Qutuz</VALUE>
+		<VALUE>Ra`oof<SUBVALUE type="meaning">Provider</SUBVALUE></VALUE>
+		<VALUE>Rabb<SUBVALUE type="meaning">Lord</SUBVALUE></VALUE>
+		<VALUE>Rabi</VALUE>
+		<VALUE>Rabi'</VALUE>
+		<VALUE>Radi</VALUE>
+		<VALUE>Raffee<SUBVALUE type="meaning">Exalter</SUBVALUE></VALUE>
+		<VALUE>Rafi</VALUE>
+		<VALUE>Raheem<SUBVALUE type="meaning">Beneficent (Pity)</SUBVALUE></VALUE>
+		<VALUE>Rahhu</VALUE>
+		<VALUE>Rahmaan<SUBVALUE type="meaning">Merciful</SUBVALUE></VALUE>
+		<VALUE>Raja'</VALUE>
+		<VALUE>Raqeeb<SUBVALUE type="meaning">Watchful, Guardian</SUBVALUE></VALUE>
+		<VALUE>Rasheed<SUBVALUE type="meaning">Unerring (Following the Right Way)</SUBVALUE></VALUE>
+		<VALUE>Rashid</VALUE>
+		<VALUE>Razin</VALUE>
+		<VALUE>Razzaaq<SUBVALUE type="meaning">Provider</SUBVALUE></VALUE>
+		<VALUE>Ridwan</VALUE>
+		<VALUE>Rumh</VALUE>
+		<VALUE>Rushd</VALUE>
+		<VALUE>Ruzzik</VALUE>
+		<VALUE>Sa'd</VALUE>
+		<VALUE>Sa'dan</VALUE>
+		<VALUE>Sa'dun</VALUE>
+		<VALUE>Sa'id</VALUE>
+		<VALUE>Sa`d</VALUE>
+		<VALUE>Sa`id</VALUE>
+		<VALUE>Sabah</VALUE>
+		<VALUE>Sabih</VALUE>
+		<VALUE>Saboor<SUBVALUE type="meaning">Patient</SUBVALUE></VALUE>
+		<VALUE>Sadaqat</VALUE>
+		<VALUE>Safwan</VALUE>
+		<VALUE>Sahl</VALUE>
+		<VALUE>Sahr</VALUE>
+		<VALUE>Sajr</VALUE>
+		<VALUE>Salaam<SUBVALUE type="meaning">Peace</SUBVALUE></VALUE>
+		<VALUE>Salama</VALUE>
+		<VALUE>Salih</VALUE>
+		<VALUE>Salim</VALUE>
+		<VALUE>Salm</VALUE>
+		<VALUE>Samee'<SUBVALUE type="meaning">One who hears</SUBVALUE></VALUE>
+		<VALUE>Sammad<SUBVALUE type="meaning">Eternal, Solidity</SUBVALUE></VALUE>
+		<VALUE>Sawwar</VALUE>
+		<VALUE>Sayyar</VALUE>
+		<VALUE>Sayyid</VALUE>
+		<VALUE>Sbaih</VALUE>
+		<VALUE>Shaakir<SUBVALUE type="meaning">Thankful</SUBVALUE></VALUE>
+		<VALUE>Shaawiyyah</VALUE>
+		<VALUE>Shadhan</VALUE>
+		<VALUE>Shahid<SUBVALUE type="meaning">Witness, Martyr</SUBVALUE></VALUE>
+		<VALUE>Shahqawiyyah</VALUE>
+		<VALUE>Shakir</VALUE>
+		<VALUE>Shakoor<SUBVALUE type="meaning">Appreciator</SUBVALUE></VALUE>
+		<VALUE>Shamir</VALUE>
+		<VALUE>Shayban</VALUE>
+		<VALUE>Shiruyah</VALUE>
+		<VALUE>Shu'ayb</VALUE>
+		<VALUE>Shu`bah</VALUE>
+		<VALUE>Shumayl</VALUE>
+		<VALUE>Shurayh</VALUE>
+		<VALUE>Siraj</VALUE>
+		<VALUE>Sufyan</VALUE>
+		<VALUE>Sulaiman</VALUE>
+		<VALUE>Sulaym</VALUE>
+		<VALUE>Sulayman</VALUE>
+		<VALUE>Sumayl</VALUE>
+		<VALUE>Sunqur</VALUE>
+		<VALUE>Surahbil</VALUE>
+		<VALUE>Suwayd</VALUE>
+		<VALUE>Tabit</VALUE>
+		<VALUE>Tahir</VALUE>
+		<VALUE>Talha</VALUE>
+		<VALUE>Talib</VALUE>
+		<VALUE>Talq</VALUE>
+		<VALUE>Tamim</VALUE>
+		<VALUE>Tammam</VALUE>
+		<VALUE>Tarafa</VALUE>
+		<VALUE>Tariq</VALUE>
+		<VALUE>Tashfin</VALUE>
+		<VALUE>Tasufin</VALUE>
+		<VALUE>Tawd</VALUE>
+		<VALUE>Tawwab<SUBVALUE type="meaning">Relenting (acceptance, repentance)</SUBVALUE></VALUE>
+		<VALUE>Tayyib</VALUE>
+		<VALUE>Thabit</VALUE>
+		<VALUE>Thawr</VALUE>
+		<VALUE>Todros</VALUE>
+		<VALUE>Tulun</VALUE>
+		<VALUE>Tutush</VALUE>
+		<VALUE>Ubada</VALUE>
+		<VALUE>Ubaid</VALUE>
+		<VALUE>Ubaid Allah</VALUE>
+		<VALUE>Ufayr</VALUE>
+		<VALUE>Ulaym</VALUE>
+		<VALUE>Umar</VALUE>
+		<VALUE>Umayyah</VALUE>
+		<VALUE>Usama</VALUE>
+		<VALUE>Utba</VALUE>
+		<VALUE>Uthman</VALUE>
+		<VALUE>Uways</VALUE>
+		<VALUE>Waahid<SUBVALUE type="meaning">One</SUBVALUE></VALUE>
+		<VALUE>Waarith<SUBVALUE type="meaning">Inheritor</SUBVALUE></VALUE>
+		<VALUE>Wadah</VALUE>
+		<VALUE>Wadih</VALUE>
+		<VALUE>Wadood<SUBVALUE type="meaning">Loving</SUBVALUE></VALUE>
+		<VALUE>Wafid</VALUE>
+		<VALUE>Wahb</VALUE>
+		<VALUE>Wahhab<SUBVALUE type="meaning">Bestower, Giver</SUBVALUE></VALUE>
+		<VALUE>Wahib</VALUE>
+		<VALUE>Wajeed<SUBVALUE type="meaning">Perceiving (Existence) (wajdaan means "Inner consciousness")</SUBVALUE></VALUE>
+		<VALUE>Wakeel<SUBVALUE type="meaning">Guardian, Trusted One</SUBVALUE></VALUE>
+		<VALUE>Walee al-Ahsan<SUBVALUE type="meaning">Friend of the Believers</SUBVALUE></VALUE>
+		<VALUE>Walee<SUBVALUE type="meaning">Nearest Friend</SUBVALUE></VALUE>
+		<VALUE>Walid</VALUE>
+		<VALUE>Waliy<SUBVALUE type="meaning">Governor</SUBVALUE></VALUE>
+		<VALUE>Wasi'<SUBVALUE type="meaning">Abundant</SUBVALUE></VALUE>
+		<VALUE>Wasil</VALUE>
+		<VALUE>Wasim</VALUE>
+		<VALUE>Wathilah</VALUE>
+		<VALUE>Wathiq</VALUE>
+		<VALUE>Ya'ish</VALUE>
+		<VALUE>Ya'qub</VALUE>
+		<VALUE>Ya`la</VALUE>
+		<VALUE>Ya`qub</VALUE>
+		<VALUE>Yahya</VALUE>
+		<VALUE>Yahyah</VALUE>
+		<VALUE>Yasar</VALUE>
+		<VALUE>Yazdan</VALUE>
+		<VALUE>Yazdanyar</VALUE>
+		<VALUE>Yazid</VALUE>
+		<VALUE>Yildirim</VALUE>
+		<VALUE>Yunus</VALUE>
+		<VALUE>Yusuf</VALUE>
+		<VALUE>Zafar</VALUE>
+		<VALUE>Zahir</VALUE>
+		<VALUE>Zakariyya</VALUE>
+		<VALUE>Zakarriyya'</VALUE>
+		<VALUE>Zang</VALUE>
+		<VALUE>Zayd</VALUE>
+		<VALUE>Ziyad</VALUE>
+		<VALUE>Ziyadatallah</VALUE>
+		<VALUE>Zubair</VALUE>
+		<VALUE>Zuhair</VALUE>
+		<VALUE>Zuhayr</VALUE>
+		<VALUE>Zuhr</VALUE>
+		<VALUE>`A'ishah</VALUE>
+		<VALUE>`A'ishah Yunus</VALUE>
+		<VALUE>`Aadil<SUBVALUE type="meaning">Equitable</SUBVALUE></VALUE>
+		<VALUE>`Aahad<SUBVALUE type="meaning">One and Only</SUBVALUE></VALUE>
+		<VALUE>`Aakhir<SUBVALUE type="meaning">Last</SUBVALUE></VALUE>
+		<VALUE>`Aallah<SUBVALUE type="meaning">God</SUBVALUE></VALUE>
+		<VALUE>`Aawwal<SUBVALUE type="meaning">First</SUBVALUE></VALUE>
+		<VALUE>`Aazalee<SUBVALUE type="meaning">Eternal (in the past)</SUBVALUE></VALUE>
+		<VALUE>`Abbad</VALUE>
+		<VALUE>`Abdan</VALUE>
+		<VALUE>`Abduk</VALUE>
+		<VALUE>`Abdul-Ahad<SUBVALUE type="meaning">Slave of the One and Only</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Azeem<SUBVALUE type="meaning">Devoted of Most High</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Aziz<SUBVALUE type="meaning">Devoted of Strong</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Hamid</VALUE>
+		<VALUE>`Abdul-Jaleel<SUBVALUE type="meaning">Devoted of Splendid</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Jalil</VALUE>
+		<VALUE>`Abdul-Karim</VALUE>
+		<VALUE>`Abdul-Malik<SUBVALUE type="meaning">Devoted of the King</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Qadir<SUBVALUE type="meaning">Slave of Providence (Fate)</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Rahman<SUBVALUE type="meaning">Devoted of the Merciful</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Razzaq<SUBVALUE type="meaning">Devoted of the Provider</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Salaam<SUBVALUE type="meaning">Slave of Peace (Salvation)</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Sammad<SUBVALUE type="meaning">Slave of Eternal (Stable)</SUBVALUE></VALUE>
+		<VALUE>`Abdul-Wahid</VALUE>
+		<VALUE>`Abdul-Yaqzan</VALUE>
+		<VALUE>`Abdul-`Aziz</VALUE>
+		<VALUE>`Abdullah<SUBVALUE type="meaning"> Devoted of God</SUBVALUE></VALUE>
+		<VALUE>`Abdun</VALUE>
+		<VALUE>`Abdus</VALUE>
+		<VALUE>`Alawiyyah</VALUE>
+		<VALUE>`Ali</VALUE>
+		<VALUE>`Ali<SUBVALUE type="meaning">Exalted</SUBVALUE></VALUE>
+		<VALUE>`Alim<SUBVALUE type="meaning">Knower</SUBVALUE></VALUE>
+		<VALUE>`Amir</VALUE>
+		<VALUE>`Amr</VALUE>
+		<VALUE>`Arafah</VALUE>
+		<VALUE>`Ata'</VALUE>
+		<VALUE>`Atiyyah</VALUE>
+		<VALUE>`Azeem<SUBVALUE type="meaning">The Most High</SUBVALUE></VALUE>
+		<VALUE>`Azeez<SUBVALUE type="meaning">Strong</SUBVALUE></VALUE>
+		<VALUE>`Imran</VALUE>
+		<VALUE>`Isa</VALUE>
+		<VALUE>`Ubaydullah</VALUE>
+		<VALUE>`Ukrumah</VALUE>
+		<VALUE>`Umar</VALUE>
+		<VALUE>`Umayr</VALUE>
+		<VALUE>`Umayyah</VALUE>
+		<VALUE>`Uqbah</VALUE>
+		<VALUE>`Urwah</VALUE>
+		<VALUE>`Uthman</VALUE>
+	</LIST>
+	<LIST id="arabic-male-cognomen" title="Cognomen">
+		<VALUE>`Askari</VALUE>
+		<VALUE>al-'Abbar</VALUE>
+		<VALUE>al-'Adim</VALUE>
+		<VALUE>al-'Adl</VALUE>
+		<VALUE>al-'As</VALUE>
+		<VALUE>al-'Attar</VALUE>
+		<VALUE>al-'Id</VALUE>
+		<VALUE>al-'Iraqi</VALUE>
+		<VALUE>al-'Uqab</VALUE>
+		<VALUE>al-Abbas</VALUE>
+		<VALUE>al-Abdari</VALUE>
+		<VALUE>al-Abras</VALUE>
+		<VALUE>al-Abzari</VALUE>
+		<VALUE>al-Adami</VALUE>
+		<VALUE>al-Afdal</VALUE>
+		<VALUE>al-Anmati</VALUE>
+		<VALUE>al-Ansari</VALUE>
+		<VALUE>al-Arghiyani</VALUE>
+		<VALUE>al-As</VALUE>
+		<VALUE>al-Asadi</VALUE>
+		<VALUE>al-Asamm</VALUE>
+		<VALUE>al-Ashjai</VALUE>
+		<VALUE>al-Ashraf</VALUE>
+		<VALUE>al-Asili</VALUE>
+		<VALUE>al-Asqualani</VALUE>
+		<VALUE>al-Atrabulusi</VALUE>
+		<VALUE>al-Awza`i</VALUE>
+		<VALUE>al-Azdi</VALUE>
+		<VALUE>al-Badawi</VALUE>
+		<VALUE>al-Baghdadi</VALUE>
+		<VALUE>al-Bahrani</VALUE>
+		<VALUE>al-Baji</VALUE>
+		<VALUE>al-Bajjani</VALUE>
+		<VALUE>al-Bakri</VALUE>
+		<VALUE>al-Balhki</VALUE>
+		<VALUE>al-Baqa</VALUE>
+		<VALUE>al-Bashani</VALUE>
+		<VALUE>al-Basri</VALUE>
+		<VALUE>al-Batalyawsi</VALUE>
+		<VALUE>al-Bawwab</VALUE>
+		<VALUE>al-Baytar</VALUE>
+		<VALUE>al-Bazzaz</VALUE>
+		<VALUE>al-Biruni</VALUE>
+		<VALUE>al-Birzali</VALUE>
+		<VALUE>al-Bistami</VALUE>
+		<VALUE>al-Busti</VALUE>
+		<VALUE>al-Dabbag</VALUE>
+		<VALUE>al-Dabbagh</VALUE>
+		<VALUE>al-Dabbaj</VALUE>
+		<VALUE>al-Dabili</VALUE>
+		<VALUE>al-Damghani</VALUE>
+		<VALUE>al-Damiri</VALUE>
+		<VALUE>al-Daqiq</VALUE>
+		<VALUE>al-Diwanji</VALUE>
+		<VALUE>al-Djahiz</VALUE>
+		<VALUE>al-Duhli</VALUE>
+		<VALUE>al-Duri</VALUE>
+		<VALUE>al-Fadl<SUBVALUE type="meaning">the reward</SUBVALUE></VALUE>
+		<VALUE>al-Fahmi</VALUE>
+		<VALUE>al-Faqih</VALUE>
+		<VALUE>al-Faradi</VALUE>
+		<VALUE>al-Faraj</VALUE>
+		<VALUE>al-Farghani</VALUE>
+		<VALUE>al-Farid</VALUE>
+		<VALUE>al-Farisi</VALUE>
+		<VALUE>al-Farsi</VALUE>
+		<VALUE>al-Fath<SUBVALUE type="meaning">the opening</SUBVALUE></VALUE>
+		<VALUE>al-Fazari</VALUE>
+		<VALUE>al-Fihri</VALUE>
+		<VALUE>al-Firyabi</VALUE>
+		<VALUE>al-Fudayl</VALUE>
+		<VALUE>al-Futuh</VALUE>
+		<VALUE>al-Gafiqi</VALUE>
+		<VALUE>al-Gasani</VALUE>
+		<VALUE>al-Ghabra</VALUE>
+		<VALUE>al-Ghani</VALUE>
+		<VALUE>al-Ghazali</VALUE>
+		<VALUE>al-Ghudari</VALUE>
+		<VALUE>al-Habhab</VALUE>
+		<VALUE>al-Habib</VALUE>
+		<VALUE>al-Hadda'</VALUE>
+		<VALUE>al-Haddad</VALUE>
+		<VALUE>al-Hadrami</VALUE>
+		<VALUE>al-Hafiz</VALUE>
+		<VALUE>al-Hajj</VALUE>
+		<VALUE>al-Hajjaj</VALUE>
+		<VALUE>al-Hajjaji</VALUE>
+		<VALUE>al-Hakam</VALUE>
+		<VALUE>al-Hakan</VALUE>
+		<VALUE>al-Hakh`i</VALUE>
+		<VALUE>al-Hallaj</VALUE>
+		<VALUE>al-Hamdani</VALUE>
+		<VALUE>al-Hamid</VALUE>
+		<VALUE>al-Hanzali</VALUE>
+		<VALUE>al-Harawi</VALUE>
+		<VALUE>al-Harbi</VALUE>
+		<VALUE>al-Hariri</VALUE>
+		<VALUE>al-Harith</VALUE>
+		<VALUE>al-Hariti</VALUE>
+		<VALUE>al-Harrani</VALUE>
+		<VALUE>al-Hasan</VALUE>
+		<VALUE>al-Hashimi</VALUE>
+		<VALUE>al-Hassan</VALUE>
+		<VALUE>al-Hassar</VALUE>
+		<VALUE>al-Haytham</VALUE>
+		<VALUE>al-Hijari</VALUE>
+		<VALUE>al-Hilali</VALUE>
+		<VALUE>al-Himsi</VALUE>
+		<VALUE>al-Himyari</VALUE>
+		<VALUE>al-Hindi</VALUE>
+		<VALUE>al-Hubab</VALUE>
+		<VALUE>al-Husayn</VALUE>
+		<VALUE>al-Idrisi</VALUE>
+		<VALUE>al-Ikhshid</VALUE>
+		<VALUE>al-Ilbiri</VALUE>
+		<VALUE>al-Iyyadi</VALUE>
+		<VALUE>al-Jabab</VALUE>
+		<VALUE>al-Jahiz</VALUE>
+		<VALUE>al-Janah</VALUE>
+		<VALUE>al-Jasur</VALUE>
+		<VALUE>al-Jat'ami</VALUE>
+		<VALUE>al-Jawlan</VALUE>
+		<VALUE>al-Jazrajii</VALUE>
+		<VALUE>al-Jili</VALUE>
+		<VALUE>al-Jilyani</VALUE>
+		<VALUE>al-Jizi</VALUE>
+		<VALUE>al-Judami</VALUE>
+		<VALUE>al-Junayd</VALUE>
+		<VALUE>al-Jurayri</VALUE>
+		<VALUE>al-Jurjani</VALUE>
+		<VALUE>al-Justani</VALUE>
+		<VALUE>al-Juwayri</VALUE>
+		<VALUE>al-Kabir</VALUE>
+		<VALUE>al-Kahsib</VALUE>
+		<VALUE>al-Kala'i</VALUE>
+		<VALUE>al-Kamil</VALUE>
+		<VALUE>al-Kasim</VALUE>
+		<VALUE>al-Katib</VALUE>
+		<VALUE>al-Kattani</VALUE>
+		<VALUE>al-Khadim</VALUE>
+		<VALUE>al-Khalladi</VALUE>
+		<VALUE>al-Khallal</VALUE>
+		<VALUE>al-Khallali</VALUE>
+		<VALUE>al-Khashshab</VALUE>
+		<VALUE>al-Khattab</VALUE>
+		<VALUE>al-Khawalani</VALUE>
+		<VALUE>al-Khawas</VALUE>
+		<VALUE>al-Khawwas</VALUE>
+		<VALUE>al-Khayyami</VALUE>
+		<VALUE>al-Khayyat</VALUE>
+		<VALUE>al-Khidr</VALUE>
+		<VALUE>al-Khirqani</VALUE>
+		<VALUE>al-Khudria</VALUE>
+		<VALUE>al-Khuldi</VALUE>
+		<VALUE>al-Kinani</VALUE>
+		<VALUE>al-Kindi</VALUE>
+		<VALUE>al-Kudri</VALUE>
+		<VALUE>al-Kumayt</VALUE>
+		<VALUE>al-Kutami</VALUE>
+		<VALUE>al-Lajmi</VALUE>
+		<VALUE>al-Latif</VALUE>
+		<VALUE>al-Ma'afiri</VALUE>
+		<VALUE>al-Ma'mun</VALUE>
+		<VALUE>al-Mada'ini</VALUE>
+		<VALUE>al-Madini</VALUE>
+		<VALUE>al-Mahasin</VALUE>
+		<VALUE>al-Mahdi</VALUE>
+		<VALUE>al-Majid</VALUE>
+		<VALUE>al-Majzumi</VALUE>
+		<VALUE>al-Makhrami</VALUE>
+		<VALUE>al-Malaki</VALUE>
+		<VALUE>al-Mansur</VALUE>
+		<VALUE>al-Marhani</VALUE>
+		<VALUE>al-Mari'</VALUE>
+		<VALUE>al-Maruzi</VALUE>
+		<VALUE>al-Marzuban</VALUE>
+		<VALUE>al-Mashtub</VALUE>
+		<VALUE>al-Mihlabi</VALUE>
+		<VALUE>al-Mu'ayyad</VALUE>
+		<VALUE>al-Mu`afa</VALUE>
+		<VALUE>al-Mubarak</VALUE>
+		<VALUE>al-Mubarrak</VALUE>
+		<VALUE>al-Mufid</VALUE>
+		<VALUE>al-Muhibb</VALUE>
+		<VALUE>al-Mundakar</VALUE>
+		<VALUE>al-Muqri'</VALUE>
+		<VALUE>al-Musayyab</VALUE>
+		<VALUE>al-Muslim</VALUE>
+		<VALUE>al-Muthanna</VALUE>
+		<VALUE>al-Nabighah</VALUE>
+		<VALUE>al-Nadr</VALUE>
+		<VALUE>al-Najmi</VALUE>
+		<VALUE>al-Naqid</VALUE>
+		<VALUE>al-Nasrabadhi</VALUE>
+		<VALUE>al-Nassaj</VALUE>
+		<VALUE>al-Nawfali</VALUE>
+		<VALUE>al-Nisaburi</VALUE>
+		<VALUE>al-Nisawi</VALUE>
+		<VALUE>al-Nu'man</VALUE>
+		<VALUE>al-Qa'id</VALUE>
+		<VALUE>al-Qadi</VALUE>
+		<VALUE>al-Qahir</VALUE>
+		<VALUE>al-Qal'i</VALUE>
+		<VALUE>al-Qama</VALUE>
+		<VALUE>al-Qannad</VALUE>
+		<VALUE>al-Qasim</VALUE>
+		<VALUE>al-Qays</VALUE>
+		<VALUE>al-Qaysi</VALUE>
+		<VALUE>al-Qazwini</VALUE>
+		<VALUE>al-Qurashi</VALUE>
+		<VALUE>al-Qurtubi</VALUE>
+		<VALUE>al-Ra`is</VALUE>
+		<VALUE>al-Rab`i</VALUE>
+		<VALUE>al-Ramli</VALUE>
+		<VALUE>al-Raqqi</VALUE>
+		<VALUE>al-Rashid</VALUE>
+		<VALUE>al-Rasibi</VALUE>
+		<VALUE>al-Razi</VALUE>
+		<VALUE>al-Rida</VALUE>
+		<VALUE>al-Ru'ayni</VALUE>
+		<VALUE>al-Sa`igh</VALUE>
+		<VALUE>al-Sabi'</VALUE>
+		<VALUE>al-Sabti</VALUE>
+		<VALUE>al-Sadafi</VALUE>
+		<VALUE>al-Sadiq</VALUE>
+		<VALUE>al-Safa</VALUE>
+		<VALUE>al-Safaral-Saji</VALUE>
+		<VALUE>al-Sakhtyani</VALUE>
+		<VALUE>al-Salar</VALUE>
+		<VALUE>al-Salt</VALUE>
+		<VALUE>al-Samh</VALUE>
+		<VALUE>al-Samsam</VALUE>
+		<VALUE>al-Santarini</VALUE>
+		<VALUE>al-Sarraj</VALUE>
+		<VALUE>al-Sayyid</VALUE>
+		<VALUE>al-Shafi'i</VALUE>
+		<VALUE>al-Shashi</VALUE>
+		<VALUE>al-Shatibi</VALUE>
+		<VALUE>al-Shatir</VALUE>
+		<VALUE>al-Shaybani</VALUE>
+		<VALUE>al-Shirazisiddiq</VALUE>
+		<VALUE>al-Shuyukh</VALUE>
+		<VALUE>al-Siddiq</VALUE>
+		<VALUE>al-Simidi</VALUE>
+		<VALUE>al-Simsar</VALUE>
+		<VALUE>al-Sinhaji</VALUE>
+		<VALUE>al-Sufi</VALUE>
+		<VALUE>al-Sulami</VALUE>
+		<VALUE>al-Suri</VALUE>
+		<VALUE>al-Ta'labi</VALUE>
+		<VALUE>al-Tabib</VALUE>
+		<VALUE>al-Taflisi</VALUE>
+		<VALUE>al-Tahrani</VALUE>
+		<VALUE>al-Tamini</VALUE>
+		<VALUE>al-Tammah</VALUE>
+		<VALUE>al-Tamstani</VALUE>
+		<VALUE>al-Tarabulusi</VALUE>
+		<VALUE>al-Tayyib</VALUE>
+		<VALUE>al-Thairti</VALUE>
+		<VALUE>al-Thaqafi</VALUE>
+		<VALUE>al-Timidh</VALUE>
+		<VALUE>al-Tiqtaqa</VALUE>
+		<VALUE>al-Tujibi</VALUE>
+		<VALUE>al-Umara'</VALUE>
+		<VALUE>al-Umawi</VALUE>
+		<VALUE>al-Undi</VALUE>
+		<VALUE>al-Ushnanai</VALUE>
+		<VALUE>al-Wahid</VALUE>
+		<VALUE>al-Wahrani</VALUE>
+		<VALUE>al-Walid</VALUE>
+		<VALUE>al-Ward</VALUE>
+		<VALUE>al-Warraq</VALUE>
+		<VALUE>al-Warthani</VALUE>
+		<VALUE>al-Waziri</VALUE>
+		<VALUE>al-Zafir</VALUE>
+		<VALUE>al-Zahir</VALUE>
+		<VALUE>al-Zahiri</VALUE>
+		<VALUE>al-Zaki</VALUE>
+		<VALUE>al-Zaman</VALUE>
+		<VALUE>al-Zubair</VALUE>
+		<VALUE>al-Zubaydi</VALUE>
+		<VALUE>al-Zuhri</VALUE>
+		<VALUE>al-`Abbas</VALUE>
+		<VALUE>al-`Abbasi</VALUE>
+		<VALUE>al-`Akki</VALUE>
+		<VALUE>al-`Ala'</VALUE>
+		<VALUE>al-`Aquli</VALUE>
+		<VALUE>al-`Asqalani</VALUE>
+		<VALUE>al-`Attar</VALUE>
+		<VALUE>al-`Aziz</VALUE>
+		<VALUE>al-`Ukbari</VALUE>
+		<VALUE>al-`Usmi</VALUE>
+		<VALUE>al-`Uthmani</VALUE>
+		<VALUE>ibn Hujayrah</VALUE>
+		<VALUE>ibn Luhay`ah</VALUE>
+		<VALUE>ibn Masruq</VALUE>
+		<VALUE>ibn Muslim</VALUE>
+		<VALUE>ibn Yazdanyar</VALUE>
+		<VALUE>ibn `Abbas</VALUE>
+		<VALUE>ibn `Alawiyyah</VALUE>
+		<VALUE>ibn `Isam</VALUE>
+		<VALUE>ibn `Ulathah</VALUE>
+		<VALUE>ibn `Umar</VALUE>
+		<VALUE>ibn `Uthman</VALUE>
+		<VALUE>ibn `Uyaynah</VALUE>
+		<VALUE>ibn al-A`rabi</VALUE>
+		<VALUE>ibn al-Anbari</VALUE>
+	</LIST>
+	<LIST id="arabic-male-locative" title="Locative">
+		<VALUE>al-Andalusi<SUBVALUE type="meaning">from Andalucia</SUBVALUE></VALUE>
+		<VALUE>al-Isbili<SUBVALUE type="meaning">from Sevilla</SUBVALUE></VALUE>
+		<VALUE>al-Mari<SUBVALUE type="meaning">from Almeria</SUBVALUE></VALUE>
+		<VALUE>al-Mursi<SUBVALUE type="meaning">from Murcia</SUBVALUE></VALUE>
+		<VALUE>al-Balansi<SUBVALUE type="meaning">from Valencia</SUBVALUE></VALUE>
+		<VALUE>al-Jayyani<SUBVALUE type="meaning">from Jaen</SUBVALUE></VALUE>
+		<VALUE>al-Rundi<SUBVALUE type="meaning">from Ronda</SUBVALUE></VALUE>
+		<VALUE>al-Qurtubi<SUBVALUE type="meaning">from Cordoba</SUBVALUE></VALUE>
+		<VALUE>al-Garnati<SUBVALUE type="meaning">from Grenada</SUBVALUE></VALUE>
+		<VALUE>al-Mayurqui<SUBVALUE type="meaning">from Mallorca</SUBVALUE></VALUE>
+		<VALUE>al-Talamanki<SUBVALUE type="meaning">from Talamanca</SUBVALUE></VALUE>
+		<VALUE>al-Tulaytuli<SUBVALUE type="meaning">from Toledo</SUBVALUE></VALUE>
+		<VALUE>al-Dani<SUBVALUE type="meaning">from Dania</SUBVALUE></VALUE>
+		<VALUE>al-Ifriqi<SUBVALUE type="meaning">from Africa</SUBVALUE></VALUE>
+		<VALUE>al-Magribi<SUBVALUE type="meaning">from Magrib</SUBVALUE></VALUE>
+		<VALUE>al-Tunayzi</VALUE>
+	</LIST>
+	<LIST id="arabic-female-locative-suffix" title="locative suffix">
+		<VALUE>yya</VALUE>
+	</LIST>
+	<LIST id="arabic-female-given" title="Given">
+		<VALUE>'A'isha</VALUE>
+		<VALUE>'Abdah</VALUE>
+		<VALUE>'Abla</VALUE>
+		<VALUE>'Afra'</VALUE>
+		<VALUE>'Atikah</VALUE>
+		<VALUE>'Azzah</VALUE>
+		<VALUE>'Ijliyah</VALUE>
+		<VALUE>'Ilm</VALUE>
+		<VALUE>'Inan</VALUE>
+		<VALUE>'Ulayyah</VALUE>
+		<VALUE>'Utbah</VALUE>
+		<VALUE>Amat</VALUE>
+		<VALUE>Amimah</VALUE>
+		<VALUE>Amina</VALUE>
+		<VALUE>Aminah</VALUE>
+		<VALUE>Ara</VALUE>
+		<VALUE>Asiya</VALUE>
+		<VALUE>Asma'</VALUE>
+		<VALUE>Banah</VALUE>
+		<VALUE>Banujah</VALUE>
+		<VALUE>Baraka</VALUE>
+		<VALUE>Bazzu</VALUE>
+		<VALUE>Bilqis</VALUE>
+		<VALUE>Buthayna</VALUE>
+		<VALUE>Dahah</VALUE>
+		<VALUE>Daifa</VALUE>
+		<VALUE>Dananir</VALUE>
+		<VALUE>Duqaq</VALUE>
+		<VALUE>Fadl</VALUE>
+		<VALUE>Fatimah</VALUE>
+		<VALUE>Fawz</VALUE>
+		<VALUE>Ghaniyah</VALUE>
+		<VALUE>Ghaythah</VALUE>
+		<VALUE>Hababah</VALUE>
+		<VALUE>Hadija</VALUE>
+		<VALUE>Hafsa</VALUE>
+		<VALUE>Hafsah</VALUE>
+		<VALUE>Halima</VALUE>
+		<VALUE>Hamda</VALUE>
+		<VALUE>Hamduna</VALUE>
+		<VALUE>Hanifa</VALUE>
+		<VALUE>Harithah</VALUE>
+		<VALUE>Hawwa</VALUE>
+		<VALUE>Hind</VALUE>
+		<VALUE>Huma'i</VALUE>
+		<VALUE>Ishraq</VALUE>
+		<VALUE>Jaida</VALUE>
+		<VALUE>Jariya</VALUE>
+		<VALUE>Javairia</VALUE>
+		<VALUE>Jawla</VALUE>
+		<VALUE>Judur</VALUE>
+		<VALUE>Juml</VALUE>
+		<VALUE>Khadijah</VALUE>
+		<VALUE>Kitman</VALUE>
+		<VALUE>Layla</VALUE>
+		<VALUE>Lu'lu'ah</VALUE>
+		<VALUE>Lubna</VALUE>
+		<VALUE>Mahja</VALUE>
+		<VALUE>Maimunah</VALUE>
+		<VALUE>Malak</VALUE>
+		<VALUE>Manhalah</VALUE>
+		<VALUE>Mariyah</VALUE>
+		<VALUE>Maryam</VALUE>
+		<VALUE>Maymuna</VALUE>
+		<VALUE>Maysun</VALUE>
+		<VALUE>Mayy</VALUE>
+		<VALUE>Mellilah</VALUE>
+		<VALUE>Munya</VALUE>
+		<VALUE>Nadrah</VALUE>
+		<VALUE>Naima</VALUE>
+		<VALUE>Nu'm</VALUE>
+		<VALUE>Nuzha</VALUE>
+		<VALUE>Qabihah</VALUE>
+		<VALUE>Qabul</VALUE>
+		<VALUE>Qaribah</VALUE>
+		<VALUE>Rabab</VALUE>
+		<VALUE>Rabi'ah</VALUE>
+		<VALUE>Raful</VALUE>
+		<VALUE>Raym</VALUE>
+		<VALUE>Rayya</VALUE>
+		<VALUE>Rima</VALUE>
+		<VALUE>Ruqayyah</VALUE>
+		<VALUE>Rusa</VALUE>
+		<VALUE>Saduf</VALUE>
+		<VALUE>Safia</VALUE>
+		<VALUE>Safiyya</VALUE>
+		<VALUE>Safwah</VALUE>
+		<VALUE>Safya</VALUE>
+		<VALUE>Saham</VALUE>
+		<VALUE>Sajah</VALUE>
+		<VALUE>Sakan</VALUE>
+		<VALUE>Salamah</VALUE>
+		<VALUE>Salma</VALUE>
+		<VALUE>Sama</VALUE>
+		<VALUE>Sara</VALUE>
+		<VALUE>Sayyida</VALUE>
+		<VALUE>Semeeah</VALUE>
+		<VALUE>Shajar</VALUE>
+		<VALUE>Shiklah</VALUE>
+		<VALUE>Sitt</VALUE>
+		<VALUE>Sitt al-'Arab</VALUE>
+		<VALUE>Su'a'</VALUE>
+		<VALUE>Su'ad</VALUE>
+		<VALUE>Sukayna</VALUE>
+		<VALUE>Sukaynah</VALUE>
+		<VALUE>Sulma</VALUE>
+		<VALUE>Sumnah</VALUE>
+		<VALUE>Suna</VALUE>
+		<VALUE>Tarifa</VALUE>
+		<VALUE>Thana'</VALUE>
+		<VALUE>Umamah</VALUE>
+		<VALUE>Wahshiyah</VALUE>
+		<VALUE>Warwar</VALUE>
+		<VALUE>Yamina</VALUE>
+		<VALUE>Zaynab</VALUE>
+		<VALUE>Zebeebah</VALUE>
+		<VALUE>Zubaydah</VALUE>
+		<VALUE>Zulaikha</VALUE>
+		<VALUE>Zummurrud</VALUE>
+	</LIST>
+	<LIST id="arabic-al" title="al">
+		<VALUE>al-</VALUE>
+	</LIST>
+	<LIST id="arabic-female-patrynomic-suffix" title="Suffix">
+		<VALUE>yah</VALUE>
+	</LIST>
+	<LIST id="arabic-female-cognomen" title="Cognomen">
+		<VALUE>al-'Amiriyah<SUBVALUE type="meaning">woman of 'Amiri's tribe</SUBVALUE></VALUE>
+		<VALUE>al-Khansa'<SUBVALUE type="meaning">the pug-nosed</SUBVALUE></VALUE>
+		<VALUE>al-Khayzuran</VALUE>
+		<VALUE>al-Zarqa'<SUBVALUE type="meaning">the blue-eyed</SUBVALUE></VALUE>
+		<VALUE>al-Abdariyya</VALUE>
+		<VALUE>al-'Abida</VALUE>
+		<VALUE>al-'Arudiyya</VALUE>
+		<VALUE>al-'Ashiyya</VALUE>
+		<VALUE>al-Awfiyya</VALUE>
+		<VALUE>al-Fihriyya</VALUE>
+		<VALUE>al-Kafiba</VALUE>
+		<VALUE>al-Nisa</VALUE>
+		<VALUE>al-Sa'ima</VALUE>
+		<VALUE>al-Sawda'</VALUE>
+		<VALUE>al-Tujibiyya</VALUE>
+		<VALUE>al-Wadi</VALUE>
+		<VALUE>al-Zahra'<SUBVALUE type="meaning">the radiant</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="arabic-location" title="Location">
+		<VALUE>'Abisiyya</VALUE>
+		<VALUE>'Affa</VALUE>
+		<VALUE>'Ajra</VALUE>
+		<VALUE>'Amr</VALUE>
+		<VALUE>'Ana</VALUE>
+		<VALUE>'Ara</VALUE>
+		<VALUE>'Arida</VALUE>
+		<VALUE>'Imara</VALUE>
+		<VALUE>'Inan</VALUE>
+		<VALUE>'Iribbin</VALUE>
+		<VALUE>'Itab</VALUE>
+		<VALUE>'Ubaydiyya</VALUE>
+		<VALUE>'Ulmaniyya</VALUE>
+		<VALUE>'Umur</VALUE>
+		<VALUE>'Urayfiyya</VALUE>
+		<VALUE>Aban</VALUE>
+		<VALUE>Abbasiyya</VALUE>
+		<VALUE>Abil Qamh</VALUE>
+		<VALUE>Abu Salama</VALUE>
+		<VALUE>Ajanjul</VALUE>
+		<VALUE>Ajjur</VALUE>
+		<VALUE>Akbara</VALUE>
+		<VALUE>Al-Nakhkhas</VALUE>
+		<VALUE>Allar</VALUE>
+		<VALUE>Alma</VALUE>
+		<VALUE>Ammuqa</VALUE>
+		<VALUE>Amqa</VALUE>
+		<VALUE>Andalus</VALUE>
+		<VALUE>Aqir</VALUE>
+		<VALUE>Aqqur</VALUE>
+		<VALUE>Artuf</VALUE>
+		<VALUE>Ashrafiyya</VALUE>
+		<VALUE>Atlit</VALUE>
+		<VALUE>Awlam</VALUE>
+		<VALUE>Ayyub</VALUE>
+		<VALUE>Bajara<SUBVALUE type="meaning">The Highlands</SUBVALUE></VALUE>
+		<VALUE>Balad al-Shaykh</VALUE>
+		<VALUE>Barbara</VALUE>
+		<VALUE>Barfiliya</VALUE>
+		<VALUE>Barqa</VALUE>
+		<VALUE>Barqusya</VALUE>
+		<VALUE>Barrat Qisarya</VALUE>
+		<VALUE>Barriyya</VALUE>
+		<VALUE>Bashshit</VALUE>
+		<VALUE>Bassa</VALUE>
+		<VALUE>Batani Al-Gharbi</VALUE>
+		<VALUE>Batani Al-Sharqi</VALUE>
+		<VALUE>Bawati</VALUE>
+		<VALUE>Bayr Susin</VALUE>
+		<VALUE>Baysamun</VALUE>
+		<VALUE>Bayt Far</VALUE>
+		<VALUE>Bayt Lid</VALUE>
+		<VALUE>Bayyarat Hannun</VALUE>
+		<VALUE>Bi'lin</VALUE>
+		<VALUE>Bir Ma'in</VALUE>
+		<VALUE>Bir Salim</VALUE>
+		<VALUE>Bir'im</VALUE>
+		<VALUE>Bira</VALUE>
+		<VALUE>Biriyya</VALUE>
+		<VALUE>Birwa</VALUE>
+		<VALUE>Biyar 'Adas</VALUE>
+		<VALUE>Burayj</VALUE>
+		<VALUE>Burayka</VALUE>
+		<VALUE>Burayr</VALUE>
+		<VALUE>Burj</VALUE>
+		<VALUE>Burj<SUBVALUE type="meaning">The Tower</SUBVALUE></VALUE>
+		<VALUE>Butayha</VALUE>
+		<VALUE>Butaymat</VALUE>
+		<VALUE>Buwayra</VALUE>
+		<VALUE>Buwayziyya</VALUE>
+		<VALUE>Dajan</VALUE>
+		<VALUE>Dalhamiyya</VALUE>
+		<VALUE>Daliyat al-Rawha'</VALUE>
+		<VALUE>Dallata</VALUE>
+		<VALUE>Damun</VALUE>
+		<VALUE>Daniyal</VALUE>
+		<VALUE>Danna</VALUE>
+		<VALUE>Daras</VALUE>
+		<VALUE>Dawayima</VALUE>
+		<VALUE>Dawwara</VALUE>
+		<VALUE>Dayshum</VALUE>
+		<VALUE>Dimra</VALUE>
+		<VALUE>Dirbashiyya</VALUE>
+		<VALUE>Dirdara</VALUE>
+		<VALUE>Dubban</VALUE>
+		<VALUE>Duhayriyya</VALUE>
+		<VALUE>Fajja</VALUE>
+		<VALUE>Faluja</VALUE>
+		<VALUE>Fara</VALUE>
+		<VALUE>Faraj</VALUE>
+		<VALUE>Fardisya</VALUE>
+		<VALUE>Farradiyya</VALUE>
+		<VALUE>Farwana</VALUE>
+		<VALUE>Fatur</VALUE>
+		<VALUE>Fir'im</VALUE>
+		<VALUE>Fuqara'</VALUE>
+		<VALUE>Ghabat Kafr Sur</VALUE>
+		<VALUE>Ghabbatiyya</VALUE>
+		<VALUE>Ghabisiyya</VALUE>
+		<VALUE>Ghazal</VALUE>
+		<VALUE>Ghazzawiyya</VALUE>
+		<VALUE>Ghubayya al-Fawqa</VALUE>
+		<VALUE>Ghubayya al-Tahta</VALUE>
+		<VALUE>Ghuraba</VALUE>
+		<VALUE>Ghuwayr Abu Shusha</VALUE>
+		<VALUE>Hadatha</VALUE>
+		<VALUE>Haditha</VALUE>
+		<VALUE>Hamam</VALUE>
+		<VALUE>Hamama</VALUE>
+		<VALUE>Hamara<SUBVALUE type="meaning">The Red</SUBVALUE></VALUE>
+		<VALUE>Hamidiyya</VALUE>
+		<VALUE>Hamma</VALUE>
+		<VALUE>Hamra'</VALUE>
+		<VALUE>Haram</VALUE>
+		<VALUE>Harrawi</VALUE>
+		<VALUE>Hatta</VALUE>
+		<VALUE>Haunayn</VALUE>
+		<VALUE>Hawa</VALUE>
+		<VALUE>Hawarith</VALUE>
+		<VALUE>Hawd</VALUE>
+		<VALUE>Hawsha</VALUE>
+		<VALUE>Hijarah<SUBVALUE type="meaning">Stony</SUBVALUE></VALUE>
+		<VALUE>Hiribya</VALUE>
+		<VALUE>Hittin</VALUE>
+		<VALUE>Huj</VALUE>
+		<VALUE>Hulayqat</VALUE>
+		<VALUE>Hunin</VALUE>
+		<VALUE>Husayniyya</VALUE>
+		<VALUE>Ibdis</VALUE>
+		<VALUE>Idnibba</VALUE>
+		<VALUE>Ijlil al-Qibliyya</VALUE>
+		<VALUE>Ijlil al-Shamaliyya</VALUE>
+		<VALUE>Ijzim</VALUE>
+		<VALUE>Indur</VALUE>
+		<VALUE>Innaba</VALUE>
+		<VALUE>Iqrit</VALUE>
+		<VALUE>Iraq Suwaydan</VALUE>
+		<VALUE>Iraq al-Manshiyya</VALUE>
+		<VALUE>Isdud</VALUE>
+		<VALUE>Ishwa'</VALUE>
+		<VALUE>Islin</VALUE>
+		<VALUE>Ja'una</VALUE>
+		<VALUE>Jaba'</VALUE>
+		<VALUE>Jabbul</VALUE>
+		<VALUE>Jahula</VALUE>
+		<VALUE>Jaladiyya</VALUE>
+		<VALUE>Jalama</VALUE>
+		<VALUE>Jammama</VALUE>
+		<VALUE>Jammasin al-Gharbi</VALUE>
+		<VALUE>Jammasin al-Sharqi</VALUE>
+		<VALUE>Jarash</VALUE>
+		<VALUE>Jarisha</VALUE>
+		<VALUE>Jawfa</VALUE>
+		<VALUE>Jibrin</VALUE>
+		<VALUE>Jiddin</VALUE>
+		<VALUE>Jilya</VALUE>
+		<VALUE>Jimzu</VALUE>
+		<VALUE>Jirja</VALUE>
+		<VALUE>Jiyya</VALUE>
+		<VALUE>Jiz</VALUE>
+		<VALUE>Jubb Yusuf</VALUE>
+		<VALUE>Julis</VALUE>
+		<VALUE>Jura</VALUE>
+		<VALUE>Jusayr</VALUE>
+		<VALUE>Kabara</VALUE>
+		<VALUE>Kabir<SUBVALUE type="meaning">Great</SUBVALUE></VALUE>
+		<VALUE>Kabri</VALUE>
+		<VALUE>Kafra</VALUE>
+		<VALUE>Kafrayn</VALUE>
+		<VALUE>Kalkha</VALUE>
+		<VALUE>Karatiyya</VALUE>
+		<VALUE>Karim</VALUE>
+		<VALUE>Karraza</VALUE>
+		<VALUE>Kasayir</VALUE>
+		<VALUE>Kasla</VALUE>
+		<VALUE>Kawfakha</VALUE>
+		<VALUE>Kawkab al-Hawa</VALUE>
+		<VALUE>Kawkaba</VALUE>
+		<VALUE>Khalasa</VALUE>
+		<VALUE>Khalid</VALUE>
+		<VALUE>Khalisa</VALUE>
+		<VALUE>Khan al-Duwayr</VALUE>
+		<VALUE>Kharruba</VALUE>
+		<VALUE>Khayma</VALUE>
+		<VALUE>Khayriyya</VALUE>
+		<VALUE>Khisas</VALUE>
+		<VALUE>Khiyam al-Walid</VALUE>
+		<VALUE>Khubbayza</VALUE>
+		<VALUE>Khulda</VALUE>
+		<VALUE>Khunayzir</VALUE>
+		<VALUE>Kirad al-Baqqara</VALUE>
+		<VALUE>Kirad al-Ghannama</VALUE>
+		<VALUE>Kirbat Ism Allah</VALUE>
+		<VALUE>Kishk</VALUE>
+		<VALUE>Kudna</VALUE>
+		<VALUE>Kunayyisa</VALUE>
+		<VALUE>Kuwaykat</VALUE>
+		<VALUE>Lajjun</VALUE>
+		<VALUE>Lam</VALUE>
+		<VALUE>Latrun</VALUE>
+		<VALUE>Lawz</VALUE>
+		<VALUE>Lazzaza</VALUE>
+		<VALUE>Lid</VALUE>
+		<VALUE>Lifta</VALUE>
+		<VALUE>Lubya</VALUE>
+		<VALUE>Ma'dhar</VALUE>
+		<VALUE>Ma'lul</VALUE>
+		<VALUE>Madahil</VALUE>
+		<VALUE>Maghar</VALUE>
+		<VALUE>Mahila</VALUE>
+		<VALUE>Mahsir</VALUE>
+		<VALUE>Majdal</VALUE>
+		<VALUE>Majdal Yaba</VALUE>
+		<VALUE>Malikiyya</VALUE>
+		<VALUE>Mallaha</VALUE>
+		<VALUE>Manara</VALUE>
+		<VALUE>Manarah<SUBVALUE type="meaning">The Mosque Tower, English Minaret</SUBVALUE></VALUE>
+		<VALUE>Manshiyya</VALUE>
+		<VALUE>Mansi</VALUE>
+		<VALUE>Mansiyhiyya</VALUE>
+		<VALUE>Mansura</VALUE>
+		<VALUE>Mansurat al-Khayt</VALUE>
+		<VALUE>Manzil<SUBVALUE type="meaning">The Stopping Place</SUBVALUE></VALUE>
+		<VALUE>Marus</VALUE>
+		<VALUE>Mas'udiyya</VALUE>
+		<VALUE>Masil al-Jizl</VALUE>
+		<VALUE>Masmiyya al-Kabira</VALUE>
+		<VALUE>Masmiyya al-Saghira</VALUE>
+		<VALUE>Matrah</VALUE>
+		<VALUE>Maydan<SUBVALUE type="meaning">The Field</SUBVALUE></VALUE>
+		<VALUE>Mazar</VALUE>
+		<VALUE>Mi'ar</VALUE>
+		<VALUE>Mirayah<SUBVALUE type="meaning">The Mirror</SUBVALUE></VALUE>
+		<VALUE>Mirr</VALUE>
+		<VALUE>Mirun</VALUE>
+		<VALUE>Miska</VALUE>
+		<VALUE>Muftakhira</VALUE>
+		<VALUE>Mughallis</VALUE>
+		<VALUE>Mughr al-Khayt</VALUE>
+		<VALUE>Muharraqa</VALUE>
+		<VALUE>Muhaysin</VALUE>
+		<VALUE>Mujaydil</VALUE>
+		<VALUE>Mukhayzin</VALUE>
+		<VALUE>Muntar</VALUE>
+		<VALUE>Murassas</VALUE>
+		<VALUE>Musayri'a</VALUE>
+		<VALUE>Muwaylih</VALUE>
+		<VALUE>Na'ani</VALUE>
+		<VALUE>Na'ima</VALUE>
+		<VALUE>Nabala</VALUE>
+		<VALUE>Nabi Rubin</VALUE>
+		<VALUE>Nabi Yusha'</VALUE>
+		<VALUE>Naghnaghiyya</VALUE>
+		<VALUE>Nahr</VALUE>
+		<VALUE>Najd</VALUE>
+		<VALUE>Naqquba</VALUE>
+		<VALUE>Nasir al-Din</VALUE>
+		<VALUE>Nattif</VALUE>
+		<VALUE>Ni'ilya</VALUE>
+		<VALUE>Nimrin</VALUE>
+		<VALUE>Nitaf</VALUE>
+		<VALUE>Nufay'at</VALUE>
+		<VALUE>Nuqayb</VALUE>
+		<VALUE>Nuris</VALUE>
+		<VALUE>Qa'ids<SUBVALUE type="meaning">Warden</SUBVALUE></VALUE>
+		<VALUE>Qabba'a</VALUE>
+		<VALUE>Qabbani</VALUE>
+		<VALUE>Qabu</VALUE>
+		<VALUE>Qadas</VALUE>
+		<VALUE>Qaddita</VALUE>
+		<VALUE>Qalat al-Hajar<SUBVALUE type="meaning">Castle</SUBVALUE></VALUE>
+		<VALUE>Qalunya</VALUE>
+		<VALUE>Qannir</VALUE>
+		<VALUE>Qantarah<SUBVALUE type="meaning">The Bridge</SUBVALUE></VALUE>
+		<VALUE>Qaqun</VALUE>
+		<VALUE>Qariyah<SUBVALUE type="meaning">The Village</SUBVALUE></VALUE>
+		<VALUE>Qasi</VALUE>
+		<VALUE>Qasr<SUBVALUE type="meaning">The Palace</SUBVALUE></VALUE>
+		<VALUE>Qastal</VALUE>
+		<VALUE>Qastina</VALUE>
+		<VALUE>Qatra</VALUE>
+		<VALUE>Qaytiyya</VALUE>
+		<VALUE>Qazaza</VALUE>
+		<VALUE>Qira</VALUE>
+		<VALUE>Qisarya</VALUE>
+		<VALUE>Qubab</VALUE>
+		<VALUE>Qubayba</VALUE>
+		<VALUE>Qubbah<SUBVALUE type="meaning">Dome</SUBVALUE></VALUE>
+		<VALUE>Qudayriyya</VALUE>
+		<VALUE>Qula</VALUE>
+		<VALUE>Qumbaza</VALUE>
+		<VALUE>Qumya</VALUE>
+		<VALUE>Ra'na</VALUE>
+		<VALUE>Rafat</VALUE>
+		<VALUE>Raml Zayta</VALUE>
+		<VALUE>Rantiya</VALUE>
+		<VALUE>Ras Abu 'Ammar</VALUE>
+		<VALUE>Ras al-Ahmar</VALUE>
+		<VALUE>Rihaniyya</VALUE>
+		<VALUE>Ruways</VALUE>
+		<VALUE>Sa'sa</VALUE>
+		<VALUE>Sa'sa'</VALUE>
+		<VALUE>Saba</VALUE>
+		<VALUE>Sabalan</VALUE>
+		<VALUE>Sabbarin</VALUE>
+		<VALUE>Sabt</VALUE>
+		<VALUE>Sabuna</VALUE>
+		<VALUE>Safa</VALUE>
+		<VALUE>Saffuriyya</VALUE>
+		<VALUE>Safiriyya</VALUE>
+		<VALUE>Safsaf</VALUE>
+		<VALUE>Sajad</VALUE>
+		<VALUE>Sakhina</VALUE>
+		<VALUE>Salama</VALUE>
+		<VALUE>Salbit</VALUE>
+		<VALUE>Saliha</VALUE>
+		<VALUE>Salihiyya</VALUE>
+		<VALUE>Samakh</VALUE>
+		<VALUE>Samakiyya</VALUE>
+		<VALUE>Sammiriyya</VALUE>
+		<VALUE>Sammu'I</VALUE>
+		<VALUE>Samniyya</VALUE>
+		<VALUE>Samra</VALUE>
+		<VALUE>Sanbariyya</VALUE>
+		<VALUE>Saqiya</VALUE>
+		<VALUE>Sar'a</VALUE>
+		<VALUE>Sarafand</VALUE>
+		<VALUE>Sarafand al-'Amar</VALUE>
+		<VALUE>Sarafand al-Kharab</VALUE>
+		<VALUE>Saris</VALUE>
+		<VALUE>Sarkas</VALUE>
+		<VALUE>Sataf</VALUE>
+		<VALUE>Sawafir al-Gharbiyya</VALUE>
+		<VALUE>Sawafir al-Shamaliyya</VALUE>
+		<VALUE>Sawafir al-Sharqiyya</VALUE>
+		<VALUE>Sawalima</VALUE>
+		<VALUE>Sawamir</VALUE>
+		<VALUE>Saydun</VALUE>
+		<VALUE>Shahma</VALUE>
+		<VALUE>Shajara</VALUE>
+		<VALUE>Shamalina</VALUE>
+		<VALUE>Shanna</VALUE>
+		<VALUE>Sharbah<SUBVALUE type="meaning">Drink</SUBVALUE></VALUE>
+		<VALUE>Shawf</VALUE>
+		<VALUE>Shawka al-Tahta</VALUE>
+		<VALUE>Shaykh</VALUE>
+		<VALUE>Shaykh Muwannis</VALUE>
+		<VALUE>Shilta</VALUE>
+		<VALUE>Shuna</VALUE>
+		<VALUE>Shusha</VALUE>
+		<VALUE>Simsim</VALUE>
+		<VALUE>Sindiyana</VALUE>
+		<VALUE>Sirin</VALUE>
+		<VALUE>Suba</VALUE>
+		<VALUE>Suffah<SUBVALUE type="meaning">Pad</SUBVALUE></VALUE>
+		<VALUE>Sufla</VALUE>
+		<VALUE>Suhmata</VALUE>
+		<VALUE>Sumayriyya</VALUE>
+		<VALUE>Summil</VALUE>
+		<VALUE>Sunayd</VALUE>
+		<VALUE>Suqrir</VALUE>
+		<VALUE>Suruh</VALUE>
+		<VALUE>Ta'ifah<SUBVALUE type="meaning">Party or Faction</SUBVALUE></VALUE>
+		<VALUE>Tabigha</VALUE>
+		<VALUE>Tabsur</VALUE>
+		<VALUE>Tall</VALUE>
+		<VALUE>Tall al-Safi</VALUE>
+		<VALUE>Tall al-Shawk</VALUE>
+		<VALUE>Tall al-Turmus</VALUE>
+		<VALUE>Tannur</VALUE>
+		<VALUE>Tantura</VALUE>
+		<VALUE>Taqa</VALUE>
+		<VALUE>Tarbikha</VALUE>
+		<VALUE>Tarif</VALUE>
+		<VALUE>Taytaba</VALUE>
+		<VALUE>Thul</VALUE>
+		<VALUE>Tima</VALUE>
+		<VALUE>Tina</VALUE>
+		<VALUE>Tira</VALUE>
+		<VALUE>Tulayl</VALUE>
+		<VALUE>Wa'arat al-Sarris</VALUE>
+		<VALUE>Wa'ra al-Sawda</VALUE>
+		<VALUE>Walaja</VALUE>
+		<VALUE>Wayziiyya</VALUE>
+		<VALUE>Yajur</VALUE>
+		<VALUE>Yaquq</VALUE>
+		<VALUE>Yarda</VALUE>
+		<VALUE>Yasin</VALUE>
+		<VALUE>Yasur</VALUE>
+		<VALUE>Yazur</VALUE>
+		<VALUE>Yibna</VALUE>
+		<VALUE>Yubla</VALUE>
+		<VALUE>Zab'a</VALUE>
+		<VALUE>Zababida</VALUE>
+		<VALUE>Zahiriyya al-Tahta</VALUE>
+		<VALUE>Zahrat al-Dumayra</VALUE>
+		<VALUE>Zakariyya</VALUE>
+		<VALUE>Zalafa</VALUE>
+		<VALUE>Zanghariyya</VALUE>
+		<VALUE>Zarnuqa</VALUE>
+		<VALUE>Zawiya</VALUE>
+		<VALUE>Zayta</VALUE>
+		<VALUE>Zaytun</VALUE>
+		<VALUE>Zib</VALUE>
+		<VALUE>Zikrin</VALUE>
+		<VALUE>Zinat</VALUE>
+		<VALUE>Zir'in</VALUE>
+		<VALUE>Zubayd</VALUE>
+		<VALUE>Zuq al-Fawqani</VALUE>
+		<VALUE>Zuq al-Tahtani</VALUE>
+		<VALUE>Zurayq</VALUE>
+		<VALUE>al-Fadl</VALUE>
+		<VALUE>al-Mays</VALUE>
+		<VALUE>az-Zulayj<SUBVALUE type="meaning">Burnished Pebble</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="arabic-location-prefix" title="Prefix">
+		<VALUE>Dayr</VALUE>
+		<VALUE>Ayn</VALUE>
+		<VALUE>Bayt</VALUE>
+		<VALUE>Arab</VALUE>
+		<VALUE>Abu</VALUE>
+		<VALUE>Kafr</VALUE>
+		<VALUE>Khirbat</VALUE>
+		<VALUE>Umm</VALUE>
+		<VALUE>Wadi<SUBVALUE type="meaning">River</SUBVALUE></VALUE>
+	</LIST>
+</GENERATOR>
+

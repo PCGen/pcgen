@@ -1,0 +1,179 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Wed Dec 14 16:18:55 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat										Required Skill
+CLASS:Blood Witch	PREFEAT:1,Skill Focus(Concentration)	PREFEAT:2,TYPE=Metamagic	PRESKILL:2,Concentration,Knowledge (Arcana)=10
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL
+1	ADD:SPELLCASTER(ANY)																			ADD:Blood Enhancement(TYPE=Metamagic)
+2	ADD:SPELLCASTER(ANY)						SA:Nature Magic																																												SPELLLIST:1|Druid
+3	ADD:SPELLCASTER(ANY)																			ADD:Blood Enhancement (Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell)
+4	ADD:SPELLCASTER(ANY)						SA:Alter Self 1/day																																			SPELLS:Class Ability|TIMES=1|Alter Self
+5	ADD:SPELLCASTER(ANY)																			ADD:Blood Enhancement (Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell)
+6	ADD:SPELLCASTER(ANY)						SA:Minor Sacrifice
+7	ADD:SPELLCASTER(ANY)																			ADD:Blood Enhancement (Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell)
+8	ADD:SPELLCASTER(ANY)						SA:Wildshape %/day|Wildshape	BONUS:VAR|Wildshape|1	DEFINE:Wildshape|0																										SPELLS:Class Ability|TIMES=1|Polymorph Self
+9	ADD:SPELLCASTER(ANY)																			ADD:Blood Enhancement (Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell)
+10	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Minor Sacrifice	SA:Major Sacrifice
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Crypt Lord	HD:4		TYPE:PC.Prestige	ABB:CrL		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Feat				Required Skill				Required Spell School
+CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus(Necromancy)	PRESKILL:1,Knowledge (Undead)=7	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLSCHOOL:Necromancy,7,0
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Undead)|TYPE.Profession|Scry|Spellcraft
+###Block: Turn Undead stuff
+1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ADD:FEAT(Rebuke Undead)	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Level progression
+1	ADD:SPELLCASTER(ANY)							SA:Extended Necromancy
+2	ADD:SPELLCASTER(ANY)							SA:Undead Appearance
+3	ADD:SPELLCASTER(ANY)							SA:Energy Drain Resistance (+%)|EnergyDrainResistance	BONUS:VAR|EnergyDrainResistance|5									DEFINE:EnergyDrainResistance|0
+4	ADD:SPELLCASTER(ANY)							SA:Undead Familiar
+5	ADD:SPELLCASTER(ANY)																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+6	ADD:SPELLCASTER(ANY)							SA:Raise the Dead
+7	ADD:SPELLCASTER(ANY)																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+8	ADD:SPELLCASTER(ANY)							SA:Create Undead
+9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Energy Drain Resistance	SA:Energy Drain Immunity
+10	ADD:SPELLCASTER(ANY)							SA:Lichdom																												TEMPLATE:Lich
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					SKILLLIST
+CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE	SKILLLIST:1,Druid
+# Class Name	Required AL	Required Class		Required Feat		Required Skill
+CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Incarnate	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Incarnate	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Incarnate|CL
+1	FEATAUTO:Incarnate Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	SA:Reincarnate	SA:Fixed Alignment	BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
+2								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
+3								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting (Air,Animal,Earth,Healing,Plant,Strength,Sun,Water)
+4								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
+5	SA:Venom immunity					BONUS:PCLEVEL|Druid|1	ADD:Baseform(TYPE=Animal,TYPE=Vermin)
+6								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
+7								BONUS:PCLEVEL|Druid|1	ADD:Spontaneous Casting (Air,Animal,Earth,Healing,Plant,Strength,Sun,Water)
+8								BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
+9	SA:Timeless Body					BONUS:PCLEVEL|Druid|1
+10	SA:Designate Life Form				BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat		Required Skill	Req. Known Spell			Required Sub-school
+CLASS:Penumbral Lord	PREFEAT:1,Silent Spell	PRESKILL:1,Hide=5	PRESPELL:1,Shadow Conjuration	PRESPELLSCHOOLSUB:Shadow,3,1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Penumbral Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Decipher Script|Hide|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral Lord|CL
+###Block: Spell List (partial)
+1	SPELLLEVEL:CLASS|Penumbral Lord=0|Arcane Mark,Dancing Lights,Detect Magic,Prestidigitation,Read Magic
+1	SPELLLEVEL:CLASS|Penumbral Lord=4|Shadow Conjuration
+1	SPELLLEVEL:CLASS|Penumbral Lord=5|Shadow Evocation
+1	SPELLLEVEL:CLASS|Penumbral Lord=6|Shades
+1	SPELLLEVEL:CLASS|Penumbral Lord=7|Shadow Walk
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Penumbral Lord Weapon Proficiencies
+###Block: Normal Level Progression
+1	CAST:3,2,0				VISION:Darkvision (60')	SA:Shadow Strength
+2	CAST:4,2,1,0							SA:Shadowcat Form
+3	CAST:4,2,2,1,0							SA:Shadowcast %|Shadowcast	BONUS:VAR|Shadowcast|0	DEFINE:Shadowcast|(CL-1)/2
+4	CAST:4,3,2,1,0							SA:Improved Darkvision
+5	CAST:4,3,2,1,1,0
+6	CAST:4,4,2,2,2,1,0						SA:Shadowraven Form
+7	CAST:4,4,3,2,2,2,1,0
+8	CAST:5,5,3,3,2,2,2,1,0						SA:Shadowstep
+9	CAST:5,5,4,3,2,2,2,2,1,0
+10	CAST:5,5,4,4,2,2,2,2,1,1					SA:Shadow Home
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus												Combat bonus
+CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Skill						Req. Spell Type
+CLASS:Sea Witch	PRESKILL:2,Concentration,Profession (Sailor)=8	PRESPELLTYPE:Arcane|Divine,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Knowledge|TYPE.Profession|Sense Motive|Speak Language|Swim|Use Rope
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Sea Witch	SPELLSTAT:ANY	SPELLTYPE:ANY	BONUS:CASTERLEVEL|Sea Witch|CL
+SUBCLASS:Intelligence Base	COST:0	SPELLSTAT:INT	SPELLTYPE:Arcane
+SUBCLASS:Wisdom Base		COST:0	SPELLSTAT:WIS	SPELLTYPE:Divine
+SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
+###Block: Spell List
+1	SPELLLEVEL:CLASS|Sea Witch=1|Alarm,Animal Messenger,Charm Person or Animal,Comprehend Languages,Create Water,Expeditious Retreat,Obscuring Mist,Silent Image,Sleep,Speak with Animals,Spider Climb,Unseen Servant
+1	SPELLLEVEL:CLASS|Sea Witch=2|Animal Trance,Animate Rope,Augury,Blur,Charm Monster,Daylight,Detect Thoughts,Fog Cloud,Hold Animal,Identify,Invisibility,Wind Wall
+1	SPELLLEVEL:CLASS|Sea Witch=3|Call Lightning,Clairaudience/Clairvoyance,Create Food and Water,Dispel Magic,Dominate Animal,Gaseous Form,Gust of Wind,Shrink Item,Stinking Cloud,Water Breathing,Water Walk
+1	SPELLLEVEL:CLASS|Sea Witch=4|Air Walk,Control Water,Control Winds,Detect Scrying,Diminish Plants,Freedom of Movement,Improved Invisibility,Repel Vermin,Solid Fog
+1	SPELLLEVEL:CLASS|Sea Witch=5|Animal Growth,Awaken,Cloudkill,Control Weather,Fabricate,Find the Path,Ice Storm,Ironwood,Mislead,Sending,Veil
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency
+1	FEATAUTO:Armor Proficiency (Light)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	CAST:0,1		SA:Bond with Boat/Ship %|Bonding			BONUS:VAR|Bonding|(CL-1)/3+1	DEFINE:Bonding|0
+2	CAST:0,2		SA:Ignore Metamagic Penalty % level|IMPenalty	BONUS:VAR|IMPenalty|(CL+1)/3	DEFINE:IMPenalty|0
+3	CAST:0,3,1		SA:Aquatic Wildshape %/day|Wildshape		BONUS:VAR|Wildshape|CL/3	DEFINE:Wildshape|0
+4	CAST:0,4,2
+5	CAST:0,4,2,1
+6	CAST:0,4,3,2
+7	CAST:0,4,4,2,1
+8	CAST:0,4,4,3,2
+9	CAST:0,4,4,4,2,1
+10	CAST:0,4,4,4,3,2
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill			Required Sub-school
+CLASS:Summoner	PREFEAT:1,Skill Focus(Knowledge %)	PRESKILL:1,TYPE.Knowledge=8	PRESPELLSCHOOLSUB:Summoning,3,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Patron Lore)|TYPE.Profession|Scry|Spellcraft
+1	ADD:SPELLCASTER(ANY)	ADD:FEAT(TYPE=Metamagic)
+2	ADD:SPELLCASTER(ANY)
+#2	ADD:SPELLCASTER(ANY)	ADD:LIST(Gain a Summoning spell at highest casting level) [CHOOSE:SPELLLEVEL|MAXLEVEL|TYPE=%|1] [BONUS:SPELLKNOWN|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1]	[BONUS:SPELLCAST|CLASS=MAXLEVEL;LEVEL=MAXLEVEL|1])
+3	ADD:SPELLCASTER(ANY)	ADD:FEAT(TYPE=Metamagic)
+4	ADD:SPELLCASTER(ANY)
+#4	ADD:SPELLCASTER(ANY)	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=2|1
+5	ADD:SPELLCASTER(ANY)	ADD:FEAT(TYPE=Metamagic)
+6	ADD:SPELLCASTER(ANY)
+#6	ADD:SPELLCASTER(ANY)	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=3|1
+7	ADD:SPELLCASTER(ANY)	ADD:FEAT(TYPE=Metamagic)
+8	ADD:SPELLCASTER(ANY)
+#8	ADD:SPELLCASTER(ANY)	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=4|1
+9	ADD:SPELLCASTER(ANY)	ADD:FEAT(TYPE=Metamagic)
+10	ADD:SPELLCASTER(ANY)
+#10	ADD:SPELLCASTER(ANY)	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL				Req. Att.	Required Feat			Required Skill
+CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Track	PRESKILL:1,Wilderness Lore=7	PRESKILL:3,Diplomacy,Gather Information,Handle Animal=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Vigilant	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intuit Direction|Jump|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Vigilant|CL
+###Block: Spell List
+11	SPELLLEVEL:CLASS|Vigilant=1|Alarm,Calm Animals,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Goodberry,Pass without Trace,Resist Elements,Speak with Animals
+1	SPELLLEVEL:CLASS|Vigilant=2|Animal Messenger,Detect Chaos,Detect Evil,Detect Good,Detect Law,Protection from Elements,Snare,Speak with Plants,Warp Wood
+1	SPELLLEVEL:CLASS|Vigilant=3|Endurance,Neutralize Poison,Remove Disease,Water Walk,Spike Growth
+1	SPELLLEVEL:CLASS|Vigilant=4|Freedom of Movement,Repel Vermin,Spike Stones,Wind Wall
+###Block: Weapon and Armor Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	FEATAUTO:Shield Proficiency
+###Block: Normal Level Progression
+1	CAST:0,0		SA:Sprint
+2	CAST:0,0		SA:Tireless												ADD:FEAT(Vigilant Favored Enemy)
+3	CAST:0,1		SA:Ferocity																		FEATAUTO:Toughness
+4	CAST:0,1,0																					FEATAUTO:Great Fortitude
+5	CAST:0,1,1																					FEATAUTO:Iron Will
+6	CAST:0,1,1,0																				FEATAUTO:Lightning Reflexes
+7	CAST:0,1,1,1																				FEATAUTO:Toughness
+8	CAST:0,1,1,1,0	SA:Resist Massive Damage
+9	CAST:0,2,1,1,1						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+10	CAST:0,2,2,1,1	SA:Natural Healing

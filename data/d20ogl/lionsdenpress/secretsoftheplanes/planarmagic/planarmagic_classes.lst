@@ -1,0 +1,509 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Sep  7 18:42:40 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Secretes of the Planes - Planar Magic|SOURCESHORT:PlanarMagic|SOURCEWEB:http://www.lionsdenpress.com/
+# Original Entry by: Tir Gwaith
+
+# - This was one heck of a workaround with hidden classes. - Tir Gwaith
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Planar Mage	HD:4		TYPE:Base.PC	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Planar Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
+# Class Name	Spell Stat		Spell Type		Spellbook		Caster level
+CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Planar Mage|CL
+###Block: Proficiencies
+1	FEATAUTO:Wizard Weapon Proficiencies
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Planar Mage=0|Arcane Mark,Detect Magic,Ghost Sound,Mending,Prestidigitation,Read Magic
+1	SPELLLEVEL:CLASS|Planar Mage=1|Comprehend Languages,Expeditious Retreat,Grease,Identify,Sleep,Summon Monster I,Unseen Servant
+1	SPELLLEVEL:CLASS|Planar Mage=2|Alter Self,Detect Thoughts,Levitate,Magic Mouth,Mirror Image,Summon Monster II,Web
+1	SPELLLEVEL:CLASS|Planar Mage=3|Arcane Sight,Deep Slumber,Dispel Magic,Haste,Slow,Summon Monster III,Tongues
+1	SPELLLEVEL:CLASS|Planar Mage=4|Arcane Eye,Dimension Door,Dimensional Anchor,Globe of Invulnerability (Lesser),Summon Monster IV
+1	SPELLLEVEL:CLASS|Planar Mage=5|Contact Other Plane,Dismissal,Planar Binding (Lesser),Summon Monster V,Teleport
+1	SPELLLEVEL:CLASS|Planar Mage=6|Contingency,Dispel Magic (Greater),Globe of Invulnerability,Planar Binding,Summon Monster VI
+1	SPELLLEVEL:CLASS|Planar Mage=7|Banishment,Instant Summons,Summon Monster VII,Teleport Object,Teleport (Greater)
+1	SPELLLEVEL:CLASS|Planar Mage=8|Binding,Dimensional Lock,Maze,Planar Binding (Greater),Summon Monster VIII
+1	SPELLLEVEL:CLASS|Planar Mage=9|Astral Projection,Gate,Mage's Disjunction,Summon Monster IX,Teleportation Circle
+###Block: Planar Turning stuff stuff
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	FEATAUTO:Basic Turning|Planar Turning
+4	BONUS:VAR|TurnLevelBase|CL/2
+4	BONUS:VAR|TurnDamagePlusBase|CL/2
+4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Normal Level Progression
+1	CAST:5,3				KNOWN:2,1				SA:Well Learned (Ex)																																	ADD:FEAT(TYPE.PlanarAttunement)2							FEATAUTO:Skill Focus(Knowledge (The Planes))
+2	CAST:6,4				KNOWN:2,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+3	CAST:6,5				KNOWN:2,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+4	CAST:6,6,3				KNOWN:3,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.PlanarAttunement)
+5	CAST:6,6,4				KNOWN:3,2,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(Skill Focus(Knowledge %))
+6	CAST:6,6,5,3			KNOWN:3,2,1								BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.Metamagic,TYPE.PlanarMage)
+7	CAST:6,6,6,4			KNOWN:3,2,1,1							BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.PlanarAttunement)
+8	CAST:6,6,6,5,3			KNOWN:4,2,1,1							BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+9	CAST:6,6,6,6,4			KNOWN:4,2,2,1,1							BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+10	CAST:6,6,6,6,5,3			KNOWN:4,2,2,1,1							BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.PlanarAttunement)	ADD:FEAT(Skill Focus(Knowledge %))
+11	CAST:6,6,6,6,6,4			KNOWN:4,2,2,2,1,1							BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+12	CAST:6,6,6,6,6,5,3		KNOWN:4,2,2,2,1,1							BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.Metamagic,TYPE.PlanarMage)
+13	CAST:6,6,6,6,6,6,4		KNOWN:4,2,2,2,2,1,1						BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.PlanarAttunement)
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:4,2,2,2,2,1,1						BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:4,2,2,2,2,2,1,1						BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(Skill Focus(Knowledge %))
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:4,2,2,2,2,2,1,1						BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.PlanarAttunement)
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:4,2,2,2,2,2,1,1,1						BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:4,2,2,2,2,2,1,1,1						BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.Metamagic,TYPE.PlanarMage)
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:4,2,2,2,2,2,1,1,1,1					BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(TYPE.PlanarAttunement)
+20	CAST:6,6,6,6,6,6,6,6,6,5	KNOWN:4,2,2,2,2,2,1,1,1,1					BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1	ADD:FEAT(Skill Focus(Knowledge %))
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Elemental Air	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental Air	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Elemental Air	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Air|CL
+1	SPELLLEVEL:CLASS|Elemental Air=0|Deep Breath,Message,Puff of Wind,Spark
+1	SPELLLEVEL:CLASS|Elemental Air=1|Feather Fall,Gust of Wind,Obscuring Mist,Shocking Grasp
+1	SPELLLEVEL:CLASS|Elemental Air=2|Fog Cloud,Resist Energy,Whispering Wind,Wind Wall
+1	SPELLLEVEL:CLASS|Elemental Air=3|Gaseous Form,Lightning Bolt,Protection from Energy,Stinking Cloud
+1	SPELLLEVEL:CLASS|Elemental Air=4|Air Walk,Gaseous Form (Mass),Solid Fog
+1	SPELLLEVEL:CLASS|Elemental Air=5|Cloudkill,Command Weather,Control Winds
+1	SPELLLEVEL:CLASS|Elemental Air=6|Chain Lightning,Chilling Fog,Wind Walk
+1	SPELLLEVEL:CLASS|Elemental Air=7|Bridge of Clouds,Control Weather,Plummet
+1	SPELLLEVEL:CLASS|Elemental Air=8|Reverse Gravity,Whirlwind
+1	SPELLLEVEL:CLASS|Elemental Air=9|Elemental Swarm,Storm of Vengeance
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Elemental Earth	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental Earth	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Elemental Earth	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Earth|CL
+1	SPELLLEVEL:CLASS|Elemental Earth=0|Acid Splash,Bullet,Granitehand,Shovel
+1	SPELLLEVEL:CLASS|Elemental Earth=1|Magic Stone,Scree,Solid Footing,Stone-self
+1	SPELLLEVEL:CLASS|Elemental Earth=2|Acid Arrow,Resist Energy,Soften Earth and Stone,Weaken Stone
+1	SPELLLEVEL:CLASS|Elemental Earth=3|Catapult,Protection from Energy,Meld into Stone,Stone Shape
+1	SPELLLEVEL:CLASS|Elemental Earth=4|Pebble to Boulder,Rusting Grasp,Spike Stones
+1	SPELLLEVEL:CLASS|Elemental Earth=5|Eruption,Passwall,Wall of Stone
+1	SPELLLEVEL:CLASS|Elemental Earth=6|Stoneskin,Transmute Mud to Rock,Transmute Rock to Mud
+1	SPELLLEVEL:CLASS|Elemental Earth=7|Flesh to Stone,Move Earth,Stone to Flesh
+1	SPELLLEVEL:CLASS|Elemental Earth=8|Earthquake,Repel Metal or Stone
+1	SPELLLEVEL:CLASS|Elemental Earth=9|Elemental Swarm,Imprisonment
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Elemental Fire	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental Fire	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Elemental Fire	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Fire|CL
+1	SPELLLEVEL:CLASS|Elemental Fire=0|Dancing Lights,Ember,Flare,Signal Fire
+1	SPELLLEVEL:CLASS|Elemental Fire=1|Burning Hands,Endure Elements,Extinguish,Produce Flame
+1	SPELLLEVEL:CLASS|Elemental Fire=2|Heat Metal,Pyrotechnics,Resist Energy,Scorching Ray
+1	SPELLLEVEL:CLASS|Elemental Fire=3|Fireball,Flame Arrow,Protection from Energy,Quench
+1	SPELLLEVEL:CLASS|Elemental Fire=4|Fire Shield,Fire Trap,Wall of Fire
+1	SPELLLEVEL:CLASS|Elemental Fire=5|Door into Fire,Eruption,Tendrils of Fire
+1	SPELLLEVEL:CLASS|Elemental Fire=6|Contingent Ignition,Fire Seeds,Wave of Combustion
+1	SPELLLEVEL:CLASS|Elemental Fire=7|Delayed Blast Fireball,Fire Storm,Solar Chariot
+1	SPELLLEVEL:CLASS|Elemental Fire=8|Body of Fire,Incendiary Cloud
+1	SPELLLEVEL:CLASS|Elemental Fire=9|Elemental Swarm,Meteor Swarm
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Elemental Water	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental Water	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Elemental Water	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Water|CL
+1	SPELLLEVEL:CLASS|Elemental Water=0|Create Water,Detect Poison,Purify Food and Drink,Ray of Frost
+1	SPELLLEVEL:CLASS|Elemental Water=1|Endure Elements,Ice Patch,Obscuring Mist,Swim
+1	SPELLLEVEL:CLASS|Elemental Water=2|Chill Metal,Clinging Steam,Fog Cloud,Resist Energy
+1	SPELLLEVEL:CLASS|Elemental Water=3|Protection from Energy,Sleet Storm,Water Breathing,Water Walk
+1	SPELLLEVEL:CLASS|Elemental Water=4|Control Water,Ice Storm,Wall of Ice
+1	SPELLLEVEL:CLASS|Elemental Water=5|Bubble,Cone of Cold,Freeze Blood
+1	SPELLLEVEL:CLASS|Elemental Water=6|Chilling Fog,Freezing Sphere,Sink
+1	SPELLLEVEL:CLASS|Elemental Water=7|Control Weather,Drowning Wave,Iceberg
+1	SPELLLEVEL:CLASS|Elemental Water=8|Horrid Wilting,Polar Ray
+1	SPELLLEVEL:CLASS|Elemental Water=9|Elemental Swarm,Tidal Wave
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name	Hit Dice	Type			Visible
+CLASS:Ethereal	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ethereal	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Ethereal	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Ethereal|CL
+1	SPELLLEVEL:CLASS|Ethereal=0|Mage Hand,Open/Close,Spectral Dart,Trip
+1	SPELLLEVEL:CLASS|Ethereal=1|Mage Armor,Magic Missile,Shield,Floating Disk
+1	SPELLLEVEL:CLASS|Ethereal=2|Ghost Touch,Invisibility,Knock,See Invisibility
+1	SPELLLEVEL:CLASS|Ethereal=3|Blink,Explosive Runes,Forced Manifestation,Invisibility Sphere
+1	SPELLLEVEL:CLASS|Ethereal=4|Invisibility (Greater),Secret Chest,Resilient Sphere
+1	SPELLLEVEL:CLASS|Ethereal=5|Interposing Hand,Telekinesis,Wall of Force
+1	SPELLLEVEL:CLASS|Ethereal=6|Forceful Hand,Blade Barrier,Phase Door
+1	SPELLLEVEL:CLASS|Ethereal=7|Grasping Hand,Ethereal Jaunt,Forcecage
+1	SPELLLEVEL:CLASS|Ethereal=8|Clenched Fist,Telekinetic Sphere
+1	SPELLLEVEL:CLASS|Ethereal=9|Crushing Hand,Etherealness
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Negative Plane	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Negative Plane	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Negative Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Negative Plane|CL
+1	SPELLLEVEL:CLASS|Negative Plane=0|Black Dart,Detect Undead,Inflict Minor Wounds,Touch of Fatigue
+1	SPELLLEVEL:CLASS|Negative Plane=1|Chill Touch,Death Knell,Deathwatch,Inflict Light Wounds
+1	SPELLLEVEL:CLASS|Negative Plane=2|Command Undead,Desecrate,Inflict Moderate Wounds,Ray of Exhaustion
+1	SPELLLEVEL:CLASS|Negative Plane=3|Animate Dead,Death Link,Halt Undead,Inflict Serious Wounds
+1	SPELLLEVEL:CLASS|Negative Plane=4|Death Ward,Enervation,Inflict Critical Wounds
+1	SPELLLEVEL:CLASS|Negative Plane=5|Blight,Inflict Light Wounds (Mass),Waves of Fatigue
+1	SPELLLEVEL:CLASS|Negative Plane=6|Create Undead,Harm,Inflict Moderate Wounds (Mass)
+1	SPELLLEVEL:CLASS|Negative Plane=7|Control Undead,Inflict Serious Wounds (Mass),Waves of Exhaustion
+1	SPELLLEVEL:CLASS|Negative Plane=8|Create Greater Undead,Inflict Critical Wounds (Mass)
+1	SPELLLEVEL:CLASS|Negative Plane=9|Energy Drain,Soul Bind
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Positive Plane	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Positive Plane	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Positive Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Positive Plane|CL
+1	SPELLLEVEL:CLASS|Positive Plane=0|Cure Minor Wounds,Disrupt Undead,Flare,Light
+1	SPELLLEVEL:CLASS|Positive Plane=1|Cure Light Wounds,Faerie Fire,Purge Inner Darkness,Stabilize
+1	SPELLLEVEL:CLASS|Positive Plane=2|Consecrate,Cure Moderate Wounds,False Life,Restoration (Lesser)
+1	SPELLLEVEL:CLASS|Positive Plane=3|Continual Flame,Cure Serious Wounds,Daylight,Searing Light
+1	SPELLLEVEL:CLASS|Positive Plane=4|Cure Critical Wounds,Death Ward,Restoration
+1	SPELLLEVEL:CLASS|Positive Plane=5|Cure Light Wounds (Mass),Disrupting Weapon,Flame Strike
+1	SPELLLEVEL:CLASS|Positive Plane=6|Cure Moderate Wounds (Mass),Heal,Undeath to Death
+1	SPELLLEVEL:CLASS|Positive Plane=7|Cure Serious Wounds (Mass),Restoration (Greater),Sunbeam
+1	SPELLLEVEL:CLASS|Positive Plane=8|Cure Critical Wounds (Mass),Sunburst
+1	SPELLLEVEL:CLASS|Positive Plane=9|Heal (Mass),Sunrise
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Plane of Shadow	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plane of Shadow	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Plane of Shadow	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Plane of Shadow|CL
+1	SPELLLEVEL:CLASS|Plane of Shadow=0|Control Shadow,Dim Illumination,Night-Vision,Startle
+1	SPELLLEVEL:CLASS|Plane of Shadow=1|Cause Fear,Chill Touch,Ray of Enfeeblement,Wall of Darkness
+1	SPELLLEVEL:CLASS|Plane of Shadow=2|Blur,Darkness,Darkvision,Scare
+1	SPELLLEVEL:CLASS|Plane of Shadow=3|Blindness/Deafness,Deeper Darkness,Displacement,Phantom Steed
+1	SPELLLEVEL:CLASS|Plane of Shadow=4|Fear,Phantasmal Killer,Shadow Conjuration
+1	SPELLLEVEL:CLASS|Plane of Shadow=5|Dimension Door,Shadow Evocation,True Seeing
+1	SPELLLEVEL:CLASS|Plane of Shadow=6|Shadow Walk,Simulacrum,Symbol of Fear
+1	SPELLLEVEL:CLASS|Plane of Shadow=7|Power Word Blind,Project Image,Shadow Conjuration (Greater)
+1	SPELLLEVEL:CLASS|Plane of Shadow=8|Nightfall,Shadow Evocation (Greater)
+1	SPELLLEVEL:CLASS|Plane of Shadow=9|Shades,Weird
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Lower Planes	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lower Planes	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Lower Planes	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Lower Planes|CL
+1	SPELLLEVEL:CLASS|Lower Planes=0|Daze,Haze,Lie,Pain Touch
+1	SPELLLEVEL:CLASS|Lower Planes=1|Bane,Detect Good,Doom,Protection from Good
+1	SPELLLEVEL:CLASS|Lower Planes=2|Align Weapon,Death Knell,Desecrate,Undetectable Alignment
+1	SPELLLEVEL:CLASS|Lower Planes=3|Animate Dead,Bestow Curse,Glibness,Magic Circle against Good
+1	SPELLLEVEL:CLASS|Lower Planes=4|Giant Vermin,Poison,Unholy Blight
+1	SPELLLEVEL:CLASS|Lower Planes=5|Dispel Good,Slay Living,Unhallow
+1	SPELLLEVEL:CLASS|Lower Planes=6|Circle of Death,Create Undead,Forbiddance
+1	SPELLLEVEL:CLASS|Lower Planes=7|Blasphemy,Control Undead,Destruction
+1	SPELLLEVEL:CLASS|Lower Planes=8|Create Greater Undead,Unholy Aura
+1	SPELLLEVEL:CLASS|Lower Planes=9|Implosion,Shapechange
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Planes of Discord	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Planes of Discord	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Planes of Discord	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Planes of Discord|CL
+1	SPELLLEVEL:CLASS|Planes of Discord=0|Cipher,Dancing Lights,Daze,Resistance
+1	SPELLLEVEL:CLASS|Planes of Discord=1|Confusion (Lesser),Detect Law,Entropic Shield,Protection from Law
+1	SPELLLEVEL:CLASS|Planes of Discord=2|Align Weapon,Daze Monster,Misdirection,Shatter
+1	SPELLLEVEL:CLASS|Planes of Discord=3|Displacement,Glibness,Magic Circle against Law,Rage
+1	SPELLLEVEL:CLASS|Planes of Discord=4|Chaos Hammer,Confusion,Freedom of Movement
+1	SPELLLEVEL:CLASS|Planes of Discord=5|Baleful Polymorph,Break Enchantment,Dispel Law
+1	SPELLLEVEL:CLASS|Planes of Discord=6|Animate Objects,Forbiddance,Song of Discord
+1	SPELLLEVEL:CLASS|Planes of Discord=7|Insanity,Spell Turning,Word of Chaos
+1	SPELLLEVEL:CLASS|Planes of Discord=8|Cloak of Chaos,Scintillating Pattern
+1	SPELLLEVEL:CLASS|Planes of Discord=9|Freedom,Storm of Vengeance
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Planes of Order	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Planes of Order	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Planes of Order	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Planes of Order|CL
+1	SPELLLEVEL:CLASS|Planes of Order=0|Decode,Guidance,Know Direction,Sort
+1	SPELLLEVEL:CLASS|Planes of Order=1|Detect Chaos,Detect Infraction,Protection from Chaos,True Strike
+1	SPELLLEVEL:CLASS|Planes of Order=2|Align Weapon,Calm Emotions,Hold Person,Zone of Truth
+1	SPELLLEVEL:CLASS|Planes of Order=3|Magic Circle against Chaos,Repeat Action,Suggestion,Track Target
+1	SPELLLEVEL:CLASS|Planes of Order=4|Dimensional Anchor,Discern Lies,Order's Wrath
+1	SPELLLEVEL:CLASS|Planes of Order=5|Dispel Chaos,Fabricate,Mark of Justice
+1	SPELLLEVEL:CLASS|Planes of Order=6|Find the Path,Forbiddance,Hold Monster
+1	SPELLLEVEL:CLASS|Planes of Order=7|Dictum,Hold Person (Mass),True Seeing
+1	SPELLLEVEL:CLASS|Planes of Order=8|Shield of Law,Temporal Stasis
+1	SPELLLEVEL:CLASS|Planes of Order=9|Foresight,Time Stop
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+
+# Class Name		Hit Dice	Type			Visible
+CLASS:Upper Planes	HD:4		TYPE:Base.PC	VISIBLE:NO
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Upper Planes	STARTSKILLPTS:0	MODTOSKILLS:NO
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Upper Planes	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Upper Planes|CL
+1	SPELLLEVEL:CLASS|Upper Planes=0|Detect Poison,Guidance,Resistance,Virtue
+1	SPELLLEVEL:CLASS|Upper Planes=1|Bless,Bless Weapon,Detect Evil,Protection from Evil
+1	SPELLLEVEL:CLASS|Upper Planes=2|Aid,Align Weapon,Consecrate,Shield Other
+1	SPELLLEVEL:CLASS|Upper Planes=3|Heroism,Magic Circle against Evil,Prayer,Remove Curse
+1	SPELLLEVEL:CLASS|Upper Planes=4|Death Ward,Holy Smite,Neutralize Poison
+1	SPELLLEVEL:CLASS|Upper Planes=5|Atonement,Dispel Evil,Hallow
+1	SPELLLEVEL:CLASS|Upper Planes=6|Forbiddance,Heroes' Feast,Heroism (Greater)
+1	SPELLLEVEL:CLASS|Upper Planes=7|Holy Word,Refuge,Sunbeam
+1	SPELLLEVEL:CLASS|Upper Planes=8|Holy Aura,Sunburst
+1	SPELLLEVEL:CLASS|Upper Planes=9|Freedom,Shapechange
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5

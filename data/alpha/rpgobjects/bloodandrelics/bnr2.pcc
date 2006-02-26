@@ -1,0 +1,28 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Relics
+RANK:6
+GAMEMODE:Modern
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:RPGObjects.Blood and Relics
+ISOGL:YES
+SOURCELONG:Blood and Relics 2nd Edition
+SOURCESHORT:BnR2
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Blood and Relics Copyright 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Blood and Relics Copyright 2005, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:bnr2_class_advanced.lst
+CLASS:bnr2_class_prestige.lst
+EQUIPMENT:bnr2_equipment.lst
+FEAT:bnr2_feat.lst
+FEAT:bnr2_feat_hidden.lst
+FEAT:bnr2_feat_mod.lst
+FEAT:bnr2_feat_secret_societies.lst
+RACE:bnr2_race.lst
+SKILL:bnr2_skill.lst

@@ -1,0 +1,206 @@
+/*
+ * PreClassTest.java
+ *
+ * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 15-Jan-2004
+ *
+ * Current Ver: $Revision: 1.5 $
+ *
+ * Last Editor: $Author: byngl $
+ *
+ * Last Edited: $Date: 2005/10/03 13:56:33 $
+ *
+ */
+package pcgen.core.prereq;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import pcgen.AbstractCharacterTestCase;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+
+/**
+ * @author wardc
+ *
+ */
+/**
+ * @author frugal@purplewombat.co.uk
+ *
+ */
+public class PreSubClassTest extends AbstractCharacterTestCase
+{
+	public static void main(final String[] args)
+	{
+		junit.swingui.TestRunner.run(PreSubClassTest.class);
+	}
+
+	/**
+	 * @return Test
+	 */
+	public static Test suite()
+	{
+		return new TestSuite(PreSubClassTest.class);
+	}
+
+	/**
+	 * Test to ensure that a character with a named class can be found
+	 * @throws Exception
+	 */
+	public void testNamedSubClass()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+		pcClass.setSubClassName("MySubClass");
+
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(3, pcClass);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("subclass");
+		prereq.setKey("mysubclass");
+		prereq.setOperand("1");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreSubClass test = new PreSubClass();
+		final int passes = test.passes(prereq, character);
+		assertEquals(1, passes);
+	}
+
+	/**
+	 * Test to make sure subclass still found if multiple classes, only one with subclass
+	 * @throws Exception
+	 */
+	public void testCharWithMultipleClasses()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+
+		final PCClass pcClass2 = new PCClass();
+		pcClass2.setName("Other Class");
+		pcClass2.setAbbrev("OC");
+		pcClass2.setSubClassName("OtherSubClass");
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(2, pcClass2);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("subclass");
+		prereq.setKey("othersubclass");
+		prereq.setOperand("1");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreSubClass test = new PreSubClass();
+		final int passes = test.passes(prereq, character);
+		assertEquals(1, passes);
+	}
+
+	/**
+	 * Test to make sure subclass still found if multiple classes, both with subclass
+	 * @throws Exception
+	 */
+	public void testCharWithMultipleSubClasses()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+		pcClass.setSubClassName("MySubClass");
+
+		final PCClass pcClass2 = new PCClass();
+		pcClass2.setName("Other Class");
+		pcClass2.setAbbrev("OC");
+		pcClass2.setSubClassName("OtherSubClass");
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+		character.incrementClassLevel(2, pcClass2);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("subclass");
+		prereq.setKey("othersubclass");
+		prereq.setOperand("1");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreSubClass test = new PreSubClass();
+		final int passes = test.passes(prereq, character);
+		assertEquals(1, passes);
+	}
+
+	/**
+	 * Test to ensure that a character without a named subclass cannot be found
+	 * @throws Exception
+	 */
+	public void testNamedSubClassFail()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("subclass");
+		prereq.setKey("mysubclass");
+		prereq.setOperand("1");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreSubClass test = new PreSubClass();
+		final int passes = test.passes(prereq, character);
+		assertEquals(0, passes);
+	}
+
+	/**
+	 * Test to ensure that a character without a named subclass cannot be found
+	 * @throws Exception
+	 */
+	public void testNamedDifSubClassFail()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+		pcClass.setSubClassName("MySubClass");
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("subclass");
+		prereq.setKey("myothersubclass");
+		prereq.setOperand("1");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreSubClass test = new PreSubClass();
+		final int passes = test.passes(prereq, character);
+		assertEquals(0, passes);
+	}
+
+}

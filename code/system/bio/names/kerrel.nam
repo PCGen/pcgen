@@ -1,0 +1,102 @@
+#/*****************************************************/
+#/* KERREL.NAM                                        */
+#/* Namnfil för namn från Deverry alver               */
+#/* av Johan Danforth                                 */
+#/* rader som börjar med / är kommentar-rader         */
+#/* varje section börjar med [xxx] enlig filen nedan  */
+#/*****************************************************/
+[RULES]
+100	[SYL1]	[SYL2]	[SYL3]
+[FULL]
+[SYL1]
+#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+Ad
+Adr
+Al
+Alb
+Alod
+Ann
+B
+Ban
+Ber
+Cal
+Car
+Carr
+Cont
+Dall
+Dar
+Dev
+Eb
+El
+Elb
+En
+Far
+Gann
+Gav
+Hal
+Jav
+Jenn
+L
+Land
+Man
+Mer
+Nan
+Ran
+Tal
+Tal
+Val
+Wyl
+[SYL2]
+#/* mittstavelser skall börja och sluta med en vokal som a,o,u,i,e,y etc... */
+a
+a
+abe
+abri
+ae
+ae
+ala
+alae
+ale
+ama
+amae
+ana
+e
+e
+ede
+ena
+ere
+o
+oba
+obre
+[SYL3]
+#/* slutstavelser skall börja med en konsonant som b,k,t etc... */
+beriel
+clya
+danten
+dar
+ddlaen
+gyn
+ladar
+ldar
+lden
+lia
+mario
+na
+ndar
+ndario
+nderiel
+ndra
+nnon
+nna
+ntar
+ntariel
+nteriel
+ny
+raen
+rel
+ria
+riel
+ryn
+ssi
+teriel
+ver

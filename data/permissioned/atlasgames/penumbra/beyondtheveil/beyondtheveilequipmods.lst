@@ -1,0 +1,10 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sat Dec 14 12:23:35 2002 -- reformated by prettylst.pl v1.20 (build 231)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+
+# Modifier Name	Unique Key		Type		Plus		Source Page		Required Type					Special Property
+Sundering		KEY:BTVSUNDER	TYPE:Weapon	PLUS:1	SOURCEPAGE:p.31	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:+4 circumstance bonus to Sunder attempts
+
+###Block
+# Used for testing which items to allow editing on. Any item with the properties listed will not be allowed to be edited
+# Modifier Name	Visible	Type granted
+EXCLUDEEQ_BTV	VISIBLE:NO	ITYPE:Magic.Adamantine.Darkwood.Mithral

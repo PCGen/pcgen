@@ -1,0 +1,12 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death|SOURCESHORT:Gladiators|SOURCEWEB:http://mongoosepublishing.com
+
+# Weapon Name	Type		Nb Hands
+Aclis			TYPE:Exotic
+Bola			TYPE:Exotic
+Chakram		TYPE:Exotic
+Crossbow (Quad)	TYPE:Exotic	HANDS:2
+Harpoon (Light)	TYPE:Exotic
+Mancatcher		TYPE:Exotic
+Spiked Helmet	TYPE:Exotic
+Wrist Razor		TYPE:Exotic

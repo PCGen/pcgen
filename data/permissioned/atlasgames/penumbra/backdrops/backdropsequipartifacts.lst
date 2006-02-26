@@ -1,0 +1,6 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops|SOURCESHORT:Backdrops|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+#Forge of Ancestors is Immobile.  WT:999999 is done to approximate that.
+
+# Equipment Name		Type					Weight	Source Page		Special Property
+Forge of Ancestors	TYPE:Magic.Artifact.Minor	WT:999999	SOURCEPAGE:p.16	SPROP:See text

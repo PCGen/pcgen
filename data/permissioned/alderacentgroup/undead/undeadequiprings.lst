@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Jan 24 09:43:46 2003 -- reformated by prettylst.pl v1.24 (build 252)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead|SOURCESHORT:Undead|SOURCEWEB:http://alderac.com/d20
+
+# Equipment Name			Product Identity?	Type			Cost		Weight	Source Page
+Ring of the Tomb Guardian	NAMEISPI:YES	TYPE:Magic.Ring	COST:10000	WT:0		SOURCEPAGE:p.86-87

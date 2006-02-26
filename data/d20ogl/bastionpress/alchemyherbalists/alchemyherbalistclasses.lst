@@ -1,0 +1,97 @@
+# CVS $Revision: 1.5 $ $Author: ericbeaudoin $ -- Wed Aug  4 21:03:21 2004 -- reformated by prettylst.pl v1.33 (build 379)
+SOURCELONG:Bastion Press - Alchemy and Herbalists|SOURCESHORT:AlchemyHrb|SOURCEWEB:www.bastionpress.com
+# Orginal Entry By: Knightcrawler
+
+# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
+CLASS:Black Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Check		Required Class			Required Feat				Required Skill
+CLASS:Black Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,TYPE.Craft=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Black Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Black Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Black Alchemist|CL
+1	ADD:SPELLCASTER(ANY)	SA:Enhanced Illusions
+2	ADD:SPELLCASTER(ANY)						FEATAUTO:Craft Chymicals
+3	ADD:SPELLCASTER(ANY)	SA:Enhanced Transmutations
+4	ADD:SPELLCASTER(ANY)						FEATAUTO:Create Alchana
+5	ADD:SPELLCASTER(ANY)
+6	ADD:SPELLCASTER(ANY)						FEATAUTO:Perfect Materials
+7	ADD:SPELLCASTER(ANY)
+8	ADD:SPELLCASTER(ANY)						FEATAUTO:Create Greater Alchana
+9	ADD:SPELLCASTER(ANY)
+10	ADD:SPELLCASTER(ANY)						FEATAUTO:Craft Magic Arms and Armor
+
+# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
+CLASS:White Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Check		Required Class			Required Feat				Required Skill
+CLASS:White Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,Heal=4	PRESKILL:1,Profession (Herbalist)=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:White Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:White Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|White Alchemist|CL
+1	ADD:SPELLCASTER(ANY)					FEATAUTO:Craft Toxins
+2	ADD:SPELLCASTER(ANY)
+3	ADD:SPELLCASTER(ANY)					FEATAUTO:Brew Ingestibles
+4	ADD:SPELLCASTER(ANY)
+5	ADD:SPELLCASTER(ANY)					FEATAUTO:Craft Powders and Dusts
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)					FEATAUTO:Craft Unguents
+8	ADD:SPELLCASTER(ANY)	SA:Enhance Medicinals
+9	ADD:SPELLCASTER(ANY)					FEATAUTO:Craft Wondrous Item
+10	ADD:SPELLCASTER(ANY)	SA:Perfect Medicinals
+
+# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
+CLASS:Red Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat				Required Skill
+CLASS:Red Alchemist	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,Profession (Brewer)=4	PRESKILL:1,TYPE.Craft=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Red Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Appraise|Concentration|TYPE.Craft|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Red Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Red Alchemist|CL
+1	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Chymicals
+2	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Powders and Dusts
+3	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Toxins
+4	ADD:SPELLCASTER(ANY)	FEATAUTO:Brew Ingestibles
+5	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Unguents
+6	ADD:SPELLCASTER(ANY)
+7	ADD:SPELLCASTER(ANY)	FEATAUTO:Craft Wondrous Item
+8	ADD:SPELLCASTER(ANY)	FEATAUTO:Create Alchana
+9	ADD:SPELLCASTER(ANY)	FEATAUTO:Perfect Materials
+10	ADD:SPELLCASTER(ANY)	FEATAUTO:Create Greater Alchana
+
+# Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
+CLASS:Taraston Herbalist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Check		Required Class			Required Feat						Required Skill
+CLASS:Taraston Herbalist	PRECHECK:1,Fortitude=2	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus(Profession (Herbalist))	PRESKILL:1,Profession (Herbalist)=8
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Taraston Herbalist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Spellcraft|Swim|Use Magic Device|Wilderness Lore
+# Class Name			Spell Stat		Spell Type		Caster level
+CLASS:Taraston Herbalist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Taraston Herbalist|CL
+1								FEATAUTO:Craft Toxins
+2	ADD:SPELLCASTER(ANY)
+3								FEATAUTO:Craft Herbal Restoratives
+4	ADD:SPELLCASTER(ANY)	SA:Bloomagic
+5								FEATAUTO:Craft Powders and Dusts
+6	ADD:SPELLCASTER(ANY)				FEATAUTO:Flourish Spell
+7								FEATAUTO:Grow Swathe
+8	ADD:SPELLCASTER(ANY)
+9								FEATAUTO:Create Erlcana
+10	ADD:SPELLCASTER(ANY)
+
+# Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Taraston Apothecary	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Check		Required Skill														Required Stat
+CLASS:Taraston Apothecary	PRECHECK:1,Fortitude=3	PRESKILL:1,Heal=1	PRESKILL:1,Profession (Herbalist)=4	PRESKILL:1,Profession (Apothecary)=8	PRESTAT:1,WIS=12
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Taraston Apothecary	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft|Use Magic Device|Wilderness Lore
+# Class Name			Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Taraston Apothecary	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Taraston Apothecary|CL
+1	CAST:0,0,0	KNOWN:0,0,0	FEATAUTO:Skill Focus(Profession (Apothecary))
+2	CAST:1,0,0	KNOWN:2,0,0	FEATAUTO:Craft Herbal Restoratives
+3	CAST:1,1,0	KNOWN:3,1,0	FEATAUTO:Bodily Awareness
+4	CAST:2,1,1	KNOWN:4,2,1	FEATAUTO:Diagnosis
+5	CAST:3,2,1	KNOWN:5,3,2	FEATAUTO:Craft Toxins
+
+
+
+

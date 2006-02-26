@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Wed Dec  1 21:27:22 2004 -- reformated by prettylst.pl v1.34 (build 422)
+#Orginal Entry: Ratheof Blithwyn
+SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
+
+#Poisons
+# Equipment Name				Output Name		Type			Cost		Weight	Source Page		Special Property
+Plant Toxin (Bloodroot)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:100	WT:0		SOURCEPAGE:p.39	SPROP:Injury DC 12, Init. 0, Sec. 1d4 CON + 1d3 WIS
+Plant Toxin (Malyss root paste)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:500	WT:0		SOURCEPAGE:p.39	SPROP:Contact DC 16, Init. 1 DEX, Sec. 2d4 DEX
+Plant Toxin (Sassone leaf residue)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:300	WT:0		SOURCEPAGE:p.39	SPROP:Contact DC 16, Init. 2d12 HP, Sec. 1d6 CON
+Plant Toxin (Terinav root)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:750	WT:0		SOURCEPAGE:p.39	SPROP:Contact DC 16, Init. 1d6 DEX, Sec. 2d6 DEX
+Plant Toxin (Black lotus extract)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:5000	WT:0		SOURCEPAGE:p.39	SPROP:Contact DC 20, Init. 3d6 CON, Sec. 3d6 CON
+Plant Toxin (Id moss)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:125	WT:0		SOURCEPAGE:p.39	SPROP:Ingested DC 14, Init. 1d4 INT, Sec. 2d6 INT
+Plant Toxin (Striped toadstool)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:180	WT:0		SOURCEPAGE:p.39	SPROP:Ingested DC 11, Init. 1 WIS, Sec. 2d6 WIS + 1d4 INT
+Plant Toxin (Arsenic)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:250	WT:0		SOURCEPAGE:p.39	SPROP:Ingested DC 13, Init. 1 CON, Sec. 1d8 CON
+Plant Toxin (Mistletoe berries)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:100	WT:0		SOURCEPAGE:p.39	SPROP:Ingested DC 13, Init. 1 CON, Sec. 1d6 CON
+Plant Toxin (Wolfsbane)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison	COST:750	WT:0		SOURCEPAGE:p.39	SPROP:Ingested DC 13, Init. 1d6 CON, Sec. 2d6 CON

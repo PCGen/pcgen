@@ -1,0 +1,86 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Oct  4 19:12:44 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
+#Original entry by Greg G (Phantom of Krankor)
+
+# Feat Name	Type		Visible	Required Feat		Required Race	Modify VAR				Cost		Source Page
+Bloodrank 1	TYPE:Val	VISIBLE:YES					PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 2	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 1	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 3	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 2	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 4	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 3	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 5	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 4	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 6	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 5	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 7	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 6	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+
+
+###Block: Val'Abebi Bloodline Powers
+#Level 1
+# Feat Name					Type		Visible	Required Feat									Required Template	Description									Class Skill			Cost		Source Page
+Wisdom of the Ages			TYPE:Val	VISIBLE:YES												PRETEMPLATE:Abebi	DESC:All Knowledge Skills are Class Skills			CSKILL:TYPE.Knowledge	COST:0	SOURCEPAGE:p.185
+The Tounges of Man are of All Men	TYPE:Val	VISIBLE:YES												PRETEMPLATE:Abebi	DESC:Read text as if with Comprehend Languages spell						COST:0	SOURCEPAGE:p.185
+#Level 2
+The Lessons of Master Craftsmen	TYPE:Val	VISIBLE:YES	PREFEAT:2,Wisdom of the Ages,The Tounges of Man are of All Men	PRETEMPLATE:Abebi	DESC:Once per day +30 to Craft check								COST:0	SOURCEPAGE:p.185
+The Face of Althares			TYPE:Val	VISIBLE:YES	PREFEAT:2,Wisdom of the Ages,The Tounges of Man are of All Men	PRETEMPLATE:Abebi	DESC:Once per day/4 levels, Undetectable Alignment						COST:0	SOURCEPAGE:p.185
+#Level 3
+The Gift					TYPE:Val	VISIBLE:YES	PREFEAT:2,The Lessons of Master Craftsmen,The Face of Althares	PRETEMPLATE:Abebi	DESC:Brew potions as a 5th level Cleric								COST:0	SOURCEPAGE:p.185
+#TEMPLATE:AbebiGift
+The Secrets of Antiquity		TYPE:Val	VISIBLE:YES												PRETEMPLATE:Abebi	DESC:Know the history of an item,person or place 1/day					COST:0	SOURCEPAGE:p.186
+#	SPELL:Legend Lore|1|Innate
+
+###Block: Val'Assante Bloodline Powers
+#Level 1
+# Feat Name						Output Name					Type		Visible	Required Feat										Required Template		Description										Class Skill		Cost		Source Page
+Illiir Lights Your Way										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Assante	DESC:Summon a globe of light										COST:0	SOURCEPAGE:p.186
+The Blinding Light of Truth									TYPE:Val	VISIBLE:YES													PRETEMPLATE:Assante	DESC:Discern Lie 1/day per 4 levels									COST:0	SOURCEPAGE:p.186
+#Level 2
+The Morning Banishes Shadows									TYPE:Val	VISIBLE:YES	PREFEAT:2,Illiir Lights Your Way,The Blinding Light of Truth						DESC:Dispel Illusions 1/day										COST:0	SOURCEPAGE:p.186
+#	SPELL:Dispel Illusion|1|Innate
+The Voice of the King of Gods									TYPE:Val	VISIBLE:YES	PREFEAT:2,Illiir Lights Your Way,The Blinding Light of Truth						DESC:Command 1/day											COST:0	SOURCEPAGE:p.186
+#	SPELL:Command|1|Innate
+#Level 3
+The Gift of Perfection										TYPE:Val	VISIBLE:YES	PREFEAT:2,The Morning Banishes Shadows,The Voice of the King of Gods					DESC:Perform an action nearly perfectly 1/day							COST:0	SOURCEPAGE:p.186
+The Searing Light of Illiir's Glory								TYPE:Val	VISIBLE:YES	PREFEAT:2,The Morning Banishes Shadows,The Voice of the King of Gods					DESC:Searing Light 1/day										COST:0	SOURCEPAGE:p.186
+#	SPELL:Searing Light|1|Innate
+
+# Val'Borda Bloodline Powers
+Summon Night's Shadow										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Borda		DESC:Darkness 1/day per 4 levels									COST:0	SOURCEPAGE:p.186
+Music's Soothing Charms										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Borda		DESC:Perform is a Class Skill.  Hypnotism 1/day				CSKILL:Perform	COST:0	SOURCEPAGE:p.186
+
+# Val'Dellenov Bloodline Powers
+The Hands of Our Mother										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Dellenov	DESC:Sprout claws for attack										COST:0	SOURCEPAGE:p.186
+We are all Her Children										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Dellenov	DESC:Animal Friendship 1/day										COST:0	SOURCEPAGE:p.186
+
+# Val'Inares Bloodline Powers
+Walk the Path of the Stars									TYPE:Val	VISIBLE:YES													PRETEMPLATE:Inares	DESC:Can activate known Portals									COST:0	SOURCEPAGE:p.186
+She Takes Our Burden										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Inares	DESC:Endure hot and cold temperatures								COST:0	SOURCEPAGE:p.186
+
+# Val'Ishi Bloodline Powers
+Speak With the Voice of Ancestors								TYPE:Val	VISIBLE:YES													PRETEMPLATE:Ishi		DESC:Speak With Dead 1/day										COST:0	SOURCEPAGE:p.187
+The Hand of Ghosts										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Ishi		DESC:Perform 1 melee attack as a touch attack 1/day						COST:0	SOURCEPAGE:p.187
+
+# Val'Mehan Bloodline Powers
+Oath Maker												TYPE:Val	VISIBLE:YES													PRETEMPLATE:Mehan		DESC:Enforce Oath with pentalies of -1/4 levels							COST:0	SOURCEPAGE:p.187
+Sarish if Known to his Chosen									TYPE:Val	VISIBLE:YES													PRETEMPLATE:Mehan		DESC:Detect Magic												COST:0	SOURCEPAGE:p.187
+
+# Val'Mordane Bloodline Powers
+Neroth's Discourse										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Mordane	DESC:Speak With Dead 1/day per 4 levels								COST:0	SOURCEPAGE:p.187
+I Know You Brother				OUTPUTNAME:I Know You, Brother	TYPE:Val	VISIBLE:YES													PRETEMPLATE:Mordane	DESC:Detect Undead											COST:0	SOURCEPAGE:p.187
+
+# Val'Ossan Bloodline Powers
+Yariss' Breath											TYPE:Val	VISIBLE:YES													PRETEMPLATE:Ossan		DESC:Water Breathing with gills									COST:0	SOURCEPAGE:p.187
+Yariss' Step											TYPE:Val	VISIBLE:YES													PRETEMPLATE:Ossan		DESC:Water Walking 1/day per 4 levels								COST:0	SOURCEPAGE:p.187
+
+# Val'Sheem Bloodline Powers
+Fortune Favors the Bold										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Sheem		DESC:Reroll 1 die 1/day, keeping better result							COST:0	SOURCEPAGE:p.187
+Walk the Web of Fate										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Sheem		DESC:Augury 1/day												COST:0	SOURCEPAGE:p.187
+
+# Val'Tensen Bloodline Powers
+The Reluctant Warrior										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Tensen	DESC:Morale bonuses when definding the helpless							COST:0	SOURCEPAGE:p.188
+His Might is Our Own										TYPE:Val	VISIBLE:YES													PRETEMPLATE:Tensen	DESC:Increase Strength 2pts/4levels for 1 minute/level 1/day				COST:0	SOURCEPAGE:p.188
+
+# Val'Virdan Bloodline Powers
+To Know the Sight of Our Lord									TYPE:Val	VISIBLE:YES													PRETEMPLATE:Virdan	DESC:Infravision												COST:0	SOURCEPAGE:p.188
+None Shall Stand that Oppose the Gods							TYPE:Val	VISIBLE:YES													PRETEMPLATE:Virdan	DESC:Smite as Paladin 1/day per 4 levels								COST:0	SOURCEPAGE:p.188
+
+#
+# End
+#

@@ -1,0 +1,198 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Thu Nov 24 04:19:57 2005 -- reformated by prettylst.pl v1.35 (build 542)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Ambassador	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat		Required Skill
+CLASS:Ambassador	PREFEAT:2,Charm,Favor	PRESKILL:3,Diplomacy,Knowledge (Civics),Knowledge (Theology and Philosophy)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sense Motive|Speak Language
+1	SA:Diplomatic Immunity
+2	SA:Open Arms		BONUS:SKILL|Diplomacy|CL/2
+3										ADD:FEAT(TYPE=Ambassador)
+4	SA:Information Access
+5	SA:Stipend
+6										ADD:FEAT(TYPE=Ambassador)
+7	SA:Restricted Access
+8	SA:Stipend
+9										ADD:FEAT(TYPE=Ambassador)
+10	SA:Select Consuls
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Dogfighter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Check Base	Required Feat					Required Skill
+CLASS:Dogfighter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Starship Operation(Ultralight)	PRESKILL:1,Pilot=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dogfighter	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
+1																				ADD:FEAT(TYPE=Dogfighter)
+2	SA:Defender of the Universe
+3																				ADD:FEAT(TYPE=Dogfighter)
+4	SA:Shake, Rattle and Roll %/day|ShakeRattleRoll	BONUS:VAR|ShakeRattleRoll|(CL-1)/3	DEFINE:ShakeRattleRoll|0
+5	SA:To the Max
+6																				ADD:FEAT(TYPE=Dogfighter)
+8	SA:Keep it Together
+9																				ADD:FEAT(TYPE=Dogfighter)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Dreadnought	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat																Required Skill
+CLASS:Dreadnought	PREFEAT:1,Improved Damage Threshold	PREFEAT:2,TYPE=DamageReduction,TYPE=EnergyResistance,TYPE=Unbreakable	PRESKILL:1,Intimidate=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
+1	SA:Fearless	SA:Stability	SA:Unhindered														BONUS:MISC|ACHECK|2
+2	SA:Steamroller						BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL																			FEATAUTO:Ability Surge
+3																																			ADD:FEAT(TYPE=Dreadnought)
+4	SA:Master Defender +%|MasterDefender		BONUS:VAR|MasterDefender|((CL-1)/3)*2																DEFINE:MasterDefender|0
+5	SA:Knockdown
+6																																			ADD:FEAT(TYPE=Dreadnought)
+8	SA:Heavy Artillery																						BONUS:WEAPONPROF=ALL|PCSIZE|1
+9																																			ADD:FEAT(TYPE=Dreadnought)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus													Combat bonus		Modify VAR
+CLASS:Engineer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Engineer	PRESKILL:5,Computer Use,Craft (Electronic),Craft (Mechanical),Knowledge (Technology),Repair=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Engineer	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Search|Speak Language
+1	SA:Improve Kit +%|ImproveKit					BONUS:VAR|ImproveKit|1		DEFINE:ImproveKit|0	ADD:FEAT(Builder)
+2	SA:Quick Craft	SA:Superior Repair
+3																			ADD:FEAT(TYPE=Engineer)
+4	SA:Reconfigure Weapon	SA:Sabotage				BONUS:VAR|ImproveKit|1
+5	SA:Quick Craft	SA:Craft XP Reserve %|CraftReserve	BONUS:VAR|CraftReserve|CL*100	DEFINE:CraftReserve|0
+6																			ADD:FEAT(TYPE=Engineer)
+7	SA:Quick Fix							BONUS:VAR|ImproveKit|1
+8	SA:Weapon Upgrade
+9																			ADD:FEAT(TYPE=Engineer)
+10	SA:Unflustered
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus									Combat bonus		Modify VAR
+CLASS:Explorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Skill
+CLASS:Explorer	PRESKILL:2,Knowledge (Earth and Life Sciences),Survival=6	PRESKILL:1,Search=4	PRESKILL:1,Knowledge (History),Knowledge (Physical Sciences),Knowledge (Theology and Philosophy)=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Pilot|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
+1	SA:Explorer Lore +%|ExplorerLore	SA:Survivalist	BONUS:VAR|ExplorerLore|CL+INT	DEFINE:ExplorerLore|0					FEATAUTO:Guide|Track
+2	SA:Resolve	SA:Skilled Researcher
+3																			ADD:FEAT(TYPE=Explorer)
+4										BONUS:VAR|TrapSense|(CL-1)/3									FEATAUTO:Trap Sense
+5	SA:Extra Step
+6																			ADD:FEAT(TYPE=Explorer)
+8	SA:Explorer's Evasion
+9																			ADD:FEAT(TYPE=Explorer)
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Field Officer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat					Required Skill
+CLASS:Field Officer	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Diplomacy,Knowledge (Tactics)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Read/Write Language|Sense Motive|Speak Language
+1	SA:Leadership
+2	SA:Uncanny Survival
+3					ADD:FEAT(TYPE=FieldOfficer)
+4	SA:Tactical Expertise
+5	SA:August Leadership
+6					ADD:FEAT(TYPE=FieldOfficer)
+7	SA:Tactical Mastery
+8	SA:Commanding Presence
+9					ADD:FEAT(TYPE=FieldOfficer)
+10	SA:Action Trust
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Helix Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Req. Att.	Required Feat		Required Skill
+CLASS:Helix Warrior	PREATT:3	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Tactics)=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Helix Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Computer Use|Demolitions|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Spot|Survival|Swim|Tumble
+1					SA:Haul	SA:Light Sleeper	SA:Survivor
+2	VISION:Darkvision (60)
+3																								ADD:FEAT(TYPE=HelixWarrior)
+4					SA:Strong as an Ox
+5					SA:Superior Conditioning										BONUS:VISION|Darkvision|30
+6																								ADD:FEAT(TYPE=HelixWarrior)
+7					SA:Improved Reaction				BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+8																			BONUS:VISION|Darkvision|30
+9																								ADD:FEAT(TYPE=HelixWarrior)
+10					SA:Decisive Attack
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Space Monkey	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Required Feat										Required Skill
+CLASS:Space Monkey	PREFEAT:1,Occupation (Astronaut Trainee)	PREFEAT:1,TYPE=Unbreakable	PRESKILL:1,Craft (Mechanical),Craft (Structural)=6	PRESKILL:1,Survival=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Space Monkey	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Escape Artist|Jump|Knowledge (Earth and Life Sciences)|Knowledge (Technology)|Navigate|Pilot|Repair|Search|Survival|Treat Injury|Tumble
+1	SA:Hibernation Trance
+2	SA:Monkey's Wrench +%|MonkeysWrench	BONUS:VAR|MonkeysWrench|CL/2										DEFINE:MonkeysWrench|0
+3																									ADD:FEAT(TYPE=SpaceMonkey)
+4	SA:Monkeys Unite
+5	SA:Know Location +%|KnowLocation	BONUS:VAR|KnowLocation|((CL-2)/3)*2									DEFINE:KnowLocation|0
+6																									ADD:FEAT(TYPE=SpaceMonkey)
+7	SA:Monkey Shines
+8	SA:Space Suitable										BONUS:MISC|ACHECK|1	BONUS:MISC|MAXDEX|1
+9																									ADD:FEAT(TYPE=SpaceMonkey)
+10	SA:Monkey Shot
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Swindler	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
+# Class Name	Required Feat					Required Skill
+CLASS:Swindler	PREFEAT:2,Charm,Coordinate,Fast-Talk	PRESKILL:2,Bluff,Gamble=6	PRESKILL:1,Disguise=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Read/Write Language|Research|Sense Motive|Sleight of Hand|Speak Language|Tumble
+1	SA:Cheat Fate
+2	SA:Thousand Faces
+3																				ADD:FEAT(TYPE=Swindler)
+4	SA:Fortune's Favor +%|FortunesFavor		BONUS:VAR|FortunesFavor|((CL-1)/3)*2	DEFINE:FortunesFavor|0
+5	SA:Warp Probability % ft|WarpProbability	BONUS:VAR|WarpProbability|((CL-2)/3)*30	DEFINE:WarpProbability|0
+6																				ADD:FEAT(TYPE=Swindler)
+9																				ADD:FEAT(TYPE=Swindler)
+
+# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus													Combat bonus		Modify VAR
+CLASS:Technosavant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
+# Class Name		Required Skill
+CLASS:Technosavant	PRESKILL:3,Computer Use,Disable Device,Knowledge (Technology)=6	PRESKILL:1,Craft (Electronic),Craft (Mechanical)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
+1	SA:Technocrat																												FEATAUTO:Salvage
+2	SA:Robomancer	SA:Technophile
+3																										ADD:FEAT(TYPE=Technosavant)
+4	SA:Cybermancer	SA:Skilled Salvager
+5	SA:Exotic Weapons Adept	SA:Down with Robots (+%d6/+%)|DownWithRobots|DownWithRobots*4	BONUS:VAR|DownWithRobots|(CL-2)/3	DEFINE:DownWithRobots|0
+6																										ADD:FEAT(TYPE=Technosavant)
+7	SA:Super Cybersurgeon	SA:Virtual Houdini
+8	SA:Expeditious Salvager
+9																										ADD:FEAT(TYPE=Technosavant)
+10	SA:Build Prototype
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Tracer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+3)*2/5	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat	Required Skill
+CLASS:Tracer	PREATT:2	PREFEAT:1,Track	PRESKILL:2,Investigate,Survival=6	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Streetwise)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
+1	SA:Target Species																		FEATAUTO:Urban Tracking
+2				BONUS:VAR|SwiftStrike|(CL-1)/3												FEATAUTO:Swift Strike
+3																	ADD:FEAT(TYPE=Tracer)
+4											DEFINE:UncannyStealthChargeQual|0					FEATAUTO:Uncanny Stealth
+6																	ADD:FEAT(TYPE=Tracer)
+7				BONUS:VAR|UncannyStealthChargeQual|1
+9																	ADD:FEAT(TYPE=Tracer)
+10	SA:Swift Tracking
+
+# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat				Required Skill
+CLASS:Xenophile	PREFEAT:1,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences),Knowledge (Technology)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
+1	SA:Xenolore														ADD:FEAT(TYPE=Xenotype)						FEATAUTO:Base Xenotype
+2	SA:Xenoresistance +%|Xenoresist	BONUS:VAR|Xenoresist|(CL+1)/3	DEFINE:Xenoresist|0
+3																ADD:FEAT(TYPE=Xenophile)
+4																ADD:FEAT(TYPE=Xenotype)	ADD:FEAT(TYPE=XenotypeBonus)
+5	SA:Xenodefense +%|Xenodef		BONUS:VAR|Xenodef|CL/5		DEFINE:Xenodef|0
+6																ADD:FEAT(TYPE=Xenophile)
+7																ADD:FEAT(TYPE=Xenotype)	ADD:FEAT(TYPE=XenotypeBonus)
+9																ADD:FEAT(TYPE=Xenophile)
+10																ADD:FEAT(TYPE=Xenotype)	ADD:FEAT(TYPE=XenotypeBonus)
+
+#
+# End
+#

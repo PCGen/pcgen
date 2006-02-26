@@ -1,0 +1,94 @@
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sat Nov 22 19:16:09 2003 -- reformated by prettylst.pl v1.32 (build 333)
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+# Original Entry by: Mynex, Tir Gwaith, & bD_92
+
+# Weapon Name		Type			Nb Hands
+Blowgun			TYPE:Exotic
+Bola				TYPE:Exotic
+Boomerang			TYPE:Exotic
+Spiked Chain		TYPE:Exotic
+Crossbow (Hand)		TYPE:Exotic		HANDS:1
+Crossbow (Repeating)	TYPE:Exotic		HANDS:2
+Flail (Dire)		TYPE:Exotic
+Kama				TYPE:Exotic
+Katana			TYPE:Exotic
+Kusari-gama			TYPE:Exotic
+Kukri				TYPE:Exotic
+Katana			TYPE:Exotic
+Net				TYPE:Exotic
+Nunchaku			TYPE:Exotic
+Shuriken			TYPE:Exotic
+Siangham			TYPE:Exotic
+Sword (Bastard/Exotic)	TYPE:Exotic		HANDS:1IFLARGERTHANWEAPON
+Sword (Two-Bladed)	TYPE:Exotic
+Katana			TYPE:Exotic
+Whip				TYPE:Exotic
+Armor Spikes		TYPE:Martial
+Battleaxe			TYPE:Martial
+Epee				TYPE:Martial
+Falchion			TYPE:Martial
+Flail				TYPE:Martial
+Glaive			TYPE:Martial
+Greataxe			TYPE:Martial
+Greatclub			TYPE:Martial
+Guisarme			TYPE:Martial
+Halberd			TYPE:Martial
+Hammer (Light)		TYPE:Martial
+Handaxe			TYPE:Martial
+Lance				TYPE:Martial
+Longbow			TYPE:Martial
+Longbow (Composite)	TYPE:Martial	HANDS:2
+Longspear			TYPE:Martial	HANDS:2
+Pick				TYPE:Martial
+Ranseur			TYPE:Martial
+Rapier			TYPE:Martial
+Sap				TYPE:Martial
+Scimitar			TYPE:Martial
+Scythe			TYPE:Martial
+Shortbow			TYPE:Martial	HANDS:2
+Shortbow (Composite)	TYPE:Martial	HANDS:2
+Speargun			TYPE:Martial	HANDS:2
+Greatsword			TYPE:Martial	HANDS:2
+Longsword			TYPE:Martial
+Sword (Short)		TYPE:Martial
+Trident			TYPE:Martial
+Warhammer			TYPE:Martial
+Baseball Bat		TYPE:Simple
+Brass Knuckles		TYPE:Simple
+Club				TYPE:Simple
+Crossbow (Heavy)		TYPE:Simple
+Crossbow (Light)		TYPE:Simple		HANDS:2
+Dagger			TYPE:Simple		HANDS:2
+Dart				TYPE:Simple
+Gauntlet			TYPE:Simple
+Gauntlet (Spiked)		TYPE:Simple
+Halfspear			TYPE:Simple
+Javelin			TYPE:Simple
+Knife (Bowie)		TYPE:Simple
+Mace				TYPE:Simple
+Morningstar			TYPE:Simple
+Quarterstaff		TYPE:Simple
+Shortspear			TYPE:Simple		HANDS:2
+Sickle			TYPE:Simple
+Sling				TYPE:Simple
+Sword cane			TYPE:Simple
+Beretta 92F			TYPE:Personal
+M1911 .45			TYPE:Personal
+IMI Eagle			TYPE:Personal
+Luger 9mm			TYPE:Personal
+Colt Army			TYPE:Personal
+Colt Navy			TYPE:Personal
+Colt Dragoon		TYPE:Personal
+Colt Python			TYPE:Personal
+Derringer			TYPE:Personal
+Thompson .45		TYPE:Personal
+IMI Uzi			TYPE:Personal
+M16				TYPE:Advanced
+AK 47				TYPE:Advanced
+M72A3LAW			TYPE:Heavy		HANDS:2
+Antimatter Pistol		TYPE:Futuristic
+Antimatter Rifle		TYPE:Futuristic
+Blaster Pistol		TYPE:Futuristic
+Blaster Rifle		TYPE:Futuristic
+Laser Pistol		TYPE:Futuristic
+Laser Rifle			TYPE:Futuristic

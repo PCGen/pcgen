@@ -1,0 +1,21 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Mon Dec  5 12:04:41 2005 -- reformated by prettylst.pl v1.35 (build 553)
+CAMPAIGN:Modern Dispatch - #67 - The Precinct
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Modern Dispatch
+GENRE:Modern
+BOOKTYPE:Magazine
+SOURCELONG:Modern Dispatch #67 - The Precinct
+SOURCESHORT:MD67-Precinct
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Dispatch #67 2004, RPGObjects; Author Charles Rice, Chris Davis
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #67 Copyright 2005-2006, PCGen Data team including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:moderndispatch067_classes.lst
+FEAT:moderndispatch067_feats_mod.lst

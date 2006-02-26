@@ -1,0 +1,69 @@
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Mon Oct 24 15:58:41 2005 -- reformated by prettylst.pl v1.35 (build 506)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Paul King
+
+#Shadow Heritage: Support for BONUS:CHECKS|%LIST syntax requested with Freq Tracker [ 1335943 ] -- Frank Kliewe
+
+###Block: General feats
+# Feat Name				Type					Req. Att.	Required Check Base		Required Class							Required Feat							Required Lvl	Multiple Requirements																					Required Skill										Required Stat	Required Template					Special Ability														Define				Description																													Stackable?	Multiple?	Choose																							BONUS:DC						Bonus to skill													Modify VAR					Class Skill								Source Page
+Arcane Skills			TYPE:General																																																																																																		DESC:You have access to arcane skills																																																																																CSKILL:Concentration|Craft (Chemical)|Spellcraft	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Cirque Acrobate			TYPE:General																			PREFEAT:2,Acrobatic,Cirque Controleur																														PRESKILL:1,Balance=6	PRESKILL:1,Tumble=9					PRESTAT:1,DEX=16	PRETEMPLATE:Member of Cirque des Moitie																																																																																							BONUS:SKILL|Disguse,Perform (Dance),Sleight of Hand|2|TYPE=Competence																			SOURCEPAGE:ArcanaOrganizations.rtf
+Cirque Controleur			TYPE:General																			PREFEAT:1,Acrobatic																																	PRESKILL:1,Balance=6									PRESTAT:1,DEX=15	PRETEMPLATE:Member of Cirque des Moitie																																																																																							BONUS:SKILL|Move Silently,Perform (Act),Tumble|2|TYPE=Competence																				SOURCEPAGE:ArcanaOrganizations.rtf
+Cirque Vedette			TYPE:General																			PREFEAT:3,Acrobatic,Cirque Acrobate,Cirque Controleur																												PRESKILL:1,Balance=6	PRESKILL:1,Tumble=9	PRESKILL:1,Disguise=12	PRESTAT:1,DEX=18	PRETEMPLATE:Member of Cirque des Moitie																																																																																							BONUS:SKILL|Balance,Escape Artist,Move Silently,Sleight of Hand,Tumble|4|TYPE=Competence																SOURCEPAGE:ArcanaOrganizations.rtf
+Empower Turning			TYPE:General.Acolyte																		PREFEAT:1,Base Turn																																													PRESTAT:1,CHA=13																													DESC:You can turn or rebuke (or awe or command) more creatures with a single turning check																																																																																SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+#need to figure out how to choose from the various turn/rebuke attempts
+Extra Turning			TYPE:General.Acolyte																		PREFEAT:1,Base Turn																																																																												DESC:You can turn or rebuke a creature type more often than normal																					MULT:YES	CHOOSE:Four more attempts to a particular type of creature																																																				SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Fleet of Foot			TYPE:General																			PREFEAT:1,Run																																																																													DESC:You can turn corners without losing momentum																																																																																							SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Greater Spell Focus		TYPE:General.Mage.Acolyte								PRECLASS:1,SPELLCASTER.Arcane,SPELLCASTER.Divine=6	PREFEAT:1,Spell Focus																																																																												DESC:Choose a school of magic, such as Evocation or Illusion, for which you have already selected the Spell Focus feat. Your spells of that school are even more potent than normal	STACK:NO	MULT:YES	CHOOSE:FEAT=Spell Focus|1																				BONUS:DC|SCHOOL.%LIST|2|TYPE=SpellFocus																															SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Greater Spell Penetration	TYPE:General.Mage.Acolyte																	PREFEAT:1,Spell Penetration																																																																											DESC:Your spells are remarkably potent, breaking through spell resistance more readily than normal																																																																BONUS:VAR|SpellPenetrationFeat|2										SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+Improved Grapple			TYPE:General																			PREFEAT:1,Brawl																																														PRESTAT:1,DEX=13																													DESC:You are skilled at grappling opponents																																																																																								SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Improved Overrun			TYPE:General																			PREFEAT:1,Power Attack																																													PRESTAT:1,STR=13																													DESC:You are skilled at knocking down opponents																																																																																								SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Improved Natural Healing	TYPE:General					PRECHECKBASE:1,Willpower=5																																																																																									DESC:You recover from wounds and injury faster than normal																																																																																						SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+#as Extra Turning
+Improved Turning			TYPE:General.Acolyte																		PREFEAT:1,Base Turn																																																																												DESC:Your turning or rebuke attempts are more powerful than normal																																																																																				SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Jack of all Trades		TYPE:General																												PRELEVEL:8																																																																					DESC:You have an amateur’s knowledge of all skills, even ones that require training																																																																																		SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Magical Affinity			TYPE:General																																																																																																		DESC:You have a knack for magical endeavors																																																										BONUS:SKILL|Spellcraft,Use Magical Device|2																							SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Power Crit				TYPE:General			PREATT:10																																																																																														DESC:You may threaten a critical hit if you succeed in hitting an opponent																				MULT:YES	CHOOSE:WEAPONPROFS																																																										SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Precise Strike			TYPE:General			PREATT:5																																																																																														DESC:Your strikes against an opponent are treated as touch attacks																																																																																				SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Signature Spell			TYPE:General																			PREFEAT:1,Spell Mastery																																																																												DESC:You are so familiar with a mastered spell that you can spontaneously cast it, converting other prepared spells into that spell											MULT:YES	CHOOSE:FEAT=Spell Mastery|1																																																									SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Spell Focus				TYPE:General.Mage.Acolyte																																																																																																DESC:Choose a school of magic, such as Evocation or Illusion. Your spells of that school are more potent than normal											STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1																						BONUS:DC|SCHOOL.%LIST|1|TYPE=SpellFocus																															SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Spell Penetration			TYPE:General.Mage.Acolyte																																																																											SA:+% bonus on caster level checks to beat a creature's spell resistance|SpellPenetrationFeat	DEFINE:SpellPenetrationFeat|2	DESC:Your spells are especially potent, breaking through spell resistance more readily than normal																																																																															SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+#need to figure out to properly implement this feat
+Spellslinger			TYPE:General																															PREMULT:1,[PREMULT:2,[PRESTAT:1,INT=13],[PRECLASS:1,SPELLCASTER.Arcane=1]],[PREMULT:2,[PRESTAT:1,WIS=13],[PRECLASS:1,SPELLCASTER.Divine=1]]																																												DESC:You have a gift for magic that allows you to cast more spells than normal																			MULT:YES	CHOOSE:New spellcasting class																																																									SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Supernatural Strike		TYPE:General.ShadowSlayer	PREATT:2																																																																																														DESC:You may score critical hits against creatures that are normally unaffected by critical hits																																																																															SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Vehicle Specialization		TYPE:General																																																																																																		DESC:You are proficient with one type of vehicle																								MULT:YES	CHOOSE:Civilian Aircraft|Civilian Cars|Civilian Motorcycles|Civilian Trucks|Civilian Water Vehicles|Other Civilian Vehicles|Military Vehicles																																						SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+###Block: Meta Magic
+# Feat Name		Type					Description												Add Spell Lvl	BONUS:DC			Source Page
+Empower Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells to greater effect						ADDSPELLLEVEL:2					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Enlarge Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells farther than normal						ADDSPELLLEVEL:1					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Eschew Materials	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells without relying on material components			ADDSPELLLEVEL:0					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Extend Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells that last longer than normal					ADDSPELLLEVEL:1					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Heighten Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast a spell as if it were a higher level than it actually is	ADDSPELLLEVEL:1	BONUS:DC|FEATBONUS|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Nonlethal Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can modify a spell to deal nonlethal instead of lethal damage		ADDSPELLLEVEL:1					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Reach Spell		TYPE:Metamagic.Mage.Acolyte	DESC:You can cast touch spells without touching the spell recipient		ADDSPELLLEVEL:2					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Sacred Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells imbued with divine energy					ADDSPELLLEVEL:2					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Shadowbane Spell	TYPE:Metamagic.Mage.Acolyte	DESC:Your spells are more effective against creatures of Shadow			ADDSPELLLEVEL:1					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Silent Spell	TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells silently								ADDSPELLLEVEL:1					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Still Spell		TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells without gestures							ADDSPELLLEVEL:1					SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+#Divine Heritage: need to figure out how to choose 3 orisons
+#Magical Heritage: as Divine Heritage, except for cantrips
+
+###Block: Initial feats.
+# Feat Name		Type			Maximum Level	Required Stat	Description																																										Multiple?	Choose							Save checks bonus		Vision		Source Page
+Divine Heritage	TYPE:Initial	PRELEVELMAX:1	PRESTAT:1,WIS=10	DESC:You have divine spellcasting abilities in your background, such as a saint in your family tree, or you have had a divine experience, revelation, or epiphany which has left you with modest divine abilities																										SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Magical Heritage	TYPE:Initial	PRELEVELMAX:1	PRESTAT:1,INT=10	DESC:You have magical ability in your background, such as a sorcerer in your bloodline, or you gained access to magic at a particularly young age (by discovering a spellbook in your attic, for example). As a result, you mastered some basic spellcasting.																		SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Shadow Heritage	TYPE:Initial	PRELEVELMAX:1				DESC:You have a creature of Shadow in your distant ancestry. The exact nature of that shadowblood is immaterial (though it may be a source of adventure), as the overpowering human genetic tide has reduced its special abilities to a few salient features	MULT:YES	CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Willpower	BONUS:CHECKS|%LIST|1	VISION:Low-light	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+###Block: For Creatures
+# Feat Name			Type			Min. nb of Hand	Required Stat	Description															Combat bonus									Source Page
+Multiweapon Fighting	TYPE:General	PREHANDSGT:2	PRESTAT:1,DEX=13	DESC:The primary attack takes a -2 penalty, and all the secondary attacks take a -6 penalty.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6	SOURCEPAGE:ArcanaCreatures.rtf
+
+#
+# End
+#

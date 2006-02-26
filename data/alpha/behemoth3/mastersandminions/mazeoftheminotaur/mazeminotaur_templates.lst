@@ -1,0 +1,57 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Maze of the Minotaur|SOURCESHORT:MotM|SOURCEWEB:http://www.behemoth3.com/
+#Original Entry by: Aaron Divinsky
+
+###Block: Racial templates
+
+# Template Name	Visible	SUBRACE	GENDERLOCK
+Bull Lord		VISIBLE:NO	SUBRACE:YES
+Minotaur		VISIBLE:NO			GENDERLOCK:Male
+Minotrice		VISIBLE:NO			GENDERLOCK:Female
+
+###Block: Natural Weapon Selectors
+# Template Name	Visible	Template																							Automaticaly Added to Inventory
+Gore			VISIBLE:NO	TEMPLATE:CHOOSE:Gore (Fine)|Gore (Diminutive)|Gore (Tiny)|Gore (Small)|Gore (Medium)|Gore (Large)|Gore (Huge)|Gore (Gargantuan)|Gore (Colossal)
+Powerful Charge	VISIBLE:NO	TEMPLATE:CHOOSE:Powerful Charge (Medium)|Powerful Charge (Large)														AUTO:EQUIP|Powerful Charge
+
+###Block: Natural Weapons
+# Template Name			Visible	Special Ability		Required Size	Weapon prof. bonus							Natural Attacks
+Gore (Fine)				VISIBLE:NO					PRESIZEEQ:F												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1
+Gore (Diminutive)			VISIBLE:NO					PRESIZEEQ:D												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d2
+Gore (Tiny)				VISIBLE:NO					PRESIZEEQ:T												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d3
+Gore (Small)			VISIBLE:NO					PRESIZEEQ:S												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Gore (Medium)			VISIBLE:NO					PRESIZEEQ:M												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Gore (Large)			VISIBLE:NO					PRESIZEEQ:L												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+Gore (Huge)				VISIBLE:NO					PRESIZEEQ:H												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d6
+Gore (Gargantuan)			VISIBLE:NO					PRESIZEEQ:G												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,3d6
+Gore (Colossal)			VISIBLE:NO					PRESIZEEQ:C												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
+
+Powerful Charge (Medium)	VISIBLE:NO	SA:Powerful Charge (Ex)	PRESIZEEQ:M		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+Powerful Charge (Large)		VISIBLE:NO	SA:Powerful Charge (Ex)	PRESIZEEQ:L		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
+
+###Block: Favored Classes
+
+# Template Name						Visible	Template																Define				Required var. value		!PREVAREQ				FAVOREDCLASS
+Minotaur Favored Class					VISIBLE:NO	TEMPLATE:CHOOSE:Minotaur Favored Class (Class)|Minotaur Favored Class (Monster)				DEFINE:DoneMonsterProg|0
+Minotaur Favored Class (Class)			VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotaur|Barbarian
+Minotaur Favored Class (Monster)			VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotaur
+
+Minotrice Favored Class					VISIBLE:NO	TEMPLATE:CHOOSE:Minotrice Favored Class (Class)|Minotrice Favored Class (Monster)				DEFINE:DoneMonsterProg|0
+Minotrice Favored Class (Class)			VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotrice|Rogue
+Minotrice Favored Class (Monster)			VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotrice
+
+Minotrice Maze Mage Favored Class			VISIBLE:NO	TEMPLATE:CHOOSE:Minotrice Maze Mage Favored Class (Class)|Minotrice Maze Mage Favored Class (Monster)	DEFINE:DoneMonsterProg|0
+Minotrice Maze Mage Favored Class (Class)		VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotrice Maze Mage|Druid
+Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotrice Maze Mage
+
+###Block: Misc templates
+
+# Template Name	Visible	Level Adjustment				Special Ability		Define				Virtual Feat
+ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment					DEFINE:LevelAdjustment|0
+
+### TODO: This should be a hidden feat but it doesn't add the feat if it is a feat
+Natural Cunning	VISIBLE:NO							SA:Natural Cunning (Ex)						VFEAT:Track
+
+#
+# End
+#

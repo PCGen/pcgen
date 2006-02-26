@@ -1,0 +1,77 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Default Dromite	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dromite]
+NAME:Dromite
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Dromite	!PRERACE:%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:2
+SKILL:Spot	RANK:2
+FEAT:Weapon Focus (Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Duergar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Duergar]
+NAME:Duergar
+KIT:Default Dwarf (Duergar)
+RACE:Duergar	!PRERACE:%
+
+STARTPACK:Default Elan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Elan]
+NAME:Elan
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Elan	!PRERACE:%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Jump	RANK:4
+FEAT:Weapon Focus (Warhammer)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Half-Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Half-Giant]
+NAME:Half-Giant
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:NG
+RACE:Half-Giant	!PRERACE:%
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Focus (Greatsword)
+GEAR:Scale Mail	SIZE:PC	LOCATION:Equipped
+GEAR:Greatsword	SIZE:L	LOCATION:Both Hands
+GEAR:Javelin	SIZE:L	LOCATION:Carried
+
+STARTPACK:Default Maenad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Maenad]
+NAME:Maenad
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Maenad	!PRERACE:%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Jump	RANK:4
+FEAT:Weapon Focus (Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow			SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Default Xeph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Xeph]
+NAME:Xeph
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Xeph	!PRERACE:%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Jump	RANK:4
+FEAT:Weapon Finesse
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Rapier				SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow			SIZE:PC	LOCATION:Carried

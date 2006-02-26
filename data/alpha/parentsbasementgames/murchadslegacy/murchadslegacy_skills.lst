@@ -1,0 +1,49 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon May 16 23:21:26 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+###Block: Social skills MOD
+
+# Skill Name					Type
+Bluff.MOD						TYPE:Social
+Diplomacy.MOD					TYPE:Social
+Disguise.MOD					TYPE:Social
+Gather Information.MOD				TYPE:Social
+Intimidate.MOD					TYPE:Social
+Perform (Act).MOD					TYPE:Social
+Perform (Comedy).MOD				TYPE:Social
+Perform (Dance).MOD				TYPE:Social
+Perform (Keyboard Instruments).MOD		TYPE:Social
+Perform (Oratory).MOD				TYPE:Social
+Perform (Percussion Instruments).MOD	TYPE:Social
+Perform (String Instruments).MOD		TYPE:Social
+Perform (Wind Instruments).MOD		TYPE:Social
+Perform (Sing).MOD				TYPE:Social
+Sense Motive.MOD					TYPE:Social
+
+###Block: Knowledge (Local) sub-skills
+
+# Skill Name			Key Stat	Untrained?		Type					Source Page
+Knowledge (Local/Aeylamdyar)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Calisia)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Desolati)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Gadohig)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Galkarnan)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Home)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Launhym)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Remaria)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+Knowledge (Local/Shintai)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
+
+###Block: New sub-skills
+
+# Skill Name				Key Stat	Untrained?		Type					Bonus to skill															Source Page		Temporary effect description
+Craft (Gunsmithing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		BONUS:SKILL|Craft (Gunsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=GunsmithingTools|PREAPPLY:PC	SOURCEPAGE:p.36	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge																		SOURCEPAGE:p.13
+Knowledge (War)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge																		SOURCEPAGE:p.13
+Perform (Spiked Chain Dancing)	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform																			SOURCEPAGE:p.22
+Profession (Skin Art/Tattoo)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																			SOURCEPAGE:p.13
+Profession (Sailor)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																			SOURCEPAGE:p.15
+
+#
+# End
+#

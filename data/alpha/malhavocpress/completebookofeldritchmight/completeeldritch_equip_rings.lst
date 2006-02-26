@@ -1,0 +1,19 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 27 07:59:39 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+#Errata applied as per http://shadow.wizards.com/dnd/files/DMGErrata.pdf
+
+# Equipment Name		Output Name				Type			Cost		Weight	Slot Needed	Source Page		Virtual Feat			Spells					Special Property							Unarmed Damage
+Ring (Angel's Ring)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:10000	WT:0				SOURCEPAGE:p.169
+Ring (Devlin's Ring)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:2000	WT:0				SOURCEPAGE:p.169
+Ring (Flesh Golemfist)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:20000	WT:0		SLOTS:2	SOURCEPAGE:p.169	VFEAT:Improved Unarmed Strike																UDAM:2d8
+Ring (Clay Golemfist)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:28000	WT:0		SLOTS:2	SOURCEPAGE:p.169	VFEAT:Improved Unarmed Strike																UDAM:2d10
+Ring (Stone Golemfist)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:34000	WT:0		SLOTS:2	SOURCEPAGE:p.169	VFEAT:Improved Unarmed Strike	SPELLS:Stone Golemfist|TIMES=1|Slow										UDAM:2d10
+Ring (Iron Golemfist)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:66000	WT:0		SLOTS:2	SOURCEPAGE:p.169	VFEAT:Improved Unarmed Strike							SPROP:Wearer can breathe a cloud of poison gas 1/day	UDAM:2d20
+Ring (Blue Conjures)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:42000	WT:0				SOURCEPAGE:p.169
+Ring (Ebony Bolts)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:86000	WT:0				SOURCEPAGE:p.170
+Ring (Holy Spells)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:25000	WT:0				SOURCEPAGE:p.170
+Ring (Potion Storage)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:1000	WT:0				SOURCEPAGE:p.170
+Ring (Red Conjures)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:14000	WT:0				SOURCEPAGE:p.170
+Ring (Scorched Mind)	OUTPUTNAME:Ring of the [NAME]	TYPE:Magic.Ring	COST:150000	WT:0				SOURCEPAGE:p.170
+Ring (Silence)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:7000	WT:0				SOURCEPAGE:p.170

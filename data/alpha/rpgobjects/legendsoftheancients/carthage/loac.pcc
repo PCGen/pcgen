@@ -1,0 +1,26 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Feb  1 09:00:38 2005 -- reformated by prettylst.pl v1.34 (build 455)
+CAMPAIGN:RPG Objects - Legends of the Ancients - Carthage
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:RPG Objects.Legends of the Ancients.Carthage
+SOURCELONG:Legends of the Ancients - Carthage
+SOURCESHORT:LoAC
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Legends of the Ancients: Carthage Copyright 2005, RPGObjects; Author Charles Rice.
+COPYRIGHT:PCGen dataset conversion for the Legends of the Ancients - Carthage Copyright 2005, PCgen Data team (Including, but not limited to Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:loac_class.lst
+FEAT:loac_feat.lst
+FEAT:loac_feat_hidden.lst
+SPELL:loac_spell.lst
+TEMPLATE:loac_template.lst

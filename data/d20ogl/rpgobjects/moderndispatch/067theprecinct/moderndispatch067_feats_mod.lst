@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Feb  7 21:22:59 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #67 - The Precinct|SOURCESHORT:MD67-Precinct|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180
+
+# Feat Name					Type
+Alertness.MOD				TYPE:BadCop.GoodCop
+Armor Proficiency (Light).MOD		TYPE:BadCop.GoodCop
+Armor Proficiency (Medium).MOD	TYPE:BadCop
+Attentive.MOD				TYPE:GoodCop
+Brawl.MOD					TYPE:BadCop
+Combat Expertise.MOD			TYPE:GoodCop
+Combat Martial Arts.MOD			TYPE:BadCop
+Confident.MOD				TYPE:BadCop
+Deceptive.MOD				TYPE:GoodCop
+Defensive Martial Arts.MOD		TYPE:GoodCop
+Double Tap.MOD				TYPE:BadCop
+Educated.MOD				TYPE:GoodCop
+Force Stop.MOD				TYPE:BadCop
+Frightful Presence.MOD			TYPE:BadCop
+Improved Bull Rush.MOD			TYPE:BadCop
+Improved Disarm.MOD			TYPE:GoodCop
+Knockout Punch.MOD			TYPE:BadCop
+Personal Firearms Proficiency.MOD	TYPE:GoodCop
+Point Blank Shot.MOD			TYPE:BadCop
+Power Attack.MOD				TYPE:BadCop
+Precise Shot.MOD				TYPE:BadCop
+Quick Draw.MOD				TYPE:BadCop
+Quick Reload.MOD				TYPE:BadCop
+Renown.MOD					TYPE:GoodCop

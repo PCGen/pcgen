@@ -1,0 +1,39 @@
+# CVS $Revision: 1.12 $ $Author: tir-gwaith $
+CAMPAIGN:MP - Book of Eldritch Might - Source Book
+GAMEMODE:3e
+TYPE:Malhavoc Press.Supplement
+RANK:9
+SOURCELONG:Malhavoc Press - Book of Eldritch Might
+SOURCESHORT:BoEM1
+SOURCEWEB:http://www.montecook.com
+ISLICENSED:YES
+LICENSE:Proper names from The Book of Eldritch Might are ©2001-2004 Monte J. Cook and are used here with his permission.
+INFOTEXT:Proper names from The Book of Eldritch Might are ©2001-2004 Monte J. Cook and are used here with his permission.
+ISOGL:YES
+COPYRIGHT:The Book of Eldritch Might &copy;2001 Monte J. Cook
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:d20 System rules and Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for The Book of Eldritch Might Copyright 2002-2005, PCgen Data team (including, but not limited to, Andrew McDougall (Tir Gwaith), Paul Miller, Paul W. King, Paul Grosse)
+INFOTEXT:Spell names and other proper names from The Book of Eldritch Might are ©2001-2005 Monte J. Cook and are used here with his permission.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+FEAT:eldritch_feats.lst
+SKILL:eldritch_skills.lst
+
+CLASS:eldritch_classes.lst
+SPELL:eldritch_spells.lst
+
+RACE:eldritch_races.lst
+
+EQUIPMENT:eldritch_equip_wondrousitems.lst
+EQUIPMENT:eldritch_equip_rings.lst
+EQUIPMENT:eldritch_equip_potions.lst
+EQUIPMENT:eldritch_equip_poisons.lst
+EQUIPMENT:eldritch_equip_weap_melee.lst
+EQUIPMENT:eldritch_equip_scrolls.lst
+EQUIPMENT:eldritch_equip_rodsstaffswands.lst
+
+#Needed stuff from SRD for program not to hang
+CLASS:@\d20ogl\srd\srd_classes_creature_types.lst|(INCLUDE:Construct)

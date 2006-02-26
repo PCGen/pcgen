@@ -1,0 +1,25 @@
+# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons|SOURCESHORT:SGtAmazons|SOURCEWEB:http://mongoosepublishing.com
+
+# Spell Name	Domains granting the spell	School			Type		Components		Casting Time	Range			Target Area					Duration				Save Info			Spell Resistance	Description		Source Page		Item
+Cold of Night	DOMAINS:Moon=8			SCHOOL:Evocation		TYPE:Divine	COMPS:V S DF	CASTTIME:1 round	RANGE:Medium	TARGETAREA:Creatures within area	DURATION:Instantantenous	SAVEINFO:Reflex half	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.26	ITEM:Potion
+Mother's Milk	DOMAINS:Moon=5			SCHOOL:Transmutation	TYPE:Divine	COMPS:V S M DF	CASTTIME:1 round	RANGE:Touch		TARGETAREA:Vessel touched		DURATION:Instantantenous	SAVEINFO:None		SPELLRES:No		DESC:See text	SOURCEPAGE:p.26
+
+###Block: SPELL.MOD generated from the old CLASSSPELL files
+# Spell Name				Domains granting the spell
+Cause Fear.MOD				DOMAINS:Moon=1
+Circle of Death.MOD			DOMAINS:Moon=7
+Cone of Cold.MOD				DOMAINS:Moon=6
+Darkness.MOD				DOMAINS:Moon=2
+Deeper Darkness.MOD			DOMAINS:Moon=3
+Etherealness.MOD				DOMAINS:Moon=9
+Globe of Invulnerability.MOD		DOMAINS:Sisterhood=7
+Invisibility Sphere.MOD			DOMAINS:Sisterhood=4
+Minor Globe of Invulnerability.MOD	DOMAINS:Sisterhood=5
+Prayer.MOD					DOMAINS:Sisterhood=3
+Protection from Spells.MOD		DOMAINS:Sisterhood=9
+Quench.MOD					DOMAINS:Moon=4
+Shield.MOD					DOMAINS:Sisterhood=1
+Shield Other.MOD				DOMAINS:Sisterhood=2
+Unholy Aura.MOD				DOMAINS:Sisterhood=8
+Veil.MOD					DOMAINS:Sisterhood=6

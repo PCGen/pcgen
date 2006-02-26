@@ -1,0 +1,26 @@
+# CVS $Revision: 1.9 $ $Author: ericbeaudoin $
+CAMPAIGN:MP - Demon God's Fane - Source Book
+GAMEMODE:3e
+TYPE:Malhavoc Press.Supplement
+RANK:9
+SOURCELONG:Malhavoc Press - Demon God's Fane
+SOURCESHORT:DemGodFane
+SOURCEWEB:http://www.montecook.com
+ISLICENSED:YES
+LICENSE:FILE=data\permissioned\malhavocpress\demongodsfane\demonfanepermission.htm
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:d20 System rules and Content Copyright 2000, Wizards of the Coast, Inc.; authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Demon God's Fane and the Book of Eldritch Might Copyright 2001-2003, Monte J. Cook. All rights reserved
+COPYRIGHT:PCGen dataset conversion for Demon God's Fane Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:demonfanepermission.htm
+# We need the #EXTRAFILE:demonfanepermission.htm because LICENSE:FILE doesn't use
+# the usual PCGEN path notation.
+
+DEITY:demonfanedeities.lst
+EQUIPMENT:demonfaneequipartifacts.lst
+EQUIPMENT:demonfaneequipwondrousitems.lst
+

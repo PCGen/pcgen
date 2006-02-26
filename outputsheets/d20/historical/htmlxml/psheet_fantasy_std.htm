@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>Party</title>
+<style type="text/css">
+	
+<!--
+	each syle type consists of the following:
+	first : alignment type first is hozontal, second is vertical (c=center, l=left, r=right, b=bottom, t=top, m=middle)
+	second : number is always the font size
+	third : border type (m=no border s=1pt border, b=bottom border, t=top border r=right border, l=left border, g=light gray thick border, d=thick solid border)
+	fourth : color changes (missing=black on white, w=white on black, g=black on light gray, l=black on light blue)
+	a "B" on the end is for bold fonts.
+	a "I" on the end is for Italic fonts.
+	a "U" on the end is for Underline fonts.
+
+$Revision: 1.2 $
+$Author: eddyanthony $
+$Date: 2006/01/18 03:11:52 $
+-->
+
+	body { font-family:Arial; font-size:6pt; font-weight:normal; }
+	td {font-family:Arial; font-size:10pt; font-weight:normal; }
+
+	.lt6tg { font-size:6pt; text-align:left; vertical-align:top; border-top-width:1px; border-top:1pt solid black; background: #CCCCCC; }
+	.lb8   { font-size:8pt; text-align:left; vertical-align:bottom; }
+	.lt10  { font-size:10pt; text-align:left; vertical-align:top; }
+	.lt10s { font-size:10pt; text-align:left; vertical-align:top; border:1px solid black; }
+	.lb12B { font-size:12pt; text-align:left; vertical-align:bottom; font-weight:bold; }
+	.header { display:block; font-size:7pt; text-align:center; }
+
+</style>
+</head>
+<body>
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+<table border="0" cellspacing="0" width="100%" summary="Party Master Table">
+|FOR.0,50,2,
+<td class="lt10s" width="50%">
+	<table cellspacing="0" cellpadding="0" width="100%" summary="Character Table">
+		<tr>
+		<td class="lt10" width="1%"><IMG align="left" SRC="\\%.NAME\\.jpg" alt="Character Portrait" width=120></td>
+		<td class="lt10" >
+			<table cellspacing="0" cellpadding="0" width="100%" summary="Character Table">
+				<tr>
+				<td class="lb12B" colspan="3">\\%.NAME\\</td>
+				</tr>
+				<tr>
+				<td class="lt6tg" colspan="3">NAME</td>
+				</tr>
+				<tr>
+				<td class="lb8" colspan="2">\\%.CLASSLIST\\</td>
+				<td class="lb8">\\%.TOTALLEVELS\\</td>
+				</tr>
+				<tr>
+				<td class="lt6tg" colspan="2">CLASSES</td>
+				<td class="lt6tg">LEVEL</td>
+				</tr>
+				<tr>
+				<td class="lb8">\\%.HP\\</td>
+				<td class="lb8">\\%.AC.Total\\(\\%.AC.Flatfooted\\)</td>
+				<td class="lb8">\\%.INITIATIVEMOD\\</td>
+				</tr>
+				<tr>
+				<td class="lt6tg">HP</td>
+				<td class="lt6tg">AC(Flat-footed)</td>
+				<td class="lt6tg">INITIATIVE</td>
+				</tr>
+				<tr>
+				<td class="lb8">\\%.VISION\\</td>
+				<td class="lb8" colspan="1">\\%.ALIGNMENT\\</td>
+				<td class="lb8" colspan="1">\\%.TOTAL.VALUE\\</td>
+				</tr>
+				<tr>
+				<td class="lt6tg">VISION</td>
+				<td class="lt6tg">ALIGNMENT</td>
+				<td class="lt6tg">GOLD VALUE</td>
+				</tr>
+				<tr>
+				<td class="lb8">\\%.CHECK.FORTITUDE.TOTAL\\/\\%.CHECK.REFLEX.TOTAL\\/\\%.CHECK.2.TOTAL\\</td>
+				<td class="lb8" colspan="2">\\%.SKILL.Spot.TOTAL\\/\\%.SKILL.Search.TOTAL\\/\\%.SKILL.Listen.TOTAL\\</td>
+				</tr>
+				<tr>
+				<td class="lt6tg">FORT/REF/WILL</td>
+				<td class="lt6tg" colspan="2">SPOT/SEARCH/LISTEN</td>
+				</tr>
+				<tr>
+				<td class="lb8" colspan="3">\\%.LANGUAGES\\</td>
+				</tr>
+				<tr>
+				<td class="lt6tg" colspan="3">LANGUAGES</td>
+				</tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+</td>
+,<tr>,</tr>,1|
+</table>
+</body>
+</html>

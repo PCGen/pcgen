@@ -1,0 +1,31 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Thu Dec 30 08:58:56 2004 -- reformated by prettylst.pl v1.34 (build 445)
+CAMPAIGN:RPGObjects - Blood and Circuits
+RANK:6
+GAMEMODE:Modern
+TYPE:RPGObjects.Blood and Circuits
+ISOGL:YES
+SOURCELONG:Blood and Circuits
+SOURCESHORT:BNC
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast; Author Andy
+COPYRIGHT:Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:Mutants & Masterminds Copyright 2003, Green Ronin Publishing
+COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics
+COPYRIGHT:Blood and Circuits Copyright 2004, RPGObjects; Author Charles Rice and Chris Davis
+COPYRIGHT:PCGen dataset conversion for Blood and Circuits Copyright 2004-5, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith), Frank Kliewe.
+
+INFOTEXT:Requires at least Modern, Future - Basics and Blood and Guts: Modern Military
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:bnc_classes.lst
+EQUIPMENT:bnc_equipment_armor.lst
+EQUIPMENT:bnc_equipment_computers.lst
+EQUIPMENT:bnc_equipment_vehicle.lst
+EQUIPMENT:bnc_equipment_weapons.lst
+FEAT:bnc_feats.lst
+FEAT:bnc_feats_mod.lst
+WEAPONPROF:bnc_weapon_proficiency.lst

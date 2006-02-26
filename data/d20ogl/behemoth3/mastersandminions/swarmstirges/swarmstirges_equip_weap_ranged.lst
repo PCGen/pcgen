@@ -1,0 +1,9 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 20 14:21:27 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:A Swarm of Stirges|SOURCESHORT:ASoS|SOURCEWEB:http://www.behemoth3.com/
+# Original Entry by: Eddy Anthony
+
+# Ranged Weapons
+# Equipment Name		Required Proficiency	Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Special Property
+Flamedart (Diminutive)	PROFICIENCY:Javelin	TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown	COST:40	WT:-		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	SIZE:D	SOURCEPAGE:P.23	SPROP:+1d6 fire damage
+Flamedart (Small)		PROFICIENCY:Javelin	TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown	COST:40	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:S	SOURCEPAGE:P.23	SPROP:+1d6 fire damage
+Flamedart (Medium)	PROFICIENCY:Javelin	TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown	COST:40	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:M	SOURCEPAGE:P.23	SPROP:+1d6 fire damage

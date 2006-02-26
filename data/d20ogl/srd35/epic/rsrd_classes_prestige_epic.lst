@@ -1,0 +1,77 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Thu Oct 20 21:53:35 2005 -- reformated by prettylst.pl v1.35 (build 478)
+SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name		Max Level
+CLASS:Arcane Archer.MOD	MAXLEVEL:100
+14	REPEATLEVEL:4	ADD:FEAT(Blinding Speed,Combat Archery,Distant Shot,Epic Prowess,Epic Speed,Epic Toughness,Epic Weapon Focus (Longbow),Epic Weapon Focus (Shortbow),Improved Arrow of Death,Improved Combat Casting,Improved Low light Vision,Improved Manyshot,Swarm of Arrows,Uncanny Accuracy)
+
+
+# Class Name			Max Level
+CLASS:Arcane Trickster.MOD	MAXLEVEL:100
+11	REPEATLEVEL:1	ADD:SPELLCASTER(Arcane)
+14	REPEATLEVEL:4					ADD:FEAT(Automatic Silent Spell,Automatic Still Spell,Blinding Speed,Epic Skill Focus,Improved Combat Casting,Improved Sneak Attack,Improved Spell Capacity,Lingering Damage,Self Concealment,Sneak Attack of Opportunity,Spell Knowledge,Spell Opportunity,Spell Stowaway)
+
+
+# Class Name		Max Level
+CLASS:Assassin.MOD	MAXLEVEL:100
+11				BONUS:VAR|DeathAttack|(-1*(floor((CL-10)/2)))
+14	REPEATLEVEL:4									ADD:FEAT(Dexterous Fortitude,Dexterous Will,Improved Combat Casting,Improved Death Attack,Improved Sneak Attack,Improved Spell Capacity,Legendary Tracker,Lingering Damage,Sneak Attack of Opportunity,Spell Knowledge,Spontaneous Spell,Superior Initiative,Tenacious Magic,Uncanny Accuracy)
+
+
+# Class Name		Max Level
+CLASS:Blackguard.MOD	MAXLEVEL:100
+13	REPEATLEVEL:3	ADD:FEAT(Armor Skin,Devastating Critical,Epic Leadership,Epic Prowess,Epic Reputation,Epic Toughness,Epic Weapon Focus,Great Smiting,Improved Aura of Despair,Improved Combat Casting,Improved Sneak Attack,Improved Spell Capacity,Legendary Commander,Legendary Rider,Lingering Damage,Negative Energy Burst,Overwhelming Critical,Perfect Health,Permanent Emanation,Planar Turning,Spontaneous Spell,Undead Mastery,Unholy Strike,Widen Aura of Despair,Zone of Animation)
+
+# Epic Skill Focus (Knowledge (Arcana)) doesn't work
+
+# Class Name			Max Level
+CLASS:Dragon Disciple.MOD	MAXLEVEL:100
+13				BONUS:VAR|EpicDDNA|floor((CL-10)/3)								BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.REPLACE	DEFINE:EpicDDNA|0
+13				BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)										DEFINE:EpicDDBW|0
+14	REPEATLEVEL:4																										ADD:FEAT(Armor Skin,Damage Reduction,Epic Prowess,Epic Skill Focus,Epic Toughness,Extended Life Span,Flyby Attack,Great Charisma,Great Constitution,Great Strength,Hover,Improved Combat Casting,Improved Darkvision,Improved Spell Capacity,Improved Spell Resistance,Snatch,Spell Knowledge,Wingover)
+
+
+# Class Name	Max Level
+CLASS:Duelist.MOD	MAXLEVEL:100
+13	REPEATLEVEL:3	ADD:FEAT(Blinding Speed,Epic Prowess,Epic Reputation,Epic Skill Focus,Epic Speed,Epic Weapon Focus (Rapier),Exceptional Deflection,Improved Combat Reflexes,Improved Whirlwind Attack,Infinite Deflection,Perfect Two Weapon Fighting,Superior Initiative,Two Weapon Rend)
+
+
+# Class Name			Max Level
+CLASS:Dwarven Defender.MOD	MAXLEVEL:100
+15	REPEATLEVEL:5	ADD:FEAT(Armor Skin,Bulwark of Defense,Damage Reduction,Devastating Critical,Energy Resistance,Epic Endurance,Epic Prowess,Epic Toughness,Epic Weapon Focus,Fast Healing,Improved Combat Reflexes,Improved Darkvision,Instant Reload,Mobile Defense,Overwhelming Critical,Perfect Health,Spellcasting Harrier)
+
+
+# Class Name			Max Level
+CLASS:Eldritch Knight.MOD	MAXLEVEL:100
+11	REPEATLEVEL:1	ADD:SPELLCASTER(Arcane)
+14	REPEATLEVEL:4					ADD:FEAT(Armor Skin,Automatic Still Spell,Combat Archery,Damage Reduction,Devastating Critical,Dire Charge,Distant Shot,Enhance Spell,Epic Prowess,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Epic Toughness,Epic Weapon Focus,Ignore Material Components,Improved Combat Casting,Improved Combat Reflexes,Improved Manyshot,Improved Spell Capacity,Improved Whirlwind Attack,Instant Reload,Legendary Rider,Overwhelming Critical,Penetrate Damage Reduction,Perfect Two Weapon Fighting,Permanent Emanation,Spell Knowledge,Spell Opportunity,Spell Stowaway,Spellcasting Harrier,Spontaneous Spell,Storm of Throws,Superior Initiative,Swarm of Arrows,Tenacious Magic,Two Weapon Rend,Uncanny Accuracy)
+
+
+# Class Name			Max Level
+CLASS:Horizon Walker.MOD	MAXLEVEL:100
+11	REPEATLEVEL:1	ADD:FEAT(TYPE=ImprovedTerrain)
+14	REPEATLEVEL:4	ADD:FEAT(Armor Skin,Blinding Speed,Energy Resistance,Epic Endurance,Epic Prowess,Epic Reputation,Epic Skill Focus,Epic Speed,Epic Toughness,Extended Life Span,Legendary Climber,Perfect Health,Polyglot)
+
+
+# Class Name		Max Level
+CLASS:Loremaster.MOD	MAXLEVEL:100
+11	REPEATLEVEL:1	ADD:SPELLCASTER(ANY)
+13	REPEATLEVEL:3					ADD:FEAT(Augmented Alchemy,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Craft Epic Magic Arms and Armor,Craft Epic Rod,Craft Epic Staff,Craft Epic Wondrous Item,Efficient Item Creation,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Forge Epic Ring,Ignore Material Components,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Master Staff,Master Wand,Multispell,Permanent Emanation,Polyglot,Scribe Epic Scroll,Spell Knowledge,Spell Opportunity,Spell Stowaway,Spontaneous Spell,Tenacious Magic,TYPE=LoremasterSecret)
+
+
+# Class Name			Max Level
+CLASS:Mystic Theurge.MOD	MAXLEVEL:100
+11	REPEATLEVEL:2	ADD:SPELLCASTER(Arcane)
+12	REPEATLEVEL:2	ADD:SPELLCASTER(Divine)
+16	REPEATLEVEL:6					ADD:FEAT(Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Bonus Domain,Enhance Spell,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Ignore Material Components,Improved Alignment Based Casting,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Multispell,Permanent Emanation,Spell Knowledge,Spell Opportunity,Spell Stowaway,Spontaneous Domain Access,Spontaneous Spell,Tenacious Magic)
+
+
+# Class Name		Max Level
+CLASS:Shadowdancer.MOD	MAXLEVEL:100
+11				SA:.CLEAR.Shadow Jump % ft|ShadowJump																																																				FEATAUTO:Shadow Jump
+13	REPEATLEVEL:3								ADD:FEAT(Blinding Speed,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Skill Focus,Epic Speed,Exceptional Deflection,Improved Combat Reflexes,Improved Darkvision,Improved Whirlwind Attack,Infinite Deflection,Legendary Leaper,Reflect Arrows,Self Concealment,Spellcasting Harrier,Superior Initiative)
+
+#
+# End
+#

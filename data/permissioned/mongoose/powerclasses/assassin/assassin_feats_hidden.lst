@@ -1,0 +1,6 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Dec 10 19:31:12 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin|SOURCESHORT:Assassin|SOURCEWEB:http//www.mongoosepublishing.com
+#Original Entry by: Tir Gwaith
+
+# Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
+Assassin (Mong) Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial.Slashing[PREBASESIZELTEQ:Medium]|TYPE.Martial.Piercing[PREBASESIZELTEQ:Medium]|Sap

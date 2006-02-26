@@ -1,0 +1,147 @@
+# CVS $Revision: 1.6 $ $Author: frank_kliewe $ -- Thu Nov 14 19:16:47 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: ?? & Barak
+
+#moved Abyssal and Auran language to new languages file in menaces folder -- Frank Kliewe
+
+# reformatted for readability
+# Spoken
+# Language				Type					Source Page
+Algonkin				TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
+Algonkin				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
+Arapaho				TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
+Arapaho				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
+Blackfoot				TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
+Blackfoot				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
+Cheyenne				TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
+Cheyenne				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
+Shawnee				TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
+Shawnee				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
+Armenian				TYPE:Spoken.Armenian		SOURCEPAGE:msrdskillsii.rtf
+Armenian				TYPE:Written.Armenian		SOURCEPAGE:msrdskillsii.rtf
+Apache				TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii.rtf
+Apache				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii.rtf
+Chipewyan				TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii.rtf
+Chipewyan				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii.rtf
+Navaho				TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii.rtf
+Navaho				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii.rtf
+Ancient Greek			TYPE:Spoken.Attic			SOURCEPAGE:msrdskillsii.rtf
+Ancient Greek			TYPE:Written.Attic		SOURCEPAGE:msrdskillsii.rtf
+Greek					TYPE:Spoken.Attic			SOURCEPAGE:msrdskillsii.rtf
+Greek					TYPE:Written.Attic		SOURCEPAGE:msrdskillsii.rtf
+Latvian				TYPE:Spoken.Baltic		SOURCEPAGE:msrdskillsii.rtf
+Latvian				TYPE:Written.Baltic		SOURCEPAGE:msrdskillsii.rtf
+Lithuanian				TYPE:Spoken.Baltic		SOURCEPAGE:msrdskillsii.rtf
+Lithuanian				TYPE:Written.Baltic		SOURCEPAGE:msrdskillsii.rtf
+Gaelic (Irish)			TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii.rtf
+Gaelic (Irish)			TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii.rtf
+Gaelic (Scots)			TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii.rtf
+Gaelic (Scots)			TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii.rtf
+Welsh					TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii.rtf
+Welsh					TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii.rtf
+Cantonese				TYPE:Spoken.Chinese		SOURCEPAGE:msrdskillsii.rtf
+Cantonese				TYPE:Written.Chinese		SOURCEPAGE:msrdskillsii.rtf
+Mandarin				TYPE:Spoken.Chinese		SOURCEPAGE:msrdskillsii.rtf
+Mandarin				TYPE:Written.Chinese		SOURCEPAGE:msrdskillsii.rtf
+Estonian				TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
+Estonian				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
+Finnish				TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
+Finnish				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
+Lapp					TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
+Lapp					TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
+Afrikaans				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Afrikaans				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Danish				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Danish				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Dutch					TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Dutch					TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+English				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+English				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Flemish				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Flemish				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+German				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+German				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Icelandic				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Icelandic				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Norwegian				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Norwegian				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Swedish				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Swedish				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Yiddish				TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Yiddish				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
+Coptic				TYPE:Spoken.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
+Coptic				TYPE:Written.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
+Middle Egyptian			TYPE:Spoken.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
+Middle Egyptian			TYPE:Written.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
+Hindi					TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
+Hindi					TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
+Punjabi				TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
+Punjabi				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
+Sanskrit				TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
+Sanskrit				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
+Urdu					TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
+Urdu					TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
+Farsi					TYPE:Spoken.Iranian		SOURCEPAGE:msrdskillsii.rtf
+Farsi					TYPE:Written.Iranian		SOURCEPAGE:msrdskillsii.rtf
+Pashto				TYPE:Spoken.Iranian		SOURCEPAGE:msrdskillsii.rtf
+Pashto				TYPE:Written.Iranian		SOURCEPAGE:msrdskillsii.rtf
+Japanese				TYPE:Spoken.Japanese		SOURCEPAGE:msrdskillsii.rtf
+Japanese				TYPE:Written.Japanese		SOURCEPAGE:msrdskillsii.rtf
+Korean				TYPE:Spoken.Korean		SOURCEPAGE:msrdskillsii.rtf
+Korean				TYPE:Written.Korean		SOURCEPAGE:msrdskillsii.rtf
+French				TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
+French				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
+Italian				TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
+Italian				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
+Latin					TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
+Latin					TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
+Portuguese				TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
+Portuguese				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
+Romanian				TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
+Romanian				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
+Spanish				TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
+Spanish				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
+Akkadian (aka Babylonian)	TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Akkadian (aka Babylonian)	TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Ancient Hebrew			TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Ancient Hebrew			TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Arabic				TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Arabic				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Aramaic				TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Aramaic				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Herbrew				TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Herbrew				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
+Belorussian				TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Belorussian				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Bulgarian				TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Bulgarian				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Czech					TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Czech					TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Polish				TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Polish				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Russian				TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Russian				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Serbo-Croatian			TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Serbo-Croatian			TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Slovak				TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Slovak				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Ukrainian				TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Ukrainian				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
+Burmese				TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
+Burmese				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
+Sherpa				TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
+Sherpa				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
+Tibetan				TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
+Tibetan				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
+Azerbaijani				TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii.rtf
+Azerbaijani				TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii.rtf
+Turkish				TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii.rtf
+Turkish				TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii.rtf
+Uzbek					TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii.rtf
+Uzbek					TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii.rtf
+Hungarian (aka Magyar)		TYPE:Spoken.Urgic			SOURCEPAGE:msrdskillsii.rtf
+Hungarian (aka Magyar)		TYPE:Written.Urgic		SOURCEPAGE:msrdskillsii.rtf
+
+#
+# End
+#

@@ -1,0 +1,4 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Thu Dec 25 22:55:22 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+# Equipment Name		Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Laced-Bone Chest Armor	TYPE:Armor.Light.Suit	COST:15	WT:5		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.33	SPELLFAILURE:0		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE

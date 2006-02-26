@@ -1,0 +1,17 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Jul 16 02:13:05 2003 -- reformated by prettylst.pl v1.29 (build 294)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood|SOURCESHORT:SeasofBlood|SOURCEWEB:http://mongoosepublishing.com
+
+# Feat Name				Type			Req. Att.	Required Feat			Required Skill					Required Stat	Description																										Bonus to skill							Source Page
+Amazing Agility			TYPE:General								PRESKILL:1,Balance=12							DESC:May always Take 20 on a Balance check																													SOURCEPAGE:p.17
+Bargain				TYPE:General															PRESTAT:1,CHA=13	DESC:+4 Competence bonus to Profession (Merchant) checks whilst buying/selling														BONUS:SKILL|Profession (Merchant)|4|TYPE=Competence	SOURCEPAGE:p.17
+Duck and Weave			TYPE:General															PRESTAT:1,DEX=15	DESC:+7 cover AC bonus and +3 cover Reflex save bonus against all ranged attacks.																							SOURCEPAGE:p.17
+Eagle Eyes				TYPE:General																		DESC:Add 50% to all visibility ranges at sea.																													SOURCEPAGE:p.18
+Improved Underwater Combat	TYPE:General	PREATT:6	PREFEAT:1,Underwater Combat											DESC:No penalty to Initiative and attack rolls in underwater melee combat whilst using piercing weapons. No effect on slashing or bludgeoning weapons.											SOURCEPAGE:p.18
+Inspire Loyalty			TYPE:General			PREFEAT:1,Leadership												DESC:Crew automatically passes all Morale checks during boarding actions. Gain +4 bonus to avoid Mutiny checks.																		SOURCEPAGE:p.18
+Master Helmsman			TYPE:General								PRESKILL:1,Knowledge (Seamanship)=8					DESC:Base and daily movement rates of a ship are increased by 10%																										SOURCEPAGE:p.18
+Rapid Loader			TYPE:General								PRESKILL:1,Profession (Siege Engineer)=4				DESC:Halve the time to reload a siege weapon, round down. Never less than one round.																						SOURCEPAGE:p.18
+Sea Legs				TYPE:General																		DESC:Whilst on board a ship, you gain +2 competence bonus to Climb, Concentration, Jump and Use Rope checks.																		SOURCEPAGE:p.19
+Steady Captain			TYPE:General																		DESC:Crew gains +2 competence bonus to all Seamanship checks.																										SOURCEPAGE:p.19
+Superior Helmsman			TYPE:General								PRESKILL:1,Knowledge (Seamanship)=6					DESC:Any ship you are controlling gains a +1 competence bonus to its Maneuvrability.																						SOURCEPAGE:p.19
+Strong Swimmer			TYPE:General								PRESKILL:1,Swim=8					PRESTAT:1,STR=13	DESC:Upon a successful Swim check, may swim at one-half speed as a move-equivalent action or full speed as full action.																	SOURCEPAGE:p.19
+Underwater Combat			TYPE:General															PRESTAT:1,DEX=13	DESC:Only face a +2 penalty to Initiative and attack roll whilst fighting underwater. Only receive +2 penalty to damage with slashing or bludgeoning weapons.										SOURCEPAGE:p.19

@@ -1,0 +1,10 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Mar  2 20:33:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Fort Griffin Echo Vol. 1 No. 1|SOURCESHORT:FGE1-1|SOURCEWEB:http://www.doghouserules.net/echo/index.html
+# Original Entry by: Lone Jedi
+
+###Block:Ranged Weapons
+# Equipment Name					Required Proficiency				Type														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Weapon prop. bonus	Special Property		Source Page
+#Rifles
+# Equipment Name			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Colt Ring-Lever Rifle (.34)	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal	COST:130	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:60	SIZE:L	SOURCEPAGE:p. 5
+Colt Ring-Lever Rifle (.44)	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal	COST:150	WT:15.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p. 5

@@ -1,0 +1,22 @@
+# CVS $Revision: 1.3 $ $Author: frank_kliewe $ -- Sun Feb  5 00:06:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original Entry by: Paul King & Phantom of Krankor
+###Need to work out Non-Prof penalties.
+
+# Equipment Name		Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page									Combat bonus																Special Property
+Leather Jacket		TYPE:Armor.Light.Suit			COST:10	WT:4		ACCHECK:0		MAXDEX:8		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|1|TYPE=Armor.STACK
+Leather Armor		TYPE:Armor.Light.Suit.Archaic		COST:12	WT:15		ACCHECK:0		MAXDEX:6		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+Light Undercover Shirt	TYPE:Armor.Light.Suit.Concealable	COST:13	WT:2		ACCHECK:0		MAXDEX:7		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK	SPROP:Lic(+1)
+Pull-up Pouch Vest	TYPE:Armor.Light.Suit.Concealable	COST:13	WT:2		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK	SPROP:Lic(+1)
+Undercover Vest		TYPE:Armor.Light.Suit.Concealable	COST:14	WT:3		ACCHECK:-2		MAXDEX:5		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK	SPROP:Lic(+1)
+
+#Medium Armor NonProf=+2
+Concealable Vest		TYPE:Armor.Medium.Suit.Concealable	COST:15	WT:4		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Lic(+1)
+Chainmail Shirt		TYPE:Armor.Medium.Suit.Archaic	COST:18	WT:40		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Light-Duty Vest		TYPE:Armor.Medium.Suit.Tactical	COST:16	WT:8		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Lic(+1)
+Tactical Vest		TYPE:Armor.Medium.Suit.Tactical	COST:17	WT:10		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Lic(+1)
+
+#Heavy Armor nonprof=+3
+Special Response Vest	TYPE:Armor.Heavy.Suit.Tactical	COST:18	WT:15		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK	SPROP:Lic(+1)
+Plate Mail			TYPE:Armor.Heavy.Suit.Archaic		COST:23	WT:50		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+Forced Entry Unit		TYPE:Armor.Heavy.Suit.Tactical	COST:19	WT:20		ACCHECK:-8		MAXDEX:0		SOURCEPAGE:SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|6|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK	SPROP:Lic(+1)

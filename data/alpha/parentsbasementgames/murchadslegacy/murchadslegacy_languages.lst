@@ -1,0 +1,26 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri May 13 22:09:24 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Murchad's Legacy|SOURCESHORT:Murchad's Legacy|SOURCEWEB:http://www.parentsbasementgames.com
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Language		Type
+Aeylamdyarian	TYPE:Spoken.Written.Read
+Calisian		TYPE:Spoken.Written.Read
+Desolati		TYPE:Spoken.Written.Read
+Gadohig		TYPE:Spoken.Written.Read
+Galkarnic		TYPE:Spoken.Written.Read
+Homish		TYPE:Spoken.Written.Read
+Launhymian		TYPE:Spoken.Written.Read
+Remarian		TYPE:Spoken.Written.Read
+Shintai		TYPE:Spoken.Written.Read
+
+Abyssal.MOD		TYPE:Academic
+Aquan.MOD		TYPE:Academic
+Auran.MOD		TYPE:Academic
+Celestial.MOD	TYPE:Academic
+Ignan.MOD		TYPE:Academic
+Infernal.MOD	TYPE:Academic
+Terran.MOD		TYPE:Academic
+
+#
+# End
+#

@@ -1,0 +1,34 @@
+# CVS $Revision: 1.11 $ $Author: eddyanthony $ -- Tue Mar 15 22:18:31 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+###Block: Specific Armor
+
+# Equipment Name		Required Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page					% of Spell Failure	Virtual Feat		Spells								Combat bonus					BONUS:EQMARMOR							Bonus to skill					Stat bonus		Modify VAR							Special Property
+Adamantine Breastplate	PROFICIENCY:Breastplate	TYPE:Armor.Medium.Suit.Specific			COST:350	WT:30		ACCHECK:-4		EQMOD:ADAMANT_ARMR_MED		MAXDEX:3		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:25															BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Banded Mail of Luck	PROFICIENCY:Banded Mail	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:9750	WT:35		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS3A	MAXDEX:1		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:35															BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE																												SPROP:Allows the wearer to reroll one attack against him 1/week
+Breastplate of Command	PROFICIENCY:Breastplate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:17450	WT:30		ACCHECK:-4		EQMOD:STEEL.MWORKA.PLUS2A	MAXDEX:3		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:25															BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE										BONUS:SKILL|Leadership|2|TYPE=Competence	BONUS:STAT|CHA|2
+Celestial Armor		PROFICIENCY:Chainmail	TYPE:Enhancement.Armor.Light.Suit.Specific	COST:24150	WT:20		ACCHECK:-3		EQMOD:STEEL.MWORKA.PLUS1A	MAXDEX:8		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:15						SPELLS:Celestial Armor|TIMES=1|CASTERLEVEL=5|Fly,13	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE																												SPROP:Allows the wearer to fly on command once per day
+Demon Armor			PROFICIENCY:Full Plate	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:25500	WT:50		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS4A	MAXDEX:1		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:35		VFEAT:Negative Levels										BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE																				BONUS:VAR|NegLevels|1|PREALIGN:0,1,3,4,6,7	SPROP:Allows the wearer to appear like a demon, may use a claw attack as +1 and 1d10 dam and afflict contagion (DC14)
+Dwarven Plate		PROFICIENCY:Full Plate	TYPE:Armor.Heavy.Suit.Metal.Specific		COST:1500	WT:50		ACCHECK:-6		EQMOD:MTHRL_MDHV			MAXDEX:1		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:35															BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Elven Chain			PROFICIENCY:Chainmail	TYPE:Armor.Light.Suit.Specific			COST:3150	WT:40		ACCHECK:-5		EQMOD:MTHRL				MAXDEX:2		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:30															BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Mithral Shirt		PROFICIENCY:Chain Shirt	TYPE:Armor.Light.Suit.Specific			COST:100	WT:20		ACCHECK:-2		EQMOD:MTHRL				MAXDEX:4		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:20															BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:EQMARMOR|SPELLFAILURE|-10|PRECLASS:1,Bard=1
+Plate Armor of the Deep	PROFICIENCY:Full Plate	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:15500	WT:50		ACCHECK:-6		EQMOD:STEEL.MWORKA.PLUS1A	MAXDEX:1		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:35															BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE																												SPROP:Allows the wearer to swim as unarmored, to breathe under water, and to comunicate with waterbreathing creatures
+Rhino Hide			PROFICIENCY:Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:1015	WT:25		ACCHECK:-3		EQMOD:MWORKA.PLUS2A		MAXDEX:4		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:20															BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE																												SPROP:Allows the wearer to deal 2d6 add damage on any successful charge attack
+
+###Block: Specific Shields
+
+# Equipment Name		Required Proficiency	Type									Contains			Cost		Weight	AC Penalty Check	Modifier				Source Page					% of Spell Failure	Spells								Combat bonus					Special Property
+Absorbing Shield		PROFICIENCY:Shield	TYPE:Enhancement.Shield.Specific.Specific							COST:49020	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:15											BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
+Adamantine Shield		PROFICIENCY:Shield	TYPE:Shield.Heavy.Specific									COST:170	WT:15		ACCHECK:-2		EQMOD:STEEL.ADAMANT_SHLD	SOURCEPAGE:SRDEquipment.rtf		SPELLFAILURE:15											BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Caster's Shield		PROFICIENCY:Shield	TYPE:Enhancement.Shield.Small.Specific.Nonmetal						COST:2003	WT:6		ACCHECK:-1		EQMOD:WOOD.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
+Darkwood Shield		PROFICIENCY:Shield	TYPE:Shield.Small.Specific.Nonmetal								COST:47	WT:6					EQMOD:DARK				SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Lion's Shield		PROFICIENCY:Shield	TYPE:Enhancement.Shield.Large.Specific							COST:5020	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS2S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
+Mithral Large Shield	PROFICIENCY:Shield	TYPE:Shield.Large.Specific									COST:20	WT:15		ACCHECK:-2		EQMOD:MTHRL				SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+Spined Shield		PROFICIENCY:Shield	TYPE:Enhancement.Large.Shield.Specific.Container	CONTAINS:3|Spine=3	COST:1520	WT:15		ACCHECK:-2		EQMOD:STEEL.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf														BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
+Winged Shield		PROFICIENCY:Shield	TYPE:Enhancement.Large.Shield.Specific.Nonmetal						COST:14009	WT:10		ACCHECK:-2		EQMOD:WOOD.MWORKA.PLUS1S	SOURCEPAGE:srdmagicitemsarmor.rtf					SPELLS:Winged Shield|TIMES=1|CASTERLEVEL=5|Fly,13	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE	SPROP:Allows the wearer to fly on command once per day
+
+
+
+#
+# End
+#

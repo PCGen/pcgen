@@ -1,0 +1,337 @@
+/*
+ * sandbox Copyright (C) 2004 Ross M. Lodge
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * OpposedSkillModel.java
+ *
+ * Created on May 4, 2004, 1:49:47 PM
+ *
+ */
+
+package plugin.initiative;
+
+import com.electronicmuse.djep.JEP;
+import gmgen.plugin.PcgCombatant;
+import pcgen.core.Constants;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+
+import java.util.List;
+
+/**
+ * <p>
+ * Overrides OpposedSkillBasicModel to provide basic skill rolling abilities.
+ * </p>
+ *
+ * <p>
+ * Current Ver: $Revision: 1.10 $
+ * </p>
+ * <p>
+ * Last Editor: $Author: binkley $
+ * </p>
+ * <p>
+ * Last Edited: $Date: 2005/10/18 20:23:59 $
+ * </p>
+ *
+ * @author LodgeR
+ */
+public class OpposedSkillModel extends OpposedSkillBasicModel
+{
+
+	/**
+	 * <p>
+	 * "Wrapper" class that extends <code>InitWrapper</code> to provide
+	 * skill check facilities.
+	 * </p>
+	 */
+	protected class SkillInitWrapper extends InitWrapper
+	{
+		/** Integer representing a fudge factor */
+		private Integer fudge = null;
+		/** Integer representing the result of the roll */
+		private Integer result = null;
+		/** Integer cacheing the roll value itself */
+		private Integer roll = null;
+
+		/**
+		 * <p>
+		 * Basic constructor
+		 * </p>
+		 *
+		 * @param init
+		 */
+		public SkillInitWrapper(PcgCombatant init) {
+			super(init);
+			if (skillName != null)
+			{
+				roll();
+			}
+		}
+
+		/**
+		 * <p>
+		 * Gets the skill bonus for the specified skill name
+		 * </p>
+		 *
+		 * @param aSkillName
+		 * @return skillBonus
+		 */
+		public Integer getSkillBonus(String aSkillName)
+		{
+			Integer returnValue = null;
+			if (initiative != null && aSkillName != null)
+			{
+				PlayerCharacter pc = initiative.getPC();
+				Globals.setCurrentPC(pc);
+				Skill skill = pc.getSkillNamed(aSkillName);
+				if (skill != null)
+				{
+					returnValue = new Integer(skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue());
+				}
+				else
+				{
+					skill = Globals.getSkillNamed(aSkillName);
+					if (skill != null
+							&& skill.isUntrained()
+							&& skill.getKeyStat().compareToIgnoreCase(
+									Constants.s_NONE) != 0)
+					{
+						returnValue = new Integer(skill.modifier(pc).intValue());
+					}
+				}
+			}
+			return returnValue;
+		}
+
+		/**
+		 * <p>
+		 * Rolls the skill check.
+		 * </p>
+		 */
+		public void roll()
+		{
+			djep.parseExpression("1d20");
+			double r = djep.getValue();
+			roll = new Integer((int)r);
+			calc();
+		}
+
+		/**
+		 * <p>
+		 * Calculates the final result of the skill check.
+		 * </p>
+		 */
+		public void calc()
+		{
+			Integer i = getSkillBonus(skillName);
+			if (i != null && roll != null)
+			{
+				int r = roll.intValue();
+				r += i.intValue();
+				i = fudge;
+				if (i != null)
+				{
+					r += i.intValue();
+				}
+				result = new Integer(r);
+			}
+			else
+			{
+				result = null;
+			}
+		}
+
+		/**
+		 * <p>
+		 * Gets the value of fudge
+		 * </p>
+		 * @return Returns the fudge.
+		 */
+		public Integer getFudge()
+		{
+			return fudge;
+		}
+
+		/**
+		 * <p>
+		 * Sets the value of fudge
+		 * </p>
+		 *
+		 * @param fudge The fudge to set.
+		 */
+		public void setFudge(Integer fudge)
+		{
+			this.fudge = fudge;
+			calc();
+		}
+		/**
+		 * <p>
+		 * Gets the value of result
+		 * </p>
+		 * @return Returns the result.
+		 */
+		public Integer getResult()
+		{
+			return result;
+		}
+		/**
+		 * <p>
+		 * Sets the value of result
+		 * </p>
+		 *
+		 * @param result The result to set.
+		 */
+		public void setResult(Integer result)
+		{
+			this.result = result;
+		}
+	}
+
+	/** A djep instance that allows dice rolling */
+	protected static JEP djep = new JEP();
+
+	/** Name of the skill being currently used for rolls */
+	protected String skillName;
+
+	/**
+	 * <p>
+	 * Constructor -- adds columns
+	 * </p>
+	 */
+	public OpposedSkillModel()
+	{
+		super();
+		columns.addColumn("BONUS", Integer.class, new Integer(0), false,
+				"Bonus");
+		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
+		columns.addColumn("RESULT", Integer.class, null, false, "Result");
+	}
+
+	/**
+	 * <p>
+	 * Constructor -- adds columns and initializes the combatant list
+	 * </p>
+	 *
+	 * @param combatantList
+	 */
+	public OpposedSkillModel(List combatantList)
+	{
+		super(combatantList);
+		columns.addColumn("BONUS", Integer.class, new Integer(0), false,
+			"Bonus");
+		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
+		columns.addColumn("RESULT", Integer.class, null, false, "Result");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see javax.swing.table.TableModel#getValueAt(int, int)
+	 */
+	public Object getValueAt(int rowIndex, int columnIndex)
+	{
+		Object returnValue = null;
+		if (rowIndex < combatants.size())
+		{
+			SkillInitWrapper entry = (SkillInitWrapper)getRowEntry(rowIndex);
+			switch (columnIndex)
+			{
+			case 0:
+				returnValue = super.getValueAt(rowIndex, columnIndex);
+				break;
+			case 1:
+				returnValue = entry.getSkillBonus(skillName);
+				break;
+			case 2:
+				returnValue = entry.getFudge();
+				break;
+			case 3:
+				returnValue = entry.getResult();
+				break;
+			}
+		}
+		return returnValue;
+	}
+
+	/**
+	 * <p>
+	 * Rolls the check for the specified roll
+	 * </p>
+	 *
+	 * @param rowIndex
+	 */
+	public void roll(int rowIndex)
+	{
+		if (rowIndex < combatants.size())
+		{
+			((SkillInitWrapper)getRowEntry(rowIndex)).roll();
+			fireTableCellUpdated(rowIndex, 3);
+		}
+	}
+
+	/**
+	 * <p>
+	 * Rolls the check for all rows
+	 * </p>
+	 */
+	public void rollAll()
+	{
+		for (int i = 0; i < combatants.size(); i++)
+		{
+			roll(i);
+		}
+	}
+
+	/**
+	 * <p>
+	 * Sets the skill name and rolls dice for all rows
+	 * </p>
+	 *
+	 * @param name
+	 */
+	public void setSkill(String name)
+	{
+		skillName = name;
+		rollAll();
+	}
+
+	/* (non-Javadoc)
+	 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
+	 */
+	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+	{
+		if (rowIndex < combatants.size() && columnIndex == 2 && aValue instanceof Integer)
+		{
+			SkillInitWrapper entry = (SkillInitWrapper)getRowEntry(rowIndex);
+			entry.setFudge((Integer)aValue);
+		}
+		else
+		{
+			super.setValueAt(aValue, rowIndex, columnIndex);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see plugin.initiative.OpposedSkillBasicModel#addCombatant(gmgen.plugin.PcgCombatant)
+	 */
+	public void addCombatant(PcgCombatant combatant)
+	{
+		combatants.put(combatant.getName(), new SkillInitWrapper(combatant));
+		int rowIndex = getIndexOf(combatant.getName());
+		fireTableRowsInserted(rowIndex,rowIndex);
+	}
+}

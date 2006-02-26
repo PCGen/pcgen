@@ -1,0 +1,12 @@
+# CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Sun Oct  2 13:28:35 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Feat Name		Type			Visible	Maximum Level	Required Race		Var. Min. Value			Multiple?	Choose							ADD:FAVOREDCLASS		Bonus to skill		Source Page
+Racial Craft	TYPE:Special	VISIBLE:NO				PRERACE:Coivald,Rhoode	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft%|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.
+Artistic Craft	TYPE:Special	VISIBLE:NO								PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Art|1					BONUS:SKILL|LIST|2	SOURCEPAGE:p.
+Coivald Classes	TYPE:Special	VISIBLE:NO	PRELEVELMAX:1	PRERACE:Coivald		PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:NUMCHOICES=1|Cleric|Druid			ADD:FAVOREDCLASS|LIST					SOURCEPAGE:p.
+
+
+###Block: Proficiencies
+# Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
+Animan Atavist Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Spear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub

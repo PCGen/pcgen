@@ -1,0 +1,35 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 30 07:44:32 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Modern Dispatch - #75 - U.S.H.E.R. Dossiers #1
+RANK:6
+GAMEMODE:Modern
+TYPE:RPG Objects.Modern Dispatch
+GENRE:Modern
+BOOKTYPE:Magazine
+SETTING:Blood and Secrets
+SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1
+SOURCESHORT:MD75-USHER#1
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast; Author Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:Mutants & Masterminds Copyright 2003, Green Ronin Publishing
+COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics
+COPYRIGHT:Ultramodern Firearms d20, Copyright 2002, Charles McManus Ryan
+COPYRIGHT:d20 Modern Weapons Locker, Copyright 2004, Wizards of the Coast, Inc.; Author Keith Potter
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern Dispatch #75 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Modern Dispatch #75 Copyright 2006, PCGen Data team including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith)
+
+INFOTEXT:Agency names are used with permission.
+INFOTEXT:Requires the Blood and Secrets dataset
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:moderndispatch075_classes.lst
+EQUIPMENT:moderndispatch075_equip.lst
+EQUIPMENT:moderndispatch075_equip_armorshields.lst
+FEAT:moderndispatch075_feats_hidden.lst
+TEMPLATE:moderndispatch075_templates.lst
+

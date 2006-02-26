@@ -1,0 +1,17 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Dec 14 12:23:35 2002 -- reformated by prettylst.pl v1.20 (build 231)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might II|SOURCESHORT:BoEM2|SOURCEWEB:http://www.montecook.com
+
+###Block:Armor
+# Modifier Name		Type			Plus		Source Page		Required Type					BONUS:EQMARMOR
+Grace				TYPE:Armor.Shield	PLUS:1	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|MAXDEX|50
+Superior Spellcasting	TYPE:Armor.Shield	PLUS:4	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|SPELLFAILURE|-100
+Spellcasting		TYPE:Armor.Shield	PLUS:2	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|SPELLFAILURE|-15
+
+# following two are incomplete :
+Maneuvering			TYPE:Armor.Shield	PLUS:1	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|ACCHECK|2
+Greater Maneuvering	TYPE:Armor.Shield	PLUS:2	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|ACCHECK|40
+
+###Block:Weapon
+# Modifier Name	Type		Plus		Source Page		Required Type						Special Property
+Karmic		TYPE:Weapon	PLUS:1	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement		SPROP:+2 att/dam for one attack following successful strike, -1 att for one attack following miss
+Knockback		TYPE:Weapon	PLUS:1	SOURCEPAGE:p.53	PRETYPE:EQMODTYPE=MagicalEnhancement,Ranged	SPROP:Any creature struck by weapon must make Str DC 20 check or be knocked back 5 feet.

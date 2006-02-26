@@ -1,0 +1,48 @@
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Mon Feb 28 13:29:40 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+#Thrown Items (except Shuriken) can be created using the Custom Button on the Inventory Tab
+
+# Equipment Name				Output Name								Required Proficiency			Type															Contains				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page				Weapon prop. bonus
+Crossbow (Hand)				OUTPUTNAME:Crossbow, [NAME]					PROFICIENCY:Crossbow (Hand)		TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow			CONTAINS:-1|Bolt=1		COST:100	WT:3				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:WOOD	RANGE:30	SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
+Shuriken														PROFICIENCY:Shuriken			TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Monk.Thrown											COST:1	WT:.1				CRITMULT:x2			CRITRANGE:1			DAMAGE:1	EQMOD:STEEL	RANGE:10	SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|-STR
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Whip															PROFICIENCY:Whip				TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Whip												COST:1	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2			RANGE:15	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Crossbow (Repeating)			OUTPUTNAME:Crossbow, [NAME]					PROFICIENCY:Crossbow (Repeating)	TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow			CONTAINS:-1|Bolt=5		COST:250	WT:16				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD	RANGE:80	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Net															PROFICIENCY:Net				TYPE:Weapon.Exotic.Ranged.Standard.Thrown														COST:20	WT:10																RANGE:10	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+
+#Martial Ranged
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Shortbow														PROFICIENCY:Shortbow			TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow		CONTAINS:-1|Arrow=1		COST:30	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:60	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
+Shortbow (Composite)			OUTPUTNAME:Shortbow, [NAME]					PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:-1|Arrow=1		COST:75	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:70	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
+Shortbow (+1 Mighty/Composite)	OUTPUTNAME:Mighty Composite Shortbow (+1 Str Bonus)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:-1|Arrow=1		COST:150	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:70	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,1)
+Shortbow (+2 Mighty/Composite)	OUTPUTNAME:Mighty Composite Shortbow (+2 Str Bonus)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:-1|Arrow=1		COST:225	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:70	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,2)
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Longbow														PROFICIENCY:Longbow			TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow			CONTAINS:-1|Arrow=1		COST:75	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:100	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
+Longbow (Composite)			OUTPUTNAME:Longbow, [NAME]					PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:-1|Arrow=1		COST:100	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
+Longbow (+1 Mighty/Composite)		OUTPUTNAME:Mighty Composite Longbow (+1 Str Bonus)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:-1|Arrow=1		COST:200	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,1)
+Longbow (+2 Mighty/Composite)		OUTPUTNAME:Mighty Composite Longbow (+2 Str Bonus)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:-1|Arrow=1		COST:300	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,2)
+Longbow (+3 Mighty/Composite)		OUTPUTNAME:Mighty Composite Longbow (+3 Str Bonus)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:-1|Arrow=1		COST:400	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,3)
+Longbow (+4 Mighty/Composite)		OUTPUTNAME:Mighty Composite Longbow (+4 Str Bonus)	PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:-1|Arrow=1		COST:500	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,4)
+
+#Simple Weapons Ranged
+#SMALL ----------------------------------------------------------------------------------------------------------
+Crossbow (Light)				OUTPUTNAME:Crossbow, [NAME]					PROFICIENCY:Crossbow (Light)		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:-1|Bolt=1		COST:35	WT:6				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD	RANGE:80	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Dart															PROFICIENCY:Dart				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart											COST:0.5	WT:.5				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD	RANGE:20	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Sling															PROFICIENCY:Sling				TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling			CONTAINS:-1|SlingStone=1	COST:0	WT:0				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4			RANGE:50	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Crossbow (Heavy)				OUTPUTNAME:Crossbow, [NAME]					PROFICIENCY:Crossbow (Heavy)		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:-1|Bolt=1		COST:50	WT:9				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:WOOD	RANGE:120	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Javelin														PROFICIENCY:Javelin			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Javelin											COST:1	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:30	SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+
+# DMG Blowgun
+
+Blowgun														PROFICIENCY:Blowgun			TYPE:Weapon.Simple.Ranged.Piercing.Container.Projectile.Asian.Projectile.Blowgun		CONTAINS:-1|Needle=1		COST:1	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1	EQMOD:WOOD	RANGE:10	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+
+#
+# End
+#

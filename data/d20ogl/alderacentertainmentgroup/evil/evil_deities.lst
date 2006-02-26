@@ -1,0 +1,9 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Sat Oct  1 19:51:25 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil|SOURCESHORT:Evil|SOURCEWEB:http://alderac.com/d20
+# Deity Name	Product Identity?	Domains					Clergy AL			Desciption of Deity/Title			Holy Item	Deity Weapon				ALIGN		PANTHEON		Source Page
+Saaneeraa		NAMEISPI:YES	DOMAINS:Evil,Law,Corruption		FOLLOWERALIGN:24578	DESC:Lady of Corruption				SYMBOL:None	DEITYWEAP:Dagger|Dagger (Thrown)	ALIGN:LE	PANTHEON:Evil	SOURCEPAGE:p.41
+Menetor		NAMEISPI:YES	DOMAINS:Evil,Law,Pain			FOLLOWERALIGN:24578	DESC:Lord of Pain, The Painbringer		SYMBOL:None	DEITYWEAP:Whip				ALIGN:LE	PANTHEON:Evil	SOURCEPAGE:p.41
+Draam			NAMEISPI:YES	DOMAINS:Evil,Law,Death			FOLLOWERALIGN:24578	DESC:Lord of the Undead				SYMBOL:None	DEITYWEAP:Club|Club (Thrown)		ALIGN:LE	PANTHEON:Evil	SOURCEPAGE:p.41-42
+Fenestraal		NAMEISPI:YES	DOMAINS:Evil,Chaos,Disease		FOLLOWERALIGN:24578	DESC:Lady of Disease/The Plaguebringer	SYMBOL:None	DEITYWEAP:Dagger|Dagger (Thrown)	ALIGN:CE	PANTHEON:Evil	SOURCEPAGE:p.42
+Rolish'kah		NAMEISPI:YES	DOMAINS:Evil,Chaos,Darkness		FOLLOWERALIGN:24578	DESC:Lord of the Dark				SYMBOL:None	DEITYWEAP:Sap				ALIGN:CE	PANTHEON:Evil	SOURCEPAGE:p.42
+Elri'kah		NAMEISPI:YES	DOMAINS:Evil,Chaos,Destruction	FOLLOWERALIGN:24578	DESC:Lord of Destruction, The Destroyer	SYMBOL:None	DEITYWEAP:Greataxe			ALIGN:CE	PANTHEON:Evil	SOURCEPAGE:p.42

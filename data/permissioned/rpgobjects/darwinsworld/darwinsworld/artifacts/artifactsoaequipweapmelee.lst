@@ -1,0 +1,21 @@
+# CVS $Revision: 1.2 $ $Author: kingpaul $ -- Wed Jan 26 22:44:47 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients|SOURCESHORT:ArtifactsA|SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+#Equipment Name		Type												Cost			Weight		Critical Hit Multiplier		Critical Hit Range		Damage		Range			Size
+
+#Exotic Melee Weapons
+# Equipment Name	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	MODS		Size		Source Page
+Stun Baton		TYPE:Weapon.Exotic.Melee.Powered.Standard.Metal			COST:1050	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6			SIZE:S	SOURCEPAGE:pp. 24, 41
+
+#MEDIUM --------------------------------------------------------------------------------------------------------
+Chainsaw		TYPE:Weapon.Exotic.Melee.Powered.Slashing.Metal			COST:9000	WT:12		CRITMULT:x2			CRITRANGE:3			DAMAGE:3d4			SIZE:M	SOURCEPAGE:pp. 24, 42
+Chainsword		TYPE:Weapon.Exotic.Melee.Powered.Slashing.Metal			COST:18300	WT:8		CRITMULT:x2			CRITRANGE:3			DAMAGE:3d6			SIZE:M	SOURCEPAGE:pp. 24, 42
+Power Sword		TYPE:Weapon.Exotic.Melee.Powered.Slashing.Metal			COST:8300	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			SIZE:M	SOURCEPAGE:pp. 24, 42
+Warp-Field Sword	TYPE:Weapon.Exotic.Melee.Powered.Slashing.Metal			COST:50000	WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	SOURCEPAGE:pp. 24, 42
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Energy Pike		TYPE:Weapon.Exotic.Melee.Powered.Slashing.Metal			COST:32300	WT:15		CRITMULT:x2			CRITRANGE:3			DAMAGE:2d8			SIZE:L	SOURCEPAGE:pp. 24, 42
+
+#UNARMED ----------------------------------------------------------------------------------------------------------
+Shock Gloves	TYPE:Weapon.Unarmed.Exotic.Melee.Powered.Standard.Metal	COST:2050	WT:1										DAMAGE:1d3	MODS:NO	SIZE:T	SOURCEPAGE:pp. 24, 41

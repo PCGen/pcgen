@@ -1,0 +1,28 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Tue Jan 27 06:06:20 2004 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+# Equipment Name			Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Padded.MOD				TYPE:Padded
+Leather.MOD				TYPE:Leather
+Studded Leather.MOD		TYPE:StuddedLeather
+Scale Mail.MOD			TYPE:ScaleMail
+Half-Plate.MOD			TYPE:Plate
+Full Plate.MOD			TYPE:Plate
+Breastplate.MOD			TYPE:Plate
+Chain Shirt.MOD			TYPE:Chain
+Chainmail.MOD			TYPE:Chain
+
+#Light Weight -------------------------------------------------------------------------------------------------------------
+# Equipment Name			Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Pleather				TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:30	WT:15		ACCHECK:0		MAXDEX:8		SOURCEPAGE:95	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Skinsuit				TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:100	WT:10		ACCHECK:1		MAXDEX:6		SOURCEPAGE:95	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Studded Pleather			TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:60	WT:20		ACCHECK:1		MAXDEX:7		SOURCEPAGE:95	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Vortek Slip Padded		TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:75	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:95	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+
+#Medium Weight -------------------------------------------------------------------------------------------------------------
+Titanium Breatplate		TYPE:Armor.Medium.Suit.Standard.Metal.Plate	COST:1000	WT:25		ACCHECK:3		MAXDEX:4		SOURCEPAGE:95	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Titanium Chain			TYPE:Armor.Medium.Suit.Standard.Metal		COST:450	WT:30		ACCHECK:4		MAXDEX:3		SOURCEPAGE:95	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+
+#Heavy Weight -------------------------------------------------------------------------------------------------------------
+Stainless Steel Full Plate	TYPE:Armor.Heavy.Suit.Standard.Metal.Plate	COST:3000	WT:50		ACCHECK:6		MAXDEX:1		SOURCEPAGE:95	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Titanium Full Plate		TYPE:Armor.Heavy.Suit.Standard.Metal.Plate	COST:5000	WT:40		ACCHECK:5		MAXDEX:2		SOURCEPAGE:95	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE

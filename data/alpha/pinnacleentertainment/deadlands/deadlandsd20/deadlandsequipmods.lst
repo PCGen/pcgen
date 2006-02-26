@@ -1,0 +1,34 @@
+# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sat Dec 14 12:29:02 2002 -- reformated by prettylst.pl v1.20 (build 231)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+#
+###Block:Armor
+#
+# Modifier Name	Unique Key	Type			Cost		Type granted	Source Page		BONUS:EQMARMOR			Apply to both heads
+Masterwork		KEY:ARMRMW	TYPE:Armor.Shield	COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:EQMARMOR|ACCHECK|1	ASSIGNTOALL:Y
+#
+###Block:Weapon
+#
+# Modifier Name	Unique Key		Type			Cost		Type granted	Source Page		Bonus to skill					Weapon prop. bonus				Special Property							Apply to both heads
+Masterwork		KEY:WEAPMW		TYPE:Weapon		COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113								BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT										ASSIGNTOALL:Y
+Masterwork		KEY:AMMOMW		TYPE:Ammunition	COST:6	ITYPE:Masterwork	SOURCEPAGE:p.113								BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT										ASSIGNTOALL:Y
+Masterwork		KEY:TOOLSMW		TYPE:Tools		COST:50	ITYPE:Masterwork	SOURCEPAGE:p.113															SPROP:Applies +2 Skill Bonus to appropriate skill	ASSIGNTOALL:Y
+Masterwork		KEY:INSTMW		TYPE:Instruments	COST:95	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:SKILL|Perform|2|TYPE=ENHANCEMENT																	ASSIGNTOALL:Y
+Silvered		KEY:AMMOSLVR	TYPE:Ammunition	COST:1	ITYPE:Silvered	SOURCEPAGE:p.113
+Silvered		KEY:DAGSLVR		TYPE:Dagger		COST:10	ITYPE:Silvered	SOURCEPAGE:p.113
+#
+###Block
+# Used for testing which items to allow editing on. Any item with the properties listed will not be allowed to be edited
+# Modifier Name	Visible	Type granted
+EXCLUDEEQ_PHB	VISIBLE:NO	ITYPE:Masterwork.Adamantine
+
+###Block:Weapon
+# Modifier Name	Type		Cost			Keys to replace	Source Page		Required Item		Required Type	BONUS:EQMWEAPON						Bonus to skill		Weapon prop. bonus
+Engraved		TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:Firearm
+Gold-inlaid		TYPE:Weapon	COST:BASECOST/4	REPLACES:Engraved	SOURCEPAGE:p.65					PRETYPE:Firearm
+Hardin's Card	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT
+Ivory-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:Firearm
+Long barrel		TYPE:Weapon	COST:15					SOURCEPAGE:p.64					PRETYPE:Firearm	BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION	BONUS:SKILL|Holdout|-2
+Nickel-plated	TYPE:Weapon	COST:BASECOST				SOURCEPAGE:p.65					PRETYPE:Firearm
+Pearl-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:Firearm
+Short barrel	TYPE:Weapon	COST:5					SOURCEPAGE:p.65					PRETYPE:Firearm	BONUS:EQMWEAPON|RANGEADD|-5|TYPE=CONVERSION	BONUS:SKILL|Holdout|2
+Silver-plated	TYPE:Weapon	COST:BASECOST*2				SOURCEPAGE:p.65					PRETYPE:Firearm

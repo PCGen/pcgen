@@ -1,0 +1,20 @@
+# CVS $Revision: 1.7 $ $Author: ericbeaudoin $
+CAMPAIGN:CMG - Lexus - Open Spells Collection Variation 2
+GAMEMODE:3e
+TYPE:Creative Mountain Games.Sourcebook.Open Spells
+RANK:9
+ISOGL:YES
+SOURCELONG:Open Spells Collection
+SOURCESHORT:OpenSpells
+SOURCEWEB:http://www.creativemountaingames.com
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Open Spells Collection Copyright 2002 Mark Alexander Clover.
+COPYRIGHT:PCGen dataset conversion for Open Spells Collection Copyright 2002-2003, PCgen Data team (Including, but not limited to Chris Chandler (Barak), Andrew McDougall (Tir Gwaith), Eric Beaudoin (ericbeaudoin)).
+INFOTEXT:Only load 1 of the Open Spells Campaigns, as they will overwrite each other.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:@/d20ogl/creativemountaingames/permission.txt
+
+SPELL:openspellsvar2spells.lst

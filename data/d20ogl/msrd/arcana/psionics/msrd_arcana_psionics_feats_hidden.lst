@@ -1,0 +1,11 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Sun Oct 23 01:55:52 2005 -- reformated by prettylst.pl v1.35 (build 487)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+#Psionic Focus: Support for BONUS:DC|SPELL%LIST| syntax requested with Freq Tracker [ 1335940 ] -- Frank Kliewe
+
+# Feat Name		Type			Visible	Special Ability	Multiple?	Choose			BONUS:DC
+Psionic Focus	TYPE:Special	VISIBLE:NO	SA:Psionic Focus	MULT:YES	CHOOSE:SPELLLIST|2	BONUS:DC|SPELL.%LIST|2
+
+#
+# End
+#

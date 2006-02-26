@@ -1,0 +1,5 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+# Equipment Name	Type							Cost		Weight	Source Page		Weapon prop. bonus
+Valkarian Arrow	TYPE:Magic.Ammunition.Specific.Arrow	COST:757	WT:0		SOURCEPAGE:p.78	BONUS:WEAPON|DAMAGE,TOHIT|2

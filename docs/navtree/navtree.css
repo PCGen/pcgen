@@ -1,0 +1,51 @@
+body.navtree
+{
+    background: rgb(255,214,173);
+    margin: 0.4em 1.5em 0.4em 0.4em;
+}
+
+ul
+{
+    padding-left: 2.0em;
+    margin-left: 0em;
+}
+
+ul.navtree li ul
+{
+    display: none;
+}
+
+ul.navtree li
+{
+    list-style-image: url(plus.png);
+    list-style-type: disc;
+}
+
+ul.navtree li.gap
+{
+    list-style-image: none;
+    list-style: none
+}
+
+ul.navtree li a
+{
+    text-decoration: none;
+}
+
+img.newindex
+{
+    border: none;
+    margin-left: 0.2em;
+    padding: none;
+}
+
+ span.deprecated
+ {
+     color: #FF0000; 
+     font-size: 80%
+ }
+
+ span.note
+ {
+     font-size: 80%
+ }

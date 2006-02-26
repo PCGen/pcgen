@@ -1,0 +1,40 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Jan 18 13:46:41 2005 -- reformated by prettylst.pl v1.34 (build 451)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+
+# Modifier Name				Product Identity?	Unique Key						Type			Cost		Type granted	Source Page		Required Type		Bonus to skill
+Remote Control				NAMEISPI:YES	KEY:PHONE_REMOTE_CONTROL			TYPE:CellPhone	COST:1				SOURCEPAGE:p.204
+Slip-Away Unit				NAMEISPI:YES	KEY:PHONE_SLIP_AWAY_UNIT			TYPE:CellPhone	COST:2				SOURCEPAGE:p.204
+
+Fluid Breath Tanks			NAMEISPI:YES	KEY:FLUID_BREATH_TANKS				TYPE:DivingSuit	COST:1				SOURCEPAGE:p.206
+Propellers					NAMEISPI:YES	KEY:DIVINGSUIT_PROPELLERS			TYPE:DivingSuit	COST:1				SOURCEPAGE:p.206
+
+Blindman Unit				NAMEISPI:YES	KEY:BLINDMAN_EARIMPLANT				TYPE:EarImplant	COST:5				SOURCEPAGE:p.206
+Danger Unit					NAMEISPI:YES	KEY:DANGER_EARIMPLANT				TYPE:EarImplant	COST:4				SOURCEPAGE:p.206
+Polygraph/Voice Stress Analyzer	NAMEISPI:YES	KEY:POLYGRAPH_EARIMPLANT			TYPE:EarImplant	COST:4				SOURCEPAGE:p.206					BONUS:SKILL|Sense Motive|2
+
+Backup ID					NAMEISPI:YES	KEY:BACKUP_IDCARD					TYPE:IDCard		COST:1				SOURCEPAGE:p.206
+Duplication					NAMEISPI:YES	KEY:DUPLICATION_IDCARD				TYPE:IDCard		COST:2				SOURCEPAGE:p.206
+Electronic Lockpick			NAMEISPI:YES	KEY:ELECTRONIC_LOCKPICK_IDCARD		TYPE:IDCard		COST:1				SOURCEPAGE:p.206
+Warning Signal				NAMEISPI:YES	KEY:WARNING_SIGNAL_IDCARD			TYPE:IDCard		COST:1				SOURCEPAGE:p.207
+
+#### Palmprint Identifiers
+
+Mark I Standard Palmprint ID		NAMEISPI:YES	KEY:MARK_I_STANDARD_PALMPRINT_ID		TYPE:Pistol		COST:1	ITYPE:PalmprintID	SOURCEPAGE:p.208
+Backfire Palmprint ID			NAMEISPI:YES	KEY:BACKFIRE_PALMPRINT_ID			TYPE:Pistol		COST:2				SOURCEPAGE:p.208	PRETYPE:PalmprintID
+Blowback Palmprint ID			NAMEISPI:YES	KEY:BLOWBACK_PALMPRINT_ID			TYPE:Pistol		COST:1				SOURCEPAGE:p.208	PRETYPE:PalmprintID
+Tracking Modification Palmprint ID	NAMEISPI:YES	KEY:TRACKING_MODIFICATION_PALMPRINT_ID	TYPE:Pistol		COST:1				SOURCEPAGE:p.208	PRETYPE:PalmprintID
+
+#### Battle Suites
+
+Garage Suite				NAMEISPI:YES	KEY:GARAGE_SUITE					TYPE:BattleBus	COST:4				SOURCEPAGE:p.212
+Medical Suite				NAMEISPI:YES	KEY:MEDICAL_SUITE					TYPE:BattleBus	COST:3				SOURCEPAGE:p.212
+Props Suite					NAMEISPI:YES	KEY:PROPS_SUITE					TYPE:BattleBus	COST:3				SOURCEPAGE:p.212
+Surveillance Suite			NAMEISPI:YES	KEY:SURVEILLANCE_SUITE				TYPE:BattleBus	COST:3				SOURCEPAGE:p.212
+
+#
+# End
+#

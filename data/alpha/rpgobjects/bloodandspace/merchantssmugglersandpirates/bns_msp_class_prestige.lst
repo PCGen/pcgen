@@ -1,0 +1,15 @@
+# CVS $Revision: 1.6 $ $Author: frank_kliewe $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers|SOURCESHORT:BnS-MPS|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Corporate Fixer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name		Required Feat										Required Skill
+CLASS:Corporate Fixer	PREFEAT:2,Track,Urban Tracking	PREFEAT:1,Sneak Attack,Swift Strike	PRESKILL:2,Investigate,Survival=10	PRESKILL:3,Craft (Chemical),Demolitions,Knowledge (Streetwise)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Corporate Fixer	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Craft (Chemical)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Listen|Move Silently|Navigate|Pilot|Research|Sense Motive|Spot|Survival
+###Block:Sneak Attack
+1	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|SwiftStrike|SneakAttack|PREFEAT:1,Swift Strike	FEATAUTO:Sneak Attack
+###Block:Normal Progression
+1	SA:Find the Quarry
+3	SA:Elude the Quarry
+5	SA:Finisher

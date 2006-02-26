@@ -1,0 +1,36 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sat Aug 27 19:54:26 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Beaver and Tir Gwaith
+
+# Feat Name				Type			Required Feat								Required Lvl	Special Ability														Description																		Bonus to skill		Source Page
+Craft Greater Spell Talisman	TYPE:ItemCreation	PREFEAT:1,TYPE.Magecraft	PREFEAT:3,TYPE.Spellcasting	PRELEVEL:12																		DESC:You can create greater spell talismans, which reduce the cot for casting spells from any single school.					SOURCEPAGE:p.70
+Craft Spell Talisman		TYPE:ItemCreation	PREFEAT:1,TYPE.Magecraft	PREFEAT:1,TYPE.Spellcasting	PRELEVEL:3																		DESC:You can create spell talismans, which reduce the cot for casting a specific spells.									SOURCEPAGE:p.70
+Inconspicuous			TYPE:General														SA:+2 to Bluff, Diplomacy, Hide and Sense Motive check against members of the dark god's forces	DESC:You have an uncanny knack for avoiding contact with minions of the Shadow.										SOURCEPAGE:p.71
+Sarcosan Pureblood		TYPE:General														SA:+2 to all Charisma-related skill checks when dealing with Sarcosans					DESC:You have untained Sarcosan Ancestry.													BONUS:SKILL|Ride|2	SOURCEPAGE:p.71
+
+###Block: Spellcasting Feats
+
+# Feat Name							Type					Required Feat						Prohibited Feat								Required Lvl	Special Ability																				Define						Description													Modify VAR									Source Page
+Magecraft (Charismatic)					TYPE:General.Magecraft										!PREFEAT:1,Magecraft (Hermetic),Magecraft (Spiritual)					SA:Spellcaster - Key Stat Charisma (+%) - Spell Energy (%) - Can cast % level-0 spells/day|MageStat|SpellEnergy|3+MageStat		DEFINE:MageStat|0	DEFINE:SpellEnergy|0	DESC:You have the blood of mages running through your veins.				BONUS:VAR|MageStat|CHA	BONUS:VAR|SpellEnergy|3+MageStat	SOURCEPAGE:p.71
+Magecraft (Hermetic)					TYPE:General.Magecraft										!PREFEAT:1,Magecraft (Charismatic),Magecraft (Spiritual)				SA:Spellcaster - Key Stat Intelligence (+%) - Spell Energy (%) - Can cast % level-0 spells/day|MageStat|SpellEnergy|3+MageStat	DEFINE:MageStat|0	DEFINE:SpellEnergy|0	DESC:You have the blood of mages running through your veins.				BONUS:VAR|MageStat|INT	BONUS:VAR|SpellEnergy|3+MageStat	SOURCEPAGE:p.71
+Magecraft (Spiritual)					TYPE:General.Magecraft										!PREFEAT:1,Magecraft (Charismatic),Magecraft (Hermetic)				SA:Spellcaster - Key Stat Wisdom (+%) - Spell Energy (%) - Can cast % level-0 spells/day|MageStat|SpellEnergy|3+MageStat		DEFINE:MageStat|0	DEFINE:SpellEnergy|0	DESC:You have the blood of mages running through your veins.				BONUS:VAR|MageStat|WIS	BONUS:VAR|SpellEnergy|3+MageStat	SOURCEPAGE:p.71
+
+#Spellcasting		TYPE:General		PREFEAT:1,TYPE.Magecraft	DESC:You gain knowledge of spells from one school of magic.		MULT:YES	CHOOSE:Abjuration|Lesser Conjuration|Divination|Enchantment|Lesser Evocation|Illusion|Necromancy|Transmutation|1											SOURCEPAGE:p.71
+#Greater Spell Casting	TYPE:General	PREFEAT:1,Spellcasting(Lesser Conjurations,Lessor Evocation)	PRELEVEL:7																		DESC:You gain knowledge of spells from one of the greater schools of magic.																																						SOURCEPAGE:p.70
+
+
+Spellcasting (Abjuration)				TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Abjuration school of magic.													SOURCEPAGE:p.71
+Spellcasting (Lesser Conjuration)			TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Lesser Conjuration school of magic.											SOURCEPAGE:p.71
+Spellcasting (Divination)				TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Divination school of magic.													SOURCEPAGE:p.71
+Spellcasting (Enchantment)				TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Enchantment school of magic.													SOURCEPAGE:p.71
+Spellcasting (Lesser Evocation)			TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Lesser Evocation school of magic.												SOURCEPAGE:p.71
+Spellcasting (Illusion)					TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Illusion school of magic.													SOURCEPAGE:p.71
+Spellcasting (Necromancy)				TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Necromancy school of magic.													SOURCEPAGE:p.71
+Spellcasting (Transmutation)				TYPE:General.Spellcasting	PREFEAT:1,TYPE.Magecraft																																														DESC:You gain knowledge of spells from the Transmutation school of magic.												SOURCEPAGE:p.71
+
+Greater Spellcasting (Greater Conjuration)	TYPE:General.Spellcasting	PREFEAT:1,Spellcasting (Lesser Conjuration)											PRELEVEL:7																															DESC:You gain knowledge of spells from the Greater Conjuration school of magic.											SOURCEPAGE:p.71
+Greater Spellcasting (Greater Evocation)		TYPE:General.Spellcasting	PREFEAT:1,Spellcasting (Lesser Evocation)												PRELEVEL:7																															DESC:You gain knowledge of spells from the Greater Evocation school of magic.												SOURCEPAGE:p.71
+
+#
+# End
+#

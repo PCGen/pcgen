@@ -1,0 +1,95 @@
+------------------------------------
+-- QA log for FFG: Path of Shadow --
+------------------------------------
+
+
+OGL review
+-----------------------------------------
+-- Paul W. King 2003-12-04 -- OGL review
+-----------------------------------------
+missing OGL.txt
+
+*.pcc
+missing PCGen's S15 declaration
+
+*all class files
+class name and game stats are declared OGC, so these are
+fine...since that's all that PCGen uses.
+
+*spells
+new spells look good. where are the new powers for the psychic
+thief on pp 128-9? i didnt' see them in the spells file, nor did i
+see a spells psionic file.
+
+*feats
+the new feats look good, as they are declared OGC
+
+*equip (mundane and magical)
+looks good, as all names and game stats are declared OGC
+
+*skils
+looks good
+
+I noticed the schools from ch 5 weren't included (at least not
+yet). The mechanics from that chapter are OGC. Have folks thought
+of how to implement these, as each of the Path books have them.
+
+Paul W. King
+OGL SB, PL Chimp, BoD
+-------------------------------------
+-- Ratheof Blithwyn 2003-12-04
+-------------------------------------
+Added OGL.txt
+
+pathshadow.pcc:
+  Added PCGen's S15 declaration
+  Changed Gamemod to 3e
+  Removed ISD20.
+
+
+
+
+
+-------------------------------------
+-- Eddy Anthony 2003-11-03
+-------------------------------------
+If not got much but I thought I'd start with the core classes. Only done one
+so I'll post it.
+
+Chameleon
+
+text says Crossbow (Hand) OR Crossbow (Light). Should this be a choice?
+
+If so you can use the tag: WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
+
+Disguise bonus should be TYPE=Competence
+
+DEFINE:Disguises|2 works but could be replaced with:
+
+DEFINE:Disguises|(CL=Chameleon+10)/5
+Then you would not need additional bonus statements
+
+Special abilities - I noticed you cleared the class prerequisites. This does
+not mess up anything else does it?
+
+-Eddy Anthony
+-PCGen Doc Gibbon
+-------------------------------------
+-- Ratheof Blithwyn 2003-11-12
+-------------------------------------
+All fixed.
+Special abilities - 
+[Tir]
+That shouldn't be a problem. If nothing else, a PREVAR check to make sure
+the person qualifies for them anyway... I think the reason for the PRExxx
+in the first place was because VISIBLE:NO didn't work in all display modes
+of feats, and I didn;t want to make it easy for a plain joe to be able to
+get the feat just because he had it in a different view mode than I normally
+test in..... :)
+
+Tir Gwaith
+PCGen Data SB and BoD
+[/Tir]
+Blithwyn: Leaving them as is for now, the alternative is to duplicate them instead
+          or adding a qualifying variable in SRD. 
+

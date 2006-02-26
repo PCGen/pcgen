@@ -1,0 +1,19 @@
+# CVS $Revision: 1.9 $ $Author: frank_kliewe $ -- Tue Dec 13 17:26:06 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+#	Explosives & Splash Weapons
+# Equipment Name				Output Name							Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page							Special Property
+40mm Fragmentation Grenade (6)	OUTPUTNAME:40mm Fragmentation Grenade, box of 6	TYPE:Explosive.Slashing					COST:16	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:3d6	RANGE:-	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 10', Mil(+3), 3d6 Slashing Damage
+C4/Semtex													TYPE:Explosive.Concussion				COST:12	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	RANGE:-	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 10', Mil(+3), 4d6 Concussion Damage
+Det Cord													TYPE:Explosive.Fire					COST:8	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:2d6	RANGE:-	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:see text for burst raduis, Res(+2), 2d6 Fire Damage
+Dynamite													TYPE:Explosive.Concussion				COST:12	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 5', Lic(+1), 2d6 Concussion Damage
+Fragmentation Grenade											TYPE:Explosive.Slashing					COST:15	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	RANGE:10	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 20', Mil(+3), 4d6 Slashing Damage
+Smoke Grenade												TYPE:Explosive						COST:10	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:see text for burst raduis, Smoke
+Tear Gas Grenade												TYPE:Explosive						COST:12	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:see text for burst raduis, Res(+2)
+Thermite Grenade												TYPE:Explosive.Fire					COST:17	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:6d6	RANGE:10	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 5', Mil(+3), 6d6 Fire Damage
+White Phosphorus Grenade										TYPE:Explosive.Fire					COST:15	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:2d6	RANGE:10	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 20', Mil(+3), 2d6 Fire Damage
+Acid (mild)					OUTPUTNAME:Acid, mild					TYPE:Splash.Acid						COST:20	WT:1		CRITMULT:-			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:1d6 Acid Damage
+Molotov cocktail												TYPE:Splash.Fire						COST:20	WT:1		CRITMULT:-			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:1d6 Fire Damage
+
+#Single Grenade for use as Ammo in M79 Grenade launcher
+40mm Fragmentation Grenade		OUTPUTNAME:40mm Fragmentation Grenade		TYPE:Ammunition.Standard.Metal.40mm.Individual	COST:16	WT:1		CRITMULT:-			CRITRANGE:0			DAMAGE:3d6	RANGE:-	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Burst Radius 10', Mil(+3), 3d6 Slashing Damage

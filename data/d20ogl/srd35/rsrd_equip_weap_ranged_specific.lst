@@ -1,0 +1,9 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri May  7 21:03:41 2004 -- reformated by prettylst.pl v1.32 (build 353)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original entry by: ???, Thaldorf
+
+###Block: Ranged
+# Equipment Name		Required Proficiency	Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Size		Source Page				Weapon prop. bonus									Special Property
+Javelin of Lightning	PROFICIENCY:Javelin	TYPE:Enhancement.Weapon.Ranged.Thrown.Simple.Specific.Piercing.Javelin								COST:1500	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:30	SIZE:M	SOURCEPAGE:MagicItemsII.rtf													SPROP:Becomes a 5d6 Lightning Bolt when thrown
+Oathbow			PROFICIENCY:Longbow	TYPE:Enhancement.Weapon.Martial.Ranged.Specific.Piercing.Container.Projectile.Bow.Longbow	CONTAINS:-1|Arrow=1	COST:25600	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	RANGE:110	SIZE:M	SOURCEPAGE:MagicItemsII.rtf	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	BONUS:WEAPON|DAMAGE|STRMIN2	SPROP:+5 against a sworn enemy and deals 2d6 add damage, critical X4
+

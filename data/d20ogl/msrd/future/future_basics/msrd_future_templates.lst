@@ -1,0 +1,90 @@
+# CVS $Revision: 1.2 $ $Author: frank_kliewe $ -- Thu Dec  1 03:39:40 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+### program crashes when CR has a variable in it. removing CR:ETCR from Extraterrestial template. When CR can accept variables, it will be added back in. For now its in an SA tag
+
+###Block: Xenobiology
+
+# Template Name							CR	Visible		Damage Reduction	Source Page					Special Ability																	Define		Required Template			Prohibited Template																															Combat bonus					Stat bonus					Modify VAR		Choose a Feat			MOVECLONE			Vision
+Extraterrestial								VISIBLE:YES					SOURCEPAGE:FutureXenobiology.rtf	SA:Challange Rating +%|ETCR/3															DEFINE:ETCR|0
+
+Extraterrestial Acidic Blood						VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Acidic Blood (Ex)																			PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Blindsight						VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Blindsight (Ex)																			PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Breath Weapon (Cone of Fire)			VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Breath Weapon (Su) - Cone of Fire, 30 ft, %d6 damage, Ref save (DC %) for half|min(TL,15)|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Breath Weapon (Line of Acid),Extraterrestial Breath Weapon (Line of Electricity),Extraterrestial Breath Weapon (Cone of Cold)																						BONUS:VAR|ETCR|2
+Extraterrestial Breath Weapon (Cone of Cold)			VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Breath Weapon (Su) - Cone of Cold, 30 ft, %d6 damage, Ref save (DC %) for half|min(TL,15)|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Breath Weapon (Line of Acid),Extraterrestial Breath Weapon (Line of Electricity),Extraterrestial Breath Weapon (Cone of Fire)																						BONUS:VAR|ETCR|2
+Extraterrestial Breath Weapon (Line of Acid)			VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Breath Weapon (Su) - Line of Acid, 60 ft, %d6 damage, Ref save (DC %) for half|min(TL,15)|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Breath Weapon (Cone of Fire),Extraterrestial Breath Weapon (Cone of Cold),Extraterrestial Breath Weapon (Line of Electricity)																						BONUS:VAR|ETCR|2
+Extraterrestial Breath Weapon (Line of Electricity)		VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Breath Weapon (Su) - Line of Electricity 60 ft, %d6 damage, Ref save (DC %) for half|min(TL,15)|10+TL/2+CON				PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Breath Weapon (Cone of Fire),Extraterrestial Breath Weapon (Cone of Cold),Extraterrestial Breath Weapon (Line of Acid)																							BONUS:VAR|ETCR|2
+Extraterrestial Damage Reduction					VISIBLE:DISPLAY	DR:5/-		SOURCEPAGE:FutureXenobiology.rtf																							PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|2
+Extraterrestial Death Cloud						VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Death Cloud (Ex)																			PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|2
+Extraterrestial Energy Resistance (Acid)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Acid Resistance 10 (Ex)																		PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Energy Resistance (Cold)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Cold Resistance 10 (Ex)																		PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Energy Resistance (Electricity)			VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Electricity Resistance 10 (Ex)																	PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Energy Resistance (Fire)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Fire Resistance 10 (Ex)																		PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Energy Resistance (Sonic/Concussion)		VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Sonic/Concussion Resistance 10 (Ex)																PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Fast Healing						VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Fast Healing 5 (Ex)																			PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|2
+Extraterrestial Improved Natural Armor				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf																							PRETEMPLATE:Extraterrestial																																			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK							BONUS:VAR|ETCR|1
+Extraterrestial Poisonous Bite (Str)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Poisonous Bite, Str damage (Ex) - 1d6 initial, 1d6 secondary, Fort save (DC %) to negate|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Poisonous Bite (Dex),Extraterrestial Poisonous Bite (Con),Extraterrestial Poisonous Bite (Wis),Extraterrestial Poisonous Bite (Cha),Extraterrestial Poisonous Bite (paralysis)														BONUS:VAR|ETCR|2
+Extraterrestial Poisonous Bite (Dex)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Poisonous Bite, Dex damage (Ex) - 1d6 initial, 1d6 secondary, Fort save (DC %) to negate|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Poisonous Bite (Str),Extraterrestial Poisonous Bite (Con),Extraterrestial Poisonous Bite (Wis),Extraterrestial Poisonous Bite (Cha),Extraterrestial Poisonous Bite (paralysis)														BONUS:VAR|ETCR|2
+Extraterrestial Poisonous Bite (Con)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Poisonous Bite, Con damage (Ex) - 1d4 initial, 1d4 secondary, Fort save (DC %) to negate|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Poisonous Bite (Str),Extraterrestial Poisonous Bite (Dex),Extraterrestial Poisonous Bite (Wis),Extraterrestial Poisonous Bite (Cha),Extraterrestial Poisonous Bite (paralysis)														BONUS:VAR|ETCR|2
+Extraterrestial Poisonous Bite (Wis)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Poisonous Bite, Wis damage (Ex) - 2d4 initial, 2d4 secondary, Fort save (DC %) to negate|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Poisonous Bite (Str),Extraterrestial Poisonous Bite (Dex),Extraterrestial Poisonous Bite (Con),Extraterrestial Poisonous Bite (Cha),Extraterrestial Poisonous Bite (paralysis)														BONUS:VAR|ETCR|2
+Extraterrestial Poisonous Bite (Cha)				VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Poisonous Bite, Cha damage (Ex) - 2d4 initial, 2d4 secondary, Fort save (DC %) to negate|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Poisonous Bite (Str),Extraterrestial Poisonous Bite (Dex),Extraterrestial Poisonous Bite (Con),Extraterrestial Poisonous Bite (Wis),Extraterrestial Poisonous Bite (paralysis)														BONUS:VAR|ETCR|2
+Extraterrestial Poisonous Bite (paralysis)			VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Poisonous Bite, Paralysis (Ex) - no initial, 1d6 hours secondary, Fort save (DC %) to negate|10+TL/2+CON					PRETEMPLATE:Extraterrestial	!PRETEMPLATE:Extraterrestial Poisonous Bite (Str),Extraterrestial Poisonous Bite (Dex),Extraterrestial Poisonous Bite (Con),Extraterrestial Poisonous Bite (Wis),Extraterrestial Poisonous Bite (Cha)															BONUS:VAR|ETCR|2
+Extraterrestial Power Resistance					VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Power Resistance % (Ex)|TL																		PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+Extraterrestial Scent							VISIBLE:DISPLAY				SOURCEPAGE:FutureXenobiology.rtf	SA:Scent (Ex)																				PRETEMPLATE:Extraterrestial																																																BONUS:VAR|ETCR|1
+
+Space Creature							CR:1	VISIBLE:YES					SOURCEPAGE:FutureXenobiology.rtf	SA:Cold Resistance 20 (Ex)	SA:Fire Resistance 20 (Ex)	SA:Radiation Resistance (Ex)	SA:Vacuum Survival (Ex)																																																		BONUS:STAT|STR|-2	BONUS:STAT|CON|2				ADD:FEAT(Zero G Training)	MOVECLONE:Walk,0,Fly,*1	VISION:Darkvision (120)
+
+###Block: Extraterrestial Psionics Support
+
+# Template Name			Visible		Template																																																																																																																																																															Source Page					Special Ability	Required Template			Modify VAR
+Extraterrestial Psionics	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Psi-Ability (Attraction)|Psi-Ability (Brain Lock)|Psi-Ability (Burst)|Psi-Ability (Charm Person)|Psi-Ability (Clairaudience/Clairvoyance)|Psi-Ability (Claws of the Bear)|Psi-Ability (Combat Focus)|Psi-Ability (Combat Precognition)|Psi-Ability (Combat Prescience)|Psi-Ability (Concussion)|Psi-Ability (Control Object)|Psi-Ability (Darkvision)|Psi-Ability (Daze)|Psi-Ability (Detect Psionics)|Psi-Ability (Detect Thoughts)|Psi-Ability (Distract)|Psi-Ability (Electric Charge)|Psi-Ability (Far Hand)|Psi-Ability (Far Punch)|Psi-Ability (Finger of Fire)|Psi-Ability (Fire Bolt)|Psi-Ability (Inflict Pain)|Psi-Ability (Lesser Bioweapon)|Psi-Ability (Lesser Body Adjustment)|Psi-Ability (Lesser Concussion)|Psi-Ability (Lesser Mindlink)|Psi-Ability (Levitate)|Psi-Ability (Missive)|Psi-Ability (Object Reading)|Psi-Ability (Sensitivity to Psychic Impressions)|Psi-Ability (Suggestion)|Psi-Ability (Valor)|Psi-Ability (Verve)|Psi-Ability (Vigor)	SOURCEPAGE:FutureXenobiology.rtf	SA:Psionics (Sp)	PRETEMPLATE:Extraterrestial	BONUS:VAR|ETCR|1
+
+###Block: Powers
+
+# Template Name							Visible	Spells
+Psi-Ability (Attraction)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Attraction,1+CHA
+Psi-Ability (Brain Lock)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Brain Lock,12+CHA
+Psi-Ability (Burst)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Burst,10+DEX
+Psi-Ability (Charm Person)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Charm Person,11+CHA
+Psi-Ability (Clairaudience/Clairvoyance)			VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Clairaudience/Clairvoyance,12+WIS
+Psi-Ability (Claws of the Bear)				VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Claws of the Bear,12+STR
+Psi-Ability (Combat Focus)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Combat Focus,12+WIS
+Psi-Ability (Combat Precognition)				VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Combat Precognition,11+WIS
+Psi-Ability (Combat Prescience)				VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Combat Prescience,12+WIS
+Psi-Ability (Concussion)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Concussion,12+CON
+Psi-Ability (Control Object)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Control Object,11+CON
+Psi-Ability (Darkvision)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Darkvision,12+WIS
+Psi-Ability (Daze)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Daze,10+CHA
+Psi-Ability (Detect Psionics)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Detect Psionics,10+WIS
+Psi-Ability (Detect Thoughts)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Detect Thoughts,12+CHA
+Psi-Ability (Distract)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Distract,10+CHA
+Psi-Ability (Electric Charge)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Electric Charge,12+INT
+Psi-Ability (Far Hand)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Far Hand,10+CON
+Psi-Ability (Far Punch)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Far Punch,10+CON
+Psi-Ability (Finger of Fire)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Finger of Fire,10+INT
+Psi-Ability (Fire Bolt)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Fire Bolt,11+INT
+Psi-Ability (Inflict Pain)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Inflict Pain,12+CHA
+Psi-Ability (Lesser Bioweapon)				VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Lesser Bioweapon,11+STR
+Psi-Ability (Lesser Body Adjustment)			VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Lesser Body Adjustment,11+STR
+Psi-Ability (Lesser Concussion)				VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Lesser Concussion,11+CON
+Psi-Ability (Lesser Mindlink)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Lesser Mindlink,11+CHA
+Psi-Ability (Levitate)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Levitate,12+DEX
+Psi-Ability (Missive)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Missive,10+CHA
+Psi-Ability (Object Reading)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Object Reading,11+WIS
+Psi-Ability (Sensitivity to Psychic Impressions)	VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Sensitivity to Psychic Impressions,12+WIS
+Psi-Ability (Suggestion)					VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Suggestion,12+CHA
+Psi-Ability (Valor)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Valor,10+STR
+Psi-Ability (Verve)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Verve,10+STR
+Psi-Ability (Vigor)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=TL|Vigor,11+STR
+
+###Block: Scientific Engineering
+
+# Template Name	Visible	Source Page							Special Ability						Save checks bonus					Bonus to skill						Modify VAR				Choose a Feat		Vision
+Aquan			VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Amphibious (Ex)	SA:Blindsight (Ex)																					ADD:FEAT(Athletic)	VISION:Low-light
+Healer		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Fast Healing 3 (Ex)																				BONUS:VAR|DamageThreshold|-3
+Morphean		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Hibernate (Ex)	SA:Sleepless (Ex)			BONUS:CHECKS|Willpower|2|TYPE=Species
+Nocturnal		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	SA:Light Sensitivity (Ex)											BONUS:SKILL|Listen,Move Silently|2|TYPE=Species						ADD:FEAT(Blind-Fight)	VISION:Darkvision (60)
+
+#
+# End
+#

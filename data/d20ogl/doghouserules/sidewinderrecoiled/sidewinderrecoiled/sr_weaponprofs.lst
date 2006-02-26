@@ -1,0 +1,89 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  2 14:59:42 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Sidewinder: Recoiled|SOURCESHORT:S:R|SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# Original Entry by: Lone Jedi (MSRD by bD_92)
+
+# Weapon Name					Type
+#Ranged
+# Weapon Name					Type
+Harpers Ferry Pistol				TYPE:PersonalFirearm
+U.S. Percussion Navy Pistol			TYPE:PersonalFirearm
+U.S. Percussion Navy Pistol (Rifled)	TYPE:PersonalFirearm
+Allen and Thurber Pepperbox			TYPE:PersonalFirearm
+Pocket Deringer					TYPE:PersonalFirearm
+
+Sharps Pepperbox					TYPE:PersonalFirearm
+Remington Double-Derringer			TYPE:PersonalFirearm
+
+Colt Walker Dragoon				TYPE:PersonalFirearm
+Colt New Model Army				TYPE:PersonalFirearm
+Remington Pocket Pistol				TYPE:PersonalFirearm
+Reid's Knuckleduster				TYPE:PersonalFirearm
+Colt Peacemaker					TYPE:PersonalFirearm
+S&W Schofield					TYPE:PersonalFirearm
+
+Starr Army Revolver				TYPE:PersonalFirearm
+Webley RIC						TYPE:PersonalFirearm
+Colt Lightning					TYPE:PersonalFirearm
+Colt Thunderer					TYPE:PersonalFirearm
+
+M1816 Flintlock Musket				TYPE:PersonalFirearm
+M1842 Percussion Musket				TYPE:PersonalFirearm
+
+Harpers Ferry Rifle				TYPE:PersonalFirearm
+Hawken Rifle					TYPE:PersonalFirearm
+Sharps Rifle					TYPE:PersonalFirearm
+Sharps Carbine					TYPE:PersonalFirearm
+Spencer Carbine					TYPE:PersonalFirearm
+Henry Rifle						TYPE:PersonalFirearm
+Winchester 73					TYPE:PersonalFirearm
+Sharps Big Fifty					TYPE:PersonalFirearm
+
+Loomis Side-By-Side				TYPE:PersonalFirearm
+Remington Single-Barrel				TYPE:PersonalFirearm
+Remington-Whitmore M1873			TYPE:PersonalFirearm
+Winchester Lever-Action				TYPE:PersonalFirearm
+
+# Exotic Firearms
+Cannon						TYPE:ExoticFirearms
+Heavy Machine Gun					TYPE:ExoticFirearms
+Grenade Launcher					TYPE:ExoticFirearms
+
+Crossbow						TYPE:Simple
+Javelin						TYPE:Simple
+Whip							TYPE:Simple
+
+Bow							TYPE:Archaic
+Shuriken						TYPE:Archaic
+
+Bola							TYPE:ExoticRanged
+Lasso							TYPE:ExoticRanged
+Net							TYPE:ExoticRanged
+
+#Melee
+Brass Knuckles					TYPE:Simple
+Cleaver						TYPE:Simple
+Club							TYPE:Simple
+Coup Stick						TYPE:Simple
+Knife							TYPE:Simple
+Pistol Whip						TYPE:Simple
+Pitchfork						TYPE:Simple
+Rifle Butt						TYPE:Simple
+Sap							TYPE:Simple
+Sledgehammer					TYPE:Simple
+Staff							TYPE:Simple
+
+Ax							TYPE:Archaic
+Bayonet (Fixed)					TYPE:Archaic
+Bowie Knife						TYPE:Archaic
+Hatchet						TYPE:Archaic
+Tomahawk						TYPE:Archaic
+Longsword						TYPE:Archaic
+Pickax						TYPE:Archaic
+Rapier						TYPE:Archaic
+Saber							TYPE:Archaic
+Spear							TYPE:Archaic
+Straight Razor					TYPE:Archaic
+Sword cane						TYPE:Archaic
+
+Chain							TYPE:Exotic
+Claymore						TYPE:Exotic

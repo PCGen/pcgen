@@ -1,0 +1,10 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Sep  9 09:57:50 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Book of Iron Might|SOURCESHORT:BoIM|SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
+
+###Block: standard equipment
+# Equipment Name				Type								Cost		Weight	Source Page		Bonus to skill
+Artisan's Tools (Metalworking)	TYPE:Goods.Tools.Artisan.MetalworkingTools	COST:5	WT:5		SOURCEPAGE:p.32	BONUS:SKILL|Craft (Metalworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
+
+###Block: armor
+# Equipment Name		Type				AC Penalty Check	Modifier			Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Ironborn Armored Body	TYPE:Armor.Heavy.Suit	ACCHECK:-6		EQMOD:STEEL.MWORKA	MAXDEX:1		SOURCEPAGE:p.28	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE

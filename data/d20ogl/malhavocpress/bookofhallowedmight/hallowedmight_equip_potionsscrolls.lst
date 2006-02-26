@@ -1,0 +1,77 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Mar 17 15:42:47 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+#Spell names and other proper names from The Book of Hallowed Might are
+#	©2001-2005 Monte J. Cook and are used here with his permission.
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+#Potion Name			Output name			Type			Cost		Weight		Sourcepage
+# Equipment Name					Product Identity?	Output Name				Type						Cost		Weight	Source Page
+Potion (Armor Contingency)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.29
+Potion (Audible Whisper)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:25	WT:0		SOURCEPAGE:p.30
+Potion (Blast of Castigation)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:750	WT:0		SOURCEPAGE:p.30
+Potion (Blight Enemy)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:400	WT:0		SOURCEPAGE:p.30
+Potion (Burning Brand)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Carnivorous Defender)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:750	WT:0		SOURCEPAGE:p.31
+Potion (Clarity of Mind)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:25	WT:0		SOURCEPAGE:p.31
+Potion (Crystal of Reflection)		NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:300	WT:0		SOURCEPAGE:p.32
+Potion (Crystal Shard)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.32
+Potion (Divert Charge)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.32
+Potion (Godspeed)					NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:750	WT:0		SOURCEPAGE:p.33
+Potion (Grant Quarter (Bonds of Mercy))	NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:300	WT:0		SOURCEPAGE:p.33
+Potion (Heartglow)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:400	WT:0		SOURCEPAGE:p.34
+Potion (Illuminated Weapon)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:100	WT:0		SOURCEPAGE:p.35
+Potion (Pattern of Sibyllic Fate)		NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.35
+Potion (Peaceful Weapon)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:750	WT:0		SOURCEPAGE:p.35
+Potion (Redemptive Redress)			NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.36
+Potion (Resist Touch)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:50	WT:0		SOURCEPAGE:p.36
+Potion (See No Evil)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:750	WT:0		SOURCEPAGE:p.36
+Potion (Touch no Evil)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:300	WT:0		SOURCEPAGE:p.37
+Potion (Wild Stealth)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion				COST:300	WT:0		SOURCEPAGE:p.39
+
+#Scroll name				Type				Cost		Weight		Source Page
+Scroll (Aeonian Lantern)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.29
+Scroll (Angel's Redoubt)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1650	WT:.01	SOURCEPAGE:p.29
+Scroll (Arathan's Spiritual Soldier)	NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:3000	WT:.01	SOURCEPAGE:p.29
+Scroll (Armor Contingency)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:25	WT:.01	SOURCEPAGE:p.29
+Scroll (Audible Whisper)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:12.5	WT:.01	SOURCEPAGE:p.30
+Scroll (Bind with Plants)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.30
+Scroll (Blast of Castigation)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:375	WT:.01	SOURCEPAGE:p.30
+Scroll (Blazing Light)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1650	WT:.01	SOURCEPAGE:p.30
+Scroll (Blight Enemy)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:200	WT:.01	SOURCEPAGE:p.30
+Scroll (Burning Brand)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:25	WT:.01	SOURCEPAGE:p.31
+Scroll (Carnivorous Defender)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:375	WT:.01	SOURCEPAGE:p.31
+Scroll (Clarity of Mind)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:12.5	WT:.01	SOURCEPAGE:p.31
+Scroll (Confutation of the Demon)		NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:3825	WT:.01	SOURCEPAGE:p.31
+Scroll (Crystal Eruption)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:2275	WT:.01	SOURCEPAGE:p.31
+Scroll (Crystal of Reflection)		NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:150	WT:.01	SOURCEPAGE:p.32
+Scroll (Crystal Shard)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:25	WT:.01	SOURCEPAGE:p.32
+Scroll (Curse of Wounding)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1125	WT:.01	SOURCEPAGE:p.32
+Scroll (Divert Charge)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:25	WT:.01	SOURCEPAGE:p.32
+Scroll (Ethereal Prison)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.33
+Scroll (Glory of the Beast)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1125	WT:.01	SOURCEPAGE:p.33
+Scroll (Godspeed)					NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:375	WT:.01	SOURCEPAGE:p.33
+Scroll (Grant Quarter (Bonds of Mercy))	NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:150	WT:.01	SOURCEPAGE:p.33
+Scroll (Halo of Glory)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.34
+Scroll (Halo of Shelter)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1125	WT:.01	SOURCEPAGE:p.34
+Scroll (Heartglow)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:200	WT:.01	SOURCEPAGE:p.34
+Scroll (Holy Shout)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:3000	WT:.01	SOURCEPAGE:p.34
+Scroll (Illuminated Weapon)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:50	WT:.01	SOURCEPAGE:p.35
+Scroll (Light of the Earth)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1650	WT:.01	SOURCEPAGE:p.35
+Scroll (Pattern of Sibyllic Fate)		NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:25	WT:.01	SOURCEPAGE:p.35
+Scroll (Peaceful Weapon)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:375	WT:.01	SOURCEPAGE:p.35
+Scroll (Redemption from Evil Power)		NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:2275	WT:.01	SOURCEPAGE:p.36
+Scroll (Redemptive Redress)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:25	WT:.01	SOURCEPAGE:p.36
+Scroll (Resist Touch)				NAMEISPI:YES						TYPE:Magic.Scroll.Arcane.Divine	COST:25	WT:.01	SOURCEPAGE:p.36
+Scroll (Return and Avenge)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1650	WT:.01	SOURCEPAGE:p.36
+Scroll (See No Evil)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:375	WT:.01	SOURCEPAGE:p.36
+Scroll (Shield of Light)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:1125	WT:.01	SOURCEPAGE:p.37
+Scroll (Sunfire Tomb)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:3825	WT:.01	SOURCEPAGE:p.37
+Scroll (Touch no Evil)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:150	WT:.01	SOURCEPAGE:p.32SOURCEPAGE:p.37
+Scroll (Truth's Wings)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.37
+Scroll (Unite Allies)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.38
+Scroll (Vengeful Spell Resistance)		NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:2275	WT:.01	SOURCEPAGE:p.38
+Scroll (Watery Prison)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:2275	WT:.01	SOURCEPAGE:p.38
+Scroll (Waves of Light)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:2275	WT:.01	SOURCEPAGE:p.39
+Scroll (Wellspring of Soul's Light)		NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:3825	WT:.01	SOURCEPAGE:p.39
+Scroll (Wild Stealth)				NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:150	WT:.01	SOURCEPAGE:p.32SOURCEPAGE:p.39
+Scroll (Woodlands Prison)			NAMEISPI:YES						TYPE:Magic.Scroll.Divine		COST:700	WT:.01	SOURCEPAGE:p.39

@@ -1,0 +1,52 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil|SOURCESHORT:Evil|SOURCEWEB:http://alderac.com/d20
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
+CLASS:Demon Summoner	HD:4		TYPE:PC.Prestige	ABB:DmS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required AL		Required Class					Required Language			Required Skill
+CLASS:Demon Summoner	PREALIGN:LE,NE,CE	PRECLASS:1,Cleric=7,Wizard=5,Sorcerer=6	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Knowledge (Demonology),Spellcraft=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Demon Summoner	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Knowledge (Demonology)|Knowledge (The Planes)|Spellcraft
+1	SA:Special Metamagic feat x%|SpecialMeta					DEFINE:SpecialMeta|1
+2								BONUS:VAR|SpecialMeta|1
+3	SA:Apprentice x%|DemonApp							DEFINE:DemonApp|1
+4								BONUS:VAR|SpecialMeta|1
+5	SA:Servitor (Quasit or Imp)
+6								BONUS:VAR|DemonApp|1
+7								BONUS:VAR|SpecialMeta|1
+8								BONUS:VAR|DemonApp|1
+9								BONUS:VAR|SpecialMeta|1
+10								BONUS:VAR|SpecialMeta|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus																		Combat bonus
+CLASS:Bargainer	HD:6		TYPE:PC.Prestige	ABB:Bar		MAXLEVEL:10	SOURCEPAGE:p.70-71	BONUS:CHECKS|BASE.Fortitude|CL/9	BONUS:CHECKS|BASE.Reflex|(CL+1)/4	BONUS:CHECKS|BASE.Willpower|(CL+1)/2+(CL/9)+2	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE
+# Class Name	Required AL		Req. Att.	Required Feat				Required Language			Required Skill																		Required Text
+CLASS:Bargainer	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:2,Infernal Pact,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=4	PRESKILL:2,Diplomacy,Knowledge (Demonology)=8	PRETEXT:Must know the true name of a Demon
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Bargainer	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
+1	SA:Agent of Evil		BONUS:STAT|CHA|1
+2								ADD:FEAT(TYPE=Infernal)
+3	SA:Devil's Advocate
+4								ADD:FEAT(TYPE=Infernal)
+5	SA:Infernal Will
+6								ADD:FEAT(TYPE=Infernal)
+7												VFEAT:Craft Wondrous Item
+8								ADD:FEAT(TYPE=Infernal)
+9	SA:Wild Shape
+10								ADD:FEAT(TYPE=Infernal)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL	Req. Att.	Required Feat											Required Skill
+CLASS:Blood Archer	PREALIGN:LE	PREATT:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization(Longbow)	PRESKILL:1,Craft (Bowyer/Fletcher)=6	PRESKILL:1,Hide=4	PRESKILL:1,Wilderness Lore=7
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Blood Archer	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Tumble|Wilderness Lore
+1									SA:Poison Blood	SA:Title - Initiate of the Path																	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
+2	SA:.CLEAR.Title - Initiate of the Path		SA:Acid Blood	SA:Title - Initiate of the 1st Fletching
+3									SA:Blood Bow +%|BloodBow													DEFINE:BloodBow|CL/3
+4	SA:.CLEAR.Title - Initiate of the 1st Fletching	SA:Regeneration (1 hp/hour)	SA:Title - Initiate of the 2nd Fletching
+5									SA:Sneak Attack +%d% (Bow Only)|BowSneakAttack|SneakAttackDie		BONUS:VAR|BowSneakAttack|1	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
+6	SA:.CLEAR.Title - Initiate of the 2nd Fletching	SA:Title - Initiate of the 3rd Fletching
+7	SA:.CLEAR.Regeneration					SA:Regeneration (1 hp/minute)
+8																					BONUS:VAR|BowSneakAttack|1
+10																					BONUS:VAR|BowSneakAttack|1

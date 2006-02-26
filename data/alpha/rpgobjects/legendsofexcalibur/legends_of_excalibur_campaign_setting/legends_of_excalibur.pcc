@@ -1,0 +1,68 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Dec 26 07:10:16 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Legends of Excalibur - Arthurian Adventures
+RANK:1
+GAMEMODE:LoE
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Legends of Excalibur
+TYPE:RPG Objects.Legends of Excalibur
+SOURCELONG:Legends of Excalibur - Arthurian Adventures
+SOURCESHORT:LOE
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Legends of Excalibur Copyright 2003, RPGObjectes, Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Legends of Excalibur: Knight's Handbook Copyright 2004-2005, PCgen Data team (Including, but not limited to Paul W. King, David Culliford, Eddy Anthony, and Andrew (Tir Gwaith) McDougall)
+
+INFOTEXT:The Campaign Setting
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+# LOE HC files
+CLASS:loe_classes_base.lst
+CLASS:loe_classes_base_mod.lst
+CLASS:loe_classes_prestige.lst
+CLASS:loe_classes_prestige_mod.lst
+COMPANIONMOD:loe_companionmods.lst
+DEITY:loe_deities.lst
+EQUIPMENT:loe_equip_weap_melee.lst
+FEAT:loe_feats.lst
+FEAT:loe_feats_hidden.lst
+FEAT:loe_feats_mod.lst
+LANGUAGE:loe_languages.lst
+RACE:loe_races_bloodlines.lst
+RACE:loe_races__animals_mod.lst
+SKILL:loe_skills.lst
+SPELL:loe_spells.lst
+SPELL:loe_spells_mod.lst
+TEMPLATE:loe_templates_nationalities.lst
+TEMPLATE:loe_templates.lst
+
+# RSRD files that are included
+CLASS:@/d20ogl/srd35/rsrd_classes_base.lst|(INCLUDE:Barbarian|Fighter|Rogue)
+CLASS:@/d20ogl/srd35/rsrd_classes_prestige.lst|(INCLUDE:Arcane Trickster)
+COMPANIONMOD:@/d20ogl/srd35/rsrd_companionmods.lst
+FEAT:@/d20ogl/srd35/rsrd_feats.lst
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden2.lst
+FEAT:@/d20ogl/srd35/rsrd_feats_hidden.lst
+EQUIPMOD:@/d20ogl/srd35/rsrd_equipmods_base.lst
+EQUIPMOD:@/d20ogl/srd35/rsrd_equipmods_enhancing.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_basetypes.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_coinsgems.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd35/rsrd_equip_weap_ranged.lst
+EQUIPMOD:@/d20ogl/srd35/rsrd_equipmods_base.lst
+RACE:@/d20ogl/srd35/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Mule|Pony|Pony (War))
+SKILL:@/d20ogl/srd35/rsrd_skills.lst
+SPELL:@/d20ogl/srd35/rsrd_spells.lst
+WEAPONPROF:@/d20ogl/srd35/rsrd_weaponprofs.lst
+
+#
+# End
+#

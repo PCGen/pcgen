@@ -1,0 +1,72 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+# Original Entry by: bD_92 and Tir Gwaith
+
+# Equipment Name				Required Proficiency			Type											Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus					Special Property
+Crossbow (Hand)				PROFICIENCY:Crossbow (Hand)		TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Wooden.Container	CONTAINS:-1|Bolt=1		COST:100	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4		RANGE:30	SIZE:T	SOURCEPAGE:p.
+Shuriken					PROFICIENCY:Shuriken			TYPE:Weapon.Exotic.Ranged.Piercing.Thrown.Standard.Monk.Metal						COST:1	WT:.1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1		RANGE:10	SIZE:T	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|-STR
+
+#SMALL ----------------------------------------------------------------------------------------------------------
+Whip						PROFICIENCY:Whip				TYPE:Weapon.Exotic.Ranged.Slashing.Standard									COST:1	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2		RANGE:15	SIZE:S	SOURCEPAGE:p.104	BONUS:WEAPON|TOHIT|1|PREFEAT:1,Point Blank Shot
+Bola												TYPE:Weapon.Exotic.Ranged.Tangling.Standard									COST:35	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:10
+Blowgun											TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container			CONTAINS:-1|Needle=1		COST:10	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1		RANGE:10
+Boomerang											TYPE:Weapon.Exotic.Ranged.Bludgeoning.Thrown.Standard.Wooden						COST:-	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1		RANGE:10
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Crossbow (Repeating)									TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Wooden.Container	CONTAINS:-1|Bolt=1		COST:250	WT:16		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8		RANGE:80	SIZE:M	SOURCEPAGE:p.
+Net												TYPE:Weapon.Exotic.Ranged.Thrown.Standard										COST:20	WT:10													RANGE:10	SIZE:M	SOURCEPAGE:p.
+
+#Martial Ranged
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Shortbow											TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:30	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:60	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
+Shortbow (Composite)									TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:75	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
+Shortbow (+1 Mighty/Composite)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:150	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN1
+Shortbow (+2 Mighty/Composite)	PROFICIENCY:Shortbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:225	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:70	SIZE:M	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN2
+Speargun											TYPE:Weapon.Martial.Ranged.Standard.Piercing									COST:500	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6		RANGE:10
+
+#LARGE ----------------------------------------------------------------------------------------------------------
+Longbow											TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:75	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:100	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
+Longbow (Composite)									TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:100	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
+Longbow (+1 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:200	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN1
+Longbow (+2 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:300	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN2
+Longbow (+3 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:400	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN3
+Longbow (+4 Mighty/Composite)		PROFICIENCY:Longbow (Composite)	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Arrow=1		COST:500	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN4
+
+#Simple Weapons Ranged
+#SMALL ----------------------------------------------------------------------------------------------------------
+Crossbow (Light)										TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Bolt=1		COST:35	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8		RANGE:80	SIZE:S	SOURCEPAGE:p.
+Dart												TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Wooden							COST:0.5	WT:.5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4		RANGE:20	SIZE:S	SOURCEPAGE:p.
+Sling												TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container		CONTAINS:-1|SlingStone=1	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4		RANGE:50	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|STRMIN0
+
+#MEDIUM ----------------------------------------------------------------------------------------------------------
+Crossbow (Heavy)										TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container	CONTAINS:-1|Bolt=1		COST:50	WT:9		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10		RANGE:120	SIZE:M	SOURCEPAGE:p.
+Javelin											TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden							COST:1	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:30	SIZE:M	SOURCEPAGE:p.
+
+
+# Firearms
+Beretta 92F											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:350	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:40	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 15 Shots
+M1911 .45											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:400	WT:2.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:30	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 7 Shots
+IMI Eagle											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:1000	WT:4.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12		RANGE:50	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 9 Shots
+Luger 9mm											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:27	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8		RANGE:30	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 8 Shots
+
+Colt Army											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:250	WT:2.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10+1	RANGE:35	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 6 Shots
+Colt Navy											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:275	WT:2.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10+1	RANGE:35	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 6 Shots
+Colt Dragoon										TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:400	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12+1	RANGE:50	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 6 Shots
+Colt Python											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:250	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6+1	RANGE:40	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 6 Shots
+Derringer											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:150	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:10	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 1 Shot
+
+Thompson .45										TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:180	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12+2	RANGE:100	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 20 Shots
+IMI Uzi											TYPE:Weapon.Ranged.Standard.Firearm.Personal									COST:200	WT:9.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10		RANGE:30	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 25 Shots
+
+M16												TYPE:Weapon.Ranged.Standard.Firearm.Advanced									COST:600	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8+2	RANGE:100	SIZE:M	SOURCEPAGE:p.									SPROP:Holds 20 Shots
+AK 47												TYPE:Weapon.Ranged.Standard.Firearm.Advanced									COST:390	WT:10.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8+2	RANGE:100	SIZE:M	SOURCEPAGE:p.									SPROP:Holds 20 Shots
+
+M72A3LAW											TYPE:Weapon.Ranged.Standard.Heavy											COST:300	WT:5		CRITMULT:-			CRITRANGE:1			DAMAGE:10d6		RANGE:20	SIZE:L	SOURCEPAGE:p.									SPROP:Holds 1 Shot
+
+# Futuristic
+Antimatter Pistol										TYPE:Weapon.Ranged.Standard.Firearm.Futuristic									COST:1500	WT:8		CRITMULT:x3			CRITRANGE:1			DAMAGE:4d10		RANGE:5	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 10 Shots
+Antimatter Rifle										TYPE:Weapon.Ranged.Standard.Firearm.Futuristic									COST:2500	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:M	SOURCEPAGE:p.									SPROP:Holds 5 Shots
+Blaster Pistol										TYPE:Weapon.Ranged.Standard.Firearm.Futuristic									COST:700	WT:2		CRITMULT:x3			CRITRANGE:2			DAMAGE:3d6		RANGE:30	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 30 Shots
+Blaster Rifle										TYPE:Weapon.Ranged.Standard.Firearm.Futuristic									COST:1000	WT:10		CRITMULT:x3			CRITRANGE:2			DAMAGE:3d8		RANGE:30	SIZE:M	SOURCEPAGE:p.									SPROP:Holds 30 Shots
+Laser Pistol										TYPE:Weapon.Ranged.Standard.Firearm.Futuristic									COST:600	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d10		RANGE:50	SIZE:S	SOURCEPAGE:p.									SPROP:Holds 50 Shots
+Laser Rifle											TYPE:Weapon.Ranged.Standard.Firearm.Futuristic									COST:900	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:3d10		RANGE:50	SIZE:M	SOURCEPAGE:p.									SPROP:Holds 50 Shots

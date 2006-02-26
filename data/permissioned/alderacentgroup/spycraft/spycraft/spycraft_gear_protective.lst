@@ -1,0 +1,48 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Sat Aug 14 21:26:56 2004 -- reformated by prettylst.pl v1.33 (build 411)
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+
+# Light Armor -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Equipment Name			Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Damage Reduction	Combat bonus					Add to base move
+Kevlar vest				TYPE:Gear.Standard.Protective.Armor.Light.Suit	COST:30	WT:8		ACCHECK:-1		MAXDEX:4		SOURCEPAGE:p.124	DR:4/-		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Kevlar vest with insert		TYPE:Gear.Standard.Protective.Armor.Light.Suit	COST:40	WT:4		ACCHECK:-1		MAXDEX:3		SOURCEPAGE:p.124	DR:5/-		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Tuxedo liner			TYPE:Gear.Standard.Protective.Armor.Light.Suit	COST:20	WT:7					MAXDEX:4		SOURCEPAGE:p.124	DR:2/-		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+
+# Medium Armor ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chain Shirt				TYPE:Gear.Standard.Protective.Armor.Medium.Suit	COST:20	WT:25		ACCHECK:-3		MAXDEX:3		SOURCEPAGE:p.124	DR:5/-		BONUS:COMBAT|AC|0|TYPE=Armor.REPLACE
+Steelweave vest			TYPE:Gear.Standard.Protective.Armor.Medium.Suit	COST:25	WT:20		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:p.124	DR:8/-		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|-10
+Kevlar BDU				TYPE:Gear.Standard.Protective.Armor.Medium.Suit	COST:35	WT:15		ACCHECK:-2		MAXDEX:5		SOURCEPAGE:p.124	DR:5/-		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|-5
+
+# Heavy Armor -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assault Vest			TYPE:Gear.Standard.Protective.Armor.Heavy.Suit	COST:40	WT:25		ACCHECK:-4		MAXDEX:1		SOURCEPAGE:p.124	DR:8/-		BONUS:COMBAT|AC|0|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|-10
+Assault vest with insert	TYPE:Gear.Standard.Protective.Armor.Heavy.Suit	COST:50	WT:7		ACCHECK:-5		MAXDEX:1		SOURCEPAGE:p.124	DR:10/-		BONUS:COMBAT|AC|0|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|-10
+Bomb squad suit			TYPE:Gear.Standard.Protective.Armor.Heavy.Suit	COST:35	WT:30		ACCHECK:-6		MAXDEX:0		SOURCEPAGE:p.124	DR:11/-		BONUS:COMBAT|AC|-1|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|-15
+Door gunner vest			TYPE:Gear.Standard.Protective.Armor.Heavy.Suit	COST:50	WT:40		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.124	DR:14/-		BONUS:COMBAT|AC|-2|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|-15
+
+# Other Armor -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Helmet (Motorcycle)		TYPE:Gear.Standard.Protective.Headgear		COST:5	WT:1		ACCHECK:-1					SOURCEPAGE:p.124				BONUS:COMBAT|AC|1|TYPE=Helmet.REPLACE
+Helmet (Military)			TYPE:Gear.Standard.Protective.Headgear		COST:7	WT:1		ACCHECK:-2					SOURCEPAGE:p.124				BONUS:COMBAT|AC|2|TYPE=Helmet.REPLACE
+Helmet (Sealed)			TYPE:Gear.Standard.Protective.Headgear		COST:10	WT:2		ACCHECK:-2					SOURCEPAGE:p.124				BONUS:COMBAT|AC|2|TYPE=Helmet.REPLACE
+Shield (Riot)			TYPE:Gear.Standard.Protective.Headgear		COST:5	WT:6		ACCHECK:-1					SOURCEPAGE:p.124				BONUS:COMBAT|AC|1|TYPE=Helmet.REPLACE
+
+# Other Protective Gear --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Flash goggles			TYPE:Gear.Standard.Protective.Eyegear		COST:5	WT:1		ACCHECK:-1					SOURCEPAGE:p.124
+Gas mask				TYPE:Gear.Standard.Protective.Headgear		COST:5	WT:2		ACCHECK:-1					SOURCEPAGE:p.124
+Suit (Asbestos)			TYPE:Gear.Standard.Protective.Suit			COST:7	WT:50		ACCHECK:-2					SOURCEPAGE:p.124											BONUS:MOVEADD|TYPE.Walk|-10
+Suit (Gore tex)			TYPE:Gear.Standard.Protective.Suit			COST:7	WT:15		ACCHECK:-1					SOURCEPAGE:p.124											BONUS:MOVEADD|TYPE.Walk|-5
+Suit (Ghillie)			TYPE:Gear.Standard.Protective.Suit			COST:5	WT:4								SOURCEPAGE:p.124
+Suit (NBC)				TYPE:Gear.Standard.Protective.Suit			COST:8	WT:18		ACCHECK:-2					SOURCEPAGE:p.124											BONUS:MOVEADD|TYPE.Walk|-10
+Suit (SCUBA)			TYPE:Gear.Standard.Protective.Suit			COST:6	WT:60		ACCHECK:-1					SOURCEPAGE:p.124											BONUS:MOVEADD|TYPE.Walk|-10
+Suit (Space)			TYPE:Gadget.Standard.Protective.Suit		COST:1	WT:75		ACCHECK:-2					SOURCEPAGE:p.124											BONUS:MOVEADD|TYPE.Walk|-10
+
+#
+# End --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#

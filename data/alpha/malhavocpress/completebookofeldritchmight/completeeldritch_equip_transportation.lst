@@ -1,0 +1,12 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Mar 27 07:55:04 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might|SOURCESHORT:BoEMC|SOURCEWEB:http://www.montecook.com
+# Original Entry by: Felipe Diniz
+
+###Block: Transportation
+# Equipment Name	Type						Cost		Weight	Source Page
+Air Barge		TYPE:Magic.Transportation.Container	COST:250000	WT:12000	SOURCEPAGE:p.181
+Bulette Walker	TYPE:Magic.Transportation.Container	COST:100000	WT:4000	SOURCEPAGE:p.181
+Diving Sphere	TYPE:Magic.Transportation.Container	COST:100000	WT:8000	SOURCEPAGE:p.183
+Psychic Skiff	TYPE:Magic.Transportation.Container	COST:150000	WT:2000	SOURCEPAGE:p.183
+War Altar		TYPE:Magic.Transportation.Container	COST:80000	WT:6000	SOURCEPAGE:p.183
+War Throne		TYPE:Magic.Transportation.Container	COST:90000	WT:6000	SOURCEPAGE:p.183

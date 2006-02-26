@@ -1,0 +1,19 @@
+# CVS $Revision: 1.1 $ $Author: frank_kliewe $ -- Wed Dec  8 13:30:16 2004 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+# Weapon Name	Type
+M4/203		TYPE:PersonalFirearm
+M16/203		TYPE:PersonalFirearm
+M24 Sniper		TYPE:PersonalFirearm
+M40A1 Sniper	TYPE:PersonalFirearm
+M1014			TYPE:PersonalFirearm
+
+M203			TYPE:ExoticFirearms
+M249 SAW		TYPE:ExoticFirearms
+M240			TYPE:ExoticFirearms
+Stinger		TYPE:ExoticFirearms
+
+M120 Mortar		TYPE:ExoticFirearms
+M224 Mortar		TYPE:ExoticFirearms
+M252 Mortar		TYPE:ExoticFirearms

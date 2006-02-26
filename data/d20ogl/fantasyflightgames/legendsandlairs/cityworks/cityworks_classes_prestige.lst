@@ -1,0 +1,63 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Jun 17 06:42:33 2004 -- reformated by prettylst.pl v1.32 (build 363)
+SOURCELONG:Fantasy Flight Games - City Works|SOURCESHORT:CW|SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+# Original Entry by: Eddy Anthony
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat		Required Skill				Required Text
+CLASS:Kingpin	PREATT:7	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy,Intimidate=13	PRETEXT:Special
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
+1	SA:Friends in Low Places	SA:Gang Boss
+2	SA:Steal Anything
+3	SA:Friends in High Places
+4	SA:Urban Predator
+5	SA:Thieves' House
+6	SA:City's Bounty
+7	SA:Mob Boss
+8	SA:Halls of Power
+9	SA:Keeper of Order
+10	SA:Crime Lord
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
+CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	ABB:SpC		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Reflex|CL*3/4
+# Class Name			Required Skill				Req. Spell Type		Required Text
+CLASS:Speaker of the City	PRESKILL:1,Hide=4	PRESKILL:1,Scry=8	PRESPELLTYPE:Divine,1,3	PRETEXT:Special
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Gather Information|Handle Animal|Hide|TYPE.Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
+1	ADD:SPELLCASTER(Divine)	SA:Spirit of the City (Social Insight)				FEATAUTO:SpeakerSpells|Speaker of the City in an urban setting
+2	ADD:SPELLCASTER(Divine)
+3	ADD:SPELLCASTER(Divine)	SA:Spirit of the City (City Sense)
+4	ADD:SPELLCASTER(Divine)
+5	ADD:SPELLCASTER(Divine)	SA:Spirit of the City (Cloak of the City)
+6	ADD:SPELLCASTER(Divine)
+7	ADD:SPELLCASTER(Divine)	SA:Spirit of the City (Eye of the City, Cast Scrying 1/day)
+8	ADD:SPELLCASTER(Divine)
+9	ADD:SPELLCASTER(Divine)	SA:Spirit of the City (Mind of the City)
+10	ADD:SPELLCASTER(Divine)	SA:Spirit of the City (Avatar of the City)
+
+
+#Street Stalker
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat				Required Skill
+CLASS:Street Stalker	PREATT:5	PREFEAT:2,Blind-Fight,Power Attack	PRESKILL:1,Hide,Sense Motive=4	PRESKILL:1,Intimidate=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope
+1	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial	FEATAUTO:Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency|Martial Weapon Proficiency
+###Block: Sneak Attack stacking Variables
+1	BONUS:VAR|SneakAttack|(CL+1)/2	FEATAUTO:Sneak Attack
+###Block: Normal progression
+1	SA:Urban Predetor (Stealth)			FEATAUTO:Street Stalker in an urban setting
+2	SA:Urban Predetor (Show of Strength)
+4	SA:Urban Predetor (Stunt Attack)
+6	SA:Urban Predetor (Urban Disguise)
+8	SA:Urban Predetor (Target assessment)
+10	SA:Urban Predetor (Sudden Strike)
+
+#
+# end
+#

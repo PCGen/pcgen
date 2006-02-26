@@ -1,0 +1,16 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Nov 30 23:00:53 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #47 - New Tortuga|SOURCESHORT:MD47-NT|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
+
+###Block: standard
+# Feat Name				Type					Required Skill																		Var. Min. Value		Description														Stackable?	Multiple?	Choose		Modify VAR			Source Page
+Advanced Starship Design	TYPE:General			PRESKILL:2,Craft (Mechanical),Craft (Electronic)=10	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=8					DESC:You are able to design and build futuristic starships																	SOURCEPAGE:p.5
+Cybermonger				TYPE:General.Charismatic																									DESC:You have access to sophisticated cyberware.																		SOURCEPAGE:p.5
+
+# not sure how to do this line: you gain a +2 bonus to three skills while in EVA: Computer Use, Demolitions, Knowledge (tactics), Navigate, Survival and Tumble.
+EVA Training			TYPE:General																											DESC:You have learned how to fight and survive in spacesuits outside of a spacecraft.												SOURCEPAGE:p.5
+
+Extra Psycher			TYPE:General																							PREVARGTEQ:Psyche,1	DESC:You can use your psyche more often a day than normal						STACK:YES	MULT:YES	CHOOSE:+4 Psyche	BONUS:VAR|Psyche|4	SOURCEPAGE:p.5
+
+###Block: hidden
+# Feat Name		Type			Visible	Special Ability					Define
+Empathic Surgery	TYPE:ClassAbility	VISIBLE:NO	SA:Empathic Surgery +%d6|EmpathicSurgery	DEFINE:EmpathicSurgery|0

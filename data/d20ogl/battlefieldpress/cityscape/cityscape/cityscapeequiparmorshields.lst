@@ -1,0 +1,44 @@
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+# Original Entry by: Tir Gwaith
+
+#Light Weight --------------------------------------------------------------
+# Equipment Name			Type							Cost		Weight	Define			AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus											Special Property
+Forcefield Belt			TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:100000	WT:5						ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.	SPELLFAILURE:0		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Bulletproof Vest			TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:350	WT:10						ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Padded.MOD											COST:350
+Synth Leather			TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:500	WT:10						ACCHECK:0		MAXDEX:5		SOURCEPAGE:p.	SPELLFAILURE:10		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Leather.MOD											COST:400
+Studded Leather.MOD									COST:450
+Chain Shirt.MOD										COST:650
+
+# Medium Weight ------------------------------------------------------------
+Hide.MOD											COST:300
+Kevlar Vest				TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:500	WT:25						ACCHECK:-2		MAXDEX:5		SOURCEPAGE:p.	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Platovar				TYPE:Armor.Medium.Suit.Standard.Metal	COST:2000	WT:25						ACCHECK:-3		MAXDEX:3		SOURCEPAGE:p.	SPELLFAILURE:35		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Scale Mail.MOD										COST:400
+Breastplate.MOD										COST:200
+Chainmail.MOD										COST:1000
+
+# Heavy Weight
+# Equipment Name			Type							Cost		Weight	Define			AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus											Special Property
+Banded Mail.MOD										COST:250
+Splint Mail.MOD										COST:200
+Half-Plate.MOD										COST:1000
+Full Plate.MOD										COST:1500
+
+# Powered ------------------------------------------------------------------
+Powered Armor			TYPE:Armor.Powered.Suit.Standard.Metal	COST:80000	WT:500	DEFINE:LOCK.STR|25	ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.	SPELLFAILURE:50		BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|2|TYPE=Equipment	SPROP:X3 to run instead of X2
+
+# Shields ------------------------------------------------------------------
+Buckler.MOD											COST:100
+Shield (Small/Wood).MOD									COST:150
+Shield (Small/Steel).MOD								COST:200
+Shield (Large/Wood).MOD									COST:400
+Shield (Large/Steel).MOD								COST:450
+Shield (Tower/Wood).MOD									COST:550
+
+# Extras -------------------------------------------------------------------
+Gauntlets (Locked).MOD									COST:50
+
+

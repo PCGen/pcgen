@@ -1,0 +1,216 @@
+# CVS $Revision: 1.17 $ $Author: boomer70 $ -- Fri Feb  3 01:42:49 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# Yeehaa....
+# Monster "class" advancement LST file
+# Drew Bernat (abernat@zathras.net)
+
+# Monster type advancement. From the RSRD:
+#
+# Type			HD	BAB	Good Save	Skill pts (+int)
+#Aberration			d8	3/4	Will		2
+#Animal			d8	3/4	Fort, Ref	2
+# Note: animal says "and sometimes will" for good save. Any ideas?
+#Construct			d10	3/4	---		2
+#Dragon			d12	1	F,R,W		6
+#Elemental (AF)		d8	3/4	Ref		2
+#Elemental (WE)		d8	3/4	Fort		2
+#Fey				d6	1/2	Ref, Will	6
+#Giant			d8	3/4	Fort		2
+#Humanoid			d8	3/4	Varies	2
+#Magical Beast		d10	1	Fort,Ref	2
+#Monstrous Humanoid	d8	1	Ref,Will	2
+#Ooze				d10	3/4	---		2
+#Outsider			d8	1	FRW		8
+#Plant			d8	3/4	Fort		2
+#Undead			d12	1/2	Will		4
+#Vermin			d8	3/4	Fort		2
+
+#TODO: creatures with an int of -- get no skill points or feats
+
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus
+CLASS:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Aberration Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Aberration	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus
+CLASS:Animal	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Animal Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class			Reg. Race Type
+CLASS:Animal	!PRECLASS:1,Animal (Will)=1	PRERACETYPE:Animal
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus									Combat bonus
+CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Animal Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Prohibited Class		Reg. Race Type
+CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus								Combat bonus
+CLASS:Construct	HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Construct	PRERACETYPE:Construct
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus								Combat bonus					BONUS:FEAT
+CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+# Class Name			Reg. Race Type
+CLASS:Construct (Mindless)	PRERACETYPE:Construct
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus									Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Dragon Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Dragon	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus																																																									Combat bonus
+CLASS:Elemental	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Elemental	PRERACETYPE:Elemental
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus
+CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Elemental (Air/Fire)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus
+CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus																																																									Combat bonus
+CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+# Class Name	Reg. Race Type
+CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat															Save checks bonus												Combat bonus
+CLASS:Fey		HD:6		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Fey Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Fey		PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat																Save checks bonus												Combat bonus
+CLASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Giant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Giant		PRERACETYPE:Giant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name	Hit Dice	Type			Source Page						Virtual Feat																Save checks bonus												Combat bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:TypesSubtypesAbilities.rtf	VFEAT:Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class							Reg. Race Type
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude),Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Source Page						Virtual Feat																Save checks bonus												Combat bonus
+CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:TypesSubtypesAbilities.rtf	VFEAT:Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class					Reg. Race Type
+CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid,Humanoid (Will)=1	PRERACETYPE:Humanoid|PREVAREQ:NoTypeTraits,0
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name		Output Name			Hit Dice	Type			Source Page						Virtual Feat																Save checks bonus												Combat bonus
+CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:TypesSubtypesAbilities.rtf	VFEAT:Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Prohibited Class						Reg. Race Type
+CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid|PREVAREQ:NoTypeProficiencies,0
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name		Hit Dice	Type			Source Page					Virtual Feat							Save checks bonus												Combat bonus
+CLASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Magical Beast Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Magical Beast	PRERACETYPE:Magical Beast
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Magical Beast	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Source Page					Virtual Feat																				Save checks bonus												Combat bonus
+CLASS:Monstrous humanoid	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Monstrous Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Monstrous humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat					Save checks bonus								Combat bonus					BONUS:FEAT
+CLASS:Ooze		HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Ooze Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+# Class Name	Reg. Race Type
+CLASS:Ooze		PRERACETYPE:Ooze
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Source Page					Virtual Feat					Save checks bonus								Combat bonus
+CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Ooze Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus									Combat bonus
+CLASS:Outsider	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Outsider Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Outsider	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus
+CLASS:Plant		HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Plant		PRERACETYPE:Plant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus					BONUS:FEAT
+CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+# Class Name		Reg. Race Type
+CLASS:Plant (Mindless)	PRERACETYPE:Plant
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat																Save checks bonus												Combat bonus
+CLASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Undead Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Undead	PRERACETYPE:Undead
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Source Page					Virtual Feat																Save checks bonus												Combat bonus					BONUS:FEAT
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Undead Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+# Class Name		Reg. Race Type
+CLASS:Undead (Mindless)	PRERACETYPE:Undead
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus					BONUS:FEAT
+CLASS:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Vermin Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
+# Class Name	Reg. Race Type
+CLASS:Vermin	PRERACETYPE:Vermin
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus												Combat bonus
+CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Vermin Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES

@@ -1,0 +1,13 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Jan 26 23:55:41 2003 -- reformated by prettylst.pl v1.25 (build 257)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Skill Name			Key Stat	Untrained?		Classes			Type					Bonus to skill											Source Page
+Profession (Courtesan)		KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession															SOURCEPAGE:p.
+Profession (Prostitute)		KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession															SOURCEPAGE:p.
+Profession (Escort)		KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession															SOURCEPAGE:p.21
+Mimic Voice				KEYSTAT:CHA				CLASSES:Bard|Rogue	TYPE:Charisma																SOURCEPAGE:p.33
+Urban Lore				KEYSTAT:WIS				CLASSES:Bard|Rogue	TYPE:Wisdom				BONUS:SKILL|Urban Lore|2|PRESKILL:1,Gather Information=5|TYPE=Synergy.STACK	SOURCEPAGE:p.34
+Knowledge (Home City)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge														SOURCEPAGE:p.24
+Knowledge (Other Guilds)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge														SOURCEPAGE:p.24
+Knowledge (Local Powerbases)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge														SOURCEPAGE:p.24
+Knowledge (Poison)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge														SOURCEPAGE:p.

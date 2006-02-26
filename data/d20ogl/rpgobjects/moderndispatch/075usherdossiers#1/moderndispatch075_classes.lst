@@ -1,0 +1,27 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 30 19:48:21 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1|SOURCESHORT:MD75-USHER#1|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198
+# Original Entry by: Paul W. King
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
+CLASS:Supersoldier	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name		Req. Att.	Required Feat					Required Skill				Required Text
+CLASS:Supersoldier	PREATT:6	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=10	PRETEXT:Allegiance to one agency
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Supersoldier	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Pilot|Repair|Spot|Survival|Swim
+1	ADD:FEAT(TYPE=AgencyTraining)
+1	ADD:FEAT(Weapon Focus)
+2	ADD:FEAT(Weapon Specialization)
+3	ADD:FEAT(TYPE=AgencyTraining)
+4							FEATAUTO:Tactical Expertise
+5	ADD:FEAT(TYPE=AgencyTraining)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Superspy	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL*7	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/5
+# Class Name	Required Feat		Required Skill
+CLASS:Superspy	PREFEAT:1,Low Profile	PRESKILL:2,Hide,Move Silently=10
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Superspy	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Escape Artist|Forgery|Gamble|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Search|Sense Motive|Spot|Survival|Swim|Tumble
+1						ADD:FEAT(TYPE=AgencyTraining)
+2	BONUS:VAR|SneakAttack|CL/2						FEATAUTO:Sneak Attack
+3						ADD:FEAT(TYPE=AgencyTraining)
+5						ADD:FEAT(TYPE=AgencyTraining)

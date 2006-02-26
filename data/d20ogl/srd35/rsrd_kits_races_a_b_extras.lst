@@ -1,0 +1,62 @@
+# CVS $Revision: 1.4 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+STARTPACK:Aboleth Mage	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aboleth]
+STAT:STR=12|DEX=14|CON=14|INT=16|WIS=10|CHA=8
+NAME:Aboleth Mage
+RACE:Aboleth	!PRERACE:%
+ALIGN:LE
+SKILL:Listen				RANK:11
+SKILL:Spot					RANK:11
+SKILL:Concentration			RANK:11
+SKILL:Knowledge (Arcana)		RANK:10
+SKILL:Knowledge (Dungeoneering)	RANK:10
+SKILL:Knowledge (History)		RANK:10
+SKILL:Knowledge (The Planes)		RANK:10
+CLASS:Wizard	LEVEL:10	SUBCLASS:Wizard
+LEVELABILITY:Wizard=5	ABILITY:PROMPT:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)|CHOICE:Empower Spell
+LEVELABILITY:Wizard=10	ABILITY:PROMPT:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)|CHOICE:Eschew Materials
+SKILL:Concentration			RANK:7
+SKILL:Decipher Script			RANK:10
+SKILL:Knowledge (Dungeoneering)	RANK:10
+SKILL:Spellcraft				RANK:13
+SKILL:Listen				RANK:1
+SKILL:Spot					RANK:3
+SKILL:Search				RANK:5
+SKILL:Sense Motive			RANK:10
+SKILL:Bluff					RANK:10
+FEAT:Combat Casting
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Spell Focus(Illusion)
+FEAT:Spell Focus(Enchantment)
+FEAT:Spell Penetration
+SPELLS:SPELLBOOK=Prepared Spells|Daze|Detect Magic=2|Resistance|Alarm|Charm Person|Color Spray|Mage Armor|Magic Missile=2|Blur|Bull's Strength|Darkness|Fox's Cunning|See Invisibility|Dispel Magic|Displacement|Fly|Lightning Bolt|Invisibility (Greater)|Phantasmal Killer|Scrying|Stoneskin|Hold Monster|Lightning Bolt[Empower Spell]|Wall of Force
+
+STARTPACK:Hound Archon Hero	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archon (Hound)]
+RACE:Archon (Hound)	!PRERACE:%
+NAME:Hound Archon Hero
+ALIGN:LG
+CLASS:Paladin	LEVEL:11
+STAT:STR=17|DEX=10|CON=14|INT=8|WIS=12|CHA=14
+SKILL:Concentration	RANK:17
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:8
+SKILL:Sense Motive	RANK:17
+SKILL:Spot			RANK:8
+SKILL:Diplomacy		RANK:14
+SKILL:Ride			RANK:14
+FEAT:Improved Initiative
+FEAT:Leadership
+FEAT:Mounted Combat
+FEAT:Ride By Attack
+FEAT:Track
+FEAT:Weapon Focus(Greatsword)
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.C_IRON
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Paladin|Bull's Strength|Divine Favor|Eagle's Splendor|Protection from Evil
+
+#
+# End
+#

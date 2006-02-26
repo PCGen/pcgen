@@ -1,0 +1,7 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Culture Class - Trundlefolk|SOURCESHORT:Trundleflk|SOURCEWEB:http://www.creativemountaingames.com
+# Original Entry by: Tir Gwaith
+
+# Proficiency
+# Feat Name				Automaticaly Gained Weapon Prof.
+Trundlefolk Proficiencies	AUTO:WEAPONPROF|Axe (Throwing)|Battleaxe|Lance|Shortbow

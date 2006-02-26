@@ -1,0 +1,67 @@
+# CVS $Revision: 1.8 $ $Author: frank_kliewe $ -- Fri Dec  9 05:38:28 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+#removed SA:Blindsight from Toxic Sludge, as it is already included in Ooze template -- Frank Kliewe
+
+###Block: Ghoul natural attacks
+# Template Name	Visible	Required Size	Natural Attacks
+Ghoul Fine		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1
+Ghoul Diminutive	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d2
+Ghoul Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d3|Claw,Weapon.Natural.Melee.Slashing,*2,1
+Ghoul Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Slashing,*2,1d2
+Ghoul Medium-size	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d3
+Ghoul Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+Ghoul Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d6
+Ghoul Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Slashing,*2,1d8
+Ghoul Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Slashing,*2,2d6
+
+###Block: Half-Fiend wings
+# Template Name		CR	Visible	MOVECLONE
+Half-Fiend (no wings)	CR:2	VISIBLE:NO
+Half-Fiend (wings)	CR:3	VISIBLE:NO	MOVECLONE:Walk,0,Fly,*1
+
+###Block: Half-Fiend natural attacks
+# Template Name		Visible	Required Size	Natural Attacks
+Half-Fiend Fine		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1
+Half-Fiend Diminutive	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d2|Claw,Weapon.Natural.Melee.Slashing,*2,1
+Half-Fiend Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d3|Claw,Weapon.Natural.Melee.Slashing,*2,1d2
+Half-Fiend Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Slashing,*2,1d3
+Half-Fiend Medium-size	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+Half-Fiend Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Slashing,*2,1d6
+Half-Fiend Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d8
+Half-Fiend Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Slashing,*2,2d6
+Half-Fiend Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,6d6|Claw,Weapon.Natural.Melee.Slashing,*2,2d8
+
+###Block: Maniac natural attacks
+# Template Name		Visible	Required Size	Natural Attacks
+Maniac Fine			VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1
+Maniac Diminutive		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d2
+Maniac Tiny			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d3
+Maniac Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d4
+Maniac Medium-size	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d6
+Maniac Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d8
+Maniac Huge			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d6
+Maniac Gargantuan		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d8
+Maniac Colossal		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,4d6
+
+###Block: specific templates
+# Template Name	Visible	Template			Special Ability																																																																								Define			Stat bonus										Choose a Feat									Feat						Bonus Languages	Move			Vision					Spells
+Animated Object	VISIBLE:NO	TEMPLATE:Construct	SA:Blind (Ex)	SA:Constrict (Ex)	SA:Hardness (Ex)	SA:Improved Speed (Ex)	SA:Trample (Ex)																																																											DEFINE:LOCK.INT|10	BONUS:STAT|WIS,CHA|-10	BONUS:STAT|WIS,CHA|1|PREDEFAULTMONSTER:Y																					MOVE:Walk,30	VISION:Darkvision (60')
+Fiend			VISIBLE:NO	TEMPLATE:Outsider																																																																																											ADD:FEAT(Archaic Weapons Proficiency,Simple Weapons Proficiency)							LANGBONUS:Abyssal				VISION:Darkvision (60')
+Infester		VISIBLE:NO	TEMPLATE:Vermin		SA:Boost Host (Ex)	SA:Host Protection (Ex)	SA:Infestation (Ex)	SA:Blindsight (60')																																																																																														MOVE:Walk,30
+Skin Feaster	VISIBLE:NO	TEMPLATE:Undead		SA:Flesh Weakness (Ex)	SA:Necrotizing Touch (Su) - 1d3 points of temp Con damage, Fort save (DC %) negates|10+TL/2+CON	SA:Sking Regrowth (Su)																																																																													FEAT:Simple Weapons Proficiency
+Star Doppelganger	VISIBLE:NO					SA:Absrobe (Ex)	SA:Alien Physiolgoy (Ex)	SA:Cold Resistance 10 (Ex)	SA:Convert (Ex)	SA:Flesh Transfer (Ex) - Fort save (DC %) or begin to become a star doppelganger|10+TL/2+CON	SA:Fear Aura (Su) - Will save (DC %) or be stunned for 1d4 rounds|10+TL/2+CHA	SA:Hive Mind (Su)	SA:Immunities (Ex) - suffocation, inhaled poisons, and other detrimental atmospheric effects	SA:Mimic (Ex)	SA:Regeneration 5 (Ex)	SA:Split (Ex)
+Thunderbird		VISIBLE:NO	TEMPLATE:Magical Beast	SA:Breath Weapon (Su) - Every 1d4 rounds, 60' cone of sonic energy that deals %d10 points of damage, Ref save (DC %) for half|TL/2|10+TL/2+CON	SA:Fear Aura (Su) - Will save (DC %) or be shaken for 1d4 rounds|10+TL/2+CHA	SA:Improved Grab (Ex)	SA:Electricity Immunity (Ex)	SA:Sonic Immunity (Ex)																																																									LANGBONUS:Auran				VISION:Darkvision (60')|Low-light
+Toxic Sludge	VISIBLE:NO	TEMPLATE:Ooze		SA:Acid (Ex)	SA:Expansion (Ex)	SA:Acid Immunity (Ex)	SA:Electricity Immunity (Ex)	SA:Cold Immunity (Ex)	SA:Imroved Grab (Ex)	SA:Toxic Fumes (Ex) - Fort save (DC %) or take 1d4 points of Str damage|10+TL/2+CON																																																																									MOVE:Walk,20
+Udoroot		VISIBLE:NO	TEMPLATE:Plant		SA:Blindsight (Ex)	SA:Cold Resistance 20 (Ex)	SA:Electricity Immunity (Ex)	SA:Fire Immunity (Ex)																																																									DEFINE:LOCK.INT|10																																									SPELLS:Innate|TIMES=-1|CASTERLEVEL=10|False Sensory Input,13+CHA|Lesser Body Adjustment,11+STR|Lightning Strike,13+INT|Telekinesis,14+CON
+Yeti			VISIBLE:NO					SA:Cold Subtype (Ex)	SA:Constrict (Ex)	SA:Improved Grab (Ex)	SA:+15 species bonus on Hide in snowy conditions																																																																																										MOVE:Walk,40	VISION:Darkvision (60')
+
+###Block: Robot variants
+# Template Name	Visible	Source Page					Special Ability																																							Define			Combat bonus										Move
+Robot Treads	VISIBLE:NO																																																																MOVE:Walk,30
+Robot Bipedal	VISIBLE:NO																																																																MOVE:Walk,30
+Robot Quadrupedal	VISIBLE:NO																																																																MOVE:Walk,40
+Robot Wheels	VISIBLE:NO																																																																MOVE:Walk,50
+
+###Subtypes
+Incorporeal		VISIBLE:NO	SOURCEPAGE:MenaceCreaturesA-I.rtf	SA:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SA:50% chance to ignore any damage from a corporeal source	SA:Can pass through solid objects at will	SA:Attacks pass through armor	SA:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX

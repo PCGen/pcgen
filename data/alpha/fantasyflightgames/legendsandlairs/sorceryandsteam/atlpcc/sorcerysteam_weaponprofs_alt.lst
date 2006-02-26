@@ -1,0 +1,37 @@
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Jan 18 00:53:07 2005 -- reformated by prettylst.pl v1.34 (build 451)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# Original Entry by: Eddy Anthony
+
+# Ranged Weapons ---------------------------
+
+# Weapon Name		Type		Nb Hands
+### Small
+# Weapon Name		Type		Nb Hands
+Matchlock Pistol		TYPE:Simple	HANDS:1
+Flintlock Pistol		TYPE:Simple	HANDS:1
+Percussion Cap Pistol	TYPE:Simple	HANDS:1
+
+### Medium
+Flintlock Pistol		TYPE:Simple	HANDS:1
+Percussion Cap Pistol	TYPE:Simple	HANDS:1
+Dwarven Tunnel Gun	TYPE:Simple	HANDS:1
+
+### Large
+Flintlock Musket		TYPE:Simple	HANDS:2
+Blunderbuss			TYPE:Simple	HANDS:2
+Percussion Cap Musket	TYPE:Simple	HANDS:2
+Steambow			TYPE:Simple	HANDS:2
+Ogre Gun			TYPE:Simple	HANDS:2
+
+# Melee Weapons ----------------------------
+
+### Small
+Tool				TYPE:Simple	HANDS:1
+Large Tool			TYPE:Simple	HANDS:2
+Injector			TYPE:Simple	HANDS:1
+Springblade			TYPE:Simple	HANDS:1
+Far-Reaching Gauntlet	TYPE:Simple	HANDS:1
+
+#
+# end
+#

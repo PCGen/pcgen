@@ -1,0 +1,9 @@
+# CVS $Revision: 1.2 $ $Author: dmcmill $ -- Fri Jan 16 06:32:04 2004 -- reformated by prettylst.pl v1.32 (build 339)
+# Original Entry by: Paul King
+
+SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+
+# Equipment Name		Product Identity?	Type					Source Page		Special Property
+Helm of Flame		NAMEISPI:YES	TYPE:Magic.Wondrous.Headgear	SOURCEPAGE:p.42	SPROP:+10 to fire resistance
+Tabbard of Propitiation	NAMEISPI:YES	TYPE:Magic.Wondrous.Shirt	SOURCEPAGE:p.42
+Token of Long Reach	NAMEISPI:YES	TYPE:Magic.Wondrous		SOURCEPAGE:p.42

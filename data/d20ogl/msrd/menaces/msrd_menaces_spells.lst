@@ -1,0 +1,6 @@
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Thu Dec  1 17:24:12 2005 -- reformated by prettylst.pl v1.35 (build 549)
+SOURCELONG:Modern System Reference Document - Menace|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Spell Name			Output Name				Classes of caster	School			Sub-School			Spell Descriptors	Type		Components		Casting Time		Range		Target Area										Duration			Save Info		Spell Resistance		Description																																				Source Page
+Create Crawling Claw							CLASSES:Mage=3	SCHOOL:Transmutation					DESCRIPTOR:Evil			COMPS:V, S, M	CASTTIME:1 hour		RANGE:Close	TARGETAREA:Severed human left hands within a 5-ft-radius circle	DURATION:Instantaneous	SAVEINFO:None	SPELLRES:Yes (harmless)	DESC:You create up to (CASTERLEVEL*2) crawling claws.																													SOURCEPAGE:MenaceCreaturesA-I.rtf
+Dimension Door (Litter Brute)	OUTPUTNAME:Dimension Door				SCHOOL:Conjuration	SUBSCHOOL:Teleporting				TYPE:Arcane	COMPS:V		CASTTIME:Attack action	RANGE:500	TARGETAREA:Personal								DURATION:Instantaneous								DESC:Remove its essence from the objects that form its body, dropping them wherever they happen to land, reconstructing its body from garbage and refuse there (assuming enough raw material exists in the target location).	SOURCEPAGE:MenaceCreaturesJ-Z.rtf

@@ -1,0 +1,24 @@
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $
+CAMPAIGN:CMG - Lexus - Trundlefolk
+GAMEMODE:3e
+TYPE:Creative Mountain Games.Sourcebook.Lexus
+RANK:9
+SOURCELONG:Culture Class - Trundlefolk
+SOURCESHORT:Trundleflk
+SOURCEWEB:http://www.creativemountaingames.com
+ISOGL:YES
+ISLICENSED:YES
+LICENSE:FILE=data\d20ogl\creativemountaingames\lexus\permission.txt
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Culture Class - Trundlefolk A Lexus Supplement Copyright 2002 Mark Alexander Clover.  The Culture Class - Trundlefolk A Lexus Supplement can be found at www.creativemountaingames.com.
+COPYRIGHT:PCGen dataset conversion for Culture Class - Trundlefolk Copyright 2002-2003, PCgen Data team (Including, but not limited to Chris Chandler (Barak), Andrew McDougall (Tir Gwaith), Eric Beaudoin (ericbeaudoin)).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:@/d20ogl/creativemountaingames/lexus/permission.txt
+#EXTRAFILE:@/d20ogl/creativemountaingames/permission.txt
+
+CLASS:lexustrundlefolk_classes.lst
+FEAT:lexustrundlefolk_feats_hidden.lst
+

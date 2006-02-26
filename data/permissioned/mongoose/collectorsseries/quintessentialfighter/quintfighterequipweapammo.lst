@@ -1,0 +1,14 @@
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun May 26 01:36:16 2002 -- reformated by prettylst.pl v1.13
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+
+# Equipment Name		Type							Cost		Weight	Source Page		Special Property
+Arrow (Armor Piercing)	TYPE:Ammunition.Standard.Wooden.Arrow	COST:.35	WT:.15	SOURCEPAGE:p.50	SPROP:+1 hit vs armored opponents
+Arrow (Barbed)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:.5	WT:.15	SOURCEPAGE:p.50
+Arrow (Fire)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:20	WT:3		SOURCEPAGE:p.50
+Arrow (Fishing)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:.2	WT:.15	SOURCEPAGE:p.50
+Arrow (FLight)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:.05	WT:.15	SOURCEPAGE:p.50
+Arrow (Game)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:.2	WT:.15	SOURCEPAGE:p.50
+Arrow (Whistling)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:.5	WT:.15	SOURCEPAGE:p.50
+Arrow (Foot Bow)		TYPE:Ammunition.Standard.Wooden.Arrow	COST:.25	WT:.3		SOURCEPAGE:p.47
+Bolt (Seige)		TYPE:Ammunition.Standard.Bolt			COST:1.25	WT:.45	SOURCEPAGE:p.47
+Bullet (Iron-Breaker)	TYPE:Ammunition.Standard.Metal		COST:.1	WT:1		SOURCEPAGE:p.47

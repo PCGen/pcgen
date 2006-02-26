@@ -1,0 +1,14 @@
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed May 25 21:14:54 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:Maze of the Minotaur|SOURCESHORT:MotM|SOURCEWEB:http://www.behemoth3.com/
+#Original Entry by: Aaron Divinsky
+
+# Feat Name		Type						Visible	Special Ability					Define			Template				Virtual Feat				Combat bonus				Temporary effect description
+Scent			TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SA:Scent %-ft. range (Ex)|ScentRange	DEFINE:ScentRange|0
+Onslaught		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SA:Onslaught (Ex)
+Freedom		TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SA:Freedom (Su)
+Natural Cunning	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SA:Natural Cunning (Ex)								TEMPLATE:Natural Cunning
+Pounce		TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SA:Pounce (Ex)
+### TODO: The VFEAT tag should be included but PREAPPLY doesn't work except on bonuses ?FREQ?.
+Pack Tactics	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SA:Pack Tactics (Ex)													VFEAT:Improved Trip|PREAPPLY:PC	BONUS:COMBAT|TOHIT|1|PREAPPLY:PC	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.
+
+Tunneling		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SA:Tunneling (Ex)

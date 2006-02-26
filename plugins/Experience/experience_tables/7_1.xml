@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE lookuptable SYSTEM "../experience.dtd" >
+<lookuptable name="table 7-1 Experience Point Awards">
+<!-- Challenge Rating -->
+   <row>
+      <item>Party Level</item>
+
+      <item>1</item>
+
+      <item>2</item>
+
+      <item>3</item>
+
+      <item>4</item>
+
+      <item>5</item>
+
+      <item>6</item>
+
+      <item>7</item>
+
+      <item>8</item>
+
+      <item>9</item>
+
+      <item>10</item>
+
+      <item>11</item>
+
+      <item>12</item>
+
+      <item>13</item>
+
+      <item>14</item>
+
+      <item>15</item>
+
+      <item>16</item>
+
+      <item>17</item>
+
+      <item>18</item>
+
+      <item>19</item>
+
+      <item>20</item>
+   </row>
+
+<!-- Level 1-3 -->
+   <row>
+      <item>1</item>
+
+      <item>300</item>
+
+      <item>600</item>
+
+      <item>900</item>
+
+      <item>1350</item>
+
+      <item>1800</item>
+
+      <item>2700</item>
+
+      <item>3600</item>
+
+      <item>5400</item>
+
+      <item>7200</item>
+
+      <item>10800</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 1-3 -->
+   <row>
+      <item>2</item>
+
+      <item>300</item>
+
+      <item>600</item>
+
+      <item>900</item>
+
+      <item>1350</item>
+
+      <item>1800</item>
+
+      <item>2700</item>
+
+      <item>3600</item>
+
+      <item>5400</item>
+
+      <item>7200</item>
+
+      <item>10800</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 1-3 -->
+   <row>
+      <item>3</item>
+
+      <item>300</item>
+
+      <item>600</item>
+
+      <item>900</item>
+
+      <item>1350</item>
+
+      <item>1800</item>
+
+      <item>2700</item>
+
+      <item>3600</item>
+
+      <item>5400</item>
+
+      <item>7200</item>
+
+      <item>10800</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 4 -->
+   <row>
+      <item>4</item>
+
+      <item>300</item>
+
+      <item>600</item>
+
+      <item>800</item>
+
+      <item>1200</item>
+
+      <item>1600</item>
+
+      <item>2400</item>
+
+      <item>3200</item>
+
+      <item>4800</item>
+
+      <item>6400</item>
+
+      <item>9600</item>
+
+      <item>12800</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 5 -->
+   <row>
+      <item>5</item>
+
+      <item>300</item>
+
+      <item>500</item>
+
+      <item>750</item>
+
+      <item>1000</item>
+
+      <item>1500</item>
+
+      <item>2250</item>
+
+      <item>3000</item>
+
+      <item>4500</item>
+
+      <item>6000</item>
+
+      <item>9000</item>
+
+      <item>12000</item>
+
+      <item>18000</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 6 -->
+   <row>
+      <item>6</item>
+
+      <item>300</item>
+
+      <item>450</item>
+
+      <item>600</item>
+
+      <item>900</item>
+
+      <item>1200</item>
+
+      <item>1800</item>
+
+      <item>2700</item>
+
+      <item>3600</item>
+
+      <item>5400</item>
+
+      <item>7200</item>
+
+      <item>10800</item>
+
+      <item>14400</item>
+
+      <item>21600</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 7 -->
+   <row>
+      <item>7</item>
+
+      <item>263</item>
+
+      <item>394</item>
+
+      <item>525</item>
+
+      <item>700</item>
+
+      <item>1050</item>
+
+      <item>1400</item>
+
+      <item>2100</item>
+
+      <item>3150</item>
+
+      <item>4200</item>
+
+      <item>6300</item>
+
+      <item>8400</item>
+
+      <item>12600</item>
+
+      <item>16800</item>
+
+      <item>25200</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 8 -->
+   <row>
+      <item>8</item>
+
+      <item>200</item>
+
+      <item>300</item>
+
+      <item>450</item>
+
+      <item>600</item>
+
+      <item>800</item>
+
+      <item>1200</item>
+
+      <item>1600</item>
+
+      <item>2400</item>
+
+      <item>3600</item>
+
+      <item>4800</item>
+
+      <item>7200</item>
+
+      <item>9600</item>
+
+      <item>14400</item>
+
+      <item>19200</item>
+
+      <item>28800</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 9 -->
+   <row>
+      <item>9</item>
+
+      <item>0</item>
+
+      <item>225</item>
+
+      <item>338</item>
+
+      <item>506</item>
+
+      <item>675</item>
+
+      <item>900</item>
+
+      <item>1350</item>
+
+      <item>1800</item>
+
+      <item>2700</item>
+
+      <item>4050</item>
+
+      <item>5400</item>
+
+      <item>8100</item>
+
+      <item>10800</item>
+
+      <item>16200</item>
+
+      <item>21600</item>
+
+      <item>32400</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 10 -->
+   <row>
+      <item>10</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>250</item>
+
+      <item>375</item>
+
+      <item>563</item>
+
+      <item>750</item>
+
+      <item>1000</item>
+
+      <item>1500</item>
+
+      <item>2000</item>
+
+      <item>3000</item>
+
+      <item>4500</item>
+
+      <item>6000</item>
+
+      <item>9000</item>
+
+      <item>12000</item>
+
+      <item>18000</item>
+
+      <item>24000</item>
+
+      <item>36000</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 11 -->
+   <row>
+      <item>11</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>275</item>
+
+      <item>413</item>
+
+      <item>619</item>
+
+      <item>825</item>
+
+      <item>1100</item>
+
+      <item>1650</item>
+
+      <item>2200</item>
+
+      <item>3300</item>
+
+      <item>4950</item>
+
+      <item>6600</item>
+
+      <item>9900</item>
+
+      <item>13200</item>
+
+      <item>19800</item>
+
+      <item>26400</item>
+
+      <item>39600</item>
+
+      <item>0</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 12 -->
+   <row>
+      <item>12</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>300</item>
+
+      <item>450</item>
+
+      <item>675</item>
+
+      <item>900</item>
+
+      <item>1200</item>
+
+      <item>1800</item>
+
+      <item>2400</item>
+
+      <item>3600</item>
+
+      <item>5400</item>
+
+      <item>7200</item>
+
+      <item>10800</item>
+
+      <item>14400</item>
+
+      <item>21600</item>
+
+      <item>28800</item>
+
+      <item>43200</item>
+
+      <item>0</item>
+   </row>
+
+<!-- Level 13 -->
+   <row>
+      <item>13</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>325</item>
+
+      <item>488</item>
+
+      <item>731</item>
+
+      <item>975</item>
+
+      <item>1300</item>
+
+      <item>1950</item>
+
+      <item>2600</item>
+
+      <item>3900</item>
+
+      <item>5850</item>
+
+      <item>7800</item>
+
+      <item>11700</item>
+
+      <item>15600</item>
+
+      <item>23400</item>
+
+      <item>31200</item>
+
+      <item>46800</item>
+   </row>
+
+<!-- Level 14 -->
+   <row>
+      <item>14</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>350</item>
+
+      <item>525</item>
+
+      <item>788</item>
+
+      <item>1050</item>
+
+      <item>1400</item>
+
+      <item>2100</item>
+
+      <item>2800</item>
+
+      <item>4200</item>
+
+      <item>6300</item>
+
+      <item>8400</item>
+
+      <item>12600</item>
+
+      <item>16800</item>
+
+      <item>25200</item>
+
+      <item>33600</item>
+   </row>
+
+<!-- Level 15 -->
+   <row>
+      <item>15</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>375</item>
+
+      <item>563</item>
+
+      <item>844</item>
+
+      <item>1125</item>
+
+      <item>1500</item>
+
+      <item>2250</item>
+
+      <item>3000</item>
+
+      <item>4500</item>
+
+      <item>6750</item>
+
+      <item>9000</item>
+
+      <item>13500</item>
+
+      <item>18000</item>
+
+      <item>27000</item>
+   </row>
+
+<!-- Level 16 -->
+   <row>
+      <item>16</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>400</item>
+
+      <item>600</item>
+
+      <item>900</item>
+
+      <item>1200</item>
+
+      <item>1600</item>
+
+      <item>2400</item>
+
+      <item>3200</item>
+
+      <item>4800</item>
+
+      <item>7200</item>
+
+      <item>9600</item>
+
+      <item>14400</item>
+
+      <item>19200</item>
+   </row>
+
+<!-- Level 17 -->
+   <row>
+      <item>17</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>425</item>
+
+      <item>638</item>
+
+      <item>956</item>
+
+      <item>1275</item>
+
+      <item>1700</item>
+
+      <item>2550</item>
+
+      <item>3400</item>
+
+      <item>5100</item>
+
+      <item>7650</item>
+
+      <item>10200</item>
+
+      <item>15300</item>
+   </row>
+
+<!-- Level 18 -->
+   <row>
+      <item>18</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>450</item>
+
+      <item>675</item>
+
+      <item>1013</item>
+
+      <item>1350</item>
+
+      <item>1800</item>
+
+      <item>2700</item>
+
+      <item>3600</item>
+
+      <item>5400</item>
+
+      <item>8100</item>
+
+      <item>10800</item>
+   </row>
+
+<!-- Level 19 -->
+   <row>
+      <item>19</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>475</item>
+
+      <item>713</item>
+
+      <item>1069</item>
+
+      <item>1425</item>
+
+      <item>1900</item>
+
+      <item>2850</item>
+
+      <item>3800</item>
+
+      <item>5700</item>
+
+      <item>8550</item>
+   </row>
+
+<!-- Level 20 -->
+   <row>
+      <item>20</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>0</item>
+
+      <item>500</item>
+
+      <item>750</item>
+
+      <item>1000</item>
+
+      <item>1500</item>
+
+      <item>2000</item>
+
+      <item>3000</item>
+
+      <item>4000</item>
+
+      <item>6000</item>
+   </row>
+</lookuptable>
+

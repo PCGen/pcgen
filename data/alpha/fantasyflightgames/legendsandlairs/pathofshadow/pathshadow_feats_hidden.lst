@@ -1,0 +1,92 @@
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sat Jul  9 14:48:47 2005 -- reformated by prettylst.pl v1.35 (build 469)
+SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# Original entry by: Blithwyn
+
+###Block: Proficiencies
+# Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
+Acolyte of Chance Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Aerialist Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longbow|Longbow (Composite)|Rapier|Sap|Scimitar|Shortbow|Shortbow (Composite)
+Falconer Weapon Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Night Hunter Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Noble Decoy Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Ossorus Weapon Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Royal Assassin Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Sailmaster Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Unblinking Eye Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Simple|Longbow|Longbow (Composite)|Scimitar|Falchion
+White Rose Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Longbow|Longbow (Composite)|Longsword|Quarterstaff|Rapier|Shortbow|Shortbow (Composite)|Sword (Short)
+
+#################
+## Class feats ##
+#################
+
+###Block:Chameleon special abilities (similar to the rogue)
+# Feat Name	Type						Visible	Special Ability	Source Page
+Traps		TYPE:ChameleonSpecialAbilities	VISIBLE:NO	SA:Traps		SOURCEPAGE:Chap.3, Chameleon, Special Ability
+
+###Block:Con Artist special abilities (similar to the rogue)
+# Feat Name			Type						Visible	Special Ability			Source Page
+Consuming Bluff		TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SA:Consuming Bluff		SOURCEPAGE:Chap.3, Con Artist, Special Ability
+Double Bluff		TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SA:Double Bluff			SOURCEPAGE:Chap.3, Con Artist, Special Ability
+Improved Second Attempt	TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SA:Improved Second Attempt	SOURCEPAGE:Chap.3, Con Artist, Special Ability
+Insight into Deceit	TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SA:Insight into Deceit		SOURCEPAGE:Chap.3, Con Artist, Special Ability
+
+
+##########################
+## Prestige Class feats ##
+##########################
+
+###Block:Acolyte of Chance special abilities (similar to the rogue)
+# Feat Name						Type					Visible	Required Feat			Prohibited Feat			!PRESA				Special Ability			Spells							Stackable?	Multiple?	Choose			Choose a Feat			Save checks bonus		Modify VAR				Source Page
+Lucky Strike					TYPE:ChanceSpecialAbilities	VISIBLE:NO																													STACK:YES	MULT:YES	CHOOSE:Lucky Strike										BONUS:VAR|LuckyStrike|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Close Call						TYPE:ChanceSpecialAbilities	VISIBLE:NO																													STACK:YES	MULT:YES	CHOOSE:Close Call											BONUS:VAR|CloseCall|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:One More Time (Su)												MULT:NO																			SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Random Action					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Random Action (Sp)		SPELLS:Random Action|TIMES=1|Random Action			MULT:NO																			SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes A	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SA:Lightning Reflexes (Ex)											MULT:NO										BONUS:CHECKS|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SA:Lightning Reflexes (Ex)											MULT:NO					ADD:FEAT(Lightning Reflexes)										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Dumb Luck						TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Dumb Luck (Ex)													MULT:NO																			SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Vitality of Chance (Ex)											MULT:NO														BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+
+###Block:
+#Evasion							VISIBLE:NO	SA:Evasion (Ex)|PHBFeatEvasion	DEFINE:PHBFeatEvasion|COUNT[FEATNAME=Improved Evasion]-1	SOURCEPAGE:Chap.3, Rogue, Special Abilities
+# Feat Name			Type						Visible	Special Ability														Define																		Source Page
+Aerialist Evasion		TYPE:AerialistSpecialAbilities	VISIBLE:NO	SA:Evasion (Ex)|AerialistFeatEvasion	SA:Improved Evasion (Ex)|AerialistImprFeatEvasion	DEFINE:AerialistFeatEvasion|COUNT[FEATNAME=Evasion]-1	DEFINE:AerialistImprFeatEvasion|COUNT[FEATNAME=Evasion]	SOURCEPAGE:Chap.3, Rogue, Special Abilities
+
+Trace Enchantment I							VISIBLE:NO	SA:Trace Enchantment (Su)|ShadowFeatTraceEnch1									DEFINE:ShadowFeatTraceEnch1|COUNT[FEATNAME=Trace Enchantment II]-1								SOURCEPAGE:p.14
+Trace Enchantment II							VISIBLE:NO	SA:Trace Enchantment (more distant items) (Su)|ShadowFeatTraceEnch2					DEFINE:ShadowFeatTraceEnch2|COUNT[FEATNAME=Trace Enchantment III]-1								SOURCEPAGE:p.14
+Trace Enchantment III							VISIBLE:NO	SA:Trace Enchantment (unlimited range) (Su)|ShadowFeatTraceEnch3						DEFINE:ShadowFeatTraceEnch3|COUNT[FEATNAME=Trace Enchantment IV]-1								SOURCEPAGE:p.14
+Trace Enchantment IV							VISIBLE:NO	SA:Trace Enchantment (cross planar) (Su)																													SOURCEPAGE:p.14
+
+
+
+###Block:Packrat "+1 level of existing class" of bard or rogue
+# Feat Name			Type					Visible	Required Class		Stackable?	Multiple?	Choose				Caster level bonus
+PackratRogueIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Rogue=1	STACK:YES	MULT:YES	CHOOSE:+1 level of rogue
+PackratBardIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Bard=1		STACK:YES	MULT:YES	CHOOSE:+1 level of bard		BONUS:PCLEVEL|Bard|1
+
+
+###Block:Queen's Coronet
+# Feat Name				Type						Visible		Required Class			Description				Stackable?	Multiple?	Choose																														Source Page
+Skill Mastery Queen's Coronet	TYPE:QueensCoronetSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Queen's Coronet=10	DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLSNAMED|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Move Silently|Read Lips|Sense Motive|Spot|3+INT	SOURCEPAGE:Chap.3, Rogue, Special Abilities
+
+###Block:Questioner special abilities (similar to the rogue)
+# Feat Name		Type						Visible	Special Ability	Source Page
+Reputation		TYPE:QuestionerSpecialAbilities	VISIBLE:NO	SA:Reputation	SOURCEPAGE:Chap.1, Questioner, Special Ability
+Urban Tracking	TYPE:QuestionerSpecialAbilities	VISIBLE:NO	SA:Urban Tracking	SOURCEPAGE:Chap.1, Questioner, Special Ability
+
+###Block:White Rose special abilities (similar to the rogue)
+# Feat Name					Type						Visible	Prohibited Feat					Special Ability			Stackable?	Multiple?	Choose a Feat			Source Page
+Final Stroke				TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SA:Final Stroke												SOURCEPAGE:Chap.1, White Rose, Special Ability
+Narrow Miss					TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SA:Narrow Miss												SOURCEPAGE:Chap.1, White Rose, Special Ability
+Parry						TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SA:Parry													SOURCEPAGE:Chap.1, White Rose, Special Ability
+Rapid Strike				TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SA:Rapid Strike %/day|CL										SOURCEPAGE:Chap.1, White Rose, Special Ability
+Combat Prowess				TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO													STACK:NO	MULT:YES	ADD:FEAT(TYPE=Fighter)		SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy one		TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO																	ADD:FEAT(TYPE=RangerFavored)	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy two		TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy one										ADD:FEAT(TYPE=RangerFavored)	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy three	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy two										ADD:FEAT(TYPE=RangerFavored)	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy four		TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy three										ADD:FEAT(TYPE=RangerFavored)	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy five		TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy four										ADD:FEAT(TYPE=RangerFavored)	SOURCEPAGE:Chap.1, White Rose, Special Ability
+#zzzz The Favored Enemy only works if the class prereqs are removed from the SRD ranger hidden feats.
+#zzzz Would prefer to have them removed from SRD, but could .MOD in worst case.....TBD
+
+
+
