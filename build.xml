@@ -51,31 +51,29 @@ These files can be renamed and used for releases.
 -->
 
 <project name="pcgen" default="main" basedir=".">
-
-	<property name="bin.dir" value="bin" />
-	<property name="build.dir" value="build" />
+	<property name="bin.dir" value="${basedir}/code/bin" />
+	<property name="build.dir" value="${basedir}/build" />
 	<property name="build.classes.dir" value="${build.dir}/classes" />
 	<property name="build.testclasses.dir" value="${build.dir}/testclasses" />
 	<property name="build.src.dir" value="${build.dir}/src" />
 	<property name="build.rpt.dir" value="${build.dir}/rpt" />
 	<property name="coverage.dir" value="${build.dir}/coverage" />
 	<property name="coverage.rpt.dir" value="${build.rpt.dir}/coverage" />
-	<property name="dist.dir" value="${basedir}/dist" />
+	<property name="dist.dir" value="${basedir}/code/dist" />
 	<property name="doc.dir" value="${basedir}/doc/api" />
-	<property name="etc.dir" value="${basedir}/etc" />
+	<property name="etc.dir" value="${basedir}/code/etc" />
 	<property name="plugins.dir" value="${basedir}/plugins" />
 	<property name="outputplugins.dir" value="${plugins.dir}/outputplugins" />
 	<property name="lstplugins.dir" value="${plugins.dir}/lstplugins" />
 	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
-	<property name="src.java.dir" value="${basedir}/src/java" />
-	<property name="src.test.java.dir" value="${basedir}/src/test" />
-	<property name="lib.dir" value="lib" />
+	<property name="src.java.dir" value="${basedir}/code/src/java" />
+	<property name="src.test.java.dir" value="${basedir}/code/src/test" />
+	<property name="lib.dir" value="${basedir}/lib" />
 	<property name="lib.ncss" value="${basedir}/lib/javancss" />
 	<property name="plugin.dir" value="${basedir}/plugins" />
-		<!-- TODO: go back to ${basedir}/data}; c:\foo/data v. data -->
-	<property name="src.data.dir" value="data" />
-	<property name="src.docs.dir" value="docs" />
-	<property name="src.outputsheets.dir" value="outputsheets" />
+	<property name="src.data.dir" value="${basedir}/data" />
+	<property name="src.docs.dir" value="${basedir}/docs" />
+	<property name="src.outputsheets.dir" value="${basedir}/outputsheets" />
 	<property name="docs.manual.dir" value="${basedir}/doc/" />
 	<property name="docs.overview" value="${src.java.dir}/pcgen/overview.html" />
 	<property name="src.xml.dir" value="${basedir}/xml" />

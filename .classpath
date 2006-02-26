@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="build/src"/>
-	<classpathentry kind="src" path="src/java"/>
-	<classpathentry kind="src" path="src/test"/>
+	<classpathentry kind="src" path="code/build/src"/>
+	<classpathentry kind="src" path="code/src/java"/>
+	<classpathentry kind="src" path="code/src/test"/>
 	<classpathentry sourcepath="JRE_SRC" kind="var" path="JRE_LIB"/>
 	<classpathentry kind="lib" path="lib/avalon-framework-cvs-20020806.jar"/>
 	<classpathentry kind="lib" path="lib/batik.jar"/>
@@ -29,5 +29,5 @@
 	<classpathentry kind="lib" path="lib/xmlunit1.0.jar"/>
 	<classpathentry kind="lib" path="lib/javacc.jar"/>
 	<classpathentry kind="lib" path="lib/wraplf.jar"/>
-	<classpathentry kind="output" path="build.eclipse"/>
+	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>
