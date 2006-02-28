@@ -64,7 +64,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	public void runTest(String character, String mode) throws Exception	{
 		System.out.println("RUNTEST with the character: " + character + " and the game mode: " + mode);
 		// Delete the old generated output for this test 
-		new File("testsuite/output/" + character + ".xml").delete();
+		new File("code/testsuite/output/" + character + ".xml").delete();
 		// Set the pcc location to "data"
 		String pccLoc = "data";
 		try {
@@ -103,17 +103,17 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			bw.write("pcgen.files.pcgenCustomDir=testsuite\\\\customdata\r\n");
 			bw.close();
 
-			System.setProperty("pcgen.templatefile", "testsuite/base.xml");
-			System.setProperty("pcgen.inputfile", "testsuite/PCGfiles/" + character	+ Constants.s_PCGEN_CHARACTER_EXTENSION);
-			System.setProperty("pcgen.outputfile", "testsuite/output/" + character + ".xml");
+			System.setProperty("pcgen.templatefile", "code/testsuite/base.xml");
+			System.setProperty("pcgen.inputfile", "code/testsuite/PCGfiles/" + character	+ Constants.s_PCGEN_CHARACTER_EXTENSION);
+			System.setProperty("pcgen.outputfile", "code/testsuite/output/" + character + ".xml");
 
 			// Fire off PCGen, which will produce an XML file 
 			pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
 
 			// Read in the actual XML produced by PCGen
-			actual = readFile(new File("testsuite/output/" + character + ".xml"));
+			actual = readFile(new File("code/testsuite/output/" + character + ".xml"));
 			// Read in the expected XML
-			expected = readFile(new File("testsuite/csheets/" + character + ".xml"));
+			expected = readFile(new File("code/testsuite/csheets/" + character + ".xml"));
 		}
 		finally	{
 			// Make sure we don't delete the options.ini no matter what happens!
