@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--	
+<!--
 	$Header: /cvsroot/pcgendocs/pcgendocs/outputsheets/base.xml,v 1.80 2006/01/19 02:00:11 eddyanthony Exp $
 -->
 <character>
@@ -132,20 +132,20 @@
 		<image>file:|DIR.PCG|/|NAME|.jpg</image>
 		<interests>|INTERESTS|</interests>
 		<languages>
-|FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|		
+|FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|
 			<language>|LANGUAGES.%lang|</language>
-|ENDFOR|		
+|ENDFOR|
 			<all>|LANGUAGES|</all>
 		</languages>
 		<location>|LOCATION|</location>
 		<move>
-|FOR,%move,0,COUNT[MOVE]-1,1,0|		
+|FOR,%move,0,COUNT[MOVE]-1,1,0|
 			<move>
 				<name>|MOVE.%move.NAME|</name>
 				<rate>|MOVE.%move.RATE|</rate>
 				<squares>|MOVE.%move.SQUARES|</squares>
 			</move>
-|ENDFOR|		
+|ENDFOR|
 			<all>|MOVEMENT|</all>
 		</move>
 		<personality>
@@ -169,9 +169,9 @@
 		<speechtendency>|SPEECHTENDENCY|</speechtendency>
 		<type>|TYPE|</type>
 		<vision>
-|FOR,%vision,0,COUNT[VISION]-1,1,0|		
+|FOR,%vision,0,COUNT[VISION]-1,1,0|
 			<vision>|VISION.%vision|</vision>
-|ENDFOR|		
+|ENDFOR|
 			<all>|VISION|</all>
 		</vision>
 		<wealth>|VAR.WEALTH.INTVAL|</wealth>
@@ -199,7 +199,7 @@
 	  ====================================
 	  ====================================-->
 	<abilities>
-|FOR,%stat,0,COUNT[STATS]-1,1,0|	
+|FOR,%stat,0,COUNT[STATS]-1,1,0|
 		<ability>
 			<name>
 				<long>|STAT.%stat.LONGNAME|</long>
@@ -207,7 +207,7 @@
 			</name>
 			<score>|STAT.%stat|</score>
 			<modifier>|STAT.%stat.MOD|</modifier>
-<!--    
+<!--
 		Old BASE tag does not give stats with racial, and other permentant adjustments.
 		Use NOTEMP.NOEQUIP instead of BASE gives the correct results.
 
@@ -222,7 +222,7 @@
 			<no_temp_score>|STAT.%stat.NOTEMP|</no_temp_score>
 			<no_temp_modifier>|STAT.%stat.MOD.NOTEMP|</no_temp_modifier>
 		</ability>
-|ENDFOR|		
+|ENDFOR|
 	</abilities>
 	<!--
 	  ====================================
@@ -248,7 +248,7 @@
 				<stat>|HPROLL.%level.STAT|</stat>
 				<total>|HPROLL.%level.TOTAL|</total>
 			</roll>
-|ENDFOR|		
+|ENDFOR|
 		</history>
 	</hit_points>
 	<!--
@@ -437,7 +437,7 @@
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
 
-		
+
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
 
 |IIF(WEAPON.%weap.CATEGORY:BOTH)|
@@ -537,6 +537,12 @@
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
 					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
 					<damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
+					<basehit>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</basehit>
+					<tohit_offhand>|WEAPON.%weap.RANGELIST.%range.OHHIT|</tohit_offhand>
+					<tohit_twohand>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</tohit_twohand>
+					<tohit_2weap_heavy>|WEAPON.%weap.RANGELIST.%range.TWPHITH|</tohit_2weap_heavy>
+					<tohit_2weap_light>|WEAPON.%weap.RANGELIST.%range.TWPHITL|</tohit_2weap_light>
+					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
 				</range>
 |ENDFOR|	<!-- Range -->
 			</ranges>
@@ -608,6 +614,12 @@
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
 					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
 					<damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
+					<basehit>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</basehit>
+					<tohit_offhand>|WEAPON.%weap.RANGELIST.%range.OHHIT|</tohit_offhand>
+					<tohit_twohand>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</tohit_twohand>
+					<tohit_2weap_heavy>|WEAPON.%weap.RANGELIST.%range.TWPHITH|</tohit_2weap_heavy>
+					<tohit_2weap_light>|WEAPON.%weap.RANGELIST.%range.TWPHITL|</tohit_2weap_light>
+					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
 				</range>
 |ENDFOR|	<!-- Range -->
 			</ranges>
@@ -624,6 +636,12 @@
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
 					<to_hit>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|</to_hit>
 					<damage>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|</damage>
+					<basehit>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</basehit>
+					<tohit_offhand>|WEAPON.%weap.RANGELIST.%range.OHHIT|</tohit_offhand>
+					<tohit_twohand>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</tohit_twohand>
+					<tohit_2weap_heavy>|WEAPON.%weap.RANGELIST.%range.TWPHITH|</tohit_2weap_heavy>
+					<tohit_2weap_light>|WEAPON.%weap.RANGELIST.%range.TWPHITL|</tohit_2weap_light>
+					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
 				</range>
 |ENDFOR|	<!-- Range -->
 			</ranges>
@@ -856,7 +874,7 @@
 		<bardic_music>
 			<uses_per_day>|VAR.BardicMusicTimes.INTVAL|</uses_per_day>
 			<text>
-|%|	
+|%|
 |%VAR.CountersongDuration.GTEQ.1|
 	Countersong(duration = |VAR.CountersongDuration.INTVAL| rounds)
 |%|
@@ -1225,7 +1243,7 @@
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
-|FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|	
+|FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|
 		<feat>
 			<name>|FEAT.VISIBLE.%feat|</name>
 			<description>|FEAT.VISIBLE.%feat.DESC|</description>
@@ -1237,10 +1255,10 @@
 			<virtual>F</virtual>
 			<source>|FEAT.VISIBLE.%feat.SOURCE|</source>
 		</feat>
-|ENDFOR|	
+|ENDFOR|
 
 		<!-- Auto feats -->
-|FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|	
+|FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|
 		<feat>
 			<name>|FEATAUTO.VISIBLE.%feat|</name>
 			<description>|FEATAUTO.VISIBLE.%feat.DESC|</description>
@@ -1252,10 +1270,10 @@
 			<virtual>F</virtual>
 			<source>|FEATAUTO.VISIBLE.%feat.SOURCE|</source>
 		</feat>
-|ENDFOR|	
+|ENDFOR|
 
 		<!-- Virtual Feats -->
-|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|	
+|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
 		<feat>
 			<name>|VFEAT.VISIBLE.%feat|</name>
 			<description>|VFEAT.VISIBLE.%feat.DESC|</description>
@@ -1267,7 +1285,7 @@
 			<virtual>T</virtual>
 			<source>|VFEAT.VISIBLE.%feat.SOURCE|</source>
 		</feat>
-|ENDFOR|	
+|ENDFOR|
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 |FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
@@ -1383,7 +1401,7 @@
 	  ====================================
 	  ====================================-->
 	<companions>
-|%FOLLOWERTYPE.FAMILIAR|	
+|%FOLLOWERTYPE.FAMILIAR|
 		<familiar>
 			<!-- Note that only one familiar is allowed, so no support for multiple familiars -->
 			<name>|FOLLOWERTYPE.FAMILIAR.0.NAME|</name>
@@ -1752,7 +1770,7 @@
 	<memorized_spells/>
 |ELSE|
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
+			<!-- ### BEGIN innate memorized spell section -->
 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
 |IIF(%spellrace:0)|
 |ELSE|
