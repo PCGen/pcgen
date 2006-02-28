@@ -30,7 +30,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>VarTokenTest</code> is ...
+ * <code>VarTokenTest</code> tests the functioning of the VAR 
+ * token processing code. 
  *
  * Last Editor: $Author: karianna $
  * Last Edited: $Date: 2006/02/08 12:03:49 $
@@ -38,7 +39,6 @@ import pcgen.core.PlayerCharacter;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 1.3 $
  */
-
 public class VarTokenTest extends AbstractCharacterTestCase
 {
 
