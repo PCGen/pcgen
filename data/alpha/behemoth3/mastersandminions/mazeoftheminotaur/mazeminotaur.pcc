@@ -24,6 +24,7 @@ RACE:mazeminotaur_races.lst
 EQUIPMENT:mazeminotaur_equip.lst
 TEMPLATE:mazeminotaur_templates.lst
 KIT:mazeminotaur_kits.lst
+KIT:mazeminotaur_kits_races.lst
 
 #
 # End
