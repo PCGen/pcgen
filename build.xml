@@ -4015,7 +4015,11 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 	<target name="build" depends="emma, compile, instrument, jar, jar-plugin, build-extra" description="Do an [incremental] build (compile, jar).">
 		<!-- fix for UNIXen; harmless on Windows -->
 		<chmod file="pcgendev.sh" perm="a+rx" />
-		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
+		<copy todir="${basedir}">
+			<fileset dir="${bin.dir}" includes="**/*.jar" />
+			<fileset dir="${bin.dir}" includes="**/*.bat" />
+			<fileset dir="${bin.dir}" includes="**/*.sh" />
+		</copy>
 	</target>
 
 	<target name="build13" depends="compile13, jar, build-extra" description="Do an [incremental] build (compile, jar).">
@@ -4035,7 +4039,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 
 	<target name="jar.src">
 		<mkdir dir="${dist.dir}" />
-		<jar jarfile="${dist.dir}/${jar.src.file}" basedir="${src.java.dir}" excludes="**/CVS/*, test, **/test/*" />
+		<jar jarfile="${dist.dir}/${jar.src.file}" basedir="${src.java.dir}" excludes="**/CVS/*, **/.svn/*, test, **/test/*" />
 	</target>
 
 	<target name="zip.bins">
@@ -4049,7 +4053,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 			</fileset>
 			<fileset dir=".">
 				<include name="templates/**" />
-				<exclude name="**/CVS/*" />
+				<exclude name="**/CVS/*, **/.svn/*" />
 			</fileset>
 		</zip>
 	</target>
@@ -4066,7 +4070,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 		<zip zipfile="${dist.dir}/${zip.jars.file}">
 			<fileset dir=".">
 				<include name="lib/**" />
-				<exclude name="**/CVS/*" />
+				<exclude name="**/CVS/*, **/.svn/*" />
 			</fileset>
 		</zip>
 	</target>
@@ -4089,27 +4093,27 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 	  </fileset>
 	  <fileset dir=".">
 		<include name="outputsheets/**" />
-		<exclude name="**/CVS/*" />
+		<exclude name="**/CVS/*, **/.svn*" />
 	  </fileset>
 	  <fileset dir=".">
 		<include name="lib/**" />
-		<exclude name="**/CVS/*" />
+		<exclude name="**/CVS/*, **/.svn*" />
 	  </fileset>
 	  <fileset dir=".">
 		<include name="data/**"/>
-		<exclude name="**/CVS/*" />
+		<exclude name="**/CVS/*, **/.svn*" />
 	  </fileset>
 	  <fileset dir=".">
 		<include name="${docs.manual.dir}" />
-		<exclude name="**/CVS/*" />
+		<exclude name="**/CVS/*, **/.svn*" />
 	  </fileset>
 	  <fileset dir=".">
 		<include name="plugins/**" />
-		<exclude name="**/CVS/*" />
+		<exclude name="**/CVS/*, **/.svn*" />
 	  </fileset>
 	  <fileset dir=".">
 		<include name="system/**" />
-		<exclude name="**/CVS/*" />
+		<exclude name="**/CVS/*, **/.svn*" />
 	  </fileset>
 	  <fileset dir=".">
 		<include name="characters/CodeMonkey.pcg" />
@@ -4131,7 +4135,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 			</tarfileset>
 			<tarfileset dir=".">
 				<include name="templates/**" />
-				<exclude name="**/CVS/*" />
+				<exclude name="**/CVS/*, **/.svn*" />
 			</tarfileset>
 		</tar>
 		<gzip zipfile="${dist.dir}/pcgen.tar.gz" src="${dist.dir}/pcgen.tar" />
@@ -4448,6 +4452,9 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 
 	<target name="test.jar" depends="test.compile, test.manifest">
 		<jar jarfile="${bin.dir}/${test.jar.file}" manifest="${test.manifest.file}" basedir="${build.testclasses.dir}" includes="**/*Test.class  **/*Tests.class test/**" />
+		<copy todir="${basedir}">
+			<fileset dir="${bin.dir}" includes="**/*.jar" />
+		</copy>
 	</target>
 
 	<target name="test.compile" depends="jar, jar-plugin">
