@@ -19,5 +19,5 @@ INFOTEXT:To be used with Blood and Guts: Modern Military
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-CLASS:md_006_class.lst
-FEAT:md_006_feats.lst
+CLASS:moderndispatch006_classes.lst
+FEAT:moderndispatch006_feats.lst
