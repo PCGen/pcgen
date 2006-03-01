@@ -93,7 +93,7 @@ public final class SettingsHandler
 	private static int featAutoColor = 0xB2B200; // dark yellow
 	private static int featVirtualColor = 0xFF00FF; // magenta
 	private static final Properties filterSettings = new Properties();
-	private static GameMode game = null;
+	private static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
 	private static boolean grittyACMode = false;
 	private static boolean useWaitCursor = true;
