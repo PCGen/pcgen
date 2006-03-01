@@ -1,9 +1,9 @@
-# CVS $Revision: 1.5 $ $Author: eddyanthony $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.5 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:RSRD Epic|SOURCESHORT:RSRDEpic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Agent Retriever	HD:6		TYPE:Epic.PC	ABB:Agr		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Agent Retriever	HD:6		TYPE:Epic.PC	ABB:Agr		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL		Required Feat	Required Lvl	Required Skill
 CLASS:Agent Retriever	PREALIGN:LG,LN,LE	PREFEAT:1,Track	PRELEVEL:20		PRESKILL:1,Knowledge (The Planes)=15	PRESKILL:1,Gather Information=24
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -17,7 +17,7 @@ CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	ABB:Cde		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	ABB:Cde		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat							Required Lvl	Required Skill					Req. Known Spell
 CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PRELEVEL:20		PRESKILL:1,Knowledge (The Planes)=24	PRESPELL:1,Gate	PRESPELL:1,Planar Ally,Planar Ally (Lesser),Planar Ally (Greater),Planar Binding,Planar Binding (Lesser),Planar Binding (Greater)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -30,7 +30,7 @@ CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowl
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	ABB:Die		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	ABB:Die		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Req. Att.	Required Feat					Required Lvl	Required Skill
 CLASS:Divine Emissary	PREATT:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:20		PRESKILL:1,Knowledge (Religion)=10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -44,7 +44,7 @@ CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Ga
 
 
 # Class Name		Hit Dice	Type				Abbreviation	Source Page					Save checks bonus
-CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	ABB:Ein		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	ABB:Ein		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL				Required Feat			Required Lvl	Required Skill
 CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:20		PRESKILL:2,Diplomacy,Spot=10	PRESKILL:2,Bluff,Disguise=24
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -58,7 +58,7 @@ CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decip
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	ABB:Gpa		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	ABB:Gpa		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name			Req. Att.	Required Feat																	Required Lvl	Required Skill
 CLASS:Guardian Paramount	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PREFEAT:2,Evasion,Uncanny Dodge	PRELEVEL:20		PRESKILL:1,Spot=13
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -72,7 +72,7 @@ CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:High Proselytizer	HD:8		TYPE:Epic.PC	ABB:Hig		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:High Proselytizer	HD:8		TYPE:Epic.PC	ABB:Hig		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat					Required Lvl	Required Skill											Req. Spell Type
 CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:20		PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=24	PRESKILL:1,Diplomacy=12	PRESPELLTYPE:Divine,1,5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -87,7 +87,7 @@ CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Know
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Legendary Dreadnought	HD:12		TYPE:Epic.PC	ABB:Dre		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Legendary Dreadnought	HD:12		TYPE:Epic.PC	ABB:Dre		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name			Req. Att.	Required Feat											Required Lvl	Required Skill
 CLASS:Legendary Dreadnought	PREATT:23	PREFEAT:4,Combat Reflexes,Great Cleave,Improved Bull Rush,Improved Critical	PRELEVEL:20		PRESKILL:1,Intimidate=15
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -100,7 +100,7 @@ CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Perfect Wight	HD:6		TYPE:Epic.PC	ABB:Pwi		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Perfect Wight	HD:6		TYPE:Epic.PC	ABB:Pwi		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required Feat			Required Lvl	Required Skill				Var. Min. Value
 CLASS:Perfect Wight	PREFEAT:1,Self Concealment	PRELEVEL:20		PRESKILL:2,Hide,Move Silently=24	PREVARGTEQ:SneakAttack,10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -113,7 +113,7 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page					Save checks bonus
-CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	ABB:Sen		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|CL/3
+CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	ABB:Sen		SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL		Req. Att.	Required Feat						Required Lvl	Required Skill
 CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREATT:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:20		PRESKILL:2,Diplomacy,Knowledge (Local)=8
 # Class Name		Skill Pts/Lvl	Class Skill

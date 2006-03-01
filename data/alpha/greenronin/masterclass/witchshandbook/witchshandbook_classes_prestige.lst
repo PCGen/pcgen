@@ -1,9 +1,9 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #Orginal Entry: Ratheof Blithwyn
 SOURCELONG:The Witch's Handbook|SOURCESHORT:witchhandbook|SOURCEWEB:http://www.greenronin.com
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Infernal Witch	HD:4		TYPE:PC.Prestige	ABB:InW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Infernal Witch	HD:4		TYPE:PC.Prestige	ABB:InW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Spell Type		Required Text
 CLASS:Infernal Witch	PREALIGN:LE,NE,CE	PRESPELLTYPE:Arcane,1,3	PRETEXT:The infernal witch must forge a pact with a powerful evil outsider.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -20,8 +20,8 @@ CLASS:Infernal Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|Disguise
 10	ADD:SPELLCASTER(Any)
 #TODO: Bonus spell..
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Shaper	HD:4		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Shaper	HD:4		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat					Required Skill						Req. Spell Type
 CLASS:Shaper	PREFEAT:1,Spell Focus(Transmutation)	PRESKILL:2,Knowledge (Nature),Spellcraft=8	PRESPELLTYPE:Any,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -37,8 +37,8 @@ CLASS:Shaper	STARTSKILLPTS:2	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Hand
 9	ADD:SPELLCASTER(Any)																	SPELLS:Innate|TIMES=1|Polymorh Any Object
 10	ADD:SPELLCASTER(Any)	SA:Dominate Transformed (1/day)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Witch Hag	HD:6		TYPE:PC.Prestige	ABB:WiH		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Witch Hag	HD:6		TYPE:PC.Prestige	ABB:WiH		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Gender	Required Language	Required Skill				Req. Spell Type
 CLASS:Witch Hag	PREALIGN:CN,CE	PREGENDER:F		PRELANG:1,Giant	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLTYPE:Any,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -55,8 +55,8 @@ CLASS:Witch Hag	STARTSKILLPTS:2	CSKILL:Animal Empathy|Concentration|TYPE.Craft|H
 10						SA:Hag Transformation (Ex)
 #TODO: Bonus spell.., Iron claws as weapon,.. Hag Transformation
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Witch Priestess	HD:4		TYPE:PC.Prestige	ABB:WiP		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Witch Priestess	HD:4		TYPE:PC.Prestige	ABB:WiP		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill								Req. Spell Type		Required Text
 CLASS:Witch Priestess	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=5	PRESKILL:1,Knowledge (Nature)=8	PRESPELLTYPE:Arcane,1,3	PRETEXT:The character must be accepted and initiated by a witch priestess of at least 3rd level.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -73,7 +73,7 @@ CLASS:Witch Priestess	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Di
 10	ADD:SPELLCASTER(Any)	SA:Timeless Body (Ex)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Witch's Champion	HD:10		TYPE:PC.Prestige	ABB:WiC		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Witch's Champion	HD:10		TYPE:PC.Prestige	ABB:WiC		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Skill		Required Text
 CLASS:Witch's Champion	PREATT:6	PREFEAT:3,Alertness,Combat Reflexes,Improved Initiative	PRESKILL:1,Intimidate=4	PRETEXT:See Text
 # Class Name		Skill Pts/Lvl	Class Skill

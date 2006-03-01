@@ -1,8 +1,8 @@
-# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Sat Dec 10 12:26:11 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood|SOURCESHORT:SeasofBlood|SOURCEWEB:http://mongoosepublishing.com
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Buccaneer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Buccaneer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill				Required Stat
 CLASS:Buccaneer	PREATT:3	PRESKILL:3,Balance,Swim,Tumble=6	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -22,8 +22,8 @@ CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Di
 9	SA:Sabotage
 10	SA:Acrobatic Defense
 
-# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nvw		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nvw		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill				Required Spell School
 CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:Divination,1,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -39,8 +39,8 @@ CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gath
 9	ADD:SPELLCASTER(ANY)
 10	ADD:SPELLCASTER(ANY)	SA:Control Winds
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat						Required Skill
 CLASS:Reaver	PREATT:4	PREFEAT:2,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -57,15 +57,15 @@ CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Kn
 7	SA:Skilled Boarder
 8																	ADD:FEAT(Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus)
 
-# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Sailor	HD:8		TYPE:NPC	ABB:Slr		MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/4	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Sailor	HD:8		TYPE:NPC	ABB:Slr		MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/4	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Seamanship)|Swim|Use Rope
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages		Bonus Languages	Save checks bonus												Combat bonus
-CLASS:Sea Druid	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Aquan	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages		Bonus Languages	Save checks bonus											Combat bonus
+CLASS:Sea Druid	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Aquan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Sea Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill

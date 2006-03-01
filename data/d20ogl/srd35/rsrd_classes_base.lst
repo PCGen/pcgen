@@ -1,9 +1,9 @@
-# CVS $Revision: 1.76 $ $Author: eddyanthony $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.76 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
-# Class Name	Hit Dice	Type			Abbreviation	Ex Class			Source Page			Save checks bonus												Combat bonus
-CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		EXCLASS:Ex Barbarian	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Ex Class			Source Page			Save checks bonus											Combat bonus
+CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		EXCLASS:Ex Barbarian	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Barbarian	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -37,8 +37,8 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 #13	DR:2/-
 14			SA:Indomitable Will (Ex)
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page			Visible	Save checks bonus												Combat bonus
-CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBrb		SOURCEPAGE:ClassesI.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Source Page			Visible	Save checks bonus											Combat bonus
+CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBrb		SOURCEPAGE:ClassesI.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl
 CLASS:Ex Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
@@ -53,8 +53,8 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4
 # Added Formula for DR progression
 7	DR:1/-																	BONUS:DR|-|(CL-4)/3-1
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,8 +98,8 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Bonus Languages					Save checks bonus												Combat bonus					Add domain number
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -143,8 +143,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Abbreviation	Ex Class		Source Page			Automatic Languages		Bonus Languages	Define			Save checks bonus												Combat bonus					Modify VAR
-CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Ex Class		Source Page			Automatic Languages		Bonus Languages	Define			Save checks bonus											Combat bonus					Modify VAR
+CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -191,8 +191,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages		Bonus Languages	Visible	Save checks bonus												Combat bonus
-CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages		Bonus Languages	Visible	Save checks bonus											Combat bonus
+CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Ex Druid	STARTSKILLPTS:4
 ###Block:Proficiencies
@@ -200,8 +200,8 @@ CLASS:Ex Druid	STARTSKILLPTS:4
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:Proficiencies
@@ -234,8 +234,8 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|J
 # 9-29-03 Added DEFINE:MonkLvl|CL=Monk, Used in Stunning Fist Feat to correctly address special note for monk.
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Define			Save checks bonus									Combat bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Define			Save checks bonus								Combat bonus
+CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -268,8 +268,8 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SA:.CLEAR.Slow Fall	SA:Perfect Self (Su)	SA:Slow Fall (Any Distance)																											TEMPLATE:Monk Outsider
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Ex Class			Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		EXCLASS:Ex Paladin	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Ex Class			Source Page				Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		EXCLASS:Ex Paladin	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -288,12 +288,12 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 4	BONUS:VAR|TurnDamagePlusBase|CL-3
 4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1				SA:Aura of Good (Ex)																							DEFINE:AllowHolyAvenger|1	SPELLS:Paladin|TIMES=-1|CASTERLEVEL=var("CL=Paladin")|Detect Evil,11+WIS
-2				SA:Divine Grace (Su)	SA:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Willpower|max(CHA,0)	DEFINE:LayOnHands|0
+1				SA:Aura of Good (Ex)																						DEFINE:AllowHolyAvenger|1	SPELLS:Paladin|TIMES=-1|CASTERLEVEL=var("CL=Paladin")|Detect Evil,11+WIS
+2				SA:Divine Grace (Su)	SA:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
 3				SA:Aura of Courage (Su)	SA:Divine Health (Ex)
 4	CAST:0,0
-5	CAST:0,0		SA:Special Mount (Sp)								BONUS:VAR|SMLevel|CL												DEFINE:SMLevel|0
-6	CAST:0,1		SA:Remove Disease (Sp) %/week|RemoveDisease				BONUS:VAR|RemoveDisease|CL/3-1										DEFINE:RemoveDisease|0
+5	CAST:0,0		SA:Special Mount (Sp)								BONUS:VAR|SMLevel|CL											DEFINE:SMLevel|0
+6	CAST:0,1		SA:Remove Disease (Sp) %/week|RemoveDisease				BONUS:VAR|RemoveDisease|CL/3-1									DEFINE:RemoveDisease|0
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0
@@ -309,15 +309,15 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Visible	Save checks bonus												Combat bonus
-CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Visible	Save checks bonus											Combat bonus
+CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 ###Block:Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Define			Save checks bonus												Combat bonus
-CLASS:Ranger	HD:8		TYPE:Base.PC	ABB:Rgr		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Define			Save checks bonus											Combat bonus
+CLASS:Ranger	HD:8		TYPE:Base.PC	ABB:Rgr		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
@@ -358,7 +358,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:0,3,3,3,3											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block:Proficiencies
@@ -377,8 +377,8 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 16															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
 19															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Define		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatic Languages	Define		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -407,8 +407,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page				Automatic Languages	Bonus Languages		Define		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page				Automatic Languages	Bonus Languages		Define		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level

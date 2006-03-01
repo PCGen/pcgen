@@ -1,9 +1,9 @@
-# CVS $Revision: 1.13 $ $Author: tir-gwaith $ -- Wed Dec 14 14:26:02 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.13 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead|SOURCESHORT:Undead|SOURCEWEB:http://alderac.com/d20
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Skill
 CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PREATT:5	PRESKILL:1,Knowledge (Arcana)=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -23,8 +23,8 @@ CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Knowledg
 9	SA:Unholy Radiance (Su)
 10	SA:Warlord of the Dead (Su)
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat							Required Skill													Req. Known Spell			Required Spell School		Required Text
 CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:1,Craft (Autopsy)=6	PRESKILL:1,Heal=3	PRESKILL:2,Alchemy,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:Necromancy,4,0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -40,8 +40,8 @@ CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|In
 9	ADD:SPELLCASTER(ANY)					SA:Improved Flesh Golem (Ex)			BONUS:VAR|TouchofRepose|1
 10	ADD:SPELLCASTER(ANY)					SA:Brain Graft (Ex)				BONUS:VAR|TouchofRepose|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:The Dying	STARTSKILLPTS:2
 ###Block: Turn Undead stuff
@@ -61,8 +61,8 @@ CLASS:The Dying	STARTSKILLPTS:2
 9	VISION:Darkvision (60')	DR:15/+2	SA:Blindness (Su)
 10							SA:Death
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat		Required Skill
 CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -87,8 +87,8 @@ CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Gather In
 9					SA:Holy Aura (Sp)						ADD:FEAT(Extra Turning)
 10	ADD:SPELLCASTER(Divine)	SA:Touch of the Holy (Su)
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL					Required Feat		Required Skill
 CLASS:Faith Hunter	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:1,Iron Will	PRESKILL:1,Heal=4	PRESKILL:1,Knowledge (Arcana)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -107,8 +107,8 @@ CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Escape Artist
 9	SA:Compel Solid Form (DC %) (Su)|CompelSolidForm			BONUS:VAR|CompelSolidForm|CL	DEFINE:CompelSolidForm|CHA+10
 10	SA:Undead Foe
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Hunter of the Fallen	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.42-44	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Hunter of the Fallen	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.42-44	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL			Required Feat
 CLASS:Hunter of the Fallen	PREALIGN:NG,TN,CG,CN	PREFEAT:1,Martial Weapon Proficiency
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -123,10 +123,10 @@ CLASS:Hunter of the Fallen	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Forge
 8	SA:True Death (Su)
 10								BONUS:VAR|FavoredEnemy|1
 
-# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Knight of the Eternal Eye	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name				Required AL		Required Check Base		Required Feat
-CLASS:Knight of the Eternal Eye	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Willpower=5	PREFEAT:1,Iron Will
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Knight of the Eternal Eye	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Required AL		Required Check Base	Required Feat
+CLASS:Knight of the Eternal Eye	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Will=5	PREFEAT:1,Iron Will
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Move Silently|TYPE.Profession|Ride|Sense Motive
 1					SA:Lure of Darkness (Su)	SA:Undying Loyalty (Su)																				TEMPLATE:Undeath
@@ -139,8 +139,8 @@ CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|
 8					SA:Incorporeality (Su)
 10					SA:Darkness form Darkness (Su)
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required Class		Required Skill					Required Text
 CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion),Heal=8	PRETEXT:Special (see text)
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -162,8 +162,8 @@ CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Palad
 9																		BONUS:PCLEVEL|Paladin|1
 10					SA:Holy Terror (Su)										BONUS:PCLEVEL|Paladin|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Text
 CLASS:Puppet	PREALIGN:LN,LE,TN,NE,CN,CE	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -180,7 +180,7 @@ CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gat
 10												BONUS:VAR|ThyMastersWill|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Skill													Required Text
 CLASS:Raider	PRESKILL:2,Hide,Move Silently=6	PRESKILL:2,Intuit Direction,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -196,10 +196,10 @@ CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script
 9					SA:Skillful Dodge
 10					SA:Escape Certain Doom (Ex)
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus															Combat bonus
-CLASS:Risen		NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.53-54	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Required Check Base		Required Feat
-CLASS:Risen		PRECHECKBASE:1,Willpower=8	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Toughness
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus														Combat bonus
+CLASS:Risen		NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.53-54	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Check Base	Required Feat
+CLASS:Risen		PRECHECKBASE:1,Will=8	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Toughness
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim
 1	SA:Lure of Darkness (Su)	SA:Undead (Su)	SA:Vampiric Touch %/day (Su)|VampiricTouch	BONUS:VAR|VampiricTouch|(CL+1)/2	DEFINE:Vampiric Touch|0					TEMPLATE:Undeath
@@ -213,8 +213,8 @@ CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim
 9																	BONUS:VAR|Blood,WotG|1
 10	SA:Rejecting the Crypt(Su)																						ADD:FEAT(Toughness)
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Feat				Required Skill				Required Spell School		Req. Spell Type		Required Text
 CLASS:Sacred Theurgist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLTYPE:Arcane,1,3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -231,8 +231,8 @@ CLASS:Sacred Theurgist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|T
 10	SA:Master of the Dead
 
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.
 CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PREATT:4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -253,8 +253,8 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 9	ADD:SPELLCASTER(ANY)									SA:Beyond the Veil (Su)
 10													SA:Beyond Death (Su)																TEMPLATE:Undeath
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Feat			Required Skill															Required Spell School		Req. Spell Type		Required Text
 CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Animal Empathy=8	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLTYPE:Divine,1,3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill

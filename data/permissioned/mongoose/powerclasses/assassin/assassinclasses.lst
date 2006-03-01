@@ -1,9 +1,9 @@
-# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin|SOURCESHORT:Assassin|SOURCEWEB:http//www.mongoosepublishing.com
 # Original Entry by: Mynex
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Assassin (Mong)	OUTPUTNAME:Assassin	HD:6		TYPE:Base.PC	ABB:MAsn		MAXLEVEL:20	SOURCEPAGE:p.4-8	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Assassin (Mong)	OUTPUTNAME:Assassin	HD:6		TYPE:Base.PC	ABB:MAsn		MAXLEVEL:20	SOURCEPAGE:p.4-8	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL
 CLASS:Assassin (Mong)	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill

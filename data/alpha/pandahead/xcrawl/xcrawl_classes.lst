@@ -1,4 +1,4 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Class Name	Removed Class Skill	Class Skill
@@ -31,8 +31,8 @@ CLASS:Sorcerer.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|TYPE.Knowledge|Perform
 # Class Name	Removed Class Skill	Class Skill
 CLASS:Wizard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|Perform
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|floor((CL+2)*2/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus										Combat bonus
+CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|floor((CL+2)*2/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
@@ -46,8 +46,8 @@ CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Int
 16																			ADD:FEAT(TYPE=Athlete)
 19																			ADD:FEAT(TYPE=Athlete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Master Celebrity	HD:4		TYPE:PC.Prestige	ABB:MCe		MAXLEVEL:5	SOURCEPAGE:138	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|(CL+4)/3|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Master Celebrity	HD:4		TYPE:PC.Prestige	ABB:MCe		MAXLEVEL:5	SOURCEPAGE:138	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL+4)/3|TYPE=Base.REPLACE
 # Class Name		Required Skill
 CLASS:Master Celebrity	PRESKILL:2,Perform,Sense Motive=10	PRESKILL:1,Bluff=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -61,8 +61,8 @@ CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.
 4	SA:Crossover
 5	SA:Reinvention
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill
 CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:1,Handle Animal=6	PRESKILL:1,Knowledge (Monster Lore)=4	PRESKILL:2,Move Silently,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -81,8 +81,8 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 9	SA:Think Like a Monster
 10	SA:Favored Prey
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat		Required Skill
 CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=10	PRESKILL:1,Knowledge (Dungeon Crawl)=8
 # Class Name	Skill Pts/Lvl	Class Skill

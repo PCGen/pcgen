@@ -1,4 +1,4 @@
-# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -10,7 +10,7 @@ SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://ww
 # Equipment Name				Product Identity?	Type							Cost		Weight	Critical Hit Range	Fumble Range	Damage	Size		Source Page		Save checks bonus			Stat bonus				Special Property
 Beowulf's Hilt				NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231						BONUS:STAT|DEX,CON,STR|2
 Dream Catcher				NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231
-Dream Catcher (Owl feather)		NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Willpower|2
+Dream Catcher (Owl feather)		NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Will|2
 Dream Catcher (Eagle feather)		NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Fortitude|2
 Dream Catcher (Falcon feather)	NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Reflex|2
 The Feather of Ma'at			NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.232											SPROP:agent may spend an action die to determine the level and class of one NPC as a half action

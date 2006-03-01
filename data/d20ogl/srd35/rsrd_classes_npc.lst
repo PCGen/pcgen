@@ -1,8 +1,8 @@
-# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
-CLASS:Adept		HD:6		TYPE:Base.NPC	ABB:Adp		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus											Combat bonus
+CLASS:Adept		HD:6		TYPE:Base.NPC	ABB:Adp		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
@@ -35,28 +35,28 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:3,3,3,3,3,2
 20	CAST:3,3,3,3,3,2
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
-CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus											Combat bonus
+CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE.Knowledge|Listen|TYPE.Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Survival
 1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Optionnal Weapon Prof.	Save checks bonus								Combat bonus
-CLASS:Commoner	HD:4		TYPE:Base.NPC	ABB:Com		SOURCEPAGE:NPCClasses.rtf	WEAPONBONUS:TYPE.Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Commoner	HD:4		TYPE:Base.NPC	ABB:Com		SOURCEPAGE:NPCClasses.rtf	WEAPONBONUS:TYPE.Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Use Rope
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
-CLASS:Expert	HD:6		TYPE:Base.NPC	ABB:Exp		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus											Combat bonus
+CLASS:Expert	HD:6		TYPE:Base.NPC	ABB:Exp		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Expert	STARTSKILLPTS:6
 1	ADD:CLASSSKILLS(ANY)10	VFEAT:Armor Proficiency (Light)	FEATAUTO:Simple Weapon Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus												Combat bonus
-CLASS:Warrior	HD:8		TYPE:Base.NPC	ABB:War		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus											Combat bonus
+CLASS:Warrior	HD:8		TYPE:Base.NPC	ABB:War		SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
 1	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency

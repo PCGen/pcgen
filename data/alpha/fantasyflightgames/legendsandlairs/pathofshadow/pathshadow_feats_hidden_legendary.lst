@@ -1,4 +1,4 @@
-# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+# CVS $Revision: 1.3 $ $Author: ericbeaudoin $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -117,54 +117,54 @@ Wounding IV			TYPE:LAWounding.BloodThiefLAPL4	VISIBLE:NO	PRECLASS:1,Blood Thief=
 Wounding V			TYPE:LAWounding.BloodThiefLAPL5	VISIBLE:NO	PRECLASS:1,Blood Thief=5	!PREFEAT:1,TYPE.LAWounding	SA:Wounding V (Ex)										SOURCEPAGE:p.85
 
 ###Block:Fortune's Fool legendary abilities
-# Feat Name						Type							Visible	Required Class			Prohibited Feat				Special Ability						Spells					Save checks bonus								Stat bonus					Source Page
-Clever I						TYPE:LAClever.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAClever		SA:Clever I																							BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p.87
-Clever II						TYPE:LAClever.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAClever		SA:Clever II																						BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p.87
-Clever III						TYPE:LAClever.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAClever		SA:Clever III																						BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p.87
-Clever IV						TYPE:LAClever.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAClever		SA:Clever IV																						BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p.87
-Clever V						TYPE:LAClever.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAClever		SA:Clever V																							BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p.87
-Nimble I						TYPE:LANimble.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LANimble		SA:Nimble I																							BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p.87
-Nimble II						TYPE:LANimble.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LANimble		SA:Nimble II																						BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p.87
-Nimble III						TYPE:LANimble.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LANimble		SA:Nimble III																						BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p.87
-Nimble IV						TYPE:LANimble.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LANimble		SA:Nimble IV																						BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p.87
-Nimble V						TYPE:LANimble.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LANimble		SA:Nimble V																							BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p.87
-Fortuitous I					TYPE:LAFortuitous.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous I												BONUS:CHECKS|Fortitude,Reflex,Willpower|1|TYPE=Legendary							SOURCEPAGE:p.87
-Fortuitous II					TYPE:LAFortuitous.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous II												BONUS:CHECKS|Fortitude,Reflex,Willpower|2|TYPE=Legendary							SOURCEPAGE:p.87
-Fortuitous III					TYPE:LAFortuitous.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous III												BONUS:CHECKS|Fortitude,Reflex,Willpower|3|TYPE=Legendary							SOURCEPAGE:p.87
-Fortuitous IV					TYPE:LAFortuitous.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous IV												BONUS:CHECKS|Fortitude,Reflex,Willpower|4|TYPE=Legendary							SOURCEPAGE:p.87
-Fortuitous V					TYPE:LAFortuitous.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous V												BONUS:CHECKS|Fortitude,Reflex,Willpower|5|TYPE=Legendary							SOURCEPAGE:p.87
-Fool of Fortune I					TYPE:LAFoolFortune.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune I (Su)																										SOURCEPAGE:p.87
-Fool of Fortune II				TYPE:LAFoolFortune.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune II (Su)																										SOURCEPAGE:p.87
-Fool of Fortune III				TYPE:LAFoolFortune.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune III (Su)																										SOURCEPAGE:p.87
-Fool of Fortune IV				TYPE:LAFoolFortune.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune IV (Su)																										SOURCEPAGE:p.87
-Fool of Fortune V					TYPE:LAFoolFortune.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune V (Su)																										SOURCEPAGE:p.87
-Insight of the Fool I				TYPE:LAInsightFool.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool I (Sp)				SPELLS:Innate|TIMES=1|Foresight																	SOURCEPAGE:p.87
-Insight of the Fool II				TYPE:LAInsightFool.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool II (Sp)			SPELLS:Innate|TIMES=2|Foresight																	SOURCEPAGE:p.87
-Insight of the Fool III				TYPE:LAInsightFool.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool III (Sp)			SPELLS:Innate|TIMES=3|Foresight																	SOURCEPAGE:p.87
-Insight of the Fool IV				TYPE:LAInsightFool.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool IV (Sp)			SPELLS:Innate|TIMES=4|Foresight																	SOURCEPAGE:p.87
-Insight of the Fool V				TYPE:LAInsightFool.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool V (Sp)				SPELLS:Innate|TIMES=5|Foresight																	SOURCEPAGE:p.87
+# Feat Name						Type							Visible	Required Class			Prohibited Feat				Special Ability						Spells					Save checks bonus							Stat bonus					Source Page
+Clever I						TYPE:LAClever.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAClever		SA:Clever I																						BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p.87
+Clever II						TYPE:LAClever.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAClever		SA:Clever II																					BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p.87
+Clever III						TYPE:LAClever.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAClever		SA:Clever III																					BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p.87
+Clever IV						TYPE:LAClever.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAClever		SA:Clever IV																					BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p.87
+Clever V						TYPE:LAClever.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAClever		SA:Clever V																						BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p.87
+Nimble I						TYPE:LANimble.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LANimble		SA:Nimble I																						BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p.87
+Nimble II						TYPE:LANimble.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LANimble		SA:Nimble II																					BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p.87
+Nimble III						TYPE:LANimble.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LANimble		SA:Nimble III																					BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p.87
+Nimble IV						TYPE:LANimble.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LANimble		SA:Nimble IV																					BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p.87
+Nimble V						TYPE:LANimble.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LANimble		SA:Nimble V																						BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p.87
+Fortuitous I					TYPE:LAFortuitous.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous I												BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Legendary							SOURCEPAGE:p.87
+Fortuitous II					TYPE:LAFortuitous.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous II												BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Legendary							SOURCEPAGE:p.87
+Fortuitous III					TYPE:LAFortuitous.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous III												BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Legendary							SOURCEPAGE:p.87
+Fortuitous IV					TYPE:LAFortuitous.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous IV												BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Legendary							SOURCEPAGE:p.87
+Fortuitous V					TYPE:LAFortuitous.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAFortuitous		SA:Fortuitous V												BONUS:CHECKS|Fortitude,Reflex,Will|5|TYPE=Legendary							SOURCEPAGE:p.87
+Fool of Fortune I					TYPE:LAFoolFortune.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune I (Su)																									SOURCEPAGE:p.87
+Fool of Fortune II				TYPE:LAFoolFortune.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune II (Su)																									SOURCEPAGE:p.87
+Fool of Fortune III				TYPE:LAFoolFortune.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune III (Su)																									SOURCEPAGE:p.87
+Fool of Fortune IV				TYPE:LAFoolFortune.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune IV (Su)																									SOURCEPAGE:p.87
+Fool of Fortune V					TYPE:LAFoolFortune.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAFoolFortune		SA:Fool of Fortune V (Su)																									SOURCEPAGE:p.87
+Insight of the Fool I				TYPE:LAInsightFool.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool I (Sp)				SPELLS:Innate|TIMES=1|Foresight																SOURCEPAGE:p.87
+Insight of the Fool II				TYPE:LAInsightFool.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool II (Sp)			SPELLS:Innate|TIMES=2|Foresight																SOURCEPAGE:p.87
+Insight of the Fool III				TYPE:LAInsightFool.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool III (Sp)			SPELLS:Innate|TIMES=3|Foresight																SOURCEPAGE:p.87
+Insight of the Fool IV				TYPE:LAInsightFool.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool IV (Sp)			SPELLS:Innate|TIMES=4|Foresight																SOURCEPAGE:p.87
+Insight of the Fool V				TYPE:LAInsightFool.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LAInsightFool		SA:Insight of the Fool V (Sp)				SPELLS:Innate|TIMES=5|Foresight																SOURCEPAGE:p.87
 # You can pick Luck of the Survivor, each time to a new saving throw (no stacking), i.e. similar to Weapon Focus
 # not sure how to do this yet.... Done by listing them explicitly for now.
-Luck of the Survivor I (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL1	VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (1 roll))																							SOURCEPAGE:p.87
-Luck of the Survivor II (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL2	VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (2 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor III (Fortitude)	TYPE:LALuckSurvFort.FortuneFoolLAPL3	VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (3 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor IV (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL4	VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (4 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor V (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL5	VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (5 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor I (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL1	VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (1 roll))																								SOURCEPAGE:p.87
-Luck of the Survivor II (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL2	VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (2 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor III (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL3	VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (3 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor IV (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL4	VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (4 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor V (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL5	VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (5 rolls))																							SOURCEPAGE:p.87
-Luck of the Survivor I (Will)			TYPE:LALuckSurvWill.FortuneFoolLAPL1	VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (1 roll))																								SOURCEPAGE:p.87
-Luck of the Survivor II (Will)		TYPE:LALuckSurvWill.FortuneFoolLAPL2	VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (2 rolls))																								SOURCEPAGE:p.87
-Luck of the Survivor III (Will)		TYPE:LALuckSurvWill.FortuneFoolLAPL3	VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (3 rolls))																								SOURCEPAGE:p.87
-Luck of the Survivor IV (Will)		TYPE:LALuckSurvWill.FortuneFoolLAPL4	VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (4 rolls))																								SOURCEPAGE:p.87
-Luck of the Survivor V (Will)			TYPE:LALuckSurvWill.FortuneFoolLAPL5	VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (5 rolls))																								SOURCEPAGE:p.87
-Lucky Shot I					TYPE:LALuckyShot.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot I (1/day) (Ex)																										SOURCEPAGE:p.87
-Lucky Shot II					TYPE:LALuckyShot.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot II (2/day) (Ex)																										SOURCEPAGE:p.87
-Lucky Shot III					TYPE:LALuckyShot.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot III (3/day) (Ex)																									SOURCEPAGE:p.87
-Lucky Shot IV					TYPE:LALuckyShot.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot IV (4/day) (Ex)																										SOURCEPAGE:p.87
-Lucky Shot V					TYPE:LALuckyShot.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot V (5/day) (Ex)																										SOURCEPAGE:p.87
+Luck of the Survivor I (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL1	VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (1 roll))																						SOURCEPAGE:p.87
+Luck of the Survivor II (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL2	VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (2 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor III (Fortitude)	TYPE:LALuckSurvFort.FortuneFoolLAPL3	VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (3 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor IV (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL4	VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (4 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor V (Fortitude)		TYPE:LALuckSurvFort.FortuneFoolLAPL5	VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckSurvFort	SA:Luck of the Survivor (Fortitude (5 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor I (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL1	VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (1 roll))																							SOURCEPAGE:p.87
+Luck of the Survivor II (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL2	VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (2 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor III (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL3	VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (3 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor IV (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL4	VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (4 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor V (Reflex)		TYPE:LALuckSurvRefl.FortuneFoolLAPL5	VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckSurvRefl	SA:Luck of the Survivor (Reflex (5 rolls))																						SOURCEPAGE:p.87
+Luck of the Survivor I (Will)			TYPE:LALuckSurvWill.FortuneFoolLAPL1	VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (1 roll))																							SOURCEPAGE:p.87
+Luck of the Survivor II (Will)		TYPE:LALuckSurvWill.FortuneFoolLAPL2	VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (2 rolls))																							SOURCEPAGE:p.87
+Luck of the Survivor III (Will)		TYPE:LALuckSurvWill.FortuneFoolLAPL3	VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (3 rolls))																							SOURCEPAGE:p.87
+Luck of the Survivor IV (Will)		TYPE:LALuckSurvWill.FortuneFoolLAPL4	VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (4 rolls))																							SOURCEPAGE:p.87
+Luck of the Survivor V (Will)			TYPE:LALuckSurvWill.FortuneFoolLAPL5	VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckSurvWill	SA:Luck of the Survivor (Will (5 rolls))																							SOURCEPAGE:p.87
+Lucky Shot I					TYPE:LALuckyShot.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot I (1/day) (Ex)																									SOURCEPAGE:p.87
+Lucky Shot II					TYPE:LALuckyShot.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot II (2/day) (Ex)																									SOURCEPAGE:p.87
+Lucky Shot III					TYPE:LALuckyShot.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot III (3/day) (Ex)																								SOURCEPAGE:p.87
+Lucky Shot IV					TYPE:LALuckyShot.FortuneFoolLAPL4		VISIBLE:NO	PRECLASS:1,Fortune's Fool=4	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot IV (4/day) (Ex)																									SOURCEPAGE:p.87
+Lucky Shot V					TYPE:LALuckyShot.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortune's Fool=5	!PREFEAT:1,TYPE.LALuckyShot		SA:Lucky Shot V (5/day) (Ex)																									SOURCEPAGE:p.87
 
 
 ###Block:Grey Hand legendary abilities

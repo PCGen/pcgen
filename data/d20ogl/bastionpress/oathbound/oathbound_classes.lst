@@ -1,4 +1,4 @@
-# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Mon Nov 28 11:18:22 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -7,8 +7,8 @@ SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathboun
 # All classes require 5th level before taking them.
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill							Required Stat
 CLASS:Demagogue	PREFEAT:1,Iron Will	PRELEVEL:5		PRESKILL:2,Bluff,Intimidate=4	PRESKILL:1,Diplomacy=6	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -29,8 +29,8 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 9	SA:Charm (Sp) %/day (DC%)|DemPowerUse|DemPowerDC
 10	SA:Control Crowd (Sp) %/day (% ft)|DemPowerUse|DemPowerRange													DEFINE:DemPowerRange|(CHA*250)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat										Required Lvl
 CLASS:Hone		PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -51,8 +51,8 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 
 # Divine Protection bonus type depends on alignment. Advice on implementing required.
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat						Required Lvl	Required Skill											Required Stat
 CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:5		PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -63,18 +63,18 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplo
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
 1					SA:Smite the Heathen (Ex)
-2	ADD:SPELLCASTER(Divine)	SA:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Willpower|CHA
-3	ADD:SPELLCASTER(Divine)	SA:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC															DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA
+2	ADD:SPELLCASTER(Divine)	SA:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA
+3	ADD:SPELLCASTER(Divine)	SA:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC														DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA
 4	ADD:SPELLCASTER(Divine)
-5	ADD:SPELLCASTER(Divine)	SA:Empower Congregation  (Ex) %/day|EmpowerUse																		DEFINE:EmpowerUse|CHA
-6					SA:Divine Knowledge (Su)							BONUS:CHECKS|Reflex|2|TYPE=Insight			BONUS:COMBAT|AC|2|TYPE=Insight
-7	ADD:SPELLCASTER(Divine)	SA:Foster Martyr (Sp) (DC%)|FosterMartyrDC																		DEFINE:FosterMartyrDC|CL+CHA+10
+5	ADD:SPELLCASTER(Divine)	SA:Empower Congregation  (Ex) %/day|EmpowerUse																	DEFINE:EmpowerUse|CHA
+6					SA:Divine Knowledge (Su)							BONUS:CHECKS|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight
+7	ADD:SPELLCASTER(Divine)	SA:Foster Martyr (Sp) (DC%)|FosterMartyrDC																	DEFINE:FosterMartyrDC|CL+CHA+10
 8	ADD:SPELLCASTER(Divine)
 9	ADD:SPELLCASTER(Divine)	SA:Enrapture (Ex) %/day|EmpowerUse
 10	ADD:SPELLCASTER(Divine)	SA:Convert the Masses (Su)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill
 CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:5		PRESKILL:1,Appraise=2	PRESKILL:3,Intuit Direction,Knowledge (Arcana),Craft (Maps)=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -95,7 +95,7 @@ CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.
 10	SA:Greater Make Map (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat	Required Lvl	Required Skill
 CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:5		PRESKILL:3,Balance,City Lore,Disguise=2	PRESKILL:2,Hide,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -115,8 +115,8 @@ CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE
 9	SA:Find Trail (Ex)
 10	SA:Nondetection (Su)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Required Lvl
 CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:5
 # Class Name	Skill Pts/Lvl	Class Skill

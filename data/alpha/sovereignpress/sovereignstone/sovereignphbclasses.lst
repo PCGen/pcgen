@@ -1,10 +1,10 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 # Players Handbook Classes modified for use in Sovereign Stone d20.
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
 # This NEEDS to be changed to .MODs.  -- Tir Gwaith
 
-# Class Name	Hit Dice	Abbreviation	Source Page			Save checks bonus												Combat bonus
-CLASS:Barbarian	HD:12		ABB:Bbn		SOURCEPAGE:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Abbreviation	Source Page			Save checks bonus											Combat bonus
+CLASS:Barbarian	HD:12		ABB:Bbn		SOURCEPAGE:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Barbarian	STARTSKILLPTS:4
 #  Barbarian Rage variables, for stacking with other classes in any which way...  - Tir Gwaith
@@ -37,8 +37,8 @@ CLASS:Barbarian	STARTSKILLPTS:4
 19			BONUS:VAR|UncannyDodge|1
 20	DR:4/-
 
-# Class Name	Hit Dice	Abbreviation	Source URI			Save checks bonus												Combat bonus
-CLASS:Fighter	HD:10		ABB:Ftr		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Abbreviation	Source URI			Save checks bonus											Combat bonus
+CLASS:Fighter	HD:10		ABB:Ftr		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
@@ -59,7 +59,7 @@ CLASS:Fighter	STARTSKILLPTS:2
 20						ADD:FEAT(TYPE=Fighter)
 
 # Class Name	Hit Dice	Abbreviation	Source URI			Save checks bonus												Combat bonus
-CLASS:Rogue		HD:6		ABB:Rog		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Rogue		HD:6		ABB:Rog		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies

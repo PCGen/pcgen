@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jan 12 21:48:08 2005 -- reformated by prettylst.pl v1.34 (build 451)
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Blood and Space - Prometheus Rising|SOURCESHORT:BnS-PR|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 # Feat Name					Type						Visible	Required Feat				Prohibited Feat			Required Race		Special Ability		Define		Choose a Feat				Save checks bonus			Modify VAR
@@ -6,7 +6,7 @@ Psyche					TYPE:Special				VISIBLE:NO																SA:Psyche %|Psyche	DEFINE:P
 
 Human Computer Fortitude		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Fortitude|INT
 Human Computer Reflex			TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Reflex|INT
-Human Computer Willpower		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Willpower|INT
+Human Computer Willpower		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Will|INT
 
 Sensitive Base Psioninc			TYPE:SensitiveAwakening			VISIBLE:NO							!PREFEAT:3,TYPE=BasePsionic												ADD:FEAT(TYPE=BasePsionic)
 Sensitive Psionic				TYPE:SensitiveAwakening			VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic																		ADD:FEAT(TYPE=PsionicPowerFeat)

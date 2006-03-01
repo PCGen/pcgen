@@ -1,4 +1,4 @@
-# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Mon Nov 28 09:35:28 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
 # Original Entry by: Beaver, updated by Tir Gwaith
 
@@ -6,8 +6,8 @@ SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:ht
 #	Below are PrC's for the various Holy orders in The Book of the Righteous
 #
 
-# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Deacon of the Great Church	HD:6		TYPE:PC.Prestige	ABB:Dea		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Deacon of the Great Church	HD:6		TYPE:PC.Prestige	ABB:Dea		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name				Required AL				Required Deity			Required Feat																																																		Required Language					Required Skill
 CLASS:Deacon of the Great Church	PREALIGN:LG,LN,NG,TN,CG,CN	PREDEITY:The Great Church	PREFEAT:1,Skill Focus(Bluff),Skill Focus(Diplomacy),Skill Focus(Forgery),Skill Focus(Gather Information),Skill Focus(Innuendo),Skill Focus(Knowledge (Religion)),Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Local)),Skill Focus(Listen),Skill Focus(Read Lips),Skill Focus(Sense Motive)	PRELANG:1,Dwarven,Elven,Gnome,Halfling	PRESKILL:2,Diplomacy,Sense Motive=5	PRESKILL:1,Knowledge (Nobility and Royalty),Knowledge (Local),TYPE.Knowledge=3
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -23,8 +23,8 @@ CLASS:Deacon of the Great Church	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disguise
 9														BONUS:VAR|ChurchProtection|15000																								ADD:FEAT(Skill Focus(Bluff),Skill Focus(Diplomacy),Skill Focus(Forgery),Skill Focus(Innuendo),Skill Focus(Knowledge (Religion)),Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Local)),Skill Focus(Listen),Skill Focus(Read Lips),Skill Focus(Sense Motive))1
 10														BONUS:VAR|NativeTongue|1		BONUS:CHECKS|BASE.Fortitude|1	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|4|TYPE=Insight																																																				ADD:Language(TYPE=Spoken)
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Hawk of Urian	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Haw		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Hawk of Urian	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Haw		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL			Required Deity	Required Feat
 CLASS:Hawk of Urian	PREALIGN:NG,TN,CG,CN	PREDEITY:Urian	PREFEAT:3,Quick Draw,Point Blank Shot,Precise Shot
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -52,8 +52,8 @@ CLASS:Hawk of Urian	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 9	CAST:2,2,1,1
 10	CAST:2,2,2,1	SA:.CLEAR.Murderous Precision	SA:Murderous Precision (Ex) Any Weapon
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Gleaner of Rontra	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Gle		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Gleaner of Rontra	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Gle		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL				Req. Att.	Required Deity	Required Feat
 CLASS:Gleaner of Rontra	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREDEITY:Rontra	PREFEAT:2,Blind-Fight,Iron Will
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -61,17 +61,17 @@ CLASS:Gleaner of Rontra	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Handle A
 1	FEATAUTO:Gleaner of Rontra Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1								SA:Armor of the Earth (Su)																																															BONUS:CHECKS|Willpower|2+ResolveEarth|TYPE=Sacred	BONUS:COMBAT|AC|max(CHA,0)|TYPE=CharismaNoStack
-3								SA:Spell Resistance 17 vs Fear																									BONUS:VAR|ResolveEarth|1																																		DEFINE:ResolveEarth|0
-4								SA:Lesser Bond	SA:Power of the Earth (Unmovable +%)|PowerEarthUnmoveable	SA:Power of the Earth (Body of Stone +%)|PowerEarthBodyStone	SA:Power of the Earth (Tremorsense)	BONUS:VAR|PowerEarthUnmoveable|4																																	DEFINE:PowerEarthUnmoveable|0	DEFINE:PowerEarthBodyStone|max(CHA,0)
-5			SA:.CLEAR.Armor of the Earth	SA:Armor of the Earth +%|ArmorEarth																									BONUS:VAR|ArmorEarth|1																																			DEFINE:ArmorEarth|0
+1								SA:Armor of the Earth (Su)																																															BONUS:CHECKS|Will|2+ResolveEarth|TYPE=Sacred	BONUS:COMBAT|AC|max(CHA,0)|TYPE=CharismaNoStack
+3								SA:Spell Resistance 17 vs Fear																									BONUS:VAR|ResolveEarth|1																																	DEFINE:ResolveEarth|0
+4								SA:Lesser Bond	SA:Power of the Earth (Unmovable +%)|PowerEarthUnmoveable	SA:Power of the Earth (Body of Stone +%)|PowerEarthBodyStone	SA:Power of the Earth (Tremorsense)	BONUS:VAR|PowerEarthUnmoveable|4																																DEFINE:PowerEarthUnmoveable|0	DEFINE:PowerEarthBodyStone|max(CHA,0)
+5			SA:.CLEAR.Armor of the Earth	SA:Armor of the Earth +%|ArmorEarth																									BONUS:VAR|ArmorEarth|1																																		DEFINE:ArmorEarth|0
 7																																						BONUS:VAR|ResolveEarth|1
-8			SA:.CLEAR.Power of the Earth	SA:Shake the Earth	SA:Power of the Earth (Tremorsense +%)|PowerEarthTremor																	BONUS:VAR|PowerEarthUnmoveable|1	BONUS:VAR|PowerEarthTremor|1	BONUS:VAR|PowerEarthBodyStone|1	BONUS:VAR|ArmorEarth|1																		DEFINE:PowerEarthTremor|0
+8			SA:.CLEAR.Power of the Earth	SA:Shake the Earth	SA:Power of the Earth (Tremorsense +%)|PowerEarthTremor																	BONUS:VAR|PowerEarthUnmoveable|1	BONUS:VAR|PowerEarthTremor|1	BONUS:VAR|PowerEarthBodyStone|1	BONUS:VAR|ArmorEarth|1																	DEFINE:PowerEarthTremor|0
 9																																						BONUS:VAR|ResolveEarth|1
 10	DR:10/+1						SA:Greater Bond	SA:Skin of the Earth																								BONUS:VAR|PowerEarthUnmoveable|1	BONUS:VAR|PowerEarthTremor|1	BONUS:VAR|PowerEarthBodyStone|1
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Sail Master of Shalimyr	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Sai		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Sail Master of Shalimyr	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Sai		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required Deity	Required Skill
 CLASS:Sail Master of Shalimyr	PREDEITY:Shalimyr	PRESKILL:1,Profession (Sailor)=8	PRESKILL:1,Swim=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -97,8 +97,8 @@ CLASS:Sail Master of Shalimyr	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0
 9	CAST:2,2,1,1	SA:Endure Storm
 10	CAST:2,2,2,1	SA:Holy Vessle
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:White Hand of Morwyn	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Wha		MAXLEVEL:8	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:White Hand of Morwyn	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Wha		MAXLEVEL:8	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required AL				Required Deity	Required Skill
 CLASS:White Hand of Morwyn	PREALIGN:LG,LN,NG,TN,CG,CN	PREDEITY:Morwyn	PRESKILL:1,Profession (Herbalist)=5	PRESKILL:1,Heal=8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:White Hand of Morwyn	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 7	CAST:4,3,2,1
 8	CAST:4,3,3,2	SA:Recall Soul (Sp)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Master of the Way	HD:10		TYPE:PC.Prestige	ABB:Way		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Master of the Way	HD:10		TYPE:PC.Prestige	ABB:Way		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL				Req. Att.	Required Deity				Required Feat																		Required Skill
 CLASS:Master of the Way	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:5	PREDEITY:Terak (LG),Terak (LN)	PREFEAT:2,Quick Draw,Weapons Master	PREFEAT:2,CHECKMULT,Exotic Weapon Proficiency	PREFEAT:2,CHECKMULT,Weapon Focus	PRESKILL:3,Profession (Teacher),Tumble,Balance=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -134,8 +134,8 @@ CLASS:Master of the Way	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Jump|Kno
 9	SA:Shifting Blade
 10	SA:Perfect Strike																						ADD:FEAT
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Oracle of ZheenKeef	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	ABB:Zor		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Oracle of ZheenKeef	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	ABB:Zor		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name			Required AL				Required Deity		Required Feat			Required Skill		Required Spell School
 CLASS:Oracle of ZheenKeef	PREALIGN:NG,TN,NE,CG,CN,CE	PREDEITY:Zheenkeef	PREFEAT:1,Skill Focus(Scry)	PRESKILL:1,Scry=12	PRESPELLSCHOOL:Divination,6,0	PRESPELLSCHOOL:Divination,1,5
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -151,8 +151,8 @@ CLASS:Oracle of ZheenKeef	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowle
 9	ADD:SPELLCASTER(ANY)	SA:Fortelling
 10	ADD:SPELLCASTER(ANY)	SA:Major Prophecy	BONUS:VAR|UncannyDodge|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Hierophant	HD:4		TYPE:PC.Prestige	ABB:Hei		MAXLEVEL:2	SOURCEPAGE:p.116	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Hierophant	HD:4		TYPE:PC.Prestige	ABB:Hei		MAXLEVEL:2	SOURCEPAGE:p.116	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Deity				Required Feat						Multiple Requirements
 CLASS:Hierophant	PREDEITY:Tinel (CG),Tinel (TN)	PREFEAT:5,TYPE=Metamagic,TYPE=ItemCreation	PREMULT:1,[PRESPELLTYPE:Arcane,1,6],[PRESPELLTYPE:Divine,1,9]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -160,8 +160,8 @@ CLASS:Hierophant	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craf
 1	ADD:SPELLCASTER(ANY)	SA:Comprehend Magic (Ex)	SA:Greater Magic			ADD:FEAT(Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell,Brew Potion,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Forge Ring,Scribe Scroll)1
 2	ADD:SPELLCASTER(ANY)	SA:Master Magic	SA:Staff	SA:Status-based Progression	ADD:FEAT(Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell,Brew Potion,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Forge Ring,Scribe Scroll)1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Reborn	HD:12		TYPE:PC.Prestige	ABB:Mrb		MAXLEVEL:10	SOURCEPAGE:p.123	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Reborn	HD:12		TYPE:PC.Prestige	ABB:Mrb		MAXLEVEL:10	SOURCEPAGE:p.123	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Required AL				Req. Att.	Required Deity	Required Text
 CLASS:Reborn	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:3	PREDEITY:Mormekar	PRETEXT:Must have been evil and undergone a change to good. Wicked (See text p.124)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -174,8 +174,8 @@ CLASS:Reborn	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Listen|M
 8																				ADD:FEAT(TYPE=Fighter,[Weapon Specialization])
 10													BONUS:VAR|TheList|1
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
-CLASS:Talesman of Maal	NAMEISPI:YES	HD:12		TYPE:PC.Prestige	ABB:Tal		MAXLEVEL:3	SOURCEPAGE:p.134	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Talesman of Maal	NAMEISPI:YES	HD:12		TYPE:PC.Prestige	ABB:Tal		MAXLEVEL:3	SOURCEPAGE:p.134	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
 # Class Name		Required Deity	Required Text
 CLASS:Talesman of Maal	PREDEITY:Maal	PRETEXT:See text, p 135
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -184,8 +184,8 @@ CLASS:Talesman of Maal	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|
 2	ADD:SPELLCASTER(ANY)	SR:max(CHA,0)+10	DR:20/+1	SA:Protective Aura (Su)							ADD:FEAT(TYPE=Talesman)
 3	ADD:SPELLCASTER(ANY)	SR:max(CHA,0)+15	DR:20/+2	SA:Divine Wrath (Su)							ADD:FEAT(TYPE=Talesman)
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Runner of Darmon	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Run		MAXLEVEL:10	SOURCEPAGE:p.145	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Runner of Darmon	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Run		MAXLEVEL:10	SOURCEPAGE:p.145	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required Deity	Required Feat					Required Language		Required Skill
 CLASS:Runner of Darmon	PREDEITY:Darmon	PREFEAT:4,Dodge,Mobility,Endurance,Run	PRELANG:3,ANY,[Common]	PRESKILL:2,Ride=7,Handle Animal=7
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -213,8 +213,8 @@ CLASS:Runner of Darmon	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 10	CAST:2,2,2,1	SA:Unshakable			BONUS:VAR|UncannyDodge|1
 
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Watcher of Aymara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Woa		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Watcher of Aymara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Woa		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required AL				Required Deity	Required Feat				Required Text
 CLASS:Watcher of Aymara	PREALIGN:LG,LN,NG,TN,CG,CN	PREDEITY:Aymara	PREFEAT:2,Weapon Finesse,Expertise	PRETEXT:Vow of Silence
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -234,8 +234,8 @@ CLASS:Watcher of Aymara	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration
 9	ADD:SPELLCASTER(ANY)
 10					SA:Song of Imprisonment
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Artificer of Korak	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Artificer of Korak	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required Deity	Required Skill																									Required Text
 CLASS:Artificer of Korak	PREDEITY:Korak	PRESKILL:1,Craft (Armorsmithing),Craft (Weaponsmithing),Craft (Blacksmithing)=9	PRESKILL:1,Craft (Carpentry),Craft (Stoneworking),Craft (Locksmithing)=9	PRETEXT:Must have no less than 5 MW Items
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -258,8 +258,8 @@ CLASS:Artificer of Korak	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|T
 #CLASS:Hearthkeepers of Anwyn
 # NOTE: This is a place holder for a dead order in case the GM would like to re-instate them.
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:The Breath	HD:6		TYPE:PC.Prestige	ABB:Ubr		MAXLEVEL:5	SOURCEPAGE:p.183	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:The Breath	HD:6		TYPE:PC.Prestige	ABB:Ubr		MAXLEVEL:5	SOURCEPAGE:p.183	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat				Required Skill									Req. Casting Type
 CLASS:The Breath	PREFEAT:2,Leadership,Iron Will	PRESKILL:2,Diplomacy,Sense Motive=4	PRESKILL:1,TYPE.Knowledge=8	PRESPELLCAST:Any,0,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -270,8 +270,8 @@ CLASS:The Breath	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher 
 4	ADD:SPELLCASTER(ANY)
 5	ADD:SPELLCASTER(ANY)	SA:One Body
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:The Arm	HD:10		TYPE:PC.Prestige	ABB:Uar		MAXLEVEL:5	SOURCEPAGE:p.184	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:The Arm	HD:10		TYPE:PC.Prestige	ABB:Uar		MAXLEVEL:5	SOURCEPAGE:p.184	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Req. Att.	Required Feat
 CLASS:The Arm	PREATT:5	PREFEAT:3,Great Fortitude,Power Attack,Armor Proficiency (Heavy)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -286,8 +286,8 @@ CLASS:The Arm	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Hand
 4					ADD:FEAT(TYPE=Fighter)
 5	SA:One Body
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:The Eye	HD:8		TYPE:PC.Prestige	ABB:Uey		MAXLEVEL:5	SOURCEPAGE:p.184	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:The Eye	HD:8		TYPE:PC.Prestige	ABB:Uey		MAXLEVEL:5	SOURCEPAGE:p.184	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat			Required Skill
 CLASS:The Eye	PREFEAT:2,Track,Alertness	PRESKILL:3,Spot,Listen,Search=8
 # Class Name	Skill Pts/Lvl	Class Skill

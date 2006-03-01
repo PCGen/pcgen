@@ -1,4 +1,4 @@
-# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -12,7 +12,7 @@ Ambidexterity													TYPE:BasicCombat														PREHANDSEQ:2				PRESTAT:
 Armor Proficiency (Heavy)											TYPE:BasicCombat			PREFEAT:2,Armor Proficiency (Medium),Armor Proficiency (Light)											DESC:You are proficient with heavy armor.																																		AUTO:ARMORPROF|TYPE.Heavy																																						SOURCEPAGE:p.68
 Armor Proficiency (Light)											TYPE:BasicCombat																								DESC:You are proficient with light armor.																																		AUTO:ARMORPROF|TYPE.Light																																						SOURCEPAGE:p.68
 Armor Proficiency (Medium)											TYPE:BasicCombat			PREFEAT:1,Armor Proficiency (Light)																DESC:You are proficient with medium armor.																																	AUTO:ARMORPROF|TYPE.Medium																																						SOURCEPAGE:p.68
-Career Operative													TYPE:BasicCombat																	PRELEVEL:6						DESC:Your experience as a super spy make you very hard to kill.																																										BONUS:CHECKS|Fortitude,Reflex,Willpower|1																								SOURCEPAGE:p.69
+Career Operative													TYPE:BasicCombat																	PRELEVEL:6						DESC:Your experience as a super spy make you very hard to kill.																																										BONUS:CHECKS|Fortitude,Reflex,Will|1																								SOURCEPAGE:p.69
 Combat Instincts													TYPE:BasicCombat																								DESC:You react instinctively when an opportunity presents itself in melee combat.																																																																					SOURCEPAGE:p.69
 Confident Charge													TYPE:BasicCombat																				PRESTAT:2,DEX=13,WIS=13	DESC:You can charge around corners.																																																																													SOURCEPAGE:p.69
 Endurance														TYPE:BasicCombat																								DESC:You have incredible stamina.																																																																													SOURCEPAGE:p.69
@@ -22,7 +22,7 @@ Improved Disarm													TYPE:BasicCombat			PREFEAT:1,Expertise														
 Improved Initiative												TYPE:BasicCombat																								DESC:You react faster than normal during a fight.																																																			BONUS:COMBAT|INITIATIVE|4																			SOURCEPAGE:p.69
 Improved Two Weapon Fighting				OUTPUTNAME:Improved Two-Weapon Fighting	TYPE:BasicCombat	PREATT:9	PREFEAT:2,Two Weapon Fighting,Ambidexterity														DESC:You are an expert at fighting while using two weapons																																																		BONUS:COMBAT|SECONDARYATTACKS|1																		SOURCEPAGE:p.69
 Increased Speed													TYPE:BasicCombat			PREFEAT:1,Run																			DESC:You move significantly faster than normal.																																																																BONUS:MOVEADD|TYPE.Walk|10							SOURCEPAGE:p.69
-Iron Will														TYPE:BasicCombat																								DESC:You have extremely strong willpower.																																														BONUS:CHECKS|Willpower|2																										SOURCEPAGE:p.69
+Iron Will														TYPE:BasicCombat																								DESC:You have extremely strong willpower.																																														BONUS:CHECKS|Will|2																											SOURCEPAGE:p.69
 Lightning Reflexes												TYPE:BasicCombat																								DESC:You have faster than normal reflexes.																																													BONUS:CHECKS|Reflex|2																											SOURCEPAGE:p.69
 Mobility														TYPE:BasicCombat																				PRESTAT:1,DEX=13		DESC:You may move away from adjacent opponents in the middle of combat, you may move up to twice your speed when taking the total defense action.																																																										SOURCEPAGE:p.70
 Quick Draw														TYPE:BasicCombat	PREATT:1																		PRESTAT:1,DEX=13		DESC:You may draw a weapon you have equipped as a free action rather than a half action.																																																																				SOURCEPAGE:p.70

@@ -1,9 +1,9 @@
-# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Black Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Black Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Black Dragon	PRERACE:Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -38,8 +38,8 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 37						SR:28			SA:Charm Reptiles (Sp) 3/day					BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12
 
 
-# Class Name	Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Blue Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Blue Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Blue Dragon	PRERACE:Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -75,8 +75,8 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 39						SR:31											BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Mirage Arcana,15+CHA
 
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Green Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Green Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Green Dragon	PRERACE:Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -112,8 +112,8 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 38						SR:30									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Command Plants,14+CHA
 
 
-# Class Name	Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Red Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Red Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Red Dragon	PRERACE:Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -150,8 +150,8 @@ CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Con
 39															BONUS:PCLEVEL|Sorcerer|1
 40						SR:32									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Discern Location,18+CHA
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:White Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:White Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:White Dragon	PRERACE:Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -185,8 +185,8 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 35															BONUS:PCLEVEL|Sorcerer|1
 36						SR:27									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,17+CHA
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Brass Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Brass Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Brass Dragon	PRERACE:Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -225,8 +225,8 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 37						SR:30			SA:Summon Djinni (Sp) DC %|SummonDjinniDC	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	DEFINE:SummonDjinniDC|17+CHA
 
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Bronze Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Bronze Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Bronze Dragon	PRERACE:Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -264,8 +264,8 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 39						SR:31									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,17+CHA
 
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Copper Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Copper Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Copper Dragon	PRERACE:Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -303,8 +303,8 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 38						SR:31									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Move Earth,16+CHA
 
 
-# Class Name	Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Gold Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Gold Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Gold Dragon	PRERACE:Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -344,8 +344,8 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 41						SR:33									BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Foresight,19+CHA
 
 
-# Class Name		Hit Dice	Type			Source Page				Save checks bonus									Combat bonus
-CLASS:Silver Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Save checks bonus								Combat bonus
+CLASS:Silver Dragon	HD:12		TYPE:Monster	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Silver Dragon	PRERACE:Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

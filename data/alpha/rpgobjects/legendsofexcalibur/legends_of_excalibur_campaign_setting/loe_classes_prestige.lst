@@ -1,10 +1,10 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Dec 14 18:07:36 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # due to .MOD issues of CAST and KNOWN, Assassin copy here
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Assassin ~ LoE	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:prestigeclasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Assassin ~ LoE	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:prestigeclasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Skill
 CLASS:Assassin ~ LoE	PRESKILL:1,Disguise=4	PRESKILL:2,Hide,Move Silently=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -28,8 +28,8 @@ CLASS:Assassin ~ LoE	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVE
 
 # Legends of Excalibur block
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Alchemist	HD:4		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:35	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Alchemist	HD:4		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:35	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Multiple Requirements								Required Skill
 CLASS:Alchemist	PREFEAT:1,Brew Potion	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine]	PRESKILL:2,Concentration,Knowledge (Arcana)=5	PRESKILL:1,Craft (Alchemy)=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -47,8 +47,8 @@ CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Disable
 9	ADD:SPELLCASTER(Any)
 10	ADD:SPELLCASTER(Any)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Berserker	HD:12		TYPE:PC.Prestige	ABB:Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Berserker	HD:12		TYPE:PC.Prestige	ABB:Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat						Required Text
 CLASS:Berserker	PREATT:10	PREFEAT:4,Power Attack,Cleave,Great Cleave,Rage	PRETEXT:If nationalities are used, only Saxons can be this class
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -64,8 +64,8 @@ CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 7									BONUS:VAR|TirelessRage|1
 10	SA:Blood Rage (Ex)					BONUS:VAR|MightyRage|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Changeling	HD:10		TYPE:PC.Prestige	ABB:Chg		MAXLEVEL:10	SOURCEPAGE:37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Changeling	HD:10		TYPE:PC.Prestige	ABB:Chg		MAXLEVEL:10	SOURCEPAGE:37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Req. Special Ability	Required Skill
 CLASS:Changeling	PREATT:7	PREFEAT:2,Animal Affinity,Self Sufficient	PRESA:1,Wild shape	PRESKILL:1,Concentration=5	PRESKILL:2,Knowledge (Nature),Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -81,8 +81,8 @@ CLASS:Changeling	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handl
 8	SA:Animal Senses (Ex)
 10	SA:Alpha One (Su)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Court Mage	HD:4		TYPE:PC.Prestige	ABB:CtM		MAXLEVEL:10	SOURCEPAGE:38	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.Replace
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Court Mage	HD:4		TYPE:PC.Prestige	ABB:CtM		MAXLEVEL:10	SOURCEPAGE:38	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.Replace
 # Class Name	Req. Special Ability	Required Skill				Required Stat
 CLASS:Court Mage	PRESA:1,Lesser Prophecy	PRESKILL:2,Prophecy,Diplomacy=10	PRESTAT:1,NOB=50
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,8 +98,8 @@ CLASS:Court Mage	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy
 9	ADD:SPELLCASTER(Any)	SA:August Personage (Diplomatic Immunity) (Ex)
 10	ADD:SPELLCASTER(Any)																															ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus												Combat bonus
-CLASS:Crusader	HD:10		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
+CLASS:Crusader	HD:10		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat		Req. Special Ability		Required Skill													Required Stat
 CLASS:Crusader	PREATT:5	PREFEAT:2,Faith,Zealot	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty),Knowledge (Religion)=5	PRESKILL:1,Ride=8	PRESTAT:1,NOB=41
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -121,8 +121,8 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 9	CAST:0,1,2,3,6,21													BONUS:VAR|BASEPOWERPOINTS|5
 10	CAST:0,1,2,3,5,14													BONUS:VAR|BASEPOWERPOINTS|7
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill			Req. Spell Type		Required Stat
 CLASS:Enchantress	PREFEAT:1,Spell Focus (Enchantment)	PRESKILL:2,Bluff,Diplomacy=8	PRESPELLTYPE:Arcane,1,1	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -140,8 +140,8 @@ CLASS:Enchantress	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Decipher Script|Diplom
 9	ADD:SPELLCASTER(Arcane)
 10	ADD:SPELLCASTER(Arcane)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	ABB:LoL		MAXLEVEL:5	SOURCEPAGE:42	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/3*4|TYPE=Base.Replace
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	ABB:LoL		MAXLEVEL:5	SOURCEPAGE:42	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/3*4|TYPE=Base.Replace
 # Class Name		Required Gender	Req. Special Ability	Required Skill					Required Stat
 CLASS:Lady of the Lake	PREGENDER:F		PRESA:1,Wildshape		PRESKILL:2,Knowledge (Nature),Swim=8	PRESTAT:1,NOB=51
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -155,8 +155,8 @@ CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Ani
 4	ADD:SPELLCASTER(Any)
 5	ADD:SPELLCASTER(Any)	SA:Tap Water (Ex)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Req. Special Ability		Required Skill							Required Stat
 CLASS:Quest Knight	PREATT:10	PREFEAT:3,Faith,Piety,Mounted Combat	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty),Ride=10	PRESTAT:1,NOB=71
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -165,19 +165,19 @@ CLASS:Quest Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (N
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	SA:Knights Warhorse (Ex)		BONUS:VAR|KnightLevel|CL																			DEFINE:KnightLevel|0	FEATAUTO:Aura of Knighthood
-2	SA:Divine Grace (Su)								BONUS:CHECKS|Fortitude,Reflex,Willpower|max(CHA,0)
+1	SA:Knights Warhorse (Ex)		BONUS:VAR|KnightLevel|CL																		DEFINE:KnightLevel|0	FEATAUTO:Aura of Knighthood
+2	SA:Divine Grace (Su)								BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 3	SA:Perseverence (Ex)
 4	SA:Quest Knight (Attacks) (Ex)
 5	SA:Divine Health (Ex)
 6	SA:Quest Knight (Initiative) (Ex)
-7	SA:Fortitude of Knighthood (Ex)																			BONUS:HP|CURRENTMAX|NOB/2
+7	SA:Fortitude of Knighthood (Ex)																		BONUS:HP|CURRENTMAX|NOB/2
 8	SA:Quest Knight (Damage) (Ex)
-9	SA:Mantle of Knighthood (Ex)																BONUS:COMBAT|AC|NOB/2
+9	SA:Mantle of Knighthood (Ex)															BONUS:COMBAT|AC|NOB/2
 10	SA:Vision Quest (Ex)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Saint		HD:6		TYPE:PC.Prestige	ABB:St		MAXLEVEL:10	SOURCEPAGE:44	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Saint		HD:6		TYPE:PC.Prestige	ABB:St		MAXLEVEL:10	SOURCEPAGE:44	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Language		Req. Special Ability						Required Skill								Required Stat	Required Text
 CLASS:Saint		PREFEAT:2,Faith,Piety	PRELANG:1,Literacy	PRESA:3,Ordination,Turn the other cheek,Aura of Piety	PRESKILL:1,Knowledge (Religion)=10	PRESKILL:1,Diplomacy=8	PRESTAT:1,NOB=65	PRETEXT:Before taking a level in this prestige class, a character must take a vow of poverty and chastity
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -194,8 +194,8 @@ CLASS:Saint		STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Decipher Script|Dip
 10	ADD:SPELLCASTER(Hermit,Priest)	SA:Divine Intercession (Su)
 # Spectral Knight block
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Black Knight	HD:12		TYPE:PC.Prestige	ABB:BkKn		MAXLEVEL:10	SOURCEPAGE:46	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Black Knight	HD:12		TYPE:PC.Prestige	ABB:BkKn		MAXLEVEL:10	SOURCEPAGE:46	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
 CLASS:Black Knight	PREATT:7	PRESKILL:2,Ride,Intimidate=10	PRESKILL:1,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -210,8 +210,8 @@ CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimid
 5																																							ADD:FEAT(TYPE=Fighter)
 7	SA:Black Shield (Ex)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus												Combat bonus
-CLASS:Blue Knight	HD:10		TYPE:PC.Prestige	ABB:BlKn		MAXLEVEL:10	SOURCEPAGE:47	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
+CLASS:Blue Knight	HD:10		TYPE:PC.Prestige	ABB:BlKn		MAXLEVEL:10	SOURCEPAGE:47	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat		Req. Special Ability		Required Skill					Required Stat
 CLASS:Blue Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride,Knowledge (Nature),Swim=5	PRESTAT:1,NOB=50
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -233,8 +233,8 @@ CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 9	CAST:0,1,2,3,6,21						BONUS:VAR|BASEPOWERPOINTS|5											ADD:FEAT(TYPE=Fighter)
 10	CAST:0,1,2,3,5,14	SA:Tap Water (Ex)			BONUS:VAR|BASEPOWERPOINTS|7
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat
 CLASS:Green Knight	PREATT:7	PREFEAT:3,Alertness,Animal Affinity,Track
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -252,8 +252,8 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle 
 8																												ADD:FEAT(TYPE=Fighter)
 9	SA:Venom Immunity (Ex)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill								Required Stat
 CLASS:Purple Knight	PREATT:5	PRESKILL:1,Diplomacy=5	PRESKILL:2,Ride,Handle Animal=10	PRESTAT:1,NOB=50
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -266,8 +266,8 @@ CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Ani
 2	SA:Horse Whisperer	SA:Burst of Speed +%'|BurstOfSpeed						BONUS:VAR|BurstOfSpeed|floor(CL/2)*10					DEFINE:BurstOfSpeed|0
 3	SA:Like the Wind +%|LikeTheWind										BONUS:VAR|LikeTheWind|min(CL/2-1,0)						DEFINE:LikeTheWind|0
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus												Combat bonus
-CLASS:Red Knight	HD:8		TYPE:PC.Prestige	ABB:RKn		MAXLEVEL:10	SOURCEPAGE:51	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
+CLASS:Red Knight	HD:8		TYPE:PC.Prestige	ABB:RKn		MAXLEVEL:10	SOURCEPAGE:51	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill			Var. Min. Value
 CLASS:Red Knight	PREATT:5	PRESKILL:3,Hide,Bluff,Ride=5	PREVARGTEQ:SneakAttack,2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -289,8 +289,8 @@ CLASS:Red Knight	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Re
 9	CAST:0,1,2,3,6,21	KNOWN:7,5,3,3,2							BONUS:VAR|BASEPOWERPOINTS|5											ADD:FEAT(TYPE=RobberBaron)
 10	CAST:0,1,2,3,5,14	KNOWN:8,5,3,3,2,1							BONUS:VAR|BASEPOWERPOINTS|7
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus												Combat bonus
-CLASS:White Knight	HD:10		TYPE:PC.Prestige	ABB:WKn		MAXLEVEL:10	SOURCEPAGE:52	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.Replace
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
+CLASS:White Knight	HD:10		TYPE:PC.Prestige	ABB:WKn		MAXLEVEL:10	SOURCEPAGE:52	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.Replace
 # Class Name		Req. Att.	Required Feat		Req. Special Ability		Required Skill										Required Stat
 CLASS:White Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride,Knowledge (Nobility and Royalty),Knowledge (Religion)=5	PRESTAT:1,NOB=65
 # Class Name		Skill Pts/Lvl	Class Skill

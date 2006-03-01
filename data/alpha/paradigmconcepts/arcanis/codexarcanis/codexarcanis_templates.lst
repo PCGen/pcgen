@@ -1,4 +1,4 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis|SOURCESHORT:Codex Arcanis|SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -67,16 +67,16 @@ Mourners in Silence	VISIBLE:EXPORT
 
 
 ###Block: Monastic Orders
-# Template Name				Visible		Special Ability																	Save checks bonus							Combat bonus					Add to base move			Bonus to skill			Class Skill								Automaticaly Gained Weapon Prof.	Cross-class Skill
-Order of the Iron Soul			VISIBLE:EXPORT																				BONUS:CHECKS|Willpower|2	BONUS:CHECKS|Reflex|-1
-Order of the Blade			VISIBLE:EXPORT	SA:Longsword as Monk Weapon																																																		AUTO:WEAPONPROF|Longsword
+# Template Name				Visible		Special Ability																	Save checks bonus						Combat bonus					Add to base move			Bonus to skill			Class Skill								Automaticaly Gained Weapon Prof.	Cross-class Skill
+Order of the Iron Soul			VISIBLE:EXPORT																				BONUS:CHECKS|Will|2	BONUS:CHECKS|Reflex|-1
+Order of the Blade			VISIBLE:EXPORT	SA:Longsword as Monk Weapon																																																	AUTO:WEAPONPROF|Longsword
 Order of the Perfect Union		VISIBLE:EXPORT	SA:+2 save vs Mind Affecting spells/powers	SA:-2 save vs. Fear spells/powers	SA:Undead Vulnerability +2
 Brotherhood of Man			VISIBLE:EXPORT	SA:Wisdom bonus to Unarmed Damage vs Vals (loses Wis AC)
-Order of the Bronze Sepulcer		VISIBLE:EXPORT	SA:+2 save vs Fear spells/powers																																			BONUS:SKILL|Diplomacy|-5
-Order of the Incandescent Path	VISIBLE:EXPORT	SA:Cannot use Ranged Weapons																								BONUS:COMBAT|AC|1|TYPE=Natural.REPLACE
-Order of the Pearl Maidens		VISIBLE:EXPORT																																														CSKILL:Knowledge (Sailing)|Knowledge (Navigation)	AUTO:WEAPONPROF|Longbow			CCSKILL:Diplomacy|Perform
+Order of the Bronze Sepulcer		VISIBLE:EXPORT	SA:+2 save vs Fear spells/powers																																		BONUS:SKILL|Diplomacy|-5
+Order of the Incandescent Path	VISIBLE:EXPORT	SA:Cannot use Ranged Weapons																							BONUS:COMBAT|AC|1|TYPE=Natural.REPLACE
+Order of the Pearl Maidens		VISIBLE:EXPORT																																													CSKILL:Knowledge (Sailing)|Knowledge (Navigation)	AUTO:WEAPONPROF|Longbow			CCSKILL:Diplomacy|Perform
 Contemplation of the Elements		VISIBLE:EXPORT
-Order of the Iridescent Scales	VISIBLE:EXPORT	SA:AoOs against PC are at -2																															BONUS:MOVEADD|TYPE.Walk|10
+Order of the Iridescent Scales	VISIBLE:EXPORT	SA:AoOs against PC are at -2																														BONUS:MOVEADD|TYPE.Walk|10
 
 ###Block: Ss'ressen Clutches
 # Template Name	Visible		Restricted AL

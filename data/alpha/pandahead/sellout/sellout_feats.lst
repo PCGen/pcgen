@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Sun Aug 29 23:34:38 2004 -- reformated by prettylst.pl v1.34 (build 421)
+# CVS $Revision: 1.2 $ $Author: ericbeaudoin $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Sellout! Sourcebook|SOURCESHORT:Sellout|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Feat Name				Type				Req. Att.	Required Feat							Req. Special Ability	Required Skill		Required Stat	Required Text								Required Type		Template					Save checks bonus			Bonus to skill				Modify VAR				Source Page
@@ -22,7 +22,7 @@ Natural Skater			TYPE:General																																																			
 Play Loose				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach														BONUS:CHECKS|Reflex|2													SOURCEPAGE:92
 Play Through The Hurt		TYPE:General				PREFEAT:2,Stay Focused,Toughness																																																			SOURCEPAGE:92
 Speed Skater			TYPE:General				PREFEAT:1,Natural Skater																																																				SOURCEPAGE:92
-Stay Focused			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach														BONUS:CHECKS|Willpower|2												SOURCEPAGE:92
+Stay Focused			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach														BONUS:CHECKS|Will|2													SOURCEPAGE:92
 Strong Forward			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:92
 Strong D				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																														SOURCEPAGE:92
 Stunning Shot			TYPE:General		PREATT:5	PREFEAT:2,Point Blank Shot,Precise Shot											PRESTAT:1,DEX=15																																					SOURCEPAGE:92

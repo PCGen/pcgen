@@ -1,4 +1,4 @@
-# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Sat Dec 10 03:56:43 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.11 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 # Original entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
 
@@ -9,8 +9,8 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCE
 # THINKER: Skill Focus does not prompt for skill.
 # TRADER: Bonus Language: Must exchange one Background language for Language(Trade)
 
-# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
-CLASS:Guardian	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Grd		SOURCEPAGE:pp.17-19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
+CLASS:Guardian	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Grd		SOURCEPAGE:pp.17-19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidate|Knowledge (Vehicle Operations)|Listen|Ride|Sense Motive|Spot
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
@@ -30,8 +30,8 @@ CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidat
 18																									ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
 20	SA:Shoot to Kill																						ADD:FEAT(Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter)
 
-# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
-CLASS:Raider	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Rdr		SOURCEPAGE:pp.19-21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
+CLASS:Raider	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Rdr		SOURCEPAGE:pp.19-21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Raider	PREALIGN:LE,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -53,8 +53,8 @@ CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle 
 18	SA:Terrifying Presence
 20												ADD:FEAT(Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
-CLASS:Scav		HD:8		TYPE:Base.PC	ABB:Scv		SOURCEPAGE:pp.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
+CLASS:Scav		HD:8		TYPE:Base.PC	ABB:Scv		SOURCEPAGE:pp.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Scav		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -69,7 +69,7 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|For
 16	SA:Shadow in the Open
 
 # Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
-CLASS:Thinker	HD:4		XTRAFEATS:0		TYPE:Base.PC	ABB:Thn		SOURCEPAGE:pp.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Thinker	HD:4		XTRAFEATS:0		TYPE:Base.PC	ABB:Thn		SOURCEPAGE:pp.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Heal|TYPE.Knowledge|Open Lock|TYPE.Profession
 1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
@@ -86,8 +86,8 @@ CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|D
 18																			ADD:FEAT(Exotic Weapon Proficiency)
 20																			ADD:FEAT(Skill Focus)
 
-# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
-CLASS:Trader	HD:6		XTRAFEATS:0		TYPE:Base.PC	ABB:Trd		SOURCEPAGE:pp.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Starting Feats	Type			Abbreviation	Source Page			Save checks bonus											Combat bonus
+CLASS:Trader	HD:6		XTRAFEATS:0		TYPE:Base.PC	ABB:Trd		SOURCEPAGE:pp.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|Intuit Direction|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies

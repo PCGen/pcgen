@@ -1,9 +1,9 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Jul  9 15:00:18 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam|SOURCESHORT:SAS|SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus													Combat bonus
-CLASS:Animal Lord	HD:10		TYPE:Base.PC	ABB:AnL		SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Animal Lord	HD:10		TYPE:Base.PC	ABB:AnL		SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -34,8 +34,8 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 20														BONUS:VAR|UncannyDodge|1
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																Combat bonus
-CLASS:Artificer	HD:6		TYPE:Base.PC	ABB:Art		SOURCEPAGE:p.41	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:COMBAT|BAB|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus															Combat bonus
+CLASS:Artificer	HD:6		TYPE:Base.PC	ABB:Art		SOURCEPAGE:p.41	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|TYPE.Tech|Use Rope|Use Steamcraft Device
 1	FEATAUTO:Simple Weapon Proficiency
@@ -52,7 +52,7 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomac
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Musketeer	HD:8		TYPE:Base.PC	ABB:Msk		SOURCEPAGE:p.44	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Musketeer	HD:8		TYPE:Base.PC	ABB:Msk		SOURCEPAGE:p.44	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device
 1	FEATAUTO:Musketeer Weapon Proficiencies

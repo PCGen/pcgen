@@ -1,4 +1,4 @@
-# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -8,24 +8,24 @@ SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.co
 # Need to have feat add skillpoints for Open Minded
 
 ###Block: General Feats
-# Feat Name		Type				Required AL		Req. Att.	Required Check Base		Required Feat						Required Skill					Required Stat	Prohibited Template	Description		Stackable?	Multiple?	Choose			Template		Bonus to skill						Modify VAR				Source Page
-Antipsionic Magic	TYPE:General																				PRESKILL:1,Spellcraft=5							!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Autonomous		TYPE:General																																		DESC:See Text												BONUS:SKILL|Autohypnosis,Knowledge (Psionics)|2						SOURCEPAGE:PsionicFeats.rtf
-Chaotic Mind	TYPE:General		PREALIGN:CG,CN,CE																							PRESTAT:1,CHA=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Cloak Dance		TYPE:General																				PRESKILL:2,Hide=10,Perform (Dance)=2								DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Closed Mind		TYPE:General																														!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Deadly Precision	TYPE:General					PREATT:5																					PRESTAT:1,DEX=15					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Force of Will	TYPE:General												PREFEAT:1,Iron Will															!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Greater Manyshot	TYPE:General.Fighter				PREATT:6						PREFEAT:3,Manyshot,Point Blank Shot,Rapid Shot								PRESTAT:1,DEX=17					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Hostile Mind	TYPE:General																											PRESTAT:1,CHA=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Mental Resistance	TYPE:General							PRECHECKBASE:1,Willpower=2																			!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Mind Over Body	TYPE:General																											PRESTAT:1,CON=13					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Open Minded		TYPE:General																																		DESC:See Text	STACK:YES	MULT:YES	CHOOSE:5 skill points																	SOURCEPAGE:PsionicFeats.rtf
-Psionic Affinity	TYPE:General																																		DESC:See Text												BONUS:SKILL|Psicraft,Use Psionic Device|2							SOURCEPAGE:PsionicFeats.rtf
-Psionic Hole	TYPE:General																											PRESTAT:1,CON=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Reckless Offense	TYPE:General					PREATT:1																												DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Stand Still		TYPE:General																											PRESTAT:1,STR=13					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
-Wild Talent		TYPE:General																																		DESC:See Text									TEMPLATE:Psionic									BONUS:VAR|BasePowerPoints|2	SOURCEPAGE:PsionicFeats.rtf
+# Feat Name		Type				Required AL		Req. Att.	Required Check Base	Required Feat						Required Skill					Required Stat	Prohibited Template	Description		Stackable?	Multiple?	Choose			Template		Bonus to skill						Modify VAR				Source Page
+Antipsionic Magic	TYPE:General																			PRESKILL:1,Spellcraft=5							!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Autonomous		TYPE:General																																	DESC:See Text												BONUS:SKILL|Autohypnosis,Knowledge (Psionics)|2						SOURCEPAGE:PsionicFeats.rtf
+Chaotic Mind	TYPE:General		PREALIGN:CG,CN,CE																						PRESTAT:1,CHA=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Cloak Dance		TYPE:General																			PRESKILL:2,Hide=10,Perform (Dance)=2								DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Closed Mind		TYPE:General																													!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Deadly Precision	TYPE:General					PREATT:5																				PRESTAT:1,DEX=15					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Force of Will	TYPE:General											PREFEAT:1,Iron Will															!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Greater Manyshot	TYPE:General.Fighter				PREATT:6					PREFEAT:3,Manyshot,Point Blank Shot,Rapid Shot								PRESTAT:1,DEX=17					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Hostile Mind	TYPE:General																										PRESTAT:1,CHA=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Mental Resistance	TYPE:General							PRECHECKBASE:1,Will=2																			!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Mind Over Body	TYPE:General																										PRESTAT:1,CON=13					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Open Minded		TYPE:General																																	DESC:See Text	STACK:YES	MULT:YES	CHOOSE:5 skill points																	SOURCEPAGE:PsionicFeats.rtf
+Psionic Affinity	TYPE:General																																	DESC:See Text												BONUS:SKILL|Psicraft,Use Psionic Device|2							SOURCEPAGE:PsionicFeats.rtf
+Psionic Hole	TYPE:General																										PRESTAT:1,CON=15	!PRETEMPLATE:Psionic	DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Reckless Offense	TYPE:General					PREATT:1																											DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Stand Still		TYPE:General																										PRESTAT:1,STR=13					DESC:See Text																									SOURCEPAGE:PsionicFeats.rtf
+Wild Talent		TYPE:General																																	DESC:See Text									TEMPLATE:Psionic									BONUS:VAR|BasePowerPoints|2	SOURCEPAGE:PsionicFeats.rtf
 
 ###Block: Psionic Feats
 # Feat Name				Type			Required AL		Req. Att.	Required Class				Required Feat							Required Skill			Required Stat	Required Template		Define			Description		Stackable?	Multiple?	Choose													Choose a Feat					Modify VAR				Source Page

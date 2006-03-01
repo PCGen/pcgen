@@ -1,4 +1,4 @@
-# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Tue Feb 22 22:14:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -13,7 +13,7 @@ D-3 Computer Espionage	NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5
 D-4 Urban Assault		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																											BONUS:SKILL|Spot,Hide|(TL/4)+1|TYPE=Department			BONUS:STAT|DEX|2	BONUS:STAT|INT|-2																		CSKILL:TYPE.Background	SA:+% to attack rolls when attacking during a ready action|(TL/4)+1	TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.18	ADD:FEAT(TYPE.RangedCombat)1
 D-5 Black Ops		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																		BONUS:HP|CURRENTMAX|(TL+3)	BONUS:HP|ALTHP|(TL/4)+1											BONUS:STAT|CON|2	BONUS:STAT|DEX|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.MeleeCombat)1
 D-6 Wetworks		NAMEISPI:YES					STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Reflex|(TL/4)+1|TYPE=Department	BONUS:COMBAT|INITIATIVE|(TL/4)+1|TYPE=Department																				BONUS:STAT|STR|2	BONUS:STAT|CON|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.UnarmedCombat)1
-The Basement		NAMEISPI:YES	XTRASKILLPTSPERLVL:1	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Willpower|(TL/4)+1|TYPE=Department																													BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.BasicSkill)1
+The Basement		NAMEISPI:YES	XTRASKILLPTSPERLVL:1	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL	BONUS:CHECKS|Will|(TL/4)+1|TYPE=Department																													BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2																		CSKILL:TYPE.Background													TYPE:Department	TEMPLATE:Agent								CR:1/2	SOURCEPAGE:p.19	ADD:FEAT(TYPE.BasicSkill)1
 
 Standard NPC									STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGAUTO:English		LANGBONUS:ALL																																											BONUS:VAR|BUDGETPOINTS|TL													CSKILL:TYPE.Background													TYPE:NPC												CR:1/2	SOURCEPAGE:p.265
 

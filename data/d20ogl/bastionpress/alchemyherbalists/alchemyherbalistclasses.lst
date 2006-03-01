@@ -1,9 +1,9 @@
-# CVS $Revision: 1.5 $ $Author: ericbeaudoin $ -- Wed Aug  4 21:03:21 2004 -- reformated by prettylst.pl v1.33 (build 379)
+# CVS $Revision: 1.5 $ $Author: ericbeaudoin $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Bastion Press - Alchemy and Herbalists|SOURCESHORT:AlchemyHrb|SOURCEWEB:www.bastionpress.com
 # Orginal Entry By: Knightcrawler
 
-# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
-CLASS:Black Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
+CLASS:Black Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Check		Required Class			Required Feat				Required Skill
 CLASS:Black Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,TYPE.Craft=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -21,8 +21,8 @@ CLASS:Black Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Black Alch
 9	ADD:SPELLCASTER(ANY)
 10	ADD:SPELLCASTER(ANY)						FEATAUTO:Craft Magic Arms and Armor
 
-# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
-CLASS:White Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
+CLASS:White Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Check		Required Class			Required Feat				Required Skill
 CLASS:White Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,Heal=4	PRESKILL:1,Profession (Herbalist)=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -40,8 +40,8 @@ CLASS:White Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|White Alch
 9	ADD:SPELLCASTER(ANY)					FEATAUTO:Craft Wondrous Item
 10	ADD:SPELLCASTER(ANY)	SA:Perfect Medicinals
 
-# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
-CLASS:Red Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
+CLASS:Red Alchemist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill
 CLASS:Red Alchemist	PREFEAT:1,Skill Focus(Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,Profession (Brewer)=4	PRESKILL:1,TYPE.Craft=2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -59,8 +59,8 @@ CLASS:Red Alchemist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Red Alchemis
 9	ADD:SPELLCASTER(ANY)	FEATAUTO:Perfect Materials
 10	ADD:SPELLCASTER(ANY)	FEATAUTO:Create Greater Alchana
 
-# Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																				Combat bonus
-CLASS:Taraston Herbalist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
+CLASS:Taraston Herbalist	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Check		Required Class			Required Feat						Required Skill
 CLASS:Taraston Herbalist	PRECHECK:1,Fortitude=2	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus(Profession (Herbalist))	PRESKILL:1,Profession (Herbalist)=8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -78,8 +78,8 @@ CLASS:Taraston Herbalist	SPELLSTAT:None	SPELLTYPE:None	BONUS:CASTERLEVEL|Tarasto
 9								FEATAUTO:Create Erlcana
 10	ADD:SPELLCASTER(ANY)
 
-# Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Taraston Apothecary	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Starting Feats	Type			Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Taraston Apothecary	HD:6		XTRAFEATS:0		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Check		Required Skill														Required Stat
 CLASS:Taraston Apothecary	PRECHECK:1,Fortitude=3	PRESKILL:1,Heal=1	PRESKILL:1,Profession (Herbalist)=4	PRESKILL:1,Profession (Apothecary)=8	PRESTAT:1,WIS=12
 # Class Name			Skill Pts/Lvl	Class Skill

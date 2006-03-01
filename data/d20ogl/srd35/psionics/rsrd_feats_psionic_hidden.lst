@@ -1,4 +1,4 @@
-# CVS $Revision: 1.4 $ $Author: mhgj $ -- Thu Jun 16 22:06:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+# CVS $Revision: 1.4 $ $Author: mhgj $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:RSRD Psionics|SOURCESHORT:RSRDPsionic|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -14,7 +14,7 @@ Psicrystal (Meticulous)		TYPE:PsicrystalPersonality	VISIBLE:NO																		
 Psicrystal (Nimble)		TYPE:PsicrystalPersonality	VISIBLE:NO														BONUS:COMBAT|INITIATIVE|2																																													SOURCEPAGE:PsionicClasses.rtf
 Psicrystal (Observant)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Spot|3																																		SOURCEPAGE:PsionicClasses.rtf
 Psicrystal (Poised)		TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:SKILL|Balance|3																																		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Resolved)		TYPE:PsicrystalPersonality	VISIBLE:NO									BONUS:CHECKS|Willpower|2																																																		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Resolved)		TYPE:PsicrystalPersonality	VISIBLE:NO									BONUS:CHECKS|Will|2																																																			SOURCEPAGE:PsionicClasses.rtf
 Psicrystal (Sage)			TYPE:PsicrystalPersonality	VISIBLE:NO																																																															SOURCEPAGE:PsionicClasses.rtf
 #	BONUS:SKILLPOOL|NUMBER|3
 # BONUS:SKILLPOOL|NUMBER is only valid in class.lst.

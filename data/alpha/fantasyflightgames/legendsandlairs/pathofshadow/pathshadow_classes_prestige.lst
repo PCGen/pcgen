@@ -1,10 +1,10 @@
-# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Fri Dec  9 13:32:29 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.7 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Acolyte of Chance	HD:6		TYPE:PC.Prestige	ABB:ACh		MAXLEVEL:10	SOURCEPAGE:Chap.1, Acolyte of Chance	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Acolyte of Chance	HD:6		TYPE:PC.Prestige	ABB:ACh		MAXLEVEL:10	SOURCEPAGE:Chap.1, Acolyte of Chance	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required AL		Req. Att.	Required Skill
 CLASS:Acolyte of Chance	PREALIGN:CG,CN,CE	PREATT:4	PRESKILL:1,Knowledge (Religion)=3	PRESKILL:2,Balance,Bluff,Climb,TYPE.Craft,Disable Device,Gather Information,Hide,Innuendo,Intimidate,Intuit Direction,Jump,Listen,Move Silently,Open Lock,Read Lips,Search,Sense Motive,Spot,Swim,Tumble,Use Rope=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -26,7 +26,7 @@ CLASS:Acolyte of Chance	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Di
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Aerialist	HD:6		TYPE:PC.Prestige	ABB:Aer		MAXLEVEL:10	SOURCEPAGE:Chap.1, Aerialist	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Aerialist	HD:6		TYPE:PC.Prestige	ABB:Aer		MAXLEVEL:10	SOURCEPAGE:Chap.1, Aerialist	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Required Feat						Required Skill
 CLASS:Aerialist	PREFEAT:2,Ambidexterity,Skill Focus(Tumble)	PRESKILL:4,Escape Artist,Jump,Perform,Tumble=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -49,7 +49,7 @@ CLASS:Aerialist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE.Craft|Diploma
 # Uncanny dodge........... stack with others...
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Ebon Link	HD:6		TYPE:PC.Prestige	ABB:Ebo		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ebon Link	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ebon Link	HD:6		TYPE:PC.Prestige	ABB:Ebo		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ebon Link	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat								Required Skill
 CLASS:Ebon Link	PREFEAT:3,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:4,Climb,Hide,Move Silently,Open Lock=9
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -69,8 +69,8 @@ CLASS:Ebon Link	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Scr
 
 # Falconer, casts as wizard (spellbook etc)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Falconer	HD:6		TYPE:PC.Prestige	ABB:Fal		MAXLEVEL:10	SOURCEPAGE:Chap.1, Falconer	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Falconer	HD:6		TYPE:PC.Prestige	ABB:Fal		MAXLEVEL:10	SOURCEPAGE:Chap.1, Falconer	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat		Required Skill
 CLASS:Falconer	PREFEAT:1,Alertness	PRESKILL:2,Bluff,Diplomacy=5	PRESKILL:2,Innuendo,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,8 +98,8 @@ CLASS:Falconer	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Fa
 10	CAST:0,2,2,2,1
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Halfling Clanwarden	HD:6		TYPE:PC.Prestige	ABB:Cla		MAXLEVEL:10	SOURCEPAGE:Chap.1, Halfling Clanwarden	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Halfling Clanwarden	HD:6		TYPE:PC.Prestige	ABB:Cla		MAXLEVEL:10	SOURCEPAGE:Chap.1, Halfling Clanwarden	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required Race	Required Skill							Total Skill Points Req.
 CLASS:Halfling Clanwarden	PRERACE:Halfling%	PRESKILL:2,Climb,Hide,Jump,Listen,Move Silently=8	PRESKILLTOT:Climb,Hide,Jump,Listen,Move Silently=24
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -118,7 +118,7 @@ CLASS:Halfling Clanwarden	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Myste		HD:6		TYPE:PC.Prestige	ABB:Mys		MAXLEVEL:10	SOURCEPAGE:Chap.1, Myste	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Myste		HD:6		TYPE:PC.Prestige	ABB:Mys		MAXLEVEL:10	SOURCEPAGE:Chap.1, Myste	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat					Required Skill
 CLASS:Myste		PREFEAT:1,Skill Focus(Use Magic Device)	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESKILL:1,Use Magic Device=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -138,8 +138,8 @@ CLASS:Myste		STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 10									BONUS:VAR|ArcaneTrapLore|4
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	ABB:NiH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Night Hunter	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	ABB:NiH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Night Hunter	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Req. Att.	Required Feat	Req. Special Ability	Required Skill
 CLASS:Night Hunter	PREATT:6	PREFEAT:1,Track	PRESA:1,Sneak Attack	PRESKILL:2,Alchemy,Knowledge (Lycanthropes)=3	PRESKILL:2,Hide,Move Silently=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -156,7 +156,7 @@ CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disable
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Noble Decoy	HD:6		TYPE:PC.Prestige	ABB:NoDe		MAXLEVEL:10	SOURCEPAGE:Chap.1, Noble Decoy	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Noble Decoy	HD:6		TYPE:PC.Prestige	ABB:NoDe		MAXLEVEL:10	SOURCEPAGE:Chap.1, Noble Decoy	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat				Required Skill
 CLASS:Noble Decoy	PREFEAT:1,Skill Focus(Disguise)	PRESKILL:2,Perform,Tumble=3	PRESKILL:2,Disguise,Bluff=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -176,7 +176,7 @@ CLASS:Noble Decoy	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disable 
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Ossorus	HD:6		TYPE:PC.Prestige	ABB:Oss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ossorus	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ossorus	HD:6		TYPE:PC.Prestige	ABB:Oss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ossorus	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required AL		Required Skill
 CLASS:Ossorus	PREALIGN:LG,LN,NG	PRESKILL:2,Disguise,Knowledge (Religion)=4	PRESKILL:2,Hide,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -207,7 +207,7 @@ CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 #  +1 level on existing bard or rogue class on levels 1,3,5 affects Sneak Attack and bards spellcasting
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Packrat	HD:6		TYPE:PC.Prestige	ABB:Rat		MAXLEVEL:5	SOURCEPAGE:Chap.1, Packrat	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Packrat	HD:6		TYPE:PC.Prestige	ABB:Rat		MAXLEVEL:5	SOURCEPAGE:Chap.1, Packrat	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat			Required Skill
 CLASS:Packrat	PREFEAT:1,Lightning Reflexes	PRESKILL:1,Bluff=5	PRESKILL:2,Escape Artist,Pick Pocket=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -226,7 +226,7 @@ CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Dec
 # Would prefer to put the spells in another spellbook, but they won't show on OS unless there are Innates as well.
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Psychic Interloper	HD:6		TYPE:PC.Prestige	ABB:PsIn		MAXLEVEL:10	SOURCEPAGE:Chap.1, Psychic Interloper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Psychic Interloper	HD:6		TYPE:PC.Prestige	ABB:PsIn		MAXLEVEL:10	SOURCEPAGE:Chap.1, Psychic Interloper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required Check Base	Required Feat		Required Race				Required Skill
 CLASS:Psychic Interloper	PRECHECKBASE:1,Reflex=3	PREFEAT:1,Iron Will	PRERACE:Human,Half-Elf,Half-Orc	PRESKILL:2,Concentration,Knowledge (Psionics)=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -247,8 +247,8 @@ CLASS:Psychic Interloper	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb
 9	BONUS:VAR|BasePowerPoints|7	BONUS:VAR|UncannyDodge|1	ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)	SPELLS:Innate|TIMES=1|Amplified Invisibility
 10	BONUS:VAR|BasePowerPoints|7																SPELLS:Innate|TIMES=1|Aura Alteration
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Queen's Coronet	HD:6		TYPE:PC.Prestige	ABB:QCor		MAXLEVEL:10	SOURCEPAGE:Chap.1, Queen's Coronet	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Queen's Coronet	HD:6		TYPE:PC.Prestige	ABB:QCor		MAXLEVEL:10	SOURCEPAGE:Chap.1, Queen's Coronet	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required Skill
 CLASS:Queen's Coronet	PRESKILL:2,Listen,Search=6	PRESKILL:2,Innuendo,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -267,7 +267,7 @@ CLASS:Queen's Coronet	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Decipher Script|Dipl
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Questioner	HD:6		TYPE:PC.Prestige	ABB:Que		MAXLEVEL:10	SOURCEPAGE:Chap.1, Questioner	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Questioner	HD:6		TYPE:PC.Prestige	ABB:Que		MAXLEVEL:10	SOURCEPAGE:Chap.1, Questioner	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Required AL		Required Feat		Required Skill
 CLASS:Questioner	PREALIGN:LG,NG,CG	PREFEAT:1,Alertness	PRESKILL:3,Gather Information,Search,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -286,7 +286,7 @@ CLASS:Questioner	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Royal Assassin	HD:6		TYPE:PC.Prestige	ABB:RAss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Royal Assassin	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Royal Assassin	HD:6		TYPE:PC.Prestige	ABB:RAss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Royal Assassin	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Restricted AL		Req. Att.	Req. Special Ability	Required Skill
 CLASS:Royal Assassin	!PREALIGN:LE,NE,CE	PREATT:6	PRESA:1,Sneak Attack	PRESKILL:2,Hide,Move Silently=8	PRESKILL:2,Appraise,Balance,Bluff,Climb,TYPE.Craft,Decipher Script,Diplomacy,Disable Device,Disguise,Escape Artist,Forgery,Gather Information,Innuendo,Intimidate,Intuit Direction,Jump,Listen,Open Lock,Perform,Pick Pocket,TYPE.Profession,Read Lips,Search,Sense Motive,Spot,Swim,Tumble,Use Magic Device,Use Rope=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -302,8 +302,8 @@ CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disab
 10																	ADD:FEAT(Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Exotic Weapon Proficiency,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Critical,Improved Initiative,Improved Unarmed Strike,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run,Power Attack,Cleave,Improved Bull Rush,Sunder,Great Cleave,Quick Draw,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Finesse,Weapon Focus)
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Sailmaster	HD:8		TYPE:PC.Prestige	ABB:Sam		MAXLEVEL:10	SOURCEPAGE:Chap.1, Sailmaster	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Sailmaster	HD:8		TYPE:PC.Prestige	ABB:Sam		MAXLEVEL:10	SOURCEPAGE:Chap.1, Sailmaster	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Skill
 CLASS:Sailmaster	PRESKILL:2,Profession (Sailor),Use Rope=8	PRESKILL:2,Climb,Balance=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -332,7 +332,7 @@ CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVE
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Shadow Hunter	HD:6		TYPE:PC.Prestige	ABB:ShH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Shadow Hunter	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Shadow Hunter	HD:6		TYPE:PC.Prestige	ABB:ShH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Shadow Hunter	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required AL		Required Feat				Required Skill
 CLASS:Shadow Hunter	PREALIGN:LG,NG,CG	PREFEAT:2,Alertness,Blind-Fight	PRESKILL:2,Hide,Move Silently=5	PRESKILL:1,Knowledge (Religion),Knowledge (The Planes)=5	PRESKILL:1,Spot=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -349,7 +349,7 @@ CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 1	FEATAUTO:Armor Proficiency (Light)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		SA:Stalwart Defense (Ex)											BONUS:CHECKS|Fortitude,Reflex,Willpower|CHAMAX0
+1	CAST:0,0		SA:Stalwart Defense (Ex)											BONUS:CHECKS|Fortitude,Reflex,Will|CHAMAX0
 2	CAST:0,1											BONUS:VAR|SneakAttack|(CL+1)/3													FEATAUTO:Sneak Attack
 3	CAST:0,1,0		SA:Deft Defense (Ex)
 4	CAST:0,1,1		SA:Smite %/day (Su)|Smite					BONUS:VAR|Smite|1												DEFINE:Smite|0
@@ -361,8 +361,8 @@ CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 10	CAST:0,2,2,2,1										BONUS:VAR|Smite|1
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Unblinking Eye	HD:6		TYPE:PC.Prestige	ABB:UEye		MAXLEVEL:10	SOURCEPAGE:Chap.1, Unblinking Eye	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Unblinking Eye	HD:6		TYPE:PC.Prestige	ABB:UEye		MAXLEVEL:10	SOURCEPAGE:Chap.1, Unblinking Eye	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required Skill
 CLASS:Unblinking Eye	PRESKILL:4,Bluff,Disguise,Gather Information,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -381,7 +381,7 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Req. Att.	Required Feat									Required Race		Required Skill
 CLASS:White Rose	PREATT:6	PREFEAT:2,Dodge,Expertise	PREFEAT:1,Weapon Focus(TYPE=Sword)	PRERACE:Elf%,Half-Elf	PRESKILL:4,Balance,Hide,Jump,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -398,8 +398,8 @@ CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher 
 
 # zzz Windrider
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, Windrider	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, Windrider	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Req. Att.	Required Skill
 CLASS:Windrider	PREATT:4	PRESKILL:3,Intimidate,Ride,Wilderness Lore=5	PRESKILL:3,Listen,Move Silently,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill

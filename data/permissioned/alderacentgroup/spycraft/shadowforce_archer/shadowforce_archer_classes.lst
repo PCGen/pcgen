@@ -1,4 +1,4 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -8,7 +8,7 @@ SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://ww
 ### Prestige Classes -------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																									Modify VAR
-CLASS:Cat Burglar	HD:10		TYPE:Prestige.PC	ABB:Cat		MAXLEVEL:10	SOURCEPAGE:p.163	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+1	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL-1)-((CL-1)/4)
+CLASS:Cat Burglar	HD:10		TYPE:Prestige.PC	ABB:Cat		MAXLEVEL:10	SOURCEPAGE:p.163	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+1	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL-1)-((CL-1)/4)
 # Class Name	Required Feat				Required Lvl	Required Skill
 CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:5		PRESKILL:2,Climb,Open Lock=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -26,8 +26,8 @@ CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Co
 10
 
 
-# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus														Combat bonus																													Modify VAR
-CLASS:Counter Terrorist	OUTPUTNAME:Counter-Terrorist	HD:10		TYPE:Prestige.PC	ABB:CnT		MAXLEVEL:10	SOURCEPAGE:p.165	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus													Combat bonus																													Modify VAR
+CLASS:Counter Terrorist	OUTPUTNAME:Counter-Terrorist	HD:10		TYPE:Prestige.PC	ABB:CnT		MAXLEVEL:10	SOURCEPAGE:p.165	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name		Req. Att.	Required Feat		Required Skill
 CLASS:Counter Terrorist	PREATT:5	PREFEAT:1,Precise Shot	PRESKILL:1,Spot=8	PRESKILL:1,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -44,8 +44,8 @@ CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|De
 10								SA:Moment of truth
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																			Combat bonus																												Modify VAR
-CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|(((CL+2)*2)/5)+(floor(CL/5))+(floor((CL+3)/5))	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																												Modify VAR
+CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|(((CL+2)*2)/5)+(floor(CL/5))+(floor((CL+3)/5))	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Required Feat			Required Lvl	Required Skill
 CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:5		PRESKILL:2,Computers,Cryptography=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -63,7 +63,7 @@ CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concent
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																													Modify VAR
-CLASS:Sniper	HD:10		TYPE:Prestige.PC	ABB:Snpr		MAXLEVEL:10	SOURCEPAGE:p.170	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|(CL-1)-(CL>=5)-(CL>=9)
+CLASS:Sniper	HD:10		TYPE:Prestige.PC	ABB:Snpr		MAXLEVEL:10	SOURCEPAGE:p.170	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|(CL-1)-(CL>=5)-(CL>=9)
 # Class Name	Required Feat			Required Lvl	Required Skill				Required Stat
 CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:5		PRESKILL:2,Hide,Surveillance=6	PRESTAT:1,DEX=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -82,8 +82,8 @@ CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft
 
 ### The Shadespeaker -------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																									Modify VAR
-CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.216	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(CL/2)+1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																	Combat bonus																									Modify VAR
+CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.216	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(CL/2)+1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name		Required Feat		Required Lvl	Required Stat	Required Template
 CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:5		PRESTAT:1,WIS=13	PRETEMPLATE:Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -102,8 +102,8 @@ CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE.Craft|First
 
 ### Base Psion Classes -------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																							Combat bonus																						Modify VAR
-CLASS:Mentalist	HD:8		TYPE:Base.PC	ABB:Men		MAXLEVEL:20	SOURCEPAGE:p.179	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:CHECKS|BASE.Willpower|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																						Combat bonus																						Modify VAR
+CLASS:Mentalist	HD:8		TYPE:Base.PC	ABB:Men		MAXLEVEL:20	SOURCEPAGE:p.179	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:CHECKS|BASE.Will|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE.Craft|Cryptography|Electronics|TYPE.Hobby|TYPE.Knowledge|Mechanics|TYPE.Profession|Sense Motive
 1								BONUS:VAR|PSIONLEVEL|CL															ADD:FEAT(TYPE.MentalPsion,TYPE.Gear)1	ADD:FEAT(Mentalist Core Ability)1	FEATAUTO:Armor Proficiency (Light)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)
@@ -127,8 +127,8 @@ CLASS:Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE.Craft|Crypto
 19																										ADD:FEAT(Mentalist Psi Mastery)1
 20																										ADD:FEAT(TYPE.MentalPsion,TYPE.Gear)1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																										Modify VAR
-CLASS:Physical Adept	HD:10		TYPE:Base.PC	ABB:Phy		MAXLEVEL:20	SOURCEPAGE:p.189	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL+4)/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus																										Modify VAR
+CLASS:Physical Adept	HD:10		TYPE:Base.PC	ABB:Phy		MAXLEVEL:20	SOURCEPAGE:p.189	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+4)/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Driver|Handle Animal|TYPE.Hobby|Intimidate|Jump|TYPE.Knowledge|Move Silently|TYPE.Profession|Sense Motive|TYPE.Sport|Swim
 1									BONUS:VAR|PSIONLEVEL|CL								ADD:FEAT(TYPE.PhysicalPsion,TYPE.BasicCombat)1	ADD:FEAT(Physical Adept Core Ability)1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Exotic/Archaic)
@@ -153,7 +153,7 @@ CLASS:Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE.Cra
 20																				ADD:FEAT(TYPE.PhysicalPsion,TYPE.BasicCombat)1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																						Combat bonus																													Modify VAR
-CLASS:Telepath	HD:10		TYPE:Base.PC	ABB:Tel		MAXLEVEL:20	SOURCEPAGE:p.196	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:CHECKS|BASE.Willpower|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+CLASS:Telepath	HD:10		TYPE:Base.PC	ABB:Tel		MAXLEVEL:20	SOURCEPAGE:p.196	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:CHECKS|BASE.Will|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE.Hobby|Intimidate|TYPE.Knowledge|Languages|TYPE.Profession|Sense Motive|TYPE.Sport
 1								BONUS:VAR|PSIONLEVEL|CL														ADD:FEAT(TYPE.TelepathicPsion,TYPE.BasicCombat)1	ADD:FEAT(Telepath Core Ability)1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Handgun)

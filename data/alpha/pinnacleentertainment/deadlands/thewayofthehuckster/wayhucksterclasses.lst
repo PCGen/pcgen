@@ -1,8 +1,8 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Aug  4 21:03:21 2004 -- reformated by prettylst.pl v1.33 (build 379)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster|SOURCESHORT:WotHuckster|SOURCEWEB:http://www.peginc.com/index.htm
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																								Combat bonus
-CLASS:Diffusionist	HD:6		TYPE:PC.Prestige	ABB:Dif		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+1	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|max((CL-1)/2,0)|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																						Combat bonus
+CLASS:Diffusionist	HD:6		TYPE:PC.Prestige	ABB:Dif		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+1	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|max((CL-1)/2,0)|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
 CLASS:Diffusionist	PREATT:5	PRESKILL:1,Hexslingin'=6	PRESKILL:1,Knowledge (Anthropology),Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=3	PRESKILL:1,Knowledge (Occult)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -20,8 +20,8 @@ CLASS:Diffusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Diffusionist
 9	ADD:SPELLCASTER(Arcane)																			ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]
 10	ADD:SPELLCASTER(Arcane)																			ADD:LIST(INT in spells [CHOOSE:SPELLLEVEL|INT|TYPE=Arcane|0|9] [BONUS:SPELLKNOWN|TYPE=%;LEVEL=%|1]
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Tempest	HD:6		TYPE:PC.Prestige	ABB:Tem		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+1	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|floor(CL/3)+floor(CL/5)+floor(CL/8)|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Tempest	HD:6		TYPE:PC.Prestige	ABB:Tem		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+1	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|floor(CL/3)+floor(CL/5)+floor(CL/8)|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Tempest	PREATT:3	PREFEAT:1,Nerves o' Steel	PRESKILL:1,Knowledge (Local)=3	PRESKILL:1,Sense Motive=3
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Wed Dec  7 18:08:59 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn and Tir-Gwaith
 
@@ -11,8 +11,8 @@ SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames
 ### Dwarves of Aradath
 ###########################
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL			Req. Att.	Required Feat			Required Race		Required Text
 CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -26,8 +26,8 @@ CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Concentration|Di
 8									SA:Greater Combat Expertise
 10																									SPELLS:Innate|TIMES=1|Foresight
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat			Required Race		Required Skill																		Req. Spell Type
 CLASS:Forge Magus	PREFEAT:3,TYPE.ItemCreation	PRERACE:Dwarf (DF)	PRESKILL:4,Craft (Armorsmithing),Craft (Weaponsmithing),Craft (Sculpting),Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane,1,5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -49,8 +49,8 @@ CLASS:Forge Magus	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Decip
 ### Fey of the Sildanyr
 ###########################
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Warden of the Watch	HD:8		TYPE:PC.Prestige	ABB:WWa		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Warden of the Watch	HD:8		TYPE:PC.Prestige	ABB:WWa		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Race								Required Skill																																								Req. Spell Type		Required Text	Req. Weapond Prof.
 CLASS:Warden of the Watch	PREATT:4	PRERACE:Elf (Dawn),Elf (Ghost),Elf (Moon),Elf (Wood)(DF)	PRESKILL:1,Knowledge (History)=5	PRESKILL:3,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=5	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRESPELLTYPE:Arcane,1,2	PRETEXT:See Text.	PREWEAPONPROF:1,TYPE.Sword	PREWEAPONPROF:1,TYPE.Shortbow,TYPE.Longbow
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -70,7 +70,7 @@ CLASS:Warden of the Watch	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 #Direct Fire levels 2,5,8 or 3.6.9?
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Night Hunter	HD:8		TYPE:PC.Prestige	ABB:NHu		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Night Hunter	HD:8		TYPE:PC.Prestige	ABB:NHu		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL			Req. Att.	Required Feat			Required Race		Required Text
 CLASS:Night Hunter	PREALIGN:LN,NG,TN,NE,CN	PREATT:6	PREFEAT:2,Alertness,Stealthy	PRERACE:Elf (Night)	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -84,8 +84,8 @@ CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Handle 
 9										ADD:FEAT(TYPE=NightHunterGift)
 #zzzdevelop Form of Darkness...level 4,7,10
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Fey Traveler	HD:4		TYPE:PC.Prestige	ABB:FTr		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Fey Traveler	HD:4		TYPE:PC.Prestige	ABB:FTr		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat						Required Language	Required Race		Required Skill										Req. Spell Type		Required Text
 CLASS:Fey Traveler	PREFEAT:2,Improved Fading,Color of the Wind	PRELANG:1,Sylvan	PRERACE:Gnome (DF)	PRESKILL:1,Knowledge (Nature)=8	PRESKILL:1,Knowledge (The Planes)=6	PRESPELLTYPE:Any,1,2	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -106,8 +106,8 @@ CLASS:Fey Traveler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diploma
 ### Humans of Ambria
 ###########################
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Warrior of the Lodge	HD:10		TYPE:PC.Prestige	ABB:WaL		MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Warrior of the Lodge	HD:10		TYPE:PC.Prestige	ABB:WaL		MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL				Req. Att.	Required Feat		Required Text
 CLASS:Warrior of the Lodge	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:6	PREFEAT:2,TYPE.Fighter	PRETEXT:See Text.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -120,8 +120,8 @@ CLASS:Warrior of the Lodge	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal
 8									SA:Share Spirit
 10	SA:.CLEAR.Share Strength (3rd honored enemy)	SA:Share Magic	SA:Share Strength (4th honored enemy)
 
-# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Brother of the Panthic Order	HD:4		TYPE:PC.Prestige	ABB:BPO		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Brother of the Panthic Order	HD:4		TYPE:PC.Prestige	ABB:BPO		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name				Multiple Requirements							Required Skill
 CLASS:Brother of the Panthic Order	PREMULT:1,[PRESPELLTYPE:Any,1,3],[PRESA:1,Spirit Sense II]	PRESKILL:3,Knowledge (Arcana),Knowledge (Nature),Spellcraft=6
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -137,8 +137,8 @@ CLASS:Brother of the Panthic Order	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Cra
 #can more be done with the guides?...
 #TODO: ADD:SPELLCASTER should include option to advance in spirit adept!!
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Griffin Guard	HD:10		TYPE:PC.Prestige	ABB:GrG		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Griffin Guard	HD:10		TYPE:PC.Prestige	ABB:GrG		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat		Required Skill									Required Text
 CLASS:Griffin Guard	PREATT:6	PREFEAT:1,Weapon Focus	PRESKILL:2,Knowledge (Geography),Heal=2	PRESKILL:1,Survival=8	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -154,7 +154,7 @@ CLASS:Griffin Guard	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Heal|Hide|In
 #TODO:Griffin's Hate!!!!!
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Disciple of Mystery	HD:6		TYPE:PC.Prestige	ABB:DMy		MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Disciple of Mystery	HD:6		TYPE:PC.Prestige	ABB:DMy		MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Multiple Requirements							Required Skill
 CLASS:Disciple of Mystery	PREALIGN:LG,LN,LE	PREMULT:1,[PRESPELLTYPE:Any,1,3],[PRESA:1,Spirit Sense II]	PRESKILL:1,Concentration=8	PRESKILL:2,TYPE.Knowledge=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -177,8 +177,8 @@ CLASS:Disciple of Mystery	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 ### Humanoids of the Norh
 ###########################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lone Walker	HD:12		TYPE:PC.Prestige	ABB:LWa		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lone Walker	HD:12		TYPE:PC.Prestige	ABB:LWa		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat						Required Race		Required Skill
 CLASS:Lone Walker	PREATT:6	PREFEAT:3,Endurance,Great Fortitude,Iron Will	PRERACE:Minotaur (DF)	PRESKILL:1,Knowledge (History)=4	PRESKILL:1,Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -194,8 +194,8 @@ CLASS:Lone Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jum
 8	SA:Hope of the Future
 10	SA:Rise from the Ashes
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Bound Ambassador	HD:6		TYPE:PC.Prestige	ABB:BAm		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Bound Ambassador	HD:6		TYPE:PC.Prestige	ABB:BAm		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat		Required Race					Required Skill											Required Text
 CLASS:Bound Ambassador	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:4	PREFEAT:1,Negotiator	PRERACE:Ogre (Stormfells),Ogre (wild)	PRESKILL:2,Bluff,Diplomacy=8	PRESKILL:2,Gather Information,Sense Motive=6	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -218,8 +218,8 @@ CLASS:Bound Ambassador	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLE
 # 0-level spells should ideally be excluded somehow...
 # Spells per day must be wrong!! Should probably be the same as Circle Walker.
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Orc Adapter	HD:8		TYPE:PC.Prestige	ABB:OAd		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Orc Adapter	HD:8		TYPE:PC.Prestige	ABB:OAd		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Race	Required Skill																Required Text
 CLASS:Orc Adapter	PREALIGN:LG,LN,LE	PRERACE:Orc (DF)	PRESKILL:2,TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma=8	PRETEXT:The character must have contact with at least one non-orc culture.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -238,8 +238,8 @@ CLASS:Orc Adapter	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft
 ###########################
 #Wilderness Guide
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Circle Walker	HD:8		TYPE:PC.Prestige	ABB:CWa		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Circle Walker	HD:8		TYPE:PC.Prestige	ABB:CWa		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Race			Required Text
 CLASS:Circle Walker	PREATT:4	PRERACE:Doppelganger (DF)	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -264,7 +264,7 @@ CLASS:Circle Walker	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 #zzzzzzzAdd PRE racial talents Alternate Form and Quick Form
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Swindler	HD:6		TYPE:PC.Prestige	ABB:Swi		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Swindler	HD:6		TYPE:PC.Prestige	ABB:Swi		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Req. Att.	Required Feat		Required Skill
 CLASS:Swindler	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:1,Negotiator	PRESKILL:3,Bluff,Diplomacy,Sense Motive=8	PRESKILL:5,Appraise,Balance,Bluff,Climb,TYPE.Craft,Decipher Script,Diplomacy,Disable Device,Disguise,Escape Artist,Forgery,Gather Information,Hide,Intimidate,Jump,Knowledge (Local),Listen,Move Silently,Open Lock,TYPE.Perform,TYPE.Profession,Search,Sense Motive,Sleight of Hand,Spot,Swim,Tumble,Use Magic Device,Use Rope=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -276,8 +276,8 @@ CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Decipher S
 10	SA:Words that Bind
 #Performer's Art not quite doable. One problem is that different classes has different progression for sneak attacks, another problem is how to add...only possible for very specific cases the way sneak is set up.
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Wilderness Guide	HD:8		TYPE:PC.Prestige	ABB:WGu		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Wilderness Guide	HD:8		TYPE:PC.Prestige	ABB:WGu		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat				Required Skill								Required Text
 CLASS:Wilderness Guide	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:6	PREFEAT:2,Self Sufficient,Track	PRESKILL:1,Survival=8	PRESKILL:1,Knowledge (Nature)=6	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -300,8 +300,8 @@ CLASS:Wilderness Guide	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	BONUS:CASTERL
 ### Tieflings of the Dominion
 ##############################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Diabolist	HD:6		TYPE:PC.Prestige	ABB:Dia		MAXLEVEL:10	SOURCEPAGE:p.94	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Diabolist	HD:6		TYPE:PC.Prestige	ABB:Dia		MAXLEVEL:10	SOURCEPAGE:p.94	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat							Required Skill								Req. Known Spell			Required Text
 CLASS:Diabolist	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Augment Summoning,Spell Focus(Conjuration)	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=6	PRESPELL:1,Summon Monster II	PRETEXT:See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -321,8 +321,8 @@ CLASS:Diabolist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|
 9	ADD:SPELLCASTER(Arcane)	SA:Craft Pit													FEATAUTO:Craft Summoning Pit
 10	ADD:SPELLCASTER(Arcane)	SA:Bind Summoning
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Bravo		HD:8		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Bravo		HD:8		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL				Req. Att.	Required Feat						Required Skill
 CLASS:Bravo		PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:7	PREFEAT:1,Quick Draw	PREFEAT:1,Weapon Focus	PRESKILL:1,Intimidation=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -346,8 +346,8 @@ CLASS:Bravo		STARTSKILLPTS:2	CSKILL:Bluff|Climb|Escape Artist|Handle Animal|Inti
 #Savvy Defense....
 #Improved Deadly Throw...
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Manipulator	HD:6		TYPE:PC.Prestige	ABB:Man		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Manipulator	HD:6		TYPE:PC.Prestige	ABB:Man		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat				Required Skill
 CLASS:Manipulator	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Negotiator,Persuasive	PRESKILL:2,Bluff,Diplomacy,Intimidate,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -371,8 +371,8 @@ CLASS:Manipulator	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|Decipher S
 ### Trueborn of the Kingsmarch
 ###############################
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Knight Adamant	HD:10		TYPE:PC.Prestige	ABB:KAd		MAXLEVEL:10	SOURCEPAGE:p.107	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Knight Adamant	HD:10		TYPE:PC.Prestige	ABB:KAd		MAXLEVEL:10	SOURCEPAGE:p.107	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat			Required Text
 CLASS:Knight Adamant	PREALIGN:LG,LN,NG	PREATT:7	PREFEAT:2,Cleave,Power Attack	PRETEXT:The character must be a disciple of Alharra.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -388,8 +388,8 @@ CLASS:Knight Adamant	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TYPE.Pr
 8	SA:Shining Beacon
 10	SA:Restore the Balance
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Disciple of St. Baedras	HD:10		TYPE:PC.Prestige	ABB:Baed		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Disciple of St. Baedras	HD:10		TYPE:PC.Prestige	ABB:Baed		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat					Required Text
 CLASS:Disciple of St. Baedras	PREATT:6	PREFEAT:2,Combat Expertise,Sneak Attack	PRETEXT:See Text.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -404,8 +404,8 @@ CLASS:Disciple of St. Baedras	STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Hide|Intimid
 8											ADD:FEAT(Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist)
 9	SA:Gouge
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lion of the Host	HD:10		TYPE:PC.Prestige	ABB:Lion		MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lion of the Host	HD:10		TYPE:PC.Prestige	ABB:Lion		MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat			Required Skill				Req. Spell Type		Required Text
 CLASS:Lion of the Host	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Toughness	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:Divine,1,2	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -430,8 +430,8 @@ CLASS:Lion of the Host	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle 
 ### Zangala
 ###########################
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
-CLASS:The Unbroken	HD:12		TYPE:PC.Prestige	ABB:Unb		MAXLEVEL:10	SOURCEPAGE:p.116	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:The Unbroken	HD:12		TYPE:PC.Prestige	ABB:Unb		MAXLEVEL:10	SOURCEPAGE:p.116	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat									Required Skill												Required Text
 CLASS:The Unbroken	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:1,Concentration=8	PRESKILL:3,Escape Artist,Sense Motive,Survival=4	PRETEXT:The character must be a former slave who has spent at least one year in slavery.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -451,8 +451,8 @@ CLASS:The Unbroken	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Concentration|Escape Artist
 ### Appendix: Legendary Items
 ##############################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Binder	HD:6		TYPE:PC.Prestige	ABB:Bind		MAXLEVEL:10	SOURCEPAGE:p.124	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Binder	HD:6		TYPE:PC.Prestige	ABB:Bind		MAXLEVEL:10	SOURCEPAGE:p.124	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat										Required Skill		Req. Spell Type
 CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus(Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:Arcane|Divine,1,3
 # Class Name	Skill Pts/Lvl	Class Skill

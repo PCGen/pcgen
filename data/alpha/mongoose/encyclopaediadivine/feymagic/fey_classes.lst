@@ -1,8 +1,8 @@
-# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Fri Feb 11 02:02:58 2005 -- reformated by prettylst.pl v1.34 (build 455)
+# CVS $Revision: 1.6 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Language	Required Skill
 CLASS:Feydancer	PRELANG:1,Sylvan	PRESKILL:2,Knowledge (Fey),Knowledge (Reverie)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -19,8 +19,8 @@ CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE.Craft|Knowledge (Fey)
 10	SA:Transformation																			TEMPLATE:Feydancer Transformation
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Feat					Required Skill										Req. Spell Type
 CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PRESKILL:2,TYPE.Craft,TYPE.Craft=8	PRESKILL:1,Knowledge (Reverie)=6	PRESPELLTYPE:Arcane|Divine,1,2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -37,8 +37,8 @@ CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.K
 10	SA:Use Activated									BONUS:VAR|HOTI|2
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Feat		Required Skill										Req. Known Spell
 CLASS:Wylding	PREFEAT:1,Forge Bond	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -55,8 +55,8 @@ CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Know
 10	ADD:SPELLCASTER(ANY)	SA:Symbiosis																					TEMPLATE:Wylding Plant
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL
 # Class Name		Req. Att.	Required Feat	Required Skill
 CLASS:Chosen Protector	PREATT:5	PREFEAT:1,Track	PRESKILL:1,Wilderness Lore=8	PRESKILL:1,Knowledge (Fey)=6
 # Class Name		Skill Pts/Lvl	Class Skill

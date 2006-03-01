@@ -1,9 +1,9 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jul 27 23:26:03 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Legends of the Ancients - Macedon|SOURCESHORT:LoAM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
 
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=BASE.Replace
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=BASE.Replace
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies

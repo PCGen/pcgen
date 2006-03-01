@@ -1,9 +1,9 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Fri Dec  9 15:56:49 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
 # Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
 
-# Class Name		Product Identity?	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
-CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
+CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat										Required Skill				Req. Spell Type
 CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:Psionic,1,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -20,8 +20,8 @@ CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Cra
 9	ADD:SPELLCASTER(Psionic)																																										ADD:FEAT(TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode)
 10						SA:Colorless Rain DC%, % times/day (Sp)|ColorlessRainDC|ColorlessRainTimes	BONUS:VAR|ColorlessRainDC|(23+BASESPELLSTAT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0
 
-# Class Name	Output Name		Hit Dice	Type			Subclass?		Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	HASSUBCLASS:YES	SOURCEPAGE:p.37	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type			Subclass?		Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	HASSUBCLASS:YES	SOURCEPAGE:p.37	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Psion ITCK	STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -85,8 +85,8 @@ SUBCLASSLEVEL:1	ADD:FEAT(Psychometabolism Subdiscipline,Psychokinesis Subdiscipl
 
 ###Block: variant prestige classes
 
-# Class Name		Output Name			Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
-CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Output Name			Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
+CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill						Req. Spell Type
 CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psionics)=6	PRESPELLTYPE:Psionic,1,2	PRESPELLTYPE:Psionic,2,0
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -105,8 +105,8 @@ CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Know
 9	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
 10						SA:Apotheosis ~ one hour/day
 
-# Class Name			Output Name				Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
-CLASS:Pyrokineticist ITCK	OUTPUTNAME:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Output Name				Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
+CLASS:Pyrokineticist ITCK	OUTPUTNAME:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Skill								Req. Known Spell			Req. Spell Type								Required Text
 CLASS:Pyrokineticist ITCK	PREALIGN:CG,CN,CE	PRESKILL:1,Alchemy=8	PRESKILL:1,Knowledge (Psionics)=4	PRESPELL:1,Control Flames	PRESPELLTYPE:Psionic,1,2	PRESPELLTYPE:Psionic,2,0	PRETEXT:Must have set fire to a structure of any size just to watch it burn
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -124,8 +124,8 @@ CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craf
 10	ADD:SPELLCASTER(Psionic)	SA:Fire Lord (PP 21+)						BONUS:VAR|PCrystalLevel|1
 
 
-# Class Name	Output Name		Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
-CLASS:Slayer ITCK	OUTPUTNAME:Slayer	HD:10		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
+CLASS:Slayer ITCK	OUTPUTNAME:Slayer	HD:10		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill											Required Text																		Var. Min. Value
 CLASS:Slayer ITCK	PREATT:3	PREFEAT:1,Track	PRESKILL:1,Knowledge (Mortal Enemy Lore)=1	PRESKILL:1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -147,7 +147,7 @@ CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal E
 10						SA:Blast Feedback
 
 # Class Name		Output Name			Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
-CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill						Var. Min. Value
 CLASS:Soulknife ITCK	PREATT:3	PRESKILL:2,Move Silently,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
 # Class Name		Skill Pts/Lvl	Class Skill

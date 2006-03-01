@@ -1,12 +1,12 @@
-# CVS $Revision: 1.19 $ $Author: tir-gwaith $ -- Mon Nov 28 14:07:29 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# CVS $Revision: 1.19 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
 # Original Entry by: Tir Gwaith
 
 # Class Name	Class Skill
 CLASS:Fighter.MOD	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Scent/Taste|Swim
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Aristo	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Ari		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Aristo	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Ari		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristo	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Perform|Read Lips|Ride|Savoir Faire|Sense Motive|Speak Language|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -25,8 +25,8 @@ CLASS:Aristo	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 17				ADD:FEAT(TYPE=Contact)
 19				ADD:FEAT(TYPE=Contact)
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Bard (CS)	OUTPUTNAME:Bard	HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:p.26	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Bard (CS)	OUTPUTNAME:Bard	HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:p.26	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Bard (CS)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -66,8 +66,8 @@ CLASS:Bard (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bar
 19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages					Save checks bonus												Combat bonus					Add domain number
-CLASS:Cleric (CS)	OUTPUTNAME:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		SOURCEPAGE:p.29	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Cleric (CS)	OUTPUTNAME:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		SOURCEPAGE:p.29	LANGAUTO:Literacy		LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric (CS)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Listen|Medical (First Aid)|TYPE.Profession|Read/Write Language|Scent/Taste|Search|Spot|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
@@ -103,8 +103,8 @@ CLASS:Cleric (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																		Combat bonus
-CLASS:Corporate Super	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:CSpr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																	Combat bonus
+CLASS:Corporate Super	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:CSpr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal Object|Criminology|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Read Lips|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Use Rope
 ###Block: Proficiencies
@@ -119,8 +119,8 @@ CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal
 18	ADD:FEAT(TYPE=Contact)
 20	ADD:FEAT(TYPE=Metahuman)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Dataman	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Data		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Dataman	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Data		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|Conceal Object|Criminology|Decipher Script|Disable Device|Forgery|Gather Information|Hide|TYPE.Knowledge|Linguistics|Listen|Medical (First Aid)|Open Lock|TYPE.Profession|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble
 1	FEATAUTO:Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
@@ -145,8 +145,8 @@ CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|C
 19																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
 20																								BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Ex Class			Source Page		Automatic Languages		Bonus Languages	Save checks bonus												Combat bonus
-CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type			Abbreviation	Ex Class			Source Page		Automatic Languages		Bonus Languages	Save checks bonus											Combat bonus
+CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Druid (CS)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -179,8 +179,8 @@ CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages	Visible	Save checks bonus												Combat bonus
-CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:p.33	LANGAUTO:Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages	Visible	Save checks bonus											Combat bonus
+CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:p.33	LANGAUTO:Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl
 CLASS:Ex Druid (CS)	STARTSKILLPTS:4
 ###Block: Proficiencies
@@ -188,8 +188,8 @@ CLASS:Ex Druid (CS)	STARTSKILLPTS:4
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus													Combat bonus
-CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Gadg		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL-1)/2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
+CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Gadg		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL-1)/2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE.Craft|Demolitions|Disable Device|Invention|Gather Information|Gunslinging|Intuit Direction|TYPE.Knowledge|Listen|Medical (First Aid)|TYPE.Profession|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 ###Block: Proficiencies
@@ -202,8 +202,8 @@ CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE.Craft|Dem
 # Dead Aim and Skip Shot feats are not listed in the book or errata. Strongly suspect these come from the Modern SRD since the book says those are optional rules.
 # Advanced Two-Weapon Fighting feat is listed in the feats table on p.81 but no description is given later in the book. Suspect this also comes from the Modern SRD.
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																		Combat bonus
-CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:Gun		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL-1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																	Combat bonus
+CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:Gun		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|(CL-1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Gunslinging|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|TYPE.Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival
 1	FEATAUTO:Archaic Weapons Proficiency|Personal Firearms Weapon Proficiency|Heavy Firearms Weapon Proficiency|Futuristic Weapon Proficiency|All Automatic Proficiencies
@@ -228,8 +228,8 @@ CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Ga
 #  The Monk would be a WHOLE Lot simpler with .MOD CSKILL:.CLEAR
 #	This is basically a copy of the SRD Monk, without PREALIGN, and different CSKILLS.
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Attack Cycle	Save checks bonus									Combat bonus
-CLASS:Monk (CS)	HD:8		TYPE:Base.PC	ABB:Mnk		SOURCEPAGE:p.	LANGAUTO:Literacy		ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Attack Cycle	Save checks bonus								Combat bonus
+CLASS:Monk (CS)	HD:8		TYPE:Base.PC	ABB:Mnk		SOURCEPAGE:p.	LANGAUTO:Literacy		ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE.Profession|Scent/Taste|Search|Spot|Swim|Tumble
 ###Block:DEFINEs and BONUSes associated.
@@ -263,8 +263,8 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
 20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Perfect Self																											TEMPLATE:Monk Outsider
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:MutH		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:MutH		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mutant Hero	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1	FEATAUTO:Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
@@ -278,7 +278,7 @@ CLASS:Mutant Hero	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Escape Artist
 20	ADD:FEAT(TYPE=Metahuman)
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus
-CLASS:Private Detective	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:PvtD		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2
+CLASS:Private Detective	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:PvtD		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2
 # Class Name		Required AL
 CLASS:Private Detective	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -307,8 +307,8 @@ CLASS:Private Detective	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Conceal Object|Cri
 19					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 20					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE	ADD:FEAT(TYPE=Contact)	ADD:FEAT(Brawl,Defensive Martial Arts,Dodge,Double-Tap,Educated,Improved Initiative,Knockout Punch,Point Blank Shot)
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Ranger (CS)	OUTPUTNAME:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		SOURCEPAGE:p.44	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Ranger (CS)	OUTPUTNAME:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		SOURCEPAGE:p.44	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Agriculture)|Knowledge (Nature)|Knowledge (Zoology)|Listen|Medical (First Aid)|Move Silently|TYPE.Profession|Ride|Scent/Taste|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level								Use Spell List
@@ -346,7 +346,7 @@ CLASS:Rogue.COPY=Rogue (CS)
 CLASS:Rogue (CS).MOD	CSKILL:Demolitions|Linguistics|Medical (First Aid)|Mesmerism|Scent/Taste|Speak Language
 
 # Class Name			Output Name					Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Rogue (CS/High tech)	OUTPUTNAME:Rogue, High Tech (CS)	HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:p.46	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Rogue (CS/High tech)	OUTPUTNAME:Rogue, High Tech (CS)	HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:p.46	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Linguistics|Listen|Medical (First Aid)|Mesmerism|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	FEATAUTO:Rogue Weapon Proficiencies|All Automatic Proficiencies
@@ -368,7 +368,7 @@ CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|T
 19			ADD:FEAT(TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Scholar	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Sch		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Scholar	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Sch		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scholar	STARTSKILLPTS:8	CSKILL:Computer Use|Criminology|Decipher Script|TYPE.Knowledge|Linguistics|Listen|TYPE.Medical|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 1	FEATAUTO:Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
@@ -382,8 +382,8 @@ CLASS:Scholar	STARTSKILLPTS:8	CSKILL:Computer Use|Criminology|Decipher Script|TY
 17	SA:Field Master
 19					ADD:Language(TYPE=Spoken,TYPE=Written)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Soldier	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Soldier	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|Demolitions|Drive|Forward Observer|Gather Information|Gunslinging|Handle Animal|Jump|Listen|Medical (First Aid)|TYPE.Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	ADD:FEAT(Personal Firearms Weapon Proficiency,Futuristic Weapon Proficiency)
@@ -407,8 +407,8 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|Demolitions|D
 19										BONUS:VAR|QuickAction|1
 20	SA:Reflexive Strike
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus															Combat bonus
-CLASS:Sorcerer (CS)	OUTPUTNAME:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:p.48	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus														Combat bonus
+CLASS:Sorcerer (CS)	OUTPUTNAME:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:p.48	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Read/Write Language|Ritual Casting|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
@@ -437,8 +437,8 @@ CLASS:Sorcerer (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Save checks bonus															Combat bonus
-CLASS:Warrior (CS)	OUTPUTNAME:Warrior	HD:10		TYPE:Base.PC	ABB:War		SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Save checks bonus														Combat bonus
+CLASS:Warrior (CS)	OUTPUTNAME:Warrior	HD:10		TYPE:Base.PC	ABB:War		SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Scent/Taste|Swim
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -458,8 +458,8 @@ CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ri
 20						ADD:FEAT(TYPE=Fighter)
 
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus															Combat bonus
-CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:p.52	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus														Combat bonus
+CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:p.52	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Jump|TYPE.Knowledge|Linguistics|TYPE.Profession|Read/Write Language|Ritual Casting|Scent/Taste|Scry|Search|Spellcraft|Spot
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List
@@ -497,8 +497,8 @@ SUBCLASS:Transmuter (CS)	COST:4	CHOICE:Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 19	CAST:4,4,4,4,4,4,4,4,3,3
 20	CAST:4,4,4,4,4,4,4,4,4,4					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Bonus Languages		Save checks bonus												Combat bonus
-CLASS:Martial Magician	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:MarM		SOURCEPAGE:p.	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Bonus Languages		Save checks bonus											Combat bonus
+CLASS:Martial Magician	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:MarM		SOURCEPAGE:p.	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Martial Magician	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Jump|TYPE.Knowledge|Linguistics|Move Silently|TYPE.Profession|Read/Write Language|Scent/Taste|Scry|Search|Spellcraft|Spot
 # Class Name		Spell Stat		Spell Type		Spellbook		Caster level					Use Spell List
@@ -527,8 +527,8 @@ CLASS:Martial Magician	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTER
 19	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,2,1
 20	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,3,2							BONUS:CHECKS|BASE.Reflex|1	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery,Acrobatic,Advanced Combat Martial Arts,Archaic Weapons Proficiency,Combat Reflexes,Combat Throw,Elusive Target,Exotic Melee Weapon Proficiency,Improved Combat Throw,Unbalance Opponent)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Mechanist	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Mech		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Mechanist	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Mech		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptography|Demolitions|Disable Device|Freefall|Knowledge (Anatomy)|Knowledge (Archeology)|Knowledge (Astrology)|Knowledge (Astronomy)|Knowledge (Biology)|Knowledge (Botany)|Knowledge (Chemistry)|Knowledge (Epistemology)|Knowledge (Geology)|Knowledge (Mathematics)|Knowledge (Physics)|Knowledge (Psionics)|Knowledge (Technology)|Knowledge (Temporal Mechanics)|Knowledge (Zoology)|Open Lock|TYPE.Pilot|TYPE.Profession|Repair|Research|Search
 1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
@@ -548,8 +548,8 @@ CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptog
 
 # Battlemind - Psionics
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Battle Mind	NAMEISPI:YES	HD:8		TYPE:Prestige.PC	ABB:BtM		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Battle Mind	NAMEISPI:YES	HD:8		TYPE:Prestige.PC	ABB:BtM		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Battle Mind	PREATT:3	PREFEAT:1,Wild Talent,Psionic Talent	PRESKILL:1,Jump=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -566,8 +566,8 @@ CLASS:Battle Mind	STARTSKILLPTS:3	CSKILL:Autohypnosis|Balance|Climb|Concentratio
 9	KNOWN:3,3,3,2																												ADD:FEAT(Archaic Weapons Proficiency,Athletic,Blind-Fight,Cleave,Combat Martial Arts,Combat Reflexes,Exotic Weapon Proficiency,Focused,Improved Combat Martial Arts,Power Attack,Toughness,Weapon Finesse,Weapon Focus)
 10	KNOWN:3,3,3,2,1	SA:.CLEAR.Improved Psi-Blade	SA:Ultimate Psi-Blade
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																		Combat bonus
-CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	ABB:BdG		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus																	Combat bonus
+CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	ABB:BdG		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat						Required Skill
 CLASS:Bodyguard	PREATT:2	PREFEAT:1,Personal Firearms Weapon Proficiency	PRESKILL:2,Concentration=6,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -583,8 +583,8 @@ CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gath
 9																	ADD:FEAT(Advanced Firearms Weapon Proficiency,Armor Proficiency (Light),Armor Proficiency (Medium),Attentive,Combat Expertise,Combat Reflexes,Double-Tap,Improved Brawl,Improved Feint,Improved Knockout Punch,Knockout Punch,Precise Shot,Quick Draw,Quick Reload,Streetfighting,Toughness,Vehicle Expert)
 10	SA:Blanket Protection
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus								Combat bonus
-CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:BHtr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus							Combat bonus
+CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:BHtr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat	Required Skill										Required Text
 CLASS:Bounty Hunter	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Criminology,Gather Information,Intimidate,Move Silently=5	PRETEXT:Must be 18 years of age
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -597,8 +597,8 @@ CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE.Craft|C
 3						ADD:FEAT(TYPE=Contact)
 7						ADD:FEAT(TYPE=Contact)
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:CPC Enforcement Officer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:CPCEO		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:CPC Enforcement Officer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:CPCEO		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Skill			Required Stat		Required Text
 CLASS:CPC Enforcement Officer	PREATT:6	PRESKILL:1,Criminology=5	PRESTAT:2,INT=12,CON=10	PRETEXT:Must be 18 years of age
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -614,8 +614,8 @@ CLASS:CPC Enforcement Officer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Cra
 9															ADD:FEAT(TYPE=Contact)
 10	SA:Senior Officer																VFEAT:Leadership
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus															Combat bonus
-CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SecS		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+1	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus														Combat bonus
+CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SecS		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+1	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Skill				Required Text
 CLASS:Security Specialist	PREATT:6	PRESKILL:1,Gather Information=5	PRETEXT:Must have achieved 21 years of age
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -634,8 +634,8 @@ CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|C
 8	SA:.CLEAR.Sweep	SA:Improved Sweep
 9																								ADD:FEAT(Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Spy		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Spy		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Language	Required Skill							Required Text
 CLASS:Spy		PRELANG:2,ANY	PRESKILL:3,Diplomacy=8,Sense Motive=8,Savoir-Faire=5	PRETEXT:The character must know at least one language other than his native one
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -651,8 +651,8 @@ CLASS:Spy		STARTSKILLPTS:6	CSKILL:Climb|Bluff|Disable Device|Diplomacy|Disguise|
 6																								DEFINE:WeapSpecQualify|1				ADD:FEAT(Weapon Specialization(Garrote))
 8																		BONUS:SKILLRANK|Speak Languages|4
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Techie	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tech		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Techie	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tech		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Skill
 CLASS:Techie	PRESKILL:2,Computer Use=6,Disable Device=6	PRESKILL:1,Craft (Electronics),Craft (Mechanical)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -669,8 +669,8 @@ CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronics)|Craft (Mech
 9												ADD:FEAT(Builder,Cautious,Combat Expertise,Educated,Gearhead,Personal Firearms Weapon Proficiency,Point Blank Shot,Studious)
 10												ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Technomancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tcno		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Technomancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tcno		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill					Req. Spell Type
 CLASS:Technomancer	PREFEAT:1,TYPE=ItemCreation	PRESKILL:2,Repair=5,Use Magic Device=8	PRESPELLTYPE:Arcane,1,1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -689,8 +689,8 @@ CLASS:Technomancer	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Technomancer|CL
 10	CAST:0,2,2,2,1	SA:Meld with Construct (Su)
 
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Telepath	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tele		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Telepath	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tele		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat					Required Skill
 CLASS:Telepath	PREFEAT:1,Wild Talent,Psionic Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -707,8 +707,8 @@ CLASS:Telepath	STARTSKILLPTS:5	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy
 10	KNOWN:6,4,3,3,2,1																																										FEATAUTO:Maximize Power
 
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Weird Scientist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:WrdS		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Weird Scientist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:WrdS		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Skill
 CLASS:Weird Scientist	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Repair=8
 # Class Name		Skill Pts/Lvl	Class Skill

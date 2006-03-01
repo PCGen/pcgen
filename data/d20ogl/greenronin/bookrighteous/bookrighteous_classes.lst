@@ -1,12 +1,12 @@
-# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Mon Nov 28 06:08:26 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Arcana - The Book of the Righteous|SOURCESHORT:BookRight|SOURCEWEB:http://www.greenronin.com
 # Original Entry by: Beaver, updated by Tir Gwaith
 
 #SA Domain ability.. at 1st level they gain 4 abilities from their domain(s) and at 2nd level 2 from their Domain(s) - nothing after that.
 #This is going to require some rethinking of how domain abilities are done in data files and a CHOOSE:DOMAINABILITY(>list<) tag
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Define		Save checks bonus												Combat bonus		Add domain number		Modify VAR
-CLASS:Holy Warrior	HD:10		TYPE:Base.PC	ABB:HlyW		MAXLEVEL:20	HASSUBCLASS:YES	EXCLASS:Ex Holy Warrior	SOURCEPAGE:p.243	LANGAUTO:Literacy		DEFINE:SMLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|SMLevel|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Define		Save checks bonus											Combat bonus		Add domain number		Modify VAR
+CLASS:Holy Warrior	HD:10		TYPE:Base.PC	ABB:HlyW		MAXLEVEL:20	HASSUBCLASS:YES	EXCLASS:Ex Holy Warrior	SOURCEPAGE:p.243	LANGAUTO:Literacy		DEFINE:SMLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|SMLevel|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Warrior	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Handle Animal|Knowledge (Religion)|TYPE.Profession|Ride
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
@@ -174,9 +174,9 @@ SUBCLASSLEVEL:5	SA:Celestial Animal Compainion
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1				BONUS:VAR|HolyWarrior|1					BONUS:CHECKS|Fortitude,Reflex,Willpower|max(CHA,0)	DEFINE:HolyWarrior|0	DEFINE:AllowExtraTurning|1
-2				BONUS:VAR|HolyWarrior|1																							FEATAUTO:Smite Evil
-3				BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL										DEFINE:TurnTimesBase|3+CHA					FEATAUTO:Basic Turning|Turn Undead
+1				BONUS:VAR|HolyWarrior|1					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:HolyWarrior|0	DEFINE:AllowExtraTurning|1
+2				BONUS:VAR|HolyWarrior|1																						FEATAUTO:Smite Evil
+3				BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL									DEFINE:TurnTimesBase|3+CHA					FEATAUTO:Basic Turning|Turn Undead
 4	CAST:0,0
 5	CAST:0,0
 6	CAST:0,1
@@ -195,8 +195,8 @@ SUBCLASSLEVEL:5	SA:Celestial Animal Compainion
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Visible	Save checks bonus												Combat bonus
-CLASS:Ex Holy Warrior	HD:10		TYPE:Base.PC	ABB:XHlyW		SOURCEPAGE:p.245	LANGAUTO:Literacy		VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Visible	Save checks bonus											Combat bonus
+CLASS:Ex Holy Warrior	HD:10		TYPE:Base.PC	ABB:XHlyW		SOURCEPAGE:p.245	LANGAUTO:Literacy		VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 ###Block: Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies

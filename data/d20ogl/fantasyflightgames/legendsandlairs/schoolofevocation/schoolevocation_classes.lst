@@ -1,4 +1,4 @@
-# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Sat Dec 10 02:35:29 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -6,8 +6,8 @@ SOURCELONG:Fantasy Flight Games - School of Evocation|SOURCESHORT:Evoc|SOURCEWEB
 # Core class
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Devoted Evoker	HD:4		TYPE:Base.PC	ABB:Evoc		MAXLEVEL:20	SOURCEPAGE:p.4	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Devoted Evoker	HD:4		TYPE:Base.PC	ABB:Evoc		MAXLEVEL:20	SOURCEPAGE:p.4	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL
 CLASS:Devoted Evoker	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -45,8 +45,8 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 # Prestige classes
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Arcane Architect	HD:4		TYPE:PC.Prestige	ABB:Arch		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Arcane Architect	HD:4		TYPE:PC.Prestige	ABB:Arch		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat						Required Skill														Req. Known Spell		Req. Spell Type
 CLASS:Arcane Architect	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:1,TYPE.Craft=10	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=10	PRESPELL:1,Tiny Hut	PRESPELLTYPE:Arcane,2,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -63,8 +63,8 @@ CLASS:Arcane Architect	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|T
 10	ADD:SPELLCASTER(ANY)
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Guardian of the Flame	HD:4		TYPE:PC.Prestige	ABB:GuFl		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Guardian of the Flame	HD:4		TYPE:PC.Prestige	ABB:GuFl		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat							Required Skill		Req. Known Spell		Req. Spell Type
 CLASS:Guardian of the Flame	PREALIGN:LG,NG,CG	PREFEAT:2,Lightning Reflexes,Spell Focus(Evocation)	PRESKILL:1,Spellcraft=8	PRESPELL:1,Fireball	PRESPELLTYPE:Arcane,2,3
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -81,8 +81,8 @@ CLASS:Guardian of the Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Cr
 10	ADD:SPELLCASTER(ANY)											BONUS:VAR|AbsorbHeat|5
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Illuminator	HD:4		TYPE:PC.Prestige	ABB:Ill		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Illuminator	HD:4		TYPE:PC.Prestige	ABB:Ill		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Illuminator	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Scry|Search|Speak Language|Spellcraft|Spot
 1	ADD:SPELLCASTER(ANY)					SA:Piercing Gaze (illumination)
@@ -97,8 +97,8 @@ CLASS:Illuminator	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Deciph
 10	ADD:SPELLCASTER(ANY)
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat		Required Skill							Req. Known Spell			Req. Spell Type
 CLASS:Maestro of Dissonance	PREFEAT:1,Blindfight	PRESKILL:2,Listen,Perform=4	PRESKILL:1,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:Arcane,2,3
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE
 
 # Hammer (Gnome Hooked) not in the SRD
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat								Required Skill										Req. Known Spell		Req. Spell Type
 CLASS:Order of Akmon	PREFEAT:3,Combat Casting,Spell Focus(Evocation),Still Spell	PRESKILL:2,Concentration,Knowledge (Arcana)=8	PRESKILL:1,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:Arcane,2,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -137,8 +137,8 @@ CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowle
 10	ADD:SPELLCASTER(ANY)						SA:Fearful Force
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Spark		HD:4		TYPE:PC.Prestige	ABB:Sprk		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Spark		HD:4		TYPE:PC.Prestige	ABB:Sprk		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill		Req. Known Spell			Req. Spell Type
 CLASS:Spark		PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Spellcraft=8	PRESPELL:1,Lightning Bolt	PRESPELLTYPE:Arcane,3,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -155,8 +155,8 @@ CLASS:Spark		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowle
 10	ADD:SPELLCASTER(ANY)							SA:Catch the Lightning
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Unmaker	HD:4		TYPE:PC.Prestige	ABB:Unm		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Unmaker	HD:4		TYPE:PC.Prestige	ABB:Unm		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat					Required Skill				Req. Known Spell		Req. Spell Type
 CLASS:Unmaker	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Brew Potion,Great Fortitude	PRESKILL:1,Alchemy,Spellcraft=8	PRESPELL:1,Acid Burst	PRESPELLTYPE:Arcane,3,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -173,8 +173,8 @@ CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|T
 10	ADD:SPELLCASTER(ANY)							SA:Acid Bolt
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill												Req. Known Spell					Req. Spell Type
 CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Knowledge (Nature),Wilderness Lore=4	PRESKILL:1,Knowledge (Arcana)=8	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:Arcane,3,3
 # Class Name	Skill Pts/Lvl	Class Skill

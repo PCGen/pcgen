@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Wed Jan  5 12:53:43 2005 -- reformated by prettylst.pl v1.34 (build 445)
+# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Equipment Name			Type						Cost		Slot Needed	Choose					Source Page					Bonus to skill			Special Property
@@ -64,7 +64,7 @@ Crystal Capacitor (9 PP)	TYPE:Psionic.Universal	COST:25000	SOURCEPAGE:srdpsionic
 Psychoactive Skin (Chameleon)		TYPE:Psionic.Universal.PsycoSkin	COST:4500				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Hide|15
 Psychoactive Skin (Claw)		TYPE:Psionic.Universal.PsycoSkin	COST:16000	DAMAGE:1d12+STR	SOURCEPAGE:srdpsionicitems.rtf
 Psychoactive Skin (Defender)		TYPE:Psionic.Universal.PsycoSkin	COST:32000				SOURCEPAGE:srdpsionicitems.rtf								BONUS:COMBAT|AC|4
-Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000				SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Fortitude,Willpower,Reflex|3	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3
+Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000				SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Fortitude,Will,Reflex|3	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3
 Psychoactive Skin (Iron)		TYPE:Psionic.Universal.PsycoSkin	COST:240000				SOURCEPAGE:srdpsionicitems.rtf
 Psychoactive Skin (Nimbleness)	TYPE:Psionic.Universal.PsycoSkin	COST:2000				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Tumble|10
 Psychoactive Skin (Proteus)		TYPE:Psionic.Universal.PsycoSkin	COST:90000				SOURCEPAGE:srdpsionicitems.rtf

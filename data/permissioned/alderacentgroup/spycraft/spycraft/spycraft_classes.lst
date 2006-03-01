@@ -1,4 +1,4 @@
-# CVS $Revision: 1.22 $ $Author: eddyanthony $ -- Tue Aug 23 01:12:13 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.22 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -7,8 +7,8 @@ SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.co
 
 ### Faceman -------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																Combat bonus																											Modify VAR
-CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		SOURCEPAGE:p.22	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|(((CL+3)*2)/5)-(CL==15)-(CL==17)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus															Combat bonus																											Modify VAR
+CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		SOURCEPAGE:p.22	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(((CL+3)*2)/5)-(CL==15)-(CL==17)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|TYPE.Language|Open Lock|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
 
@@ -29,8 +29,8 @@ CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Cultures|Diplomacy|Disguis
 
 ### Fixer ---------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																														Modify VAR
-CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		SOURCEPAGE:p.24	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																	Combat bonus																														Modify VAR
+CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		SOURCEPAGE:p.24	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE.Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE.Hobby|Innuendo|Jump|TYPE.Knowledge|Languages|TYPE.Language|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble
 
@@ -49,8 +49,8 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE.Cr
 
 ### Pointman ------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus															Combat bonus																													Modify VAR
-CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		SOURCEPAGE:p.26	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus														Combat bonus																													Modify VAR
+CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		SOURCEPAGE:p.26	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE.Craft|Diplomacy|Driver|First Aid|TYPE.Knowledge|TYPE.Profession|Sense Motive|TYPE.Sport
 
@@ -78,8 +78,8 @@ CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE.Craft|Diplomacy|Dri
 
 ### Snoop ---------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus														Combat bonus																									Modify VAR
-CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		SOURCEPAGE:p.28	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus													Combat bonus																									Modify VAR
+CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		SOURCEPAGE:p.28	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|First Aid|Gather Information|Hide|TYPE.Hobby|TYPE.Knowledge|Languages|TYPE.Language|Listen|Mechanics|Move Silently|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Surveillance
 
@@ -107,8 +107,8 @@ CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration
 
 ### Soldier -------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																													Modify VAR
-CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.30	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																	Combat bonus																													Modify VAR
+CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.30	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
 
@@ -137,7 +137,7 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver
 ### Wheelman ------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus																						Modify VAR
-CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE.Craft|Demolitions|Disguise|Driver|Escape Artist|Handle Animal|Intimidate|Jump|Mechanics|Open Lock|Perform|Pilot|TYPE.Profession|TYPE.Sport|Spot|Surveillance|Survival|Swim
 
@@ -165,8 +165,8 @@ CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE.Craft|Demolitions|Dis
 
 ### Non-Player Classes ------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																		Combat bonus
-CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		SOURCEPAGE:p.244	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus																	Combat bonus
+CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		SOURCEPAGE:p.244	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE.Profession|TYPE.Sport|Spot|Survival|Swim|Tumble|Use Rope
 

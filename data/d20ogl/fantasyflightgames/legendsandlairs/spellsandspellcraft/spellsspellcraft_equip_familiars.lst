@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 #Original entry by: Knightcrawler
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft|SOURCESHORT:Spellcraft|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Equipment Name			Type			Cost		Source Page		Virtual Feat				Save checks bonus			Bonus to skill		Stat bonus		Special Property
@@ -10,7 +10,7 @@ Familiar (Dust Devil)		TYPE:Familiar	COST:100	SOURCEPAGE:p.144	VFEAT:Alertness
 Familiar (Fire Archon)		TYPE:Familiar	COST:100	SOURCEPAGE:p.144	VFEAT:Alertness
 Familiar (Fire Beetle)		TYPE:Familiar	COST:100	SOURCEPAGE:p.144	VFEAT:Alertness																SPROP:Fire resistance of 5
 Familiar (Ice Sparrow)		TYPE:Familiar	COST:100	SOURCEPAGE:p.145	VFEAT:Alertness
-Familiar (Ghostball)		TYPE:Familiar	COST:100	SOURCEPAGE:p.145	VFEAT:Alertness				BONUS:CHECKS|Willpower|2
+Familiar (Ghostball)		TYPE:Familiar	COST:100	SOURCEPAGE:p.145	VFEAT:Alertness				BONUS:CHECKS|Will|2
 Familiar (Grassmane)		TYPE:Familiar	COST:100	SOURCEPAGE:p,145	VFEAT:Alertness
 Familiar (Grimoire)		TYPE:Familiar	COST:100	SOURCEPAGE:p.145	VFEAT:Alertness|Heighten Spell
 Familiar (Hell Hound)		TYPE:Familiar	COST:100	SOURCEPAGE:p.146	VFEAT:Alertness									BONUS:SKILL|Search|2
@@ -20,7 +20,7 @@ Familiar (Mosquito)		TYPE:Familiar	COST:100	SOURCEPAGE:p.147	VFEAT:Alertness				
 Familiar (Muckler)		TYPE:Familiar	COST:100	SOURCEPAGE:p.147	VFEAT:Alertness
 Familiar (Plague Rat)		TYPE:Familiar	COST:100	SOURCEPAGE:p.147	VFEAT:Alertness																SPROP:+4 bonus on Fortitude saves against disease
 Familiar (Puppet)			TYPE:Familiar	COST:100	SOURCEPAGE:p.148	VFEAT:Alertness													BONUS:STAT|CHA|2
-Familiar (Salt Toad)		TYPE:Familiar	COST:100	SOURCEPAGE:p.148	VFEAT:Alertness				BONUS:CHECKS|Willpower|2
+Familiar (Salt Toad)		TYPE:Familiar	COST:100	SOURCEPAGE:p.148	VFEAT:Alertness				BONUS:CHECKS|Will|2
 Familiar (Scarab)			TYPE:Familiar	COST:100	SOURCEPAGE:p.148	VFEAT:Alertness				BONUS:CHECKS|Reflex|2
 Familiar (Skeleton/Small)	TYPE:Familiar	COST:100	SOURCEPAGE:p.149	VFEAT:Alertness									BONUS:SKILL|Search|4
 Familiar (Steambat)		TYPE:Familiar	COST:100	SOURCEPAGE:p.149	VFEAT:Alertness				BONUS:CHECKS|Reflex|2

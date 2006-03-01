@@ -1,8 +1,8 @@
-# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.8 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Avalanche Press - Jade and Steel|SOURCESHORT:JadeSteel|SOURCEWEB:http://www.avalanchepress.com
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Alchemist	HD:6		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Alchemist	HD:6		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat						Required Skill		Req. Spell Type
 CLASS:Alchemist	PREFEAT:2,Brew Potion,Skill Focus (Alchemy)	PRESKILL:1,Alchemy=10	PRESPELLTYPE:Arcane,1,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft
 9	ADD:SPELLCASTER(Arcane)	SA:Brew Gas
 10	ADD:SPELLCASTER(Arcane)	SA:Elixir of Life
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Save checks bonus									Combat bonus
-CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	ABB:DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Save checks bonus								Combat bonus
+CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	ABB:DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Feat
 CLASS:Dim Mak Practitioner	PREALIGN:LG,LN,LE	PREATT:3	PREFEAT:3,Improved Unarmed Strike,Improved Trip,Improved Initiative
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -35,8 +35,8 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Quivering Palm
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Distant Blow
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Diviner	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Diviner	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill					Required Spell School
 CLASS:Diviner	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana),Scry=8	PRESPELLSCHOOL:Divination,7,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -54,8 +54,8 @@ CLASS:Diviner	SPELLLIST:1|Wizard
 9	ADD:SPELLCASTER(Arcane)
 10	ADD:SPELLCASTER(Arcane)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Geometer	HD:8		TYPE:PC.Prestige	ABB:Geo		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Geometer	HD:8		TYPE:PC.Prestige	ABB:Geo		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat						Required Skill									Req. Spell Type
 CLASS:Geometer	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana),Knowledge (Religion),Spellcraft=8	PRESPELLTYPE:Divine,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -73,8 +73,8 @@ CLASS:Geometer	SPELLLIST:1|Cleric
 9	ADD:SPELLCASTER(ANY)
 10	ADD:SPELLCASTER(ANY)	SA:Perfect Harmony
 
-# Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Save checks bonus									Combat bonus
-CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	ABB:IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Save checks bonus								Combat bonus
+CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	ABB:IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Feat
 CLASS:Iron Hand Disciple	PREALIGN:LG,LN,LE	PREATT:4	PREFEAT:3,Improved Unarmed Strike,Great Fortitude,Power Attack
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -90,8 +90,8 @@ CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SA:Heart of Steel
 10	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10			SA:Iron Body
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	ABB:SwS		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	ABB:SwS		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
 CLASS:Sword Saint	PREATT:6	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring Attack
 # Class Name	Skill Pts/Lvl	Class Skill

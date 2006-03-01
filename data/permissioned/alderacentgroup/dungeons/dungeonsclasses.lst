@@ -1,8 +1,8 @@
-# CVS $Revision: 1.10 $ $Author: tir-gwaith $ -- Wed Dec 14 15:42:14 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.10 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Alderac Entertainment Group - Dungeons|SOURCESHORT:Dungeons|SOURCEWEB:http://alderac.com/d20
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat			Required Skill				Req. Spell Type
 CLASS:Crusader	PREATT:5	PREFEAT:1,Weapon Focus (%)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:Divine,1,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -24,8 +24,8 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 9	ADD:SPELLCASTER(Divine)
 10	ADD:SPELLCASTER(Divine)	SA:Turn Chosen Enemy
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill												Req. Spell Type
 CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Alchemy=8	PRESKILL:1,Craft (Blacksmithing),Craft (Metalworking)=8	PRESPELLTYPE:Arcane,1,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -46,8 +46,8 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 9	ADD:SPELLCASTER(Arcane)																					FEATAUTO:Uncanny Dodge
 10	ADD:SPELLCASTER(Arcane)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Required Race
 CLASS:Shock Trooper	PREATT:5	PREFEAT:3,Power Attack,Quick Draw,Run	PRERACE:Dwarf%,Gnome%
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -68,7 +68,7 @@ CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Intuit Direc
 10	SA:Improved Critical (size large or bigger regardless of weapon used)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill
 CLASS:Treasure Hunter	PREFEAT:1,Lightning Reflexes	PRESKILL:1,Knowledge (Ancient History)=4	PRESKILL:2,Disable Device,Search=8
 # Class Name		Skill Pts/Lvl	Class Skill

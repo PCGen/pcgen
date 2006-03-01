@@ -1,9 +1,9 @@
-# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Wed Aug  4 21:03:21 2004 -- reformated by prettylst.pl v1.33 (build 379)
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Culture Class - County Clergy|SOURCESHORT:CountyClg|SOURCEWEB:http://www.creativemountaingames.com
 # Original Entry by: Barak
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Save checks bonus												Combat bonus
-CLASS:County Clergy	NAMEISPI:YES	HD:6		TYPE:Base.NPC	ABB:Clr		BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Save checks bonus											Combat bonus
+CLASS:County Clergy	NAMEISPI:YES	HD:6		TYPE:Base.NPC	ABB:Clr		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:County Clergy	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Gather Information|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level

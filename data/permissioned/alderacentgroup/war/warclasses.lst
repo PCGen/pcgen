@@ -1,8 +1,8 @@
-# CVS $Revision: 1.18 $ $Author: tir-gwaith $ -- Wed Dec 14 14:16:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.18 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Alderac Entertainment Group - War|SOURCESHORT:War|SOURCEWEB:http://alderac.com/d20
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																				Combat bonus
-CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2|PRECLASS:1,Beast Handler=3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
+CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2|PRECLASS:1,Beast Handler=3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat										Required Skill
 CLASS:Beast Handler	PREATT:4	PREFEAT:2,Exotic Weapon Proficiency (Whip),Skill Focus (Handle Animal)	PRESKILL:1,Handle Animal=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -24,8 +24,8 @@ CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 10	CAST:3,3,2,0	KNOWN:4,4,3,2	SA:Special Mount
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Brute		HD:10		TYPE:PC.Prestige	ABB:Brt		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Brute		HD:10		TYPE:PC.Prestige	ABB:Brt		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat				Required Skill
 CLASS:Brute		PREATT:7	PREFEAT:2,Power Attack,Toughness	PRESKILL:1,Intimidate=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -46,7 +46,7 @@ CLASS:Brute		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Ride|Swim
 10	SA:Brutal Assault
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	ABB:ETr		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	ABB:ETr		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat				Required Race		Required Skill
 CLASS:Elf Treerunner	PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Wilderness Lore=4	PRESKILL:2,Jump,Balance=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -66,7 +66,7 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 10					SA:.CLEAR.Arboreal Gate	SA:Arboreal Gate (1 round)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Prohibited Class		Required Feat						Required Skill
 CLASS:Epic Athlete	PREATT:5	!PRECLASS:1,Monk=1	PREFEAT:3,Improved Unarmed Strike,Run,Toughness	PRESKILL:1,Jump=8	PRESKILL:2,Balance,Tumble=4	PRESKILL:2,Climb,Swim=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -84,8 +84,8 @@ CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intim
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Hearty Constitution
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SA:Immunity to disease and poison	SA:Regeneration (Ex) % HP/ Hour|Regen	BONUS:VAR|Regen|max(CON,0)																													DEFINE:Regen|0
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat			Maximum Size
 CLASS:Footman	PREATT:3	PREFEAT:2,Dodge,Expertise	PRESIZELTEQ:S
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,8 +98,8 @@ CLASS:Footman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|TYPE.Profession|Ride|
 2	SA:Protect Ally
 4	SA:Defend Ally
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Gutter Fighter	HD:10		TYPE:PC.Prestige	ABB:Gtr		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Gutter Fighter	HD:10		TYPE:PC.Prestige	ABB:Gtr		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat			Maximum Size	Required Skill
 CLASS:Gutter Fighter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:1,Weapon Finesse	PRESIZELTEQ:S	PRESKILL:2,Intimidate,Hide=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -118,8 +118,8 @@ CLASS:Gutter Fighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist
 8					BONUS:VAR|UncannyDodge|1									FEATAUTO:Uncanny Dodge
 10	SA:Agonizing Strike
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Knight Chaplain	HD:8		TYPE:PC.Prestige	ABB:KCh		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Knight Chaplain	HD:8		TYPE:PC.Prestige	ABB:KCh		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat			Required Skill
 CLASS:Knight Chaplain	PREATT:5	PREFEAT:1,Skill Focus(Heal)	PRESKILL:2,Concentration,Heal=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -150,7 +150,7 @@ CLASS:Knight Chaplain	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLE
 10	CAST:6,4,4,3,3,2	SA:Combat Healing
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lancer	HD:10		TYPE:PC.Prestige	ABB:Lnc		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Lancer	HD:10		TYPE:PC.Prestige	ABB:Lnc		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat																											Required Skill
 CLASS:Lancer	PREATT:6	PREFEAT:1,Weapon Focus(Longspear),Weapon Focus(Glaive),Weapon Focus(Guisarme),Weapon Focus(Ranseur),Weapon Focus(Lance%)	PREFEAT:3,Dodge,Mobility,Skill Focus(Jump)	PRESKILL:2,Jump,Tumble=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -168,8 +168,8 @@ CLASS:Lancer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Handle Animal|Jump|
 9	SA:Spearpoint
 10	SA:Spin Attack
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Mercenary Captain	HD:10		TYPE:PC.Prestige	ABB:MCp		MAXLEVEL:10	SOURCEPAGE:p.67	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|(CL+2)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Mercenary Captain	HD:10		TYPE:PC.Prestige	ABB:MCp		MAXLEVEL:10	SOURCEPAGE:p.67	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|(CL+2)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat											Required Skill
 CLASS:Mercenary Captain	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:4,Improved Initiative,Leadership,Weapon Focus,Weapon Specialization	PRESKILL:1,Intimidate=6	PRESKILL:3,Bluff,Ride,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -190,7 +190,7 @@ CLASS:Mercenary Captain	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Innuendo|Intimidate|L
 10	SA:Battle Master
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Rake		HD:6		TYPE:PC.Prestige	ABB:Rak		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Rake		HD:6		TYPE:PC.Prestige	ABB:Rak		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat		Required Skill
 CLASS:Rake		PREATT:4	PREFEAT:1,Expertise	PRESKILL:2,Bluff,Intimidate=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -207,8 +207,8 @@ CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuen
 9																	ADD:FEAT(TYPE=Fighter)
 10	SA:.CLEAR.Taunt	SA:Taunt (Intimidate/Enrage/Stun/Rally)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat
 CLASS:Sharpshooter	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Weapon Focus (Shortbow%),Weapon Focus (Longbow%),Weapon Focus (Crossbow%)	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -224,8 +224,8 @@ CLASS:Sharpshooter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimid
 9	SA:Immobilizing Shot
 10	SA:Killing Shot
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat
 CLASS:Shieldbearer	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Lightning Reflexes
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -245,8 +245,8 @@ CLASS:Shieldbearer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist
 9												ADD:FEAT(TYPE=Fighter)
 10	SA:Fortify
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
-CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Race	Required Skill
 CLASS:Spellbreaker	PREATT:5	PRERACE:Dwarf%	PRESKILL:2,Knowledge (Arcana),Spellcraft=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -262,8 +262,8 @@ CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Kn
 8	SA:Disruptive Fist
 10	SA:Empty Mind (10' radius)	SA:Shattering Strike
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Wandering Squire	HD:10		TYPE:PC.Prestige	ABB:WSq		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Wandering Squire	HD:10		TYPE:PC.Prestige	ABB:WSq		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat
 CLASS:Wandering Squire	PREATT:5	PREFEAT:3,Dodge,Two-Weapon Fighting,Weapon Focus(Quarterstaff)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -283,8 +283,8 @@ CLASS:Wandering Squire	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Gather 
 9	SA:Warding Attack
 10	SA:Staff Mastery			BONUS:COMBAT|AC|1|TYPE=Dodge
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Warleader	HD:10		TYPE:PC.Prestige	ABB:Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Warleader	HD:10		TYPE:PC.Prestige	ABB:Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat		Required Skill
 CLASS:Warleader	PREATT:6	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -304,8 +304,8 @@ CLASS:Warleader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|
 9								BONUS:VAR|Motivate|1							ADD:FEAT(TYPE=Fighter)
 10	SA:Rally the Troops				BONUS:VAR|Motivate|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Warmage	HD:6		TYPE:PC.Prestige	ABB:WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Warmage	HD:6		TYPE:PC.Prestige	ABB:WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat									Required Skill									Req. Spell Type
 CLASS:Warmage	PREFEAT:1,TYPE=Metamagic	PREFEAT:2,Combat Casting,Dodge	PRESKILL:1,Concentration=8	PRESKILL:1,Knowledge (Arcana)=6	PRESPELLTYPE:Arcane,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -324,8 +324,8 @@ CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowl
 9					SA:Arcane Tactician
 10	ADD:SPELLCASTER(Arcane)	SA:Arcane Warrior
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	ABB:Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	ABB:Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Required Skill										Var. Min. Value
 CLASS:Wild Rider	PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:1,Ride=8	PRESKILL:3,Animal Empathy,Heal,Wilderness Lore=6	PREVARGTEQ:RageTimes,1
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,8 +1,8 @@
-# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Wed Jan 26 23:35:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
+# CVS $Revision: 1.4 $ $Author: frank_kliewe $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Blood and Relics 2nd Edition|SOURCESHORT:BnR2|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Inquisitor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Inquisitor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
 # Class Name	Req. Att.	Required Feat														Required Skill
 CLASS:Inquisitor	PREATT:2	PREFEAT:3,Conviction (Higher Power),Faith's Protection,Secret Society (Frater Torquemada/6)	PRESKILL:2,Knowledge (Theology and Philosophy),Sense Motive=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -17,8 +17,8 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dipl
 8	SA:Forced Contrition
 9											ADD:FEAT(TYPE=Inquisitor)
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Exorcist	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Exorcist	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Required Feat															Required Skill															Required Text
 CLASS:Exorcist	PREFEAT:5,Castigation,Conviction (Higher Power),Exorcism,Sacred Ritual,Secret Society (Doctrine/6)	PRESKILL:1,Knowledge (Theology and Philosophy)=10	PRESKILL:2,Read/Write Language,Speak Language=1	PRETEXT:Must be able to speak, read and write latin
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -31,8 +31,8 @@ CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Diplomacy|Ga
 7	SA:Adjuration of the Faithful
 9																ADD:FEAT(TYPE=Exorcist,TYPE=SacredRitual)
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
-CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
 # Class Name		Req. Att.	Required Feat							Required Skill
 CLASS:Omega Knight	PREATT:5	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:1,Knowledge (Arcane Lore)=5	PRESKILL:1,Knowledge (Tactics)=10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -47,7 +47,7 @@ CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|D
 10	SA:Forbidden Lore (Critical)
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Knight of the Old Table	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+CLASS:Knight of the Old Table	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name			Req. Att.	Required Feat															Required Skill
 CLASS:Knight of the Old Table	PREATT:8	PREFEAT:3,Archaic Weapons Proficiency,Weapon Focus(Longsword),Secret Society (Knights Templar/6)	PRESKILL:1,Knowledge (Theology and Philosophy)=8	PRESKILL:1,Knowledge (Tactics)=10
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -62,8 +62,8 @@ CLASS:Knight of the Old Table	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Diplomacy|Dri
 8	SA:Void the Foot
 9	SA:Play the Fool
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Coven Enchantress	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Coven Enchantress	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name		Required Feat							Required Skill
 CLASS:Coven Enchantress	PREFEAT:2,Brew Potion,Secret Society (Salem Seven/6)	PRESKILL:2,Craft (Chemical),Knowledge (Arcane Lore)=10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -79,8 +79,8 @@ CLASS:Coven Enchantress	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemic
 9							ADD:FEAT(TYPE=CovenEnchantress)
 10	SA:Witch's Doom
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Prophet of Fatima	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*7
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Prophet of Fatima	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*7
 # Class Name		Required Feat								Required Skill
 CLASS:Prophet of Fatima	PREFEAT:2,Second Sight,Secret Society (Seers of Fatima/6)	PRESKILL:2,Prophecy,Sense Motive=10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -92,8 +92,8 @@ CLASS:Prophet of Fatima	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Investiga
 8	SA:Insightful Strike
 10	SA: Fate Weaver
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Black Knight	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Black Knight	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name		Required Feat													Required Skill
 CLASS:Black Knight	PREFEAT:3,Conviction (Dark Power),Profane Ritual,Secret Society (Teutonic Knights/6)	PRESKILL:1,Knowledge (Arcane Lore)=10	PRESKILL:1,Knowledge (History)=5
 # Class Name		Skill Pts/Lvl	Class Skill

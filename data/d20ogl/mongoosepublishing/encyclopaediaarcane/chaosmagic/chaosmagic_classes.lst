@@ -1,8 +1,8 @@
-# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Sat Dec 10 03:41:55 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic|SOURCESHORT:ChaosMagic|SOURCEWEB:http://www.mongoosepublishing.com
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Chaos Mage	HD:4		TYPE:Base.PC	ABB:cmc		SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Chaos Mage	HD:4		TYPE:Base.PC	ABB:cmc		SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Chaos Mage	PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|CL
 8	SA:Countermagic
 12	SA:Purge Chaos
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	ABB:bcc		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	ABB:bcc		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
 # Class Name	Required AL		Required Skill			Var. Min. Value
 CLASS:Bloodcarver	PREALIGN:CG,CN,CE	PRESKILL:1,Concentration=12	PREVARGTEQ:ChaosCasting,2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -32,8 +32,8 @@ CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
 4			SA:Armour of Scars	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 5			SA:Bloodcarving
 
-# Class Name	Hit Dice	Abbreviation	Source Page		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Doomringer	HD:4		ABB:dmc		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
+# Class Name	Hit Dice	Abbreviation	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Doomringer	HD:4		ABB:dmc		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
 # Class Name	Required AL	Required Skill			Var. Min. Value
 CLASS:Doomringer	PREALIGN:CE	PRESKILL:1,Concentration=12	PREVARGTEQ:ChaosCasting,2
 # Class Name	Skill Pts/Lvl	Class Skill

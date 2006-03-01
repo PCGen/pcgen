@@ -1,4 +1,4 @@
-# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Sat Dec 10 03:41:55 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -6,8 +6,8 @@ SOURCELONG:Fantasy Flight Games - School of Illusion|SOURCESHORT:Ill|SOURCEWEB:h
 # Core class
 #
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Devoted Illusionist	HD:4		TYPE:Base.PC	ABB:Ill		MAXLEVEL:20	SOURCEPAGE:p.4	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Devoted Illusionist	HD:4		TYPE:Base.PC	ABB:Ill		MAXLEVEL:20	SOURCEPAGE:p.4	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required AL
 CLASS:Devoted Illusionist	PREALIGN:CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -45,8 +45,8 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 # Prestige classes
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill				Req. Known Spell		Req. Spell Type
 CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PRESPELL:1,Stolen Sight	PRESPELLTYPE:Arcane,2,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -63,8 +63,8 @@ CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Scr
 10	ADD:SPELLCASTER(ANY)	SA:The Messenger
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Deceiver	HD:4		TYPE:PC.Prestige	ABB:Dec		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Deceiver	HD:4		TYPE:PC.Prestige	ABB:Dec		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat				Required Skill						Req. Known Spell			Req. Spell Type
 CLASS:Deceiver	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:3,Bluff,Concentration,Spellcraft=8	PRESPELL:1,False Thoughts	PRESPELLTYPE:Arcane,2,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -81,8 +81,8 @@ CLASS:Deceiver	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.
 10	ADD:SPELLCASTER(ANY)	SA:Detect Cursed Items
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Dread Lord	HD:4		TYPE:PC.Prestige	ABB:Dre		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Dread Lord	HD:4		TYPE:PC.Prestige	ABB:Dre		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat				Required Skill						Req. Known Spell			Req. Spell Type		Required Text
 CLASS:Dread Lord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:1,Intimidate=6	PRESKILL:1,Spellcraft=8	PRESPELL:1,Awakened Fears	PRESPELLTYPE:Arcane,2,3	PRETEXT:See text
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -99,8 +99,8 @@ CLASS:Dread Lord	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidat
 10	ADD:SPELLCASTER(ANY)	SA:Master Fears
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lord of Illusion	HD:4		TYPE:PC.Prestige	ABB:LoIl		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lord of Illusion	HD:4		TYPE:PC.Prestige	ABB:LoIl		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Skill			Req. Known Spell		Req. Spell Type
 CLASS:Lord of Illusion	PRESKILL:2,Bluff,Spellcraft=8	PRESPELL:1,Major Image	PRESPELLTYPE:Arcane,2,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:Lord of Illusion	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Dip
 10	ADD:SPELLCASTER(ANY)	SA:Augment Illusions
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Master of the Ruse	HD:4		TYPE:PC.Prestige	ABB:MRus		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Master of the Ruse	HD:4		TYPE:PC.Prestige	ABB:MRus		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat								Required Skill						Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Master of the Ruse	PREALIGN:CG,CN,CE	PREFEAT:3,Enlarge Spell,Extend Spell,Spell Focus(Illusion)	PRESKILL:4,Bluff,Disguise,Hide,Spellcraft=8	PRESPELL:1,Displacement	PRESPELLTYPE:Arcane,2,3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -135,8 +135,8 @@ CLASS:Master of the Ruse	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|D
 10	ADD:SPELLCASTER(ANY)	SA:Unassailable Ruse											ADD:FEAT(TYPE=MasterRuseSpecialAbilities)
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Mind Master	HD:4		TYPE:PC.Prestige	ABB:Mind		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Mind Master	HD:4		TYPE:PC.Prestige	ABB:Mind		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill								Req. Known Spell	Req. Spell Type
 CLASS:Mind Master	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:3,Concentration,Knowledge (Arcana),Spellcraft=8	PRESPELL:1,Lure	PRESPELLTYPE:Arcane,2,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -153,8 +153,8 @@ CLASS:Mind Master	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TY
 10	ADD:SPELLCASTER(ANY)	SA:Convincing Illusions
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Mystic Infiltrator	HD:6		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Mystic Infiltrator	HD:6		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat			Required Skill					Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Mystic Infiltrator	PREFEAT:2,Alertness,Toughness	PRESKILL:3,Disguise,Hide,Move Silently=8	PRESPELL:1,Faceless	PRESPELLTYPE:Arcane,2,3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -172,7 +172,7 @@ CLASS:Mystic Infiltrator	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Bluff|Concentra
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill				Req. Known Spell			Req. Spell Type
 CLASS:Shadowmancer	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:2,Hide,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:Arcane,2,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -190,7 +190,7 @@ CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Unseen Master	HD:4		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Unseen Master	HD:4		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Skill			Req. Known Spell				Req. Spell Type
 CLASS:Unseen Master	PRESKILL:2,Hide,Spellcraft=8	PRESPELL:1,Selective Invisibility	PRESPELLTYPE:Arcane,2,3
 # Class Name		Skill Pts/Lvl	Class Skill

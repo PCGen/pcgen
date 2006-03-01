@@ -1,9 +1,9 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Sat Nov 19 15:41:23 2005 -- reformated by prettylst.pl v1.35 (build 536)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Abyssal Infiltrator	HD:6		TYPE:PC.Legendary	ABB:Aby		MAXLEVEL:5	SOURCEPAGE:Chap.2, Abyssal Infiltrator	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+3	BONUS:CHECKS|BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Abyssal Infiltrator	HD:6		TYPE:PC.Legendary	ABB:Aby		MAXLEVEL:5	SOURCEPAGE:Chap.2, Abyssal Infiltrator	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+3	BONUS:CHECKS|BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name			Required AL		Req. Att.	Req. Special Ability	Required Skill
 CLASS:Abyssal Infiltrator	PREALIGN:LE,NE,CE	PREATT:8	PRESA:1,Death Attack	PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Intimidate=10	PRESKILL:3,Hide,Move Silently,Open Lock=15
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -14,8 +14,8 @@ CLASS:Abyssal Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TY
 4	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL4,Enhanced Dexterity IV,Enhanced Strength IV)
 5	ADD:FEAT(TYPE=AbyssalInfiltratorLAPL5,Enhanced Dexterity V,Enhanced Strength V)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Blood Thief	HD:6		TYPE:PC.Legendary	ABB:Blo		MAXLEVEL:5	SOURCEPAGE:Chap.2, Blood Thief	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Blood Thief	HD:6		TYPE:PC.Legendary	ABB:Blo		MAXLEVEL:5	SOURCEPAGE:Chap.2, Blood Thief	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Restricted AL		Required Feat										Req. Special Ability		Required Skill
 CLASS:Blood Thief	!PREALIGN:LG,NG,CG	PREFEAT:4,Improved Critical(TYPE=Slashing),Endurance,Toughness,Track	PRESA:1,Crippling Strike	PRESKILL:3,Concentration,Heal,Wilderness Lore=7	PRESKILL:1,Intimidate=15
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -30,8 +30,8 @@ CLASS:Blood Thief	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentrat
 5	ADD:FEAT(TYPE=BloodThiefLAPL5)
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Fortune's Fool	HD:6		TYPE:PC.Legendary	ABB:FoF		MAXLEVEL:5	SOURCEPAGE:Chap.2, Fortune's Fool	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Fortune's Fool	HD:6		TYPE:PC.Legendary	ABB:FoF		MAXLEVEL:5	SOURCEPAGE:Chap.2, Fortune's Fool	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Restricted AL		Required Feat											Required Skill																				Prohibited Stat
 CLASS:Fortune's Fool	!PREALIGN:LG,LN,LE	PREFEAT:5,Alertness,Combat Reflexes,Dodge,Improved Initiative,Quick Draw	PRESKILL:1,Tumble=8	PRESKILL:3,Balance,Escape Artist,Spot=10	PRESKILL:2,Diplomacy,Sense Motive=12	PRESKILL:1,Bluff=15	!PRESTAT:1,WIS=14
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -45,8 +45,8 @@ CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 4	ADD:FEAT(TYPE=FortuneFoolLAPL4)
 5	ADD:FEAT(TYPE=FortuneFoolLAPL5)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus													Combat bonus
-CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, Grey Hand	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, Grey Hand	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name	Req. Att.	Required Feat							Req. Special Ability	Required Skill										Var. Min. Value
 CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:2,Disguise,Intimidate=10	PRESKILL:2,Hide,Move Silently=15	PREVARGTEQ:SneakAttack,5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -60,8 +60,8 @@ CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher S
 4	ADD:FEAT(TYPE=GreyHandLAPL4)
 5	ADD:FEAT(TYPE=GreyHandLAPL5)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus													Combat bonus
-CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE:Chap.2, Hand of the Reaper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE:Chap.2, Hand of the Reaper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name			Restricted AL		Req. Att.	Req. Special Ability	Required Skill
 CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PREATT:8	PRESA:1,Death Attack	PRESKILL:4,Bluff,Diplomacy,Forgery,Gather Information=5	PRESKILL:2,Intimidate,Open Lock=10	PRESKILL:2,Hide,Move Silently=15
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -77,8 +77,8 @@ CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYP
 5	ADD:FEAT(TYPE=HandReaperLAPL5,Enhanced Dexterity V,Enhanced Intelligence V)
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Incantator	HD:6		TYPE:PC.Legendary	ABB:Inc		MAXLEVEL:5	SOURCEPAGE:Chap.2, Incantator	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Incantator	HD:6		TYPE:PC.Legendary	ABB:Inc		MAXLEVEL:5	SOURCEPAGE:Chap.2, Incantator	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat																Required Skill
 CLASS:Incantator	PREFEAT:4,Iron Will,Skill Focus(Concentration),Skill Focus(Knowledge (Arcana)),Skill Focus(Spellcraft)	PRESKILL:3,Concentration,Knowledge (Arcana),Spellcraft=8	PRESKILL:2,Hide,Move Silently=15
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -100,8 +100,8 @@ CLASS:Incantator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|Cli
 # 5	CAST:4,4,4,3,2,1		SA:Steal Supernatural Ablities
 
 
-# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Jack of Knives	OUTPUTNAME:Jack-of-Knives	HD:6		TYPE:PC.Legendary	ABB:JaKn		MAXLEVEL:5	SOURCEPAGE:Chap.2, Jack of Knives	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Jack of Knives	OUTPUTNAME:Jack-of-Knives	HD:6		TYPE:PC.Legendary	ABB:JaKn		MAXLEVEL:5	SOURCEPAGE:Chap.2, Jack of Knives	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required Feat												Required Skill
 CLASS:Jack of Knives	PREFEAT:5,Dodge,Mobility,Point Blank Shot,Two-Weapon Fighting,Weapon Focus(Dagger)	PRESKILL:3,Balance,Jump,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:Jack of Knives	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 
 # additional prereq "any feat of the DM's choice"
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Jack o' the Green	HD:6		TYPE:PC.Legendary	ABB:JaGr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Jack o' the Green	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Jack o' the Green	HD:6		TYPE:PC.Legendary	ABB:JaGr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Jack o' the Green	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL			Required Feat				Required Skill															Required Stat
 CLASS:Jack o' the Green	PREALIGN:NG,TN,CG,CN	PREFEAT:2,Track,Lightning Reflexes	PRESKILL:3,Gather Information,Knowledge (Local),Wilderness Lore=8	PRESKILL:2,Hide,Move Silently=15	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -136,8 +136,8 @@ CLASS:Jack o' the Green	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|B
 # additional prereq "The character must be a rogue. She may be multiclassed, but she must have gained more class levels as rogue than any other classes"
 # additional prereq "one other feat of the DM's choice"
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Master Burglar	HD:6		TYPE:PC.Legendary	ABB:MaBu		MAXLEVEL:5	SOURCEPAGE:Chap.2, Master Burglar	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+3	BONUS:CHECKS|BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Master Burglar	HD:6		TYPE:PC.Legendary	ABB:MaBu		MAXLEVEL:5	SOURCEPAGE:Chap.2, Master Burglar	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+3	BONUS:CHECKS|BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required Feat						Required Skill
 CLASS:Master Burglar	PREFEAT:3,Alertness,Dodge,Improved Initiative	PRESKILL:1,Climb=10	PRESKILL:4,Hide,Move Silently,Open Lock,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -151,8 +151,8 @@ CLASS:Master Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 
 # additional prereq "and one feat of the DM's choice"
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus													Combat bonus
-CLASS:Queen of Shadows	HD:6		TYPE:PC.Legendary	ABB:QSh		MAXLEVEL:5	SOURCEPAGE:Chap.2, Queen of Shadows	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3+1	BONUS:COMBAT|BAB|CL*3/4+1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Queen of Shadows	HD:6		TYPE:PC.Legendary	ABB:QSh		MAXLEVEL:5	SOURCEPAGE:Chap.2, Queen of Shadows	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3+1	BONUS:COMBAT|BAB|CL*3/4+1
 # Class Name		Req. Att.	Required Class			Required Feat					Required Skill
 CLASS:Queen of Shadows	PREATT:8	PRECLASS:1,Shadowdancer=1	PREFEAT:3,Dodge,Mobility,Spring Attack	PRESKILL:1,Perform=10	PRESKILL:2,Hide,Move Silently=15
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -167,8 +167,8 @@ CLASS:Queen of Shadows	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.
 # additional prereq "The character must be a rogue. She may be multiclassed, but she must have gained more class levels as rogue than any other classes"
 # additional prereq "one other feat of the DM's choice"
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus													Combat bonus
-CLASS:Rogue Prince	HD:6		TYPE:PC.Legendary	ABB:RoPr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Rogue Prince	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3+1	BONUS:COMBAT|BAB|CL*3/4+1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Rogue Prince	HD:6		TYPE:PC.Legendary	ABB:RoPr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Rogue Prince	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3+1	BONUS:COMBAT|BAB|CL*3/4+1
 # Class Name		Req. Att.	Required Feat				Required Skill
 CLASS:Rogue Prince	PREATT:8	PREFEAT:2,Expertise,Improved Disarm	PRESKILL:1,Search=10	PRESKILL:3,Bluff,Pick Pocket,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -179,8 +179,8 @@ CLASS:Rogue Prince	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craf
 4	ADD:FEAT(TYPE=RoguePrinceLAPL4,Enhanced Dexterity IV,Enhanced Charisma IV)
 5	ADD:FEAT(TYPE=RoguePrinceLAPL5,Enhanced Dexterity V,Enhanced Charisma V)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Savant	HD:6		TYPE:PC.Legendary	ABB:Sav		MAXLEVEL:5	SOURCEPAGE:Chap.2, Savant	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Savant	HD:6		TYPE:PC.Legendary	ABB:Sav		MAXLEVEL:5	SOURCEPAGE:Chap.2, Savant	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat																																										Req. Special Ability	Required Skill
 CLASS:Savant	PREFEAT:2,Alertness,Skill Focus(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)	PREFEAT:2,Skill Mastery(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)|CHECKMULT	PRESA:1,Slippery Mind	PRESKILL:4,Decipher Script,Diplomacy,Disguise,Gather Information=8	PRESKILL:3,Bluff,Search,Spot=10	PRESKILL:2,Innuendo,Sense Motive=15
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -195,8 +195,8 @@ CLASS:Savant	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 5					ADD:FEAT(TYPE=SavantLAPL5)
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Silver-Tongued Devil	HD:6		TYPE:PC.Legendary	ABB:SDev		MAXLEVEL:5	SOURCEPAGE:Chap.2, Silver-Tongued Devil	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Silver-Tongued Devil	HD:6		TYPE:PC.Legendary	ABB:SDev		MAXLEVEL:5	SOURCEPAGE:Chap.2, Silver-Tongued Devil	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Required Feat									Required Skill													Required Stat
 CLASS:Silver-Tongued Devil	PREFEAT:3,Alertness,Skill Focus(Bluff),Skill Focus(Sense Motive)	PRESKILL:1,Concentration=7	PRESKILL:5,Bluff,Diplomacy,Listen,Sense Motive,Spot=15	PRESTAT:1,CHA=13
 # Class Name			Skill Pts/Lvl	Class Skill

@@ -1,12 +1,12 @@
-# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Sun Dec 18 20:44:05 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.9 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
 # This file is for specific classes for specific monsters in the MM.
 #
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus									Combat bonus
-CLASS:Aranea	HD:8		TYPE:Monster	MAXLEVEL:3	SOURCEPAGE:srdmonstersa.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Aranea	HD:8		TYPE:Monster	MAXLEVEL:3	SOURCEPAGE:srdmonstersa.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Aranea	PRERACE:Aranea	PRERACETYPE:Shapechanger
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -15,8 +15,8 @@ CLASS:Aranea	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD
 2						BONUS:PCLEVEL|Sorcerer|1
 3						BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Drider Cleric	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Drider Cleric	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Drider Cleric	PRERACE:Drider (Cleric)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -28,8 +28,8 @@ CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNON
 5														BONUS:PCLEVEL|Cleric|1
 6														BONUS:PCLEVEL|Cleric|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Drider Sorcerer	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Drider Sorcerer	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Drider Sorcerer	PRERACE:Drider (Sorcerer)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -41,8 +41,8 @@ CLASS:Drider Sorcerer	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONN
 5										BONUS:PCLEVEL|Sorcerer|1
 6										BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Drider Wizard	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Drider Wizard	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Drider Wizard	PRERACE:Drider (Wizard)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -54,8 +54,8 @@ CLASS:Drider Wizard	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNON
 5									BONUS:PCLEVEL|Wizard|1
 6									BONUS:PCLEVEL|Wizard|1
 
-# Class Name		Hit Dice	Type			Source Page				Levels per Feat	Save checks bonus									Combat bonus
-CLASS:Formian Queen	HD:8		TYPE:Monster	SOURCEPAGE:srdmonstersfg.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source Page				Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Formian Queen	HD:8		TYPE:Monster	SOURCEPAGE:srdmonstersfg.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Formian Queen	PRERACE:Formian (Queen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
@@ -83,15 +83,15 @@ CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
 
 # Cloud and Storm Giants gain skills as if they were large creatures.
 
-# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Cloud Giant	HD:8		TYPE:Monster	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Cloud Giant	HD:8		TYPE:Monster	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Cloud Giant	PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
 CLASS:Cloud Giant	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT			MONNONSKILLHD:2
 
-# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Storm Giant	HD:8		TYPE:Monster	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Storm Giant	HD:8		TYPE:Monster	SOURCEPAGE:srdcreatureoverview.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Storm Giant	PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -99,8 +99,8 @@ CLASS:Storm Giant	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT			MONNONSKILLH
 
 
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Lammasu	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Lammasu	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Lammasu	PRERACE:Lammasu	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -113,8 +113,8 @@ CLASS:Lammasu	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLH
 6					BONUS:PCLEVEL|Cleric|1
 7					BONUS:PCLEVEL|Cleric|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus									Combat bonus
-CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Lillend	PRERACE:Lillend	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
@@ -126,8 +126,8 @@ CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
 5																				BONUS:PCLEVEL|Bard|1
 6																				BONUS:PCLEVEL|Bard|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Naga		HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Naga		HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Naga		PRERACE:Naga%	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -140,8 +140,8 @@ CLASS:Naga		STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:
 6						BONUS:PCLEVEL|Sorcerer|1
 7						BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:33	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:33	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race		Reg. Race Type
 CLASS:Guardian Naga	PRERACE:Naga (Guardian)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -156,8 +156,8 @@ CLASS:Guardian Naga	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNON
 8						BONUS:PCLEVEL|Sorcerer|1
 9						BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Nymph		HD:6		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Nymph		HD:6		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Nymph		PRERACE:Nymph	PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -166,8 +166,8 @@ CLASS:Nymph		STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE		MONNONSKILLHD
 2					BONUS:PCLEVEL|Druid|3
 3					BONUS:PCLEVEL|Druid|3
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus									Combat bonus
-CLASS:Rakshasa	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:srdmonstersr.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Rakshasa	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:srdmonstersr.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Rakshasa	PRERACE:Rakshasa	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
@@ -180,8 +180,8 @@ CLASS:Rakshasa	STARTSKILLPTS:8	MODTOSKILLS:YES
 6						BONUS:PCLEVEL|Sorcerer|1
 7						BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:srdmonsterss.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:srdmonsterss.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race			Reg. Race Type
 CLASS:Androsphinx	PRERACE:Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
@@ -193,8 +193,8 @@ CLASS:Androsphinx	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSK
 9					BONUS:PCLEVEL|Cleric|1
 11					BONUS:PCLEVEL|Cleric|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus									Combat bonus
-CLASS:Titan		HD:8		TYPE:Monster	MAXLEVEL:60	SOURCEPAGE:srdmonsterst.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Titan		HD:8		TYPE:Monster	MAXLEVEL:60	SOURCEPAGE:srdmonsterst.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Titan		PRERACE:Titan	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
@@ -220,8 +220,8 @@ CLASS:Titan		STARTSKILLPTS:8	MODTOSKILLS:YES
 19									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 20									BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus												Combat bonus
-CLASS:Treant	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonsterst.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Treant	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonsterst.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Race	Reg. Race Type
 CLASS:Treant	PRERACE:Treant	PRERACETYPE:Plant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit

@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Oct  5 21:26:56 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -79,25 +79,25 @@ Shattering Blow		TYPE:Cultural									PREFEAT:2,Improved Sunder,Power Attack	PR
 
 
 ###block: Regional Feats Chapter Five
-# Feat Name			Type			Required Feat			Required Skill			Req. Spell Type		Required Template					Description																	Save checks bonus			Bonus to skill				Source Page
-Tested Awareness		TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Civilized to Savage)	DESC:You have been forced to rely on your senses to survive.																			SOURCEPAGE:p.75
-Tested Fortitude		TYPE:Cultural															PRETEMPLATE:Region (Civilized to Savage)	DESC:Living in the wilderness pushed your fortitude far beyond what you thought of as your limits.													SOURCEPAGE:p.75
-Tested Agility		TYPE:Cultural															PRETEMPLATE:Region (Civilized to Savage)	DESC:Life on the edge honed your agility to an unbelievable level.																		SOURCEPAGE:p.75
-Tested Strength		TYPE:Cultural	PREFEAT:1,Power Attack											PRETEMPLATE:Region (Civilized to Savage)	DESC:The savage wilderness trained your already impressive physical form to new heights.															SOURCEPAGE:p.75
-Tested Will			TYPE:Cultural	PREFEAT:1,Iron Will											PRETEMPLATE:Region (Civilized to Savage)	DESC:You have learned to push yourself beyond the limits of civilized men.																	SOURCEPAGE:p.76
-Boundless Depths		TYPE:Cultural	PREFEAT:1,Great Fortitude										PRETEMPLATE:Region (Sunset Reach)		DESC:You have faced the seemingly endless expanses of the ocean.																			SOURCEPAGE:p.76
-Eyes on the Horizon	TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Sunset Reach)		DESC:Your eyes naturally scan the horizon for any signs of life.																			SOURCEPAGE:p.76
-Touch of the Reach	TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You can keep your crew alive on the longest voyages.																				SOURCEPAGE:p.76
-Under the Stars		TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You know the arts of deep-sea navigation.																BONUS:SKILL|Profession (Sailor)|4	SOURCEPAGE:p.76
-Windweaver			TYPE:Cultural											PRESPELLTYPE:Divine,1,0	PRETEMPLATE:Region (Sunset Reach)		DESC:You know the simple magic that calls the wind.																					SOURCEPAGE:p.76
-Grim Resignation		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You long ago let go of the illusions others cling to so tenaciously.																	SOURCEPAGE:p.76
-Strength of Illusion	TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You cling tightly to the rudiments of civilization.																				SOURCEPAGE:p.77
-True Name			TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:Living in the borders between civilization and savagery has taught you the meaning of your own name.	BONUS:CHECKS|Willpower|1							SOURCEPAGE:p.77
-Unspoken Wisdom		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You have learned things that cannot be expressed in words.																			SOURCEPAGE:p.77
-Carefree Heart		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:You have shed the burdens of the world.																						SOURCEPAGE:p.77
-Lay a Wreath		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:You honor your dead by living on.																							SOURCEPAGE:p.77
-Sing up a Bright Heart	TYPE:Cultural	PREFEAT:1,Bardic Music		PRESKILL:1,TYPE.Perform=6					PRETEMPLATE:Region (Faring Folk)		DESC:You have learned how to call forth emotion from the coldest heart.																		SOURCEPAGE:p.77
-Trust in Fate		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:Your confidence in fate to guide your aim can improve your lot.																		SOURCEPAGE:p.77
+# Feat Name			Type			Required Feat			Required Skill			Req. Spell Type		Required Template					Description																	Save checks bonus		Bonus to skill				Source Page
+Tested Awareness		TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Civilized to Savage)	DESC:You have been forced to rely on your senses to survive.																		SOURCEPAGE:p.75
+Tested Fortitude		TYPE:Cultural															PRETEMPLATE:Region (Civilized to Savage)	DESC:Living in the wilderness pushed your fortitude far beyond what you thought of as your limits.												SOURCEPAGE:p.75
+Tested Agility		TYPE:Cultural															PRETEMPLATE:Region (Civilized to Savage)	DESC:Life on the edge honed your agility to an unbelievable level.																	SOURCEPAGE:p.75
+Tested Strength		TYPE:Cultural	PREFEAT:1,Power Attack											PRETEMPLATE:Region (Civilized to Savage)	DESC:The savage wilderness trained your already impressive physical form to new heights.														SOURCEPAGE:p.75
+Tested Will			TYPE:Cultural	PREFEAT:1,Iron Will											PRETEMPLATE:Region (Civilized to Savage)	DESC:You have learned to push yourself beyond the limits of civilized men.																SOURCEPAGE:p.76
+Boundless Depths		TYPE:Cultural	PREFEAT:1,Great Fortitude										PRETEMPLATE:Region (Sunset Reach)		DESC:You have faced the seemingly endless expanses of the ocean.																		SOURCEPAGE:p.76
+Eyes on the Horizon	TYPE:Cultural	PREFEAT:1,Alertness											PRETEMPLATE:Region (Sunset Reach)		DESC:Your eyes naturally scan the horizon for any signs of life.																		SOURCEPAGE:p.76
+Touch of the Reach	TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You can keep your crew alive on the longest voyages.																			SOURCEPAGE:p.76
+Under the Stars		TYPE:Cultural															PRETEMPLATE:Region (Sunset Reach)		DESC:You know the arts of deep-sea navigation.															BONUS:SKILL|Profession (Sailor)|4	SOURCEPAGE:p.76
+Windweaver			TYPE:Cultural											PRESPELLTYPE:Divine,1,0	PRETEMPLATE:Region (Sunset Reach)		DESC:You know the simple magic that calls the wind.																				SOURCEPAGE:p.76
+Grim Resignation		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You long ago let go of the illusions others cling to so tenaciously.																SOURCEPAGE:p.76
+Strength of Illusion	TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You cling tightly to the rudiments of civilization.																			SOURCEPAGE:p.77
+True Name			TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:Living in the borders between civilization and savagery has taught you the meaning of your own name.	BONUS:CHECKS|Will|1							SOURCEPAGE:p.77
+Unspoken Wisdom		TYPE:Cultural															PRETEMPLATE:Region (Tamerland)		DESC:You have learned things that cannot be expressed in words.																		SOURCEPAGE:p.77
+Carefree Heart		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:You have shed the burdens of the world.																					SOURCEPAGE:p.77
+Lay a Wreath		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:You honor your dead by living on.																						SOURCEPAGE:p.77
+Sing up a Bright Heart	TYPE:Cultural	PREFEAT:1,Bardic Music		PRESKILL:1,TYPE.Perform=6					PRETEMPLATE:Region (Faring Folk)		DESC:You have learned how to call forth emotion from the coldest heart.																	SOURCEPAGE:p.77
+Trust in Fate		TYPE:Cultural															PRETEMPLATE:Region (Faring Folk)		DESC:Your confidence in fate to guide your aim can improve your lot.																	SOURCEPAGE:p.77
 
 
 ###block Regional Feats Chapter Six

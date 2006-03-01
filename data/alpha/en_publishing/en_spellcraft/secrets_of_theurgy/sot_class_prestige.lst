@@ -1,8 +1,8 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Feb  1 23:46:27 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Secrets of Theurgy|SOURCESHORT:SoT|SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:EMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:EMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		PREDOMAIN					Required Feat												Req. Special Ability	!PRESA		Required Skill							Req. Spell Type						Required Text
 CLASS:Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PRESA:1,Summon Familiar	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher
 9	ADD:SPELLCASTER(ANY)
 10	ADD:SPELLCASTER(Divine)	ADD:SPELLCASTER(Arcane)	SA:Elemental Allies (Su)																																															SPELLS:Elemental Druid|TIMES=1|CASTERLEVEL=10|Elemental Swarm
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Hierophant Theurge	HD:4		TYPE:Prestige.PC	ABB:HT		MAXLEVEL:5	SOURCEPAGE:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Hierophant Theurge	HD:4		TYPE:Prestige.PC	ABB:HT		MAXLEVEL:5	SOURCEPAGE:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat			Required Skill									Req. Spell Type
 CLASS:Hierophant Theurge	PREFEAT:1,TYPE=Metamagic	PRESKILL:3,Knowledge (Arcana),Knowledge (Religion),Spellcraft=15	PRESPELLTYPE:Arcane,1,7	PRESPELLTYPE:Divine,1,7
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -30,8 +30,8 @@ CLASS:Hierophant Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Knowledge|Spe
 4										ADD:FEAT(TYPE=Theurgic)
 5	SA:Hierophant Theurge Ability III				ADD:FEAT(TYPE=HTA3)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LoU		MAXLEVEL:10	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LoU		MAXLEVEL:10	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat					!PRESA		Required Skill							Req. Known Spell		Required Spell School		Req. Spell Type						Required Text
 CLASS:Lord of Undeath	PREFEAT:2,Extra Turning,Rebuke Undead	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Religion),Knowledge (Arcana)=6	PRESPELL:1,Animate Dead	PRESPELLSCHOOL:Necromancy,2,2	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2	PRETEXT:Patron deity must not be adverse to the creation of undead. Must be able to cast 1 level 2 arcane/necromancy spell and 1 level 2 divine/necromancy spell.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -47,8 +47,8 @@ CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher S
 9	ADD:SPELLCASTER(ANY)														BONUS:VAR|ArmyOfDarkness|1
 10	ADD:SPELLCASTER(Divine)	ADD:SPELLCASTER(Arcane)	SA:The Heart of Necromancy (Ex)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Theurgic Lorewarden	HD:4		TYPE:Prestige.PC	ABB:TL		MAXLEVEL:10	SOURCEPAGE:8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Theurgic Lorewarden	HD:4		TYPE:Prestige.PC	ABB:TL		MAXLEVEL:10	SOURCEPAGE:8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat												!PRESA		Required Skill												Required Text
 CLASS:Theurgic Lorewarden	PREFEAT:3,TYPE.Metamagic,TYPE.ItemCreation	PREFEAT:1,Skill Focus(Knowledge%)	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESKILL:2,TYPE.Knowledge=8	PRETEXT:ABle to cast 4 arcane and 4 divine divination spells; at least one spell (arcane or divine) must be level 3 or greater, and at least one spell of the opposite type (divine or arcane) must be level 2 or greater.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -66,8 +66,8 @@ CLASS:Theurgic Lorewarden	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|Craft (A
 
 ### Block: Lesser Theurge variants
 
-# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lesser Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:LEMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lesser Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:LEMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name				PREDOMAIN					Required Feat												Req. Special Ability	!PRESA		Required Skill							Req. Spell Type
 CLASS:Lesser Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PRESA:1,Summon Familiar	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -83,8 +83,8 @@ CLASS:Lesser Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|D
 9	ADD:SPELLCASTER(ANY)
 10	ADD:SPELLCASTER(Divine)	ADD:SPELLCASTER(Arcane)	SA:Elemental Allies																																															SPELLS:Elemental Druid|TIMES=1|CASTERLEVEL=10|Elemental Swarm
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lesser Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LLoU		MAXLEVEL:10	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lesser Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LLoU		MAXLEVEL:10	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat					!PRESA		Required Skill							Req. Known Spell		Required Spell School		Req. Spell Type						Required Text
 CLASS:Lesser Lord of Undeath	PREFEAT:2,Extra Turning,Rebuke Undead	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Religion),Knowledge (Arcana)=6	PRESPELL:1,Animate Dead	PRESPELLSCHOOL:Necromancy,2,2	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2	PRETEXT:Patron deity must not be adverse to the creation of undead. Must be able to cast 1 level 2 arcane/necromancy spell and 1 level 2 divine/necromancy spell.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -100,8 +100,8 @@ CLASS:Lesser Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Dec
 9	ADD:SPELLCASTER(ANY)														BONUS:VAR|ArmyOfDarkness|1
 10	ADD:SPELLCASTER(Divine)	ADD:SPELLCASTER(Arcane)	SA:The Heart of Necromancy (Ex)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lesser Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:LMyt		MAXLEVEL:10	SOURCEPAGE:2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lesser Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:LMyt		MAXLEVEL:10	SOURCEPAGE:2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			!PRESA		Required Skill							Req. Spell Type
 CLASS:Lesser Mystic Theurge	!PRESA:Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:Lesser Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Deci
 9	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Divine)
 10	ADD:SPELLCASTER(Arcane)	ADD:SPELLCASTER(Divine)
 
-# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Lesser Theurgic Lorewarden	HD:4		TYPE:Prestige.PC	ABB:LTL		MAXLEVEL:10	SOURCEPAGE:8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lesser Theurgic Lorewarden	HD:4		TYPE:Prestige.PC	ABB:LTL		MAXLEVEL:10	SOURCEPAGE:8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name				Required Feat												!PRESA		Required Skill												Required Text
 CLASS:Lesser Theurgic Lorewarden	PREFEAT:3,TYPE.Metamagic,TYPE.ItemCreation	PREFEAT:1,Skill Focus(Knowledge%)	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESKILL:2,TYPE.Knowledge=8	PRETEXT:ABle to cast 4 arcane and 4 divine divination spells; at least one spell (arcane or divine) must be level 3 or greater, and at least one spell of the opposite type (divine or arcane) must be level 2 or greater.
 # Class Name				Skill Pts/Lvl	Class Skill

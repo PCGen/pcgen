@@ -1,12 +1,12 @@
-# CVS $Revision: 1.23 $ $Author: eddyanthony $ -- Tue Feb 28 19:04:04 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision: 1.23 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Class Pseudo Feats....
 # Original Entry by Tir Gwaith
 # Ranger Favored enemies aren't perfect but better than the ADD: in classes.. - Tir Gwaith 10/26/02
 
 ###Block:Hidden Feat for Negative Levels
-# Feat Name		Type				Visible	Special Ability																							Define			Save checks bonus							Combat bonus				Bonus to HP					Bonus to skill
-Negative Levels	TYPE:NegativeLevels	VISIBLE:NO	SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Willpower|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels
+# Feat Name		Type				Visible	Special Ability																							Define			Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill
+Negative Levels	TYPE:NegativeLevels	VISIBLE:NO	SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels
 
 ###Block:Command special abilities (used by multiple classes)
 # Feat Name		Type					Visible	Special Ability						Define									Source Page
@@ -93,7 +93,7 @@ Defensive Awareness	VISIBLE:NO	SA:Defensive Awareness (Dex bonus to AC)|UncannyD
 # Feat Name				Type				Visible	Var. Min. Value			Special Ability							Stackable?	Multiple?	Choose																Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
 Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SA:Loremaster Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK|1																									BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SA:Loremaster Secret (Secret Health)			STACK:NO	MULT:NO																												BONUS:HP|CURRENTMAX|3					SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SA:Loremaster Secret (Secrets of Inner Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Willpower|1														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SA:Loremaster Secret (Secrets of Inner Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Will|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
 The Lore of True Stamina	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,4		SA:Loremaster Secret (The Lore of True Strength)	STACK:NO	MULT:NO																		BONUS:CHECKS|Fortitude|1														SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Secret Knowledge of Avoidance	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,5		SA:Loremaster Secret (Secret Knowledge of Avoidance)	STACK:NO	MULT:NO																		BONUS:CHECKS|Reflex|1															SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Weapon Trick			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,6		SA:Loremaster Secret (Weapon Trick)				STACK:NO	MULT:NO																							BONUS:COMBAT|TOHIT|1										SOURCEPAGE:srdbasiccharacterclassesi.rtf
@@ -108,8 +108,8 @@ Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SA:Dragon Wings
 
 
 ###Block: Barbarian Rage
-# Feat Name	Type			Visible	Special Ability																																																																															Define																										Save checks bonus								Combat bonus								Stat bonus																	Modify VAR
-Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Rage (Ex) % times/day and no longer winded after (% rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	SA:Bonuses when enraged (STR +%, CON +%, Willpower +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Willpower|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
+# Feat Name	Type			Visible	Special Ability																																																																															Define																										Save checks bonus							Combat bonus								Stat bonus																	Modify VAR
+Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Rage (Ex) % times/day and no longer winded after (% rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	SA:Bonuses when enraged (STR +%, CON +%, Willpower +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
 
 ###Block: Ghost Abilities
 # Feat Name			Type			Visible	Special Ability

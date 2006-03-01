@@ -1,4 +1,4 @@
-# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Thu Mar 24 01:54:44 2005 -- reformated by prettylst.pl v1.34 (build 455)
+# CVS $Revision: 1.10 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 
@@ -54,7 +54,7 @@ Rod (Quicken/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:170
 
 
 ###Block:Staves
-# Equipment Name			Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page				Save checks bonus							Combat bonus			Weapon prop. bonus
+# Equipment Name			Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page				Save checks bonus						Combat bonus			Weapon prop. bonus
 Staff (Abjuration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
 Staff (Charming)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:16500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
 Staff (Conjuration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
@@ -71,11 +71,11 @@ Staff (Illusion)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff												
 Staff (Life)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:155750	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
 Staff (Necromancy)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
 Staff (Passage)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:170500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
-Staff (Power)			OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:211000	WT:4		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIV.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Staff (Power)			OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:211000	WT:4		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIV.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 Staff (Size Alteration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:29000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
 Staff (Swarming Insects)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:24750	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
 Staff (Transmutation)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:65000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_ITEM_50|CHARGES[50]						SOURCEPAGE:MagicItemsIV.rtf
-Staff (Woodlands)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:101250	WT:4		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIV.rtf															BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Staff (Woodlands)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:101250	WT:4		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:MagicItemsIV.rtf														BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 
 ###Block:Wands
 # Equipment Name								Output Name											Type			Weight	Base Item for EQMOD	Modifier														Source Page

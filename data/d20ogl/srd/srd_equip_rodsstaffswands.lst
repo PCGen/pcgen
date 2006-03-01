@@ -1,4 +1,4 @@
-# CVS $Revision: 1.5 $ $Author: eddyanthony $ -- Tue Dec 14 15:20:28 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# CVS $Revision: 1.5 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 
@@ -24,7 +24,7 @@ Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:Mace			TYPE:Magic.Rod.We
 Rod (Wonder)				OUTPUTNAME:Rod of [NAME]						TYPE:Magic.Rod										COST:12000	WT:0																								SOURCEPAGE:srdmagicitemsrods.rtf
 
 ###Block:Staves
-# Equipment Name			Output Name					Required Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier					Source Page					Save checks bonus							Combat bonus			Weapon prop. bonus
+# Equipment Name			Output Name					Required Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier					Source Page					Save checks bonus						Combat bonus			Weapon prop. bonus
 Staff (Charming)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:12000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
 Staff (Defense)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:80000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
 Staff (Earth and Stone)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:85000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
@@ -33,10 +33,10 @@ Staff (Frost)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST
 Staff (Healing)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:33000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
 Staff (Life)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:130000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
 Staff (Passage)			OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:180000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
-Staff (Power)			OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:200000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf	BONUS:CHECKS|Fortitude,Reflex,Willpower|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Staff (Power)			OUTPUTNAME:Staff of [NAME]		PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:200000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 Staff (Size Alteration)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:6500	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
 Staff (Swarming Insects)	OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff											COST:20000	WT:0																EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf
-Staff (Woodlands)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:90000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf															BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Staff (Woodlands)			OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:90000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:srdmagicitemsstaves.rtf														BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 
 ###Block:Wands
 # Equipment Name								Output Name											Type			Weight	Base Item for EQMOD	Modifier														Source Page

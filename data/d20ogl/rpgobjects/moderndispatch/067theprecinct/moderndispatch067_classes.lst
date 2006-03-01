@@ -1,8 +1,8 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Feb  7 21:32:40 2006 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Modern Dispatch #67 - The Precinct|SOURCESHORT:MD67-Precinct|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Bad Cop	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6	PRESKILL:1,Knowledge (Streetwise)=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -17,8 +17,8 @@ CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Kno
 9																																													ADD:FEAT(TYPE.BadCop)
 10															BONUS:VAR|BruteSmash|1
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
-CLASS:Good Cop	HD:8		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Good Cop	HD:8		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name	Required Feat		Required Skill
 CLASS:Good Cop	PREFEAT:1,Trustworthy	PRESKILL:3,Bluff,Diplomacy,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
 
 # Class Name	Class Skill
@@ -10,8 +10,8 @@ CLASS:Rogue.MOD	CSKILL:Literacy|Sign Language|Appraise|Balance|Bluff|Climb|TYPE.
 # Class Name		Class Skill
 CLASS:Barbarian.MOD	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Archer	HD:8		TYPE:Base.PC	ABB:Acr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Archer	HD:8		TYPE:Base.PC	ABB:Acr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Literacy|Spot|Swim
 ###Block:Proficiencies
@@ -29,8 +29,8 @@ CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Literacy|Sp
 18	SA:Ranged Disarm
 20	SA:Extended Range				BONUS:VAR|PrimaryWeap|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	ABB:MtW		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	ABB:MtW		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|Intimidate|Jump|Literacy|Ride|Speak Language|Swim
 ###Block:Proficiencies
@@ -50,8 +50,8 @@ CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|
 18	SA:Moving Target
 20	SA:Devastating Trample
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		MULTIPREREQS	Save checks bonus												Combat bonus
-CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.41	MULTIPREREQS:	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		MULTIPREREQS	Save checks bonus											Combat bonus
+CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.41	MULTIPREREQS:	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Class
 CLASS:Noble		PRECLASS:1,Noble=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -72,8 +72,8 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 17							BONUS:VAR|MonthlyFunds|100	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:ARMOR,MEDIUM
 20							BONUS:VAR|NobleLeadership|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Sailor	HD:6		TYPE:Base.PC	ABB:sv4		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Sailor	HD:6		TYPE:Base.PC	ABB:sv4		SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|Profession (Sailor)|Speak Language|Spot|Swim|Tumble|Use Rope
 ###Block:Proficiencies
@@ -101,8 +101,8 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 19	SA:Dirty Blow +%d4|1							BONUS:CHECKS|Reflex|1
 20											BONUS:CHECKS|Reflex|-1											ADD:WEAPONBONUS(TOHIT,DAMAGE|1|FEAT=Simple Weapon Proficiency|PCFEAT=Martial Weapon Proficiency|Rapier|Net|Scimitar|Trident|)	VFEAT:Improved Evasion
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 ###Block:Proficiencies
@@ -131,8 +131,8 @@ CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 19	SA:Quick Action +% |1				BONUS:COMBAT|INITIATIVE|1
 20	SA:Reflexive Strike
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus															Combat bonus
-CLASS:Stalker	HD:8		TYPE:Base.PC	ABB:sv6		SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus														Combat bonus
+CLASS:Stalker	HD:8		TYPE:Base.PC	ABB:sv6		SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather Information|Urban Lore|Hide|Intimidate|Intuit Direction|Jump|Listen|Literacy|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 ###Block:Proficiencies

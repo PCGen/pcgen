@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jul  9 05:39:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean|SOURCESHORT:BlackFlags|SOURCEWEB:http://www.avalanchepress.com
 
 # Several classes have odd skill point progressions where first level has a different base number of
@@ -15,8 +15,8 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean|SOURCESHORT:B
 
 # Checked website and no errata appears to have been published.
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:Mch		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:Mch		SOURCEPAGE:p.32	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE.Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
@@ -31,8 +31,8 @@ CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE.Craft|Diplomacy|
 13	SA:Friends in High Places (Ex)
 17								BONUS:VAR|BFResources|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.34	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.34	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Read Lips|Ride|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
@@ -51,8 +51,8 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gathe
 17															BONUS:VAR|BFSocialStanding|1
 19															BONUS:VAR|BFResources|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		SOURCEPAGE:p.37	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		SOURCEPAGE:p.37	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Gender
 CLASS:Priest	PREGENDER:M
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -79,7 +79,7 @@ CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Deci
 20																																																							ADD:FEAT
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
-CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -97,8 +97,8 @@ CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disab
 18																									ADD:FEAT
 20																									ADD:FEAT
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		SOURCEPAGE:p.40	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		SOURCEPAGE:p.40	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim
 ###Block: Proficiency
@@ -137,13 +137,13 @@ CLASS:Cook		!PRECLASS:1,Priest=1	PRELEVEL:1
 1	SA:Forage (Ex)	BONUS:SKILL|Craft (Cook),Haggle|4|TYPE=Class	FEATAUTO:Alertness
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
-CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Willpower|2
+CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Will|2
 # Class Name	Required Lvl
 CLASS:Officer	PRELEVEL:1
 1	SA:Forage (Ex)	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	ADD:FEAT(TYPE=Panache)	FEATAUTO:Weapon Finesse(Rapier)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill				Required Stat
 CLASS:Captain	PREFEAT:1,Leadership	PRESKILL:2,Navigation,Piloting=8	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -162,8 +162,8 @@ CLASS:Captain	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Intu
 9	SA:Intuition (Sp)
 1						ADD:FEAT(TYPE=Panache)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Class		Required Feat		Required Skill		Required Stat	Required Text
 CLASS:Cardinal	PRECLASS:1,Priest=7	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=12	PRESTAT:1,CHA=13	PRETEXT:Must have been promoted to Bishop.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -179,8 +179,8 @@ CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Scri
 9	SA:Divine Power (Sp)
 10	SA:Excommunicate (Su)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Navigator	NAMEISPI:NO		HD:8		TYPE:Prestige.PC	ABB:Nav		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Navigator	NAMEISPI:NO		HD:8		TYPE:Prestige.PC	ABB:Nav		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Skill												Required Stat
 CLASS:Navigator	PRESKILL:1,Navigation=12	PRESKILL:1,Intuit Direction=8	PRESKILL:1,Piloting=6	PRESTAT:1,WIS=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -194,8 +194,8 @@ CLASS:Navigator	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Decipher Scri
 9									BONUS:VAR|BFKnowDirection|1
 10	SA:Never Lost (Su)
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Skill								Required Stat
 CLASS:Physician	PRESKILL:2,Alchemy,Wilderness Lore=6	PRESKILL:1,Heal=8	PRESTAT:1,INT=12
 # Class Name	Skill Pts/Lvl	Class Skill

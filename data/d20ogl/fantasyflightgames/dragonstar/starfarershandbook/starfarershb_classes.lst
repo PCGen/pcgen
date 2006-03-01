@@ -1,4 +1,4 @@
-# CVS $Revision: 1.12 $ $Author: tir-gwaith $ -- Wed Nov 30 02:47:24 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# CVS $Revision: 1.12 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 
@@ -97,7 +97,7 @@ CLASS:Wizard.MOD	CSKILL:Navigate|Research
 ##############
 
 # Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Pilot		HD:6		ABB:Plt		SOURCEPAGE:p.49	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Pilot		HD:6		ABB:Plt		SOURCEPAGE:p.49	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE.Profession|Repair|Spot|Swim|Use Device|Use Rope
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -114,8 +114,8 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Freefall|Intuit Direc
 13																					ADD:FEAT(TYPE=Pilot)
 17																					ADD:FEAT(TYPE=Pilot)
 
-# Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Mechanist	HD:6		ABB:Mech		SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2
+# Class Name	Hit Dice	Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Mechanist	HD:6		ABB:Mech		SOURCEPAGE:p.52	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptography|Demolitions|Disable Device|Freefall|TYPE.Knowledge|Open Lock|Pilot|TYPE.Profession|Repair|Research|Search|Use Device
 1	FEATAUTO:Technical Proficiency
@@ -182,7 +182,7 @@ CLASS:Shadowdancer.MOD	CSKILL:Demolitions|Freefall
 #######################
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
+CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
 # Class Name	Req. Att.	Required Feat											Required Skill
 CLASS:Gundancer	PREATT:5	PREFEAT:4,Evasion,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -198,8 +198,8 @@ CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Fr
 9	SA:Firestorm
 10	SA:Absorb Energy
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat				Required Skill
 CLASS:Negotiator	PREFEAT:2,Iron Will,Leadership	PRESKILL:4,Bluff,Diplomacy,Innuendo,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -214,7 +214,7 @@ CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forger
 10	SA:Mindscan												BONUS:VAR|DiscernLie|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
+CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
 # Class Name		Required Feat							Required Skill						Req. Spell Type
 CLASS:Technomancer	PREFEAT:2,Technical Proficiency,TYPE=ItemCreation	PRESKILL:1,Repair=5	PRESKILL:1,Use Device=8	PRESPELLTYPE:Arcane,1,1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -264,7 +264,7 @@ CLASS:Warrior.MOD	CSKILL:Demolitions|Freefall|Pilot
 #################
 
 # Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
 1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]

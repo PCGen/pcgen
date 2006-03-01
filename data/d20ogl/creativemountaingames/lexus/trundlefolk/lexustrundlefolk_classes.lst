@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Culture Class - Trundlefolk|SOURCESHORT:Trundleflk|SOURCEWEB:http://www.creativemountaingames.com
 # Original Entry by: barak
 
@@ -21,24 +21,24 @@ CLASS:Trundlefolk Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 1	SPELLLEVEL:CLASS|Trundlefolk Shaman=5|Commune,Healing Circle,Raise Dead,True Seeing
 ###Block: Normal Level Progression
 1	CAST:1		SA:Spontaneous casting	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-2	CAST:1						BONUS:CHECKS|BASE.Fortitude|1						BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
-3	CAST:1,0						BONUS:CHECKS|BASE.Willpower|1						BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+2	CAST:1						BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+3	CAST:1,0						BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 4	CAST:1,1						BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-5	CAST:2,1																BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
-6	CAST:2,1,0						BONUS:CHECKS|BASE.Willpower|1
-7	CAST:2,1,1						BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1				BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+5	CAST:2,1															BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+6	CAST:2,1,0						BONUS:CHECKS|BASE.Will|1
+7	CAST:2,1,1						BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 8	CAST:2,2,1
-9	CAST:3,2,1,0					BONUS:CHECKS|BASE.Willpower|1						BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+9	CAST:3,2,1,0					BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 10	CAST:3,2,1,1					BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-11	CAST:3,2,2,1															BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
-12	CAST:3,3,2,1,0					BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|1
-13	CAST:3,3,2,1,1					BONUS:CHECKS|BASE.Reflex|1						BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+11	CAST:3,2,2,1														BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+12	CAST:3,3,2,1,0					BONUS:CHECKS|BASE.Fortitude,BASE.Will|1
+13	CAST:3,3,2,1,1					BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 14	CAST:3,3,2,2,1					BONUS:CHECKS|BASE.Fortitude|1
-15	CAST:3,3,3,2,1					BONUS:CHECKS|BASE.Willpower|1						BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+15	CAST:3,3,3,2,1					BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 16	CAST:3,3,3,2,1,0					BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-17	CAST:3,3,3,2,2,1															BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
-18	CAST:3,3,3,3,2,1					BONUS:CHECKS|BASE.Reflex,BASE.Willpower,BASE.Fortitude|1
-19	CAST:3,3,3,3,2,1															BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+17	CAST:3,3,3,2,2,1														BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+18	CAST:3,3,3,3,2,1					BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1
+19	CAST:3,3,3,3,2,1														BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
 20	CAST:3,3,3,3,2,1					BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation
@@ -50,17 +50,17 @@ CLASS:Trundlefolk Warrior	STARTSKILLPTS:4	CSKILL:Animal Empathy|Appraise|Concent
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-2	BONUS:CHECKS|BASE.Fortitude|1						BONUS:COMBAT|BAB|CL=Trundlefolk Warrior-1|TYPE=Base.REPLACE
-3	BONUS:CHECKS|BASE.Willpower|1
+2	BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|CL=Trundlefolk Warrior-1|TYPE=Base.REPLACE
+3	BONUS:CHECKS|BASE.Will|1
 4	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-6	BONUS:CHECKS|BASE.Willpower|1
+6	BONUS:CHECKS|BASE.Will|1
 7	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-9	BONUS:CHECKS|BASE.Willpower|1
+9	BONUS:CHECKS|BASE.Will|1
 10	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-12	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|1
+12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|1
 13	BONUS:CHECKS|BASE.Reflex|1
 14	BONUS:CHECKS|BASE.Fortitude|1
-15	BONUS:CHECKS|BASE.Willpower|1
+15	BONUS:CHECKS|BASE.Will|1
 16	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1
-18	BONUS:CHECKS|BASE.Reflex,BASE.Willpower,BASE.Fortitude|1
+18	BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1
 20	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1

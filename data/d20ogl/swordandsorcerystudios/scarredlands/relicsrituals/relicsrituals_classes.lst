@@ -1,8 +1,8 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Wed Dec 14 16:18:55 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat										Required Skill
 CLASS:Blood Witch	PREFEAT:1,Skill Focus(Concentration)	PREFEAT:2,TYPE=Metamagic	PRESKILL:2,Concentration,Knowledge (Arcana)=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -20,8 +20,8 @@ CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL
 9	ADD:SPELLCASTER(ANY)																			ADD:Blood Enhancement (Chain Spell,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Maximize Spell,Quicken Spell,Silent Spell,Still Spell)
 10	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Minor Sacrifice	SA:Major Sacrifice
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Crypt Lord	HD:4		TYPE:PC.Prestige	ABB:CrL		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Crypt Lord	HD:4		TYPE:PC.Prestige	ABB:CrL		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Feat				Required Skill				Required Spell School
 CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus(Necromancy)	PRESKILL:1,Knowledge (Undead)=7	PRESPELLSCHOOL:Necromancy,1,3	PRESPELLSCHOOL:Necromancy,7,0
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -43,8 +43,8 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowled
 9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Energy Drain Resistance	SA:Energy Drain Immunity
 10	ADD:SPELLCASTER(ANY)							SA:Lichdom																												TEMPLATE:Lich
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					SKILLLIST
-CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE	SKILLLIST:1,Druid
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					SKILLLIST
+CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE	SKILLLIST:1,Druid
 # Class Name	Required AL	Required Class		Required Feat		Required Skill
 CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -66,8 +66,8 @@ CLASS:Incarnate	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Incarnate|CL
 9	SA:Timeless Body					BONUS:PCLEVEL|Druid|1
 10	SA:Designate Life Form				BONUS:PCLEVEL|Druid|1	ADD:Pastlife Form(TYPE=Animal,TYPE=Vermin)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill	Req. Known Spell			Required Sub-school
 CLASS:Penumbral Lord	PREFEAT:1,Silent Spell	PRESKILL:1,Hide=5	PRESPELL:1,Shadow Conjuration	PRESPELLSCHOOLSUB:Shadow,3,1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -94,8 +94,8 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral 
 9	CAST:5,5,4,3,2,2,2,2,1,0
 10	CAST:5,5,4,4,2,2,2,2,1,1					SA:Shadow Home
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus												Combat bonus
-CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Save checks bonus											Combat bonus
+CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Skill						Req. Spell Type
 CLASS:Sea Witch	PRESKILL:2,Concentration,Profession (Sailor)=8	PRESPELLTYPE:Arcane|Divine,1,3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -127,8 +127,8 @@ SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
 9	CAST:0,4,4,4,2,1
 10	CAST:0,4,4,4,3,2
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill			Required Sub-school
 CLASS:Summoner	PREFEAT:1,Skill Focus(Knowledge %)	PRESKILL:1,TYPE.Knowledge=8	PRESPELLSCHOOLSUB:Summoning,3,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -149,8 +149,8 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Dip
 10	ADD:SPELLCASTER(ANY)
 #10	ADD:SPELLCASTER(ANY)	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL				Req. Att.	Required Feat			Required Skill
 CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Track	PRESKILL:1,Wilderness Lore=7	PRESKILL:3,Diplomacy,Gather Information,Handle Animal=5
 # Class Name	Skill Pts/Lvl	Class Skill

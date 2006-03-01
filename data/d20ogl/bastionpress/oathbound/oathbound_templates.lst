@@ -1,58 +1,58 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Bastion Press - Oathbound - Domains of the Forge|SOURCESHORT:Oathbound|SOURCEWEB:http://www.bastionpress.com
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
 
 ###Block:Gifts, both Arrival and Earned
-# Template Name						Visible	Damage Reduction	Source Page		Special Ability									Define												Required Feat		Save checks bonus					Combat bonus						Bonus to skill											Stat bonus								Choose																										Choose a Feat
-Arrival Gift (Ability Boost - Strength)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|STR|2
-Arrival Gift (Ability Boost - Dexterity)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|DEX|2
-Arrival Gift (Ability Boost - Constitution)	VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|CON|2
-Arrival Gift (Ability Boost - Intelligence)	VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|INT|2
-Arrival Gift (Ability Boost - Wisdom)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|WIS|2
-Arrival Gift (Ability Boost - Charisma)		VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|CHA|2
+# Template Name						Visible	Damage Reduction	Source Page		Special Ability									Define												Required Feat		Save checks bonus				Combat bonus						Bonus to skill											Stat bonus								Choose																										Choose a Feat
+Arrival Gift (Ability Boost - Strength)		VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|STR|2
+Arrival Gift (Ability Boost - Dexterity)		VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|DEX|2
+Arrival Gift (Ability Boost - Constitution)	VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|CON|2
+Arrival Gift (Ability Boost - Intelligence)	VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|INT|2
+Arrival Gift (Ability Boost - Wisdom)		VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|WIS|2
+Arrival Gift (Ability Boost - Charisma)		VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|CHA|2
 Arrival Gift (Brave)					VISIBLE:YES				SOURCEPAGE:p.20
-Arrival Gift (Chameleon)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Hide|6|TYPE=Circumstance
-Arrival Gift (Charm)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Diplomacy,Gather Information|4|TYPE=Circumstance
+Arrival Gift (Chameleon)				VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Hide|6|TYPE=Circumstance
+Arrival Gift (Charm)					VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Diplomacy,Gather Information|4|TYPE=Circumstance
 Arrival Gift (Connected)				VISIBLE:YES				SOURCEPAGE:p.20
 Arrival Gift (Empathy)					VISIBLE:YES				SOURCEPAGE:p.20
 Arrival Gift (Efficient)				VISIBLE:YES				SOURCEPAGE:p.20	SA:Efficient (Ex) % days|EfficientDuration				DEFINE:EfficientDuration|CONSCORE
-Arrival Gift (Focused)					VISIBLE:YES				SOURCEPAGE:p.20																																																																																													ADD:FEAT(Focused)
+Arrival Gift (Focused)					VISIBLE:YES				SOURCEPAGE:p.20																																																																																												ADD:FEAT(Focused)
 Arrival Gift (Funny)					VISIBLE:YES				SOURCEPAGE:p.20
-Arrival Gift (Good looking)				VISIBLE:YES				SOURCEPAGE:p.20																																																									BONUS:STAT|CHA|1
+Arrival Gift (Good looking)				VISIBLE:YES				SOURCEPAGE:p.20																																																								BONUS:STAT|CHA|1
 Arrival Gift (Healthy)					VISIBLE:YES				SOURCEPAGE:p.20
-Arrival Gift (Inconspicuous)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Disguise,Hide|4|TYPE=Luck
-Arrival Gift (Inspiring)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Diplomacy,Perform|4|TYPE=Competence
-Arrival Gift (Intimidating)				VISIBLE:YES				SOURCEPAGE:p.20	SA:Frightful Presence (Ex) DC%|FrightfulPresenceDC			DEFINE:FrightfulPresenceDC|10+(TL/2)+CHA																										BONUS:SKILL|Intimidate|4|TYPE=Competence
-Arrival Gift (Intuition)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Sense Motive|6|TYPE=Competence
-Arrival Gift (Jovial)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Perform,Perform%,Gather Information|2|TYPE=Competence
-Arrival Gift (Nimble)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Pick Pocket,Open Lock|4|TYPE=Competence
-Arrival Gift (Poker Faced)				VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Bluff|6|TYPE=Competence
-Arrival Gift (Quiet)					VISIBLE:YES				SOURCEPAGE:p.20																																												BONUS:SKILL|Move Silently|6|TYPE=Competence
+Arrival Gift (Inconspicuous)				VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Disguise,Hide|4|TYPE=Luck
+Arrival Gift (Inspiring)				VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Diplomacy,Perform|4|TYPE=Competence
+Arrival Gift (Intimidating)				VISIBLE:YES				SOURCEPAGE:p.20	SA:Frightful Presence (Ex) DC%|FrightfulPresenceDC			DEFINE:FrightfulPresenceDC|10+(TL/2)+CHA																									BONUS:SKILL|Intimidate|4|TYPE=Competence
+Arrival Gift (Intuition)				VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Sense Motive|6|TYPE=Competence
+Arrival Gift (Jovial)					VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Perform,Perform%,Gather Information|2|TYPE=Competence
+Arrival Gift (Nimble)					VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Pick Pocket,Open Lock|4|TYPE=Competence
+Arrival Gift (Poker Faced)				VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Bluff|6|TYPE=Competence
+Arrival Gift (Quiet)					VISIBLE:YES				SOURCEPAGE:p.20																																											BONUS:SKILL|Move Silently|6|TYPE=Competence
 Arrival Gift (Resilient)				VISIBLE:YES	DR:1/-		SOURCEPAGE:p.20
 Arrival Gift (Shapechanger)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Shapechanger (Su) %/day|ShapechangerUsage				DEFINE:ShapechangerUsage|(TL/5)
-Arrival Gift (Sneaky)					VISIBLE:YES				SOURCEPAGE:p.21	SA:+2 luck bonus vs magical detection																																					BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
-Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																													ADD:FEAT(Talented)
+Arrival Gift (Sneaky)					VISIBLE:YES				SOURCEPAGE:p.21	SA:+2 luck bonus vs magical detection																																				BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
+Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																												ADD:FEAT(Talented)
 Arrival Gift (Telepathic)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Telepathic (Su)
-Arrival Gift (Thick Skin)				VISIBLE:YES				SOURCEPAGE:p.21																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
-Arrival Gift (Understanding 1/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																		CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
-Arrival Gift (Understanding 2/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																		CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
-Arrival Gift (Understanding 3/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																		CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
+Arrival Gift (Thick Skin)				VISIBLE:YES				SOURCEPAGE:p.21																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Arrival Gift (Understanding 1/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																	CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
+Arrival Gift (Understanding 2/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																	CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
+Arrival Gift (Understanding 3/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																	CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
 Arrival Gift (Valiant)					VISIBLE:YES				SOURCEPAGE:p.21																									PREFEAT:1,Leadership
 Arrival Gift (Wild Talent)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Wild Talent (Su) %/day|WildTalentUsage					DEFINE:WildTalentUsage|(1+(TL/5))
-Arrival Gift (Willful)					VISIBLE:YES				SOURCEPAGE:p.21																													BONUS:CHECKS|Willpower|2|TYPE=Competence
-Arrival Gift (Youthful)					VISIBLE:YES				SOURCEPAGE:p.21																																																									BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|CON|1
+Arrival Gift (Willful)					VISIBLE:YES				SOURCEPAGE:p.21																													BONUS:CHECKS|Will|2|TYPE=Competence
+Arrival Gift (Youthful)					VISIBLE:YES				SOURCEPAGE:p.21																																																								BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|CON|1
 Arrival Gift (Zealous)					VISIBLE:YES				SOURCEPAGE:p.21
 
-Earned Gift (Adorable)					VISIBLE:YES				SOURCEPAGE:p.21																																												BONUS:SKILL|Diplomacy,Gather Information,Perform,Perform%|4|TYPE=Circumstance
+Earned Gift (Adorable)					VISIBLE:YES				SOURCEPAGE:p.21																																											BONUS:SKILL|Diplomacy,Gather Information,Perform,Perform%|4|TYPE=Circumstance
 Earned Gift (Danger Sense)				VISIBLE:YES				SOURCEPAGE:p.21
 Earned Gift (Dream Walking)				VISIBLE:YES				SOURCEPAGE:p.21
 Earned Gift (Ethereal Sight)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Ethereal Sight (Su) %/day|EtherealSightUsage				DEFINE:EtherealSightUsage|(1+INT)
-Earned Gift (Famous)					VISIBLE:YES				SOURCEPAGE:p.21																																												BONUS:SKILL|Bluff,Diplomacy|4|TYPE=Circumstance
+Earned Gift (Famous)					VISIBLE:YES				SOURCEPAGE:p.21																																											BONUS:SKILL|Bluff,Diplomacy|4|TYPE=Circumstance
 Earned Gift (Mesmerizing)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Mesmerizing (Su) %/day|MesmerizingUsage				DEFINE:MesmerizingUsage|(1+CHA)
 Earned Gift (Mind Reading)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Mind Reading (Su) %/day (DC%)|MindReadingUsage|MindReadingDC	DEFINE:MindReadingDC|(10+INT+(TL/3))	DEFINE:MindReadingUsage|(1+INT)
 Earned Gift (Precognitive)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Precognitive (Su) %/day|PrecognitiveUsage				DEFINE:PrecognitiveUsage|(1+WIS)
-Earned Gift (Persuasive)				VISIBLE:YES				SOURCEPAGE:p.21																																												BONUS:SKILL|Diplomacy,Gather Information|4|TYPE=Competence
+Earned Gift (Persuasive)				VISIBLE:YES				SOURCEPAGE:p.21																																											BONUS:SKILL|Diplomacy,Gather Information|4|TYPE=Competence
 Earned Gift (Telekinetic)				VISIBLE:YES				SOURCEPAGE:p.21	SA:Telekinetic (Su)
 Earned Gift (Wild Talent - Greater)			VISIBLE:YES				SOURCEPAGE:p.21	SA:Greater Wild Talent (Su) %/day|WildTalentGUsage			DEFINE:WildTalentGUsage|(1+(TL/5))
 

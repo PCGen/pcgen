@@ -1,8 +1,8 @@
-# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Fri Dec  9 01:33:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.5 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun|SOURCESHORT:WayotGun|SOURCEWEB:http://www.peginc.com/index.htm
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
 CLASS:Bounty Hunter	PREATT:6	PRESKILL:1,Gather Information=6	PRESKILL:1,Wilderness Lore=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -19,8 +19,8 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Gather Informa
 9																					ADD:FEAT(Alertness,Ambidexterity,Automatic Weapon Proficiency,Dodge,Dinero,Exotic Weapon Proficiency,Fill Yer Hand,Grim Servant o' Death,Improved Critical,Improved Initiative,Marksman,Mercy Shot,Point Blank Shot,Fannin',Far Shot,Precise Shot,Slip Shot,Quick Draw,Special Draw,Renown,The Stare,Weapon Focus)
 10										BONUS:VAR|DetectVulnerability|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	ABB:Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	ABB:Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill
 CLASS:Card Sharp	PREATT:4	PRESKILL:1,Bluff=6	PRESKILL:1,Gamblin'=9	PRESKILL:1,Sleight o' Hand=9	PRESKILL:1,Spot=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -37,8 +37,8 @@ CLASS:Card Sharp	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Gambli
 8																		ADD:FEAT(Dinero)
 10											BONUS:VAR|Cheating|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.
 CLASS:Crusader	PREALIGN:LG,NG,CG	PREATT:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -57,8 +57,8 @@ CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Gunplay|Holdout|Int
 9													BONUS:VAR|ArcaneShield|3
 10													BONUS:VAR|ArcaneShield|3
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Desperado	HD:8		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Desperado	HD:8		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL			Req. Att.	Required Skill
 CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Ride=6	PRESKILL:1,Wilderness Lore=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -73,8 +73,8 @@ CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Forger
 8											BONUS:VAR|Hideout|1
 9											BONUS:VAR|Paunch|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																				Combat bonus
-CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																			Combat bonus
+CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill
 CLASS:Gunsmith	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Tinkerin'=9
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -90,8 +90,8 @@ CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE.Craft|Demolitions|Disable Dev
 9										BONUS:VAR|Arsenal|1
 10										BONUS:VAR|FieldMods|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Law Dog	HD:8		TYPE:PC.Prestige	ABB:Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Law Dog	HD:8		TYPE:PC.Prestige	ABB:Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Skill
 CLASS:Law Dog	PREALIGN:LG,NG,CG	PREATT:6	PRESKILL:1,Diplomacy=4	PRESKILL:1,Gunplay=6	PRESKILL:1,Ride=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -106,8 +106,8 @@ CLASS:Law Dog	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Gamblin'|G
 7										ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Grim Servant o' Death,Improved Critical,Improved Initiative,Law Man (National),Level-Headed,Steady Shot,Marksman,Mercy Shot,Point Blank Shot,Fannin',Slip Shot,Far Shot,Precise Shot,Quick Draw,Special Draw,Renown,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)
 10										ADD:FEAT(Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Grim Servant o' Death,Improved Critical,Improved Initiative,Law Man (National),Level-Headed,Steady Shot,Marksman,Mercy Shot,Point Blank Shot,Fannin',Slip Shot,Far Shot,Precise Shot,Quick Draw,Special Draw,Renown,The Stare,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																	Combat bonus
-CLASS:Rifleman	HD:8		TYPE:PC.Prestige	ABB:Rfm		MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																Combat bonus
+CLASS:Rifleman	HD:8		TYPE:PC.Prestige	ABB:Rfm		MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
 CLASS:Rifleman	PREATT:8	PREFEAT:1,Firearms Proficiency (Pistol),Firearms Proficiency (Rifle),Firearms Proficiency (Shotgun)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:Rifleman	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Gunplay|Hide|Intimi
 3	SA:Sneak Attack (% feet)|RifleSneak	BONUS:VAR|RifleSneak|floor(CL/3)*100	DEFINE:RifleSneak|100
 5	SA:Coup de Grace
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																		Combat bonus
-CLASS:Spy		HD:6		TYPE:PC.Prestige	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																	Combat bonus
+CLASS:Spy		HD:6		TYPE:PC.Prestige	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL			Req. Att.	Required Skill
 CLASS:Spy		PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Ride=6	PRESKILL:1,Wilderness Lore=4
 # Class Name	Skill Pts/Lvl	Class Skill

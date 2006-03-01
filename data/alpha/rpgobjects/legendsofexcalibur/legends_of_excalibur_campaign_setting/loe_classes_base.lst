@@ -1,10 +1,10 @@
-# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Sat Dec 17 10:44:13 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.3 $ $Author: tir-gwaith $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages												Define																			Save checks bonus												Combat bonus
-CLASS:Bard ~ LoE	HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages												Define																			Save checks bonus											Combat bonus
+CLASS:Bard ~ LoE	HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard ~ LoE	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -34,8 +34,8 @@ CLASS:Bard ~ LoE	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 19	CAST:0,0,2,3,4,5,6	KNOWN:9,5,5,4,4,3,3	BONUS:VAR|BASEPOWERPOINTS|17
 20	CAST:0,0,2,3,4,5,6	KNOWN:9,5,5,4,4,3,3	BONUS:VAR|BASEPOWERPOINTS|19
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages															Bonus Languages	Define																			Save checks bonus												Combat bonus
-CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Druidic	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]	LANGBONUS:Sylvan	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages															Bonus Languages	Define																			Save checks bonus											Combat bonus
+CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Druidic	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]	LANGBONUS:Sylvan	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -84,8 +84,8 @@ CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Diplo
 17	SA:Verbal Barrage (Ex)
 19	SA:Verbal Firestorm (Ex)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																			Save checks bonus												Combat bonus
-CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		SOURCEPAGE:p.12	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																			Save checks bonus											Combat bonus
+CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		SOURCEPAGE:p.12	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcana)|TYPE.Profession|Prophecy|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -111,8 +111,8 @@ CLASS:Hedge Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 19	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,2								BONUS:VAR|BASEPOWERPOINTS|17
 20	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,3	SA:Ultimate Prophecy				BONUS:VAR|BASEPOWERPOINTS|19
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																			Save checks bonus												Combat bonus
-CLASS:Hermit	HD:6		TYPE:Base.PC	ABB:Hrm		SOURCEPAGE:p.14	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																			Save checks bonus											Combat bonus
+CLASS:Hermit	HD:6		TYPE:Base.PC	ABB:Hrm		SOURCEPAGE:p.14	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hermit	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Decipher Script|Heal|Knowledge (Nature)|Knowledge (Religion)|Listen|Prophecy|Ride|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -142,8 +142,8 @@ CLASS:Hermit	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:0,0,2,3,4,5,6,7,8,9						BONUS:VAR|BASEPOWERPOINTS|17
 20	CAST:0,0,2,3,4,5,6,7,8,9						BONUS:VAR|BASEPOWERPOINTS|19
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus												Combat bonus
-CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:p.16	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus											Combat bonus
+CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:p.16	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE:Base.REPLACE
 # Class Name	Required Stat
 CLASS:Knight	PRESTAT:1,NOB=41
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -161,8 +161,8 @@ CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Ju
 17													BONUS:VAR|PowerCharge|1
 19	SA:Terrifying Charge (Ex)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																			Save checks bonus												Combat bonus
-CLASS:Minstrel	HD:6		TYPE:Base.PC	ABB:Min		SOURCEPAGE:p.19	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:BASE.Replace
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																			Save checks bonus											Combat bonus
+CLASS:Minstrel	HD:6		TYPE:Base.PC	ABB:Min		SOURCEPAGE:p.19	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:BASE.Replace
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minstrel	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Sleight of Hand|Spellcraft|Spot|Survival|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -190,17 +190,17 @@ CLASS:Minstrel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 19	CAST:0,1,2,3,4,5,6,7,9,22	SA:A Thousand Faces (Su)		BONUS:VAR|BASEPOWERPOINTS|15
 20	CAST:0,1,2,3,4,5,6,7,8,11							BONUS:VAR|BASEPOWERPOINTS|15
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus												Combat bonus
-CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.23	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus											Combat bonus
+CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		SOURCEPAGE:p.23	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name	Required Stat
 CLASS:Noble		PRESTAT:1,NOB=51
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Sense Motive
-1	SA:Dispense Justice (Ex)	SA:Aura of Nobility (Ex)	SA:Nobless Oblige (Ex)	BONUS:VAR|AuraNobility|NOB/2										BONUS:SKILL|Intimidate|AuraNobility	DEFINE:AuraNobility|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2	SA:Divine Grace (Su)																BONUS:CHECKS|Fortitude,Reflex,Willpower|max(CHA,0)
-3	SA:Quest +% (Ex)|Qust											BONUS:VAR|Qust|CL/3																	DEFINE:Qust|0
+1	SA:Dispense Justice (Ex)	SA:Aura of Nobility (Ex)	SA:Nobless Oblige (Ex)	BONUS:VAR|AuraNobility|NOB/2									BONUS:SKILL|Intimidate|AuraNobility	DEFINE:AuraNobility|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2	SA:Divine Grace (Su)																BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+3	SA:Quest +% (Ex)|Qust											BONUS:VAR|Qust|CL/3																DEFINE:Qust|0
 4	SA:Aura of Courage (Su)
-5	SA:Divine Wrath %/day (Su)|DivineWrath								BONUS:VAR|DivineWrath|1																	DEFINE:DivineWrath|0
+5	SA:Divine Wrath %/day (Su)|DivineWrath								BONUS:VAR|DivineWrath|1																DEFINE:DivineWrath|0
 8	SA:Divine Right (Aura of Majesty) (Su)
 10															BONUS:VAR|DivineWrath|1
 12	SA:Aura of Majesty (all saving throws) (Su)
@@ -209,8 +209,8 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Int
 18	SA:Aura of Majesty (damage) (Su)
 20	SA:Land and the Lord are One (Su)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																				Save checks bonus												Combat bonus
-CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		SOURCEPAGE:p.26	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS+NOB	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Define																				Save checks bonus											Combat bonus
+CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		SOURCEPAGE:p.26	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS+NOB	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
@@ -236,8 +236,8 @@ CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:0,0,2,3,4,5,6,7,8,9										BONUS:VAR|BASEPOWERPOINTS|17
 20	CAST:0,0,2,3,4,5,6,7,8,9	SA:Divine Interention (Su)					BONUS:VAR|BASEPOWERPOINTS|19
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus												Combat bonus
-CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		SOURCEPAGE:29	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus											Combat bonus
+CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		SOURCEPAGE:29	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE.Profession|Ride|Sleight of Hand
 1																																				ADD:VFEAT(Improved Feint)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -250,8 +250,8 @@ CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disgui
 16																										ADD:Feat(TYPE=RobberBaron)
 20																										ADD:Feat(TYPE=RobberBaron)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus												Combat bonus
-CLASS:Skald		HD:8		TYPE:Base.PC	ABB:Ska		SOURCEPAGE:p.31	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus											Combat bonus
+CLASS:Skald		HD:8		TYPE:Base.PC	ABB:Ska		SOURCEPAGE:p.31	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Skald		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Heal|Intimidate|Jump|Listen|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Survival|Swim
 1	SA:Inspire Courage +% (Su)|InspireCourage|PRESKILL:1,TYPE.Perform=3	BONUS:VAR|InspireCourage|CL/4+1	DEFINE:InspireCourage|0	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -264,8 +264,8 @@ CLASS:Skald		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Heal|Intimi
 13	SA:Precision Cadence (Su)|PRESKILL:1,TYPE.Perform=15
 15	SA:Inspire Heroics (Su)|PRESKILL:1,TYPE.Perform=18
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus												Combat bonus
-CLASS:Yeoman	HD:8		TYPE:Base.PC	ABB:Yeo		SOURCEPAGE:p.33	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Willpower|CL/3	BONUS:COMBAT|BAB|CL|TYPE:Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus											Combat bonus
+CLASS:Yeoman	HD:8		TYPE:Base.PC	ABB:Yeo		SOURCEPAGE:p.33	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Yeoman	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Spot|Survival|Swim
 1	SA:Archer +%|Arch			BONUS:VAR|Arch|CL/4+1	BONUS:COMBAT|TOHIT.Bow|Arch	BONUS:COMBAT|TOHIT.Crossbow|Arch	DEFINE:Arch|0	ADD:FEAT(Point Blank Shot)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
