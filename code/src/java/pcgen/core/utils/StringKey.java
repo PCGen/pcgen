@@ -68,6 +68,7 @@ public final class StringKey {
 	public static final StringKey MASTER_HP_FORMULA = new StringKey();
 	public static final StringKey NAME = new StringKey();
 	public static final StringKey OUTPUT_NAME = new StringKey();
+	public static final StringKey PAGE_USAGE = new StringKey();
 	public static final StringKey PHOBIAS = new StringKey();
 	public static final StringKey PLAYERS_NAME = new StringKey();
 	public static final StringKey PORTRAIT_PATH = new StringKey();
@@ -82,6 +83,7 @@ public final class StringKey {
 	public static final StringKey SKIN_COLOR = new StringKey();
 	public static final StringKey SOURCE_FILE = new StringKey();
 	public static final StringKey SPEECH_TENDENCY = new StringKey();
+	public static final StringKey SPELLBOOK_AUTO_ADD_KNOWN = new StringKey();
 	public static final StringKey SR_FORMULA = new StringKey();
 	public static final StringKey SUB_REGION = new StringKey();
 	public static final StringKey TEMP_DESCRIPTION = new StringKey();

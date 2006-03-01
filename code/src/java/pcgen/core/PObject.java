@@ -521,6 +521,44 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
+	 * Set the number of pages for this object
+	 * @param aString
+	 */
+	public final void setNumPages(final int value)
+	{
+		integerChar.setCharacteristic(IntegerKey.NUM_PAGES, value);
+	}
+
+	/**
+	 * Get the number of pages of this object
+	 * @return the number of pages of this object
+	 */
+	public final int getNumPages()
+	{
+		Integer characteristic = integerChar.getCharacteristic(IntegerKey.NUM_PAGES);
+		return characteristic == null ? 0 : characteristic.intValue();
+	}
+
+	/**
+	 * Set the page usage formula for this object
+	 * @param aString
+	 */
+	public final void setPageUsage(final String aString)
+	{
+		stringChar.setCharacteristic(StringKey.PAGE_USAGE, aString);
+	}
+
+	/**
+	 * Get the page usage formula of this object
+	 * @return the page usage formula of this object
+	 */
+	public final String getPageUsage()
+	{
+		String characteristic = stringChar.getCharacteristic(StringKey.PAGE_USAGE);
+		return characteristic == null ? "" : characteristic;
+	}
+
+	/**
 	 * Get the list of temporary bonuses for this list
 	 * @return the list of temporary bonuses for this list
 	 */

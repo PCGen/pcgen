@@ -31,6 +31,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
+import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -816,6 +817,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+		if (cache.containsKey(TAG_SPELLBOOK))
+		{
+			for (it = cache.get(TAG_SPELLBOOK).iterator(); it.hasNext();)
+			{
+				parseSpellBookLines((String) it.next());
+			}
+		}
 		/*
 		 * This one is what will make spellcasters U G L Y!!!
 		 *
@@ -2723,6 +2731,74 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	/*
 	 * ###############################################################
+	 * Spell Book Information methods
+	 * ###############################################################
+	 */
+	/*
+	 * #Spell Book Information
+	 * SPELLBOOK:bookname|TYPE:spellbooktype
+	 */
+	private void parseSpellBookLines(String line)
+	{
+		final PCGTokenizer tokens;
+
+		try
+		{
+			tokens = new PCGTokenizer(line);
+		}
+		catch (PCGParseException pcgpex)
+		{
+			final String message = "Illegal Spell book ignored: " + line
+				+ Constants.s_LINE_SEP + "Error: " + pcgpex.getMessage();
+			warnings.add(message);
+
+			return;
+		}
+
+		SpellBook aSpellBook = null;
+		PCGElement element;
+		String tag;
+
+		for (Iterator it = tokens.getElements().iterator(); it.hasNext();)
+		{
+			element = (PCGElement) it.next();
+			tag = element.getName();
+
+			if (TAG_SPELLBOOK.equals(tag))
+			{
+				final String bookName = EntityEncoder.decode(element.getText());
+
+				aSpellBook = new SpellBook(bookName, SpellBook.TYPE_PREPARED_LIST);
+			}
+			else if (TAG_TYPE.equals(tag))
+			{
+				try
+				{
+					aSpellBook.setType(Integer.parseInt(element.getText()));
+				}
+				catch (NumberFormatException nfe)
+				{
+					// nothing we can do about it
+					final String message = "Spell book " + aSpellBook.getName()
+						+ " had an illegal type: " + element.getText() + " in line "
+						+ line;
+					warnings.add(message);
+				}
+			}
+			else if (TAG_AUTOADDKNOWN.equals(tag))
+			{
+				if ("Y".equals(element.getText()))
+				{
+					aPC.setSpellBookNameToAutoAddKnown(aSpellBook.getName());
+				}
+			}
+		}
+
+		aPC.addSpellBook(aSpellBook);
+	}
+
+	/*
+	 * ###############################################################
 	 * Character Spells Information methods
 	 * ###############################################################
 	 */
@@ -2751,6 +2827,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		int times = 1;
 		int spellLevel = 0;
+		int numPages = 0;
 
 		final List metaFeats = new ArrayList();
 
@@ -2809,7 +2886,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					return;
 				}
 			}
-			else if (TAG_SPELLBOOK.equals(tag))
+			else if (TAG_SPELL_BOOK.equals(tag))
 			{
 				spellBook = EntityEncoder.decode(element.getText());
 			}
@@ -2829,6 +2906,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				try
 				{
 					ppCost = Integer.parseInt(element.getText());
+				}
+				catch (NumberFormatException nfe)
+				{
+					// nothing we can do about it
+				}
+			}
+			else if (TAG_SPELLNUMPAGES.equals(tag))
+			{
+				try
+				{
+					numPages = Integer.parseInt(element.getText());
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -2929,6 +3017,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+		// just to make sure the spellbook is present
+		aPC.addSpellBook(spellBook);
+		SpellBook book = aPC.getSpellBookByName(spellBook); 
+
 		final int[] spellLevels = aSpell.levelForKey(source.getSpellKey(), aPC);
 
 		for (int sindex = 0; sindex < spellLevels.length; ++sindex)
@@ -3014,12 +3106,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					aSpellInfo.addFeatsToList(metaFeats);
 				}
 				aSpellInfo.setActualPPCost(ppCost);
+				aSpellInfo.setNumPages(numPages);
+				book.setNumPagesUsed(book.getNumPagesUsed() + numPages);
+				book.setNumSpells(book.getNumSpells() + 1);
 			}
 		}
 		 // end sindex for loop
-
-		// just to make sure the spellbook is present
-		aPC.addSpellBook(spellBook);
 	}
 
 	/*

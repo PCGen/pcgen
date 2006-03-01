@@ -2294,6 +2294,20 @@ These files can be renamed and used for releases.
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-NUMPAGES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/NumPagesToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-PAGEUSAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/equipment/PageUsageToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-PROFICIENCY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

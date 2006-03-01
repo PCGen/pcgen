@@ -26,7 +26,7 @@ package pcgen.core.utils;
 /**
  * @author Tom Parker <thpr@sourceforge.net>
  *
- * This is a Typesafe enumeration of legal String Characteristics of an object.
+ * This is a Typesafe enumeration of legal Integer Characteristics of an object.
  */
 public final class IntegerKey 
 {
@@ -39,6 +39,8 @@ public final class IntegerKey
 	public static final IntegerKey HIT_DIE = new IntegerKey();
 	/** Key to a characteristic defining the level of the object. */
 	public static final IntegerKey LEVEL = new IntegerKey();
+	/** Key to a characteristic defining the number of pages of the object. */
+	public static final IntegerKey NUM_PAGES = new IntegerKey();
 	/** Key to a characteristic defining the loading rank of the object. */
 	public static final IntegerKey RANK = new IntegerKey();
 	/** Key to a characteristic defining how visible the object is. */

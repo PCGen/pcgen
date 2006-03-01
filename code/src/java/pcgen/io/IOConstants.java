@@ -41,6 +41,7 @@ interface IOConstants
 	String TAG_AUTOSORTGEAR        = "AUTOSORTGEAR";
 	String TAG_AUTOSORTSKILLS      = "AUTOSORTSKILLS";
 	String TAG_AUTOSPELLS          = "AUTOSPELLS";
+	String TAG_AUTOADDKNOWN        = "AUTOADDKNOWN";
 	String TAG_BASEITEM            = "BASEITEM";
 	String TAG_BIRTHDAY            = "BIRTHDAY";
 	String TAG_BIRTHPLACE          = "BIRTHPLACE";
@@ -221,11 +222,13 @@ interface IOConstants
 	/** @deprecated Unused */
 	String TAG_SPELL = "SPELL";
 	String TAG_SPELLBASE = "SPELLBASE";
-	String TAG_SPELLBOOK = "BOOK";
+	String TAG_SPELL_BOOK = "BOOK";
+	String TAG_SPELLBOOK = "SPELLBOOK";
 	String TAG_SPELLLEVEL = "SPELLLEVEL";
 	String TAG_SPELLLIST = "SPELLLIST";
 	String TAG_SPELLNAME = "SPELLNAME";
 	String TAG_SPELLPPCOST = "SPELLPPCOST";
+	String TAG_SPELLNUMPAGES = "SPELLNUMPAGES";
 	/** @deprecated Unused */
 	String TAG_SR = "SR";
 

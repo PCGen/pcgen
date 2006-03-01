@@ -48,6 +48,7 @@ public final class SpellInfo
 	private int actualLevel = -1;
 	private int times; // times the spell is in this list
 	private int actualPPCost = -1;
+	private int numPages = 0;
 
 	/**
 	 * added package-private constructor to enforce usage of public constructor
@@ -111,6 +112,16 @@ public final class SpellInfo
 	public int getTimes()
 	{
 		return times;
+	}
+
+	public final int getNumPages()
+	{
+		return numPages;
+	}
+
+	public final void setNumPages(int numPages)
+	{
+		this.numPages = numPages;
 	}
 
 	public void addFeatsToList(final List aList)

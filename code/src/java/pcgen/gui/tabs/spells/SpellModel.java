@@ -20,22 +20,22 @@
  */
 package pcgen.gui.tabs.spells;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.tree.TreePath;
+
 import pcgen.core.*;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.SpellInfo;
+import pcgen.core.character.*;
 import pcgen.core.spell.Spell;
 import pcgen.gui.GuiConstants;
-import pcgen.gui.tabs.InfoSpells;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
-
-import javax.swing.tree.TreePath;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 
 
 /**
@@ -74,28 +74,33 @@ public final class SpellModel extends AbstractTreeTableModel
 	private PObjectNode theRoot;
 
 	// list of columns names
-//	private String[] availNameList = { "" };
-//	private String[] selNameList = { "" };
 	private String[] colNameList = { "" };
 
 	private int[] colTranslateList = { 0 };
 
 	// Types of the columns.
 	private boolean includeRace = false;
-    private PlayerCharacter pc;
-
+	private PlayerCharacter pc;
+	
 	/**
-	 * Creates a SpellModel
-	 * @param spells
-	 * @param primaryMode
-	 * @param secondaryMode
-	 * @param available
-	 * @param bookList
-	 * @param currSpellBook
+	 * Creates a SpellModel for a particular character.
+	 * 
+	 * @param primaryMode The primary sort order 
+	 * @param secondaryMode The secondary sort order
+	 * @param available Is this an available (true) or selected (false) list
+	 * @param bookList The list of books to be displayed.
+	 * @param currSpellBook The name of the currently selected spell book 
+	 * @param fullSpellList Should we display a full list of available spells?
+	 * @param pc The character we are building the spell list for.
+	 * @param spellTab The tab the list is being displayed upon.
 	 */
-	public SpellModel(InfoSpells spells, int primaryMode, int secondaryMode, boolean available, List bookList, String currSpellBook)
+	public SpellModel(int primaryMode, int secondaryMode, boolean available,
+		List bookList, String currSpellBook, boolean fullSpellList,
+		PlayerCharacter pc, InfoSpellsSubTab spellTab)
 	{
 		super(null);
+
+		setCharacter(pc);
 
 		//
 		// if you change/add/remove entries to nameList
@@ -105,8 +110,6 @@ public final class SpellModel extends AbstractTreeTableModel
 
 		if (Spell.hasPPCost())
 		{
-//			availNameList = new String[]{"Name", "School", "Descriptor", "Cost", "Source"};
-//			selNameList = new String[]{"Name", "School", "SubSchool", "Descriptor", "Components", "Casting Time", "Range", "Description", "Target Area", "Duration", "Save Info", "SR", "Source File"};
 			if (available)
 			{
 				colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_DESCRIPTOR, COL_PPCOST, COL_SRC};
@@ -118,8 +121,6 @@ public final class SpellModel extends AbstractTreeTableModel
 		}
 		else
 		{
-//			availNameList = new String[]{"Name", "School", "Descriptor", "Source"};
-//			selNameList = new String[]{"Name", "School", "SubSchool", "Descriptor", "Components", "Casting Time", "Range", "Description", "Target Area", "Duration", "Save Info", "SR", "Source File"};
 			if (available)
 			{
 				colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_DESCRIPTOR, COL_SRC };
@@ -132,10 +133,16 @@ public final class SpellModel extends AbstractTreeTableModel
 
 		colNameList = makeHeaderList(colTranslateList);
 
-		resetModel(primaryMode, secondaryMode, available, bookList, currSpellBook);
+		resetModel(primaryMode, secondaryMode, available, bookList,
+			currSpellBook, fullSpellList, spellTab);
 	}
 
 
+	/**
+	 * Build the list of column names for the list of column ids.
+	 * @param transList The list of column ids.
+	 * @return The list of column names.
+	 */
 	private String[] makeHeaderList(int[] transList)
 	{
 		String[] aList = new String[transList.length];
@@ -209,6 +216,11 @@ public final class SpellModel extends AbstractTreeTableModel
 		return aList;
 	}
 
+	/**
+	 * Translate a column index into a column id.
+	 * @param column The column index
+	 * @return The column id.
+	 */
 	private int translateColumn(final int column)
 	{
 		return colTranslateList[column];
@@ -217,8 +229,8 @@ public final class SpellModel extends AbstractTreeTableModel
 
 	/**
 	 * Returns boolean if can edit a cell. (SpellModel)
-	 * @param node
-	 * @param column
+	 * @param node The model node being checked
+	 * @param column The index of the column to be checked. 
 	 * @return true if cell editable
 	 **/
 	public boolean isCellEditable(Object node, int column)
@@ -229,7 +241,7 @@ public final class SpellModel extends AbstractTreeTableModel
 
 	/**
 	 * Returns Class for the column. (SpellModel)
-	 * @param column
+	 * @param column The index of the column.
 	 * @return Class
 	 **/
 	public Class getColumnClass(int column)
@@ -251,7 +263,7 @@ public final class SpellModel extends AbstractTreeTableModel
 
 	/**
 	 * Returns String name of a column. (SpellModel)
-	 * @param column
+	 * @param column The index of the column.
 	 * @return colmun name
 	 **/
 	public String getColumnName(int column)
@@ -270,8 +282,8 @@ public final class SpellModel extends AbstractTreeTableModel
 
 	/**
 	 * Returns Object value of the column. (SpellModel)
-	 * @param node
-	 * @param column
+	 * @param node The model node
+	 * @param column The index of the column.
 	 * @return value
 	 **/
 	public Object getValueAt(Object node, int column)
@@ -419,6 +431,7 @@ public final class SpellModel extends AbstractTreeTableModel
 			}
 		}
 	}
+
 	/**
 	 * This function takes a branch and adds the spells to it.
 	 * @param charSpells
@@ -470,36 +483,20 @@ public final class SpellModel extends AbstractTreeTableModel
 	}
 
 	/**
-	 * changes the column order sequence and/or number of
-	 * columns based on modelType (0=available, 1=selected)
-	 **/
-/*	private int adjustAvailColumnConst(int column)
-	{
-		if (modelType == MODEL_AVAIL)
-		{
-			if (column == COL_SUBSCHOOL)
-			{
-				column = COL_DESCRIPTOR;
-			}
-			else if (column >= COL_DESCRIPTOR)
-			{
-				column = COL_SRC;
-			}
-		}
-
-		return column;
-	}
-*/
-	/**
 	 * This assumes the SpellModel exists but
 	 * needs branches and nodes to be repopulated
-	 * @param primaryMode
-	 * @param secondaryMode
-	 * @param available
-	 * @param bookList
-	 * @param currSpellBook
+	 * 
+	 * @param primaryMode The primary sort order 
+	 * @param secondaryMode The secondary sort order
+	 * @param available Is this an available (true) or selected (false) list
+	 * @param bookList The list of books to be displayed.
+	 * @param currSpellBook The name of the currently selected spell book 
+	 * @param fullSpellList Should we display a full list of available spells?
+	 * @param spellTab The tab the list is being displayed upon.
 	 */
-	public void resetModel(int primaryMode, int secondaryMode, boolean available, List bookList, String currSpellBook)
+	public void resetModel(int primaryMode, int secondaryMode,
+		boolean available, List bookList, String currSpellBook,
+		boolean fullSpellList, InfoSpellsSubTab spellTab)
 	{
 		List classList = new ArrayList();
 		List spellList = new ArrayList();
@@ -516,16 +513,32 @@ public final class SpellModel extends AbstractTreeTableModel
 		    return;
 		}
 
-		if (!available) {
+		if (!fullSpellList) {
 			bookNodes = new PObjectNode [bookList.size()];
 			int ix = 0;
 			for (Iterator iBook = bookList.iterator(); iBook.hasNext();)
 			{
 				String bookName = (String)iBook.next();
 				bookNodes[ix] = new PObjectNode();
-				bookNodes[ix].setItem(bookName);
+				if (pc != null)
+				{
+					bookNodes[ix].setItem(pc.getSpellBookByName(bookName));
+				}
+				else
+				{
+					bookNodes[ix].setItem(bookName);
+				}
 				bookNodes[ix].setParent(theRoot);
-				spellList.addAll(pc.getRace().getSpellSupport().getCharacterSpell(null, bookName, -1));
+				List spells = pc.getRace().getSpellSupport().getCharacterSpell(null, bookName, -1);
+				for (Iterator iter = spells.iterator(); iter.hasNext();)
+				{
+					Spell spell = (Spell) iter.next();
+					if (spellTab.shouldDisplayThis(spell))
+					{
+						spellList.add(spell);
+					}
+					
+				}
 				ix++;
 			}
 			theRoot.setChildren(bookNodes);
@@ -533,8 +546,7 @@ public final class SpellModel extends AbstractTreeTableModel
 
 		includeRace = !spellList.isEmpty();
 
-
-		getSpellcastingClasses(available, classList, spellList);
+		getSpellcastingClasses(fullSpellList, classList, spellList, spellTab);
 
 		if (includeRace)
 		{
@@ -544,7 +556,7 @@ public final class SpellModel extends AbstractTreeTableModel
 
 		// the structure will be
 		// root
-		//   (book names) bookNodes (only for right-side tab, the !available e.g. selected spells)
+		//   (book names) bookNodes (only for right-side tab, the !fullSpellList e.g. selected spells)
 		//     primary nodes  (the first "sort by" selection)
 		//       secondary nodes (the second "sort by" selection)
 		// the first time (e.g. firstPass==true) through the loop, make sure all nodes are created and attached
@@ -562,7 +574,7 @@ public final class SpellModel extends AbstractTreeTableModel
 			{
 				cs = (CharacterSpell)sp;
 				spell = cs.getSpell();
-				if (available && cs.getOwner() instanceof Domain)
+				if (fullSpellList && cs.getOwner() instanceof Domain)
 				{
 					// domain spells elsewhere
 					continue;
@@ -573,19 +585,19 @@ public final class SpellModel extends AbstractTreeTableModel
 				spell = (Spell)sp;
 			}
 
-			// for each spellbook, ignored for "available" left-side of tab
+			// for each spellbook, ignored for "fullSpellList" left-side of tab
 			// the <= bookList.size() is intended, so it will be processed once
-			// when ix==0 for the !available (selected) model
+			// when ix==0 for the !fullSpellList model
 			for (int ix = 0; ix <= bookList.size(); ix++)
 			{
-				if (!available && ix == bookList.size())
+				if (!fullSpellList && ix == bookList.size())
 					break;
-				if (available && ix>0) {
+				if (fullSpellList && ix>0) {
 				    break;
 				}
 				// default currently selected spellbook
 				String bookName = currSpellBook;
-				if (!available)
+				if (!fullSpellList)
 				{
 					bookName = bookList.get(ix).toString();
 				}
@@ -593,7 +605,7 @@ public final class SpellModel extends AbstractTreeTableModel
 				{
 					primaryNodes = getNodesByMode(primaryMode, classList);
 				}
-				else if (!available)
+				else if (!fullSpellList)
 				{
 					// get the primaryNodes, which are the specified bookNode's children
 					bookNodes[ix].getChildren().toArray(primaryNodes);
@@ -645,7 +657,7 @@ public final class SpellModel extends AbstractTreeTableModel
 							}
 							if (si == null)
 								primaryMatch = spell.isLevel(iLev, pc);
-							else if (available && si != null && si.getFeatList()!=null)
+							else if (fullSpellList && si != null && si.getFeatList()!=null)
 								continue;
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR:   // By Descriptor
@@ -704,7 +716,7 @@ public final class SpellModel extends AbstractTreeTableModel
 								}
 								if (si == null && primaryMatch)
 									spellMatch = spell.isLevel(iLev, pc);
-								if (available && si != null && si.getFeatList()!=null)
+								if (fullSpellList && si != null && si.getFeatList()!=null)
 									continue;
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR:   // By Descriptor
@@ -729,7 +741,7 @@ public final class SpellModel extends AbstractTreeTableModel
 						if (firstPass && secondaryMode != GuiConstants.INFOSPELLS_VIEW_NOTHING)
 						{
 							secondaryNodes[sindex].setParent(primaryNodes[pindex]);
-							if (available && aClass != null && iLev > -1 && (aClass instanceof PCClass))
+							if (fullSpellList && aClass != null && iLev > -1 && (aClass instanceof PCClass))
 							{
 								addDomainSpellsForClass(((PCClass)aClass).getCastAs(), secondaryNodes[sindex], iLev);
 							}
@@ -742,7 +754,7 @@ public final class SpellModel extends AbstractTreeTableModel
 							continue;
 						}
 
-						if (!available && (si != null))
+						if (!fullSpellList && (si != null))
 						{
 							List aList = (List)usedMap.get(mapKey);
 							if (aList != null && aList.contains(si))
@@ -760,7 +772,7 @@ public final class SpellModel extends AbstractTreeTableModel
 								theObject = cs.getOwner();
 							spellMatch = spell.levelForKeyContains(theObject.getSpellKey(), theLevel, pc);
 						}
-						if (spellMatch && si == null && available)
+						if (spellMatch && si == null && fullSpellList)
 						{
 							PObject bClass =aClass;
 							// if there's only 1 class, then use that to determine which spells are qualified
@@ -792,7 +804,7 @@ public final class SpellModel extends AbstractTreeTableModel
 					}
 					if (secondaryMode != GuiConstants.INFOSPELLS_VIEW_NOTHING)
 						primaryNodes[pindex].setChildren(secondaryNodes);
-					if (available)
+					if (fullSpellList)
 					{
 						primaryNodes[pindex].setParent(theRoot);
 					}
@@ -801,7 +813,7 @@ public final class SpellModel extends AbstractTreeTableModel
 						primaryNodes[pindex].setParent(bookNodes[ix]);
 					}
 				} // end primaryNodes
-				if (!available)
+				if (!fullSpellList)
 				{
 					bookNodes[ix].setChildren(primaryNodes);
 				}
@@ -824,11 +836,12 @@ public final class SpellModel extends AbstractTreeTableModel
 
 
     /**
-     * @param available
+     * @param fullSpellList
      * @param classList
      * @param spellList
      */
-    private void getSpellcastingClasses(boolean available, List classList, List spellList) {
+    private void getSpellcastingClasses(boolean fullSpellList, List classList, List spellList, InfoSpellsSubTab spellTab) 
+    {
         // get the list of spell casting Classes
 		for (Iterator iClass = pc.getClassList().iterator(); iClass.hasNext();)
 		{
@@ -842,19 +855,21 @@ public final class SpellModel extends AbstractTreeTableModel
 
 				classList.add(aClass);
 
-				//if (available && currSpellBook.equals(Globals.getDefaultSpellBook()))
-				if (available)
+				//if (fullSpellList && currSpellBook.equals(Globals.getDefaultSpellBook()))
+				if (fullSpellList)
 				{
 					List aList = Globals.getSpellsIn(-1, aClass.getSpellKey(), "");
 					for (Iterator si = aList.iterator(); si.hasNext();)
 					{
-						Object s = si.next();
-						if (!spellList.contains(s))
-						spellList.add(s);
+						Spell s = (Spell) si.next();
+						if (!spellList.contains(s) && spellTab.shouldDisplayThis(s))
+						{
+							spellList.add(s);
+						}
 					}
 				}
 				/*
-				else if (available)
+				else if (fullSpellList)
 				{
 					spellList.addAll(aClass.getCharacterSpell(null, Globals.getDefaultSpellBook(), -1));
 				}
@@ -862,6 +877,25 @@ public final class SpellModel extends AbstractTreeTableModel
 				else
 				{
 					spellList.addAll(aClass.getSpellSupport().getCharacterSpellList());
+					Collection spells = aClass.getSpellSupport().getCharacterSpellList();
+					for (Iterator iter = spells.iterator(); iter.hasNext();)
+					{
+						Object foo = iter.next();
+						Spell spell;
+						if (foo instanceof CharacterSpell)
+						{
+							spell = ((CharacterSpell)foo).getSpell();
+						}
+						else
+						{
+							spell = (Spell) foo;
+						}						
+						if (spellTab.shouldDisplayThis(spell))
+						{
+							spellList.add(spell);
+						}
+						
+					}
 				}
 			}
 		}
@@ -993,10 +1027,11 @@ public final class SpellModel extends AbstractTreeTableModel
 	}
 
     /**
-     * @param pc
-     */
-    public void setCharacter(PlayerCharacter pc) {
-        this.pc = pc;
-    }
+	 * @param pc
+	 */
+	public void setCharacter(PlayerCharacter pc)
+	{
+		this.pc = pc;
+	}
 
 }

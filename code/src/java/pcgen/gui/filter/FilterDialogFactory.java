@@ -753,8 +753,6 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		availableModel.clear();
 		selectedModel.clear();
 
-//  		availableModel.addElement("Active tab does not support filtering.");
-//  		selectedModel.addElement("Active tab does not support filtering.");
 		availableModel.addElement(displayOnlyFilter);
 		selectedModel.addElement(displayOnlyFilter);
 

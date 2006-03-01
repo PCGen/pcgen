@@ -64,6 +64,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	public static final int         MONKBONUS    = 4;
 	private static final BigDecimal BIG_ONE      = new BigDecimal("1.00");
 	private static String           lastVariable = null;
+	//TODO: These are never actually set to a non empty/zero value. Can the code be removed?
 	private static String           loopVariable = "";
 	private static int              loopValue    = 0;
 
@@ -121,6 +122,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	private List       pcLevelInfo         = new ArrayList();
 	private List       processedBonusList  = new ArrayList();
 	private final List spellBooks          = new ArrayList();
+	private Map        spellBookMap        = new HashMap();
 	private List       tempBonusItemList   = new ArrayList();
 	private List       tempBonusList       = new ArrayList();
 	private Set        tempBonusFilters    = new TreeSet();
@@ -254,8 +256,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		miscList.add("");
 		miscList.add("");
 		miscList.add("");
-		addSpellBook(Globals.getDefaultSpellBook());
-		addSpellBook("Innate");
+		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(),
+			SpellBook.TYPE_KNOWN_SPELLS));
+		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME,
+			SpellBook.TYPE_KNOWN_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		spellTracker = new PCSpellTracker(this);
 		setStringFor(StringKey.HANDED, "Right");
@@ -2827,6 +2831,36 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
+	 * Set the name of the spellbook to auto add new known spells to.
+	 * @param aString The new spellbook name.
+	 */
+	public void setSpellBookNameToAutoAddKnown(final String aString)
+	{
+		setStringFor(StringKey.SPELLBOOK_AUTO_ADD_KNOWN, aString);
+	}
+
+	/**
+	 * Get the name of the spellbook to auto add new known spells to.
+	 * @return spellbook name
+	 */
+	public String getSpellBookNameToAutoAddKnown()
+	{
+		return getSafeStringFor(StringKey.SPELLBOOK_AUTO_ADD_KNOWN);
+	}
+
+	
+	/**
+	 * Retrieve a spell book object given the name of the spell book.
+	 * 
+	 * @param name The name of the spell book to be retrieved.
+	 * @return The spellbook (or null if not present).
+	 */
+	public SpellBook getSpellBookByName(final String name)
+	{
+		return (SpellBook) spellBookMap.get(name);
+	}
+
+	/**
 	 * Get spell books
 	 * @return spellBooks
 	 */
@@ -3615,6 +3649,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			equipmentMasterList.add(eq);
 		}
+		
+		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		{
+			SpellBook book = new SpellBook(eq.getName(), SpellBook.TYPE_SPELL_BOOK);
+			book.setEquip(eq);
+			addSpellBook(book);
+		}
 		setDirty(true);
 	}
 
@@ -3955,6 +3996,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public void removeEquipment(final Equipment eq)
 	{
+		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		{
+			delSpellBook(eq.getName());				
+		}
+
 		equipmentList.remove(eq);
 		equipmentMasterList.remove(eq);
 		setDirty(true);
@@ -7482,6 +7528,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			specialKnown = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), spellLevel, this);
 		}
 
+		SpellBook spellBook = getSpellBookByName(bookName);
+		int numPages = 0;
+		
 		// known is the maximun spells that can be known this level
 		// listNum is the current spells already memorized this level
 		// cast is the number of spells that can be cast at this level
@@ -7489,12 +7538,21 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		// lower-level spells
 		// in re BUG [569517]
 		// sk4p 13 Dec 2002
-		if (aClass.getMemorizeSpells() && aClass.getSpellBookUsed() && !isDefault)
+		if (spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
-			// If a class can Memorize spells and this is not
-			// the default spellbook, then let them add as many
-			// spells as they want to. This is to simulate finding
-			// a spellbook with spells in it.
+			// If this is a spellbook rather than known spells 
+			// or prepared spells, then let them add spells up to 
+			// the page limit of the book.
+			setSpellLevelTemp(spellLevel);
+			numPages = getVariableValue(acs.getSpell(),
+				spellBook.getPageFormula(), "").intValue();
+			// Check number of pages remaining in the book
+			if (numPages+spellBook.getNumPagesUsed() > spellBook.getNumPages())
+			{
+				return "There are not enough pages left to add this spell to the spell book."; 
+			}
+			spellBook.setNumPagesUsed(numPages+spellBook.getNumPagesUsed());
+			spellBook.setNumSpells(spellBook.getNumSpells() + 1);
 		}
 		else if (!aClass.getMemorizeSpells()
 			&& !availableSpells(adjSpellLevel, aClass, bookName, true, acs.isSpecialtySpell(), this))
@@ -7591,10 +7649,12 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				{
 					final Ability aFeat = (Ability) fi.next();
 					ppCost += (int)aFeat.bonusTo("PPCOST", theSpell.getName(), this, this);
-		}
+				}
 				si.setActualPPCost(ppCost);
 			}
 		}
+		// Set number of pages on the spell
+		si.setNumPages(numPages);
 		setDirty(true);
 		return "";
 	}
@@ -7608,15 +7668,37 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		if (aName!=null && (aName.length() > 0) && !spellBooks.contains(aName))
 		{
-			spellBooks.add(aName);
-			setDirty(true);
-
-			return true;
+			return addSpellBook(new SpellBook(aName,
+				SpellBook.TYPE_PREPARED_LIST));
 		}
 
 		return false;
 	}
 
+	/**
+	 * return value indicates if book was actually added or not
+	 * @param aName
+	 * @return TRUE or FALSE
+	 */
+	public boolean addSpellBook(final SpellBook book)
+	{
+		
+		if (book != null)
+		{
+			String aName = book.getName();
+			if (!spellBooks.contains(aName))
+			{
+				spellBooks.add(aName);
+				spellBookMap.put(aName, book);
+				setDirty(true);
+	
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
 	public PCTemplate addTemplate(final PCTemplate inTemplate)
 	{
 		if (inTemplate == null)
@@ -8709,6 +8791,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				+ " even though it is an auto known spell");
 		}
 
+		SpellBook spellBook = getSpellBookByName(bookName);
+		if (spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
+		{
+			spellBook.setNumPagesUsed(spellBook.getNumPagesUsed()
+				- si.getNumPages());
+			spellBook.setNumSpells(spellBook.getNumSpells() - 1);
+		}
 		si.setTimes(si.getTimes() - 1);
 
 		if (si.getTimes() <= 0)
@@ -8964,24 +9053,48 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 */
 	public boolean delSpellBook(final String aName)
 	{
-		if ((aName.length() > 0) && !aName.equals(Globals.getDefaultSpellBook()) && spellBooks.contains(aName))
+		if ((aName.length() > 0)
+			&& !aName.equals(Globals.getDefaultSpellBook())
+			&& spellBooks.contains(aName))
 		{
-			spellBooks.remove(aName);
-			setDirty(true);
+			return delSpellBook((SpellBook) spellBookMap.get(aName));
+		}
 
-			for (Iterator i = classList.iterator(); i.hasNext();)
+		return false;
+	}
+
+	/**
+	 * return value indicates whether or not a book was actually removed
+	 * @param aName
+	 * @return true or false
+	 */
+	public boolean delSpellBook(final SpellBook book)
+	{
+		if (book != null)
+		{
+			String aName = book.getName();
+			if (!aName.equals(Globals.getDefaultSpellBook())
+				&& spellBooks.contains(aName))
 			{
-				final PCClass aClass = (PCClass) i.next();
-				final List aList = aClass.getSpellSupport().getCharacterSpell(null, aName, -1);
+				spellBooks.remove(aName);
+				spellBookMap.remove(aName);
+				setDirty(true);
 
-				for (int j = aList.size() - 1; j >= 0; --j)
+				for (Iterator i = classList.iterator(); i.hasNext();)
 				{
-					final CharacterSpell cs = (CharacterSpell) aList.get(j);
-					cs.removeSpellInfo(cs.getSpellInfoFor(aName, -1, -1));
-				}
-			}
+					final PCClass aClass = (PCClass) i.next();
+					final List aList = aClass.getSpellSupport()
+						.getCharacterSpell(null, aName, -1);
 
-			return true;
+					for (int j = aList.size() - 1; j >= 0; --j)
+					{
+						final CharacterSpell cs = (CharacterSpell) aList.get(j);
+						cs.removeSpellInfo(cs.getSpellInfoFor(aName, -1, -1));
+					}
+				}
+
+				return true;
+			}
 		}
 
 		return false;
@@ -11237,6 +11350,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 	}
 
+	/**
+	 * Scan through the list of doains the character has to ensure that 
+	 * they are all still valid. Any invalid domains will be removed from
+	 * the character. 
+	 */
 	void validateCharacterDomains()
 	{
 		if (!isImporting())

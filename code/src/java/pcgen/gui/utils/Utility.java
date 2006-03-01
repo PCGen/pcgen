@@ -22,6 +22,36 @@
  */
 package pcgen.gui.utils;
 
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Event;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.URL;
+import java.util.StringTokenizer;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.KeyStroke;
+import javax.swing.ToolTipManager;
+
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -31,13 +61,6 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.net.URL;
-import java.util.StringTokenizer;
 
 /**
  * Convenience methods from various sources.
@@ -237,6 +260,26 @@ public final class Utility
 		gbc.gridheight = gh;
 		gbc.weightx = wx;
 		gbc.weighty = wy;
+	}
+
+	/**
+	 * Set up GridBag Constraints.
+	 * @param gbc The gridbagconstraints to set up
+	 * @param gx  cols from left (left-most col for multi-column cell)
+	 * @param gy  rows from top (top-most row for multi-row cell)
+	 * @param gw  cols wide
+	 * @param gh  rows high
+	 * @param wx  weight of x, I typically put in percentile, only need to specify this once for each column, other values in same column are 0.0
+	 * @param wy  weight of y, same as weight for cols, just specify a non-zero value for one cell in each row.
+	 * @param fill How should the component be resized if smaller than the space.
+	 * @param anchor Where should the component be placed if smaller than the space.
+	 */
+	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy,
+		int gw, int gh, double wx, double wy, int fill, int anchor)
+	{
+		buildConstraints(gbc, gx, gy, gw, gh, wx, wy);
+		gbc.fill = fill;
+		gbc.anchor = anchor;
 	}
 
 	/**

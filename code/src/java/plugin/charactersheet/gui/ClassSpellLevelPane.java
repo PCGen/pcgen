@@ -389,7 +389,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 			}
 			else {
 				spellList = pc.getRace().getSpellSupport().getCharacterSpellList();
-				spellBook = "Innate";
+				spellBook = Globals.INNATE_SPELL_BOOK_NAME;
 			}
 
 			for(int i = 0; i < removeList.size(); i++) {

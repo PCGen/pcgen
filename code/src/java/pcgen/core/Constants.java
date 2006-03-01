@@ -123,6 +123,9 @@ public interface Constants
 	/** htmlxml */
 	String s_standard_outputsheet_directory = "htmlxml";
 
+	// Types
+	String s_TYPE_SPELLBOOK= "SPELLBOOK";
+	
 	/** Tab names */
 	String[] tabNames =
 	{
@@ -142,6 +145,9 @@ public interface Constants
 		"Resources",
 		"TempMod",
 		"NaturalWeapons",
+		"Known",
+		"Prepared",
+		"Spellbooks",
 	};
 
 	// Encumberence Constants (String)
@@ -347,6 +353,12 @@ public interface Constants
 	int TAB_TEMPBONUS   = 14;
 	/** 15 */
 	int TAB_NATWEAPONS  = 15;
+	/** 16 */
+	int TAB_KNOWN_SPELLS  = 16;
+	/** 17 */
+	int TAB_PREPARED_SPELLS  = 17;
+	/** 18 */
+	int TAB_SPELLBOOKS  = 18;
 
 
 	/** For accessing <code>CategorisableStore</code>. */

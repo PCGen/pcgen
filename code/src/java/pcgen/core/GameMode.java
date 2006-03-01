@@ -188,6 +188,9 @@ public final class GameMode implements Comparable
 		tInfo[Constants.TAB_SPELLS].tabName      = "in_spells";
 		tInfo[Constants.TAB_SUMMARY].tabName     = "in_summary";
 		tInfo[Constants.TAB_SOURCES].tabName     = "Source Materials";
+		tInfo[Constants.TAB_KNOWN_SPELLS].tabName    = "in_known_spells";
+		tInfo[Constants.TAB_PREPARED_SPELLS].tabName = "in_prepared_spells";
+		tInfo[Constants.TAB_SPELLBOOKS].tabName  = "in_spellbooks";
 	}
 
 	/**

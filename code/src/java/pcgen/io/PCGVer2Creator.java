@@ -30,6 +30,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
+import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -329,6 +330,7 @@ final class PCGVer2Creator implements IOConstants
 		 */
 		appendNewline(buffer);
 		appendComment("Character Spells Information", buffer);
+		appendSpellBookLines(buffer);
 		appendSpellLines(buffer);
 		appendSpellListLines(buffer);
 
@@ -2071,6 +2073,37 @@ final class PCGVer2Creator implements IOConstants
 
 	/*
 	 * ###############################################################
+	 * Spell List Information methods
+	 * ###############################################################
+	 */
+	/*
+	 * #Spell List Information
+	 * SPELLLIST:sourceclassname|spelllistentry|spelllistentry
+	 */
+	private void appendSpellBookLines(StringBuffer buffer)
+	{
+		for (Iterator iter = aPC.getSpellBooks().iterator(); iter.hasNext();)
+		{
+			final String bookName = (String) iter.next();
+			if (!bookName.equals(Globals.getDefaultSpellBook()) &&
+					!bookName.equals(Globals.INNATE_SPELL_BOOK_NAME))
+			{
+				SpellBook book = aPC.getSpellBookByName(bookName);
+				buffer.append("SPELLBOOK:");
+				buffer.append(book.getName());
+				buffer.append("|TYPE:").append(book.getType());
+				if (book.getName().equals(aPC.getSpellBookNameToAutoAddKnown()))
+				{
+					buffer.append("|AUTOADDKNOWN:Y");
+				}
+				buffer.append(LINE_SEP);
+			}
+			
+		}
+	}
+
+	/*
+	 * ###############################################################
 	 * Character Spells Information methods
 	 * ###############################################################
 	 */
@@ -2119,7 +2152,7 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(TAG_CLASS).append(':');
 					buffer.append(EntityEncoder.encode(aClass.getName()));
 					buffer.append('|');
-					buffer.append(TAG_SPELLBOOK).append(':');
+					buffer.append(TAG_SPELL_BOOK).append(':');
 					buffer.append(EntityEncoder.encode(aSpellInfo.getBook()));
 					buffer.append('|');
 					buffer.append(TAG_SPELLLEVEL).append(':');
@@ -2129,6 +2162,12 @@ final class PCGVer2Creator implements IOConstants
 						buffer.append('|');
 						buffer.append(TAG_SPELLPPCOST).append(':');
 						buffer.append(aSpellInfo.getActualPPCost());
+					}
+					if (aSpellInfo.getNumPages() > 0)
+					{
+						buffer.append('|');
+						buffer.append(TAG_SPELLNUMPAGES).append(':');
+						buffer.append(aSpellInfo.getNumPages());
 					}
 
 					metaFeats = aSpellInfo.getFeatList();
