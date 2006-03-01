@@ -1,4 +1,4 @@
-# CVS $Revision: 1.17 $ $Author: boomer70 $ -- Fri Feb  3 01:42:49 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision: 1.17 $ $Author: boomer70 $ -- Tue Feb 28 19:04:04 2006 -- reformated by prettylst.pl v1.35 (build 556)
 # Yeehaa....
 # Monster "class" advancement LST file
 # Drew Bernat (abernat@zathras.net)
@@ -93,11 +93,11 @@ CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
-# Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus																																																									Combat bonus
+# Class Name			Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus																																																									Combat bonus					BONUS:FEAT
 CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Willpower,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*(CL/3)
-# Class Name	Reg. Race Type
+# Class Name			Reg. Race Type
 CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
-# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Source Page					Virtual Feat															Save checks bonus												Combat bonus

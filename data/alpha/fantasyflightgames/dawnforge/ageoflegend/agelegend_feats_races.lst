@@ -1,4 +1,4 @@
-# CVS $Revision: 1.11 $ $Author: tmilam $ -- Mon Jan  9 22:54:42 2006 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 1.11 $ $Author: tmilam $ -- Tue Feb 28 19:04:04 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Age of Legend|SOURCESHORT:ALe|SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -392,30 +392,30 @@ Word of Honor		TYPE:MinotaurRacialTransformation	VISIBLE:NO					SA:Word of Honor
 
 ###Block: Ogre
 # Racial Talents
-# Feat Name		Type					Visible	Required AL		Required Feat				Required Size	Special Ability											Stackable?	Multiple?	Choose							Move		MOVECLONE			Bonus to skill						Class Skill		Source Page
-Endure		TYPE:OgreRacialTalent		VISIBLE:NO													SA:Endure (Ex)													MULT:NO																										SOURCEPAGE:p.65
-Giant's Arm		TYPE:OgreRacialTalent		VISIBLE:NO										PRESIZEEQ:L		SA:Giant's Arm (Ex)												MULT:NO																										SOURCEPAGE:p.65
-Giant's Hand	TYPE:OgreRacialTalent		VISIBLE:NO										PRESIZEEQ:L		SA:Giant's Hand (Ex)												MULT:NO																										SOURCEPAGE:p.65
-Ox Back		TYPE:OgreRacialTalent		VISIBLE:NO													SA:Ox Back (Ex)													MULT:NO																										SOURCEPAGE:p.65
-Servant's Manner	TYPE:OgreRacialTalent		VISIBLE:NO													SA:Servant's Manner (Ex)											MULT:NO																							CSKILL:Bluff|Hide	SOURCEPAGE:p.65
-Stony Face		TYPE:OgreRacialTalent		VISIBLE:NO													SA:Stony Face (Ex) (+2 talent bonus on saves vs. compulsion and fear effects)			MULT:NO															BONUS:SKILL|Bluff,Sense Motive|2|TYPE=Talent				SOURCEPAGE:p.65
-Unblinking Gaze	TYPE:OgreRacialTalent		VISIBLE:NO													SA:Unblinking Gaze (Ex)												MULT:NO																										SOURCEPAGE:p.65
+# Feat Name					Type								Visible	Required AL		Required Feat					Required Size	Special Ability											Multiple?	Move		MOVECLONE			Bonus to skill						Class Skill		Source Page
+Endure					TYPE:OgreRacialTalent					VISIBLE:NO														SA:Endure (Ex)											MULT:NO																		SOURCEPAGE:p.65
+Giant's Arm					TYPE:OgreRacialTalent					VISIBLE:NO											PRESIZEEQ:L		SA:Giant's Arm (Ex)										MULT:NO																		SOURCEPAGE:p.65
+Giant's Hand				TYPE:OgreRacialTalent					VISIBLE:NO											PRESIZEEQ:L		SA:Giant's Hand (Ex)										MULT:NO																		SOURCEPAGE:p.65
+Ox Back					TYPE:OgreRacialTalent					VISIBLE:NO														SA:Ox Back (Ex)											MULT:NO																		SOURCEPAGE:p.65
+Servant's Manner				TYPE:OgreRacialTalent					VISIBLE:NO														SA:Servant's Manner (Ex)									MULT:NO															CSKILL:Bluff|Hide	SOURCEPAGE:p.65
+Stony Face					TYPE:OgreRacialTalent					VISIBLE:NO														SA:Stony Face (Ex) (+2 talent bonus on saves vs. compulsion and fear effects)	MULT:NO							BONUS:SKILL|Bluff,Sense Motive|2|TYPE=Talent				SOURCEPAGE:p.65
+Unblinking Gaze				TYPE:OgreRacialTalent					VISIBLE:NO														SA:Unblinking Gaze (Ex)										MULT:NO																		SOURCEPAGE:p.65
 ##TODO: Ox Back increase carrying capacity with 50%, possible???
 
 
 ### Racial Transformations
-# Feat Name		Type					Visible	Required AL		Required Feat				Required Size	Special Ability											Stackable?	Multiple?	Choose							Move		MOVECLONE			Bonus to skill						Class Skill		Source Page
-Aquatic		TYPE:OgreRacialTransformation	VISIBLE:NO				PREFEAT:1,Swimmer							SA:Aquatic (Ex)													MULT:NO																										SOURCEPAGE:p.66
-Awakening Magic (Charm Person)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Charm Person								MULT:NO	SOURCEPAGE:p.66
-Awakening Magic (Darkness)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Darkness								MULT:NO	SOURCEPAGE:p.66
-Awakening Magic (Invisibility)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Invisibility								MULT:NO	SOURCEPAGE:p.66
-Awakening Magic (Sleep)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO													SA:Awakening Magic (Sp) Sleep								MULT:NO	SOURCEPAGE:p.66
-Body to Mind	TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Body to Mind (Ex)												MULT:NO																										SOURCEPAGE:p.66
-Body to Will	TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Body to Will (Ex)												MULT:NO																										SOURCEPAGE:p.66
-Body to Spirit	TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Body to Spirit (Ex)												MULT:NO																										SOURCEPAGE:p.66
-Flight		TYPE:OgreRacialTransformation	VISIBLE:NO				PREFEAT:4,CHECKMULT,TYPE=AwakeningMagic				SA:Flight (Su)													MULT:NO									MOVE:Fly,40																SOURCEPAGE:p.66
-Swimmer		TYPE:OgreRacialTransformation	VISIBLE:NO													SA:Swimmer (Ex)													MULT:NO											MOVECLONE:Walk,0,Swim,0												SOURCEPAGE:p.66
-Unbound Spirit	TYPE:OgreRacialTransformation	VISIBLE:NO	PREALIGN:CG,CN,CE										SA:Unbound Spirit (Ex) (immune to compulsion effects)							MULT:NO																										SOURCEPAGE:p.66
+# Feat Name					Type								Visible	Required AL		Required Feat					Required Size	Special Ability											Multiple?	Move		MOVECLONE			Bonus to skill						Class Skill		Source Page
+Aquatic					TYPE:OgreRacialTransformation				VISIBLE:NO				PREFEAT:1,Swimmer								SA:Aquatic (Ex)											MULT:NO																		SOURCEPAGE:p.66
+Awakening Magic (Charm Person)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO														SA:Awakening Magic (Sp) Charm Person							MULT:NO																		SOURCEPAGE:p.66
+Awakening Magic (Darkness)		TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO														SA:Awakening Magic (Sp) Darkness								MULT:NO																		SOURCEPAGE:p.66
+Awakening Magic (Invisibility)	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO														SA:Awakening Magic (Sp) Invisibility							MULT:NO																		SOURCEPAGE:p.66
+Awakening Magic (Sleep)			TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:NO														SA:Awakening Magic (Sp) Sleep									MULT:NO																		SOURCEPAGE:p.66
+Body to Mind				TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Body to Mind (Ex)										MULT:NO																		SOURCEPAGE:p.66
+Body to Will				TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Body to Will (Ex)										MULT:NO																		SOURCEPAGE:p.66
+Body to Spirit				TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Body to Spirit (Ex)										MULT:NO																		SOURCEPAGE:p.66
+Flight					TYPE:OgreRacialTransformation				VISIBLE:NO				PREFEAT:4,CHECKMULT,TYPE=AwakeningMagic				SA:Flight (Su)											MULT:NO	MOVE:Fly,40																SOURCEPAGE:p.66
+Swimmer					TYPE:OgreRacialTransformation				VISIBLE:NO														SA:Swimmer (Ex)											MULT:NO			MOVECLONE:Walk,0,Swim,0												SOURCEPAGE:p.66
+Unbound Spirit				TYPE:OgreRacialTransformation				VISIBLE:NO	PREALIGN:CG,CN,CE											SA:Unbound Spirit (Ex) (immune to compulsion effects)					MULT:NO																		SOURCEPAGE:p.66
 #TODO: Awakening Magic.., Body to ...
 
 
@@ -540,20 +540,20 @@ Unseen Strength		TYPE:HalflingRacialTransformation	VISIBLE:NO				PRESTAT:1,STR=1
 
 ###Block: Lizardfolk
 # Racial Talents
-# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Bonus to skill							Weapon prof. bonus			Source Page
-Fire from Stones		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Fire from Stones (Sp)			SPELLS:Innate|TIMES=max(1,TL/2)|CASTERLEVEL=TL/2|Produce Fire	MULT:NO																SOURCEPAGE:p.85
+# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Add to base move							Bonus to skill							Weapon prof. bonus			Source Page
+Fire from Stones		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Fire from Stones (Sp)			SPELLS:Innate|TIMES=max(1,TL/2)|CASTERLEVEL=TL/2|Produce Fire	MULT:NO																									SOURCEPAGE:p.85
 #number of spells per day....
-Light in Shadow		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Light in Shadow (Ex)															MULT:NO																SOURCEPAGE:p.85
-Retrieve Spear		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Retrieve Spear (Su)															MULT:NO																SOURCEPAGE:p.85
-River Racer			TYPE:LizardRacialTalent			VISIBLE:NO							SA:River Racer (Ex)				BONUS:MOVEADD|TYPE.Swim|10|PREVARLT:ENCUMBERANCE,1				MULT:NO																SOURCEPAGE:p.85
-Speak through Silence	TYPE:LizardRacialTalent			VISIBLE:NO							SA:Speak through Silence (Ex)														MULT:NO																SOURCEPAGE:p.85
+Light in Shadow		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Light in Shadow (Ex)															MULT:NO																									SOURCEPAGE:p.85
+Retrieve Spear		TYPE:LizardRacialTalent			VISIBLE:NO							SA:Retrieve Spear (Su)															MULT:NO																									SOURCEPAGE:p.85
+River Racer			TYPE:LizardRacialTalent			VISIBLE:NO							SA:River Racer (Ex)															MULT:NO	BONUS:MOVEADD|TYPE.Swim|10|PREVARLT:ENCUMBERANCE,1																SOURCEPAGE:p.85
+Speak through Silence	TYPE:LizardRacialTalent			VISIBLE:NO							SA:Speak through Silence (Ex)														MULT:NO																									SOURCEPAGE:p.85
 
 ### Racial Transformations
-# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Bonus to skill							Weapon prof. bonus			Source Page
-Ancestor's Claws		TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery I	SA:Ancestor's Claws (1d6)														MULT:NO	BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	SOURCEPAGE:p.86
-Pounce			TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery II	SA:Pounce (Ex)																MULT:NO																SOURCEPAGE:p.86
-Rend				TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Ancestor's Claws		SA:Rend (Ex)																MULT:NO																SOURCEPAGE:p.86
-Thunder Shout		TYPE:LizardRacialTransformation	VISIBLE:NO							SA:Thunder Shout (Ex) (%/day)|1+TL/5												MULT:NO																SOURCEPAGE:p.86
+# Feat Name			Type						Visible	Required Feat				Special Ability					Spells										Multiple?	Add to base move							Bonus to skill							Weapon prof. bonus			Source Page
+Ancestor's Claws		TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery I	SA:Ancestor's Claws (1d6)														MULT:NO										BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	SOURCEPAGE:p.86
+Pounce			TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Natural Weapon Mastery II	SA:Pounce (Ex)																MULT:NO																									SOURCEPAGE:p.86
+Rend				TYPE:LizardRacialTransformation	VISIBLE:NO	PREFEAT:1,Ancestor's Claws		SA:Rend (Ex)																MULT:NO																									SOURCEPAGE:p.86
+Thunder Shout		TYPE:LizardRacialTransformation	VISIBLE:NO							SA:Thunder Shout (Ex) (%/day)|1+TL/5												MULT:NO																									SOURCEPAGE:p.86
 
 
 #################
