@@ -3,7 +3,7 @@
     <pomVersion>3</pomVersion>
     <id>pcgen</id>
     <name>PCGen</name>
-    <currentVersion>5.9.4</currentVersion>
+    <currentVersion>5.9.5</currentVersion>
     <organization>
         <name>PCGen</name>
         <url>http://pcgen.sourceforge.net/</url>
@@ -15,10 +15,12 @@
     <description>PCGen RPG character generator.</description>
     <shortDescription>PCGen PRG character generator.</shortDescription>
 
-    <repository>
+	<!--
+	<repository>
         <connection>scm:cvs:ext:cvs.sourceforge.net:/cvsroot/pcgen:.</connection>
         <url>http://cvs.sourceforge.net/viewcvs.py/pcgen/</url>
     </repository>
+    -->
 
     <developers>
         <developer>
@@ -194,13 +196,13 @@
     </dependencies>
 
     <reports>
-        <report>maven-changelog-plugin</report>
-        <report>maven-changes-plugin</report>
+        <!-- <report>maven-changelog-plugin</report> -->
+        <!-- <report>maven-changes-plugin</report> -->
         <!-- Runs slower'n molassas -->
         <!-- <report>maven-checkstyle-plugin</report> -->
-        <report>maven-developer-activity-plugin</report>
+        <!-- <report>maven-developer-activity-plugin</report> -->
         <report>maven-emma-plugin</report>
-        <report>maven-file-activity-plugin</report>
+        <!-- <report>maven-file-activity-plugin</report> -->
         <report>maven-javadoc-plugin</report>
         <report>maven-jdepend-plugin</report>
         <report>maven-junit-report-plugin</report>
