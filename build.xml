@@ -68,7 +68,7 @@ These files can be renamed and used for releases.
 	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
 	<property name="src.java.dir" value="${basedir}/code/src/java" />
 	<property name="src.test.java.dir" value="${basedir}/code/src/test" />
-	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="lib.dir" value="lib" />
 	<property name="lib.ncss" value="${basedir}/lib/javancss" />
 	<property name="plugin.dir" value="${basedir}/plugins" />
 	<property name="src.data.dir" value="${basedir}/data" />
