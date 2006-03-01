@@ -1,4 +1,4 @@
-# CVS $Revision: 1.35 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision: 1.35 $ $Author: eddyanthony $ -- Wed Mar  1 09:57:13 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -22,60 +22,60 @@ SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:
 # Belt (Monk's) - still needs a UDAM for non-monks...  That gets to wait till after 5.6
 
 
-# Equipment Name						Output Name						Type					Contains		Cost		Weight	Slot Needed	Modifier					Source Page				Vision			Combat bonus																Add to base move						Bonus to skill						Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus																																																																											Automatic Languages	Special Property																																																	Special Ability
-Amulet of Health +2												TYPE:Magic.Wondrous.Amulet				COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|CON|2|TYPE=Enhancement
-Amulet of Health +4												TYPE:Magic.Wondrous.Amulet				COST:16000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|CON|4|TYPE=Enhancement
-Amulet of Health +6												TYPE:Magic.Wondrous.Amulet				COST:36000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|CON|6|TYPE=Enhancement
-Amulet of Mighty Fists +1											TYPE:Magic.Wondrous.Amulet				COST:6000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1|TYPE=Enhancement
-Amulet of Mighty Fists +2											TYPE:Magic.Wondrous.Amulet				COST:24000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|2|TYPE=Enhancement
-Amulet of Mighty Fists +3											TYPE:Magic.Wondrous.Amulet				COST:54000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|3|TYPE=Enhancement
-Amulet of Mighty Fists +4											TYPE:Magic.Wondrous.Amulet				COST:96000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|4|TYPE=Enhancement
-Amulet of Mighty Fists +5											TYPE:Magic.Wondrous.Amulet				COST:150000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|5|TYPE=Enhancement
-Amulet of Natural Armor +1											TYPE:Magic.Wondrous.Amulet				COST:2000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +2											TYPE:Magic.Wondrous.Amulet				COST:8000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +3											TYPE:Magic.Wondrous.Amulet				COST:18000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +4											TYPE:Magic.Wondrous.Amulet				COST:32000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +5											TYPE:Magic.Wondrous.Amulet				COST:50000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement
-Amulet of the Planes												TYPE:Magic.Wondrous.Amulet				COST:120000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Amulet of Proof against Detection and Location								TYPE:Magic.Wondrous.Amulet				COST:35000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Apparatus of the Crab												TYPE:Magic.Wondrous					COST:90000	WT:500									SOURCEPAGE:MagicItemsV.rtf
-Bag of Holding (Type 1)												TYPE:Magic.Wondrous.Container	CONTAINS:*250	COST:2500	WT:15										SOURCEPAGE:MagicItemsV.rtf
-Bag of Holding (Type 2)												TYPE:Magic.Wondrous.Container	CONTAINS:*500	COST:5000	WT:25										SOURCEPAGE:MagicItemsV.rtf
-Bag of Holding (Type 3)												TYPE:Magic.Wondrous.Container	CONTAINS:*1000	COST:7400	WT:35										SOURCEPAGE:MagicItemsV.rtf
-Bag of Holding (Type 4)												TYPE:Magic.Wondrous.Container	CONTAINS:*1500	COST:10000	WT:60										SOURCEPAGE:MagicItemsV.rtf
-Bag of Tricks (Gray)												TYPE:Magic.Wondrous					COST:900	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Bag of Tricks (Rust)												TYPE:Magic.Wondrous					COST:3000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Bag of Tricks (Tan)												TYPE:Magic.Wondrous					COST:6300	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Bead of Force													TYPE:Magic.Wondrous					COST:3000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Belt (Monk's)						OUTPUTNAME:Belt, Monk's				TYPE:Magic.Wondrous.Belt				COST:13000	WT:1										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|1+max(0,WIS)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0||PREVAREQ:MonkACLvl,0																							BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLvl|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLvl,0
-Belt of Dwarvenkind												TYPE:Magic.Wondrous.Belt				COST:14900	WT:1										SOURCEPAGE:MagicItemsV.rtf	VISION:Darkvision (60')																																			BONUS:STAT|CON|2|!PRERACE:Dwarf%																																																																																														LANGAUTO:Dwarven		SPROP:This belt gives the wearer a +4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halflings, and a -2 competence penalty on similar checks when dealing with anyone else.	SA:Stonecunning|!PRERACE:Dwarf%	SA:+2 resistance bonus on saves against poison, spells, or spell-like effects.|!PRERACE:Dwarf%
-Belt of Giant Strength +4											TYPE:Magic.Wondrous.Belt				COST:16000	WT:1										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|STR|4|TYPE=Enhancement
-Belt of Giant Strength +6											TYPE:Magic.Wondrous.Belt				COST:36000	WT:1										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|STR|6|TYPE=Enhancement
-Blessed Book													TYPE:Magic.Wondrous.Book				COST:12500	WT:1										SOURCEPAGE:MagicItemsV.rtf
-Boat (Folding)						OUTPUTNAME:Boat, Folding			TYPE:Magic.Wondrous					COST:7200	WT:4										SOURCEPAGE:MagicItemsV.rtf
-Boots of Elvenkind												TYPE:Magic.Wondrous.Boot				COST:2500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																															BONUS:SKILL|Move Silently|5|TYPE=Competence
-Boots of Levitation												TYPE:Magic.Wondrous.Boot				COST:7500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
-Boots of Speed													TYPE:Magic.Wondrous.Boot				COST:12000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
-Boots of Striding and Springing										TYPE:Magic.Wondrous.Boot				COST:5500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																							BONUS:MOVEADD|TYPE=Walk|10|TYPE=Enhancement	BONUS:SKILL|Jump|5|TYPE=Competence
-Boots of Teleportation												TYPE:Magic.Wondrous.Boot				COST:49000	WT:3		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
-Boots of the Winterlands											TYPE:Magic.Wondrous.Boot				COST:2500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
-Boots (Winged)						OUTPUTNAME:Boots, Winged			TYPE:Magic.Wondrous.Boot				COST:16000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
-Bottle of Air													TYPE:Magic.Wondrous					COST:7250	WT:2										SOURCEPAGE:MagicItemsV.rtf
-Bowl of Commanding Water Elementals										TYPE:Magic.Wondrous					COST:100000	WT:3										SOURCEPAGE:MagicItemsV.rtf
-Bracelet of Friends												TYPE:Magic.Wondrous.Bracer				COST:19000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Bracers of Archery (Greater)				OUTPUTNAME:Bracers of Archery, Greater	TYPE:Magic.Wondrous.Bracer				COST:25000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Longbow|TOHIT|2|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|2|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|DAMAGE|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency
-Bracers of Archery (Lesser)				OUTPUTNAME:Bracers of Archery, Lesser	TYPE:Magic.Wondrous.Bracer				COST:5000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Longbow|TOHIT|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency
-Bracers of Armor +1												TYPE:Magic.Wondrous.Bracer				COST:1000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|1|TYPE=Armor
-Bracers of Armor +2												TYPE:Magic.Wondrous.Bracer				COST:4000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|2|TYPE=Armor
-Bracers of Armor +3												TYPE:Magic.Wondrous.Bracer				COST:9000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|3|TYPE=Armor
-Bracers of Armor +4												TYPE:Magic.Wondrous.Bracer				COST:16000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|4|TYPE=Armor
-Bracers of Armor +5												TYPE:Magic.Wondrous.Bracer				COST:25000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|5|TYPE=Armor
-Bracers of Armor +6												TYPE:Magic.Wondrous.Bracer				COST:36000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|6|TYPE=Armor
-Bracers of Armor +7												TYPE:Magic.Wondrous.Bracer				COST:49000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|7|TYPE=Armor
-Bracers of Armor +8												TYPE:Magic.Wondrous.Bracer				COST:64000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|8|TYPE=Armor
-Brazier of Commanding Fire Elementals									TYPE:Magic.Wondrous					COST:100000	WT:5										SOURCEPAGE:MagicItemsV.rtf
-Brooch of Shielding												TYPE:Magic.Wondrous.Amulet				COST:1500	WT:0				EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:MagicItemsV.rtf
-Broom of Flying													TYPE:Magic.Wondrous					COST:17000	WT:3										SOURCEPAGE:MagicItemsV.rtf
+# Equipment Name						Output Name						Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page				Vision			Combat bonus																Add to base move						Bonus to skill						Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus																																																																											Automatic Languages	Special Property																																																	Special Ability																				NUMPAGES		PAGEUSAGE
+Amulet of Health +2												TYPE:Magic.Wondrous.Amulet					COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|CON|2|TYPE=Enhancement
+Amulet of Health +4												TYPE:Magic.Wondrous.Amulet					COST:16000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|CON|4|TYPE=Enhancement
+Amulet of Health +6												TYPE:Magic.Wondrous.Amulet					COST:36000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|CON|6|TYPE=Enhancement
+Amulet of Mighty Fists +1											TYPE:Magic.Wondrous.Amulet					COST:6000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1|TYPE=Enhancement
+Amulet of Mighty Fists +2											TYPE:Magic.Wondrous.Amulet					COST:24000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|2|TYPE=Enhancement
+Amulet of Mighty Fists +3											TYPE:Magic.Wondrous.Amulet					COST:54000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|3|TYPE=Enhancement
+Amulet of Mighty Fists +4											TYPE:Magic.Wondrous.Amulet					COST:96000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|4|TYPE=Enhancement
+Amulet of Mighty Fists +5											TYPE:Magic.Wondrous.Amulet					COST:150000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|5|TYPE=Enhancement
+Amulet of Natural Armor +1											TYPE:Magic.Wondrous.Amulet					COST:2000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +2											TYPE:Magic.Wondrous.Amulet					COST:8000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +3											TYPE:Magic.Wondrous.Amulet					COST:18000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +4											TYPE:Magic.Wondrous.Amulet					COST:32000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +5											TYPE:Magic.Wondrous.Amulet					COST:50000	WT:0										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement
+Amulet of the Planes												TYPE:Magic.Wondrous.Amulet					COST:120000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Amulet of Proof against Detection and Location								TYPE:Magic.Wondrous.Amulet					COST:35000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Apparatus of the Crab												TYPE:Magic.Wondrous						COST:90000	WT:500									SOURCEPAGE:MagicItemsV.rtf
+Bag of Holding (Type 1)												TYPE:Magic.Wondrous.Container		CONTAINS:*250	COST:2500	WT:15										SOURCEPAGE:MagicItemsV.rtf
+Bag of Holding (Type 2)												TYPE:Magic.Wondrous.Container		CONTAINS:*500	COST:5000	WT:25										SOURCEPAGE:MagicItemsV.rtf
+Bag of Holding (Type 3)												TYPE:Magic.Wondrous.Container		CONTAINS:*1000	COST:7400	WT:35										SOURCEPAGE:MagicItemsV.rtf
+Bag of Holding (Type 4)												TYPE:Magic.Wondrous.Container		CONTAINS:*1500	COST:10000	WT:60										SOURCEPAGE:MagicItemsV.rtf
+Bag of Tricks (Gray)												TYPE:Magic.Wondrous						COST:900	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Bag of Tricks (Rust)												TYPE:Magic.Wondrous						COST:3000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Bag of Tricks (Tan)												TYPE:Magic.Wondrous						COST:6300	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Bead of Force													TYPE:Magic.Wondrous						COST:3000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Belt (Monk's)						OUTPUTNAME:Belt, Monk's				TYPE:Magic.Wondrous.Belt					COST:13000	WT:1										SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|1+max(0,WIS)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0||PREVAREQ:MonkACLvl,0																							BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLvl|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLvl,0
+Belt of Dwarvenkind												TYPE:Magic.Wondrous.Belt					COST:14900	WT:1										SOURCEPAGE:MagicItemsV.rtf	VISION:Darkvision (60')																																			BONUS:STAT|CON|2|!PRERACE:Dwarf%																																																																																														LANGAUTO:Dwarven		SPROP:This belt gives the wearer a +4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halflings, and a -2 competence penalty on similar checks when dealing with anyone else.	SA:Stonecunning|!PRERACE:Dwarf%	SA:+2 resistance bonus on saves against poison, spells, or spell-like effects.|!PRERACE:Dwarf%
+Belt of Giant Strength +4											TYPE:Magic.Wondrous.Belt					COST:16000	WT:1										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|STR|4|TYPE=Enhancement
+Belt of Giant Strength +6											TYPE:Magic.Wondrous.Belt					COST:36000	WT:1										SOURCEPAGE:MagicItemsV.rtf																																							BONUS:STAT|STR|6|TYPE=Enhancement
+Blessed Book													TYPE:Magic.Wondrous.Book.Spellbook				COST:12500	WT:1										SOURCEPAGE:MagicItemsV.rtf																																																																																																																																																																																																																							NUMPAGES:1000	PAGEUSAGE:max(SPELLLEVEL,1)
+Boat (Folding)						OUTPUTNAME:Boat, Folding			TYPE:Magic.Wondrous						COST:7200	WT:4										SOURCEPAGE:MagicItemsV.rtf
+Boots of Elvenkind												TYPE:Magic.Wondrous.Boot					COST:2500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																															BONUS:SKILL|Move Silently|5|TYPE=Competence
+Boots of Levitation												TYPE:Magic.Wondrous.Boot					COST:7500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
+Boots of Speed													TYPE:Magic.Wondrous.Boot					COST:12000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
+Boots of Striding and Springing										TYPE:Magic.Wondrous.Boot					COST:5500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																							BONUS:MOVEADD|TYPE=Walk|10|TYPE=Enhancement	BONUS:SKILL|Jump|5|TYPE=Competence
+Boots of Teleportation												TYPE:Magic.Wondrous.Boot					COST:49000	WT:3		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
+Boots of the Winterlands											TYPE:Magic.Wondrous.Boot					COST:2500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
+Boots (Winged)						OUTPUTNAME:Boots, Winged			TYPE:Magic.Wondrous.Boot					COST:16000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
+Bottle of Air													TYPE:Magic.Wondrous						COST:7250	WT:2										SOURCEPAGE:MagicItemsV.rtf
+Bowl of Commanding Water Elementals										TYPE:Magic.Wondrous						COST:100000	WT:3										SOURCEPAGE:MagicItemsV.rtf
+Bracelet of Friends												TYPE:Magic.Wondrous.Bracer					COST:19000	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Bracers of Archery (Greater)				OUTPUTNAME:Bracers of Archery, Greater	TYPE:Magic.Wondrous.Bracer					COST:25000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Longbow|TOHIT|2|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|2|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|DAMAGE|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency
+Bracers of Archery (Lesser)				OUTPUTNAME:Bracers of Archery, Lesser	TYPE:Magic.Wondrous.Bracer					COST:5000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																																																												BONUS:WEAPONPROF=Longbow|TOHIT|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency
+Bracers of Armor +1												TYPE:Magic.Wondrous.Bracer					COST:1000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|1|TYPE=Armor
+Bracers of Armor +2												TYPE:Magic.Wondrous.Bracer					COST:4000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|2|TYPE=Armor
+Bracers of Armor +3												TYPE:Magic.Wondrous.Bracer					COST:9000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|3|TYPE=Armor
+Bracers of Armor +4												TYPE:Magic.Wondrous.Bracer					COST:16000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|4|TYPE=Armor
+Bracers of Armor +5												TYPE:Magic.Wondrous.Bracer					COST:25000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|5|TYPE=Armor
+Bracers of Armor +6												TYPE:Magic.Wondrous.Bracer					COST:36000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|6|TYPE=Armor
+Bracers of Armor +7												TYPE:Magic.Wondrous.Bracer					COST:49000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|7|TYPE=Armor
+Bracers of Armor +8												TYPE:Magic.Wondrous.Bracer					COST:64000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf					BONUS:COMBAT|AC|8|TYPE=Armor
+Brazier of Commanding Fire Elementals									TYPE:Magic.Wondrous						COST:100000	WT:5										SOURCEPAGE:MagicItemsV.rtf
+Brooch of Shielding												TYPE:Magic.Wondrous.Amulet					COST:1500	WT:0				EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:MagicItemsV.rtf
+Broom of Flying													TYPE:Magic.Wondrous						COST:17000	WT:3										SOURCEPAGE:MagicItemsV.rtf
 ###Block:C's
 # Equipment Name					Output Name						Type					Cost		Weight	Modifier					Source Page				Save checks bonus							Bonus to skill					Stat bonus					Modify VAR
 Candle of Invocation											TYPE:Magic.Wondrous		COST:8400	WT:0.5							SOURCEPAGE:MagicItemsV.rtf

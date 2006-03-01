@@ -1,4 +1,4 @@
-# CVS $Revision: 1.17 $ $Author: eddyanthony $ -- Sun Sep 19 15:32:34 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# CVS $Revision: 1.17 $ $Author: eddyanthony $ -- Wed Mar  1 09:59:02 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block:Alchemical Stuff and Liquids
@@ -119,7 +119,7 @@ Stabling (Per Day)		TYPE:Goods.Mount									COST:.5			SOURCEPAGE:SRDEquipmentII
 Saddlebags				TYPE:Goods.Container.Mount.Resizable	CONTAINS:-1|Any=-1	COST:4	WT:8		SOURCEPAGE:SRDEquipmentII.rtf
 
 ###Block:Tools
-# Equipment Name				Type									Cost		Weight	Modifier			Source Page				Bonus to skill																					Special Property
+# Equipment Name				Type									Cost		Weight	Modifier			Source Page				Bonus to skill																					Special Property									NUMPAGES		PAGEUSAGE
 Alchemist's Lab				TYPE:Goods.Tools.Resizable					COST:500	WT:40		EQMOD:MWORKT|Alchemy	SOURCEPAGE:SRDEquipmentII.rtf
 Alchemy materials				TYPE:Goods.Tools.Resizable					COST:1	WT:0						SOURCEPAGE:SRDEquipmentII.rtf
 Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools		COST:5	WT:5						SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
@@ -164,7 +164,7 @@ Musical Instrument (Recorder)		TYPE:Goods.Instrument.Wind.Resizable			COST:5	WT:
 Musical Instrument (Shawm)		TYPE:Goods.Instrument.Wind.Resizable			COST:5	WT:3						SOURCEPAGE:SRDEquipmentII.rtf
 Musical Instrument (Trumpet)		TYPE:Goods.Instrument.Metal.Wind.Resizable		COST:5	WT:3						SOURCEPAGE:SRDEquipmentII.rtf
 Scale (Merchant's)			TYPE:Goods.Tools.Resizable					COST:2	WT:1						SOURCEPAGE:SRDEquipmentII.rtf
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Resizable					COST:15	WT:3						SOURCEPAGE:SRDEquipmentII.rtf
+Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Resizable.Spellbook			COST:15	WT:3						SOURCEPAGE:SRDEquipmentII.rtf																																			NUMPAGES:100	PAGEUSAGE:max(2*SPELLLEVEL,1)
 Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools		COST:30	WT:1						SOURCEPAGE:SRDEquipmentII.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:Masterwork
 Waterclock					TYPE:Goods.Tools.Resizable					COST:1000	WT:200					SOURCEPAGE:SRDEquipmentII.rtf
 

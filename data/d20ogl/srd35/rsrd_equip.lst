@@ -1,4 +1,4 @@
-# CVS $Revision: 1.25 $ $Author: eddyanthony $ -- Wed Jul 13 16:53:28 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.25 $ $Author: eddyanthony $ -- Wed Mar  1 09:57:13 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: abernat/altered by dlm1065
 
@@ -159,7 +159,7 @@ Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:-1|Any=-1	COST:4	WT
 Stabling (Per Day)		TYPE:Goods.Mount										COST:.5	WT:0				SOURCEPAGE:Equipment.rtf
 
 ###Block:Tools
-# Equipment Name				Type									Cost		Weight	Source Page				Bonus to skill																					Special Property
+# Equipment Name				Type									Cost		Weight	Source Page				Bonus to skill																					Special Property															NUMPAGES		PAGEUSAGE
 Alchemist's Lab				TYPE:Goods.Tools.Artisan					COST:500	WT:40		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Alchemy)|2|TYPE=Circumstance
 Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools		COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Artisan's Tools (Bowmaking)		TYPE:Goods.Tools.Artisan.BowmakingTools			COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Bowmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
@@ -197,7 +197,7 @@ Musical Instrument (Shawm)		TYPE:Goods.Tools.Instrument.Wind.Resizable		COST:5	W
 Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable		COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Scale (Merchant's)			TYPE:Goods.Tools							COST:2	WT:1		SOURCEPAGE:Equipment.rtf																								SPROP:+2 to appraise items valued by weight
 Spell Component Pouch			TYPE:Goods.Tools							COST:5	WT:2		SOURCEPAGE:Equipment.rtf
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools							COST:15	WT:3		SOURCEPAGE:Equipment.rtf
+Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook					COST:15	WT:3		SOURCEPAGE:Equipment.rtf																																									NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)
 Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools		COST:30	WT:1		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:Masterwork
 Waterclock					TYPE:Goods.Tools.Resizable					COST:1000	WT:200	SOURCEPAGE:Equipment.rtf
 
