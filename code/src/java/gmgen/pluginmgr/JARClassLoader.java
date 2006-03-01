@@ -25,12 +25,6 @@ package gmgen.pluginmgr;
 import gmgen.GMGenSystem;
 import gmgen.gui.PreferencesPluginsPanel;
 import gmgen.util.MiscUtilities;
-import pcgen.core.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-import pcgen.persistence.lst.*;
-import pcgen.util.Logging;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +36,16 @@ import java.util.Hashtable;
 import java.util.Vector;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import pcgen.core.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
+import pcgen.util.Logging;
 
 /**
  *  A class loader implementation that loads classes from JAR files.
@@ -97,10 +101,10 @@ public class JARClassLoader extends ClassLoader
 			{
 				classHash.put(MiscUtilities.fileToClass(name), this);
 
-				if (name.endsWith("Plugin.class") || name.endsWith("Token.class") || name.endsWith("Lst.class"))
-				{
-					pluginClasses.addElement(name);
-				}
+				//if (name.endsWith("Plugin.class") || name.endsWith("Token.class") || name.endsWith("Lst.class"))
+				//{
+				pluginClasses.addElement(name);
+				//}
 			}
 		}
 
@@ -449,6 +453,7 @@ public class JARClassLoader extends ClassLoader
 		if(system.equals(Constants.s_SYSTEM_TOKENS)) {
 			loadOutputTokenClass(clazz, modifiers);
 			loadLstTokens(clazz, modifiers);
+			loadBonusTokens(clazz, name, modifiers);
 		}
 		return loadPluginClass(clazz, modifiers, name, system);
 	}
@@ -492,6 +497,14 @@ public class JARClassLoader extends ClassLoader
 		{
 			LstToken pl = (LstToken) clazz.newInstance();
 			TokenStore.inst().addToTokenMap(pl);
+		}
+	}
+	
+	private void loadBonusTokens(Class clazz, String name, int modifiers) throws Exception
+	{
+		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && BonusObj.class.isAssignableFrom(clazz))
+		{
+			Bonus.addBonusClass(clazz, name);
 		}
 	}
 

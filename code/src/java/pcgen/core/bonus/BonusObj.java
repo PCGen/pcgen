@@ -719,22 +719,22 @@ public abstract class BonusObj implements Serializable, Cloneable
 		return sb.toString();
 	}
 
-	void setBonusName(final String aName)
+	protected void setBonusName(final String aName)
 	{
 		bonusName = aName;
 	}
 
-	void setTypeOfBonus(final int type)
+	protected void setTypeOfBonus(final int type)
 	{
 		typeOfBonus = type;
 	}
 
-	void addBonusInfo(final Object obj)
+	protected void addBonusInfo(final Object obj)
 	{
 		bonusInfo.add(obj);
 	}
 
-	void replaceBonusInfo(final Object oldObj, final Object newObj)
+	protected void replaceBonusInfo(final Object oldObj, final Object newObj)
 	{
 		for (int i = 0; i < bonusInfo.size(); ++i)
 		{
@@ -764,7 +764,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 		}
 	}
 
-	boolean addType(final String typeString)
+	protected boolean addType(final String typeString)
 	{
 		if (bonusType.length() == 0)
 		{
@@ -776,19 +776,19 @@ public abstract class BonusObj implements Serializable, Cloneable
 		return false;
 	}
 
-	boolean parseToken(final String token)
+	protected boolean parseToken(final String token)
 	{
 		System.err.println("Need to override parseToken in " + getClass().getName());
 		return false;
 	}
 
-	String unparseToken(final Object obj)
+	protected String unparseToken(final Object obj)
 	{
 		System.err.println("Need to override unparseToken in " + getClass().getName());
 		return "";
 	}
 
-	String[] getBonusesHandled()
+	protected String[] getBonusesHandled()
 	{
 		System.err.println("Need to override getBonusesHandled " + getClass().getName());
 		return new String[]{ "" };

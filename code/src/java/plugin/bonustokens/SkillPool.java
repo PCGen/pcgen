@@ -1,6 +1,6 @@
 /*
- * MultiTagBonusObj.java
- * Copyright 2003 (C) Greg Bingleman <byngl@hotmail.com>
+ * SkillPoints.java
+ * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,45 +16,47 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Mar 29, 2003, 00:00
+ * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 1.10 $
+ * Current Ver: $Revision: 1.9 $
  * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/11/13 18:30:45 $
+ * Last Edited: $Date: 2005/11/13 20:01:22 $
  *
  */
-package pcgen.core.bonus;
+package plugin.bonustokens;
 
+import pcgen.core.bonus.BonusObj;
 
 
 /**
- * <code>MultiTagBonusObj</code>
+ * <code>SkillPoints</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @author  Jonas Karlsson <jujutsunerd@sf.net>
  */
-public abstract class MultiTagBonusObj extends BonusObj
+public final class SkillPool extends BonusObj
 {
+	private static final String[] bonusHandled =
+		{
+			"SKILLPOOL"
+		};
 
 	protected boolean parseToken(final String token)
 	{
-		for (int i = 0; i < getBonusTagLength(); ++i)
-		{
-			if (getBonusTag(i).equals(token))
-			{
-				addBonusInfo(new Integer(i));
-
-				return true;
-			}
-		}
-
-		if (token.startsWith("TYPE="))
+		if (token.startsWith("CLASS"))
 		{
 			addBonusInfo(token.replace('=', '.'));
 		}
-		else
+		else if (token.startsWith("LEVEL"))
+		{
+			addBonusInfo(token.replace('=', '.'));
+		}
+		else if ("NUMBER".equals(token))
 		{
 			addBonusInfo(token);
+		}
+		else
+		{
+			return false;
 		}
 
 		return true;
@@ -62,24 +64,11 @@ public abstract class MultiTagBonusObj extends BonusObj
 
 	protected String unparseToken(final Object obj)
 	{
-		if (obj instanceof Integer)
-		{
-			return getBonusTag(((Integer) obj).intValue());
-		}
-
 		return (String) obj;
 	}
 
-	protected String getBonusTag(final int tagNumber)
+	protected String[] getBonusesHandled()
 	{
-		System.err.println("Need to override getBonusTag in " + getClass().getName());
-		return "";
+		return bonusHandled;
 	}
-
-	protected int getBonusTagLength()
-	{
-		System.err.println("Need to override getBonusTagLength in " + getClass().getName());
-		return 0;
-	}
-
 }
