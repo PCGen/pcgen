@@ -4,6 +4,6 @@ SOURCELONG:Blood and Guts - Soldiers|SOURCESHORT:BnG-S|SOURCEWEB:http://www.rpgo
 # Feat Name				Type				Visible	Special Ability				Multiple?	Choose				Save checks bonus
 Smart Resilience (Fortitude)	TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Fortitude)								BONUS:CHECKS|Fortitude|INT
 Smart Resilience (Reflex)	TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Reflex)									BONUS:CHECKS|Reflex|INT
-Smart Resilience (Willpower)	TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Willpower)								BONUS:CHECKS|Will|INT
+Smart Resilience (Will)		TYPE:SmartResilience	VISIBLE:NO	SA:Smart Resilience (Will)									BONUS:CHECKS|Will|INT
 
 Speed of the Essence		TYPE:Special		VISIBLE:NO	SA:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILLSNAMED|ALL|1

@@ -6,7 +6,7 @@ Psyche					TYPE:Special				VISIBLE:NO																SA:Psyche %|Psyche	DEFINE:P
 
 Human Computer Fortitude		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Fortitude|INT
 Human Computer Reflex			TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Reflex|INT
-Human Computer Willpower		TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Will|INT
+Human Computer Will			TYPE:HumanComputerSaves			VISIBLE:NO																													BONUS:CHECKS|Will|INT
 
 Sensitive Base Psioninc			TYPE:SensitiveAwakening			VISIBLE:NO							!PREFEAT:3,TYPE=BasePsionic												ADD:FEAT(TYPE=BasePsionic)
 Sensitive Psionic				TYPE:SensitiveAwakening			VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic																		ADD:FEAT(TYPE=PsionicPowerFeat)
