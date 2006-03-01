@@ -45,6 +45,7 @@ public class Bonus
 	static final int BONUS_UNDEFINED = -1;
 
 	private static boolean objectListInitialized;
+	private static int bonusTagMapNum = 0;
 
 	private static final HashMap BONUS_TAG_MAP = new HashMap();
 
@@ -169,7 +170,7 @@ public class Bonus
 		BonusObj aBonus = null;
 		try
 		{
-			aBonus = (BonusObj) Class.forName("pcgen.core.bonus." + bEntry.getBonusObjectName()).newInstance();
+			aBonus = (BonusObj) bEntry.getBonusClass().newInstance();
 		}
 		catch (Exception exc)
 		{
@@ -300,7 +301,6 @@ public class Bonus
 				try
 				{
 					final JarFile jarfile = new JarFile(jarName);
-					int iCount = 0;
 					for (Enumeration e = jarfile.entries() ; e.hasMoreElements() ;)
 					{
 						String jarEntry = e.nextElement().toString();
@@ -316,20 +316,7 @@ public class Bonus
 												.getPackage().getName())
 												.append('.')
 												.append(jarEntry).toString());
-
-								if (BonusObj.class.isAssignableFrom(jarClass))
-								{
-									final BonusObj bonusObj = (BonusObj) jarClass.newInstance();
-									final String[] handled = bonusObj.getBonusesHandled();
-									if (handled != null)
-									{
-										bAdded = true;
-										for (int i = 0; i < handled.length; ++i)
-										{
-											BONUS_TAG_MAP.put(handled[i], new bonusMapEntry(jarEntry, iCount++));
-										}
-									}
-								}
+								bAdded = addBonusClass(jarClass, jarEntry);
 							}
 							catch (Exception exc)
 							{
@@ -354,21 +341,42 @@ public class Bonus
 			}
 		}
 	}
+	
+	public static boolean addBonusClass(Class bonusClass, String bonusName) throws InstantiationException, IllegalAccessException {
+		boolean added = false;
+		if (BonusObj.class.isAssignableFrom(bonusClass))
+		{
+			final BonusObj bonusObj = (BonusObj) bonusClass.newInstance();
+			final String[] handled = bonusObj.getBonusesHandled();
+			if (handled != null)
+			{
+				added = true;
+				for (int i = 0; i < handled.length; ++i)
+				{
+					BONUS_TAG_MAP.put(handled[i], new bonusMapEntry(bonusName, bonusTagMapNum++, bonusClass));
+				}
+			}
+		}
+		return added;
+	}
+
 
 	private static class bonusMapEntry
 	{
 		private int bonusType = BONUS_UNDEFINED;
 		private String bonusObjectName = "";
+		private Class bonusClass;
 
 		/**
 		 * Constructor
 		 * @param argName
 		 * @param argType
 		 */
-		public bonusMapEntry(final String argName, final int argType)
+		public bonusMapEntry(final String bonusObjectName, final int bonusType, final Class bonusClass)
 		{
-			bonusObjectName = argName;
-			bonusType = argType;
+			this.bonusObjectName = bonusObjectName;
+			this.bonusType = bonusType;
+			this.bonusClass = bonusClass;
 		}
 
 		/**
@@ -387,6 +395,11 @@ public class Bonus
 		public final int getBonusType()
 		{
 			return bonusType;
+		}
+		
+		public final Class getBonusClass()
+		{
+			return bonusClass;
 		}
 
 		public String toString()
