@@ -19,7 +19,7 @@ STATNAME:Permanent Fame	ABB:PFM
 #
 CHECKNAME:Fortitude	BONUS:CHECKS|Fortitude|CON
 CHECKNAME:Reflex		BONUS:CHECKS|Reflex|DEX
-CHECKNAME:Willpower	BONUS:CHECKS|Willpower|WIS
+CHECKNAME:Will		BONUS:CHECKS|Will|WIS
 
 # get a bonus level 1 spell at score of 12 and every 8 points beyond that
 BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8
