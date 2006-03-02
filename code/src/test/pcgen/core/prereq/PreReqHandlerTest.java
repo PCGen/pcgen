@@ -28,29 +28,48 @@
  */
 package pcgen.core.prereq;
 
+import gmgen.pluginmgr.PluginLoader;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
+import pcgen.core.Constants;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * @author wardc
  *
  */
-public class PreReqHandlerTest extends PCGenTestCase {
+public class PreReqHandlerTest extends PCGenTestCase
+{
 
-	public static void main(final String[] args) {
+	public static void main(final String[] args)
+	{
 		junit.swingui.TestRunner.run(PreReqHandlerTest.class);
 	}
 
 	/**
 	 * @return Test
 	 */
-	public static Test suite() {
+	public static Test suite()
+	{
 		return new TestSuite(PreReqHandlerTest.class);
+	}
+
+	public void setUp() throws Exception
+	{
+		try
+		{
+			PluginLoader ploader = PluginLoader.inst();
+			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		}
+		catch (Exception e)
+		{
+
+		}
 	}
 
 
