@@ -41,10 +41,16 @@ import pcgen.core.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
 /**
@@ -454,6 +460,7 @@ public class JARClassLoader extends ClassLoader
 			loadOutputTokenClass(clazz, modifiers);
 			loadLstTokens(clazz, modifiers);
 			loadBonusTokens(clazz, name, modifiers);
+			loadPreTokens(clazz, modifiers);
 		}
 		return loadPluginClass(clazz, modifiers, name, system);
 	}
@@ -505,6 +512,25 @@ public class JARClassLoader extends ClassLoader
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && BonusObj.class.isAssignableFrom(clazz))
 		{
 			Bonus.addBonusClass(clazz, name);
+		}
+	}
+	
+	private void loadPreTokens(Class clazz, int modifiers) throws Exception
+	{
+		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers))
+		{
+			if(PrerequisiteParserInterface.class.isAssignableFrom(clazz)) {
+				PrerequisiteParserInterface parser = (PrerequisiteParserInterface) clazz.newInstance();
+				PreParserFactory.register(parser);
+			}
+			else if(PrerequisiteTest.class.isAssignableFrom(clazz)) {
+				PrerequisiteTest test = (PrerequisiteTest) clazz.newInstance();
+				PrerequisiteTestFactory.register(test);
+			}
+			else if(PrerequisiteWriterInterface.class.isAssignableFrom(clazz)) {
+				PrerequisiteWriterInterface writer = (PrerequisiteWriterInterface) clazz.newInstance();
+				PrerequisiteWriterFactory.register(writer);
+			}
 		}
 	}
 

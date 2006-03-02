@@ -31,6 +31,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreTypeParser;
 
 public class PreTypeParserTest extends TestCase {
 	public static void main(String[] args)

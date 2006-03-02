@@ -30,10 +30,13 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
+import gmgen.pluginmgr.PluginLoader;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -60,6 +63,7 @@ public class PrerequisiteWriterTest extends TestCase
 		junit.textui.TestRunner.run(PrerequisiteWriterTest.suite());
 	}
 
+	
 	/**
 	 * @return Test
 	 */
@@ -437,6 +441,13 @@ public class PrerequisiteWriterTest extends TestCase
 
     protected void setUp() throws Exception
     {
+		try {
+			PluginLoader ploader = PluginLoader.inst();
+			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		}
+		catch(Exception e) {
+			
+		}
         Globals.setUseGUI(false);
         Globals.emptyLists();
         GameMode gamemode = new GameMode("3.5");

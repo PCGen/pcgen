@@ -41,7 +41,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
-import pcgen.persistence.lst.prereq.PreVariableParser;
+import plugin.pretokens.parser.PreVariableParser;
 
 /**
  * @author wardc

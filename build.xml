@@ -65,6 +65,7 @@ These files can be renamed and used for releases.
 	<property name="plugins.dir" value="${basedir}/plugins" />
 	<property name="outputplugins.dir" value="${plugins.dir}/outputplugins" />
 	<property name="bonusplugins.dir" value="${plugins.dir}/bonusplugins" />
+	<property name="preplugins.dir" value="${plugins.dir}/preplugins" />
 	<property name="lstplugins.dir" value="${plugins.dir}/lstplugins" />
 	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
 	<property name="src.java.dir" value="${basedir}/code/src/java" />
@@ -1308,7 +1309,7 @@ These files can be renamed and used for releases.
 		<jar jarfile="${bonusplugins.dir}/BonusToken-STAT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/bonustokens/ItemCost.class" />
+					<include name="plugin/bonustokens/Stat.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -1358,6 +1359,555 @@ These files can be renamed and used for releases.
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/WieldCategory.class" />
+				</patternset>
+			</fileset>
+		</jar>
+
+		<!-- Pre tokens-->
+		<jar jarfile="${preplugins.dir}/PreToken-PREALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreAlignParser.class" />
+					<include name="plugin/pretokens/test/PreAlignTester.class" />
+					<include name="plugin/pretokens/writer/PreAlignWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREAPPLY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreApplyParser.class" />
+					<include name="plugin/pretokens/test/PreApplyTester.class" />
+					<include name="plugin/pretokens/writer/PreApplyWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreArmorProfParser.class" />
+					<include name="plugin/pretokens/test/PreArmorProfTester.class" />
+					<include name="plugin/pretokens/writer/PreArmorProfWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREARMORTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreArmorTypeParser.class" />
+					<include name="plugin/pretokens/test/PreArmorTypeTester.class" />
+					<include name="plugin/pretokens/writer/PreArmorTypeWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREATTACK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreAttackParser.class" />
+					<include name="plugin/pretokens/test/PreAttackTester.class" />
+					<include name="plugin/pretokens/writer/PreAttackWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREBASESIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreBaseSizeParser.class" />
+					<include name="plugin/pretokens/test/PreBaseSizeTester.class" />
+					<include name="plugin/pretokens/writer/PreBaseSizeWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREBIRTHPLACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreBirthplaceParser.class" />
+					<include name="plugin/pretokens/test/PreBirthPlaceTester.class" />
+					<include name="plugin/pretokens/writer/PreBirthPlaceWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreCheckParser.class" />
+					<include name="plugin/pretokens/test/PreCheckTester.class" />
+					<include name="plugin/pretokens/test/PreCheckBaseTester.class" />
+					<include name="plugin/pretokens/writer/PreCheckWriter.class" />
+					<include name="plugin/pretokens/writer/PreCheckBaseWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreCityParser.class" />
+					<include name="plugin/pretokens/test/PreCityTester.class" />
+					<include name="plugin/pretokens/writer/PreCityWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreClassParser.class" />
+					<include name="plugin/pretokens/test/PreClassTester.class" />
+					<include name="plugin/pretokens/writer/PreClassWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECLASSLEVELMAX.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreClassLevelMaxParser.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreCSkillParser.class" />
+					<include name="plugin/pretokens/test/PreCSkillTester.class" />
+					<include name="plugin/pretokens/writer/PreCSkillWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREDAMAGEREDUCTION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreDamageReductionParser.class" />
+					<include name="plugin/pretokens/test/PreDamageReductionTester.class" />
+					<include name="plugin/pretokens/writer/PreDamageReductionWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREDEFAULTMONSTER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreDefaultMonsterParser.class" />
+					<include name="plugin/pretokens/test/PreDefaultMonsterTester.class" />
+					<include name="plugin/pretokens/writer/PreDefaultMonsterWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREDEITYALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreDeityAlignParser.class" />
+					<include name="plugin/pretokens/test/PreDeityAlignTester.class" />
+					<include name="plugin/pretokens/writer/PreDeityAlignWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREDEITYDOMAIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreDeityDomainParser.class" />
+					<include name="plugin/pretokens/test/PreDeityDomainTester.class" />
+					<include name="plugin/pretokens/writer/PreDeityDomainWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREDEITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreDeityParser.class" />
+					<include name="plugin/pretokens/test/PreDeityTester.class" />
+					<include name="plugin/pretokens/test/PreHasDeityTester.class" />
+					<include name="plugin/pretokens/writer/PreDeityWriter.class" />
+					<include name="plugin/pretokens/writer/PreHasDeityWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREDOMAIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreDomainParser.class" />
+					<include name="plugin/pretokens/test/PreDomainTester.class" />
+					<include name="plugin/pretokens/writer/PreDomainWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREEQUIPBOTH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreEquipBothParser.class" />
+					<include name="plugin/pretokens/test/PreEquipBothTester.class" />
+					<include name="plugin/pretokens/writer/PreEquipBothWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREEQUIP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreEquipParser.class" />
+					<include name="plugin/pretokens/test/PreEquipTester.class" />
+					<include name="plugin/pretokens/writer/PreEquipWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREEQUIPPRIMARY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreEquipPrimaryParser.class" />
+					<include name="plugin/pretokens/test/PreEquipPrimaryTester.class" />
+					<include name="plugin/pretokens/writer/PreEquipPrimaryWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREEQUIPSECONDARY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreEquipSecondaryParser.class" />
+					<include name="plugin/pretokens/test/PreEquipSecondaryTester.class" />
+					<include name="plugin/pretokens/writer/PreEquipSecondaryWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREEQUIPTWOWEAPON.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreEquipTwoWeaponParser.class" />
+					<include name="plugin/pretokens/test/PreEquipTwoWeaponTester.class" />
+					<include name="plugin/pretokens/writer/PreEquipTwoWeaponWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREFEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreFeatParser.class" />
+					<include name="plugin/pretokens/test/PreFeatTester.class" />
+					<include name="plugin/pretokens/writer/PreFeatWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREGENDER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreGenderParser.class" />
+					<include name="plugin/pretokens/test/PreGenderTester.class" />
+					<include name="plugin/pretokens/writer/PreGenderWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREHANDS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreHandsParser.class" />
+					<include name="plugin/pretokens/test/PreHandsTester.class" />
+					<include name="plugin/pretokens/writer/PreHandsWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREHD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreHDParser.class" />
+					<include name="plugin/pretokens/test/PreHDTester.class" />
+					<include name="plugin/pretokens/writer/PreHDWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREHP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreHPParser.class" />
+					<include name="plugin/pretokens/test/PreHPTester.class" />
+					<include name="plugin/pretokens/writer/PreHPWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREITEM.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreItemParser.class" />
+					<include name="plugin/pretokens/test/PreItemTester.class" />
+					<include name="plugin/pretokens/writer/PreItemWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRELANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreLanguageParser.class" />
+					<include name="plugin/pretokens/test/PreLanguageTester.class" />
+					<include name="plugin/pretokens/writer/PreLanguageWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRELEGS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreLegsParser.class" />
+					<include name="plugin/pretokens/test/PreLegsTester.class" />
+					<include name="plugin/pretokens/writer/PreLegsWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRELEVELMAX.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreLevelMaxParser.class" />
+					<include name="plugin/pretokens/test/PreLevelMaxTester.class" />
+					<include name="plugin/pretokens/writer/PreLevelMaxWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRELEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreLevelParser.class" />
+					<include name="plugin/pretokens/test/PreLevelTester.class" />
+					<include name="plugin/pretokens/writer/PreLevelWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREMOVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreMoveParser.class" />
+					<include name="plugin/pretokens/test/PreMoveTester.class" />
+					<include name="plugin/pretokens/writer/PreMoveWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREPOINTBUYMETHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PrePointBuyMethodParser.class" />
+					<include name="plugin/pretokens/test/PrePointBuyMethodTester.class" />
+					<include name="plugin/pretokens/writer/PrePointBuyMethodWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRERACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreRaceParser.class" />
+					<include name="plugin/pretokens/test/PreRaceTester.class" />
+					<include name="plugin/pretokens/writer/PreRaceWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREREGION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreRegionParser.class" />
+					<include name="plugin/pretokens/test/PreRegionTester.class" />
+					<include name="plugin/pretokens/writer/PreRegionWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRERULE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreRuleParser.class" />
+					<include name="plugin/pretokens/test/PreRuleTester.class" />
+					<include name="plugin/pretokens/writer/PreRuleWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESHIELDPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreShieldProfParser.class" />
+					<include name="plugin/pretokens/test/PreShieldProfTester.class" />
+					<include name="plugin/pretokens/writer/PreShieldProfWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSizeParser.class" />
+					<include name="plugin/pretokens/test/PreSizeTester.class" />
+					<include name="plugin/pretokens/writer/PreSizeWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSkillParser.class" />
+					<include name="plugin/pretokens/parser/PreSkillTotalParser.class" />
+					<include name="plugin/pretokens/test/PreSkillTester.class" />
+					<include name="plugin/pretokens/test/PreSkillMultTester.class" />
+					<include name="plugin/pretokens/writer/PreSkillWriter.class" />
+					<include name="plugin/pretokens/writer/PreSkillMultWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPECIALABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpecialAbilityParser.class" />
+					<include name="plugin/pretokens/test/PreSpecialAbilityTester.class" />
+					<include name="plugin/pretokens/writer/PreSpecialAbilityWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLBOOK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellBookParser.class" />
+					<include name="plugin/pretokens/test/PreSpellBookTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellBookWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellParser.class" />
+					<include name="plugin/pretokens/test/PreSpellTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLCAST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellCastParser.class" />
+					<include name="plugin/pretokens/test/PreSpellCastTester.class" />
+					<include name="plugin/pretokens/test/PreSpellCastMemorizeTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellCastWriter.class" />
+					<include name="plugin/pretokens/writer/PreSpellCastMemorizeWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLDESCRIPTOR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellDescriptorParser.class" />
+					<include name="plugin/pretokens/test/PreSpellDescriptorTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellDescriptorWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLRESISTANCE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellResistanceParser.class" />
+					<include name="plugin/pretokens/test/PreSpellResistanceTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellResistanceWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLSCHOOL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellSchoolParser.class" />
+					<include name="plugin/pretokens/test/PreSpellSchoolTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellSchoolWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLSCHOOLSUB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellSchoolSubParser.class" />
+					<include name="plugin/pretokens/test/PreSpellSchoolSubTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellSchoolSubWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESPELLTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSpellTypeParser.class" />
+					<include name="plugin/pretokens/test/PreSpellTypeTester.class" />
+					<include name="plugin/pretokens/writer/PreSpellTypeWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESTAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreStatParser.class" />
+					<include name="plugin/pretokens/test/PreStatTester.class" />
+					<include name="plugin/pretokens/writer/PreStatWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSubClassParser.class" />
+					<include name="plugin/pretokens/test/PreSubClassTester.class" />
+					<include name="plugin/pretokens/writer/PreSubClassWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRETEMPLATE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreTemplateParser.class" />
+					<include name="plugin/pretokens/test/PreTemplateTester.class" />
+					<include name="plugin/pretokens/writer/PreTemplateWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRETEXT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreTextParser.class" />
+					<include name="plugin/pretokens/test/PreTextTester.class" />
+					<include name="plugin/pretokens/writer/PreTextWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreTypeParser.class" />
+					<include name="plugin/pretokens/test/PreTypeTester.class" />
+					<include name="plugin/pretokens/writer/PreTypeWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREUNARMEDATTACK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreUnarmedAttackParser.class" />
+					<include name="plugin/pretokens/test/PreUnarmedAttackTester.class" />
+					<include name="plugin/pretokens/writer/PreUnarmedAttackWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREVAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreVariableParser.class" />
+					<include name="plugin/pretokens/test/PreVariableTester.class" />
+					<include name="plugin/pretokens/writer/PreVariableWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREVISION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreVisionParser.class" />
+					<include name="plugin/pretokens/test/PreVisionTester.class" />
+					<include name="plugin/pretokens/writer/PreVisionWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREWEAPONPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreWeaponProfParser.class" />
+					<include name="plugin/pretokens/test/PreWeaponProfTester.class" />
+					<include name="plugin/pretokens/writer/PreWeaponProfWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREWIELD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreWieldParser.class" />
+					<include name="plugin/pretokens/test/PreWieldTester.class" />
+					<include name="plugin/pretokens/writer/PreWieldWriter.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4535,6 +5085,9 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 			<fileset dir="${bonusplugins.dir}" includes="*.jar"/>
 		</delete>
 		<delete>
+			<fileset dir="${preplugins.dir}" includes="*.jar"/>
+		</delete>
+		<delete>
 			<fileset dir="${lstplugins.dir}" includes="*.jar"/>
 		</delete>
 		<delete>
@@ -4545,6 +5098,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 	<target name="makedirs" description="Creates any needed directories">
 		<mkdir dir="${outputplugins.dir}" />
 		<mkdir dir="${bonusplugins.dir}" />
+		<mkdir dir="${preplugins.dir}" />
 		<mkdir dir="${lstplugins.dir}" />
 		<mkdir dir="${systemlstplugins.dir}" />
 	</target>

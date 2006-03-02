@@ -10,6 +10,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreSkillTotalParser;
 
 /**
  * @author Valued Customer

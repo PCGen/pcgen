@@ -25,17 +25,18 @@
  */
 package pcgen.core.character;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreVariableParser;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * <code>WieldCategory.java</code>
@@ -159,32 +160,38 @@ public final class WieldCategory
 			return name;
 		}
 
-		for (Iterator pc = switchMap.keySet().iterator(); pc.hasNext();)
+		try
 		{
-			String aKey = (String) pc.next();
-
-			final PreVariableParser parser = new PreVariableParser();
-
-			boolean invertResult=false;
-			if (aKey.startsWith("!")) {
-				invertResult = true;
-				aKey = aKey.substring(1);
-			}
-			final String aType = aKey.substring(3, aKey.indexOf(":"));
-			final String preVar = aKey.substring(aKey.indexOf(":") + 1);
-
-			try
+			final PrerequisiteParserInterface parser = PreParserFactory.getInstance().getParser("VAR");
+			for (Iterator pc = switchMap.keySet().iterator(); pc.hasNext();)
 			{
-				final Prerequisite prereq = parser.parse(aType, preVar, invertResult, false);
-				if (PrereqHandler.passes(prereq, eq, aPC))
+				String aKey = (String) pc.next();
+	
+	
+				boolean invertResult=false;
+				if (aKey.startsWith("!")) {
+					invertResult = true;
+					aKey = aKey.substring(1);
+				}
+				final String aType = aKey.substring(3, aKey.indexOf(":"));
+				final String preVar = aKey.substring(aKey.indexOf(":") + 1);
+	
+				try
 				{
-					return (String) switchMap.get(aKey);
+					final Prerequisite prereq = parser.parse(aType, preVar, invertResult, false);
+					if (PrereqHandler.passes(prereq, eq, aPC))
+					{
+						return (String) switchMap.get(aKey);
+					}
+				}
+				catch (PersistenceLayerException ple)
+				{
+					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
-			catch (PersistenceLayerException ple)
-			{
-				Logging.errorPrint(ple.getMessage(), ple);
-			}
+		}
+		catch(PersistenceLayerException ple) {
+			Logging.errorPrint(ple.getMessage(), ple);
 		}
 
 		return name;

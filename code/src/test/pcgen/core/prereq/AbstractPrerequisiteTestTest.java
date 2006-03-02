@@ -31,6 +31,7 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import plugin.pretokens.test.PreWieldTester;
 
 /**
  * @author wardc
@@ -64,13 +65,13 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase {
 
 		try
 		{
-			final PreWield test = new PreWield();
+			final PreWieldTester test = new PreWieldTester();
 			test.passes(prereq, getCharacter());
 			fail("Should have thrown a PrerequisiteException here.");
 		}
 		catch (PrerequisiteException pe)
 		{
-			assertEquals(PreWield.class.getName() + " does not support prerequisites for Characters.", pe.getMessage());
+			assertEquals(PreWieldTester.class.getName() + " does not support prerequisites for Characters.", pe.getMessage());
 		}
 	}
 

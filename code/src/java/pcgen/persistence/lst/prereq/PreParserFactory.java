@@ -25,12 +25,12 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author wardc
@@ -43,68 +43,7 @@ public class PreParserFactory
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
-		register(new PreAlignParser());
-		register(new PreApplyParser());
-		register(new PreArmorProfParser());
-		register(new PreArmorTypeParser());
-		register(new PreAttackParser());
-		register(new PreBaseSizeParser());
-		register(new PreBirthplaceParser());
-		register(new PreCityParser());
-		register(new PreCheckParser());
-		register(new PreClassParser());
-		register(new PreClassLevelMaxParser());
-		register(new PreCSkillParser());
-		register(new PreDamageReductionParser());
-		register(new PreDefaultMonsterParser());
-		register(new PreDeityParser());
-		register(new PreDeityAlignParser());
-		register(new PreDeityDomainParser());
-		register(new PreDomainParser());
-		register(new PreEquipParser());
-		register(new PreEquippedBothParser());
-		register(new PreEquippedPrimaryParser());
-		register(new PreEquippedSecondaryParser());
-		register(new PreEquippedTwoWeaponParser());
-		register(new PreFeatParser());
-		register(new PreGenderParser());
-		register(new PreHandsParser());
-		register(new PreHitDiceParser());
-		register(new PreHitPointsParser());
-		register(new PreItemParser());
-		register(new PreLanguageParser());
-		register(new PreLegsParser());
-		register(new PreLevelParser());
-		register(new PreLevelMaxParser());
-		register(new PreMoveParser());
 		register(new PreMultParser());
-		register(new PrePointBuyMethodParser());
-		register(new PreRaceParser());
-		register(new PreRegionParser());
-		register(new PreRuleParser());
-		register(new PreShieldProficiencyParser());
-		register(new PreSizeParser());
-		register(new PreSkillParser());
-		register(new PreSkillTotalParser());
-		register(new PreSpellParser());
-		register(new PreSpecialAbilityParser());
-		register(new PreSpellBookParser());
-		register(new PreSpellCastParser());
-		register(new PreSpellDescriptorParser());
-		register(new PreSpellResistanceParser());
-		register(new PreSpellSchoolParser());
-		register(new PreSpellSchoolSubParser());
-		register(new PreSpellTypeParser());
-		register(new PreStatParser());
-		register(new PreSubClassParser());
-		register(new PreTemplateParser());
-		register(new PreTextParser());
-		register(new PreTypeParser());
-		register(new PreUnarmedAttackParser());
-		register(new PreVariableParser());
-		register(new PreVisionParser());
-		register(new PreWieldParser());
-		register(new PreWeaponProficiencyParser());
 	}
 
 	/**
@@ -128,7 +67,7 @@ public class PreParserFactory
 		return test;
 	}
 
-	private void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
+	public static void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 

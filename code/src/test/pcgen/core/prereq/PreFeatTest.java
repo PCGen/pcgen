@@ -17,9 +17,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
-import pcgen.persistence.lst.prereq.PreFeatParser;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.chooser.ChooserFactory;
+import plugin.pretokens.parser.PreFeatParser;
 
 /**
  * @author Valued Customer

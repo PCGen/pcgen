@@ -30,9 +30,9 @@ import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.persistence.lst.prereq.PreClassParser;
-import pcgen.persistence.lst.prereq.PreFeatParser;
-import pcgen.persistence.lst.prereq.PreSkillParser;
+import plugin.pretokens.parser.PreClassParser;
+import plugin.pretokens.parser.PreFeatParser;
+import plugin.pretokens.parser.PreSkillParser;
 
 /**
  * <code>PreMultTest</code> tests that the PreMult class

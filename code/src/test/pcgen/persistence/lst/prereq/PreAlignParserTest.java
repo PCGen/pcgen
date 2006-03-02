@@ -34,6 +34,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreAlignParser;
 
 public class PreAlignParserTest extends TestCase {
     public static void main(String args[]) {

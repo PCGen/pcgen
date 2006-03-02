@@ -93,12 +93,12 @@ public final class Checks extends BonusObj
 		return token + ((CheckInfo) obj).pobj.getName();
 	}
 
-	private static class CheckInfo
+	public class CheckInfo
 	{
-		final PObject pobj;
-		final boolean isBase;
+		public final PObject pobj;
+		public final boolean isBase;
 
-		CheckInfo(final PObject argPobj, final boolean argIsBase)
+		public CheckInfo(final PObject argPobj, final boolean argIsBase)
 		{
 			pobj = argPobj;
 			isBase = argIsBase;

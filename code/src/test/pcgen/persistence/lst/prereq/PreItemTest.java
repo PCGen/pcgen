@@ -28,6 +28,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreItemParser;
 
 /**
  * <code>PreItemTest</code> is ...

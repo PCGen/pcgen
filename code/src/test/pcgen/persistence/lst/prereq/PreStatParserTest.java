@@ -26,11 +26,14 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import gmgen.pluginmgr.PluginLoader;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
+import pcgen.core.Constants;
 import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreStatParser;
 
 /**
  * @author wardc
@@ -49,6 +52,16 @@ public class PreStatParserTest extends TestCase
 	public static Test suite()
 	{
 		return new TestSuite(PreStatParserTest.class);
+	}
+
+	public void setUp() throws Exception {
+		try {
+			PluginLoader ploader = PluginLoader.inst();
+			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		}
+		catch(Exception e) {
+			
+		}
 	}
 
 	/**

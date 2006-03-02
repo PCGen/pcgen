@@ -23,11 +23,11 @@
  */
 package pcgen.core.prereq;
 
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * @author wardc
@@ -47,72 +47,9 @@ public class PrerequisiteTestFactory {
 	}
 
 	private PrerequisiteTestFactory() {
-		register(new PreAlign());
-		register(new PreApply());
-		register(new PreArmorProficiency());
-		register(new PreArmorType());
-		register(new PreAttack());
-		register(new PreBaseSize());
-		register(new PreBirthPlace());
-		register(new PreCity());
-		register(new PreCheck());
-		register(new PreCheckBase());
-		register(new PreClass());
-		register(new PreCSkill());
-		register(new PreDamageReduction());
-		register(new PreDefaultMonster());
-		register(new PreDeity());
-		register(new PreDeityAlign());
-		register(new PreDeityDomain());
-		register(new PreDomain());
-		register(new PreEquip());
-		register(new PreEquippedBoth());
-		register(new PreEquippedPrimary());
-		register(new PreEquippedSecondary());
-		register(new PreEquippedTwoWeapon());
-		register(new PreFeat());
-		register(new PreGender());
-		register(new PreHands());
-		register(new PreHasDeity());
-		register(new PreHD());
-		register(new PreHP());
-		register(new PreItem());
-		register(new PreLanguage());
-		register(new PreLegs());
-		register(new PreLevel());
-		register(new PreLevelMax());
-		register(new PreMove());
-		register(new PrePointBuyMethod());
-		register(new PreRace());
-		register(new PreRegion());
-		register(new PreRule());
-		register(new PreShieldProficiency());
-		register(new PreSize());
-		register(new PreSkill());
-		register(new PreSkillMult());
-		register(new PreSpell());
-		register(new PreSpecialAbility());
-		register(new PreSpellBook());
-		register(new PreSpellCast());
-		register(new PreSpellCastMemorize());
-		register(new PreSpellResistance());
-		register(new PreSpellSchool());
-		register(new PreSpellSchoolSub());
-		register(new PreSpellDescriptor());
-		register(new PreSpellType());
-		register(new PreStat());
-		register(new PreSubClass());
-		register(new PreTemplate());
-		register(new PreText());
-		register(new PreType());
-		register(new PreUnarmedAttack());
-		register(new PreVariable());
-		register(new PreVision());
-		register(new PreWield());
-		register(new PreWeaponProficiency());
 	}
 
-	private void register(final PrerequisiteTest testClass) {
+	public static void register(final PrerequisiteTest testClass) {
 		final String kindHandled = testClass.kindHandled();
 			final Object test = testLookup.get(kindHandled);
 			if (test != null) {

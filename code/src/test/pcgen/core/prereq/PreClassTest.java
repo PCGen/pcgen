@@ -33,7 +33,8 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.lst.prereq.PreClassLevelMaxParser;
+import plugin.pretokens.parser.PreClassLevelMaxParser;
+import plugin.pretokens.test.PreClassTester;
 
 /**
  * @author wardc
@@ -80,7 +81,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
@@ -109,7 +110,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("3");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(0, passes);
 	}
@@ -142,7 +143,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("2");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
@@ -181,7 +182,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setTotalValues(true);
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(3, passes);
 	}
@@ -208,7 +209,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(0, passes);
 	}
@@ -233,7 +234,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.LT );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
@@ -258,7 +259,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.LT );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(0, passes);
 	}
@@ -285,7 +286,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
@@ -312,7 +313,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(0, passes);
 	}
@@ -341,7 +342,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
@@ -369,7 +370,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator( PrerequisiteOperator.GTEQ );
 
-		final PreClass test = new PreClass();
+		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}

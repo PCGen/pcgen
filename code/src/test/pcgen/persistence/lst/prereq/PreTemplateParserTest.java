@@ -29,6 +29,7 @@
 package pcgen.persistence.lst.prereq;
 
 import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreTemplateParser;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

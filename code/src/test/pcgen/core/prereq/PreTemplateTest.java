@@ -33,6 +33,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import plugin.pretokens.test.PreTemplateTester;
 
 public class PreTemplateTest extends AbstractCharacterTestCase {
 	public static void main(final String[] args)
@@ -173,7 +174,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase {
     }
 
     public void testKindHandled() {
-        final PreTemplate preTemplate = new PreTemplate();
+        final PreTemplateTester preTemplate = new PreTemplateTester();
 
         assertEquals("TEMPLATE", preTemplate.kindHandled());
     }

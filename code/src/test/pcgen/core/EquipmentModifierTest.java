@@ -28,6 +28,7 @@
  */
 package pcgen.core;
 
+import gmgen.pluginmgr.PluginLoader;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
@@ -69,6 +70,16 @@ public class EquipmentModifierTest extends PCGenTestCase {
 	public EquipmentModifierTest()
 	{
 		// Do Nothing
+	}
+
+	public void setUp() throws Exception {
+		try {
+			PluginLoader ploader = PluginLoader.inst();
+			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
+		}
+		catch(Exception e) {
+			
+		}
 	}
 
 	/**

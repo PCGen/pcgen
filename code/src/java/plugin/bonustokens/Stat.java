@@ -120,11 +120,11 @@ public final class Stat extends BonusObj
 		return ((PCStat) obj).getAbb();
 	}
 
-	private static class CastStat
+	public static class CastStat
 	{
-		final PCStat stat;
+		public final PCStat stat;
 
-		CastStat(final PCStat argStat)
+		public CastStat(final PCStat argStat)
 		{
 			stat = argStat;
 		}
