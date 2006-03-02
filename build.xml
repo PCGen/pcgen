@@ -1017,7 +1017,7 @@ These files can be renamed and used for releases.
 				</patternset>
 			</fileset>
 		</jar>
-		
+
 		<!-- Bonus tokens-->
 		<jar jarfile="${bonusplugins.dir}/BonusToken-ACVALUE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
@@ -1037,6 +1037,7 @@ These files can be renamed and used for releases.
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/Checks.class" />
+					<include name="plugin/bonustokens/Checks$CheckInfo.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -1310,6 +1311,7 @@ These files can be renamed and used for releases.
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/Stat.class" />
+					<include name="plugin/bonustokens/Stat$CastStat.class" />
 				</patternset>
 			</fileset>
 		</jar>
