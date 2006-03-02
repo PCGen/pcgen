@@ -36,6 +36,7 @@ import pcgen.core.GameMode;
  */
 public interface TabLstToken extends LstToken {
 	/**
+	 * @param gameMode
 	 * @param tab
 	 * @param value
 	 * @return true if parse OK

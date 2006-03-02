@@ -123,7 +123,7 @@ public interface Constants
 	/** htmlxml */
 	String s_standard_outputsheet_directory = "htmlxml";
 
-	// Types
+	/** Type: SPELLBOOK */
 	String s_TYPE_SPELLBOOK= "SPELLBOOK";
 	
 	/** Tab names */

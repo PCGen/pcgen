@@ -96,10 +96,15 @@ public class AbstractPrerequisiteWriter
 		return false;
 	}
 
-	//
-	// Meant to be over-ridden
-	// TODO  Does this and its overriding methods need to throw IOException?
-	//
+	/**
+	 * Meant to be over-ridden
+	 * TODO  Does this and its overriding methods need to throw IOException?
+	 * 
+	 * @param writer
+	 * @param prereq
+	 * @return false if not over ridden
+	 * @throws IOException
+	 */
 	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		try

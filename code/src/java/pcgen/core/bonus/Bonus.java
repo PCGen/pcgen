@@ -342,6 +342,14 @@ public class Bonus
 		}
 	}
 	
+	/**
+	 * Add a CLASS via a BONUS
+	 * @param bonusClass
+	 * @param bonusName
+	 * @return true if successful
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
 	public static boolean addBonusClass(Class bonusClass, String bonusName) throws InstantiationException, IllegalAccessException {
 		boolean added = false;
 		if (BonusObj.class.isAssignableFrom(bonusClass))
@@ -360,7 +368,6 @@ public class Bonus
 		return added;
 	}
 
-
 	private static class bonusMapEntry
 	{
 		private int bonusType = BONUS_UNDEFINED;
@@ -369,8 +376,9 @@ public class Bonus
 
 		/**
 		 * Constructor
-		 * @param argName
-		 * @param argType
+		 * @param bonusObjectName
+		 * @param bonusType
+		 * @param bonusClass
 		 */
 		public bonusMapEntry(final String bonusObjectName, final int bonusType, final Class bonusClass)
 		{
@@ -397,6 +405,10 @@ public class Bonus
 			return bonusType;
 		}
 		
+		/**
+		 * Return the bonus class
+		 * @return the bonus class
+		 */
 		public final Class getBonusClass()
 		{
 			return bonusClass;

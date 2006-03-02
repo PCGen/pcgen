@@ -78,7 +78,7 @@ public class EquipmentModifierTest extends PCGenTestCase {
 			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		}
 		catch(Exception e) {
-			
+			// TODO Deal with exception
 		}
 	}
 

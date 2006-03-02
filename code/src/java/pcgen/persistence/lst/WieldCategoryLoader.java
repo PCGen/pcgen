@@ -9,10 +9,22 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with reading in and parsing WIELDCATEGORY tag 
+ */
 public class WieldCategoryLoader  {
+	
+	/** Constructor */
 	public WieldCategoryLoader() {
+		// Do Nothing
 	}
 	
+	/**
+	 * Parse the WIELDCATEGORY line
+	 * @param gameMode
+	 * @param lstLine
+	 * @throws PersistenceLayerException
+	 */
 	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		WieldCategory cat = null;
@@ -28,6 +40,7 @@ public class WieldCategoryLoader  {
 				key = colString.substring(0, idxColon);
 			}
 			catch(StringIndexOutOfBoundsException e) {
+				// TODO Deal with Exception
 			}
 			
 			WieldCategoryLstToken token = (WieldCategoryLstToken) tokenMap.get(key);

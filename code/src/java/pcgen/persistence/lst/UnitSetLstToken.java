@@ -34,7 +34,7 @@ import pcgen.core.UnitSet;
  */
 public interface UnitSetLstToken extends LstToken {
 	/**
-	 * @param cat
+	 * @param unitSet
 	 * @param value
 	 * @return true if parse OK
 	 */

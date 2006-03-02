@@ -132,7 +132,13 @@ public final class UnitSetLoader extends LstLineFileLoader
 		}
 	}
 
-	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
+	/**
+	 * Parse the UNITSET tag
+	 * @param gameModeIn
+	 * @param lstLine
+	 * @throws PersistenceLayerException
+	 */
+	public void parseLine(GameMode gameModeIn, String lstLine) throws PersistenceLayerException {
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		UnitSet unitSet = null;
 		Map tokenMap = TokenStore.inst().getTokenMap(UnitSetLstToken.class);
@@ -144,19 +150,20 @@ public final class UnitSetLoader extends LstLineFileLoader
 				key = colString.substring(0, idxColon);
 			}
 			catch(StringIndexOutOfBoundsException e) {
+				// TODO Deal with Exception
 			}
 			UnitSetLstToken token = (UnitSetLstToken) tokenMap.get(key);
 
 			if (key.equals("UNITSET")) {
 				final String value = colString.substring(idxColon + 1).trim();
-				unitSet = SystemCollections.getUnitSet(value, gameMode.getName());
+				unitSet = SystemCollections.getUnitSet(value, gameModeIn.getName());
 				unitSet.setName(value);
 			}
 			else if (token != null) {
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Unit Set", "miscinfo.lst from the " + gameMode.getName() + " Game Mode", value);
+				LstUtils.deprecationCheck(token, "Unit Set", "miscinfo.lst from the " + gameModeIn.getName() + " Game Mode", value);
 				if (!token.parse(unitSet, value)) {
-					Logging.errorPrint("Error parsing unit set:" + "miscinfo.lst from the " + gameMode.getName() + " Game Mode" + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing unit set:" + "miscinfo.lst from the " + gameModeIn.getName() + " Game Mode" + ':' + colString + "\"");
 				}
 			}
 			else {

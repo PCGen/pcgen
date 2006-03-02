@@ -9,11 +9,22 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with reading in and parsing EQSIZEPENALTY
+ */
 public class EqSizePenaltyLoader  {
 
+	/** Constructor */
 	public EqSizePenaltyLoader() {
+		// Do Nothing
 	}
 	
+	/**
+	 * Parse the EQSIZEPENALTY line
+	 * @param gameMode
+	 * @param lstLine
+	 * @throws PersistenceLayerException
+	 */
 	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
 		PObject eqSizePenaltyObj = new PObject();
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
@@ -27,6 +38,7 @@ public class EqSizePenaltyLoader  {
 				key = colString.substring(0, idxColon);
 			}
 			catch(StringIndexOutOfBoundsException e) {
+				// TODO Deal with exception
 			}
 			
 			EqSizePenaltyLstToken token = (EqSizePenaltyLstToken) tokenMap.get(key);
