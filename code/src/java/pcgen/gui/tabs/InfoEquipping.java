@@ -3036,7 +3036,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		}
 		else
 		{
-			viewMode = GuiConstants.INFOEQUIPPING_VIEW_NAME;
+			viewMode = GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED;
 		}
 
 		SettingsHandler.setEquipTab_AvailableListMode(viewMode);

@@ -140,7 +140,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	static final long serialVersionUID = -2320970658737297916L;
 	private static boolean needsUpdate = true;
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
-	private static int viewMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME; // keep track of what view mode we're in for Available
+	private static int viewMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME; // keep track of what view mode we're in for Available
 	private static int viewSelectMode = GuiConstants.INFOINVENTORY_VIEW_NAME; // keep track of what view mode we're in for Selected. defaults to "Name"
 	private static Integer saveAvailableViewMode = null;
 	private static Integer saveSelectedViewMode = null;

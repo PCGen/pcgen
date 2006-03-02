@@ -81,7 +81,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private static String singularName = null;
 
 	// keep track of what view mode we're in for Available
-	private static int viewAvailMode = GuiConstants.INFOFEATS_VIEW_TYPENAME;
+	private static int viewAvailMode = GuiConstants.INFOFEATS_VIEW_PREREQTREE;
 	private static Integer saveAvailableViewMode = null;
 
 	// default to "Name" in Selection table viewmode

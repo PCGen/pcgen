@@ -178,11 +178,11 @@ public final class SettingsHandler
 	private static int classTab_AvailableListMode = GuiConstants.INFOCLASS_VIEW_NAME;
 	private static int classTab_SelectedListMode = GuiConstants.INFOCLASS_VIEW_NAME;
 	private static int domainTab_ListMode = GuiConstants.INFODOMAIN_VIEW_NAME;
-	private static int equipTab_AvailableListMode = GuiConstants.INFOEQUIPPING_VIEW_TYPE;
+	private static int equipTab_AvailableListMode = GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED;
 	private static int equipTab_SelectedListMode = GuiConstants.INFOEQUIPPING_VIEW_NAME;
-	private static int featTab_AvailableListMode = GuiConstants.INFOFEATS_VIEW_TYPENAME;
+	private static int featTab_AvailableListMode = GuiConstants.INFOFEATS_VIEW_PREREQTREE;
 	private static int featTab_SelectedListMode = GuiConstants.INFOFEATS_VIEW_NAMEONLY;
-	private static int gearTab_AvailableListMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME;
+	private static int gearTab_AvailableListMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME;
 	private static int gearTab_SelectedListMode = GuiConstants.INFOINVENTORY_VIEW_NAME;
 	private static int raceTab_ListMode = GuiConstants.INFORACE_VIEW_NAME;
 	private static int skillsTab_AvailableListMode = GuiConstants.INFOSKILLS_VIEW_TYPE_NAME;
@@ -1129,18 +1129,18 @@ public final class SettingsHandler
 		setDmNotes(getPCGenOption("dmnotes", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setDomainTab_ListMode(getPCGenOption("DomainTab.ListMode", GuiConstants.INFODOMAIN_VIEW_NAME)); //$NON-NLS-1$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
-		setEquipTab_AvailableListMode(getPCGenOption("EquipTab.availableListMode", GuiConstants.INFOEQUIPPING_VIEW_TYPE)); //$NON-NLS-1$
+		setEquipTab_AvailableListMode(getPCGenOption("EquipTab.availableListMode", GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED)); //$NON-NLS-1$
 		setEquipTab_SelectedListMode(getPCGenOption("EquipTab.selectedListMode", GuiConstants.INFOEQUIPPING_VIEW_NAME)); //$NON-NLS-1$
 //		setExcSkillCost(getPCGenOption("excSkillCost", 0)); //$NON-NLS-1$
 		setExpertGUI(getPCGenOption("expertGUI", false)); //$NON-NLS-1$
 		setFeatAutoColor(getPCGenOption("featAutoColor", Color.yellow.darker().getRGB())); //$NON-NLS-1$
-		setFeatTab_AvailableListMode(getPCGenOption("FeatTab.availableListMode", GuiConstants.INFOFEATS_VIEW_TYPENAME)); //$NON-NLS-1$
+		setFeatTab_AvailableListMode(getPCGenOption("FeatTab.availableListMode", GuiConstants.INFOFEATS_VIEW_PREREQTREE)); //$NON-NLS-1$
 		setFeatTab_SelectedListMode(getPCGenOption("FeatTab.selectedListMode", GuiConstants.INFOFEATS_VIEW_NAMEONLY)); //$NON-NLS-1$
 		setFeatVirtualColor(getPCGenOption("featVirtualColor", Color.magenta.getRGB())); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
 		setGearTab_AutoResize(getPCGenOption("GearTab.autoResize", false)); //$NON-NLS-1$
 		setGearTab_AvailableListMode(getPCGenOption("GearTab.availableListMode", //$NON-NLS-1$
-		        GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME));
+		        GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME));
 		setGearTab_BuyRate(buyRate);
 		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
 		setGearTab_SelectedListMode(getPCGenOption("GearTab.selectedListMode", GuiConstants.INFOINVENTORY_VIEW_NAME)); //$NON-NLS-1$
