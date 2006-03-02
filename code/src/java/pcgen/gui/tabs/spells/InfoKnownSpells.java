@@ -740,12 +740,12 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		if (availableModel == null)
 		{
 			availableModel = new SpellModel(primaryViewMode, secondaryViewMode,
-				true, availableBookList, currSpellBook, true, pc, this);
+				true, availableBookList, currSpellBook, true, pc, this, ""); //$NON-NLS-1$
 		}
 		else
 		{
 			availableModel.resetModel(primaryViewMode, secondaryViewMode, true,
-				availableBookList, currSpellBook, true, this);
+				availableBookList, currSpellBook, true, this, ""); //$NON-NLS-1$
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();
@@ -768,13 +768,13 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		{
 			selectedModel = new SpellModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, false, pc, this);
+				currSpellBook, false, pc, this, ""); //$NON-NLS-1$
 		}
 		else
 		{
 			selectedModel.resetModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, false, this);
+				currSpellBook, false, this, ""); //$NON-NLS-1$
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();

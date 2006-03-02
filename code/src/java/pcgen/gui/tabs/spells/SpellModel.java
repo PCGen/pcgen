@@ -93,10 +93,11 @@ public final class SpellModel extends AbstractTreeTableModel
 	 * @param fullSpellList Should we display a full list of available spells?
 	 * @param pc The character we are building the spell list for.
 	 * @param spellTab The tab the list is being displayed upon.
+	 * @param emptyMessage The message to be displayed if the model is empty
 	 */
 	public SpellModel(int primaryMode, int secondaryMode, boolean available,
 		List bookList, String currSpellBook, boolean fullSpellList,
-		PlayerCharacter pc, InfoSpellsSubTab spellTab)
+		PlayerCharacter pc, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
 		super(null);
 
@@ -134,7 +135,7 @@ public final class SpellModel extends AbstractTreeTableModel
 		colNameList = makeHeaderList(colTranslateList);
 
 		resetModel(primaryMode, secondaryMode, available, bookList,
-			currSpellBook, fullSpellList, spellTab);
+			currSpellBook, fullSpellList, spellTab, emptyMessage);
 	}
 
 
@@ -493,10 +494,11 @@ public final class SpellModel extends AbstractTreeTableModel
 	 * @param currSpellBook The name of the currently selected spell book 
 	 * @param fullSpellList Should we display a full list of available spells?
 	 * @param spellTab The tab the list is being displayed upon.
+	 * @param emptyMessage The message to be displayed if the model is empty
 	 */
 	public void resetModel(int primaryMode, int secondaryMode,
 		boolean available, List bookList, String currSpellBook,
-		boolean fullSpellList, InfoSpellsSubTab spellTab)
+		boolean fullSpellList, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
 		List classList = new ArrayList();
 		List spellList = new ArrayList();
@@ -831,6 +833,16 @@ public final class SpellModel extends AbstractTreeTableModel
 		{
 			rootAsPObjectNode.pruneEmpty();
 			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+		}
+		else
+		{
+			PObjectNode node = new PObjectNode();
+			node.setDisplayName(emptyMessage);
+			PObject obj = new PObject();
+			obj.setName(emptyMessage);
+			node.setItem(obj);
+			node.setParent(rootAsPObjectNode);
+			rootAsPObjectNode.addChild(node);
 		}
 	}
 
