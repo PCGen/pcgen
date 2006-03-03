@@ -4786,7 +4786,7 @@ Class-Path: ${manifest.extra.jars}
 		<echo file="${bin.dir}/${bin.pcgen.bat}">REM PCGEN.BAT
 REM ==================
 REM
-REM This script should only be used if you have more then 256MB of RAM and if you
+REM This script should only be used if you have more than 256MB of RAM and if you
 REM don't mind committing at least 128MB of these to PCGEN.
 REM The value after -Xmx is the maximum amount of memory that PCGen will be allowed to use.
 REM It defaults to 64MB.
