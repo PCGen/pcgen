@@ -1,0 +1,99 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar  1 13:54:18 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Frank Kliewe
+
+###Progress Level 5 Equipment
+#Computer Equipment
+# Equipment Name				Output Name						Type							Cost		Weight	Size		Source Page					Save checks bonus					Bonus to HP					Add to base move					Bonus to skill					Stat bonus					Special Property
+Display Glasses											TYPE:Goods.Tools.Electronic.Eyegear		COST:12	WT:12		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+Hackcard												TYPE:Goods.Tools.Electronic			COST:14	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:the hackcard's Computer Use bonus (+15) is used in the place of the character's, one-use item , Lic(+1)
+
+#Miscelleaneous Equipment
+Duracable												TYPE:Goods.General.Tools			COST:4	WT:3		SIZE:M	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:supports up to 10 metric tons of weight
+Grappler Tag											TYPE:Goods.General.Tools			COST:5	WT:1		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+Explorer Outfit											TYPE:Goods.Clothing				COST:6	WT:2		SIZE:M	SOURCEPAGE:FutureEquipment.rtf
+Heads-Up Display (HUD)										TYPE:Goods.Tools.Electronic.Eyegear.HUD	COST:7	WT:1		SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:can be used to highlight the outline of a person or object on voice command, granting a +2 bonus on Spot checks when pursuing a specific target
+Laser Tripwire											TYPE:Goods.Tools.Surveillance			COST:5	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf
+Nanobeacon												TYPE:Goods.General.Electronic			COST:8	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Radius 500 miles
+Shepherd Chip											TYPE:Goods.General				COST:12	WT:0		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+Spray LCD												TYPE:Goods.Tools					COST:8	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:grants the paint-on LCD gadget for 1 hour
+
+#Survival Equipment
+Portable Environment Generator								TYPE:Goods.Tools					COST:13	WT:5		SIZE:M	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:30' sphere of custom environment
+Portable Glow Lamp										TYPE:Goods.General				COST:4	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+Puritizer												TYPE:Goods.Tools					COST:9	WT:2		SIZE:S	SOURCEPAGE:FutureEquipment.rtf
+Soother Pulse											TYPE:Goods.Tools					COST:14	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+6 equipment bonus on all Handle Animal checks when dealing with an animal identified in the soother pulse's database
+
+#Progress Level 6 Chemical and Medical Equipment
+Chemical (Antitox)										TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the poison and its effects in 1d6 rounds
+Chemical (Boost)											TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf	BONUS:CHECKS|Reflex|2|PREAPPLY:ANYPC	BONUS:HP|ALTHP|4|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|10|PREAPPLY:ANYPC								BONUS:STAT|STR|4|PREAPPLY:ANYPC	SPROP:Illegal(+4)
+Chemical (Neutrad)										TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the radiation poisoning and its effects in 1d4 hours
+Chemical (Solvaway)										TYPE:Goods.Medical.PL6				COST:5	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:designed to break through the restricting compound fired by tangler guns and tangler grenades
+Chemical (Sporekill)										TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the disease and its effects in 1d10 hours
+Medkit (Advanced)				OUTPUTNAME:Medkit, advanced			TYPE:Goods.Medical.Tools			COST:7	WT:3		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Treat Injury|2|TYPE=Equipment
+Medkit (Fast Use)				OUTPUTNAME:Medkit, fast use			TYPE:Goods.Medical.Tools			COST:7	WT:3		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:use the Treat Injury skill with the fast-use medkit as a move action
+Plastic Surgery Kit (Personal)	OUTPUTNAME:Plastic Surgery Kit, personal	TYPE:Goods.Medical.Tools			COST:11	WT:1		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 6 Computer Equipment
+Computer (Card)				OUTPUTNAME:Computer, card			TYPE:Goods.Tools.Electronic.PL6		COST:22	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf
+Display Contacts											TYPE:Goods.Tools.Electronic.PL6		COST:16	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 6 Miscelleaneous Equipment
+Disguise Kit (Morphic)			OUTPUTNAME:Disguise Kit, morphic		TYPE:Goods.Tools.PL6				COST:12	WT:1		SIZE:T	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Disguise|6|TYPE=Equipment
+Flash-Seal												TYPE:Goods.General.PL6				COST:8	WT:1		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+Fusion Torch											TYPE:Goods.General.PL6				COST:10	WT:3		SIZE:M	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:deals 3d10 points of damage each round to immobile objects, as an improvised weapon the fusion torch deals only 1d10 points of damage
+Intellipicks											TYPE:Goods.Tools.PL6				COST:13	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Disable Device modifier of +20 (to open conventional locks), Lic(+1)
+Jetpack												TYPE:Goods.General.PL6				COST:16	WT:22		SIZE:L	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:powered flight for up to 2 hours, of 60'(good maneuverability), Lic(+1)
+Neural Scrambler											TYPE:Goods.General.PL6				COST:10	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf
+Universal Communicator (Unicom)								TYPE:Goods.Tools.Electronic.PL6		COST:6	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 6 Sensor Equipment
+Sensor (Chemicomp)			OUTPUTNAME:Sensor, chemicomp			TYPE:Goods.Tools.Electronic.PL6		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+10 equipment bonus on Search checks to find chemical compounds
+Sensor (Geocomp)				OUTPUTNAME:Sensor, geocomp			TYPE:Goods.Tools.Electronic.PL6		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+10 equipment bonus on Search checks to find minerals
+Sensor (Motion)				OUTPUTNAME:Sensor, motion			TYPE:Goods.Tools.Electronic.PL6		COST:14	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:indicates the location of any moving object within 100 feet
+
+#Progress Level 6 Survival Equipment
+Aquaconverter											TYPE:Goods.General.PL6				COST:13	WT:4		SIZE:M	SOURCEPAGE:FutureEquipment.rtf
+Violet Rations											TYPE:Goods.General.PL6				COST:5	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 7 Chemical and Medical Equipment
+Chemical (Biocort)										TYPE:Goods.Medical.PL7				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:heals at twice the normal rate for a 24-hour period
+
+#Progress Level 7 Miscelleaneous Equipment
+Galpos Device											TYPE:Goods.Tools.PL7				COST:6	WT:3		SIZE:S	SOURCEPAGE:FutureEquipment.rtf
+Grappling Tether											TYPE:Goods.General.Tools.PL7			COST:9	WT:2		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Range: 200'
+Piercing Visor											TYPE:Goods.Tools.Eyegear.PL7			COST:15	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:see through a wall, floor, object, or creature at a range of up to 100 feet, Mil(+3)
+Power Backpack											TYPE:Goods.Tools.PL7				COST:8	WT:3		SIZE:M	SOURCEPAGE:FutureEquipment.rtf
+Projectile Deflector										TYPE:Goods.Tools.PL7				COST:15	WT:0.5	SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+4 equipment bonus to Defense against ranged attacks, Lic(+1)
+
+#Progress Level 7 Sensor Equipment
+Sensor (Armacomp)				OUTPUTNAME:Sensor, armacomp			TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+6 equipment bonus on Search checks when searching for weapons, +4 equipment bonus on Repair checks made on weapons.
+Sensor (Democomp)				OUTPUTNAME:Sensor, democomp			TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+6 equipment bonus on Search checks when searching for explosives,+4 equipment bonus on all Demolitions and Disable Device checks made involving explosives, Lic(+1)
+Sensor (Electricomp)			OUTPUTNAME:Sensor, electricomp		TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+6 equipment bonus on Search checks when searching for electronics of a specific type, +4 equipment bonus on all Repair checks made on electronics
+Sensor (Mechanicomp)			OUTPUTNAME:Sensor, mechanicomp		TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:identify a vehicle's, starship's, or mecha's current and maximum hit points, +4 equipment bonus on all Repair checks made to vehicles, starships, and mecha
+Sensor (Medicomp)				OUTPUTNAME:Sensor, medicomp			TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Treat Injury|4|TYPE=Equipment							SPROP:identify a creature's current and maximum hit points, Lic(+1)
+
+#Progress Level 8 Chemical and Medical Equipment
+Chemical (Plastiflesh)										TYPE:Goods.Medical.PL8				COST:6	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:immediately recovers 1d4 hit points
+Chemical (Truthtell)										TYPE:Goods.Medical.PL8				COST:8	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Will save (DC 18) or be compelled to speak truthfully for the next 3d10 minutes, Lic(+1)
+Regen Wand												TYPE:Goods.Medical.PL8				COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Treat Injury|4|TYPE=Equipment
+
+#Progress Level 8 Miscelleaneous Equipment
+Energy Shield											TYPE:Goods.Tools.PL8				COST:16	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Choose upon activation: cold resistance 5, electricity resistance 5, fire resistance 5, or sonic/ concussion resistance 5
+Force Field (Personal DR5/-)		OUTPUTNAME:Force Field, personal (DR5/-)	TYPE:Goods.Tools.PL8				COST:18	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:DR 5/- for up to 2 hours
+Force Field (Personal DR10/-)		OUTPUTNAME:Force Field, personal (DR10/-)	TYPE:Goods.Tools.PL8				COST:22	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:DR 10/- for up to 2 hours
+Hologram Player											TYPE:Goods.Tools.PL8				COST:6	WT:2		SIZE:S	SOURCEPAGE:FutureEquipment.rtf
+Hologram Recorder											TYPE:Goods.Tools.PL8				COST:9	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf
+Hologuise												TYPE:Goods.Tools.PL8				COST:15	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Disguise|10|TYPE=Equipment
+Matter Shield											TYPE:Goods.Tools.PL8				COST:20	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:DR 5/- against ballistic, bludgeoning, piercing, and slashing attacks, Mil(+3)
+Micro-Aural Communicator (Microcom)								TYPE:Goods.Tools.Electronic.PL8		COST:6	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf
+Neural Recorder											TYPE:Goods.Tools.PL8				COST:15	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Computer Use check (DC 15) to activate and operate, Lic(+1)
+Photon Shield											TYPE:Goods.Tools.PL8				COST:24	WT:2		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+40 equipment bonus on Hide checks if standing still, or +20 equipment bonus if moving. Pinpointing the location of a nonhiding character wearing a photon shield requires a Spot check (DC 40 if not moving, DC 20 if moving), Total concealment against attacks, Mil(+3)
+Polyvox												TYPE:Goods.General.PL8				COST:10	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 8 Computer Equipment
+Neural Computer Link										TYPE:Goods.Tools.Electronic.PL8		COST:25	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf
+Neural Network Jack (wireless)	OUTPUTNAME:Neural Network Jack, wireless	TYPE:Goods.Tools.Electronic.PL8		COST:12	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:useless unless the user also has a neural computer link
+
+#Progress Level 8 Sensor Equipment
+Sensor (Robocomp)				OUTPUTNAME:Sensor, robocomp			TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:identify a robot's current and maximum hit points, +4 equipment bonus on all Repair checks made to robots

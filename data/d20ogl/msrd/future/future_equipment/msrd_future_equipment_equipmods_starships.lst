@@ -1,0 +1,265 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar  1 13:54:18 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Frank Kliewe
+
+#I couldn't make an eqmod for fire-linked weapons. These require the DAMAGE to be raised by one half the base damage for every two fire-
+#linked weapons, so basically DAMAGE:8d8 would become DAMAGE:12d8, but we do not have a BONUS for that.
+
+#I did eqmods for including those fire-linked weapons and weapon batteries in a starship, that are used in the actual default starships.
+#If I were going to do all possible combinations, there would be 7 eqmods for every weapon. I don't think that this is really necessary,
+#at least  hope so. (Why isn't there a built-in LST-Editor for EQMODs?). It is possible to built batteries of weapons using the customizer
+#and just buy them, so they will appear on the sheet, it will just be missing in the starship text. Linked-fire is another issue, as
+#described above.
+
+# Modifier Name	Unique Key			Special Property
+Starship		KEY:AASTARSHIP_LB		SPROP:Defense: %|sdefense	SPROP:Flat-footed Defense: %|sdefenseflat	SPROP:Autopilot Defense: %|sdefenseauto	SPROP:Hardness: %|shard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sinit	SPROP:Pilot's Class Bonus:+%|spilotCB	SPROP:Pilot's Dex Modifier: +%|spilotDEX	SPROP:Gunner's Attack Bonus: +%|sgunnerAB|PREMULT:2,[PREVARGTEQ:sgunnerAB,1],[PREVARLTEQ:sgunnerAB,5]	SPROP:Gunner's Attack Bonus: -|sgunnerAB|PREVAREQ:sgunnerAB,0	SPROP:Gunner's Attack Bonus: +%/+%|sgunnerAB|sgunnerAB-5|PREVARGTEQ:sgunnerAB,6	SPROP:Size: Huge (-2 size)|PREVAREQ:ssize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:ssize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:ssize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|slength	SPROP:Weight: %,000 lb.|sweight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|screwnum|PREVAREQ:screwtrain,4	SPROP:Crew:% (Ace +12)|screwnum|PREVAREQ:screwtrain,12	SPROP:Passenger Capacity: %|spass	SPROP:Cargo Capacity: %,000 lb.|scargo	SPROP:Grapple Modifier: +%|sgrapple
+Starship		KEY:AASTARSHIP_TON	SPROP:Defense: %|sdefense	SPROP:Flat-footed Defense: %|sdefenseflat	SPROP:Autopilot Defense: %|sdefenseauto	SPROP:Hardness: %|shard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sinit	SPROP:Pilot's Class Bonus:+%|spilotCB	SPROP:Pilot's Dex Modifier: +%|spilotDEX	SPROP:Gunner's Attack Bonus: +%|sgunnerAB|PREVARGTEQ:sgunnerAB,1	SPROP:Gunner's Attack Bonus: -|sgunnerAB|PREVAREQ:sgunnerAB,0	SPROP:Size: Huge (-2 size)|PREVAREQ:ssize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:ssize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:ssize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|slength	SPROP:Weight: % Tons|sweight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|screwnum|PREVAREQ:screwtrain,4	SPROP:Crew:% (Expert +8)|screwnum|PREVAREQ:screwtrain,8	SPROP:Passenger Capacity: %|spass	SPROP:Cargo Capacity: % Tons|scargo	SPROP:Grapple Modifier: +%|sgrapple
+
+###Block:Attack
+# Modifier Name						Unique Key				Type					Visible		Source Page				Required Type			Special Property											Automaticaly Added to Inventory
+Antimatter Gun						KEY:ATTK_ANTIMATTER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Antimatter Gun)									AUTO:EQUIP|Antimatter Gun
+Battery of 4 Antimatter Guns				KEY:ATTK_ANTIMATTER_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 4 Antimatter Guns)						AUTO:EQUIP|Battery of 4 Antimatter Guns
+Automaser							KEY:ATTK_AUTOMASER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Automaser)									AUTO:EQUIP|Automaser
+Blacklaser							KEY:ATTK_BLACKLASER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9			SPROP:Attack (Blacklaser)									AUTO:EQUIP|Blacklaser
+CHE Missile Launcher					KEY:ATTK_CHE_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (CHE Missile Launcher, 8 missiles)						AUTO:EQUIP|CHE Missile
+#COST:25
+2 CHE Missile Launcher					KEY:ATTK_CHE_MISSL_2		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 CHE Missile Launcher, 8 missiles each)				AUTO:EQUIP|CHE Missile
+Battery of 3 CHE Missile Launcher			KEY:ATTK_CHE_MISSL_3B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 3 CHE Missile Launcher, 8 missiles each)			AUTO:EQUIP|Battery of 3 CHE Missiles
+2 Batteries of 2 CHE Missile Launcher		KEY:ATTK_CHE_MISSL_2B_2		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 Batteries of 2 CHE Missile Launcher, 8 missiles each)		AUTO:EQUIP|Battery of 2 CHE Missiles
+EMP Cannon							KEY:ATTK_EMP_CANN			TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (EMP Cannon)									AUTO:EQUIP|EMP Cannon
+Fusion Beam							KEY:ATTK_FUSN_BEAM		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Fusion Beam)									AUTO:EQUIP|Fusion Beam
+2 fire-linked Fusion Beams				KEY:ATTK_FUSN_BEAM_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 fire-linked Fusion Beams)							AUTO:EQUIP|2 fire-linked Fusion Beams
+Battery of 4 Fusion Beams				KEY:ATTK_FUSN_BEAM_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 4 Fusion Beams)							AUTO:EQUIP|Battery of 4 Fusion Beams
+Gauss Gun							KEY:ATTK_GAUSS_GUN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Gauss Gun)									AUTO:EQUIP|Gauss Gun
+Battery of 3 Gauss Guns					KEY:ATTK_GAUSS_GUN_3B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 3 Gauss Guns)							AUTO:EQUIP|Battery of 3 Gauss Guns
+Heavy Laser							KEY:ATTK_HLASER			TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Laser)										AUTO:EQUIP|Heavy Laser
+2 fire-linked Heavy Laser				KEY:ATTK_HLASER_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 fire-linked Heavy Laser)							AUTO:EQUIP|2 fire-linked Heavy Laser
+4 fire-linked Heavy Laser				KEY:ATTK_HLASER_4L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (4 fire-linked Heavy Laser)							AUTO:EQUIP|4 fire-linked Heavy Laser
+Battery of 3 Heavy Laser				KEY:ATTK_HLASER_3B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 3 Heavy Laser)							AUTO:EQUIP|Battery of 3 Heavy Laser
+Battery of 4 Heavy Laser				KEY:ATTK_HLASER_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 4 Heavy Laser)							AUTO:EQUIP|Battery of 4 Heavy Laser
+Heavy Maser Cannon					KEY:ATTK_HMASER_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Heavy Maser Cannon)								AUTO:EQUIP|Heavy Maser Cannon
+Heavy Mass Cannon						KEY:ATTK_HMASS_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Heavy Mass Cannon)								AUTO:EQUIP|Heavy Mass Cannon
+Battery of 4 heavy Mass Cannons			KEY:ATTK_HMASS_CANN_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 4 Heavy Mass Cannons)						AUTO:EQUIP|Battery of 4 Heavy Mass Cannons
+Heavy Neutron Gun						KEY:ATTK_HNTRN_GUN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Heavy Neutron Gun)								AUTO:EQUIP|Heavy Neutron Gun
+2 fire-linked Heavy Neutron Guns			KEY:ATTK_HNTRN_GUN_2F		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 fire-linked Heavy Neutron Guns)						AUTO:EQUIP|2 fire-linked Heavy Neutron Guns
+4 fire-linked Heavy Neutron Guns			KEY:ATTK_HNTRN_GUN_4F		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (4 fire-linked Heavy Neutron Guns)						AUTO:EQUIP|4 fire-linked Heavy Neutron Guns
+Battery of 3 Heavy Neutron Guns			KEY:ATTK_HNTRN_GUN_3B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 3 Heavy Neutron Guns)						AUTO:EQUIP|Battery of 3 Heavy Neutron Guns
+Heavy Particle Beam					KEY:ATTK_HPRTCL_BEAM		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Heavy Particle Beam)								AUTO:EQUIP|Heavy Particle Beam
+4 fire-linked Heavy Particle Beams			KEY:ATTK_HPTCL_BEAM_4L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (4 fire-linked Heavy Particle Beams)					AUTO:EQUIP|4 fire-linked Heavy Particle Beams
+2 Batteries of 3 Heavy Particle Beams		KEY:ATTK_HPTCL_BEAM_3B_2	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (2 Batteries of 3 Heavy Particle Beams)					AUTO:EQUIP|Battery of 3 Heavy Particle Beams
+Heavy Plasma Cannon					KEY:ATTK_HPLASM_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Heavy Plasma Cannon)								AUTO:EQUIP|Heavy Plasma Cannon
+KE Submunition Missile Launcher			KEY:ATTK_KES_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (KE Submunition Missile Launcher, 8 missiles)				AUTO:EQUIP|KE Submunition Missile
+#COST:25
+Kinetic Lance						KEY:ATTK_KNTC_LANCE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Kinetic Lance)									AUTO:EQUIP|Kinetic Lance
+Laser								KEY:ATTK_LASER			TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Laser)										AUTO:EQUIP|Laser
+Battery of 5 Laser					KEY:ATTK_LASER_5B			TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 5 Laser)								AUTO:EQUIP|Battery of 5 Laser
+Maser Cannon						KEY:ATTK_MASER_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Maser Cannon)									AUTO:EQUIP|Maser Cannon
+2 fire-linked Maser Cannons				KEY:ATTK_MASER_CANN_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (2 fire-linked Maser Cannons)						AUTO:EQUIP|2 fire-linked Maser Cannons
+Mass Cannon							KEY:ATTK_MASS_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7.PL8,PL9		SPROP:Attack (Mass Cannon)									AUTO:EQUIP|Mass Cannon
+Battery of 5 Mass Cannons				KEY:ATTK_MASS_CANN_5B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7.PL8,PL9		SPROP:Attack (Battery of 5 Mass Cannons)							AUTO:EQUIP|Battery of 5 Mass Cannons
+Mass Reaction Missile Launcher			KEY:ATTK_MASS_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Mass Reaction Missile Launcher, 8 missiles)				AUTO:EQUIP|Mass Reaction Missile
+#COST:50
+2 fire-linked Mass Reaction Missile Launcher	KEY:ATTK_MASS_MISSL_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (2 fire-linked Mass Reaction Missile Launcher, 8 missiles each)	AUTO:EQUIP|2 fire-linked Mass Reaction Missiles
+Minelayer							KEY:ATTK_MINELAYER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Minelayer)
+#COST:25
+Needle Driver						KEY:ATTK_NDL_DRVR			TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Needle Driver)									AUTO:EQUIP|Needle Driver
+Neutron Gun							KEY:ATTK_NTRN_GUN			TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Neutron Gun)									AUTO:EQUIP|Neutron Gun
+Battery of 5 Neutron Guns				KEY:ATTK_NTRN_GUN_5B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Battery of 5 Neutron Guns)							AUTO:EQUIP|Battery of 5 Neutron Guns
+Neutronium Driver						KEY:ATTK_NTRNM_DRVR		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Neutronium Driver)								AUTO:EQUIP|Neutronium Driver
+Nova Burst Missile Launcher				KEY:ATTK_NOVA_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Nova Burst Missile Launcher, 8 missiles)				AUTO:EQUIP|Nova Burst Missile
+#COST:45
+Nuclear Missile Launcher				KEY:ATTK_NUKE_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Nuclear Missile Launcher, 8 missiles)					AUTO:EQUIP|Nuclear Missile
+#COST:45
+2 Nuclear Missile Launcher				KEY:ATTK_NUKE_MISSL_2		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 Nuclear Missile Launcher, 8 missiles each)				AUTO:EQUIP|Nuclear Missile
+2 fire-linked Nuclear Missiles Launcher		KEY:ATTK_NUKE_MISSL_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 fire-linked Nuclear Missile Launcher, 8 missiles each)		AUTO:EQUIP|2 fire-linked Nuclear Missiles
+Particle Beam						KEY:ATTK_PRTCL_BEAM		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Particle Beam)									AUTO:EQUIP|Particle Beam
+2 fire-linked Particle Beams				KEY:ATTK_PRTCL_BEAM_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (2 fire-linked Particle Beams)						AUTO:EQUIP|2 fire-linked Particle Beams
+Battery of 4 Particle Beams				KEY:ATTK_PRTCL_BEAM_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 4 Particle Beams)						AUTO:EQUIP|Battery of 4 Particle Beams
+Plasma Cannon						KEY:ATTK_PLASMA_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Plasma Cannon)									AUTO:EQUIP|Plasma Cannon
+Battery of 4 Plasma Cannons				KEY:ATTK_PLASMA_CANN_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 4 Plasma Cannons)						AUTO:EQUIP|Battery of 4 Plasma Cannons
+Plasma Missile Launcher					KEY:ATTK_PLSM_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Plasma Missile Launcher, 8 missiles)					AUTO:EQUIP|Plasma Missile
+#COST:46
+Battery of 2 Plasma Missile Launcher		KEY:ATTK_PLSM_MISSL_2B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 2 Plasma Missiles, 8 missiles each)			AUTO:EQUIP|Battery of 2 Plasma Missiles
+Battery of 3 Plasma Missile Launcher		KEY:ATTK_PLSM_MISSL_3B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 3 Plasma Missile Launcher, 8 missiles each)		AUTO:EQUIP|Battery of 3 Plasma Missiles
+Quantum Cannon						KEY:ATTK_QUNTM_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Quantum Cannon)									AUTO:EQUIP|Quantum Cannon
+2 fire-linked Quantum Cannons				KEY:ATTK_QUNTM_CANN_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (2 fire-linked Quantum Cannons)						AUTO:EQUIP|2 fire-linked Quantum Cannons
+4 fire-linked Quantum Cannons				KEY:ATTK_QUNTM_CANN_4L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (4 fire-linked Quantum Cannons)						AUTO:EQUIP|4 fire-linked Quantum Cannons
+Rail Cannon							KEY:ATTK_RAIL_CANNON		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Rail Cannon)									AUTO:EQUIP|Rail Cannon
+2 fire-linked rail cannons				KEY:ATTK_RAIL_CANNON_2L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (2 fire-linked Rail Cannons)							AUTO:EQUIP|2 fire-linked Rail Cannons
+Singularity Cannon					KEY:ATTK_SNGLRT_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9			SPROP:Attack (Singularity Cannon)								AUTO:EQUIP|Singularity Cannon
+Sliver Gun							KEY:ATTK_SLIVER_GUN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Sliver Gun)									AUTO:EQUIP|Sliver Gun
+Starload Missile Launcher				KEY:ATTK_STRLD_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Starload Missile Launcher, 8 missiles)					AUTO:EQUIP|Starload Missile
+#COST:45
+String Projector						KEY:ATTK_STRNG_PRJCTR		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9			SPROP:Attack (String Projector)								AUTO:EQUIP|String Projector
+Zero Bore							KEY:ATTK_ZERO_BORE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Zero Bore)									AUTO:EQUIP|Zero Bore
+
+###Block:Attack of Opportunity
+# Modifier Name		Unique Key			Type					Visible		Source Page				Required Type			Special Property
+Point-defense system	KEY:AOO_PNT_DEF_SYS	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack of Opportunity (Point-defense system, 1d12x10)|PRETYPE:1,Ultralight	SPROP:Attack of Opportunity (Point-defense system, 2d12x10)|PRETYPE:1,Light	SPROP:Attack of Opportunity (Point-defense system, 3d12x10)|PRETYPE:1,Mediumweight	SPROP:Attack of Opportunity (Point-defense system, 4d12x10)|PRETYPE:1,Heavy	SPROP:Attack of Opportunity (Point-defense system, 5d12x10)|PRETYPE:1,Superheavy	SPROP:Lic(+1)
+#COST:31	BONUS:ITEMCOST|3|PRETYPE:1,Light	BONUS:ITEMCOST|5|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|7|PRETYPE:1,Heavy	BONUS:ITEMCOST|9|PRETYPE:1,Superheavy
+
+###Block:Engines
+# Modifier Name		Unique Key			Type					Visible		Source Page						Required Type			Modify VAR						Special Property
+Fusion Torch		KEY:ENGN_FUSION		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	BONUS:VAR|sTacSpeed|1|TYPE=Equipment	SPROP:Engine (Fusion Torch, Cruising Speed: Light Speed x0.5)
+#COST:BASECOST/2+10
+Gravitic Redirector	KEY:ENGN_GRAVITIC		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|sTacSpeed|3|TYPE=Equipment	SPROP:Engine (Gravitic Redirector, Cruising Speed: Light Speed x25)
+#COST:BASECOST/2+10
+Induction Engine		KEY:ENGN_INDCTN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|sTacSpeed|2|TYPE=Equipment	SPROP:Engine (Induction Engine, Cruising Speed: Light Speed x5)
+#COST:BASECOST/2+15
+Inertial Flux Engine	KEY:ENGN_INRT_FLUX	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|sTacSpeed|3|TYPE=Equipment	SPROP:Engine (Inertial Flux Engine, Cruising Speed: Light Speed x15)
+#COST:BASECOST/2+15
+Ion Engine			KEY:ENGN_ION		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	BONUS:VAR|sTacSpeed|1|TYPE=Equipment	SPROP:Engine (Ion Engine, Cruising Speed: Light Speed x0.75)
+#COST:BASECOST/2+15
+Particle Impulse		KEY:ENGN_PARTCL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|sTacSpeed|2|TYPE=Equipment	SPROP:Engine (Particle Impulse, Cruising Speed: Light Speed x10)
+#COST:BASECOST/2+10
+Photon Sails		KEY:ENGN_PHOTON		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL6,PL7,PL8,PL9								SPROP:Engine (Photon Sails, Cruising Speed: Light Speed x1)
+#COST:BASECOST/4+10
+Spatial Compressor	KEY:ENGN_SPATIAL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL9			BONUS:VAR|sTacSpeed|4|TYPE=Equipment	SPROP:Engine (Spatial Compressor, travel from one star system to another instantaneously)
+#COST:BASECOST/2+10
+Thrusters			KEY:ENGN_THRUST		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf															SPROP:Engine (Thrusters)
+#COST:BASECOST/2+10
+
+###Block:Armor
+# Modifier Name		Unique Key			Type					Visible		Source Page				Required Type			Modify VAR									Special Property
+Ablative Armor		KEY:ARMR_ABLATIVE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|shard|20|TYPE=Equipment					SPROP:Armor (Ablative), Mil(+3)
+#COST:BASECOST/2+15
+Alloy Plating Armor	KEY:ARMR_ALLOY_PLATING	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf						BONUS:VAR|sTacSpeed|-1							SPROP:Armor (Alloy Plating)
+#COST:BASECOST/2+15
+Cerametal Armor		KEY:ARMR_CERAMETAL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|shard|10|TYPE=Equipment					SPROP:Armor (Cerametal), Lic(+1)
+#COST:BASECOST/2+10
+Deflective Armor		KEY:ARMR_DEFLECTIVE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9												SPROP:Armor (Deflective), Hardness 40 against attacks that do not deal ballistic damage, Mil(+3)
+#COST:BASECOST/2+15
+Nanofluidic Armor		KEY:ARMR_NANOFLUIDIC	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|shard|30|TYPE=Equipment	BONUS:VAR|sTacSpeed|-1	SPROP:Armor (Nanofluidic), Mil(+3)
+#COST:BASECOST/2+15
+Neutronite Armor		KEY:ARMR_NEUTRONITE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|shard|20|TYPE=Equipment	BONUS:VAR|sTacSpeed|-1	SPROP:Armor (Neutronite), Mil(+3)
+#COST:BASECOST/2+15
+Polymeric Armor		KEY:ARMR_POLYMERIC	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9											SPROP:Armor (Polymeric), Lic(+1)
+#COST:BASECOST/2+10
+Vanadium Armor		KEY:ARMR_VANADIUM		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	BONUS:VAR|shard|10|TYPE=Equipment					SPROP:Armor (Vanadium), Mil(+3)
+#COST:BASECOST/2+15
+
+###Block:Defense Systems
+# Modifier Name			Unique Key			Type					Visible		Type granted		Source Page				Required Type						Modify VAR																																					Special Property																																																																Define
+Advanced Damage Control		KEY:DFNS_ADV_DMG_CTRL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:DamageControl	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Improved Damage Control System 3d10)|PRETYPE:1,Ultralight	SPROP:Defense (Improved Damage Control System 4d10)|PRETYPE:1,Light	SPROP:Defense (Improved Damage Control System 5d10)|PRETYPE:1,Mediumweight	SPROP:Defense (Improved Damage Control System 6d10)|PRETYPE:1,Heavy	SPROP:Defense (Improved Damage Control System 7d10)|PRETYPE:1,Superheavy	SPROP:Mil(+3)
+#COST:28	BONUS:ITEMCOST|4|PRETYPE:1,Light	BONUS:ITEMCOST|9|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|15|PRETYPE:1,Heavy	BONUS:ITEMCOST|22|PRETYPE:1,Superheavy
+Autopilot System			KEY:DFNS_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf									BONUS:VAR|sdefenseauto|1|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sdefenseauto|2|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sdefenseauto|4|TYPE=Equipment|PREVAREQ:ssize,8									SPROP:Defense (Autopilot System)
+#COST:BASECOST/4+5
+Chaff launcher			KEY:DFNS_CHAFF_LNCH	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Chaff Launcher, 16 bundles), Lic(+1)
+#COST:20 for launcher and 1 bundle, 15 for each additional bundle, make bundles equipment?
+Chaff launcher			KEY:DFNS_CHAFF_LNCH_8	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Chaff Launcher, 8 bundles), Lic(+1)
+#COST:20 for launcher and 1 bundle, 15 for each additional bundle, make bundles equipment?
+2 Chaff launchers			KEY:DFNS_CHAFF_LNCH_8_2	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (2 Chaff Launchers, 8 bundles each), Lic(+1)
+#COST:20 for each launcher and 1 bundle, 15 for each additional bundle, make bundles equipment?
+Cloaking Screen			KEY:DFNS_CLOAK_SCRN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9																																												SPROP:Defense (Cloaking Screen, one-half concealment against all attacks), Mil(+3)
+#BASECOST/2+10
+Damage Control System		KEY:DFNS_DMG_CTRL_SYS	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:DamageControl	SOURCEPAGE:FutureStarship.rtf									BONUS:VAR|ShipTypeMod|1|PRETYPE:1,Ultralight	BONUS:VAR|ShipTypeMod|2|PRETYPE:1,Light	BONUS:VAR|ShipTypeMod|3|PRETYPE:1,Mediumweight	BONUS:VAR|ShipTypeMod|4|PRETYPE:1,Heavy	BONUS:VAR|ShipTypeMod|1|PRETYPE:1,Superheavy	SPROP:Defense (Damage Control System %d10)|ShipTypeMod																																																									DEFINE:ShipTypeMod|0
+#COST:18	BONUS:ITEMCOST|4|PRETYPE:1,Light	BONUS:ITEMCOST|9|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|15|PRETYPE:1,Heavy	BONUS:ITEMCOST|22|PRETYPE:1,Superheavy
+Decoy drone launcher		KEY:DFNS_DECOY_LNCH	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Decoy Drone Launcher, 4 drones), Res(+2)
+#COST:28 for launcher and 1 drone, 25 for each additional drone, make drones equipment?
+Decoy drone launcher		KEY:DFNS_DECOY_LNCH_2	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Decoy Drone Launcher, 2 drones), Res(+2)
+#COST:28 for launcher and 1 drone, 25 for each additional drone, make drones equipment?
+Decoy drone launcher		KEY:DFNS_DECOY_LNCH_8	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Decoy Drone Launcher, 8 drones), Res(+2)
+#COST:28 for launcher and 1 drone, 25 for each additional drone, make drones equipment?
+2 Decoy drone launchers		KEY:DFNS_DECOY_LNCH_4_2	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (2 Decoy Drone Launchers, 4 drones each), Res(+2)
+#COST:28 for 1 launcher and 1 drone, 25 for each additional drone, make drones equipment?
+Displacer				KEY:DFNS_DISPLACER	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9																																											SPROP:Defense (Displacer,attacks against the displacing ship have a 30% miss chance), Mil(+3)
+#COST:BASECOST/2+10
+Heavy Fortification		KEY:DFNS_MEDM_FRTFCTN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9																																												SPROP:Defense (Heavy Fortification, converts all critical hits into regular hits), Lic(+1)
+#COST:BASECOST/2+10
+Improved Autopilot System	KEY:DFNS_IMP_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9				BONUS:VAR|sdefenseauto|3|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sdefenseauto|4|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sdefenseauto|5|TYPE=Equipment|PREVAREQ:ssize,8									SPROP:Defense (Improved Autopilot System)
+#COST:BASECOST/2+5
+Improved Damage Control		KEY:DFNS_IMP_DMG_CTRL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:DamageControl	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Improved Damage Control System 2d10)|PRETYPE:1,Ultralight	SPROP:Defense (Improved Damage Control System 3d10)|PRETYPE:1,Light	SPROP:Defense (Improved Damage Control System 4d10)|PRETYPE:1,Mediumweight	SPROP:Defense (Improved Damage Control System 5d10)|PRETYPE:1,Heavy	SPROP:Defense (Improved Damage Control System 6d10)|PRETYPE:1,Superheavy
+#COST:23	BONUS:ITEMCOST|4|PRETYPE:1,Light	BONUS:ITEMCOST|9|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|15|PRETYPE:1,Heavy	BONUS:ITEMCOST|22|PRETYPE:1,Superheavy
+Light Fortification		KEY:DFNS_LGHT_FRTFCTN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9																																											SPROP:Defense (Light Fortification, converts 25% of all critical hits into regular hits), Lic(+1)
+#COST:BASECOST/2+10
+Magnetic Field			KEY:DFNS_MGNT_FLD		TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Magnetic Field, -4 penalty on attack rolls for missiles and weapons that deal ballistic damage)
+#COST:BASECOST/2+5
+Medium Fortification		KEY:DFNS_MEDM_FRTFCTN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9																																												SPROP:Defense (Medium Fortification, converts 75% of all critical hits into regular hits), Lic(+1)
+#COST:BASECOST/2+10
+Nanite Repair Array		KEY:DFNS_NANITE_REPAIR	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9																																												SPROP:Defense (Nanite Repair Array,can repair a ship with negative hit points), Res(+2)
+#COST:BASECOST/2+10
+Particle Field			KEY:DFNS_PRTCL_FLD	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9																																											SPROP:Defense (Particle Field, weapons that wholly or partly deal concussion, electricity, fire, or nonspecific energy damage (such as beam weapons) fired at the starship take a -4 penalty on attack rolls), Mil(+3)
+#COST:BASECOST/2+10
+Radiation Shielding		KEY:DFNS_RAD_SHLD		TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Radiation Shielding, All personnel aboard the ship gain a +5 circumstance bonus on saves to resist the effects of radiation poisoning)
+#COST:BASECOST/2+5
+Repair drones			KEY:DFNS_REPAIR_DRONE	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9	PRETYPE:1,DamageControl																																							SPROP:Defense (Repair Drones,perform damage control as a free action), Mil(+3)
+#COST:BASECOST/2+15
+Self-destruct System		KEY:DFNS_SLF_DSTR_SYS	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Self-destruct System)
+#COST:26	BONUS:ITEMCOST|6|PRETYPE:1,Light	BONUS:ITEMCOST|12|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|18|PRETYPE:1,Heavy	BONUS:ITEMCOST|24|PRETYPE:1,Superheavy
+Sensor Jammer			KEY:DFNS_SNSR_JAM		TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf																																															SPROP:Defense (Sensor Jammer)
+#COST:BASECOST/2+5
+Stealth Screen			KEY:DFNS_STLTH_SCRN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Stealth Screen, total concealment against all attacks), Mil(+3)
+#BASECOST/2+15
+
+###Block:Sensors
+# Modifier Name			Unique Key			Type					Visible		Type granted	Keys to replace			Source Page				Required Type					Modify VAR																				Weapon prof. bonus					Special Property
+Achilles Targeting Software	KEY:SNSR_ACHILLES		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9	PRETYPE:1,TargetSys																						BONUS:WEAPONPROF=TYPE.Starship|CRITRANGEADD|1	SPROP:Sensors (Achilles Targetting Software), Res(+2)
+#COST:26	BONUS:ITEMCOST|5|PREVAREQ:ssize,7	BONUS:ITEMCOST|10|PREVAREQ:ssize,8
+Class I Sensor Array		KEY:SNSR_CLASS_1		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf																																					SPROP:Sensors (Class I Sensor Array)
+#COST:21
+Class II Sensor Array		KEY:SNSR_CLASS_2		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																SPROP:Sensors (Class II Sensor Array)
+#COST:27
+Class III Sensor Array		KEY:SNSR_CLASS_3		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9			BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class III Sensor Array)
+#COST:30
+Class IV Sensor Array		KEY:SNSR_CLASS_4		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9																																	SPROP:Sensors (Class IV Sensor Array)
+#COST:33
+Class V Sensor Array		KEY:SNSR_CLASS_5		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9				BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class V Sensor Array)
+#COST:36
+Class VI Sensor Array		KEY:SNSR_CLASS_6		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9																																		SPROP:Sensors (Class VI Sensor Array)
+#COST:39
+Class VII Sensor Array		KEY:SNSR_CLASS_7		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9					BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class VII Sensor Array)
+#COST:42
+Class VIII Sensor Array		KEY:SNSR_CLASS_8		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9																																		SPROP:Sensors (Class VIII Sensor Array)
+#COST:45
+Class IX Sensor Array		KEY:SNSR_CLASS_9		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9					BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class IX Sensor Array)
+#COST:48
+Improved Targeting System	KEY:SNSR_IMP_TRGT_SYS	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:TargetSys	REPLACES:SNSR_TRGT_SYS		SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9				BONUS:VAR|sgunnerAB|3|PREVAREQ:ssize,6	BONUS:VAR|sgunnerAB|4|PREVAREQ:ssize,7	BONUS:VAR|sgunnerAB|5|PREVAREQ:ssize,8									SPROP:Sensors (Improved Targeting System), Lic(+1)
+#COST:22	BONUS:ITEMCOST|5|PREVAREQ:ssize,7	BONUS:ITEMCOST|10|PREVAREQ:ssize,8
+Targeting System			KEY:SNSR_TRGT_SYS		TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:TargetSys	REPLACES:SNSR_IMP_TRGT_SYS	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9			BONUS:VAR|sgunnerAB|1|PREVAREQ:ssize,6	BONUS:VAR|sgunnerAB|2|PREVAREQ:ssize,7	BONUS:VAR|sgunnerAB|3|PREVAREQ:ssize,8									SPROP:Sensors (Targeting System), Lic(+1)
+#COST:18	BONUS:ITEMCOST|5|PREVAREQ:ssize,7	BONUS:ITEMCOST|10|PREVAREQ:ssize,8
+
+###Block:Communications
+# Modifier Name			Unique Key			Type					Visible		Source Page				Required Type									Special Property
+Ansible				KEY:COMM_ANSIBLE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9									SPROP:Communications (Ansible)
+#COST:33
+Drive Transceiver			KEY:COMM_DRIVE_TRNSCVR	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9									SPROP:Communications (Drive Transceiver)
+#COST:28
+Drivesat Comm Array		KEY:COMM_DRIVESAT		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9	PRETYPE:1,Mediumweight,Heavy,Superheavy	SPROP:Communications (Drivesat Comm Array)
+#COST:53
+Internal Audio Comm System	KEY:COMM_INTERNAL_AUDIO	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf												SPROP:Communications (Internal Comm System, Audio)
+#COST:13	BONUS:ITEMCOST|3|PRETYPE:1,Light	BONUS:ITEMCOST|6|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|9|PRETYPE:1,Heavy	BONUS:ITEMCOST|12|PRETYPE:1,Superheavy
+Internal Video Comm System	KEY:COMM_INTERNAL_VIDEO	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf												SPROP:Communications (Internal Comm System, Video)
+#COST:15	BONUS:ITEMCOST|3|PRETYPE:1,Light	BONUS:ITEMCOST|6|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|9|PRETYPE:1,Heavy	BONUS:ITEMCOST|12|PRETYPE:1,Superheavy
+Laser Transceiver			KEY:COMM_LASER_TRNSCVR	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9							SPROP:Communications (Laser Transceiver)
+#COST:23
+Mass Transceiver			KEY:COMM_MASS_TRNSCVR	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9								SPROP:Communications (Mass Transceiver)
+#COST:25
+Radio Transceiver			KEY:COMM_RADIO_TRNSCVR	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf												SPROP:Communications (Radio Transceiver)
+#COST:21
+
+###Block:Grappling Systems
+# Modifier Name		Unique Key			Type					Visible		Source Page				Modify VAR																										Special Property
+Grappler			KEY:GRAP_GRAPPLER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	BONUS:VAR|sgrapple|8|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sgrapple|12|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sgrapple|16|TYPE=Equipment|PREVAREQ:ssize,8	SPROP:Grappling System (Grappler)
+#COST:BASECOST/2+10
+Tractor Beam Emitter	KEY:GRAP_TRACTOR_BEAM	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	BONUS:VAR|sgrapple|8|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sgrapple|12|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sgrapple|16|TYPE=Equipment|PREVAREQ:ssize,8	SPROP:Grappling System (Tractor Beam Emitter)
+#COST:BASECOST/2+15
+
+###Block:Defense Systems for Mines
+# Modifier Name	Unique Key			Type			Visible		Source Page				Required Type							Special Property
+Cloaking Screen	KEY:MDFNS_CLOAK_SCRN	TYPE:Explosives	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9	PRETYPE:1,Spacemine			SPROP:Defense (Cloaking Screen, one-half concealment against all attacks), Mil(+3)
+#BASECOST/2+10
+Displacer		KEY:MDFNS_DISPLACER	TYPE:Explosives	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9	PRETYPE:1,Spacemine		SPROP:Defense (Displacer,attacks against the displacing mine have a 30% miss chance), Mil(+3)
+#COST:BASECOST/2+10
+Magnetic Field	KEY:MDFNS_MGNT_FLD	TYPE:Explosives	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	PRETYPE:1,Spacemine	SPROP:Defense (Magnetic Field, -4 penalty on attack rolls for missiles and weapons that deal ballistic damage)
+#COST:BASECOST/2+5
+Particle Field	KEY:MDFNS_PRTCL_FLD	TYPE:Explosives	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9	PRETYPE:1,Spacemine		SPROP:Defense (Particle Field, weapons that wholly or partly deal concussion, electricity, fire, or nonspecific energy damage (such as beam weapons) fired at the mine take a -4 penalty on attack rolls), Mil(+3)
+#COST:BASECOST/2+10
+Stealth Screen	KEY:MDFNS_STLTH_SCRN	TYPE:Explosives	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	PRETYPE:1,Spacemine	SPROP:Defense (Stealth Screen, total concealment against all attacks), Mil(+3)
+#BASECOST/2+15
+
+###Block:Starship Weapon Modifiers
+# Modifier Name	Unique Key		Type		Visible		Keys to replace						Source Page				Required Type		Weapon prop. bonus						Special Property
+Battery of 2	KEY:BATTERY_OF_2	TYPE:Weapon	VISIBLE:QUALIFY	REPLACES:BATTERY_OF_3,BATTERY_OF_4,BATTERY_OF_5	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,Starship	BONUS:WEAPON|TOHIT|1	BONUS:WEAPON|CRITRANGEADD|1	SPROP:Battery of 2
+Battery of 3	KEY:BATTERY_OF_3	TYPE:Weapon	VISIBLE:QUALIFY	REPLACES:BATTERY_OF_2,BATTERY_OF_4,BATTERY_OF_5	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,Starship	BONUS:WEAPON|TOHIT|2	BONUS:WEAPON|CRITRANGEADD|1	SPROP:Battery of 3
+Battery of 4	KEY:BATTERY_OF_4	TYPE:Weapon	VISIBLE:QUALIFY	REPLACES:BATTERY_OF_2,BATTERY_OF_3,BATTERY_OF_5	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,Starship	BONUS:WEAPON|TOHIT|3	BONUS:WEAPON|CRITRANGEADD|1	SPROP:Battery of 4
+Battery of 5	KEY:BATTERY_OF_5	TYPE:Weapon	VISIBLE:QUALIFY	REPLACES:BATTERY_OF_2,BATTERY_OF_3,BATTERY_OF_4	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,Starship	BONUS:WEAPON|TOHIT|4	BONUS:WEAPON|CRITRANGEADD|1	SPROP:Battery of 5

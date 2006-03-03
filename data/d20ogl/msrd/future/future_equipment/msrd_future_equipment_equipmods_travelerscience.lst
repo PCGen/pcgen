@@ -1,0 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar  1 13:54:18 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Frank Kliewe
+
+# Modifier Name				Unique Key			Type					Visible		Source Page						Required Type	Special Property
+Jump Drive (Huge)				KEY:HGE_JUMP_DRIVE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf				SPROP:Jump Drive Recharge Time 8 hours
+#COST:25+BASECOST/2
+Jump Drive (Gargantuan)			KEY:GRG_JUMP_DRIVE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf				SPROP:Jump Drive Recharge Time 2 hours
+#COST:25+BASECOST/2
+Jump Drive (Colossal)			KEY:COL_JUMP_DRIVE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf				SPROP:Jump Drive Recharge Time 1 hour
+#COST:25+BASECOST/2
+
+#FTL Drives are included in msrd_future_equipment_equipmods_starships.lst
+
+#Dimension Gates
+D-Drive Generator (PL8)			KEY:D_DRV_GNRTR8		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL8,PL9	SPROP:Mil(+3)
+#COST:48
+D-Drive Generator (PL9)			KEY:D_DRV_GNRTR9		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL9	SPROP:Mil(+3)
+#COST:44
+
+#Time Machines
+Temporal Drive Generator (PL9)	KEY:T_DRV_GNRTR		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureTravelerScience.rtf	PRETYPE:1,PL9	SPROP:Mil(+3)
+#COST:60

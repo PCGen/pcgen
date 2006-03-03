@@ -1,0 +1,29 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar  1 13:54:18 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original Entry by: Frank Kliewe
+
+#Progress Level 6 Ammunition Types
+# Equipment Name			Output Name								Type									Cost		Weight	Source Page					Special Property
+Bio-Agent (20)			OUTPUTNAME:Ammunition, Bio-Agent, 20 pack			TYPE:Ammunition.Standard.Bullet.Poison.PL6		COST:14	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:-1 to damage, poisonous bio-agent with effects identical to cyanogen gas, Mil(+3)
+Power Pack (50)			OUTPUTNAME:Power Pack, 50 charges				TYPE:Ammunition.Standard.Energy.PL6				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 7 Ammunition Types
+Deflecting Ammunition (20)	OUTPUTNAME:Ammunition, deflecting, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
+Plasma-Coated Ammunition (20)	OUTPUTNAME:Ammunition, plasma-coated, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:13	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:reduces the Defense bonus provided by armor by 2, to a minimum of +1, half of the damage it deals is fire damage, and half of the damage is ballistic damage, Res(+2)
+Seeker Ammunition (20)		OUTPUTNAME:Ammunition, Seeker, 20 pack			TYPE:Ammunition.Standard.Bullet.PL7				COST:15	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:+1 bonus on all ranged attacks, Res(+2)
+Rail Gun Shards (20)		OUTPUTNAME:Ammunition, rail gun shards, 20 pack		TYPE:Ammunition.Standard.Shard.PL7				COST:10	WT:0		SOURCEPAGE:FutureEquipment.rtf
+
+#Progress Level 8 Ammunition Types
+Phasing Ammunition (20)		OUTPUTNAME:Ammunition, phasing, 20 pack			TYPE:Ammunition.Standard.Bullet.PL8				COST:16	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:negate the benefits of cover, Res(+2)
+Power Pack (10)			OUTPUTNAME:Power Pack, 10 charges				TYPE:Ammunition.Standard.Energy.PL8				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Power Pack (30)			OUTPUTNAME:Power Pack, 30 charges				TYPE:Ammunition.Standard.Energy.PL8				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+
+
+#Single Shot versions
+Bio-Agent				OUTPUTNAME:Ammunition, Bio-Agent, 1 bullet		TYPE:Ammunition.Standard.Bullet.Poison.PL6.Individual	COST:14	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:-1 to damage, poisonous bio-agent with effects identical to cyanogen gas, Mil(+3)
+Energy Charge			OUTPUTNAME:Power Pack Energy Charge				TYPE:Ammunition.Standard.Energy.PL6.Indiviudual		COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Deflecting Ammunition		OUTPUTNAME:Ammunition, deflecting, single shot		TYPE:Ammunition.Standard.Bullet.PL7.Indiviudual		COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
+Plasma-Coated Ammunition	OUTPUTNAME:Ammunition, plasma-coated, single shot	TYPE:Ammunition.Standard.Bullet.PL7.Indiviudual		COST:13	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:reduces the Defense bonus provided by armor by 2, to a minimum of +1, half of the damage it deals is fire damage, and half of the damage is ballistic damage, Res(+2)
+Seeker Ammunition			OUTPUTNAME:Ammunition, Seeker, single shot		TYPE:Ammunition.Standard.Bullet.PL7.Indiviudual		COST:15	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:+1 bonus on all ranged attacks, Res(+2)
+Rail Gun Shard			OUTPUTNAME:Ammunition, rail gun shard, single shard	TYPE:Ammunition.Standard.Shard.PL7				COST:10	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Phasing Ammunition		OUTPUTNAME:Ammunition, phasing, single shot		TYPE:Ammunition.Standard.Bullet.PL8.Indiviudual		COST:16	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:negates the benefits of cover, Res(+2)

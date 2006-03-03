@@ -1,0 +1,127 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar  1 13:54:18 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+#Original entry by Frank Kliewe
+
+#Alternate Weapon Gadget: AUTO:EQUIP won't take (%)LIST or (%)CHOICE for substitution, therefore the user will have to add the second weapon
+#by hand. As the 2nd weapon needs to be fully paid and will have the same weight when linked with the first one, this is not a big problem.
+#A problem is, that the user will not be able to wield both weapons at the same time. This should be mentioned in the Source Help Docs
+
+#Autoloader Module Gadget has box magazin or power pack for ammo feed as prerequisite. We could go over every weapon in modern and add a TYPE
+#for this, but I don't think it's worth to clutter up our weapons with another TYPE just for that. Better to let the user sort it out.
+
+#The ITYPE:Alternate granted by Alternate Weapon Gadget is necessary, because that EQMOD is a prerequisite for Booby Trapped Gadget (Trigger
+#Integrated Weapon). Basically that one should include the AWG, but I cannot include an EQMOD in another one, so I made it a prerequisite.
+
+#I have only included TYPE=Goods in the Integrated Equipment Gadget and Multiple Use Item Gadget choosers. It is my interpretation of what
+#makes sense there. Follwing the exact wording of the rules though, any non-weapon choice would be eligible. Maybe add that?
+
+#The Miniaturized and Compact Gadgets should reduce the size of the item. BONUS:SIZEMOD would only affect creature size? Went SPROP for that
+#matter.
+
+#Rangefinding Laser Scope Gadget: BONUS:EQMWEAPON|RANGEMULT doesn't take fractions. Had to go SPROP there as well.
+
+#As with Mecha there are some EQMODS here that can be taken multiple times. Makes having a MULT:YES for EQMODS even more interesting.
+
+#Satellite Datalink Gadget is restricted to "gear containing computerized communications equipment". I'm using PRETYPE:1,Electronic,Surveillance
+#but that includes a few items that wouldn't be eligible.
+
+#The Storage Compartment Gadgets would need the ability for an EQMOD to change the item, which it is getting applied to, into being a container.
+
+#Sound Suppressor Gadget for items has the text for weapons in it. That is an error in the MSRD.
+
+#Universal Weapon Gadgets
+# Modifier Name							Unique Key			Type		Cost		Visible		Type granted	Keys to replace					Source Page					Multiple Requirements					Required Size	Required Type			Special Property																																												Choose
+Alternate Weapon Gadget						KEY:ALT_WPN_GDGT		TYPE:Weapon	COST:4	VISIBLE:QUALIFY	ITYPE:Alternate								SOURCEPAGE:FutureEquipment.rtf																	SPROP:combined with %CHOICE																																										CHOOSE:EQUIPMENT|TYPE=Weapon
+Autofire Module Gadget						KEY:ATFR_MDL_GDGT		TYPE:Weapon	COST:2	VISIBLE:QUALIFY	ITYPE:Automatic								SOURCEPAGE:FutureEquipment.rtf	PREMULT:2,[PRETYPE:Ranged],[!PRETYPE:Automatic]									SPROP:Autofire
+Autoloader Module Gadget					KEY:ATLDR_MDL_GDGT	TYPE:Weapon	COST:3	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Ranged			SPROP:automatically reloads as a free action
+Booby Trapped Gadget (Barbs)					KEY:BB_TRP_GDGT_BRB	TYPE:Weapon	COST:6	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:rapidly projects spikes or blades from the grip, dealing 1d6 points of damage to the user each round the weapon is held
+Booby Trapped Gadget (Electric Shock)			KEY:BB_TRP_GDGT_ELS	TYPE:Weapon	COST:6	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:Power cells in the weapon's grip discharge and deal 1d6 points of electricity damage to the user
+Booby Trapped Gadget (Stun Bolt)				KEY:BB_TRP_GDGT_STB	TYPE:Weapon	COST:6	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:A stun shock (Fortitude save DC 15) is discharged from a special nozzle built into the weapon
+Booby Trapped Gadget (Trigger Integrated Weapon)	KEY:BB_TRP_GDGT_TIW	TYPE:Weapon	COST:6	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Alternate		SPROP:An integrated weapon is triggered and targets the unauthorized user
+Collapsible Gadget						KEY:CLLPSBL_GDGT		TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:takes a full round to be assembled or disassembled
+Compact Gadget							KEY:CMPCT_GDGT_WPN	TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Ranged			SPROP:weapon is one size smaller than normal
+Expanded Magazine Gadget					KEY:XP_MGZN_GDGT		TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Ranged			SPROP:weapon doubles its normal magazine capacity
+Genetic Tags Gadget						KEY:GNTC_TGS_GDGT		TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:2,Ranged,Ballistic	SPROP:each round of ammunition that is fired from the weapon bears a unique tag that corresponds to the genetic code of the person to whom the weapon is assigned
+Integrated Equipment Gadget					KEY:INT_EQ_GDGT_WPN	TYPE:Weapon	COST:1	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:integrated %CHOICE																																										CHOOSE:EQUIPMENT|TYPE=Goods
+Miniaturized Gadget						KEY:MNTRZD_GDGT_WPN	TYPE:Weapon	COST:5	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Ranged			SPROP:weapon is two size categories smaller than normal
+Rangefinding Laser Scope Gadget				KEY:RGFD_LSR_SCP_GDGT	TYPE:Weapon	COST:1	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Ranged			SPROP:gadget increases weapon range increment by one-half, the scope also sends out an invisible laser that can determine the exact range to a target, and then relay that information via a computer link
+Sensor Baffling Gadget						KEY:SNSR_BFFLNG_GDGT	TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:Sensor Baffling Gadget grants a +4 bonus on any checks made to conceal the weapon from sensors or other detection devices
+Spring Loaded Gadget						KEY:SPRNG_LDD_GDGT	TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf									PRESIZEEQ:S							SPROP:The bearer gains the benefits of the Quick Draw feat with this weapon only, even if the weapon is hidden from sight on that character's person
+Stun Module Gadget (Fort DC 12)				KEY:STN_MDL_GDGT_12	TYPE:Weapon	COST:2	VISIBLE:QUALIFY				REPLACES:STN_MDL_GDGT_15,STN_MDL_GDGT_18	SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Energy			SPROP:Alternate Firing Mode: Stun (Fort DC 12)
+Stun Module Gadget (Fort DC 15)				KEY:STN_MDL_GDGT_15	TYPE:Weapon	COST:4	VISIBLE:QUALIFY				REPLACES:STN_MDL_GDGT_12,STN_MDL_GDGT_18	SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Energy			SPROP:Alternate Firing Mode: Stun (Fort DC 15)
+Stun Module Gadget (Fort DC 18)				KEY:STN_MDL_GDGT_18	TYPE:Weapon	COST:4	VISIBLE:QUALIFY				REPLACES:STN_MDL_GDGT_12,STN_MDL_GDGT_15	SOURCEPAGE:FutureEquipment.rtf												PRETYPE:1,Energy			SPROP:Alternate Firing Mode: Stun (Fort DC 18)
+Techno-Organic Makeup Gadget					KEY:T_ORG_MUP_GDGT_WPN	TYPE:Weapon	COST:2	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:Weapon is composed of living tissue or a biological/mechanical hybrid material	SPROP:Weapon heals itself at a rate of one hit point per hour when damaged	SPROP:Weapon is susceptible to diseases and poisons specifically designed to target techno-organic material
+Variable Ammunition Gadget					KEY:VAR_AMMNTN_GDGT	TYPE:Weapon	COST:4	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf												PRETYPE:2,Ranged,Ballistic	SPROP:Allows the user to load %CHOICE. This essentially doubles the ammunition capacity of the weapon and allows the user to switch between the two different types of ammunition as a free action														CHOOSE:EQUIPMENT|TYPE=Ammunition|TYPE=Bullet
+Variable Charge Gadget						KEY:VAR_CHRG_GDGT		TYPE:Weapon	COST:6	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:may be primed as an attack action, increasing the damage of its next shot by +1 die
+Voice Recognition System Gadget				KEY:VC_RCGNTN_SYS_GDGT	TYPE:Weapon	COST:1	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:requires any user to speak a command word to unlock the weapon before it can be used
+Paint-On LCD Gadget						KEY:PNT_ON_LCD_GDGT_WPN	TYPE:Weapon	COST:4	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																	SPROP:can be used as a display for any piece of computer or communications equipment
+
+###Block:Universal Armor Gadgets
+# Modifier Name			Unique Key			Type		Cost		Visible		Type granted		Source Page					Required Type				BONUS:EQMARMOR			Add to base move							Special Property																																											Choose
+Environment Seal Gadget		KEY:ENVRNMNT_SL_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	ITYPE:Environmental	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,Medium,Heavy,Powered															SPROP:provides the wearer protection from harsh conditions
+Integrated Equipment Gadget	KEY:INT_EQ_GDGT_AMR	TYPE:Armor	COST:2	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:%CHOICE has been integrated into the armor and can be used by the armor's wearer at any time																													CHOOSE:EQUIPMENT|TYPE=Goods
+Integrated Weapon Gadget	KEY:INT_WPN_GDGT		TYPE:Armor	COST:0	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:integrated %CHOICE																																									CHOOSE:EQUIPMENT|TYPE=Weapon
+Storage Compartment Gadget	KEY:STOR_CMPRT_GDGT_AMR	TYPE:Armor	COST:1	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:Storage compartment gadget allows the wearer to carry two items of size Small or smaller in a container built into the armor
+Techno-Organic Makeup Gadget	KEY:T_ORG_MUP_GDGT_AMR	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:Armor is composed of living tissue or a biological/mechanical hybrid material	SPROP:Armor heals itself at a rate of one hit point per hour when damaged	SPROP:Armor is susceptible to diseases and poisons specifically designed to target techno-organic material
+Ultralight Composition Gadget	KEY:ULTRLT_CMPSTN_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf							BONUS:EQMARMOR|ACCHECK|-1	BONUS:MOVEADD|TYPE.Walk|5|PRETYPE:1,Medium,Heavy
+Paint-On LCD Gadget		KEY:PNT_ON_LCD_GDGT_AMR	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:can be used as a display for any piece of computer or communications equipment
+
+###Block:Universal Equipment Gadgets
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type				Special Property																				Choose
+Compact Gadget			KEY:CMPCT_GDGT_EQP	TYPE:Goods	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf							SPROP:Item is one size category smaller than normal
+Miniaturized Gadget		KEY:MNTRZD_GDGT_EQP	TYPE:Goods	COST:3	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf							SPROP:Item is two size categories smaller than normal
+Multiple Use Item Gadget	KEY:MLTPL_US_ITM_GDGT	TYPE:Goods	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf							SPROP:combined with %CHOICE																		CHOOSE:EQUIPMENT|TYPE=Goods
+Paint-On LCD Gadget		KEY:PNT_ON_LCD_GDGT_EQP	TYPE:Goods	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf							SPROP:can be used as a display for any piece of computer or communications equipment
+Satellite Datalink Gadget	KEY:SAT_DTALNK_GDGT	TYPE:Goods	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,Electronic,Surveillance	SPROP:can connect to a global (or, if in place, galactic) satellite network
+Storage Compartment Gadget	KEY:STOR_CMPRT_GDGT_EQP	TYPE:Goods	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf							SPROP:Storage compartment gadget allows the wearer to carry two items of size Small or smaller in a container built into this item
+
+###Block:Fusion Age Weapon Gadgets
+# Modifier Name		Unique Key		Type		Cost		Visible		Source Page					Multiple Requirements
+Video Scope Gadget	KEY:VID_SCP_GDGT	TYPE:Weapon	COST:3	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PREMULT:2,[PRETYPE:1,Ranged],[PRETYPE:1,PL6,PL7,PL8,PL9]
+
+###Block:Fusion Age Armor Gadgets
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type			Special Property
+Prehensile Appendage Gadget	KEY:PRHNSL_APPNDG_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Prehensile Appendage
+Self-Repairing Gadget		KEY:SLF_RPRNG_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:repairs 1 point of damage per minute to the armor
+
+###Block:Fusion Age Equipment Gadgets
+# Modifier Name			Unique Key				Type		Cost		Visible		Source Page					Required Type	Special Property
+HUD Software (Sensor Link)	KEY:HUD_SFTWR_SNSR_LNK		TYPE:Goods	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:sensor link allows the user to directly link any computer sensor to the HUD
+HUD Software (Targetting)	KEY:HUD_SFTWR_TRGT		TYPE:Goods	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:targeting software links directly to a ranged weapon's video scope, if one is used
+HUD Software (Vehicle Link)	KEY:HUD_SFTWR_VHCL_LNK		TYPE:Goods	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:vehicle link allows the onboard computer system of any vehicle to be displayed on the HUD
+Self-Repairing Gadget		KEY:SLF_RPRNG_GDGT		TYPE:Goods	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL6	SPROP:repairs one point of damage per minute to the equipment
+#needed for Unisoldier Heavy Combat Armor, which incl. a HUD
+HUD Software (Sensor Link)	KEY:HUD_SFTWR_SNSR_LNK_AMR	TYPE:Armor	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:sensor link allows the user to directly link any computer sensor to the HUD
+HUD Software (Targetting)	KEY:HUD_SFTWR_TRGT_AMR		TYPE:Armor	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:targeting software links directly to a ranged weapon's video scope, if one is used
+HUD Software (Vehicle Link)	KEY:HUD_SFTWR_VHCL_LNK_AMR	TYPE:Armor	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:vehicle link allows the onboard computer system of any vehicle to be displayed on the HUD
+
+###Block:Gravity Age Weapon Gadgets
+# Modifier Name		Unique Key				Type		Cost		Visible		Source Page					Multiple Requirements						Special Property
+Sound Suppressor Gadget	KEY:SND_SPPRSSR_GDGT_WPN	TYPE:Weapon	COST:3	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PREMULT:2,[PRETYPE:1,Ranged],[PRETYPE:1,PL7,PL8,PL9]	SPROP:sound suppressor adds +10 to the DC of Listen checks made to hear the weapon firing
+
+###Block:Gravity Age Armor Gadgets
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Bonus to skill
+Chameleonic Surface Gadget	KEY:CHMLNC_SRFC_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	BONUS:SKILL|Hide|4|PRETYPE:1,Light|TYPE=Equipment	BONUS:SKILL|Hide|4|PRETYPE:1,Medium|TYPE=Equipment	BONUS:SKILL|Hide|10|PRETYPE:1,Heavy,Powered,Environmental|TYPE=Equipment
+
+###Block:Gravity Age Equipment Gadgets
+# Modifier Name				Unique Key				Type		Cost		Visible		Source Page					Required Type		Special Property
+HUD Software (Ammunition Tracker)	KEY:HUD_SFTWR_AMMO_TRK		TYPE:Goods	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD		SPROP:ammunition Tracker is able to keep track of exactly how many shots have been expended from a particular weapon with an integrated computer
+Sound Suppressor Gadget			KEY:SND_SPPRSSR_GDGT_EQP	TYPE:Goods	COST:3	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL7,PL8,PL9	SPROP:sound suppressor adds +10 to the DC of Listen checks made to hear the weapon firing
+#needed for Unisoldier Heavy Combat Armor, which incl. a HUD
+HUD Software (Ammunition Tracker)	KEY:HUD_SFTWR_AMMO_TRK_AMR	TYPE:Armor	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD		SPROP:ammunition Tracker is able to keep track of exactly how many shots have been expended from a particular weapon with an integrated computer
+
+###Block:Energy Age Weapon Gadgets
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Multiple Requirements						Special Property
+Teleporting Magazine Gadget	KEY:TLPRT_MAG_GDGT	TYPE:Weapon	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PREMULT:2,[PRETYPE:1,Ranged],[PRETYPE:1,PL8,PL9]	SPROP:Teleporting Magazine
+
+###Block:Energy Age Armor Gadgets
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type	BONUS:EQMARMOR												Special Property
+Gravity Anchor Gadget		KEY:GRVT_ANCHR_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9															SPROP:Character unaffected by low gravity and zero-g conditions
+Morphic Metal Alloy Gadget	KEY:MRPH_MTL_ALL_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9	BONUS:EQMARMOR|ACCHECK|1|TYPE=Equipment	BONUS:EQMARMOR|MAXDEX|1|TYPE=Equipment
+Neg-grav Boosters Gadget	KEY:NEG_GRV_BOOST_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9															SPROP:+10 bonus on all Jump checks in any situation where gravity is a factor
+
+###Block:Energy Age Equipment Gadgets
+# Modifier Name			Unique Key				Type		Cost		Visible		Source Page					Required Type	Special Property
+HUD Software (Biosensor)	KEY:HUD_SFTWR_BIOSNSR		TYPE:Goods	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:identify exactly how many hit points a target has left
+#needed for Unisoldier Heavy Combat Armor, which incl. a HUD
+HUD Software (Biosensor)	KEY:HUD_SFTWR_BIOSNSR_AMR	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,HUD	SPROP:identify exactly how many hit points a target has left
