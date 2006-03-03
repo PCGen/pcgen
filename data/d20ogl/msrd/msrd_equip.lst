@@ -1,4 +1,4 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Mon Aug 22 07:49:01 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri Mar  3 03:10:02 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Phantom of Krankor
 
@@ -32,25 +32,25 @@ Windbreaker										TYPE:Goods.Clothing		COST:6	WT:1		SOURCEPAGE:msrdequipmentg
 Tool Belt										TYPE:Goods.Clothing.Belt	COST:9	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 
 ###Block: Computers and Consumer Electronics
-# Equipment Name				Output Name					Type							Cost		Weight	Source Page
-Camera (35mm)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo		COST:17	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Digital)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo		COST:14	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Disposable)			OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo		COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Film)				OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo		COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Film Developing (Roll))	OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo		COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
-Cell Phone											TYPE:Goods.Tools.Electronic			COST:9	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
-Computer (Desktop)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Desktop		COST:22	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf
-Computer (Notebook)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Notebook	COST:23	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
-Digital Audio Recorder									TYPE:Goods.Tools.Electronic			COST:10	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-Modem (Broadband)				OUTPUTNAME:Modem, [NAME]		TYPE:Goods.Tools.Electronic			COST:3	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-Modem (Cellular)				OUTPUTNAME:Modem, [NAME]		TYPE:Goods.Tools.Electronic			COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-PDA												TYPE:Goods.Tools.Electronic			COST:16	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Portable Satellite Phone								TYPE:Goods.Tools.Electronic			COST:17	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
-Portable Video Camera									TYPE:Goods.Tools.Electronic.Photo		COST:16	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
-Printer											TYPE:Goods.Tools.Electronic			COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
-Scanner											TYPE:Goods.Tools.Electronic			COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
-Walkie-Talkie (Basic)			OUTPUTNAME:Walkie-Talkie, [NAME]	TYPE:Goods.Tools.Electronic			COST:7	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-Walkie-Talkie (Professional)		OUTPUTNAME:Walkie-Talkie, [NAME]	TYPE:Goods.Tools.Electronic			COST:15	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+# Equipment Name				Output Name					Type								Cost		Weight	Source Page
+Camera (35mm)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:17	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Digital)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:14	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Disposable)			OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Film)				OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo			COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Film Developing (Roll))	OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo			COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Cell Phone											TYPE:Goods.Tools.Electronic				COST:9	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Computer (Desktop)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Desktop.Spellbook	COST:22	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf
+Computer (Notebook)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Notebook.Spellbook	COST:23	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
+Digital Audio Recorder									TYPE:Goods.Tools.Electronic				COST:10	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Modem (Broadband)				OUTPUTNAME:Modem, [NAME]		TYPE:Goods.Tools.Electronic				COST:3	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Modem (Cellular)				OUTPUTNAME:Modem, [NAME]		TYPE:Goods.Tools.Electronic				COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+PDA												TYPE:Goods.Tools.Electronic.Spellbook		COST:16	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Portable Satellite Phone								TYPE:Goods.Tools.Electronic				COST:17	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
+Portable Video Camera									TYPE:Goods.Tools.Electronic.Photo			COST:16	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
+Printer											TYPE:Goods.Tools.Electronic				COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
+Scanner											TYPE:Goods.Tools.Electronic				COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
+Walkie-Talkie (Basic)			OUTPUTNAME:Walkie-Talkie, [NAME]	TYPE:Goods.Tools.Electronic				COST:7	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Walkie-Talkie (Professional)		OUTPUTNAME:Walkie-Talkie, [NAME]	TYPE:Goods.Tools.Electronic				COST:15	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 
 ###Block: Surveillance Gear
 # Equipment Name					Output Name		Type							Cost		Weight	Source Page					Vision		Bonus to skill

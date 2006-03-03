@@ -1,4 +1,4 @@
-# CVS $Revision: 1.27 $ $Author: frank_kliewe $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision: 1.27 $ $Author: frank_kliewe $ -- Fri Mar  3 03:14:16 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Barak & Hugo & Tir Gwaith
 
@@ -135,6 +135,11 @@ PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoin
 # Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
 All Exotic Firearms Proficiency		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
 All Exotic Melee Weapons Proficiency	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
+
+###Block:Web Access Spellbook
+# Feat Name		Type				Visible	Special Ability
+Web Access Spells	TYPE:VirtualPossession	VISIBLE:NO	SA:Can use Web Access as spellbook
+
 #
 # EOF
 #
