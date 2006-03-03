@@ -8,4 +8,13 @@
         <maven:addPath id="maven.compile.src.set"
             refid="maven.javacc.compile.src.set"/>
     </preGoal>
+    
+  	<preGoal name="test:test">
+    	<!-- This will deal with the build target -->
+    	<ant:ant dir="${basedir}" antfile="build.xml" target="jar" />
+    	<ant:ant dir="${basedir}" antfile="build.xml" target="jar-plugin" />
+    	<ant:ant dir="${basedir}" antfile="build.xml" target="build-extra" />    	
+	</preGoal>
+</project>    
+    
 </project>
