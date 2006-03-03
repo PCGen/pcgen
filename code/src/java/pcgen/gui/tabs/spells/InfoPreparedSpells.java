@@ -803,15 +803,13 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			selectedModel = new SpellModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, false, pc, this, PropertyFactory
-				.getString("InfoPreparedSpells.no.selected.help"));//$NON-NLS-1$
+				currSpellBook, false, pc, this, "Prepared Spells");//$NON-NLS-1$
 		}
 		else
 		{
 			selectedModel.resetModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, false, this, PropertyFactory
-				.getString("InfoPreparedSpells.no.selected.help"));//$NON-NLS-1$
+				currSpellBook, false, this, "Prepared Spells");//$NON-NLS-1$
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();
@@ -896,7 +894,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		if (selCPath == null)
 		{
-			bookName = Globals.getDefaultSpellBook();
+			bookName = "";
 		}
 		else
 		{
@@ -908,7 +906,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
-						.getString("InfoSpells.first.select.spellbook"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						.getString("InfoSpells.first.select.spelllist"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
 		}
@@ -924,6 +922,30 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 
 		currSpellBook = bookName;
+		SpellBook book = pc.getSpellBookByName(currSpellBook);
+		if (book == null)
+		{
+			if (pc.addSpellBook(currSpellBook))
+			{
+				pc.setDirty(true);
+				spellBookNameText.setText(currSpellBook);
+				if (!selectedBookList.contains(currSpellBook))
+				{
+					selectedBookList.add(currSpellBook);
+				}
+				updateAvailableModel();
+				updateSelectedModel();
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, PropertyFactory
+					.getFormattedString(
+						"InfoPreparedSpells.add.list.fail", new Object[]{currSpellBook}), //$NON-NLS-1$
+					Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
+
+				return;
+			}
+		}
 
 		TreePath[] avaCPaths = availableTable.getTree().getSelectionPaths();
 
