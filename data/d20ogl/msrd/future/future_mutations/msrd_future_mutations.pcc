@@ -14,8 +14,6 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This set loads the Mutations options from the Future section of the MSRD.
 
-# Do not remove the EXTRAFILE comment.
-#EXTRAFILE:OGL.txt
 
 FEAT:msrd_future_mutations_feats.lst
 TEMPLATE:msrd_future_mutations_templates.lst

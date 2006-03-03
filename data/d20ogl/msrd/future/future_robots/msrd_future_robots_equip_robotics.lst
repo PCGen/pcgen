@@ -1,0 +1,325 @@
+# CVS $Revision: $ $Author: $ -- Fri Dec 16 22:37:10 2005 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original entry by Eddy Anthony (MoSaT)
+
+###Block: Locomotion
+
+# Equipment Name				Output Name				Type						Source Page				Add to base move						Special Property
+Robot Locomotion (Forced Air)		OUTPUTNAME:[NAME] Locomotion	TYPE:Robotic.LocomotionFly.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Fly|30|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/2)
+Robot Locomotion (Legs/Multiple)	OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|30|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/2)
+Robot Locomotion (Legs/Pair)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|20|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/2)
+Robot Locomotion (Propeller/Air)	OUTPUTNAME:[NAME]			TYPE:Robotic.Locomotion.PL5		SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Fly|40|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Propeller/Water)	OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionSwim.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Swim|20|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Rotor)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionFly.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Fly|30|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Stationary)		OUTPUTNAME:[NAME]			TYPE:Robotic.PL5				SOURCEPAGE:FutureRobots.rtf
+Robot Locomotion (Track)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|10|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Treads)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|20|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Wheels)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|30|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Casters)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|20|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/4)
+Robot Locomotion (Thruster)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionFly.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Fly|30|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/2)
+Robot Locomotion (Inductor)		OUTPUTNAME:[NAME]			TYPE:Robotic.LocomotionWalk.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:MOVEADD|TYPE.Walk|30|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|RobotSpeedIncreaseCost+(RobotPurchaseDC/2)
+
+###Block: Manipulators
+
+# Equipment Name					Output Name		Required Proficiency	Type										Critical Hit Range	Damage	Size		Source Page				Special Property
+Robot Manipulator (Advanced Hand)		OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Claw)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Jaws)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Piercing.PL5			CRITRANGE:1			DAMAGE:1d4	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Pincer)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.Piercing.PL5	CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Probe)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.Piercing.PL5	CRITRANGE:1			DAMAGE:1d2	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Special-Use Gripper)	OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Manipulator (Task Hand)			OUTPUTNAME:[NAME]	PROFICIENCY:Manipulator	TYPE:Robotic.Weapon.Melee.Unarmed.Bludgeoning.PL5		CRITRANGE:1			DAMAGE:1d3	SIZE:T	SOURCEPAGE:FutureRobots.rtf	SPROP:Deals nonlethal damage only, Purchase DC: %|10+(RobotPurchaseDC/2)
+
+###Block: Integrated Armor
+#TODO: figure out how to do the weight, usualy given as a fraction of the Robots frame weight, may not be doable
+
+# Equipment Name						Output Name		Type				Source Page				Combat bonus									Add to base move							Special Property
+Robot Integrated Armor (Alumisteel Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|5|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Duraplastic Armor)	OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|3|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
+Robot Integrated Armor (Duralloy Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-10|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Resilium Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|6|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
+Robot Integrated Armor (Crystal Carbon Armor)	OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot										SPROP:Purchase DC: %|15+(RobotPurchaseDC/2)
+Robot Integrated Armor (Neovulcanium Armor)	OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|7|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Megatanium Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|10|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+Robot Integrated Armor (Reactive Armor)		OUTPUTNAME:[NAME]	TYPE:Robotic.Armor.PL8	SOURCEPAGE:FutureRobots.rtf	BONUS:COMBAT|AC|8|TYPE=Equipment.REPLACE|PRERACE:1,TYPE=Robot	BONUS:MOVEADD|TYPE.Walk|-5|PRERACE:1,TYPE=Robot		SPROP:Purchase DC: %|5+(RobotPurchaseDC/2)
+
+###Block: Sensor Systems
+
+# Equipment Name				Output Name				Type			Cost		Source Page				Vision				Combat bonus									Bonus to skill
+Robot Sensor System (Class I)		OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL5	COST:13	SOURCEPAGE:FutureRobots.rtf																	BONUS:SKILL|Demolitions,Disable Device,Forgery,Listen,Repair,Search,Spot|-2|PRERACE:1,TYPE=Robot	BONUS:SKILL|ALL|-2|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class II)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL5	COST:15	SOURCEPAGE:FutureRobots.rtf																	BONUS:SKILL|Demolitions,Disable Device,Forgery,Listen,Repair,Search,Spot|-4|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class III)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL5	COST:17	SOURCEPAGE:FutureRobots.rtf
+Robot Sensor System (Class IV)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL6	COST:17	SOURCEPAGE:FutureRobots.rtf																	BONUS:SKILL|Listen,Spot|2|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class V/Ladar)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL6	COST:19	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (60')													BONUS:SKILL|Listen|2|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Spot|4|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class V/Sonar)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL6	COST:19	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (60')													BONUS:SKILL|Listen|4|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Spot|2|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class VI)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL6	COST:22	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (120')	BONUS:COMBAT|INITIATIVE|1|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Listen,Spot|2|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class VII)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL7	COST:22	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (120')	BONUS:COMBAT|INITIATIVE|2|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Listen,Search,Spot|2|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class VIII)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL7	COST:25	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (120')	BONUS:COMBAT|INITIATIVE|2|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Demolitions,Disable Device,Forgery,Listen,Repair,Search,Spot|2|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Class IX)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL8	COST:26	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (180')	BONUS:COMBAT|INITIATIVE|3|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Demolitions,Disable Device,Forgery,Listen,Repair,Search,Spot|2|TYPE=Equipment|PRERACE:1,TYPE=Robot
+Robot Sensor System (Nerve Web)	OUTPUTNAME:[NAME] Sensors	TYPE:Robotic.PL8	COST:28	SOURCEPAGE:FutureRobots.rtf	VISION:Darkvision (180')	BONUS:COMBAT|INITIATIVE|3|TYPE=Equipment|PRERACE:1,TYPE=Robot	BONUS:SKILL|Demolitions,Disable Device,Forgery,Listen,Repair,Search,Spot|4|TYPE=Equipment|PRERACE:1,TYPE=Robot
+
+###Block: Skill Software
+
+# Equipment Name					Output Name		Type							Cost		MODS			Source Page				Bonus to skill rank						Special Property
+Robot Software (Skill Chip/1 Rank)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware1		COST:4	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/2 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware2		COST:8	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/3 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware3		COST:12	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/4 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware4		COST:16	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/5 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware5		COST:20	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/6 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware6		COST:24	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/7 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware7		COST:28	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Chip/8 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL5.SkillChipSoftware8		COST:32	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+
+Robot Software (Language Chip)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL6					COST:12				SOURCEPAGE:FutureRobots.rtf	BONUS:SKILLRANK|Speak Language|1|PRERACE:1,TYPE=Robot
+
+Robot Software (Skill Progit/4 Ranks)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL6.SkillProgitSoftware4	COST:12	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Progit/8 Ranks)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL6.SkillProgitSoftware8	COST:24	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Progit/12 Ranks)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL6.SkillProgitSoftware12	COST:36	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+
+Robot Software (Skill Net/4 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL7.SkillNetSoftware4		COST:18	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Net/8 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL7.SkillNetSoftware8		COST:21	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+Robot Software (Skill Net/12 Ranks)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL7.SkillNetSoftware12		COST:23	MODS:REQUIRED	SOURCEPAGE:FutureRobots.rtf
+
+Robot Software (Skill Web)			OUTPUTNAME:[NAME]	TYPE:Robotic.PL8										SOURCEPAGE:FutureRobots.rtf										SPROP:Purchase DC: %|RobotPurchaseDC/2
+
+###Block: Feat Software Devices
+
+# Equipment Name				Output Name		Type			Cost		Weight	Source Page				Special Property
+Robot Software (Feat Progit)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL6	COST:20	WT:0		SOURCEPAGE:FutureRobots.rtf
+Robot Software (Feat Net/1 Feat)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL7	COST:15	WT:0		SOURCEPAGE:FutureRobots.rtf
+Robot Software (Feat Net/2 Feats)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL7	COST:17	WT:0		SOURCEPAGE:FutureRobots.rtf
+Robot Software (Feat Net/3 Feats)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL7	COST:19	WT:0		SOURCEPAGE:FutureRobots.rtf
+Robot Software (Feat Net/4 Feats)	OUTPUTNAME:[NAME]	TYPE:Robotic.PL7	COST:20	WT:0		SOURCEPAGE:FutureRobots.rtf
+Robot Software (Feat Web)		OUTPUTNAME:[NAME]	TYPE:Robotic.PL8			WT:0		SOURCEPAGE:FutureRobots.rtf	SPROP:Purchase DC: %|10+(RobotPurchaseDC/2)
+
+###Block: Specific Feat Software
+
+# Equipment Name											Type					Cost		Weight	Source Page				Virtual Feat												Bonus to HP			Bonus to skill						Modify VAR
+Robot Feat Software (Acrobatic)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Acrobatic|PRERACE:1,TYPE=Robot
+Robot Feat Software (Advanced Combat Martial Arts)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Advanced Combat Martial Arts|PRERACE:1,TYPE=Robot
+Robot Feat Software (Advanced Firearms Proficiency)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Advanced Firearms Proficiency|PRERACE:1,TYPE=Robot
+Robot Feat Software (Advanced Two-Weapon Fighting)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Advanced Two-Weapon Fighting|PRERACE:1,TYPE=Robot
+Robot Feat Software (Agile Riposte)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Agile Riposte|PRERACE:1,TYPE=Robot
+Robot Feat Software (Alertness)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Alertness|PRERACE:1,TYPE=Robot
+Robot Feat Software (Animal Affinity)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Animal Affinity|PRERACE:1,TYPE=Robot
+Robot Feat Software (Archaic Weapons Proficiency)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Archaic Weapons Proficiency|PRERACE:1,TYPE=Robot
+Robot Feat Software (Heavy Armor Proficiency)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Armor Proficiency (Heavy)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Light Armor Proficiency)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Armor Proficiency (Light)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Medium Armor Proficiency)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Armor Proficiency (Medium)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Athletic)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Athletic|PRERACE:1,TYPE=Robot
+Robot Feat Software (Attentive)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Attentive|PRERACE:1,TYPE=Robot
+Robot Feat Software (Blind-Fight)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Blind-Fight|PRERACE:1,TYPE=Robot
+Robot Feat Software (Brawl)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Brawl|PRERACE:1,TYPE=Robot
+Robot Feat Software (Burst Fire)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Burst Fire|PRERACE:1,TYPE=Robot
+Robot Feat Software (Cautious)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Cautious|PRERACE:1,TYPE=Robot
+Robot Feat Software (Cleave)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Cleave|PRERACE:1,TYPE=Robot
+Robot Feat Software (Combat Expertise)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Combat Expertise|PRERACE:1,TYPE=Robot
+Robot Feat Software (Combat Martial Arts)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Combat Martial Arts|PRERACE:1,TYPE=Robot
+Robot Feat Software (Combat Reflexes)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Combat Reflexes|PRERACE:1,TYPE=Robot
+Robot Feat Software (Combat Throw)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Combat Throw|PRERACE:1,TYPE=Robot
+Robot Feat Software (Confident)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Confident|PRERACE:1,TYPE=Robot
+Robot Feat Software (Dead Aim)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Dead Aim|PRERACE:1,TYPE=Robot
+Robot Feat Software (Deceptive)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Deceptive|PRERACE:1,TYPE=Robot
+Robot Feat Software (Defensive Martial Arts)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Defensive Martial Arts|PRERACE:1,TYPE=Robot
+Robot Feat Software (Dodge)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Dodge|PRERACE:1,TYPE=Robot
+Robot Feat Software (Double Tap)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Double Tap|PRERACE:1,TYPE=Robot
+Robot Feat Software (Drive-By Attack)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Drive-By Attack|PRERACE:1,TYPE=Robot
+Robot Feat Software (Elusive Target)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Elusive Target|PRERACE:1,TYPE=Robot
+Robot Feat Software (Endurance)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Endurance|PRERACE:1,TYPE=Robot
+Robot Feat Software (Far Shot)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Far Shot|PRERACE:1,TYPE=Robot
+Robot Feat Software (Focused)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Focused|PRERACE:1,TYPE=Robot
+Robot Feat Software (Force Stop)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Force Stop|PRERACE:1,TYPE=Robot
+Robot Feat Software (Frightful Presence)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Frightful Presence|PRERACE:1,TYPE=Robot
+Robot Feat Software (Gearhead)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Gearhead|PRERACE:1,TYPE=Robot
+Robot Feat Software (Great Cleave)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Great Cleave|PRERACE:1,TYPE=Robot
+Robot Feat Software (Great Fortitude)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Great Fortitude|PRERACE:1,TYPE=Robot
+Robot Feat Software (Guide)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Guide|PRERACE:1,TYPE=Robot
+Robot Feat Software (Heroic Surge)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Heroic Surge|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Brawl)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Brawl|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Bull Rush)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Bull Rush|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Combat Martial Arts)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Combat Martial Arts|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Combat Throw)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Combat Throw|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Damage Threshold)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																											BONUS:VAR|DamageThreshold|3
+Robot Feat Software (Improved Disarm)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Disarm|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Feint)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Feint|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Initiative)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Initiative|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Knockout Punch)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Knockout Punch|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Trip)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Trip|PRERACE:1,TYPE=Robot
+Robot Feat Software (Improved Two-Weapon Fighting)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Improved Two-Weapon Fighting|PRERACE:1,TYPE=Robot
+Robot Feat Software (Iron Will)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Iron Will|PRERACE:1,TYPE=Robot
+Robot Feat Software (Knockout Punch)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Knockout Punch|PRERACE:1,TYPE=Robot
+Robot Feat Software (Lightning Reflexes)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Lightning Reflexes|PRERACE:1,TYPE=Robot
+Robot Feat Software (Low Profile)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Low Profile|PRERACE:1,TYPE=Robot
+Robot Feat Software (Medical Expert)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Medical Expert|PRERACE:1,TYPE=Robot
+Robot Feat Software (Meticulous)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Meticulous|PRERACE:1,TYPE=Robot
+Robot Feat Software (Mobility)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Mobility|PRERACE:1,TYPE=Robot
+Robot Feat Software (Nimble)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Nimble|PRERACE:1,TYPE=Robot
+Robot Feat Software (Personal Firearms Proficiency)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Personal Firearms Proficiency|PRERACE:1,TYPE=Robot
+Robot Feat Software (Point Blank Shot)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Point Blank Shot|PRERACE:1,TYPE=Robot
+Robot Feat Software (Power Attack)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Power Attack|PRERACE:1,TYPE=Robot
+Robot Feat Software (Precise Shot)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Precise Shot|PRERACE:1,TYPE=Robot
+Robot Feat Software (Quick Draw)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Quick Draw|PRERACE:1,TYPE=Robot
+Robot Feat Software (Quick Reload)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Quick Reload|PRERACE:1,TYPE=Robot
+Robot Feat Software (Renown)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Renown|PRERACE:1,TYPE=Robot
+Robot Feat Software (Run)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Run|PRERACE:1,TYPE=Robot
+Robot Feat Software (Shot on the Run)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Shot on the Run|PRERACE:1,TYPE=Robot
+Robot Feat Software (Simple Weapons Proficiency)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Simple Weapons Proficiency|PRERACE:1,TYPE=Robot
+Robot Feat Software (Skip Shot)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Skip Shot|PRERACE:1,TYPE=Robot
+Robot Feat Software (Spring Attack)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Spring Attack|PRERACE:1,TYPE=Robot
+Robot Feat Software (Stealthy)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Stealthy|PRERACE:1,TYPE=Robot
+Robot Feat Software (Strafe)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Strafe|PRERACE:1,TYPE=Robot
+Robot Feat Software (Streetfighting)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Streetfighting|PRERACE:1,TYPE=Robot
+Robot Feat Software (Studious)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Studious|PRERACE:1,TYPE=Robot
+Robot Feat Software (Sunder)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Sunder|PRERACE:1,TYPE=Robot
+Robot Feat Software (Surgery)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Surgery|PRERACE:1,TYPE=Robot
+Robot Feat Software (Toughness)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf															BONUS:HP|CURRENTMAX|3
+Robot Feat Software (Track)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Track|PRERACE:1,TYPE=Robot
+Robot Feat Software (Trustworthy)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Trustworthy|PRERACE:1,TYPE=Robot
+Robot Feat Software (Two-Weapon Fighting)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Two-Weapon Fighting|PRERACE:1,TYPE=Robot
+Robot Feat Software (Unbalance Opponent)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Unbalance Opponent|PRERACE:1,TYPE=Robot
+Robot Feat Software (Vehicle Dodge)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Vehicle Dodge|PRERACE:1,TYPE=Robot
+Robot Feat Software (Vehicle Expert)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Vehicle Expert|PRERACE:1,TYPE=Robot
+Robot Feat Software (Whirlwind Attack)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Whirlwind Attack|PRERACE:1,TYPE=Robot
+
+# Future Basics Feats
+Robot Feat Software (Action Boost)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Action Boost|PRERACE:1,TYPE=Robot
+Robot Feat Software (Alien Weapons Proficiency)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Alien Weapons Proficiency|PRERACE:1,TYPE=Robot
+Robot Feat Software (Armor Proficiency (Powered))					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Armor Proficiency (Powered)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Craft Cybernetics)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Craft Cybernetics|PRERACE:1,TYPE=Robot
+Robot Feat Software (Cybernetic Surgery)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Cybernetic Surgery|PRERACE:1,TYPE=Robot
+Robot Feat Software (Cybertaker)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Cybertaker|PRERACE:1,TYPE=Robot
+Robot Feat Software (Jack of All Trades)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Jack of All Trades|PRERACE:1,TYPE=Robot
+Robot Feat Software (Mastercrafter)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Mastercrafter|PRERACE:1,TYPE=Robot
+Robot Feat Software (Nerve Pinch)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Nerve Pinch|PRERACE:1,TYPE=Robot
+Robot Feat Software (Oathbound)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Oathbound|PRERACE:1,TYPE=Robot
+Robot Feat Software (Salvage)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Salvage|PRERACE:1,TYPE=Robot
+Robot Feat Software (Spacer)									TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Spacer|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Battle Run)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Battle Run|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Dodge)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Dodge|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Feint)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Feint|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Gunnery)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Gunnery|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Mobility)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Mobility|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Strafe)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Strafe|PRERACE:1,TYPE=Robot
+Robot Feat Software (Ultra Immune System)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Ultra Immune System|PRERACE:1,TYPE=Robot
+Robot Feat Software (Urban Tracking)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Urban Tracking|PRERACE:1,TYPE=Robot
+Robot Feat Software (Xenomedic)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Xenomedic|PRERACE:1,TYPE=Robot
+Robot Feat Software (Zero G Training)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Zero G Training|PRERACE:1,TYPE=Robot
+
+# Feats with MULT:YES
+Robot Feat Software (Aircraft Operation/Heavy Aircraft)				TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Aircraft Operation(Heavy Aircraft)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Aircraft Operation/Helicopters)					TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Aircraft Operation(Helicopters)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Aircraft Operation/Jet Fighters)					TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Aircraft Operation(Jet Fighters)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Aircraft Operation/Spacecraft)					TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Aircraft Operation(Spacecraft)|PRERACE:1,TYPE=Robot
+
+Robot Feat Software (Builder/Chemical)							TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Builder(Craft (Chemical))|PRERACE:1,TYPE=Robot
+Robot Feat Software (Builder/Electronic)							TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Builder(Craft (Electronic))|PRERACE:1,TYPE=Robot
+Robot Feat Software (Builder/Mechanical)							TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Builder(Craft (Mechanical))|PRERACE:1,TYPE=Robot
+Robot Feat Software (Builder/Structural)							TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Builder(Craft (Structural))|PRERACE:1,TYPE=Robot
+
+Robot Feat Software (Exotic Firearms Proficiency/Cannon)				TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Firearms Proficiency(Cannon)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Firearms Proficiency/Heavy Machine Gun)		TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Firearms Proficiency(Heavy Machine Gun)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Firearms Proficiency/Grenade Launcher)		TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Firearms Proficiency(Grenade Launcher)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Firearms Proficiency/Rocket Launcher)			TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Firearms Proficiency(Rocket Launcher)|PRERACE:1,TYPE=Robot
+
+Robot Feat Software (Starship Operation/Ultralight)					TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Operation(Ultralight)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Operation/Light)						TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Operation(Light)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Operation/Mediumweight)					TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Operation(Mediumweight)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Operation/Heavy)						TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Operation(Heavy)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Starship Operation/Superheavy)					TYPE:Robotic.PL6			COST:27	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Starship Operation(Superheavy)|PRERACE:1,TYPE=Robot
+
+Robot Feat Software (Creative/Craft/Visual Art)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Craft (Visual Art)|2
+Robot Feat Software (Creative/Craft/Writing)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Craft (Writing)|2
+Robot Feat Software (Creative/Perform/Act)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Act)|2
+Robot Feat Software (Creative/Perform/Dance)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Dance)|2
+Robot Feat Software (Creative/Perform/Keyboards)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Keyboards)|2
+Robot Feat Software (Creative/Perform/Percussion Instruments)			TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Percussion Instruments)|2
+Robot Feat Software (Creative/Perform/Sing)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Sing)|2
+Robot Feat Software (Creative/Perform/Stand-Up)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Stand-Up)|2
+Robot Feat Software (Creative/Perform/String Instruments)				TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (String Instruments)|2
+Robot Feat Software (Creative/Perform/Wind Instruments)				TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf																			BONUS:SKILL|Perform (Wind Instruments)|2
+
+Robot Feat Software (Surface Vehicle Operation/Heavy Wheeled)			TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Surface Vehicle Operation(Heavy Wheeled)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Surface Vehicle Operation/Powerboat)				TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Surface Vehicle Operation(Powerboat)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Surface Vehicle Operation/Sailboat)				TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Surface Vehicle Operation(Sailboat)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Surface Vehicle Operation/Ship)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Surface Vehicle Operation(Ship)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Surface Vehicle Operation/Tracked)				TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Surface Vehicle Operation(Tracked)|PRERACE:1,TYPE=Robot
+
+Robot Feat Software (Exotic Melee Weapon Proficiency/Kukri)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Kukri)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Kama)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Kama)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Nunchaku)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Nunchaku)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Chain)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Chain)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Chain Saw)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Chain Saw)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Three-Section Staff)	TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Three-Section Staff)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Katana)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Katana)|PRERACE:1,TYPE=Robot
+
+Robot Feat Software (Exotic Melee Weapon Proficiency/Bastard Sword)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Bastard Sword)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Dire Flail)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Dire Flail)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Dwarven Urgrosh)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Dwarven Urgrosh)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Dwarven Waraxe)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Dwarven Waraxe)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Gnome Hooked Hammer)	TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Gnome Hooked Hammer)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Khopesh)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Khopesh)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Nekode)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Nekode)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Ninja-to)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Ninja-to)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Orc Double Axe)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Orc Double Axe)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Scourge)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Scourge)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Shikomi-zue)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Shikomi-zue)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/Two-Bladed Sword)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(Two-Bladed Sword)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency/War Fan)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots.rtf	VFEAT:Exotic Melee Weapon Proficiency(War Fan)|PRERACE:1,TYPE=Robot
+
+#TODO: Weapon Finesse and Weapon Focus can't be done without listing every single weapon prof they can be applied to, similar to the examples above but a much longer list
+
+###Block: Ability Upgrades
+
+# Equipment Name					Type			Source Page				Stat bonus						Special Property
+Robot Ability Upgrade (Strength)		TYPE:Robotic.PL5	SOURCEPAGE:FutureRobots.rtf	BONUS:STAT|STR|2|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|4+STR+(RobotPurchaseDC/2)
+Robot Ability Upgrade (Dexterity)		TYPE:Robotic.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:STAT|DEX|2|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|4+DEX+(RobotPurchaseDC/2)
+Robot Ability Upgrade (Intelligence)	TYPE:Robotic.PL6	SOURCEPAGE:FutureRobots.rtf	BONUS:STAT|INT|2|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|4+INT+(RobotPurchaseDC/2)
+Robot Ability Upgrade (Charisma)		TYPE:Robotic.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:STAT|CHA|2|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|4+CHA+(RobotPurchaseDC/2)
+Robot Ability Upgrade (Wisdom)		TYPE:Robotic.PL7	SOURCEPAGE:FutureRobots.rtf	BONUS:STAT|WIS|2|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|4+WIS+(RobotPurchaseDC/2)
+
+###Block: Robot Accessories
+
+# Equipment Name							Output Name					Type					Contains		Cost		Source Page				Damage Reduction	Add to base move						Add to vision						Special Property						Special Ability
+Robot Accessory (AV Recorder)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:13	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (AV Transmitter)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:16	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Fire Extinguisher)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5								SOURCEPAGE:FutureRobots.rtf																				SPROP:Purchase DC: %|5+(RobotPurchaseDC/4)
+Robot Accessory (Integrated Cell Phone)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:11	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Internal Storage Unit/Small)		OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:10		COST:6	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Internal Storage Unit/Medium)		OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:20		COST:8	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Internal Storage Unit/Large)		OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:40		COST:10	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Internal Storage Unit/Huge)		OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:120	COST:13	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Internal Storage Unit/Gargantuan)	OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:360	COST:17	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Internal Storage Unit/Colossal)	OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:1000	COST:22	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Loading Mechanism)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:12	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Remote Control Unit)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:15	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Robolink)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:16	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Tool Mount)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:1	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Vocalizer)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:10	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Weapon Mount/Diminutive/Tiny)		OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:4	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Weapon Mount/Small/Medium)		OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:6	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Weapon Mount/Large)			OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:8	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Weapon Mount/Huge)				OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:10	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Weapon Mount/Gargantuan)			OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:12	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Weapon Mount/Colossal)			OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:14	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Integrated Videophone)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL6						COST:14	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Magnetic Feet)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL6						COST:12	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Self-Destruct System/Colossal)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:27	SOURCEPAGE:FutureRobots.rtf																				SPROP:12d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Gargantuan)	OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:24	SOURCEPAGE:FutureRobots.rtf																				SPROP:9d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Huge)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:21	SOURCEPAGE:FutureRobots.rtf																				SPROP:6d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Large)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:19	SOURCEPAGE:FutureRobots.rtf																				SPROP:4d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Medium)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:17	SOURCEPAGE:FutureRobots.rtf																				SPROP:2d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Small)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:16	SOURCEPAGE:FutureRobots.rtf																				SPROP:1d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Tiny)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:15	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Self-Destruct System/Diminutive)	OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:15	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Survivor Array)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL6								SOURCEPAGE:FutureRobots.rtf				BONUS:MOVEADD|TYPE.Walk|10|PRERACE:1,TYPE=Robot	BONUS:VISION|DarkVision|60|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|15+(RobotPurchaseDC/5)	SA:Resistance to Acid 10|PRERACE:1,TYPE=Robot	SA:Resistance to Cold 10|PRERACE:1,TYPE=Robot	SA:Resistance to Electricity 10|PRERACE:1,TYPE=Robot	SA:Resistance to Fire 10|PRERACE:1,TYPE=Robot
+Robot Accessory (Holo Screen)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:28	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Inertial Inhibitor)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:29	SOURCEPAGE:FutureRobots.rtf	DR:5/Energy
+Robot Accessory (Polyvox)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:17	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Self-Repair Unit)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:25	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Photon Screen)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL8						COST:33	SOURCEPAGE:FutureRobots.rtf
+Robot Accessory (Robot Repair Unit)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL8						COST:28	SOURCEPAGE:FutureRobots.rtf
+
+#
+# End
+#

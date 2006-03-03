@@ -14,8 +14,6 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This set loads the Basic options from the Future section of the MSRD including Classes, Feats, Skills, Occupations and Settings.
 
-# Do not remove the EXTRAFILE comment.
-#EXTRAFILE:OGL.txt
 
 CLASS:msrd_future_classes_advanced.lst
 FEAT:msrd_future_feats.lst

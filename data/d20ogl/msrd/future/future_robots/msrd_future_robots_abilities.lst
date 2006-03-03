@@ -1,0 +1,42 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 13 14:39:22 2005 -- reformated by prettylst.pl v1.35 (build 542)
+SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# Original entry by Eddy Anthony (MoSaT)
+
+# Feat Name				Type			Visible	Special Ability																																																									Bonus to skill
+Critical Systems			TYPE:RobotTraits	VISIBLE:NO	SA:Vital areas and critical systems are subject to critical hits
+Cybernetic Incompatibility	TYPE:RobotTraits	VISIBLE:NO	SA:Cannot be fitted with cybernetic attachments
+Immunities				TYPE:RobotTraits	VISIBLE:NO	SA:Immune to mind-influencing effects, poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a Fortitude save unless the effect also works on objects or is harmless, Not subject to nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage, Cannot be raised from the dead
+Lifelike Appearance		TYPE:RobotTraits	VISIBLE:NO	SA:Lifelike Appearance
+Rejuvenation Cycle		TYPE:RobotTraits	VISIBLE:NO	SA:Rejuvenation Cycle
+Repairable				TYPE:RobotTraits	VISIBLE:NO	SA:Repairable
+Robot Resurrection		TYPE:RobotTraits	VISIBLE:NO	SA:Robot Resurrection
+Amorphous Form			TYPE:RobotTraits	VISIBLE:NO	SA:Amorphous Form (Ex)																																																								BONUS:SKILL|Escape Artist|10
+Robot Fast Healing		TYPE:RobotTraits	VISIBLE:NO	SA:Fast Healing 10 (Ex)
+Fire Vulnerability		TYPE:RobotTraits	VISIBLE:NO	SA:Fire Vulnerability
+
+###Block: Occupation MODs
+
+# Feat Name					Prohibited Race
+Occupation (Academic).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Adventurer).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Athlete).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Blue Collar).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Celebrity).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Creative).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Criminal).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Dilettante).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Doctor).MOD			!PRERACE:1,TYPE=Robot
+Occupation (Emergency Services).MOD	!PRERACE:1,TYPE=Robot
+Occupation (Entrepreneur).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Investigative).MOD	!PRERACE:1,TYPE=Robot
+Occupation (Law Enforcement).MOD	!PRERACE:1,TYPE=Robot
+Occupation (Military).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Religious).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Rural).MOD			!PRERACE:1,TYPE=Robot
+Occupation (Student).MOD		!PRERACE:1,TYPE=Robot
+Occupation (Technician).MOD		!PRERACE:1,TYPE=Robot
+Occupation (White Collar).MOD		!PRERACE:1,TYPE=Robot
+
+#
+# End
+#

@@ -14,8 +14,6 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This will load the Menace options of the MSRD
 
-# Do not remove the EXTRAFILE comment.
-#EXTRAFILE:OGL.txt
 
 EQUIPMENT:msrd_menaces_equipment.lst
 FEAT:msrd_menaces_feats.lst
