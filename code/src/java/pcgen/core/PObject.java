@@ -522,7 +522,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/**
 	 * Set the number of pages for this object
-	 * @param aString
+	 * @param value
 	 */
 	public final void setNumPages(final int value)
 	{

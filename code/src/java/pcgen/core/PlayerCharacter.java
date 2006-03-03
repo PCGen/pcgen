@@ -7677,7 +7677,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * return value indicates if book was actually added or not
-	 * @param aName
+	 * @param book
 	 * @return TRUE or FALSE
 	 */
 	public boolean addSpellBook(final SpellBook book)
@@ -9065,7 +9065,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * return value indicates whether or not a book was actually removed
-	 * @param aName
+	 * @param book
 	 * @return true or false
 	 */
 	public boolean delSpellBook(final SpellBook book)

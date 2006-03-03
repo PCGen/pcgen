@@ -771,7 +771,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	 * Set the spell Info text in the Spell Info panel to the
 	 * currently selected spell.
 	 * 
-	 * @param book The book to be displayed.
+	 * @param si The info to be displayed.
 	 */
 	protected final void setInfoLabelText(SpellInfo si)
 	{
