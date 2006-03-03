@@ -66,6 +66,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.IconUtilitities;
@@ -413,8 +414,17 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		// create tables associated with the above trees
 		createTreeTables();
-
-		// Build the Top Panel
+		
+		List colNameList = new ArrayList();
+		colNameList.add("School");
+		colNameList.add("Descriptor");
+		colNameList.add("Source File");
+		List colActiveList = new ArrayList();
+		colActiveList.add(new Boolean(true));
+		colActiveList.add(new Boolean(true));
+		colActiveList.add(new Boolean(true));
+		
+ 		// Build the Top Panel
 		buildTopPanel();
 
 		// Build Bottom Panel
@@ -491,9 +501,22 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			GridBagConstraints.BOTH, GridBagConstraints.NORTH);
 		c.ipadx = 1;
 
-		JScrollPane scrollPane = new JScrollPane(availableTable);
+		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		gridbag.setConstraints(scrollPane, c);
 		leftPane.add(scrollPane);
+
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		List colNameList = new ArrayList();
+		colNameList.add("School");
+		colNameList.add("Descriptor");
+		colNameList.add("Source File");
+		List colActiveList = new ArrayList();
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		TableColumnManager manager = new TableColumnManager(availableTable, columnButton, colNameList, colActiveList, 1);
 
 		JPanel addSpellPanel = buildAddSpellPanel();
 		Utility.buildConstraints(c, 0, 2, 1, 1, 1, 0,
@@ -542,13 +565,44 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		Utility.buildConstraints(c, 0, 2, 3, 1, 10, 10,
 			GridBagConstraints.BOTH, GridBagConstraints.NORTH);
 		c.ipadx = 1;
-		scrollPane = new JScrollPane(selectedTable);
+		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		gridbag.setConstraints(scrollPane, c);
 		scrollPane
 			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		selectedTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		selectedTable.setShowHorizontalLines(true);
 		rightPane.add(scrollPane);
+
+		JButton columnButton2 = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton.setText("^");
+		List colNameList2 = new ArrayList();
+		colNameList2.add("School");
+		colNameList2.add("Subschool");
+		colNameList2.add("Descriptor");
+		colNameList2.add("Components");
+		colNameList2.add("Casting Time");
+		colNameList2.add("Range");
+		colNameList2.add("Description");
+		colNameList2.add("Target Area");
+		colNameList2.add("Duration");
+		colNameList2.add("Save Info");
+		colNameList2.add("SR");
+		colNameList2.add("Source File");
+		List colActiveList2 = new ArrayList();
+		colActiveList.add(new Boolean(true));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(true));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(false));
+		colActiveList.add(new Boolean(true));
+		new TableColumnManager(selectedTable, columnButton2, colNameList2, colActiveList2, 1);
 	}
 
 	/**
