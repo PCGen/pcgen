@@ -20,7 +20,7 @@ public class TokenStore {
 		tokenTypeList = new ArrayList();
 		populateTokenTypeList();
 	}
-	
+
 	/**
 	 * Create an instance of TokenStore and return it.
 	 * @return an instance of TokenStore and return it.
@@ -31,7 +31,7 @@ public class TokenStore {
 		}
 		return inst;
 	}
-	
+
 	private void populateTokenTypeList() {
 		//Campaign data
 		tokenTypeList.add(GlobalLstToken.class);
@@ -44,12 +44,13 @@ public class TokenStore {
 		tokenTypeList.add(EquipmentLstToken.class);
 		tokenTypeList.add(EquipmentModifierLstToken.class);
 		tokenTypeList.add(LanguageLstToken.class);
+		tokenTypeList.add(KitLstToken.class);
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(SkillLstToken.class);
 		tokenTypeList.add(SpellLstToken.class);
 		tokenTypeList.add(SubClassLstToken.class);
 		tokenTypeList.add(WeaponProfLstToken.class);
-		
+
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);
 		tokenTypeList.add(BaseDiceLstToken.class);
@@ -65,10 +66,10 @@ public class TokenStore {
 		tokenTypeList.add(BonusSpellLstToken.class);
 		tokenTypeList.add(PCCheckLstToken.class);
 		tokenTypeList.add(PCStatLstToken.class);
-		
+
 		//sizeAdjustment.ts
 		tokenTypeList.add(SizeAdjustmentLstToken.class);
-		
+
 		//rules.js
 		tokenTypeList.add(RuleCheckLstToken.class);
 	}
