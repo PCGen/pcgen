@@ -25,6 +25,7 @@ package pcgen.gui.tabs.spells;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -524,6 +525,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		// for the availabe spells table and info
 		//
 		JPanel aPanel = new JPanel();
+		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
@@ -547,6 +549,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		//
 		// Buttons above spellbooks and known spells
 		JPanel sPanel = new JPanel();
+		sPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		sPanel.add(selLabel);
 		sPanel.add(primaryViewSelectComboBox);
 		sPanel.add(secondaryViewSelectComboBox);
@@ -576,21 +579,15 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	 */
 	private JPanel buildAddSpellPanel()
 	{
-		GridBagConstraints c = new GridBagConstraints();
-
-		JPanel asPanel = new JPanel(new GridBagLayout());
+		JPanel asPanel = new JPanel();
+		asPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		shouldAutoSpells.setSelected(pc.getAutoSpells());
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		asPanel.add(shouldAutoSpells, c);
+		asPanel.add(shouldAutoSpells);
 		
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
 		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
-		asPanel.add(addSpellButton, c);
+		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
+		asPanel.add(addSpellButton);
 
 		return asPanel;
 	}
@@ -603,57 +600,51 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	private JPanel buildOutputSpellsPanel()
 	{
 		GridBagConstraints c = new GridBagConstraints();
-
-		// 
-		selectSpellSheetField.setEditable(false);
-		selectSpellSheetField.setBackground(Color.lightGray);
-		selectSpellSheetField.setText(SettingsHandler
-			.getSelectedSpellSheetName());
-		selectSpellSheetField.setToolTipText(SettingsHandler
-			.getSelectedSpellSheetName());
-
 		JPanel ssPanel = new JPanel(new GridBagLayout());
 
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
+		Utility.setDescription(delSpellButton, PropertyFactory.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
+		delSpellButton.setEnabled(false);
+		delSpellButton.setMargin(new Insets(1, 14, 1, 14));
+		ssPanel.add(delSpellButton, c);
+
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 1, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
+		ssPanel.add(selectSpellSheetButton, c);
+
+		selectSpellSheetField.setEditable(false);
+		selectSpellSheetField.setBackground(Color.lightGray);
+		selectSpellSheetField.setText(SettingsHandler.getSelectedSpellSheetName());
+		selectSpellSheetField.setToolTipText(SettingsHandler.getSelectedSpellSheetName());
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 2, 0, 1, 1, 1.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		ssPanel.add(selectSpellSheetField, c);
+
 		printHtml = new JButton();
-		printHtml.setToolTipText(PropertyFactory
-			.getString("InfoSpells.print.preview")); //$NON-NLS-1$
+		printHtml.setToolTipText(PropertyFactory.getString("InfoSpells.print.preview")); //$NON-NLS-1$
 		IconUtilitities.maybeSetIcon(printHtml, "PrintPreview16.gif"); //$NON-NLS-1$
 		printHtml.setEnabled(true);
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
+		printHtml.setMargin(new Insets(1, 14, 1, 14));
+		ssPanel.add(printHtml, c);
 
 		printPdf = new JButton();
 		printPdf.setToolTipText(PropertyFactory.getString("InfoSpells.print")); //$NON-NLS-1$
 		IconUtilitities.maybeSetIcon(printPdf, "Print16.gif"); //$NON-NLS-1$
 		printPdf.setEnabled(true);
-
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		Utility.setDescription(delSpellButton, PropertyFactory.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
-		delSpellButton.setEnabled(false);
-		ssPanel.add(delSpellButton, c);
-
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 1, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		ssPanel.add(selectSpellSheetButton, c);
-
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 2, 0, 1, 1, 1.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		ssPanel.add(selectSpellSheetField, c);
-
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		ssPanel.add(printHtml, c);
-
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 4, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
+		c.insets = new Insets(1, 2, 1, 2);
+		printPdf.setMargin(new Insets(1, 14, 1, 14));
 		ssPanel.add(printPdf, c);
-		return ssPanel;
-	}
+		return ssPanel;	}
 
 	/**
 	 * Build Bottom Panel. 

@@ -14,7 +14,6 @@ import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import pcgen.TableColumnManagerModel;
 
 public class TableColumnManager implements MouseListener {
 	private JPopupMenu tablePopup;

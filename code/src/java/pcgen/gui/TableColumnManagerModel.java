@@ -1,4 +1,4 @@
-package pcgen;
+package pcgen.gui;
 
 import java.util.List;
 

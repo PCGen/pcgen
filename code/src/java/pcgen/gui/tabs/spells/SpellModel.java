@@ -28,7 +28,6 @@ import java.util.List;
 
 import javax.swing.tree.TreePath;
 
-import pcgen.TableColumnManagerModel;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Constants;
 import pcgen.core.Domain;
@@ -42,6 +41,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
 import pcgen.gui.GuiConstants;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;

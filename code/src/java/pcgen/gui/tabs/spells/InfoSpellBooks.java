@@ -25,6 +25,7 @@ package pcgen.gui.tabs.spells;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -478,12 +479,12 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		topPane.add(splitPane, BorderLayout.CENTER);
 
 		JPanel aPanel = new JPanel();
+		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
 
-		Utility.setDescription(aPanel, PropertyFactory
-			.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
+		Utility.setDescription(aPanel, PropertyFactory.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
 		leftPane.add(aPanel, BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -497,14 +498,14 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		leftPane.add(buildModSpellPanel(addSpellButton, "InfoSpells.add.selected"), BorderLayout.SOUTH);
 		
 		JPanel sPanel = new JPanel();
+		sPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		sPanel.add(selLabel);
 		sPanel.add(primaryViewSelectComboBox);
 		sPanel.add(secondaryViewSelectComboBox);
 		rightPane.add(sPanel, BorderLayout.NORTH);
 
 		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane
-			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		selectedTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		selectedTable.setShowHorizontalLines(true);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
@@ -525,14 +526,12 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	 */
 	private JPanel buildModSpellPanel(JButton button, String title)
 	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel panel = new JPanel(new GridBagLayout());
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		Utility.setDescription(button, PropertyFactory.getString(title)); //$NON-NLS-1$
 		button.setEnabled(false);
-		panel.add(button, c);
+		button.setMargin(new Insets(1, 14, 1, 14));
+		panel.add(button);
 
 		return panel;
 	}

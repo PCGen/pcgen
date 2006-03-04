@@ -25,6 +25,7 @@ package pcgen.gui.tabs.spells;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -531,6 +532,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		//
 
 		JPanel aPanel = new JPanel();
+		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
@@ -556,6 +558,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		//
 
 		JPanel sPanel = new JPanel();
+		sPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		sPanel.add(selLabel);
 		sPanel.add(primaryViewSelectComboBox);
 		sPanel.add(secondaryViewSelectComboBox);
@@ -589,22 +592,25 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	 */
 	private JPanel buildAddSpellPanel()
 	{
-		GridBagConstraints c = new GridBagConstraints();
+		//GridBagConstraints c = new GridBagConstraints();
 
-		JPanel asPanel = new JPanel(new GridBagLayout());
+		JPanel asPanel = new JPanel();
+		asPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+
 		addSpellMMButton = new JButton(addSpellWithMetaMagicTitle);
 		createFeatList();
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		asPanel.add(addSpellMMButton, c);
+		//c = new GridBagConstraints();
+		//Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
+		//c.insets = new Insets(2, 2, 2, 2);
+		asPanel.add(addSpellMMButton);
 		
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
+		//c = new GridBagConstraints();
+		//Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
+		//c.insets = new Insets(2, 2, 2, 2);
 		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
-		asPanel.add(addSpellButton, c);
+		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
+		asPanel.add(addSpellButton);
 
 		return asPanel;
 	}
@@ -618,20 +624,21 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	private JPanel buildSpellListPanel()
 	{
 		GridBagConstraints c = new GridBagConstraints();
-		c.insets = new Insets(2, 2, 2, 2);
 		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.NORTH;
+		c.anchor = GridBagConstraints.CENTER;
 
 		JPanel slPanel = new JPanel(new GridBagLayout());
 
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
 		Utility.setDescription(delSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		delSpellButton.setEnabled(false);
+		delSpellButton.setMargin(new Insets(1, 14, 1, 14));
 		slPanel.add(delSpellButton, c);
 
-		JLabel prepListLabel = new JLabel(PropertyFactory
-			.getString("InfoPreparedSpells.preparedList")); //$NON-NLS-1$
+		JLabel prepListLabel = new JLabel(PropertyFactory.getString("InfoPreparedSpells.preparedList")); //$NON-NLS-1$
 		Utility.buildConstraints(c, 1, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
 		slPanel.add(prepListLabel, c);
 		spellBookNameText.setEditable(true);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 1.0, 0.0);
@@ -639,16 +646,16 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		slPanel.add(spellBookNameText, c);
 
 		addSpellListButton = new JButton(PropertyFactory.getString("InfoSpells.add")); //$NON-NLS-1$
-		Utility.setDescription(addSpellListButton, PropertyFactory
-			.getString("InfoPreparedSpells.add.list")); //$NON-NLS-1$
+		Utility.setDescription(addSpellListButton, PropertyFactory.getString("InfoPreparedSpells.add.list")); //$NON-NLS-1$
 		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
 		c.fill = GridBagConstraints.NONE;
 		slPanel.add(addSpellListButton, c);
 
 		delSpellListButton = new JButton(PropertyFactory.getString("InfoSpells.delete")); //$NON-NLS-1$
-		Utility.setDescription(delSpellListButton, PropertyFactory
-			.getString("InfoPreparedSpells.del.list")); //$NON-NLS-1$
+		Utility.setDescription(delSpellListButton, PropertyFactory.getString("InfoPreparedSpells.del.list")); //$NON-NLS-1$
 		Utility.buildConstraints(c, 4, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(1, 2, 1, 2);
 		slPanel.add(delSpellListButton, c);
 
 		return slPanel;
