@@ -590,18 +590,18 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		colNameList2.add("SR");
 		colNameList2.add("Source File");
 		List colActiveList2 = new ArrayList();
-		colActiveList.add(new Boolean(true));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(true));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(false));
-		colActiveList.add(new Boolean(true));
+		colActiveList2.add(new Boolean(true));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(true));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(false));
+		colActiveList2.add(new Boolean(true));
 		new TableColumnManager(selectedTable, columnButton2, colNameList2, colActiveList2, 1);
 	}
 
