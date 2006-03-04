@@ -893,6 +893,35 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 
 		currSpellBook = bookName;
+		if (!ensureDefaultBookPresent())
+		{
+			return;
+		}
+
+		TreePath[] avaCPaths = availableTable.getTree().getSelectionPaths();
+
+		for (int index = avaCPaths.length - 1; index >= 0; --index)
+		{
+			Object aComp = avaCPaths[index].getLastPathComponent();
+			PObjectNode fNode = (PObjectNode) aComp;
+
+			addSpellToTarget(fNode, bookName);
+		}
+
+		pc.setDirty(true);
+
+		// reset selected spellbook model
+		updateSelectedModel();
+	}
+
+	/**
+	 * Check if the default spell book is present and if not then
+	 * add it to the character. Used so that the spellbook is only added if
+	 * it is used. 
+	 * @return false if an error occurs and the book can't be added. 
+	 */
+	private boolean ensureDefaultBookPresent()
+	{
 		SpellBook book = pc.getSpellBookByName(currSpellBook);
 		if (book == null)
 		{
@@ -914,24 +943,10 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 						"InfoPreparedSpells.add.list.fail", new Object[]{currSpellBook}), //$NON-NLS-1$
 					Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
 
-				return;
+				return false;
 			}
 		}
-
-		TreePath[] avaCPaths = availableTable.getTree().getSelectionPaths();
-
-		for (int index = avaCPaths.length - 1; index >= 0; --index)
-		{
-			Object aComp = avaCPaths[index].getLastPathComponent();
-			PObjectNode fNode = (PObjectNode) aComp;
-
-			addSpellToTarget(fNode, bookName);
-		}
-
-		pc.setDirty(true);
-
-		// reset selected spellbook model
-		updateSelectedModel();
+		return true;
 	}
 
 	
@@ -960,6 +975,10 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 
 		currSpellBook = bookName;
+		if (!ensureDefaultBookPresent())
+		{
+			return;
+		}
 
 		String className = ""; //$NON-NLS-1$
 
