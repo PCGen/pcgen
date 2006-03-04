@@ -72,6 +72,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.IconUtilitities;
@@ -508,12 +509,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	{
 		topPane.setLayout(new BorderLayout());
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JPanel leftPane = new JPanel();
 		JPanel rightPane = new JPanel();
-		leftPane.setLayout(gridbag);
-		rightPane.setLayout(gridbag);
+		leftPane.setLayout(new BorderLayout());
+		rightPane.setLayout(new BorderLayout());
 		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
@@ -524,89 +523,76 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		// first build the left pane
 		// for the availabe spells table and info
 		//
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0, GridBagConstraints.NONE,
-			GridBagConstraints.NORTH);
-
 		JPanel aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
-		Utility.setDescription(addSpellButton, PropertyFactory
-			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
-		addSpellButton.setEnabled(false);
-		aPanel.add(addSpellButton);
-
-		Utility.setDescription(aPanel, PropertyFactory
-			.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
-		leftPane.add(aPanel);
+		leftPane.add(aPanel, BorderLayout.NORTH);
 
 		// the available spells panel
-		Utility.buildConstraints(c, 0, 1, 1, 1, 10, 10,
-			GridBagConstraints.BOTH, GridBagConstraints.NORTH);
-		c.ipadx = 1;
+		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		leftPane.add(scrollPane, BorderLayout.CENTER);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable);
-		gridbag.setConstraints(scrollPane, c);
-		leftPane.add(scrollPane);
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		// Auto add known option
-		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0, GridBagConstraints.NONE,
-			GridBagConstraints.NORTH);
-
-		JPanel bPanel = new JPanel();
-		gridbag.setConstraints(bPanel, c);
-		shouldAutoSpells.setSelected(pc.getAutoSpells());
-		bPanel.add(shouldAutoSpells);
-		leftPane.add(bPanel);
+		leftPane.add(buildAddSpellPanel(), BorderLayout.SOUTH);
 
 		//
 		// now build the right pane
 		// for the selected (SpellBooks) table
 		//
-		gridbag = new GridBagLayout();
-		c = new GridBagConstraints();
-		rightPane.setLayout(gridbag);
-
 		// Buttons above spellbooks and known spells
-		Utility.buildConstraints(c, 0, 0, 1, 1, 2, 0, GridBagConstraints.NONE,
-			GridBagConstraints.NORTH);
-
-		JPanel iPanel = new JPanel();
-		gridbag.setConstraints(iPanel, c);
-		Utility.setDescription(delSpellButton, PropertyFactory
-			.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
-		delSpellButton.setEnabled(false);
-		iPanel.add(delSpellButton);
-		rightPane.add(iPanel);
-
-		Utility.buildConstraints(c, 1, 0, 1, 1, 1, 0, GridBagConstraints.NONE,
-			GridBagConstraints.NORTH);
-
 		JPanel sPanel = new JPanel();
-		gridbag.setConstraints(sPanel, c);
 		sPanel.add(selLabel);
 		sPanel.add(primaryViewSelectComboBox);
 		sPanel.add(secondaryViewSelectComboBox);
-		rightPane.add(sPanel);
+		rightPane.add(sPanel, BorderLayout.NORTH);
 
 		// List of known spells Panel
-		Utility.buildConstraints(c, 0, 1, 3, 1, 10, 10,
-			GridBagConstraints.BOTH, GridBagConstraints.NORTH);
-		c.ipadx = 1;
-		scrollPane = new JScrollPane(selectedTable);
-		gridbag.setConstraints(scrollPane, c);
+		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane
 			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		selectedTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		selectedTable.setShowHorizontalLines(true);
-		rightPane.add(scrollPane);
+		rightPane.add(scrollPane, BorderLayout.CENTER);
 
-		JPanel ssPanel = buildOutputSpellsPanel();
-		Utility.buildConstraints(c, 0, 2, 3, 1, 1, 0,
-			GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
-		gridbag.setConstraints(ssPanel, c);
-		rightPane.add(ssPanel);
+		JButton columnButton2 = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+
+		rightPane.add(buildOutputSpellsPanel(), BorderLayout.SOUTH);
+	}
+
+	/**
+	 * Build the panel with the controls to add a spell to a 
+	 * prepared list.
+	 *  
+	 * @return The panel.
+	 */
+	private JPanel buildAddSpellPanel()
+	{
+		GridBagConstraints c = new GridBagConstraints();
+
+		JPanel asPanel = new JPanel(new GridBagLayout());
+		shouldAutoSpells.setSelected(pc.getAutoSpells());
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(2, 2, 2, 2);
+		asPanel.add(shouldAutoSpells, c);
+		
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(2, 2, 2, 2);
+		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
+		addSpellButton.setEnabled(false);
+		asPanel.add(addSpellButton, c);
+
+		return asPanel;
 	}
 
 	/**
@@ -642,18 +628,28 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(2, 2, 2, 2);
-		ssPanel.add(selectSpellSheetButton, c);
+		Utility.setDescription(delSpellButton, PropertyFactory.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
+		delSpellButton.setEnabled(false);
+		ssPanel.add(delSpellButton, c);
+
 		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 1, 0, 1, 1, 1.0, 0.0);
+		Utility.buildConstraints(c, 1, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(2, 2, 2, 2);
+		ssPanel.add(selectSpellSheetButton, c);
+
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 2, 0, 1, 1, 1.0, 0.0);
 		c.insets = new Insets(2, 2, 2, 2);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		ssPanel.add(selectSpellSheetField, c);
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0.0, 0.0);
-		c.insets = new Insets(2, 2, 2, 2);
-		ssPanel.add(printHtml, c);
+
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
+		c.insets = new Insets(2, 2, 2, 2);
+		ssPanel.add(printHtml, c);
+
+		c = new GridBagConstraints();
+		Utility.buildConstraints(c, 4, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(2, 2, 2, 2);
 		ssPanel.add(printPdf, c);
 		return ssPanel;

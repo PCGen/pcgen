@@ -28,8 +28,18 @@ import java.util.List;
 
 import javax.swing.tree.TreePath;
 
-import pcgen.core.*;
-import pcgen.core.character.*;
+import pcgen.TableColumnManagerModel;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.utils.AbstractTreeTableModel;
@@ -49,7 +59,7 @@ import pcgen.util.Logging;
  *  Leafs are like files and non-leafs are like directories.
  *  The leafs contain an Object that we want to know about (Spells)
  **/
-public final class SpellModel extends AbstractTreeTableModel
+public final class SpellModel extends AbstractTreeTableModel implements TableColumnManagerModel
 {
 	//column positions for tables
 	// if you change these, you also need to change
@@ -77,6 +87,7 @@ public final class SpellModel extends AbstractTreeTableModel
 	private String[] colNameList = { "" };
 
 	private int[] colTranslateList = { 0 };
+	private List displayList;
 
 	// Types of the columns.
 	private boolean includeRace = false;
@@ -111,28 +122,15 @@ public final class SpellModel extends AbstractTreeTableModel
 
 		if (Spell.hasPPCost())
 		{
-			if (available)
-			{
-				colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_DESCRIPTOR, COL_PPCOST, COL_SRC};
-			}
-			else
-			{
-				colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_SUBSCHOOL, COL_DESCRIPTOR, COL_PPCOST, COL_COMPONENT, COL_CASTTIME, COL_RANGE, COL_DESCRIPTION, COL_TARGET, COL_DURATION, COL_SAVE, COL_SR, COL_SRC};
-			}
+			colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_SUBSCHOOL, COL_DESCRIPTOR, COL_PPCOST, COL_COMPONENT, COL_CASTTIME, COL_RANGE, COL_DESCRIPTION, COL_TARGET, COL_DURATION, COL_SAVE, COL_SR, COL_SRC};
 		}
 		else
 		{
-			if (available)
-			{
-				colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_DESCRIPTOR, COL_SRC };
-			}
-			else
-			{
-				colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_SUBSCHOOL, COL_DESCRIPTOR, COL_COMPONENT, COL_CASTTIME, COL_RANGE, COL_DESCRIPTION, COL_TARGET, COL_DURATION, COL_SAVE, COL_SR, COL_SRC};
-			}
+			colTranslateList = new int[]{COL_NAME, COL_SCHOOL, COL_SUBSCHOOL, COL_DESCRIPTOR, COL_COMPONENT, COL_CASTTIME, COL_RANGE, COL_DESCRIPTION, COL_TARGET, COL_DURATION, COL_SAVE, COL_SR, COL_SRC};
 		}
 
 		colNameList = makeHeaderList(colTranslateList);
+		displayList = makeDisplayList(available);
 
 		resetModel(primaryMode, secondaryMode, available, bookList,
 			currSpellBook, fullSpellList, spellTab, emptyMessage);
@@ -215,6 +213,51 @@ public final class SpellModel extends AbstractTreeTableModel
 			aList[i] = aString;
 		}
 		return aList;
+	}
+
+	private List makeDisplayList(boolean available)
+	{
+		List retList = new ArrayList();
+		if(available)
+		{
+			retList.add(new Boolean(false)); //COL_SCHOOL
+			retList.add(new Boolean(false)); //COL_SUBSCHOOL
+			retList.add(new Boolean(false)); //COL_DESCRIPTOR
+			if (Spell.hasPPCost())
+			{
+				retList.add(new Boolean(true)); //COL_PPCOST
+			}
+			retList.add(new Boolean(false)); //COL_COMPONENT
+			retList.add(new Boolean(false)); //COL_CASTTIME
+			retList.add(new Boolean(false)); //COL_RANGE
+			retList.add(new Boolean(false)); //COL_DESCRIPTION
+			retList.add(new Boolean(false)); //COL_TARGET
+			retList.add(new Boolean(false)); //COL_DURATION
+			retList.add(new Boolean(false)); //COL_SAVE
+			retList.add(new Boolean(false)); //COL_SR
+			retList.add(new Boolean(false)); //COL_SRC
+		}
+		else
+		{
+			retList.add(new Boolean(true)); //COL_SCHOOL
+			retList.add(new Boolean(true)); //COL_SUBSCHOOL
+			retList.add(new Boolean(true)); //COL_DESCRIPTOR
+			if (Spell.hasPPCost())
+			{
+				retList.add(new Boolean(true)); //COL_PPCOST
+			}
+			retList.add(new Boolean(false)); //COL_COMPONENT
+			retList.add(new Boolean(false)); //COL_CASTTIME
+			retList.add(new Boolean(false)); //COL_RANGE
+			retList.add(new Boolean(false)); //COL_DESCRIPTION
+			retList.add(new Boolean(false)); //COL_TARGET
+			retList.add(new Boolean(false)); //COL_DURATION
+			retList.add(new Boolean(false)); //COL_SAVE
+			retList.add(new Boolean(false)); //COL_SR
+			retList.add(new Boolean(true)); //COL_SRC
+		}
+
+		return retList;
 	}
 
 	/**
@@ -1046,4 +1089,29 @@ public final class SpellModel extends AbstractTreeTableModel
 		this.pc = pc;
 	}
 
+
+	public List getMColumnList()
+	{
+		List retList = new ArrayList();
+		for(int i = 1; i < colNameList.length; i++) {
+			retList.add(colNameList[i]);
+		}
+		return retList;
+	}
+
+
+	public boolean isMColumnDisplayed(int col)
+	{
+		return ((Boolean)displayList.get(col)).booleanValue();
+	}
+
+	public int getMColumnOffset()
+	{
+		return 1;
+	}
+
+
+	public void setMColumnDisplayed(int col, boolean disp) {
+		displayList.set(col, new Boolean(disp));
+	}
 }

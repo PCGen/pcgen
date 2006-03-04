@@ -14,21 +14,19 @@ import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import pcgen.TableColumnManagerModel;
+
 public class TableColumnManager implements MouseListener {
 	private JPopupMenu tablePopup;
 	private List checkBoxList;
-	private List columnList;
-	private List settingList;
-	private int columnOffset = 0;
 	private JTable table;
 	private JComponent tableButton;
+	private TableColumnManagerModel model;
 	
-	public TableColumnManager(JTable table, JComponent tableButton, List columnList, List settingList, int columnOffset) {
+	public TableColumnManager(JTable table, JComponent tableButton, TableColumnManagerModel model) {
 		this.table = table;
 		this.tableButton = tableButton;
-		this.columnList = columnList;
-		this.settingList = settingList;
-		this.columnOffset = columnOffset;
+		this.model = model;
 		initContents();
 	}
 	
@@ -37,17 +35,18 @@ public class TableColumnManager implements MouseListener {
 		checkBoxList = new ArrayList();
 		
 		tablePopup = new javax.swing.JPopupMenu();
-		for(int i = 0; i < columnList.size(); i++) {
-			String name = (String)columnList.get(i);
-			boolean selected = ((Boolean)settingList.get(i)).booleanValue();
+		for(int i = 0; i < model.getMColumnList().size(); i++) {
+			String name = (String)model.getMColumnList().get(i);
+			boolean selected = model.isMColumnDisplayed(i);
 			JCheckBoxMenuItem popupCb = new JCheckBoxMenuItem();
 			tablePopup.add(popupCb);
 			popupCb.setText(name);
 			popupCb.setSelected(selected);
-			popupCb.addActionListener(new PopupActionListener(popupCb, i + columnOffset));
+			popupCb.addActionListener(new PopupActionListener(popupCb, i + model.getMColumnOffset()));
 			checkBoxList.add(popupCb);
 		}
 		tableButton.addMouseListener(this);
+		TablePopupActionPerformed();
 	}
 
 	public void tableDisplay(java.awt.event.MouseEvent evt) {
@@ -62,8 +61,9 @@ public class TableColumnManager implements MouseListener {
 		}
 		for(int i = 0; i < checkBoxList.size(); i++) {
 			JCheckBoxMenuItem cb = (JCheckBoxMenuItem)checkBoxList.get(i);
+			model.setMColumnDisplayed(i, cb.isSelected());
 			if(cb.isSelected()) {
-				TableColumn col = new TableColumn(i + columnOffset);
+				TableColumn col = new TableColumn(i + model.getMColumnOffset());
 				col.setHeaderValue(cb.getText());
 				colModel.addColumn(col);
 			}
