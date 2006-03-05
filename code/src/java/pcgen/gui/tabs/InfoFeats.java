@@ -26,7 +26,62 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.JViewport;
+import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import javax.swing.tree.TreePath;
+
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Constants;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
@@ -35,27 +90,28 @@ import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.*;
+import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableMouseAdapter;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.Utility;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-import javax.swing.tree.TreePath;
-import java.awt.*;
-import java.awt.event.*;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.List;
 
 /**
  * <code>InfoFeats</code>.
@@ -111,8 +167,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JCheckBox chkViewAll = new JCheckBox();
 	private JLabelPane infoLabel = new JLabelPane();
-	private final JLabel lblAvailableQFilter = new JLabel("QuickFilter:");
-	private final JLabel lblSelectedQFilter  = new JLabel("QuickFilter:");
+	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
+	private final JLabel lblSelectedQFilter  = new JLabel("Filter:");
 	private JLabel featsRemainingLabel = new JLabel();
 	private JMenuItem addMenu;
 	private JMenuItem removeMenu;
@@ -1052,134 +1108,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		topPane.setLayout(new BorderLayout());
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-
-		//-------------------------------------------------------------
-		// Top Pane - Left Available, Right Selected
-		//
-		JPanel tLeftPane = new JPanel();
-		JPanel tRightPane = new JPanel();
-
-		splitTopLeftRight = new FlippingSplitPane(splitOrientation, tLeftPane, tRightPane);
-		splitTopLeftRight.setOneTouchExpandable(true);
-		splitTopLeftRight.setDividerSize(10);
-
-		// splitTopLeftRight.setDividerLocation(350);
-		topPane.add(splitTopLeftRight, BorderLayout.CENTER);
-
-		// Top Left - Available
-		tLeftPane.setLayout(gridbag);
-		Utility.buildConstraints(c, 0, 0, 4, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
-
-		JPanel aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-
-		JLabel avaLabel = new JLabel("Available: ");
-		aPanel.add(avaLabel);
-		aPanel.add(viewAvailComboBox);
-
-		ImageIcon newImage;
-		newImage = IconUtilitities.getImageIcon("Forward16.gif");
-		addButton = new JButton(newImage);
-		Utility.setDescription(addButton, "Click to add the selected " + getSingularTabName() + " from the Available list of " + getSingularTabName() + "s");
-		addButton.setEnabled(false);
-		aPanel.add(addButton);
-		tLeftPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(lblAvailableQFilter, c);
-		tLeftPane.add(lblAvailableQFilter);
-		
-		Utility.buildConstraints(c, 1, 1, 1, 1, 95, 0);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(textAvailableQFilter, c);
-		tLeftPane.add(textAvailableQFilter);
-		
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(setAvailableQFilterButton, c);
-		setAvailableQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
-		tLeftPane.add(setAvailableQFilterButton);
-
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(clearAvailableQFilterButton, c);
-		clearAvailableQFilterButton.setEnabled(false);
-		tLeftPane.add(clearAvailableQFilterButton);
-
-		Utility.buildConstraints(c, 0, 2, 4, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-
-		JScrollPane scrollPane = new JScrollPane(availableTable);
-		gridbag.setConstraints(scrollPane, c);
-		tLeftPane.add(scrollPane);
-
-		// Right Pane - Selected
-		gridbag = new GridBagLayout();
-		c = new GridBagConstraints();
-		tRightPane.setLayout(gridbag);
-
-		Utility.buildConstraints(c, 0, 0, 4, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
-		aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-
-		JLabel selLabel = new JLabel("Selected: ");
-		aPanel.add(selLabel);
-		aPanel.add(viewSelectComboBox);
-		newImage = IconUtilitities.getImageIcon("Back16.gif");
-		leftButton = new JButton(newImage);
-		Utility.setDescription(leftButton, "Click to remove the selected " + getSingularTabName() + " from the Selected list of " + getSingularTabName() + "s");
-		leftButton.setEnabled(false);
-		aPanel.add(leftButton);
-		if (SettingsHandler.allowFeatDebugging())
-		{
-			aPanel.add(chkViewAll);
-		}
-		tRightPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(lblSelectedQFilter, c);
-		tRightPane.add(lblSelectedQFilter);
-		
-		Utility.buildConstraints(c, 1, 1, 1, 1, 95, 0);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(textSelectedQFilter, c);
-		tRightPane.add(textSelectedQFilter);
-		
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(setSelectedQFilterButton, c);
-		setSelectedQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
-		tRightPane.add(setSelectedQFilterButton);
-
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(clearSelectedQFilterButton, c);
-		clearSelectedQFilterButton.setEnabled(false);
-		tRightPane.add(clearSelectedQFilterButton);
-
-		Utility.buildConstraints(c, 0, 2, 4, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-		scrollPane = new JScrollPane(selectedTable);
-		gridbag.setConstraints(scrollPane, c);
-		tRightPane.add(scrollPane);
+		buildTopPanel();
 
 		//-------------------------------------------------------------
 		// Bottom Pane - Left Info, Right Options / Data
@@ -1198,7 +1127,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		botPane.add(splitBotLeftRight, BorderLayout.CENTER);
 
 		// Left - Feat Info
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
+		GridBagConstraints c = new GridBagConstraints();
 		c = new GridBagConstraints();
 		bLeftPane.setLayout(gridbag);
 
@@ -1268,6 +1198,143 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					refresh();
 				}
 			});
+	}
+
+	private void buildTopPanel()
+	{
+		//-------------------------------------------------------------
+		// Top Pane - Left Available, Right Selected
+		//
+		JPanel leftPane = new JPanel();
+		JPanel rightPane = new JPanel();
+
+		splitTopLeftRight = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitTopLeftRight.setOneTouchExpandable(true);
+		splitTopLeftRight.setDividerSize(10);
+
+		// splitTopLeftRight.setDividerLocation(350);
+		topPane.add(splitTopLeftRight, BorderLayout.CENTER);
+
+		// Top Left - Available
+		leftPane.setLayout(new BorderLayout());
+
+		JLabel avaLabel = new JLabel("Available: ");
+		setAvailableQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
+		leftPane.add(createFilterPane(avaLabel, viewAvailComboBox, lblAvailableQFilter, textAvailableQFilter, setAvailableQFilterButton, clearAvailableQFilterButton), BorderLayout.NORTH);
+
+		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		leftPane.add(scrollPane, BorderLayout.CENTER);
+
+		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
+		leftPane.add(buildModSpellPanel(addButton, "Click to add the selected " + getSingularTabName() + " from the Available list of " + getSingularTabName() + "s"), BorderLayout.SOUTH);
+
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(availableTable, columnButton, availableModel);
+
+		// Right Pane - Selected
+		rightPane.setLayout(new BorderLayout());
+
+		JLabel selLabel = new JLabel("Selected: ");
+		setSelectedQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
+		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, setSelectedQFilterButton, clearSelectedQFilterButton), BorderLayout.NORTH);
+
+		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		rightPane.add(scrollPane, BorderLayout.CENTER);
+
+		leftButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
+		rightPane.add(buildDelSpellPanel(leftButton, "Click to remove the selected " + getSingularTabName() + " from the Selected list of " + getSingularTabName() + "s"), BorderLayout.SOUTH);
+
+		JButton columnButton2 = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+	}
+
+	/**
+	 * Build the panel with the controls to add a spell to a 
+	 * prepared list.
+	 *  
+	 * @return The panel.
+	 */
+	private JPanel buildModSpellPanel(JButton button, String title)
+	{
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(button, title); //$NON-NLS-1$
+		button.setEnabled(false);
+		button.setMargin(new Insets(1, 14, 1, 14));
+		panel.add(button);
+
+		return panel;
+	}
+
+	/**
+	 * Build the panel with the controls to add a spell to a 
+	 * prepared list.
+	 *  
+	 * @return The panel.
+	 */
+	private JPanel buildDelSpellPanel(JButton button, String title)
+	{
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(button, title); //$NON-NLS-1$
+		button.setEnabled(false);
+		button.setMargin(new Insets(1, 14, 1, 14));
+		panel.add(button);
+		if (SettingsHandler.allowFeatDebugging())
+		{
+			panel.add(chkViewAll);
+		}
+
+		return panel;
+	}
+
+	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton setButton, JButton clearButton)
+	{
+		GridBagConstraints c = new GridBagConstraints();
+		JPanel filterPanel = new JPanel(new GridBagLayout());
+
+		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(treeLabel, c);
+
+		Utility.buildConstraints(c, 1, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(treeCb, c);
+
+		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(filterLabel, c);
+		
+		Utility.buildConstraints(c, 3, 0, 1, 1, 95, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(filterText, c);
+		
+		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(setButton, c);
+
+		Utility.buildConstraints(c, 5, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		clearButton.setEnabled(false);
+		filterPanel.add(clearButton, c);
+		
+		return filterPanel;
 	}
 
 	private void removeFeat()
@@ -1433,14 +1500,27 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	 * nodes which have at least 1 child are not leafs.
 	 * Leafs are like files and non-leafs are like directories.
 	 */
-	private final class FeatModel extends AbstractTreeTableModel
+	private final class FeatModel extends AbstractTreeTableModel implements TableColumnManagerModel
 	{
+		private static final int COL_NAME = 0;
+		private static final int COL_TYPE = 1;
+		private static final int COL_COST = 2;
+		private static final int COL_MULTIPLES = 3;
+		private static final int COL_STACKS = 4;
+		private static final int COL_REQUIREMENTS = 5;
+		private static final int COL_DESCRIPTION = 6;
+		private static final int COL_CHOICES = 7;
+		private static final int COL_SRC = 8;
+		
+		private static final int MODEL_TYPE_AVAIL = 0;
+		private static final int MODEL_TYPE_SELECTED = 1;
+
 		// Names of the columns.
-		private String[] cNames = { "Name", "Modified" };
+		private String[] names = { "Feat", "Type", "Cost", "Mult", "Stack", "Requirements", "Description", "Choices", "Source" };
 
 		// Types of the columns.
-		private Class[] cTypes = { TreeTableModel.class, String.class };
-		private int modelType = 0; // availableModel
+		private int modelType = MODEL_TYPE_AVAIL; // availableModel
+		private List displayList;
 
 		/**
 		 * Creates a FeatModel
@@ -1451,6 +1531,23 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			super(null);
 			resetModel(mode, available, false);
+			displayList = new ArrayList();
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			if(available)
+			{
+				displayList.add(new Boolean(false));
+				displayList.add(new Boolean(true));
+			}
+			else
+			{
+				displayList.add(new Boolean(true));
+				displayList.add(new Boolean(false));
+			}
 		}
 
 		/**
@@ -1460,7 +1557,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 */
 		public Class getColumnClass(int column)
 		{
-			return cTypes[column];
+			if(column == COL_NAME)
+			{
+				return TreeTableModel.class;
+			}
+			else
+			{
+				return String.class;
+			}
 		}
 
 		/* The JTreeTableNode interface. */
@@ -1471,7 +1575,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 */
 		public int getColumnCount()
 		{
-			return cNames.length;
+			return names.length;
 		}
 
 		/**
@@ -1481,23 +1585,20 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 */
 		public String getColumnName(int column)
 		{
-			if (column == 0)
+			String colName = "";
+			if(column == COL_NAME)
 			{
-				String colName = getSingularTabName();
-				if (modelType != 0)
+				colName = getSingularTabName();
+				if (modelType != MODEL_TYPE_AVAIL)
 				{
 					colName += " (" + pc.getUsedFeatCount() + ")";
 				}
-				return colName;
-
 			}
-
-			if (modelType == 0)
+			else
 			{
-				return "Source";
+				colName = names[column];
 			}
-
-			return "Choices";
+			return colName;
 		}
 
 		public Object getRoot()
@@ -1514,33 +1615,87 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		public Object getValueAt(Object node, int column)
 		{
 			PObjectNode fn = (PObjectNode) node;
+			Object retVal = null;
+			
+			Ability feat = null;
+			Object temp = fn.getItem();
+			if (temp instanceof Ability)
+			{
+				feat = (Ability) temp;
+			}
 
 			switch (column)
 			{
-				case 0:
-					return fn.toString();
-
-				case 1:
-
-					if (modelType == 0)
+				case COL_NAME:
+					retVal = fn.toString();
+					break;
+				case COL_TYPE:
+					if(feat != null)
 					{
-						return fn.getSource();
+						retVal = feat.getTypeUsingFlag(true);
 					}
-
-					return fn.getChoices();
-
+					break;
+				case COL_COST:
+					if(feat != null)
+					{
+						retVal = feat.getCostString();
+					}
+					break;
+				case COL_MULTIPLES:
+					if(feat != null)
+					{
+						if (feat.isMultiples())
+						{
+							retVal = "Y";
+						}
+						else
+						{
+							retVal = "N";
+						}
+					}
+					break;
+				case COL_STACKS:
+					if(feat != null)
+					{
+						if (feat.isStacks())
+						{
+							retVal = "Y";
+						}
+						else
+						{
+							retVal = "N";
+						}
+					}
+					break;
+				case COL_REQUIREMENTS:
+					if(feat != null)
+					{
+						retVal = feat.preReqStrings();
+					}
+					break;
+				case COL_DESCRIPTION:
+					if(feat != null)
+					{
+						retVal = feat.piDescSubString();
+					}
+					break;
+				case COL_CHOICES:
+					retVal = fn.getChoices();
+					break;
+				case COL_SRC:
+					retVal = fn.getSource();
+					break;
 				case -1:
-					return fn.getItem();
-
+					retVal = fn.getItem();
+					break;
 				default:
 					Logging.errorPrint("In InfoFeats.getValueAt the column " + column + " is not supported.");
-
 					break;
 			}
 
-			return null;
+			return retVal;
 		}
-
+	
 		/**
 		 * There must be a root object, though it can be hidden
 		 * to make it's existence basically a convenient way to
@@ -1860,11 +2015,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 
 					final int state;
-					if (modelType == 1 && available)
+					if (modelType == MODEL_TYPE_SELECTED && available)
 					{
 						state = PObjectNode.CAN_GAIN_FEAT;
 					}
-					else if (modelType == 1)
+					else if (modelType == MODEL_TYPE_SELECTED)
 					{
 						state = PObjectNode.CAN_USE_FEAT;
 					}
@@ -2116,11 +2271,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					po.addChild(p);
 
 					final int state;
-					if (modelType == 1 && available)
+					if (modelType == MODEL_TYPE_SELECTED && available)
 					{
 						state = PObjectNode.CAN_GAIN_FEAT;
 					}
-					else if (modelType == 1)
+					else if (modelType == MODEL_TYPE_SELECTED)
 					{
 						state = PObjectNode.CAN_USE_FEAT;
 					}
@@ -2163,7 +2318,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			if (!available)
 			{
-				modelType = 1;
+				modelType = MODEL_TYPE_SELECTED;
 			}
 
 			switch (mode)
@@ -2190,14 +2345,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 					break;
 
-/*
-   case InfoFeats.VIEW_SOURCENAME:
-	   break;
-   case InfoFeats.VIEW_SOURCETYPENAME:
-	   break;
-   case InfoFeats.VIEW_TYPESOURCENAME:
-	   break;
- */
 				default:
 					Logging.errorPrint("In InfoFeats.resetModel the mode " + mode + " is not supported.");
 
@@ -2210,6 +2357,30 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			{
 				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
 			}
+		}
+
+		public List getMColumnList()
+		{
+			List retList = new ArrayList();
+			for(int i = 1; i < names.length; i++) {
+				retList.add(names[i]);
+			}
+			return retList;
+		}
+
+		public boolean isMColumnDisplayed(int col)
+		{
+			return ((Boolean)displayList.get(col)).booleanValue();
+		}
+
+		public void setMColumnDisplayed(int col, boolean disp)
+		{
+			displayList.set(col, new Boolean(disp));
+		}
+
+		public int getMColumnOffset()
+		{
+			return 1;
 		}
 	}
 

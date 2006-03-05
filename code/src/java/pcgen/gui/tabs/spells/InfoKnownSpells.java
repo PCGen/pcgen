@@ -557,8 +557,6 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		// List of known spells Panel
 		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane
-			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		selectedTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		selectedTable.setShowHorizontalLines(true);
 		rightPane.add(scrollPane, BorderLayout.CENTER);

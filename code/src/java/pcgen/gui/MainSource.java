@@ -51,6 +51,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.*;
@@ -677,37 +678,25 @@ public class MainSource extends FilterAdapterPanel
 
 		center.setLayout(new BorderLayout());
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JPanel leftPane = new JPanel();
 		JPanel rightPane = new JPanel();
-		leftPane.setLayout(gridbag);
+		leftPane.setLayout(new BorderLayout());
 		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
 		center.add(splitPane, BorderLayout.CENTER);
 
-		Utility.buildConstraints(c, 0, 0, 1, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
-
 		JPanel aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
+		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		avaLabel.setText(PropertyFactory.getString("in_available"));
 		aPanel.add(avaLabel);
 		aPanel.add(viewComboBox);
 
-		ImageIcon newImage;
-		newImage = IconUtilitities.getImageIcon("Forward16.gif");
-		rightButton = new JButton(newImage);
-		Utility.setDescription(rightButton, "Click to add the source");
-		rightButton.setEnabled(false);
-		aPanel.add(rightButton);
-		leftPane.add(aPanel);
-		newImage = IconUtilitities.getImageIcon("Refresh16.gif");
+		leftPane.add(aPanel, BorderLayout.NORTH);
 
-		JButton sButton = new JButton(newImage);
+		/*JButton sButton = new JButton(IconUtilitities.getImageIcon("Refresh16.gif"));
+		sButton.setMargin(new Insets(1, 14, 1, 14));
 		Utility.setDescription(sButton, "Click to change the orientation of the tables");
 		sButton.addActionListener(new ActionListener()
 			{
@@ -726,41 +715,28 @@ public class MainSource extends FilterAdapterPanel
 					splitPane.setDividerLocation(.5);
 				}
 			});
-		aPanel.add(sButton);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
+		aPanel.add(sButton);*/
 
 		JScrollPane scrollPane = new JScrollPane(availableTable);
-		gridbag.setConstraints(scrollPane, c);
-		leftPane.add(scrollPane);
+		leftPane.add(scrollPane, BorderLayout.CENTER);
 
-		gridbag = new GridBagLayout();
-		c = new GridBagConstraints();
-		rightPane.setLayout(gridbag);
+		rightButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
+		leftPane.add(buildModSpellPanel(rightButton, "Click to add the source"), BorderLayout.SOUTH);
 
-		Utility.buildConstraints(c, 0, 0, 1, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
+		rightPane.setLayout(new BorderLayout());
+
 		aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
+		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		selLabel.setText(PropertyFactory.getString("in_selected"));
 		aPanel.add(selLabel);
 		aPanel.add(viewSelectComboBox);
-		newImage = IconUtilitities.getImageIcon("Back16.gif");
-		leftButton = new JButton(newImage);
-		Utility.setDescription(leftButton, "Click to remove the source");
-		leftButton.setEnabled(false);
-		aPanel.add(leftButton);
-		rightPane.add(aPanel);
+		rightPane.add(aPanel, BorderLayout.NORTH);
 
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
 		scrollPane = new JScrollPane(selectedTable);
-		gridbag.setConstraints(scrollPane, c);
-		rightPane.add(scrollPane);
+		rightPane.add(scrollPane, BorderLayout.CENTER);
+
+		leftButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
+		rightPane.add(buildModSpellPanel(leftButton, "Click to remove the source"), BorderLayout.SOUTH);
 
 		selectedTable.setColAlign(COL_LOADED, SwingConstants.CENTER);
 
@@ -880,6 +856,24 @@ public class MainSource extends FilterAdapterPanel
 				loadCampaigns();
 			}
 		}
+	}
+
+	/**
+	 * Build the panel with the controls to add a spell to a 
+	 * prepared list.
+	 *  
+	 * @return The panel.
+	 */
+	private JPanel buildModSpellPanel(JButton button, String title)
+	{
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(button, title); //$NON-NLS-1$
+		button.setEnabled(false);
+		button.setMargin(new Insets(1, 14, 1, 14));
+		panel.add(button);
+
+		return panel;
 	}
 
 	private void launchProductWebsite(boolean avail, boolean isProductNotHelp)
