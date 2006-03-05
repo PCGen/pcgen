@@ -169,7 +169,7 @@ These files can be renamed and used for releases.
 	</target>
 
 	<target name="compile-optimize" depends="compile-compile" description="Compile Java sources">
-		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="No" optimize="Yes" memoryInitialSize="128m" memoryMaximumSize="512m">
+		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="No" optimize="Yes" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
