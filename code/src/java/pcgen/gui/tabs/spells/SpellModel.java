@@ -578,18 +578,21 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				for (Iterator iter = spells.iterator(); iter.hasNext();)
 				{
 					Object obj = iter.next();
-					Spell spell = null;
 					if (obj instanceof Spell)
 					{
-						spell = (Spell) obj;
+						Spell spell = (Spell) obj;
+						if (spellTab.shouldDisplayThis(spell))
+						{
+							spellList.add(spell);
+						}
 					}
 					else if (obj instanceof CharacterSpell)
 					{
-						spell = ((CharacterSpell)obj).getSpell();
-					}
-					if (spellTab.shouldDisplayThis(spell))
-					{
-						spellList.add(spell);
+						CharacterSpell charSpell = (CharacterSpell)obj;
+						if (spellTab.shouldDisplayThis(charSpell.getSpell()))
+						{
+							spellList.add(charSpell);
+						}
 					}
 					
 				}
