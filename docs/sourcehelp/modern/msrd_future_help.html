@@ -60,6 +60,66 @@
 	<strong>PCGen</strong> to limit the selection of talents granted by these feats. It will therefore be necessary for
 	you to make sure to comply with these limits when making your selection.</p>
 
+	<h1>Future - Equipment</h1>
+
+	<h2>Purchase DCs</h2>
+
+	<p class="indent1">For most items the <i>Purchase DC</i> will be shown in the Cost field, but we have a problem with the <i>Purchase
+	DC</i>s of items that get applied to a piece of equipment (anything that only shows in the window that pops up when you
+	customize a piece of equipment) if it doesn't add to the base item's <i>Purchase DC</i> but calls for an additional <i>Wealth
+	check</i>. In these cases the <i>Purchase DC</i> cannot be added to the base item and will not show up at all in <strong>PCGen</strong>.
+	It would have been possible to list the additional <i>Purchase DCs</i> in the special properties of the item it gets applied to, but
+	many of these (especially starships) are already quite filled with different informations, so we decided against that.
+	Please look up these <i>Purchase DC</i>s in the <strong><i>Future</i></strong> section of the <strong>MSRD</strong>.</p>
+
+	<h2>Gadgets</h2>
+
+	<p class="indent1"><strong>Alternate Weapon Gadget</strong></p>
+	<p class="indent1">It is not really possible to code this gadget with the current limitations of <strong>PCGen</strong>.
+	You can apply this equipment modifier to a weapon by creating a custom item, but all it will do is put the name of the
+	linked alternate weapon into the weapon's special properties. You still have to buy the alternate weapon (you'd have to pay for it
+	anyway) and equip it as carried. Because there is no real link between the two weapons, it is currently not possible to
+	have both of them equipped to the same hand or let them take up 1 space in a container.</p>
+
+	<p class="indent1"><strong>Autoloader Module Gadget</strong></p>
+	<p class="indent1">The Autoloader Module Gadget is only allowed to be equipped to weapons that have box magazines or power
+	packs for ammo feed. At this time we cannot test for the ammo feed of a weapon, you will therefore have to pay attention
+	to this detail on your own, when applying this gadget.</p>
+
+	<p class="indent1"><strong>Booby Trapped Gadget</strong></p>
+	<p class="indent1">To be eligible to add this gadget to your weapon, you <strong>must</strong> apply the <i>Alternate Weapon Gadget</i> first.</p>
+
+	<p class="indent1"><strong>Satellite Datalink Gadget</strong></p>
+	<p class="indent1">This Gadget should be restricted to being applied to <i>gear containing computerized communications equipment</i>,
+	but it is currently set up to allow items that have the types electronic and surveillance applied to them. While this mostly covers
+	the items of the wanted category, there are a few items included that don't make much sense for this gadget, so take heed at what
+	item you add this gadget to.</p>
+
+	<p class="indent1"><strong>Storage Compartment Gadget</strong></p>
+	<p class="indent1">All this gadget will currently do is to show up in the item name. At this time we cannot change a piece of
+	equipment into a container afterwards. <strong>You will not gain any functionality from this!</strong></p>
+
+	<h2>Starships</h2>
+
+	<p class="indent1">You put a starship on the vehicle slot of your character. Only when applied there, you will see all
+	the bonuses and effects that pertain to your starship. At the time you equip the starship to the vehicle slot, you may
+	also get additional equipment granted to your character (e.g. the starship's weapons). Every piece of starship equipment
+	gained this way should be equipped to <i>not carried</i>.</p>
+
+	<h2>Starship Weapons</h2>
+	<p class="indent1">To add weapons to a starship you customize said starship and add those equipment modifiers to it, which
+	provide the wanted weapon. When you equip your customized starship to the <i>Vehicle</i> slot of your character, these equipment
+	modifiers will automatically add the starship weapons to your character (like personal weapons), but they will be unequipped
+	and you should equip them to <i>not carried</i> as location. This will only work with the existing weapons that come from
+	the sample starships in the MSRD Future. If you want to have weapons in your starship that were customized themselves, you
+	can build and add these to your character, but there is no way to have them show up as part of your starship. As a
+	workaround, you can hand edit the special properties of your starship and put in a reference to the weapon there.</p>
+
+	<p class="indent1"><strong>Fire-linked Weapons</strong></p>
+	<p class="indent1">At this time we are not capable of supplying you with an equipment modifier for <i>fire-linked weapons</i>,
+	therefore you will not be able to simply customize a single starship weapon into groups of <i>fire-linked weapons</i>. You
+	will therefore be limited to those <i>fire-linked weapons</i> that are included in the dataset.</p>
+
 	<h1>Future - Robots</h1>
 
 	<h2>Building Robots</h2>
