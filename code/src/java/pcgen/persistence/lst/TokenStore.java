@@ -44,12 +44,15 @@ public class TokenStore {
 		tokenTypeList.add(EquipmentLstToken.class);
 		tokenTypeList.add(EquipmentModifierLstToken.class);
 		tokenTypeList.add(LanguageLstToken.class);
-		tokenTypeList.add(KitLstToken.class);
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(SkillLstToken.class);
 		tokenTypeList.add(SpellLstToken.class);
 		tokenTypeList.add(SubClassLstToken.class);
 		tokenTypeList.add(WeaponProfLstToken.class);
+		//Kits
+		tokenTypeList.add(KitLstToken.class);
+		tokenTypeList.add(BaseKitLstToken.class);
+		tokenTypeList.add(KitAbilityLstToken.class);
 
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);

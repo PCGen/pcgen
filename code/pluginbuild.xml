@@ -3869,6 +3869,50 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<!-- Base Kit tokens-->
+		<jar jarfile="${lstplugins.dir}/BaseKitLstToken-LOOKUP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/basekit/LookupToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/BaseKitLstToken-OPTION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/basekit/OptionToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<!-- Kit Ability tokens-->
+		<jar jarfile="${lstplugins.dir}/KitAbilityLstToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/ability/AbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/KitAbilityLstToken-COUNT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/ability/CountToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/KitAbilityLstToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/ability/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/KitAbilityLstToken-FREE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/ability/FreeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<!-- System tokens-->

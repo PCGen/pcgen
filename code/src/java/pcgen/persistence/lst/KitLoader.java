@@ -23,33 +23,11 @@
 package pcgen.persistence.lst;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
-import pcgen.core.Constants;
-import pcgen.core.Globals;
-import pcgen.core.Kit;
-import pcgen.core.kit.KitAbilities;
-import pcgen.core.kit.KitAlignment;
-import pcgen.core.kit.KitClass;
-import pcgen.core.kit.KitDeity;
-import pcgen.core.kit.KitFunds;
-import pcgen.core.kit.KitGear;
-import pcgen.core.kit.KitKit;
-import pcgen.core.kit.KitProf;
-import pcgen.core.kit.KitRace;
-import pcgen.core.kit.KitSkill;
-import pcgen.core.kit.KitSpells;
-import pcgen.core.kit.KitStat;
-import pcgen.core.kit.KitTemplate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.util.Logging;
-import pcgen.core.kit.KitSelect;
-import pcgen.core.kit.BaseKit;
-import pcgen.core.kit.KitLevelAbility;
-import pcgen.core.kit.KitBio;
 import java.util.Map;
+
+import pcgen.core.Kit;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.Logging;
 
 /**
  *
@@ -106,5 +84,4 @@ final class KitLoader
 				+ inputLine + "\"");
 		}
 	}
-
 }
