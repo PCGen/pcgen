@@ -358,6 +358,13 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 		</copy>
 	</target>
 
+	<target name="build-plugins" depends="clean-plugins" description="Maven hook for building plugins.">
+		<mkdir dir="${basedir}/target/classes" />
+		<antcall target="jar-all-plugins">
+			<!-- param name="build.classes.dir" value="${basedir}/target/classes"/ -->
+		</antcall>
+	</target>
+
 	<target name="build13" depends="compile13, jar, build-extra" description="Do an [incremental] build (compile, jar).">
 		<!-- fix for UNIXen; harmless on Windows -->
 		<chmod file="pcgendev.sh" perm="a+rx" />

@@ -1,5 +1,10 @@
 <project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
     xmlns:ant="jelly:ant" xmlns:u="jelly:util">
+	<goal name="generate-jars">
+		<ant:ant dir="${basedir}" antfile="build.xml" target="build-plugins">
+			<property name="build.classes.dir" value="${maven.build.dest}"/>
+		</ant:ant>
+	</goal>
     <preGoal name="java:compile">
         <attainGoal name="javacc:javacc-generate"/>
         <!-- Kludge around a typo in the JavaCC  -->
@@ -8,5 +13,8 @@
         <maven:addPath id="maven.compile.src.set"
             refid="maven.javacc.compile.src.set"/>
     </preGoal>
+    <postGoal name="java:compile">
+		<attainGoal name="generate-jars" />
+    </postGoal>
     
 </project>    
