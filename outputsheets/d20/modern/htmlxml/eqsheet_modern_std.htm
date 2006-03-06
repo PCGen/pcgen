@@ -7,7 +7,7 @@ PCGen Modern Character Sheet for Equipment Sets
 this is basically eqsheet_fantasy_std.htm with
 minor changes for the modern gamemode.
 
-Original Sheet 
+Original Sheet
 Author by: Jayme Cox
 Email: jaymecox@netscape.net
 
@@ -433,6 +433,8 @@ TBODY TR TD.firstItem
       </tr>
 
 |FOR,%num,0,COUNT[EQUIPMENT]-1,1,0|
+|IIF(EQ.%num.TYPE:VIRTUAL)|
+|ELSE|
 |IIF(EVEN:%num)|
     <tr style="background-color:#D0D0D0;">
 |ELSE|
@@ -448,6 +450,7 @@ TBODY TR TD.firstItem
       <td>|EQ.%num.WT|</td>
       <td>|EQ.%num.COST|</td>
       </tr>
+|ENDIF|
 |ENDFOR|
     <tr>
       <td class="gborder" align="right"  colspan="2">TOTAL WEIGHT CARRIED</td>

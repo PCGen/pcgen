@@ -2916,7 +2916,7 @@
 				<fo:table-body>
 
 					<xsl:for-each select="item">
-						<xsl:if test="false=contains(type, 'GEM') and false=contains(type, 'COIN')">
+						<xsl:if test="false=contains(type, 'GEM') and false=contains(type, 'VIRTUAL')">
 							<xsl:variable name="content">
 								<fo:table-cell>
 									<fo:block space-before.optimum="1pt" font-size="8pt">

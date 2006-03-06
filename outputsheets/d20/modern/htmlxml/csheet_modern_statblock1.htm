@@ -5,7 +5,7 @@
 <title>|NAME|, |GENDER.LONG| |RACE|</title>
 <!--
 	*** This is csheet_fantasy_statblock1 with modern additions - Frank Kliewe ***
-		
+
 
 $Revision: 1.3 $
 $Author: eddyanthony $
@@ -93,7 +93,7 @@ $Date: 2006/01/17 02:46:43 $
     <td width="25%"><b>Saves: </b></td>
     <td width="75%">
 |FOR,%checks,0,COUNT[CHECKS]-2,1,0|
-|CHECK.%checks.NAME|: |CHECK.%checks.TOTAL|, 
+|CHECK.%checks.NAME|: |CHECK.%checks.TOTAL|,
 |ENDFOR|
 |FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
 |CHECK.%checks.NAME|: |CHECK.%checks.TOTAL|
@@ -140,7 +140,20 @@ $Date: 2006/01/17 02:46:43 $
     <td width="75%">|VAR.WEALTH.INTVAL|</td>
   </tr>
 </table>
-<p><b>Possessions: </b>|FOR.0,COUNT[EQUIPMENT],100,\EQ.%.NAME\; , , ,0|
+<p><b>Possessions: </b>
+|FOR,%equip,0,COUNT[EQUIPMENT]-2,1,1|
+|IIF(EQ.%equip.TYPE:VIRTUAL)|
+|ELSE|
+|EQ.%equip.NAME|,
+|ENDIF|
+|ENDFOR|
+|FOR,%equip,COUNT[EQUIPMENT]-1,COUNT[EQUIPMENT]-1,1,1|
+|IIF(EQ.%equip.TYPE:VIRTUAL)|
+|ELSE|
+|EQ.%equip.NAME|
+|ENDIF|
+;
+|ENDFOR|
 </p>
 |%REGION|<p> Region: |REGION| </p>|%|
 |%DOMAIN.1|

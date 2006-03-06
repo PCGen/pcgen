@@ -851,20 +851,20 @@
         <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
         <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
        </tr>
-|FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2,1,0|
+|FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Virtual.NOT.Gem]-1)/2,1,0|
 |OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-        <td valign="top" class="border8">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b>|&nbsp;
-|IIF(EQ.Not.Coin.NOT.Gem.%equip1.SPROP: )|
-        <font style="font-size: 5pt">(|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|)</font><br />
+        <td valign="top" class="border8">&nbsp;|EQ.Not.Virtual.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b>|&nbsp;
+|IIF(EQ.Not.Virtual.NOT.Gem.%equip1.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.Not.Virtual.NOT.Gem.%equip1.SPROP|)</font><br />
 |ENDIF|
-|FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip1.CHARGES,1,0|
+|FOR,%charges,1,EQ.Not.Virtual.NOT.Gem.%equip1.CHARGES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
         </td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.QTY|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.WT|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.COST|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip1.LOCATION|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip1.QTY|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip1.WT|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip1.COST|<br /></td>
        </tr>
 |ENDFOR|
       </table>
@@ -878,20 +878,20 @@
         <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
         <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
        </tr>
-|FOR,%equip2,((COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2)+1,COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1,1,0|
+|FOR,%equip2,((COUNT[EQUIPMENT.Not.Virtual.NOT.Gem]-1)/2)+1,COUNT[EQUIPMENT.Not.Virtual.NOT.Gem]-1,1,0|
 |OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-        <td valign="top" class="border8">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip2.NAME.MAGIC~<b>~</b>|<br />
-|IIF(EQ.Not.Coin.NOT.Gem.%equip2.SPROP: )|
-        <font style="font-size: 5pt">(|EQ.Not.Coin.NOT.Gem.%equip2.SPROP|)</font><br />
+        <td valign="top" class="border8">&nbsp;|EQ.Not.Virtual.NOT.Gem.%equip2.NAME.MAGIC~<b>~</b>|<br />
+|IIF(EQ.Not.Virtual.NOT.Gem.%equip2.SPROP: )|
+        <font style="font-size: 5pt">(|EQ.Not.Virtual.NOT.Gem.%equip2.SPROP|)</font><br />
 |ENDIF|
-|FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip2.CHARGES,1,0|
+|FOR,%charges,1,EQ.Not.Virtual.NOT.Gem.%equip2.CHARGES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
         </td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.LOCATION|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.QTY|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.WT|<br /></td>
-        <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.COST|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip2.LOCATION|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip2.QTY|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip2.WT|<br /></td>
+        <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip2.COST|<br /></td>
        </tr>
 |ENDFOR|
        <tr>
