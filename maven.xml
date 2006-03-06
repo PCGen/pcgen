@@ -16,5 +16,7 @@
     <postGoal name="java:compile">
 		<attainGoal name="generate-jars" />
     </postGoal>
-    
+    <preGoal name="maven-javadoc-plugin:report">
+    	<attainGoal name="java:compile"/>
+    </preGoal>
 </project>    
