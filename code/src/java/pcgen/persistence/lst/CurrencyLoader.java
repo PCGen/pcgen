@@ -40,7 +40,7 @@ import java.util.StringTokenizer;
  * Current Ver: $Revision: 1.7 $ <br>
  * Last Editor: $Author: binkley $ <br>
  * Last Edited: $Date: 2005/10/18 20:23:53 $
- *
+ * @deprecated
  * @author AD9C15
  */
 public class CurrencyLoader extends LstLineFileLoader
@@ -60,6 +60,7 @@ public class CurrencyLoader extends LstLineFileLoader
 	public void parseLine(String lstLine, URL sourceURL)
 		throws PersistenceLayerException
 	{
+		LstUtils.deprecationWarning("COIN file type deprecated.  Currency is declared in equipment files");
 		DenominationList denominationList = DenominationList.getInstance();
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);

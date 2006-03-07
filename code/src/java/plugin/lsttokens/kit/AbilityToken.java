@@ -24,15 +24,10 @@
  */
 package plugin.lsttokens.kit;
 
-import java.util.StringTokenizer;
-
 import pcgen.core.Kit;
-import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.KitAbilityLoader;
 import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
 
 /**
  * Handles the ABILITY tag for Kits.

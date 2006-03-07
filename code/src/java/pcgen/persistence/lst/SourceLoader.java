@@ -63,7 +63,7 @@ public class SourceLoader {
 	{
 		Map sourceMap = new HashMap();
 		if(value.indexOf("|") != -1) {
-			Logging.errorPrint("Use of SOURCELONG:<value>|SOURCESHORT:<value>|SOURCEWEB:<value>|SOURCEPAGE:<value> is deprecated.  These need to be split up into separate tokens");
+			LstUtils.deprecationWarning("Use of SOURCELONG:<value>|SOURCESHORT:<value>|SOURCEWEB:<value>|SOURCEPAGE:<value> is deprecated.  These need to be split up into separate tokens");
 		}
 		StringTokenizer aTok = new StringTokenizer(value, "|");
 

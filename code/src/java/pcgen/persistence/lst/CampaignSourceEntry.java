@@ -25,11 +25,11 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.core.Campaign;
-import pcgen.core.utils.CoreUtility;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.core.Campaign;
+import pcgen.core.utils.CoreUtility;
 
 /**
  * This class is used to match a source file to the campaign that

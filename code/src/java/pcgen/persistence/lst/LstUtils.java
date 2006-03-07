@@ -26,7 +26,7 @@ public class LstUtils {
 			sb.append(obj.getSource());
 			sb.append(". ");
 			sb.append(((Deprecated)token).getMessage(obj, value));
-			Logging.errorPrint(sb.toString());
+			deprecationWarning(sb.toString());
 		}
 	}
 
@@ -49,7 +49,11 @@ public class LstUtils {
 			sb.append(source);
 			sb.append(". ");
 			sb.append(((Deprecated)token).getMessage(null, value));
-			Logging.errorPrint(sb.toString());
+			deprecationWarning(sb.toString());
 		}
+	}
+	
+	public static void deprecationWarning(String warning) {
+		Logging.errorPrint(warning);
 	}
 }
