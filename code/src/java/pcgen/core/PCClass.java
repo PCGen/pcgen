@@ -2656,7 +2656,6 @@ public class PCClass extends PObject
 
 		buildPccText(pccTxt, featList.iterator(), ":", "\tFEAT:", lineSep);
 
-		//buildPccText(pccTxt, vFeatList.iterator(), ":", "\tVFEAT:", lineSep);
 		buildPccText(pccTxt, featAutos.iterator(), "|", "\tFEATAUTO:", lineSep);
 
 		if ((uattList != null) && (uattList.size() != 0))
