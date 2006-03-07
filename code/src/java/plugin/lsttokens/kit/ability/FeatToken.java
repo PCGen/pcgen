@@ -26,6 +26,7 @@ package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.lst.KitAbilityLstToken;
+import pcgen.util.Logging;
 
 public class FeatToken implements KitAbilityLstToken
 {
@@ -36,12 +37,12 @@ public class FeatToken implements KitAbilityLstToken
 	 */
 	public String getTokenName()
 	{
-		return "FREE";
+		return "FEAT";
 	}
 
 	public boolean parse(KitAbilities kitAbility, String value) 
 	{
-		kitAbility.setFree(value.toUpperCase().startsWith("Y"));
-		return true;
+		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value + "\" in Kit.");
+		return false;
 	}
 }

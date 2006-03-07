@@ -37,7 +37,7 @@ public class AbilityToken implements KitAbilityLstToken
 	 */
 	public String getTokenName()
 	{
-		return "FEAT";
+		return "ABILITY";
 	}
 
 	public boolean parse(KitAbilities kitAbility, String value) 

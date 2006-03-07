@@ -37,12 +37,12 @@ public class FreeToken implements KitAbilityLstToken
 	 */
 	public String getTokenName()
 	{
-		return "FEAT";
+		return "FREE";
 	}
 
 	public boolean parse(KitAbilities kitAbility, String value) 
 	{
-		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value + "\" in Kit.");
-		return false;
+		kitAbility.setFree(value.toUpperCase().startsWith("Y"));
+		return true;
 	}
 }
