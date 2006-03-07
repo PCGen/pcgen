@@ -69,6 +69,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
@@ -145,7 +147,6 @@ public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 	private JButton rightButton;
 	private JButton selButton = new JButton(PropertyFactory.getString("in_select"));
 	private JButton clearQFilterButton = new JButton("Clear");
-	private JButton setQFilterButton = new JButton("Set");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private final JLabel avaLabel = new JLabel(PropertyFactory.getString("in_irAvaTmpl"));
 	private JLabel lblHDModify = new JLabel(PropertyFactory.getString("in_sumHDToAddRem"));
@@ -685,16 +686,17 @@ public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 					viewComboBoxActionPerformed();
 				}
 			});
-		textQFilter.addActionListener(new ActionListener()
+		textQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void changedUpdate(DocumentEvent evt)
 				{
 					setQFilter();
 				}
-			});
-		setQFilterButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
 				{
 					setQFilter();
 				}
@@ -770,7 +772,7 @@ public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 		// A weight of 4 and 96 instead of 5/95 like others to allow for the
 		// gridBagLayout used for the Monster HD - to still allow the base header
 		// without MonsterHD to match Class and Skills and Feat Tabs (headers)
-		Utility.buildConstraints(c, 0, 0, 4, 1, 100, 5); //gx,gy,gw,gh,wx,wy
+		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5); //gx,gy,gw,gh,wx,wy
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.CENTER;
 
@@ -865,20 +867,13 @@ public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(setQFilterButton, c);
-		setQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
-		leftPane.add(setQFilterButton);
-
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
 		gridbag.setConstraints(clearQFilterButton, c);
 		clearQFilterButton.setEnabled(false);
 		leftPane.add(clearQFilterButton);
 
 		// Left Pane - Data (Race Table)
 		// build the available races panel
-		Utility.buildConstraints(c, 0, 2, 4, 1, 100, 95);
+		Utility.buildConstraints(c, 0, 2, 3, 1, 100, 95);
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.CENTER;
 
@@ -1256,10 +1251,12 @@ public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		String aString = textQFilter.getText();
 
-		if (aString.length() != 0)
+		if (aString.length() == 0)
 		{
-			raceModel.setQFilter(aString);
+			clearQFilter();
+			return;
 		}
+		raceModel.setQFilter(aString);
 
 		if (saveViewMode == null)
 		{

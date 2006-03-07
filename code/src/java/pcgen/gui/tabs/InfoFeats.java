@@ -68,6 +68,8 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
@@ -161,8 +163,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private JButton leftButton;
 	private JButton clearAvailableQFilterButton = new JButton("Clear");
 	private JButton clearSelectedQFilterButton = new JButton("Clear");
-	private JButton setAvailableQFilterButton = new JButton("Set");
-	private JButton setSelectedQFilterButton = new JButton("Set");
 	private JComboBoxEx viewAvailComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JCheckBox chkViewAll = new JCheckBox();
@@ -927,16 +927,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					viewSelectComboBoxActionPerformed();
 				}
 			});
-		textAvailableQFilter.addActionListener(new ActionListener()
+		textAvailableQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void changedUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
-			});
-		setAvailableQFilterButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setAvailableQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
@@ -948,16 +949,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					clearAvailableQFilter();
 				}
 			});
-		textSelectedQFilter.addActionListener(new ActionListener()
+		textSelectedQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void changedUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
-			});
-		setSelectedQFilterButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setSelectedQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
@@ -1219,8 +1221,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		leftPane.setLayout(new BorderLayout());
 
 		JLabel avaLabel = new JLabel("Available: ");
-		setAvailableQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
-		leftPane.add(createFilterPane(avaLabel, viewAvailComboBox, lblAvailableQFilter, textAvailableQFilter, setAvailableQFilterButton, clearAvailableQFilterButton), BorderLayout.NORTH);
+		leftPane.add(createFilterPane(avaLabel, viewAvailComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -1237,8 +1238,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		rightPane.setLayout(new BorderLayout());
 
 		JLabel selLabel = new JLabel("Selected: ");
-		setSelectedQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
-		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, setSelectedQFilterButton, clearSelectedQFilterButton), BorderLayout.NORTH);
+		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
 		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
@@ -1292,7 +1292,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		return panel;
 	}
 
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton setButton, JButton clearButton)
+	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
 	{
 		GridBagConstraints c = new GridBagConstraints();
 		JPanel filterPanel = new JPanel(new GridBagLayout());
@@ -1322,12 +1322,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		filterPanel.add(filterText, c);
 		
 		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(setButton, c);
-
-		Utility.buildConstraints(c, 5, 0, 1, 1, 0, 0);
 		c.insets = new Insets(1, 2, 1, 2);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
@@ -2630,10 +2624,12 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	{
 		String aString = textAvailableQFilter.getText();
 
-		if (aString.length() != 0)
+		if (aString.length() == 0)
 		{
-			availableModel.setQFilter(aString);
+			clearAvailableQFilter();
+			return;
 		}
+		availableModel.setQFilter(aString);
 
 		if (saveAvailableViewMode == null)
 		{
@@ -2650,10 +2646,12 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	{
 		String aString = textSelectedQFilter.getText();
 
-		if (aString.length() != 0)
+		if (aString.length() == 0)
 		{
-			selectedModel.setQFilter(aString);
+			clearSelectedQFilter();
+			return;
 		}
+		selectedModel.setQFilter(aString);
 
 		if (saveSelectedViewMode == null)
 		{

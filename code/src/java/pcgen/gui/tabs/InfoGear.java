@@ -78,6 +78,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -182,8 +184,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private JButton removeButton;
 	private JButton clearAvailableQFilterButton = new JButton("Clear");
 	private JButton clearSelectedQFilterButton = new JButton("Clear");
-	private JButton setAvailableQFilterButton = new JButton("Set");
-	private JButton setSelectedQFilterButton = new JButton("Set");
 	private JCheckBox allowDebtBox = new JCheckBox("Allow Debt");
 	private JCheckBox autoResize   = new JCheckBox("Auto Resize");
 	private JCheckBox autoSort     = new JCheckBox("Auto-sort output", true);
@@ -1660,9 +1660,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					setAvailableQFilter();
 				}
 			});
-		setAvailableQFilterButton.addActionListener(new ActionListener()
+		textAvailableQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void changedUpdate(DocumentEvent evt)
+				{
+					setAvailableQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setAvailableQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
@@ -1681,9 +1689,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					setSelectedQFilter();
 				}
 			});
-		setSelectedQFilterButton.addActionListener(new ActionListener()
+		textSelectedQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void changedUpdate(DocumentEvent evt)
+				{
+					setSelectedQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setSelectedQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
@@ -1936,7 +1952,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		center.add(splitPane, BorderLayout.CENTER);
 
-		Utility.buildConstraints(c, 0, 0, 4, 1, 100, 5);
+		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.CENTER;
 
@@ -1968,13 +1984,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(setAvailableQFilterButton, c);
-		setAvailableQFilterButton.setToolTipText("Set a Filter on the list of equipment below, e.g. 'sword'");
-		leftPane.add(setAvailableQFilterButton);
-
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
 		gridbag.setConstraints(clearAvailableQFilterButton, c);
 		clearAvailableQFilterButton.setEnabled(false);
 		leftPane.add(clearAvailableQFilterButton);
@@ -1983,7 +1992,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		availableTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
 		availableTable.setColAlign(COL_QTY_SRC, SwingConstants.LEFT);
 
-		Utility.buildConstraints(c, 0, 2, 4, 1, 0, 95);
+		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 95);
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.CENTER;
 		scrollPane = new JScrollPane(availableTable);
@@ -1994,7 +2003,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		c = new GridBagConstraints();
 		rightPane.setLayout(gridbag);
 
-		Utility.buildConstraints(c, 0, 0, 4, 1, 100, 5);
+		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.CENTER;
 		aPanel = new JPanel();
@@ -2024,13 +2033,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(setSelectedQFilterButton, c);
-		setSelectedQFilterButton.setToolTipText("Set a Filter on the list of equipment below, e.g. 'sword'");
-		rightPane.add(setSelectedQFilterButton);
-
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
 		gridbag.setConstraints(clearSelectedQFilterButton, c);
 		clearSelectedQFilterButton.setEnabled(false);
 		rightPane.add(clearSelectedQFilterButton);
@@ -2043,7 +2045,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellRenderer(new OutputOrderRenderer());
 		selectedTable.getColumnModel().getColumn(COL_INDEX).setPreferredWidth(20);
 
-		Utility.buildConstraints(c, 0, 2, 4, 1, 0, 90);
+		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 90);
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.CENTER;
 		scrollPane = new JScrollPane(selectedTable);
@@ -2371,10 +2373,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	{
 		String aString = textAvailableQFilter.getText();
 
-		if (aString.length() != 0)
+		if (aString.length() == 0)
 		{
-			availableModel.setQFilter(aString);
+			clearAvailableQFilter();
+			return;
 		}
+		availableModel.setQFilter(aString);
 
 		if (saveAvailableViewMode == null)
 		{
@@ -2392,10 +2396,13 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	{
 		String aString = textSelectedQFilter.getText();
 
-		if (aString.length() != 0)
+		if (aString.length() == 0)
 		{
-			selectedModel.setQFilter(aString);
+			clearSelectedQFilter();
+			return;
 		}
+		availableModel.setQFilter(aString);
+		selectedModel.setQFilter(aString);
 
 		if (saveSelectedViewMode == null)
 		{

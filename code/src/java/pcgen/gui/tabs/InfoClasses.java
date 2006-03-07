@@ -42,6 +42,8 @@ import pcgen.util.PropertyFactory;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
@@ -83,7 +85,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private JButton hpButton = null;
 	private JButton removeButton;
 	private JButton clearQFilterButton = new JButton("Clear");
-	private JButton setQFilterButton = new JButton("Set");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JTree availableTree = null;
@@ -854,27 +855,28 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
 		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), false));
 
-		textQFilter.addActionListener(new ActionListener()
+		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+			{
+				public void changedUpdate(DocumentEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						setQFilter();
-					}
-				});
-			setQFilterButton.addActionListener(new ActionListener()
+					setQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						setQFilter();
-					}
-				});
-			clearQFilterButton.addActionListener(new ActionListener()
+					setQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						clearQFilter();
-					}
-				});
+					setQFilter();
+				}
+			});
+		clearQFilterButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					clearQFilter();
+				}
+			});
 		FilterFactory.restoreFilterSettings(this);
 	}
 
@@ -990,7 +992,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		center.add(splitPane, BorderLayout.CENTER);
 
 		//  Top Left Pane - Available Classes
-		Utility.buildConstraints(c, 0, 0, 4, 1, 100, 5);
+		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.CENTER;
 
@@ -1022,13 +1024,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(setQFilterButton, c);
-		setQFilterButton.setToolTipText("Set a Filter on the list of feats below, e.g. 'spell'");
-		leftPane.add(setQFilterButton);
-
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
 		gridbag.setConstraints(clearQFilterButton, c);
 		clearQFilterButton.setEnabled(false);
 		leftPane.add(clearQFilterButton);
@@ -1036,7 +1031,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		selectedTable.setColAlign(1, SwingConstants.CENTER);
 		selectedTable.getColumnModel().getColumn(1).setPreferredWidth(15);
 
-		Utility.buildConstraints(c, 0, 2, 4, 1, 0, 95);
+		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 95);
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.CENTER;
 
@@ -1553,10 +1548,12 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	{
 		String aString = textQFilter.getText();
 
-		if (aString.length() != 0)
+		if (aString.length() == 0)
 		{
-			availableModel.setQFilter(aString);
+			clearQFilter();
+			return;
 		}
+		availableModel.setQFilter(aString);
 
 		if (saveViewMode == null)
 		{
