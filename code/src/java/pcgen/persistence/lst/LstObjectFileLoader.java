@@ -291,7 +291,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			}
 			else if (line.startsWith("SOURCE"))
 			{
-				sourceMap = PObjectLoader.parseSource(line);
+				sourceMap = SourceLoader.parseLine(line, sourceEntry.getFile());
 			}
 			else if (tokens[0].indexOf(".COPY") > 0)
 			{

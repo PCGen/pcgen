@@ -26,7 +26,6 @@ package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.lst.KitAbilityLstToken;
-import pcgen.util.Logging;
 
 public class FreeToken implements KitAbilityLstToken
 {

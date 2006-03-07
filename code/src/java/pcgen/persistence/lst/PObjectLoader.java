@@ -26,11 +26,9 @@
 package pcgen.persistence.lst;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
@@ -142,13 +140,9 @@ public final class PObjectLoader {
 					}
 				}
 			}
-			else if (aTag.startsWith("SOURCE"))
-			{
-				obj.setSourceMap(parseSource(aTag));
-			}
 			else if (aTag.startsWith("VFEAT:"))
 			{
-					featList.add(new PObjectHelper(obj, aTag.substring(6), anInt));
+				featList.add(new PObjectHelper(obj, aTag.substring(6), anInt));
 			}
 			else
 			{
@@ -167,28 +161,5 @@ public final class PObjectLoader {
 			List vFeatList = FeatParser.parseVirtualFeatList(p.getTag());
 			p.getObject().addVirtualFeats(vFeatList);
 		}
-	}
-
-	/**
-	 * This method parses a line in an LST file containing the source information
-	 * into the map form used by a PObject.
-	 *
-	 * @param value String LST formatted source information line
-	 * @return Map of source forms
-	 */
-	public static Map parseSource(String value)
-	{
-		Map sourceMap = new HashMap();
-		StringTokenizer aTok = new StringTokenizer(value, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			String arg = aTok.nextToken();
-			String key = arg.substring(6, arg.indexOf(':'));
-			String val = arg.substring(arg.indexOf(':') + 1);
-			sourceMap.put(key, val);
-		}
-
-		return sourceMap;
 	}
 }
