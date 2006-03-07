@@ -24,16 +24,19 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.core.*;
-import pcgen.core.bonus.BonusObj;
+import java.net.URL;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.core.Constants;
+import pcgen.core.GameMode;
+import pcgen.core.PointBuyCost;
+import pcgen.core.PointBuyMethod;
+import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-
-import java.net.URL;
-import java.util.Iterator;
-import java.util.StringTokenizer;
 
 /**
  * This class is a LstFileLoader used to load point-buy methods.
@@ -60,35 +63,39 @@ public class PointBuyLoader extends LstLineFileLoader
 	 */
 	public void parseLine(String lstLine, URL sourceURL)
 	{
-		boolean bError;
-		if (lstLine.startsWith("STAT:"))
+		GameMode gameMode = SystemCollections.getGameModeNamed(getGameMode());
+		final int idxColon = lstLine.indexOf(':');
+		if (idxColon < 0)
 		{
-			bError = parseStatLine(lstLine.substring(5));
+			return;
 		}
-		else if (lstLine.startsWith("METHOD:"))
+
+		final String key = lstLine.substring(0, idxColon);
+		final String value = lstLine.substring(idxColon + 1);
+		Map tokenMap = TokenStore.inst().getTokenMap(PointBuyLstToken.class);
+		PointBuyLstToken token = (PointBuyLstToken) tokenMap.get(key);
+		if (token != null)
 		{
-			bError = parseMethodLine(lstLine.substring(7));
+			LstUtils.deprecationCheck(token, gameMode.getName(), sourceURL.toString(), value);
+			if (!token.parse(gameMode, value))
+			{
+				Logging.errorPrint("Error parsing point buy method " + gameMode.getName() + '/' + sourceURL.toString() + ':' + " \"" + lstLine + "\"");
+			}
 		}
 		else
 		{
-			bError = true;
-		}
-
-		if (bError)
-		{
-			Logging.errorPrint("Illegal point buy info '" + lstLine + "' in " + sourceURL.toString());
+			Logging.errorPrint("Illegal point buy method info " + gameMode.getName() + '/' + sourceURL.toString() + ':' +  " \"" + lstLine + "\"");
 		}
 	}
 
-	private boolean parseStatLine(String lstLine)
+	public static boolean parseStatLine(GameMode gameMode, String lstLine)
 	{
-		final StringTokenizer pbTok = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		int statValue;
-		String aTag = pbTok.nextToken();
 		try
 		{
-			statValue = Integer.parseInt(aTag);
+			statValue = Integer.parseInt(colToken.nextToken());
 		}
 		catch (NumberFormatException exc)
 		{
@@ -96,28 +103,36 @@ public class PointBuyLoader extends LstLineFileLoader
 			return true;
 		}
 
-
 		PointBuyCost pbc = new PointBuyCost(statValue);
 
-		while(pbTok.hasMoreTokens())
+		Map tokenMap = TokenStore.inst().getTokenMap(PointBuyStatLstToken.class);
+		while(colToken.hasMoreTokens())
 		{
-			aTag = pbTok.nextToken();
-			if (aTag.startsWith("COST:"))
+			final String colString = colToken.nextToken().trim();
+
+			final int idxColon = colString.indexOf(':');
+			String key = "";
+			try
 			{
-				try
+				key = colString.substring(0, idxColon);
+			}
+			catch(StringIndexOutOfBoundsException e) {
+				// TODO Handle Exception
+			}
+			PointBuyStatLstToken token = (PointBuyStatLstToken) tokenMap.get(key);
+
+			if (token != null)
+			{
+				final String value = colString.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, gameMode.getName(), "pointbuymethod.lst", value);
+				if (!token.parse(pbc, value))
 				{
-					final int cost = Integer.parseInt(aTag.substring(5));
-					pbc.setStatCost(cost);
-				}
-				catch (NumberFormatException exc)
-				{
-					Logging.errorPrint("NumberFormatException in Point Buy Line:" + Constants.s_LINE_SEP, exc);
-					return true;
+					Logging.errorPrint("Error parsing point buy method " + gameMode.getName() + ':' + colString + "\"");
 				}
 			}
-			else if (aTag.startsWith("PRE") || aTag.startsWith("!PRE") || aTag.startsWith("RESTRICT:"))
+			else if (colString.startsWith("PRE") || colString.startsWith("!PRE") || colString.startsWith("RESTRICT:"))
 			{
-				if (aTag.toUpperCase().equals("PRE:.CLEAR"))
+				if (colString.toUpperCase().equals("PRE:.CLEAR"))
 				{
 					pbc.clearPreReq();
 				}
@@ -126,76 +141,62 @@ public class PointBuyLoader extends LstLineFileLoader
 					try
 					{
 						PreParserFactory factory = PreParserFactory.getInstance();
-						pbc.addPreReq(factory.parse(aTag));
+						pbc.addPreReq(factory.parse(colString));
 					}
 					catch (PersistenceLayerException ple)
 					{
 						Logging.errorPrint("PersistenceLayerException in Point Buy Line:" + Constants.s_LINE_SEP, ple);
-						return true;
+						return false;
 					}
 				}
 			}
 			else
 			{
-				return true;
+				return false;
 			}
 		}
 
-		SystemCollections.getGameModeNamed(getGameMode()).addPointBuyStatCost(pbc);
+		gameMode.addPointBuyStatCost(pbc);
 
-		return false;
+		return true;
 	}
 
-	private boolean parseMethodLine(String lstLine)
+	public static boolean parseMethodLine(GameMode gameMode, String lstLine)
 	{
-		final StringTokenizer pbTok = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		final PObject dummy = new PObject();
-		PointBuyMethod pbm = new PointBuyMethod(pbTok.nextToken(), "0");
-		boolean bError = false;
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		PointBuyMethod pbm = new PointBuyMethod(colToken.nextToken(), "0");
 
-		while(pbTok.hasMoreTokens())
+		Map tokenMap = TokenStore.inst().getTokenMap(PointBuyMethodLstToken.class);
+		while(colToken.hasMoreTokens())
 		{
-			final String aTag = pbTok.nextToken();
-			if (aTag.startsWith("POINTS:"))
+			final String colString = colToken.nextToken().trim();
+
+			final int idxColon = colString.indexOf(':');
+			String key = "";
+			try
 			{
-				pbm.setPointFormula(aTag.substring(7));
+				key = colString.substring(0, idxColon);
 			}
-			else if (aTag.startsWith("BONUS:"))
+			catch(StringIndexOutOfBoundsException e) {
+				// TODO Handle Exception
+			}
+			PointBuyMethodLstToken token = (PointBuyMethodLstToken) tokenMap.get(key);
+
+			if (token != null)
 			{
-				//
-				// Parse into dummy PObject object
-				//
-				try
+				final String value = colString.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, gameMode.getName(), "pointbuymethod.lst", value);
+				if (!token.parse(pbm, value))
 				{
-					if (!PObjectLoader.parseTag(dummy, aTag))
-					{
-						bError = true;
-					}
-				}
-				catch(PersistenceLayerException ple)
-				{
-					bError = true;
+					Logging.errorPrint("Error parsing point buy method " + gameMode.getName() + ':' + colString + "\"");
 				}
 			}
 			else
 			{
-				bError = true;
+				return false;
 			}
 		}
-		if (!bError)
-		{
-			//
-			// Copy bonus list into PointBuyMethod object
-			//
-			for (Iterator ab = dummy.getBonusList().iterator(); ab.hasNext();)
-			{
-				final BonusObj aBonus = (BonusObj) ab.next();
-
-//				aBonus.setCreatorObject(null);
-				pbm.addBonusList(aBonus);
-			}
-			SystemCollections.getGameModeNamed(getGameMode()).addPurchaseModeMethod(pbm);
-		}
-		return bError;
+		gameMode.addPurchaseModeMethod(pbm);
+		return true;
 	}
 }

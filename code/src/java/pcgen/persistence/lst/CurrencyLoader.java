@@ -43,13 +43,13 @@ import java.util.StringTokenizer;
  *
  * @author AD9C15
  */
-public class CurrencyParser extends LstLineFileLoader
+public class CurrencyLoader extends LstLineFileLoader
 {
 	/**
 	 * CurrencyParser Constructor.
 	 *
 	 */
-	public CurrencyParser()
+	public CurrencyLoader()
 	{
 		super();
 	}

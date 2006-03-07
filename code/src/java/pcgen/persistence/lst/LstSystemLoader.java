@@ -147,7 +147,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	private BioSetLoader bioLoader             = new BioSetLoader();
 	private CampaignLoader campaignLoader      = new CampaignLoader();
 	private CampaignSourceEntry globalCampaign = new CampaignSourceEntry(new Campaign(), "System Configuration Document");
-	private CurrencyParser currencyParser      = new CurrencyParser();
+	private CurrencyLoader currencyParser      = new CurrencyLoader();
 	private DeityLoader deityLoader            = new DeityLoader();
 	private DomainLoader domainLoader          = new DomainLoader();
 	private AbilityLoader abilityLoader        = new AbilityLoader();

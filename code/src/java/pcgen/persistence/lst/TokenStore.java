@@ -76,6 +76,11 @@ public class TokenStore {
 
 		//rules.js
 		tokenTypeList.add(RuleCheckLstToken.class);
+		
+		//pointbuymethod.lst
+		tokenTypeList.add(PointBuyLstToken.class);
+		tokenTypeList.add(PointBuyMethodLstToken.class);
+		tokenTypeList.add(PointBuyStatLstToken.class);
 	}
 
 	/**
