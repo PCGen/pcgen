@@ -1,5 +1,5 @@
 # CVS $Revision: 1.19 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 # Spell Level stuff in Domains.lst as well as spells.lst
 # the SPELLS tag in the Animal Domain for 'speak with animals' was removed because as of version 5.7.14 SPELLS doesn't work in domain.lst files

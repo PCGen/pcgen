@@ -1,5 +1,5 @@
 # CVS $Revision: 1.20 $ $Author: eddyanthony $ -- Fri Feb  3 01:42:49 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Merton Monk and Glddragon35
 
 #NOTE: These will be converted to Ability Objects, for now I'm setting them to VISIBLE:NO and set some VARs

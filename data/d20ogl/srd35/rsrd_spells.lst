@@ -1,5 +1,5 @@
 # CVS $Revision: 1.75 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #
 #This is a merge of Andargor's spell export and Zodar's manual spell entry plus a few of my estimates.
 #Any spell of 3rd or lower maybe made into a potion, therefore I have made sure that an spell that any

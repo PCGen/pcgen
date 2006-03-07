@@ -26,7 +26,7 @@
 
 #TODO: creatures with an int of -- get no skill points or feats
 
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 # Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus											Combat bonus
 CLASS:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Aberration Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

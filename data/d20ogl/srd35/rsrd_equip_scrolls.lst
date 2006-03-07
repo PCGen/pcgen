@@ -1,5 +1,5 @@
 # CVS $Revision: 1.7 $ $Author: eddyanthony $ -- Sat Dec  3 10:41:27 2005 -- reformated by prettylst.pl v1.35 (build 553)
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 # Commas should not be part of names.  OUTPUTNAME for that.
 # 	Replaced all commas by '/', specified the complete name in OUTPUTNAME. That better ? Thomas/Chipoulou

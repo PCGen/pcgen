@@ -1,5 +1,5 @@
 # CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Giant Ant (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant Ant (Worker)]
 RACE:Giant Ant (Worker)	!PRERACE:%

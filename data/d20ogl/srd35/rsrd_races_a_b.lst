@@ -1,5 +1,5 @@
 # CVS $Revision: 1.45 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Revised (v.3.5) System Reference Document|SOURCESHORT:RSRD|SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Andargor monster export
 
 # Fixes on Animated object's MOVE tags so it won't error.  Need to get templates as done in the SRD type files probably.
