@@ -246,21 +246,30 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 
 		<p class="indent2">Class Line.</p>
-				<p></p><a name="CAST"></a><hr>
+		<p></p><a name="CAST"></a><hr>
+		<p class="new">*** Updated 5.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> CAST:x</p>
-		<p class="indent1"><strong>Variables Used:</strong> Number</p>
+		<p class="indent1"><strong>Variables Used:</strong> Number or Formula</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 
 		<ul class="indent2">
 			<li>Tells PCGen how many spell per day the caster has (displayed on the Spells Tab).</li>
 			<li>If no Value is assigned at a given level, the tag defaults to 0.</li>
+			<li>A formula can only be used if the HASSPELLFORMULA:Y tag is also set for the class.</li>
+			<li><strong>Note:</strong> The formula used cannot have commas (,) embedded in it. If a 
+			    formula requires a comma use a DEFINE to set a variable and use the variable in the
+			    CAST progression.</li>
 		</ul>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Level Line.</p>
+
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CAST:3,3,1</code></p>
 		<p class="indent3">Class can cast 3 0th level spells, 3 1st level spells and 1 2nd level spell.</p>
 
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Class Level Line.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DEFINE:CastLvl0|min(6,4+CL) &lt;tab&gt; CAST:CastLvl0</code></p>
+		<p class="indent3">Sets the cast progression to the value of the variable <code>CastLvl0</code> for 0 level spells.</p>
 
 		<p></p><a name="CASTAS"></a><hr>
 		<p class="new">*** Deprecated</p>
@@ -280,11 +289,11 @@
 		<p class="indent2">The list that the character may follow, it is | (pipe) delimited and
 											 defaults to ANY if not present</p>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>DEITY:Baccob</code></p>
-		<p class="indent3">Class may only have &quot;Baccob&quot; as its Deity.</p>
+		<p class="indent2"><code>DEITY:Zeus</code></p>
+		<p class="indent3">Class may only have &quot;Zeus&quot; as its Deity.</p>
 
-		<p class="indent2"><code>DEITY:Baccob|Pelor</code></p>
-		<p class="indent3">Class may have &quot;Baccob&quot; or &quot;Pelor&quot; as its Deity.</p>
+		<p class="indent2"><code>DEITY:Zeus|Athena</code></p>
+		<p class="indent3">Class may have &quot;Zeus&quot; or &quot;Athena&quot; as its Deity.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Line.</p>
 
@@ -314,6 +323,22 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Line.</p>
 
+		<p></p><a name="HASSPELLFORMULA"></a><hr/>
+		<p class="new">*** New 5.8</p>
+		<p class="indent0"><strong>Tag Name:</strong> HASSPELLFORMULA:x</p>
+
+		<p class="indent1"><strong>Variables Used (x):</strong> Yes (Ignored)</p>
+
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Specifies that this class uses a formula for its <code>KNOWN</code>
+		 and/or <code>CAST</code> progressions.</p>
+
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Line.</p>
+
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HASSPELLFORMULA:Yes</code></p>
+
 		<p></p><a name="ITEMCREATE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ITEMCREATE:x</p>
 		<p class="indent1"><strong>Variables Used:</strong> Number</p>
@@ -332,6 +357,7 @@
 		<p class="indent2"> Class Line.</p>
 
 		<p></p><a name="KNOWN"></a><hr>
+		<p class="new">*** Updated 5.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> KNOWN:x</p>
 
 		<p class="indent1"><strong>Variables Used:</strong> Number</p>
@@ -339,13 +365,21 @@
 		<ul class="indent2">
 			<li>Tells PCGen how many spell known the caster has (displayed on the Spells Tab).</li>
 			<li>If no Value is assigned at a given level, the tag defaults to 0.</li>
+			<li>A formula can only be used if the HASSPELLFORMULA:Y tag is also set for the class.</li>
+			<li><strong>Note:</strong> The formula used cannot have commas (,) embedded in it. If a 
+			    formula requires a comma use a DEFINE to set a variable and use the variable in the
+			    KNOWN progression.</li>
 		</ul>
+
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Level Line.</p>
 
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>KNOWN:6,4,3</code></p>
 		<p class="indent3">The class knows 6 0th level spells, 4 1st level spells and 3 2nd level spells.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Class Level Line.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DEFINE:KnownLvl0|min(9,4+(CL/2)) &lt;tab&gt; KNOWN:KnownLvl0</code></p>
+		<p class="indent3">Sets the known progression to the value of the variable <code>KnownLvl0</code> for 0 level spells.</p>
 
 		<p></p><a name="KNOWNSPELLS"></a><hr>
 
