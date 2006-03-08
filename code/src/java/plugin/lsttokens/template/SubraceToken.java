@@ -5,12 +5,12 @@ import pcgen.persistence.lst.PCTemplateLstToken;
 
 
 /**
- * Class deals with REGION Token
+ * Class deals with SUBRACE Token
  */
 public class SubraceToken implements PCTemplateLstToken {
 
 	public String getTokenName() {
-		return "REGION";
+		return "SUBRACE";
 	}
 
 	public boolean parse(PCTemplate template, String value) {
