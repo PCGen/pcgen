@@ -13505,13 +13505,30 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 	}*/
 
+	
 	/**
-	 * Compute total bonus from a List of BonusObj's
-	 * Use cost of bonus to adjust total bonus up or down
-	 * @param aList
-	 * @param subSearch
-	 * @return double
+	 * Compute total bonus from a List of BonusObj's Use cost of bonus to adjust
+	 * total bonus up or down This method takes a list of bonus objects.
+	 * 
+	 * For each object in the list, it gets the creating object and queries it for
+	 * its "COST".  It then multiplies the value of the bonus by this cost and
+	 * adds it to the cumulative total so far.  If subSearch is true, the choices
+	 * made in the object that the bonus originated in are searched, the effective
+	 * bonus is multiplied by the number of times this bonus appears in the list. 
+	 * 
+	 * Note: This COST seems to be used for several different things
+	 * in the codebase, in feats for instance, it is used to modify the feat
+	 * pool by amounts other than 1 when selecting a given feat.  Here it is
+	 * used as a multiplier to say how effective a given bonus is i.e. a bonus
+	 * with a COST of 0.5 counts for half its normal value.  The COST is limitied
+	 * to a max of 1, so it can only make bonuses less effective.
+	 *
+	 * @param   aList a list of bonus objects
+	 * @param   subSearch whether to take account of how many times the bonus was chosen.
+	 *
+	 * @return  the calculated cumulative bonus
 	 */
+	
 	private double calcBonusWithCostFromList(final List aList, final boolean subSearch)
 	{
 		double totalBonus = 0;
