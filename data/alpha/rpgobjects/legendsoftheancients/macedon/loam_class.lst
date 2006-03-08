@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Mar  8 16:39:41 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Legends of the Ancients - Macedon|SOURCESHORT:LoAM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
 
 
@@ -11,14 +11,14 @@ CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Ta
 1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1						FEATAUTO:Shield Proficiency
 ###Block: standard
-1	SA:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|CL/4+1						DEFINE:MountedCombat|0	VFEAT:Mounted Combat
+1	SA:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|(CL/4)+1		DEFINE:MountedCombat|0	VFEAT:Mounted Combat
 2	SA:Mounted Mobility	SA:Saddle Leap
-3	SA:Cavalry Mount	SA:Spur +%|CavalrySpur			BONUS:VAR|CavalrySpur|min(30,(10*floor(var("CL=Cavalry")/3)))	DEFINE:CavalrySpur|0
-5	SA:Harry +%|CavalryHarry					BONUS:VAR|CavalryHarry|CL/5							DEFINE:CavalryHarry|0	VFEAT:Ride By Attack
+3	SA:Cavalry Mount	SA:Spur +%|CavalrySpur			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))	DEFINE:CavalrySpur|0
+5	SA:Harry +%|CavalryHarry					BONUS:VAR|CavalryHarry|CL/5			DEFINE:CavalryHarry|0	VFEAT:Ride By Attack
 7	SA:Spur (nonlethal damage)	SA:Mounted Endurance
-9																									VFEAT:Spirited Charge
+9																					VFEAT:Spirited Charge
 10	SA:Mounted Agility
-11	SA:Like the Wind +%|LikeTheWind				BONUS:VAR|LikeTheWind|(CL-8)/3						DEFINE:LikeTheWind|0
+11	SA:Like the Wind +%|LikeTheWind				BONUS:VAR|LikeTheWind|(CL-8)/3		DEFINE:LikeTheWind|0
 13	SA:Tall in the saddle
 18	SA:Lightning Attack
 19	SA:Companion Mount
