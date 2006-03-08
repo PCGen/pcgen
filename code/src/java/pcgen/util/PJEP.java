@@ -55,7 +55,6 @@ public final class PJEP extends JEP
 	private String variableSource;
 	private static List commandList = new ArrayList();
 	private List localCommandList = new ArrayList();
-	private static int n = 0;
 
 	public static void addCommand(Class clazz) {
 		commandList.add(clazz);
@@ -84,7 +83,6 @@ public final class PJEP extends JEP
 
 		addVariable("TRUE", 1);
 		addVariable("FALSE", 0);
-		System.out.println(n++);
 	}
 
 	public void parseExpression(String expression_in)
