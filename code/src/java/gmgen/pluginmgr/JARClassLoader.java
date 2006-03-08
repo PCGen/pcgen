@@ -52,6 +52,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
+import pcgen.util.PCGenCommand;
+import pcgen.util.PJEP;
 
 /**
  *  A class loader implementation that loads classes from JAR files.
@@ -461,6 +463,7 @@ public class JARClassLoader extends ClassLoader
 			loadLstTokens(clazz, modifiers);
 			loadBonusTokens(clazz, name, modifiers);
 			loadPreTokens(clazz, modifiers);
+			loadJepCommands(clazz, modifiers);
 		}
 		return loadPluginClass(clazz, modifiers, name, system);
 	}
@@ -532,6 +535,15 @@ public class JARClassLoader extends ClassLoader
 				PrerequisiteWriterFactory.register(writer);
 			}
 		}
+	}
+	
+	private void loadJepCommands(Class clazz, int modifiers) throws Exception
+	{
+		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && PCGenCommand.class.isAssignableFrom(clazz))
+		{
+			PJEP.addCommand(clazz);
+		}
+		
 	}
 
 	private boolean addPreferencesPanel(Class clazz, Plugin pl) {

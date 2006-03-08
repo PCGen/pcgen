@@ -26,14 +26,14 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URL;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
-
-import java.net.URL;
-import java.util.Map;
-import java.util.StringTokenizer;
 
 /**
  *

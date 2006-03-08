@@ -28,6 +28,8 @@
  */
 package pcgen.util;
 
+import gmgen.pluginmgr.PluginLoader;
+
 import java.util.Iterator;
 
 import org.nfunk.jep.SymbolTable;
@@ -35,6 +37,7 @@ import org.nfunk.jep.SymbolTable;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
+import pcgen.core.Constants;
 
 /**
  * Tests {@link PJEP}.
@@ -48,6 +51,11 @@ public class PJepTest extends PCGenTestCase {
 	public PJepTest()
 	{
 		super();
+	}
+	
+	public void setUp() {
+		PluginLoader ploader = PluginLoader.inst();
+		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 	}
 
 	/**
