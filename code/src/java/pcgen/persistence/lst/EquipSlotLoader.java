@@ -25,14 +25,14 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.core.Globals;
+import java.net.URL;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSlot;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
-
-import java.net.URL;
-import java.util.StringTokenizer;
 
 /**
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
@@ -53,60 +53,32 @@ final class EquipSlotLoader extends LstLineFileLoader
 	{
 		final EquipSlot eqSlot = new EquipSlot();
 
-		final StringTokenizer aTok = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		while (aTok.hasMoreTokens())
+		Map tokenMap = TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
+		while (colToken.hasMoreTokens())
 		{
-			final String colString = aTok.nextToken().trim();
+			final String colString = colToken.nextToken().trim();
 
-			if (lstLine.startsWith("NUMSLOTS:"))
+			final int idxColon = colString.indexOf(':');
+			String key = "";
+			try
 			{
-				final StringTokenizer eTok = new StringTokenizer(lstLine.substring(9), SystemLoader.TAB_DELIM);
+				key = colString.substring(0, idxColon);
+			}
+			catch(StringIndexOutOfBoundsException e) {
+				// TODO Handle Exception
+			}
+			EquipSlotLstToken token = (EquipSlotLstToken) tokenMap.get(key);
 
-				while (eTok.hasMoreTokens())
+			if (token != null)
+			{
+				final String value = colString.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURL.toString(), value);
+				if (!token.parse(eqSlot, value))
 				{
-					// parse the default number of each type
-					final String cString = eTok.nextToken().trim();
-					final StringTokenizer cTok = new StringTokenizer(cString, ":");
-
-					if (cTok.countTokens() == 2)
-					{
-						final String eqSlotType = cTok.nextToken();
-						final String aNum = cTok.nextToken();
-						Globals.setEquipSlotTypeCount(eqSlotType, aNum);
-					}
+					Logging.errorPrint("Error parsing ability " + eqSlot.getSlotName() + ':' + sourceURL + ':' + colString + "\"");
 				}
-			}
-			else if (colString.startsWith("EQSLOT:"))
-			{
-				eqSlot.setSlotName(colString.substring(7));
-			}
-			else if (colString.startsWith("CONTAINS:"))
-			{
-				final StringTokenizer bTok = new StringTokenizer(colString.substring(9), "=");
-
-				if (bTok.countTokens() == 2)
-				{
-					final String aType = bTok.nextToken();
-					final String numString = bTok.nextToken();
-					final int aNum;
-
-					if (numString.equals("*"))
-					{
-						aNum = 9999;
-					}
-					else
-					{
-						aNum = Integer.parseInt(numString);
-					}
-
-					eqSlot.setContainType(aType);
-					eqSlot.setContainNum(aNum);
-				}
-			}
-			else if (colString.startsWith("NUMBER:"))
-			{
-				eqSlot.setSlotNumType(colString.substring(7));
 			}
 			else
 			{

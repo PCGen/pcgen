@@ -25,11 +25,12 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.LevelInfo;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * <code>LevelLoader</code> loads up the level system file
@@ -40,11 +41,6 @@ import java.util.StringTokenizer;
  **/
 final class LevelLoader
 {
-	private static final String levelTag = "LEVEL:";
-	private static final String minXPTag = "MINXP:";
-	private static final String maxClassSkillTag = "CSKILLMAX:";
-	private static final String maxCrossClassSkillTag = "CCSKILLMAX:";
-
 	/** Creates a new instance of LevelLoader */
 	private LevelLoader()
 	{
@@ -66,34 +62,36 @@ final class LevelLoader
 			return;
 		}
 
-		String aString;
+		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 
-		final StringTokenizer aTok = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
-
-		while (aTok.hasMoreTokens())
+		Map tokenMap = TokenStore.inst().getTokenMap(LevelLstToken.class);
+		while (colToken.hasMoreTokens())
 		{
-			aString = aTok.nextToken();
+			final String colString = colToken.nextToken().trim();
 
-			if (aString.startsWith(levelTag))
+			final int idxColon = colString.indexOf(':');
+			String key = "";
+			try
 			{
-				levelInfo.setLevelString(aString.substring(levelTag.length()));
+				key = colString.substring(0, idxColon);
 			}
-			else if (aString.startsWith(maxClassSkillTag))
-			{
-				levelInfo.setMaxClassSkillString(aString.substring(maxClassSkillTag.length()));
+			catch(StringIndexOutOfBoundsException e) {
+				// TODO Handle Exception
 			}
-			else if (aString.startsWith(maxCrossClassSkillTag))
+			LevelLstToken token = (LevelLstToken) tokenMap.get(key);
+
+			if (token != null)
 			{
-				levelInfo.setMaxCrossClassSkillString(aString.substring(maxCrossClassSkillTag.length()));
-			}
-			else if (aString.startsWith(minXPTag))
-			{
-				levelInfo.setMinXPString(aString.substring(minXPTag.length()));
+				final String value = colString.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, levelInfo.getLevelString(), "level.lst", value);
+				if (!token.parse(levelInfo, value))
+				{
+					Logging.errorPrint("Error parsing ability " + levelInfo.getLevelString() + ':' + "level.lst" + ':' + colString + "\"");
+				}
 			}
 			else
 			{
-				Logging.errorPrint("LevelLoader got unexpected token of '" + aString + "' at line " + lineNum
-				    + ". Token ignored.");
+				Logging.errorPrint("LevelLoader got unexpected token of '" + colString + "' at line " + lineNum + ". Token ignored.");
 			}
 		}
 	}
