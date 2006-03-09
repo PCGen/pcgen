@@ -29,6 +29,9 @@ import pcgen.core.kit.KitClass;
 import pcgen.persistence.lst.KitClassLstToken;
 import pcgen.util.Logging;
 
+/**
+ * CLASS token for KitClass
+ */
 public class ClassToken implements KitClassLstToken
 {
 

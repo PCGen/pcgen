@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.startpack;
 import pcgen.core.Kit;
 import pcgen.persistence.lst.KitStartpackLstToken;
 
+/**
+ * EQUIPSELL Token for KitStartpack
+ */
 public class EquipSellToken implements KitStartpackLstToken
 {
 	/**

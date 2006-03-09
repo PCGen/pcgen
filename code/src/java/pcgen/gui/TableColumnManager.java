@@ -14,14 +14,23 @@ import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-
+/**
+ * Table column manager
+ */
 public class TableColumnManager implements MouseListener {
+
 	private JPopupMenu tablePopup;
 	private List checkBoxList;
 	private JTable table;
 	private JComponent tableButton;
 	private TableColumnManagerModel model;
 	
+	/**
+	 * Constructor
+	 * @param table
+	 * @param tableButton
+	 * @param model
+	 */
 	public TableColumnManager(JTable table, JComponent tableButton, TableColumnManagerModel model) {
 		this.table = table;
 		this.tableButton = tableButton;
@@ -48,6 +57,10 @@ public class TableColumnManager implements MouseListener {
 		TablePopupActionPerformed();
 	}
 
+	/**
+	 * Display the table
+	 * @param evt
+	 */
 	public void tableDisplay(java.awt.event.MouseEvent evt) {
 		tablePopup.show(evt.getComponent(), evt.getX(), evt.getY());
 	}
@@ -72,6 +85,12 @@ public class TableColumnManager implements MouseListener {
 	private class PopupActionListener implements ActionListener {
 		JCheckBoxMenuItem popupCb;
 		int colNo = 0;
+		
+		/**
+		 * Constructor
+		 * @param popupCb
+		 * @param colNo
+		 */
 		public PopupActionListener(JCheckBoxMenuItem popupCb, int colNo) {
 			this.popupCb = popupCb;
 			this.colNo = colNo;
@@ -88,9 +107,11 @@ public class TableColumnManager implements MouseListener {
 	}
 
 	public void mouseEntered(MouseEvent e) {
+		// TODO Do nothing?
 	}
 
 	public void mouseExited(MouseEvent e) {
+		// TODO Do nothing?
 	}
 
 	public void mousePressed(MouseEvent e) {

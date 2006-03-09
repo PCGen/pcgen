@@ -65,6 +65,7 @@ import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.JViewport;
 import javax.swing.KeyStroke;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
@@ -1214,14 +1215,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		JLabel avaLabel = new JLabel("Available: ");
 		leftPane.add(createFilterPane(avaLabel, viewAvailComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
 		leftPane.add(buildModSpellPanel(addButton, "Click to add the selected " + getSingularTabName() + " from the Available list of " + getSingularTabName() + "s"), BorderLayout.SOUTH);
 
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
@@ -1231,14 +1232,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		JLabel selLabel = new JLabel("Selected: ");
 		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
-		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		leftButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
 		rightPane.add(buildDelSpellPanel(leftButton, "Click to remove the selected " + getSingularTabName() + " from the Selected list of " + getSingularTabName() + "s"), BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
-		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 	}
@@ -1246,6 +1247,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	/**
 	 * Build the panel with the controls to add a spell to a 
 	 * prepared list.
+	 * @param button 
+	 * @param title 
 	 *  
 	 * @return The panel.
 	 */
@@ -1264,6 +1267,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	/**
 	 * Build the panel with the controls to add a spell to a 
 	 * prepared list.
+	 * @param button 
+	 * @param title 
 	 *  
 	 * @return The panel.
 	 */
@@ -1546,10 +1551,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			{
 				return TreeTableModel.class;
 			}
-			else
-			{
-				return String.class;
-			}
+			return String.class;
 		}
 
 		/* The JTreeTableNode interface. */

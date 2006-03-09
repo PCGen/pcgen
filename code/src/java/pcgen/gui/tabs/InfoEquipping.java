@@ -3809,7 +3809,6 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	public static final class TempWrap
 	{
-		private BonusObj _bonus = null;
 		private Object _creator = null;
 		private Object _target = null;
 
@@ -3823,7 +3822,6 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			_creator = aMod;
 			_target = aTarget;
-			_bonus = aBonus;
 		}
 
 		/**

@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.startpack;
 import pcgen.core.Kit;
 import pcgen.persistence.lst.KitStartpackLstToken;
 
+/**
+ * Deals with APPLY lst token within KitStartpack 
+ */
 public class ApplyToken implements KitStartpackLstToken
 {
 	/**

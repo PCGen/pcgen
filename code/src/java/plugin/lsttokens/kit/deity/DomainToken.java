@@ -30,6 +30,9 @@ import java.util.StringTokenizer;
 import pcgen.core.kit.KitDeity;
 import pcgen.persistence.lst.KitDeityLstToken;
 
+/**
+ * DOMAIN Token for KitDeity
+ */
 public class DomainToken implements KitDeityLstToken
 {
 	public boolean parse(KitDeity kitDeity, String value)

@@ -9,12 +9,15 @@ import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
 
-//
-//eg. cl("Fighter")
-//eg. cl("Fighter", 21)
-//eg. cl()
-//
+/**
+ * JEP command for class level (cl)
+ *
+ * eg. cl("Fighter")
+ * eg. cl("Fighter", 21)
+ * eg. cl()
+ */
 public class ClassLevelCommand extends PCGenCommand {
+	
 	/**
 	 * Constructor
 	 */

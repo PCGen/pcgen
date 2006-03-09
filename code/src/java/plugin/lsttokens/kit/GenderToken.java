@@ -29,10 +29,12 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Kit;
 import pcgen.core.kit.KitBio;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.KitLstToken;
 
+/**
+ * GENDER token for Kits
+ */
 public class GenderToken extends KitLstToken
 {
 	/**
@@ -54,10 +56,8 @@ public class GenderToken extends KitLstToken
 	 * @param value
 	 *            the token string
 	 * @return true if parse OK
-	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
 	{
 		final StringTokenizer colToken = new StringTokenizer(value,
 				SystemLoader.TAB_DELIM);

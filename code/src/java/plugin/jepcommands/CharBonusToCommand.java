@@ -8,11 +8,15 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 
-//
-//eg. charbonusto("PCLEVEL", "Wizard");
-//eg. charbonusto("Wizard");
-//
+/**
+ * Deals with JEP command for charbonusto
+ *  
+ * eg. charbonusto("PCLEVEL", "Wizard");
+ * eg. charbonusto("Wizard");
+ */
 public class CharBonusToCommand extends PCGenCommand {
+	
+	/** Constructor*/
 	public CharBonusToCommand() {
 		numberOfParameters = -1;
 	}

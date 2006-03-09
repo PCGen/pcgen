@@ -29,6 +29,9 @@ import pcgen.core.Kit;
 import pcgen.persistence.lst.KitTableLstToken;
 import pcgen.util.Logging;
 
+/**
+ * TABLE token for KitTable
+ */
 public class TableToken implements KitTableLstToken
 {
 	/**

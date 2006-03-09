@@ -30,6 +30,9 @@ import java.util.StringTokenizer;
 import pcgen.core.Kit;
 import pcgen.persistence.lst.KitTableLstToken;
 
+/**
+ * VALUES token for KitTable
+ */
 public class ValuesToken implements KitTableLstToken
 {
 	/**

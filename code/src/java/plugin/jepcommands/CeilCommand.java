@@ -6,10 +6,11 @@ import org.nfunk.jep.ParseException;
 
 import pcgen.util.PCGenCommand;
 
-//
-// eg. ceil(12.6) --> 13
-//
+/**
+ * Celing JEP Command.  eg. ceil(12.6) --> 13
+ */
 public class CeilCommand extends PCGenCommand {
+	
 	/**
 	 * Constructor
 	 */

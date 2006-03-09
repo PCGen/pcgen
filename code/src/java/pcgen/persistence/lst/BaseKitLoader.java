@@ -5,7 +5,17 @@ import java.util.Map;
 import pcgen.core.kit.BaseKit;
 import pcgen.util.Logging;
 
+/**
+ * Loads the Base Kit
+ */
 public class BaseKitLoader {
+
+	/**
+	 * Parse the common tags
+	 * @param obj
+	 * @param tag
+	 * @return true if parse OK
+	 */
 	public static boolean parseCommonTags(BaseKit obj, final String tag)
 	{
 		Map tokenMap = TokenStore.inst().getTokenMap(BaseKitLstToken.class);

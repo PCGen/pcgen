@@ -34,7 +34,7 @@ import pcgen.core.character.EquipSlot;
  */
 public interface EquipSlotLstToken extends LstToken {
 	/**
-	 * @param slot
+	 * @param eqSlot
 	 * @param value
 	 * @return true if parse OK
 	 */

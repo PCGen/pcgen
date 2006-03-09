@@ -29,6 +29,9 @@ import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.lst.KitAbilityLstToken;
 import pcgen.util.Logging;
 
+/**
+ * FEAT Token for KitAbility
+ */
 public class FeatToken implements KitAbilityLstToken
 {
 	/**

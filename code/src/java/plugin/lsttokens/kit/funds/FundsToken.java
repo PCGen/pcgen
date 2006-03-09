@@ -29,6 +29,9 @@ import pcgen.core.kit.KitFunds;
 import pcgen.persistence.lst.KitFundsLstToken;
 import pcgen.util.Logging;
 
+/**
+ * FUNDS Token for KitFunds
+ */
 public class FundsToken implements KitFundsLstToken
 {
 	public boolean parse(KitFunds kitFunds, String value)

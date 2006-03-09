@@ -29,6 +29,9 @@ import pcgen.core.kit.KitGear;
 import pcgen.persistence.lst.KitGearLstToken;
 import pcgen.util.Logging;
 
+/**
+ * GEAR Token for KitGear
+ */
 public class GearToken implements KitGearLstToken
 {
 	/**
@@ -44,7 +47,7 @@ public class GearToken implements KitGearLstToken
 	/**
 	 * parse
 	 * 
-	 * @param kitFunds
+	 * @param kitGear
 	 *            KitGear
 	 * @param value
 	 *            String

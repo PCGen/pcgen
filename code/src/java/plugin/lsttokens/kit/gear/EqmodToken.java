@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.lst.KitGearLstToken;
 
+/**
+ * EQMOD Token for KitGear
+ */
 public class EqmodToken implements KitGearLstToken
 {
 	/**
@@ -43,7 +46,7 @@ public class EqmodToken implements KitGearLstToken
 	/**
 	 * parse
 	 * 
-	 * @param kitFunds
+	 * @param kitGear
 	 *            KitGear
 	 * @param value
 	 *            String

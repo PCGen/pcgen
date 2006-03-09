@@ -6,10 +6,14 @@ import org.nfunk.jep.ParseException;
 
 import pcgen.util.PCGenCommand;
 
-//
-//eg. floor(12.6) --> 12
-//
+/**
+ * JEP command for floor
+ * 
+ * eg. floor(12.6) --> 12
+ */
 public class FloorCommand extends PCGenCommand {
+	
+	/** Constructor */
 	public FloorCommand() {
 		numberOfParameters = 1;
 	}

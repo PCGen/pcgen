@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.deity;
 import pcgen.core.kit.KitDeity;
 import pcgen.persistence.lst.KitDeityLstToken;
 
+/**
+ * COUNT Token for KitDeity
+ */
 public class CountToken implements KitDeityLstToken
 {
 

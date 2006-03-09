@@ -11,13 +11,14 @@ import pcgen.core.VariableProcessorPC;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 
-//
-//eg. getvar("CL=Fighter")
-//
+/**
+ * JEP command for get vars
+ * 
+ * eg. getvar("CL=Fighter")
+ */
 public class GetVarCommand extends PCGenCommand {
-	/**
-	 * Constructor
-	 */
+	
+	/** Constructor */
 	public GetVarCommand() {
 		numberOfParameters = -1; // allow variable # of parameters
 	}

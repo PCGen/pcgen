@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.prof;
 import pcgen.core.kit.KitProf;
 import pcgen.persistence.lst.KitProfLstToken;
 
+/**
+ * COUNT Token for KitProf
+ */
 public class CountToken implements KitProfLstToken
 {
 	/**

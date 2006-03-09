@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.ability;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.lst.KitAbilityLstToken;
 
+/**
+ * COUNT Token for KitAbility
+ */
 public class CountToken implements KitAbilityLstToken
 {
 	/**

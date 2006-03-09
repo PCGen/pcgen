@@ -56,10 +56,8 @@ public class TableToken extends KitLstToken
 	 * @param value
 	 *            the token string
 	 * @return true if parse OK
-	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
 	{
 		try
 		{

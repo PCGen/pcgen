@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.skill;
 import pcgen.core.kit.KitSkill;
 import pcgen.persistence.lst.KitSkillLstToken;
 
+/**
+ * COUNT Token for KitSkill
+ */
 public class CountToken implements KitSkillLstToken
 {
 	/**

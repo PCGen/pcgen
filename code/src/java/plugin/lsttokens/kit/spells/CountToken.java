@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.spells;
 import pcgen.core.kit.KitSpells;
 import pcgen.persistence.lst.KitSpellsLstToken;
 
+/**
+ * COUNT Token for KitSpells
+ */
 public class CountToken implements KitSpellsLstToken
 {
 	/**

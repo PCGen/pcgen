@@ -32,6 +32,9 @@ import pcgen.core.kit.KitLevelAbility;
 import pcgen.persistence.lst.KitLevelAbilityLstToken;
 import pcgen.util.Logging;
 
+/**
+ * Deals with ABILITY lst token within KitLevelAbility 
+ */
 public class AbilityToken implements KitLevelAbilityLstToken
 {
 	/**
