@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
@@ -31,7 +32,7 @@ public class FreeToken implements KitAbilityLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -39,7 +40,7 @@ public class FreeToken implements KitAbilityLstToken
 		return "FREE";
 	}
 
-	public boolean parse(KitAbilities kitAbility, String value) 
+	public boolean parse(KitAbilities kitAbility, String value)
 	{
 		kitAbility.setFree(value.toUpperCase().startsWith("Y"));
 		return true;

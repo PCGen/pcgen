@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
@@ -32,7 +33,7 @@ public class FeatToken implements KitAbilityLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -40,9 +41,10 @@ public class FeatToken implements KitAbilityLstToken
 		return "FEAT";
 	}
 
-	public boolean parse(KitAbilities kitAbility, String value) 
+	public boolean parse(KitAbilities kitAbility, String value)
 	{
-		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value + "\" in Kit.");
+		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value
+				+ "\" in Kit.");
 		return false;
 	}
 }
