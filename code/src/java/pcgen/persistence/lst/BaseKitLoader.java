@@ -37,6 +37,6 @@ public class BaseKitLoader {
 			return true;
 		}
 
-		return false;
+		return true;
 	}
 }
