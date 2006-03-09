@@ -22,17 +22,13 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
 import pcgen.core.Kit;
-import pcgen.core.kit.KitLevelAbility;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.KitLevelAbilityLoader;
 import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
 
 /**
  * Handles the LEVELABILITY and ABILITY subtag for Kits.
@@ -41,7 +37,7 @@ public class LevelAbilityToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -51,72 +47,25 @@ public class LevelAbilityToken extends KitLstToken
 
 	/**
 	 * Handles parsing the LEVELABILITY and ABILITY subtag for Kit lines.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitLevelAbility kLA = new KitLevelAbility();
-
-		String colString = colToken.nextToken();
-		String classInfo = colString;
-		int levelInd = classInfo.indexOf("=");
-		if (levelInd < 0)
-		{
-			throw new PersistenceLayerException(
-				"Invalid level in KitLevelAbility info \"" + colString + "\"");
-		}
-		kLA.setClass(classInfo.substring(0, levelInd));
 		try
 		{
-			kLA.setLevel(Integer.parseInt(classInfo.substring(levelInd+1)));
+			KitLevelAbilityLoader.parseLine(aKit, value);
 		}
-		catch (NumberFormatException e)
+		catch (PersistenceLayerException pe)
 		{
-			throw new PersistenceLayerException(
-				"Invalid level in KitLevelAbility info \"" + colString + "\"");
+			return false;
 		}
-
-		while (colToken.hasMoreTokens())
-		{
-			colString = colToken.nextToken();
-			if (colString.startsWith("LEVELABILITY:"))
-			{
-				Logging.errorPrint("Ignoring second LEVELABILITY tag \""
-								+ colString +  "\" in LevelAbilityToken.parse");
-			}
-			else if (colString.startsWith("ABILITY:"))
-			{
-				StringTokenizer pipeTok = new StringTokenizer(colString.substring(8), "|");
-				String ability = pipeTok.nextToken();
-				ArrayList choices = new ArrayList();
-				while (pipeTok.hasMoreTokens())
-				{
-					choices.add(pipeTok.nextToken());
-				}
-				if (choices.size() < 1)
-				{
-					throw new PersistenceLayerException(
-						"Missing choice in KitLevelAbility info \"" + colString + "\"");
-				}
-				kLA.addAbility(ability, choices);
-			}
-			else
-			{
-				if (parseCommonTags(kLA, colString) == false)
-				{
-					throw new PersistenceLayerException(
-						"Unknown KitLevelAbility info \"" + colString + "\"");
-				}
-			}
-		}
-		aKit.setDoLevelAbilities(false);
-		aKit.addObject(kLA);
 		return true;
 	}
 }

@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import java.util.StringTokenizer;
@@ -41,7 +42,7 @@ public class StatToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -50,20 +51,22 @@ public class StatToken extends KitLstToken
 	}
 
 	/**
-	 * Parses the STAT tag for a Kit.  This tag is a pipe (|) separated list
-	 * of stats to set.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * Parses the STAT tag for a Kit. This tag is a pipe (|) separated list of
+	 * stats to set.
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		KitStat stats = null;
 		// Remove the STAT:
-		final StringTokenizer aTok = new StringTokenizer(value,	"|");
+		final StringTokenizer aTok = new StringTokenizer(value, "|");
 
 		while (aTok.hasMoreTokens())
 		{

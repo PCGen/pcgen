@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import java.util.StringTokenizer;
@@ -30,17 +31,18 @@ import pcgen.core.Kit;
 import pcgen.core.kit.KitKit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.BaseKitLoader;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
 
 /**
- * Handles the KIT tag for Kits.  Allows Common tags for this Kit line as well.
+ * Handles the KIT tag for Kits. Allows Common tags for this Kit line as well.
  */
 public class KitToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -49,17 +51,20 @@ public class KitToken extends KitLstToken
 	}
 
 	/**
-	 * Handles the parsing of the KIT tag for Kits.  Can also accept Common
-	 * tags.
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * Handles the parsing of the KIT tag for Kits. Can also accept Common tags.
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(value,
+				SystemLoader.TAB_DELIM);
 		KitKit kKit = new KitKit(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -67,15 +72,15 @@ public class KitToken extends KitLstToken
 			final String colString = colToken.nextToken();
 			if (colString.startsWith("KIT:"))
 			{
-				Logging.errorPrint("Ignoring second KIT tag \"" + colString +
-								   "\" in KitToken.parse");
+				Logging.errorPrint("Ignoring second KIT tag \"" + colString
+						+ "\" in KitToken.parse");
 			}
 			else
 			{
-				if (parseCommonTags(kKit, colString) == false)
+				if (BaseKitLoader.parseCommonTags(kKit, colString) == false)
 				{
 					throw new PersistenceLayerException("Unknown KitKit info "
-						 + " \"" + colString + "\"");
+							+ " \"" + colString + "\"");
 				}
 			}
 		}

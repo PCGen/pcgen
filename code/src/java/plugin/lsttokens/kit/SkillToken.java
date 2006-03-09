@@ -22,22 +22,19 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitLstToken;
-import pcgen.core.kit.KitSkill;
-import pcgen.persistence.SystemLoader;
-import pcgen.util.Logging;
-import pcgen.core.Constants;
-import java.util.StringTokenizer;
+import pcgen.persistence.lst.KitSkillLoader;
 
 public class SkillToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -47,52 +44,25 @@ public class SkillToken extends KitLstToken
 
 	/**
 	 * Handles the SKILL and RANK tags for a Kit.
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitSkill kSkill = new KitSkill(colToken.nextToken());
-
-		while (colToken.hasMoreTokens())
+		try
 		{
-			final String colString = colToken.nextToken();
-
-			if (colString.startsWith("SKILL:"))
-			{
-				Logging.errorPrint("Ignoring second SKILL tag \"" + colString + "\" in SkillToken.parse");
-			}
-			else if (colString.startsWith("RANK:"))
-			{
-				kSkill.setRank(colString.substring(5));
-			}
-			else if (colString.startsWith("FREE:"))
-			{
-				kSkill.setFree(colString.substring(5).startsWith("Y"));
-			}
-			else if (colString.startsWith("CLASS:"))
-			{
-				kSkill.setClassName(colString.substring(6));
-			}
-			else if (colString.startsWith("COUNT:"))
-			{
-				kSkill.setChoiceCount(colString.substring(6));
-			}
-			else
-			{
-				if (parseCommonTags(kSkill, colString) == false)
-				{
-					throw new PersistenceLayerException(
-						"Unknown KitSkill info " + " \"" + value + "\"");
-				}
-			}
+			KitSkillLoader.parseLine(aKit, value);
 		}
-
-		aKit.addObject(kSkill);
+		catch (PersistenceLayerException pe)
+		{
+			return false;
+		}
 		return true;
 	}
 }

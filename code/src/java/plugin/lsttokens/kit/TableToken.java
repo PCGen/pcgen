@@ -22,18 +22,17 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
-package plugin.lsttokens.kit;
 
-import java.util.StringTokenizer;
+package plugin.lsttokens.kit;
 
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.KitLstToken;
+import pcgen.persistence.lst.KitTableLoader;
 
 /**
- * This class parses a TABLE line from a Kit file.  It handles the TABLE
- * tag as well as the VALUES tag.  Common tags are not handled by this tag.<br>
+ * This class parses a TABLE line from a Kit file. It handles the TABLE tag as
+ * well as the VALUES tag. Common tags are not handled by this tag.<br>
  * The format of the line is:<br>
  * <code>TABLE:Special Ability (B)&nbsp; &nbsp; VALUES:EQMOD:ARW_CAT|1,20|LOOKUP:Special Ability
  */
@@ -41,7 +40,7 @@ public class TableToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -50,45 +49,25 @@ public class TableToken extends KitLstToken
 	}
 
 	/**
-	 * Parses the TABLE line.  Handles the TABLE and VALUES tags.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * Parses the TABLE line. Handles the TABLE and VALUES tags.
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		String tableName = colToken.nextToken();
-		aKit.addLookupTable(tableName);
-		while (colToken.hasMoreTokens())
+		try
 		{
-			String colString = colToken.nextToken();
-			if (colString.startsWith("VALUES:"))
-			{
-				colString = colString.substring(7);
-				final StringTokenizer fieldToken = new StringTokenizer(colString, "|");
-				while (fieldToken.hasMoreTokens())
-				{
-					String val = fieldToken.nextToken();
-					String range = fieldToken.nextToken();
-					int ind = -1;
-					String lowVal;
-					String highVal;
-					if ((ind = range.indexOf(",")) != -1)
-					{
-						lowVal = range.substring(0, ind);
-						highVal = range.substring(ind + 1);
-					}
-					else
-					{
-						lowVal = highVal = range;
-					}
-					aKit.addLookupValue(tableName, val, lowVal, highVal);
-				}
-			}
+			KitTableLoader.parseLine(aKit, value);
+		}
+		catch (PersistenceLayerException pe)
+		{
+			return false;
 		}
 		return true;
 	}

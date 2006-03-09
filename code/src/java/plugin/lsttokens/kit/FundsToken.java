@@ -22,16 +22,13 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
-import java.util.StringTokenizer;
-
 import pcgen.core.Kit;
-import pcgen.core.kit.KitFunds;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.KitFundsLoader;
 import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
 
 /**
  * Handles the FUNDS and QTY tags for a Kit.
@@ -40,7 +37,7 @@ public class FundsToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -50,45 +47,25 @@ public class FundsToken extends KitLstToken
 
 	/**
 	 * Handles the FUNDS and QTY tags for a Kit.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
-
-		KitFunds kFund = new KitFunds(colToken.nextToken());
-
-		while (colToken.hasMoreTokens())
+		try
 		{
-			final String colString = colToken.nextToken();
-
-			if (colString.startsWith("FUNDS:"))
-			{
-				Logging.errorPrint("Ignoring second FUNDS tag \"" + colString + "\" in FundsToken.parse");
-			}
-			else
-			{
-				if (colString.startsWith("QTY:"))
-				{
-					kFund.setQty(colString.substring(4));
-				}
-				else
-				{
-					if (parseCommonTags(kFund, colString) == false)
-					{
-						throw new PersistenceLayerException(
-							"Unknown KitFunds info " + " \"" + colString
-							+ "\"");
-					}
-				}
-			}
+			KitFundsLoader.parseLine(aKit, value);
 		}
-		aKit.addObject(kFund);
+		catch (PersistenceLayerException pe)
+		{
+			return false;
+		}
 		return true;
 	}
 }

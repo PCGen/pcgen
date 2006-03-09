@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import pcgen.core.Kit;
@@ -30,14 +31,14 @@ import pcgen.persistence.lst.KitLstToken;
 import pcgen.persistence.lst.PObjectLoader;
 
 /**
- * Handles the LANGAUTO tag for Kits.  This simply passes it along to PObject
- * for processing.
+ * Handles the LANGAUTO tag for Kits. This simply passes it along to PObject for
+ * processing.
  */
 public class LangAutoToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -46,16 +47,18 @@ public class LangAutoToken extends KitLstToken
 	}
 
 	/**
-	 * Handles parsing the LANGAUTO tag for Kits.  Simply passes the tag along
-	 * to PObjectLoader for processing.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * Handles parsing the LANGAUTO tag for Kits. Simply passes the tag along to
+	 * PObjectLoader for processing.
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		String colString = "LANGAUTO:" + value;
 		if (PObjectLoader.parseTag(aKit, colString))

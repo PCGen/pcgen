@@ -22,16 +22,13 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
-import java.util.StringTokenizer;
-
 import pcgen.core.Kit;
-import pcgen.core.kit.KitDeity;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.KitDeityLoader;
 import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
 
 /**
  * Handles the DEITY, DOMAIN, and COUNT tags for a Kit.
@@ -40,7 +37,7 @@ public class DeityToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -50,50 +47,25 @@ public class DeityToken extends KitLstToken
 
 	/**
 	 * Handles parsing the DEITY, DOMAIN, and COUNT tags for a Kit.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitDeity kDeity = new KitDeity(colToken.nextToken());
-
-		while (colToken.hasMoreTokens())
+		try
 		{
-			String colString = colToken.nextToken();
-
-			if (colString.startsWith("DEITY:"))
-			{
-				Logging.errorPrint("Ignoring second DEITY tag \"" + colString +
-								   "\" in DeityToken.parse\"");
-			}
-			else if (colString.startsWith("DOMAIN:"))
-			{
-				colString = colString.substring(7);
-				final StringTokenizer pTok = new StringTokenizer(colString, "|");
-				while (pTok.hasMoreTokens())
-				{
-					final String domain = pTok.nextToken();
-					kDeity.addDomain(domain);
-				}
-			}
-			else if (colString.startsWith("COUNT:"))
-			{
-				kDeity.setCountFormula(colString.substring(6));
-			}
-			else
-			{
-				if (parseCommonTags(kDeity, colString) == false)
-				{
-					Logging.errorPrint("Invalid DEITY tag \"" + colString + "\"");
-				}
-			}
+			KitDeityLoader.parseLine(aKit, value);
 		}
-		aKit.addObject(kDeity);
+		catch (PersistenceLayerException pe)
+		{
+			return false;
+		}
 		return true;
 	}
 }

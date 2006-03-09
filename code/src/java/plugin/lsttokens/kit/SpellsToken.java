@@ -22,23 +22,19 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
-import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.kit.KitSpells;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.KitLstToken;
+import pcgen.persistence.lst.KitSpellsLoader;
 
 public class SpellsToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -48,70 +44,25 @@ public class SpellsToken extends KitLstToken
 
 	/**
 	 * Handles the SPELLS tag for a kit.
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final KitSpells kSpells = new KitSpells();
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
-
-		String colString = colToken.nextToken();
-		final StringTokenizer aTok = new StringTokenizer(colString, "|");
-
-		String spellbook = Globals.getDefaultSpellBook();
-		String castingClass = null;
-		while (aTok.hasMoreTokens())
+		try
 		{
-			String field = aTok.nextToken();
-			if (field.startsWith("SPELLBOOK="))
-			{
-				spellbook = field.substring(10);
-			}
-			else if (field.startsWith("CLASS="))
-			{
-				castingClass = field.substring(6);
-			}
-			else
-			{
-				String countStr = null;
-				if (field.indexOf("=") != -1)
-				{
-					countStr = field.substring(field.indexOf("=")+1);
-					field = field.substring(0,field.indexOf("="));
-				}
-				final StringTokenizer subTok = new StringTokenizer(field, "[]");
-				final String spell = subTok.nextToken();
-				ArrayList featList = new ArrayList();
-				while (subTok.hasMoreTokens())
-				{
-					featList.add(subTok.nextToken());
-				}
-				kSpells.addSpell(castingClass, spellbook, spell, featList, countStr);
-			}
+			KitSpellsLoader.parseLine(aKit, value);
 		}
-		while (colToken.hasMoreTokens())
+		catch (PersistenceLayerException pe)
 		{
-			colString = colToken.nextToken();
-
-			if (colString.startsWith("COUNT:"))
-			{
-				kSpells.setCountFormula(colString.substring(6));
-			}
-			else
-			{
-				if (parseCommonTags(kSpells, colString) == false)
-				{
-					throw new PersistenceLayerException(
-						"Unknown KitSpells info " + " \"" + colString + "\"");
-				}
-			}
+			return false;
 		}
-
-		aKit.addObject(kSpells);
 		return true;
 	}
 }

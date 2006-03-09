@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import java.util.StringTokenizer;
@@ -30,17 +31,20 @@ import pcgen.core.Kit;
 import pcgen.core.kit.KitAlignment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.BaseKitLoader;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
+
+
 /**
- * Handles the ALIGN tag for a Kit.  Also will handle any Common tags on the
+ * Handles the ALIGN tag for a Kit. Also will handle any Common tags on the
  * ALIGN line.
  */
 public class AlignToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -50,15 +54,19 @@ public class AlignToken extends KitLstToken
 
 	/**
 	 * Handles parsing the ALIGN and any Common tags for this Kit line.
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(value,
+				SystemLoader.TAB_DELIM);
 		KitAlignment kAlign = new KitAlignment(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -66,15 +74,15 @@ public class AlignToken extends KitLstToken
 			final String colString = colToken.nextToken();
 			if (colString.startsWith("ALIGN:"))
 			{
-				Logging.errorPrint("Ignoring second ALIGN tag \"" +
-						colString + "\"");
+				Logging.errorPrint("Ignoring second ALIGN tag \"" + colString
+						+ "\"");
 			}
 			else
 			{
-				if (parseCommonTags(kAlign, colString) == false)
+				if (BaseKitLoader.parseCommonTags(kAlign, colString) == false)
 				{
 					throw new PersistenceLayerException(
-						"Unknown KitAlign info " + " \"" + colString + "\"");
+							"Unknown KitAlign info " + " \"" + colString + "\"");
 				}
 			}
 		}

@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import java.util.StringTokenizer;
@@ -31,15 +32,16 @@ import pcgen.core.kit.KitBio;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.KitLstToken;
+
 /**
- * Handles the NAME tag for a Kit.  Also can accept a GENDER tag on the
- * same line for historical reasons.
+ * Handles the NAME tag for a Kit. Also can accept a GENDER tag on the same line
+ * for historical reasons.
  */
 public class NameToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -48,17 +50,21 @@ public class NameToken extends KitLstToken
 	}
 
 	/**
-	 * Handles the NAME tag for a Kit.  Also can accept a GENDER tag on the
-	 * same line for historical reasons.
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * Handles the NAME tag for a Kit. Also can accept a GENDER tag on the same
+	 * line for historical reasons.
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(value,
+				SystemLoader.TAB_DELIM);
 
 		KitBio kBio = null;
 		if (kBio == null)

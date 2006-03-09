@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import pcgen.core.Kit;
@@ -36,7 +37,7 @@ public class AbilityToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -46,8 +47,11 @@ public class AbilityToken extends KitLstToken
 
 	/**
 	 * Handles parsing the ABILITY tag for this Kit line.
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
@@ -55,13 +59,12 @@ public class AbilityToken extends KitLstToken
 	{
 		try
 		{
-			KitAbilityLoader.parseLine(aKit, value);
+			KitAbilityLoader.parseLine(aKit, value, false);
 		}
-		catch(PersistenceLayerException pe)
+		catch (PersistenceLayerException pe)
 		{
 			return false;
 		}
 		return true;
 	}
 }
-

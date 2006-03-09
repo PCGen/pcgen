@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit;
 
 import java.util.StringTokenizer;
@@ -34,13 +35,14 @@ import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
 
 /**
- * This class parses a TEMPLATE line from a Kit file.  It handles the TEMPLATE
+ * This class parses a TEMPLATE line from a Kit file. It handles the TEMPLATE
  * tag as well as all common tags.
  * <p>
  * <strong>Tag Name:</strong> TEMPLATE:x|x <br>
  * <strong>Variables Used (x):</strong> Text (Name of template)<br>
  * <strong>What it does:</strong><br>
- * &nbsp;&nbsp;This is a | (pipe) delimited list of templates that are granted by the feat.<br>
+ * &nbsp;&nbsp;This is a | (pipe) delimited list of templates that are granted
+ * by the feat.<br>
  * <strong>Example:</strong><br>
  * &nbsp;&nbsp;<code>TEMPLATE:Celestial</code><br>
  * &nbsp;&nbsp;&nbsp;&nbsp;Adds the "Celestial" template to the character.<br>
@@ -50,7 +52,7 @@ public class TemplateToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -59,18 +61,21 @@ public class TemplateToken extends KitLstToken
 	}
 
 	/**
-	 * Parse the TEMPLATE line.  Handles the TEMPLATE tag as well as all
-	 * common tags.
-	 *
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
+	 * Parse the TEMPLATE line. Handles the TEMPLATE tag as well as all common
+	 * tags.
+	 * 
+	 * @param aKit
+	 *            the Kit object to add this information to
+	 * @param value
+	 *            the token string
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(value,
+				SystemLoader.TAB_DELIM);
 		KitTemplate kTemplate = new KitTemplate(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -78,14 +83,16 @@ public class TemplateToken extends KitLstToken
 			final String colString = colToken.nextToken();
 			if (colString.startsWith("TEMPLATE:"))
 			{
-					Logging.errorPrint("Ignoring second TEMPLATE tag \"" + colString + "\" in TemplateToken.parse");
+				Logging.errorPrint("Ignoring second TEMPLATE tag \""
+						+ colString + "\" in TemplateToken.parse");
 			}
 			else
 			{
 				if (parseCommonTags(kTemplate, colString) == false)
 				{
 					throw new PersistenceLayerException(
-						"Unknown KitTemplate info " + " \"" + colString + "\"");
+							"Unknown KitTemplate info " + " \"" + colString
+									+ "\"");
 				}
 			}
 		}
