@@ -302,15 +302,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	}
 
 	/**
-	 * @param flag 
-	 * @deprecated Unused -remove 5.9.5
-	 */
-	public static void setNeedsUpdate(boolean flag)
-	{
-		needsUpdate = flag;
-	}
-
-	/**
 	 * specifies whether the "match any" option should be available
 	 * @return true
 	 */

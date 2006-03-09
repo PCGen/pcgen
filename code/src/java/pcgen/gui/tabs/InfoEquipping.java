@@ -3827,32 +3827,6 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		/**
-		 * @return BounsObject 
-		 * @deprecated Unused - remove 5.9.5
-		 */
-		public BonusObj getBonus()
-		{
-			return _bonus;
-		}
-
-		/** 
-		 * @return _creator
-		 * @deprecated Unused - remove 5.9.5 */
-		public Object getCreator()
-		{
-			return _creator;
-		}
-
-		/** 
-		 * @return target
-		 * @deprecated Unused - remove 5.9.5 
-		 */
-		public Object getTarget()
-		{
-			return _target;
-		}
-
-		/**
 		 * Get name
 		 * @return name
 		 */

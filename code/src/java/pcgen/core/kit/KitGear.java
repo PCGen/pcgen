@@ -88,15 +88,6 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	}
 
 	/**
-	 * @return the name
-	 * @deprecated Unused -remove 5.9.5
-	 */
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
 	 * Set the quantity
 	 * @param argQty
 	 */

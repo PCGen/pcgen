@@ -90,16 +90,6 @@ public class SkillpointsToken extends Token
 	}
 
 	/**
-	 * @param pc
-	 * @return total skill points
-	 * @deprecated Unused - remove in 5.9.5 
-	 */
-	public static int getTotalSkillPoints(PlayerCharacter pc)
-	{
-		return getUnusedSkillPoints(pc) + getUsedSkillPoints(pc);
-	}
-
-	/**
 	 * Get unused skill points for the PC
 	 * @param pc
 	 * @return unused skill points for the PC

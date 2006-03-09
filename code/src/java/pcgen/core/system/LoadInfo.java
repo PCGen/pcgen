@@ -46,15 +46,6 @@ public class LoadInfo {
 	private String modifyFormula = "";
 
 	/**
-	 * @return The load scroe multiplier
-	 * @deprecated Unused - remove 5.9.5 
-	 */
-	public Float getLoadScoreMultiplier()
-	{
-		return loadScoreMultiplier;
-	}
-
-	/**
 	 * Set the load score multiplier
 	 * @param value
 	 */

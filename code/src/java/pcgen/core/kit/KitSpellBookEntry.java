@@ -55,15 +55,6 @@ public class KitSpellBookEntry
 	}
 
 	/**
-	 * @return classname
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public String getClassName()
-	{
-		return className;
-	}
-
-	/**
 	 * Get the spell book name
 	 * @return the spell book name
 	 */

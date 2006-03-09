@@ -52,15 +52,6 @@ public final class KitSkillAdd //implements java.io.Serializable
 	}
 
 	/**
-	 * @param aRanks
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public void setRanks(double aRanks)
-	{
-		ranks = aRanks;
-	}
-
-	/**
 	 * Get cost
 	 * @return cost
 	 */
@@ -69,12 +60,4 @@ public final class KitSkillAdd //implements java.io.Serializable
 		return cost;
 	}
 
-	/**
-	 * @param aCost
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public void setCost(final int aCost)
-	{
-		cost = aCost;
-	}
 }

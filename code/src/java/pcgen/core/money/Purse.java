@@ -206,15 +206,6 @@ public final class Purse
 		return coins.getWeight(name);
 	}
 
-	/** 
-	 * @return coin weight
-	 * @deprecated Unused - remove in 5.9.5 
-	 */
-	public double getWeight()
-	{
-		return coins.getWeight();
-	}
-
 	/**
 	 * Add the specified amount to the default coin
 	 *

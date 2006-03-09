@@ -56,15 +56,6 @@ public final class KitFunds extends BaseKit implements Serializable, Cloneable
 	}
 
 	/**
-	 * @return name
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
 	 * Set the quantity
 	 * @param argQty
 	 */

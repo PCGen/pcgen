@@ -708,21 +708,6 @@ public final class MiscUtilities
 	}
 
 	/**
-	 * @param path
-	 * @return exxpanded relative path
-	 * @deprecated Unused - remove in 5.9.5
-	 */
-	public static String expandRelativePath(String path)
-	{
-		if (path.startsWith("@"))
-		{
-			path = Globals.getDefaultPath() + File.separator + path.substring(1);
-		}
-
-		return path;
-	}
-
-	/**
 	 *  Converts a file name to a class name. All slash characters are replaced
 	 *  with periods and the trailing '.class' is removed.
 	 *
@@ -762,25 +747,6 @@ public final class MiscUtilities
 		{
 			Logging.errorPrint("No localization file found.");
 		}
-	}
-
-	/**
-	 * @param path
-	 * @return relative path 
-	 * @deprecated Unused - remove in 5.9.5
-	 * because user.dir changes to the pcgen dir, this doesn't work as 
-	 * well as it did in pcgen - we need to get it so it functions correctly.
-	 */
-	public static String retractRelativePath(String path)
-	{
-		File systemDir = new File(Globals.getDefaultPath());
-
-		if (path.startsWith(systemDir.getAbsolutePath()))
-		{
-			path = "@" + path.substring(systemDir.getAbsolutePath().length());
-		}
-
-		return path;
 	}
 
 	/** Converts a Color to an 7 byte hex string starting with '#'.

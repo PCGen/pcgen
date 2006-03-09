@@ -296,15 +296,6 @@ public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * @param flag 
-	 * @deprecated Unused -remove 5.9.5
-	 */
-	public static void setNeedsUpdate(boolean flag)
-	{
-		needsUpdate = flag;
-	}
-
-	/**
 	 * Push an update of the tabs in the GUI
 	 */
 	public void pushUpdate()

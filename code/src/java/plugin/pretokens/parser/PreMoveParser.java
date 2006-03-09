@@ -30,76 +30,11 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * @author wardc
- *  
  */
 public class PreMoveParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface {
 
 	public String[] kindsHandled() {
 		return new String[] { "MOVE" };
 	}
-
-	/**
-	 * @param moveTokens
-	 * @return Prerequisite
-	 * @deprecated Remove this method in 5.9.5
-	 */
-	/*
-	protected Prerequisite getSingleMovePrereq(String moveTokens)
-	{
-		Prerequisite subreq = new Prerequisite();
-		subreq.setKind("move");
-		subreq.setOperator(PrerequisiteOperator.GTEQ);
-
-		if (moveTokens.indexOf('.') > -1 || moveTokens.indexOf('=') > -1) 
-		{
-			String[] strings = moveTokens.split("=|\\.");
-
-			subreq.setKey(strings[0]);
-			subreq.setOperand(strings[1]);
-		}
-		else 
-		{
-			subreq.setKey(moveTokens);
-			subreq.setOperand("0");
-		}
-		return subreq;
-	}
-	*/
 	
-	/**
-	 * @param kind
-	 * @param formula
-	 * @param invertResult
-	 * @param overrideQualify
-	 * @return Prerequisite
-	 * @throws PersistenceLayerException
-	 * @deprecated REmovbe in 5.9.5
-	 */
-	/*
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException 
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKind(null);
-
-		String[] tokens = formula.split(",");
-		if (tokens.length==1) 
-		{
-			prereq = getSingleMovePrereq(tokens[0]);
-		}
-		else 
-		{	
-			for (int i = 0; i < tokens.length; i++) 
-			{
-				Prerequisite subreq = getSingleMovePrereq(tokens[i]);
-				prereq.addPrerequisite(subreq);
-			}
-		}
-
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		return prereq;
-	}*/
 }

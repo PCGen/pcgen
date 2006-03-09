@@ -52,15 +52,6 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	}
 
 	/**
-	 * @param aDeityName
-	 * @deprecated Unused -remove 5.9.5
-	 */
-	public void setDeityName(final String aDeityName)
-	{
-		theDeityName = aDeityName;
-	}
-
-	/**
 	 * Get the deityName
 	 * @return the deityName
 	 */

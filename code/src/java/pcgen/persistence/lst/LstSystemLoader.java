@@ -1055,27 +1055,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	}
 
 	/**
-	 * This method checks all the loaded races to make sure that a type (such as HUMANOID) has
-	 * been set.  If one was not set in the LST files, it is assumed to be HUMANOID and the
-	 * Globals are updated accordingly.
-	 * @deprecated This behaviour is not desired. No RACETYPE is an error.  
-	 * To be removed in 5.9.5
-	 */
-	private void checkRaceTypes()
-	{
-		for (Iterator e2 = Globals.getRaceMap().values().iterator(); e2.hasNext();)
-		{
-			final Race aRace = (Race) e2.next();
-
-			if (aRace.getMyTypeCount() == 0)
-			{
-				logError("Race " + aRace.getName() + " has no type. Assuming Humanoid.");
-				aRace.setTypeInfo("HUMANOID");
-			}
-		}
-	}
-
-	/**
 	 * This method checks to make sure that the deities required for
 	 * the current mode have been loaded into the Globals as Deities.
 	 * Prior to calling this method, deities are stored as simple String objects.

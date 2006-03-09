@@ -9,11 +9,6 @@ import java.io.Serializable;
  */
 public class GridBoxLayout extends GridLayout implements Serializable {
 	
-	/** @deprecated Unused, to be removed in 5.9.5 */
-	public GridBoxLayout() {
-		this(1, 0, 0, 0);
-	}
-
 	/**
 	 * Constructor
 	 * @param rows

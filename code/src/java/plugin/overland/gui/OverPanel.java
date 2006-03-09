@@ -121,17 +121,10 @@ public class OverPanel extends javax.swing.JPanel
 	}
 
 	/**
-	 * Set the exit preferences, currently does nothing
-	 * @deprecated - Remove 5.9.5
-	 */
-	public void setExitPrefs()
-	{
-	    // TODO:  Method does nothing?
-	}
-
-	/**
 	 *  Initialization of the bulk of preferences.  sets the defaults
 	 *  if this is the first time you have used this version
+	 *  @deprecated Code here is commented out and therefore not run
+	 *  to be removed in 5.9.6
 	 */
 	public void initPrefs()
 	{

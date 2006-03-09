@@ -39,17 +39,6 @@ public final class KitWrapper
 	private int qty = 1;
 
 	/**
-	 * @param argObj
-	 * @param argQty
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public KitWrapper(final Object argObj, final int argQty)
-	{
-		obj = argObj;
-		qty = argQty;
-	}
-
-	/**
 	 * Constructor
 	 * @param argObj
 	 * @param argFree
@@ -58,33 +47,6 @@ public final class KitWrapper
 	{
 		obj = argObj;
 		free = argFree;
-	}
-
-	/**
-	 * @param argCost
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public void setCost(final BigDecimal argCost)
-	{
-		cost = argCost;
-	}
-
-	/**
-	 * @return the cost
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public BigDecimal getCost()
-	{
-		return cost;
-	}
-
-	/**
-	 * @return true if free
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public boolean isFree()
-	{
-		return free;
 	}
 
 	/**
@@ -112,14 +74,5 @@ public final class KitWrapper
 	public PObject getPObject()
 	{
 		return aPObject;
-	}
-
-	/**
-	 * @return qty
-	 * @deprecated Unused - remove in 5.9.5
-	 */
-	public int getQuantity()
-	{
-		return qty;
 	}
 }

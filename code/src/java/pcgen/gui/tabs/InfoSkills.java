@@ -243,15 +243,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * @param flag 
-	 * @deprecated Unused -remove 5.9.5
-	 */
-	public static final void setNeedsUpdate(boolean flag)
-	{
-		needsUpdate = flag;
-	}
-
-	/**
 	 * specifies whether the "match any" option should be available
 	 * @return true
 	 */
@@ -2798,12 +2789,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				reset();
 			}
 
-			/** @deprecated Unused - remove 5.9.5 */
-			private DisplayableSkillsIterator()
-			{
-				// Empty Constructor
-			}
-
 			public void add(Object obj)
 			{
 				throw new UnsupportedOperationException();
@@ -3303,15 +3288,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		public JMenu getResortMenu()
 		{
 			return resortMenu;
-		}
-
-		/** 
-		 * @param resortMenu
-		 * @deprecated Unused - remove 5.9.5 
-		 */
-		public void setResortMenu(JMenu resortMenu)
-		{
-			this.resortMenu = resortMenu;
 		}
 
 		private class AddSkillActionListener extends SkillActionListener

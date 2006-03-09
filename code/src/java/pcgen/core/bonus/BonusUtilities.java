@@ -89,52 +89,6 @@ public final class BonusUtilities
 	}
 
 	/**
-	 * @param bonusList
-	 * @param iType
-	 * @param aName
-	 * @return List
-//	 * @deprecated - Remove when 5.9.4 is released
-	 */
-	/*public static List getBonusFromList(List bonusList, final int iType, final String aName)
-	{
-		final List aList = new ArrayList();
-
-		if (bonusList != null)
-		{
-			for (Iterator ab = bonusList.iterator(); ab.hasNext();)
-			{
-				final BonusObj aBonus = (BonusObj) ab.next();
-
-				if (aBonus.getTypeOfBonusAsInt() != iType)
-				{
-					continue;
-				}
-
-				if (aBonus.getBonusInfoList().size() > 1)
-				{
-					final StringTokenizer aTok = new StringTokenizer(aBonus.getBonusInfo(), ",");
-
-					while (aTok.hasMoreTokens())
-					{
-						final String aBI = aTok.nextToken();
-
-						if (aBI.equals(aName))
-						{
-							aList.add(aBonus);
-						}
-					}
-				}
-				else if (aBonus.getBonusInfo().equals(aName))
-				{
-					aList.add(aBonus);
-				}
-			}
-		}
-
-		return aList;
-	}*/
-
-	/**
 	 * Get Bonus from list
 	 * @param bonusList
 	 * @param iType

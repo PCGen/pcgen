@@ -26,31 +26,6 @@ public class MutableFilter extends FileFilter
 	private String descriptor;
 	private String[] acceptableExtensions;
 
-	/**
-	 * @param exts
-	 * @param desc 
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public MutableFilter(String[] exts, String desc)
-	{
-		acceptableExtensions = exts;
-
-		StringBuffer strbDesc = new StringBuffer(desc + " (");
-
-		for (int i = 0; i < acceptableExtensions.length; i++)
-		{
-			if (i > 0)
-			{
-				strbDesc.append(", ");
-			}
-
-			strbDesc.append("*." + acceptableExtensions[i]);
-		}
-
-		strbDesc.append(")");
-		descriptor = strbDesc.toString();
-	}
-
 	public String getDescription()
 	{
 		return descriptor;

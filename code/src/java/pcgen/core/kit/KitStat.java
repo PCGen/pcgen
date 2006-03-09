@@ -64,15 +64,6 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 		return theStatName;
 	}
 
-	/**
-	 * @param aName
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public void setStatName(final String aName)
-	{
-		theStatName = aName;
-	}
-
 	public String toString()
 	{
 		StringBuffer ret = new StringBuffer(100);

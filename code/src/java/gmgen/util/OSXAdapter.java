@@ -84,26 +84,4 @@ public class OSXAdapter extends ApplicationAdapter
 		}
 	}
 
-	/**
-	 * The main entry-point for this functionality.  This is the only method
-	 * that needs to be called at runtime, and it can easily be done using
-	 * reflection (see MyApp.java)
-	 * 
-	 * @param inApp
-	 * @deprecated Unused - remove 5.9.5
-	 */
-	public static void registerMacOSXApplication(gmgen.GMGenSystem inApp)
-	{
-		if (theApplication == null)
-		{
-			theApplication = new com.apple.eawt.Application();
-		}
-
-		if (theAdapter == null)
-		{
-			theAdapter = new OSXAdapter(inApp);
-		}
-
-		theApplication.addApplicationListener(theAdapter);
-	}
 }
