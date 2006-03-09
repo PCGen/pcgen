@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit.basekit;
 
 import java.util.StringTokenizer;
@@ -33,7 +34,7 @@ public class OptionToken implements BaseKitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -41,7 +42,7 @@ public class OptionToken implements BaseKitLstToken
 		return "OPTION";
 	}
 
-	public boolean parse(BaseKit baseKit, String value) 
+	public boolean parse(BaseKit baseKit, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, "|");
 		while (tok.hasMoreTokens())
@@ -64,4 +65,3 @@ public class OptionToken implements BaseKitLstToken
 		return true;
 	}
 }
-

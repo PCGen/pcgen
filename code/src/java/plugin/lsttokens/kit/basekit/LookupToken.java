@@ -22,6 +22,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date: $
  */
+
 package plugin.lsttokens.kit.basekit;
 
 import pcgen.core.kit.BaseKit;
@@ -31,7 +32,7 @@ public class LookupToken implements BaseKitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -39,10 +40,9 @@ public class LookupToken implements BaseKitLstToken
 		return "LOOKUP";
 	}
 
-	public boolean parse(BaseKit baseKit, String value) 
+	public boolean parse(BaseKit baseKit, String value)
 	{
 		baseKit.addLookup(value);
 		return true;
 	}
 }
-
