@@ -55,6 +55,16 @@ public class TokenStore {
 		tokenTypeList.add(KitLstToken.class);
 		tokenTypeList.add(BaseKitLstToken.class);
 		tokenTypeList.add(KitAbilityLstToken.class);
+		tokenTypeList.add(KitClassLstToken.class);
+		tokenTypeList.add(KitDeityLstToken.class);
+		tokenTypeList.add(KitFundsLstToken.class);
+		tokenTypeList.add(KitGearLstToken.class);
+		tokenTypeList.add(KitLevelAbilityLstToken.class);
+		tokenTypeList.add(KitProfLstToken.class);
+		tokenTypeList.add(KitSkillLstToken.class);
+		tokenTypeList.add(KitSpellsLstToken.class);
+		tokenTypeList.add(KitStartpackLstToken.class);
+		tokenTypeList.add(KitTableLstToken.class);
 
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);
@@ -77,7 +87,7 @@ public class TokenStore {
 
 		//rules.js
 		tokenTypeList.add(RuleCheckLstToken.class);
-		
+
 		//pointbuymethod.lst
 		tokenTypeList.add(PointBuyLstToken.class);
 		tokenTypeList.add(PointBuyMethodLstToken.class);
