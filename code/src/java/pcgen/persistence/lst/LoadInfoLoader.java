@@ -25,12 +25,13 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URL;
+import java.util.Map;
+
 import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-
-import java.net.URL;
 
 /**
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
@@ -72,54 +73,31 @@ public class LoadInfoLoader extends LstLineFileLoader
 	{
 
 		LoadInfo loadInfo = SystemCollections.getLoadInfo(getGameMode());
+		Map tokenMap = TokenStore.inst().getTokenMap(LoadInfoLstToken.class);
 
-		if (lstLine.startsWith("ENCUMBRANCE:") || lstLine.startsWith("ENCUMBERANCE:"))
+		final int idxColon = lstLine.indexOf(':');
+		String key = "";
+		try
 		{
-
-			String[] fields = lstLine.substring(lstLine.indexOf(':') + 1 ).split("\\|");
-			if ((fields.length < 2) || (fields.length > 4))
-			{
-				Logging.errorPrint("LoadInfoLoader got unexpected line '" + lstLine + ". Line ignored.");
-				return;
-			}
-
-			String moveFormula = "";
-			if (fields.length >= 3)
-			{
-				moveFormula = fields[2];
-			}
-
-			Integer checkPenalty = new Integer(0);
-			if (fields.length == 4)
-			{
-				checkPenalty = new Integer(fields[3]);
-			}
-
-			String type = fields[0];
-			String[] number = fields[1].split("/");
-			if (number.length == 1)
-			{
-				Float a = new Float(fields[1]);
-				loadInfo.addLoadMultiplier(type.toUpperCase(), new Float(a.doubleValue()), moveFormula, checkPenalty);
-			}
-			else if (number.length == 2)
-			{
-				Float a = new Float(number[0]);
-				Float b = new Float(number[1]);
-				loadInfo.addLoadMultiplier(type.toUpperCase(), new Float(a.doubleValue() / b.doubleValue()), moveFormula, checkPenalty);
-			}
-			else
-			{
-				Logging.errorPrint("LoadInfoLoader got unexpected line '" + lstLine + ". Line ignored.");
-				return;
-			}
+			key = lstLine.substring(0, idxColon);
 		}
-		else if (lstLine.startsWith("MODIFIER:"))
+		catch(StringIndexOutOfBoundsException e) {
+			// TODO Handle Exception
+		}
+		LoadInfoLstToken token = (LoadInfoLstToken) tokenMap.get(key);
+
+		if (token != null)
 		{
-			loadInfo.setLoadModifierFormula(lstLine.substring(9));
+			final String value = lstLine.substring(idxColon + 1);
+			LstUtils.deprecationCheck(token, loadInfo.toString(), "level.lst", value);
+			if (!token.parse(loadInfo, value))
+			{
+				Logging.errorPrint("Error parsing ability " + loadInfo + ':' + "level.lst" + ':' + lstLine + "\"");
+			}
 		}
 		else
 		{
+			LstUtils.deprecationWarning("Using deprecated style of load.lst.  Please consult the docs for information about the new style load.lst");
 			String[] sets = lstLine.split(",");
 			if (sets.length > 1)
 			{

@@ -25,6 +25,17 @@
  */
 package pcgen.core;
 
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
@@ -32,8 +43,6 @@ import pcgen.core.utils.ListKey;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import java.util.*;
 
 /**
  * <code>PCTemplate</code>.
@@ -91,6 +100,12 @@ public final class PCTemplate extends PObject implements HasCost
 	private int nonProficiencyPenalty = 1;
 	private int templateVisible = VISIBILITY_DEFAULT;
 	private String raceType = "";
+	private Integer hands;
+	private Integer legs;
+	private Integer reach;
+
+
+	private Point2D.Double face = new Point2D.Double(5, 0);
 
 	private ArrayList addedSubTypes = new ArrayList();
 	private ArrayList removedSubTypes = new ArrayList();
@@ -1462,5 +1477,50 @@ public final class PCTemplate extends PObject implements HasCost
 		final StringTokenizer stuff = new StringTokenizer((String) levelStrings.get(x), ":");
 
 		return level >= Integer.parseInt(stuff.nextToken());
+	}
+
+	public void setFace(final double width, final double height)
+	{
+		face = new Point2D.Double(width, height);
+	}
+
+	public Point2D.Double getFace()
+	{
+		return face;
+	}
+
+	public void setHands(final int newHands)
+	{
+		hands = new Integer(newHands);
+	}
+
+	/**
+	 * Made public for use on equipping tab -- bug 586332
+	 * sage_sam, 22 Nov 2002
+	 * @return hands
+	 */
+	public Integer getHands()
+	{
+		return hands;
+	}
+
+	public void setLegs(final int argLegs)
+	{
+		legs = new Integer(argLegs);
+	}
+
+	public Integer getLegs()
+	{
+		return legs;
+	}
+
+	public void setReach(final int newReach)
+	{
+		reach = new Integer(newReach);
+	}
+
+	public Integer getReach()
+	{
+		return reach;
 	}
 }

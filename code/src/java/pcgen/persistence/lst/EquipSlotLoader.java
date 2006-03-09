@@ -71,13 +71,24 @@ final class EquipSlotLoader extends LstLineFileLoader
 			}
 			EquipSlotLstToken token = (EquipSlotLstToken) tokenMap.get(key);
 
-			if (token != null)
+			//TODO: (DJ) Sick hack, remove in 5.11.x
+			if(token != null && key.equals("NUMSLOTS"))
+			{
+				final String value = colString.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURL.toString(), value);
+				if (!token.parse(eqSlot, lstLine))
+				{
+					Logging.errorPrint("Error parsing equip slots " + eqSlot.getSlotName() + ':' + sourceURL + ':' + colString + "\"");
+				}
+				break;
+			}
+			else if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURL.toString(), value);
 				if (!token.parse(eqSlot, value))
 				{
-					Logging.errorPrint("Error parsing ability " + eqSlot.getSlotName() + ':' + sourceURL + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing equip slots " + eqSlot.getSlotName() + ':' + sourceURL + ':' + colString + "\"");
 				}
 			}
 			else

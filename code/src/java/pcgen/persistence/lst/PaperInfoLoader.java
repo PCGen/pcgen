@@ -30,6 +30,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
 import java.net.URL;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -61,23 +62,47 @@ final class PaperInfoLoader extends LstLineFileLoader
 	{
 		final PaperInfo psize = new PaperInfo();
 
-		final StringTokenizer aTok = new StringTokenizer(lstLine, "\t");
+		final StringTokenizer colToken = new StringTokenizer(lstLine, "\t");
 		int iCount = 0;
 
-		while (aTok.hasMoreElements())
+		Map tokenMap = TokenStore.inst().getTokenMap(PaperInfoLstToken.class);
+		while (colToken.hasMoreTokens())
 		{
-			final String colString = (String) aTok.nextElement();
+			final String colString = colToken.nextToken().trim();
 
+			final int idxColon = colString.indexOf(':');
+			String key = "";
 			try
 			{
-				psize.setPaperInfo(iCount, colString);
+				key = colString.substring(0, idxColon);
 			}
-			catch (IndexOutOfBoundsException e)
-			{
-				Logging.errorPrint("Illegal paper size info '" + lstLine + "' in " + sourceURL.toString());
+			catch(StringIndexOutOfBoundsException e) {
+				// TODO Handle Exception
 			}
+			PaperInfoLstToken token = (PaperInfoLstToken) tokenMap.get(key);
 
-			iCount += 1;
+			if (token != null)
+			{
+				final String value = colString.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, psize.toString(), sourceURL.toString(), value);
+				if (!token.parse(psize, value))
+				{
+					Logging.errorPrint("Error parsing equip slots " + psize.toString() + ':' + sourceURL + ':' + colString + "\"");
+				}
+			}
+			else {
+				LstUtils.deprecationWarning("Using deprecated style of paperinfo.lst.  Please consult the docs for information about the new style paperinfo.lst");
+				try
+				{
+					psize.setPaperInfo(iCount, colString);
+				}
+				catch (IndexOutOfBoundsException e)
+				{
+					Logging.errorPrint("Illegal paper size info '" + lstLine + "' in " + sourceURL.toString());
+				}
+	
+				iCount += 1;
+			}
 		}
 
 		SystemCollections.addToPaperInfoList(psize, gameMode);

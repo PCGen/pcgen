@@ -88,6 +88,12 @@ public class TokenStore {
 
 		//equipmentslots.lst
 		tokenTypeList.add(EquipSlotLstToken.class);
+		
+		//load.lst
+		tokenTypeList.add(LoadInfoLstToken.class);
+
+		//paperinfo.lst
+		tokenTypeList.add(PaperInfoLstToken.class);
 	}
 
 	/**
