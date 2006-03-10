@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Tue Feb 21 11:18:48 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Bloodstone Press - Spellbinder's Sourcebook II
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets.Bloodstone Press
+#TYPE:Bloodstone Press.Spellbinder's Sourcebook II
+SOURCELONG:Spellbinder's Sourcebook II
+SOURCESHORT:SpellbinderII
+SOURCEWEB:http://www.bloodstone-press.com/spellbinders2.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of theCoast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Spellbinder’s Sourcebook II Copyright 2004, Bloodstone Press.
+COPYRIGHT:PCGen dataset conversion for Spellbinder's Sourcebook II Copyright 2006, PCGen Data team (Including, but not limited to Paul W. King, Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SPELL:spellbinder2_spells.lst
+
