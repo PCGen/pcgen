@@ -68,9 +68,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private static Integer saveViewMode = null;
 	private static int viewSelectMode = GuiConstants.INFOCLASS_VIEW_NAME; // keep track of what view mode we're in for Selected. defaults to PropertyFactory.getString("in_nameLabel")
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
-	private static final int COL_NAME = 0;
-	private static final int COL_REQ_LEVEL = 1;
-	private static final int COL_SRC = 2;
 	private static PObjectNode typeRoot;
 	private static PObjectNode sourceRoot;
 	private final JLabel avaLabel = new JLabel(PropertyFactory.getString("in_available"));
@@ -365,11 +362,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				b.append(" <b>").append(PropertyFactory.getString("in_sourceLabel")).append("</b>:").append(aString);
 			}
 
-			aString = SettingsHandler.getGame().getBabAbbrev();
-			if (aString == null)
-			{
-				aString = "BAB";
-			}
+			aString = getBabTitle();
 			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
 
 			//
@@ -971,96 +964,13 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		//  Base Panel, Contains left and right panels
 		center.setLayout(new BorderLayout());
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel leftPane = new JPanel();
-		JPanel rightPane = new JPanel();
-		leftPane.setLayout(gridbag);
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
-		splitPane.setOneTouchExpandable(true);
-		splitPane.setDividerSize(10);
-
-		center.add(splitPane, BorderLayout.CENTER);
-
-		//  Top Left Pane - Available Classes
-		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
-
-		JPanel aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-		aPanel.add(avaLabel);
-		aPanel.add(viewComboBox);
-
-		ImageIcon newImage;
-		newImage = IconUtilitities.getImageIcon("Forward16.gif");
-		addButton = new JButton(newImage);
-		Utility.setDescription(addButton, PropertyFactory.getString("in_clAddTip"));
-		addButton.setEnabled(false);
-		aPanel.add(addButton);
-		leftPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(lblQFilter, c);
-		leftPane.add(lblQFilter);
-		
-		Utility.buildConstraints(c, 1, 1, 1, 1, 95, 0);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(textQFilter, c);
-		leftPane.add(textQFilter);
-		
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(clearQFilterButton, c);
-		clearQFilterButton.setEnabled(false);
-		leftPane.add(clearQFilterButton);
-
-		selectedTable.setColAlign(1, SwingConstants.CENTER);
-		selectedTable.getColumnModel().getColumn(1).setPreferredWidth(15);
-
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-
-		JScrollPane scrollPane = new JScrollPane(availableTable);
-		gridbag.setConstraints(scrollPane, c);
-		leftPane.add(scrollPane);
-
-		//  Top Right Pane - Selected Classes
-		gridbag = new GridBagLayout();
-		c = new GridBagConstraints();
-		rightPane.setLayout(gridbag);
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
-		aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-		aPanel.add(selLabel);
-		aPanel.add(viewSelectComboBox);
-		newImage = IconUtilitities.getImageIcon("Back16.gif");
-		removeButton = new JButton(newImage);
-		Utility.setDescription(removeButton, PropertyFactory.getString("in_clRemoveTip"));
-		removeButton.setEnabled(false);
-		aPanel.add(removeButton);
-		rightPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-		scrollPane = new JScrollPane(selectedTable);
-		gridbag.setConstraints(scrollPane, c);
-		rightPane.add(scrollPane);
+		buildTop();
 
 		//  Bottom Left Pane - Class Info
 		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_clInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		cScroll.setBorder(title1);
-		infoLabel.setBackground(rightPane.getBackground());
+		//infoLabel.setBackground(rightPane.getBackground());
 		cScroll.setViewportView(infoLabel);
 		Utility.setDescription(cScroll, PropertyFactory.getString("in_infoScrollTip"));
 
@@ -1085,6 +995,113 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		// add the sorter so that clicking on the TableHeader actually does something
 		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
+	}
+
+	private void buildTop() {
+		//GridBagLayout gridbag = new GridBagLayout();
+		//GridBagConstraints c = new GridBagConstraints();
+		JPanel leftPane = new JPanel();
+		JPanel rightPane = new JPanel();
+		leftPane.setLayout(new BorderLayout());
+		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane.setOneTouchExpandable(true);
+		splitPane.setDividerSize(10);
+		center.add(splitPane, BorderLayout.CENTER);
+
+		//  Top Left Pane - Available Classes
+		leftPane.add(createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+
+		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(availableTable, columnButton, availableModel);
+		leftPane.add(scrollPane, BorderLayout.CENTER);
+
+		JPanel leftBottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
+		Utility.setDescription(addButton, PropertyFactory.getString("in_clAddTip"));
+		addButton.setEnabled(false);
+		leftBottomPanel.add(addButton);
+		leftPane.add(leftBottomPanel, BorderLayout.SOUTH);
+
+		//  Top Right Pane - Selected Classes
+		rightPane.setLayout(new BorderLayout());
+
+		JPanel rightTopPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		rightTopPanel.add(selLabel);
+		rightTopPanel.add(viewSelectComboBox);
+		rightPane.add(rightTopPanel, BorderLayout.NORTH);
+
+		selectedTable.setColAlign(1, SwingConstants.CENTER);
+		selectedTable.getColumnModel().getColumn(1).setPreferredWidth(15);
+		JScrollPane scrollPane2 = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		rightPane.add(scrollPane2, BorderLayout.CENTER);
+		JButton columnButton2 = new JButton();
+		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+		
+		JPanel rightBottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
+		Utility.setDescription(removeButton, PropertyFactory.getString("in_clRemoveTip"));
+		removeButton.setEnabled(false);
+		rightBottomPanel.add(removeButton);
+		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
+	}
+
+	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
+	{
+		GridBagConstraints c = new GridBagConstraints();
+		JPanel filterPanel = new JPanel(new GridBagLayout());
+		int i = 0;
+
+		if(treeLabel != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(treeLabel, c);
+		}
+		
+		if(treeCb != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(treeCb, c);
+		}
+
+		if(filterLabel != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(filterLabel, c);
+		}
+		
+		if(filterText != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.HORIZONTAL;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(filterText, c);
+		}
+		
+		if(clearButton != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(0, 2, 0, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			clearButton.setEnabled(false);
+			filterPanel.add(clearButton, c);
+		}
+		return filterPanel;
 	}
 
 	private boolean maybeSetExperience(int xp)
@@ -1557,6 +1574,14 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		forceRefresh();
 	}
 
+	private static String getBabTitle() {
+		String bab = SettingsHandler.getGame().getBabAbbrev();
+		if (bab == null)
+		{
+			bab = "BAB";
+		}
+		return bab;
+	}
 	/**
 	 * The basic idea of the TreeTableModel is that there is a single
 	 * <code>root</code> object.  This root object has a null
@@ -1569,10 +1594,32 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	 * nodes which have at least 1 child are not leafs.
 	 * Leafs are like files and non-leafs are like directories.
 	 **/
-	private final class ClassModel extends AbstractTreeTableModel
+	private final class ClassModel extends AbstractTreeTableModel implements TableColumnManagerModel
 	{
 		// Types of the columns.
 		private int modelType = 0; // availableModel=0,selectedModel=1
+		private List displayList = null;
+		private static final int COL_NAME = 0;
+		private static final int COL_REQ = 1;
+		private static final int COL_LEVEL = 2;
+		private static final int COL_TYPE = 3;
+		private static final int COL_BAB = 4;
+		private static final int COL_HD = 5;
+		private static final int COL_SPELLTYPE = 6;
+		private static final int COL_SPELLSTAT = 7;
+		private static final int COL_SRC = 8;
+
+		private final String[] colNameList = {
+				PropertyFactory.getString("in_nameLabel"),
+				PropertyFactory.getString("in_preReqs"),
+				PropertyFactory.getString("in_level"),
+				PropertyFactory.getString("in_type"),
+				getBabTitle(),
+				PropertyFactory.getString("in_hdLabel"),
+				PropertyFactory.getString("in_spellType"),
+				PropertyFactory.getString("in_baseStat"),
+				PropertyFactory.getString("in_sourceLabel")
+			};
 
 		/**
 		 * Creates a ClassModel
@@ -1589,6 +1636,21 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			}
 
 			resetModel(mode, available);
+			displayList = new ArrayList();
+			if(modelType == 0) {
+				displayList.add(new Boolean(true));
+				displayList.add(new Boolean(false));
+			}
+			else {
+				displayList.add(new Boolean(false));
+				displayList.add(new Boolean(true));
+			}
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(true));
 		}
 
 		public boolean isCellEditable(Object node, int column)
@@ -1608,15 +1670,17 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case COL_NAME:
 					return TreeTableModel.class;
 
-				case COL_REQ_LEVEL:
+				case COL_REQ:
+					return String.class;
 
-					if (modelType == 0)
-					{
-						return String.class;
-					}
-
+				case COL_LEVEL:
 					return Integer.class;
 
+				case COL_TYPE:
+				case COL_BAB:
+				case COL_HD:
+				case COL_SPELLTYPE:
+				case COL_SPELLSTAT:
 				case COL_SRC:
 					return String.class;
 
@@ -1648,31 +1712,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		 */
 		public String getColumnName(int column)
 		{
-			switch (column)
-			{
-				case COL_NAME:
-					return PropertyFactory.getString("in_nameLabel");
-
-				case COL_REQ_LEVEL:
-
-					if (modelType == 0)
-					{
-						return PropertyFactory.getString("in_preReqs");
-					}
-
-					return PropertyFactory.getString("in_level");
-
-				case COL_SRC:
-					return PropertyFactory.getString("in_sourceLabel");
-
-				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr3") + " " + column + " "
-						+ PropertyFactory.getString("in_clICEr2"));
-
-					break;
-			}
-
-			return "";
+			return colNameList[column];
 		}
 
 		// return the root node
@@ -1690,15 +1730,16 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		public Object getValueAt(Object node, int column)
 		{
 			final PObjectNode fn = (PObjectNode) node;
-			PCClass aClass = null;
+			PCClass pcclass = null;
 
 			if ((fn != null) && (fn.getItem() instanceof PCClass))
 			{
-				aClass = (PCClass) fn.getItem();
+				pcclass = (PCClass) fn.getItem();
 			}
 
 			final Integer c = new Integer(0);
-
+			String retString = "";
+			
 			switch (column)
 			{
 				case COL_NAME: // Name
@@ -1710,33 +1751,67 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					Logging.errorPrint(PropertyFactory.getString("in_clICEr5"));
 					return "";
 
-				case COL_REQ_LEVEL: // Cost
-
+				case COL_REQ:
 					if (modelType == 0)
 					{
-						if (aClass != null)
+						if (pcclass != null)
 						{
-							return aClass.preReqHTMLStrings(pc);
+							retString = pcclass.preReqHTMLStrings(pc);
 						}
-
-						return "";
 					}
+					return retString;
 
-					if (aClass != null)
+				case COL_LEVEL:
+					if (pcclass != null)
 					{
-						return new Integer(aClass.getLevel());
+						return new Integer(pcclass.getLevel());
 					}
 
 					return c;
+
+				case COL_TYPE:
+					if (pcclass != null)
+					{
+						retString = pcclass.getType(); 
+					}
+					return retString;
+					
+				case COL_BAB:
+					if (pcclass != null)
+					{
+						retString = pcclass.getAttackBonusType(); 
+					}
+					return retString;
+
+				case COL_HD:
+					if (pcclass != null)
+					{
+						int hitDie = pcclass.getBaseHitDie();
+						retString = "1d" + hitDie; 
+					}
+					return retString;
+
+				case COL_SPELLTYPE:
+					if (pcclass != null)
+					{
+						retString = pcclass.getSpellType(); 
+					}
+					return retString;
+
+				case COL_SPELLSTAT:
+					if (pcclass != null)
+					{
+						retString = pcclass.getSpellBaseStat(); 
+					}
+					return retString;
 
 				case COL_SRC: // Source or Qty
 
 					if (fn != null)
 					{
-						return fn.getSource();
+						retString = fn.getSource();
 					}
-
-					return "";
+					return retString;
 
 				case -1:
 
@@ -1943,6 +2018,26 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			}
 
 			return ((modelType == 1) || (aClass.isVisible() && accept(pc, aClass)));
+		}
+
+		public List getMColumnList() {
+			List retList = new ArrayList();
+			for(int i = 1; i < colNameList.length; i++) {
+				retList.add(colNameList[i]);
+			}
+			return retList;
+		}
+
+		public boolean isMColumnDisplayed(int col) {
+			return ((Boolean)displayList.get(col)).booleanValue();
+		}
+
+		public void setMColumnDisplayed(int col, boolean disp) {
+			displayList.set(col, new Boolean(disp));
+		}
+
+		public int getMColumnOffset() {
+			return 1;
 		}
 	}
 

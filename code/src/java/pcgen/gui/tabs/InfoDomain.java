@@ -765,6 +765,20 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		buildTopPane();
 
+		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_deityInfo"));
+		title1.setTitleJustification(TitledBorder.CENTER);
+		deityScroll.setBorder(title1);
+		//deityInfo.setBackground(rightPane.getBackground());
+		deityScroll.setViewportView(deityInfo);
+		Utility.setDescription(deityScroll, PropertyFactory.getString("in_infoScrollTip"));
+
+		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_domainInfo"));
+		title2.setTitleJustification(TitledBorder.CENTER);
+		domainScroll.setBorder(title2);
+		//domainInfo.setBackground(rightPane.getBackground());
+		domainScroll.setViewportView(domainInfo);
+		Utility.setDescription(domainScroll, PropertyFactory.getString("in_infoScrollTip"));
+
 		aSplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, deityScroll, domainScroll);
 		aSplit.setOneTouchExpandable(true);
 		aSplit.setDividerSize(10);
@@ -863,20 +877,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		columnButton2.setText("^");
 		new TableColumnManager(domainTable, columnButton2, domainModel);
 		rightPane.add(scrollPane2);
-
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_deityInfo"));
-		title1.setTitleJustification(TitledBorder.CENTER);
-		deityScroll.setBorder(title1);
-		deityInfo.setBackground(rightPane.getBackground());
-		deityScroll.setViewportView(deityInfo);
-		Utility.setDescription(deityScroll, PropertyFactory.getString("in_infoScrollTip"));
-
-		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_domainInfo"));
-		title2.setTitleJustification(TitledBorder.CENTER);
-		domainScroll.setBorder(title2);
-		domainInfo.setBackground(rightPane.getBackground());
-		domainScroll.setViewportView(domainInfo);
-		Utility.setDescription(domainScroll, PropertyFactory.getString("in_infoScrollTip"));
 	}
 
 	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
