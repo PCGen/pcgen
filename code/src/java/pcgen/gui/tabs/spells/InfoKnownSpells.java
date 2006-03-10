@@ -525,7 +525,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		// for the availabe spells table and info
 		//
 		JPanel aPanel = new JPanel();
-		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
@@ -549,7 +549,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		//
 		// Buttons above spellbooks and known spells
 		JPanel sPanel = new JPanel();
-		sPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		sPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		sPanel.add(selLabel);
 		sPanel.add(primaryViewSelectComboBox);
 		sPanel.add(secondaryViewSelectComboBox);

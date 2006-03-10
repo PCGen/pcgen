@@ -238,7 +238,12 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	 */
 	public void setQFilter(String quickFilter) 
 	{
-		this.qFilter = quickFilter.toLowerCase();
+		if(quickFilter != null) {
+			this.qFilter = quickFilter.toLowerCase();
+		}
+		else {
+			this.qFilter = null;
+		}
 	}
 
 	/**

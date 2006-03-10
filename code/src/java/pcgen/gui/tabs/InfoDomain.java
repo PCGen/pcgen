@@ -27,32 +27,93 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.*;
-import pcgen.gui.editor.EditorConstants;
-import pcgen.gui.filter.FilterAdapterPanel;
-import pcgen.gui.filter.FilterConstants;
-import pcgen.gui.filter.FilterFactory;
-import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.*;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.*;
-import java.util.*;
+
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.CharacterInfo;
+import pcgen.gui.CharacterInfoTab;
+import pcgen.gui.GuiConstants;
+import pcgen.gui.LstEditorMain;
+import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
+import pcgen.gui.editor.EditorConstants;
+import pcgen.gui.filter.FilterAdapterPanel;
+import pcgen.gui.filter.FilterConstants;
+import pcgen.gui.filter.FilterFactory;
+import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTableEx;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.TableSorter;
+import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.Utility;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * This class is responsible for drawing the domain related window - including
@@ -95,6 +156,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	private JButton domainSelect;
 	private JLabel deityName;
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
+	private JTextField textDeityQFilter = new JTextField();
+	private JButton clearDeityQFilterButton = new JButton("Clear");
+	private static Integer saveDeityViewMode = null;
+	private JTextField textDomainQFilter = new JTextField();
+	private JButton clearDomainQFilterButton = new JButton("Clear");
 
 	// author: Thomas Behr 08-02-02
 	private JLabel domChosen = new JLabel();
@@ -697,95 +763,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		center.setLayout(new BorderLayout());
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel leftPane = new JPanel();
-		JPanel rightPane = new JPanel();
-		leftPane.setLayout(gridbag);
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
-		splitPane.setOneTouchExpandable(true);
-		splitPane.setDividerSize(10);
-		splitPane.setDividerLocation(350);
-		center.add(splitPane, BorderLayout.CENTER);
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 100, 5);
-		c.fill = GridBagConstraints.VERTICAL;
-		c.anchor = GridBagConstraints.CENTER;
-
-		JPanel aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-		JLabel aLabel = new JLabel(PropertyFactory.getString("in_irSortDeities"));
-		aPanel.add(aLabel);
-		aPanel.add(viewComboBox);
-
-		aLabel = new JLabel(PropertyFactory.getString("in_deity") + ": ");
-		aPanel.add(aLabel);
-		deityName = new JLabel(PropertyFactory.getString("in_nameLabel"));
-		aPanel.add(deityName);
-		deitySelect = new JButton(PropertyFactory.getString("in_select"));
-		Utility.setDescription(deitySelect, PropertyFactory.getString("in_deityButTip"));
-
-		aPanel.add(deitySelect);
-		leftPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-
-		JScrollPane scrollPane = new JScrollPane(deityTable);
-		gridbag.setConstraints(scrollPane, c);
-		leftPane.add(scrollPane);
-
-		gridbag = new GridBagLayout();
-		c = new GridBagConstraints();
-		rightPane.setLayout(gridbag);
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 100, 5);
-		c.fill = GridBagConstraints.VERTICAL;
-		c.anchor = GridBagConstraints.CENTER;
-		aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-		domSelected = new JLabel(PropertyFactory.getString("in_domainSelected") + ": ");
-		ofLabel = new JLabel(PropertyFactory.getString("in_ofString"));
-		aPanel.add(domSelected);
-		aPanel.add(domChosen);
-		aPanel.add(ofLabel);
-		aPanel.add(domTotal);
-		domainSelect = new JButton(PropertyFactory.getString("in_select"));
-		Utility.setDescription(domainSelect, PropertyFactory.getString("in_domainButTip"));
-		domainSelect.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					final ListSelectionModel lsm = domainTable.getSelectionModel();
-					final int selectedRow = domainSorter.getRowTranslated(lsm.getMinSelectionIndex());
-					selectDomainIndex(selectedRow);
-				}
-			});
-
-		aPanel.add(domainSelect);
-		rightPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-		scrollPane = new JScrollPane(domainTable);
-		gridbag.setConstraints(scrollPane, c);
-		rightPane.add(scrollPane);
-
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_deityInfo"));
-		title1.setTitleJustification(TitledBorder.CENTER);
-		deityScroll.setBorder(title1);
-		deityInfo.setBackground(rightPane.getBackground());
-		deityScroll.setViewportView(deityInfo);
-		Utility.setDescription(deityScroll, PropertyFactory.getString("in_infoScrollTip"));
-
-		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_domainInfo"));
-		title2.setTitleJustification(TitledBorder.CENTER);
-		domainScroll.setBorder(title2);
-		domainInfo.setBackground(rightPane.getBackground());
-		domainScroll.setViewportView(domainInfo);
-		Utility.setDescription(domainScroll, PropertyFactory.getString("in_infoScrollTip"));
+		buildTopPane();
 
 		aSplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, deityScroll, domainScroll);
 		aSplit.setOneTouchExpandable(true);
@@ -812,9 +790,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			});
 
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
 		addComponentListener(new ComponentAdapter()
 			{
 				public void componentShown(ComponentEvent evt)
@@ -825,6 +800,129 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		hookupPopupMenu(deityTable);
 		hookupPopupMenu(domainTable);
+	}
+
+	private void buildTopPane() {
+		JPanel leftPane = new JPanel();
+		JPanel rightPane = new JPanel();
+		leftPane.setLayout(new BorderLayout());
+		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane.setOneTouchExpandable(true);
+		splitPane.setDividerSize(10);
+		splitPane.setDividerLocation(350);
+		center.add(splitPane, BorderLayout.CENTER);
+
+		leftPane.add(createFilterPane(new JLabel(PropertyFactory.getString("in_irSortDeities")), viewComboBox, new JLabel("Filter:"), textDeityQFilter, clearDeityQFilterButton), BorderLayout.NORTH);
+
+		JScrollPane scrollPane = new JScrollPane(deityTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(deityTable, columnButton, deityModel);
+
+		leftPane.add(scrollPane);
+
+		JPanel leftBottom = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		leftBottom.add(new JLabel(PropertyFactory.getString("in_deity") + ": "));
+		deityName = new JLabel(PropertyFactory.getString("in_nameLabel"));
+		leftBottom.add(deityName);
+		deitySelect = new JButton(PropertyFactory.getString("in_select"));
+		Utility.setDescription(deitySelect, PropertyFactory.getString("in_deityButTip"));
+		leftBottom.add(deitySelect);
+		leftPane.add(leftBottom, BorderLayout.SOUTH);
+
+		
+		rightPane.setLayout(new BorderLayout());
+
+		rightPane.add(createFilterPane(null, null, new JLabel("Filter:"), textDomainQFilter, clearDomainQFilterButton), BorderLayout.NORTH);
+
+		JPanel rightBottom = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		domSelected = new JLabel(PropertyFactory.getString("in_domainSelected") + ": ");
+		ofLabel = new JLabel(PropertyFactory.getString("in_ofString"));
+		rightBottom.add(domSelected);
+		rightBottom.add(domChosen);
+		rightBottom.add(ofLabel);
+		rightBottom.add(domTotal);
+		domainSelect = new JButton(PropertyFactory.getString("in_select"));
+		Utility.setDescription(domainSelect, PropertyFactory.getString("in_domainButTip"));
+		domainSelect.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					final ListSelectionModel lsm = domainTable.getSelectionModel();
+					final int selectedRow = domainSorter.getRowTranslated(lsm.getMinSelectionIndex());
+					selectDomainIndex(selectedRow);
+				}
+			});
+		rightBottom.add(domainSelect);
+		rightPane.add(rightBottom, BorderLayout.SOUTH);
+
+		JScrollPane scrollPane2 = new JScrollPane(domainTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JButton columnButton2 = new JButton();
+		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(domainTable, columnButton2, domainModel);
+		rightPane.add(scrollPane2);
+
+		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_deityInfo"));
+		title1.setTitleJustification(TitledBorder.CENTER);
+		deityScroll.setBorder(title1);
+		deityInfo.setBackground(rightPane.getBackground());
+		deityScroll.setViewportView(deityInfo);
+		Utility.setDescription(deityScroll, PropertyFactory.getString("in_infoScrollTip"));
+
+		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_domainInfo"));
+		title2.setTitleJustification(TitledBorder.CENTER);
+		domainScroll.setBorder(title2);
+		domainInfo.setBackground(rightPane.getBackground());
+		domainScroll.setViewportView(domainInfo);
+		Utility.setDescription(domainScroll, PropertyFactory.getString("in_infoScrollTip"));
+	}
+
+	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
+	{
+		GridBagConstraints c = new GridBagConstraints();
+		JPanel filterPanel = new JPanel(new GridBagLayout());
+		int i = 0;
+
+		if(treeLabel != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(treeLabel, c);
+		}
+		
+		if(treeCb != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(treeCb, c);
+		}
+
+		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(filterLabel, c);
+		
+		Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(filterText, c);
+		
+		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+		c.insets = new Insets(0, 2, 0, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		clearButton.setEnabled(false);
+		filterPanel.add(clearButton, c);
+		
+		return filterPanel;
 	}
 
 	private void initActionListeners()
@@ -852,6 +950,53 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			});
 
 		FilterFactory.restoreFilterSettings(this);
+
+		textDeityQFilter.getDocument().addDocumentListener(new DocumentListener() 
+				{
+					public void changedUpdate(DocumentEvent evt)
+					{
+						setDeityQFilter();
+					}
+					public void insertUpdate(DocumentEvent evt)
+					{
+						setDeityQFilter();
+					}
+					public void removeUpdate(DocumentEvent evt)
+					{
+						setDeityQFilter();
+					}
+				});
+		clearDeityQFilterButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					clearDeityQFilter();
+				}
+			});
+
+		textDomainQFilter.getDocument().addDocumentListener(new DocumentListener() 
+			{
+				public void changedUpdate(DocumentEvent evt)
+				{
+					setDomainQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setDomainQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
+				{
+					setDomainQFilter();
+				}
+			});
+		clearDomainQFilterButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					clearDomainQFilter();
+				}
+			});
+
 	}
 
 	private void viewComboBoxActionPerformed()
@@ -1077,6 +1222,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// use star (*) to identify which are chosen in the table
 		domChosen.setText(Integer.toString(pc.getCharacterDomainUsed()) + "*");
 
+		domainModel.resetModel();
+		
 		// Notify the table and sorter that the table data has changed
 		domainSorter.tableChanged(null);
 		domainModel.fireTableDataChanged();
@@ -1254,6 +1401,72 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		LstEditorMain lem = new LstEditorMain();
 		lem.setVisible(true);
 		lem.editIt(aDeity, EditorConstants.EDIT_DEITY);
+	}
+
+	private void clearDeityQFilter()
+	{
+		deityModel.clearQFilter();
+		if (saveDeityViewMode != null)
+		{
+			viewMode = saveDeityViewMode.intValue();
+			saveDeityViewMode = null;
+		}
+		deityModel.resetModel(viewMode);
+		clearDeityQFilterButton.setEnabled(false);
+		deityModel.setQFilter(null);
+		textDeityQFilter.setText(null);
+		viewComboBox.setEnabled(true);
+		createModel();
+		deityTable.updateUI();
+		forceRefresh();
+	}
+
+	private void setDeityQFilter()
+	{
+		String filterStr = textDeityQFilter.getText();
+
+		if (filterStr.length() == 0)
+		{
+			clearDeityQFilter();
+			return;
+		}
+		deityModel.setQFilter(filterStr);
+
+		if (saveDeityViewMode == null)
+		{
+			saveDeityViewMode = new Integer(viewMode);
+		}
+		viewMode = GuiConstants.INFODOMAIN_VIEW_NAME;
+		clearDeityQFilterButton.setEnabled(true);
+		viewComboBox.setEnabled(false);
+		createModel();
+		deityTable.updateUI();
+		forceRefresh();
+	}
+
+	private void clearDomainQFilter()
+	{
+		domainModel.clearQFilter();
+		domainModel.resetModel();
+		clearDomainQFilterButton.setEnabled(false);
+		domainModel.setQFilter(null);
+		textDomainQFilter.setText(null);
+		forceRefresh();
+	}
+
+	private void setDomainQFilter()
+	{
+		String filterStr = textDomainQFilter.getText();
+
+		if (filterStr.length() == 0)
+		{
+			clearDomainQFilter();
+			return;
+		}
+		domainModel.setQFilter(filterStr);
+		domainModel.resetModel();
+		clearDomainQFilterButton.setEnabled(true);
+		forceRefresh();
 	}
 
 	private class DeityPopupListener extends MouseAdapter
@@ -1555,7 +1768,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	/**
 	 * This is the Model that populates the table for Deities
 	 */
-	private final class DeityModel extends AbstractTreeTableModel {
+	private final class DeityModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	{
 		// this is the root node
 		private PObjectNode deityRoot;
 
@@ -1566,10 +1780,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			PropertyFactory.getString("in_domains"),
 			PropertyFactory.getString("in_sourceLabel")
 		};
+		private List displayList = null;
 
 		private DeityModel(int mode) {
 			super(null);
 			resetModel(mode);
+			displayList = new ArrayList();
+			displayList.add(new Boolean(true));
+			displayList.add(new Boolean(true));
+			displayList.add(new Boolean(true));
 		}
 
 		/**
@@ -1721,13 +1940,17 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private void buildNameView() {
 			List deityList = new ArrayList();
 
+			String qFilter = getQFilter();
 			// now loop through all the deities and
 			// see which ones are not filtered out
 			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
 				final Deity aDeity = (Deity) it.next();
 
 				if(accept(pc, aDeity)) {
-					deityList.add(aDeity);
+					if (qFilter == null || aDeity.getName().toLowerCase().indexOf(qFilter) >= 0)
+					{
+						deityList.add(aDeity);
+					}
 				}
 			}
 
@@ -1982,18 +2205,42 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// now add to the root node
 			deityRoot.setChildren(rs);
 		}
+
+		public List getMColumnList() {
+			List retList = new ArrayList();
+			for(int i = 1; i <deityNameList.length; i++) {
+				retList.add(deityNameList[i]);
+			}
+			return retList;
+		}
+
+		public boolean isMColumnDisplayed(int col) {
+			return ((Boolean)displayList.get(col)).booleanValue();
+		}
+
+		public void setMColumnDisplayed(int col, boolean disp) {
+			displayList.set(col, new Boolean(disp));
+		}
+
+		public int getMColumnOffset() {
+			return 1;
+		}
 	}
 
 	/**
 	 * This is the Model that populate the table for Domains
 	 */
-	private final class DomainModel extends AbstractTableModel
+	private final class DomainModel extends AbstractTableModel implements TableColumnManagerModel
 	{
 		private List availDomainList = new ArrayList();
+		private List displayDomainList = new ArrayList();
+		private String qFilter = null;
+		private List displayList = null;
 
 		private DomainModel()
 		{
-		    // Empty Constructor
+			displayList = new ArrayList();
+			displayList.add(new Boolean(true));
 		}
 
 		/**
@@ -2016,6 +2263,19 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return s_domainColList.length;
 		}
 
+		public void resetModel() {
+			displayDomainList.clear();
+			for(int i = 0; i < availDomainList.size(); i++)
+			{
+				Domain dom = (Domain) availDomainList.get(i);
+				//Does anyone know why we don't call
+				//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
+				if (qFilter == null || dom.getName().toLowerCase().indexOf(qFilter) >= 0)
+				{
+					displayDomainList.add(dom);
+				}
+			}
+		}
 		// The default implementations of these methods in
 		// AbstractTableModel would work, but we can refine them.
 		public String getColumnName(int column)
@@ -2025,17 +2285,17 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		public int getRowCount()
 		{
-			return availDomainList.size();
+			return displayDomainList.size();
 		}
 
 		public Object getValueAt(int row, int col)
 		{
-			if ((row < 0) || (row >= availDomainList.size()))
+			if ((row < 0) || (row >= displayDomainList.size()))
 			{
 				return "";
 			}
 
-			final Domain aDomain = (Domain) availDomainList.get(row);
+			final Domain aDomain = (Domain) displayDomainList.get(row);
 
 			if (aDomain == null)
 			{
@@ -2055,7 +2315,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					// bolded is insufficent becuase it
 					// conflicts with PI-formatting
 					// (bold-italic), so I added an asterisk
-					if (selectedDomainList.contains(availDomainList.get(row)))
+					if (selectedDomainList.contains(displayDomainList.get(row)))
 					{
 						retVal.append("<html><b>").append(aDomain.piSubString()).append("*</b></html>");
 					}
@@ -2094,6 +2354,55 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 
 			return retVal.toString();
+		}
+
+		/**
+		 * Get the QuickFilter
+		 * @return QuickFilter
+		 */
+		public String getQFilter()
+		{
+			return qFilter;
+		}
+
+		/**
+		 * Set theQuickFilter
+		 * @param quickFilter
+		 */
+		public void setQFilter(String quickFilter) 
+		{
+			if(quickFilter != null) {
+				this.qFilter = quickFilter.toLowerCase();
+			}
+			else {
+				this.qFilter = null;
+			}
+		}
+
+		/**
+		 * Clear the QuickFilter
+		 */
+		public void clearQFilter() 
+		{
+			this.qFilter = null;
+		}
+
+		public List getMColumnList() {
+			List retList = new ArrayList();
+			retList.add("Source");
+			return retList;
+		}
+
+		public boolean isMColumnDisplayed(int col) {
+			return ((Boolean)displayList.get(col)).booleanValue();
+		}
+
+		public void setMColumnDisplayed(int col, boolean disp) {
+			displayList.set(col, new Boolean(disp));
+		}
+
+		public int getMColumnOffset() {
+			return 1;
 		}
 	}
 

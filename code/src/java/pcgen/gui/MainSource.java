@@ -688,7 +688,7 @@ public class MainSource extends FilterAdapterPanel
 		center.add(splitPane, BorderLayout.CENTER);
 
 		JPanel aPanel = new JPanel();
-		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		avaLabel.setText(PropertyFactory.getString("in_available"));
 		aPanel.add(avaLabel);
 		aPanel.add(viewComboBox);
@@ -726,7 +726,7 @@ public class MainSource extends FilterAdapterPanel
 		rightPane.setLayout(new BorderLayout());
 
 		aPanel = new JPanel();
-		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		selLabel.setText(PropertyFactory.getString("in_selected"));
 		aPanel.add(selLabel);
 		aPanel.add(viewSelectComboBox);

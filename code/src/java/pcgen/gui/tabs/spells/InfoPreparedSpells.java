@@ -531,7 +531,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		//
 
 		JPanel aPanel = new JPanel();
-		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
@@ -557,7 +557,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		//
 
 		JPanel sPanel = new JPanel();
-		sPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		sPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		sPanel.add(selLabel);
 		sPanel.add(primaryViewSelectComboBox);
 		sPanel.add(secondaryViewSelectComboBox);

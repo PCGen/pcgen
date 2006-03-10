@@ -1318,7 +1318,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		filterPanel.add(filterText, c);
 		
 		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
+		c.insets = new Insets(0, 2, 0, 2);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
 		clearButton.setEnabled(false);
@@ -2596,6 +2596,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		availableModel.resetModel(viewAvailMode, true, false);
 		clearAvailableQFilterButton.setEnabled(false);
 		viewAvailComboBox.setEnabled(true);
+		textAvailableQFilter.setText(null);
+		availableModel.setQFilter(null);
 		forceRefresh();
 	}
 
@@ -2610,6 +2612,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		selectedModel.resetModel(viewSelectMode, false, false);
 		clearSelectedQFilterButton.setEnabled(false);
 		viewSelectComboBox.setEnabled(true);
+		textSelectedQFilter.setText(null);
+		selectedModel.setQFilter(null);
 		forceRefresh();
 	}
 
