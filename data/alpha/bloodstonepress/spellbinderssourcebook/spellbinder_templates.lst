@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 10 09:35:43 2006 -- reformated by prettylst.pl v1.35 (build 553)
+SOURCELONG:Spellbinder's Sourcebook|SOURCESHORT:Spellbinder|SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
+# Original Entry by: Paul W. King
+
+# Waiting on Code Freq [ 1433323 ] SPELLS in HD / https://sourceforge.net/tracker/index.php?func=detail&aid=1433323&group_id=25576&atid=384722 to complete
+# below are the spell like abilties that the template grants. testing on level is not valid, because not all levels grant HD (Savage Species racial progressions and Unearthed Arcana bloodline levels)
+# HD    Abilities
+# 1–2   Shield 3/day
+# 3–4   False life
+# 5–6   Protection from energy
+# 7–8   Shout 3/day
+# 9–10  Waves of fatigue
+# 11–12 True seeing
+# 13–14 Prismatic spray
+# 15–16 Horrid wilting
+# 17–18 Summon monster IX
+# 19–20 Wail of the banshee
+
+# Template Name	Template			Source Page		Special Ability																			Required Template				Combat bonus					Add to base move			Stat bonus								Feat												Spell Res.		Type				Vision			Hit Dice														Spells
+War Beast		TEMPLATE:Magical Beast	SOURCEPAGE:p.7	SA:Immunity to Poison	SA:Acid Resistance 10	SA:Cold Resistance 10	SA:Electricity Resistance 10	SA:Fire Resistance 10	PRETEMPLATE:1,Animal,Magical Beast	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,CON|4	BONUS:STAT|DEX,INT,WIS,CHA|2	FEAT:Weapon Focus|Toughness|Improved Initiative|Improved Natural Attack	SR:max(10+TL,35)	TYPE:Magical Beast	VISION:Darkvision (60)	HD:1-11:DR:5/magic	HD:12+:DR:10/magic	HD:1-4:CR:1	HD:5-10:CR:1	HD:11+:CR:1	SPELLS:Innate|TIMES=1|True Strike
