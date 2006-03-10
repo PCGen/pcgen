@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Mon Jan 30 22:27:38 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:22 Talent Trees|SOURCESHORT:22TT|SOURCEWEB:http://www.bloodstone-press.com/22tt.html
+# Original Entry by: Paul W. King
+
+# Feat Name			Type			Required Feat	Required Skill			Description											Source Page
+Transplant Surgery	TYPE:General	PREFEAT:1,Surgery	PRESKILL:1,Treat Injury=4	DESC:Use this feat to save a life via transplants and transfusions	SOURCEPAGE:p.14

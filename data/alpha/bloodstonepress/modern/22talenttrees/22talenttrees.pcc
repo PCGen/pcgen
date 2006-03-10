@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Mon Jan 30 22:27:38 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:22 Talent Trees
+RANK:6
+GAMEMODE:Modern
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets.Bloodstone Press
+#TYPE:Bloodstone Press
+SOURCELONG:22 Talent Trees
+SOURCESHORT:22TT
+SOURCEWEB:http://www.bloodstone-press.com/22tt.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Dedicated hero’s Fortell talent is Open Game Content published with the name "Sixth Sense" by The Game Mechanics. Modern Player’s Companion, Volume Two, Copyright 2003, The Game Mechanics, Inc.; Author: Stan!"
+COPYRIGHT:22 Talent Trees Copyright 2003, Bloodstone Press.
+COPYRIGHT:PCGen dataset conversion for 22 Talent Trees Copyright 2006, PCGen Data team including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+FEAT:22talenttrees_feats.lst
+FEAT:22talenttrees_feats_talents.lst
