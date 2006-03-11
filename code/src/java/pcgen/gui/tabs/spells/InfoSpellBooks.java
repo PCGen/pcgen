@@ -112,10 +112,13 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	private JComboBoxEx secondaryViewComboBox = new JComboBoxEx();
 	private JComboBoxEx primaryViewSelectComboBox = new JComboBoxEx();
 	private JComboBoxEx secondaryViewSelectComboBox = new JComboBoxEx();
+	private JComboBoxEx selectFromComboBox = new JComboBoxEx();
 
 	private JPanel botPane = new JPanel();
 	private JPanel topPane = new JPanel();
 	private boolean hasBeenSized = false;
+
+	private int selectFromMode = 0;
 
 	/**
 	 *  Constructor for the InfoSpellBooks object
@@ -345,6 +348,14 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 					.getSelectedIndex());
 			}
 		});
+		selectFromComboBox.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					selectFromComboBoxActionPerformed(selectFromComboBox
+						.getSelectedIndex());
+				}
+			});
 //		spellBookNameText.addActionListener(new ActionListener()
 //			{
 //				public void actionPerformed(ActionEvent evt)
@@ -403,6 +414,14 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode, true);
 		Utility.setDescription(secondaryViewSelectComboBox, PropertyFactory
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
+
+		// Populate the select from combo box
+		selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.known")); //$NON-NLS-1$
+		selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.own.list")); //$NON-NLS-1$
+		//TODO: The following option has been temporarily deactivated as adding spells from other classes doesn't work currently.
+		// The spell storage code needs to be changed to have a character's spell book contents not be class dependant.
+		//selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.full.list")); //$NON-NLS-1$
+		selectFromComboBox.setSelectedIndex(0);
 
 		ImageIcon newImage;
 		newImage = IconUtilitities.getImageIcon("Forward16.gif"); //$NON-NLS-1$
@@ -478,14 +497,23 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		topPane.add(splitPane, BorderLayout.CENTER);
 
+		JPanel controlsPanel = new JPanel();
+		controlsPanel.setLayout(new BorderLayout());
 		JPanel aPanel = new JPanel();
+		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
+		aPanel.add(new JLabel(PropertyFactory
+			.getString("InfoSpellBooks.select.from"))); //$NON-NLS-1$
+		aPanel.add(selectFromComboBox);
+		controlsPanel.add(aPanel, BorderLayout.NORTH);
+		aPanel = new JPanel();
 		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		aPanel.add(avaLabel);
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
+		controlsPanel.add(aPanel, BorderLayout.SOUTH);
 
-		Utility.setDescription(aPanel, PropertyFactory.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
-		leftPane.add(aPanel, BorderLayout.NORTH);
+		Utility.setDescription(controlsPanel, PropertyFactory.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
+		leftPane.add(controlsPanel, BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -670,12 +698,13 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		if (availableModel == null)
 		{
 			availableModel = new SpellModel(primaryViewMode, secondaryViewMode,
-				true, availableBookList, currSpellBook, false, pc, this, ""); //$NON-NLS-1$
+				true, availableBookList, currSpellBook, selectFromMode, pc,
+				this, ""); //$NON-NLS-1$
 		}
 		else
 		{
 			availableModel.resetModel(primaryViewMode, secondaryViewMode, true,
-				availableBookList, currSpellBook, false, this, ""); //$NON-NLS-1$
+				availableBookList, currSpellBook, selectFromMode, this, ""); //$NON-NLS-1$
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();
@@ -700,15 +729,15 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		{
 			selectedModel = new SpellModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, false, pc, this, PropertyFactory
-					.getString("InfoSpellsBooks.no.selected.help"));
+				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc, this,
+				PropertyFactory.getString("InfoSpellBooks.no.selected.help"));
 		}
 		else
 		{
 			selectedModel.resetModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, false, this, PropertyFactory
-				.getString("InfoSpellsBooks.no.selected.help"));
+				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, this,
+				PropertyFactory.getString("InfoSpellBooks.no.selected.help"));
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();
@@ -796,7 +825,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			bookName = getBookName((PObjectNode) selCPath.getPathComponent(1));
 		}
 
-		if (bookName.length() <= 0)
+		if (bookName.length() <= 0 || pc.getSpellBookByName(bookName) == null)
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
@@ -1033,6 +1062,15 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			Logging.errorPrint("delBookButton:failed "); //$NON-NLS-1$
 
 			return;
+		}
+	}
+	
+	private void selectFromComboBoxActionPerformed(int selectedIndex)
+	{
+		if (selectedIndex >=0 && selectedIndex <= 2)
+		{
+			selectFromMode = selectedIndex;
+			updateAvailableModel();
 		}
 	}
 	

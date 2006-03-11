@@ -48,6 +48,7 @@ import pcgen.util.Logging;
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -7449,7 +7450,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 		if ((bookName == null) || (bookName.length() == 0))
 		{
-			return "Invalid spell book name.";
+			return "Invalid spell list/book name.";
+		}
+
+		SpellBook spellBook = getSpellBookByName(bookName);
+		if (spellBook == null)
+		{
+			return "Could not find spell list/book " + bookName;
 		}
 
 		if (className != null)
@@ -7462,6 +7469,17 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
+		// If this is a spellbook, the class doesn;t have to be one the PC has already.
+		if (aClass == null && spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
+		{
+			aClass = Globals.getClassNamed(className);
+			if ((aClass == null) && (className.lastIndexOf('(') >= 0))
+			{
+				aClass = Globals.getClassNamed(className.substring(0,
+					className.lastIndexOf('(')).trim());
+			}
+		}
+		
 		if (aClass == null)
 		{
 			return "No class named " + className;
@@ -7506,10 +7524,12 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		// don't allow adding spells which are prohibited
+		// don't allow adding spells which are prohibited to known 
+		// or prepared lists 
 		// But if a spell is both prohibited and in a specialty
 		// which can be the case for some spells, then allow it.
-		if (!acs.isSpecialtySpell() && aClass.isProhibited(aSpell, this))
+		if (spellBook.getType() != SpellBook.TYPE_SPELL_BOOK
+			&& !acs.isSpecialtySpell() && aClass.isProhibited(aSpell, this))
 		{
 			return acs.getSpell().getName() + " is prohibited.";
 		}
@@ -7528,7 +7548,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			specialKnown = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), spellLevel, this);
 		}
 
-		SpellBook spellBook = getSpellBookByName(bookName);
 		int numPages = 0;
 		
 		// known is the maximun spells that can be known this level
@@ -7637,7 +7656,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				acs = new CharacterSpell(acs.getOwner(), acs.getSpell());
 				aClass.getSpellSupport().addCharacterSpell(acs);
 			}
-			si = acs.addInfo(adjSpellLevel, 1, bookName, aFeatList); // TODO: value never used
+			si = acs.addInfo(adjSpellLevel, 1, bookName, aFeatList);
 
 			//
 			//
@@ -7654,7 +7673,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 		// Set number of pages on the spell
-		si.setNumPages(numPages);
+		si.setNumPages(si.getNumPages()+numPages);
 		setDirty(true);
 		return "";
 	}

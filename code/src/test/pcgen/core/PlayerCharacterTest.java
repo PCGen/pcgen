@@ -35,11 +35,15 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellBook;
+import pcgen.core.spell.Spell;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -468,6 +472,94 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals("Full skill list should have 3 skills", 3, skillList
 			.size());
 
+	}
+	
+	public void testAddSpells()
+	{
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		character.incrementClassLevel(1, pcClass);
+
+		String response = character.addSpell(null, new ArrayList(), pcClass.getName(), null, 1, 1);
+		assertEquals("Add spell should be rejected due to no spell",
+			"Invalid parameter to add spell", response);
+
+		Spell spell = new Spell();
+		spell.setName("test spell 1");
+		CharacterSpell charSpell = new CharacterSpell(pcClass, spell);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), null, 1, 1);
+		assertEquals("Add spell should be rejected due to no book",
+			"Invalid spell list/book name.", response);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), "", 1, 1);
+		assertEquals("Add spell should be rejected due to no book",
+			"Invalid spell list/book name.", response);
+		
+		// Add a non existant spell to a non existant spellbook
+		String spellBookName = "Test book";
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
+		assertEquals("Add spell should be rejected due to book not existing",
+			"Could not find spell list/book Test book", response);
+
+		
+		character.addSpellBook(spellBookName);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
+		assertEquals(
+			"Add spell should be rejected due to no levels.",
+			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available",
+			response);
+
+		response = character.addSpell(charSpell, new ArrayList(), "noclass", spellBookName, 1, 1);
+		assertEquals("Add spell should be rejected due to no matching class",
+			"No class named noclass", response);
+		
+		SpellBook book = character.getSpellBookByName(spellBookName);
+		book.setType(SpellBook.TYPE_PREPARED_LIST);
+		character.addSpellBook(spellBookName);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
+		assertEquals(
+			"Add spell should be rejected due to no levels.",
+			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available",
+			response);
+
+		book.setType(SpellBook.TYPE_SPELL_BOOK);
+		book.setPageFormula("SPELLLEVEL");
+		book.setNumPages(3);
+		character.addSpellBook(spellBookName);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass
+			.getName(), spellBookName, 1, 1);
+		assertEquals("Add spell should not be rejected.", "", response);
+		// Add a second time to cover multiples
+		response = character.addSpell(charSpell, new ArrayList(), pcClass
+			.getName(), spellBookName, 1, 1);
+		assertEquals("Add spell should not be rejected.", "", response);
+		response = character.addSpell(charSpell, new ArrayList(), giantClass
+			.getName(), spellBookName, 1, 1);
+		assertEquals("Add spell should not be rejected.", "", response);
+		response = character.addSpell(charSpell, new ArrayList(), giantClass
+			.getName(), spellBookName, 1, 1);
+		assertEquals(
+			"Add spell should be rejected due to the book being full.",
+			"There are not enough pages left to add this spell to the spell book.",
+			response);
+		
+		PCClass c = character.getClassNamed(pcClass.getName());
+		List aList = c.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
+		CharacterSpell addedSpell = (CharacterSpell) (aList.get(0));
+		response = character.delSpell(addedSpell.getSpellInfoFor(spellBookName,
+			1, -1, new ArrayList()), pcClass, spellBookName);
+		assertEquals(
+			"Delete spell should not be rejected.",
+			"",
+			response);
+
+		aList = giantClass.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
+		addedSpell = (CharacterSpell) (aList.get(0));
+		response = character.delSpell(addedSpell.getSpellInfoFor(spellBookName,
+			1, -1), giantClass, spellBookName);
+		assertEquals(
+			"Delete spell should not be rejected.",
+			"",
+			response);
 	}
 
 }

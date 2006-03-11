@@ -129,6 +129,14 @@ public interface GuiConstants
 	/** INFOSPELLS_VIEW_NOTHING = 7 */
 	int INFOSPELLS_VIEW_NOTHING    = 7;
 
+	// Available list types for the spells tab
+	/** Only the known spells should be displayed. */
+	int INFOSPELLS_AVAIL_KNOWN = 0;
+	/** All spells in the character's spell lists should be displayed. */
+	int INFOSPELLS_AVAIL_SPELL_LIST = 1;
+	/** All spells in all spell lists should be displayed. */
+	int INFOSPELLS_AVAIL_ALL_SPELL_LISTS = 2;
+	
 	//output orders for tables
 	/** INFOSKILLS_OUTPUT_BY_NAME_ASC = 0 */
 	int INFOSKILLS_OUTPUT_BY_NAME_ASC    = 0;

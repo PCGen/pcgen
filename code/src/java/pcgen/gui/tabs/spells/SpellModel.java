@@ -107,7 +107,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param emptyMessage The message to be displayed if the model is empty
 	 */
 	public SpellModel(int primaryMode, int secondaryMode, boolean available,
-		List bookList, String currSpellBook, boolean fullSpellList,
+		List bookList, String currSpellBook, int spellListType,
 		PlayerCharacter pc, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
 		super(null);
@@ -133,7 +133,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		displayList = makeDisplayList(available);
 
 		resetModel(primaryMode, secondaryMode, available, bookList,
-			currSpellBook, fullSpellList, spellTab, emptyMessage);
+			currSpellBook, spellListType, spellTab, emptyMessage);
 	}
 
 
@@ -535,13 +535,13 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param available Is this an available (true) or selected (false) list
 	 * @param bookList The list of books to be displayed.
 	 * @param currSpellBook The name of the currently selected spell book 
-	 * @param fullSpellList Should we display a full list of available spells?
+	 * @param spellListType Should we display known only/all available spells or all spells?
 	 * @param spellTab The tab the list is being displayed upon.
 	 * @param emptyMessage The message to be displayed if the model is empty
 	 */
 	public void resetModel(int primaryMode, int secondaryMode,
 		boolean available, List bookList, String currSpellBook,
-		boolean fullSpellList, InfoSpellsSubTab spellTab, String emptyMessage)
+		int spellListType, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
 		List classList = new ArrayList();
 		List spellList = new ArrayList();
@@ -557,8 +557,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		if (pc == null) {
 		    return;
 		}
+		
+		boolean knownSpellsOnly = spellListType == GuiConstants.INFOSPELLS_AVAIL_KNOWN;
 
-		if (!fullSpellList) {
+		if (knownSpellsOnly) {
 			bookNodes = new PObjectNode [bookList.size()];
 			int ix = 0;
 			for (Iterator iBook = bookList.iterator(); iBook.hasNext();)
@@ -603,17 +605,17 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 		includeRace = !spellList.isEmpty();
 
-		getSpellcastingClasses(fullSpellList, classList, spellList, spellTab);
+		getSpellcastingClasses(spellListType, classList, spellList, spellTab);
 
 		if (includeRace)
 		{
 			classList.add(pc.getRace());
 		}
-
+		//TODO: Add any extra classes that already have spells present
 
 		// the structure will be
 		// root
-		//   (book names) bookNodes (only for right-side tab, the !fullSpellList e.g. selected spells)
+		//   (book names) bookNodes (only for right-side tab, the knownSpellsOnly e.g. selected spells)
 		//     primary nodes  (the first "sort by" selection)
 		//       secondary nodes (the second "sort by" selection)
 		// the first time (e.g. firstPass==true) through the loop, make sure all nodes are created and attached
@@ -631,7 +633,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 			{
 				cs = (CharacterSpell)sp;
 				spell = cs.getSpell();
-				if (fullSpellList && cs.getOwner() instanceof Domain)
+				if (!knownSpellsOnly && cs.getOwner() instanceof Domain)
 				{
 					// domain spells elsewhere
 					continue;
@@ -644,17 +646,17 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 			// for each spellbook, ignored for "fullSpellList" left-side of tab
 			// the <= bookList.size() is intended, so it will be processed once
-			// when ix==0 for the !fullSpellList model
+			// when ix==0 for the knownSpellsOnly model
 			for (int ix = 0; ix <= bookList.size(); ix++)
 			{
-				if (!fullSpellList && ix == bookList.size())
+				if (knownSpellsOnly && ix == bookList.size())
 					break;
-				if (fullSpellList && ix>0) {
+				if (!knownSpellsOnly && ix>0) {
 				    break;
 				}
 				// default currently selected spellbook
 				String bookName = currSpellBook;
-				if (!fullSpellList)
+				if (knownSpellsOnly)
 				{
 					bookName = bookList.get(ix).toString();
 				}
@@ -662,7 +664,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				{
 					primaryNodes = getNodesByMode(primaryMode, classList);
 				}
-				else if (!fullSpellList)
+				else if (knownSpellsOnly)
 				{
 					// get the primaryNodes, which are the specified bookNode's children
 					bookNodes[ix].getChildren().toArray(primaryNodes);
@@ -714,7 +716,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							}
 							if (si == null)
 								primaryMatch = spell.isLevel(iLev, pc);
-							else if (fullSpellList && si != null && si.getFeatList()!=null)
+							else if (!knownSpellsOnly && si != null && si.getFeatList()!=null)
 								continue;
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR:   // By Descriptor
@@ -733,7 +735,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							primaryMatch = spell.getSchools().contains(primaryNodes[pindex].toString());
 						break;
 					}
-       					if (secondaryMode == GuiConstants.INFOSPELLS_VIEW_NOTHING)
+					
+       				if (secondaryMode == GuiConstants.INFOSPELLS_VIEW_NOTHING)
 					{
 						if (!firstPass && !primaryMatch)
 							continue;
@@ -773,7 +776,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 								}
 								if (si == null && primaryMatch)
 									spellMatch = spell.isLevel(iLev, pc);
-								if (fullSpellList && si != null && si.getFeatList()!=null)
+								if (!knownSpellsOnly && si != null && si.getFeatList()!=null)
 									continue;
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR:   // By Descriptor
@@ -798,7 +801,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 						if (firstPass && secondaryMode != GuiConstants.INFOSPELLS_VIEW_NOTHING)
 						{
 							secondaryNodes[sindex].setParent(primaryNodes[pindex]);
-							if (fullSpellList && aClass != null && iLev > -1 && (aClass instanceof PCClass))
+							if (!knownSpellsOnly && aClass != null && iLev > -1 && (aClass instanceof PCClass))
 							{
 								addDomainSpellsForClass(((PCClass)aClass).getCastAs(), secondaryNodes[sindex], iLev);
 							}
@@ -811,7 +814,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							continue;
 						}
 
-						if (!fullSpellList && (si != null))
+						if (knownSpellsOnly && (si != null))
 						{
 							List aList = (List)usedMap.get(mapKey);
 							if (aList != null && aList.contains(si))
@@ -829,7 +832,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 								theObject = cs.getOwner();
 							spellMatch = spell.levelForKeyContains(theObject.getSpellKey(), theLevel, pc);
 						}
-						if (spellMatch && si == null && fullSpellList)
+						if (spellMatch && si == null && !knownSpellsOnly)
 						{
 							PObject bClass =aClass;
 							// if there's only 1 class, then use that to determine which spells are qualified
@@ -861,7 +864,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 					}
 					if (secondaryMode != GuiConstants.INFOSPELLS_VIEW_NOTHING)
 						primaryNodes[pindex].setChildren(secondaryNodes);
-					if (fullSpellList)
+					if (!knownSpellsOnly)
 					{
 						primaryNodes[pindex].setParent(theRoot);
 					}
@@ -870,7 +873,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 						primaryNodes[pindex].setParent(bookNodes[ix]);
 					}
 				} // end primaryNodes
-				if (!fullSpellList)
+				if (knownSpellsOnly)
 				{
 					bookNodes[ix].setChildren(primaryNodes);
 				}
@@ -903,14 +906,24 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 
     /**
-     * @param fullSpellList
+     * @param spellListType
      * @param classList
      * @param spellList
      */
-    private void getSpellcastingClasses(boolean fullSpellList, List classList, List spellList, InfoSpellsSubTab spellTab) 
+    private void getSpellcastingClasses(int spellListType, List classList, List spellList, InfoSpellsSubTab spellTab) 
     {
         // get the list of spell casting Classes
-		for (Iterator iClass = pc.getClassList().iterator(); iClass.hasNext();)
+    	Iterator iClass = null;
+    	if (spellListType == GuiConstants.INFOSPELLS_AVAIL_ALL_SPELL_LISTS)
+    	{
+    		iClass = Globals.getClassList().iterator();
+    	}
+    	else
+    	{
+    		iClass = pc.getClassList().iterator();
+    	}
+
+		for (; iClass.hasNext();)
 		{
 			PCClass aClass = (PCClass) iClass.next();
 			if (!aClass.getSpellType().equals(Constants.s_NONE))
@@ -923,7 +936,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				classList.add(aClass);
 
 				//if (fullSpellList && currSpellBook.equals(Globals.getDefaultSpellBook()))
-				if (fullSpellList)
+				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
 					List aList = Globals.getSpellsIn(-1, aClass.getSpellKey(), "");
 					for (Iterator si = aList.iterator(); si.hasNext();)
