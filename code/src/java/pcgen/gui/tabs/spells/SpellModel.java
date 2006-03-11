@@ -79,6 +79,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	private static final int COL_SRC = 12;
 	private static final int COL_PPCOST = 13;
 
+	private final int[] colDefaultWidth = {
+			100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100
+	};
+
     // there are two roots. One for available spells
 	// and one for selected spells (spellbooks)
 	private PObjectNode theRoot;
@@ -92,6 +96,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	// Types of the columns.
 	private boolean includeRace = false;
 	private PlayerCharacter pc;
+	private boolean available = false;
 	
 	/**
 	 * Creates a SpellModel for a particular character.
@@ -111,6 +116,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		PlayerCharacter pc, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
 		super(null);
+		this.available = available;
 
 		setCharacter(pc);
 
@@ -220,41 +226,43 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		List retList = new ArrayList();
 		if(available)
 		{
-			retList.add(new Boolean(false)); //COL_SCHOOL
-			retList.add(new Boolean(false)); //COL_SUBSCHOOL
-			retList.add(new Boolean(false)); //COL_DESCRIPTOR
+			int i = 1;
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SCHOOL
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SUBSCHOOL
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTOR
 			if (Spell.hasPPCost())
 			{
-				retList.add(new Boolean(true)); //COL_PPCOST
+				retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_PPCOST
 			}
-			retList.add(new Boolean(false)); //COL_COMPONENT
-			retList.add(new Boolean(false)); //COL_CASTTIME
-			retList.add(new Boolean(false)); //COL_RANGE
-			retList.add(new Boolean(false)); //COL_DESCRIPTION
-			retList.add(new Boolean(false)); //COL_TARGET
-			retList.add(new Boolean(false)); //COL_DURATION
-			retList.add(new Boolean(false)); //COL_SAVE
-			retList.add(new Boolean(false)); //COL_SR
-			retList.add(new Boolean(false)); //COL_SRC
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_COMPONENT
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_CASTTIME
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_RANGE
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTION
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_TARGET
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DURATION
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SAVE
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SR
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SRC
 		}
 		else
 		{
-			retList.add(new Boolean(true)); //COL_SCHOOL
-			retList.add(new Boolean(true)); //COL_SUBSCHOOL
-			retList.add(new Boolean(true)); //COL_DESCRIPTOR
+			int i = 1;
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_SCHOOL
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_SUBSCHOOL
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_DESCRIPTOR
 			if (Spell.hasPPCost())
 			{
-				retList.add(new Boolean(true)); //COL_PPCOST
+				retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_PPCOST
 			}
-			retList.add(new Boolean(false)); //COL_COMPONENT
-			retList.add(new Boolean(false)); //COL_CASTTIME
-			retList.add(new Boolean(false)); //COL_RANGE
-			retList.add(new Boolean(false)); //COL_DESCRIPTION
-			retList.add(new Boolean(false)); //COL_TARGET
-			retList.add(new Boolean(false)); //COL_DURATION
-			retList.add(new Boolean(false)); //COL_SAVE
-			retList.add(new Boolean(false)); //COL_SR
-			retList.add(new Boolean(true)); //COL_SRC
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_COMPONENT
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_CASTTIME
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_RANGE
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTION
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_TARGET
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DURATION
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SAVE
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SR
+			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_SRC
 		}
 
 		return retList;
@@ -1137,6 +1145,35 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 
 	public void setMColumnDisplayed(int col, boolean disp) {
+		setColumnViewOption(colNameList[col + getMColumnOffset() ], disp);
 		displayList.set(col, new Boolean(disp));
+	}
+
+
+	public int getMColumnDefaultWidth(int col) {
+		return SettingsHandler.getPCGenOption(getOptionName() + "sizecol." + colNameList[col + getMColumnOffset()], colDefaultWidth[col + getMColumnOffset()]);
+	}
+
+	public void setMColumnDefaultWidth(int col, int width) {
+		SettingsHandler.setPCGenOption(getOptionName() + "sizecol." + colNameList[col + getMColumnOffset()], width);
+	}
+	
+	private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		return SettingsHandler.getPCGenOption(getOptionName() + "viewcol." + colName, defaultVal);
+	}
+	
+	private void setColumnViewOption(String colName, boolean val) {
+		SettingsHandler.setPCGenOption(getOptionName() + "viewcol." + colName, val);
+	}
+	
+	private String getOptionName() {
+		StringBuffer nameSb = new StringBuffer("InfoSpells.");
+		if(available) {
+			nameSb.append("left.");
+		}
+		else {
+			nameSb.append("right.");
+		}
+		return nameSb.toString();
 	}
 }

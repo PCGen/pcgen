@@ -32,4 +32,8 @@ public interface TableColumnManagerModel {
 	 * @return offset
 	 */
 	public int getMColumnOffset();
+	
+	public int getMColumnDefaultWidth(int col);
+	
+	public void setMColumnDefaultWidth(int col, int width);
 }

@@ -1507,6 +1507,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		// Names of the columns.
 		private String[] names = { "Feat", "Type", "Cost", "Mult", "Stack", "Requirements", "Description", "Choices", "Source" };
+		private int[] widths = { 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
 		// Types of the columns.
 		private int modelType = MODEL_TYPE_AVAIL; // availableModel
@@ -1521,22 +1522,23 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			super(null);
 			resetModel(mode, available, false);
+			int i = 1;
 			displayList = new ArrayList();
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			if(available)
 			{
-				displayList.add(new Boolean(false));
-				displayList.add(new Boolean(true));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));
 			}
 			else
 			{
-				displayList.add(new Boolean(true));
-				displayList.add(new Boolean(false));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			}
 		}
 
@@ -2362,12 +2364,29 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		public void setMColumnDisplayed(int col, boolean disp)
 		{
+			setColumnViewOption(names[col + getMColumnOffset()], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
 		public int getMColumnOffset()
 		{
 			return 1;
+		}
+
+		public int getMColumnDefaultWidth(int col) {
+			return SettingsHandler.getPCGenOption("InfoFeats.sizecol." + names[col + getMColumnOffset()], widths[col + getMColumnOffset()]);
+		}
+
+		public void setMColumnDefaultWidth(int col, int width) {
+			SettingsHandler.setPCGenOption("InfoFeats.sizecol." + names[col + getMColumnOffset()], width);
+		}
+		
+		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+			return SettingsHandler.getPCGenOption("InfoFeats.viewcol." + colName, defaultVal);
+		}
+		
+		private void setColumnViewOption(String colName, boolean val) {
+			SettingsHandler.setPCGenOption("InfoFeats.viewcol." + colName, val);
 		}
 	}
 

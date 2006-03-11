@@ -1620,6 +1620,10 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				PropertyFactory.getString("in_baseStat"),
 				PropertyFactory.getString("in_sourceLabel")
 			};
+		
+		private final int[] colDefaultWidth = {
+				100, 100, 35, 70, 35, 40, 60, 60, 100
+		};
 
 		/**
 		 * Creates a ClassModel
@@ -1638,21 +1642,21 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			resetModel(mode, available);
 			displayList = new ArrayList();
 			if(modelType == 0) {
-				displayList.add(new Boolean(true));
-				displayList.add(new Boolean(false));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], true)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], false)));
 			}
 			else {
-				displayList.add(new Boolean(false));
-				displayList.add(new Boolean(true));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], false)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], true)));
 			}
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(false));
-			displayList.add(new Boolean(true));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[3], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[4], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[5], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[6], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[7], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[8], true)));
 		}
-
+		
 		public boolean isCellEditable(Object node, int column)
 		{
 			return (column == COL_NAME);
@@ -2033,11 +2037,28 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {
+			setColumnViewOption(modelType + "." + colNameList[col + getMColumnOffset()], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
 		public int getMColumnOffset() {
 			return 1;
+		}
+
+		public int getMColumnDefaultWidth(int col) {
+			return SettingsHandler.getPCGenOption("InfoClasses.sizecol." + colNameList[col + getMColumnOffset()], colDefaultWidth[col + getMColumnOffset()]);
+		}
+
+		public void setMColumnDefaultWidth(int col, int width) {
+			SettingsHandler.setPCGenOption("InfoClasses.sizecol." + colNameList[col + getMColumnOffset()], width);
+		}
+		
+		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+			return SettingsHandler.getPCGenOption("InfoClasses.viewcol." + colName, defaultVal);
+		}
+		
+		private void setColumnViewOption(String colName, boolean val) {
+			SettingsHandler.setPCGenOption("InfoClasses.viewcol." + colName, val);
 		}
 	}
 
@@ -2493,5 +2514,4 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			return !(obj instanceof String);
 		}
 	}
-
 }

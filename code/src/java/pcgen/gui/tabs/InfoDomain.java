@@ -143,10 +143,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 	// Note these arrays must be set after we have loaded the values of the
 	// properties above.
-	private static final String[] s_domainColList = new String[]
-		{
-			PropertyFactory.getString("in_domains"), PropertyFactory.getString("in_sourceLabel")
-		};
 	private DeityModel deityModel = null;
 	private DomainModel domainModel = new DomainModel();
 	private FlippingSplitPane aSplit;
@@ -1780,15 +1776,20 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			PropertyFactory.getString("in_domains"),
 			PropertyFactory.getString("in_sourceLabel")
 		};
+		private final int[] deityColList = {
+				100, 100, 100, 100
+		};
+
 		private List displayList = null;
 
 		private DeityModel(int mode) {
 			super(null);
 			resetModel(mode);
 			displayList = new ArrayList();
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(true));
+			int i = 1;
+			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
+			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
+			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
 		}
 
 		/**
@@ -2219,11 +2220,28 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {
+			setColumnViewOption(deityNameList[col + getMColumnOffset()], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
 		public int getMColumnOffset() {
 			return 1;
+		}
+
+		public int getMColumnDefaultWidth(int col) {
+			return SettingsHandler.getPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col + getMColumnOffset()], deityColList[col + getMColumnOffset()]);
+		}
+
+		public void setMColumnDefaultWidth(int col, int width) {
+			SettingsHandler.setPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col + getMColumnOffset()], width);
+		}
+		
+		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+			return SettingsHandler.getPCGenOption("InfoDomain.deity.viewcol." + colName, defaultVal);
+		}
+		
+		private void setColumnViewOption(String colName, boolean val) {
+			SettingsHandler.setPCGenOption("InfoDomain.deity.viewcol." + colName, val);
 		}
 	}
 
@@ -2237,10 +2255,19 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private String qFilter = null;
 		private List displayList = null;
 
+		private final String[] domainColList = new String[] {
+			PropertyFactory.getString("in_domains"),
+			PropertyFactory.getString("in_sourceLabel")
+		};
+		
+		private final int[] domainWidthList = new int[] {
+				100, 100
+		};
+		
 		private DomainModel()
 		{
 			displayList = new ArrayList();
-			displayList.add(new Boolean(true));
+			displayList.add(new Boolean(getColumnViewOption(domainColList[1], true)));
 		}
 
 		/**
@@ -2260,7 +2287,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		public int getColumnCount()
 		{
-			return s_domainColList.length;
+			return domainColList.length;
 		}
 
 		public void resetModel() {
@@ -2280,7 +2307,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// AbstractTableModel would work, but we can refine them.
 		public String getColumnName(int column)
 		{
-			return s_domainColList[column];
+			return domainColList[column];
 		}
 
 		public int getRowCount()
@@ -2389,7 +2416,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		public List getMColumnList() {
 			List retList = new ArrayList();
-			retList.add("Source");
+			retList.add(domainColList[1]);
 			return retList;
 		}
 
@@ -2398,11 +2425,28 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {
+			setColumnViewOption(domainColList[col + getMColumnOffset()], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
 		public int getMColumnOffset() {
 			return 1;
+		}
+
+		public int getMColumnDefaultWidth(int col) {
+			return SettingsHandler.getPCGenOption("InfoDomain.domain.sizecol." + domainColList[col + getMColumnOffset()], domainWidthList[col + getMColumnOffset()]);
+		}
+
+		public void setMColumnDefaultWidth(int col, int width) {
+			SettingsHandler.setPCGenOption("InfoDomain.domain.sizecol." + domainColList[col + getMColumnOffset()], width);
+		}
+		
+		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+			return SettingsHandler.getPCGenOption("InfoDomain.domain.viewcol." + colName, defaultVal);
+		}
+		
+		private void setColumnViewOption(String colName, boolean val) {
+			SettingsHandler.setPCGenOption("InfoDomain.domain.viewcol." + colName, val);
 		}
 	}
 

@@ -2797,12 +2797,12 @@ public final class SettingsHandler
 	 * @param optionName
 	 * @param optionValue
 	 */
-	private static void setPCGenOption(final String optionName, final boolean optionValue)
+	public static void setPCGenOption(final String optionName, final boolean optionValue)
 	{
 		setPCGenOption(optionName, optionValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	private static void setPCGenOption(final String optionName, final double optionValue)
+	public static void setPCGenOption(final String optionName, final double optionValue)
 	{
 		setPCGenOption(optionName, String.valueOf(optionValue));
 	}

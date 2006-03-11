@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +79,9 @@ public class TableColumnManager implements MouseListener {
 			if(cb.isSelected()) {
 				TableColumn col = new TableColumn(i + model.getMColumnOffset());
 				col.setHeaderValue(cb.getText());
+				col.setWidth(model.getMColumnDefaultWidth(i));
+				col.setPreferredWidth(model.getMColumnDefaultWidth(i));
+				col.addPropertyChangeListener(new ColumnChangeListener(i)); 
 				colModel.addColumn(col);
 			}
 		}
@@ -120,6 +125,19 @@ public class TableColumnManager implements MouseListener {
 
 	public void mouseReleased(MouseEvent e) {
 		tableDisplay(e);
+	}
+
+	private class ColumnChangeListener implements PropertyChangeListener {
+		int col = 0;
+		
+		public ColumnChangeListener(int col) {
+			this.col = col;
+		}
+		
+		public void propertyChange(PropertyChangeEvent evt) {
+			TableColumn tcol = (TableColumn)evt.getSource();
+			model.setMColumnDefaultWidth(col, tcol.getWidth());
+		}
 	}
 
 }
