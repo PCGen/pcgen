@@ -4,7 +4,7 @@ SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://ww
 
 
 # Class Name	Hit Dice	Type			Source Page				Save checks bonus								Combat bonus					BONUS:FEAT
-CLASS:Robot		HD:10		TYPE:Monster	SOURCEPAGE:FutureRobots.rtf	BONUS:CHECKS|BASE.Willpower,BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*floor(TL/3)|!PREEQUIP:1,Robot Software (Feat Web)
+CLASS:Robot		HD:10		TYPE:Monster	SOURCEPAGE:FutureRobots.rtf	BONUS:CHECKS|BASE.Will,BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*floor(TL/3)|!PREEQUIP:1,Robot Software (Feat Web)
 # Class Name	Reg. Race Type
 CLASS:Robot		PRERACETYPE:Robot
 # Class Name	Add INT to Skill Points?
