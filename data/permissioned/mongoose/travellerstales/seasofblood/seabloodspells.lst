@@ -1,4 +1,4 @@
-# CVS $Revision: 1.5 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood|SOURCESHORT:SeasofBlood|SOURCEWEB:http://mongoosepublishing.com
 # Spell Name		Classes of caster				School			Spell Descriptors			Type				Components		Casting Time		Range			Target Area								Duration				Save Info								Spell Resistance					Description		Source Page		Item
 Control Currents		CLASSES:Wizard=5				SCHOOL:Conjuration						TYPE:Arcane			COMPS:V S		CASTTIME:10 minutes	RANGE:Touch		TARGETAREA:One ship touched					DURATION:1 day			SAVEINFO:None							SPELLRES:No						DESC:See text	SOURCEPAGE:p.76

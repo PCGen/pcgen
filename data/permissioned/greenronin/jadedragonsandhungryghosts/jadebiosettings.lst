@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
+# CVS $Revision$ $Author$ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
 
 AGESET:0|Adulthood
 RACENAME:Tanuki	SEX:Male[BASEHT:36|HTDIEROLL:2d4|BASEWT:40|WTDIEROLL:1d1|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:34|HTDIEROLL:2d4|BASEWT:35|WTDIEROLL:1d1|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]

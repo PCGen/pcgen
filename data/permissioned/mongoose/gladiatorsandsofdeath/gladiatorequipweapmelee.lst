@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
 SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death|SOURCESHORT:Gladiators|SOURCEWEB:http://mongoosepublishing.com
 # Equipment Name		Required Proficiency	Type							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Nb Hands	Size		Source Page		Special Property
 Mancatcher (Gladiator)	PROFICIENCY:Mancatcher	TYPE:Weapon.Exotic.Melee.Bludgeoning	COST:40	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3			SIZE:L	SOURCEPAGE:p.58	SPROP:+2 to Grapple checks
