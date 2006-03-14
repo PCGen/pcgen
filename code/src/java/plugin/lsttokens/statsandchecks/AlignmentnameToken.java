@@ -18,9 +18,9 @@
  *
  * Created on September 2, 2002, 8:02 AM
  *
- * Current Ver: $Revision: 1.1 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/15 01:05:43 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.statsandchecks;

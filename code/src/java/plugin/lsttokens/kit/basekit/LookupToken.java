@@ -18,9 +18,9 @@
  *
  * Created on March 3, 2006
  *
- * Current Ver: $Revision: $
- * Last Editor: $Author: $
- * Last Edited: $Date: $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.basekit;

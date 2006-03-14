@@ -7,11 +7,11 @@ import pcgen.persistence.lst.EquipmentModifierLstToken;
  * <code>VisibleToken</code> handles the processing of the VISIBLE tag
  * in the definition of an Equipment Modifier.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:08 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Devon Jones
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 public class VisibleToken implements EquipmentModifierLstToken
 {

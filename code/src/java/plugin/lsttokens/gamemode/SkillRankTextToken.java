@@ -18,9 +18,9 @@
  *
  * Created on October 6, 2005, 8:58 PM
  *
- * Current Ver: $Revision: 1.2 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/16 01:03:16 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;

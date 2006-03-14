@@ -18,7 +18,7 @@
  *
  * Created on Feb 22, 2006
  *
- * $Id:  $
+ * $Id$
  *
  */
 package plugin.lsttokens.equipment;
@@ -29,11 +29,11 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * <code>NumPagesToken</code> deals with NUMPAGES token
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 public class NumPagesToken implements EquipmentLstToken
 {
