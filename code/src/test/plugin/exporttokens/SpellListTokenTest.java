@@ -18,7 +18,7 @@
  *
  * Created on Jul 16, 2004
  *
- * $Id: SpellListTokenTest.java,v 1.2 2005/10/16 13:13:17 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -43,11 +43,11 @@ import plugin.exporttokens.SpellListTypeToken;
 /**
  * <code>SpellListTokenTest</code> is ...
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:17 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 
 public class SpellListTokenTest extends AbstractCharacterTestCase

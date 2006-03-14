@@ -18,7 +18,7 @@
  *
  * Created on Dec 8, 2004
  *
- * $Id: BioTokenTest.java,v 1.4 2006/02/10 12:05:26 karianna Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -39,11 +39,11 @@ import plugin.exporttokens.BioToken;
 /**
  * <code>BioTokenTest</code> is ...
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/10 12:05:26 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class BioTokenTest extends AbstractCharacterTestCase
 {

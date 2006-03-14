@@ -18,7 +18,7 @@
  *
  * Created on Apr 9, 2005
  *
- * $Id:  $
+ * $Id$
  *
  */
 package pcgen.core;

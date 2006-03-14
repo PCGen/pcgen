@@ -16,9 +16,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Version: $Revision: 1.10 $
- * Last Editor:     $Author: karianna $
- * Last Edited:     $Date: 2006/02/13 15:47:26 $
+ * Current Version: $Revision$
+ * Last Editor:     $Author$
+ * Last Edited:     $Date$
  * 
  */
 

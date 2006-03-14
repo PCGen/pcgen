@@ -18,7 +18,7 @@
  *
  * Created on Sep 4, 2004
  *
- * $Id: PreItemTest.java,v 1.2 2005/09/12 11:48:36 karianna Exp $
+ * $Id$
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -33,11 +33,11 @@ import plugin.pretokens.parser.PreItemParser;
 /**
  * <code>PreItemTest</code> is ...
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/09/12 11:48:36 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 
 public class PreItemTest extends TestCase

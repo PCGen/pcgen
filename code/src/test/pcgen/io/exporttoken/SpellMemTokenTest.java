@@ -18,7 +18,7 @@
  *
  * Created on Oct 8, 2005
  *
- * $Id: SpellMemTokenTest.java,v 1.4 2005/10/22 18:33:31 binkley Exp $
+ * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -40,11 +40,11 @@ import plugin.exporttokens.SpellMemToken;
 /**
  * Verify the correct functioning of the SPELLMEM token.
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 18:33:31 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 
 public class SpellMemTokenTest extends AbstractCharacterTestCase

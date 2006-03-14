@@ -18,9 +18,9 @@
  *
  * Created on Oct 7, 2005
  *
- * $Author: karianna $ 
- * $Date: 2005/10/12 14:05:19 $
- * $Revision: 1.2 $
+ * $Author$ 
+ * $Date$
+ * $Revision$
  *
  */
 package pcgen.core.chooser;

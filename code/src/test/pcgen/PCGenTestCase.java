@@ -18,7 +18,7 @@ import pcgen.util.testchecker.*;
  * the unit test, rethrowing it after <code>tearDown</code> finishes.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K Oxley (binkley)</a>
- * @version $Id: PCGenTestCase.java,v 1.8 2005/10/19 22:38:30 binkley Exp $
+ * @version $Id$
  */
 public abstract class PCGenTestCase extends TestCase
 {

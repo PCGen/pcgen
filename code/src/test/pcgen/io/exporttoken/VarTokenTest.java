@@ -18,7 +18,7 @@
  *
  * Created on Mar 29, 2005
  *
- * $Id: VarTokenTest.java,v 1.3 2006/02/08 12:03:49 karianna Exp $
+ * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -33,11 +33,11 @@ import pcgen.core.PlayerCharacter;
  * <code>VarTokenTest</code> tests the functioning of the VAR 
  * token processing code. 
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/08 12:03:49 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public class VarTokenTest extends AbstractCharacterTestCase
 {

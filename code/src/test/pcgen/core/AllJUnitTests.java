@@ -33,7 +33,7 @@ import pcgen.persistence.lst.FeatTest;
  * individual PCGen core test cases into this one.
  *
  * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  * @see <a href="http://www-106.ibm.com/developerworks/library/j-ant/?dwzone=java">Incremental
  *      development with Ant and JUnit</a>
  */

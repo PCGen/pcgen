@@ -19,9 +19,9 @@
  * @author Pat Ludwig <havoc@boldo.com>
  * Created on May 20th, 2002
  *
- * Current Ver: $Revision: 1.3 $
- * Last Editor: $Author: jujutsunerd $
- * Last Edited: $Date: 2002/05/27 13:24:58 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -37,7 +37,7 @@ import java.util.List;
  * Tests the CoreUtility class.
  * 
  * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  * @see pcgen.core.utils.CoreUtility
  */
 public class UtilityTest extends PCGenTestCase

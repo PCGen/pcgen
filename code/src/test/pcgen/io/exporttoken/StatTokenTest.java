@@ -18,7 +18,7 @@
  *
  * Created on Apr 9, 2005
  *
- * $Id: StatTokenTest.java,v 1.3 2005/10/16 13:13:17 jdempsey Exp $
+ * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -35,11 +35,11 @@ import pcgen.core.spell.Spell;
 /**
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:17 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 
 public class StatTokenTest extends AbstractCharacterTestCase

@@ -6,7 +6,7 @@ import junit.framework.TestCase;
  * {@code DiceExpressionTest} tests {@link DiceExpression}.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Id: DiceExpressionTest.java,v 1.6 2005/10/26 09:56:05 karianna Exp $
+ * @version $Id$
  * @since Jul 17, 2005 10:53:44 AM
  */
 public class DiceExpressionTest

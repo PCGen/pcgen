@@ -21,11 +21,11 @@
  *
  * @author	Greg Bingleman <byngl@hotmail.com>
  *
- * Current Ver: $Revision: 1.10 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: soulcatcher $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2006/02/14 02:46:18 $
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.output.prereq;

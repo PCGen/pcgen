@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
  * all the individual PCGen test suites into this one.
  *
  * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  * @see <a href="http://www-106.ibm.com/developerworks/library/j-ant/?dwzone=java">Incremental development with Ant and JUnit</a>
  */
 public class AllJUnitTests extends TestCase

@@ -18,7 +18,7 @@
  *
  * Created on Sep 6, 2004
  *
- * $Id: DomainTest.java,v 1.5 2005/09/14 23:49:17 nuance Exp $
+ * $Id$
  *
  */
 package pcgen.core;
@@ -30,10 +30,10 @@ import java.util.Iterator;
 /**
  * <code>DomainTest</code> test that the Domain class is functioning correctly.
  *
- * Last Editor: $Author: nuance $ Last Edited: $Date: 2005/09/14 23:49:17 $
+ * Last Editor: $Author$ Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 
 public class DomainTest extends PCGenTestCase {

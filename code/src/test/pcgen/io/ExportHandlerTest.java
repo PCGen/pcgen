@@ -18,7 +18,7 @@
  *
  * Created on Aug 7, 2004
  *
- * $Id: ExportHandlerTest.java,v 1.6 2005/10/16 13:13:17 jdempsey Exp $
+ * $Id$
  *
  */
 package pcgen.io;
@@ -43,11 +43,11 @@ import pcgen.io.ExportHandler;
  * <code>SkillTokenTest</code> contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:17 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 
 public class ExportHandlerTest extends AbstractCharacterTestCase

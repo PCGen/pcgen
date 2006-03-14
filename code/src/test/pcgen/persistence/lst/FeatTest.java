@@ -1,5 +1,5 @@
 /*
- * @(#) $Id: FeatTest.java,v 1.7 2002/03/03 11:47:33 jujutsunerd Exp $
+ * @(#) $Id$
  * GNU LESSER GENERAL PUBLIC LICENSE
  */
 package pcgen.persistence.lst;
@@ -15,7 +15,7 @@ import pcgen.core.Constants;
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.
  *
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 public class FeatTest extends TestCase
 {

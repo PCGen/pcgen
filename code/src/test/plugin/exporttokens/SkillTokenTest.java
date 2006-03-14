@@ -18,7 +18,7 @@
  *
  * Created on Aug 6, 2004
  *
- * $Id: SkillTokenTest.java,v 1.3 2005/10/16 13:13:17 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -40,11 +40,11 @@ import plugin.exporttokens.SkillTypeToken;
  * <code>SkillTokenTest</code> contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:17 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 
 public class SkillTokenTest extends AbstractCharacterTestCase

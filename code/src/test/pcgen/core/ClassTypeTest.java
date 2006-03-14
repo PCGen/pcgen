@@ -6,7 +6,7 @@ import pcgen.PCGenTestCase;
  * <code>ClassTypeTest</code> <strong>needs documentation</strong>.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Id: ClassTypeTest.java,v 1.4 2005/09/28 13:36:14 karianna Exp $
+ * @version $Id$
  */
 public class ClassTypeTest extends PCGenTestCase {
 	/**

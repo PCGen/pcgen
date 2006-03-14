@@ -18,7 +18,7 @@
  *
  * Created on Dec 11, 2004
  *
- * $Id: WeaponTokenTest.java,v 1.14 2005/11/05 13:37:57 binkley Exp $
+ * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -48,11 +48,11 @@ import pcgen.core.bonus.BonusObj;
  * <code>WeaponTokenTest</code> contains tests to verify that the
  * WEAPON token is working correctly.
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/11/05 13:37:57 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 
 public class WeaponTokenTest extends AbstractCharacterTestCase

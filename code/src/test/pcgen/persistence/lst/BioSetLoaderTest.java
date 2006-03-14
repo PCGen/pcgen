@@ -19,11 +19,11 @@
  *
  * Created on 05-Feb-2004
  *
- * Current Ver: $Revision: 1.5 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: karianna $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2005/08/18 14:18:04 $
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;

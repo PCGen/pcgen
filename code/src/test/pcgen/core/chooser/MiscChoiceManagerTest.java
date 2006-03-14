@@ -18,9 +18,9 @@
  *
  * Created on Oct 7, 2005
  *
- * $Author: nuance $ 
- * $Date: 2005/10/23 15:22:23 $
- * $Revision: 1.2 $
+ * $Author$ 
+ * $Date$
+ * $Revision$
  *
  */
 package pcgen.core.chooser;

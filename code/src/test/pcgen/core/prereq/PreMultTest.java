@@ -18,7 +18,7 @@
  *
  * Created on Sep 4, 2004
  *
- * $Id: PreMultTest.java,v 1.8 2005/09/13 23:37:49 nuance Exp $
+ * $Id$
  *
  */
 package pcgen.core.prereq;
@@ -38,11 +38,11 @@ import plugin.pretokens.parser.PreSkillParser;
  * <code>PreMultTest</code> tests that the PreMult class
  * is working correctly.
  *
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2005/09/13 23:37:49 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 
 public class PreMultTest extends AbstractCharacterTestCase

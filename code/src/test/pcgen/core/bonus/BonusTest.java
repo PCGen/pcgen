@@ -18,7 +18,7 @@
  *
  * Created on Sep 5, 2004
  *
- * $Id: BonusTest.java,v 1.7 2005/10/08 10:04:56 jdempsey Exp $
+ * $Id$
  *
  */
 package pcgen.core.bonus;
@@ -35,11 +35,11 @@ import pcgen.core.character.EquipSet;
  * <code>BonusTest</code> test that the Bonus class is functioning
  * correctly.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/08 10:04:56 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 
 public class BonusTest extends AbstractCharacterTestCase
