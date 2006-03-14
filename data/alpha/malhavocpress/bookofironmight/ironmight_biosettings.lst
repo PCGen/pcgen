@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Jan 14 14:46:26 2006 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision$ $Author$ -- Sat Jan 14 14:46:26 2006 -- reformated by prettylst.pl v1.35 (build 553)
 AGESET:0|Adulthood
 RACENAME:Ironborn ~ Small	SEX:Male[BASEHT:36|HTDIEROLL:2d6|BASEWT:40|WTDIEROLL:2d20|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:36|HTDIEROLL:2d6|BASEWT:40|WTDIEROLL:2d20|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
 RACENAME:Ironborn ~ Small	BASEAGE:1	MAXAGE:5	AGEDIEROLL:1d4
