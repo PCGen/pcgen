@@ -18,7 +18,7 @@
  *
  * Created on September 16, 2005
  *
- * $Id: PrerequisitePointBuyMethodWriter.java,v 1.4 2005/10/18 20:23:56 binkley Exp $
+ * $Id$
  */
 package plugin.pretokens.writer;
 
@@ -36,7 +36,7 @@ import java.util.Iterator;
  * <code>PrerequisitePointBuyMethodWriter</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
