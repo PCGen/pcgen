@@ -18,7 +18,7 @@
  *
  * Created on Oct 16, 2004
  *
- * $Id: MonNonSkillHD.java,v 1.4 2005/11/13 20:01:22 binkley Exp $
+ * $Id$
  *
  */
 package plugin.bonustokens;
@@ -30,12 +30,12 @@ import pcgen.core.bonus.MultiTagBonusObj;
  * allows the LST code to specify how many of a monster's hit dice
  * do not gain skills.
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/11/13 20:01:22 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author	James Dempsey <jdempsey@users.sourceforge.net>
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 
 public final class MonNonSkillHD extends MultiTagBonusObj

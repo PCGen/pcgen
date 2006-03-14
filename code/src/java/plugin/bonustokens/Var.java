@@ -18,9 +18,9 @@
  *
  * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 1.9 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:05 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.bonustokens;
