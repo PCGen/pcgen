@@ -1,4 +1,4 @@
-# CVS $Revision: 1.4 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
 SOURCELONG:Alderac Entertainment Group - Dungeons|SOURCESHORT:Dungeons|SOURCEWEB:http://alderac.com/d20
 # Spell Name			Classes of caster					Domains granting the spell	School			Sub-School			Type				Components	Casting Time		Range			Target Area													Duration								Save Info		Spell Resistance	Description		Source Page
 Cloaked Sphere of Radiance	CLASSES:Bard,Wizard,Sorcerer=3|Cleric=4						SCHOOL:Evocation		SUBSCHOOL:Light		TYPE:Arcane.Divine	COMPS:V S	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Object touched										DURATION:10 minutes/level					SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.85

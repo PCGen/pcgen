@@ -1,4 +1,4 @@
-# CVS $Revision: 1.3 $ $Author: dmcmill $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
 # Feat Name			Clear Prereq.	Required Class				Required Feat											Prohibited Feat
 Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Crusader=1															!PREFEAT:1,Favored Enemy I
 Favored Enemy II.MOD	PRE:.CLEAR		PRECLASS:1,Crusader=1,Ranger=5	PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
