@@ -19,9 +19,9 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision: 1.9 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/09/19 15:04:03 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;

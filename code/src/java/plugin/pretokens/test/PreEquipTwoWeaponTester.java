@@ -19,9 +19,9 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision: 1.7 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2005/01/20 01:14:44 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;

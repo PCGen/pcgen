@@ -18,7 +18,7 @@
  *
  * Created on September 16, 2005
  *
- * $Id: PrePointBuyMethod.java,v 1.4 2005/10/01 16:28:04 byngl Exp $
+ * $Id$
  */
 package plugin.pretokens.test;
 
@@ -34,7 +34,7 @@ import pcgen.util.PropertyFactory;
  * <code>PrePointBuyMethod</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {

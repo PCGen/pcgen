@@ -20,9 +20,9 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision: 1.17 $
- * Last Editor: $Author: boomer70 $
- * Last Edited: $Date: 2005/11/22 04:57:07 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
