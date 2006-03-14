@@ -7,11 +7,11 @@ import javax.swing.JTextPane;
  * This class is a helper for the Combat Tracker.  This class helps display
  * all the statistics of a character.
  * @author Expires 2003
- * @version $Revision: 1.32 $
+ * @version $Revision$
  *
- * <p>Current Ver: $Revision: 1.32 $</p>
- * <p>Last Editor: $Author: karianna $</p>
- * <p>Last Edited: $Date: 2006/02/10 12:05:26 $</p>
+ * <p>Current Ver: $Revision$</p>
+ * <p>Last Editor: $Author$</p>
+ * <p>Last Edited: $Date$</p>
  */
 public class InfoCharacterDetails
 {

@@ -16,7 +16,7 @@ import java.util.Enumeration;
  * methods as unused.  This is fine.  Do not remove or deprecate them.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Id: ExtendedHTMLDocument.java,v 1.11 2005/11/16 16:26:18 karianna Exp $
+ * @version $Id$
  */
 public class ExtendedHTMLDocument extends HTMLDocument {
 	private static final Element[] EMPTY_ELEMENT_ARRAY = new Element[0];

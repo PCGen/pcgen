@@ -34,7 +34,7 @@ import java.util.Vector;
 /**
  *@author     devon
  *@since    March 20, 2003
- *@version $Revision: 1.14 $
+ *@version $Revision$
  */
 public class Event implements InitHolder
 {

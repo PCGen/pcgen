@@ -31,7 +31,7 @@ import java.util.Comparator;
  * Compares InitHolder objects
  *@author     devon
  *@since    April 7, 2003
- *@version $Revision: 1.6 $
+ *@version $Revision$
  */
 public class InitHolderComperator implements Comparator
 {

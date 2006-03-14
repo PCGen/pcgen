@@ -33,7 +33,7 @@ import java.util.Vector;
 /**
  *@author     devon
  *@since    March 20, 2003
- *@version $Revision: 1.8 $
+ *@version $Revision$
  */
 public interface InitHolder
 {
