@@ -18,7 +18,7 @@
  *
  * Created on January 28, 2003, 11:18 PM
  *
- * @(#) $Id: PJEP.java,v 1.34 2005/12/20 17:53:11 byngl Exp $
+ * @(#) $Id$
  */
 package pcgen.util;
 
@@ -38,7 +38,7 @@ import pcgen.persistence.lst.LstUtils;
  * <code>PJEP</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.34 $
+ * @version $Revision$
  *
  * Provides a common interface setup for Singular Systems' Java Mathematical Expression Parser.
  *

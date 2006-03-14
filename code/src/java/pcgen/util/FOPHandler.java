@@ -38,7 +38,7 @@ import java.util.Map;
  * Copyright:    Copyright (c) 2001
  * Company:
  * @author Thomas Behr
- * @version $Revision: 1.40 $
+ * @version $Revision$
  */
 public final class FOPHandler implements Runnable
 {

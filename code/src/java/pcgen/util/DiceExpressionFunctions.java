@@ -22,7 +22,7 @@
  *
  * Created on January 28, 2002.
  *
- * $Id: DiceExpressionFunctions.java,v 1.21 2005/10/26 09:57:00 karianna Exp $
+ * $Id$
  */
 package pcgen.util;
 

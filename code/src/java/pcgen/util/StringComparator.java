@@ -29,7 +29,7 @@ import java.util.Comparator;
  * such as maintaining a sorted <code>JComboBoxEx</code> and the like.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public final class StringComparator implements Comparator
 {

@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 /**
  * This contains helper functions for BigDecimal.
  * @author     Jonas Karlsson <jujutsunerd@sf.net>
- * @version    $Revision: 1.10 $
+ * @version    $Revision$
  */
 public class BigDecimalHelper
 {

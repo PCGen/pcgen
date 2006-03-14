@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * $Id: ResetableListIterator.java,v 1.3 2003/12/29 01:39:33 jujutsunerd Exp $
+ * $Id$
  */
 package pcgen.util;
 
@@ -28,7 +28,7 @@ import java.util.ListIterator;
  * An iterator which may be reset it its starting state.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public interface ResetableListIterator extends ListIterator
 {

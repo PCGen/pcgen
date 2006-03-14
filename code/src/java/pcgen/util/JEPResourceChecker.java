@@ -18,7 +18,7 @@
  *
  * Created on January 30, 2003, 10:34 AM
  *
- * @(#) $Id: JEPResourceChecker.java,v 1.8 2006/02/08 12:19:13 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.util;
 
@@ -27,7 +27,7 @@ package pcgen.util;
  * <code>JEPResourceChecker</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 public final class JEPResourceChecker
 {

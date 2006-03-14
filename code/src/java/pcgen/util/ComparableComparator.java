@@ -30,7 +30,7 @@ import java.util.Comparator;
  * and the like.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 public final class ComparableComparator implements Comparator
 {

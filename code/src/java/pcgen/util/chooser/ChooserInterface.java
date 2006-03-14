@@ -30,7 +30,7 @@ import java.util.List;
  * call to show() will block program execution.
  *
  * @author    Jonas Karlsson
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 public interface ChooserInterface
 {

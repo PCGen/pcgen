@@ -27,7 +27,7 @@ package pcgen.util;
  * leading plus sign for string conversion.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  * @see java.lang.Integer
  */
 public final class Delta

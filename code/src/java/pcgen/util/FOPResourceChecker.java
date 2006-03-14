@@ -27,7 +27,7 @@ package pcgen.util;
  * Copyright:    Copyright (c) 2001
  * Company:
  * @author Thomas Behr
- * @version $Revision: 1.30 $
+ * @version $Revision$
  */
 public final class FOPResourceChecker
 {

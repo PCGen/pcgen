@@ -18,9 +18,9 @@
  * Created on Jan 21st, 2003, 11:44 PM
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  *
- * Current Ver: $Revision: 1.2 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/09/28 13:36:14 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  **/
 package pcgen.util.chooser;

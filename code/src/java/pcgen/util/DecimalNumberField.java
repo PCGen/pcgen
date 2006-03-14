@@ -36,7 +36,7 @@ import java.text.ParseException;
  * It should be moved to gui.utils.
  *
  * @author     Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision: 1.16 $
+ * @version    $Revision$
  */
 public class DecimalNumberField extends JTextField
 {

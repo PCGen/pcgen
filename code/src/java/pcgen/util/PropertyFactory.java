@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
  * <code>PropertyFactory</code>
  *
  * @author Thomas Behr 03-01-02
- * @version $Revision: 1.27 $
+ * @version $Revision$
  *
  * This good as is, as far as I can tell
  *

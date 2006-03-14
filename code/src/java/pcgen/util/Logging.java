@@ -26,7 +26,7 @@ import java.text.NumberFormat;
 /**
  * This contains logging functions. Should probably be handled via Log4J.
  * @author     Jonas Karlsson <jujutsunerd@sf.net>
- * @version    $Revision: 1.18 $
+ * @version    $Revision$
  */
 public class Logging
 {

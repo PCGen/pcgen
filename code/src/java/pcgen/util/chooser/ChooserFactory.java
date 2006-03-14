@@ -26,7 +26,7 @@ package pcgen.util.chooser;
  * Currently only a SwingChooser has been implemented.
  *
  * @author    Jonas Karlsson
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public final class ChooserFactory
 {
