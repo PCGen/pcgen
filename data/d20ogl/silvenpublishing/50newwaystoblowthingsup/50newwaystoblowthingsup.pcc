@@ -1,0 +1,21 @@
+# CVS $Revision: 1.40 $ $Author: eddyanthony $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:50 New Ways to Blow Things Up: Starlanko the Magnificent's Big Book of Evocations
+RANK:7
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Silven Publishing.The Game Foundry
+SOURCELONG:50 New Ways to Blow Things Up - Starlanko the Magnificent's Big Book of Evocations
+SOURCESHORT:50Evocations
+SOURCEWEB:http://www.silven.com/productlines.asp?case=showproduct&id=19
+ISOGL:YES
+COPYRIGHT:Open Game Licence v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by Dave Arneson and E. Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for the 50 New Ways to Blow Things Up Copyright 2006, PCGen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+SPELL:50newwaystoblowthingsup_spells.lst
+FEAT:50newwaystoblowthingsup_feats.lst
