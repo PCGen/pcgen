@@ -79,13 +79,13 @@ import java.util.ArrayList;
  * </ul>
  *
  * <p>
- * Current Ver: $Revision: 1.8 $
+ * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author: binkley $
+ * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date: 2005/10/20 23:40:12 $
+ * Last Edited: $Date$
  * </p>
  *
  * @author LodgeR

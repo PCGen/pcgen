@@ -39,9 +39,9 @@ import javax.swing.JFormattedTextField;
  * the combatant(s) and saves them to the initiative model.
  * </p>
  *
- * <p>Current Ver: $Revision: 1.18 $</p>
- * <p>Last Editor: $Author: binkley $</p>
- * <p>Last Edited: $Date: 2005/10/22 18:33:28 $</p>
+ * <p>Current Ver: $Revision$</p>
+ * <p>Last Editor: $Author$</p>
+ * <p>Last Edited: $Date$</p>
  *
  * @author     devon
  * @since    April 7, 2003

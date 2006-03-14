@@ -33,13 +33,13 @@ import java.util.List;
  * </p>
  * 
  * <p>
- * Current Ver: $Revision: 1.1 $
+ * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author: lodger00 $
+ * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date: 2004/05/06 20:40:23 $
+ * Last Edited: $Date$
  * </p>
  * 
  * @author LodgeR

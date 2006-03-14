@@ -35,9 +35,9 @@ import java.util.ArrayList;
  * but a utility class for maintaining column information inside a <code>TableModel</code>.
  * </p>
  *
- * <p>Current Ver: $Revision: 1.4 $</p>
- * <p>Last Editor: $Author: karianna $</p>
- * <p>Last Edited: $Date: 2005/09/12 12:05:38 $</p>
+ * <p>Current Ver: $Revision$</p>
+ * <p>Last Editor: $Author$</p>
+ * <p>Last Edited: $Date$</p>
  * 
  * @author LodgeR
  */

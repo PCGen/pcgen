@@ -39,13 +39,13 @@ import java.util.TreeMap;
  * </p>
  *
  * <p>
- * Current Ver: $Revision: 1.6 $
+ * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author: karianna $
+ * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date: 2006/02/08 12:19:13 $
+ * Last Edited: $Date$
  * </p>
  *
  * @author LodgeR

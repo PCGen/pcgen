@@ -41,7 +41,7 @@ import java.util.ArrayList;
 /**
  *@author     devon
  *@since    March 20, 2003
- *@version $Revision: 1.23 $
+ *@version $Revision$
  */
 public class XMLCombatant extends Combatant
 {

@@ -23,9 +23,9 @@
  *
  *  Created on July 10, 2003, 5:03 PM
  *
- * Current Ver: $Revision: 1.8 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:59 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.initiative.gui;
