@@ -31,11 +31,11 @@ package plugin.doomsdaybook.util;
  * on a variable. These are actions such as setting, adding or 
  * multiplying the variable's current value.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:06 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Devon D Jones
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class Operation implements Comparable
 {

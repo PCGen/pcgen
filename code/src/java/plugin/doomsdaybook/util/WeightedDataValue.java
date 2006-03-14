@@ -10,7 +10,7 @@ package plugin.doomsdaybook.util;
  * <code>WeightedDataValue</code>.
  * 
  * @author  devon
- * @version	$Revision: 1.4 $
+ * @version	$Revision$
  */
 public class WeightedDataValue extends DataValue
 {

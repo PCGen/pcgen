@@ -34,11 +34,11 @@ import java.util.HashMap;
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:07 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author devon
- * @version $Revision: 1.10 $
+ * @version $Revision$
  */
 public class VariableHashMap extends HashMap
 {

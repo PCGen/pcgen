@@ -30,11 +30,11 @@ package plugin.doomsdaybook.util;
  * <code>variableException</code> is an exception raised when a problem 
  * occurs when processing a variable.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:07 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Devon D Jones
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public class variableException extends Exception
 {
