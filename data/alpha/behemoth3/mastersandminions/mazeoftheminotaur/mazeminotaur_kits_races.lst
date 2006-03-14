@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Feb 28 02:40:50 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision$ $Author$ -- Tue Feb 28 02:40:50 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Maze of the Minotaur|SOURCESHORT:MotM|SOURCEWEB:http://www.behemoth3.com/
 
 STARTPACK:Default Bull Lord	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Minotaur (Variant)]

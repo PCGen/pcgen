@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# CVS $Revision$ $Author$ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
 # Faerie Natural Attacks
 # Template Name			Visible	Special Ability				Natural Attacks
 Faerie Claws			VISIBLE:NO							NATURALATTACKS:Faerie Claws,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6
