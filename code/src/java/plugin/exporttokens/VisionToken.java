@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.5 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/08 12:03:49 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -36,11 +36,11 @@ import java.util.StringTokenizer;
  * <code>VisionToken</code> produces the output for the output token 
  * VISION.
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/08 12:03:49 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Devon Jones <soulcatcher@evilsoft.org>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 public class VisionToken extends Token
 {

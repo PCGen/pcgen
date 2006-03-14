@@ -18,7 +18,7 @@
  *
  * Created on Aug 5, 2004
  *
- * $Id: SkillLevelToken.java,v 1.5 2005/10/16 13:13:16 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -34,11 +34,11 @@ import pcgen.util.Logging;
  * the character obtained at the specified level. The format 
  * for this tag is SKILLLEVEL.x.TOTAL 
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:16 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 
 // SKILLLEVEL

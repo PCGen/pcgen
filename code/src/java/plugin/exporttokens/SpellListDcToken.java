@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListDcToken.java,v 1.4 2005/10/16 13:13:16 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -34,11 +34,11 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListDcToken</code> outputs the DC casting that level 
  * of spell for the indicated class.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:16 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 
 public class SpellListDcToken extends SpellListToken

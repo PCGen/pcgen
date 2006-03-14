@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.5 $
- * Last Editor: $Author: darkenedroom $
- * Last Edited: $Date: 2005/11/23 23:09:15 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
  * <code>WeaponoToken</code>.
  * 
  * @author	binkley
- * @version	$Revision: 1.5 $
+ * @version	$Revision$
  */
 public class WeaponoToken extends WeaponToken
 {

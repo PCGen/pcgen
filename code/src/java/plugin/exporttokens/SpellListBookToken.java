@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListBookToken.java,v 1.6 2005/10/18 20:23:58 binkley Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -37,11 +37,11 @@ import java.util.List;
  * <code>SpellListBookToken</code> gives a comma delimited list of spells
  * known for the specified spellcaster class number and level (if any).
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:58 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 
 public class SpellListBookToken extends SpellListToken

@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.3 $
- * Last Editor: $Author: darkenedroom $
- * Last Edited: $Date: 2006/02/06 22:59:43 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -41,7 +41,7 @@ import pcgen.io.exporttoken.Token;
  * UNITSET.WEIGHTUNIT
  *
  * @author jdempsey
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public class UnitSetToken extends Token
 {

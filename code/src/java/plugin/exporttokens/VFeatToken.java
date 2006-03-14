@@ -8,11 +8,11 @@ import pcgen.io.exporttoken.FeatToken;
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/07 15:40:51 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author karianna
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class VFeatToken extends FeatToken
 {

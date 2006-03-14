@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListKnownToken.java,v 1.5 2005/10/16 13:13:16 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -34,11 +34,11 @@ import pcgen.io.exporttoken.SpellListToken;
  * can know for the specified spellcaster class and level. For Clerics 
  * with domains, this does not include domain spells.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:16 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 
 public class SpellListKnownToken extends SpellListToken

@@ -18,7 +18,7 @@
  *
  * Created on Jul 16, 2004
  *
- * $Id: SpellMemToken.java,v 1.7 2005/12/03 12:41:21 zaister Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -36,11 +36,11 @@ import java.util.*;
  * <code>SpellMemToken</code> displays information about the spells
  * in the character spellbooks..
  *
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2005/12/03 12:41:21 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 
 // SPELLMEM.x.x.x.x.LABEL classNum.bookNum.level.spellnumber

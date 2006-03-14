@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListClassToken.java,v 1.6 2005/10/18 20:23:58 binkley Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -37,11 +37,11 @@ import java.util.StringTokenizer;
  * bonus levels from other classes. The level is output if the token
  * ends in .LEVEL
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:58 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 
 public class SpellListClassToken extends SpellListToken

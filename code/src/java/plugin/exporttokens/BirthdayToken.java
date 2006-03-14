@@ -18,9 +18,9 @@
  *
  * Created on January 19, 2005, 12:21 PM
  *
- * Current Ver: $Revision: 1.2 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/01/18 23:41:58 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;

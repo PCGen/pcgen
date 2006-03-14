@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.3 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:58 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -35,10 +35,10 @@ import java.util.Iterator;
  * Handle the FAVOREDLIST token which produces a list of a character's
  * favored classes.
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:58 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public class FavoredListToken extends Token
 {

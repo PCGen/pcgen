@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.4 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/11/16 15:54:28 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -42,10 +42,10 @@ import java.util.StringTokenizer;
  * DIR.HTML
  * DIR.TEMP
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/11/16 15:54:28 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class DirToken extends Token
 {

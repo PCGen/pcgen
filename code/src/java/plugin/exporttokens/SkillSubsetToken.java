@@ -18,7 +18,7 @@
  *
  * Created on Aug 5, 2004
  *
- * $Id: SkillSubsetToken.java,v 1.7 2006/02/07 15:40:51 karianna Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -39,11 +39,11 @@ import java.util.List;
  * for this tag is SKILLSUBSET.pos.subname.property
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/07 15:40:51 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 
 // SKILLSUBSET

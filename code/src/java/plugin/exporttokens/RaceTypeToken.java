@@ -18,9 +18,9 @@
  *
  * Created on November 2, 2005
  *
- * Current Ver: $Revision: 1.1 $
- * Last Editor: $Author: boomer70 $
- * Last Edited: $Date: 2005/11/04 05:56:16 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;

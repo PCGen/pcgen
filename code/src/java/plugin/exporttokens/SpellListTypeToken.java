@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListTypeToken.java,v 1.4 2005/10/16 13:13:16 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -33,11 +33,11 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListTypeToken</code> outputs the type (i.e. Arcane or 
  * Divine) of the specified spell class.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:16 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 
 public class SpellListTypeToken extends SpellListToken

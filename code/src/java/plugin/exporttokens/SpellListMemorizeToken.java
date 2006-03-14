@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListMemorizeToken.java,v 1.4 2005/10/16 13:13:15 jdempsey Exp $
+ * $Id$
  *
  */
 package plugin.exporttokens;
@@ -33,11 +33,11 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListMemorizeToken</code> outputs "true" if the specified spell class
  * needs to memorize spells, "false" otherwise.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2005/10/16 13:13:15 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 
 public class SpellListMemorizeToken extends SpellListToken
