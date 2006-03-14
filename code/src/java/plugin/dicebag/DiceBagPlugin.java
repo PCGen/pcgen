@@ -1,5 +1,5 @@
 /*
- *  $Id: DiceBagPlugin.java,v 1.25 2005/10/26 09:56:39 karianna Exp $
+ *  $Id$
  *
  *  plugin.dicebag - DESCRIPTION OF PACKAGE
  *  Copyright (C) 2003 RossLodge
