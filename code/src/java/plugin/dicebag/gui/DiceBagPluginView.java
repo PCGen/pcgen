@@ -1,5 +1,5 @@
 /*
- *  $Id: DiceBagPluginView.java,v 1.8 2005/10/18 20:23:58 binkley Exp $
+ *  $Id$
  *
  *  gmgen.plugin.dicebag.gui - DESCRIPTION OF PACKAGE
  *  Copyright (C) 2003 RossLodge

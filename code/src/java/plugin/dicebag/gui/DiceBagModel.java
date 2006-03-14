@@ -1,5 +1,5 @@
 /*
- *  $Id: DiceBagModel.java,v 1.16 2005/10/22 18:33:26 binkley Exp $
+ *  $Id$
  *
  *  gmgen.plugin.dicebag - DESCRIPTION OF PACKAGE
  *  Copyright (C) 2003 RossLodge
