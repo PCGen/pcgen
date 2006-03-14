@@ -23,7 +23,7 @@ import java.awt.Font;
  * <code>WeaponTitlePane</code>.
  * 
  * @author  ddjone3
- * @version	$Revision: 1.13 $
+ * @version	$Revision$
  */
 public class WeaponTitlePane extends JPanel {
 	private PlayerCharacter pc;

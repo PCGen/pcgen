@@ -13,7 +13,7 @@ import pcgen.core.PlayerCharacter;
  * <code>WeaponoToken</code>.
  *
  * @author  ddjone3
- * @version	$Revision: 1.9 $
+ * @version	$Revision$
  */
 public class WeaponPane extends javax.swing.JPanel 
 {

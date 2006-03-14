@@ -22,7 +22,7 @@ import java.awt.Font;
  * <code>WeightPane</code>.
  *
  * @author  soulcatcher
- * @version	$Revision: 1.10 $
+ * @version	$Revision$
  */
 public class WeightPane extends JPanel {
 	private PlayerCharacter pc;

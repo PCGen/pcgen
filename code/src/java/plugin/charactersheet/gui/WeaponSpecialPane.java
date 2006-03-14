@@ -19,7 +19,7 @@ import java.awt.Font;
  * <code>WeaponSpecialPane</code>.
  * 
  * @author  ddjone3
- * @version	$Revision: 1.12 $
+ * @version	$Revision$
  */
 public class WeaponSpecialPane extends javax.swing.JPanel {
 	private PlayerCharacter pc;

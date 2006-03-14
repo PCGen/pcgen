@@ -18,7 +18,7 @@ import pcgen.core.PlayerCharacter;
  * 
  * Confirmed no memory Leaks Dec 10, 2004
  * @author  ddjone3
- * @version	$Revision: 1.15 $
+ * @version	$Revision$
  */
 public class WeaponListPane extends javax.swing.JPanel {
 	private PlayerCharacter pc;
