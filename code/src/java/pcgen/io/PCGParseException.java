@@ -27,7 +27,7 @@ import pcgen.core.Constants;
  *
  *
  * @author ???
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 final class PCGParseException extends Exception
 {

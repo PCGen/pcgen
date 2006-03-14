@@ -33,7 +33,7 @@ import java.io.*;
  * PlayerCharacters in a specific format from/to a stream
  *
  * @author Thomas Behr 11-03-02
- * @version $Revision: 1.31 $
+ * @version $Revision$
  */
 public abstract class IOHandler
 {

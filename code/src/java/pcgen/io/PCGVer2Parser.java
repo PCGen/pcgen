@@ -18,9 +18,9 @@
  *
  * Created on March 22, 2002, 12:15 AM
  *
- * Current Ver: $Revision: 1.190 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/01/18 10:37:04 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -59,7 +59,7 @@ import java.util.*;
  *
  *
  * @author Thomas Behr 22-03-02
- * @version $Revision: 1.190 $
+ * @version $Revision$
  */
 final class PCGVer2Parser implements PCGParser, IOConstants
 {

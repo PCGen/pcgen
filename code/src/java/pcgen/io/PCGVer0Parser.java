@@ -18,9 +18,9 @@
  *
  * Created on March 15, 2002, 4:30 PM
  *
- * Current Ver: $Revision: 1.190 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/15 16:32:43 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -44,7 +44,7 @@ import java.util.*;
 /**
  * <code>PCGVer0Parser</code>
  * @author Thomas Behr
- * @version $Revision: 1.190 $
+ * @version $Revision$
  **/
 final class PCGVer0Parser implements PCGParser
 {

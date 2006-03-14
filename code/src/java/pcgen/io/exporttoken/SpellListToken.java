@@ -18,7 +18,7 @@
  *
  * Created on Jul 15, 2004
  *
- * $Id: SpellListToken.java,v 1.5 2005/10/22 11:38:45 binkley Exp $
+ * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -30,11 +30,11 @@ import java.util.StringTokenizer;
  * <code>SpellListToken</code> is the base class for the SPELLLIST
  * family of tokens.
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 11:38:45 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 public abstract class SpellListToken extends Token
 {

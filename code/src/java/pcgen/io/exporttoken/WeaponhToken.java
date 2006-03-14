@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.10 $
- * Last Editor: $Author: darkenedroom $
- * Last Edited: $Date: 2005/11/23 23:11:55 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -35,7 +35,7 @@ import java.util.StringTokenizer;
  * <code>WeaponhToken</code>.
  * 
  * @author	binkley
- * @version	$Revision: 1.10 $
+ * @version	$Revision$
  */
 public class WeaponhToken extends WeaponToken
 {

@@ -35,11 +35,11 @@ import java.util.StringTokenizer;
  * VAR.x.INTVAL|.MINVAL|.NOSIGN
  * </pre>
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:09 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Devon Jones <soulcatcher@evilsoft.org>
- * @version $Revision: 1.10 $
+ * @version $Revision$
  */
 public class VarToken extends Token
 {

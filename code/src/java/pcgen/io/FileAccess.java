@@ -37,7 +37,7 @@ import java.util.Map;
  * <code>FileAccess</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.30 $
+ * @version $Revision$
  */
 public final class FileAccess
 {

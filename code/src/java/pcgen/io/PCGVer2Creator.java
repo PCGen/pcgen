@@ -18,9 +18,9 @@
  *
  * Created on March 19, 2002, 4:15 PM
  *
- * Current Ver: $Revision: 1.139 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/01/18 10:37:04 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -52,7 +52,7 @@ import java.util.*;
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
  * @author Thomas Behr 19-03-02
- * @version $Revision: 1.139 $
+ * @version $Revision$
  */
 final class PCGVer2Creator implements IOConstants
 {

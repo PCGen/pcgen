@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.48 $
- * Last Editor: $Author: byngl $
- * Last Edited: $Date: 2005/11/20 17:57:36 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;

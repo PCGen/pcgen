@@ -18,9 +18,9 @@
  *
  * Created on March 07, 2002, 8:30 PM
  *
- * Current Ver: $Revision: 1.581 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/15 16:32:43 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -41,7 +41,7 @@ import java.util.*;
  * <code>ExportHandler</code>.
  *
  * @author Thomas Behr
- * @version $Revision: 1.581 $
+ * @version $Revision$
  */
 public final class ExportHandler
 {
@@ -3940,7 +3940,7 @@ public final class ExportHandler
 	 * <code>PStringTokenizer</code>
 	 *
 	 * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
-	 * @version $Revision: 1.581 $
+	 * @version $Revision$
 	 */
 	private static final class PStringTokenizer
 	{

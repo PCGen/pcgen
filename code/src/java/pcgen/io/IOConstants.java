@@ -25,7 +25,7 @@ package pcgen.io;
  * <code>IOConstants</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.52 $
+ * @version $Revision$
  */
 interface IOConstants
 {

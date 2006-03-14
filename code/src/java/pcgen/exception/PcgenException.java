@@ -29,7 +29,7 @@ import java.io.PrintWriter;
  * TODO:What is the purpose of this exception?
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 public class PcgenException extends Exception
 {

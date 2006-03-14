@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * <code>PCGParser</code><br>
  * @author Thomas Behr 07-09-02
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 interface PCGParser
 {

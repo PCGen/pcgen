@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.7 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/14 02:46:17 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;

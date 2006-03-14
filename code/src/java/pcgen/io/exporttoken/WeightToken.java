@@ -18,9 +18,9 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1.16 $
- * Last Editor: $Author: darkenedroom $
- * Last Edited: $Date: 2006/01/17 22:01:04 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -38,7 +38,7 @@ import pcgen.io.ExportHandler;
  * 			WEIGHT.x
  * 
  * @author	Devon Jones
- * @version	$Revision: 1.16 $
+ * @version	$Revision$
  */
 public class WeightToken extends Token
 {

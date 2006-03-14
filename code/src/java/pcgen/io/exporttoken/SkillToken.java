@@ -18,7 +18,7 @@
  *
  * Created on Aug 5, 2004
  *
- * $Id: SkillToken.java,v 1.12 2006/02/07 15:40:52 karianna Exp $
+ * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -41,11 +41,11 @@ import java.util.StringTokenizer;
  * where id cna be either an index or a skill name and the
  * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/07 15:40:52 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 public class SkillToken extends Token
 {

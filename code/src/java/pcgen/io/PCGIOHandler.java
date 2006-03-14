@@ -18,9 +18,9 @@
  *
  * Created on March 11, 2002, 8:30 PM
  *
- * Current Ver: $Revision: 1.97 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 18:33:24 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -43,7 +43,7 @@ import java.util.StringTokenizer;
  * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
  *
  * @author Thomas Behr 11-03-02
- * @version $Revision: 1.97 $
+ * @version $Revision$
  */
 public final class PCGIOHandler extends IOHandler
 {

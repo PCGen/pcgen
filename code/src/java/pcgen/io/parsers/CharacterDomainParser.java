@@ -19,11 +19,11 @@
  *
  * Created on 16-Jan-2004
  *
- * Current Ver: $Revision: 1.3 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: binkley $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2005/10/18 20:23:52 $
+ * Last Edited: $Date$
  *
  */
 package pcgen.io.parsers;
