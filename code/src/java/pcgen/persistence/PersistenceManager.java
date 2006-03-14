@@ -18,7 +18,7 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * $Id: PersistenceManager.java,v 1.35 2006/02/06 14:55:57 karianna Exp $
+ * $Id$
  */
 package pcgen.persistence;
 
@@ -37,7 +37,7 @@ import java.util.Set;
  * do the loading of system files.
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.35 $
+ * @version $Revision$
  */
 public final class PersistenceManager
 {

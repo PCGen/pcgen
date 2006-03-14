@@ -18,9 +18,9 @@
  *
  * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision: 1.36 $ <br>
- * Last Editor: $Author: zaister $ <br>
- * Last Edited: $Date: 2005/12/10 21:52:25 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -41,9 +41,9 @@ import java.util.*;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision: 1.36 $ <br>
- * Last Editor: $Author: zaister $ <br>
- * Last Edited: $Date: 2005/12/10 21:52:25 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  *
  * @author AD9C15
  */

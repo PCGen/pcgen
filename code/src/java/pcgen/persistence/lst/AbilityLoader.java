@@ -19,9 +19,9 @@
  * Created on February 22, 2002, 10:29 PM
  * this code was moved and changed from FeatLoader.java
  *
- * Current Ver: $Revision: 1.12 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/14 21:00:18 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -39,7 +39,7 @@ import pcgen.util.Logging;
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 public class AbilityLoader extends LstObjectFileLoader
 {

@@ -20,9 +20,9 @@
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @Created on July 10th, 2002, 3:55 PM
  *
- * Current Ver: $Revision: 1.37 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/14 21:00:18 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -40,7 +40,7 @@ import pcgen.util.Logging;
  * Loads the level based Mount and Familiar benefits
  *
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.37 $
+ * @version $Revision$
  **/
 public class CompanionModLoader
 {

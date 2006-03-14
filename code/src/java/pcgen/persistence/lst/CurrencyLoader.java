@@ -18,9 +18,9 @@
  *
  * Created on Oct 10, 2003, 12:30 PM
  *
- * Current Ver: $Revision: 1.7 $ <br>
- * Last Editor: $Author: binkley $ <br>
- * Last Edited: $Date: 2005/10/18 20:23:53 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -37,9 +37,9 @@ import java.util.StringTokenizer;
  * This class is a LstFileLoader for parsing currencies.
  *
  * <p>
- * Current Ver: $Revision: 1.7 $ <br>
- * Last Editor: $Author: binkley $ <br>
- * Last Edited: $Date: 2005/10/18 20:23:53 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  * @deprecated
  * @author AD9C15
  */

@@ -18,7 +18,7 @@
  *
  * Created on November 20, 2003
  *
- * $Id: UnitSetLoader.java,v 1.15 2006/02/21 01:55:29 soulcatcher Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * <code>UnitSetLoader</code>.
  *
  * @author Stefan Radermacher <stefan@zaister.de>
- * @version $Revision: 1.15 $
+ * @version $Revision$
  */
 public final class UnitSetLoader extends LstLineFileLoader
 {

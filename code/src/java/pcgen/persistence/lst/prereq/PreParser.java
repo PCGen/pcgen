@@ -19,11 +19,11 @@
  *
  * Created on 18-Dec-2003
  *
- * Current Ver: $Revision: 1.8 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: soulcatcher $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2006/01/16 17:02:35 $
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.prereq;

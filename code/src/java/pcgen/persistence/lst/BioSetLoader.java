@@ -18,7 +18,7 @@
  *
  * Created on October 10, 2002, 10:29 PM
  *
- * $Id: BioSetLoader.java,v 1.28 2005/10/18 20:23:53 binkley Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
 /**
  *
  * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.28 $
+ * @version $Revision$
  */
 final class BioSetLoader extends LstLineFileLoader
 {

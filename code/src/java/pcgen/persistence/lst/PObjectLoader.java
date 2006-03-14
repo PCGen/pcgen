@@ -18,9 +18,9 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * Current Ver: $Revision: 1.119 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/14 21:00:18 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -40,7 +40,7 @@ import pcgen.persistence.lst.utils.PObjectHelper;
 
 /**
  * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.119 $
+ * @version $Revision$
  */
 public final class PObjectLoader {
 

@@ -18,7 +18,7 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * $Id: DeityLoader.java,v 1.42 2006/02/14 21:00:18 soulcatcher Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -36,7 +36,7 @@ import pcgen.util.Logging;
  * This class is an LstObjectLoader that loads deity information.
  *
  * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.42 $
+ * @version $Revision$
  */
 public class DeityLoader extends LstObjectFileLoader
 {

@@ -18,7 +18,7 @@
  *
  * Created on August 12, 2002, 10:29 PM
  *
- * $Id: BonusSpellLoader.java,v 1.23 2006/02/16 10:32:44 karianna Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
 /**
  *
  * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.23 $
+ * @version $Revision$
  */
 public final class BonusSpellLoader extends LstLineFileLoader
 {

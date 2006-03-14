@@ -18,9 +18,9 @@
  *
  * Created on September 22, 2003, 11:29 AM
  *
- * Current Ver: $Revision: 1.17 $ <br>
- * Last Editor: $Author: soulcatcher $ <br>
- * Last Edited: $Date: 2006/02/21 01:55:28 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -35,9 +35,9 @@ import pcgen.util.Logging;
  * data.
  *
  * <p>
- * Current Ver: $Revision: 1.17 $ <br>
- * Last Editor: $Author: soulcatcher $ <br>
- * Last Edited: $Date: 2006/02/21 01:55:28 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  *
  * @deprecated Now processed in miscinfo.lst
  * To be removed in 5.11.1

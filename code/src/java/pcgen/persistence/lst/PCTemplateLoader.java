@@ -19,9 +19,9 @@
  * Created on February 22, 2002, 10:29 PM
  *
  *
- * Current Ver: $Revision: 1.70 $
- * Last Editor: $Author: boomer70 $
- * Last Edited: $Date: 2005/11/04 05:54:28 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.70 $
+ * @version $Revision$
  */
 final class PCTemplateLoader
 {

@@ -18,7 +18,7 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * $Id: PersistenceLayerException.java,v 1.11 2006/02/06 14:55:57 karianna Exp $
+ * $Id$
  */
 package pcgen.persistence;
 
@@ -28,7 +28,7 @@ import pcgen.exception.PcgenException;
  * Exception thrown by the Persistance Layer
  * 
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.11 $
+ * @version $Revision$
  */
 public final class PersistenceLayerException extends PcgenException
 {

@@ -18,7 +18,7 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * $Id: SkillLoader.java,v 1.44 2006/02/14 21:00:18 soulcatcher Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 
 /**
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.44 $
+ * @version $Revision$
  */
 public final class SkillLoader extends LstObjectFileLoader
 {

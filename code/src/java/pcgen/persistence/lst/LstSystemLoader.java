@@ -18,9 +18,9 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * Current Ver: $Revision: 1.289 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/21 01:55:28 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -85,7 +85,7 @@ import pcgen.util.Logging;
  * ???
  *
  * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.289 $
+ * @version $Revision$
  */
 public final class LstSystemLoader extends Observable implements SystemLoader, Observer
 {

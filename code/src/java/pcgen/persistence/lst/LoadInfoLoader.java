@@ -18,9 +18,9 @@
  *
  * Created on February 24, 2003, 10:29 AM
  *
- * Current Ver: $Revision: 1.9 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/01/30 15:48:32 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 
 /**
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  **/
 public class LoadInfoLoader extends LstLineFileLoader
 {

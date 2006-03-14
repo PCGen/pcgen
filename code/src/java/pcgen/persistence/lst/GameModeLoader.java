@@ -18,9 +18,9 @@
  *
  * Created on September 22, 2002, 4:33 PM
  *
- * Current Ver: $Revision: 1.76 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 10:37:39 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
  * <code>GameModeLoader</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.76 $
+ * @version $Revision$
  */
 public final class GameModeLoader
 {

@@ -18,7 +18,7 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * $Id: SizeAdjustmentLoader.java,v 1.34 2006/02/22 00:49:09 soulcatcher Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.34 $
+ * @version $Revision$
  */
 final class SizeAdjustmentLoader extends LstLineFileLoader
 {

@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2004, 2:15 PM
  *
- * $Id: PObjectHelper.java,v 1.1 2004/08/27 02:40:40 merton_monk Exp $
+ * $Id$
  */
 package pcgen.persistence.lst.utils;
 
@@ -26,7 +26,7 @@ import pcgen.core.PObject;
 
 /**
  * @author ???
- * @version $Revision: 1.1 $
+ * @version $Revision$
  */
 public final class PObjectHelper
 {

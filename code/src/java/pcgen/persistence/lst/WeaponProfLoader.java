@@ -18,7 +18,7 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * $Id: WeaponProfLoader.java,v 1.35 2006/02/14 21:00:18 soulcatcher Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.35 $
+ * @version $Revision$
  */
 public final class WeaponProfLoader extends LstObjectFileLoader
 {

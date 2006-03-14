@@ -33,7 +33,7 @@ import java.util.List;
  * <code>CampaignOutput</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.21 $
+ * @version $Revision$
  */
 public final class CampaignOutput
 {

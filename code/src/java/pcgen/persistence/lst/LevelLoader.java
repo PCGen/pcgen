@@ -18,9 +18,9 @@
  *
  * Created on August 16, 2002, 10:00 PM
  *
- * Current Ver: $Revision: 1.21 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:53 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * by processing each line passed to it.
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.21 $
+ * @version $Revision$
  **/
 final class LevelLoader
 {

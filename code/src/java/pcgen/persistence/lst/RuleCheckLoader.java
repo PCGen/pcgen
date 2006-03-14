@@ -17,9 +17,9 @@
  *
  * Created on November 22, 2003, 11:59 AM
  *
- * Current Ver: $Revision: 1.8 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/22 00:49:09 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 /**
  *
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  *
  **/
 final class RuleCheckLoader

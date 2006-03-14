@@ -18,9 +18,9 @@
  *
  * Created on September 2, 2002, 8:16 AM
  *
- * Current Ver: $Revision: 1.1 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2005/10/01 20:16:39 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;

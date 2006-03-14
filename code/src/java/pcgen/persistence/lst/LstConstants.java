@@ -18,9 +18,9 @@
  *
  * Created on March 2, 2002, 3:23 PM
  *
- * Current Ver: $Revision: 1.17 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/14 15:02:12 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -28,7 +28,7 @@ package pcgen.persistence.lst;
  * A list of constants that define types of Objects to be 
  * loaded by the LST System Loader
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.17 $
+ * @version $Revision$
  */
 public interface LstConstants
 {

@@ -18,7 +18,7 @@
  *
  * Created on August 12, 2002, 10:29 PM
  *
- * $Id: PCStatLoader.java,v 1.27 2006/02/16 01:03:16 soulcatcher Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -35,7 +35,7 @@ import java.util.StringTokenizer;
 /**
  *
  * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.27 $
+ * @version $Revision$
  */
 public final class PCStatLoader extends LstLineFileLoader
 {

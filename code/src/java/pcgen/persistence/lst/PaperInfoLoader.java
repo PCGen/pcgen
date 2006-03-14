@@ -18,7 +18,7 @@
  *
  * Created on February 27, 2002, 7:42 PM
  *
- * $Id: PaperInfoLoader.java,v 1.25 2005/12/23 09:34:13 jdempsey Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 final class PaperInfoLoader extends LstLineFileLoader
 {

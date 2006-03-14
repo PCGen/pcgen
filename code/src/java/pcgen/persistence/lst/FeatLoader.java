@@ -18,9 +18,9 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * Current Ver: $Revision: 1.49 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2005/12/10 21:52:25 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -36,7 +36,7 @@ import pcgen.util.Logging;
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.49 $
+ * @version $Revision$
  */
 public final class FeatLoader extends AbilityLoader
 {

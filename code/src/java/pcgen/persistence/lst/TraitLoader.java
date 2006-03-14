@@ -18,9 +18,9 @@
  *
  * Created on October 08, 2003, 12:00 PM
  *
- * Current Ver: $Revision: 1.9 $ <br>
- * Last Editor: $Author: soulcatcher $ <br>
- * Last Edited: $Date: 2005/12/21 02:09:10 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -33,9 +33,9 @@ import java.net.URL;
  * This class is a LstFileLoader used to load character traits.
  *
  * <p>
- * Current Ver: $Revision: 1.9 $ <br>
- * Last Editor: $Author: soulcatcher $ <br>
- * Last Edited: $Date: 2005/12/21 02:09:10 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  *
  * @author ad9c15
  */

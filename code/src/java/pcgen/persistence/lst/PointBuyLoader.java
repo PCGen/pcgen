@@ -18,9 +18,9 @@
  *
  * Created on October 08, 2003, 12:00 PM
  *
- * Current Ver: $Revision: 1.13 $ <br>
- * Last Editor: $Author: binkley $ <br>
- * Last Edited: $Date: 2005/10/18 20:23:53 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -42,9 +42,9 @@ import pcgen.util.Logging;
  * This class is a LstFileLoader used to load point-buy methods.
  *
  * <p>
- * Current Ver: $Revision: 1.13 $ <br>
- * Last Editor: $Author: binkley $ <br>
- * Last Edited: $Date: 2005/10/18 20:23:53 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  *
  * @author ad9c15
  */

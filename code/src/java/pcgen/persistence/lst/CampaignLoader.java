@@ -18,9 +18,9 @@
  *
  * Created on February 22, 2002, 10:29 PM
  *
- * Current Ver: $Revision: 1.85 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/15 16:32:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -45,7 +45,7 @@ import pcgen.util.Logging;
 
 /**
  * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 1.85 $
+ * @version $Revision$
  */
 public class CampaignLoader extends LstLineFileLoader
 {

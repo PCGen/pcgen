@@ -18,7 +18,7 @@
  *
  * Created on September 23, 2002, 1:39 PM
  *
- * $Id: KitLoader.java,v 1.51 2006/02/17 02:50:07 boomer70 Exp $
+ * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -34,7 +34,7 @@ import pcgen.util.Logging;
  * ???
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.51 $
+ * @version $Revision$
  */
 final class KitLoader
 {
