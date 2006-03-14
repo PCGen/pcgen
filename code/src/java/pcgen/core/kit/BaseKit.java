@@ -19,7 +19,7 @@
  *
  * Created on September 28, 2002, 11:50 PM
  *
- * $Id: BaseKit.java,v 1.21 2006/02/08 12:03:49 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -35,7 +35,7 @@ import java.util.Iterator;
 /**
  * Common code for the kits.
  * @author Jonas Karlson <jujutsunerd@sf.net>
- * @version $Revision: 1.21 $
+ * @version $Revision$
  */
 public abstract class BaseKit implements Cloneable
 {

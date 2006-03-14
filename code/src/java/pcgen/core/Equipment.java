@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.502 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:38:57 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -46,7 +46,7 @@ import java.util.*;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  *         created    December 27
  * @author 2001
- * @version $Revision: 1.502 $
+ * @version $Revision$
  */
 public final class Equipment extends PObject implements Serializable, EquipmentCollection, Comparable
 {

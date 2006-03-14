@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: RollInfo.java,v 1.55 2005/10/22 18:33:21 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
  * Structure representing dice rolls
  *
  * @author ???
- * @version $Revision: 1.55 $
+ * @version $Revision$
  */
 final class RollInfo
 {

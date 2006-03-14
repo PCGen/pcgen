@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.56 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/11/05 13:37:57 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core.character;
 
@@ -37,7 +37,7 @@ import java.util.List;
  * <code>PCClass</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.56 $
+ * @version $Revision$
  */
 public final class CharacterSpell implements Comparable
 {

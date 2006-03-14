@@ -18,7 +18,7 @@
  *
  * Created on February 25, 2002, 10:15 PM
  *
- * $Id: PaperInfo.java,v 1.12 2004/12/04 14:13:51 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -27,7 +27,7 @@ package pcgen.core;
  * <code>PaperInfo</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 public final class PaperInfo
 {

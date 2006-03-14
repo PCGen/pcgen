@@ -27,11 +27,11 @@ import java.util.*;
  * along with various methods to aid in the efficient processing of 
  * the variables. 
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:02:13 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Scott Ellsworth
- * @version $Revision: 1.17 $
+ * @version $Revision$
  */
 public class VariableList implements Cloneable
 {

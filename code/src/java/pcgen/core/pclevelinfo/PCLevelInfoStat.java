@@ -18,7 +18,7 @@
  *
  * Created on November 29, 2002, 10:365 PM
  *
- * $Id: PCLevelInfoStat.java,v 1.6 2004/09/20 07:34:00 jdempsey Exp $
+ * $Id$
  */
 package pcgen.core.pclevelinfo;
 
@@ -28,7 +28,7 @@ import java.io.Serializable;
  * ???
  *
  * @author byngl
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public final class PCLevelInfoStat implements Serializable
 {

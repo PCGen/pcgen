@@ -19,9 +19,9 @@
  * Created on November 23, 2002, 12:53 AM
  *
  *
- * Current Ver: $Revision: 1.64 $
- * Last Editor: $Author: byngl $
- * Last Edited: $Date: 2006/02/10 19:24:28 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -39,7 +39,7 @@ import java.util.*;
  * <code>CustomData</code>
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.64 $
+ * @version $Revision$
  */
 public final class CustomData
 {

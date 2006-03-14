@@ -18,9 +18,9 @@
  *
  * Created on November 30, 2003, 15:24
  *
- * Current Ver: $Revision: 1.31 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/10 14:58:24 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -37,7 +37,7 @@ import java.util.Map.Entry;
  * probably try to disentangle modifierlist into it's own class later.
  *
  * @author Jonas Karlsson <jujutsunerd@users.sourceforge.net>
- * @version $Revision: 1.31 $
+ * @version $Revision$
  */
 public class EquipmentList {
 

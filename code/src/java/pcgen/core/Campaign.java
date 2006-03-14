@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.75 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:34 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -33,7 +33,7 @@ import java.util.*;
  * <code>Campaign</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.75 $
+ * @version $Revision$
  */
 public final class Campaign extends PObject
 {

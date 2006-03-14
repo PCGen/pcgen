@@ -18,7 +18,7 @@
  *
  * Created on August 17, 2002, 11:45 PM
  *
- * $Id: PointBuyMethod.java,v 1.19 2005/10/20 23:40:10 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -35,7 +35,7 @@ import java.util.List;
  * <code>PointBuyMethod</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.19 $
+ * @version $Revision$
  */
 public final class PointBuyMethod
 {

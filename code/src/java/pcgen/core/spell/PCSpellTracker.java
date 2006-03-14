@@ -18,7 +18,7 @@
  *
  * Created on Dec 8, 2004
  *
- * $Id: PCSpellTracker.java,v 1.6 2005/10/18 20:23:41 binkley Exp $
+ * $Id$
  */
 package pcgen.core.spell;
 
@@ -42,7 +42,7 @@ import java.util.Map;
  * every time it is called for.
  *
  * @author djones4
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 
 public class PCSpellTracker {

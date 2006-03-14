@@ -18,7 +18,7 @@
  *
  * Created on September 26, 2005
  *
- * $Id: KitSpellBookEntry.java,v 1.9 2006/02/16 13:54:41 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 

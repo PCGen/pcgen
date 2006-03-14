@@ -27,7 +27,7 @@ import java.util.NoSuchElementException;
  * An iterator subclass for empty lists.
  * DO NOT DELETE
  * @author Scott Ellsworth
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 public class EmptyIterator implements Iterator
 {

@@ -18,7 +18,7 @@
  *
  * Created on October 24, 2002, 12:35 AM
  *
- * $Id: FeatMultipleChoice.java,v 1.20 2005/10/12 14:16:15 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -33,7 +33,7 @@ import java.util.List;
  * order to allow editing of the feat's selection(s) at later dates.
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.20 $
+ * @version $Revision$
  */
 public final class FeatMultipleChoice implements Serializable
 {

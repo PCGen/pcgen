@@ -18,7 +18,7 @@
  *
  * Created on Sep 12, 2004
  *
- * $Id: EquipmentChoice.java,v 1.12 2006/02/16 13:17:22 karianna Exp $
+ * $Id$
  *
  */
 package pcgen.core;
@@ -36,11 +36,11 @@ import java.util.*;
  * they want, or the generator creating one object for each
  * combination of choices.
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:17:22 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 
 final class EquipmentChoice

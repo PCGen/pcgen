@@ -31,7 +31,7 @@ import java.util.List;
  * Denominations class provides a collection of Denominations.
  *
  * @author   Brad Stiles (brasstilde@yahoo.com)
- * @version    $Revision: 1.7 $
+ * @version    $Revision$
  */
 public final class Denominations implements iDefaultRankConstants
 {

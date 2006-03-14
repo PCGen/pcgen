@@ -18,7 +18,7 @@
  *
  * Created on February 16, 2006, 11:43 AM
  *
- * $Id: KitBio.java,v 1.2 2006/02/22 04:51:38 boomer70 Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -34,7 +34,7 @@ import pcgen.core.Globals;
  * Code to represent a bio setting choices for a Kit.
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 public class KitBio extends BaseKit
 {

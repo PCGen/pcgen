@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.158 $
- * Last Editor: $Author: merton_monk $
- * Last Edited: $Date: 2005/11/06 05:46:00 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -40,7 +40,7 @@ import java.util.StringTokenizer;
  * <code>Deity</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.158 $
+ * @version $Revision$
  */
 public final class Deity extends PObject
 {

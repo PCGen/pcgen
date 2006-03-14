@@ -18,9 +18,9 @@
  *
  * Created on July 10, 2002, 2:15 PM
  *
- * Current Ver: $Revision: 1.222 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/02/23 12:33:07 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -53,7 +53,7 @@ import java.util.*;
  * Should be cleaned up more.
  *
  * @author jujutsunerd
- * @version $Revision: 1.222 $
+ * @version $Revision$
  **/
 public final class SettingsHandler
 {

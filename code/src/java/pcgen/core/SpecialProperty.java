@@ -31,7 +31,7 @@ import java.util.StringTokenizer;
  * <code>SpecialProperty</code>.
  *
  * @author Devon Jones
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public final class SpecialProperty extends TextProperty
 {

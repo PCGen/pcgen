@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.65 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:38:57 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -34,7 +34,7 @@ import java.util.Set;
  * A cleric domain that is used by a character.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.65 $
+ * @version $Revision$
  */
 public final class CharacterDomain
 {

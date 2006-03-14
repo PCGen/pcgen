@@ -19,9 +19,9 @@
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * Created on February 24th, 2002, 11:26 PM
  *
- * Current Ver: $Revision: 1.14 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/11/29 14:14:22 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.character;

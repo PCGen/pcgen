@@ -25,7 +25,7 @@ package pcgen.core.money;
  * Denomination class represents a specific denomination of currency.
  *
  * @author  Brad Stiles (brasstilde@yahoo.com)
- * @version    $Revision: 1.6 $
+ * @version    $Revision$
  */
 public final class Denomination implements Comparable
 {

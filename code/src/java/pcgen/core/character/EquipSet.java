@@ -18,9 +18,9 @@
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * Created on April 29th, 2002, 11:26 PM
  *
- * Current Ver: $Revision: 1.53 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/11/29 14:14:22 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.character;
@@ -48,7 +48,7 @@ import java.util.StringTokenizer;
 /**
  * <code>EquipSet.java</code>
  * @author Jayme Cox <jaymecox@excite.com>
- * @version $Revision: 1.53 $
+ * @version $Revision$
  */
 public final class EquipSet implements Comparable, Cloneable
 {

@@ -18,7 +18,7 @@
  *
  * Created on November 29, 2002, 10:38 PM
  *
- * $Id: PCLevelInfo.java,v 1.27 2005/10/22 18:33:22 binkley Exp $
+ * $Id$
  */
 package pcgen.core.pclevelinfo;
 
@@ -34,7 +34,7 @@ import java.util.List;
  * Represents the data kept about a level that a PC has added.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version  $Revision: 1.27 $
+ * @version  $Revision$
  */
 public final class PCLevelInfo implements Cloneable
 {

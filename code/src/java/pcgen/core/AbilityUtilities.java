@@ -19,9 +19,9 @@
  * Created on Aug 25, 2005
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.13 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:54:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -37,7 +37,7 @@ import java.util.List;
  * General utilities related to the Ability class.
  *
  * @author   Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version  $Revision: 1.13 $
+ * @version  $Revision$
  */
 public class AbilityUtilities
 {

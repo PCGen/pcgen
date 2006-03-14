@@ -18,9 +18,9 @@
  *
  * Created on September 22, 2002, 4:30 PM
  *
- * Current Ver: $Revision: 1.113 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/21 01:55:25 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -38,7 +38,7 @@ import java.util.*;
  * Handles game modes.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.113 $
+ * @version $Revision$
  */
 public final class GameMode implements Comparable
 {

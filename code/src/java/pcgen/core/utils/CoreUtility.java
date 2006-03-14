@@ -18,7 +18,7 @@
  *
  * Created on Feb 18, 2002, 5:20:42 PM
  *
- * $Id: CoreUtility.java,v 1.8 2005/10/11 14:02:01 karianna Exp $
+ * $Id$
  */
 package pcgen.core.utils;
 
@@ -37,7 +37,7 @@ import java.util.List;
  * Some of this code seems awfully similar, and should probably be further refactored.
  *
  * @author Jonas Karlsson <pjak@yahoo.com>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 public final class CoreUtility
 {

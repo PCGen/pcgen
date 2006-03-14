@@ -19,9 +19,9 @@
  * PObject Created on April 21, 2001, 2:15 PM
  * Refactored out of PObject June 13, 2005
  *
- * Current Ver: $Revision: 1.25 $
- * Last Editor: $Author: boomer70 $
- * Last Edited: $Date: 2006/02/24 01:47:33 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;

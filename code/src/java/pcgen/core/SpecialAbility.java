@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
  * <code>SpecialAbility</code>.
  *
  * @author Devon Jones
- * @version $Revision: 1.50 $
+ * @version $Revision$
  */
 public final class SpecialAbility extends TextProperty
 {

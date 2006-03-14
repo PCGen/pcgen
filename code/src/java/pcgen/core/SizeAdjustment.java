@@ -29,7 +29,7 @@ import java.util.List;
  * <code>SizeAdjustment</code>.
  *
  * @author Greg Bingleman <byngl@users.sourceforge.net>
- * @version $Revision: 1.35 $
+ * @version $Revision$
  */
 public final class SizeAdjustment extends PObject
 {

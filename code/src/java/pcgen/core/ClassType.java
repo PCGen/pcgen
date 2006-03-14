@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.9 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/09/28 13:36:13 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -31,7 +31,7 @@ import pcgen.core.utils.ShowMessageDelegate;
  * <code>Campaign</code>.
  *
  * @author Felipe Diniz <fdiniz@users.sourceforge.net>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 public final class ClassType extends PObject
 {

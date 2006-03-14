@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id: Constants.java,v 1.83 2006/02/16 13:54:42 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -27,7 +27,7 @@ package pcgen.core;
  * is that an interface uses a little less memory.)
  *
  * @author     Jonas Karlsson
- * @version    $Revision: 1.83 $
+ * @version    $Revision$
  */
 public interface Constants
 {

@@ -19,9 +19,9 @@
  * @author Bryan McRoberts <merton_monk@yahoo.com>
  * Created on July 10, 2002, 11:26 PM
  *
- * Current Ver: $Revision: 1.25 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/01/27 10:52:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core.character;
 
@@ -38,7 +38,7 @@ import java.util.List;
  * and the list of meta-magic feats which have been applied.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 public final class SpellInfo
 {

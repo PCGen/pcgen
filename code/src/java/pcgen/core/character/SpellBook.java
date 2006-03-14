@@ -18,7 +18,7 @@
  *
  * Created on Jan 6, 2006
  *
- * $Id:  $
+ * $Id$
  *
  */
 package pcgen.core.character;
@@ -30,11 +30,11 @@ import pcgen.core.Equipment;
  * a spell book. The term spell book was used as that is the term used
  * throughout the rest of the code.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 
 public class SpellBook

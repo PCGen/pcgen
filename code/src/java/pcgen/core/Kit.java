@@ -36,7 +36,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>Kit</code>.
  *
  * @author   Greg Bingleman <byngl@hotmail.com>
- * @version  $Revision: 1.115 $
+ * @version  $Revision$
  */
 public final class Kit extends PObject implements Comparable
 {

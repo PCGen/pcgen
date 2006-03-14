@@ -18,9 +18,9 @@
  *
  * Created on September 27, 2002, 5:30 PM
  *
- * Current Ver: $Revision: 1.76 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 18:33:20 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -34,7 +34,7 @@ import java.util.*;
  * <code>BioSet</code>.
  *
  * @author Bryan McRoberts
- * @version $Revision: 1.76 $
+ * @version $Revision$
  */
 public final class BioSet extends PObject
 {

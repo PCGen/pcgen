@@ -18,7 +18,7 @@
  *
  * Created on October 15, 2005, 10:00 PM
  *
- * $Id: KitKit.java,v 1.5 2006/02/16 15:10:14 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 

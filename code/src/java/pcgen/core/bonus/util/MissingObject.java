@@ -18,9 +18,9 @@
  *
  * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 1.7 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/01/31 12:28:53 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.bonus.util;

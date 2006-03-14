@@ -18,9 +18,9 @@
  *
  * Created on November 18, 2001, 9:15 PM
  * 
- * Current Ver: $Revision: 1.23 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/09/19 12:28:43 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -30,7 +30,7 @@ package pcgen.core;
  * <code>Language</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.23 $
+ * @version $Revision$
  */
 public final class Language extends PObject implements Comparable
 {

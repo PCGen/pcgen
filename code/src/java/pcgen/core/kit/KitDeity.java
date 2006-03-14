@@ -18,7 +18,7 @@
  *
  * Created on October 3, 2005, 5:55 PM
  *
- * $Id: KitDeity.java,v 1.6 2006/02/07 15:40:53 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 

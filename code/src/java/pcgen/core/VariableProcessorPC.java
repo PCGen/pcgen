@@ -37,11 +37,11 @@ import java.util.StringTokenizer;
  * variables into values and is used extensively both in 
  * defintions of objects and for output to output sheets.
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/02 14:09:47 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision: 1.22 $
+ * @version $Revision$
  */
 public class VariableProcessorPC extends VariableProcessor 
 {

@@ -18,9 +18,9 @@
  *
  * Created 2003-07-12 14:02
  *
- * Current Ver: $Revision: 1.34 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:17:22 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -39,7 +39,7 @@ import pcgen.core.system.LoadInfo;
  * Contains lists of stuff loaded from system-wide lst files.
  *
  * @author     Jonas Karlsson <jujutsunerd@users.sourceforge.net>
- * @version    $Revision: 1.34 $
+ * @version    $Revision$
  **/
 public class SystemCollections
 {

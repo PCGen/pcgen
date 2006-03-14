@@ -18,7 +18,7 @@
  *
  * Created on September 15, 2005, 11:40 AM
  *
- * $Id: PointBuyCost.java,v 1.3 2005/10/18 20:23:36 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * <code>PointBuyCost</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public final class PointBuyCost
 {

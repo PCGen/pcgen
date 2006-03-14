@@ -18,7 +18,7 @@
  *
  * Created on December 25, 2003, 5:00 PM
  *
- * $Id: SkillComparator.java,v 1.3 2004/12/04 14:14:15 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -28,7 +28,7 @@ import java.util.Comparator;
  * <code>SkillComparator</code> is a comparator interface for sorting skills.
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public final class SkillComparator implements Comparator
 {

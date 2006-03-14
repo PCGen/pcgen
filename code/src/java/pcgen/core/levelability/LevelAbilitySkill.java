@@ -18,7 +18,7 @@
  *
  * Created on Sep 26, 2004
  *
- * $Id: LevelAbilitySkill.java,v 1.10 2005/10/22 19:17:37 nuance Exp $
+ * $Id$
  *
  */
 package pcgen.core.levelability;
@@ -41,11 +41,11 @@ import java.util.StringTokenizer;
  * is granted when going up a level.
  * (an ADD:SKILL line in the LST file).
  *
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2005/10/22 19:17:37 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.10 $
+ * @version $Revision$
  */
 class LevelAbilitySkill extends LevelAbility
 {

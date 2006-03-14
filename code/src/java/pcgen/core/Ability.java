@@ -15,7 +15,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: Ability.java,v 1.28 2006/02/16 13:38:58 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -35,7 +35,7 @@ import java.util.StringTokenizer;
  * Definition and games rules for an Ability.
  *
  * @author   ???
- * @version  $Revision: 1.28 $
+ * @version  $Revision$
  */
 public final class Ability extends PObject implements HasCost, Categorisable
 {

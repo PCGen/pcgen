@@ -19,9 +19,9 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision: 1.37 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:37 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 

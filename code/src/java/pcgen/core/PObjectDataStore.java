@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: PObjectDataStore.java,v 1.33 2006/02/16 13:54:42 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -35,7 +35,7 @@ import java.util.*;
  * Consider PropertyChangeListener as an API for notifications.
  *
  * @author ???
- * @version $Revision: 1.33 $
+ * @version $Revision$
  *
  */
 public class PObjectDataStore

@@ -19,7 +19,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: RollingMethods.java,v 1.60 2006/02/15 16:32:43 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -34,7 +34,7 @@ import java.util.Arrays;
  *
  * @author Mario Bonassin <zebuleon@users.sourceforge.net>
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.60 $
+ * @version $Revision$
  */
 public final class RollingMethods
 {

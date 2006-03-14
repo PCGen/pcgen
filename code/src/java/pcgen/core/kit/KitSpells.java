@@ -18,7 +18,7 @@
  *
  * Created on September 23, 2002, 9:29 PM
  *
- * $Id: KitSpells.java,v 1.28 2006/02/07 15:40:53 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -47,7 +47,7 @@ import pcgen.util.Logging;
  * <code>KitSpells</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.28 $
+ * @version $Revision$
  */
 public final class KitSpells extends BaseKit implements Serializable, Cloneable
 {

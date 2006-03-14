@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: PCClass.java,v 1.703 2006/02/16 13:38:57 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -47,7 +47,7 @@ import java.util.*;
  * <code>PCClass</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.703 $
+ * @version $Revision$
  */
 public class PCClass extends PObject
 {

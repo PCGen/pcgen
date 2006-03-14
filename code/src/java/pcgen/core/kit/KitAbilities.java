@@ -18,7 +18,7 @@
  *
  * Created on 10 September 2005
  *
- * $Id: KitAbilities.java,v 1.10 2006/02/07 15:40:53 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -41,7 +41,7 @@ import pcgen.core.PlayerCharacter;
  * <code>KitAbiltiies</code>.
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
- * @version  $Revision: 1.10 $
+ * @version  $Revision$
  */
 public final class KitAbilities extends BaseKit implements Serializable, Cloneable
 {

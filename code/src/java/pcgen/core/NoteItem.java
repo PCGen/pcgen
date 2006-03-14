@@ -18,7 +18,7 @@
  *
  * Created on March 17, 2002, 9:27 PM
  *
- * $Id: NoteItem.java,v 1.13 2004/12/04 14:13:48 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -27,7 +27,7 @@ package pcgen.core;
  * <code>NoteItem</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.13 $
+ * @version $Revision$
  */
 public final class NoteItem
 {

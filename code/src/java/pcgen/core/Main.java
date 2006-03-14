@@ -19,7 +19,7 @@
  *
  * Created on January 28, 2002.
  *
- * $Id: Main.java,v 1.27 2005/10/23 13:09:29 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -38,7 +38,7 @@ import java.lang.reflect.InvocationTargetException;
  * </pre>
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.27 $
+ * @version $Revision$
  */
 public final class Main
 {

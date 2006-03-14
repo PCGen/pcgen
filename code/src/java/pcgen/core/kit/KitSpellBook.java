@@ -18,7 +18,7 @@
  *
  * Created on September 26, 2005
  *
- * $Id: KitSpellBook.java,v 1.5 2005/10/21 01:20:16 boomer70 Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 

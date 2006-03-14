@@ -29,11 +29,11 @@ import pcgen.util.Logging;
  * formulas or variables into values and is used extensively 
  * both in defintions of objects and for output to output sheets.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:02:13 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision: 1.3 $
+ * @version $Revision$
  */
 public class VariableProcessorEq extends VariableProcessor 
 {

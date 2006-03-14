@@ -15,9 +15,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Version: $Revision: 1.7 $
- * Last Editor:     $Author: jdempsey $
- * Last Edited:     $Date: 2006/01/29 00:08:09 $
+ * Current Version: $Revision$
+ * Last Editor:     $Author$
+ * Last Edited:     $Date$
  *
  * Copyright 2005 Andrew Wilson <nuance@sourceforge.net>
  */
@@ -39,7 +39,7 @@ import java.util.List;
  * those choices and potentially applying the choices to a PC
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
- * @version  $Revision: 1.7 $
+ * @version  $Revision$
  */
 public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 {

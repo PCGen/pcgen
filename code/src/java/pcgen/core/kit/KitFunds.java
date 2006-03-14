@@ -18,7 +18,7 @@
  *
  * Created on January 20, 2005, 9:46 AM
  *
- * $Id: KitFunds.java,v 1.6 2006/02/16 15:10:14 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -32,7 +32,7 @@ import java.util.List;
  * <code>KitFunds</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public final class KitFunds extends BaseKit implements Serializable, Cloneable
 {

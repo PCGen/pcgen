@@ -18,7 +18,7 @@
  *
  * Created on Jul 27, 2001, 12:13:37 AM
  *
- * $Id: LevelAbilityClassSkills.java,v 1.8 2005/10/22 19:17:37 nuance Exp $
+ * $Id$
  */
 package pcgen.core.levelability;
 
@@ -37,7 +37,7 @@ import java.util.StringTokenizer;
  * ADD:CLASSSKILLS line in the LST file).
  *
  * @author   Dmitry Jemerov <yole@spb.cityline.ru>
- * @version  $Revision: 1.8 $
+ * @version  $Revision$
  */
 final class LevelAbilityClassSkills extends LevelAbility
 {

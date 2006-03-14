@@ -18,7 +18,7 @@
  *
  * Created on October 15, 2005, 10:00 PM
  *
- * $Id: KitAlignment.java,v 1.3 2006/02/16 13:54:41 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 

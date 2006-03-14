@@ -18,7 +18,7 @@
  *
  * Created on September 28, 2002, 11:50 PM
  *
- * $Id: HasCost.java,v 1.6 2006/02/02 13:06:00 karianna Exp $
+ * $Id$
  */
 
 package pcgen.core;
@@ -26,7 +26,7 @@ package pcgen.core;
 /**
  * This interface will probably refactored away.
  * @author Jonas Karlson <jujutsunerd@sf.net>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public interface HasCost
 {

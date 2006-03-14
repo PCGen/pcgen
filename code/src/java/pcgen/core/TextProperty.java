@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
  * <code>TextProperty</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 public abstract class TextProperty extends PObject implements Serializable, Comparable
 {

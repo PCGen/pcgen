@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: Race.java,v 1.337 2006/02/15 16:32:43 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -37,7 +37,7 @@ import java.util.*;
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @author Michael Osterlie
- * @version $Revision: 1.337 $
+ * @version $Revision$
  */
 public final class Race extends PObject
 {

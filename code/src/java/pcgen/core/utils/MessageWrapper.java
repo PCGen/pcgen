@@ -19,11 +19,11 @@
  *
  * Created on 18-Dec-2003
  *
- * Current Ver: $Revision: 1.5 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: zaister $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2005/08/11 11:05:35 $
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.utils;

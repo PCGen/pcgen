@@ -18,7 +18,7 @@
  *
  * Created on September 23, 2002, 8:58 PM
  *
- * $Id: KitGear.java,v 1.38 2006/02/07 15:40:53 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -38,7 +38,7 @@ import java.util.StringTokenizer;
  * <code>KitGear</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.38 $
+ * @version $Revision$
  */
 public final class KitGear extends BaseKit implements Serializable, Cloneable
 {

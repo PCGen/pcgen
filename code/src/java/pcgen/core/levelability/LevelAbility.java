@@ -18,7 +18,7 @@
  *
  * Created on July 23, 2001, 8:30 PM
  *
- * $Id: LevelAbility.java,v 1.15 2005/10/22 19:17:37 nuance Exp $
+ * $Id$
  */
 package pcgen.core.levelability;
 
@@ -39,7 +39,7 @@ import java.util.StringTokenizer;
  * entry in the LST file).
  *
  * @author   Dmitry Jemerov <yole@spb.cityline.ru>
- * @version  $Revision: 1.15 $
+ * @version  $Revision$
  */
 public class LevelAbility extends PObject implements LevelAbilityInterface
 {

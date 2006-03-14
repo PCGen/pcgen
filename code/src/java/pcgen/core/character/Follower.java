@@ -19,9 +19,9 @@
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * Created on July 10, 2002, 11:26 PM
  *
- * Current Ver: $Revision: 1.26 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/12/02 12:02:18 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.character;
@@ -34,7 +34,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 /**
  * <code>Follower.java</code>
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.26 $
+ * @version $Revision$
  **/
 public final class Follower implements Comparable, Cloneable
 {

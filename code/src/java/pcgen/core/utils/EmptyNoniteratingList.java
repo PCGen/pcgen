@@ -28,7 +28,7 @@ import java.util.NoSuchElementException;
  * A List subclass containing no data that returns a singleton iterator
  * DO NOT DELETE
  * @author Scott Ellsworth
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 public class EmptyNoniteratingList extends AbstractList implements Serializable
 {

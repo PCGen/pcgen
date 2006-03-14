@@ -15,9 +15,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Version: $Revision: 1.7 $
- * Last Editor: $Author: darkenedroom $
- * Last Edited: $Date: 2005/11/28 21:42:41 $
+ * Current Version: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * Copyright 2005 Andrew Wilson <nuance@sourceforge.net>
  */
 package pcgen.core.chooser;
@@ -34,7 +34,7 @@ import java.util.*;
  * Deal with choosing a weapon proficiency
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
- * @version  $Revision: 1.7 $
+ * @version  $Revision$
  */
 public class WeaponProfChoiceManager extends AbstractChoiceManager
 {

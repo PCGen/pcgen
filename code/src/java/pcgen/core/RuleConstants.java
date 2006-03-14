@@ -18,11 +18,11 @@
  *
  * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 1.1 $
- * Last Editor: $Author: byngl $
- * Last Edited: $Date: 2005/10/08 04:03:23 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
- * $Id: RuleConstants.java,v 1.1 2005/10/08 04:03:23 byngl Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -34,7 +34,7 @@ package pcgen.core;
  * is that an interface uses a little less memory.)
  *
  * @author     Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision: 1.1 $
+ * @version    $Revision$
  */
 public interface RuleConstants
 {

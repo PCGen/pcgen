@@ -17,9 +17,9 @@
  *
  * Created on June 18, 2005.
  *
- * Current Ver: $Revision: 1.8 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/01/18 10:37:01 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core.utils;
 

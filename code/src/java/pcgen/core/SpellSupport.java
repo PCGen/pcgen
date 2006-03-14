@@ -18,9 +18,9 @@
  *
  * Refactored out of PObject and PCSpellTracker July 23, 2005
  *
- * Current Ver: $Revision: 1.8 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/02/11 10:58:31 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 

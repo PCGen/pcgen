@@ -18,9 +18,9 @@
  *
  * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
- * Current Ver: $Revision: 1.8 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/07 15:40:53 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.system;
@@ -34,7 +34,7 @@ import java.util.Map;
  * <code>LoadInfo</code> describes the data associated with a loads and encumbrance
  *
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 public class LoadInfo {
 	private List loadScoreList = new ArrayList();

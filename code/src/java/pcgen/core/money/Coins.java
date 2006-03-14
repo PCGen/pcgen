@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: Coins.java,v 1.8 2005/09/28 13:36:14 karianna Exp $
+ * $Id$
  */
 package pcgen.core.money;
 
@@ -30,7 +30,7 @@ import java.util.List;
  * Coins class encapsulates a collection of coins objects,
  *
  * @author  Brad Stiles (brasstilde@yahoo.com)
- * @version    $Revision: 1.8 $
+ * @version    $Revision$
  */
 final class Coins
 {

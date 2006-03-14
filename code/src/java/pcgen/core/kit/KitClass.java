@@ -18,7 +18,7 @@
  *
  * Created on August 20, 2005, 1640h
  *
- * $Id: KitClass.java,v 1.8 2006/01/30 15:48:32 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -31,7 +31,7 @@ import pcgen.core.*;
  * <code>KitClass</code> <strong>needs documentation</strong>.
  *
  * @author boomer70
- * @version $Id: KitClass.java,v 1.8 2006/01/30 15:48:32 karianna Exp $
+ * @version $Id$
  */
 public class KitClass extends BaseKit implements Serializable, Cloneable
 {

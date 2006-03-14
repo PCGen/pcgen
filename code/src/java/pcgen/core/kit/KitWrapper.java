@@ -28,7 +28,7 @@ import java.math.BigDecimal;
  * <code>KitWrapper</code>.
  *
  * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 public final class KitWrapper
 {

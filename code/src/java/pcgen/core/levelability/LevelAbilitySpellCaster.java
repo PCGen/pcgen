@@ -15,9 +15,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Version: $Revision: 1.13 $
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2005/10/27 00:41:05 $
+ * Current Version: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * Copyright 2005 Andrew Wilson <nuance@sourceforge.net>
  */
@@ -40,7 +40,7 @@ import java.util.StringTokenizer;
  * levelling up.
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
- * @version  $Revision: 1.13 $
+ * @version  $Revision$
  */
 
 public class LevelAbilitySpellCaster extends LevelAbility

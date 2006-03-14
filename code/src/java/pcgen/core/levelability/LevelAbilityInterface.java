@@ -18,9 +18,9 @@
  *
  * Created on October 06, 2005, 12:16 AM
  *
- * Current Ver: $Revision: 1.4 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 15:10:15 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.levelability;

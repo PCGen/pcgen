@@ -17,9 +17,9 @@
  *
  * Created on November 07, 2003, 2:15 AM
  *
- * Current Ver: $Revision: 1.6 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:41 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.utils;
@@ -33,7 +33,7 @@ import java.util.*;
  * An subclass of Properties whose output is sorted
  *
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public class SortedProperties extends Properties
 {

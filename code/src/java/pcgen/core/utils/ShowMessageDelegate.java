@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: ShowMessageDelegate.java,v 1.8 2005/08/11 11:05:35 zaister Exp $
+ * $Id$
  */
 package pcgen.core.utils;
 
@@ -28,7 +28,7 @@ import java.util.Observable;
  * This is a facade for gui objects in the core code.
  *
  * @author     Jonas Karlsson
- * @version    $Revision: 1.8 $
+ * @version    $Revision$
  */
 public final class ShowMessageDelegate extends Observable
 {

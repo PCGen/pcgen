@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
  * <code>PCStat</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.28 $
+ * @version $Revision$
  */
 public final class PCStat extends PObject
 {

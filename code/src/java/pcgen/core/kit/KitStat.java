@@ -18,7 +18,7 @@
  *
  * Created on September 20, 2005, 1040h
  *
- * $Id: KitStat.java,v 1.8 2006/02/16 15:10:14 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 

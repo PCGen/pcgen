@@ -24,7 +24,7 @@ package pcgen.core;
 /**
  * An interface for collections of equipment.
  * @author Thomas G. W. Epperly
- * @version $Revision: 1.15 $*
+ * @version $Revision$*
  */
 interface EquipmentCollection
 {

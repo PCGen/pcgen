@@ -27,7 +27,7 @@ import java.util.List;
  * Holds the syllables for a given Name construction rule.
  *
  * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 final class NameRule
 {

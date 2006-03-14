@@ -18,7 +18,7 @@
  *
  * Created on December 13, 2005
  *
- * $Id: KitSelect.java,v 1.2 2006/01/30 15:48:32 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -32,7 +32,7 @@ import java.util.List;
  * <code>KitSelect</code>.
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 public final class KitSelect extends BaseKit implements Serializable, Cloneable
 {

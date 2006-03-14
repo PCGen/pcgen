@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: Names.java,v 1.71 2005/10/22 18:33:20 binkley Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -33,7 +33,7 @@ import java.util.*;
  * <code>Names</code>.
  *
  * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @version $Revision: 1.71 $
+ * @version $Revision$
  */
 public final class Names
 {

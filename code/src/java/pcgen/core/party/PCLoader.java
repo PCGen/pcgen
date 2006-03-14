@@ -18,9 +18,9 @@
  *
  * Created on Jun 10, 2005
  *
- * Current Ver: $Revision: 1.3 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/21 21:09:23 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core.party;
 

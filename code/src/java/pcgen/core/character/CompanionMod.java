@@ -21,9 +21,9 @@
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @Created on July 10th, 2002, 3:55 PM
  *
- * Current Ver: $Revision: 1.44 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/11/07 10:10:55 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  *************************************************************************/
 package pcgen.core.character;
@@ -42,7 +42,7 @@ import java.util.Map;
  * <code>CompanionMod</code>.
  *
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.44 $
+ * @version $Revision$
  */
 public final class CompanionMod extends PObject
 {

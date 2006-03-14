@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.233 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:02:14 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -47,7 +47,7 @@ import pcgen.util.chooser.ChooserInterface;
  * <code>PCTemplate</code>.
  *
  * @author   Mark Hulsman <hulsmanm@purdue.edu>
- * @version  $Revision: 1.233 $
+ * @version  $Revision$
  */
 public final class PCTemplate extends PObject implements HasCost
 {

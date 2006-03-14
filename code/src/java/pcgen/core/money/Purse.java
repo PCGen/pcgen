@@ -28,7 +28,7 @@ import java.util.Iterator;
  * TODO: This class overrides equals(Object), but does not override hashCode(), and inherits the implementation of hashCode() from java.lang.Object (which returns the identity hash code, an arbitrary value assigned to the object by the VM). Therefore, the class is very likely to violate the invariant that equal objects must have equal hashcodes.
  *
  * @author   Brad Stiles (brasstilde@yahoo.com)
- * @version    $Revision: 1.13 $
+ * @version    $Revision$
  */
 public final class Purse
 {

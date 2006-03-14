@@ -18,9 +18,9 @@
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * Created on November 21, 2003, 11:26 PM
  *
- * Current Ver: $Revision: 1.19 $
- * Last Editor: $Author: darkenedroom $
- * Last Edited: $Date: 2006/01/17 22:03:10 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.character;
@@ -42,7 +42,7 @@ import pcgen.util.Logging;
  * <code>WieldCategory.java</code>
  *
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.19 $
+ * @version $Revision$
  */
 public final class WieldCategory
 {

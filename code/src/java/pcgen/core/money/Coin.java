@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: Coin.java,v 1.8 2005/09/28 13:36:14 karianna Exp $
+ * $Id$
  */
 package pcgen.core.money;
 
@@ -28,7 +28,7 @@ package pcgen.core.money;
  * adding an amount to the other fields.
  *
  * @author  Brad Stiles (brasstilde@yahoo.com)
- * @version    $Revision: 1.8 $
+ * @version    $Revision$
  */
 final class Coin
 {

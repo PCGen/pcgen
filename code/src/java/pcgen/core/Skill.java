@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: Skill.java,v 1.251 2006/02/16 13:17:24 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -44,7 +44,7 @@ import java.util.StringTokenizer;
  * <code>Skill</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.251 $
+ * @version $Revision$
  */
 public final class Skill extends PObject
 {

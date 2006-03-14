@@ -18,9 +18,9 @@
  *
  * Created July 23, 2005
  *
- * Current Ver: $Revision: 1.1 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2005/07/24 00:22:23 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 

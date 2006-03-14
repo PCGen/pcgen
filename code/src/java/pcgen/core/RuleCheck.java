@@ -17,9 +17,9 @@
  *
  * Created on Novmeber 06, 2003, 11:59 PM PST
  *
- * Current Ver: $Revision: 1.7 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/09/12 16:02:31 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -30,7 +30,7 @@ package pcgen.core;
  * in the GUI by the users
  *
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 public final class RuleCheck
 {

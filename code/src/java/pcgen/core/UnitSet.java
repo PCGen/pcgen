@@ -18,7 +18,7 @@
  *
  * Created on February 25, 2002, 10:15 PM
  *
- * $Id: UnitSet.java,v 1.7 2006/02/06 23:00:47 darkenedroom Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -29,7 +29,7 @@ import java.text.DecimalFormat;
  * <code>UnitSet</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 public final class UnitSet
 {

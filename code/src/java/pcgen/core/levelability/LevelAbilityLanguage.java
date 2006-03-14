@@ -18,7 +18,7 @@
  *
  * Created on Jul 31, 2001, 12:40:47 AM
  *
- * $Id: LevelAbilityLanguage.java,v 1.12 2005/10/22 19:17:37 nuance Exp $
+ * $Id$
  */
 package pcgen.core.levelability;
 
@@ -37,7 +37,7 @@ import java.util.List;
  * Represents a bonus language a PC gets when gaining a level (am ADD:Language
  * line in the LST file).
  * @author Dmitry Jemerov <yole@spb.cityline.ru>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 final class LevelAbilityLanguage extends LevelAbility
 {

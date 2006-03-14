@@ -19,9 +19,9 @@
  * Created on Aug 25, 2005
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.4 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:36 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -32,7 +32,7 @@ import java.math.BigDecimal;
 
 /**
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public final class SkillUtilities
 {

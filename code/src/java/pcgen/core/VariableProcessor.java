@@ -43,11 +43,11 @@ import java.util.StringTokenizer;
  * into a value and are used extensively both in defintions of objects 
  * and for output to output sheets. 
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:38:58 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision: 1.18 $
+ * @version $Revision$
  */
 public abstract class VariableProcessor
 {

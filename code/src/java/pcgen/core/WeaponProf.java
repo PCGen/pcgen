@@ -25,7 +25,7 @@ package pcgen.core;
  * <code>WeaponProf</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.59 $
+ * @version $Revision$
  */
 public final class WeaponProf extends PObject implements Comparable
 {

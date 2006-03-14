@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: WeaponProfDataStore.java,v 1.17 2006/01/17 19:05:38 darkenedroom Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -34,7 +34,7 @@ import java.util.Set;
  * Consider PropertyChangeListener as an API for notifications.
  *
  * @author ???
- * @version $Revision: 1.17 $
+ * @version $Revision$
  *
  */
 public class WeaponProfDataStore

@@ -18,9 +18,9 @@
  *
  * Refactored out of PObject July 22, 2005
  *
- * Current Ver: $Revision: 1.3 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2005/12/10 21:27:59 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core;
 

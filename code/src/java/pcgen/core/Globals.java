@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.727 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/11/30 16:02:36 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -49,7 +49,7 @@ import java.util.*;
  * it is build from static methods rather than instantiated.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.727 $
+ * @version $Revision$
  */
 public final class Globals
 {

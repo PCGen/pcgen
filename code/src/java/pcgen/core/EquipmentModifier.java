@@ -18,9 +18,9 @@
  *
  * Created on November 19, 2001, 4:28 PM
  *
- * Current Ver: $Revision: 1.156 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:17:34 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -45,7 +45,7 @@ import java.util.*;
  * Definition and games rules for an equipment modifier.
  *
  * @author   Greg Bingleman <byngl@hotmail.com>
- * @version  $Revision: 1.156 $
+ * @version  $Revision$
  */
 public final class EquipmentModifier extends PObject implements Comparable
 {

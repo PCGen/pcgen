@@ -32,7 +32,7 @@ import java.util.*;
  * (an ADD:LIST entry in the LST file).
  *
  * @author Dmitry Jemerov <yole@spb.cityline.ru>
- * @version $Revision: 1.11 $
+ * @version $Revision$
  */
 final class LevelAbilityList extends LevelAbility
 {

@@ -18,9 +18,9 @@
  *
  * Created on July 24, 2001, 10:11 PM
  *
- * Current Ver: $Revision: 1.20 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/01/27 10:52:43 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.levelability;
@@ -42,7 +42,7 @@ import java.util.*;
  * entry in the LST file).
  *
  * @author   Dmitry Jemerov <yole@spb.cityline.ru>
- * @version  $Revision: 1.20 $
+ * @version  $Revision$
  */
 class LevelAbilityFeat extends LevelAbility
 {

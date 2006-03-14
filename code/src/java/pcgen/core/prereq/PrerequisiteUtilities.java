@@ -18,9 +18,9 @@
  *
  * Refactored out of PObject July 22, 2005
  *
- * Current Ver: $Revision: 1.4 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/06 14:56:00 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core.prereq;
 

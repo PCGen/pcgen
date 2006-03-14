@@ -18,7 +18,7 @@
  *
  * Created on Jul 26, 2001, 10:15:09 PM
  *
- * $Id: LevelAbilityWeaponBonus.java,v 1.9 2005/10/22 19:17:37 nuance Exp $
+ * $Id$
  */
 package pcgen.core.levelability;
 
@@ -33,7 +33,7 @@ import java.util.*;
  * (an ADD:WEAPONBONUS entry in the LST file).
  *
  * @author Dmitry Jemerov <yole@spb.cityline.ru>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 final class LevelAbilityWeaponBonus extends LevelAbility
 {

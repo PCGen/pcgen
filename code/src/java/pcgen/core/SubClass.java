@@ -18,7 +18,7 @@
  *
  * Created on November 19, 2002, 10:29 PM
  *
- * $Id: SubClass.java,v 1.25 2006/02/16 13:38:57 karianna Exp $
+ * $Id$
  */
 package pcgen.core;
 
@@ -35,7 +35,7 @@ import java.util.List;
  * <code>SubClass</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 public final class SubClass extends PCClass
 {

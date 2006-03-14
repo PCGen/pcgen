@@ -25,7 +25,7 @@ package pcgen.core;
  * A Variable is something that alters a computed variable within pcgen
  * Examples include stats, saves, and base attack bonuses.
  * @author Scott Ellsworth
- * @version $Revision: 1.15 $
+ * @version $Revision$
  */
 public class Variable
 {

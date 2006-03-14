@@ -18,7 +18,7 @@
  *
  * Created on December 21, 2005
  *
- * $Id: KitLevelAbility.java,v 1.2 2006/01/27 10:52:44 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -38,7 +38,7 @@ import pcgen.core.levelability.LevelAbility;
  * <code>KitLevelAbility</code>.
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision: 1.2 $
+ * @version $Revision$
  */
 public final class KitLevelAbility extends BaseKit implements Serializable, Cloneable
 {

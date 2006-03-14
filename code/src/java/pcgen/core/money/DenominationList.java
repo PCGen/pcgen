@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * the same.
  *
  * @author   Brad Stiles (brasstilde@yahoo.com)
- * @version    $Revision: 1.7 $
+ * @version    $Revision$
  */
 public final class DenominationList extends ArrayList
 {

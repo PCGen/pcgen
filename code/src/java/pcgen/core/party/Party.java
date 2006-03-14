@@ -16,9 +16,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision: 1.27 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 18:33:22 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.core.party;
 
@@ -42,7 +42,7 @@ import java.util.*;
  * on the right track with the decoupling.
  *
  * @author jkwatson
- * @version $Revision: 1.27 $
+ * @version $Revision$
  *
  */
 public class Party

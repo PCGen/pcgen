@@ -25,7 +25,7 @@ package pcgen.core;
  * <code>PCAlignment</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 public final class PCAlignment extends PObject
 {

@@ -25,7 +25,7 @@ package pcgen.core;
  * <code>ArmorProf</code>.
  *
  * @author Thomas Clegg <arknight@swbell.net>
- * @version $Revision: 1.20 $
+ * @version $Revision$
  * DO NOT DELETE (waiting for use)
  */
 final class ArmorProf extends PObject implements Comparable

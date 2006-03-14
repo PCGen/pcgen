@@ -18,7 +18,7 @@
  *
  * Created on September 28, 2002, 11:50 PM
  *
- * $Id: KitProf.java,v 1.27 2006/02/07 15:40:53 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -42,7 +42,7 @@ import pcgen.core.utils.ListKey;
  * <code>KitFeat</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.27 $
+ * @version $Revision$
  */
 public final class KitProf extends BaseKit implements Serializable, Cloneable
 {

@@ -18,7 +18,7 @@
  *
  * Created on September 23, 2002, 10:28 PM
  *
- * $Id: KitSkill.java,v 1.28 2006/02/16 13:54:41 karianna Exp $
+ * $Id$
  */
 package pcgen.core.kit;
 
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
  * <code>KitSkill</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.28 $
+ * @version $Revision$
  */
 public final class KitSkill extends BaseKit implements Serializable, Cloneable
 {

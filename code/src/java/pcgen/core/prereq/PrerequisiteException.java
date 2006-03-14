@@ -19,11 +19,11 @@
  *
  * Created on 19-Dec-2003
  *
- * Current Ver: $Revision: 1.2 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: binkley $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2004/12/04 14:14:24 $
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.prereq;

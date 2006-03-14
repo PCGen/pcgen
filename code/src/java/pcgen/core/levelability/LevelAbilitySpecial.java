@@ -33,7 +33,7 @@ import java.util.List;
  * (an ADD:SPECIAL entry in the LST file).
  *
  * @author Dmitry Jemerov <yole@spb.cityline.ru>
- * @version $Revision: 1.13 $
+ * @version $Revision$
  */
 final class LevelAbilitySpecial extends LevelAbility
 {

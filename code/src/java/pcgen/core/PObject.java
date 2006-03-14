@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.770 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/02/19 15:24:20 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -50,7 +50,7 @@ import java.util.*;
  * This is the base class for several objects in the PCGen database.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.770 $
+ * @version $Revision$
  */
 public class PObject implements Cloneable, Serializable, Comparable,
 	SourcedObject, KeyedListContainer

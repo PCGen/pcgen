@@ -18,9 +18,9 @@
  *
  * Created on July 24, 2001, 10:11 PM
  *
- * Current Ver: $Revision: 1.12 $
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2005/10/27 00:41:05 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.levelability;
@@ -42,7 +42,7 @@ import java.util.List;
  * (an ADD:EQUIP entry in the LST file).
  *
  * @author Felipe Diniz <fdiniz@imagelink.com.br>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 final class LevelAbilityEquipment extends LevelAbility
 {

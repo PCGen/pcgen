@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.1584 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:38:58 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -54,7 +54,7 @@ import java.util.logging.Logger;
  * <code>PlayerCharacter</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.1584 $
+ * @version $Revision$
  */
 public final class PlayerCharacter extends Observable implements Cloneable
 {
