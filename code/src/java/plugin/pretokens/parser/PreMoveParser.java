@@ -16,11 +16,11 @@
  * 
  * Created on 18-Dec-2003
  * 
- * Current Ver: $Revision: 1.12 $
+ * Current Ver: $Revision$
  * 
- * Last Editor: $Author: karianna $
+ * Last Editor: $Author$
  * 
- * Last Edited: $Date: 2005/10/11 10:39:55 $
+ * Last Edited: $Date$
  *  
  */
 package plugin.pretokens.parser;

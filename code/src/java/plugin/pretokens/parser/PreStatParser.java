@@ -19,9 +19,9 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision: 1.12 $
- * Last Editor: $Author: byngl $
- * Last Edited: $Date: 2005/11/15 14:20:14 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;

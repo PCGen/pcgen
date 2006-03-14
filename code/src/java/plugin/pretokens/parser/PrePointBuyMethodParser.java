@@ -18,7 +18,7 @@
  *
  * Created on September 16, 2005
  *
- * $Id: PrePointBuyMethodParser.java,v 1.1 2005/09/19 18:09:53 byngl Exp $
+ * $Id$
  */
 package plugin.pretokens.parser;
 
@@ -30,7 +30,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * <code>PrePointBuyMethodParser</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.1 $
+ * @version $Revision$
  */
 public class PrePointBuyMethodParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {

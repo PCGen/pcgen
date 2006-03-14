@@ -19,9 +19,9 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision: 1.9 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 03:57:14 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;
@@ -36,11 +36,11 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * <code>PreFeatParser</code> parses PREFEAT prerequisite tokens.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 03:57:14 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 public class PreFeatParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
