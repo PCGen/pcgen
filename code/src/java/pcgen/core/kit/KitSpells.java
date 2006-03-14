@@ -311,7 +311,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		for (Iterator i = theSpells.iterator(); i.hasNext(); )
 		{
 			KitSpellBookEntry sbe = (KitSpellBookEntry)i.next();
-			updatePCSpells(aPC, sbe, sbe.getPCClass());
+			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass().getKeyName()));
 		}
 	}
 
@@ -345,7 +345,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	 *
 	 * @param  pc       The PC to add the spells to
 	 * @param  aSpell   A Spell to add to the PC
-	 * @param  pcClass  PCClass
+	 * @param  pcClass  The class instance the spells are to be added to.
 	 */
 	private void updatePCSpells(
 		final PlayerCharacter pc,
@@ -391,8 +391,6 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		}
 
 
-//		List cSpells = pcClass.getSpellSupport().getCharacterSpell(spell,"",-1);
-//		CharacterSpell cs = (CharacterSpell)((List)(cSpells)).get(0);
 		final CharacterSpell cs = new CharacterSpell(owner, spell);
 		final List modifierList = aSpell.getModifiers();
 		int adjustedLevel = spLevel;
@@ -412,8 +410,6 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			metamagicFeatList = null;
 		}
 		pc.addSpellBook(aSpell.getBookName());
-//		cs.addInfo(spLevel, aSpell.getCopies(), aSpell.getBookName(), metamagicFeatList);
-//		pcClass.getSpellSupport().addCharacterSpell(cs);
 
 		for (int numTimes = 0; numTimes < aSpell.getCopies(); numTimes++)
 		{
@@ -422,6 +418,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 											   spLevel);
 			if (aString.length() != 0)
 			{
+				Logging.errorPrint("Add spell failed:" + aString);
 				return;
 			}
 		}

@@ -192,6 +192,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 
 		pc.getSpellList();
+		updateBookList();
 
 		updateAvailableModel();
 		updateSelectedModel();

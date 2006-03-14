@@ -562,13 +562,15 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		theRoot = new PObjectNode();
 		setRoot(theRoot);
 
-		if (pc == null) {
+		if (pc == null) 
+		{
 		    return;
 		}
 		
 		boolean knownSpellsOnly = spellListType == GuiConstants.INFOSPELLS_AVAIL_KNOWN;
 
-		if (knownSpellsOnly) {
+		if (knownSpellsOnly) 
+		{
 			bookNodes = new PObjectNode [bookList.size()];
 			int ix = 0;
 			for (Iterator iBook = bookList.iterator(); iBook.hasNext();)
@@ -702,15 +704,18 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							{
 								if (aClass instanceof Race)
 								{
-									primaryMatch = (cs.getOwner() == aClass);
+									primaryMatch = (cs.getOwner().getName()
+										.equals(aClass.getName()));
 								}
 								else if (cs.getOwner() instanceof Domain)
 								{
-									primaryMatch = aClass.getSpellSupport().containsCharacterSpell(cs);
+									primaryMatch = aClass.getSpellSupport()
+										.containsCharacterSpell(cs);
 								}
 								else
 								{
-									primaryMatch = (aClass == cs.getOwner());
+									primaryMatch = (cs.getOwner().getName()
+										.equals(aClass.getName()));
 								}
 							}
 						break;
@@ -968,15 +973,15 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 					Collection spells = aClass.getSpellSupport().getCharacterSpellList();
 					for (Iterator iter = spells.iterator(); iter.hasNext();)
 					{
-						Object foo = iter.next();
+						Object tempSpell = iter.next();
 						Spell spell;
-						if (foo instanceof CharacterSpell)
+						if (tempSpell instanceof CharacterSpell)
 						{
-							spell = ((CharacterSpell)foo).getSpell();
+							spell = ((CharacterSpell)tempSpell).getSpell();
 						}
 						else
 						{
-							spell = (Spell) foo;
+							spell = (Spell) tempSpell;
 						}						
 						if (spellTab.shouldDisplayThis(spell))
 						{

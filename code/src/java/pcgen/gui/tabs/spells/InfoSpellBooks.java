@@ -179,6 +179,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		}
 
 		pc.getSpellList();
+		updateBookList();
 
 		updateAvailableModel();
 		updateSelectedModel();
@@ -723,8 +724,6 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	 */
 	protected void createSelectedModel()
 	{
-		updateBookList();
-		
 		if (selectedModel == null)
 		{
 			selectedModel = new SpellModel(primaryViewSelectMode,

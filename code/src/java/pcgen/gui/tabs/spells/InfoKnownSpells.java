@@ -212,6 +212,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		pc.getSpellList();
 		shouldAutoSpells.setSelected(pc.getAutoSpells());
+		updateBookList();
 
 		updateAvailableModel();
 		updateSelectedModel();
