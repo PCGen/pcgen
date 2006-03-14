@@ -38,7 +38,7 @@ import java.util.*;
  * PObjectFilter instances
  *
  * @author Thomas Behr
- * @version $Revision: 1.113 $
+ * @version $Revision$
  */
 public final class FilterFactory implements FilterConstants
 {

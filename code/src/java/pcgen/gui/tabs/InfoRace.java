@@ -20,9 +20,9 @@
  * Created on May 1, 2001, 5:57 PM
  * ReCreated on Feb 22, 2002 7:45 AM
  *
- * Current Ver: $Revision: 1.64 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/10 12:05:25 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -119,7 +119,7 @@ import pcgen.util.PropertyFactory;
  *  with all the race and template information on it
  *
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
- * @version $Revision: 1.64 $
+ * @version $Revision$
  **/
 public class InfoRace extends FilterAdapterPanel implements CharacterInfoTab
 {

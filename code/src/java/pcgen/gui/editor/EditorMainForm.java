@@ -18,7 +18,7 @@
  *
  * Created on November 6, 2002, 9:24 AM
  *
- * @(#) $Id: EditorMainForm.java,v 1.142 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -47,7 +47,7 @@ import java.util.List;
  * <code>EditorMainForm</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.142 $
+ * @version $Revision$
  */
 public final class EditorMainForm extends JDialog
 {

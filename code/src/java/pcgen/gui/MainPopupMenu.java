@@ -17,9 +17,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * Current Ver: $Revision: 1.15 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/13 16:39:09 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  **/
 package pcgen.gui;
@@ -34,7 +34,7 @@ import java.awt.Component;
 
 /**
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.15 $
+ * @version $Revision$
  */
 final class MainPopupMenu extends JPopupMenu
 {

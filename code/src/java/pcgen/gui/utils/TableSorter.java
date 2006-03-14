@@ -47,7 +47,7 @@ import java.util.Date;
  * function returns 0 to denote that they are equivalent.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.17 $
+ * @version $Revision$
  */
 public final class TableSorter extends TableMap
 {

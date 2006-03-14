@@ -25,7 +25,7 @@ package pcgen.gui.filter;
  * <code>FilterParserException</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 final class FilterParseException extends Exception
 {

@@ -18,9 +18,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.180 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/25 02:24:53 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -50,7 +50,7 @@ import java.util.*;
  * <code>CharacterInfo</code> creates a new tabbed panel.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.180 $
+ * @version $Revision$
  */
 public final class CharacterInfo extends JPanel {
 	private List tempTabList;

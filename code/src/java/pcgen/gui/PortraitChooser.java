@@ -41,7 +41,7 @@ import java.io.File;
  * <code>PortraitChooser</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.42 $
+ * @version $Revision$
  */
 public final class PortraitChooser extends JPanel
 {

@@ -53,7 +53,7 @@ import java.io.*;
  * Company:
  *
  * @author Thomas Behr
- * @version $Revision: 1.96 $
+ * @version $Revision$
  */
 final class MainPrint extends JPanel
 {

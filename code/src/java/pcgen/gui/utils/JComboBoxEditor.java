@@ -32,7 +32,7 @@ import java.util.List;
  * Handles editing of a jcombobox in a table.
  *
  * @author  Jonas Karlsson
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 {

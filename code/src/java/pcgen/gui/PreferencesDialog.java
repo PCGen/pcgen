@@ -19,9 +19,9 @@
  *
  * Created on July 8th, 2002.
  *
- * Current Ver: $Revision: 1.161 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/02/23 12:33:06 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 /*
@@ -45,9 +45,9 @@
  *
  * Created on July 8th, 2002.
  *
- * Current Ver: $Revision: 1.161 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/02/23 12:33:06 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -84,7 +84,7 @@ import java.util.List;
  *  PCGen preferences dialog
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.161 $
+ * @version $Revision$
  */
 final class PreferencesDialog extends JDialog
 {

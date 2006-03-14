@@ -26,7 +26,7 @@ import java.util.List;
  * <code>Filterable</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.18 $
+ * @version $Revision$
  */
 public interface Filterable
 {

@@ -18,7 +18,7 @@
  *
  * Created on October 8, 2002, 5:01 PM
  *
- * @(#) $Id: JListModel.java,v 1.26 2006/02/08 12:19:13 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -31,7 +31,7 @@ import java.util.List;
  * <code>JListModel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.26 $
+ * @version $Revision$
  */
 final class JListModel extends AbstractListModel
 {

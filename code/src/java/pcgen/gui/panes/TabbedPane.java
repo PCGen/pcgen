@@ -43,7 +43,7 @@ import java.util.Set;
  * <code>TabbedPane</code> used by SpinningTabbedPane.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.35 $
+ * @version $Revision$
  * @see JTabbedPane
  */
 public class TabbedPane extends JTabbedPane

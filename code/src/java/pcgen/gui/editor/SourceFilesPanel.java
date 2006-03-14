@@ -18,7 +18,7 @@
  *
  * Created on March 14, 2003, 2:57:20 PM
  *
- * @(#) $Id: SourceFilesPanel.java,v 1.22 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -45,7 +45,7 @@ import java.util.List;
  * <code>SourceFilesPanel</code>
  *
  * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.22 $
+ * @version $Revision$
  */
 final class SourceFilesPanel extends JPanel
 {

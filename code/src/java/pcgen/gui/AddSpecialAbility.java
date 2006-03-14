@@ -18,9 +18,9 @@
  *
  * @author  Bryan McRoberts <merton.monk@codemonkeypublishing.com>
  *
- * Current Ver: $Revision: 1.14 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 18:33:23 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  **/
 package pcgen.gui;
@@ -52,7 +52,7 @@ import java.awt.event.MouseEvent;
  * Company:
  *
  * @author Bryan McRoberts <merton.monk@codemonkeypublishin.com>
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 public final class AddSpecialAbility extends JFrame
 {

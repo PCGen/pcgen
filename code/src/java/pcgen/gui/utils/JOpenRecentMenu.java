@@ -37,7 +37,7 @@ import java.util.List;
  *  for opening recent files
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.13 $
+ * @version $Revision$
  */
 public class JOpenRecentMenu extends JMenu
 {

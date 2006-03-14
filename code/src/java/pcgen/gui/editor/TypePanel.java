@@ -18,7 +18,7 @@
  *
  * Created on January 24, 2003, 11:41 PM
  *
- * @(#) $Id: TypePanel.java,v 1.12 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -39,7 +39,7 @@ import java.awt.event.ActionListener;
  * <code>TypePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 class TypePanel extends AvailableSelectedPanel
 {

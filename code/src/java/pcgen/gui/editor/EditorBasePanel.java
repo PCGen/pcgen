@@ -18,7 +18,7 @@
  *
  * Created on October 31, 2002, 4:36 PM
  *
- * @(#) $Id: EditorBasePanel.java,v 1.35 2005/11/16 16:26:18 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -32,7 +32,7 @@ import java.awt.*;
  * <code>EditorBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.35 $
+ * @version $Revision$
  */
 final class EditorBasePanel extends JPanel
 {

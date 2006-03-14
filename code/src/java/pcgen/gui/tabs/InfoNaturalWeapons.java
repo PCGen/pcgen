@@ -18,7 +18,7 @@
  *
  * Created on February 10, 2003, 11:45 PM
  *
- * @(#) $Id: InfoNaturalWeapons.java,v 1.23 2006/02/10 12:05:25 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.tabs;
 
@@ -41,7 +41,7 @@ import java.util.*;
 /**
  * ???
  * @author  Greg Bingleman (byngl@hotmail.com)
- * @version $Revision: 1.23 $
+ * @version $Revision$
  */
 public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterInfoTab
 {

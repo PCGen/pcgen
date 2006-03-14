@@ -18,7 +18,7 @@
  *
  * Created on January 8, 2003, 10:23 AM
  *
- * @(#) $Id: DomainBasePanel.java,v 1.11 2005/11/16 15:54:28 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -31,7 +31,7 @@ import java.awt.GridBagLayout;
  * <code>DomainBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.11 $
+ * @version $Revision$
  */
 public class DomainBasePanel extends BasePanel
 {

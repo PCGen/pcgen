@@ -26,7 +26,7 @@ import pcgen.gui.utils.PObjectNode;
 
 /**
  * @author  B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 public interface InfoSkillsSorter
 {

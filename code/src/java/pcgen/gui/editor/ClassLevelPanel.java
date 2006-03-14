@@ -18,7 +18,7 @@
  *
  * Created on January 8, 2003, 8:15 PM
  *
- * @(#) $Id: ClassLevelPanel.java,v 1.70 2006/02/11 10:58:30 jdempsey Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 

@@ -18,7 +18,7 @@ import java.util.EventObject;
  * <code>AbstractCellEditor</code>.
  *
  * @author ???
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public class AbstractCellEditor implements CellEditor
 {

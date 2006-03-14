@@ -18,7 +18,7 @@
  *
  * Created on January 23, 2003, 10:03 PM
  *
- * $Id: Hyperactive.java,v 1.5 2005/10/18 20:23:50 binkley Exp $
+ * $Id$
  */
 package pcgen.gui.utils;
 
@@ -34,7 +34,7 @@ import javax.swing.text.html.HTMLFrameHyperlinkEvent;
  * This makes URLs load in a browser when clicked.
  *
  * @author     Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision: 1.5 $
+ * @version    $Revision$
  */
 public final class Hyperactive implements HyperlinkListener
 {

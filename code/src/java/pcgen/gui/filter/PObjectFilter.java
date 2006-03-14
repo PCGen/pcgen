@@ -27,7 +27,7 @@ import pcgen.core.PlayerCharacter;
  * Base interface for all filters<br>
  *
  * @author Thomas Behr
- * @version $Revision: 1.16 $
+ * @version $Revision$
  */
 public interface PObjectFilter
 {

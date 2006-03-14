@@ -18,9 +18,9 @@
  *
  * Created on June 14, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.67 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006/02/14 02:46:17 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -55,7 +55,7 @@ import java.util.StringTokenizer;
  * default campaigns.
  *
  * @author     Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version    $Revision: 1.67 $
+ * @version    $Revision$
  */
 interface LstConverterConstants
 {

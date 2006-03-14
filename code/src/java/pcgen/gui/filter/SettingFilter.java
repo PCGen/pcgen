@@ -29,7 +29,7 @@ import pcgen.util.PropertyFactory;
  * <code>SettingFilter</code>
  *
  * @author Bryan McRoberts
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 final class SettingFilter extends AbstractPObjectFilter
 {

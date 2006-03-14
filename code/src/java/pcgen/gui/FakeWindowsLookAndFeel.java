@@ -34,7 +34,7 @@ import java.util.ResourceBundle;
  * ridiculously simple.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.16 $
+ * @version $Revision$
  */
 public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 {

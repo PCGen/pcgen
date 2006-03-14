@@ -18,7 +18,7 @@
  *
  * Created on Jan 4, 2006
  *
- * $Id:  $
+ * $Id$
  *
  */
 package pcgen.gui.tabs.spells;
@@ -81,11 +81,11 @@ import pcgen.util.PropertyFactory;
  * a character's spell books and the provision of an interface to let the 
  * user create and update spell books for their character.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 
 public class InfoSpellBooks extends InfoSpellsSubTab
@@ -911,7 +911,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		pc.setDirty(true);
 		updateSelectedModel();
 	}
-	
+
 	/**
 	 * Process a change in the available spells 'select from' mode. This 
 	 * determines the source of the spells in the available list. 

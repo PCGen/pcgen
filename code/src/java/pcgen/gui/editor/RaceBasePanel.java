@@ -18,7 +18,7 @@
  *
  * Created on January 8, 2003, 8:15 PM
  *
- * @(#) $Id: RaceBasePanel.java,v 1.22 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 

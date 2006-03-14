@@ -18,9 +18,9 @@
  *
  * FormattedCellEditor.java
  *
- * Current Ver: $Revision: 1.4 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/15 16:32:44 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.utils;

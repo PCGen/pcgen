@@ -34,7 +34,7 @@ import java.util.Map;
  *  <code>LabelTreeCellRenderer</code>
  *
  * @author     ???
- * @version    $Revision: 1.12 $
+ * @version    $Revision$
  */
 public final class LabelTreeCellRenderer extends JLabel implements TreeCellRenderer
 {

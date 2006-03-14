@@ -32,7 +32,7 @@ import java.util.Vector;
  * Sorted <code>JComboBox</code>.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.10 $
+ * @version $Revision$
  */
 public class JComboBoxEx extends JComboBox
 {

@@ -49,7 +49,7 @@ import java.util.List;
  * <code>InfoDescription</code> creates a new tabbed panel.
  *
  * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @version $Revision: 1.48 $
+ * @version $Revision$
  */
 public final class InfoDescription extends JPanel implements CharacterInfoTab
 {

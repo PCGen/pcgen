@@ -32,7 +32,7 @@ import javax.swing.UIManager;
  * <code>SkinManager</code> ???
  *
  * @author Jason Buchanan
- * @version $Revision: 1.4 $
+ * @version $Revision$
  */
 public final class SkinManager
 {

@@ -27,7 +27,7 @@ import java.awt.Component;
  * Handles rendering of a jcombobox in a table.
  *
  * @author  Jonas Karlsson
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public class JComboBoxRenderer extends JComboBoxEx implements TableCellRenderer
 {

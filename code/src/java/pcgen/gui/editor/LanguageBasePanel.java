@@ -18,7 +18,7 @@
  *
  * Created on November 22, 2002, 11:38 PM
  *
- * @(#) $Id: LanguageBasePanel.java,v 1.14 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -37,7 +37,7 @@ import java.util.List;
  * <code>LanguageBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 public class LanguageBasePanel extends BasePanel
 {

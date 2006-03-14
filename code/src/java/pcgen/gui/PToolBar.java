@@ -19,9 +19,9 @@
  * Created on April 21, 2001, 2:15 PM
  * Modified June 5, 2001 by Bryan McRoberts (merton_monk@yahoo.com)
  *
- * Current Ver: $Revision: 1.95 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -50,7 +50,7 @@ import java.net.URL;
 
 /**
  * @author  Mario Bonassin
- * @version $Revision: 1.95 $
+ * @version $Revision$
  */
 public class PToolBar extends JToolBar
 {

@@ -18,7 +18,7 @@
  *
  * Created on January 27, 2003, 3:19 AM
  *
- * @(#) $Id: EditUtil.java,v 1.13 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -34,7 +34,7 @@ import java.util.List;
  * <code>EditUtil</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.13 $
+ * @version $Revision$
  */
 final class EditUtil
 {

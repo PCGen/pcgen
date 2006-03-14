@@ -28,7 +28,7 @@ import pcgen.util.PropertyFactory;
  * <code>InverseFilter</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.17 $
+ * @version $Revision$
  */
 final class InverseFilter extends AbstractPObjectFilter implements CustomFilter
 {

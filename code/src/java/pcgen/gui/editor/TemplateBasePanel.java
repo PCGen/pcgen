@@ -18,7 +18,7 @@
  *
  * Created on December 13, 2002, 10:33 PM
  *
- * @(#) $Id: TemplateBasePanel.java,v 1.19 2006/02/14 12:02:55 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 

@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
  * <code>NamedFilter</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.21 $
+ * @version $Revision$
  */
 final class NamedFilter extends AbstractPObjectFilter implements CustomFilter
 {

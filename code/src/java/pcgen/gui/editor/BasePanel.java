@@ -18,7 +18,7 @@
  *
  * Created on November 5, 2002, 4:29 PM
  *
- * @(#) $Id: BasePanel.java,v 1.23 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -30,7 +30,7 @@ import javax.swing.JPanel;
  * <code>BasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.23 $
+ * @version $Revision$
  */
 abstract class BasePanel extends JPanel implements PObjectUpdater
 {

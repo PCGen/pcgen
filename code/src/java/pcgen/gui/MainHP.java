@@ -18,9 +18,9 @@
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  *
- * Current Ver: $Revision: 1.66 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/02 13:06:00 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  **/
 package pcgen.gui;
@@ -55,7 +55,7 @@ import pcgen.core.Globals;
  * Copyright:    Copyright (c) 2001
  * Company:
  * @author Greg Bingleman
- * @version $Revision: 1.66 $
+ * @version $Revision$
  */
 final class MainHP extends JPanel
 {

@@ -69,7 +69,7 @@ import java.awt.event.MouseEvent;
  * components.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.26 $
+ * @version $Revision$
  *
  * @see JSplitPane
  */

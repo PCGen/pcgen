@@ -18,7 +18,7 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * $Id: PObjectUpdater.java,v 1.9 2005/09/12 16:02:32 karianna Exp $
+ * $Id$
  */
 package pcgen.gui.editor;
 
@@ -28,7 +28,7 @@ import pcgen.core.PObject;
  * ???
  *
  * @author  ???
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 interface PObjectUpdater
 {

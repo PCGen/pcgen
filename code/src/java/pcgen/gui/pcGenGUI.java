@@ -56,7 +56,7 @@ import java.util.Observer;
  * the constructor code is run.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.187 $
+ * @version $Revision$
  */
 public class pcGenGUI
 {

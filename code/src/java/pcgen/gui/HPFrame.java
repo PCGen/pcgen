@@ -37,7 +37,7 @@ import java.awt.Toolkit;
  * Popup frame with export options
  *
  * @author  @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 final class HPFrame extends JFrame
 {

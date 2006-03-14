@@ -18,7 +18,7 @@
  *
  * Created on Jan 4, 2006
  *
- * $Id:  $
+ * $Id$
  *
  */
 package pcgen.gui.tabs.spells;
@@ -89,11 +89,11 @@ import pcgen.util.chooser.ChooserInterface;
  * list of a character's prepared spell lists and the provision of an 
  * interface to let the user create and update lists of prepared spells.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 
 public class InfoPreparedSpells extends InfoSpellsSubTab

@@ -18,7 +18,7 @@
  *
  * Created on February 8, 2003, 6:00 PM
  *
- * @(#) $Id: AgePanel.java,v 1.23 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -42,7 +42,7 @@ import java.util.*;
  * These are: HAIR, EYES and SKINTONE
  *
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.23 $
+ * @version $Revision$
  */
 final class AgePanel extends JPanel implements PObjectUpdater
 {

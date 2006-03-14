@@ -26,7 +26,7 @@ package pcgen.gui.filter;
  * Pure tag interface
  *
  * @author Thomas Behr
- * @version $Revision: 1.7 $
+ * @version $Revision$
  */
 interface CustomFilter
 {

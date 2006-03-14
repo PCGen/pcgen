@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
  * <code>FilterParser</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.37 $
+ * @version $Revision$
  */
 final class FilterParser
 {

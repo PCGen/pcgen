@@ -18,7 +18,7 @@
  *
  * Created on January 8, 2003, 8:15 PM
  *
- * @(#) $Id: SourceBasePanel.java,v 1.27 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 

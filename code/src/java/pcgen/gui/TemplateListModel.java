@@ -33,7 +33,7 @@ import java.util.List;
  * When first created, this class will cache the contents of the "Templates" directory.
  *
  * @author Jonas Karlsson
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 class TemplateListModel extends AbstractListModel
 {

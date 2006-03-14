@@ -66,7 +66,7 @@ import pcgen.util.PropertyFactory;
  * Convenience methods from various sources.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.38 $
+ * @version $Revision$
  */
 public final class Utility
 {

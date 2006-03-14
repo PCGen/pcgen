@@ -50,7 +50,7 @@ import java.util.Map;
  * </ul>
  * </p>
  *
- * @version $Revision: 1.39 $
+ * @version $Revision$
  * @author    Ryan Koppenhaver <rlkoppenhaver@yahoo.com>
  * @see       <a href="http://pcgen.sourceforge.net">PCGen</a>
  */

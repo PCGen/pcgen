@@ -19,9 +19,9 @@
  *
  * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision: 1.495 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/02/23 12:33:06 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -74,7 +74,7 @@ import java.util.List;
  * default campaigns.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.495 $
+ * @version $Revision$
  */
 public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLoader
 {

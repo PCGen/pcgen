@@ -18,7 +18,7 @@
  *
  * Created on January 20, 2003, 3:36 PM
  *
- * @(#) $Id: SpellBasePanel.java,v 1.24 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -46,7 +46,7 @@ import java.util.StringTokenizer;
  * <code>SpellBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.24 $
+ * @version $Revision$
  */
 public class SpellBasePanel extends BasePanel
 {

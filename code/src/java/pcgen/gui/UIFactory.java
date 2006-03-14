@@ -40,7 +40,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
  * <code>UIFactory</code>.
  *
  * @author Thomas Behr
- * @version $Revision: 1.66 $
+ * @version $Revision$
  */
 public final class UIFactory
 {

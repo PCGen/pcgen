@@ -19,9 +19,9 @@
  *
  * Created on December 29, 2001, 6:57 PM
  *
- * Current Ver: $Revision: 1.97 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/16 13:54:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -123,7 +123,7 @@ import pcgen.util.PropertyFactory;
  * the selection/de-selection of feats
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.97 $
+ * @version $Revision$
  * TODO I18N
  */
 public final class InfoFeats extends FilterAdapterPanel implements CharacterInfoTab

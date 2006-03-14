@@ -28,7 +28,7 @@ import pcgen.util.PropertyFactory;
  * <code>QualifyFilter</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.26 $
+ * @version $Revision$
  */
 final class QualifyFilter extends AbstractPObjectFilter
 {

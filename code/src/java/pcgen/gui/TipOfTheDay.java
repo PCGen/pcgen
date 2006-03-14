@@ -18,7 +18,7 @@
  *
  * Created on December 17, 2001, 12:43 PM
  *
- * $Id: TipOfTheDay.java,v 1.22 2005/10/18 20:23:42 binkley Exp $
+ * $Id$
  */
 package pcgen.gui;
 
@@ -42,7 +42,7 @@ import java.util.StringTokenizer;
  *
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.22 $
+ * @version $Revision$
  */
 final class TipOfTheDay extends JFrame implements ActionListener
 {

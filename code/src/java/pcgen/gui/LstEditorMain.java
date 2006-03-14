@@ -18,7 +18,7 @@
  *
  * Created on November 4, 2002, 9:19 AM
  *
- * @(#) $Id: LstEditorMain.java,v 1.57 2006/02/13 16:39:09 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui;
 
@@ -46,7 +46,7 @@ import java.util.List;
  * <code>LstEditorMain</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.57 $
+ * @version $Revision$
  */
 public final class LstEditorMain extends JFrame
 {

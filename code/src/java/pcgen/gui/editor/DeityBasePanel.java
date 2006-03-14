@@ -18,7 +18,7 @@
  *
  * Created on November 1, 2002, 9:27 AM
  *
- * @(#) $Id: DeityBasePanel.java,v 1.25 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -43,7 +43,7 @@ import java.util.StringTokenizer;
  * <code>DeityBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 final class DeityBasePanel extends BasePanel
 {

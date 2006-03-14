@@ -32,7 +32,7 @@ import java.awt.event.*;
 
 /**
  * @author Chris Ryan
- * @version    $Revision: 1.45 $
+ * @version    $Revision$
  */
 final class PurchaseModeFrame extends JDialog
 {

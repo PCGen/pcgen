@@ -34,7 +34,7 @@ import java.util.List;
  *  This class filters out non-csheet files.
  *
  * @author     Jonas Karlsson <jujutsunerd@users.sourceforge.net>
- * @version $Revision: 1.36 $
+ * @version $Revision$
  */
 public final class CsheetFilter extends FileFilter implements FilenameFilter
 {

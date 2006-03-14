@@ -29,7 +29,7 @@ import javax.swing.JTabbedPane;
  * Export PDF popup dialog.  The real work goes on in the panel.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.18 $
+ * @version $Revision$
  */
 final class ExportPDFPopup extends PCGenPopup
 {

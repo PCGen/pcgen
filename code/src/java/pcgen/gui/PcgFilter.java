@@ -27,7 +27,7 @@ import java.io.File;
  *  This class filters out non-pcg files.
  *
  * @author     Jonas Karlsson <jujutsunerd@users.sourceforge.net>
- * @version    $Revision: 1.15 $
+ * @version    $Revision$
  */
 final class PcgFilter extends FileFilter
 {

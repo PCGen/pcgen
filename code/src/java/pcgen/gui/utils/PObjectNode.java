@@ -55,7 +55,7 @@ import java.util.ListIterator;
  * elements to return.
  *
  * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision: 1.48 $
+ * @version $Revision$
  */
 
 // Consider replacing ResetableListIterator with ResetableListIterator, if any

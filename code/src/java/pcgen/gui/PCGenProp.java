@@ -29,9 +29,9 @@ import java.util.ResourceBundle;
  * for RFE #782127.
  *
  * <p>
- * Current Ver: $Revision: 1.2 $ <br>
- * Last Editor: $Author: jujutsunerd $ <br>
- * Last Edited: $Date: 2003/12/29 01:39:25 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  *
  * @author sage_sam
  */

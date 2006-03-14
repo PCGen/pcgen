@@ -35,7 +35,7 @@ import java.util.List;
 
 /**
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 public final class JTreeTableSorter
 {

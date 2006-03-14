@@ -27,7 +27,7 @@ import java.awt.event.ActionListener;
 /**
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 final class FrameActionListener
 {

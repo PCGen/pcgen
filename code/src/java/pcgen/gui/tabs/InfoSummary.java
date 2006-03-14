@@ -18,7 +18,7 @@
  *
  * Created on June 22, 2002, 4:00 PM
  *
- * $Id: InfoSummary.java,v 1.116 2006/02/10 12:05:25 karianna Exp $
+ * $Id$
  */
 package pcgen.gui.tabs;
 
@@ -54,7 +54,7 @@ import java.util.List;
  * basic data about a character.
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.116 $
+ * @version $Revision$
  */
 public final class InfoSummary extends FilterAdapterPanel implements CharacterInfoTab
 {

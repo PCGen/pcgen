@@ -27,7 +27,7 @@ import com.apple.eawt.*;
  * <code>MacGUI</code> initializes Mac-specific GUI elements.
  *
  * @author Tod Milam <twmilam@yahoo.com>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 public class MacGUI extends ApplicationAdapter
 {

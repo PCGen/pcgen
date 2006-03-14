@@ -19,9 +19,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *************************************************************************
  *
- * Current Ver: $Revision: 1.67 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/10 12:05:26 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  *************************************************************************/
 package pcgen.gui.tabs;
@@ -66,7 +66,7 @@ import pcgen.util.PropertyFactory;
  *  vehicles and buildings
  *
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version  $Revision: 1.67 $
+ * @version  $Revision$
  *
  **/
 public class InfoResources extends FilterAdapterPanel implements CharacterInfoTab

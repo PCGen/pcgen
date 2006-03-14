@@ -18,7 +18,7 @@
  *
  * Created on October 8, 2002, 4:15 PM
  *
- * @(#) $Id: AvailableSelectedPanel.java,v 1.28 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -40,7 +40,7 @@ import java.util.List;
  * <code>AvailableSelectedPanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.28 $
+ * @version $Revision$
  */
 class AvailableSelectedPanel extends JPanel
 {

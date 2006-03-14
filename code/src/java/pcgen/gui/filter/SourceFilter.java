@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
  * <code>SourceFilter</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.31 $
+ * @version $Revision$
  */
 final class SourceFilter extends AbstractPObjectFilter
 {

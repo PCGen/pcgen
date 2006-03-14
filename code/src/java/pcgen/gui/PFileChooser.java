@@ -18,7 +18,7 @@
  *
  * Created on February 8, 2003, 1:39 PM
  *
- * @(#) $Id: PFileChooser.java,v 1.8 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui;
 
@@ -34,7 +34,7 @@ import java.io.File;
  * for the file name in the new directory.
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 final class PFileChooser extends JFileChooser
 {

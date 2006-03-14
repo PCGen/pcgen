@@ -20,9 +20,9 @@
  * Modified June 5, 2001 by Bryan McRoberts (merton_monk@yahoo.com)
  * Modified Nov 14, 2002 by David Hibbs
  *
- * Current Ver: $Revision: 1.52 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/10 12:05:25 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -121,7 +121,7 @@ import pcgen.util.PropertyFactory;
  * and handling the selection/de-selection of both.
  *
  * @author Mario Bonassin
- * @version $Revision: 1.52 $
+ * @version $Revision$
  *          modified by Bryan McRoberts (merton_monk@yahoo.com) to connect to
  *          pcgen.core package
  *          modified by David Hibbs to use Deity and Domain objects instead of Strings

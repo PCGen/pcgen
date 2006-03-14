@@ -45,7 +45,7 @@ import java.util.ResourceBundle;
  * This lots of unrelated entries.
  *
  * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision: 1.53 $
+ * @version $Revision$
  */
 final class MainDebug extends JPanel
 {

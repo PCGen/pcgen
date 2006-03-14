@@ -20,9 +20,9 @@
  * Created on April 21, 2001, 2:15 PM
  * Modified June 5, 2001 by Bryan McRoberts (merton_monk@yahoo.com)
  *
- * Current Ver: $Revision: 1.99 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/15 16:32:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -135,7 +135,7 @@ import pcgen.util.PropertyFactory;
  * and handling the selection/de-selection of both.
  *
  * @author  Mario Bonassin
- * @version $Revision: 1.99 $
+ * @version $Revision$
  **/
 public final class InfoGear extends FilterAdapterPanel implements CharacterInfoTab
 {

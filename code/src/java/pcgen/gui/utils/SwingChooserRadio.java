@@ -19,9 +19,9 @@
  * Created on Jan 21st, 2003, 11:15 PM
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  *
- * Current Ver: $Revision: 1.28 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 18:33:24 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  */
 package pcgen.gui.utils;
 

@@ -18,7 +18,7 @@
  *
  * Created on January 2, 2003, 12:00 PM
  *
- * @(#) $Id: MovementPanel.java,v 1.32 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -49,7 +49,7 @@ import java.util.List;
  * <code>MovementPanel</code>
  *
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.32 $
+ * @version $Revision$
  */
 final class MovementPanel extends JPanel
 {

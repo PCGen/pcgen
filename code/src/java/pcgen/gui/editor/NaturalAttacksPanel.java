@@ -18,7 +18,7 @@
  *
  * Created on January 27, 2003, 09:14 AM
  *
- * @(#) $Id: NaturalAttacksPanel.java,v 1.36 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -52,7 +52,7 @@ import java.util.StringTokenizer;
  * select and configure the various natural weapons available for a race.
  *
  * @author  Richard Askham <raskham@users.sourceforge.net>
- * @version $Revision: 1.36 $
+ * @version $Revision$
  */
 final class NaturalAttacksPanel extends JPanel
 {

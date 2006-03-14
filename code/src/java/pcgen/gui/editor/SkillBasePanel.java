@@ -18,7 +18,7 @@
  *
  * Created on November 5, 2002, 2:03 PM
  *
- * @(#) $Id: SkillBasePanel.java,v 1.17 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -41,7 +41,7 @@ import java.util.List;
  * <code>SkillBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.17 $
+ * @version $Revision$
  */
 final class SkillBasePanel extends BasePanel
 {

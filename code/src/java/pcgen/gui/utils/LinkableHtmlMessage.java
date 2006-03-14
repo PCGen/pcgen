@@ -18,7 +18,7 @@
  *
  * Created on January 30, 2003, 5:09 PM
  *
- * $Id: LinkableHtmlMessage.java,v 1.12 2006/02/13 16:39:09 karianna Exp $
+ * $Id$
  */
 package pcgen.gui.utils;
 
@@ -32,7 +32,7 @@ import java.awt.event.*;
  *
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.12 $
+ * @version $Revision$
  */
 public final class LinkableHtmlMessage extends JDialog implements ActionListener
 {

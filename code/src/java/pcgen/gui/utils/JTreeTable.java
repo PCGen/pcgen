@@ -11,9 +11,9 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Sun.
  *
- * Current Ver: $Revision: 1.22 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/08 12:19:12 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  **/
 package pcgen.gui.utils;

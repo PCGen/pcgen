@@ -18,7 +18,7 @@
  *
  * Created on January 12, 2003, 11:20 PM
  *
- * @(#) $Id: FeatBasePanel.java,v 1.25 2005/12/01 16:11:20 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -46,7 +46,7 @@ import java.util.List;
  * <code>FeatBasePanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 public class FeatBasePanel extends BasePanel
 {

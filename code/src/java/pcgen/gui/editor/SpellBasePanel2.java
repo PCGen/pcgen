@@ -18,7 +18,7 @@
  *
  * Created on January 21, 2003, 2:49 PM
  *
- * @(#) $Id: SpellBasePanel2.java,v 1.16 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -45,7 +45,7 @@ import java.util.List;
  * <code>SpellBasePanel2</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.16 $
+ * @version $Revision$
  */
 public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 {

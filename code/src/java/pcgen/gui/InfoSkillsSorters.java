@@ -31,7 +31,7 @@ import java.util.ListIterator;
 
 /**
  * @author  B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision: 1.24 $
+ * @version $Revision$
  */
 public final class InfoSkillsSorters
 {

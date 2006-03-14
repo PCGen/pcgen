@@ -18,9 +18,9 @@
  *
  * Created on Feb 16, 2002 11:15 AM
  *
- * Current Ver: $Revision: 1.85 $
- * Last Editor: $Author: zaister $
- * Last Edited: $Date: 2006/02/21 13:17:38 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -58,7 +58,7 @@ import java.util.List;
 /**
  * ???
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
- * @version $Revision: 1.85 $
+ * @version $Revision$
  */
 public final class InfoClasses extends FilterAdapterPanel implements CharacterInfoTab
 {

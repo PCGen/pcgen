@@ -34,7 +34,7 @@ import java.awt.event.MouseEvent;
  * <code>Utilities</code>.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.17 $
+ * @version $Revision$
  *
  * @see SwingConstants
  */

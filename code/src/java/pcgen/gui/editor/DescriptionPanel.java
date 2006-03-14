@@ -18,7 +18,7 @@
  *
  * Created on January 20, 2003, 4:39 PM
  *
- * @(#) $Id: DescriptionPanel.java,v 1.8 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -34,7 +34,7 @@ import java.awt.Insets;
  * <code>DescriptionPanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.8 $
+ * @version $Revision$
  */
 final class DescriptionPanel extends JPanel
 {

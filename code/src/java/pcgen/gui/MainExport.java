@@ -50,7 +50,7 @@ import java.io.*;
  * Company:
  *
  * @author Jason Buchanan
- * @version $Revision: 1.85 $
+ * @version $Revision$
  */
 final class MainExport extends JPanel
 {

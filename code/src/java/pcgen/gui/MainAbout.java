@@ -18,9 +18,9 @@
  *
  * Created on April 26, 2001, 10:47 PM
  *
- * Current Ver: $Revision: 1.45 $ <br>
- * Last Editor: $Author: soulcatcher $ <br>
- * Last Edited: $Date: 2005/12/14 01:41:54 $
+ * Current Ver: $Revision$ <br>
+ * Last Editor: $Author$ <br>
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -48,7 +48,7 @@ import java.net.URL;
  * to it.
  *
  * @author  Tom Epperly <tomepperly@home.com>
- * @version $Revision: 1.45 $
+ * @version $Revision$
  * Modified 4/8/02 by W Robert Reed III (Mynex)
  * Adds List Monkeys Display area
  * Cleaned up naming schema

@@ -1,6 +1,6 @@
 /*
  * EqBuilder.java
- * @(#) $Id: EqBuilder.java,v 1.164 2006/01/29 00:08:08 jdempsey Exp $
+ * @(#) $Id$
  *
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -20,9 +20,9 @@
  *
  * Created on November 23, 2001, 7:04 PM
  *
- * Current Ver: $Revision: 1.164 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006/01/29 00:08:08 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -56,7 +56,7 @@ import java.util.StringTokenizer;
  * then either save or purchase the item.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.164 $
+ * @version $Revision$
  */
 final class EqBuilder extends JPanel
 {

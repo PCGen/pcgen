@@ -65,7 +65,7 @@ import java.awt.event.MouseEvent;
  * Locking is also recursive for <code>FlippingSplitPane</code> components.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.35 $
+ * @version $Revision$
  */
 public class FlippingSplitPane extends JSplitPane
 {

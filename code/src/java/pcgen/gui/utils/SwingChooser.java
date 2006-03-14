@@ -47,7 +47,7 @@ import java.util.List;
  * call to show() will block program execution.
  *
  * @author    Matt Woodard
- * @version $Revision: 1.34 $
+ * @version $Revision$
  */
 public final class SwingChooser extends JDialog implements ChooserInterface
 {

@@ -30,7 +30,7 @@ import java.beans.PropertyChangeListener;
 
 /**
  * @author  jaymecox@netscape.net
- * @version    $Revision: 1.3 $
+ * @version    $Revision$
  */
 public final class ResizeColumnListener implements PropertyChangeListener
 {

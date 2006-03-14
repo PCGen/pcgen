@@ -45,7 +45,7 @@ import java.util.List;
  * <code>FilterDialogFactory</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.76 $
+ * @version $Revision$
  */
 public final class FilterDialogFactory
 {

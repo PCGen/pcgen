@@ -37,7 +37,7 @@ import java.math.BigDecimal;
  *  <code>JTableEx</code> extends JTable to provide auto-tooltips.
  *
  * @author     Jonas Karlsson <jujutsunerd@users.sourceforge.net>
- * @version    $Revision: 1.16 $
+ * @version    $Revision$
  */
 public class JTableEx extends JTable
 {

@@ -35,7 +35,7 @@ import java.awt.event.ActionListener;
  * This lots of unrelated entries.
  *
  * @author  Mario Bonassin
- * @version $Revision: 1.132 $
+ * @version $Revision$
  */
 final class Options extends JMenu // extends Preferences
 {

@@ -18,7 +18,7 @@
  *
  * Created on November 6, 2002, 2:03 AM
  *
- * @(#) $Id: EditorAddFilter.java,v 1.6 2005/11/16 16:26:18 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -27,7 +27,7 @@ package pcgen.gui.editor;
  * <code>EditorAddFilter</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 interface EditorAddFilter
 {

@@ -18,7 +18,7 @@
  *
  * Created on November 5, 2002, 12:35 PM
  *
- * @(#) $Id: EditorConstants.java,v 1.9 2005/11/16 16:26:18 karianna Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -27,7 +27,7 @@ package pcgen.gui.editor;
  * <code>EditorConstants</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.9 $
+ * @version $Revision$
  */
 public interface EditorConstants
 {

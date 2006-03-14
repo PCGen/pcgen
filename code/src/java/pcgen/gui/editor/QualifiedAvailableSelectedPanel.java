@@ -18,7 +18,7 @@
  *
  * Created on January 19, 2003, 10:46 PM
  *
- * @(#) $Id: QualifiedAvailableSelectedPanel.java,v 1.10 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -36,7 +36,7 @@ import java.awt.event.ItemListener;
  * <code>AvailableSelectedPanel</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.10 $
+ * @version $Revision$
  */
 final class QualifiedAvailableSelectedPanel extends AvailableSelectedPanel
 {

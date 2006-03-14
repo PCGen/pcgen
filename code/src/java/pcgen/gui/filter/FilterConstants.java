@@ -25,7 +25,7 @@ package pcgen.gui.filter;
  * <code>FilterConstants</code>
  *
  * @author Add author here
- * @version $Revision: 1.15 $
+ * @version $Revision$
  */
 public interface FilterConstants
 {

@@ -27,7 +27,7 @@ import java.io.File;
  *  This class filters out non-pcp files.
  *
  * @author     Jason Buchanan <lonejedi@users.sourceforge.net>
- * @version $Revision: 1.11 $
+ * @version $Revision$
  */
 final class PcpFilter extends FileFilter
 {

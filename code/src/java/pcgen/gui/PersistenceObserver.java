@@ -19,9 +19,9 @@
  *
  * Created on 18-Dec-2003
  *
- * Current Ver: $Revision: 1.5 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;

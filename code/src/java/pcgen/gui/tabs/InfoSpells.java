@@ -21,9 +21,9 @@
  * Created on April 21, 2001, 2:15 PM
  * Re-created on April 1st, 2002, 2:15 am
  *
- * Current Ver: $Revision: 1.99 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/07 15:40:51 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -53,7 +53,7 @@ import pcgen.util.PropertyFactory;
  *  <code>InfoSpells</code> creates a new tabbed panel.
  *
  * @author     Bryan McRoberts <merton_monk@users.sourceforge.net>, Jayme Cox <jaymecox@netscape.net>, James Dempsey <jdempsey@users.sourceforge.net>
- * @version    $Revision: 1.99 $
+ * @version    $Revision$
  */
 public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		Filterable

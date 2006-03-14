@@ -18,9 +18,9 @@
  *
  * Created on May 14, 2002, 9:34 PM
  *
- * Current Ver: $Revision: 1.70 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:42 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -51,7 +51,7 @@ import java.util.*;
  * Please complete
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.70 $
+ * @version $Revision$
  */
 final class ChooseSpellDialog extends JDialog
 {

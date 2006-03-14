@@ -18,7 +18,7 @@
  *
  * Created on January 22, 2003, 10:50 PM
  *
- * @(#) $Id: VisionPanel.java,v 1.34 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -51,7 +51,7 @@ import java.util.*;
  * the types of vision supported by a race.
  *
  * @author  Richard Askham <raskham@users.sourceforge.net>
- * @version $Revision: 1.34 $
+ * @version $Revision$
  */
 final class VisionPanel extends JPanel
 {

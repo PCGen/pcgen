@@ -19,9 +19,9 @@
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
  * Created on Feb 26, 2003, 2:15 PM
  *
- * Current Ver: $Revision: 1.97 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/01/27 10:52:41 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -63,7 +63,7 @@ import java.util.List;
  * allow application of temporary modifiers to PC's and Equipment
  *
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.97 $
+ * @version $Revision$
  **/
 public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 {

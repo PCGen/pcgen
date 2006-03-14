@@ -19,9 +19,9 @@
  * @author  Aaron Divinsky <boomer70@yahoo.com>
  * Created on Oct 11, 2005
  *
- * Current Ver: $Revision: 1.2 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2005/10/12 14:05:19 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.utils;

@@ -18,7 +18,7 @@
  *
  * Created on January 5, 2003, 10:00 AM
  *
- * @(#) $Id: LevelAbilitiesPanel.java,v 1.25 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -49,7 +49,7 @@ import java.util.List;
  * <code>LevelAbilitiesPanel</code>
  *
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 final class LevelAbilitiesPanel extends JPanel
 {

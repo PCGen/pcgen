@@ -18,7 +18,7 @@
  *
  * Created on Jan 4, 2006
  *
- * $Id:  $
+ * $Id$
  *
  */
 package pcgen.gui.tabs.spells;
@@ -88,11 +88,11 @@ import pcgen.util.PropertyFactory;
  * dealing with selection events, as well as the layout of the tab and the 
  * management of any extra fucntions. 
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 
 public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements

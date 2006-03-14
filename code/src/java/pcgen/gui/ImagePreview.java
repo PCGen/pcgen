@@ -23,7 +23,7 @@ import java.io.IOException;
  * a character portrait referenced in a PCG file.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Id: ImagePreview.java,v 1.12 2006/02/23 12:27:31 zaister Exp $
+ * @version $Id$
  * TODO Merge with {@link gmgen.gui.ImageFileChooserPreview}
  * TODO Support PCG portraits
  */

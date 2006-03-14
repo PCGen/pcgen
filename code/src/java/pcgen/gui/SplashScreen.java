@@ -40,7 +40,7 @@ import java.net.URL;
  * <code>SplashScreen</code> creates a splash screen
  *
  * @author zebuleon
- * @version $Revision: 1.24 $
+ * @version $Revision$
  */
 final class SplashScreen extends JWindow
 {

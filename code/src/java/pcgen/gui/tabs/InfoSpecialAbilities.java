@@ -19,9 +19,9 @@
  * Created on April 21, 2001, 2:15 PM
  * Modified June 5, 2001 by Bryan McRoberts (merton_monk@yahoo.com)
  *
- * Current Ver: $Revision: 1.10 $
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/22 22:03:56 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -57,7 +57,7 @@ import java.util.SortedSet;
  * This class is responsible for drawing Special Ability, Language and Weapon Prefociency sections.
  *
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
- * @version $Revision: 1.10 $
+ * @version $Revision$
  */
 public final class InfoSpecialAbilities extends JPanel implements CharacterInfoTab
 {

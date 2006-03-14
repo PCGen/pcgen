@@ -1,6 +1,6 @@
 /*
  * NewWeaponInfoDialog.java
- * @(#) $Id: NewWeaponInfoDialog.java,v 1.25 2005/10/22 18:33:23 binkley Exp $
+ * @(#) $Id$
  *
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -32,7 +32,7 @@ import java.awt.event.*;
 
 /**
  * @author     ???
- * @version $Revision: 1.25 $
+ * @version $Revision$
  */
 final class NewWeaponInfoDialog extends JDialog
 {

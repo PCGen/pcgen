@@ -31,7 +31,7 @@ import javax.swing.JSeparator;
  * ???
  *
  * @author ???
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 final class PCPopupMenu extends JPopupMenu
 {

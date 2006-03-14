@@ -45,7 +45,7 @@ import java.util.*;
  * This lots of unrelated entries.
  *
  * @author  Mario Bonassin
- * @version $Revision: 1.87 $
+ * @version $Revision$
  */
 final class GameModes extends JMenu
 {

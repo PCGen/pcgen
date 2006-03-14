@@ -16,7 +16,7 @@ import java.util.Stack;
  * left and a status area on the right.
  *
  * @author <a href="mailto:binkley@alumnir.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Id: StatusBar.java,v 1.8 2006/01/27 11:51:51 karianna Exp $
+ * @version $Id$
  * @since Oct 22, 2005 4:33:27 PM
  */
 public class StatusBar

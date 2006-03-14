@@ -28,7 +28,7 @@ import pcgen.core.PlayerCharacter;
  * Abstract PObject filter class<br>
  *
  * @author Thomas Behr
- * @version $Revision: 1.33 $
+ * @version $Revision$
  */
 public abstract class AbstractPObjectFilter implements PObjectFilter
 {

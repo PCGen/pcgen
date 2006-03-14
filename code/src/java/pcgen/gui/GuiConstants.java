@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id: GuiConstants.java,v 1.19 2006/01/31 12:43:40 karianna Exp $
+ * $Id$
  */
 package pcgen.gui;
 
@@ -27,7 +27,7 @@ package pcgen.gui;
  * the core and gui packages.
  *
  * @author     Jonas Karlsson
- * @version    $Revision: 1.19 $
+ * @version    $Revision$
  */
 public interface GuiConstants
 {

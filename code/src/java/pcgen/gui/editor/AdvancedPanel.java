@@ -18,7 +18,7 @@
  *
  * Created on Jul 5, 2005
  *
- * $Id: AdvancedPanel.java,v 1.6 2005/10/18 20:23:42 binkley Exp $
+ * $Id$
  *
  */
 
@@ -52,11 +52,11 @@ import java.util.List;
 /**
  * <code>AdvancedPanel</code> is ...
  *
- * Last Editor: $Author: binkley $
- * Last Edited: $Date: 2005/10/18 20:23:42 $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.6 $
+ * @version $Revision$
  */
 public final class AdvancedPanel extends JPanel
 {

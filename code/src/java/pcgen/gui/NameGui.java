@@ -39,7 +39,7 @@ import java.util.List;
  * <code>NameGui</code>.
  *
  * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @version $Revision: 1.56 $
+ * @version $Revision$
  */
 public final class NameGui extends JFrame
 {

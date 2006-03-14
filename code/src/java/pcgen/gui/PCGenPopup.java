@@ -32,7 +32,7 @@ import javax.swing.WindowConstants;
  * Generic popup dialog.  The real work goes on in the panel.
  *
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1.14 $
+ * @version $Revision$
  */
 class PCGenPopup extends JFrame
 {

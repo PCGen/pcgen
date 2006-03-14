@@ -29,7 +29,7 @@ import pcgen.util.PropertyFactory;
  * <code>GenreFilter</code>
  *
  * @author Bryan McRoberts
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 final class GenreFilter extends AbstractPObjectFilter
 {

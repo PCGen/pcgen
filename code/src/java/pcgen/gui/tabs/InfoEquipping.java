@@ -18,9 +18,9 @@
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
  * Created on April 29th, 2002, 2:15 PM
  *
- * Current Ver: $Revision: 1.120 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/07 15:40:51 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -72,7 +72,7 @@ import java.util.List;
  * allow different combinations of equipment for printing on csheets
  *
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision: 1.120 $
+ * @version $Revision$
  **/
 public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTab
 {

@@ -37,7 +37,7 @@ import java.awt.event.WindowEvent;
  * Popup frame which allows the user to customize equipment.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision: 1.36 $
+ * @version    $Revision$
  */
 public final class EQFrame extends JFrame
 {

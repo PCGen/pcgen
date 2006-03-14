@@ -19,9 +19,9 @@
  * Created on April 21, 2001, 2:15 PM
  * ReCreated on Feb 28, 2002 5:10 PM
  *
- * Current Ver: $Revision: 1.144 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/14 16:39:18 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui;
@@ -60,7 +60,7 @@ import java.util.*;
  *  <code>MainSource</code> .
  *
  * @author  Bryan McRoberts (merton_monk@yahoo.com), Jason Buchanan (lonejedi70@hotmail.com)
- * @version $Revision: 1.144 $
+ * @version $Revision$
  *
  * Campaigns is kind of misleading - it's meant to be a collection of
  * sources from which players can pick their character's

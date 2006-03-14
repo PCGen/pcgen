@@ -18,9 +18,9 @@
  *
  * Created on September 16, 2002, 3:30 PM
  *
- * Current Ver: $Revision: 1.21 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006/02/10 12:05:25 $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
@@ -49,7 +49,7 @@ import java.util.List;
 /**
  * <code>InfoInventory</code><br>
  * @author Thomas Behr 16-09-02
- * @version $Revision: 1.21 $
+ * @version $Revision$
  */
 public final class InfoInventory extends JTabbedPane implements Filterable, CharacterInfoTab
 {

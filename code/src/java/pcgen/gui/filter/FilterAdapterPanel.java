@@ -32,7 +32,7 @@ import java.util.List;
  * <code>FilterAdapterPanel</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.29 $
+ * @version $Revision$
  */
 public abstract class FilterAdapterPanel extends JPanel implements Filterable
 {

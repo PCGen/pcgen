@@ -18,7 +18,7 @@
  *
  * Created on Jan 4, 2006
  *
- * $Id:  $
+ * $Id$
  *
  */
 package pcgen.gui.tabs.spells;
@@ -91,11 +91,11 @@ import pcgen.util.PropertyFactory;
  * a character's known spells and the provision of an interface to let the 
  * user update their character's known spell list.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
 
 public class InfoKnownSpells extends InfoSpellsSubTab

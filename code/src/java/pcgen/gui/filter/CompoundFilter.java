@@ -28,7 +28,7 @@ import pcgen.util.PropertyFactory;
  * <code>CompoundFilter</code>
  *
  * @author Thomas Behr
- * @version $Revision: 1.21 $
+ * @version $Revision$
  */
 final class CompoundFilter extends AbstractPObjectFilter implements CustomFilter, FilterConstants
 {

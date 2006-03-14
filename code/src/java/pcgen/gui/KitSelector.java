@@ -2,7 +2,7 @@
  * KitSelector.java
  *
  *
- * @(#) $Id: KitSelector.java,v 1.65 2006/01/16 17:10:30 soulcatcher Exp $
+ * @(#) $Id$
  *
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -22,7 +22,7 @@
  *
  * Created on September 24, 2002, 8:59 PM
  *
- * version $Revision: 1.65 $
+ * version $Revision$
  */
 
 /**
@@ -30,7 +30,7 @@
   * to select a kit to be applied from a list of qualifying kits.
   *
   * @author  Greg Bingleman
-  * @version $Revision: 1.65 $
+  * @version $Revision$
   */
 package pcgen.gui;
 

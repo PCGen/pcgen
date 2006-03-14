@@ -19,7 +19,7 @@
  *
  * Created on August 20, 2002, 1:57 PM
  *
- * $Id: NewPurchaseMethodDialog.java,v 1.19 2005/10/18 20:23:42 binkley Exp $
+ * $Id$
  */
 package pcgen.gui;
 
@@ -36,7 +36,7 @@ import java.awt.event.WindowEvent;
 
 /**
  * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1.19 $
+ * @version $Revision$
  */
 class NewPurchaseMethodDialog extends JDialog
 {

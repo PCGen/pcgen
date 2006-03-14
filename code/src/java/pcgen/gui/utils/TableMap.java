@@ -35,7 +35,7 @@ import javax.swing.table.TableModel;
  * should have no effect.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision: 1.5 $
+ * @version $Revision$
  */
 class TableMap extends AbstractTableModel implements TableModelListener
 {

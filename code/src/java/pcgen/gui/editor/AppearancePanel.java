@@ -18,7 +18,7 @@
  *
  * Created on January 2, 2003, 12:00 PM
  *
- * @(#) $Id: AppearancePanel.java,v 1.23 2005/10/18 20:23:42 binkley Exp $
+ * @(#) $Id$
  */
 package pcgen.gui.editor;
 
@@ -41,7 +41,7 @@ import java.util.List;
  * These are: HAIR, EYES and SKINTONE
  *
  * @author  James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1.23 $
+ * @version $Revision$
  */
 final class AppearancePanel extends JPanel implements PObjectUpdater
 {
