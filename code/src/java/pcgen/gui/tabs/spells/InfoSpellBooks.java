@@ -24,7 +24,6 @@
 package pcgen.gui.tabs.spells;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -43,7 +42,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -76,7 +74,6 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.Utility;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -105,8 +102,6 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	private JButton delSpellButton;
 
 	private JTextField spellBookNameText = new JTextField();
-	private JButton addSpellListButton;
-	private JButton delSpellListButton;
 	
 	private JComboBoxEx primaryViewComboBox = new JComboBoxEx();
 	private JComboBoxEx secondaryViewComboBox = new JComboBoxEx();
@@ -357,27 +352,6 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 						.getSelectedIndex());
 				}
 			});
-//		spellBookNameText.addActionListener(new ActionListener()
-//			{
-//				public void actionPerformed(ActionEvent evt)
-//				{
-//					addBookButton();
-//				}
-//			});
-//		addSpellListButton.addActionListener(new ActionListener()
-//			{
-//				public void actionPerformed(ActionEvent evt)
-//				{
-//					addBookButton();
-//				}
-//			});
-//		delSpellListButton.addActionListener(new ActionListener()
-//			{
-//				public void actionPerformed(ActionEvent evt)
-//				{
-//					delBookButton();
-//				}
-//			});
 
 		FilterFactory.restoreFilterSettings(this);
 	}
@@ -566,53 +540,11 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build the panel with the controls to select a 
-	 * prepared list.
-	 *  
-	 * @return The panel.
-	 */
-	private JPanel buildSpellListPanel()
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		c.insets = new Insets(2, 2, 2, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.NORTH;
-
-		// 
-		JPanel slPanel = new JPanel(new GridBagLayout());
-
-		JLabel prepListLabel = new JLabel(PropertyFactory
-			.getString("InfoPreparedSpells.preparedList")); //$NON-NLS-1$
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
-		slPanel.add(prepListLabel, c);
-		spellBookNameText.setEditable(true);
-		spellBookNameText.setPreferredSize(new Dimension(100, 20));
-		Utility.buildConstraints(c, 1, 0, 1, 1, 1.0, 0.0);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		slPanel.add(spellBookNameText, c);
-
-		addSpellListButton = new JButton(PropertyFactory.getString("InfoSpells.add")); //$NON-NLS-1$
-		Utility.setDescription(addSpellListButton, PropertyFactory
-			.getString("InfoPreparedSpells.add.list")); //$NON-NLS-1$
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0.0, 0.0);
-		c.fill = GridBagConstraints.NONE;
-		slPanel.add(addSpellListButton, c);
-
-		delSpellListButton = new JButton(PropertyFactory.getString("InfoSpells.delete")); //$NON-NLS-1$
-		Utility.setDescription(delSpellListButton, PropertyFactory
-			.getString("InfoPreparedSpells.del.list")); //$NON-NLS-1$
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
-		slPanel.add(delSpellListButton, c);
-
-		return slPanel;
-	}
-
-	/**
 	 * Build Bottom Panel. 
 	 * botPane will contain a bLeftPane and a bRightPane
 	 * bLeftPane will contain a scrollregion (spell info)
 	 * bRightPane will contain a scrollregion (character Info)
-  */
+	 */
 	private void initBottomPanel()
 	{
 		GridBagLayout gridbag;
@@ -979,91 +911,14 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		pc.setDirty(true);
 		updateSelectedModel();
 	}
-
-	/**
-	 *
-	 * This is used to add new spellbooks when the
-	 * spellBookNameText JTextField is edited
-	 *
-	 */
-	private void addBookButton()
-	{
-		final String aString = spellBookNameText.getText();
-
-		if (aString == null || aString.equals(currSpellBook) || aString.trim().length() == 0)
-		{
-			return;
-		}
-
-		// added to prevent spellbooks being given the same name as a class
-		for (Iterator i = Globals.getClassList().iterator(); i.hasNext();)
-		{
-			PCClass current = (PCClass) i.next();
-
-			if ((aString.equals(current.getName())))
-			{
-				JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_spellbook_name_error"), //$NON-NLS-1$
-					Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
-
-				return;
-			}
-		}
-
-		SpellBook book = new SpellBook(aString, SpellBook.TYPE_SPELL_BOOK);
-		if (pc.addSpellBook(book))
-		{
-			pc.setDirty(true);
-			spellBookNameText.setText(aString);
-			currSpellBook = aString;
-			if (!selectedBookList.contains(aString))
-			{
-				selectedBookList.add(aString);
-			}
-			updateAvailableModel();
-			updateSelectedModel();
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(null, PropertyFactory
-				.getFormattedString(
-					"InfoPreparedSpells.add.list.fail", new Object[]{aString}), //$NON-NLS-1$
-				Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
-
-			return;
-		}
-	}
-
-
-	private void delBookButton()
-	{
-		String aString = spellBookNameText.getText();
-
-		if (aString.equalsIgnoreCase(Globals.getDefaultSpellBook()))
-		{
-			Logging.errorPrint(PropertyFactory.getString("InfoSpells.can.not.delete.default.spellbook")); //$NON-NLS-1$
-
-			return;
-		}
-
-		if (pc.delSpellBook(aString))
-		{
-			pc.setDirty(true);
-			updateBookList();
-			currSpellBook = (String) (selectedBookList.size() > 0 ? selectedBookList
-				.get(0)
-				: Globals.getDefaultSpellBook());
-
-			updateAvailableModel();
-			updateSelectedModel();
-		}
-		else
-		{
-			Logging.errorPrint("delBookButton:failed "); //$NON-NLS-1$
-
-			return;
-		}
-	}
 	
+	/**
+	 * Process a change in the available spells 'select from' mode. This 
+	 * determines the source of the spells in the available list. 
+	 * (e.g. Known Spells.)
+	 * 
+	 * @param selectedIndex The index of the new select from mode.
+	 */
 	private void selectFromComboBoxActionPerformed(int selectedIndex)
 	{
 		if (selectedIndex >=0 && selectedIndex <= 2)
