@@ -1,5 +1,5 @@
 #
-# $Id: sizeAdjustment.lst,v 1.1 2005/09/23 01:57:20 eddyanthony Exp $
+# $Id$
 #
 SIZENAME:Fine		ABB:F	BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5
 SIZENAME:Fine		BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.1	BONUS:ITEMWEIGHT|TYPE=Goods|0.25
