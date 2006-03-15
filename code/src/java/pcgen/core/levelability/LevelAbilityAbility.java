@@ -205,6 +205,9 @@ public class LevelAbilityAbility extends LevelAbility
 		 * list in local state variables */
 		super.getChoicesList((String) split.get(1), aPC);
 
+		// The private state variable useNameMap is set whenever a choice is added
+		// to the lists of those available, if it becomes necessary to use the
+		// category to uniquely identify a choice it will be set false 
 		final List aList = useNameMap ? Arrays.asList(nameMap.keySet().toArray())
 			                          : Arrays.asList(catMap.keySet().toArray());
 
