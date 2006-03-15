@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
 # Equipment Name			Type					Contains								Cost		Weight	Size		Source Page		Bonus to skill		Special Property
 Backpack				TYPE:Goods.General		CONTAINS:100|Any=100						COST:2	WT:2				SOURCEPAGE:p.

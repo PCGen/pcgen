@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
 # Template Name	Visible	Source Page		Special Ability		Bonus to skill		Stat bonus								BONUSFEATS		Class Skill								FAVOREDCLASS			Feat														Height					Automatic Languages	Bonus Languages									SUBRACE		Weight
 Dwarf (Clan)	VISIBLE:NO	SOURCEPAGE:p.27					BONUS:SKILL|Ride,Spot|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-2							CSKILL:Handle Animal|Ride|Sign Language			FAVOREDCLASS:Mounted Warrior																																				SUBRACE:Clan
 Dwarf (Unhorsed)	VISIBLE:NO	SOURCEPAGE:p.28					BONUS:SKILL|Diplomacy|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|2																FAVOREDCLASS:Rogue		FEAT:Unhorsed Dwarf																					LANGBONUS:Elder Speak,Pharn'lan,Tomagai					SUBRACE:Unhorsed

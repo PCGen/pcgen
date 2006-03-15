@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
 # Equipment Name				Required Proficiency			Type									Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Weapon prop. bonus
 Blowgun											TYPE:Weapon.Exotic.Ranged.Piercing.Container		CONTAINS:-1|Needle=1		COST:1	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SIZE:M	SOURCEPAGE:p.

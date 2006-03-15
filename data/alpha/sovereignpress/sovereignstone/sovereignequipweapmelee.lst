@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Tue Jul 15 20:21:53 2003 -- reformated by prettylst.pl v1.29 (build 294)
+# CVS $Revision$ $Author$ -- Tue Jul 15 20:21:53 2003 -- reformated by prettylst.pl v1.29 (build 294)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
 # Equipment Name	Required Proficiency		Type								Cost		Weight	Required Race	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
 Battleaxe							TYPE:Weapon.Martial.Melee.Slashing			COST:7	WT:7					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					SIZE:M	SOURCEPAGE:p.
