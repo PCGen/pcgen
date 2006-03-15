@@ -5179,7 +5179,7 @@ public class PCClass extends PObject
 			if (aLevel == Integer.parseInt(getToken(0, feats, ":")))
 			{
 				final double preFeatCount = aPC.getUsedFeatCount();
-				aPC.modFeatsFromList(pcLevelInfo, getToken(1, feats, ":"), addThem, aLevel == 1);
+				PlayerCharacterUtilities.modFeatsFromList(aPC, pcLevelInfo, getToken(1, feats, ":"), addThem, aLevel == 1);
 
 				final double postFeatCount = aPC.getUsedFeatCount();
 

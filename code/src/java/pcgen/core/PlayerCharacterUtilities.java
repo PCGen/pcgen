@@ -24,8 +24,10 @@
  */
 package pcgen.core;
 
+import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.util.Logging;
 
 import java.util.List;
 import java.util.StringTokenizer;
@@ -266,5 +268,171 @@ public class PlayerCharacterUtilities
 		// set weight and cost to 0
 		eqm.setWeight("0");
 		eqm.setCost("0");
+	}
+
+	/**
+	 * Add multiple feats from a String list separated by commas.
+	 * @param playerCharacterLevelInfo
+	 * @param aList
+	 * @param addIt
+	 * @param all
+	 */
+	static void modFeatsFromList(final PlayerCharacter aPC,
+			                     final PCLevelInfo     playerCharacterLevelInfo,
+			                     final String          aList,
+			                     final boolean         addIt,
+			                     final boolean         all)
+	{
+		final StringTokenizer aTok = new StringTokenizer(aList, ",");
+	
+		while (aTok.hasMoreTokens())
+		{
+			String aString = aTok.nextToken();
+			Ability anAbility = aPC.getFeatNamed(aString);
+			StringTokenizer bTok = null;
+	
+			if (anAbility != null)
+			{
+				continue;
+			}
+	
+			// does not already have feat
+			anAbility = Globals.getAbilityNamed("FEAT", aString);
+	
+			if (anAbility == null)
+			{
+				// could not find Feat, try trimming off contents of parenthesis
+				bTok = new StringTokenizer(aString, "()", true);
+	
+				final String bString = bTok.nextToken();
+				final int beginIndex = bString.length() + 1;
+				final int endIndex = aString.lastIndexOf(')');
+	
+				if (beginIndex <= aString.length())
+				{
+					if (endIndex >= beginIndex)
+					{
+						bTok = new StringTokenizer(aString.substring(beginIndex, endIndex), ",");
+					}
+					else
+					{
+						bTok = new StringTokenizer(aString.substring(beginIndex), ",");
+					}
+				}
+				else
+				{
+					bTok = null;
+				}
+				aString = bString.replace('(', ' ').replace(')', ' ').trim();
+			}
+			else
+			{
+				final Ability tempAbility = aPC.getFeatNamed(anAbility.getName());
+				if (tempAbility != null)
+				{
+					anAbility = tempAbility;
+				}
+				else
+				{
+					// add the Feat found, as a CharacterFeat
+					anAbility = (Ability) anAbility.clone();
+					aPC.addFeat(anAbility, playerCharacterLevelInfo);
+				}
+			}
+	
+			if (anAbility == null)
+			{
+				// if we still haven't found it, try a different string
+				if (!addIt)
+				{
+					return;
+				}
+	
+				anAbility = Globals.getAbilityNamed("FEAT", aString);
+	
+				if (anAbility == null)
+				{
+					Logging.errorPrint("Feat not found in PlayerCharacter.modFeatsFromList: " + aString);
+	
+					return;
+				}
+	
+				anAbility = (Ability) anAbility.clone();
+				aPC.addFeat(anAbility, playerCharacterLevelInfo);
+			}
+	
+			if ((bTok != null) && bTok.hasMoreTokens())
+			{
+				while (bTok.hasMoreTokens())
+				{
+					aString = bTok.nextToken();
+	
+					if ("DEITYWEAPON".equals(aString))
+					{
+						WeaponProf wp = null;
+	
+						if (aPC.getDeity() != null)
+						{
+							wp = Globals.getWeaponProfNamed(aPC.getDeity().getFavoredWeapon());
+						}
+	
+						if (wp != null)
+						{
+							if (addIt) // TODO: condition always true
+							{
+								anAbility.addAssociated(wp.getName());
+							}
+							else
+							{
+								anAbility.removeAssociated(wp.getName());
+							}
+						}
+					}
+					else
+					{
+						if (addIt) // TODO: condition always true
+						{
+							anAbility.addAssociated(aString);
+						}
+						else
+						{
+							anAbility.removeAssociated(aString);
+						}
+					}
+				}
+			}
+			else
+			{
+				if (!all && !anAbility.isMultiples())
+				{
+					if (addIt)
+					{
+						aPC.adjustFeats(anAbility.getCost(aPC));
+					}
+					else
+					{
+						aPC.adjustFeats(-anAbility.getCost(aPC));
+					}
+				}
+	
+				AbilityUtilities.modFeat(aPC, playerCharacterLevelInfo, aString, addIt, all);
+			}
+	
+			if (anAbility.getName().endsWith("Weapon Proficiency"))
+			{
+				for (int e = 0; e < anAbility.getAssociatedCount(); ++e)
+				{
+					final String wprof = anAbility.getAssociated(e);
+					final WeaponProf wp = Globals.getWeaponProfNamed(wprof);
+	
+					if (wp != null)
+					{
+						aPC.addWeaponProfToChosenFeats(wprof);
+					}
+				}
+			}
+		}
+	
+		aPC.setAutomaticFeatsStable(false);
 	}
 }

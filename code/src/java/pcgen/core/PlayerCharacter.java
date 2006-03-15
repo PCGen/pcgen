@@ -7791,7 +7791,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 			for (int i = 0, x = templateFeats.size(); i < x; ++i)
 			{
-				modFeatsFromList(null, (String) templateFeats.get(i), true, false);
+				PlayerCharacterUtilities.modFeatsFromList(this, null, (String) templateFeats.get(i), true, false);
 			}
 		}
 		else
@@ -11178,170 +11178,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return false;
 	}
 
-	/**
-	 * Add multiple feats from a String list separated by commas.
-	 * @param playerCharacterLevelInfo
-	 * @param aList
-	 * @param addIt
-	 * @param all
-	 */
-	void modFeatsFromList(final PCLevelInfo playerCharacterLevelInfo, final String aList, final boolean addIt, final boolean all)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aList, ",");
-
-		while (aTok.hasMoreTokens())
-		{
-			String aString = aTok.nextToken();
-			Ability anAbility = getFeatNamed(aString);
-			StringTokenizer bTok = null;
-
-			if (anAbility != null)
-			{
-				continue;
-			}
-
-			// does not already have feat
-			anAbility = Globals.getAbilityNamed("FEAT", aString);
-
-			if (anAbility == null)
-			{
-				// could not find Feat, try trimming off contents of parenthesis
-				bTok = new StringTokenizer(aString, "()", true);
-
-				final String bString = bTok.nextToken();
-				final int beginIndex = bString.length() + 1;
-				final int endIndex = aString.lastIndexOf(')');
-
-				if (beginIndex <= aString.length())
-				{
-					if (endIndex >= beginIndex)
-					{
-						bTok = new StringTokenizer(aString.substring(beginIndex, endIndex), ",");
-					}
-					else
-					{
-						bTok = new StringTokenizer(aString.substring(beginIndex), ",");
-					}
-				}
-				else
-				{
-					bTok = null;
-				}
-				aString = bString.replace('(', ' ').replace(')', ' ').trim();
-			}
-			else
-			{
-				final Ability tempAbility = getFeatNamed(anAbility.getName());
-				if (tempAbility != null)
-				{
-					anAbility = tempAbility;
-				}
-				else
-				{
-					// add the Feat found, as a CharacterFeat
-					anAbility = (Ability) anAbility.clone();
-					addFeat(anAbility, playerCharacterLevelInfo);
-				}
-			}
-
-			if (anAbility == null)
-			{
-				// if we still haven't found it, try a different string
-				if (!addIt)
-				{
-					return;
-				}
-
-				anAbility = Globals.getAbilityNamed("FEAT", aString);
-
-				if (anAbility == null)
-				{
-					Logging.errorPrint("Feat not found in PlayerCharacter.modFeatsFromList: " + aString);
-
-					return;
-				}
-
-				anAbility = (Ability) anAbility.clone();
-				addFeat(anAbility, playerCharacterLevelInfo);
-			}
-
-			if ((bTok != null) && bTok.hasMoreTokens())
-			{
-				while (bTok.hasMoreTokens())
-				{
-					aString = bTok.nextToken();
-
-					if ("DEITYWEAPON".equals(aString))
-					{
-						WeaponProf wp = null;
-
-						if (getDeity() != null)
-						{
-							wp = Globals.getWeaponProfNamed(getDeity().getFavoredWeapon());
-						}
-
-						if (wp != null)
-						{
-							if (addIt) // TODO: condition always true
-							{
-								anAbility.addAssociated(wp.getName());
-							}
-							else
-							{
-								anAbility.removeAssociated(wp.getName());
-							}
-						}
-					}
-					else
-					{
-						if (addIt) // TODO: condition always true
-						{
-							anAbility.addAssociated(aString);
-						}
-						else
-						{
-							anAbility.removeAssociated(aString);
-						}
-					}
-				}
-			}
-			else
-			{
-				if (!all && !anAbility.isMultiples())
-				{
-					if (addIt)
-					{
-//						setFeats(getFeats() + anAbility.getCost(this));
-						adjustFeats(anAbility.getCost(this));
-					}
-					else
-					{
-//						setFeats(getFeats() - anAbility.getCost(this));
-						adjustFeats(-anAbility.getCost(this));
-					}
-				}
-
-				AbilityUtilities.modFeat(this, playerCharacterLevelInfo, aString, addIt, all);
-			}
-
-			if (anAbility.getName().endsWith("Weapon Proficiency"))
-			{
-				for (int e = 0; e < anAbility.getAssociatedCount(); ++e)
-				{
-					final String wprof = anAbility.getAssociated(e);
-					final WeaponProf wp = Globals.getWeaponProfNamed(wprof);
-
-					if (wp != null)
-					{
-						addWeaponProfToChosenFeats(wprof);
-					}
-				}
-			}
-		}
-
-		setAutomaticFeatsStable(false);
-	}
-
 	boolean removeFavoredClass(final String aString)
 	{
 		if (favoredClasses.contains(aString))
@@ -14412,7 +14248,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 				for (int j = 0, y = templateFeats.size(); j < y; ++j)
 				{
-					modFeatsFromList(null, (String) templateFeats.get(j), true, false);
+					PlayerCharacterUtilities.modFeatsFromList(this, null, (String) templateFeats.get(j), true, false);
 				}
 			}
 		}
