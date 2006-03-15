@@ -159,10 +159,10 @@ public class TemplateToken extends Token
 		{
 			if (x++ > 0)
 			{
-				retString = ", ";
+				retString += ", ";
 			}
 
-			retString = e.next().toString();
+			retString += e.next().toString();
 		}
 
 		return retString;
