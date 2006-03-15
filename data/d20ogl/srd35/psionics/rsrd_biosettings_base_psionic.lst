@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 AGESET:0|Adulthood
 RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer,Soulknife,Wilder[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger,Psychic Warrior[BASEAGEADD:1d6]|Cleric,Druid,Monk,Psion,Wizard[BASEAGEADD:2d6]
 RACENAME:Dwarf%		CLASS:Barbarian,Rogue,Sorcerer,Soulknife,Wilder[BASEAGEADD:3d6]|Bard,Fighter,Paladin,Ranger,Psychic Warrior[BASEAGEADD:5d6]|Cleric,Druid,Monk,Psion,Wizard[BASEAGEADD:7d6]
