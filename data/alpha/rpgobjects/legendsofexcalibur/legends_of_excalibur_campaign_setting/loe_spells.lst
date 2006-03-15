@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Sun Aug 28 10:39:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures|SOURCESHORT:LOE|SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 # Spell Name			Output Name						Classes of caster									School			Sub-School			Spell Descriptors			Type				Components				Casting Time			Range			Target Area																		Duration					Save Info						Spell Resistance				XP Cost	Description		Source Page
 Blood Oath											CLASSES:Crusader=4|Hermit,Priest,White Knight=5				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Divine			COMPS:V, S, DF			CASTTIME:1 minute			RANGE:Touch		TARGETAREA:One living creature														DURATION:Permanent			SAVEINFO:None					SPELLRES:Yes (harmless)					DESC:See text	SOURCEPAGE:75
