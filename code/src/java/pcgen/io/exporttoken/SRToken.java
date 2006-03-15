@@ -28,9 +28,12 @@ package pcgen.io.exporttoken;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 
-//SR
+/**
+ * SR token for export
+ */
 public class SRToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SR";
 
 	/**
@@ -49,6 +52,11 @@ public class SRToken extends Token
 		return getSRToken(pc) + "";
 	}
 
+	/**
+	 * Get the value of the SR token for export
+	 * @param pc
+	 * @return the value of the SR token for export
+	 */
 	public static int getSRToken(PlayerCharacter pc)
 	{
 		return pc.getSR();

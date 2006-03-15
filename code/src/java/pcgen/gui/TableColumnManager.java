@@ -130,6 +130,10 @@ public class TableColumnManager implements MouseListener {
 	private class ColumnChangeListener implements PropertyChangeListener {
 		int col = 0;
 		
+		/**
+		 * Constructor
+		 * @param col
+		 */
 		public ColumnChangeListener(int col) {
 			this.col = col;
 		}

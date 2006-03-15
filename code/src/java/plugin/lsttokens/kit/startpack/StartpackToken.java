@@ -29,6 +29,9 @@ import pcgen.core.Kit;
 import pcgen.persistence.lst.KitStartpackLstToken;
 import pcgen.util.Logging;
 
+/**
+ * STARTPACK token for Kit Startpack
+ */
 public class StartpackToken implements KitStartpackLstToken
 {
 	/**

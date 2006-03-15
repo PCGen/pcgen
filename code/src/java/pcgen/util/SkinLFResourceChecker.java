@@ -44,11 +44,19 @@ public final class SkinLFResourceChecker
 		checkResource();
 	}
 
+	/**
+	 * Get the missing resource count
+	 * @return the missing resource count
+	 */
 	public static int getMissingResourceCount()
 	{
 		return missingResourceCount;
 	}
 
+	/**
+	 * Get the missing resource message
+	 * @return the missing resource message
+	 */
 	public static String getMissingResourceMessage()
 	{
 		if (missingResourceCount != 0)

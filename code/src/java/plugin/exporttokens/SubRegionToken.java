@@ -30,9 +30,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-//SUBREGION
+/**
+ * Deals with SUBREGION export token 
+ */
 public class SubRegionToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SUBREGION";
 
 	/**
@@ -51,6 +54,11 @@ public class SubRegionToken extends Token
 		return getSubRegionToken(pc);
 	}
 
+	/**
+	 * Get the result of the SUBREGION token
+	 * @param pc
+	 * @return the result of the SUBREGION token
+	 */
 	public static String getSubRegionToken(PlayerCharacter pc)
 	{
 		String retString = pc.getRegion();

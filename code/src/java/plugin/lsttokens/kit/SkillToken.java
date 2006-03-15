@@ -30,6 +30,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.persistence.lst.KitSkillLoader;
 
+/**
+ * SKILL for Kit
+ */
 public class SkillToken extends KitLstToken
 {
 	/**
@@ -50,10 +53,8 @@ public class SkillToken extends KitLstToken
 	 * @param value
 	 *            the token string
 	 * @return true if parse OK
-	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
 	{
 		try
 		{

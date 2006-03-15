@@ -37,11 +37,19 @@ import java.util.*;
  */
 public class SortedProperties extends Properties
 {
+	/**
+	 * Constructor
+	 */
 	public SortedProperties()
 	{
 		super();
 	}
 
+	/**
+	 * Store properties
+	 * @param out
+	 * @param header
+	 */
 	public void mystore(final FileOutputStream out, final String header)
 	{
 		BufferedWriter bw = null;

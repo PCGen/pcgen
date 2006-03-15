@@ -29,9 +29,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-//SPEECHTENDANCY
+/**
+ * SPEECHTENDANCY token for export
+ */
 public class SpeechTendancyToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SPEECHTENDENCY";
 
 	/**
@@ -51,6 +54,11 @@ public class SpeechTendancyToken extends Token
 		return getSpeechTendancyToken(pc);
 	}
 
+	/**
+	 * Get value for SPEECHTENDANCY
+	 * @param pc
+	 * @return value for SPEECHTENDANCY
+	 */
 	public static String getSpeechTendancyToken(PlayerCharacter pc)
 	{
 		return pc.getSpeechTendency();

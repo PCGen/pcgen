@@ -120,10 +120,18 @@ public final class Stat extends BonusObj
 		return ((PCStat) obj).getAbb();
 	}
 
+	/**
+	 * Deals with the Stat for casting
+	 */
 	public static class CastStat
 	{
+		/** A stat */
 		public final PCStat stat;
 
+		/**
+		 * Constuctor
+		 * @param argStat
+		 */
 		public CastStat(final PCStat argStat)
 		{
 			stat = argStat;

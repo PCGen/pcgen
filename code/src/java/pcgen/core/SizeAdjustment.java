@@ -36,11 +36,19 @@ public final class SizeAdjustment extends PObject
 	private String abbreviation = ""; // should be 1-character long
 	private boolean isDefaultSize = false;
 
+	/**
+	 * Set abbreviation
+	 * @param ab
+	 */
 	public void setAbbreviation(final String ab)
 	{
 		abbreviation = ab;
 	}
 
+	/**
+	 * Get abbreviation
+	 * @return abbreviation
+	 */
 	public String getAbbreviation()
 	{
 		return abbreviation;
@@ -58,6 +66,10 @@ public final class SizeAdjustment extends PObject
 		return super.getActiveBonuses(aPC);
 	}
 
+	/**
+	 * Set is default size to true or false
+	 * @param arg
+	 */
 	public void setIsDefaultSize(final boolean arg)
 	{
 		isDefaultSize = arg;

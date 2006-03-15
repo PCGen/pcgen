@@ -30,9 +30,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-//SPELLPOINTS
+/**
+ * SPELLPOINTS token for export
+ */
 public class SpellPointsToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SPELLPOINTS";
 
 	/**
@@ -51,6 +54,10 @@ public class SpellPointsToken extends Token
 		return getSpellPointsToken();
 	}
 
+	/**
+	 * Get value for SPELLS token
+	 * @return value for SPELLS token
+	 */
 	public static String getSpellPointsToken()
 	{
 		return Globals.getSpellPoints();

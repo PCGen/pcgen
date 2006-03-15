@@ -30,9 +30,12 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.io.ExportHandler;
 
-//SIZELONG
+/**
+ * SIZELONG for export
+ */
 public class SizeLongToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SIZELONG";
 
 	/**
@@ -52,6 +55,11 @@ public class SizeLongToken extends Token
 		return getSizeLongToken(pc);
 	}
 
+	/**
+	 * Get value SIZELONG token
+	 * @param pc
+	 * @return value SIZELONG token
+	 */
 	public static String getSizeLongToken(PlayerCharacter pc)
 	{
 		final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(pc.sizeInt());

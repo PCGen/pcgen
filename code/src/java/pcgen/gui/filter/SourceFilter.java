@@ -36,7 +36,9 @@ import java.util.StringTokenizer;
  */
 final class SourceFilter extends AbstractPObjectFilter
 {
+	/** HIGH */
 	public static final int HIGH = 0;
+	/** LOW */
 	public static final int LOW = 1;
 	private String source;
 	private int detailLevel;

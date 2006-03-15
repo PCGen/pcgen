@@ -35,9 +35,16 @@ public final class SourceUtilities
 {
 	private SourceUtilities()
 	{
-		//Can't instantiate utility class
+		// Can't instantiate utility class
 	}
 
+	/**
+	 * Return the source in a particular form
+	 * @param so
+	 * @param sourceDisplay
+	 * @param includePage
+	 * @return the source in a particular form
+	 */
 	public static String returnSourceInForm(SourcedObject so, final int sourceDisplay, final boolean includePage)
 	{
 		final StringBuffer buf = new StringBuffer();

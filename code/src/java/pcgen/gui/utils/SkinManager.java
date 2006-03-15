@@ -36,6 +36,10 @@ import javax.swing.UIManager;
  */
 public final class SkinManager
 {
+	/**
+	 * Apply a skin to PCGen GUI
+	 * @throws Exception
+	 */
 	public static void applySkin() throws Exception
 	{
 		try
@@ -52,6 +56,10 @@ public final class SkinManager
 		}
 	}
 
+	/**
+	 * Load a LINUX skin
+	 * @throws Exception
+	 */
 	public static void loadLinuxSkin() throws Exception
 	{
 		try

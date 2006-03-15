@@ -54,17 +54,26 @@ public final class SubClass extends PCClass
 	/** The cost to have this sub-class as prohibited. */
 	private int prohibitCost = 0;
 
+	/** Constructor */
 	public SubClass()
 	{
 		numSpellsFromSpecialty = 0;
 		spellBaseStat = null;
 	}
 
+	/**
+	 * Set the choice
+	 * @param arg
+	 */
 	public void setChoice(final String arg)
 	{
 		choice = arg;
 	}
 
+	/**
+	 * Get the choice
+	 * @return choice
+	 */
 	public String getChoice()
 	{
 		if (choice == null)
@@ -121,6 +130,10 @@ public final class SubClass extends PCClass
 		return cost;
 	}
 
+	/**
+	 * Add sub class to the level array
+	 * @param arg
+	 */
 	public void addToLevelArray(final String arg)
 	{
 		if (levelArray == null)
@@ -131,6 +144,10 @@ public final class SubClass extends PCClass
 		levelArray.add(arg);
 	}
 
+	/**
+	 * Apply the level mods to a class
+	 * @param aClass
+	 */
 	public void applyLevelArrayModsTo(final PCClass aClass)
 	{
 		if (levelArray == null)

@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.clazz;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.lst.KitClassLstToken;
 
+/**
+ * parses SUBCLASS token for Kit Class 
+ */
 public class SubclassToken implements KitClassLstToken
 {
 	public boolean parse(KitClass kitClass, String value)

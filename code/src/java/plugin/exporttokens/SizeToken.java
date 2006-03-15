@@ -29,9 +29,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-//SIZE
+/**
+ * SIZE token for export
+ */
 public class SizeToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SIZE";
 
 	/**
@@ -50,6 +53,11 @@ public class SizeToken extends Token
 		return getSizeToken(pc);
 	}
 
+	/**
+	 * Get value of SIZE token
+	 * @param pc
+	 * @return value of SIZE token
+	 */
 	public static String getSizeToken(PlayerCharacter pc)
 	{
 		return pc.getSize();

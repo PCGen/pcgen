@@ -29,9 +29,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-//SIZEMOD
+/**
+ * SIZEMOD for export
+ */
 public class SizeModToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "SIZEMOD";
 
 	/**
@@ -51,6 +54,11 @@ public class SizeModToken extends Token
 		return getSizeModToken(pc) + "";
 	}
 
+	/**
+	 * Get value for SIZEMOD
+	 * @param pc
+	 * @return value for SIZEMOD
+	 */
 	public static int getSizeModToken(PlayerCharacter pc)
 	{
 		return (int) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");

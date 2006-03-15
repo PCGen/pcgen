@@ -29,6 +29,9 @@ import pcgen.core.kit.KitSkill;
 import pcgen.persistence.lst.KitSkillLstToken;
 import pcgen.util.Logging;
 
+/**
+ * SKILL for Kit Skill
+ */
 public class SkillToken implements KitSkillLstToken
 {
 	/**

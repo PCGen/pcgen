@@ -9,13 +9,19 @@ import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 
-//
-//eg. skill("rank", "Swim")
-//eg. skill("total", "Swim")
-//eg. skill("modifier", "Swim")
-//eg. skill("totalrank", "Swim")
-//
+/**
+ * Deals with skill() JEP commands
+ * 
+ * eg. skill("rank", "Swim")
+ * eg. skill("total", "Swim")
+ * eg. skill("modifier", "Swim")
+ * eg. skill("totalrank", "Swim")
+ */
 public class SkillInfoCommand extends PCGenCommand {
+
+	/**
+	 * Constructor
+	 */
 	public SkillInfoCommand() {
 		numberOfParameters = 2;
 	}

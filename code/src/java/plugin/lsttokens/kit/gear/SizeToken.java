@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.lst.KitGearLstToken;
 
+/**
+ * SIZE token for KitGear
+ */
 public class SizeToken implements KitGearLstToken
 {
 	/**

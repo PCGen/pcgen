@@ -35,6 +35,9 @@ import pcgen.persistence.lst.BaseKitLoader;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
 
+/**
+ * SELECT for Kit
+ */
 public class SelectToken extends KitLstToken
 {
 	/**

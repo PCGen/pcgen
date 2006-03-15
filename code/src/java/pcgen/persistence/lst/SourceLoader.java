@@ -7,9 +7,15 @@ import java.util.StringTokenizer;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Loads SOURCE
+ */
 public class SourceLoader {
 	
 	/**
+	 * @param lstLine 
+	 * @param sourceFile
+	 * @return Map
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	public static Map parseLine(String lstLine, String sourceFile)

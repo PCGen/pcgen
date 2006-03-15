@@ -29,6 +29,9 @@ import pcgen.core.kit.KitSpells;
 import pcgen.persistence.lst.KitSpellsLstToken;
 import pcgen.util.Logging;
 
+/**
+ * SPELLS token for KitSpells
+ */
 public class SpellsToken implements KitSpellsLstToken
 {
 	/**

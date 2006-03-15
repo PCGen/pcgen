@@ -33,7 +33,17 @@ public interface TableColumnManagerModel {
 	 */
 	public int getMColumnOffset();
 	
+	/**
+	 * Get the column default width
+	 * @param col
+	 * @return the column default width
+	 */
 	public int getMColumnDefaultWidth(int col);
 	
+	/**
+	 * Set the column default width
+	 * @param col
+	 * @param width
+	 */
 	public void setMColumnDefaultWidth(int col, int width);
 }
