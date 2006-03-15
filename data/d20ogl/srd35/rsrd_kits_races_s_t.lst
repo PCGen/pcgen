@@ -1,4 +1,4 @@
-# CVS $Revision: 1.6 $ $Author: eddyanthony $ -- Wed Dec 28 00:33:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision$ $Author$ -- Wed Dec 28 00:33:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Sahuagin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sahuagin]
