@@ -42,7 +42,6 @@
 		<xsl:param name="i" select="1"/>
 		<xsl:param name="count" select="0"/>
 		<xsl:param name="display" select="'&#x274F;'"/>
-		<!-- q is the ZapfDingbats symbol for a 'box' -->
 		<xsl:if test="$i &lt;= $count">
 			<!-- Show this box -->
 			<xsl:value-of select="$display"/>

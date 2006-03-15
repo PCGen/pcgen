@@ -543,7 +543,7 @@
 						<fo:block font-size="6pt" padding-top="1pt">
 							<xsl:text>Character Level</xsl:text>
 							<xsl:if test="classes/levels_total != classes/levels_ecl">
-								<xsl:text>ECL / </xsl:text>
+								<xsl:text>/ECL</xsl:text>
 							</xsl:if>
 						</fo:block>
 					</fo:table-cell>
@@ -1680,8 +1680,8 @@
 					<fo:table-row>
 						<fo:table-cell number-columns-spanned="17" padding-top="1pt">
 							<fo:block text-align="center" font-size="6pt">
-								&#x2713;: can be used untrained.
-								&#x2717;: exclusive skills
+								<fo:inline font-family="ZapfDingbats">&#x2713;</fo:inline>: can be used untrained.
+								<fo:inline font-family="ZapfDingbats">&#x2717;</fo:inline>: exclusive skills
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -2781,7 +2781,7 @@
 ====================================-->
 	<xsl:template match="turning">
 		<!-- BEGIN Turning Table -->
-		<fo:table table-layout="fixed" space-before="2mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" space-before="1mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
 			<fo:table-column column-width="52mm"/>
@@ -3999,6 +3999,9 @@
 						<xsl:when test="@spellcastertype = 'Psionic'">
 							<xsl:value-of select="concat(@spelllistclass, ' Powers')"/>
 						</xsl:when>
+						<xsl:when test="@spellcastertype = 'Infusion'">
+							<xsl:value-of select="concat(@spelllistclass, ' Infusions')"/>
+						</xsl:when> 
 						<xsl:otherwise>
 							<xsl:value-of select="concat(@spelllistclass, ' Spells')"/>
 						</xsl:otherwise>
