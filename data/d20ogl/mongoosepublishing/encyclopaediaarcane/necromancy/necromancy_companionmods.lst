@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Mon Dec 30 22:06:38 2002 -- reformated by prettylst.pl v1.22 (build 243)
+# CVS $Revision$ $Author$ -- Mon Dec 30 22:06:38 2002 -- reformated by prettylst.pl v1.22 (build 243)
 # Race TYPE Switching
 SWITCHRACE:Animal|Demonic Beast
 SWITCHRACE:Beast|Demonic Beast
