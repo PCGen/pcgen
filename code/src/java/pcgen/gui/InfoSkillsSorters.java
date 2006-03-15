@@ -50,10 +50,17 @@ public final class InfoSkillsSorters
 		return node.toString().equals(skill.getMyType(0));
 	}
 
+	/**
+	 * Abstract sorter class to assist in sorting skills
+	 */
 	public static abstract class AbstractSorter implements InfoSkillsSorter
 	{
 		InfoSkills tab;
 
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public AbstractSorter(InfoSkills tab)
 		{
 			this.tab = tab;
@@ -65,8 +72,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Abstract helper class for sorting skills by sub type then name
+	 */
 	public static abstract class AbstractSubtypeName_Penultimate extends AbstractSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public AbstractSubtypeName_Penultimate(InfoSkills tab)
 		{
 			super(tab);
@@ -93,10 +107,17 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Abstract class to assist sorting skills by cost
+	 */
 	public static abstract class CostSorter extends AbstractSorter
 	{
 		private int n = 0;
 
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public CostSorter(InfoSkills tab)
 		{
 			super(tab);
@@ -120,8 +141,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Abstract class to assist sorting skills
+	 */
 	public static abstract class FinalSorter extends AbstractSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public FinalSorter(InfoSkills tab)
 		{
 			super(tab);
@@ -143,8 +171,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by primary cost
+	 */
 	public static class CostName_Primary extends CostSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public CostName_Primary(InfoSkills tab)
 		{
 			super(tab);
@@ -156,8 +191,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by secondary cost
+	 */
 	public static class CostName_Secondary extends FinalSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public CostName_Secondary(InfoSkills tab)
 		{
 			super(tab);
@@ -169,8 +211,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by cost, subtype, name
+	 */
 	public static class CostSubtypeName_Primary extends CostSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public CostSubtypeName_Primary(InfoSkills tab)
 		{
 			super(tab);
@@ -182,8 +231,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by subtype, name, secondary cost
+	 */
 	public static class CostSubtypeName_Secondary extends AbstractSubtypeName_Penultimate
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public CostSubtypeName_Secondary(InfoSkills tab)
 		{
 			super(tab);
@@ -195,8 +251,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by subtype, name
+	 */
 	public static class GenericSubtypeName_Final extends FinalSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public GenericSubtypeName_Final(InfoSkills tab)
 		{
 			super(tab);
@@ -259,8 +322,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by key stat
+	 */
 	public static class KeystatName_Primary extends KeystatSubtypeName_Primary
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public KeystatName_Primary(InfoSkills tab)
 		{
 			super(tab);
@@ -272,8 +342,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by secondary key stat
+	 */
 	public static class KeystatName_Secondary extends FinalSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public KeystatName_Secondary(InfoSkills tab)
 		{
 			super(tab);
@@ -285,8 +362,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by keystat, primary
+	 */
 	public static class KeystatSubtypeName_Primary extends AbstractSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public KeystatSubtypeName_Primary(InfoSkills tab)
 		{
 			super(tab);
@@ -317,8 +401,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by keystat, subtype, name
+	 */
 	public static class KeystatSubtypeName_Secondary extends AbstractSubtypeName_Penultimate
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public KeystatSubtypeName_Secondary(InfoSkills tab)
 		{
 			super(tab);
@@ -330,8 +421,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by name, primary
+	 */
 	public static class Name_Primary extends FinalSorter
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public Name_Primary(InfoSkills tab)
 		{
 			super(tab);
@@ -343,8 +441,15 @@ public final class InfoSkillsSorters
 		}
 	}
 
+	/**
+	 * Concrete class to assist sorting skills by subtype, name, primary
+	 */
 	public static class SubtypeName_Primary extends AbstractSubtypeName_Penultimate
 	{
+		/**
+		 * Constructor
+		 * @param tab
+		 */
 		public SubtypeName_Primary(InfoSkills tab)
 		{
 			super(tab);

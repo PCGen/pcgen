@@ -2290,12 +2290,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return domainColList.length;
 		}
 
+		/**
+		 * Reset the model
+		 */
 		public void resetModel() {
 			displayDomainList.clear();
 			for(int i = 0; i < availDomainList.size(); i++)
 			{
 				Domain dom = (Domain) availDomainList.get(i);
-				//Does anyone know why we don't call
+				//TODO Does anyone know why we don't call
 				//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
 				if (qFilter == null || dom.getName().toLowerCase().indexOf(qFilter) >= 0)
 				{
@@ -2303,6 +2306,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			}
 		}
+
 		// The default implementations of these methods in
 		// AbstractTableModel would work, but we can refine them.
 		public String getColumnName(int column)

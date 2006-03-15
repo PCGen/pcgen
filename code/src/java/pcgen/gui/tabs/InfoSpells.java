@@ -174,6 +174,10 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		}
 	}
 
+	/**
+	 * Sets whether or not this tab (and its sub tabs) needs an update
+	 * @param b
+	 */
 	public void setNeedsUpdate(boolean b)
 	{
 		if (known == null)
@@ -359,13 +363,6 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		}
 
 		return FilterConstants.MATCH_ALL;
-	}
-
-	/**
-	 * This is called when the tab is shown.
-	 */
-	private void formComponentShown()
-	{
 	}
 
 	/**

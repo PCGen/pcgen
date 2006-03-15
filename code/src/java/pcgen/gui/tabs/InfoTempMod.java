@@ -1583,17 +1583,30 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		private PCClass _class = null;
 		private int _level = 0;
 
+		/**
+		 * Constructor
+		 * @param aClass
+		 * @param aLevel
+		 */
 		public ClassWrap(PCClass aClass, int aLevel)
 		{
 			_class = aClass;
 			_level = aLevel;
 		}
 
+		/**
+		 * Get the level 
+		 * @return level
+		 */
 		public int getLevel()
 		{
 			return _level;
 		}
 
+		/**
+		 * Get the class
+		 * @return class
+		 */
 		public PCClass getMyClass()
 		{
 			return _class;
@@ -1619,6 +1632,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		private Object _creator = null;
 		private Object _target = null;
 
+		/**
+		 * Constructor
+		 * @param aMod
+		 * @param aTarget
+		 * @param aBonus
+		 */
 		public TempWrap(Object aMod, Object aTarget, BonusObj aBonus)
 		{
 			_creator = aMod;
@@ -1626,16 +1645,28 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			_bonus = aBonus;
 		}
 
+		/**
+		 * Get the BONUS object
+		 * @return BONUS object
+		 */
 		public BonusObj getBonus()
 		{
 			return _bonus;
 		}
 
+		/**
+		 * Get the creator of the bonus
+		 * @return the creator of the bonus
+		 */
 		public Object getCreator()
 		{
 			return _creator;
 		}
 
+		/**
+		 * Get the name of this bonus
+		 * @return the name of this bonus
+		 */
 		public String getName()
 		{
 			StringBuffer b = new StringBuffer();
@@ -1665,6 +1696,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			return b.toString();
 		}
 
+		/**
+		 * Get the target of the bonus
+		 * @return the target of the bonus
+		 */
 		public Object getTarget()
 		{
 			return _target;

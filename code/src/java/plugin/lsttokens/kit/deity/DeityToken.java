@@ -29,6 +29,9 @@ import pcgen.core.kit.KitDeity;
 import pcgen.persistence.lst.KitDeityLstToken;
 import pcgen.util.Logging;
 
+/**
+ * DEITY token for KitDeity 
+ */
 public class DeityToken implements KitDeityLstToken
 {
 

@@ -1065,6 +1065,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	{
 		public void singleClickEvent()
 		{
+			// TODO Do nothing
 		}
 
 		public void doubleClickEvent()
@@ -1088,6 +1089,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	{
 		public void singleClickEvent()
 		{
+			// Do Nothing
 		}
 
 		public void doubleClickEvent()
