@@ -1,1 +1,68 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project					$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/lfc_lesson10_languages.html,v 1.1 2005/03/31 03:55:33 eddyanthony Exp $		$Author: eddyanthony $		$Date: 2005/03/31 03:55:33 $		$Revision: 1.1 $				Contributors:		Eddy Anthony - eddybaATmindspringDOTcom				Description:		Provides information on List files.	-->	<head>		<title>LST File Class</title>		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />	</head>		<body>		<h1>Lesson #10: .lst - Languages</h1>		<p>By Professor Chris Chandler (Barak).</p>				<p class="indent0"><strong>File(s) Covered:</strong> *languages.lst</p>				<p class="indent0"><strong>Tags used:</strong></p>		<p class="indent1"><code> 		<a href="../datafilestagpages/datafileslanguages.html#TYPE">TYPE</a>.</code></p>				<p>This file defines the languages that may be spoken, written or read by a   character. It is even simpler than the weaponprofs.lst file in that it   consists of just the language name and a TYPE tag for each one. <p>The language lst files are where the CHOOSE:Laguage() or   CHOOSE:Laguage(TYPE.)tag generates it's list from when it is invoked. This   file also tells PCGen what languages are available for races to choose from   with their bonus languages based on their primary language stat.</p><hr><p><strong>Language name</strong></p><p>The language file is a lst file that has one language entry per line. The first   thing on each line is the name of the language. There is no tag for it, the   program assumes that whatever is there at the beginning of the line is the name   of a language.</p><hr><p><strong><code>TYPE</code></strong></p><p>The TYPE tag is used to set the type/group of the language. It may take   multiple types delimited by periods. The types used are usually Spoken,   Read, and Written. Some examples:</p><blockquote>  <p><code>English TYPE:Spoken.Read.Written<br>    Sign Language TYPE:Spoken.Read<br>    Trade Pidgin TYPE:Spoken</code></p></blockquote><p>That's really all there is to those simple .lst files.</p><p>Barak<br>  LST Chimp</p>  <!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/lfc_lesson10_languages.html,v $ ($Revision: 1.1 $) last updated $Date: 2005/03/31 03:55:33 $ by $Author: eddyanthony $</p> --></p> </body></html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/lfc_lesson10_languages.html,v 1.1 2005/03/31 03:55:33 eddyanthony Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on List files.
+	-->
+	<head>
+		<title>LST File Class</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Lesson #10: .lst - Languages</h1>
+
+		<p>By Professor Chris Chandler (Barak).</p>
+		
+		<p class="indent0"><strong>File(s) Covered:</strong> *languages.lst</p>
+		
+		<p class="indent0"><strong>Tags used:</strong></p>
+		<p class="indent1"><code> 
+		<a href="../datafilestagpages/datafileslanguages.html#TYPE">TYPE</a>.</code></p>
+
+		
+
+
+		
+<p>This file defines the languages that may be spoken, written or read by a 
+  character. It is even simpler than the weaponprofs.lst file in that it 
+  consists of just the language name and a TYPE tag for each one. 
+<p>The language lst files are where the CHOOSE:Laguage() or 
+  CHOOSE:Laguage(TYPE.)tag generates it's list from when it is invoked. This 
+  file also tells PCGen what languages are available for races to choose from 
+  with their bonus languages based on their primary language stat.</p>
+<hr>
+<p><strong>Language name</strong></p>
+<p>The language file is a lst file that has one language entry per line. The first 
+  thing on each line is the name of the language. There is no tag for it, the 
+  program assumes that whatever is there at the beginning of the line is the name 
+  of a language.</p>
+<hr>
+<p><strong><code>TYPE</code></strong></p>
+<p>The TYPE tag is used to set the type/group of the language. It may take 
+  multiple types delimited by periods. The types used are usually Spoken, 
+  Read, and Written. Some examples:</p>
+<blockquote>
+  <p><code>English TYPE:Spoken.Read.Written<br>
+    Sign Language TYPE:Spoken.Read<br>
+    Trade Pidgin TYPE:Spoken</code></p>
+</blockquote>
+<p>That's really all there is to those simple .lst files.</p>
+<p>Barak<br>
+  LST Chimp</p>
+  
+<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/lstfileclass/lfc_lesson10_languages.html,v $ ($Revision$) last updated $Date$ by $Author$</p> --></p> 
+</body>
+
+</html>

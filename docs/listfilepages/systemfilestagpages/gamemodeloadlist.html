@@ -1,1 +1,65 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project				$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodeloadlist.html,v 1.4 2005/10/14 17:37:07 eddyanthony Exp $		$Author: eddyanthony $		$Date: 2005/10/14 17:37:07 $		$Revision: 1.4 $				Contributors:		Shane Molnar - shaneATcliftonmotelDOTcomDOTau				Description:		Provides information on the use of PCGen Game Mode:Load List.	-->	<head>			<title>Game Mode:Load List</title>			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />	</head>		<body>		<h1>Game Mode: load.lst</h1>				<p>The first line is a list of Size letters with a | (pipe) delimiter separating it 			from its load limit multiplier.</p>				<p>The second through next-to-last line contain a strength value (must be incremental 			starting at 1) and the last line indicates the multiplier and power escalation for 			every 10 strength points beyond the end of the list.</p>					<p>This is to represent the multiplier of 4 for the first 10 beyond the end of the 			strength list, 16 for the next 10 (4 to the power of 2), 64 for the next 10 (4 to 			the power of 3) and so on.</p>					<p>You can change the multiplier (4) if you wish or add to the list of strength/capacity 			lines, but they must be incremental (no skipping strength scores).</p>					<p></p><a name="ENCUMBRANCE"></a><hr>		<p class="indent0"><span class="new">*** New 5.7.12</span><br />		<p class="indent0"><strong>Tag Name:</strong> ENCUMBRANCE:x|y</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of load category)</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Multiplier)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Defines the Load Catagories for the gameMode. This was previously   		hardcoded but is now set in the Load.lst file. All gameModes must include the   		six catagories listed below. Additional catagories may be defined as needed   		and the ENCUMBRANCE tag also defines the output token used. For example if you   		set <code>ENCUMBRANCE:FooBar|8</code> the output token would be <code>WEIGHT.FOOBAR</code>.   		See the entry for the output token <a href="../../outputsheetpages/tokens/outputsheettokensgeneral.html#WEIGHT">WEIGHT</a></p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>	ENCUMBRANCE:Light|1/3<br>									ENCUMBRANCE:Medium|2/3<br>									ENCUMBRANCE:Heavy|1<br>									ENCUMBRANCE:OverHead|1<br>									ENCUMBRANCE:OffGround|2<br>									ENCUMBRANCE:PushDrag|5</code></p>		<p class="indent3">These six catagories must be included in all gameModes.</p>		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodeloadlist.html,v $ ($Revision: 1.4 $) last updated $Date: 2005/10/14 17:37:07 $ by $Author: eddyanthony $</p> -->	</body></html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodeloadlist.html,v 1.4 2005/10/14 17:37:07 eddyanthony Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		
+		Description:
+		Provides information on the use of PCGen Game Mode:Load List.
+	-->
+	<head>
+			<title>Game Mode:Load List</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Game Mode: load.lst</h1>
+		
+		<p>The first line is a list of Size letters with a | (pipe) delimiter separating it 
+			from its load limit multiplier.</p>
+		
+		<p>The second through next-to-last line contain a strength value (must be incremental 
+			starting at 1) and the last line indicates the multiplier and power escalation for 
+			every 10 strength points beyond the end of the list.</p>
+			
+		<p>This is to represent the multiplier of 4 for the first 10 beyond the end of the 
+			strength list, 16 for the next 10 (4 to the power of 2), 64 for the next 10 (4 to 
+			the power of 3) and so on.</p>
+			
+		<p>You can change the multiplier (4) if you wish or add to the list of strength/capacity 
+			lines, but they must be incremental (no skipping strength scores).</p>
+			
+		<p></p><a name="ENCUMBRANCE"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.7.12</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> ENCUMBRANCE:x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of load category)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Multiplier)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines the Load Catagories for the gameMode. This was previously 
+  		hardcoded but is now set in the Load.lst file. All gameModes must include the 
+  		six catagories listed below. Additional catagories may be defined as needed 
+  		and the ENCUMBRANCE tag also defines the output token used. For example if you 
+  		set <code>ENCUMBRANCE:FooBar|8</code> the output token would be <code>WEIGHT.FOOBAR</code>. 
+  		See the entry for the output token <a href="../../outputsheetpages/tokens/outputsheettokensgeneral.html#WEIGHT">WEIGHT</a></p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>	ENCUMBRANCE:Light|1/3<br>
+									ENCUMBRANCE:Medium|2/3<br>
+									ENCUMBRANCE:Heavy|1<br>
+									ENCUMBRANCE:OverHead|1<br>
+									ENCUMBRANCE:OffGround|2<br>
+									ENCUMBRANCE:PushDrag|5</code></p>
+		<p class="indent3">These six catagories must be included in all gameModes.</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodeloadlist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	</body>
+
+</html>

@@ -1,1 +1,280 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project					$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTstandards.html,v 1.3 2004/10/22 02:51:59 eddyanthony Exp $		$Author: eddyanthony $		$Date: 2004/10/22 02:51:59 $		$Revision: 1.3 $				Contributors:		Shane Molnar - shaneATcliftonmotelDOTcomDOTau				Description:		Provides information on Official Release LST standards.	-->	<head>		<title>Official Release LST standards</title>		<link rel="stylesheet" type="text/css" href="../pcgen.css" />	</head>		<body>		<h1>Official Release LST standards</h1>				<p>Guidelines for Official Release source submissions.</p>				<p>Please put [SUBMIT] in the subject line when emailing the team with submissions issues.</p>				<p><strong>RULE 1</strong>: Be true to the Source Product (i.e. do not make any judgment calls). If the source 		doesn't say it, it doesn't go in. It is better to leave incorrect or unclear information out.</p>				<p><strong>RULE 2</strong>: Leave any calls about gray areas to the PCGen Submission Team member.</p>				<p><strong>RULE 3</strong>: Mechanics are NOT to be described. If the final result can be displayed, that is 		good, but no describing the mechanics behind it on the character sheet.</p>				<p><strong>RULE 4:</strong> Capitalization:</p>				<ul>			<li>HARDCODE = ALLCAPS.</li>			<li>Defined in List files (GameMode or otherwise) = ProperCase.</li>		</ul>				<p><strong>Example:</strong><br />		<code>BONUS:COMBAT|AC|5|TYPE=MyType</code></p>				<p>BONUS, COMBAT, AC, and TYPE= are all hardcoded. MyType is defined in the List file (because it just got added!)</p>				<p><strong>Example:</strong><br />		<code>VISIBLE:YES, VISIBLE:NO, VISIBLE:DISPLAY, VISIBLE:EXPORT</code></p>				<p>YES, NO, DISPLAY, and EXPORT are the only valid values of the VISIBLE tag.&nbsp; 		Since those values and what they do are hardcoded into PCGen, they are done 		in ALLCAPS in the data files.</p>						<h2>Basics:</h2>				<ol>			<li><p>Plain TEXT file, with a .LST ending for data files, or .PCC for campaign files, instead 				of .txt<br />				Use Text editors, such as Wordpad (notepad sometimes has problems with the length of 				the lines), UltraEdit, Textpad, vi, or ee.<br />				Microsoft Word has problems with formatting and layout of text, it is not recommended to be 				used to create files.<br />				Some LST Monkeys use Excel, and export to a tab delimitated file, which works.</p></li>					<li><p>Tabs between objects. No spaces before or after those tabs. Tab should 				NEVER be the first character on a line.</p></li>					<li><p>Make sure the first character is either a # (for comment) or a name of the object being defined such as a 				TAG.<br />				Tabs and spaces are hard to see, and cause loading issues.</p></li>					<li><p>Set your text editor to 6 spaces per tab, as that is the standard for 				columnizing the files.</p></li>					<li>Comments on ANYTHING you are unsure about, or haven't been able to implement correctly.<br />				Comments are always done on their own line, and start with #.<br />				<ul>					<li>If you have a suggestion on how to do something, but not totally sure, include that.</li>					<li>If you have a suggestion on how to do something that would require some code changes, comment on that.<br /></li>				</ul></li>					<li>Comment line at top of LST files: # Original Entry by: &lt;your name&gt;.<br />				You want credit for the hard work you've done, right?</li>		</ol>				<a name="ogl"></a>		<h2>OGL Compliance</h2>				<p>The Open Game License (OGL) is a royalty free copyright license developed     	by Wizards of the Coast. The OGL has revitalized the RPG industry by creating     	a way for third party publishers to easily create and publish material they     	might not otherwise be free to. Publishers use the OGL to release Open Game     	Content (OGC) which can be used by other publishers seeking publish content     	based on the original publishers work. Open Game Content is any material that     	is distributed using the Open Game License clearly identified by the publisher 		as Open Game Content.</p>				<p>You can read the OGL <a href="../acknowledgments/ogllicense.html">here   		in our documentation</a> or here at <a href="http://www.wizards.com/default.asp?x=d20/welcome" target="_parent">		Wizards of the Coast's web site</a> which contains additional information about the OGL.</p>				<p>PCGen publishes its data via the OGL. As an OGL publisher we have to insure    	 	that the data we publish complies in all respects with the Open Game License.     	All data is reviewed for OGL Compliance before being entered into the project     	data files.</p>				<p>At this time we only publish Open Game Content. Though not required by the     	OGL, PCGen also seeks permission from publishers before including their data     	in our releases.</p>				<h2>OGC vs. Product Identity:</h2>				<p><strong>OGC</strong>: For OGL sources, OGC is declared somewhere in the book. It is 		usually on the title/copyright page (front of book) or the OGL page (usually in 		the very back). Including that declaration in a separate file with your 		submission will greatly speed its inclusion into PCGen, since it will give us a 		quick way of verifying Product Identity to ensure compliance with the OGL on our 		part.</p>				<p><strong>Product Identity</strong>: For names of objects, use the NAMEISPI:YES tag		in your submission. For a first submission, please do not include any 		other Product Identity unless you have discussed it with a PCGen Submission Team 		member. If you receive a go ahead, follow the restrictions set by it down to the 		letter.</p>						<h2>Other Topics:</h2>				<h3>Copyright (in PCC)</h3>				<ol>			<li><p>ONLY and EXACTLY what is in the Sec. 15 of the OGL. <strong>VERBATIM</strong>.<br />				If there are Typos, leave them in.&nbsp; Weird characters, leave them in.&nbsp; Stupid comments, leave them in.<br />				Including a scanned page from the book with your submission would be nice but not completely necessary.</p></li>					<li>List each source mentioned in the Section 15 in its own COPYRIGHT tag line				- see Cityscape files (by Battlefield Press) for a superb example.</li>		</ol>						<h3>Names of things</h3>				<ol>			<li><p>If the name of the object must be different from the source (due to 				commas or math symbols in the name or other reasons), an OUTPUTNAME: tag 				with the EXACT name must be included.</p></li>					<li><p>Potions should be listed as Potion (&lt;name&gt;) with OUTPUTNAME:Potion of 				[NAME] unless the source lists it as otherwise (see part 1 for rules to follow in that case)</p></li>			<li><p>Poisons, Rods, Staffs, Wands and same way as Potions.</p></li>		</ol>				<h3>File names</h3>				<p>LST file names for PCGen follow a certain naming conventions. You should use   		all lowercase letters in the file name. The first part of any file will be a   		short version of the source name, for example if the source is named 'The Foo   		Handbook' we can shorten it to foohandbook or even fhb. The source name will   		be followed by words indicating what type of objects the file contains. These   		words are separated an underscore (_) symbol. Using our example here are   		some names for a typical source. These are not required but it does help to   		quickly identify the contents of the file. This list is incomplete but should 		give you a good idea of how you should name your files as well as how you 		should divide up the contents of your dataset. Take a look at other sources 		that come with PCGen for more examples.</p>				<p class="indent1"><code>fhb.pcc</code> - loads all the LST files</p>		<p class="indent1"><code>fhb_classes_base.lst</code> - Contains base classes</p>		<p class="indent1"><code>fhb_classes_prestige.lst</code> - Contains prestige classes</p>		<p class="indent1"><code>fhb_companionmods.lst</code> - Contains companion mods</p>		<p class="indent1"><code>fhb_deities.lst</code> - Contains deities</p>		<p class="indent1"><code>fhb_domains.lst</code> - Contains domains</p>		<p class="indent1"><code>fhb_equip.lst</code> - Contains general equipment</p>		<p class="indent1"><code>fhb_equipmods.lst</code> - Contains equipment mods</p>		<p class="indent1"><code>fhb_feats.lst</code> - Contains feats</p>		<p class="indent1"><code>fhb_feats_hidden.lst</code> - Contains hidden feats</p>				<p class="indent1"><code>fhb_equip_armorshields.lst</code> - Contains armor and shields</p>		<p class="indent1"><code>fhb_equip_armorshields_specific.lst</code> - Contains specific kinds of armor and shields, magical, extraordinary, etc..</p>		<p class="indent1"><code>fhb_equip_equip_weap_melee.lst</code> - Contains melee weapons</p>		<p class="indent1"><code>fhb_equip_equip_weap_ranged.lst</code> - Contains ranged weapons</p>		<p class="indent1"><code>fhb_equip_wondrousitems.lst</code> - Contains wondrous items</p>						<h3>SOURCELONG, SOURCESHORT, SOURCEWEB, SOURCEPAGE</h3>				<p>SOURCELONG, SOURCESHORT, and SOURCEWEB are defined in both the PCC and the top of the LST 		files. These can be easily be changed by the submission team, so do not feel 		bad if they are.</p>				<p>Formats should be as follows:</p>				<ul>			<li><p><strong>SOURCELONG</strong>:&lt;name of publisher&gt; - [&lt;name of product group, if any&gt; - ] &lt;name of product</p></li>					<li><p><strong>SOURCESHORT</strong>:&lt;10 letter or less abbreviation of the name of the product&gt;<br />				Leave the first name of the product whole, if possible.</p></li>					<li><p><strong>SOURCEWEB</strong>:http://&lt;web address of publisher, or product group if the publisher has a page for that&gt;</p></li>					<li><p><strong>SOURCEPAGE</strong> is done on object lines.<br />				Use the first page the object is described (so if a class is defined on pages 51-54, the tag would read SOURCEPAGE:p.51)<br />				Format should be SOURCEPAGE:p.#</p></li>		</ul>						<h3>SA</h3>				<ol>			<li><p>Name ONLY</p></li>					<li><p>Type of Special ability in Parentheses only if mentioned in Source: (Ex) 				(Su) (Sp) etc. If not mentioned, don't put one.</p></li>					<li><p>If there is a Dynamic formula, and the formula can be calculated, it can be included, but no Formulas 				described.<br />				See Monk Stun, and Dragon SA's. If it has a static range (like 10' no matter what) then that should not be 				listed.<br />				The user will need to own the source in that case. The dynamic formulas should be done via DEFINE/BONUS:VAR 				tags.</p></li>		</ol>						<h3>DESC (Feats, Spells, Deities, Domains)</h3>				<ol>			<li><p>Check for Open Game Content.&nbsp; If the DESC (see below for what to look 				for) is not OGC, leave as DESC:See text.</p></li>					<li><p>If OGC, for Feats: Use only a 1 line description w/o mechanics. This is 				best by grabbing the &quot;flavor&quot; line after the feat name but before the 				&quot;Benefits&quot; or mechanics portion of the feat. This is usually before any 				prerequisites are listed.</p></li>					<li><p>If OGC, for Spells: Use only a 1 line description that comes with the 				class spell lists. Some sources have a purely descriptive element for the 				Spells that are NOT OGC. Consulting with the publisher (and getting 				permission for the IP/PI) is for the PCGen Submissions Team. Please leave 				those with See Text, and when submitting the files, include a file with 				comments such as this, so we know where we stand, and can progress with 				acquiring permission for the PI or leaving it.</p></li>					<li><p>If permission is granted for closed content PI by the publisher 				(submission team will inform you if so), then the DESC can be filled in with 				the same rules as above, but a DESCISPI:YES tag must also be added.</p></li>		</ol>						<h3>DEFINE/BONUS:VAR|</h3>				<p>These two tags are used to track variables across different objects.</p>				<ol>			<li><p>No spaces in the Variable names.</p></li>					<li><p>Full words where possible (no over compressing to the point where it 				isn't readily understandable to what you are referring to).</p></li>					<li><p>Capitalization: Please use Capitals for the beginnings of words, and 				lower case for every other letter. For Example: 				DEFINE:FooClassSpecialAbility|0</p></li>					<li><p>Please use formulas where possible. Such as CL=Name in for class abilities.<br />				1 Bonus statement with a formula is processed faster than a BONUS statement on ever class line.</p></li>					<li><p>For Variables that will have a BONUS:VAR| in another object than where 				it is DEFINEd, or if it will be DEFINEd in more than one object, the 				standard is DEFINE:&lt;name&gt;|0 and leaving all numbers to BONUS:VAR|&lt;name&gt;| 				statements.</p></li>		</ol>				<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTstandards.html,v $ ($Revision: 1.3 $) last updated $Date: 2004/10/22 02:51:59 $ by $Author: eddyanthony $</p> -->	</body>	</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTstandards.html,v 1.3 2004/10/22 02:51:59 eddyanthony Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		
+		Description:
+		Provides information on Official Release LST standards.
+	-->
+	<head>
+		<title>Official Release LST standards</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Official Release LST standards</h1>
+		
+		<p>Guidelines for Official Release source submissions.</p>
+		
+		<p>Please put [SUBMIT] in the subject line when emailing the team with submissions issues.</p>
+		
+		<p><strong>RULE 1</strong>: Be true to the Source Product (i.e. do not make any judgment calls). If the source 
+		doesn't say it, it doesn't go in. It is better to leave incorrect or unclear information out.</p>
+		
+		<p><strong>RULE 2</strong>: Leave any calls about gray areas to the PCGen Submission Team member.</p>
+		
+		<p><strong>RULE 3</strong>: Mechanics are NOT to be described. If the final result can be displayed, that is 
+		good, but no describing the mechanics behind it on the character sheet.</p>
+		
+		<p><strong>RULE 4:</strong> Capitalization:</p>
+		
+		<ul>
+			<li>HARDCODE = ALLCAPS.</li>
+			<li>Defined in List files (GameMode or otherwise) = ProperCase.</li>
+		</ul>
+		
+		<p><strong>Example:</strong><br />
+		<code>BONUS:COMBAT|AC|5|TYPE=MyType</code></p>
+		
+		<p>BONUS, COMBAT, AC, and TYPE= are all hardcoded. MyType is defined in the List file (because it just got added!)</p>
+		
+		<p><strong>Example:</strong><br />
+		<code>VISIBLE:YES, VISIBLE:NO, VISIBLE:DISPLAY, VISIBLE:EXPORT</code></p>
+		
+		<p>YES, NO, DISPLAY, and EXPORT are the only valid values of the VISIBLE tag.&nbsp; 
+		Since those values and what they do are hardcoded into PCGen, they are done 
+		in ALLCAPS in the data files.</p>
+		
+		
+		<h2>Basics:</h2>
+		
+		<ol>
+			<li><p>Plain TEXT file, with a .LST ending for data files, or .PCC for campaign files, instead 
+				of .txt<br />
+				Use Text editors, such as Wordpad (notepad sometimes has problems with the length of 
+				the lines), UltraEdit, Textpad, vi, or ee.<br />
+				Microsoft Word has problems with formatting and layout of text, it is not recommended to be 
+				used to create files.<br />
+				Some LST Monkeys use Excel, and export to a tab delimitated file, which works.</p></li>
+		
+			<li><p>Tabs between objects. No spaces before or after those tabs. Tab should 
+				NEVER be the first character on a line.</p></li>
+		
+			<li><p>Make sure the first character is either a # (for comment) or a name of the object being defined such as a 
+				TAG.<br />
+				Tabs and spaces are hard to see, and cause loading issues.</p></li>
+		
+			<li><p>Set your text editor to 6 spaces per tab, as that is the standard for 
+				columnizing the files.</p></li>
+		
+			<li>Comments on ANYTHING you are unsure about, or haven't been able to implement correctly.<br />
+				Comments are always done on their own line, and start with #.<br />
+				<ul>
+					<li>If you have a suggestion on how to do something, but not totally sure, include that.</li>
+					<li>If you have a suggestion on how to do something that would require some code changes, comment on that.<br /></li>
+				</ul></li>
+		
+			<li>Comment line at top of LST files: # Original Entry by: &lt;your name&gt;.<br />
+				You want credit for the hard work you've done, right?</li>
+		</ol>
+		
+		<a name="ogl"></a>
+		<h2>OGL Compliance</h2>
+		
+		<p>The Open Game License (OGL) is a royalty free copyright license developed 
+    	by Wizards of the Coast. The OGL has revitalized the RPG industry by creating 
+    	a way for third party publishers to easily create and publish material they 
+    	might not otherwise be free to. Publishers use the OGL to release Open Game 
+    	Content (OGC) which can be used by other publishers seeking publish content 
+    	based on the original publishers work. Open Game Content is any material that 
+    	is distributed using the Open Game License clearly identified by the publisher 
+		as Open Game Content.</p>
+		
+		<p>You can read the OGL <a href="../acknowledgments/ogllicense.html">here 
+  		in our documentation</a> or here at <a href="http://www.wizards.com/default.asp?x=d20/welcome" target="_parent">
+		Wizards of the Coast's web site</a> which contains additional information about the OGL.</p>
+		
+		<p>PCGen publishes its data via the OGL. As an OGL publisher we have to insure 
+   	 	that the data we publish complies in all respects with the Open Game License. 
+    	All data is reviewed for OGL Compliance before being entered into the project 
+    	data files.</p>
+		
+		<p>At this time we only publish Open Game Content. Though not required by the 
+    	OGL, PCGen also seeks permission from publishers before including their data 
+    	in our releases.</p>
+		
+		<h2>OGC vs. Product Identity:</h2>
+		
+		<p><strong>OGC</strong>: For OGL sources, OGC is declared somewhere in the book. It is 
+		usually on the title/copyright page (front of book) or the OGL page (usually in 
+		the very back). Including that declaration in a separate file with your 
+		submission will greatly speed its inclusion into PCGen, since it will give us a 
+		quick way of verifying Product Identity to ensure compliance with the OGL on our 
+		part.</p>
+		
+		<p><strong>Product Identity</strong>: For names of objects, use the NAMEISPI:YES tag
+		in your submission. For a first submission, please do not include any 
+		other Product Identity unless you have discussed it with a PCGen Submission Team 
+		member. If you receive a go ahead, follow the restrictions set by it down to the 
+		letter.</p>
+		
+		
+		<h2>Other Topics:</h2>
+		
+		<h3>Copyright (in PCC)</h3>
+		
+		<ol>
+			<li><p>ONLY and EXACTLY what is in the Sec. 15 of the OGL. <strong>VERBATIM</strong>.<br />
+				If there are Typos, leave them in.&nbsp; Weird characters, leave them in.&nbsp; Stupid comments, leave them in.<br />
+				Including a scanned page from the book with your submission would be nice but not completely necessary.</p></li>
+		
+			<li>List each source mentioned in the Section 15 in its own COPYRIGHT tag line
+				- see Cityscape files (by Battlefield Press) for a superb example.</li>
+		</ol>
+		
+		
+		<h3>Names of things</h3>
+		
+		<ol>
+			<li><p>If the name of the object must be different from the source (due to 
+				commas or math symbols in the name or other reasons), an OUTPUTNAME: tag 
+				with the EXACT name must be included.</p></li>
+		
+			<li><p>Potions should be listed as Potion (&lt;name&gt;) with OUTPUTNAME:Potion of 
+				[NAME] unless the source lists it as otherwise (see part 1 for rules to follow in that case)</p></li>
+			<li><p>Poisons, Rods, Staffs, Wands and same way as Potions.</p></li>
+		</ol>
+		
+		<h3>File names</h3>
+		
+		<p>LST file names for PCGen follow a certain naming conventions. You should use 
+  		all lowercase letters in the file name. The first part of any file will be a 
+  		short version of the source name, for example if the source is named 'The Foo 
+  		Handbook' we can shorten it to foohandbook or even fhb. The source name will 
+  		be followed by words indicating what type of objects the file contains. These 
+  		words are separated an underscore (_) symbol. Using our example here are 
+  		some names for a typical source. These are not required but it does help to 
+  		quickly identify the contents of the file. This list is incomplete but should 
+		give you a good idea of how you should name your files as well as how you 
+		should divide up the contents of your dataset. Take a look at other sources 
+		that come with PCGen for more examples.</p>
+		
+		<p class="indent1"><code>fhb.pcc</code> - loads all the LST files</p>
+		<p class="indent1"><code>fhb_classes_base.lst</code> - Contains base classes</p>
+		<p class="indent1"><code>fhb_classes_prestige.lst</code> - Contains prestige classes</p>
+		<p class="indent1"><code>fhb_companionmods.lst</code> - Contains companion mods</p>
+		<p class="indent1"><code>fhb_deities.lst</code> - Contains deities</p>
+		<p class="indent1"><code>fhb_domains.lst</code> - Contains domains</p>
+		<p class="indent1"><code>fhb_equip.lst</code> - Contains general equipment</p>
+		<p class="indent1"><code>fhb_equipmods.lst</code> - Contains equipment mods</p>
+		<p class="indent1"><code>fhb_feats.lst</code> - Contains feats</p>
+		<p class="indent1"><code>fhb_feats_hidden.lst</code> - Contains hidden feats</p>
+		
+		<p class="indent1"><code>fhb_equip_armorshields.lst</code> - Contains armor and shields</p>
+		<p class="indent1"><code>fhb_equip_armorshields_specific.lst</code> - Contains specific kinds of armor and shields, magical, extraordinary, etc..</p>
+		<p class="indent1"><code>fhb_equip_equip_weap_melee.lst</code> - Contains melee weapons</p>
+		<p class="indent1"><code>fhb_equip_equip_weap_ranged.lst</code> - Contains ranged weapons</p>
+		<p class="indent1"><code>fhb_equip_wondrousitems.lst</code> - Contains wondrous items</p>
+		
+		
+		<h3>SOURCELONG, SOURCESHORT, SOURCEWEB, SOURCEPAGE</h3>
+		
+		<p>SOURCELONG, SOURCESHORT, and SOURCEWEB are defined in both the PCC and the top of the LST 
+		files. These can be easily be changed by the submission team, so do not feel 
+		bad if they are.</p>
+		
+		<p>Formats should be as follows:</p>
+		
+		<ul>
+			<li><p><strong>SOURCELONG</strong>:&lt;name of publisher&gt; - [&lt;name of product group, if any&gt; - ] &lt;name of product</p></li>
+		
+			<li><p><strong>SOURCESHORT</strong>:&lt;10 letter or less abbreviation of the name of the product&gt;<br />
+				Leave the first name of the product whole, if possible.</p></li>
+		
+			<li><p><strong>SOURCEWEB</strong>:http://&lt;web address of publisher, or product group if the publisher has a page for that&gt;</p></li>
+		
+			<li><p><strong>SOURCEPAGE</strong> is done on object lines.<br />
+				Use the first page the object is described (so if a class is defined on pages 51-54, the tag would read SOURCEPAGE:p.51)<br />
+				Format should be SOURCEPAGE:p.#</p></li>
+		</ul>
+		
+		
+		<h3>SA</h3>
+		
+		<ol>
+			<li><p>Name ONLY</p></li>
+		
+			<li><p>Type of Special ability in Parentheses only if mentioned in Source: (Ex) 
+				(Su) (Sp) etc. If not mentioned, don't put one.</p></li>
+		
+			<li><p>If there is a Dynamic formula, and the formula can be calculated, it can be included, but no Formulas 
+				described.<br />
+				See Monk Stun, and Dragon SA's. If it has a static range (like 10' no matter what) then that should not be 
+				listed.<br />
+				The user will need to own the source in that case. The dynamic formulas should be done via DEFINE/BONUS:VAR 
+				tags.</p></li>
+		</ol>
+		
+		
+		<h3>DESC (Feats, Spells, Deities, Domains)</h3>
+		
+		<ol>
+			<li><p>Check for Open Game Content.&nbsp; If the DESC (see below for what to look 
+				for) is not OGC, leave as DESC:See text.</p></li>
+		
+			<li><p>If OGC, for Feats: Use only a 1 line description w/o mechanics. This is 
+				best by grabbing the &quot;flavor&quot; line after the feat name but before the 
+				&quot;Benefits&quot; or mechanics portion of the feat. This is usually before any 
+				prerequisites are listed.</p></li>
+		
+			<li><p>If OGC, for Spells: Use only a 1 line description that comes with the 
+				class spell lists. Some sources have a purely descriptive element for the 
+				Spells that are NOT OGC. Consulting with the publisher (and getting 
+				permission for the IP/PI) is for the PCGen Submissions Team. Please leave 
+				those with See Text, and when submitting the files, include a file with 
+				comments such as this, so we know where we stand, and can progress with 
+				acquiring permission for the PI or leaving it.</p></li>
+		
+			<li><p>If permission is granted for closed content PI by the publisher 
+				(submission team will inform you if so), then the DESC can be filled in with 
+				the same rules as above, but a DESCISPI:YES tag must also be added.</p></li>
+		</ol>
+		
+		
+		<h3>DEFINE/BONUS:VAR|</h3>
+		
+		<p>These two tags are used to track variables across different objects.</p>
+		
+		<ol>
+			<li><p>No spaces in the Variable names.</p></li>
+		
+			<li><p>Full words where possible (no over compressing to the point where it 
+				isn't readily understandable to what you are referring to).</p></li>
+		
+			<li><p>Capitalization: Please use Capitals for the beginnings of words, and 
+				lower case for every other letter. For Example: 
+				DEFINE:FooClassSpecialAbility|0</p></li>
+		
+			<li><p>Please use formulas where possible. Such as CL=Name in for class abilities.<br />
+				1 Bonus statement with a formula is processed faster than a BONUS statement on ever class line.</p></li>
+		
+			<li><p>For Variables that will have a BONUS:VAR| in another object than where 
+				it is DEFINEd, or if it will be DEFINEd in more than one object, the 
+				standard is DEFINE:&lt;name&gt;|0 and leaving all numbers to BONUS:VAR|&lt;name&gt;| 
+				statements.</p></li>
+		</ol>
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTstandards.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	</body>
+	
+</html>
+

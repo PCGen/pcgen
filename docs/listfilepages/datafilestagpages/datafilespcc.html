@@ -1,530 +1,530 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-	<!--
-		PCGen Documentation Project
-		
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v 1.16 2006/02/18 15:02:00 eddyanthony Exp $
-		$Author: eddyanthony $
-		$Date: 2006/02/18 15:02:00 $
-		$Revision: 1.16 $
-		
-		Contributors:
-		Stephen Collins - tribATstephencollinsDOTorg
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
-		
-		Description:
-		Provides information on the content of PCGen Campaign Configuration (PCC) files.
-	-->
-	<head>
-		<title>PCC Files</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
-	</head>
-
-	<body>
-		<h1>PCC files</h1>
-		<p>These are the PCGen Campaign Configuration files. Here you can specify what you want included in this campaign. 
-		<span class="bolditalicunderline">Note - you cannot anywhere, other than immediately after the tag, use a colon (:) in the CAMPAIGN tag.</span> 
-		Doing so will cause PCGen to report errors and not load correctly. It is recommended practice that your pcc files be located in the same directory as your list files, 
-		the notable exception being if you have multiple directories, with multiple list files, then you locate a &quot;master&quot; pcc file in the main directory. 
-		This will be explained below in the TAGs section.</p>
-		
-		<p>This page is divided into three sections</p>
-		
-		<p class="indent1"><strong><a href="#SOURCETAGS">Source and Header Information Tags</a></strong> - are used to provide information about the dataset</p>
-		<p class="indent1"><strong><a href="#MAINBODYTAGS">Main Body Tags</a></strong> - are used to load the specific .lst files which make up the dataset.</p>
-		<p class="indent1"><strong><a href="#OTHERPCCTAGS">Other .pcc file tags</a></strong> - are used to provide additional functionality.</p>
-		
-
-		<h2><a name="SOURCETAGS"></a>Source and Header Information Tags</h2>
-		<p class="indent0"><span class="new">NOTE:</span> The first three tags, CAMPAIGN, GAMEMODE and TYPE, 
-		are presented first out of alphabetical order to emphisize that they are required tags which must be the first three lines in a .pcc file.</p>
-
-		<p></p><a name="CAMPAIGN"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> CAMPAIGN:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of source)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This <em>MUST</em> be the first line in the file. The standard format used is Company Short Name (Foo) - Campaign Name - Name of material</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CAMPAIGN:FGI - FooB Core Rulebook I - FHB</code></p>
-		<p class="indent3"><span class="new">WARNING:</span> The use of the ampersand (&amp;) sign will cause significant problems with PCGen, so recommended usage is to replace with the word &quot;and&quot; or the letter &quot;n&quot; to avoid this.</p>
-
-		<p></p><a name="GAMEMODE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> GAMEMODE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Name of GameMode)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> This <em>MUST</em> be 2nd in the file. This tells PCGen what genre this is in PCGen and must be entered exactly as shown.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>GAMEMODE:3e</code></p>
-
-		<p></p><a name="TYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Source types)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> This <em>MUST</em> be third in the file. The tag elements are as follows:</p>
-		<ul class="indent2">
-			<li>element 1 (e.g., Foo Games) is the name of the company or individual that produced the material that the data files are based on;</li>
-			<li>element 2 is the format of that original material (e.g., Sourcebook, Web Enhancement, Magazine, Supplement, etc.), and;</li>
-			<li>element 3 (optional) is the &quot;campaign setting&quot; for the original material (such as the publisher's campaign realm).</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TYPE:Foo Games.Core Rules.Core</code></p>
-		
-		<p></p><a name="COPYRIGHT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> COPYRIGHT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Copyright information)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to display copyright information when a source is single clicked on, in the source selection page, upon program start.</p>
-		<p class="indent2">Sources included with PCGen should have the copyright information 
-  			from section 15 of the Open Game License included in the source reproduced verbatim.</p>
-		<p class="indent2">An additional entry should be made listing all who worked on the PCGen conversion in the format shown below.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COPYRIGHT:PCGen dataset conversion for "X Book" Copyright XXXX-YYYY, 
-			PCgen Data Team including, but not limited to, "Original Author", "Any secondary authors".</code></p>
-		<p class="indent3">This is the Sec. 15 that should be added to all sources going into PCGen. 
-			X Book should be the name of the source, XXXX should be the year the dataset was created and YYYY is the current year. 
-			Please list all contributors to the dataset.</p>
-		<p class="indent2"><code>COPYRIGHT:Foo Reference Document &amp;copy 2003 Foo Games, Inc.</code></p>
-		<p class="indent3"><strong>Note(s):</strong><code>&amp;copy</code> - This code coverts to a copyright symbol (&copy;) when put in the text of a COPYRIGHT tag.</p>
-
-		<p></p><a name="HELP"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> HELP:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Internet address)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Provides an internet link to a webpage for help with the source. 
-		  The link can be accessed in the GUI by right clicking the source name in the 
-		  source tab and selecting &quot;Product Help...&quot;.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>HELP:http://www.foogames.com/producthelp.html</code></p>
-
-		<p></p><a name="INFOTEXT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> INFOTEXT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Information)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Provides Text information that is displayed in the Information Window on the Source Tab when the source material is selected.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>INFOTEXT:This pcc loads all the Foo source materials minus the FooWorld races</code></p>
-
-		<p></p><a name="ISD20"></a><hr>
-		<p class="new">Deprecated 5.4</p>
-		<p class="indent0"><strong>Tag Name:</strong> ISD20:x</p>
-
-		<p></p><a name="ISOGL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> ISOGL:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to indicate if sources are OGL compliant. If <code>ISOGL:YES</code> then its COPYRIGHT info gets inserted into the OGL license. This tag is optional.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>ISOGL:YES</code></p>
-		<p class="indent2"><code>ISOGL:NO</code></p>
-
-		<p></p><a name="ISLICENSED"></a><hr>
-		<p class="new">*** New 5.3.3</p>
-		<p class="indent0"><strong>Tag Name:</strong> ISLICENSED:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to indicate if sources have a special license, and activated the LICENSE tag, which will display information about the license to the end-user.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>ISLICENSED:YES</code></p>
-		<p class="indent2"><code>ISLICENSED:NO</code></p>
-
-		<p></p><a name="GAME"></a><hr>
-		<p class="new">*** Deprecated - will be gone soon. Use GAMEMODE ***</p>
-		<p class="indent0"><strong>Tag Name:</strong> GAME:x</p>
-
-		<p></p><a name="GENRE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> GENRE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Genre)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tells PCGen what genre this is.</p>
-		<p class="indent2">Eventually This will be used to filter sources.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>GENRE:Fantasy</code></p>
-
-		<p></p><a name="LICENSE"></a><hr>
-		<p class="new">*** New 5.3.3</p>
-		<p class="indent0"><strong>Tag Name:</strong> LICENSE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (License information)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>FILE=Text (HTML file)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays special license information in a pop-up at time of source load. Requires a <code>ISLICENSED:YES</code> tag to be active.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>LICENSE:This set included with special permission from Foo Games</code></p>
-		<p class="indent3">Would display the text in a nice box with other licenses.</p>
-		<p class="indent2"><code>LICENSE:FILE=foolicense.html</code></p>
-		<p class="indent3">Doing a <code>FILE=</code> allows PCC to point to an HTML formatted file, which will display in a box of its own.</p>
-
-		<p></p><a name="RANK"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> RANK:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Rank)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the priority in loading .pcc files. 
-			1 is the highest priority and 9 is the lowest priority for loading .pcc files.</p>
-		<p class="indent2">When PCGen encounters certain objects with duplicate names from different sources 
-			(such as Classes) the object in the source with the highest priority rank will be loaded 
-			while the duplicate will generate an error message (and will not be loaded).</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RANK:1</code></p>
-		<p class="indent3">This pcc file is given first priority when loading.</p>
-		<p class="indent1"><strong>Officially sanctioned use of ranks:</strong></p>
-		<p class="indent2"> RANK:1 - Core rules</p>
-		<p class="indent2"> RANK:2 - Campaign settings</p>
-		<p class="indent2"> RANK:3 - Supplements</p>
-		<p class="indent2"> RANK:4 - Web enhancements</p>
-		<p class="indent2"> RANK:5 - 3rd party campaign books</p>
-		<p class="indent2"> RANK:6 - 3rd party supplements</p>
-		<p class="indent2"> RANK:7 - 3rd party web enhancements</p>
-		<p class="indent2"> RANK:8 and 9 - Homebrew</p>
-
-		<p></p><a name="SETTING"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SETTING:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Setting)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> This tells PCGen what the setting is (if there is one).</p>
-		<p class="indent2">Eventually This will be used to filter sources.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SETTING:Ravenloft</code></p>
-		
-		<p></p><a name="BOOKTYPE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> BOOKTYPE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Book type)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tells PCGen what the book type is.</p>
-		<p class="indent2">Eventually This will be used to filter sources.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BOOKTYPE:Supplement</code></p>
-
-		<p></p><a name="SOURCELONG"></a><hr>
-		<p class="new">*** Updated 4.3.10</p>
-		<p class="indent0"><strong>Tag Name:</strong> SOURCELONG:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of source)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> The full product/book name.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SOURCELONG:Core Rulebook I (Foo Handbook)</code></p>
-		<p class="indent3">The long source name for this file is &quot;Core Rulebook I (Foo Handbook)&quot;.</p>
-
-		<p></p><a name="SOURCESHORT"></a><hr>
-		<p class="new">*** Updated 4.3.10</p>
-		<p class="indent0"><strong>Tag Name:</strong> SOURCESHORT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Short name of source)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The short product/book name.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SOURCESHORT:FHB</code></p>
-		<p class="indent3">The short source name for this file is &quot;FHB&quot;.</p>
-
-		<p></p><a name="SOURCEWEB"></a><hr>
-		<p class="new">*** Updated 4.3.10</p>
-		<p class="indent0"><strong>Tag Name:</strong> SOURCEWEB:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Web address)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> The URL that points directly to this product/book.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code></p>
-		<p class="indent3">The web site for this source is &quot;SOURCEWEB:http://www.foogames.com/product.php?products=654321&quot;.</p>
-
-		<p></p><a name="SOURCEDATE"></a><hr>
-		<p class="new">*** New 5.9.5</p>
-		<p class="indent0"><strong>Tag Name:</strong> SOURCEDATE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Date (Release date of source in format YYYY-MM)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> Allows PCGen to determine which of two sources is newer. Note: A source without this tag will be considered older than a source with a set date.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SOURCEDATE:2005-12</code></p>
-		<p class="indent3">This source was published in December 2005.</p>
-
-		<p></p><a name="PUBNAMELONG"></a><hr>
-		<p class="new">*** New 4.3.10</p>
-		<p class="indent0"><strong>Tag Name:</strong> PUBNAMELONG:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of publisher)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The Publisher's full name.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PUBNAMELONG:Foo Games, Inc.</code></p>
-
-		<p></p><a name="PUBNAMESHORT"></a><hr>
-		<p class="new">*** New 4.3.10</p>
-		<p class="indent0"><strong>Tag Name:</strong> PUBNAMESHORT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Short name of publisher)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> The Publisher's abbreviated name (usually their initials).</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PUBNAMESHORT:FGI</code></p>
-
-		<p></p><a name="PUBNAMEWEB"></a><hr>
-		<p class="new">*** New 4.3.10</p>
-		<p class="indent0"><strong>Tag Name:</strong> PUBNAMEWEB:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Web link)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> The Publisher's website/URL.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PUBNAMEWEB:http://www.foogames.com/index.php</code></p>
-		
-		<p></p><a name="SHOWINMENU"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SHOWINMENU:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (true or false)</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SHOWINMENU:true</code></p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">When set to true, this tag tells PCGen to display this campaign in the <em>Settings -&gt; Campaigns</em> menu. When selected, it will unload all other campaigns, and load this campaign. It will also set any options listed in the PCC file. It will appear in a submenu of its gamemode.</p>
-
-		<hr><a name="MAINBODYTAGS"></a><h2>Main Body Tags</h2>
-		
-		<p>The function of all the main body tags is tell PCGen to load a specific file. 
-  		There are three ways of doing this. The first and most common is by a relative 
-  		file path. The path is relative to the .pcc file so if the file and the .pcc 
-  		file that calls it are in the same directory then all that is needed is the 
-  		name of the file. The second method is a special absolute path which is useful 
-  		if you need to call a specific file from a known location in the data folder. 
-  		by using an @ symbol and a file path PCGen will locate the file by looking in 
-  		the data folder by the path specified. In the same way you can use the &amp; 
-  		symbol to access a file path in the vendor data directory. The third method 
-  		is by loading data files over the internet. To do this you must set 
-  		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens 
-  		preferences</a> to allow this. You can then create a .pcc file which 
-  		uses web address instead of file paths to load source files.</p>
-		
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
-		<p class="indent3">Loads the file fhbclasses.lst which is in the same directory as the .pcc file calling it.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>CLASS:@/foogames/sourcebooks/foo/core/fhandbook/fhbclasses.lst</code></p>
-		<p class="indent3">Loads the file from a path relitive to the data folder.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>CLASS:http://www.foogames.com/fhandbook/fhbclasses.lst</code></p>
-		<p class="indent3">Loads the source file from a web site.</p>
-		
-		<p><span class="new">IMPORTANT NOTE:</span> The following tags can (and it is recommended for equipment) have multiple lines. 
-		The names of the list files in the example column are also only suggestions. 
-		To include the same type of files from the same directory on the same line 
-		you would separate each file to be loaded (of the appropriate type, i.e., <code>fhbarmorshields.lst|fhbequip|etc</code>). 
-		Sometimes, not all of these tags are required by a source material. 
-		If a tag is not required, it cannot be left blank, it must be commented out or deleted entirely. 
-		These tags only tell PCGen where to go to get the information it needs, it points it to the right spot. 
-		Each list file will be fully explained below, separated by the list file name, with a full list of the tags that can be used in each one.</p>
-		
-		<p></p>
-		
-		<p></p><a name="PCC"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> PCC:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Use to include other pcc files. It is recommended that you include this tag before any tags that load LST files. When including data files you only need to use their filename if they are located in the same directory as the PCC file, itself. If not, you must include path information along with the filename:</p>
-		<ul class="indent2">
-			<li>you may use relative paths (e.g., <code>PCC:..\peerdirectory\myothersource.pcc</code>), or;</li>
-			<li>a special absolute path (e.g., <code>PCC:@\foogames\sourcebooks\foo\core\fhandbook\fhb.pcc</code>).</li>
-		</ul>
-		<p class="indent2">Using the special character <code>@</code> indicates that you want to start the file search from the root data directory of PCGen instead of the directory where the current PCC file is located.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PCC:..\foodir\foobook.pcc</code></p>
-		
-		<p></p><a name="BIOSET"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> BIOSET:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the biosettings list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BIOSET:biosettings.lst</code></p>
-		
-		<p></p><a name="CLASS"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> CLASS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the classes list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
-
-		<p></p><a name="COMPANIONMOD"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> COMPANIONMOD:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the companion modifiers list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>COMPANIONMOD:foocompanionmods.lst</code></p>
-
-		<p></p><a name="DEITY"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> DEITY:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the deities list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>DEITY:foodeities.lst</code></p>
-
-		<p></p><a name="DOMAIN"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> DOMAIN:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the domains list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>DOMAIN:foodomains.lst</code></p>
-
-		<p></p><a name="EQUIPMENT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> EQUIPMENT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the equipment list file specified</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>EQUIPMENT:fooallequip.lst</code></p>
-		<p class="indent2"><code>EQUIPMENT:fooequiparmorsshields.lst</code></p>
-
-		<p></p><a name="EQUIPMOD"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> EQUIPMOD:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the equipment  modifiers list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>EQUIPMOD:fooequipmods.lst</code></p>
-
-		<p></p><a name="FEAT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> FEAT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the feats list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>FEAT:foofeats.lst</code></p>
-
-		<p></p><a name="KIT"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> KIT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the starting kits list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>KIT:foostartingkits.lst</code></p>
-
-		<p></p><a name="LANGUAGE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> LANGUAGE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the languages list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>LANGUAGE:foolanguages.lst</code></p>
-
-		<p></p><a name="RACE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> RACE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the races list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RACE:fooraces.lst</code></p>
-		
-		<p></p><a name="SKILL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SKILL:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the skills list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SKILL:fooskills.lst</code></p>
-
-		<p></p><a name="SPELL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SPELL:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the spells list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPELL:foospells.lst</code></p>
-		
-		<p></p><a name="TEMPLATE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the template list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TEMPLATE:footemplates.lst</code></p>
-
-		<p></p><a name="WEAPONPROF"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> WEAPONPROF:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen to load the weapon proficiencies list file specified</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>WEAPONPROF:fooweapprofsimple.lst</code></p>
-		
-		<hr><a name="OTHERPCCTAGS"></a><h2>Other .pcc file tags</h2>
-		
-		<p>The tags below do not provide information about the dataset nor do they load files by themselves but instead provide additional functionality.</p>
-
-		<p></p><a name="LSTEXCLUDE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> LSTEXCLUDE:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (File names)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a | (pipe) delimited tag which allows you to customize which LST files are loaded. 
-			This must be before PCC/LST file INCLUDE statements if used. 
-			All of the files listed will NOT be loaded, even if referenced later by other included PCC files. 
-			The LST file list can be a single LST filename per entry, or can be separated by the &quot;|&quot; (pipe) character. 
-			The full path to the file is needed unless the .pcc file containing the LSTEXCLUDE tag is in the same directory as the files to be excluded.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>LSTEXCLUDE:fooraces.lst</code></p>
-		<p class="indent2"><code>LSTEXCLUDE:fooraces.lst|foogods.lst</code></p>
-		<p class="indent2"><code>LSTEXCLUDE:@d20ogl/foogames/foohandbook/fooclasses.lst</code></p>
-		
-		<p></p><a name="INCLUDE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> INCLUDE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>LST object name</p>
-		<p class="indent1"><strong>Variables Used:</strong>CLASS, COMPANIONMODS, DEITY, DOMAIN, EQUIPMENT, 
-		EQUIPMOD, FEAT, KIT, LANGUAGE, RACE, SKILL, SPELL, TEMPLATE, WEAPONPROF</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This would first load all the races from the <code>fhbrace.lst</code> file, 
-		then add to that list all the races defined in <code>myrace.lst</code> 
-		but then include only the Happy Elf class from <code>myrace.lst</code>. 
-		The resulting list of races would then be available for character creation. 
-		The INCLUDE tag will not prevent other .pcc files from loading the same LST files.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RACE:fhbrace.lst|myrace.lst|(INCLUDE:Happy Elf)</code></p>
-
-		<p></p><a name="EXCLUDE"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> EXCLUDE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>LST object name</p>
-		<p class="indent1"><strong>Variables Used:</strong>CLASS, COMPANIONMODS, DEITY, DOMAIN, EQUIPMENT, EQUIPMOD, FEAT, KIT, LANGUAGE, RACE, SKILL, SPELL, TEMPLATE, WEAPONPROF</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This would first load all the races from the <code>fhbrace.lst</code> file 
-		and exclude the Fooman and Foowarf from it, then add to that list all the races defined in <code>myrace.lst</code>. 
-		The resulting list of races would then be available for character creation. 
-		The EXCLUDE tag will not prevent other .pcc files from loading the same LST files.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RACE:fhbrace.lst|(EXCLUDE:Fooman|Foowarf)|myrace.lst</code></p>
-
-		<p></p><a name="HIDETYPE"></a><hr>
-		<p class="new">*** New 5.9.1</p>
-		<p class="indent0"><strong>Tag Name:</strong> HIDETYPE:x|y|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>EQUIP (Equipment Types will be hidden)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>FEAT (Feat Types will be hidden)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>SKILL (Skill Types will be hidden)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong>Text (Type to be hidden)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tag will prevent the listed Types from appearing within the user interface while allowing it to be used internally by PCGen. 
-			This is useful when types need to be added for internal purposes but it is not desirable to have the type show in the GUI. 
-			HIDETYPE will effect all sources loaded but only when the .pcc file it is in is loaded.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>HIDETYPE:EQUIP|Starting|SpecialTools</code></p>
-		<p class="indent3">The Types Starting and SpecialTools will not be visible in the user interface. 
-		The equipment type &quot;Starting&quot; is hardcoded into the feature which provides free clothing at first level.</p>
-
-		<p></p><a name="OPTION"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> OPTION:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>Text (Option)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Specifies an option which should be set when the campaign is loaded. The format is the same as in the <code>options.ini</code> file. The user can stop these options from being set by unselecting the <em>PCGen -&gt; Sources -&gt; Allow options to be set by sources</em> setting in the Preferences dialog. Note: Only the <em>pcgen.options</em> lines can be used. <em>pcgen.files</em> settings are not valid for this tag.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>OPTION:hpMaxAtFirstLevel=true</code></p>
-		<p class="indent2"><code>OPTION:pcgen.options.maxWandSpellLevel=4</code></p>
-
-		<p></p><a name="REQSKILL"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> REQSKILL:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong>ALL or REQSKILL:ALL or UNTRAINED or REQSKILL:UNTRAINED or Text</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">A &quot;|&quot; (pipe) delimited list can include:</p>
-		<ul class="indent2">
-			<li><code>UNTRAINED</code> - all untrained skills will be automatically included on any character as if the skill had the REQ tag (see <code>skill.lst</code> for details);</li>
-			<li><code>ALL</code> - all skills will have the REQ tag, or;</li>
-			<li>a list of specified skill names.</li>
-		</ul>
-		<p class="indent2">If this tag is included it should be after the <code>SKILL:</code> tag.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>REQSKILL:Alchemy|Bluff|Diplomacy|etc</code></p>
-
-		
-		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v $ ($Revision: 1.16 $) last updated $Date: 2006/02/18 15:02:00 $ by $Author: eddyanthony $</p> -->
-	</body>
-</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v 1.16 2006/02/18 15:02:00 eddyanthony Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Stephen Collins - tribATstephencollinsDOTorg
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on the content of PCGen Campaign Configuration (PCC) files.
+	-->
+	<head>
+		<title>PCC Files</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+
+	<body>
+		<h1>PCC files</h1>
+		<p>These are the PCGen Campaign Configuration files. Here you can specify what you want included in this campaign. 
+		<span class="bolditalicunderline">Note - you cannot anywhere, other than immediately after the tag, use a colon (:) in the CAMPAIGN tag.</span> 
+		Doing so will cause PCGen to report errors and not load correctly. It is recommended practice that your pcc files be located in the same directory as your list files, 
+		the notable exception being if you have multiple directories, with multiple list files, then you locate a &quot;master&quot; pcc file in the main directory. 
+		This will be explained below in the TAGs section.</p>
+		
+		<p>This page is divided into three sections</p>
+		
+		<p class="indent1"><strong><a href="#SOURCETAGS">Source and Header Information Tags</a></strong> - are used to provide information about the dataset</p>
+		<p class="indent1"><strong><a href="#MAINBODYTAGS">Main Body Tags</a></strong> - are used to load the specific .lst files which make up the dataset.</p>
+		<p class="indent1"><strong><a href="#OTHERPCCTAGS">Other .pcc file tags</a></strong> - are used to provide additional functionality.</p>
+		
+
+		<h2><a name="SOURCETAGS"></a>Source and Header Information Tags</h2>
+		<p class="indent0"><span class="new">NOTE:</span> The first three tags, CAMPAIGN, GAMEMODE and TYPE, 
+		are presented first out of alphabetical order to emphisize that they are required tags which must be the first three lines in a .pcc file.</p>
+
+		<p></p><a name="CAMPAIGN"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CAMPAIGN:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of source)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This <em>MUST</em> be the first line in the file. The standard format used is Company Short Name (Foo) - Campaign Name - Name of material</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CAMPAIGN:FGI - FooB Core Rulebook I - FHB</code></p>
+		<p class="indent3"><span class="new">WARNING:</span> The use of the ampersand (&amp;) sign will cause significant problems with PCGen, so recommended usage is to replace with the word &quot;and&quot; or the letter &quot;n&quot; to avoid this.</p>
+
+		<p></p><a name="GAMEMODE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> GAMEMODE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Name of GameMode)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> This <em>MUST</em> be 2nd in the file. This tells PCGen what genre this is in PCGen and must be entered exactly as shown.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>GAMEMODE:3e</code></p>
+
+		<p></p><a name="TYPE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Source types)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> This <em>MUST</em> be third in the file. The tag elements are as follows:</p>
+		<ul class="indent2">
+			<li>element 1 (e.g., Foo Games) is the name of the company or individual that produced the material that the data files are based on;</li>
+			<li>element 2 is the format of that original material (e.g., Sourcebook, Web Enhancement, Magazine, Supplement, etc.), and;</li>
+			<li>element 3 (optional) is the &quot;campaign setting&quot; for the original material (such as the publisher's campaign realm).</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TYPE:Foo Games.Core Rules.Core</code></p>
+		
+		<p></p><a name="COPYRIGHT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> COPYRIGHT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Copyright information)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used to display copyright information when a source is single clicked on, in the source selection page, upon program start.</p>
+		<p class="indent2">Sources included with PCGen should have the copyright information 
+  			from section 15 of the Open Game License included in the source reproduced verbatim.</p>
+		<p class="indent2">An additional entry should be made listing all who worked on the PCGen conversion in the format shown below.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COPYRIGHT:PCGen dataset conversion for "X Book" Copyright XXXX-YYYY, 
+			PCgen Data Team including, but not limited to, "Original Author", "Any secondary authors".</code></p>
+		<p class="indent3">This is the Sec. 15 that should be added to all sources going into PCGen. 
+			X Book should be the name of the source, XXXX should be the year the dataset was created and YYYY is the current year. 
+			Please list all contributors to the dataset.</p>
+		<p class="indent2"><code>COPYRIGHT:Foo Reference Document &amp;copy 2003 Foo Games, Inc.</code></p>
+		<p class="indent3"><strong>Note(s):</strong><code>&amp;copy</code> - This code coverts to a copyright symbol (&copy;) when put in the text of a COPYRIGHT tag.</p>
+
+		<p></p><a name="HELP"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> HELP:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Internet address)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Provides an internet link to a webpage for help with the source. 
+		  The link can be accessed in the GUI by right clicking the source name in the 
+		  source tab and selecting &quot;Product Help...&quot;.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HELP:http://www.foogames.com/producthelp.html</code></p>
+
+		<p></p><a name="INFOTEXT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> INFOTEXT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Information)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Provides Text information that is displayed in the Information Window on the Source Tab when the source material is selected.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>INFOTEXT:This pcc loads all the Foo source materials minus the FooWorld races</code></p>
+
+		<p></p><a name="ISD20"></a><hr>
+		<p class="new">Deprecated 5.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> ISD20:x</p>
+
+		<p></p><a name="ISOGL"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> ISOGL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used to indicate if sources are OGL compliant. If <code>ISOGL:YES</code> then its COPYRIGHT info gets inserted into the OGL license. This tag is optional.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ISOGL:YES</code></p>
+		<p class="indent2"><code>ISOGL:NO</code></p>
+
+		<p></p><a name="ISLICENSED"></a><hr>
+		<p class="new">*** New 5.3.3</p>
+		<p class="indent0"><strong>Tag Name:</strong> ISLICENSED:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used to indicate if sources have a special license, and activated the LICENSE tag, which will display information about the license to the end-user.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ISLICENSED:YES</code></p>
+		<p class="indent2"><code>ISLICENSED:NO</code></p>
+
+		<p></p><a name="GAME"></a><hr>
+		<p class="new">*** Deprecated - will be gone soon. Use GAMEMODE ***</p>
+		<p class="indent0"><strong>Tag Name:</strong> GAME:x</p>
+
+		<p></p><a name="GENRE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> GENRE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Genre)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tells PCGen what genre this is.</p>
+		<p class="indent2">Eventually This will be used to filter sources.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>GENRE:Fantasy</code></p>
+
+		<p></p><a name="LICENSE"></a><hr>
+		<p class="new">*** New 5.3.3</p>
+		<p class="indent0"><strong>Tag Name:</strong> LICENSE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (License information)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>FILE=Text (HTML file)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays special license information in a pop-up at time of source load. Requires a <code>ISLICENSED:YES</code> tag to be active.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>LICENSE:This set included with special permission from Foo Games</code></p>
+		<p class="indent3">Would display the text in a nice box with other licenses.</p>
+		<p class="indent2"><code>LICENSE:FILE=foolicense.html</code></p>
+		<p class="indent3">Doing a <code>FILE=</code> allows PCC to point to an HTML formatted file, which will display in a box of its own.</p>
+
+		<p></p><a name="RANK"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> RANK:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Rank)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets the priority in loading .pcc files. 
+			1 is the highest priority and 9 is the lowest priority for loading .pcc files.</p>
+		<p class="indent2">When PCGen encounters certain objects with duplicate names from different sources 
+			(such as Classes) the object in the source with the highest priority rank will be loaded 
+			while the duplicate will generate an error message (and will not be loaded).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RANK:1</code></p>
+		<p class="indent3">This pcc file is given first priority when loading.</p>
+		<p class="indent1"><strong>Officially sanctioned use of ranks:</strong></p>
+		<p class="indent2"> RANK:1 - Core rules</p>
+		<p class="indent2"> RANK:2 - Campaign settings</p>
+		<p class="indent2"> RANK:3 - Supplements</p>
+		<p class="indent2"> RANK:4 - Web enhancements</p>
+		<p class="indent2"> RANK:5 - 3rd party campaign books</p>
+		<p class="indent2"> RANK:6 - 3rd party supplements</p>
+		<p class="indent2"> RANK:7 - 3rd party web enhancements</p>
+		<p class="indent2"> RANK:8 and 9 - Homebrew</p>
+
+		<p></p><a name="SETTING"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SETTING:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Setting)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> This tells PCGen what the setting is (if there is one).</p>
+		<p class="indent2">Eventually This will be used to filter sources.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SETTING:Ravenloft</code></p>
+		
+		<p></p><a name="BOOKTYPE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> BOOKTYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Book type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tells PCGen what the book type is.</p>
+		<p class="indent2">Eventually This will be used to filter sources.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BOOKTYPE:Supplement</code></p>
+
+		<p></p><a name="SOURCELONG"></a><hr>
+		<p class="new">*** Updated 4.3.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> SOURCELONG:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of source)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> The full product/book name.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SOURCELONG:Core Rulebook I (Foo Handbook)</code></p>
+		<p class="indent3">The long source name for this file is &quot;Core Rulebook I (Foo Handbook)&quot;.</p>
+
+		<p></p><a name="SOURCESHORT"></a><hr>
+		<p class="new">*** Updated 4.3.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> SOURCESHORT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Short name of source)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">The short product/book name.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SOURCESHORT:FHB</code></p>
+		<p class="indent3">The short source name for this file is &quot;FHB&quot;.</p>
+
+		<p></p><a name="SOURCEWEB"></a><hr>
+		<p class="new">*** Updated 4.3.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> SOURCEWEB:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Web address)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> The URL that points directly to this product/book.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code></p>
+		<p class="indent3">The web site for this source is &quot;SOURCEWEB:http://www.foogames.com/product.php?products=654321&quot;.</p>
+
+		<p></p><a name="SOURCEDATE"></a><hr>
+		<p class="new">*** New 5.9.5</p>
+		<p class="indent0"><strong>Tag Name:</strong> SOURCEDATE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Date (Release date of source in format YYYY-MM)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> Allows PCGen to determine which of two sources is newer. Note: A source without this tag will be considered older than a source with a set date.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SOURCEDATE:2005-12</code></p>
+		<p class="indent3">This source was published in December 2005.</p>
+
+		<p></p><a name="PUBNAMELONG"></a><hr>
+		<p class="new">*** New 4.3.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> PUBNAMELONG:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of publisher)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">The Publisher's full name.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PUBNAMELONG:Foo Games, Inc.</code></p>
+
+		<p></p><a name="PUBNAMESHORT"></a><hr>
+		<p class="new">*** New 4.3.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> PUBNAMESHORT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Short name of publisher)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> The Publisher's abbreviated name (usually their initials).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PUBNAMESHORT:FGI</code></p>
+
+		<p></p><a name="PUBNAMEWEB"></a><hr>
+		<p class="new">*** New 4.3.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> PUBNAMEWEB:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Web link)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> The Publisher's website/URL.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PUBNAMEWEB:http://www.foogames.com/index.php</code></p>
+		
+		<p></p><a name="SHOWINMENU"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SHOWINMENU:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (true or false)</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SHOWINMENU:true</code></p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">When set to true, this tag tells PCGen to display this campaign in the <em>Settings -&gt; Campaigns</em> menu. When selected, it will unload all other campaigns, and load this campaign. It will also set any options listed in the PCC file. It will appear in a submenu of its gamemode.</p>
+
+		<hr><a name="MAINBODYTAGS"></a><h2>Main Body Tags</h2>
+		
+		<p>The function of all the main body tags is tell PCGen to load a specific file. 
+  		There are three ways of doing this. The first and most common is by a relative 
+  		file path. The path is relative to the .pcc file so if the file and the .pcc 
+  		file that calls it are in the same directory then all that is needed is the 
+  		name of the file. The second method is a special absolute path which is useful 
+  		if you need to call a specific file from a known location in the data folder. 
+  		by using an @ symbol and a file path PCGen will locate the file by looking in 
+  		the data folder by the path specified. In the same way you can use the &amp; 
+  		symbol to access a file path in the vendor data directory. The third method 
+  		is by loading data files over the internet. To do this you must set 
+  		<a href="../../menupages/settings/pcgen/pcgensources.html"> PCGens 
+  		preferences</a> to allow this. You can then create a .pcc file which 
+  		uses web address instead of file paths to load source files.</p>
+		
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
+		<p class="indent3">Loads the file fhbclasses.lst which is in the same directory as the .pcc file calling it.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CLASS:@/foogames/sourcebooks/foo/core/fhandbook/fhbclasses.lst</code></p>
+		<p class="indent3">Loads the file from a path relitive to the data folder.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CLASS:http://www.foogames.com/fhandbook/fhbclasses.lst</code></p>
+		<p class="indent3">Loads the source file from a web site.</p>
+		
+		<p><span class="new">IMPORTANT NOTE:</span> The following tags can (and it is recommended for equipment) have multiple lines. 
+		The names of the list files in the example column are also only suggestions. 
+		To include the same type of files from the same directory on the same line 
+		you would separate each file to be loaded (of the appropriate type, i.e., <code>fhbarmorshields.lst|fhbequip|etc</code>). 
+		Sometimes, not all of these tags are required by a source material. 
+		If a tag is not required, it cannot be left blank, it must be commented out or deleted entirely. 
+		These tags only tell PCGen where to go to get the information it needs, it points it to the right spot. 
+		Each list file will be fully explained below, separated by the list file name, with a full list of the tags that can be used in each one.</p>
+		
+		<p></p>
+		
+		<p></p><a name="PCC"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> PCC:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Use to include other pcc files. It is recommended that you include this tag before any tags that load LST files. When including data files you only need to use their filename if they are located in the same directory as the PCC file, itself. If not, you must include path information along with the filename:</p>
+		<ul class="indent2">
+			<li>you may use relative paths (e.g., <code>PCC:..\peerdirectory\myothersource.pcc</code>), or;</li>
+			<li>a special absolute path (e.g., <code>PCC:@\foogames\sourcebooks\foo\core\fhandbook\fhb.pcc</code>).</li>
+		</ul>
+		<p class="indent2">Using the special character <code>@</code> indicates that you want to start the file search from the root data directory of PCGen instead of the directory where the current PCC file is located.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PCC:..\foodir\foobook.pcc</code></p>
+		
+		<p></p><a name="BIOSET"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> BIOSET:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the biosettings list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BIOSET:biosettings.lst</code></p>
+		
+		<p></p><a name="CLASS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CLASS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the classes list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CLASS:fhbclasses.lst</code></p>
+
+		<p></p><a name="COMPANIONMOD"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> COMPANIONMOD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the companion modifiers list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COMPANIONMOD:foocompanionmods.lst</code></p>
+
+		<p></p><a name="DEITY"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> DEITY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the deities list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DEITY:foodeities.lst</code></p>
+
+		<p></p><a name="DOMAIN"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> DOMAIN:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the domains list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DOMAIN:foodomains.lst</code></p>
+
+		<p></p><a name="EQUIPMENT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> EQUIPMENT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the equipment list file specified</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>EQUIPMENT:fooallequip.lst</code></p>
+		<p class="indent2"><code>EQUIPMENT:fooequiparmorsshields.lst</code></p>
+
+		<p></p><a name="EQUIPMOD"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> EQUIPMOD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the equipment  modifiers list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>EQUIPMOD:fooequipmods.lst</code></p>
+
+		<p></p><a name="FEAT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> FEAT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the feats list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>FEAT:foofeats.lst</code></p>
+
+		<p></p><a name="KIT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> KIT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the starting kits list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>KIT:foostartingkits.lst</code></p>
+
+		<p></p><a name="LANGUAGE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LANGUAGE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the languages list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LANGUAGE:foolanguages.lst</code></p>
+
+		<p></p><a name="RACE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> RACE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the races list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACE:fooraces.lst</code></p>
+		
+		<p></p><a name="SKILL"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SKILL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the skills list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SKILL:fooskills.lst</code></p>
+
+		<p></p><a name="SPELL"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SPELL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the spells list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SPELL:foospells.lst</code></p>
+		
+		<p></p><a name="TEMPLATE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the template list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:footemplates.lst</code></p>
+
+		<p></p><a name="WEAPONPROF"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> WEAPONPROF:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File path)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Tells PCGen to load the weapon proficiencies list file specified</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>WEAPONPROF:fooweapprofsimple.lst</code></p>
+		
+		<hr><a name="OTHERPCCTAGS"></a><h2>Other .pcc file tags</h2>
+		
+		<p>The tags below do not provide information about the dataset nor do they load files by themselves but instead provide additional functionality.</p>
+
+		<p></p><a name="LSTEXCLUDE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LSTEXCLUDE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (File names)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited tag which allows you to customize which LST files are loaded. 
+			This must be before PCC/LST file INCLUDE statements if used. 
+			All of the files listed will NOT be loaded, even if referenced later by other included PCC files. 
+			The LST file list can be a single LST filename per entry, or can be separated by the &quot;|&quot; (pipe) character. 
+			The full path to the file is needed unless the .pcc file containing the LSTEXCLUDE tag is in the same directory as the files to be excluded.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>LSTEXCLUDE:fooraces.lst</code></p>
+		<p class="indent2"><code>LSTEXCLUDE:fooraces.lst|foogods.lst</code></p>
+		<p class="indent2"><code>LSTEXCLUDE:@d20ogl/foogames/foohandbook/fooclasses.lst</code></p>
+		
+		<p></p><a name="INCLUDE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> INCLUDE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>LST object name</p>
+		<p class="indent1"><strong>Variables Used:</strong>CLASS, COMPANIONMODS, DEITY, DOMAIN, EQUIPMENT, 
+		EQUIPMOD, FEAT, KIT, LANGUAGE, RACE, SKILL, SPELL, TEMPLATE, WEAPONPROF</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This would first load all the races from the <code>fhbrace.lst</code> file, 
+		then add to that list all the races defined in <code>myrace.lst</code> 
+		but then include only the Happy Elf class from <code>myrace.lst</code>. 
+		The resulting list of races would then be available for character creation. 
+		The INCLUDE tag will not prevent other .pcc files from loading the same LST files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACE:fhbrace.lst|myrace.lst|(INCLUDE:Happy Elf)</code></p>
+
+		<p></p><a name="EXCLUDE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> EXCLUDE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>LST object name</p>
+		<p class="indent1"><strong>Variables Used:</strong>CLASS, COMPANIONMODS, DEITY, DOMAIN, EQUIPMENT, EQUIPMOD, FEAT, KIT, LANGUAGE, RACE, SKILL, SPELL, TEMPLATE, WEAPONPROF</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This would first load all the races from the <code>fhbrace.lst</code> file 
+		and exclude the Fooman and Foowarf from it, then add to that list all the races defined in <code>myrace.lst</code>. 
+		The resulting list of races would then be available for character creation. 
+		The EXCLUDE tag will not prevent other .pcc files from loading the same LST files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACE:fhbrace.lst|(EXCLUDE:Fooman|Foowarf)|myrace.lst</code></p>
+
+		<p></p><a name="HIDETYPE"></a><hr>
+		<p class="new">*** New 5.9.1</p>
+		<p class="indent0"><strong>Tag Name:</strong> HIDETYPE:x|y|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>EQUIP (Equipment Types will be hidden)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>FEAT (Feat Types will be hidden)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>SKILL (Skill Types will be hidden)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong>Text (Type to be hidden)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag will prevent the listed Types from appearing within the user interface while allowing it to be used internally by PCGen. 
+			This is useful when types need to be added for internal purposes but it is not desirable to have the type show in the GUI. 
+			HIDETYPE will effect all sources loaded but only when the .pcc file it is in is loaded.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HIDETYPE:EQUIP|Starting|SpecialTools</code></p>
+		<p class="indent3">The Types Starting and SpecialTools will not be visible in the user interface. 
+		The equipment type &quot;Starting&quot; is hardcoded into the feature which provides free clothing at first level.</p>
+
+		<p></p><a name="OPTION"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> OPTION:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Option)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Specifies an option which should be set when the campaign is loaded. The format is the same as in the <code>options.ini</code> file. The user can stop these options from being set by unselecting the <em>PCGen -&gt; Sources -&gt; Allow options to be set by sources</em> setting in the Preferences dialog. Note: Only the <em>pcgen.options</em> lines can be used. <em>pcgen.files</em> settings are not valid for this tag.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>OPTION:hpMaxAtFirstLevel=true</code></p>
+		<p class="indent2"><code>OPTION:pcgen.options.maxWandSpellLevel=4</code></p>
+
+		<p></p><a name="REQSKILL"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> REQSKILL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>ALL or REQSKILL:ALL or UNTRAINED or REQSKILL:UNTRAINED or Text</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">A &quot;|&quot; (pipe) delimited list can include:</p>
+		<ul class="indent2">
+			<li><code>UNTRAINED</code> - all untrained skills will be automatically included on any character as if the skill had the REQ tag (see <code>skill.lst</code> for details);</li>
+			<li><code>ALL</code> - all skills will have the REQ tag, or;</li>
+			<li>a list of specified skill names.</li>
+		</ul>
+		<p class="indent2">If this tag is included it should be after the <code>SKILL:</code> tag.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>REQSKILL:Alchemy|Bluff|Diplomacy|etc</code></p>
+
+		
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilespcc.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	</body>
+</html>

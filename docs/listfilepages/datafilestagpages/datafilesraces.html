@@ -1,1 +1,441 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project					$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesraces.html,v 1.10 2005/11/03 22:28:57 eddyanthony Exp $		$Author: eddyanthony $		$Date: 2005/11/03 22:28:57 $		$Revision: 1.10 $				Contributors:		Shane Molnar - shaneATcliftonmotelDOTcomDOTau		Eddy Anthony - eddybaATmindspringDOTcom				Description:		Provides information on the content of PCGen Race Files.	-->	<head>		<title>Race Files</title>		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />	</head>		<body>		<h1>Race Files</h1>				<p>The &quot;Name&quot; of the race must be the first field on each line, 			the remaining tags may be of any order.</p>		<p></p><a name="AGE"></a><hr>		<p class="new">*** Deprecated - Now done in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">Biosettings.lst</a></p>		<p class="indent0"><strong>Tag Name:</strong> AGE:min:dice:sides:dice:sides:dice:sides</p>					<p></p><a name="LANGAUTO"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:LANGAUTO:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited choice of Automatic Languages that do not 			count against the limit determined by a Stat.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>CHOOSE:LANGAUTO:Abyssal|Infernal</code></p>		<p class="indent3">May choose between &quot;Abyssal&quot; or &quot;Infernal&quot; as a race language.</p>		<p></p><a name="CR"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> CR:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Sets the Challenge Rating of the creature. For CR's less than 1, fractions are used (1/2, 1/4, 1/8). 		<strong>Note:</strong> CR's using fractions must start with a &quot;1/&quot;. Expressions such as CR:3/4 or CR:0.5 will not work</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>CR:1/4</code></p>		<p class="indent3">Race is rated at a quarter challenge rating.</p>				<p></p><a name="FACE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> FACE:x,y</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Space the creature occupies)</p>		<p class="indent1"><strong>Variables Used (y):</strong> Number (Optional, side space)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Describes how much space the creature takes up. For 3.0 rules this tag is used for 		the Face statistic. For 3.5 rules this tag is used for the Space statistic. If only one number is used 		it is assumed to represent all sides.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>FACE:5,10</code></p>		<p class="indent3">The race has a face of 5 by 10.</p>		<p class="indent2"><code>FACE:10</code></p>		<p class="indent3">The race has a face of 10.</p>		<p></p><a name="FAVCLASS"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> FAVCLASS:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or		  &quot;Any&quot;)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Determines the Race's favored class. 2 or more classes separated by | (pipe)			will grant all of the classes as Favored.</li>			<li>Special type 'Any' will grant the character's highest level class as Favored.</li>		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>FAVCLASS:Wizard</code></p>		<p class="indent3">Race's favoured class is Wizard.</p>		<p></p><a name="FEAT"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited list of feats granted to a		  Race (also known as &quot;bonus feats&quot;).</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>FEAT:Blind-Fight|Alertness</code></p>		<p class="indent3">Race gets &quot;Blind-Fight&quot; and &quot;Alertness&quot; as bonus feats.</p>		<p></p><a name="HANDS"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Hands)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Determines the Number of Hands the creature has for purposes of 			Multiattack and Multidexterity.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>HANDS:4</code></p>		<p class="indent3">Race has four hands.</p>		<p></p><a name="HEIGHT"></a><hr>		<p class="new">*** Deprecated - Now done in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">Biosettings.lst</a></p>		<p class="indent0"><strong>Tag Name:</strong> HEIGHT:M:min:dice:sides:bonus:F:min:dice:sides:bonus</p>		<p></p><a name="HITDICE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> HITDICE:x,y</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Starting number of dice)</p>		<p class="indent1"><strong>Variables Used (y):</strong> Number (Type of Hit Dice)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>The first number is the number of Automatic Hit Dice the race starts with.</li> 			<li>The second number is the Hit Die Size for those dice.</li> 			<li>This is used Only with Default Monsters ON</li>		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>HITDICE:2,8</code></p>		<p class="indent3">Race has 2d8 hit points to start with.</p>		<p></p><a name="HITDICEADVANCEMENT"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> HITDICEADVANCEMENT:x,x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>The last number in the comma delimited list is the highest 				HD the creature can advance to, through HD advancement.</li> 			<li>All the numbers preceding the last number each indicate the highest number of HD the creature 				can have before before its size increases by one category.</li> 		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>HITDICEADVANCEMENT:4,6,8</code></p>		<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+ 			it is Medium. 8 Hit Dice is the maximum it can erver raise to.</p>		<p class="indent2"><code>HITDICEADVANCEMENT:4,16,32,99</code></p>		<p class="indent3">Assassin Vine: starts out as Large, with 4 HD. 5-16 it is Huge, 			17-32 it is Gargantuan, 33+ it is Colossal. 99 HD is the maximum 			it can ever raise to.</p>		<p></p><a name="LANGBONUS"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> LANGBONUS:x,x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name		  or &quot;ALL&quot;)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a comma delimited list that allows choice of the listed 			languages that the character's gains as bonus languages (determined by the appropriate 			stat, usually Intelligence). This does not effect languages granted from skills.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc</code></p>		<p class="indent3">Race can choose starting languages from &quot;Dwarven&quot;, &quot;Elven&quot;,		  &quot;Gnome&quot;, &quot;Goblin&quot; or &quot;Orc&quot;.</p>		<p></p><a name="LEGS"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> LEGS:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Used to determine encumbrace and carrying capacity for creatures/characters 			with a nonstandard amount of legs. (i.e. more than/less than 2).</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>LEGS:4</code></p>		<p class="indent3">A horse has 4 legs.</p>		<p class="indent2"><code>LEGS:0</code></p>		<p class="indent3">Slime and ooze creatures/characters would have no legs!</p>		<p></p><a name="LEVELADJUSTMENT"></a><hr>		<p class="new">*** Updated 5.4</p>		<p class="indent0"><strong>Tag Name:</strong> LEVELADJUSTMENT:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level Adjustment)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Raises the Effective Character Level (ECL) of the creature by the number supplied.</p>		<p class="indent2">This is factored in when determining how much experience is needed to raise a characters level. 			For example, a 1st level character with a Level adjustment of 3 would need the same amount of experience to reach 2nd level 			as a 4th level character with no level adjustments would need to reach 5th level.</p>		<p class="indent2">The Level Adjustment is added to Monster Hit Dice and/or Character Levels 			to determine the Effective Character Level (ECL) of the creature.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>		<p class="indent3">Effective Character Level is raised by one.</p>		<p></p><a name="MFEAT"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> MFEAT:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited list of feats granted to a		  race only if the setting	&quot;Default Monsters&quot; is &quot;ON&quot;.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>MFEAT:Improved Initiative</code></p>		<p class="indent3">The monster has &quot;Improved Initiative&quot; as a feat.</p>				<p></p><a name="MONCCSKILL"></a><hr>		<p class="new">*** New 5.4</p>		<p class="indent0"><strong>Tag Name:</strong> MONCCSKILL:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Grants the listed skills as monster cross class skills.</p>		<p class="indent2">Monster cross class skills are onlycross class skills for monster classes such as Giant, Outsider, Undead etc.</p>		<p class="indent2">If a monster takes levels in a base class only those skill defined as cross class skills in that class count as 			cross class skills for that level, the monster cross class skills will not apply.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>MONCCSKILL:Alchemy|Wilderness Lore</code></p>		<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster cross class skills.</p>		<p class="indent2"><code>MONCCSKILL:Alchemy|TYPE.Knowledge</code></p>		<p class="indent3">The &quot;Alchemy&quot; and &quot;Knowledge&quot; type skills are made monster cross class skills.</p>				<p></p><a name="MONCSKILL"></a><hr>		<p class="new">*** New 5.4</p>		<p class="indent0"><strong>Tag Name:</strong> MONCSKILL:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Grants the listed skills as monster class skills.</p>		<p class="indent2">Monster class skills are only class skills for monster classes such as Giant, Outsider, Undead etc.</p>		<p class="indent2">If a monster takes levels in a base class only those skill defined as class skills in that class count as 			class skills for that level, the monster class skills will not apply.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>MONCSKILL:Alchemy|Wilderness Lore</code></p>		<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster class skills.</p>		<p class="indent2"><code>MONCSKILL:Alchemy|TYPE.Knowledge</code></p>		<p class="indent3">The &quot;Alchemy&quot; and &quot;Knowledge&quot; type skills are made monster class skills.</p>		<p></p><a name="MONSTERCLASS"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> MONSTERCLASS:x:y</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Monster Class Name)</p>		<p class="indent1"><strong>Variables Used (y):</strong> Number (Starting Level)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Determines the number of Monster Levels the race gets on start.</li>			<li>Class must be TYPE:Monster and have a PRERACETYPE that matches the race.</li>			<li>This is only used with the setting &quot;Default Monsters&quot; as &quot;OFF&quot;.</li>		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>MONSTERCLASS:Outsider:2</code></p>		<p class="indent3">The race has 2 levels of Outsider to start.</p>		<p></p><a name="NATURALATTACKS"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>		<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of attacks)</p>		<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This tag is used to define non-equipment attacks a race may possess.</p>		<p class="indent2">This is a , (comma) and | (pipe) delimited list of the natural attacks a creature has. 		If the creature has multiple attacks pipes are used to separate the entries. Commas are used to delimit 		variables within a single attack listing. All four variables separated by three commas must be present or PCGen 		will hang when attempting to load the .pcc file.</p>		<p class="indent2">The first variable (w) is the name of the natural weapon.</p>		<p class="indent2">The second set of variables (x) are the natural weapon types.   		Types should be delimited with periods (.). This must always start with &quot;Weapon&quot;   		and &quot;Natural&quot; and must be followed by either &quot;Melee&quot; or &quot;Ranged&quot;.   		After that the weapons damage types are listed which can be &quot;Bludgeoning&quot;,   		&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</p>		<p class="indent2">The third variable (y) is the number of attacks of this type   		that the creature possesses. If the is an asterisk in front of the number it indicates   		that the number of attacks is non-iterative, that is it is not based on the   		creatures attack progression but rather how many of the natural weapons it possesses.</p>		<p class="indent2">The final variable is the damage the natural weapon does. This   		is entered in the standard dice notation such as &quot;1d8&quot; and &quot;4d10&quot;.</p>		<p class="indent2">The NATURALATTACKS tag creates a proficiency for the its attacks on the fly 		which allows the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the 		NATURALATTACKS tag to create a Bite attack you could then use 		<code>BONUS:WEAPONPROF=Bite|DAMAGE,TOHIT|2</code> to add 2 to the attack and damage rolls.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,			1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>		<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>		<p></p><a name="RACESUBTYPE"></a><hr>		<p class="new">*** New 5.9.4</p>		<p class="indent0"><strong>Tag Name:</strong> RACESUBTYPE:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Subtype)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Defines the Subtypes of creature posseses.</li>			<li>Additional Subtypes can be added and/or removed with a RACESUBTYPE in a template or other file type</li>			<li>Examples include:<br />				Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar, 				Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water 				as well as Humaniod subraces such as Elf, Orc, Dwarf, etc..</li> 		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>		<p class="indent3">The race posseses the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>		<p></p><a name="RACETYPE"></a><hr>		<p class="new">*** New 5.9.4</p>		<p class="indent0"><strong>Tag Name:</strong> RACETYPE:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Type)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Defines the Type of creature the race is.</li>			<li>A Creature may only have one RACETYPE at any given time.</li>			<li>The Base RACETYPE set in the race line can be changed with a RACETYPE tag in a template or other file type.</li>			<li>Currently existing selections from the Monster List include:<br />				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid, 				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and 				Vermin</li> 		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>RACETYPE:Outsider</code></p>		<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>		<p></p><a name="REACH"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> REACH:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Determines the reach of the Race.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>REACH:10</code></p>		<p class="indent3">The race has a reach of tem feet.</p>		<p></p><a name="SIZE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny, 			S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal). Size is used in 			determining to-hit, AC, and affects some skills).</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>SIZE:M</code></p>		<p class="indent3">The race is of Medium size.</p>		<p></p><a name="SKILLMULT"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> SKILLMULT:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Skill Multiplier)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">		<li>Defines the Multiplier of the skill points when the character is first level.</li>		<li>Default is x4.</li>		<li>Most Multi-hit die creatures have SKILLMULT:1 since adding class levels is done 			as Multi-Classing.</li> 		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>SKILLMULT:1</code></p>		<p class="indent3">Monsters have x1 since adding class levels is done as Multi-classing.</p>		<p></p><a name="SOURCEPAGE"></a><hr>		<p class="new">*** Updated</p>		<p class="indent0"><strong>Tag Name:</strong> SOURCEPAGE:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Numbar)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is used to show where in the source the race information is listed. 			SOURCEPAGE should always be used, since display of any of the SOURCE information requires 			its presence.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>SOURCEPAGE:p.102</code></p>		<p class="indent3">Further information can be found on page 102 of the source.</p>		<p></p><a name="STARTFEATS"></a><hr>		<p class="new">*** Updated</p>		<p class="indent0"><strong>Tag Name:</strong> STARTFEATS:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Numbar)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Grants a number of free feats to the race at first level. These are 		unrestricted feats. To restrict choice (such as &quot;only Fighter feats&quot;) use 		the global ADD:FEAT() tag.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>STARTFEATS:2</code></p>		<p class="indent3">The race starts with 2 free feats.</p>		<p></p><a name="TEMPLATE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited list of templates that are granted to the race.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>		<p class="indent3">The race uses the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;		  templates.</p>		<p></p><a name="TEMPLATECHOOSE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:CHOOSE:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">CHOOSE will supply a popup window of the choices presented in the tag 			that are | (pipe) delimted. Allowing the user to pick ONE from the list.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>		<p class="indent3">The race can choose either the &quot;Celestial&quot; or &quot;Outsider&quot;		  template.</p>		<p></p><a name="TEMPLATEADDCHOICE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:ADDCHOICE:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited list of template choices that are added 			to the list presented by the original TEMPLATE:CHOOSE tag found here or in other lst files.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>		<p class="indent3">The race can choose previouly defined templates plus the 			&quot;Demihuman&quot; or &quot;Beast&quot; templates.</p>		<p></p><a name="TYPE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> TYPE:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race type)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Defines the Type of creature the race is.</li>			<li>Important for matching up with Monster HD, and for references to race, such as the 				Rangers Favored Enemy.</li>			<li>Currently existing selections from the Monster List include:<br />				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid, 				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and 				Vermin</li> 		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>TYPE:Outsider</code></p>		<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>		<p></p><a name="WEAPONBONUS"></a><hr>		<p class="new">*** Updated 5.7.12</p>		<p class="indent0"><strong>Tag Name:</strong> WEAPONBONUS:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the race as 			a choice of ONE of the listed weapons.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>WEAPONBONUS:Rapier|Longbow</code></p>		<p class="indent3">The race receives bonus proficiency in &quot;Rapier&quot; or &quot;Longbow&quot;.</p>		<p class="indent2"><code>WEAPONBONUS:TYPE.Simple</code></p>		<p class="indent3">The race receives bonus proficiency in any one Simple weapon.</p>		<p></p><a name="WEIGHT"></a><hr>		<p class="new">*** Deprecated - Now done in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">Biosettings.lst</a></p>		<p class="indent0"><strong>Tag Name:</strong> WEIGHT:M:min:dice:sides:F:min:dice:sides</p>		<p></p><a name="XTRASKILLPTSPERLVL"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> XTRASKILLPTSPERLVL:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Template Name)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Grants a number of skill points to the race for free at every character 		level. This happens before multiplication of the first class level's skill points.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>XTRASKILLPTSPERLVL:1</code></p>		<p class="indent3">Adds one to the skill points per level (before multiplication for the 1st level).</p>		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesraces.html,v $ ($Revision: 1.10 $) last updated $Date: 2005/11/03 22:28:57 $ by $Author: eddyanthony $</p> -->	</body></html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesraces.html,v 1.10 2005/11/03 22:28:57 eddyanthony Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on the content of PCGen Race Files.
+	-->
+	<head>
+		<title>Race Files</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Race Files</h1>
+		
+		<p>The &quot;Name&quot; of the race must be the first field on each line, 
+			the remaining tags may be of any order.</p>
+
+		<p></p><a name="AGE"></a><hr>
+		<p class="new">*** Deprecated - Now done in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">Biosettings.lst</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> AGE:min:dice:sides:dice:sides:dice:sides</p>
+			
+		<p></p><a name="LANGAUTO"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:LANGAUTO:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited choice of Automatic Languages that do not 
+			count against the limit determined by a Stat.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:LANGAUTO:Abyssal|Infernal</code></p>
+		<p class="indent3">May choose between &quot;Abyssal&quot; or &quot;Infernal&quot; as a race language.</p>
+
+		<p></p><a name="CR"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CR:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets the Challenge Rating of the creature. For CR's less than 1, fractions are used (1/2, 1/4, 1/8). 
+		<strong>Note:</strong> CR's using fractions must start with a &quot;1/&quot;. Expressions such as CR:3/4 or CR:0.5 will not work</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CR:1/4</code></p>
+		<p class="indent3">Race is rated at a quarter challenge rating.</p>
+		
+		<p></p><a name="FACE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> FACE:x,y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Space the creature occupies)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Optional, side space)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Describes how much space the creature takes up. For 3.0 rules this tag is used for 
+		the Face statistic. For 3.5 rules this tag is used for the Space statistic. If only one number is used 
+		it is assumed to represent all sides.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>FACE:5,10</code></p>
+		<p class="indent3">The race has a face of 5 by 10.</p>
+		<p class="indent2"><code>FACE:10</code></p>
+		<p class="indent3">The race has a face of 10.</p>
+
+		<p></p><a name="FAVCLASS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> FAVCLASS:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or
+		  &quot;Any&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Determines the Race's favored class. 2 or more classes separated by | (pipe)
+			will grant all of the classes as Favored.</li>
+			<li>Special type 'Any' will grant the character's highest level class as Favored.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>FAVCLASS:Wizard</code></p>
+		<p class="indent3">Race's favoured class is Wizard.</p>
+
+		<p></p><a name="FEAT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of feats granted to a
+		  Race (also known as &quot;bonus feats&quot;).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>FEAT:Blind-Fight|Alertness</code></p>
+		<p class="indent3">Race gets &quot;Blind-Fight&quot; and &quot;Alertness&quot; as bonus feats.</p>
+
+		<p></p><a name="HANDS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Hands)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Determines the Number of Hands the creature has for purposes of 
+			Multiattack and Multidexterity.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HANDS:4</code></p>
+		<p class="indent3">Race has four hands.</p>
+
+		<p></p><a name="HEIGHT"></a><hr>
+		<p class="new">*** Deprecated - Now done in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">Biosettings.lst</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> HEIGHT:M:min:dice:sides:bonus:F:min:dice:sides:bonus</p>
+
+		<p></p><a name="HITDICE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> HITDICE:x,y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Starting number of dice)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Type of Hit Dice)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>The first number is the number of Automatic Hit Dice the race starts with.</li> 
+			<li>The second number is the Hit Die Size for those dice.</li> 
+			<li>This is used Only with Default Monsters ON</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HITDICE:2,8</code></p>
+		<p class="indent3">Race has 2d8 hit points to start with.</p>
+
+		<p></p><a name="HITDICEADVANCEMENT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> HITDICEADVANCEMENT:x,x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>The last number in the comma delimited list is the highest 
+				HD the creature can advance to, through HD advancement.</li> 
+			<li>All the numbers preceding the last number each indicate the highest number of HD the creature 
+				can have before before its size increases by one category.</li> 
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>HITDICEADVANCEMENT:4,6,8</code></p>
+		<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+ 
+			it is Medium. 8 Hit Dice is the maximum it can erver raise to.</p>
+		<p class="indent2"><code>HITDICEADVANCEMENT:4,16,32,99</code></p>
+		<p class="indent3">Assassin Vine: starts out as Large, with 4 HD. 5-16 it is Huge, 
+			17-32 it is Gargantuan, 33+ it is Colossal. 99 HD is the maximum 
+			it can ever raise to.</p>
+
+		<p></p><a name="LANGBONUS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LANGBONUS:x,x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name
+		  or &quot;ALL&quot;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a comma delimited list that allows choice of the listed 
+			languages that the character's gains as bonus languages (determined by the appropriate 
+			stat, usually Intelligence). This does not effect languages granted from skills.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc</code></p>
+		<p class="indent3">Race can choose starting languages from &quot;Dwarven&quot;, &quot;Elven&quot;,
+		  &quot;Gnome&quot;, &quot;Goblin&quot; or &quot;Orc&quot;.</p>
+
+		<p></p><a name="LEGS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LEGS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used to determine encumbrace and carrying capacity for creatures/characters 
+			with a nonstandard amount of legs. (i.e. more than/less than 2).</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>LEGS:4</code></p>
+		<p class="indent3">A horse has 4 legs.</p>
+		<p class="indent2"><code>LEGS:0</code></p>
+		<p class="indent3">Slime and ooze creatures/characters would have no legs!</p>
+
+		<p></p><a name="LEVELADJUSTMENT"></a><hr>
+		<p class="new">*** Updated 5.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> LEVELADJUSTMENT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level Adjustment)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Raises the Effective Character Level (ECL) of the creature by the number supplied.</p>
+		<p class="indent2">This is factored in when determining how much experience is needed to raise a characters level. 
+			For example, a 1st level character with a Level adjustment of 3 would need the same amount of experience to reach 2nd level 
+			as a 4th level character with no level adjustments would need to reach 5th level.</p>
+		<p class="indent2">The Level Adjustment is added to Monster Hit Dice and/or Character Levels 
+			to determine the Effective Character Level (ECL) of the creature.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
+		<p class="indent3">Effective Character Level is raised by one.</p>
+
+		<p></p><a name="MFEAT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> MFEAT:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of feats granted to a
+		  race only if the setting	&quot;Default Monsters&quot; is &quot;ON&quot;.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MFEAT:Improved Initiative</code></p>
+		<p class="indent3">The monster has &quot;Improved Initiative&quot; as a feat.</p>
+		
+		<p></p><a name="MONCCSKILL"></a><hr>
+		<p class="new">*** New 5.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> MONCCSKILL:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Grants the listed skills as monster cross class skills.</p>
+		<p class="indent2">Monster cross class skills are onlycross class skills for monster classes such as Giant, Outsider, Undead etc.</p>
+		<p class="indent2">If a monster takes levels in a base class only those skill defined as cross class skills in that class count as 
+			cross class skills for that level, the monster cross class skills will not apply.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>MONCCSKILL:Alchemy|Wilderness Lore</code></p>
+		<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster cross class skills.</p>
+		<p class="indent2"><code>MONCCSKILL:Alchemy|TYPE.Knowledge</code></p>
+		<p class="indent3">The &quot;Alchemy&quot; and &quot;Knowledge&quot; type skills are made monster cross class skills.</p>
+		
+		<p></p><a name="MONCSKILL"></a><hr>
+		<p class="new">*** New 5.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> MONCSKILL:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Grants the listed skills as monster class skills.</p>
+		<p class="indent2">Monster class skills are only class skills for monster classes such as Giant, Outsider, Undead etc.</p>
+		<p class="indent2">If a monster takes levels in a base class only those skill defined as class skills in that class count as 
+			class skills for that level, the monster class skills will not apply.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>MONCSKILL:Alchemy|Wilderness Lore</code></p>
+		<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster class skills.</p>
+		<p class="indent2"><code>MONCSKILL:Alchemy|TYPE.Knowledge</code></p>
+		<p class="indent3">The &quot;Alchemy&quot; and &quot;Knowledge&quot; type skills are made monster class skills.</p>
+
+		<p></p><a name="MONSTERCLASS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> MONSTERCLASS:x:y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Monster Class Name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Starting Level)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Determines the number of Monster Levels the race gets on start.</li>
+			<li>Class must be TYPE:Monster and have a PRERACETYPE that matches the race.</li>
+			<li>This is only used with the setting &quot;Default Monsters&quot; as &quot;OFF&quot;.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MONSTERCLASS:Outsider:2</code></p>
+		<p class="indent3">The race has 2 levels of Outsider to start.</p>
+
+		<p></p><a name="NATURALATTACKS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of attacks)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag is used to define non-equipment attacks a race may possess.</p>
+		<p class="indent2">This is a , (comma) and | (pipe) delimited list of the natural attacks a creature has. 
+		If the creature has multiple attacks pipes are used to separate the entries. Commas are used to delimit 
+		variables within a single attack listing. All four variables separated by three commas must be present or PCGen 
+		will hang when attempting to load the .pcc file.</p>
+		<p class="indent2">The first variable (w) is the name of the natural weapon.</p>
+		<p class="indent2">The second set of variables (x) are the natural weapon types. 
+  		Types should be delimited with periods (.). This must always start with &quot;Weapon&quot; 
+  		and &quot;Natural&quot; and must be followed by either &quot;Melee&quot; or &quot;Ranged&quot;. 
+  		After that the weapons damage types are listed which can be &quot;Bludgeoning&quot;, 
+  		&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</p>
+		<p class="indent2">The third variable (y) is the number of attacks of this type 
+  		that the creature possesses. If the is an asterisk in front of the number it indicates 
+  		that the number of attacks is non-iterative, that is it is not based on the 
+  		creatures attack progression but rather how many of the natural weapons it possesses.</p>
+		<p class="indent2">The final variable is the damage the natural weapon does. This 
+  		is entered in the standard dice notation such as &quot;1d8&quot; and &quot;4d10&quot;.</p>
+		<p class="indent2">The NATURALATTACKS tag creates a proficiency for the its attacks on the fly 
+		which allows the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the 
+		NATURALATTACKS tag to create a Bite attack you could then use 
+		<code>BONUS:WEAPONPROF=Bite|DAMAGE,TOHIT|2</code> to add 2 to the attack and damage rolls.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
+			1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
+		<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
+
+		<p></p><a name="RACESUBTYPE"></a><hr>
+		<p class="new">*** New 5.9.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> RACESUBTYPE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Subtype)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Defines the Subtypes of creature posseses.</li>
+			<li>Additional Subtypes can be added and/or removed with a RACESUBTYPE in a template or other file type</li>
+			<li>Examples include:<br />
+				Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar, 
+				Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water 
+				as well as Humaniod subraces such as Elf, Orc, Dwarf, etc..</li> 
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>
+		<p class="indent3">The race posseses the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>
+
+		<p></p><a name="RACETYPE"></a><hr>
+		<p class="new">*** New 5.9.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> RACETYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Defines the Type of creature the race is.</li>
+			<li>A Creature may only have one RACETYPE at any given time.</li>
+			<li>The Base RACETYPE set in the race line can be changed with a RACETYPE tag in a template or other file type.</li>
+			<li>Currently existing selections from the Monster List include:<br />
+				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid, 
+				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and 
+				Vermin</li> 
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACETYPE:Outsider</code></p>
+		<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>
+
+		<p></p><a name="REACH"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> REACH:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Determines the reach of the Race.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>REACH:10</code></p>
+		<p class="indent3">The race has a reach of tem feet.</p>
+
+		<p></p><a name="SIZE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Determines the size of the Race. (F=Fine, D=Diminutive, T=Tiny, 
+			S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal). Size is used in 
+			determining to-hit, AC, and affects some skills).</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SIZE:M</code></p>
+		<p class="indent3">The race is of Medium size.</p>
+
+		<p></p><a name="SKILLMULT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SKILLMULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Skill Multiplier)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+		<li>Defines the Multiplier of the skill points when the character is first level.</li>
+		<li>Default is x4.</li>
+		<li>Most Multi-hit die creatures have SKILLMULT:1 since adding class levels is done 
+			as Multi-Classing.</li> 
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SKILLMULT:1</code></p>
+		<p class="indent3">Monsters have x1 since adding class levels is done as Multi-classing.</p>
+
+		<p></p><a name="SOURCEPAGE"></a><hr>
+		<p class="new">*** Updated</p>
+		<p class="indent0"><strong>Tag Name:</strong> SOURCEPAGE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Numbar)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is used to show where in the source the race information is listed. 
+			SOURCEPAGE should always be used, since display of any of the SOURCE information requires 
+			its presence.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SOURCEPAGE:p.102</code></p>
+		<p class="indent3">Further information can be found on page 102 of the source.</p>
+
+		<p></p><a name="STARTFEATS"></a><hr>
+		<p class="new">*** Updated</p>
+		<p class="indent0"><strong>Tag Name:</strong> STARTFEATS:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Numbar)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Grants a number of free feats to the race at first level. These are 
+		unrestricted feats. To restrict choice (such as &quot;only Fighter feats&quot;) use 
+		the global ADD:FEAT() tag.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>STARTFEATS:2</code></p>
+		<p class="indent3">The race starts with 2 free feats.</p>
+
+		<p></p><a name="TEMPLATE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of templates that are granted to the race.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
+		<p class="indent3">The race uses the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
+		  templates.</p>
+
+		<p></p><a name="TEMPLATECHOOSE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:CHOOSE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">CHOOSE will supply a popup window of the choices presented in the tag 
+			that are | (pipe) delimted. Allowing the user to pick ONE from the list.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
+		<p class="indent3">The race can choose either the &quot;Celestial&quot; or &quot;Outsider&quot;
+		  template.</p>
+
+		<p></p><a name="TEMPLATEADDCHOICE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:ADDCHOICE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of template choices that are added 
+			to the list presented by the original TEMPLATE:CHOOSE tag found here or in other lst files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
+		<p class="indent3">The race can choose previouly defined templates plus the 
+			&quot;Demihuman&quot; or &quot;Beast&quot; templates.</p>
+
+		<p></p><a name="TYPE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Defines the Type of creature the race is.</li>
+			<li>Important for matching up with Monster HD, and for references to race, such as the 
+				Rangers Favored Enemy.</li>
+			<li>Currently existing selections from the Monster List include:<br />
+				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid, 
+				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and 
+				Vermin</li> 
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TYPE:Outsider</code></p>
+		<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>
+
+		<p></p><a name="WEAPONBONUS"></a><hr>
+		<p class="new">*** Updated 5.7.12</p>
+		<p class="indent0"><strong>Tag Name:</strong> WEAPONBONUS:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the race as 
+			a choice of ONE of the listed weapons.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>WEAPONBONUS:Rapier|Longbow</code></p>
+		<p class="indent3">The race receives bonus proficiency in &quot;Rapier&quot; or &quot;Longbow&quot;.</p>
+		<p class="indent2"><code>WEAPONBONUS:TYPE.Simple</code></p>
+		<p class="indent3">The race receives bonus proficiency in any one Simple weapon.</p>
+
+		<p></p><a name="WEIGHT"></a><hr>
+		<p class="new">*** Deprecated - Now done in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">Biosettings.lst</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> WEIGHT:M:min:dice:sides:F:min:dice:sides</p>
+
+		<p></p><a name="XTRASKILLPTSPERLVL"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> XTRASKILLPTSPERLVL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Template Name)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Grants a number of skill points to the race for free at every character 
+		level. This happens before multiplication of the first class level's skill points.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>XTRASKILLPTSPERLVL:1</code></p>
+		<p class="indent3">Adds one to the skill points per level (before multiplication for the 1st level).</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesraces.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	</body>
+
+</html>

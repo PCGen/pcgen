@@ -1,1 +1,178 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project					$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesfeats.html,v 1.7 2005/02/16 05:05:28 eddyanthony Exp $		$Author: eddyanthony $		$Date: 2005/02/16 05:05:28 $		$Revision: 1.7 $				Contributors:		Shane Molnar - shaneATcliftonmotelDOTcomDOTau		Eddy Anthony - eddybaATmindspringDOTcom				Description:		Provides information on the content of PCGen Feat Files.	-->	<head>		<title>Feat Files</title>		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />	</head>		<body>		<h1>Feat Files</h1>				<p>Each feat takes one line and the first field must be the feat's name.</p>				<p class="indent0"><strong>Naming Feats</strong></p>		<p class="indent1">When naming feats you should only use parentheses at the end   		of the name if the name is not duplicated elsewhere. This is because of how   		PCGen names feats which can be taken multiple times. For example, the Feat Weapon   		Focus when taken will display as Weapon Focus(Dagger). Another example is Armor   		Proficiency (Light), there is no feat named Armor Proficiency so this name is   		fine. What is happening is when PCGen finds a feat with parentheses that duplicates   		the name of another feat it assumes that feat is an instance of the one without   		parentheses and does not display the one with parentheses.</p>				<p></p><a name="ADDSPELLLEVEL"></a><hr>		<p class="new">*** New</p>		<p class="indent0"><strong>Tag Name:</strong> ADDSPELLLEVEL:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (Increase in spell slot level)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2"> This tag is used in metamagic feats to denote how much higher the spell level slot requires.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>ADDSPELLLEVEL:2</code></p>		<p class="indent3">A spell with this metamagic feat applied to it takes up a slot two levels higher than the normal spell.</p>				<p></p><a name="BENEFIT"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> BENEFIT:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (feat benefit text)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is the benefit text of the feat from the source material.   			This text will be displayed in the feat description field if the 			<a href="../../menupages/settings/appearance/appearancedisplay.html">&quot;Display Feat Description&quot;</a> 			checkbox in the Appearance/Display Options Preference window is unchecked. 			Otherwise the text from the <a href="#DESC">DESC</a> tag will be displayed.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>BENEFIT:This is sample text for the example purposes</code></p>		<p class="indent3">Adds feat benefit.</p>		<p></p><a name="FEATADD"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATADD|x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (TYPE=feat type)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Adds a Feat to the list of Feats for the Character. It will only 			display as a choice those feats that the character is qualified to select.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>CHOOSE:FEATADD|Weapon Focus,Toughness,Improved Unarmed Combat</code></p>		<p class="indent3">May choose between &quot;Weapon Focus&quot;, &quot;Toughness&quot; or &quot;Improved		  Unarmed Combat&quot;.</p>		<p class="indent2"><code>CHOOSE:FEATADD|TYPE=General</code></p>		<p class="indent3">May choose any General type feat.</p>		<p class="indent2"><code>CHOOSE:FEATADD|Weapon Focus,Improved Unarmed 			Combat|TYPE=Metamagic|TYPE=ItemCreation</code></p>		<p class="indent3">My choose between &quot;Weapon Focus&quot;, &quot;Improved Unarmed 			Combat&quot;, any &quot;Metamagic&quot; type feat or any &quot;ItemCreation&quot; type feat..</p>		<p></p><a name="COST"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Number (feat point cost)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is how many feat points the feat costs. a decimal value, 			as the example below, would mean that it only costs 1/2 a feat point.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>COST:1</code></p>		<p class="indent3">Feat costs one feat point.</p>		<p class="indent2"><code>COST:.5</code></p>		<p class="indent3">Feat costs half a feat point.</p>		<p></p><a name="DESC"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> DESC:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (feat description)</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>This is the 1 line flavor text of the feat from the source material.</li>			<li>Not to exceed 1 line and paraphrased if the line is too long.</li>			<li>If that one line is not OGC, then the DESCISPI should be added.</li>		</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>DESC:This is sample text for the example purposes</code></p>		<p class="indent3">Adds feat description.</p>		<p></p><a name="DESCISPI"></a><hr>		<p class="new">*** New</p>		<p class="indent0"><strong>Tag Name:</strong> DESCISPI:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is used to show that the DESC field is closed content, 			or Product Identity. Permission must be gained from the publisher to release 			it into official files.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>DESCISPI:YES</code></p>		<p class="indent3">The Feat description is closed content.</p>		<p></p><a name="MULT"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> MULT:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This determines if a feat can be taken multiple times. If the 			value is set to YES, then you <strong>MUST</strong> also use a CHOOSE tag.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>MULT:YES</code></p>		<p class="indent3">This Feat can be taken multiple times.</p>		<p></p><a name="STACK"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> STACK:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This tells PCGen if the feat benefits may be stacked on one another.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>STACK:YES</code></p>		<p class="indent3">This Feat may be stack on it's self.</p>				<p></p><a name="TEMPLATE"></a><hr>		<p class="new">*** New 5.6</p>		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x|x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of template)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a | (pipe) delimited list of templates that are granted by the feat.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>TEMPLATE:Celestial</code></p>		<p class="indent3">Adds the &quot;Celestial&quot; template to the character.</p>		<p class="indent2"><code>TEMPLATE:Half Dragon (Red)|Zombie</code></p>		<p class="indent3">Adds the templates &quot;Half Dragon (Red)&quot; and &quot;Zombie&quot; to the character.</p>		<p></p><a name="TYPE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> TYPE:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat type)</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">This is a . (period) delimited list of the types the feat is.</p>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>TYPE:General.Fighter</code></p>		<p class="indent3">This Feat is part of the &quot;General&quot; and &quot;Fighter&quot; feat types.</p>		<p></p><a name="VISIBLE"></a><hr>		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>		<p class="indent1"><strong>Variables Used (x):</strong> YES</p>		<p class="indent1"><strong>Variables Used (x):</strong> NO</p>		<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>		<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>YES - Shows the feat name in PCGen and on export to a character sheet.				(This is the default setting).</li> 			<li>NO - Hides the feat name in PCGen and on export to a character sheet.</li>			<li>DISPLAY - Displays the feat name in PCGen but not on the character sheet.</li>			<li>EXPORT - Hides the feat name from PCGen but displays it on the character sheet.</li>			</ul>		<p class="indent1"><strong>Example:</strong></p>		<p class="indent2"><code>VISIBLE:YES</code></p>		<p class="indent3">Shows the feat name in PCGen and on the Output sheet.</p>		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesfeats.html,v $ ($Revision: 1.7 $) last updated $Date: 2005/02/16 05:05:28 $ by $Author: eddyanthony $</p> -->	</body></html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+			
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesfeats.html,v 1.7 2005/02/16 05:05:28 eddyanthony Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		Provides information on the content of PCGen Feat Files.
+	-->
+	<head>
+		<title>Feat Files</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Feat Files</h1>
+		
+		<p>Each feat takes one line and the first field must be the feat's name.</p>
+		
+		<p class="indent0"><strong>Naming Feats</strong></p>
+		<p class="indent1">When naming feats you should only use parentheses at the end 
+  		of the name if the name is not duplicated elsewhere. This is because of how 
+  		PCGen names feats which can be taken multiple times. For example, the Feat Weapon 
+  		Focus when taken will display as Weapon Focus(Dagger). Another example is Armor 
+  		Proficiency (Light), there is no feat named Armor Proficiency so this name is 
+  		fine. What is happening is when PCGen finds a feat with parentheses that duplicates 
+  		the name of another feat it assumes that feat is an instance of the one without 
+  		parentheses and does not display the one with parentheses.</p>
+		
+		<p></p><a name="ADDSPELLLEVEL"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> ADDSPELLLEVEL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Increase in spell slot level)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> This tag is used in metamagic feats to denote how much higher the spell level slot requires.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ADDSPELLLEVEL:2</code></p>
+		<p class="indent3">A spell with this metamagic feat applied to it takes up a slot two levels higher than the normal spell.</p>
+		
+		<p></p><a name="BENEFIT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> BENEFIT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (feat benefit text)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is the benefit text of the feat from the source material. 
+  			This text will be displayed in the feat description field if the 
+			<a href="../../menupages/settings/appearance/appearancedisplay.html">&quot;Display Feat Description&quot;</a> 
+			checkbox in the Appearance/Display Options Preference window is unchecked. 
+			Otherwise the text from the <a href="#DESC">DESC</a> tag will be displayed.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BENEFIT:This is sample text for the example purposes</code></p>
+		<p class="indent3">Adds feat benefit.</p>
+
+		<p></p><a name="FEATADD"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATADD|x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (TYPE=feat type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Adds a Feat to the list of Feats for the Character. It will only 
+			display as a choice those feats that the character is qualified to select.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:FEATADD|Weapon Focus,Toughness,Improved Unarmed Combat</code></p>
+		<p class="indent3">May choose between &quot;Weapon Focus&quot;, &quot;Toughness&quot; or &quot;Improved
+		  Unarmed Combat&quot;.</p>
+		<p class="indent2"><code>CHOOSE:FEATADD|TYPE=General</code></p>
+		<p class="indent3">May choose any General type feat.</p>
+		<p class="indent2"><code>CHOOSE:FEATADD|Weapon Focus,Improved Unarmed 
+			Combat|TYPE=Metamagic|TYPE=ItemCreation</code></p>
+		<p class="indent3">My choose between &quot;Weapon Focus&quot;, &quot;Improved Unarmed 
+			Combat&quot;, any &quot;Metamagic&quot; type feat or any &quot;ItemCreation&quot; type feat..</p>
+
+		<p></p><a name="COST"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (feat point cost)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is how many feat points the feat costs. a decimal value, 
+			as the example below, would mean that it only costs 1/2 a feat point.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COST:1</code></p>
+		<p class="indent3">Feat costs one feat point.</p>
+		<p class="indent2"><code>COST:.5</code></p>
+		<p class="indent3">Feat costs half a feat point.</p>
+
+		<p></p><a name="DESC"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> DESC:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (feat description)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is the 1 line flavor text of the feat from the source material.</li>
+			<li>Not to exceed 1 line and paraphrased if the line is too long.</li>
+			<li>If that one line is not OGC, then the DESCISPI should be added.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DESC:This is sample text for the example purposes</code></p>
+		<p class="indent3">Adds feat description.</p>
+
+		<p></p><a name="DESCISPI"></a><hr>
+		<p class="new">*** New</p>
+		<p class="indent0"><strong>Tag Name:</strong> DESCISPI:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is used to show that the DESC field is closed content, 
+			or Product Identity. Permission must be gained from the publisher to release 
+			it into official files.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>DESCISPI:YES</code></p>
+		<p class="indent3">The Feat description is closed content.</p>
+
+		<p></p><a name="MULT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> MULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This determines if a feat can be taken multiple times. If the 
+			value is set to YES, then you <strong>MUST</strong> also use a CHOOSE tag.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MULT:YES</code></p>
+		<p class="indent3">This Feat can be taken multiple times.</p>
+
+		<p></p><a name="STACK"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> STACK:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES/NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tells PCGen if the feat benefits may be stacked on one another.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>STACK:YES</code></p>
+		<p class="indent3">This Feat may be stack on it's self.</p>
+		
+		<p></p><a name="TEMPLATE"></a><hr>
+		<p class="new">*** New 5.6</p>
+		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of template)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a | (pipe) delimited list of templates that are granted by the feat.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TEMPLATE:Celestial</code></p>
+		<p class="indent3">Adds the &quot;Celestial&quot; template to the character.</p>
+		<p class="indent2"><code>TEMPLATE:Half Dragon (Red)|Zombie</code></p>
+		<p class="indent3">Adds the templates &quot;Half Dragon (Red)&quot; and &quot;Zombie&quot; to the character.</p>
+
+		<p></p><a name="TYPE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a . (period) delimited list of the types the feat is.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TYPE:General.Fighter</code></p>
+		<p class="indent3">This Feat is part of the &quot;General&quot; and &quot;Fighter&quot; feat types.</p>
+
+		<p></p><a name="VISIBLE"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>YES - Shows the feat name in PCGen and on export to a character sheet.
+				(This is the default setting).</li> 
+			<li>NO - Hides the feat name in PCGen and on export to a character sheet.</li>
+			<li>DISPLAY - Displays the feat name in PCGen but not on the character sheet.</li>
+			<li>EXPORT - Hides the feat name from PCGen but displays it on the character sheet.</li>	
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>VISIBLE:YES</code></p>
+		<p class="indent3">Shows the feat name in PCGen and on the Output sheet.</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesfeats.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	</body>
+
+</html>
