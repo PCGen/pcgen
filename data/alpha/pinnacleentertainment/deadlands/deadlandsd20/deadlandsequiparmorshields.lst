@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+# CVS $Revision$ $Author$ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Light Leather			TYPE:Armor.Light.Suit			COST:5	WT:10		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.66	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE

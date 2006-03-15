@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name				Type					Contains			Cost		Weight	Source Page
 Backpack					TYPE:Goods.General		CONTAINS:100|Any=100	COST:2	WT:2		SOURCEPAGE:p.71

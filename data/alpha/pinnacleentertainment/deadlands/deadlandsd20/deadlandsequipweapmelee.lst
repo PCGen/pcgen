@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: dmcmill $ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# CVS $Revision$ $Author$ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name			Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus
 Unarmed Strike								TYPE:Weapon.Unarmed.Melee.Bludgeoning.Monk		COST:0	WT:0										DAMAGE:1d3				SIZE:T	SOURCEPAGE:p.72

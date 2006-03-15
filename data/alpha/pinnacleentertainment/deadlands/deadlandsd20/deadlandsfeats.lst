@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
 
 # Feat Name						Type			Visible		Req. Att.	Required Class										Required Feat						Required Lvl	Maximum Level	Req. Special Ability	Required Skill			Required Stat	Var. Min. Value			Define		Description																																														Stackable?	Multiple?	Choose																																										ADD:CLASSSKILLS					Save checks bonus					Combat bonus		Bonus to skill						Add to vision			Stat bonus		Modify VAR			Weapon prof. bonus			Vision			Source Page

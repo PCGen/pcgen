@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: eddyanthony $ -- Fri Jun 17 22:50:14 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Fri Jun 17 22:50:14 2005 -- reformated by prettylst.pl v1.35 (build 469)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name				Output Name					Type				Cost		Weight	Source Page		Spell Res.	Bonus to skill			Stat bonus
 Dreamcatcher										TYPE:Magic.Wondrous	COST:30000	WT:1		SOURCEPAGE:p.196	SR:15
