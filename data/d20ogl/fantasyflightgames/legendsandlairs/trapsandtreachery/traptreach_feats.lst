@@ -1,4 +1,4 @@
-# CVS $Revision: 1.4 $ $Author: tir-gwaith $ -- Fri Mar 18 14:06:24 2005 -- reformated by prettylst.pl v1.34 (build 455)
+# CVS $Revision$ $Author$ -- Fri Mar 18 14:06:24 2005 -- reformated by prettylst.pl v1.34 (build 455)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Feat Name				Type					Visible		Req. Att.	Required Class				Required Feat				Multiple Requirements								Req. Special Ability	Required Skill								Required Stat		Var. Min. Value			Special Ability			Description																																								Multiple?	Choose			Bonus to skill											Modify VAR									Source Page
 Acrobatic				TYPE:General																																													PRESTAT:1,DEX=15												DESC:+2 on Balance and Tumble																																											BONUS:SKILL|Balance,Tumble|2																			SOURCEPAGE:p.34

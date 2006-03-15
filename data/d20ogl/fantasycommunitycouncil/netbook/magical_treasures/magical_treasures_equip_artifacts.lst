@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: ericbeaudoin $ -- Thu Apr 17 20:36:11 2003 -- reformated by pretty~1.pl v1.27 (build 277)
+# CVS $Revision$ $Author$ -- Thu Apr 17 20:36:11 2003 -- reformated by pretty~1.pl v1.27 (build 277)
 SOURCELONG:Netbook of Magical Treasures|SOURCESHORT:NboMT|SOURCEWEB:http://www.d20magicitems.org/
 # Equipment Name					Required Proficiency		Type															Weight	Source Page					Combat bonus						Bonus to skill														Stat bonus						Special Property
 Cape of Ultimate Influence								TYPE:Magic.Artifact.Major.Cape										WT:1		SOURCEPAGE:pg. 70-71, Artifacts									BONUS:SKILL|Bluff, Diplomancy, Gather Information, Intimidate, Sense Motive|15|TYPE=Enhancement	BONUS:STAT|CHA,WIS|4|TYPE=Enhancement	SPROP:See text

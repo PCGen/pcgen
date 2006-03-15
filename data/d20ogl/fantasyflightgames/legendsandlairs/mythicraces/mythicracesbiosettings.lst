@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
+# CVS $Revision$ $Author$ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
 
 AGESET:0|Adulthood
 RACENAME:Aaleear		SEX:Male[BASEHT:22|HTDIEROLL:1d4|BASEWT:20|WTDIEROLL:1d3|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:20|HTDIEROLL:1d4|BASEWT:20|WTDIEROLL:1d2|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]

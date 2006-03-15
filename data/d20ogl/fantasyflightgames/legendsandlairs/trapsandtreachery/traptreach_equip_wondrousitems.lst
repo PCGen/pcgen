@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Equipment Name			Type					Cost		Weight	Slot Needed	Source Page		Special Property
 Alric's Tiny Golem		TYPE:Magic.Wondrous		COST:12000	WT:0				SOURCEPAGE:p.48
