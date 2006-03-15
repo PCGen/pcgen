@@ -1,1 +1,471 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project				$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensfeat-skill.html,v 1.7 2005/11/30 13:32:54 karianna Exp $		$Author: karianna $		$Date: 2005/11/30 13:32:54 $		$Revision: 1.7 $				Contributors:		Shane Molnar - shaneATcliftonmotelDOTcomDOTau		Sigurdur H. Olafsson - shoATtnDOTis				Description:		Provides information on the use of Output Sheet Tokens: Feats &amp; Skills Related.	-->	<head>			<title>Feats &amp; Skills Related Output Sheet Tokens</title>			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />	</head>		<body>		<h1>Feats &amp; Skills Related Output Sheet Tokens</h1>		<p></p><a name="FEAT"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEAT.x.y.z</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>		<ul class="indent2">			<li>None - Displays the name of the feat in position x in the character's feat list.</li>			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays information about the xth feat in the character's chosen feat list (no automatic or virtual feats included).</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEAT.0</code></p>		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen feat.</p>		<p class="indent2"><code>FEAT.0.DESC</code></p>		<p class="indent3">Displays the description of the 1<sup>st</sup> chosen feat.</p>		<p class="indent2"><code>FEAT.3.TYPE=General</code></p>		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>		<p class="indent2"><code>FEAT.3.TYPE=General.TYPE</code></p>		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>		<p></p><a name="FEATALL"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEATALL.w.x.y.z</p>		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility).</p>		<ul class="indent2">			<li>VISIBLE - Filter the feats that are visible in the outputsheets (default option).</li>			<li>HIDDEN - Filter the feats that are not visible in the outputsheets.</li>			<li>ALL - Shows all feats.</li>		</ul>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Number (The feats position in the character's complete feat list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>		<ul class="indent2">			<li>None - Displays the name of the feat in position x in the character's feat list.</li>			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays information about the xth feat in the character's complete feat list.</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEATALL.0</code></p>		<p class="indent3">Displays the first feat name.</p>		<p class="indent2"><code>FEATALL.0.DESC</code></p>		<p class="indent3">Displays the description of the first feat.</p>		<p class="indent2"><code>FEATALL.1.TYPE=Metamagic</code></p>		<p class="indent3">Displays the 2<sup>nd</sup> feat name if it is a metamagic feat.</p>		<p class="indent2"><code>FEATALL.2.!TYPE=General.DESC</code></p>		<p class="indent3">Displays the 3<sup>rd</sup> feat description if it is a General feat.</p>		<p class="indent2"><code>FEATALL.3.TYPE=Occupation.TYPE</code></p>		<p class="indent3">Displays the type of the 4<sup>th</sup> feat if it is an Occupation feat.</p>		<p></p><a name="FEATALLLIST"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEATALLLIST.x</p>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>		<ul class="indent2">			<li>None?- Displays all of the character's feats (comma delimited).</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays the character's feats (comma delimited).</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEATALLLIST</code></p>		<p class="indent3">Displays all of the character's feats (comma delimited).</p>		<p class="indent2"><code>FEATALLLIST.TYPE=Fighter</code></p>		<p class="indent3">Displays all of the character's fighter feats (comma delimited).</p>		<p class="indent2"><code>FEATALLLIST.!TYPE=Metamagic.!TYPE=ItemCreation</code></p>		<p class="indent3">Displays all of the character's feats except metamagic and item creation type feats (comma delimited).</p>		<p></p><a name="FEATAUTO"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEATAUTO.x.y.z</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>		<ul class="indent2">			<li>None - Displays the name of the feat in position x in the character's feat list.</li>			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays information about the xth feat in the character's automatic feat list.</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEATAUTO.0</code></p>		<p class="indent3">Displays the name of the 1<sup>st</sup> automatic feat.</p>		<p class="indent2"><code>FEATAUTO.0.DESC</code></p>		<p class="indent3">Displays the description of the 1<sup>st</sup> automatic feat.</p>		<p class="indent2"><code>FEATAUTO.1.TYPE=General</code></p>		<p class="indent3">Displays the name of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>		<p class="indent2"><code>FEATAUTO.1.TYPE=General.TYPE</code></p>		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>		<p></p><a name="FEATAUTOLIST"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEATAUTOLIST.x</p>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>		<ul class="indent2">			<li>None?- Displays all of the character's feats (comma delimited).</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays all the character's automatic feats (comma delimited).</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEATAUTOLIST</code></p>		<p class="indent3">Displays all of the character's automatic feats (comma delimited).</p>		<p class="indent2"><code>FEATAUTOLIST.!TYPE=General</code></p>		<p class="indent3">Displays all of the character's automatic feats except general type feats (comma delimited).</p>		<p></p><a name="FEATLIST"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEATLIST.x</p>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>		<ul class="indent2">			<li>None?- Displays all of the character's feats (comma delimited).</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays all the character's chosen feats (comma delimited, no virtual or automatic feats).</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEATLIST</code></p>		<p class="indent3">Displays all of the character's chosen feats (comma delimited).</p>		<p class="indent2"><code>FEATLIST.TYPE=ItemCreation</code></p>		<p class="indent3">Displays all of the character's chosen item creation type feats (comma delimited).</p>		<p></p><a name="FEATPOINTS"></a><hr>		<p class="indent0"><strong>Token Name:</strong> FEATPOINTS</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays all the character's remaining un-spent feat points.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>FEATPOINTS</code></p>		<p class="indent3">Displays all the character's remaining un-spent feat points.</p>		<p></p><a name="MAXCCSKILLLEVEL"></a><hr>		<p class="indent0"><strong>Token Name:</strong> MAXCCSKILLLEVEL</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays the maximum Cross Class Skill level.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>MAXCCSKILLLEVEL</code></p>		<p class="indent3">Displays the maximum Cross Class Skill level.</p>		<p></p><a name="MAXSKILLLEVEL"></a><hr>		<p class="indent0"><strong>Token Name:</strong> MAXSKILLLEVEL</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays the maximum Class Skill Level.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>MAXSKILLLEVEL</code></p>		<p class="indent3">Displays the maximum Class Skill Level.</p>		<p></p><a name="SKILL"></a><hr>		<p class="new">*** Updated 5.7.3</p>		<p class="indent0"><strong>Token Name:</strong> SKILL.x.y</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Property (Skill Property).</p>		<ul class="indent2">			<li>None - Displays the name of the skill in position x in the character's skill list.</li>			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>			<li>MISC - equals TOTAL - RANK - ABMOD.</li>			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 				skill list.</li>			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>			<li>TYPE - Displays the type of the skill  in position x in the character's skill  list.</li>			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays information about xth skill in the character's skill list.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILL.2.RANK</code></p>		<p class="indent3">Displays the number of ranks in the 3<sup>rd</sup> skill.</p>		<p class="indent2"><code>SKILL.1.MISC</code></p>		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks 			(e.g. A synergy bonus).</p>		<p class="indent2"><code>SKILL.0.ABILITY</code></p>		<p class="indent3">Displays the key ability name for the 1<sup>st</sup> skill.</p>		<p class="indent2"><code>SKILL.2.EXPLAIN</code></p>		<p class="indent3">Displays the  make-up of the misc modifier in the 3<sup>rd</sup> skill. 			<br>Example: +2[TUMBLE] -6.0[SPEED.STACK] +4.0[OTHER]</p>		<p></p>		<p class="new">*** Updated 5.7.3</p>		<p class="indent0"><strong>Token Name:</strong> SKILL.x.y</p>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Name).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Property (Skill Property).</p>		<ul class="indent2">			<li>None - Displays the name of skill x.</li>			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>			<li>MISC - equals TOTAL - RANK - ABMOD.</li>			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 			skill list.</li>			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays select information about a choosen skill.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILL.Alchemy.TOTAL</code></p>		<p class="indent3">Would display the total bonus on your Alchemy skill check.</p>		<p class="indent2"><code>SKILL.Jump.EXPLAIN_LONG</code></p>		<p class="indent3">Displays the  make-up of the misc modifier in the Jump skill. 			<br>Example: +2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK] -6.0[|TYPE=SPEED.STACK] +4.0[OTHER]</p>		<p></p><a name="SKILLLEVEL"></a><hr>		<p class="indent0"><strong>Token Name:</strong> SKILLLEVEL.x.TOTAL</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays skill points gained at level x.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILLLEVEL.1.TOTAL </code></p>		<p class="indent3">Displays skill points gained at level 1.</p>				<p></p><a name="SKILLLISTMODS"></a><hr>		<p class="indent0"><strong>Token Name:</strong> SKILLLISTMODS</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays a list of all skills with a non-zero adjustment.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILLLISTMODS</code></p>		<p class="indent3">Displays a list of all skills with a non-zero adjustment.</p>		<p></p><a name="SKILLPOINTS"></a><hr>		<p class="indent0"><strong>Token Name:</strong> SKILLPOINTS.x</p>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>		<ul class="indent2">			<li>TOTAL - Displays the total skill points the character has.</li>			<li>USED - Displays the number of skill points that have been assigned to skills.</li>			<li>UNUSED - Displays the number of skill points that remain unassigned.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays skill point information.Displays skill point information.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILLPOINTS.TOTAL</code></p>		<p class="indent3">Displays the total skill points the character has.</p>		<p></p><a name="SKILLSUBSET"></a><hr>		<p class="indent0"><strong>Token Name:</strong> SKILLSUBSET.x.y.z</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Text (Subname - Anything that matches the start of a skill name).</p>		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property).</p>		<ul class="indent2">			<li>None - Displays the name of the skill in position x in the character's skill list.</li>			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>			<li>MISC - equals TOTAL - RANK - ABMOD.</li>			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 				skill list.</li>			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays the value of the Skill at position x in a subset of			character's skill list.? The subset is generated by comparing subname to the beginning			of the skill name, if they match (case insensitive) the skill is in the subset.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.RANK</code></p>		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> knowledge skill in the			character's skill list.</p>		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.MISC</code></p>		<p class="indent3">Displays the bonus for the 3<sup>rd</sup> skill not from the key ability score or ranks 			(e.g.? A synergy bonus).</p>		<p></p><a name="SKILLTYPE"></a><hr>		<p class="indent0"><strong>Token Name:</strong> SKILLTYPE.x.y.z</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skill position in the character's complete skill list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Text (Subtype - Anything that occurs in the TYPE tag in a lst file).</p>		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property).</p>		<ul class="indent2">			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>			<li>MISC - equals TOTAL - RANK - ABMOD.</li>			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 			skill list.</li>			<li>NAME - Displays the name of the skill in position x in the character's skill list.</li>						<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays the value of the Skill at position x in a subset of			character's skill list.? The subset is generated by comparing subtype to the			Type of the skill (as defined by the TYPE tag in the Skill.lst file), if the			type contains (case insensitive) the subtype the skill is in the subset.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>SKILL2.RANK</code></p>		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> skill in the character's skill list.</p>		<p class="indent2"><code>SKILL1.MISC</code></p>		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks 			(e.g.?A synergy bonus).</p>		<p class="indent2"><code>SKILL0.ABILITY</code></p>		<p class="indent3">Displays the key ability for the 1<sup>st</sup> skill in the character's skill list.</p>		<p></p><a name="TEMPLATE"></a><hr>		<p class="indent0"><strong>Token Name:</strong> TEMPLATE.x.y</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The templates position in the character's complete template list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>		<ul class="indent2">			<li>NAME - Displays the name of the template at position x the characters list of templates.</li>			<li>CHAMOD - Displays the Charisma Modifier granted by the template at position x in the characters list of templates.</li>			<li>CONMOD - Displays the Constitution Modifier granted by the template at position x in the characters list of templates.</li>			<li>CR - Displays the Challenge Rating granted by the template at position x in the characters list of templates.</li>			<li>DEXMOD - Displays the Dexterity Modifier granted by the template at position x in the characters list of templates.</li>			<li>DR - Displays the Damage Reduction granted by the template at position x in the characters list of templates.</li>			<li>FEAT - Displays the Feats granted by the template at position x in the characters list of templates.</li>			<li>INTMOD - Displays the Intelligence Modifier granted by the template at position x in the characters list of templates.</li>			<li>SA - Displays the Special Abilities granted by the template at position x in the characters list of templates.</li>			<li>SR - Displays the Spell Resistance granted by the template at position x in the characters list of templates.</li>			<li>STRMOD - Displays the Strength Modifier granted by the template at position x in the characters list of templates.</li>			<li>WISMOD - Displays the Wisdom Modifier granted by the template at position x in the characters list of templates.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays information about the templates applied to the character.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>TEMPLATE0.NAME</code></p>		<p class="indent3">Displays the name of the 1<sup>st</sup> template in the characters list of templates.</p>		<p class="indent2"><code>TEMPLATE0.STRMOD</code></p>		<p class="indent3">Displays the Strength Modifiaction granted by the 1<sup>st</sup> template in the characters list of templates.</p>		<p></p><a name="TEMPLATELIST"></a><hr>		<p class="indent0"><strong>Token Name:</strong> TEMPLATELIST</p>		<p class="indent1"><strong>What it does:</strong></p>		<p class="indent2">Displays your templates in a comma delimited list.</p>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>TEMPLATELIST</code></p>		<p class="indent3">Displays your templates in a comma delimited list.</p>		<p></p><a name="VFEAT"></a><hr>		<p class="indent0"><strong>Token Name:</strong> VFEAT.x.y.z</p>		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list		                                                                 - 0-based index).</p>		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>		<ul class="indent2">			<li>None - Displays the name of the feat in position x in the character's feat list.</li>			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays information about the xth feat in the character's virtual feat list.</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>VFEAT.0</code></p>		<p class="indent3">Displays the name of the 1<sup>st</sup> feat in the character's virtual feat list.</p>		<p class="indent2"><code>VFEAT.0.DESC</code></p>		<p class="indent3">Displays the description of the 1<sup>st</sup> feat in the character's virtual feat list.</p>		<p class="indent2"><code>VFEAT.2.TYPE=Fighter</code></p>		<p class="indent3">Displays the name of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>		<p class="indent2"><code>VFEAT.2.TYPE=Fighter.TYPE</code></p>		<p class="indent3">Displays the type of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>		<p></p><a name="VFEATLIST"></a><hr>		<p class="indent0"><strong>Token Name:</strong> VFEATLIST.x</p>		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>		<ul class="indent2">			<li>None?- Displays all of the character's virtual feats (comma delimited).</li>			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>		</ul>		<p class="indent1"><strong>What it does:</strong></p>		<ul class="indent2">			<li>Displays all the character's virtual feats.</li>			<li>You may include more than one TYPE=type in the token.</li>			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>			<li>You may not have an inclusion and exclusion in the same token.</li>			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>		</ul>		<p class="indent1"><strong>Examples:</strong></p>		<p class="indent2"><code>VFEATLIST</code></p>		<p class="indent3">Displays all of the character's virtual feats (comma delimited).</p>		<p class="indent2"><code>VFEATLIST.TYPE=Fighter</code></p>		<p class="indent3">Displays all of the character's virtual feats that are fighter type feats (comma delimited).</p>		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensfeat-skill.html,v $ ($Revision: 1.7 $) last updated $Date: 2005/11/30 13:32:54 $ by $Author: karianna $</p> -->	</body></html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensfeat-skill.html,v 1.7 2005/11/30 13:32:54 karianna Exp $
+		$Author$
+		$Date$
+		$Revision$
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Sigurdur H. Olafsson - shoATtnDOTis
+		
+		Description:
+		Provides information on the use of Output Sheet Tokens: Feats &amp; Skills Related.
+	-->
+	<head>
+			<title>Feats &amp; Skills Related Output Sheet Tokens</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	</head>
+	
+	<body>
+		<h1>Feats &amp; Skills Related Output Sheet Tokens</h1>
+
+		<p></p><a name="FEAT"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEAT.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
+			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
+			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth feat in the character's chosen feat list (no automatic or virtual feats included).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEAT.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>FEAT.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>FEAT.3.TYPE=General</code></p>
+		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>
+		<p class="indent2"><code>FEAT.3.TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>
+
+		<p></p><a name="FEATALL"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEATALL.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the feats that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the feats that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all feats.</li>
+		</ul>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Number (The feats position in the character's complete feat list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
+			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
+			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth feat in the character's complete feat list.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEATALL.0</code></p>
+		<p class="indent3">Displays the first feat name.</p>
+		<p class="indent2"><code>FEATALL.0.DESC</code></p>
+		<p class="indent3">Displays the description of the first feat.</p>
+		<p class="indent2"><code>FEATALL.1.TYPE=Metamagic</code></p>
+		<p class="indent3">Displays the 2<sup>nd</sup> feat name if it is a metamagic feat.</p>
+		<p class="indent2"><code>FEATALL.2.!TYPE=General.DESC</code></p>
+		<p class="indent3">Displays the 3<sup>rd</sup> feat description if it is a General feat.</p>
+		<p class="indent2"><code>FEATALL.3.TYPE=Occupation.TYPE</code></p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> feat if it is an Occupation feat.</p>
+
+		<p></p><a name="FEATALLLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEATALLLIST.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's feats (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays the character's feats (comma delimited).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEATALLLIST</code></p>
+		<p class="indent3">Displays all of the character's feats (comma delimited).</p>
+		<p class="indent2"><code>FEATALLLIST.TYPE=Fighter</code></p>
+		<p class="indent3">Displays all of the character's fighter feats (comma delimited).</p>
+		<p class="indent2"><code>FEATALLLIST.!TYPE=Metamagic.!TYPE=ItemCreation</code></p>
+		<p class="indent3">Displays all of the character's feats except metamagic and item creation type feats (comma delimited).</p>
+
+		<p></p><a name="FEATAUTO"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEATAUTO.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
+			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
+			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth feat in the character's automatic feat list.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEATAUTO.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.1.TYPE=General</code></p>
+		<p class="indent3">Displays the name of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>
+		<p class="indent2"><code>FEATAUTO.1.TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>
+
+		<p></p><a name="FEATAUTOLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEATAUTOLIST.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's feats (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays all the character's automatic feats (comma delimited).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEATAUTOLIST</code></p>
+		<p class="indent3">Displays all of the character's automatic feats (comma delimited).</p>
+		<p class="indent2"><code>FEATAUTOLIST.!TYPE=General</code></p>
+		<p class="indent3">Displays all of the character's automatic feats except general type feats (comma delimited).</p>
+
+		<p></p><a name="FEATLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEATLIST.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's feats (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays all the character's chosen feats (comma delimited, no virtual or automatic feats).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEATLIST</code></p>
+		<p class="indent3">Displays all of the character's chosen feats (comma delimited).</p>
+		<p class="indent2"><code>FEATLIST.TYPE=ItemCreation</code></p>
+		<p class="indent3">Displays all of the character's chosen item creation type feats (comma delimited).</p>
+
+		<p></p><a name="FEATPOINTS"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> FEATPOINTS</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays all the character's remaining un-spent feat points.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FEATPOINTS</code></p>
+		<p class="indent3">Displays all the character's remaining un-spent feat points.</p>
+
+		<p></p><a name="MAXCCSKILLLEVEL"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> MAXCCSKILLLEVEL</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the maximum Cross Class Skill level.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>MAXCCSKILLLEVEL</code></p>
+		<p class="indent3">Displays the maximum Cross Class Skill level.</p>
+
+		<p></p><a name="MAXSKILLLEVEL"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> MAXSKILLLEVEL</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the maximum Class Skill Level.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>MAXSKILLLEVEL</code></p>
+		<p class="indent3">Displays the maximum Class Skill Level.</p>
+
+		<p></p><a name="SKILL"></a><hr>
+		<p class="new">*** Updated 5.7.3</p>
+		<p class="indent0"><strong>Token Name:</strong> SKILL.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Property (Skill Property).</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the skill in position x in the character's skill list.</li>
+			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
+			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
+			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
+			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+				skill list.</li>
+			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
+			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+			<li>TYPE - Displays the type of the skill  in position x in the character's skill  list.</li>
+			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays information about xth skill in the character's skill list.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILL.2.RANK</code></p>
+		<p class="indent3">Displays the number of ranks in the 3<sup>rd</sup> skill.</p>
+		<p class="indent2"><code>SKILL.1.MISC</code></p>
+		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks 
+			(e.g. A synergy bonus).</p>
+		<p class="indent2"><code>SKILL.0.ABILITY</code></p>
+		<p class="indent3">Displays the key ability name for the 1<sup>st</sup> skill.</p>
+		<p class="indent2"><code>SKILL.2.EXPLAIN</code></p>
+		<p class="indent3">Displays the  make-up of the misc modifier in the 3<sup>rd</sup> skill. 
+			<br>Example: +2[TUMBLE] -6.0[SPEED.STACK] +4.0[OTHER]</p>
+
+		<p></p>
+		<p class="new">*** Updated 5.7.3</p>
+		<p class="indent0"><strong>Token Name:</strong> SKILL.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Name).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Property (Skill Property).</p>
+		<ul class="indent2">
+			<li>None - Displays the name of skill x.</li>
+			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
+			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
+			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
+			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+			skill list.</li>
+			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
+			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays select information about a choosen skill.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILL.Alchemy.TOTAL</code></p>
+		<p class="indent3">Would display the total bonus on your Alchemy skill check.</p>
+		<p class="indent2"><code>SKILL.Jump.EXPLAIN_LONG</code></p>
+		<p class="indent3">Displays the  make-up of the misc modifier in the Jump skill. 
+			<br>Example: +2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK] -6.0[|TYPE=SPEED.STACK] +4.0[OTHER]</p>
+
+		<p></p><a name="SKILLLEVEL"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SKILLLEVEL.x.TOTAL</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays skill points gained at level x.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILLLEVEL.1.TOTAL </code></p>
+		<p class="indent3">Displays skill points gained at level 1.</p>
+		
+		<p></p><a name="SKILLLISTMODS"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SKILLLISTMODS</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays a list of all skills with a non-zero adjustment.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILLLISTMODS</code></p>
+		<p class="indent3">Displays a list of all skills with a non-zero adjustment.</p>
+
+		<p></p><a name="SKILLPOINTS"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SKILLPOINTS.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>TOTAL - Displays the total skill points the character has.</li>
+			<li>USED - Displays the number of skill points that have been assigned to skills.</li>
+			<li>UNUSED - Displays the number of skill points that remain unassigned.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays skill point information.Displays skill point information.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILLPOINTS.TOTAL</code></p>
+		<p class="indent3">Displays the total skill points the character has.</p>
+
+		<p></p><a name="SKILLSUBSET"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SKILLSUBSET.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Subname - Anything that matches the start of a skill name).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the skill in position x in the character's skill list.</li>
+			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
+			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+				skill list.</li>
+			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
+			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the value of the Skill at position x in a subset of
+			character's skill list.? The subset is generated by comparing subname to the beginning
+			of the skill name, if they match (case insensitive) the skill is in the subset.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.RANK</code></p>
+		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> knowledge skill in the
+			character's skill list.</p>
+		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.MISC</code></p>
+		<p class="indent3">Displays the bonus for the 3<sup>rd</sup> skill not from the key ability score or ranks 
+			(e.g.? A synergy bonus).</p>
+
+		<p></p><a name="SKILLTYPE"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SKILLTYPE.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skill position in the character's complete skill list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Subtype - Anything that occurs in the TYPE tag in a lst file).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
+			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+			skill list.</li>
+			<li>NAME - Displays the name of the skill in position x in the character's skill list.</li>			
+			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
+			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the value of the Skill at position x in a subset of
+			character's skill list.? The subset is generated by comparing subtype to the
+			Type of the skill (as defined by the TYPE tag in the Skill.lst file), if the
+			type contains (case insensitive) the subtype the skill is in the subset.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILL2.RANK</code></p>
+		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> skill in the character's skill list.</p>
+		<p class="indent2"><code>SKILL1.MISC</code></p>
+		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks 
+			(e.g.?A synergy bonus).</p>
+		<p class="indent2"><code>SKILL0.ABILITY</code></p>
+		<p class="indent3">Displays the key ability for the 1<sup>st</sup> skill in the character's skill list.</p>
+
+		<p></p><a name="TEMPLATE"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> TEMPLATE.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The templates position in the character's complete template list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>NAME - Displays the name of the template at position x the characters list of templates.</li>
+			<li>CHAMOD - Displays the Charisma Modifier granted by the template at position x in the characters list of templates.</li>
+			<li>CONMOD - Displays the Constitution Modifier granted by the template at position x in the characters list of templates.</li>
+			<li>CR - Displays the Challenge Rating granted by the template at position x in the characters list of templates.</li>
+			<li>DEXMOD - Displays the Dexterity Modifier granted by the template at position x in the characters list of templates.</li>
+			<li>DR - Displays the Damage Reduction granted by the template at position x in the characters list of templates.</li>
+			<li>FEAT - Displays the Feats granted by the template at position x in the characters list of templates.</li>
+			<li>INTMOD - Displays the Intelligence Modifier granted by the template at position x in the characters list of templates.</li>
+			<li>SA - Displays the Special Abilities granted by the template at position x in the characters list of templates.</li>
+			<li>SR - Displays the Spell Resistance granted by the template at position x in the characters list of templates.</li>
+			<li>STRMOD - Displays the Strength Modifier granted by the template at position x in the characters list of templates.</li>
+			<li>WISMOD - Displays the Wisdom Modifier granted by the template at position x in the characters list of templates.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays information about the templates applied to the character.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>TEMPLATE0.NAME</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> template in the characters list of templates.</p>
+		<p class="indent2"><code>TEMPLATE0.STRMOD</code></p>
+		<p class="indent3">Displays the Strength Modifiaction granted by the 1<sup>st</sup> template in the characters list of templates.</p>
+
+		<p></p><a name="TEMPLATELIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> TEMPLATELIST</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays your templates in a comma delimited list.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>TEMPLATELIST</code></p>
+		<p class="indent3">Displays your templates in a comma delimited list.</p>
+
+		<p></p><a name="VFEAT"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> VFEAT.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
+			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
+			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth feat in the character's virtual feat list.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>VFEAT.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> feat in the character's virtual feat list.</p>
+		<p class="indent2"><code>VFEAT.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> feat in the character's virtual feat list.</p>
+		<p class="indent2"><code>VFEAT.2.TYPE=Fighter</code></p>
+		<p class="indent3">Displays the name of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>
+		<p class="indent2"><code>VFEAT.2.TYPE=Fighter.TYPE</code></p>
+		<p class="indent3">Displays the type of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>
+
+		<p></p><a name="VFEATLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> VFEATLIST.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's virtual feats (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays all the character's virtual feats.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>VFEATLIST</code></p>
+		<p class="indent3">Displays all of the character's virtual feats (comma delimited).</p>
+		<p class="indent2"><code>VFEATLIST.TYPE=Fighter</code></p>
+		<p class="indent3">Displays all of the character's virtual feats that are fighter type feats (comma delimited).</p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensfeat-skill.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+	</body>
+
+</html>
