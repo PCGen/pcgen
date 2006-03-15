@@ -27,11 +27,14 @@
 package pcgen.core;
 
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * General utilities related to the Ability class.
@@ -586,5 +589,257 @@ public class AbilityUtilities
 		}
 
 		return retVal;
+	}
+
+
+	/**
+	 * Convert the name of an Ability (currently only handles FEATS) into an
+	 * Ability object and add it to theFeatList TODO expand this routine so that
+	 * it can handle more than feats.  This may involve changes where it is
+	 * called so that they pass a different list depending on the category of
+	 * Ability object, but they would need to pass the category as well and it
+	 * may be simpler to pass AbilityInfo objects instead.
+	 *
+	 * @param  theAbilityList  A list of abilities to add to
+	 * @param  abilityName     The name of the Ability to Add
+	 */
+	static void addToFeatList(final List theAbilityList, final String abilityName)
+	{
+		String altName = "";
+		String subName = "";
+	
+		if (abilityName.endsWith(")"))
+		{
+			// we want what is inside the outermost parens.
+			subName = abilityName.substring(
+				    abilityName.indexOf('(') + 1,
+				    abilityName.lastIndexOf(')'));
+			altName = abilityName.substring(0, abilityName.indexOf('(')).trim();
+		}
+	
+		Ability anAbility = getFeatNamedInList(
+			    theAbilityList,
+			    abilityName);
+	
+		if ((anAbility == null) && (altName.length() != 0))
+		{
+			anAbility = getFeatNamedInList(theAbilityList, altName);
+		}
+	
+		/* This feat is not in autoFeatList, get the global definition, clone it, attach
+		 * sub-type (if any) and add */
+	
+		if (anAbility == null)
+		{
+			anAbility = Globals.getAbilityNamed("FEAT", abilityName);
+	
+			if ((anAbility == null) && (altName.length() != 0))
+			{
+				anAbility = Globals.getAbilityNamed("FEAT", altName);
+			}
+	
+			if (anAbility != null)
+			{
+				anAbility = (Ability) anAbility.clone();
+	
+				if (subName.length() != 0)
+				{
+					anAbility.addAssociated(subName);
+				}
+	
+				anAbility.setFeatType(Ability.ABILITY_AUTOMATIC);
+				theAbilityList.add(anAbility);
+			}
+			else
+			{
+				ShowMessageDelegate.showMessageDialog(
+				    "Adding unknown feat: " + abilityName,
+				    Constants.s_APPNAME,
+				    MessageType.INFORMATION);
+			}
+		}
+	
+		/* Already have feat, add sub-type (if any) */
+	
+		else
+		{
+			if (subName.length() != 0)
+			{
+				if (
+				    anAbility.isStacks() ||
+				    (anAbility.isMultiples() &&
+				        !anAbility.containsAssociated(subName)))
+				{
+					anAbility.addAssociated(subName);
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * Add multiple feats from a String list separated by commas.
+	 * @param playerCharacterLevelInfo
+	 * @param aList
+	 * @param addIt
+	 * @param all
+	 */
+	static void modFeatsFromList(final PlayerCharacter aPC,
+			                     final PCLevelInfo     playerCharacterLevelInfo,
+			                     final String          aList,
+			                     final boolean         addIt,
+			                     final boolean         all)
+	{
+		final StringTokenizer aTok = new StringTokenizer(aList, ",");
+	
+		while (aTok.hasMoreTokens())
+		{
+			String aString = aTok.nextToken();
+			Ability anAbility = aPC.getFeatNamed(aString);
+			StringTokenizer bTok = null;
+	
+			if (anAbility != null)
+			{
+				continue;
+			}
+	
+			// does not already have feat
+			anAbility = Globals.getAbilityNamed("FEAT", aString);
+	
+			if (anAbility == null)
+			{
+				// could not find Feat, try trimming off contents of parenthesis
+				bTok = new StringTokenizer(aString, "()", true);
+	
+				final String bString = bTok.nextToken();
+				final int beginIndex = bString.length() + 1;
+				final int endIndex = aString.lastIndexOf(')');
+	
+				if (beginIndex <= aString.length())
+				{
+					if (endIndex >= beginIndex)
+					{
+						bTok = new StringTokenizer(aString.substring(beginIndex, endIndex), ",");
+					}
+					else
+					{
+						bTok = new StringTokenizer(aString.substring(beginIndex), ",");
+					}
+				}
+				else
+				{
+					bTok = null;
+				}
+				aString = bString.replace('(', ' ').replace(')', ' ').trim();
+			}
+			else
+			{
+				final Ability tempAbility = aPC.getFeatNamed(anAbility.getName());
+				if (tempAbility != null)
+				{
+					anAbility = tempAbility;
+				}
+				else
+				{
+					// add the Feat found, as a CharacterFeat
+					anAbility = (Ability) anAbility.clone();
+					aPC.addFeat(anAbility, playerCharacterLevelInfo);
+				}
+			}
+	
+			if (anAbility == null)
+			{
+				// if we still haven't found it, try a different string
+				if (!addIt)
+				{
+					return;
+				}
+	
+				anAbility = Globals.getAbilityNamed("FEAT", aString);
+	
+				if (anAbility == null)
+				{
+					Logging.errorPrint("Feat not found in PlayerCharacter.modFeatsFromList: " + aString);
+	
+					return;
+				}
+	
+				anAbility = (Ability) anAbility.clone();
+				aPC.addFeat(anAbility, playerCharacterLevelInfo);
+			}
+	
+			if ((bTok != null) && bTok.hasMoreTokens())
+			{
+				while (bTok.hasMoreTokens())
+				{
+					aString = bTok.nextToken();
+	
+					if ("DEITYWEAPON".equals(aString))
+					{
+						WeaponProf wp = null;
+	
+						if (aPC.getDeity() != null)
+						{
+							wp = Globals.getWeaponProfNamed(aPC.getDeity().getFavoredWeapon());
+						}
+	
+						if (wp != null)
+						{
+							if (addIt) // TODO: condition always true
+							{
+								anAbility.addAssociated(wp.getName());
+							}
+							else
+							{
+								anAbility.removeAssociated(wp.getName());
+							}
+						}
+					}
+					else
+					{
+						if (addIt) // TODO: condition always true
+						{
+							anAbility.addAssociated(aString);
+						}
+						else
+						{
+							anAbility.removeAssociated(aString);
+						}
+					}
+				}
+			}
+			else
+			{
+				if (!all && !anAbility.isMultiples())
+				{
+					if (addIt)
+					{
+						aPC.adjustFeats(anAbility.getCost(aPC));
+					}
+					else
+					{
+						aPC.adjustFeats(-anAbility.getCost(aPC));
+					}
+				}
+	
+				modFeat(aPC, playerCharacterLevelInfo, aString, addIt, all);
+			}
+	
+			if (anAbility.getName().endsWith("Weapon Proficiency"))
+			{
+				for (int e = 0; e < anAbility.getAssociatedCount(); ++e)
+				{
+					final String wprof = anAbility.getAssociated(e);
+					final WeaponProf wp = Globals.getWeaponProfNamed(wprof);
+	
+					if (wp != null)
+					{
+						aPC.addWeaponProfToChosenFeats(wprof);
+					}
+				}
+			}
+		}
+	
+		aPC.setAutomaticFeatsStable(false);
 	}
 }

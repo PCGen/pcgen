@@ -7791,7 +7791,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 			for (int i = 0, x = templateFeats.size(); i < x; ++i)
 			{
-				PlayerCharacterUtilities.modFeatsFromList(this, null, (String) templateFeats.get(i), true, false);
+				AbilityUtilities.modFeatsFromList(this, null, (String) templateFeats.get(i), true, false);
 			}
 		}
 		else
@@ -9254,7 +9254,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 			while (aTok.hasMoreTokens())
 			{
-				PlayerCharacterUtilities.addToFeatList(autoFeatList, aTok.nextToken());
+				AbilityUtilities.addToFeatList(autoFeatList, aTok.nextToken());
 			}
 		}
 
@@ -9333,7 +9333,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					}
 				}
 
-				PlayerCharacterUtilities.addToFeatList(autoFeatList, autoFeat);
+				AbilityUtilities.addToFeatList(autoFeatList, autoFeat);
 			}
 		}
 
@@ -9354,7 +9354,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 						while (aTok.hasMoreTokens())
 						{
-							PlayerCharacterUtilities.addToFeatList(autoFeatList, aTok.nextToken());
+							AbilityUtilities.addToFeatList(autoFeatList, aTok.nextToken());
 						}
 					}
 				}
@@ -9380,7 +9380,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 							if (idx > -1)
 							{
-								PlayerCharacterUtilities.addToFeatList(autoFeatList, aString.substring(idx + 1));
+								AbilityUtilities.addToFeatList(autoFeatList, aString.substring(idx + 1));
 							}
 							else
 							{
@@ -9394,7 +9394,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					for (; anIt.hasNext();)
 					{
 						final AbilityInfo abI = (AbilityInfo) anIt.next();
-						PlayerCharacterUtilities.addToFeatList(autoFeatList, abI.getKeyName());
+						AbilityUtilities.addToFeatList(autoFeatList, abI.getKeyName());
 					}
 				}
 			}
@@ -14248,7 +14248,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 				for (int j = 0, y = templateFeats.size(); j < y; ++j)
 				{
-					PlayerCharacterUtilities.modFeatsFromList(this, null, (String) templateFeats.get(j), true, false);
+					AbilityUtilities.modFeatsFromList(this, null, (String) templateFeats.get(j), true, false);
 				}
 			}
 		}
