@@ -291,4 +291,47 @@ public final class EquipmentUtilities
 
 		return aArrayList;
 	}
+
+	/**
+	 * Adds a String to a name, for example, adding "Longsword" to "Weapon
+	 * Specialisation" gives "Weapon Specialisation (Longsword)"
+	 *
+	 * @param   aName    The Name to add to
+	 * @param   aString  The string to add
+	 *
+	 * @return  The modified name
+	 */
+	static String appendToName(final String aName, final String aString)
+	{
+		final StringBuffer aBuf = new StringBuffer(aName);
+		final int          iLen = aBuf.length() - 1;
+	
+		if (aBuf.charAt(iLen) == ')')
+		{
+			aBuf.setCharAt(iLen, '/');
+		}
+		else
+		{
+			aBuf.append(" (");
+		}
+	
+		aBuf.append(aString);
+		aBuf.append(')');
+	
+		return aBuf.toString();
+	}
+
+	/**
+	 * Extracts the choiceless form of a name, for example, with all choices removed
+	 *
+	 * @param   aName
+	 *
+	 * @return  the name with choices stripped
+	 */
+	public static String removeChoicesFromName(String aName)
+	{
+		final int anInt = aName.indexOf('(');
+	
+		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
+	}
 }

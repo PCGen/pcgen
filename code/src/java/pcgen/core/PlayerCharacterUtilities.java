@@ -35,35 +35,6 @@ import java.util.StringTokenizer;
 public class PlayerCharacterUtilities
 {
 	/**
-	 * Adds a String to a name, for example, adding "Longsword" to "Weapon
-	 * Specialisation" gives "Weapon Specialisation (Longsword)"
-	 *
-	 * @param   aName    The Name to add to
-	 * @param   aString  The string to add
-	 *
-	 * @return  The modified name
-	 */
-	static String appendToName(final String aName, final String aString)
-	{
-		final StringBuffer aBuf = new StringBuffer(aName);
-		final int          iLen = aBuf.length() - 1;
-
-		if (aBuf.charAt(iLen) == ')')
-		{
-			aBuf.setCharAt(iLen, '/');
-		}
-		else
-		{
-			aBuf.append(" (");
-		}
-
-		aBuf.append(aString);
-		aBuf.append(')');
-
-		return aBuf.toString();
-	}
-
-	/**
 	 * Bryan wanted this to be optional, but if you can reassign racial auto
 	 * feats, when you reopen the character, you get the feats that were
 	 * exchanged back

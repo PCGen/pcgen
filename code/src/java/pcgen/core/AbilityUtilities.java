@@ -132,21 +132,6 @@ public class AbilityUtilities
 	}
 
 	/**
-	 * Extracts the choiceless form of a name, for example, with all choices removed
-	 *
-	 * @param   aName
-	 *
-	 * @return  the name with choices stripped
-	 */
-	public static String removeChoicesFromName(String aName)
-	{
-		final int anInt = aName.indexOf('(');
-
-		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
-	}
-
-
-	/**
 	 * This method attempts to get an Ability Object from the Global Store keyed
 	 * by token. If this fails, it checks if token has info in parenthesis
 	 * appended to it.  If it does, it strips this and attempts to get an
@@ -167,7 +152,7 @@ public class AbilityUtilities
 			return ab;
 		}
 
-		String stripped = removeChoicesFromName(token);
+		String stripped = EquipmentUtilities.removeChoicesFromName(token);
 		ab = Globals.getAbilityKeyed(cat, stripped);
 
 		if (ab != null)

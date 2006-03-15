@@ -4966,12 +4966,12 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 				// Add "Head 1 only" to the name of the weapon
 				eqm.setWholeItemName(eqm.getName());
-				eqm.setName(PlayerCharacterUtilities.appendToName(eqm.getName(), "Head 1 only"));
+				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 1 only"));
 
 				if (eqm.getOutputName().indexOf("Head 1 only") < 0)
 				{
 					eqm.setOutputName(
-							PlayerCharacterUtilities.appendToName(eqm.getOutputName(), "Head 1 only"));
+							EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 1 only"));
 				}
 
 				PlayerCharacterUtilities.setProf(equip, eqm);
@@ -4996,11 +4996,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 				// Add "Head 2 only" to the name of the weapon
 				eqm.setWholeItemName(eqm.getName());
-				eqm.setName(PlayerCharacterUtilities.appendToName(eqm.getName(), "Head 2 only"));
+				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 2 only"));
 
 				if (eqm.getOutputName().indexOf("Head 2 only") < 0)
 				{
-					eqm.setOutputName(PlayerCharacterUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
+					eqm.setOutputName(EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
 				}
 
 				PlayerCharacterUtilities.setProf(equip, eqm);
@@ -5070,11 +5070,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				eqm.removeType("Melee");
 
 				// Add "Thrown" to the name of the weapon
-				eqm.setName(PlayerCharacterUtilities.appendToName(eqm.getName(), "Thrown"));
+				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Thrown"));
 
 				if (eqm.getOutputName().indexOf("Thrown") < 0)
 				{
-					eqm.setOutputName(PlayerCharacterUtilities.appendToName(eqm.getOutputName(), "Thrown"));
+					eqm.setOutputName(EquipmentUtilities.appendToName(eqm.getOutputName(), "Thrown"));
 				}
 
 				PlayerCharacterUtilities.setProf(equip, eqm);
