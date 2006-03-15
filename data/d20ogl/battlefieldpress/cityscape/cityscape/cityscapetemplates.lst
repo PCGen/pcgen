@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Sat Nov  2 16:48:14 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 207)
+# CVS $Revision$ $Author$ -- Sat Nov  2 16:48:14 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 207)
 # Original entry by: Tir Gwaith
 # Template Name	Visible	FAVOREDCLASS
 Scholar		VISIBLE:NO	FAVOREDCLASS:Scholar
