@@ -1,1 +1,51 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>	<!--		PCGen Documentation Project				$Header:				Contributors:		Shane Molnar - shaneATcliftonmotelDOTcomDOTau		Eddy Anthony - eddybaATmindspringDOTcom				Description:		GMGen Network Tab Documentation.	-->	<head>		<title>Character Sheet Tab</title>		<link rel="stylesheet" type="text/css" href="../pcgen.css" />	</head>		<body>				<h1>Network Tab</h1>				<p>The network plug-in allows GMGen to act as a Client-Server application connecting multiple computers running PCGen. 		Players load thier characters on their computers and activate the network client. The GM, running the network server, 		can see all the PC information that is available inside of the Initiative plugin. Either side will be able to change 		hitpoints, status, initiative and that sort of thing for the PC. In the Experience plugin, it will allow the GM to 		assign experience, and it will send it to the PC over the network.</p>						<p class="center"><img src="../images/gmgen/plugins/network/network1.png"> </p>		<p><strong>How to use it:</strong></p>				<p>1) When you enter the tab, and click on the 'server' radio button, it starts the server. 		The server binds to port 80, but you can set the port in the GMGen preferences.</p>				<p>2) Players will need to go to the <a href="preferences.html#NETWORK">GMGen preferences</a> 		and each one will need to select a &quot;user name&quot;, and change the port (if you 		changed the port on your server).</p>				<p>3) The players will need to type your ip address in the box and hit connect to connect 		to your server - once they do, you as the GM will get all of their logs.</p>				<p>4) Currently (but this will be fixed in the future) every time the pc enters or leaves 		the Initiative tab, it will send the GM all loaded player characters. eventually, 		I will make it so it can catch events on the pc side, to instantly send any changes.</p>	</body></html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+		
+		$Header:
+		
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		
+		Description:
+		GMGen Network Tab Documentation.
+	-->
+	<head>
+		<title>Character Sheet Tab</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+	
+	<body>
+		
+		<h1>Network Tab</h1>
+		
+		<p>The network plug-in allows GMGen to act as a Client-Server application connecting multiple computers running PCGen. 
+		Players load thier characters on their computers and activate the network client. The GM, running the network server, 
+		can see all the PC information that is available inside of the Initiative plugin. Either side will be able to change
+ 		hitpoints, status, initiative and that sort of thing for the PC. In the Experience plugin, it will allow the GM to 
+		assign experience, and it will send it to the PC over the network.</p>
+				
+		<p class="center"><img src="../images/gmgen/plugins/network/network1.png"> </p>
+
+		<p><strong>How to use it:</strong></p>
+		
+		<p>1) When you enter the tab, and click on the 'server' radio button, it starts the server. 
+		The server binds to port 80, but you can set the port in the GMGen preferences.</p>
+		
+		<p>2) Players will need to go to the <a href="preferences.html#NETWORK">GMGen preferences</a> 
+		and each one will need to select a &quot;user name&quot;, and change the port (if you 
+		changed the port on your server).</p>
+		
+		<p>3) The players will need to type your ip address in the box and hit connect to connect 
+		to your server - once they do, you as the GM will get all of their logs.</p>
+		
+		<p>4) Currently (but this will be fixed in the future) every time the pc enters or leaves 
+		the Initiative tab, it will send the GM all loaded player characters. eventually, 
+		I will make it so it can catch events on the pc side, to instantly send any changes.</p>
+
+	</body>
+
+</html>
