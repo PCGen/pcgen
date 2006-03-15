@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: tir-gwaith $ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+# CVS $Revision$ $Author$ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Equipment Name				Output Name							Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus

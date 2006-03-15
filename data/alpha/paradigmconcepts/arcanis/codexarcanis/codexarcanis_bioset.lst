@@ -1,4 +1,4 @@
-# CVS $Revision: 1.2 $ $Author: tir-gwaith $ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
 AGESET:0|Adulthood
 RACENAME:Human%		CLASS:Barbarian,Rogue[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]
 RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
