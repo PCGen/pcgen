@@ -128,7 +128,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Set the Age String property.
-	 * Note: this property appears to be unused Andrew Wilson 20060307
+	 * XXX: this property appears to be unused Andrew Wilson 20060307
 	 *
 	 * @param  argAgeString a string representing the Age of a PC
 	 */
@@ -2118,8 +2118,7 @@ public final class PCTemplate extends PObject implements HasCost
 						{
 							Collections.sort(featList);
 
-							final ChooserInterface c = ChooserFactory
-								.getChooserInstance();
+							final ChooserInterface c = ChooserFactory.getChooserInstance();
 							c.setPool(1);
 							c.setTitle("Feat Choice");
 							c.setAvailableList(featList);
