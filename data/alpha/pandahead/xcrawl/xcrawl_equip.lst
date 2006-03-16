@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Nov 30 23:39:49 2003 -- reformated by prettylst.pl v1.32 (build 336)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
-# Equipment Name				Output Name							Type								Contains			Cost		Weight
+# Equipment Name				Output Name							Type								Contains			Cost		Weight	NUMPAGES		PAGEUSAGE
 Backpack (waterproof)			OUTPUTNAME:Backpack, waterproof			TYPE:Goods.Container.Resizable.AdventureGear	CONTAINS:100|Any:100	COST:15	WT:2
 Compass													TYPE:Goods.AdventureGear								COST:20	WT:0
 Knife (survival)				OUTPUTNAME:Knife, survival				TYPE:Goods.AdventureGear								COST:5	WT:1
@@ -20,8 +20,8 @@ Watch (sports)				OUTPUTNAME:Watch, sports				TYPE:Goods.AdventureGear								CO
 
 Healers Kit (Modern)			OUTPUTNAME:Healers Kit, Modern			TYPE:Goods.Tools										COST:100	WT:3
 Thieves Tools (Modern)			OUTPUTNAME:Thieves Tools, Modern			TYPE:Goods.Tools.Thief									COST:120	WT:2
-Spellbook (Waterproof)			OUTPUTNAME:Spellbook, Waterproof			TYPE:Goods.Tools.Resizable								COST:110	WT:3
-Spellbook (Puzzlelock)			OUTPUTNAME:Spellbook, Puzzlelock			TYPE:Goods.Tools.Resizable								COST:200	WT:3
+Spellbook (Waterproof)			OUTPUTNAME:Spellbook, Waterproof			TYPE:Goods.Tools.Resizable.Spellbook						COST:110	WT:3		NUMPAGES:100	PAGEUSAGE:max(2*SPELLLEVEL,1)
+Spellbook (Puzzlelock)			OUTPUTNAME:Spellbook, Puzzlelock			TYPE:Goods.Tools.Resizable.Spellbook						COST:200	WT:3		NUMPAGES:100	PAGEUSAGE:max(2*SPELLLEVEL,1)
 
 Adventurers Outfit (modern)		OUTPUTNAME:Adventurers Outfit, Modern		TYPE:Goods.Clothing.Resizable								COST:60	WT:10
 Business outfit												TYPE:Goods.Clothing.Resizable								COST:50	WT:8
