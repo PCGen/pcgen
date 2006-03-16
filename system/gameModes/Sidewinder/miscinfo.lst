@@ -75,7 +75,7 @@ DISPLAYORDER:2
 # Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
 SHORTRANGE:30
 #
-# RANGEPENALTY sets the modification of the to-hit value for 
+# RANGEPENALTY sets the modification of the to-hit value for
 # each range increment after the first.
 # Integer value, defaults to zero if tag not present to allow GameModes
 # without range increment bonus/limitations
@@ -134,7 +134,7 @@ BABMINVAL:1
 
 #Default Class Types
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
-CLASSTYPE:NPC		CRFORMULA:(CL-1)MAX0	ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:NPC		CRFORMULA:max(CL-1,0)	ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
