@@ -19,14 +19,12 @@
  * Created on Aug 25, 2005
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
 
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.utils.ListKey;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
@@ -520,6 +518,11 @@ public class AbilityUtilities
 		// process ADD tags from the feat definition
 		if (!added && addIt)
 		{
+			List l = anAbility.getSafeListFor(ListKey.KITS);
+			for (int i = 0; i < l.size(); i++)
+			{
+				KitUtilities.makeKitSelections(0, (String)l.get(i), 1, aPC);
+			}
 			anAbility.modAdds(addIt, aPC);
 		}
 
