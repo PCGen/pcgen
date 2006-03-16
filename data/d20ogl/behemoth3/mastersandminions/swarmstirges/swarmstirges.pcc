@@ -24,6 +24,8 @@ TEMPLATE:swarmstirges_templates.lst
 CLASS:swarmstirges_classes.lst
 FEAT:swarmstirges_feats_hidden.lst
 
+KIT:swarmstirges_kits_races.lst
+
 EQUIPMENT:swarmstirges_equip.lst
 EQUIPMENT:swarmstirges_equip_weap_melee.lst
 EQUIPMENT:swarmstirges_equip_weap_ranged.lst

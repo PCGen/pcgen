@@ -28,3 +28,5 @@ RACE:itck_races_35e.lst
 EQUIPMENT:itck_equip_35e.lst
 
 TEMPLATE:../itck_templates.lst
+
+KIT:itck_kits_races_35e.lst

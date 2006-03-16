@@ -1,0 +1,85 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Barranca Prowler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barranca Prowler]
+RACE:Barranca Prowler	!PRERACE:%
+NAME:Barranca Prowler
+ALIGN:TN
+SKILL:Balance		RANK:5
+SKILL:Hide			RANK:5
+SKILL:Move silently	RANK:5
+SKILL:Tumble		RANK:5
+SKILL:Climb			RANK:8
+SKILL:Intimidate		RANK:9
+SKILL:Listen		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Wilderness Lore	RANK:9
+
+STARTPACK:Default Black Regiment	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Black Regiment]
+RACE:Black Regiment	!PRERACE:%
+NAME:Black Regiment
+ALIGN:LE
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+FEAT:Exotic Weapon Proficiency (Rifle Bayonet)
+
+STARTPACK:Default Blob	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blob]
+RACE:Blob	!PRERACE:%
+NAME:Blob
+ALIGN:TN
+
+STARTPACK:Default Bloodwire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bloodwire]
+RACE:Bloodwire	!PRERACE:%
+NAME:Bloodwire
+ALIGN:TN
+SKILL:Balance		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Tumble		RANK:3
+SKILL:Climb			RANK:9
+SKILL:Hide			RANK:2
+SKILL:Jump			RANK:6
+SKILL:Wilderness Lore	RANK:6
+
+STARTPACK:Default Bogie Man	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bogie Man]
+RACE:Bogie Man	!PRERACE:%
+NAME:Bogie Man
+ALIGN:CE
+SKILL:Climb			RANK:5
+SKILL:Disable Device	RANK:5
+SKILL:Listen		RANK:5
+SKILL:Open Lock		RANK:5
+SKILL:Pick Pocket		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Use Rope		RANK:5
+SKILL:Hide			RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Dodge
+FEAT:Mobility
+
+STARTPACK:Default Bone Fiend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bone Fiend]
+RACE:Bone Fiend	!PRERACE:%
+NAME:Bone Fiend
+ALIGN:CE
+SKILL:Climb			RANK:6
+SKILL:Swim			RANK:6
+SKILL:Intimidate		RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+SKILL:Jump			RANK:8
+SKILL:Hide			RANK:8
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Braincrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Braincrawler]
+RACE:Braincrawler	!PRERACE:%
+NAME:Braincrawler
+ALIGN:CE
+SKILL:Climb			RANK:10
+SKILL:Hide			RANK:8
+SKILL:Knowledge (Local)	RANK:8
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+SKILL:Move Silently	RANK:7

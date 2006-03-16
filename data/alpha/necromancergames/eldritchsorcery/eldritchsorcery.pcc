@@ -30,3 +30,5 @@ RACE:eldritchsorcery_races.lst
 TEMPLATE:eldritchsorcery_templates.lst
 
 EQUIPMOD:eldritchsorcery_equipmods.lst
+
+KIT:eldritchsorcery_kits_races.lst

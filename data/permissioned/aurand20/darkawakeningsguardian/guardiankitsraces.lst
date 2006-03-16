@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:47:21 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian|SOURCESHORT:Guardian|SOURCEWEB:http://www.auran.com/d20
+
+STARTPACK:Default Grimorden	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Grimorden]
+RACE:Grimorden	!PRERACE:%
+NAME:Grimorden
+ALIGN:CE
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Selchie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Selchie]
+RACE:Selchie	!PRERACE:%
+NAME:Selchie
+FEAT:Alertness
+FEAT:Dodge

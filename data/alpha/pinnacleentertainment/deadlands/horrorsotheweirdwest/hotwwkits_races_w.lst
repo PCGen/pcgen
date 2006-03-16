@@ -1,0 +1,65 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Walkin' Fossil	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Walkin' Fossil]
+RACE:Walkin' Fossil	!PRERACE:%
+NAME:Walkin' Fossil
+ALIGN:TN
+SKILL:Jump			RANK:6
+SKILL:Wilderness Lore	RANK:6
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Move Silently	RANK:4
+FEAT:Power Attack
+FEAT:Track
+
+STARTPACK:Default Wave Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wave Shadow]
+RACE:Wave Shadow	!PRERACE:%
+NAME:Wave Shadow
+ALIGN:LE
+SKILL:Hide			RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Search		RANK:6
+SKILL:Swim			RANK:8
+FEAT:Endurance
+
+STARTPACK:Default Weeping Widow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Weeping Widow]
+RACE:Weeping Widow	!PRERACE:%
+NAME:Weeping Widow
+ALIGN:CE
+SKILL:Climb			RANK:5
+SKILL:Intimidate		RANK:5
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Knowledge (Local)	RANK:8
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Were-Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Were-Shark]
+RACE:Were-Shark	!PRERACE:%
+NAME:Were-Shark
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:8
+SKILL:Spot			RANK:8
+SKILL:Swim			RANK:8
+FEAT:Multiattack
+
+STARTPACK:Default Will-o'-the-Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Will-o'-the-Wisp]
+RACE:Will-o'-the-Wisp	!PRERACE:%
+NAME:Will-o'-the-Wisp
+ALIGN:CE
+SKILL:Bluff			RANK:5
+SKILL:Diplomacy		RANK:5
+SKILL:Intimidate		RANK:5
+SKILL:Sense Motive	RANK:5
+SKILL:Spot			RANK:5
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:2
+FEAT:Dodge

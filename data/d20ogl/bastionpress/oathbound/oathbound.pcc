@@ -34,6 +34,8 @@ TEMPLATE:oathbound_templates.lst
 BIOSET:oathbound_biosettings.lst
 LANGUAGE:oathbound_languages.lst
 
+KIT:oathbound_kits_races.lst
+
 EQUIPMENT:oathbound_equip_weap_ammo.lst
 EQUIPMENT:oathbound_equip_weap_melee.lst
 EQUIPMENT:oathbound_equip_weap_ranged.lst

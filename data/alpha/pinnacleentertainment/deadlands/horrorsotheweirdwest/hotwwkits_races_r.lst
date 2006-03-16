@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default River Leviathan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:River Leviathan]
+RACE:River Leviathan	!PRERACE:%
+NAME:River Leviathan
+ALIGN:TN
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+SKILL:Wilderness Lore	RANK:4
+SKILL:Swim			RANK:8

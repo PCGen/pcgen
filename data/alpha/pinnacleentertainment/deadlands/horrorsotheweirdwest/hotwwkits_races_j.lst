@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Joaquin Murieta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Joaquin Murieta]
+RACE:Joaquin Murieta	!PRERACE:%
+NAME:Joaquin Murieta
+ALIGN:CE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+FEAT:Ambidexterity
+FEAT:Dead Eye
+FEAT:Point Blank Shot
+FEAT:Two-Weapon Fighting

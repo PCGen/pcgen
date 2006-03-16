@@ -29,6 +29,7 @@ DOMAIN:seafarers_domains.lst
 TEMPLATE:seafarers_templates.lst
 LANGUAGE:seafarers_languages.lst
 
+KIT:seafarers_kits_races_monsters.lst
 
 EQUIPMENT:seafarers_equip.lst
 EQUIPMENT:seafarers_equip_ships.lst

@@ -1,0 +1,64 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Mexican Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mexican Dragon]
+RACE:Mexican Dragon	!PRERACE:%
+NAME:Mexican Dragon
+ALIGN:TN
+SKILL:Climb			RANK:6
+SKILL:Hide			RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Wilderness Lore	RANK:9
+FEAT:Dodge
+
+STARTPACK:Default Mourning Mist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mourning Mist]
+RACE:Mourning Mist	!PRERACE:%
+NAME:Mourning Mist
+ALIGN:CN
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:8
+FEAT:Improved Initiative
+
+STARTPACK:Default Mummy (Aztec) with Jade stone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy (Aztec) with Jade stone]
+RACE:Mummy (Aztec) with Jade stone	!PRERACE:%
+NAME:Mummy (Aztec) with Jade stone
+ALIGN:CE
+SKILL:Hide				RANK:5
+SKILL:Intimidate			RANK:5
+SKILL:Move Silently		RANK:5
+SKILL:Knowledge (History)	RANK:6
+SKILL:Listen			RANK:4
+SKILL:Spot				RANK:4
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Default Mummy (Aztec) without Jade stone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy (Aztec) without Jade stone]
+RACE:Mummy (Aztec) without Jade stone	!PRERACE:%
+NAME:Mummy (Aztec) without Jade stone
+ALIGN:CE
+SKILL:Hide				RANK:5
+SKILL:Intimidate			RANK:5
+SKILL:Move Silently		RANK:5
+SKILL:Knowledge (History)	RANK:6
+SKILL:Listen			RANK:4
+SKILL:Spot				RANK:4
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Default Mummy (Egyptian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy (Egyptian)]
+RACE:Mummy (Egyptian)	!PRERACE:%
+NAME:Mummy (Egyptian)
+ALIGN:CE
+SKILL:Climb				RANK:1
+SKILL:Hide				RANK:5
+SKILL:Move Silently		RANK:5
+SKILL:Intimidate			RANK:3
+SKILL:Knowledge (History)	RANK:6
+SKILL:Listen			RANK:4
+SKILL:Spot				RANK:4
+FEAT:Cleave
+FEAT:Power Attack

@@ -21,3 +21,6 @@ FEAT:slayersminotaurfeats.lst
 SKILL:slayersminotaurskills.lst
 SPELL:slayersminotaurspells.lst
 EQUIPMENT:slayersminotaurequip.lst
+
+KIT:slayersminotaurkits_races.lst
+

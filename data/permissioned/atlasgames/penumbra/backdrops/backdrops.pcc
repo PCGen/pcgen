@@ -20,3 +20,6 @@ EQUIPMENT:backdropsequippotionspoisons.lst
 EQUIPMENT:backdropsequipartifacts.lst
 EQUIPMENT:backdropsequipwondrousitems.lst
 RACE:backdropsraces.lst
+
+KIT:backdropskits_races.lst
+

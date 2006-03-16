@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Flesh Jacket	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Flesh Jacket]
+RACE:Flesh Jacket	!PRERACE:%
+NAME:Flesh Jacket
+ALIGN:CE
+SKILL:Escape Artist	RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Hide			RANK:5
+SKILL:Tumble		RANK:5
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+FEAT:Blind-Fight
+
+STARTPACK:Default Frankenstein's Monster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Frankenstein's Monster]
+RACE:Frankenstein's Monster	!PRERACE:%
+NAME:Frankenstein's Monster
+ALIGN:CN
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:8

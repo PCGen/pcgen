@@ -26,6 +26,7 @@ CLASS:eldritch_classes.lst
 SPELL:eldritch_spells.lst
 
 RACE:eldritch_races.lst
+KIT:eldritch_kits_races.lst
 
 EQUIPMENT:eldritch_equip_wondrousitems.lst
 EQUIPMENT:eldritch_equip_rings.lst
@@ -37,3 +38,4 @@ EQUIPMENT:eldritch_equip_rodsstaffswands.lst
 
 #Needed stuff from SRD for program not to hang
 CLASS:@\d20ogl\srd\srd_classes_creature_types.lst|(INCLUDE:Construct)
+

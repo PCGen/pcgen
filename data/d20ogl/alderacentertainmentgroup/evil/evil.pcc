@@ -23,6 +23,8 @@ SKILL:evil_skills.lst
 CLASS:evil_classes.lst
 FEAT:evil_feats.lst
 
+KIT:evil_kits_races.lst
+
 EQUIPMENT:evil_equip_potionsscrolls.lst
 EQUIPMENT:evil_equip_rodsstaffswands.lst
 EQUIPMENT:evil_equip_wondrousitems.lst

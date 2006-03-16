@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 17:40:04 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Malhavoc Press - Book of Eldritch Might|SOURCESHORT:BoEM1|SOURCEWEB:http://www.montecook.com
+
+STARTPACK:Default Stone Dire Tiger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Stone Dire Tiger]
+RACE:Stone Dire Tiger	!PRERACE:%
+NAME:Stone Dire Tiger
+ALIGN:TN
+STAT:STR=11|DEX=11|WIS=10|CHA=10
+
+STARTPACK:Default Eleven Headed Brass Hydra	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Eleven Headed Brass Hydra]
+RACE:Eleven Headed Brass Hydra	!PRERACE:%
+NAME:Eleven Headed Brass Hydra
+ALIGN:TN
+STAT:STR=11|DEX=10|WIS=10|CHA=10

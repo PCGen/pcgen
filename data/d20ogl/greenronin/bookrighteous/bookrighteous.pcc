@@ -31,3 +31,6 @@ RACE:bookrighteous_races.lst
 EQUIPMENT:bookrighteous_equip_wondrousitems.lst
 EQUIPMENT:bookrighteous_equip_artifacts.lst
 EQUIPMENT:bookrighteous_equip_staffs.lst
+
+KIT:bookrighteous_kits_races.lst
+

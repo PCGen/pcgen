@@ -33,3 +33,5 @@ RACE:sellout_races.lst
 SKILL:sellout_skills.lst
 TEMPLATE:sellout_templates.lst
 WEAPONPROF:sellout_weap_profs.lst
+
+KIT:sellout_kits_races.lst

@@ -1,0 +1,48 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 17:38:00 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook|SOURCESHORT:SFHB|SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+
+STARTPACK:Default Abyssal Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abyssal Shark]
+STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
+RACE:Abyssal Shark	!PRERACE:%
+NAME:Abyssal Shark
+ALIGN:CE
+SKILL:Listen		RANK:28
+SKILL:Move Silently	RANK:28
+SKILL:Spot			RANK:28
+SKILL:Swim			RANK:28
+SKILL:Wilderness Lore	RANK:28
+SKILL:Hide			RANK:22
+SKILL:Intimidate		RANK:14
+FEAT:Improved Initiative
+FEAT:Track
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+
+STARTPACK:Default Coral Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Coral Golem]
+STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
+RACE:Coral Golem	!PRERACE:%
+NAME:Coral Golem
+ALIGN:TN
+SKILL:Swim	RANK:1
+
+STARTPACK:Default Drowned Dead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Drowned Dead]
+STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
+RACE:Drowned Dead	!PRERACE:%
+NAME:Drowned Dead
+ALIGN:NE
+SKILL:Spot			RANK:7
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:6
+SKILL:Swim			RANK:12
+
+STARTPACK:Default Hippocampus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hippocampus]
+STAT:CON=10|WIS=10|CHA=10|STR=10|DEX=10|INT=10
+RACE:Hippocampus	!PRERACE:%
+NAME:Hippocampus
+ALIGN:TN
+SKILL:Swim		RANK:4
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6

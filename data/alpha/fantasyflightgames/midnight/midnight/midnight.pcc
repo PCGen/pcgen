@@ -49,6 +49,7 @@ SPELL:midnight_spells.lst
 TEMPLATE:midnight_templates.lst
 TEMPLATE:midnight_templates_races.lst
 COMPANIONMOD:midnight_companion_mods.lst
+KIT:midnight_kits_races_monsters.lst
 
 #
 # End

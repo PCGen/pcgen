@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:34:47 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Midnight Campaign Source Book|SOURCESHORT:MDNT|SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+
+STARTPACK:Default Astirax	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astirax]
+RACE:Astirax	!PRERACE:%
+NAME:Astirax
+ALIGN:CN
+STAT:DEX=10|CON=11|INT=10|WIS=10|CHA=11
+FEAT:Track
+
+STARTPACK:Default Oruk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Oruk]
+RACE:Oruk	!PRERACE:%
+NAME:Oruk
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+FEAT:Weapon Focus(Greataxe)
+
+STARTPACK:Default Wogren	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wogren]
+RACE:Wogren	!PRERACE:%
+NAME:Wogren
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+FEAT:Improved Initiative

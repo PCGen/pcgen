@@ -1,0 +1,74 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:53:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil|SOURCESHORT:Evil|SOURCEWEB:http://alderac.com/d20
+
+STARTPACK:Default Prismatic Archon (Red)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Red)]
+RACE:Prismatic Archon (Red)	!PRERACE:%
+NAME:Prismatic Archon (Red)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Prismatic Archon (Orange)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Orange)]
+RACE:Prismatic Archon (Orange)	!PRERACE:%
+NAME:Prismatic Archon (Orange)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Prismatic Archon (Yellow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Yellow)]
+RACE:Prismatic Archon (Yellow)	!PRERACE:%
+NAME:Prismatic Archon (Yellow)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Prismatic Archon (Green)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Green)]
+RACE:Prismatic Archon (Green)	!PRERACE:%
+NAME:Prismatic Archon (Green)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Prismatic Archon (Blue)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Blue)]
+RACE:Prismatic Archon (Blue)	!PRERACE:%
+NAME:Prismatic Archon (Blue)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Prismatic Archon (Indigo)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Indigo)]
+RACE:Prismatic Archon (Indigo)	!PRERACE:%
+NAME:Prismatic Archon (Indigo)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Prismatic Archon (Violet)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Violet)]
+RACE:Prismatic Archon (Violet)	!PRERACE:%
+NAME:Prismatic Archon (Violet)
+ALIGN:LG
+FEAT:Improved Initiative
+
+STARTPACK:Default Spring Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spring Wolf]
+RACE:Spring Wolf	!PRERACE:%
+NAME:Spring Wolf
+ALIGN:NG
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Default Taurian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Taurian]
+RACE:Taurian	!PRERACE:%
+NAME:Taurian
+ALIGN:LG
+FEAT:Power Attack
+FEAT:Improved Bull Rush
+FEAT:Cleave
+FEAT:Improved Initiative
+
+STARTPACK:Default Ahsarin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ahsarin]
+RACE:Ahsarin	!PRERACE:%
+NAME:Ahsarin
+ALIGN:LG|NG|CG
+FEAT:Weapon Finesse(Longsword)
+FEAT:Weapon Focus(Longsword)
+FEAT:Improved Initiative
+
+STARTPACK:Default Shadowraven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shadowraven]
+RACE:Shadowraven	!PRERACE:%
+NAME:Shadowraven
+ALIGN:CE
+FEAT:Flyby Attack

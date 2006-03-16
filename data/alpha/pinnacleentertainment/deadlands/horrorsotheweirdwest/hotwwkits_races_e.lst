@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default El Diablo Negro	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:El Diablo Negro]
+RACE:El Diablo Negro	!PRERACE:%
+NAME:El Diablo Negro
+ALIGN:NE
+SKILL:Intimidate		RANK:6
+SKILL:Intuit Direction	RANK:5
+SKILL:Wilderness Lore	RANK:5
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Move Silently	RANK:3
+SKILL:Swim			RANK:0
+FEAT:Dodge
+FEAT:Multiattack
+FEAT:Track
+
+STARTPACK:Default El Diablo Rojo	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:El Diablo Rojo]
+RACE:El Diablo Rojo	!PRERACE:%
+NAME:El Diablo Rojo
+ALIGN:NE
+FEAT:Armor Proficiency (Light)
+FEAT:Maximize Spell
+FEAT:Quicken Spell
+FEAT:Track

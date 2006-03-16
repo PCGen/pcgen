@@ -1,0 +1,97 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Hangin' Judge (Cyrus Call)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hangin' Judge (Cyrus Call)]
+RACE:Hangin' Judge (Cyrus Call)	!PRERACE:%
+NAME:Hangin' Judge (Cyrus Call)
+ALIGN:NE
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Listen		RANK:4
+SKILL:Wilderness Lore	RANK:4
+
+STARTPACK:Default Hangin' Judge (Hiram Jackson)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hangin' Judge (Hiram Jackson)]
+RACE:Hangin' Judge (Hiram Jackson)	!PRERACE:%
+NAME:Hangin' Judge (Hiram Jackson)
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Listen		RANK:5
+SKILL:Wilderness Lore	RANK:4
+
+STARTPACK:Default Hangin' Judge (Luther Kirby)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hangin' Judge (Luther Kirby)]
+RACE:Hangin' Judge (Luther Kirby)	!PRERACE:%
+NAME:Hangin' Judge (Luther Kirby)
+ALIGN:LE
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Listen		RANK:7
+SKILL:Wilderness Lore	RANK:4
+
+STARTPACK:Default Hangin' Judge (Marcus Lafayette)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hangin' Judge (Marcus Lafayette)]
+RACE:Hangin' Judge (Marcus Lafayette)	!PRERACE:%
+NAME:Hangin' Judge (Marcus Lafayette)
+ALIGN:NE
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:5
+SKILL:Wilderness Lore	RANK:5
+
+STARTPACK:Default Hangin' Judge (Moses Moore)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hangin' Judge (Moses Moore)]
+RACE:Hangin' Judge (Moses Moore)	!PRERACE:%
+NAME:Hangin' Judge (Moses Moore)
+ALIGN:NE
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Listen		RANK:5
+SKILL:Wilderness Lore	RANK:4
+
+STARTPACK:Default Headless Horseman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Headless Horseman]
+RACE:Headless Horseman	!PRERACE:%
+NAME:Headless Horseman
+ALIGN:CE
+SKILL:Hide			RANK:5
+SKILL:Intuit Direction	RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Ride			RANK:5
+SKILL:Spot			RANK:5
+SKILL:Wilderness Lore	RANK:5
+SKILL:Intimidate		RANK:6
+SKILL:Ridicule		RANK:6
+FEAT:Exotic Weapon Proficiency (Cavalry Saber)
+FEAT:Track
+
+STARTPACK:Default Hellfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hellfish]
+RACE:Hellfish	!PRERACE:%
+NAME:Hellfish
+ALIGN:TN
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Wilderness Lore	RANK:7
+SKILL:Swim			RANK:9
+
+STARTPACK:Default Horned Serpent	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Horned Serpent]
+RACE:Horned Serpent	!PRERACE:%
+NAME:Horned Serpent
+ALIGN:CE
+SKILL:Intimidate		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Listen		RANK:8
+SKILL:Spot			RANK:8
+SKILL:Swim			RANK:8
+SKILL:Wilderness Lore	RANK:8
+FEAT:Multiattack
+FEAT:Track
+
+STARTPACK:Default Humbug	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Humbug]
+RACE:Humbug	!PRERACE:%
+NAME:Humbug
+ALIGN:TN
+SKILL:Climb			RANK:9
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Wilderness Lore	RANK:5
+SKILL:Move Silently	RANK:0

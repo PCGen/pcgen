@@ -1,0 +1,118 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Saddle Burr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Saddle Burr]
+RACE:Saddle Burr	!PRERACE:%
+NAME:Saddle Burr
+ALIGN:TN
+SKILL:Hide			RANK:8
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Move Silently	RANK:2
+SKILL:Tumble		RANK:2
+
+STARTPACK:Default Sand Viper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sand Viper]
+RACE:Sand Viper	!PRERACE:%
+NAME:Sand Viper
+ALIGN:TN
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Move Silently	RANK:5
+SKILL:Swim			RANK:8
+SKILL:Wilderness Lore	RANK:6
+
+STARTPACK:Default Scarecrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Scarecrow]
+RACE:Scarecrow	!PRERACE:%
+NAME:Scarecrow
+ALIGN:CE
+SKILL:Climb			RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+FEAT:Simple Weapon Proficiency
+
+STARTPACK:Default Scarecrow (Corn Stalker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Scarecrow (Corn Stalker)]
+RACE:Scarecrow (Corn Stalker)	!PRERACE:%
+NAME:Scarecrow (Corn Stalker)
+ALIGN:CE
+SKILL:Climb			RANK:5
+SKILL:Hide			RANK:5
+SKILL:Escape Artist	RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:3
+FEAT:Simple Weapon Proficiency
+
+STARTPACK:Default Sin Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sin Eater]
+RACE:Sin Eater	!PRERACE:%
+NAME:Sin Eater
+ALIGN:CE
+SKILL:Bluff			RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Ridicule		RANK:6
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Perform		RANK:7
+FEAT:Power Attack
+FEAT:Sunder
+
+STARTPACK:Default Siren	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Siren]
+RACE:Siren	!PRERACE:%
+NAME:Siren
+ALIGN:TN
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Wilderness Lore	RANK:5
+SKILL:Move Silently	RANK:4
+SKILL:Perform		RANK:6
+SKILL:Swim			RANK:8
+
+STARTPACK:Default Skin Shifter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skin Shifter]
+RACE:Skin Shifter	!PRERACE:%
+NAME:Skin Shifter
+ALIGN:CE
+SKILL:Craft%			RANK:6
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Indian Lore)	RANK:6
+SKILL:Listen			RANK:6
+SKILL:Wilderness Lore		RANK:6
+SKILL:Hide				RANK:5
+SKILL:Move Silently		RANK:5
+FEAT:Track
+
+STARTPACK:Default Skin Walker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Skin Walker]
+RACE:Skin Walker	!PRERACE:%
+NAME:Skin Walker
+ALIGN:NE
+SKILL:Bluff				RANK:7
+SKILL:Disguise			RANK:7
+SKILL:Gather Information	RANK:7
+SKILL:Climb				RANK:4
+SKILL:Hide				RANK:4
+SKILL:Move Silently		RANK:4
+SKILL:Listen			RANK:6
+SKILL:Spot				RANK:6
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Springheel Jack	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Springheel Jack]
+RACE:Springheel Jack	!PRERACE:%
+NAME:Springheel Jack
+ALIGN:CE
+SKILL:Balance			RANK:2
+SKILL:Hide				RANK:2
+SKILL:Move Silently		RANK:2
+SKILL:Intimidate			RANK:3
+SKILL:Listen			RANK:3
+SKILL:Spot				RANK:3
+SKILL:Jump				RANK:7
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Ridicule			RANK:5
+SKILL:Tumble			RANK:5
+FEAT:Dodge
+FEAT:Mobility

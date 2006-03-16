@@ -1,0 +1,72 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Animal Man (Bear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Bear)]
+RACE:Animal Man (Bear)	!PRERACE:%
+NAME:Animal Man (Bear)
+ALIGN:LN
+SKILL:Intimidate		RANK:3
+SKILL:Wilderness Lore	RANK:4
+FEAT:Power Attack
+
+STARTPACK:Default Animal Man (Dog)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Dog)]
+RACE:Animal Man (Dog)	!PRERACE:%
+NAME:Animal Man (Dog)
+ALIGN:LN
+SKILL:Spot			RANK:4
+SKILL:Wilderness Lore	RANK:4
+FEAT:Track
+
+STARTPACK:Default Animal Man (Pig)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Pig)]
+RACE:Animal Man (Pig)	!PRERACE:%
+NAME:Animal Man (Pig)
+ALIGN:LN
+SKILL:Ridicule		RANK:4
+SKILL:Wilderness Lore	RANK:4
+FEAT:Track
+
+STARTPACK:Default Animal Man (Puma)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Puma)]
+RACE:Animal Man (Puma)	!PRERACE:%
+NAME:Animal Man (Puma)
+ALIGN:LN
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+FEAT:Brave
+
+STARTPACK:Default Animal Man (Rabbit)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Rabbit)]
+RACE:Animal Man (Rabbit)	!PRERACE:%
+NAME:Animal Man (Rabbit)
+ALIGN:LN
+SKILL:Hide			RANK:4
+SKILL:Sense Motive	RANK:4
+FEAT:Run
+
+STARTPACK:Default Animal Man (Raccoon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Man (Raccoon)]
+RACE:Animal Man (Raccoon)	!PRERACE:%
+NAME:Animal Man (Raccoon)
+ALIGN:LN
+SKILL:Disable Device	RANK:2
+SKILL:Open Lock		RANK:2
+SKILL:Pick Pocket		RANK:2
+FEAT:Ambidexterity
+
+STARTPACK:Default Appalachian Witch	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Appalachian Witch]
+RACE:Appalachian Witch	!PRERACE:%
+NAME:Appalachian Witch
+ALIGN:CE
+SKILL:Diplomacy		RANK:5
+SKILL:Intimidate		RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Ridicule		RANK:5
+SKILL:Sense Motive	RANK:5
+SKILL:Spot			RANK:5
+SKILL:Wilderness Lore	RANK:5
+FEAT:Dodge
+FEAT:Enlarge Spell
+FEAT:Extend Spell
+
+STARTPACK:Default Automaton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Automaton]
+RACE:Automaton	!PRERACE:%
+NAME:Automaton
+ALIGN:LN

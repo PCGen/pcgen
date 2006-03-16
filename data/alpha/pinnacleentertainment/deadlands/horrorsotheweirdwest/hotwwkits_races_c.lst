@@ -1,0 +1,87 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Canker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Canker]
+RACE:Canker	!PRERACE:%
+NAME:Canker
+ALIGN:CE
+SKILL:Climb			RANK:1
+SKILL:Jump			RANK:1
+SKILL:Perform		RANK:1
+SKILL:Hide			RANK:8
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:7
+
+STARTPACK:Default Carcajou	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Carcajou]
+RACE:Carcajou	!PRERACE:%
+NAME:Carcajou
+ALIGN:TN
+SKILL:Balance		RANK:0
+SKILL:Move Silently	RANK:0
+SKILL:Climb			RANK:3
+SKILL:Hide			RANK:3
+SKILL:Intimidate		RANK:4
+SKILL:Wilderness Lore	RANK:4
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Tumble		RANK:1
+
+STARTPACK:Default Catamount	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Catamount]
+RACE:Catamount	!PRERACE:%
+NAME:Catamount
+ALIGN:TN
+SKILL:Hide			RANK:6
+SKILL:Balance		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Bluff			RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Wilderness Lore	RANK:4
+SKILL:Climb			RANK:8
+SKILL:Jump			RANK:0
+SKILL:Swim			RANK:0
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+
+STARTPACK:Default Cemetary Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cemetary Wolf]
+RACE:Cemetary Wolf	!PRERACE:%
+NAME:Cemetary Wolf
+ALIGN:TN
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:4
+SKILL:Intimidate		RANK:6
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Wilderness Lore	RANK:5
+SKILL:Move Silently	RANK:3
+
+STARTPACK:Default Chinook	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chinook]
+RACE:Chinook	!PRERACE:%
+NAME:Chinook
+ALIGN:TN
+SKILL:Climb			RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Intuit Direction	RANK:7
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Wilderness Lore	RANK:7
+SKILL:Move Silently	RANK:8
+FEAT:Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Chupakabara	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chupakabara]
+RACE:Chupakabara	!PRERACE:%
+NAME:Chupakabara
+ALIGN:CE
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Wilderness Lore	RANK:6
+SKILL:Listen		RANK:8
+FEAT:Multiattack
+
+STARTPACK:Default Clockwork Tarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork Tarantula]
+RACE:Clockwork Tarantula	!PRERACE:%
+NAME:Clockwork Tarantula
+ALIGN:LN

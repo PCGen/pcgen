@@ -27,3 +27,5 @@ SPELL:itck_powers.lst
 TEMPLATE:itck_templates.lst
 RACE:itck_races.lst
 EQUIPMENT:itck_equip.lst
+
+KIT:itck_kits_races.lst

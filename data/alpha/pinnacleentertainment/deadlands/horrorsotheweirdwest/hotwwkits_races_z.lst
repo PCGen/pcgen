@@ -1,0 +1,125 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Zombie (Bloat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Bloat)]
+RACE:Zombie (Bloat)	!PRERACE:%
+NAME:Zombie (Bloat)
+ALIGN:CE
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+SKILL:Swim			RANK:4
+FEAT:Power Attack
+
+STARTPACK:Default Zombie (Dessicated Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Dessicated Dead)]
+RACE:Zombie (Dessicated Dead)	!PRERACE:%
+NAME:Zombie (Dessicated Dead)
+ALIGN:CE
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Listen		RANK:6
+SKILL:Spot			RANK:6
+FEAT:Dodge
+
+STARTPACK:Default Zombie (Feral Walkin' Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Feral Walkin' Dead)]
+RACE:Zombie (Feral Walkin' Dead)	!PRERACE:%
+NAME:Zombie (Feral Walkin' Dead)
+ALIGN:CE
+SKILL:Climb			RANK:4
+SKILL:Swim			RANK:4
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:6
+SKILL:Listen		RANK:6
+FEAT:Multiattack
+
+STARTPACK:Default Zombie (Frozen Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Frozen Dead)]
+RACE:Zombie (Frozen Dead)	!PRERACE:%
+NAME:Zombie (Frozen Dead)
+ALIGN:CE
+SKILL:Climb			RANK:1
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:5
+SKILL:Intimidate		RANK:6
+FEAT:Multiattack
+
+STARTPACK:Default Zombie (Glom)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Glom)]
+RACE:Zombie (Glom)	!PRERACE:%
+NAME:Zombie (Glom)
+ALIGN:CE
+SKILL:Intimidate		RANK:9
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Move Silently	RANK:3
+FEAT:Multiattack
+
+STARTPACK:Default Zombie (Glom/Colony)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Glom/Colony)]
+RACE:Zombie (Glom/Colony)	!PRERACE:%
+NAME:Zombie (Glom/Colony)
+ALIGN:CE
+SKILL:Intimidate		RANK:10
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:7
+FEAT:Multiattack
+
+STARTPACK:Default Zombie (Headless Dead)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Headless Dead)]
+RACE:Zombie (Headless Dead)	!PRERACE:%
+NAME:Zombie (Headless Dead)
+ALIGN:CE
+SKILL:Climb			RANK:4
+SKILL:Swim			RANK:4
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Ride			RANK:5
+SKILL:Spot			RANK:5
+SKILL:Intimidate		RANK:6
+FEAT:Blind-Fight
+
+STARTPACK:Default Zombie (Orphaned Head)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Orphaned Head)]
+RACE:Zombie (Orphaned Head)	!PRERACE:%
+NAME:Zombie (Orphaned Head)
+ALIGN:CE
+SKILL:Climb			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Hide			RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Ridicule		RANK:6
+FEAT:Power Attack
+
+STARTPACK:Default Zombie (Severed Hand)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Severed Hand)]
+RACE:Zombie (Severed Hand)	!PRERACE:%
+NAME:Zombie (Severed Hand)
+ALIGN:CE
+SKILL:Balance		RANK:2
+SKILL:Climb			RANK:2
+SKILL:Jump			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Open Lock		RANK:2
+SKILL:Pick Pocket		RANK:2
+SKILL:Sleight o' Hand	RANK:2
+SKILL:Tumble		RANK:2
+SKILL:Use Rope		RANK:2
+SKILL:Demolitions		RANK:4
+SKILL:Search		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Hide			RANK:10
+SKILL:Ridicule		RANK:3
+FEAT:Dodge
+
+STARTPACK:Default Zombie (Skeleton)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Skeleton)]
+RACE:Zombie (Skeleton)	!PRERACE:%
+NAME:Zombie (Skeleton)
+ALIGN:CE
+SKILL:Climb			RANK:5
+SKILL:Hide			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:5
+SKILL:Intimidate		RANK:7
+SKILL:Listen		RANK:4
+FEAT:Multiattack

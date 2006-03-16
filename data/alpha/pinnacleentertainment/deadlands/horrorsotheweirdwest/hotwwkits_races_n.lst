@@ -1,0 +1,36 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Nagual	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nagual]
+RACE:Nagual	!PRERACE:%
+NAME:Nagual
+SKILL:Climb			RANK:8
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Swim			RANK:3
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Wilderness Lore	RANK:4
+FEAT:Track
+
+STARTPACK:Default Nibbler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Nibbler]
+RACE:Nibbler	!PRERACE:%
+NAME:Nibbler
+ALIGN:TN
+SKILL:Hide			RANK:8
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Move Silently	RANK:2
+SKILL:Swim			RANK:9
+SKILL:Wilderness Lore	RANK:6
+
+STARTPACK:Default Night Raven	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Night Raven]
+RACE:Night Raven	!PRERACE:%
+NAME:Night Raven
+ALIGN:NE
+SKILL:Hide			RANK:7
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Move Silently	RANK:6
+FEAT:Improved Initiative

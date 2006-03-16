@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:43:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+
+STARTPACK:Default Ornery Will and the Union Pride Ghost Train	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ornery Will and the Union Pride Ghost Train]
+RACE:Ornery Will and the Union Pride Ghost Train	!PRERACE:%
+NAME:Ornery Will and the Union Pride Ghost Train
+ALIGN:CE
