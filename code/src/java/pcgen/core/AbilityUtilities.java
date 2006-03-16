@@ -27,10 +27,15 @@
 package pcgen.core;
 
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -827,5 +832,185 @@ public class AbilityUtilities
 		}
 	
 		aPC.setAutomaticFeatsStable(false);
+	}
+
+
+	/**
+	 * Build and return a list of the Ability objects associated with the given
+	 * PlayerCharacter object
+	 * 
+	 * @return a List of the Abilities this Character has
+	 */
+	
+	static public List rebuildAutoAbilityList(
+			PlayerCharacter aPc
+			) {
+	
+		final List autoFeatList;
+		autoFeatList = new ArrayList();
+	
+		//
+		// add racial feats
+		//
+		if ((aPc.getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
+		{
+			final StringTokenizer aTok = new StringTokenizer(aPc.getRace().getFeatList(aPc), "|");
+	
+			while (aTok.hasMoreTokens())
+			{
+				addToFeatList(autoFeatList, aTok.nextToken());
+			}
+		}
+	
+		for (Iterator e = aPc.getClassListIterator(); e.hasNext();)
+		{
+			final PCClass aClass = (PCClass) e.next();
+	
+			for (Iterator e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
+			{
+				//
+				// PCClass object have auto feats stored in format:
+				// lvl|feat_name
+				//
+				final String aString = (String) e1.next();
+	
+				if (aString.indexOf('|') < 1)
+				{
+					continue;
+				}
+	
+				final StringTokenizer aTok = new StringTokenizer(aString, "|");
+				int i;
+	
+				try
+				{
+					i = Integer.parseInt(aTok.nextToken());
+				}
+				catch (NumberFormatException exc)
+				{
+					i = 9999; //TODO: Replace magic value with an appropriate constant. Constants.INVALID_LEVEL perhaps?
+				}
+	
+				if (i > aClass.getLevel())
+				{
+					continue;
+				}
+	
+				String autoFeat = aTok.nextToken();
+				final int idx = autoFeat.indexOf('[');
+	
+				if (idx >= 0)
+				{
+					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
+					final List preReqList = new ArrayList();
+	
+					while (bTok.hasMoreTokens())
+					{
+						final String prereqString = bTok.nextToken();
+						Logging.debugPrint("Why is the prerequisite '"+prereqString+
+								"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
+						try {
+							final PreParserFactory factory = PreParserFactory.getInstance();
+							final Prerequisite prereq = factory.parse(prereqString);
+							preReqList.add(prereq);
+						}
+						catch (PersistenceLayerException ple){
+							Logging.errorPrint(ple.getMessage(), ple);
+						}
+					}
+	
+					autoFeat = autoFeat.substring(0, idx);
+	
+					if (preReqList.size() != 0)
+					{
+						//
+						// To avoid possible infinite loop
+						//
+						if (!aPc.isAutomaticFeatsStable())
+						{
+							aPc.setStableAutomaticFeatList(autoFeatList);
+						}
+	
+						if (! PrereqHandler.passesAll(preReqList, aPc, null ))
+						{
+							continue;
+						}
+					}
+				}
+	
+				addToFeatList(autoFeatList, autoFeat);
+			}
+		}
+	
+		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !aPc.getTemplateList().isEmpty())
+		{
+			for (Iterator e = aPc.getTemplateListIterator(); e.hasNext();)
+			{
+				aPc.setStableAutomaticFeatList(autoFeatList);
+				final PCTemplate aTemplate = (PCTemplate) e.next();
+				final List templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
+	
+				if (!templateFeats.isEmpty())
+				{
+					for (Iterator e2 = templateFeats.iterator(); e2.hasNext();)
+					{
+						final String aString = (String) e2.next();
+						final StringTokenizer aTok = new StringTokenizer(aString, ",");
+	
+						while (aTok.hasMoreTokens())
+						{
+							addToFeatList(autoFeatList, aTok.nextToken());
+						}
+					}
+				}
+			}
+		}
+	
+		if (!aPc.getCharacterDomainList().isEmpty())
+		{
+			for (Iterator e = aPc.getCharacterDomainListIterator(); e.hasNext();)
+			{
+				final CharacterDomain aCD = (CharacterDomain) e.next();
+				final Domain aDomain = aCD.getDomain();
+	
+				if (aDomain != null)
+				{
+					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
+					{
+						final String aString = aDomain.getAssociated(e2);
+	
+						if (aString.startsWith("FEAT"))
+						{
+							final int idx = aString.indexOf('?');
+	
+							if (idx > -1)
+							{
+								addToFeatList(autoFeatList, aString.substring(idx + 1));
+							}
+							else
+							{
+								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
+							}
+						}
+					}
+	
+					final Iterator anIt = aDomain.getFeatIterator();
+	
+					for (; anIt.hasNext();)
+					{
+						final AbilityInfo abI = (AbilityInfo) anIt.next();
+						addToFeatList(autoFeatList, abI.getKeyName());
+					}
+				}
+			}
+		}
+	
+		//
+		// Need to save current as stable as getAutoWeaponProfs() needs it
+		//
+		aPc.setStableAutomaticFeatList(autoFeatList);
+		aPc.getAutoWeaponProfs(autoFeatList);
+		aPc.setStableAutomaticFeatList(autoFeatList);
+		return autoFeatList;
 	}
 }

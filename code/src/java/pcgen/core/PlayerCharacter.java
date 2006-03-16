@@ -902,6 +902,15 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
+	 * Get an iterator over the the class list
+	 * @return classList Iterator
+	 */
+	public Iterator getClassListIterator()
+	{
+		return classList.iterator();
+	}
+
+	/**
 	 * Get the class named
 	 * @param aString
 	 * @return PCClass
@@ -3116,6 +3125,17 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return templateList;
 	}
 
+
+	/**
+	 * Get an Iterator over the list of Templates applied to this PC
+	 *
+	 * @return    List of templates
+	 **/
+	public Iterator getTemplateListIterator()
+	{
+		return templateList.iterator();
+	}
+
 	/**
 	 * Retrieve a list of the templates applied to this PC that should be
 	 * visible on output.
@@ -4685,6 +4705,16 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	public List getCharacterDomainList()
 	{
 		return characterDomainList;
+	}
+
+	/**
+	 * Get an Iterator over the domains this character has
+	 * 
+	 * @return the Iterator
+	 */
+	public Iterator getCharacterDomainListIterator()
+	{
+		return characterDomainList.iterator();
 	}
 
 	public Domain getCharacterDomainNamed(final String domainName)
@@ -7817,7 +7847,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 		setAutomaticFeatsStable(false);
 		setAggregateFeatsStable(false);
-		rebuildFeatAutoList();
+		AbilityUtilities.rebuildAutoAbilityList(this);
 		rebuildFeatAggreagateList();
 
 		calcActiveBonuses();
@@ -9235,178 +9265,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			return autoFeatList;
 		}
 
-		return rebuildFeatAutoList();
-	}
-
-	/**
-	 * @return List
-	 */
-	public List rebuildFeatAutoList() {
-		final List autoFeatList;
-		autoFeatList = new ArrayList();
-
-		//
-		// add racial feats
-		//
-		if ((race != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
-		{
-			final StringTokenizer aTok = new StringTokenizer(race.getFeatList(this), "|");
-
-			while (aTok.hasMoreTokens())
-			{
-				AbilityUtilities.addToFeatList(autoFeatList, aTok.nextToken());
-			}
-		}
-
-		for (Iterator e = classList.iterator(); e.hasNext();)
-		{
-			final PCClass aClass = (PCClass) e.next();
-
-			for (Iterator e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
-			{
-				//
-				// PCClass object have auto feats stored in format:
-				// lvl|feat_name
-				//
-				final String aString = (String) e1.next();
-
-				if (aString.indexOf('|') < 1)
-				{
-					continue;
-				}
-
-				final StringTokenizer aTok = new StringTokenizer(aString, "|");
-				int i;
-
-				try
-				{
-					i = Integer.parseInt(aTok.nextToken());
-				}
-				catch (NumberFormatException exc)
-				{
-					i = 9999; //TODO: Replace magic value with an appropriate constant. Constants.INVALID_LEVEL perhaps?
-				}
-
-				if (i > aClass.getLevel())
-				{
-					continue;
-				}
-
-				String autoFeat = aTok.nextToken();
-				final int idx = autoFeat.indexOf('[');
-
-				if (idx >= 0)
-				{
-					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
-					final List preReqList = new ArrayList();
-
-					while (bTok.hasMoreTokens())
-					{
-						final String prereqString = bTok.nextToken();
-						Logging.debugPrint("Why is the prerequisite '"+prereqString+"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
-						try {
-							final PreParserFactory factory = PreParserFactory.getInstance();
-							final Prerequisite prereq = factory.parse(prereqString);
-							preReqList.add(prereq);
-						}
-						catch (PersistenceLayerException ple){
-							Logging.errorPrint(ple.getMessage(), ple);
-						}
-					}
-
-					autoFeat = autoFeat.substring(0, idx);
-
-					if (preReqList.size() != 0)
-					{
-						//
-						// To avoid possible infinite loop
-						//
-						if (!isAutomaticFeatsStable())
-						{
-							setStableAutomaticFeatList(autoFeatList);
-						}
-
-						if (! PrereqHandler.passesAll(preReqList, this, null ))
-						{
-							continue;
-						}
-					}
-				}
-
-				AbilityUtilities.addToFeatList(autoFeatList, autoFeat);
-			}
-		}
-
-		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !templateList.isEmpty())
-		{
-			for (Iterator e = templateList.iterator(); e.hasNext();)
-			{
-				setStableAutomaticFeatList(autoFeatList);
-				final PCTemplate aTemplate = (PCTemplate) e.next();
-				final List templateFeats = aTemplate.feats(getTotalLevels(), totalHitDice(), this, false);
-
-				if (!templateFeats.isEmpty())
-				{
-					for (Iterator e2 = templateFeats.iterator(); e2.hasNext();)
-					{
-						final String aString = (String) e2.next();
-						final StringTokenizer aTok = new StringTokenizer(aString, ",");
-
-						while (aTok.hasMoreTokens())
-						{
-							AbilityUtilities.addToFeatList(autoFeatList, aTok.nextToken());
-						}
-					}
-				}
-			}
-		}
-
-		if (!characterDomainList.isEmpty())
-		{
-			for (Iterator e = characterDomainList.iterator(); e.hasNext();)
-			{
-				final CharacterDomain aCD = (CharacterDomain) e.next();
-				final Domain aDomain = aCD.getDomain();
-
-				if (aDomain != null)
-				{
-					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
-					{
-						final String aString = aDomain.getAssociated(e2);
-
-						if (aString.startsWith("FEAT"))
-						{
-							final int idx = aString.indexOf('?');
-
-							if (idx > -1)
-							{
-								AbilityUtilities.addToFeatList(autoFeatList, aString.substring(idx + 1));
-							}
-							else
-							{
-								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
-							}
-						}
-					}
-
-					final Iterator anIt = aDomain.getFeatIterator();
-
-					for (; anIt.hasNext();)
-					{
-						final AbilityInfo abI = (AbilityInfo) anIt.next();
-						AbilityUtilities.addToFeatList(autoFeatList, abI.getKeyName());
-					}
-				}
-			}
-		}
-
-		//
-		// Need to save current as stable as getAutoWeaponProfs() needs it
-		//
-		setStableAutomaticFeatList(autoFeatList);
-		getAutoWeaponProfs(autoFeatList);
-		setStableAutomaticFeatList(autoFeatList);
-		return autoFeatList;
+		return AbilityUtilities.rebuildAutoAbilityList(this);
 	}
 
 	public int flatfootedAC()
@@ -11276,7 +11135,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return aList;
 	}
 
-	private boolean isAutomaticFeatsStable()
+	boolean isAutomaticFeatsStable()
 	{
 		return automaticFeatsStable;
 	}
@@ -11347,7 +11206,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * @param aFeatList
 	 * @return Sorted Set
 	 */
-	private SortedSet getAutoWeaponProfs(final List aFeatList)
+	SortedSet getAutoWeaponProfs(final List aFeatList)
 	{
 		SortedSet results = new TreeSet();
 		final Race aRace = getRace();
@@ -11973,7 +11832,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return null;
 	}
 
-	private void setStableAutomaticFeatList(final List aFeatList)
+	void setStableAutomaticFeatList(final List aFeatList)
 	{
 		stableAutomaticFeatList = aFeatList;
 		setAutomaticFeatsStable(aFeatList != null);

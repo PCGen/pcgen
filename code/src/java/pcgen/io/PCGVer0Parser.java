@@ -2238,7 +2238,7 @@ final class PCGVer0Parser implements PCGParser
 		}
 
 		aPC.setAutomaticFeatsStable(false);
-		aPC.rebuildFeatAutoList(); // populate profs array with automatic profs
+		AbilityUtilities.rebuildAutoAbilityList(aPC); // populate profs array with automatic profs
 
 		final List nonproficient = new ArrayList();
 
