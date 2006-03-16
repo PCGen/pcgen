@@ -363,12 +363,13 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		}
 
 		// TODO Need to use this variable with some sort of message like
-		// warnings.add("GEAR: Could not purchase " + (origQty-theQty) + " " + theEquipment.getName() + ". Not enough funds.");
 		boolean outOfFunds = false;
 		if (theQty != origQty)
 		{
 			outOfFunds = true;
 		}
+
+		warnings.add("GEAR: Could not purchase " + (origQty-theQty) + " " + theEquipment.getName() + ". Not enough funds.");
 
 		//
 		// Can't buy none
