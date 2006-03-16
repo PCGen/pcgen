@@ -841,13 +841,12 @@ public class AbilityUtilities
 	/**
 	 * Build and return a list of the Ability objects associated with the given
 	 * PlayerCharacter object
+	 * @param aPc 
 	 * 
 	 * @return a List of the Abilities this Character has
 	 */
 	
-	static public List rebuildAutoAbilityList(
-			PlayerCharacter aPc
-			) {
+	static public List rebuildAutoAbilityList(PlayerCharacter aPc) {
 	
 		final List autoFeatList;
 		autoFeatList = new ArrayList();

@@ -106,7 +106,7 @@ public class AbilityStore extends CategorisableStore
 			else if (token.startsWith("TYPE=") || token.startsWith("TYPE."))
 			{				
 				final String aType = token.substring(5);								
-				StringBuffer abilitiesString = new StringBuffer(200);								
+								
 				// We need to get a list of featabilities that match this type.				
 				Iterator i = Globals.getAbilityNameIterator(cat);				
 				while (i.hasNext())				
