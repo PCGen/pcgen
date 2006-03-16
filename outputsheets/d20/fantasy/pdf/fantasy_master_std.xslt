@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Header: /cvsroot/pcgendocs/pcgendocs/outputsheets/d20/fantasy/pdf/fantasy_master_std.xslt,v 1.20 2006/02/24 23:39:48 frank_kliewe Exp $ -->
-<xsl:stylesheet version="1.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-	xmlns:fo="http://www.w3.org/1999/XSL/Format" 
-	xmlns:xalan="http://xml.apache.org/xalan" 
-	xmlns:Psionics="my:Psionics" 
-	xmlns:myAttribs="my:Attribs" 
+<!-- $Id$ -->
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:Psionics="my:Psionics"
+	xmlns:myAttribs="my:Attribs"
 	exclude-result-prefixes="myAttribs Psionics">
-	
+
 	<xsl:import href="fantasy_common.xsl"/>
 	<xsl:import href="leadership.xsl"/>
 
 	<xsl:output indent="yes"/>
-	
+
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
@@ -20,8 +20,8 @@
 		</myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
-	
-		
+
+
 	<!-- Include all of the output attributes -->
 	<!-- vAttribs will be set up in the stylesheet that calls this one -->
 	<xsl:template name="attrib">
@@ -686,7 +686,7 @@
          20mm is the size of a single large weapon block
          24mm is the size of a single simple weapon block
 		-->
-		<!-- This should be made more complicated so that it determines the 
+		<!-- This should be made more complicated so that it determines the
 		     size of each weapon block in turn so that a correct cumulative
          height can be determined -->
 		<!--
@@ -845,7 +845,7 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - HP 
+	TEMPLATE - HP
 ====================================
 ====================================-->
 	<xsl:template match="character" mode="hp_table">
@@ -1598,10 +1598,10 @@
 					</fo:table-row>
 				</fo:table-body>
 			</fo:table>
-			
-			
-			
-			
+
+
+
+
 			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 				<xsl:copy-of select="$columns"/>
@@ -1817,7 +1817,7 @@
 		</fo:table>
 	</xsl:template>
 	<xsl:template name="saves.entry">
-		<xsl:param name="value"/>		
+		<xsl:param name="value"/>
 		<fo:table-cell>
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="'saves'"/>
@@ -1894,9 +1894,9 @@
 				<xsl:attribute name="font-size"><xsl:value-of select="$font.size"/></xsl:attribute>
 				<xsl:value-of select="$title"/>
 			</fo:block>
-		</fo:table-cell>		
+		</fo:table-cell>
 	</xsl:template>
-	
+
 	<xsl:template match="melee|ranged|grapple" mode="to_hit">
 		<xsl:param name="title"/>
 		<fo:table-row>
@@ -1923,7 +1923,7 @@
 			</fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
-	
+
 	<xsl:template name="attack.entry">
 		<xsl:param name="value" />
 		<xsl:param name="separator" select="'+'"/>
@@ -1944,8 +1944,8 @@
 			</fo:block>
 		</fo:table-cell>
 	</xsl:template>
-	
-	
+
+
 	<!--
 ====================================
 ====================================
@@ -2290,7 +2290,7 @@
 		<xsl:param name="title"/>
 		<xsl:param name="tohit"/>
 		<xsl:param name="damage"/>
-		
+
 		<fo:table-cell>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 			<fo:block font-size="5pt" font-weight="bold" space-before="1pt">
@@ -2368,12 +2368,12 @@
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'1H-P'"/>
 						<xsl:with-param name="tohit" select="w1_h1_p/to_hit"/>
-						<xsl:with-param name="damage" select="w1_h1_p/damage" /> 
+						<xsl:with-param name="damage" select="w1_h1_p/damage" />
 					</xsl:call-template>
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2W-P-(OH)'"/>
 						<xsl:with-param name="tohit" select="w2_p_oh/to_hit"/>
-						<xsl:with-param name="damage" select="w2_p_oh/damage" /> 
+						<xsl:with-param name="damage" select="w2_p_oh/damage" />
 					</xsl:call-template>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
@@ -2381,12 +2381,12 @@
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'1H-O'"/>
 						<xsl:with-param name="tohit" select="w1_h1_o/to_hit"/>
-						<xsl:with-param name="damage" select="w1_h1_o/damage" /> 
+						<xsl:with-param name="damage" select="w1_h1_o/damage" />
 					</xsl:call-template>
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2W-P-(OL)'"/>
 						<xsl:with-param name="tohit" select="w2_p_ol/to_hit"/>
-						<xsl:with-param name="damage" select="w2_p_ol/damage" /> 
+						<xsl:with-param name="damage" select="w2_p_ol/damage" />
 					</xsl:call-template>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
@@ -2394,12 +2394,12 @@
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2H'"/>
 						<xsl:with-param name="tohit" select="w1_h2/to_hit"/>
-						<xsl:with-param name="damage" select="w1_h2/damage" /> 
+						<xsl:with-param name="damage" select="w1_h2/damage" />
 					</xsl:call-template>
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2W-OH'"/>
 						<xsl:with-param name="tohit" select="w2_o/to_hit"/>
-						<xsl:with-param name="damage" select="w2_o/damage" /> 
+						<xsl:with-param name="damage" select="w2_o/damage" />
 					</xsl:call-template>
 				</fo:table-row>
 			</fo:table-body>
@@ -2553,7 +2553,7 @@
 							<xsl:otherwise>lightline</xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
-					
+
 					<fo:table-row>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
 						<fo:table-cell>
@@ -2613,7 +2613,7 @@
 		<xsl:param name="description.title" select="''"/>
 		<xsl:param name="description" />
 		<xsl:param name="width" select="'wide'" />
-		
+
 		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column column-width="18mm"/>
@@ -2676,7 +2676,7 @@
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
-	
+
 	<!--
 ====================================
 ====================================
@@ -2731,7 +2731,7 @@
 	<xsl:template name="turning.hitdice">
 		<xsl:param name="die"/>
 		<xsl:param name="number"/>
-	
+
 		<xsl:variable name="shade">
 			<xsl:choose>
 				<xsl:when test="$number mod 2 = 0">darkline</xsl:when>
@@ -2757,7 +2757,7 @@
 	<xsl:template name="turning.info">
 		<xsl:param name="title"/>
 		<xsl:param name="info"/>
-	
+
 		<fo:table-row>
 			<fo:table-cell padding-top="1pt" text-align="end">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
@@ -2920,9 +2920,9 @@
 		</fo:table>
 		<!-- END Turning Table -->
 	</xsl:template>
-	
 
-	
+
+
 	<xsl:template name="turns.per.day">
 		<xsl:param name="title" />
 		<xsl:param name="value"/>
@@ -2939,7 +2939,7 @@
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
-	
+
 	</xsl:template>
 	<!--
 ====================================
@@ -3584,7 +3584,7 @@
 								<xsl:otherwise>lightline</xsl:otherwise>
 							</xsl:choose>
 						</xsl:variable>
-					
+
 						<fo:table-row>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('equipment.', $shade)"/></xsl:call-template>
 							<fo:table-cell>
@@ -3653,7 +3653,7 @@
 		</fo:block>
 		<!-- END Equipment table -->
 	</xsl:template>
-	
+
 	<!--
 ====================================
 ====================================
@@ -3663,7 +3663,7 @@
 	<xsl:template name="weight.entry">
 		<xsl:param name="title"/>
 		<xsl:param name="value"/>
-			
+
 		<fo:table-cell padding-top="1pt" padding-right="1mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weight.darkline'"/></xsl:call-template>
 			<fo:block font-size="7pt" text-align="end"><xsl:value-of select="$title"/></fo:block>
@@ -3791,7 +3791,7 @@
 						</fo:table-row>
 					</xsl:for-each>
 					<xsl:variable name="coin_count" select="count( equipment/item[contains(type, 'COIN')] )"/>
-					
+
 					<!-- dump gems -->
 					<xsl:for-each select="equipment/item[contains(type, 'GEM')]">
 						<xsl:sort order="descending" select="cost" data-type="number"/>
@@ -4001,7 +4001,7 @@
 						</xsl:when>
 						<xsl:when test="@spellcastertype = 'Infusion'">
 							<xsl:value-of select="concat(@spelllistclass, ' Infusions')"/>
-						</xsl:when> 
+						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select="concat(@spelllistclass, ' Spells')"/>
 						</xsl:otherwise>
@@ -4630,7 +4630,7 @@
 		</fo:table-row>
 	</xsl:template>
 
-	
+
 	<!--
 ====================================
 ====================================

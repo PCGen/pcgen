@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Header: /cvsroot/pcgendocs/pcgendocs/outputsheets/d20/modern/pdf/csheet_modern_std.xslt,v 1.23 2006/02/24 23:46:40 frank_kliewe Exp $ -->
+<!-- $Id$ -->
 
 <!-- Removed Domains and prohibited schools, as they do not exist in Modern gameMode - Frank Kliewe
 	2006/02/28 implemented FREQ [ 1411525 ] [MSRD] display offhand penalties for ranged weap - Frank Kliewe
