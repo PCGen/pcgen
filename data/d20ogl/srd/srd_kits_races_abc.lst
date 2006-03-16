@@ -1,0 +1,501 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 17:46:58 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+STARTPACK:Default Aboleth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aboleth]
+RACE:Aboleth	!PRERACE:%
+NAME:Aboleth
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Concentration		RANK:11
+SKILL:Listen			RANK:11
+SKILL:Spot				RANK:11
+SKILL:Knowledge (Underdark)	RANK:5
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Iron Will
+
+STARTPACK:Default Achaierai	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Achaierai]
+RACE:Achaierai	!PRERACE:%
+NAME:Achaierai
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Climb			RANK:9
+SKILL:Jump			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Spot			RANK:9
+FEAT:Dodge
+FEAT:Mobility
+
+STARTPACK:Default Allip	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Allip]
+RACE:Allip	!PRERACE:%
+NAME:Allip
+ALIGN:NE
+STAT:DEX=10|INT=11|WIS=11|CHA=10
+SKILL:Hide			RANK:7
+SKILL:Intimidate		RANK:7
+SKILL:Listen		RANK:7
+SKILL:Search		RANK:7
+SKILL:Spot			RANK:7
+SKILL:Intuit Direction	RANK:4
+FEAT:Improved Initiative
+
+STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Tiny)]
+RACE:Animated Object (Tiny)	!PRERACE:%
+NAME:Animated Object (Tiny)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Small)]
+RACE:Animated Object (Small)	!PRERACE:%
+NAME:Animated Object (Small)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Animated Object (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Medium)]
+RACE:Animated Object (Medium)	!PRERACE:%
+NAME:Animated Object (Medium)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Large)]
+RACE:Animated Object (Large)	!PRERACE:%
+NAME:Animated Object (Large)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Huge)]
+RACE:Animated Object (Huge)	!PRERACE:%
+NAME:Animated Object (Huge)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Gargantuan)]
+RACE:Animated Object (Gargantuan)	!PRERACE:%
+NAME:Animated Object (Gargantuan)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Colossal)]
+RACE:Animated Object (Colossal)	!PRERACE:%
+NAME:Animated Object (Colossal)
+ALIGN:TN
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Ankheg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ankheg]
+RACE:Ankheg	!PRERACE:%
+NAME:Ankheg
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:3
+
+STARTPACK:Default Aranea	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aranea]
+RACE:Aranea	!PRERACE:%
+NAME:Aranea
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Climb			RANK:6
+SKILL:Concentration	RANK:6
+SKILL:Craft (Weaving)	RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Jump			RANK:6
+FEAT:Weapon Finesse (Bite)
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Default Arrowhawk (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Juvenile)]
+RACE:Arrowhawk (Juvenile)	!PRERACE:%
+NAME:Arrowhawk (Juvenile)
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intuit Direction	RANK:1
+SKILL:Listen		RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Spot			RANK:6
+SKILL:Search		RANK:7
+FEAT:Weapon Finesse (Bite)
+
+STARTPACK:Default Arrowhawk (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Adult)]
+RACE:Arrowhawk (Adult)	!PRERACE:%
+NAME:Arrowhawk (Adult)
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist	RANK:10
+SKILL:Listen		RANK:10
+SKILL:Search		RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Spot			RANK:10
+SKILL:Intuit Direction	RANK:6
+FEAT:Weapon Finesse (Bite)
+FEAT:Dodge
+
+STARTPACK:Default Arrowhawk (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Elder)]
+RACE:Arrowhawk (Elder)	!PRERACE:%
+NAME:Arrowhawk (Elder)
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Escape Artist			RANK:18
+SKILL:Listen				RANK:18
+SKILL:Search				RANK:18
+SKILL:Sense Motive			RANK:18
+SKILL:Spot					RANK:18
+SKILL:Intuit Direction			RANK:15
+SKILL:Knowledge (Plane of Air)	RANK:15
+FEAT:Weapon Finesse (Bite)
+FEAT:Dodge
+
+STARTPACK:Default Assassin Vine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Assassin Vine]
+RACE:Assassin Vine	!PRERACE:%
+NAME:Assassin Vine
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
+
+STARTPACK:Default Athach	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Athach]
+RACE:Athach	!PRERACE:%
+NAME:Athach
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Climb		RANK:8
+SKILL:Jump		RANK:8
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Multiattack
+FEAT:Multidexterity
+FEAT:Multiweapon Fighting
+
+STARTPACK:Default Azer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Azer]
+RACE:Azer	!PRERACE:%
+NAME:Azer
+ALIGN:LN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Climb				RANK:1
+SKILL:Craft (Blacksmith)	RANK:5
+SKILL:Listen			RANK:3
+SKILL:Search			RANK:3
+SKILL:Spot				RANK:4
+FEAT:Power Attack
+
+STARTPACK:Default Barghest	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barghest]
+RACE:Barghest	!PRERACE:%
+NAME:Barghest
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Bluff		RANK:9
+SKILL:Hide		RANK:9
+SKILL:Intimidate	RANK:9
+SKILL:Jump		RANK:9
+SKILL:Listen	RANK:9
+SKILL:Spot		RANK:9
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+
+STARTPACK:Default Barghest (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barghest (Greater)]
+RACE:Barghest (Greater)	!PRERACE:%
+NAME:Barghest (Greater)
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+
+STARTPACK:Default Basilisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Basilisk]
+RACE:Basilisk	!PRERACE:%
+NAME:Basilisk
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Great Fortitude
+
+STARTPACK:Default Behir	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Behir]
+RACE:Behir	!PRERACE:%
+NAME:Behir
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Climb	RANK:12
+SKILL:Hide	RANK:4
+SKILL:Spot	RANK:5
+FEAT:Cleave
+FEAT:Power Attack
+
+STARTPACK:Default Belker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Belker]
+RACE:Belker	!PRERACE:%
+NAME:Belker
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Listen		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Move Silently	RANK:4
+FEAT:Multiattack
+FEAT:Weapon Finesse (Wing)
+
+STARTPACK:Default Blink Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blink Dog]
+RACE:Blink Dog	!PRERACE:%
+NAME:Blink Dog
+ALIGN:LG
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Hide			RANK:5
+SKILL:Sense Motive	RANK:5
+SKILL:Listen		RANK:7
+SKILL:Spot			RANK:7
+FEAT:Iron Will
+
+STARTPACK:Default Bodak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bodak]
+RACE:Bodak	!PRERACE:%
+NAME:Bodak
+ALIGN:CE
+STAT:STR=11|DEX=11|INT=10|WIS=10|CHA=10
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:12
+SKILL:Spot			RANK:12
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Weapon Focus(Slam)
+
+STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bugbear]
+RACE:Bugbear	!PRERACE:%
+NAME:Bugbear
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Climb			RANK:2
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+
+STARTPACK:Default Bulette	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bulette]
+RACE:Bulette	!PRERACE:%
+NAME:Bulette
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Jump		RANK:4
+SKILL:Listen	RANK:5
+
+STARTPACK:Default Celestial (Lantern Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Lantern Archon)]
+RACE:Celestial (Lantern Archon)	!PRERACE:%
+NAME:Celestial (Lantern Archon)
+ALIGN:LG
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+FEAT:Improved Initiative
+
+STARTPACK:Default Celestial (Hound Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Hound Archon)]
+RACE:Celestial (Hound Archon)	!PRERACE:%
+NAME:Celestial (Hound Archon)
+ALIGN:LG
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration	RANK:7
+SKILL:Hide			RANK:7
+SKILL:Jump			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Spot			RANK:6
+FEAT:Improved Initiative
+FEAT:Track
+
+STARTPACK:Default Celestial (Avoral)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Avoral)]
+RACE:Celestial (Avoral)	!PRERACE:%
+NAME:Celestial (Avoral)
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Animal Empathy	RANK:7
+SKILL:Concentration	RANK:7
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Spellcraft		RANK:7
+SKILL:Spot			RANK:7
+FEAT:Improved Initiative
+FEAT:Flyby Attack
+
+STARTPACK:Default Celestial (Ghaele)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Ghaele)]
+RACE:Celestial (Ghaele)	!PRERACE:%
+NAME:Celestial (Ghaele)
+ALIGN:CG
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Animal Empathy	RANK:10
+SKILL:Concentration	RANK:10
+SKILL:Escape Artist	RANK:10
+SKILL:Hide			RANK:10
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Spot			RANK:10
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Improved Initiative
+
+STARTPACK:Default Celestial (Trumpet Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Trumpet Archon)]
+RACE:Celestial (Trumpet Archon)	!PRERACE:%
+NAME:Celestial (Trumpet Archon)
+ALIGN:LG
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Animal Empathy	RANK:12
+SKILL:Concentration	RANK:12
+SKILL:Escape Artist	RANK:12
+SKILL:Hide			RANK:12
+SKILL:Listen		RANK:12
+SKILL:Move Silently	RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spot			RANK:12
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Celestial (Astral Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Astral Deva)]
+RACE:Celestial (Astral Deva)	!PRERACE:%
+NAME:Celestial (Astral Deva)
+ALIGN:LG|NG|CG
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Concentration	RANK:15
+SKILL:Escape Artist	RANK:15
+SKILL:Hide			RANK:15
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spot			RANK:15
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Celestial (Planetar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Planetar)]
+RACE:Celestial (Planetar)	!PRERACE:%
+NAME:Celestial (Planetar)
+ALIGN:LG|NG|CG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Concentration	RANK:11
+SKILL:Escape Artist	RANK:16
+SKILL:Move Silently	RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Search		RANK:13
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Celestial (Solar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Solar)]
+RACE:Celestial (Solar)	!PRERACE:%
+NAME:Celestial (Solar)
+ALIGN:LG|NG|CG
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Concentration	RANK:11
+SKILL:Escape Artist	RANK:25
+SKILL:Hide			RANK:25
+SKILL:Listen		RANK:25
+SKILL:Move Silently	RANK:25
+SKILL:Sense Motive	RANK:25
+SKILL:Spot			RANK:25
+SKILL:Search		RANK:24
+SKILL:Spellcraft		RANK:13
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Mobility
+FEAT:Power Attack
+
+STARTPACK:Default Centaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Centaur]
+RACE:Centaur	!PRERACE:%
+NAME:Centaur
+ALIGN:NG
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Hide			RANK:4
+SKILL:Wilderness Lore	RANK:4
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:3
+FEAT:Weapon Focus (Hoof)
+
+STARTPACK:Default Chaos Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chaos Beast]
+RACE:Chaos Beast	!PRERACE:%
+NAME:Chaos Beast
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:10
+SKILL:Escape Artist	RANK:10
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Tumble		RANK:9
+SKILL:Jump			RANK:8
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+
+STARTPACK:Default Chimera	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chimera]
+RACE:Chimera	!PRERACE:%
+NAME:Chimera
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Hide		RANK:7
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Multiattack
+
+STARTPACK:Default Choker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Choker]
+RACE:Choker	!PRERACE:%
+NAME:Choker
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb			RANK:5
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:4
+FEAT:Improved Initiative
+
+STARTPACK:Default Chuul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chuul]
+RACE:Chuul	!PRERACE:%
+NAME:Chuul
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Hide		RANK:10
+SKILL:Jump		RANK:6
+SKILL:Listen	RANK:9
+SKILL:Spot		RANK:9
+FEAT:Improved Initiative
+FEAT:Alertness
+
+STARTPACK:Default Cloaker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cloaker]
+RACE:Cloaker	!PRERACE:%
+NAME:Cloaker
+ALIGN:CN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Hide			RANK:13
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:9
+FEAT:Improved Initiative
+FEAT:Alertness
+
+STARTPACK:Default Cockatrice	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cockatrice]
+RACE:Cockatrice	!PRERACE:%
+NAME:Cockatrice
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+FEAT:Alertness
+FEAT:Dodge
+
+STARTPACK:Default Couatl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Couatl]
+RACE:Couatl	!PRERACE:%
+NAME:Couatl
+ALIGN:LG
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Concentration		RANK:12
+SKILL:Listen			RANK:12
+SKILL:Search			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Spellcraft			RANK:12
+SKILL:Spot				RANK:12
+SKILL:Tumble			RANK:12
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Knowledge (History)	RANK:5
+SKILL:Knowledge (Nature)	RANK:5
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Still Spell

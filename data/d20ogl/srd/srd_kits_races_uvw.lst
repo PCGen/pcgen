@@ -1,0 +1,119 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 17:46:58 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+STARTPACK:Default Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unicorn]
+RACE:Unicorn	!PRERACE:%
+NAME:Unicorn
+ALIGN:CG
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Animal Empathy	RANK:4
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Wilderness Lore	RANK:4
+SKILL:Move Silently	RANK:6
+FEAT:Alertness
+
+STARTPACK:Default Vampire Spawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire Spawn]
+RACE:Vampire Spawn	!PRERACE:%
+NAME:Vampire Spawn
+ALIGN:CE
+STAT:STR=10|DEX=10|INT=11|WIS=11|CHA=10
+SKILL:Bluff			RANK:2
+SKILL:Climb			RANK:5
+SKILL:Jump			RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Search		RANK:3
+SKILL:Sense Motive	RANK:6
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Vargouille	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vargouille]
+RACE:Vargouille	!PRERACE:%
+NAME:Vargouille
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Weapon Finesse (Bite)
+
+STARTPACK:Default Wight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wight]
+RACE:Wight	!PRERACE:%
+NAME:Wight
+ALIGN:LE
+STAT:STR=10|DEX=10|INT=11|WIS=11|CHA=11
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Search		RANK:7
+SKILL:Spot			RANK:7
+FEAT:Blind-Fight
+
+STARTPACK:Default Will-o'-wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Will-o'-wisp]
+RACE:Will-o'-wisp	!PRERACE:%
+NAME:Will-o'-wisp
+ALIGN:CE
+STAT:DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Bluff		RANK:10
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Dodge
+FEAT:Improved Initiative
+
+STARTPACK:Default Winter Wolf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Winter Wolf]
+RACE:Winter Wolf	!PRERACE:%
+NAME:Winter Wolf
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:5
+SKILL:Spot			RANK:5
+SKILL:Move Silently	RANK:6
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Default Worg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Worg]
+RACE:Worg	!PRERACE:%
+NAME:Worg
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:5
+FEAT:Alertness
+
+STARTPACK:Default Wraith	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wraith]
+RACE:Wraith	!PRERACE:%
+NAME:Wraith
+ALIGN:LE
+STAT:DEX=10|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:8
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:8
+SKILL:Search		RANK:8
+SKILL:Spot			RANK:8
+SKILL:Intuit Direction	RANK:4
+SKILL:Sense Motive	RANK:6
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+
+STARTPACK:Default Wyvern	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Wyvern]
+RACE:Wyvern	!PRERACE:%
+NAME:Wyvern
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Listen		RANK:10
+SKILL:Spot			RANK:10
+SKILL:Move Silently	RANK:8
+FEAT:Alertness
+FEAT:Flyby Attack

@@ -106,3 +106,22 @@ SKILL:srd_skills_psionic.lst
 SPELL:srd_spells_psionic.lst
 TEMPLATE:srd_templates_psionic.lst
 WEAPONPROF:srd_weapprofs_psionic.lst
+
+# Default Monster Kits
+
+KIT:srd_kits_races__animals.lst
+KIT:srd_kits_races__dragons.lst
+KIT:srd_kits_races__phb.lst
+KIT:srd_kits_races__psionic.lst
+KIT:srd_kits_races__vermin.lst
+KIT:srd_kits_races_abc.lst
+KIT:srd_kits_races_d.lst
+KIT:srd_kits_races_ef.lst
+KIT:srd_kits_races_gh.lst
+KIT:srd_kits_races_ikl.lst
+KIT:srd_kits_races_mn.lst
+KIT:srd_kits_races_opr.lst
+KIT:srd_kits_races_st.lst
+KIT:srd_kits_races_uvw.lst
+KIT:srd_kits_races_xyz.lst
+

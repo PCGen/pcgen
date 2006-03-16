@@ -1,0 +1,109 @@
+# CVS $Revision: $ $Author: $ -- Sun Mar 12 17:46:58 2006 -- reformated by prettylst.pl v1.35 (build 555)
+SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+STARTPACK:Default Invisible Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Invisible Stalker]
+RACE:Invisible Stalker	!PRERACE:%
+NAME:Invisible Stalker
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Listen		RANK:9
+SKILL:Search		RANK:9
+SKILL:Move Silently	RANK:11
+SKILL:Spot			RANK:11
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kobold]
+RACE:Kobold	!PRERACE:%
+NAME:Kobold
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Default Kraken	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kraken]
+RACE:Kraken	!PRERACE:%
+NAME:Kraken
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Concentration		RANK:10
+SKILL:Listen			RANK:10
+SKILL:Search			RANK:10
+SKILL:Spot				RANK:10
+SKILL:Knowledge (Geography)	RANK:5
+SKILL:Knowledge (Nature)	RANK:5
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Expertise
+FEAT:Improved Critical (Tentacle)
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Iron Will
+
+STARTPACK:Default Krenshar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Krenshar]
+RACE:Krenshar	!PRERACE:%
+NAME:Krenshar
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Jump			RANK:4
+SKILL:Move Silently	RANK:4
+FEAT:Multiattack
+
+STARTPACK:Default Lamia	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lamia]
+RACE:Lamia	!PRERACE:%
+NAME:Lamia
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Bluff			RANK:12
+SKILL:Hide			RANK:12
+SKILL:Concentration	RANK:10
+FEAT:Iron Will
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Weapon Finesse (Dagger)
+
+STARTPACK:Default Lammasu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lammasu]
+RACE:Lammasu	!PRERACE:%
+NAME:Lammasu
+ALIGN:LG
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration		RANK:9
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Listen			RANK:5
+FEAT:Blind-Fight
+FEAT:Combat Casting
+FEAT:Flyby Attack
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Lillend	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lillend]
+RACE:Lillend	!PRERACE:%
+NAME:Lillend
+ALIGN:CG
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Appraise			RANK:10
+SKILL:Concentration		RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Perform			RANK:10
+SKILL:Spellcraft			RANK:10
+SKILL:Wilderness Lore		RANK:10
+FEAT:Combat Casting
+FEAT:Extend Spell
+
+STARTPACK:Default Lizardfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lizardfolk]
+RACE:Lizardfolk	!PRERACE:%
+NAME:Lizardfolk
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Balance	RANK:0
+SKILL:Jump		RANK:2
+SKILL:Swim		RANK:4
+FEAT:Multiattack
+
+STARTPACK:Default Locathah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Locathah]
+RACE:Locathah	!PRERACE:%
+NAME:Locathah
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Blind-Fight
