@@ -24,6 +24,7 @@ package pcgen.core;
 
 import pcgen.util.Logging;
 
+import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /**
@@ -89,7 +90,7 @@ public class AbilityStore extends CategorisableStore
 
 		while (aTok.hasMoreTokens())
 		{
-			final String token = aTok.nextToken();
+			String token = aTok.nextToken();
 
 			if (token.startsWith(CATEGORY_START_TOKEN))
 			{
@@ -102,8 +103,25 @@ public class AbilityStore extends CategorisableStore
 
 				continue;
 			}
-
-			addAsPerParsedInfo(getAbility, cat, token);
+			else if (token.startsWith("TYPE=") || token.startsWith("TYPE."))
+			{				
+				final String aType = token.substring(5);								
+				StringBuffer abilitiesString = new StringBuffer(200);								
+				// We need to get a list of featabilities that match this type.				
+				Iterator i = Globals.getAbilityNameIterator(cat);				
+				while (i.hasNext())				
+				{					
+					Ability ability = (Ability)i.next();
+					if (ability.isType(aType))
+					{
+						addAsPerParsedInfo(getAbility, cat, ability.getKeyName());
+					}
+				}			
+			}			
+			else			
+			{				
+				addAsPerParsedInfo(getAbility, cat, token);
+			}
 		}
 	}
 
