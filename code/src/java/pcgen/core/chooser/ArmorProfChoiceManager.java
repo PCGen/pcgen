@@ -28,7 +28,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserInterface;
 
 import java.util.Iterator;
 import java.util.List;
@@ -118,15 +117,15 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 	/**
 	 * Apply the choices made
 	 *
-	 * @param  aPC
-	 * @param  chooser
-	 * @param  selectedBonusList
+	 * @param  aPC               unused
+	 * @param  selected          a List of the choices to apply
+	 * @param  selectedBonusList unused
 	 */
 	protected void applyChoices(
 	    final PlayerCharacter  aPC,
-	    final ChooserInterface chooser,
+	    final List             selected,
 	    List                   selectedBonusList)
 	{
-		pobject.addSelectedArmorProfs(chooser.getSelectedList());
+		pobject.addSelectedArmorProfs(selected);
 	}
 }

@@ -111,8 +111,9 @@ public abstract class AbstractChoiceManager
 	 * @param selectedList
 	 * @param selectedBonusList
 	 * @param aPC
+	 * @return the list of selected items
 	 */
-	public void doChooser (
+	public List doChooser (
 		    final List            availableList,
 		    final List            selectedList,
 		    final List            selectedBonusList,
@@ -138,7 +139,7 @@ public abstract class AbstractChoiceManager
 
 		chooser.setVisible(true);
 
-		applyChoices(aPC, chooser, selectedBonusList);
+		return chooser.getSelectedList();
 	}
 
 	/*
@@ -151,6 +152,6 @@ public abstract class AbstractChoiceManager
 
 	protected abstract void applyChoices(
 			final PlayerCharacter  aPC,
-			final ChooserInterface chooser,
+			final List             selected,
 			List                   selectedBonusList);
 }

@@ -27,7 +27,6 @@ import pcgen.core.EquipmentList;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.ListKey;
-import pcgen.util.chooser.ChooserInterface;
 
 import java.util.Iterator;
 import java.util.List;
@@ -114,14 +113,14 @@ public class ShieldProfChoiceManager extends AbstractChoiceManager
 	 * Add the selected shield proficiencies
 	 *
 	 * @param  aPC
-	 * @param  chooser
+	 * @param  selected
 	 * @param  selectedBonusList
 	 */
 	protected void applyChoices(
 	    PlayerCharacter  aPC,
-	    ChooserInterface chooser,
+	    List selected,
 	    List             selectedBonusList)
 	{
-		pobject.addSelectedShieldProfs(chooser.getSelectedList());
+		pobject.addSelectedShieldProfs(selected);
 	}
 }

@@ -24,7 +24,6 @@ package pcgen.core.chooser;
 
 import pcgen.core.*;
 import pcgen.core.utils.ListKey;
-import pcgen.util.chooser.ChooserInterface;
 
 import java.util.*;
 
@@ -168,7 +167,7 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 	/**
 	 * Get the choices for a Deity weapon proficiency
 	 *
-	 * @param  unparsed			Uuparsed string of choices.
+	 * @param  unparsed			Unparsed string of choices.
 	 * @param  availableList	The list weapon proficiencies are added to.
 	 * @param  adding			Set if weapon proficiencies should be added.
 	 * @param  aPC				The Player Character.
@@ -279,7 +278,7 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 	}
 
 	/**
-	 * Get a list of weapon proficiencies by weild category
+	 * Get a list of weapon proficiencies by wield category
 	 *
 	 * @param  unparsed			The unparsed string of choices.
 	 * @param  availableList	The list weapon proficiencies are added to.
@@ -409,21 +408,21 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 	}
 
 	/**
-	 * Apply the selceted weapon profs
+	 * Apply the selected weapon profs
 	 *
 	 * @param  aPC					The Player Character.
-	 * @param  chooser				Interface to a choice dialog.
+	 * @param  selected				List of the choices made
 	 * @param  selectedBonusList	Doesn't seem to be used.
 	 */
 	protected void applyChoices(
 	    final PlayerCharacter  aPC,
-	    final ChooserInterface chooser,
+	    final List             selected,
 	    List                   selectedBonusList)
 	{
 		pobject.clearSelectedWeaponProfBonus();
 		aPC.setAutomaticFeatsStable(false);
 
-		Iterator it = chooser.getSelectedList().iterator();
+		Iterator it = selected.iterator();
 
 		while (it.hasNext() && !weaponToProfMap.isEmpty())
 		{

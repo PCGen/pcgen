@@ -24,7 +24,6 @@ package pcgen.core.chooser;
 
 import pcgen.core.*;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.util.chooser.ChooserInterface;
 
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +34,7 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
+
 public class FeatChoiceManager extends AbstractChoiceManager
 {
 	/**
@@ -91,12 +91,19 @@ public class FeatChoiceManager extends AbstractChoiceManager
 		}
 	}
 
+	/**
+	 * Apply the choices made to the PObject this choiceManager is associated with
+	 * 
+	 * @param aPC
+	 * @param selected
+	 * @param selectedBonusList
+	 */
 	protected void applyChoices(
 			PlayerCharacter  aPC,
-			ChooserInterface chooser,
+			List             selected,
 			List             selectedBonusList)
 	{
-		Iterator i = chooser.getSelectedList().iterator();
+		Iterator i = selected.iterator();
 		while (i.hasNext())
 		{
 			final String tempString = (String) i.next();

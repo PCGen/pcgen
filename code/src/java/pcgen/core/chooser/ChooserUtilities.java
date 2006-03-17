@@ -285,7 +285,12 @@ public class ChooserUtilities
 			return;
 		}
 
-		aMan.doChooser(availableList, selectedList, selectedBonusList, aPC);
+		final List newSelections = aMan.doChooser(availableList,
+				                                  selectedList,
+				                                  selectedBonusList,
+				                                  aPC);
+
+		aMan.applyChoices(aPC, newSelections, null);
 	}
 	/**
 	 * Make a mapping so that we can look up the name of the class that

@@ -4,7 +4,6 @@ import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.chooser.ChooserInterface;
 
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +29,6 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 	{
 		super(aPObject, choiceString, aPC);
 
-		choiceString   = pobject.getChoiceString();
 		chooserHandled = "MISC";
 	}
 
@@ -38,13 +36,13 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 	 * Apply the choices selected to the associated PObject (the one passed
 	 * to the constructor)
 	 * @param aPC
-	 * @param chooser
+	 * @param selected
 	 * @param selectedBonusList	unused parameter
 	 *
 	 */
 	protected void applyChoices(
 			PlayerCharacter  aPC,
-			ChooserInterface chooser,
+			List             selected,
 			List             selectedBonusList)
 	{
 		String objPrefix = (pobject instanceof Domain)
@@ -56,7 +54,7 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 		    ((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
 		}
 
-		Iterator it = chooser.getSelectedList().iterator();
+		Iterator it = selected.iterator();
 		while (it.hasNext())
 		{
 			final String chosenItem = (String) it.next();
@@ -74,7 +72,7 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 		{
 			featCount = (numberOfChoices > 0)
 					? featCount - cost
-					: ((maxSelections - chooser.getSelectedList().size()) * cost);
+					: ((maxSelections - selected.size()) * cost);
 		}
 
 		aPC.adjustFeats(featCount - aPC.getFeats());

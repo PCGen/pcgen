@@ -24,7 +24,6 @@ package pcgen.core.chooser;
 
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.chooser.ChooserInterface;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -75,10 +74,10 @@ public class SpellLevelChoiceManager extends AbstractChoiceManager
 
 	protected void applyChoices(
 			final PlayerCharacter  aPC,
-			final ChooserInterface chooser,
+			final List             selected,
 			List                   selectedBonusList)
 	{
-		Iterator it = chooser.getSelectedList().iterator();
+		Iterator it = selected.iterator();
 		while (it.hasNext())
 		{
 			final String chooseString = (String) it.next();

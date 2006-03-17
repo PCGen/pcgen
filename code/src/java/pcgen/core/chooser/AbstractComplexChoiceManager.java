@@ -111,6 +111,16 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 			choices = Collections.EMPTY_LIST;
 			return;
 		}
+		
+		/* Note: this next section of code stores the first item in the list
+		 * of things remaining as the type of chooser handled.  It then also
+		 * stores it as the first of the choices.  It needs to do this because
+		 * Miscellaneous choosers don't have a chooser type in this list, all
+		 * the entries are valid choices.  This code can't tell the difference,
+		 * this means that when you subclass this you absolutely MUST check
+		 * if the first item in choices Matches the type of CHOOSER that was
+		 * created and if so not offer it as a choice. */
+		
 		chooserHandled = (String) mainList.get(i);
 		choices        = mainList.subList(i, mainList.size());
 
@@ -147,11 +157,14 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 		    PlayerCharacter       aPC)
 	{
 		remove = true;
-		doChooser (
+		final List newSelections = doChooser (
 				availableList,
 				selectedList,
-			    selectedBonusList,
-			    aPC);
+				selectedBonusList,
+				aPC);
+
+		applyChoices(aPC, newSelections, null);
+		
 		remove = false;
 	}
 
@@ -164,7 +177,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 	 * @param selectedBonusList
 	 * @param aPC
 	 */
-	public void doChooser (
+	public List doChooser (
 		    final List            availableList,
 		    final List            selectedList,
 		    final List            selectedBonusList,
@@ -244,6 +257,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 
 			break;
 		}
-		applyChoices(aPC, chooser, null);
+		
+		return chooser.getSelectedList();
 	}
 }
