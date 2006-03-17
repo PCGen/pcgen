@@ -119,7 +119,6 @@ PCC:@/d20ogl/srd35/epic_psionics/rsrd_epic_psionics.pcc
 # Default Monster Kits
 KIT:rsrd_kits_races__animals.lst
 KIT:rsrd_kits_races__base.lst
-KIT:rsrd_kits_races__dragons.lst
 KIT:rsrd_kits_races__vermin.lst
 KIT:rsrd_kits_races_a_b.lst
 KIT:rsrd_kits_races_a_b_extras.lst
