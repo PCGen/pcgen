@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb  9 13:38:13 2005 -- reformated by prettylst.pl v1.34 (build 455)
-SOURCELONG:Legends of the Ancients - Carthage|SOURCESHORT:LoAC|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+# CVS $Revision$ $Author$ -- Thu Mar 16 20:40:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:LoAC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
 
 # Feat Name			Type			Required Feat				Maximum Level	Description																																												Multiple?	Choose					Template				Weapon prof. bonus				Source Page
 Mercenary Captain		TYPE:General	PREFEAT:1,Leadership,Color of Money				DESC:The mercenary has risen to command his own small band of mercenaries. As someone who understands the workings of the mercenary mind, the mercenary can attract followers through not only his personal Charisma and reputation, but also his ability to deliver wealth																					SOURCEPAGE:p.5

@@ -3,9 +3,7 @@ CAMPAIGN:RPG Objects - Legends of the Ancients - Carthage
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:RPG Objects.Legends of the Ancients.Carthage
+TYPE:RPG Objects.Legends.Legends of the Ancients
 SOURCELONG:Legends of the Ancients - Carthage
 SOURCESHORT:LoAC
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
