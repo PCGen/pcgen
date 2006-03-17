@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Fri Mar 17 01:31:49 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Class Name	Removed Class Skill	Class Skill
@@ -19,14 +19,16 @@ CLASS:Ranger.MOD	CSKILL:Drive
 # Class Name	Class Skill
 CLASS:Rogue.MOD	CSKILL:Drive|Perform
 
-# Class Name		Multiple Requirements		Required Skill														Required Stat
-#CLASS:Sorcerer.MOD	PREMULT:1,[PRELEVELMAX:1	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESKILL:2,Alchemy,Knowledge (Astronomy)=2]	PRESTAT:1,INT=12],[PRELEVEL:2
+# Class Name		Multiple Requirements
+CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PRELEVELMAX:1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
+1	KIT:1|MageGuild
 
 # Class Name		Removed Class Skill	Class Skill
 CLASS:Sorcerer.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|TYPE.Knowledge|Perform
 
-# Class Name	Multiple Requirements		Required Skill														Required Stat
-#CLASS:Wizard.MOD	PREMULT:1,[PRELEVELMAX:1	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESKILL:2,Alchemy,Knowledge (Astronomy)=2]	PRESTAT:1,INT=12],[PRELEVEL:2
+# Class Name	Multiple Requirements
+CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PRELEVELMAX:1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
+1	KIT:1|MageGuild
 
 # Class Name	Removed Class Skill	Class Skill
 CLASS:Wizard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|Perform

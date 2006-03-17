@@ -1,0 +1,6 @@
+# CVS $Revision: 212 $ $Author: nuance $ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+
+STARTPACK:MageGuild	VISIBLE:NO		APPLY:INSTANT
+SKILL:Knowledge (Astronomy)	RANK:4	PRELEVELMAX:1
+SKILL:Knowledge (Arcana)	RANK:4	PRELEVELMAX:1

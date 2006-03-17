@@ -29,6 +29,7 @@ EQUIPMENT:xcrawl_equip_weap_melee.lst
 EQUIPMENT:xcrawl_equip_weap_ranged.lst
 EQUIPMENT:xcrawl_equip_armorshields.lst
 FEAT:xcrawl_feats.lst
+KIT:xcrawl_kits.lst
 SKILL:xcrawl_skills.lst
 SPELL:xcrawl_spells.lst
 WEAPONPROF:xcrawl_weapprofs.lst
