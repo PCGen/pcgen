@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 17 14:53:57 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
+#Original Entry by: Frank Kliewe
+
+# Template Name				Visible	QUALIFY
+Combat Hero Talent Qualification	VISIBLE:NO	QUALIFY:Defensive Roll|Opportunist|Stamina

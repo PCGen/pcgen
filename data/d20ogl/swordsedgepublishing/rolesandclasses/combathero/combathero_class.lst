@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 18 10:03:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
+#Original Entry by: Frank Kliewe
+
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
+CLASS:Combat Hero	HD:10		TYPE:PC.Specialized	ABB:Cmbt		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5+1	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+4)*2/5	BONUS:VAR|Reputation|(CL+2)/5	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat
+CLASS:Combat Hero	PREATT:1	PREFEAT:1,Brawl,Combat Martial Arts,Defensive Martial Arts,Personal Firearms Proficiency
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Combat Hero	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Gather Information|Intimidate|Jump|Read/Write Language|Ride|Speak Language|Spot|Swim|Treat Injury|Tumble
+1	ADD:FEAT(TYPE=CombatHero)		TEMPLATE:Combat Hero Talent Qualification
+2	ADD:FEAT(TYPE=CombatHero)
+3	ADD:FEAT(TYPE=CombatHeroTalent)
+4	ADD:FEAT(TYPE=CombatHero)
+5	ADD:FEAT(TYPE=CombatHeroTalent)
+6	ADD:FEAT(TYPE=CombatHero)
+7	ADD:FEAT(TYPE=CombatHeroTalent)
+8	ADD:FEAT(TYPE=CombatHero)
+9	ADD:FEAT(TYPE=CombatHeroTalent)
+10	ADD:FEAT(TYPE=CombatHero)

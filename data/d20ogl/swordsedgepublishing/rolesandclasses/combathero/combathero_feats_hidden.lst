@@ -1,0 +1,32 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 17 14:53:57 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
+#Original Entry by: Frank Kliewe
+
+###Block:Defensive Talent Tree
+# Feat Name			Type
+Defensive Roll.MOD	TYPE:CombatHeroTalent
+Opportunist.MOD		TYPE:CombatHeroTalent
+
+###Block:Firearms Training Talent Tree
+# Feat Name					Output Name				Type								Visible	Required Feat					Prohibited Feat						Special Ability						Stackable?	Multiple?	Choose						Weapon prof. bonus				Source Page
+Personal Weapon Focus								TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:NO																SA:Personal Weapon Focus (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST				BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:p.3
+Personal Weapon Specialization						TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:NO	PREFEAT:1,Personal Weapon Focus										SA:Personal Weapon Specialization (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:Personal Weapon Focus			BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:p.3
+Improved Critical - Combat Hero	OUTPUTNAME:Improved Critical	TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:NO	PREFEAT:1,Personal Weapon Specialization	!PREFEAT:1,Improved Critical				SA:Improved Critical (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:Personal Weapon Specialization	BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1	SOURCEPAGE:p.3
+Improved Critical.MOD																									!PREFEAT:1,Improved Critical - Combat Hero
+
+###Block:Leadership Talent Tree
+# Feat Name		Type
+Coordinate.MOD	TYPE:CombatHeroTalent
+Inspiration.MOD	TYPE:CombatHeroTalent
+
+###Block:Powerful Talent Tree
+# Feat Name			Type
+Extreme Effort.MOD	TYPE:CombatHeroTalent
+Ignore Hardness.MOD	TYPE:CombatHeroTalent
+Melee Smash.MOD		TYPE:CombatHeroTalent
+
+###Block:Tough Talent Tree
+# Feat Name			Type
+Damage Reduction I.MOD	TYPE:CombatHeroTalent
+Remain Conscious.MOD	TYPE:CombatHeroTalent
+Stamina.MOD			TYPE:CombatHeroTalent

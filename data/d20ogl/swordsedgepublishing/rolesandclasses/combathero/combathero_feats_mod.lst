@@ -1,0 +1,32 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 17 14:53:57 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
+#Original Entry by: Frank Kliewe
+
+# Feat Name					Type
+Advanced Combat Martial Arts.MOD	TYPE:CombatHero
+Advanced Firearms Proficiency.MOD	TYPE:CombatHero
+Archaic Weapons Proficiency.MOD	TYPE:CombatHero
+Armor Proficiency (Light).MOD		TYPE:CombatHero
+Armor Proficiency (Medium).MOD	TYPE:CombatHero
+Armor Proficiency (Heavy).MOD		TYPE:CombatHero
+Brawl.MOD					TYPE:CombatHero
+Burst Fire.MOD				TYPE:CombatHero
+Cleave.MOD					TYPE:CombatHero
+Combat Martial Arts.MOD			TYPE:CombatHero
+Combat Reflexes.MOD			TYPE:CombatHero
+Dead Aim.MOD				TYPE:CombatHero
+Defensive Martial Arts.MOD		TYPE:CombatHero
+Double Tap.MOD				TYPE:CombatHero
+Exotic Firearms Proficiency.MOD	TYPE:CombatHero
+Exotic Melee Weapon Proficiency.MOD	TYPE:CombatHero
+Far Shot.MOD				TYPE:CombatHero
+Great Cleave.MOD				TYPE:CombatHero
+Improved Brawl.MOD			TYPE:CombatHero
+Improved Combat Martial Arts.MOD	TYPE:CombatHero
+Improved Knockout Punch.MOD		TYPE:CombatHero
+Knockout Punch.MOD			TYPE:CombatHero
+Personal Firearms Proficiency.MOD	TYPE:CombatHero
+Point Blank Shot.MOD			TYPE:CombatHero
+Power Attack.MOD				TYPE:CombatHero
+Precise Shot.MOD				TYPE:CombatHero
+Strafe.MOD					TYPE:CombatHero
