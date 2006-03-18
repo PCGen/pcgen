@@ -1,0 +1,41 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 18 10:04:01 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html
+
+# Feat Name					Type
+Acrobatic.MOD				TYPE:CovertHero
+Agile Riposte.MOD				TYPE:CovertHero
+Aircraft Operation.MOD			TYPE:CovertHero
+Alertness.MOD				TYPE:CovertHero
+Blind-Fight.MOD				TYPE:CovertHero
+Cautious.MOD				TYPE:CovertHero
+Combat Expertise.MOD			TYPE:CovertHero
+Combat Reflexes.MOD			TYPE:CovertHero
+Deceptive.MOD				TYPE:CovertHero
+Defensive Martial Arts.MOD		TYPE:CovertHero
+Dodge.MOD					TYPE:CovertHero
+Elusive Target.MOD			TYPE:CovertHero
+Focused.MOD					TYPE:CovertHero
+Heroic Surge.MOD				TYPE:CovertHero
+Improved Disarm.MOD			TYPE:CovertHero
+Improved Initiative.MOD			TYPE:CovertHero
+Improved Trip.MOD				TYPE:CovertHero
+Improved Two-Weapon Fighting.MOD	TYPE:CovertHero
+Lightning Reflexes.MOD			TYPE:CovertHero
+Meticulous.MOD				TYPE:CovertHero
+Mobility.MOD				TYPE:CovertHero
+Nimble.MOD					TYPE:CovertHero
+Quick Draw.MOD				TYPE:CovertHero
+Spring Attack.MOD				TYPE:CovertHero
+Stealthy.MOD				TYPE:CovertHero
+Surface Vehicle Operation.MOD		TYPE:CovertHero
+Trustworthy.MOD				TYPE:CovertHero
+Two-Weapon Fighting.MOD			TYPE:CovertHero
+Unbalance Opponent.MOD			TYPE:CovertHero
+Vehicle Dodge.MOD				TYPE:CovertHero
+Vehicle Expert.MOD			TYPE:CovertHero
+Weapon Finesse.MOD			TYPE:CovertHero
+Weapon Focus.MOD				TYPE:CovertHero
+
+#
+# End
+#
