@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Fri Mar 17 20:33:27 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Yeehaa....
 # Monster "class" advancement LST file
 # Drew Bernat (abernat@zathras.net)
@@ -49,7 +49,6 @@ CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
-
 # Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus								Combat bonus
 CLASS:Construct	HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
@@ -70,7 +69,6 @@ CLASS:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Dragon 
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
-
 
 # Class Name	Hit Dice	Type			Source Page					Virtual Feat						Save checks bonus																																																							Combat bonus
 CLASS:Elemental	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Elemental Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

@@ -25,22 +25,26 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:10/Magic		SOURCEPAGE:Chap.3,
 
 ###Block: Creature Types
 
-# Template Name		Visible	Source Page						Define															Required AL	Var. Max. Value		Bonus to HP													Bonus to skill				Modify VAR								Vision
+# The following templates are deprecated because they no longer do anything meaningful:
+# Aberration, Animal, Dragon, Elemental, Fey, Giant, Humanoid, Magical Beast, Monstrous Humanoid, Outsider, Plant and Vermin
+# Post 5.10 the use of these should be hunted down and deleted
+
+# Template Name		Visible	Source Page						Define															Required AL	Var. Max. Value		Bonus to HP													Bonus to skill				Modify VAR
 Aberration			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Animal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																	PREALIGN:TN	PREVARLTEQ:INTSCORE,2																														VISION:Low-light
-Construct			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10																			BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10																VISION:Low-light|Darkvision (60')
-Dragon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')|Low-light
-Elemental			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
-Fey				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Low-light
-Giant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Low-light
+Animal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																	PREALIGN:TN	PREVARLTEQ:INTSCORE,2
+Construct			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10																			BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10
+Dragon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Elemental			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fey				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Humanoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Magical Beast		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')|Low-light
-Monstrous Humanoid	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
+Magical Beast		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Ooze				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																											BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON
-Outsider			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
-Plant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Low-light
-Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10																																	BONUS:SKILL|Concentration|CHA-CON										VISION:Darkvision (60')
-Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																				VISION:Darkvision (60')
+Outsider			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Plant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10																																	BONUS:SKILL|Concentration|CHA-CON
+Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Source Page						Special Ability																																															Define							Required Type	Combat bonus										Automatic Languages	Vision
