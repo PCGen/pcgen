@@ -65,7 +65,7 @@ WEAPONPROF:@/d20ogl/srd35/rsrd_weaponprofs_natural.lst
 
 # Default Monster Kits
 KIT:@/d20ogl/srd35/rsrd_kits_races__animals.lst
-KIT:@/d20ogl/srd35/rsrd_kits_races__dragons.lst
+#KIT:@/d20ogl/srd35/rsrd_kits_races__dragons.lst
 KIT:@/d20ogl/srd35/rsrd_kits_races__vermin.lst
 KIT:@/d20ogl/srd35/rsrd_kits_races_a_b.lst
 KIT:@/d20ogl/srd35/rsrd_kits_races_a_b_extras.lst
