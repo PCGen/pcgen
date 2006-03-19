@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Nov 14 18:03:15 2004 -- reformated by prettylst.pl v1.34 (build 422)
+# CVS $Revision$ $Author$ -- Sat Mar 18 20:14:00 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:RSRD Psionics	SOURCESHORT:RSRDPsionic	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original entry by: Arknight
 # update by: TaluronIscandar
@@ -9,8 +9,8 @@ SOURCELONG:RSRD Psionics	SOURCESHORT:RSRDPsionic	SOURCEWEB:http://www.wizards.co
 
 
 #Basic Psionic Creature		Visible
-# Template Name				Visible		Damage Reduction	Template																																																									Special Ability																							Define														Required Race			Combat bonus						Damage reduction	Bonus to HP			Add to base move			Stat bonus		Modify VAR															Feat					Move			SUBRACE	Vision
-Psionic					VISIBLE:EXPORT																																																														SA:Base Power Points (%)|BasePowerPoints	SA:Bonus Power Points (%)|BonusPowerPoints	SA:Total Power Points (%)|TotalPowerPoints			DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0																													BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints									SUBRACE:YES
+# Template Name				Visible		Damage Reduction	Template																																																									Special Ability																							Define														Required Race			Combat bonus						Damage reduction	Bonus to HP			Add to base move			Stat bonus		Modify VAR															Feat					Move			SUBRACE	Race Subtype		Vision
+Psionic					VISIBLE:EXPORT																																																														SA:Base Power Points (%)|BasePowerPoints	SA:Bonus Power Points (%)|BonusPowerPoints	SA:Total Power Points (%)|TotalPowerPoints			DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0																													BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints									SUBRACE:YES	RACESUBTYPE:Psionic
 
 #Dromite Chitin
 Dromite Chitin				VISIBLE:NO					TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin																																																																																							BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
@@ -65,7 +65,7 @@ AC ETouch Fire				VISIBLE:NO																																																				
 #Astral Construct Menu C Abilities
 Astral Construct C Ability		VISIBLE:YES					TEMPLATE:CHOOSE:Two B Abilities|Blindsight Ability|Concussion Ability|Constrict Ability|Dimension Slide Ability|Energy Bolt Ability|Extra Buff Ability|Extreme Damage Reduction Ability|Extreme Deflection Ability|Natural Invisibility Ability|Power Resistance Ability|Rend Ability|Spring Attack Ability|Whirlwind Attack Ability																																												PRERACE:Astral Construct%
 Two B Abilities				VISIBLE:NO					TEMPLATE:Astral Construct B Ability	TEMPLATE:Astral Construct B Ability
-Blindsight Ability			VISIBLE:NO																																																															SA:Blindsight (Ex)																																																																																											VISION:Blindsight (60')
+Blindsight Ability			VISIBLE:NO																																																															SA:Blindsight (Ex)																																																																																															VISION:Blindsight (60')
 Concussion Ability			VISIBLE:NO																																																															SA:Concussion (Concussion Blast (7th lvl) 1x/round) (Sp)
 Constrict Ability				VISIBLE:NO																																																															SA:Constrict (Ex)
 Dimension Slide Ability			VISIBLE:NO																																																															SA:Dimension Slide (Dimension Slide (HD lvl) 1x/round) (Sp)
