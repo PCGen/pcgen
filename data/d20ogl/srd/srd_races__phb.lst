@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Race Name	Favored Class		Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Vision			Automatic Languages		Bonus Languages							Optionnal Weapon Prof.		Save checks bonus							Combat bonus					Bonus to skill																	Stat bonus								Automaticaly Gained Weapon Prof.								Special Ability																																																																		Type			CR		Source Page						Spells
 Human		FAVCLASS:Any		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5					LANGAUTO:Common			LANGBONUS:ALL																																																																																																																																									TYPE:Humanoid	CR:1/2	SOURCEPAGE:srdbasiccharacterraces.rtf

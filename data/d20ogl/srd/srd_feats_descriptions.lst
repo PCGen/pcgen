@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep 30 00:29:57 2003 -- reformated by prettylst.pl v1.29 (build 301)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Original Entry by: Tir Gwaith
 
 #
@@ -11,7 +11,7 @@
 #
 
 
-SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Feat Name					Description
 Alertness.MOD				DESC:The character gets a +2 bonus on all Listen checks and Spot checks.
 Ambidexterity.MOD				DESC:The character ignores all penalties for using an off hand. The character is neither left-handed nor right-handed.

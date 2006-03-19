@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry for Elementals: gzolin
 # Formian Worker: Choose for Craft, and then Choose the skill Focus  - Advanced hidden feat stuff, need to get feat to call feat (with subtype..)
 # Formian Queen: Item Creation Feat (Choose) - ADD:FEAT(TYPE=ItemCreation)

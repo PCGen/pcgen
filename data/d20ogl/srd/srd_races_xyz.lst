@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:System Reference Document|SOURCESHORT:SRD|SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Removed Yuan-Ti (SRD is out)
 
 # Race Name			Output Name				Favored Class	Size		Move				Face/Space		Reach		Vision				Required AL	Automatic Languages	Save checks bonus																							Combat bonus																Bonus to skill				Bonus to skill rank																																		Stat bonus														Racial HD Class Skills												Automaticaly Gained Weapon Prof.						Default Monster Feat								Nb Legs	Nb Hands	Weapon prof. bonus					Natural Attacks																				Special Ability																									Define							HITDICE		Spell Res.	Damage Reduction	SKILLMULT	MONSTERCLASS				Type				Template			Hit Dice Advancement		CR		Source Page
