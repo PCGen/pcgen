@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug 12 22:17:32 2004 -- reformated by prettylst.pl v1.33 (build 411)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.com/
 
 # Hurled Weapon Amunition		Output Name					Type							Cost		Weight	Base Quantity	Source Page
 

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Jul 10 15:54:39 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:AEG Spycraft|SOURCESHORT:Spycraft|SOURCEWEB:http://www.spycraftrpg.com/
+SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.com/
 
 # Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Type			Bonus to skill																					Source Page		Choose
 Appraise			KEYSTAT:INT								TYPE:Intelligence																								SOURCEPAGE:p.40
