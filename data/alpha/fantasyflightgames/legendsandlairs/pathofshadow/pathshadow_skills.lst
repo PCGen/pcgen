@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Oct 16 12:36:35 2003 -- reformated by prettylst.pl v1.30 (build 316)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Original entry by: Blithwyn
-SOURCELONG:Path of Shadow|SOURCESHORT:PathShadow|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # The Knowledge (Lycanthropes) is not defined in Path of Shadow and I don't know what book
 # it comes from but it is required for the Night Hunter prestige class, so there ya go.
