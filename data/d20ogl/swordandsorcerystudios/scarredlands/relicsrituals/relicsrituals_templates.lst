@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 23 19:45:59 2005 -- reformated by prettylst.pl v1.35 (build 542)
-SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Template Name	Hit Dice Size	CR	Damage Reduction	Template		Source Page		Special Ability											Define			Required AL	Combat bonus						Stat bonus					Feat
 Greater Mummy	HITDIE:12		CR:3	DR:10/+2		TEMPLATE:Undead	SOURCEPAGE:p.137	SA:Deaspair	SA:Resitant to Blows	SA:Fire Vulnerability	SA:Mummy Rot	DEFINE:LOCK.CON|10	PREALIGN:NG	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|8	BONUS:STAT|DEX|-4	FEAT:Alertness

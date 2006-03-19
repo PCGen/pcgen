@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 19:18:34 2003 -- reformated by prettylst.pl v1.29 (build 294)
-SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Equipment Name			Product Identity?	Output Name				Required Proficiency			Type											Cost		Weight	Required Stat	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page			Virtual Feat		Combat bonus	Stat bonus															Weapon prop. bonus		Special Property
 Asaathi Blade			NAMEISPI:YES						PROFICIENCY:Scimitar			TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific			COST:47515	WT:4					CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6			SIZE:M	SOURCEPAGE:p.157																									BONUS:WEAPON|DAMAGE,TOHIT|2

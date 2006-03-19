@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
-SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs|SOURCESHORT:SGtM|SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs	SOURCESHORT:SGtM	SOURCEWEB:http://mongoosepublishing.com
 
 AGESET:0|Adulthood
 RACENAME:Minotaur (Brown)	SEX:Male[BASEHT:84|HTDIEROLL:3d8|BASEWT:325|WTDIEROLL:3d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:78|HTDIEROLL:3d8|BASEWT:300|WTDIEROLL:3d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]	HAIR:Brown|Grey|Black|Dun	EYES:Black|Brown|Red	SKINTONE:Brown|Grey|Tan|Black

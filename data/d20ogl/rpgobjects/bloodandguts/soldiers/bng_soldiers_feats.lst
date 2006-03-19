@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jan 26 23:36:26 2005 -- reformated by prettylst.pl v1.34 (build 455)
-SOURCELONG:Blood and Guts - Soldiers|SOURCESHORT:BnG-S|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
 
 # Feat Name					Type			Required Feat						Required Skill				Total Skill Points Req.				Required Text								Description																																																																				Choose a Feat											Modify VAR			Source Page
 Basic Training				TYPE:General	PREFEAT:1,Personal Firearms Proficiency															PRETEXT:Active or Reserve Duty (one branch of service)	DESC:You have decided to be all you can be a little later in life than most.																																																									ADD:FEAT(TYPE=Military_Skills)2								BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5

@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat Oct  1 22:54:50 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #Original Author: King Paul, Updated by Beaver, Tir Gwaith
-SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
 
 # Template Name		Source Page				Special Ability																																																		Save checks bonus		Combat bonus			Stat bonus			Removable?		Spell Res.	Spells
 Holy/Noble Blood		SOURCEPAGE:Chapter 3, Page 22																																																																		REMOVABLE:YES

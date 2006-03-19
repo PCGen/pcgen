@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Dec 10 18:14:03 2004 -- reformated by prettylst.pl v1.34 (build 422)
-SOURCELONG:Blood and Guts - Modern Military|SOURCESHORT:BnG-MM|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
 # MOS blocks have an ADD:FEAT(TYPE=XXXSkills)3 and I can find SKILLS with that type, just not feats.

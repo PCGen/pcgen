@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #Original Author: kingpaul, Updated by Beaver and Tir Gwaith
 
-SOURCELONG:Malhavoc Press - Book of Hallowed Might|SOURCESHORT:BoHM|SOURCEWEB:http://www.montecook.com
+SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Paladin (BoHM)	OUTPUTNAME:Paladin	HD:10		TYPE:Base.PC	ABB:HMP		EXCLASS:Ex Paladin	SOURCEPAGE:p.10	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL

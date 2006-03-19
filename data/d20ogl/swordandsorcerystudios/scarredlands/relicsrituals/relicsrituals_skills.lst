@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 19:18:34 2003 -- reformated by prettylst.pl v1.29 (build 294)
-SOURCELONG:Relics and Rituals|SOURCESHORT:RelicRitual|SOURCEWEB:http://www.swordsorcery.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Skill Name		Key Stat	Untrained?		Exclusive?		Type					Bonus to skill								Source Page
 Craft (Tattoo)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft												SOURCEPAGE:p.128
