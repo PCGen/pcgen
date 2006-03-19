@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
-SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Equipment Name	Type			Cost		Weight	Size		Source Page
 Arrow (Fey)		TYPE:Ammunition	COST:.05	WT:.075	SIZE:T	SOURCEPAGE:p.

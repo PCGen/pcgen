@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #Original entry by: Knightcrawler
-SOURCELONG:Fantasy Flight Games - Spells and Spellcraft|SOURCESHORT:Spellcraft|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Equipment Name				Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Special Property
 Schurke's Platemail			TYPE:Magic.Armor.Heavy.Standard.Suit.Specific	COST:15350	WT:50		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.167	SPELLFAILURE:40		BONUS:COMBAT|AC|9|TYPE=Armor.REPLACE	SPROP:If wearer is submerged in saltwater he becomes a shark.
 Shield of Zabeth (Small/Wooden)	TYPE:Magic.Shield.Standard.Wooden.Specific	COST:20950	WT:5		ACCHECK:-1					SOURCEPAGE:p.167	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	SPROP:If wielder is fighter magic is +4 and can cast protection from normal arrows once per day at 5th level.

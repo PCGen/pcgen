@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:55:56 2005 -- reformated by prettylst.pl v1.35 (build 529)
-SOURCELONG:Fantasy Flight Games - Mythic Races|SOURCESHORT:MythicRace|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # Feat Name					Type					Req. Att.	Required Class			Required Feat				Req. nb of Hand	Min. nb of Hand	Required Race		Required Skill	Required Stat	Description																	Stackable?	Multiple?	Choose				ADD:WEAPONPROFS		Combat bonus						Class Skill			Source Page
 Craft Anaema Tool (MR)			TYPE:Special.ItemCreation			PRECLASS:1,Spellcaster=1													PRERACE:Anaema								DESC:Character can create spirit tools with which anaema and humans may each interact normally.																												SOURCEPAGE:p.81

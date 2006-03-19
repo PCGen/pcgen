@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
-SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook|SOURCESHORT:StarfarerH|SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 # Equipment Name		Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Bonus to skill
 Heavy clothes		TYPE:Armor.HighTechLight.Suit.Standard.Nonmetal		COST:5	WT:10		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.105	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE

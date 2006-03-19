@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun May 26 01:36:16 2002 -- reformated by prettylst.pl v1.13
-SOURCELONG:Fantasy Flight Games - Traps and Treachery|SOURCESHORT:TrapTreach|SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Equipment Name		Type			Cost		Weight	Source Page
 Ring of Magic Detection	TYPE:Magic.Ring	COST:1800	WT:0		SOURCEPAGE:p.50
 Ring of Trap Detection	TYPE:Magic.Ring	COST:20000	WT:0		SOURCEPAGE:p.50
