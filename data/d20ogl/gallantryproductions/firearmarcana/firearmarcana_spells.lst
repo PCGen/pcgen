@@ -2,7 +2,7 @@
 SOURCELONG:Firearm Arcana	SOURCESHORT:FA	SOURCEWEB:http://www.enworld.org/shop/index.php?do=publisher&publisher_id=34
 
 # Spell Name					Output Name					Classes of caster		School			Sub-School			Spell Descriptors			Type				Components		Casting Time			Range			Target Area														Duration						Save Info					Spell Resistance	Cost		Source Page
-Align Rounds											CLASSES:Acolyte=2		SCHOOL:Transmutation										TYPE:Divine			COMPS:V, S, DF	CASTTIME:10 minutes		RANGE:Close		TARGETAREA:Up to 20 rounds of ammunition																											SOURCEPAGE:p.1
+Align Rounds											CLASSES:Acolyte=2		SCHOOL:Transmutation										TYPE:Divine			COMPS:V, S, DF	CASTTIME:10 minutes		RANGE:Close		TARGETAREA:Up to 20 rounds of ammunition									DURATION:Permanent															SOURCEPAGE:p.1
 Caliber Correction										CLASSES:Mage=0		SCHOOL:Transmutation										TYPE:Arcane			COMPS:V, S, M	CASTTIME:Attack action		RANGE:Close		TARGETAREA:Up to 20 rounds of ammunition									DURATION:Instantaneous															SOURCEPAGE:p.1
 Chained Shot											CLASSES:Acolyte,Mage=3	SCHOOL:Transmutation										TYPE:Arcane.Divine	COMPS:V, M		CASTTIME:1 free action		RANGE:Touch		TARGETAREA:Firearm touched											DURATION:(CASTERLEVEL/2) rounds											COST:15	SOURCEPAGE:p.2
 Chained Shot (Greater)				OUTPUTNAME:Chained Shot, [NAME]	CLASSES:Acolyte,Mage=5	SCHOOL:Transmutation										TYPE:Arcane.Divine	COMPS:V, M		CASTTIME:1 free action		RANGE:Touch		TARGETAREA:Up to (CASTERLEVEL/2+1) firearms, no two of which may be more than 10 ft apart	DURATION:(CASTERLEVEL/2) rounds											COST:15	SOURCEPAGE:p.2
