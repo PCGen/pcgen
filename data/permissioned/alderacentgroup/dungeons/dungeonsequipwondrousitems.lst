@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
-SOURCELONG:Alderac Entertainment Group - Dungeons|SOURCESHORT:Dungeons|SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
 # Equipment Name					Type					Cost		Weight	Slot Needed	Source Page		Special Property
 Gloves of Tunneling				TYPE:Magic.Wondrous.Glove	COST:3000	WT:4		SLOTS:2	SOURCEPAGE:p.	SPROP:Burrow through rock, soil, and unfinished stone at 1 ft. per round, creating tunnel.
 Kanegor's Instant Wall				TYPE:Magic.Wondrous		COST:1000	WT:8				SOURCEPAGE:p.
