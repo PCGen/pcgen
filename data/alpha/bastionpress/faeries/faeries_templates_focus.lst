@@ -1,20 +1,20 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Mar 19 16:36:16 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 #
 ##Block:Prestige Races
 # Template Name				Visible		Damage Reduction	Template												Source Page		Special Ability																		Define																Required Lvl		Required Template				Prohibited Template								Combat bonus						Bonus to HP			Misc bonus		Add to base move			Bonus to skill																				Stat bonus					Modify VAR					Class Skill			Move			Spell Res.	Vision								Natural Attacks																				Move class								Bonus to nb of slots
 #Focus of the Beast
 #---------------------------------------------------
-# Template Name			Size		Visible	Source Page		Special Ability								Required Lvl	Required Template					Prohibited Template										Save checks bonus					Combat bonus						Bonus to skill														Bonus to nb of slots	Stat bonus					Choose a Feat		Type			Vision				Spells								Natural Attacks
+# Template Name			Size		Visible	Source Page		Special Ability								Required Lvl	Required Template					Prohibited Template										Save checks bonus					Combat bonus						Bonus to skill														Bonus to nb of slots	Stat bonus					Choose a Feat		Type			Vision				Spells												Natural Attacks
 Feral Creature					VISIBLE:YES	SOURCEPAGE:p.34	SA:Cold Resistance (5)(Ex)						PRELEVEL:4									!PRETEMPLATE:Barked Creature|Scaled Creature (Serpent)|Scaled Creature (Wyrm)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
-Wild Creature					VISIBLE:YES	SOURCEPAGE:p.34											PRELEVEL:5		PRETEMPLATE:Feral Creature																																																																														NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8
+Wild Creature					VISIBLE:YES	SOURCEPAGE:p.34											PRELEVEL:5		PRETEMPLATE:Feral Creature																																																																																		NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8
 Snouted Creature					VISIBLE:YES	SOURCEPAGE:p.34	SA:Scent (Ex)								PRELEVEL:6		PRETEMPLATE:Wild Creature
 Tailed Creature					VISIBLE:YES	SOURCEPAGE:p.34	SA:Prehensile Tail (Ex)							PRELEVEL:7		PRETEMPLATE:Snouted Creature																																															BONUS:SLOTS|HANDS|1
 
 #Focus of the Changling
 #---------------------------------------------------
 Bland Creature					VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:2																																					BONUS:SKILL|Bluff|2|TYPE=Competence	BONUS:SKILL|Disguise|5|TYPE=Competence
-Chameleon Creature				VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:3		PRETEMPLATE:Bland Creature																															BONUS:SKILL|Bluff|4|TYPE=Competence																																	SPELLS:Innate|TIMES=-1|Change Self
+Chameleon Creature				VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:3		PRETEMPLATE:Bland Creature																															BONUS:SKILL|Bluff|4|TYPE=Competence																																	SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Change Self,11+CHA
 Changeling Creature				VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:6		PRETEMPLATE:Chameleon Creature																														BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Perform,Perform%|2|TYPE=Competence					BONUS:STAT|CHA|2
 
 #Focus of the Fey
@@ -40,14 +40,14 @@ Ogrish Creature			SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:8		P
 
 #Focus of the Seersighted
 #---------------------------------------------------
-Sighted Creature					VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:7		PRETEMPLATE:Centered Creature																															BONUS:SKILL|Spot|5|TYPE=Insight																																	SPELLS:Innate|TIMES=-1|Second Sight
-Clairvoyant Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:9		PRETEMPLATE:Sighted Creature																																																																					SPELLS:Innate|TIMES=-1|Clairaudience|Clairvoyance
-Seersighted Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:10		PRETEMPLATE:Clairvoyant Creature																						BONUS:COMBAT|AC|2|TYPE=Insight																																				VISION:Darkvision			SPELLS:Innate|TIMES=3|Contact Outer Plane
+Sighted Creature					VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:7		PRETEMPLATE:Centered Creature																															BONUS:SKILL|Spot|5|TYPE=Insight																																	SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Second Sight,12+CHA
+Clairvoyant Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:9		PRETEMPLATE:Sighted Creature																																																																					SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Clairaudience|Clairvoyance
+Seersighted Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:10		PRETEMPLATE:Clairvoyant Creature																						BONUS:COMBAT|AC|2|TYPE=Insight																																				VISION:Darkvision			SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Contact Other Plane,15+CHA
 
 #Focus of the Shapeshifter
 #---------------------------------------------------
-Skinflow Creature					VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:4																																					BONUS:SKILL|Bluff|3|TYPE=Competence	BONUS:SKILL|Disguise|2|TYPE=Competence																										SPELLS:Innate|TIMES=-1|Alter Self
+Skinflow Creature					VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:4																																					BONUS:SKILL|Bluff|3|TYPE=Competence	BONUS:SKILL|Disguise|2|TYPE=Competence																										SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Alter Self,12+CHA
 Boneknit Creature					VISIBLE:YES	SOURCEPAGE:p.38	SA:Regeneration 5								PRELEVEL:5		PRETEMPLATE:Skinflow Creature																BONUS:CHECKS|Fortitude|2|TYPE=Resistance
 Flexable Creature					VISIBLE:YES	SOURCEPAGE:p.38	SA:Reach (10')								PRELEVEL:6		PRETEMPLATE:Boneknit Creature																																																			BONUS:STAT|STR|2
-Sizeshifter Creature				VISIBLE:YES	SOURCEPAGE:p.38											PRELEVEL:7		PRETEMPLATE:Flexable Creature																BONUS:CHECKS|Reflex|2|TYPE=Enhancement																													BONUS:STAT|CON|2|TYPE=Inherent													SPELLS:Innate|TIMES=-1|Enlarge|Reduce
-Shapeshifter Creature				VISIBLE:YES	SOURCEPAGE:p.38											PRELEVEL:8		PRETEMPLATE:Sizeshifter Creature															BONUS:CHECKS|Fortitude|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																									SPELLS:Innate|TIMES=-1|Polymorph Self
+Sizeshifter Creature				VISIBLE:YES	SOURCEPAGE:p.38											PRELEVEL:7		PRETEMPLATE:Flexable Creature																BONUS:CHECKS|Reflex|2|TYPE=Enhancement																													BONUS:STAT|CON|2|TYPE=Inherent													SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Enlarge,11+CHA|Reduce,11+CHA
+Shapeshifter Creature				VISIBLE:YES	SOURCEPAGE:p.38											PRELEVEL:8		PRETEMPLATE:Sizeshifter Creature															BONUS:CHECKS|Fortitude|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																									SPELLS:Innate|TIMES=-1|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA
