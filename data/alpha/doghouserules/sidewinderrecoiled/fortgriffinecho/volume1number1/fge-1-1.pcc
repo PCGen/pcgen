@@ -19,8 +19,6 @@ COPYRIGHT:PCGen dataset conversion for Fort Griffin Echo Vol. 1 No. 1 Copyright 
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:Still_Needs_Work.txt
 
-# Classes Advanced (indian pony soldier) needs to go to a .MOD from the original Sidewinder: Recoiled set - Tir Gwaith.
-
 CLASS:fge-1-1_classes_prestige.lst
 EQUIPMENT:fge-1-1_equip_weap_ammo.lst
 EQUIPMENT:fge-1-1_equip_weap_melee.lst

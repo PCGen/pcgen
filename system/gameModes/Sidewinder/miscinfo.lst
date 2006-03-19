@@ -1,7 +1,7 @@
 #
 # message displayed when experience added will allow character to advance a level
 #
-LEVELMSG:Please check Table 1-2 in d20 Modern to see if you qualify for a new level
+LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
 #ALIGNMENTNAME:
@@ -42,11 +42,11 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 # variable in order to be displayed
 # up to 3 variables can be displayed in this manner
 
-SHOWCLASSDEFENSE:YES
+SHOWCLASSDEFENSE:NO
 DISPLAYVARIABLE1TEXT:Action Points
-DISPLAYVARIABLE1NAME:Action
-DISPLAYVARIABLE2TEXT:Reputation
-DISPLAYVARIABLE2NAME:Reputation
+DISPLAYVARIABLE1NAME:ActionRemain
+DISPLAYVARIABLE2TEXT:Class Defense Bonus
+DISPLAYVARIABLE2NAME:ClassDefense
 DISPLAYVARIABLE3TEXT:Wealth Bonus
 DISPLAYVARIABLE3NAME:Wealth
 
@@ -111,13 +111,19 @@ WEAPONTYPE:Bludgeoning|Bl
 WEAPONTYPE:Piercing|P
 WEAPONTYPE:Slashing|S
 WEAPONTYPE:Ballistic|Ba
+WEAPONTYPE:Acid|A
+WEAPONTYPE:Cold|Cd
+WEAPONTYPE:Concussion|Cn
 WEAPONTYPE:Electricity|El
 WEAPONTYPE:Fire|F
+WEAPONTYPE:Sonic|So
 
 #Weapon categories
 WEAPONCATEGORY:Simple
 WEAPONCATEGORY:PersonalFirearm
+WEAPONCATEGORY:Archaic
 WEAPONCATEGORY:Exotic
+WEAPONCATEGORY:ExoticFirearms
 WEAPONCATEGORY:Natural
 WEAPONCATEGORY:HMG
 WEAPONCATEGORY:RocketLauncher
@@ -134,6 +140,7 @@ BABMINVAL:1
 
 #Default Class Types
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:Advanced	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:NPC		CRFORMULA:max(CL-1,0)	ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
@@ -141,19 +148,20 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 #AC Types
 ACTYPE:Total		ADD:TOTAL
 ACTYPE:Flatfooted		ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
-ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor|Equipment
+ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor|Equipment|Shield
 ACTYPE:Base			ADD:Base
-ACTYPE:Equipment		ADD:Equipment
-ACTYPE:Armor		ADD:Armor		REMOVE:EQTYPE.Shield
-ACTYPE:Shield		ADD:EQTYPE.Shield
+ACTYPE:Equipment		ADD:Equipment|Armor|Shield
+ACTYPE:Armor		ADD:Armor|Equipment
+ACTYPE:Shield		ADD:Shield
 ACTYPE:Ability		ADD:Ability
 ACTYPE:Size			ADD:Size
 ACTYPE:NaturalArmor	ADD:NaturalArmor
-ACTYPE:Misc			ADD:TOTAL		REMOVE:Base|Armor|Ability|Size|NaturalArmor|Equipment
+ACTYPE:Misc			ADD:TOTAL		REMOVE:Base|Armor|Ability|Size|NaturalArmor|Equipment|Shield
 ACTYPE:ClassDefense	ADD:ClassDefense
 ACTYPE:Dodge		ADD:Dodge
 
 # Damage die changes on size
+BASEDICE:1		UP:1d2,1d3,1d4,1d6,1d8,2d6,2d8,4d6	DOWN:0
 BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,2d8,4d6,4d8	DOWN:1,0
 BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,2d8,4d6,4d8,8d6	DOWN:1d2,1,0
 BASEDICE:1d4	UP:1d6,1d8,2d6,2d8,4d6,4d8,8d6,8d8	DOWN:1d3,1d2,1,0

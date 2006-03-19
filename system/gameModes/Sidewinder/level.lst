@@ -1,6 +1,6 @@
 # This file determines level based benefits.
 #
-# Complies with D20 Modern progressions
+# Complies with standard RPG progression
 #
 # Equation used to calculate XP:
 # xp = 500 * level * (level - 1)

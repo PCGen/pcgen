@@ -4,5 +4,5 @@ SOURCELONG:Fort Griffin Echo Vol. 1 No. 1|SOURCESHORT:FGE1-1|SOURCEWEB:http://ww
 
 ###Block: Firearm
 # Equipment Name			Type				Cost		Weight	Base Quantity	Source Page
-Ammunition of Ricochet		TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 33
+Ammunition of Ricochet		TYPE:Ammunition.Firearm	COST:.5	WT:0					SOURCEPAGE:p. 33
 Ammunition of Ricochet (20)	TYPE:Ammunition.Firearm	COST:10	WT:0		BASEQTY:20		SOURCEPAGE:p. 33
