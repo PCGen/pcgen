@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Battlefield Press - Cityscape|SOURCESHORT:Cityscape|SOURCEWEB:http://battlefieldpress.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
 # Original Entry by: Tir Gwaith
 # TODO: Height, Age, Weight for races from Cityscape table.
 # Race Name		Product Identity?	Output Name			Favored Class		Skills/Level		Starting Feats	Size		Move				Face/Space	Reach		Vision				Automatic Languages					Bonus Languages																Optionnal Weapon Prof.					Save checks bonus				Combat bonus									Bonus to skill																						Stat bonus											Modify VAR														Class Skill			Automaticaly Gained Weapon Prof.								Virtual Feat	Feat				Nb Hands	Special Ability																																																																																																																					Define							Type			Template						Source Page

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb  9 01:12:14 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Quests|SOURCESHORT:Quests|SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
 
 # Spell Name	Classes of caster				School			Sub-School			Spell Descriptors				Type				Components		Casting Time			Range		Target Area					Duration									Save Info			Spell Resistance	Source Page
 Detect Corruption	CLASSES:Cleric=1				SCHOOL:Diviniation											TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:60 ft	TARGETAREA:Cone-shaped emanation	DURATION:Concentration, up to (CASTERLEVEL*10) minutes [D]	SAVEINFO:None		SPELLRES:No		SOURCEPAGE:p.8

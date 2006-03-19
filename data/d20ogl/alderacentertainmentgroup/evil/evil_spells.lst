@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Mar 18 12:58:37 2005 -- reformated by prettylst.pl v1.34 (build 455)
-SOURCELONG:Alderac Entertainment Group (AEG) - Evil|SOURCESHORT:Evil|SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
 
 # Spell Name			Product Identity?	Classes of caster				Domains granting the spell	School			Sub-School			Type				Components				Casting Time		Range			Target Area						Duration					Save Info					Spell Resistance		Description																									Source Page		Item
 Belarosh's Law			NAMEISPI:YES	CLASSES:Cleric=4|Sorcerer,Wizard=3						SCHOOL:Abjuration						TYPE:Arcane.Divine	COMPS:V S M (magic circle)	CASTTIME:30 minutes	RANGE:Touch		TARGETAREA:One magic circle of any size	DURATION:24 hours				SAVEINFO:Special				SPELLRES:Special		DESC:This spell creates an invisible barrier to surrounding the magic circle.														SOURCEPAGE:p.34	ITEM:Potion

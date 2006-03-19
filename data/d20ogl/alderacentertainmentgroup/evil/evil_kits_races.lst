@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Sun Mar 12 16:53:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Alderac Entertainment Group (AEG) - Evil|SOURCESHORT:Evil|SOURCEWEB:http://alderac.com/d20
+# CVS $Revision: $ $Author: $ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
 
 STARTPACK:Default Prismatic Archon (Red)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Prismatic Archon (Red)]
 RACE:Prismatic Archon (Red)	!PRERACE:%

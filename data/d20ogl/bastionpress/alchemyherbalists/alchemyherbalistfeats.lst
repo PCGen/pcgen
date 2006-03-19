@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #Original Entry By: Knightcrawler
-SOURCELONG:Bastion Press - Alchemy and Herbalists|SOURCESHORT:AlchemyHrb|SOURCEWEB:www.bastionpress.com
+SOURCELONG:Bastion Press - Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:www.bastionpress.com
 # Feat Name				Type			Required Class			Required Feat										Required Skill											Var. Min. Value			Description																			Bonus to skill													Source Page
 Bodily Awareness			TYPE:General																		PRESKILL:1,Alchemy,Profession (Herbalist)=5											DESC:Your training provides you the ability to discern how substances will react with the bodies of people and animals.	BONUS:SKILL|Heal|2|TYPE=Synergy	BONUS:SKILL|Profession (Apothecary)|2|TYPE=Synergy	SOURCEPAGE:p.44
 Brew Ingestibles			TYPE:ItemCreation																															PREVARGTEQ:AlchemyFeat,3	DESC:Craft any ingestible																															SOURCEPAGE:p.44
