@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Blood and Space - Prometheus Rising|SOURCESHORT:BnS-PR|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:BnS-PR	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 # Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Human Computer	HD:6		TYPE:PC.Advanced	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6

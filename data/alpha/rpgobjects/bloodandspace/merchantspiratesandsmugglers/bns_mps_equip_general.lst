@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 01:13:39 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers|SOURCESHORT:BnS-MPS|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
 
 # Equipment Name					Type			Cost		Weight	Size		Source Page		Special Property
 Butcher weight hog (live)			TYPE:CommonItems	COST:12					SOURCEPAGE:p.15

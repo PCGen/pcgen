@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 01:13:39 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers|SOURCESHORT:BnS-MPS|SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
 
 # Feat Name			Output Name				Type					Required Feat			Required Lvl	Required Skill		Required Stat	Required Text										Var. Min. Value		Special Ability							Define				Description																		Stackable?	Multiple?	Choose						Combat bonus				Bonus to skill				Modify VAR					Source Page
 Armory								TYPE:General.Charismatic																																SA:+% bonus Wealth checks to buy armor|Armory		DEFINE:Armory|0			DESC:You have access to sophisticated armor.												STACK:YES	MULT:YES	CHOOSE:+5 Wealth check to buy armor														BONUS:VAR|Armory|5			SOURCEPAGE:p.11
