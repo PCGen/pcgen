@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
-SOURCELONG:Bastion Press - Faeries|SOURCESHORT:Faeries|SOURCEWEB:http://www.bastionpress.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 
 # Domain Name	Spells							BONUS:DC			Source Page		Description																												List of Domain Spells by Level
 Dream											BONUS:DC|DOMAIN.Dream|1	SOURCEPAGE:p.90	DESC:You can cast dream domain spells ans those involving sleep at +1 caster level. You can also cast snooze as a 0-level spell.								SPELLLEVEL:DOMAIN|Dream=0|Snooze|Dream=1|Sleep|Dream=2|Dreamspeak|Dream=3|Nap|Dream=4|Fitful Sleep|Dream=5|Sleepwalking|Dream=6|Sleepless Curse|Dream=7|Improved Nap|Dream=8|Recurring Nightmare|Dream=9|Mind Blank

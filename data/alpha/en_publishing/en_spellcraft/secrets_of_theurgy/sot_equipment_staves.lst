@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb  2 00:54:38 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Secrets of Theurgy|SOURCESHORT:SoT|SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoT	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
 
 # Equipment Name			Required Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier							Wield Category	Size		Source Page		Special Property
 Theurgic Staff of Air							TYPE:Magic.Staff													COST:61050	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Control Winds (2 charges) ~ Lightning Bolt (1 charge) ~ Gust of Wind (1 charge) ~ Fog Cloud (1 charge)
