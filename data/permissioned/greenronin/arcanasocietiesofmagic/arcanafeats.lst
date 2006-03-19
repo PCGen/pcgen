@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
-SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic	SOURCESHORT:ArcanaSoM	SOURCEWEB:http://www.greenronin.com
 
 # Feat Name			Type			Req. Att.	Required Feat				Required Skill				Req. Spell Type		Required Stat	Description														ADD:FAVOREDCLASS			Source Page
 Draconic Bloodline	TYPE:General																						DESC:You are distantly descended from a dragon, +1 on Saves vs. chosen type of energy	ADD:FAVOREDCLASS|Sorcerer	SOURCEPAGE:p.

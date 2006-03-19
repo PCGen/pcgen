@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jul 16 02:13:05 2003 -- reformated by prettylst.pl v1.29 (build 294)
-SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood|SOURCESHORT:SeasofBlood|SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
 
 # Weapon Name	Type		Nb Hands
 Boathook		TYPE:Exotic	HANDS:2

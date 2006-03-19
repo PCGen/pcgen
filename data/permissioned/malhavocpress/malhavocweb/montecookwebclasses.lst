@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Malhavoc Press - Web Enhancements|SOURCESHORT:MalhavocWb|SOURCEWEB:http://www.montecook.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com
 
 # Class Name			Hit Dice	Type			Abbreviation	Source URI					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Ranger (Monte Cook's)	HD:8		TYPE:Base.PC	ABB:MCR		SOURCEWEB:http://www.montecook.com	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

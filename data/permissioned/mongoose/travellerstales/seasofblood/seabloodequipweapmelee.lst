@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jul 16 02:13:05 2003 -- reformated by prettylst.pl v1.29 (build 294)
-SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood|SOURCESHORT:SeasofBlood|SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
 
 # Equipment Name	Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page
 Belaying Pin	PROFICIENCY:Club		TYPE:Weapon.Simple.Melee.Bludgeoning.Wooden.Club		COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3					SIZE:S	SOURCEPAGE:p.45

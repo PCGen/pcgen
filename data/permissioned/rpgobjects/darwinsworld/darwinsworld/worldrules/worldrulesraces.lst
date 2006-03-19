@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Oct  1 23:34:32 2005 -- reformated by prettylst.pl v1.35 (build 469)
-SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
 # General:  Using a DEFINE instead of LEVELADJUSTMENT beacuse how ECLs work with Races and Backgrounds (TEMPLATES)

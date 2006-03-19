@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
-SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic	SOURCESHORT:ArcanaSoM	SOURCEWEB:http://www.greenronin.com
 # Equipment Name	Type					Cost		Weight	Source Page
 Amulet of Speech	TYPE:Magic.Wondrous.Amulet	COST:12000	WT:0		SOURCEPAGE:p.

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter|SOURCESHORT:QuintFight|SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
 
 # Feat Name					Type				Req. Att.	Required Check Base	Required Feat								Required Skill		Required Stat		Description																							Stackable?	Multiple?	Choose							Combat bonus					BONUS:EQMARMOR			Weapon prof. bonus			Source Page
 Armour Penetration			TYPE:General		PREATT:6																							DESC:You are highly skilled in seeking out the weak points in your opponent's armour.												MULT:NO																											SOURCEPAGE:p.35

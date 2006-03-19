@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Original entry by wizofice2001
-SOURCELONG:RPGObjects - Darwin's World - World Rules|SOURCESHORT:DarwinWR|SOURCEWEB:http://www.darwinrpg.com
+SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 
 # GUARDIAN: Called Shot SA: Gains 1d6 to Ranged attacks against creatures with discernable anatomies
 # RAIDER: Chains and Chaps SA: Should add EQUIP, a possession bestowing BONUS:COMBAT|AC|1+(1*CL/10)

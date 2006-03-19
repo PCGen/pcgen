@@ -1,4 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Dec 26 16:30:13 2003 -- reformated by prettylst.pl v1.32 (build 343)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com
 
 # Feat Name			Clear Prereq.	Required Class						Required Feat											Prohibited Feat
 Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=1															!PREFEAT:1,Favored Enemy I

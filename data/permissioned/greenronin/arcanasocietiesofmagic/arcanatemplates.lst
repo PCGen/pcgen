@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Dec 30 12:11:30 2004 -- reformated by prettylst.pl v1.34 (build 445)
-SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic|SOURCESHORT:ArcanaSoM|SOURCEWEB:http://www.greenronin.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Green Ronin Publishing  - Arcana - Societies of Magic	SOURCESHORT:ArcanaSoM	SOURCEWEB:http://www.greenronin.com
 
 # Template Name	Hit Dice Size	CR	Damage Reduction	Level Adjustment	Template			Source Page		Special Ability																												Combat bonus				Stat bonus								FAVOREDCLASS		Automatic Languages		Removable?		Spell Res.	Vision			Hit Dice																																																																												Spells
 Drakeling									LEVELADJUSTMENT:1					SOURCEPAGE:p.22	SA:CHOOSE:Acid Resistance 10|Cold Resistance 10|Electricity Resistance 10|Fire Resistance 10	SA:Energy Substitution for element															BONUS:STAT|STR|2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|2	FAVOREDCLASS:Sorcerer	LANGAUTO:Common,Draconic	REMOVABLE:NO			VISION:Darkvision (60')																																																																														SPELLS:Innate|TIMES=1|Cause Fear
