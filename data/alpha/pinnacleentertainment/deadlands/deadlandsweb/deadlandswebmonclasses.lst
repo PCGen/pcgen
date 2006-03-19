@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Pinnacle Entertainment (PE) - Deadlands Web Enhancements|SOURCESHORT:DeadlndWeb|SOURCEWEB:http://www.peginc.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Pinnacle Entertainment (PE) - Deadlands Web Enhancements	SOURCESHORT:DeadlndWeb	SOURCEWEB:http://www.peginc.com
 
 # Class Name		Hit Dice	Type			Source URI											Levels per Feat	Save checks bonus															Combat bonus
 CLASS:Elemental (All)	HD:8		TYPE:Monster	SOURCEWEB:http://www.peginc.com/WeirdWest/Support/Adventures/HotWW	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|1+floor(CL/5)+floor((CL+3)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

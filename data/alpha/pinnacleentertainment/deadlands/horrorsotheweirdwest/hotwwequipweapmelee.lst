@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West|SOURCESHORT:HotWW|SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
 Barbed Axe Handle		TYPE:Weapon.Simple.Melee.Piercing.Slashing.Bludgeoning	COST:.25	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	SIZE:M	SOURCEPAGE:p.
 

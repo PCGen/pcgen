@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
-SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League|SOURCESHORT:XCrawl|SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Equipment Name				Output Name							Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus
 Armor (boffer)				OUTPUTNAME:Armor, boffer				TYPE:Armor.Light.Suit.Standard.Boffer	COST:20	WT:10		ACCHECK:0		MAXDEX:6		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE

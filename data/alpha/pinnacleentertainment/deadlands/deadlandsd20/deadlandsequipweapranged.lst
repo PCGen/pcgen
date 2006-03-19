@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name					Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage			Range		Size		Source Page		Bonus to skill			Weapon prop. bonus
 Dynamite stick											TYPE:Weapon.Simple.Ranged							COST:3	WT:.5										DAMAGE:4d10 (BR 20)	RANGE:15	SIZE:S	SOURCEPAGE:p.72
 Nitro (Vial)											TYPE:Weapon.Simple.Ranged.Vial						COST:2.5	WT:.5										DAMAGE:4d10 (BR 20)	RANGE:15	SIZE:S	SOURCEPAGE:p.72

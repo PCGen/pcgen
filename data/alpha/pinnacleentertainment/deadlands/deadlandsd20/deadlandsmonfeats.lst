@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Dec 16 21:30:28 2002 -- reformated by prettylst.pl v1.20 (build 234)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Feat Name			Type				Min. nb of Hand	Req. Movement	Required Stat	Description													Combat bonus						Source Page
 Flyby Attack		TYPE:General.Fighter				PREMOVE:1,Fly=1				DESC:A creature with this feat may attack on the wing.													SOURCEPAGE:p.11

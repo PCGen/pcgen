@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name			Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus
 Unarmed Strike								TYPE:Weapon.Unarmed.Melee.Bludgeoning.Monk		COST:0	WT:0										DAMAGE:1d3				SIZE:T	SOURCEPAGE:p.72
 Brass Knuckles			PROFICIENCY:Unarmed Strike	TYPE:Weapon.Simple.Melee.Unarmed.Bludgeoning		COST:1	WT:1										DAMAGE:1d4						SOURCEPAGE:p.72

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jun 17 22:50:14 2005 -- reformated by prettylst.pl v1.35 (build 469)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook|SOURCESHORT:Deadlands|SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name				Output Name					Type				Cost		Weight	Source Page		Spell Res.	Bonus to skill			Stat bonus
 Dreamcatcher										TYPE:Magic.Wondrous	COST:30000	WT:1		SOURCEPAGE:p.196	SR:15
 Earp's Badge										TYPE:Magic.Wondrous	COST:12000	WT:0		SOURCEPAGE:p.196								BONUS:STAT|CHA|2
