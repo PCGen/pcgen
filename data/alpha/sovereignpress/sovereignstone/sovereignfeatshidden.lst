@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 10 04:29:45 2005 -- reformated by prettylst.pl v1.35 (build 469)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 
 ###Block: Hidden Racial Feats
 # Feat Name		Type			Visible	Maximum Level	Required Race			Var. Min. Value			Multiple?	Choose								ADD:FAVOREDCLASS		Bonus to skill		Cost		Source Page

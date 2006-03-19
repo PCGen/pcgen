@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Feb 23 14:21:31 2003 -- reformated by prettylst.pl v1.26 (build 266)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 # Equipment Name			Type					Contains							Cost		Weight	Size		Source Page
 Vial (Earth)			TYPE:Goods.Component.Vial	CONTAINS:3|SpellComponent=10				COST:.2					SOURCEPAGE:p.
 Vial (Water)			TYPE:Goods.Component.Vial	CONTAINS:3|SpellComponent=10				COST:.2					SOURCEPAGE:p.

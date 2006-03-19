@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Dec 25 22:35:15 2003 -- reformated by prettylst.pl v1.32 (build 340)
-SOURCELONG:Sovereign Press - Sovereign Stone Core Rules|SOURCESHORT:SovereignS|SOURCEWEB:http://www.sovstone.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 #Armor and Shields				TYPE									Cost		Weight	Base AC	Max Dex Mod	AC Check Penalty	Arcane Spell Fail	Movement Rate	Hands Required		Pre-required Size
 # Equipment Name				Required Proficiency		Type									Cost		Weight	Required Size	Minimum Size	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Nb Hands	Maximum DEX Bonus	% of Spell Failure	Combat bonus
 Cloth (Masterwork)								TYPE:Armor.Light.Suit.Masterwork				COST:155	WT:10								ACCHECK:0														MAXDEX:8		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE

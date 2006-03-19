@@ -1,4 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Feb 23 23:49:08 2003 -- reformated by prettylst.pl v1.26 (build 266)
+# CVS $Revision$ $Author$ -- Sun Mar 19 08:48:51 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
+
 #Simple Weapons Melee			TYPE										Cost		Weight	Weapon Size	Base Damage	Critical Range	Critical Multiplier	Range		Bonuses						Required Proficiency			Alternate Dmg Type	Pre-Required Race	Source Material
 # Equipment Name					Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Weapon prop. bonus
 Battleaxe (Masterwork)				PROFICIENCY:Battleaxe			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:307	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
