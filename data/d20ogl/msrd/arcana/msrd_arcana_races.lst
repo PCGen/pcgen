@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Modern System Reference Document|SOURCESHORT:MSRD|SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # For those races that are mentioned only in ArcanaShadowkind.rtf I could not find the type in the MSRD.
 # I have given them TYPE:Humanoid since PCGen gives warnings when a race doesn't have a type and this is
