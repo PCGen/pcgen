@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2

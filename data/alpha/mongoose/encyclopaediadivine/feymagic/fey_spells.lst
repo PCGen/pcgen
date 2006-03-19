@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb  9 21:46:57 2005 -- reformated by prettylst.pl v1.34 (build 455)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic|SOURCESHORT:Fey Magic|SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com
 
 # Spell Name			Output Name				Classes of caster		Domains granting the spell	School			Sub-School			Spell Descriptors			Type		Components		Casting Time	Range				Target Area											Duration					Save Info						Spell Resistance		Description									Source Page
 Blinding Beauty								CLASSES:Druid=7		DOMAINS:Fey=7			SCHOOL:Transmutation	SUBSCHOOL:None							TYPE:Divine	COMPS:V S M		CASTTIME:1 Action	RANGE:Touch			TARGETAREA:Creature touched								DURATION:(CASTERLEVEL) rounds		SAVEINFO:Fortitude Negates			SPELLRES:Yes		DESC:Caster takes on a nymph's beauty				SOURCEPAGE:p.35

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jul 27 01:11:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
-SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 
 # Spell Name		Product Identity?	Classes of caster						Key Attribute	School			Spell Descriptors				Type			Components			Casting Time						Range					Target Area																Duration								Save Info						Spell Resistance			Description		Source Page
 Chrysalis			NAMEISPI:YES	CLASSES:Psion,Psion ITCK,Psychic Warrior=1	STAT:INT		SCHOOL:Metacreativity							TYPE:Psionic	COMPS:Vi			CASTTIME:1 action						RANGE:Touch				TARGETAREA:Creature touched gains damage reduction									DURATION:(CASTERLEVEL*10) minutes or until discharged	SAVEINFO:Will negates (harmless)		SPELLRES:Yes			DESC:See text	SOURCEPAGE:p.43
