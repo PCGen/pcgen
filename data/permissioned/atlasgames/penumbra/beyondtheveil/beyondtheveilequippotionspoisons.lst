@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Nov 10 22:44:34 2002 -- reformated by prettylst.pl v1.19 (build 212)
-SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil|SOURCESHORT:BeyondVeil|SOURCEWEB:http://www.atlas-games.com/pen_index.html
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil	SOURCESHORT:BeyondVeil	SOURCEWEB:http://www.atlas-games.com/pen_index.html
 
 # Equipment Name				Type			Cost		Weight	Source Page
 Lotion of Size and Shape Alteration	TYPE:Magic.Potion	COST:4000	WT:0		SOURCEPAGE:p.36

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Apr  8 22:19:48 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.shadowforcearcher.com/
 
 # Static Charge Attacks
 # Equipment Name	Required Proficiency		Type					Cost		Weight	Critical Hit Range	Fumble Range	Damage		Nb Hands	Range		Size		Source Page		Special Property

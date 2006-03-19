@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Dec 29 23:17:46 2004 -- reformated by prettylst.pl v1.34 (build 445)
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:Shadowforce Archer|SOURCESHORT:Shadowforce Archer|SOURCEWEB:http://www.shadowforcearcher.com/
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.shadowforcearcher.com/
 
 # Feat Name					Type						Visible		Required var. value				Var. Max. Value				Special Ability		Description				Stackable?	Multiple?	Choose						Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
 Cat Burglar Core Ability		TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1	SA:Nimble			DESC:Nimble															BONUS:SKILL|STAT.DEX|1
