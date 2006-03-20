@@ -48,7 +48,6 @@ import pcgen.util.Logging;
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -65,9 +64,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	public static final int         MONKBONUS    = 4;
 	private static final BigDecimal BIG_ONE      = new BigDecimal("1.00");
 	private static String           lastVariable = null;
-	//TODO: These are never actually set to a non empty/zero value. Can the code be removed?
-	private static String           loopVariable = "";
-	private static int              loopValue    = 0;
+	//Note: These are never actually set to a non empty/zero value. Code will be removed after 5.9.7
+//	private static String           loopVariable = "";
+//	private static int              loopValue    = 0;
 
 	// List of Armor Proficiencies
 	private final ArrayList armorProfList = new ArrayList();
@@ -3322,17 +3321,18 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					value = getMinMaxFirstValue(found, isMax, value, newValue);
 
 					found = true;
-					if (!"".equals(loopVariable))
-					{
-						while (loopValue > decrement)
-						{
-							loopValue -= decrement;
-							value += getVariableValue(sString, src).doubleValue();
-						}
-
-						loopValue = 0;
-						loopVariable = "";
-					}
+					//Note: These are never actually set to a non empty/zero value. Code will be removed after 5.9.7
+//					if (!"".equals(loopVariable))
+//					{
+//						while (loopValue > decrement)
+//						{
+//							loopValue -= decrement;
+//							value += getVariableValue(sString, src).doubleValue();
+//						}
+//
+//						loopValue = 0;
+//						loopVariable = "";
+//					}
 				}
 			}
 		}
@@ -13906,17 +13906,18 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				found = true;
 				flag = true;
 
-				if (!"".equals(loopVariable))
-				{
-					while (loopValue > decrement)
-					{
-						loopValue -= decrement;
-						value += getVariableValue(sString, src).doubleValue();
-					}
-
-					loopValue = 0;
-					loopVariable = "";
-				}
+				//Note: These are never actually set to a non empty/zero value. Code will be removed after 5.9.7
+//				if (!"".equals(loopVariable))
+//				{
+//					while (loopValue > decrement)
+//					{
+//						loopValue -= decrement;
+//						value += getVariableValue(sString, src).doubleValue();
+//					}
+//
+//					loopValue = 0;
+//					loopVariable = "";
+//				}
 			}
 		}
 
