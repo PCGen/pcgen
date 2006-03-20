@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+# Original Entry by: Paul W. King
 
 # Feat Name			Output Name				Type					Required Feat			Required Lvl	Required Skill		Required Stat	Required Text										Var. Min. Value		Special Ability							Define				Description																		Stackable?	Multiple?	Choose						Combat bonus				Bonus to skill				Modify VAR					Source Page
 Armory								TYPE:General.Charismatic																																SA:+% bonus Wealth checks to buy armor|Armory		DEFINE:Armory|0			DESC:You have access to sophisticated armor.												STACK:YES	MULT:YES	CHOOSE:+5 Wealth check to buy armor														BONUS:VAR|Armory|5			SOURCEPAGE:p.11
@@ -14,4 +15,4 @@ Peacemaker								TYPE:General.Ambassador																													PREVARGTEQ
 Rumor Monger							TYPE:General																		PRETEXT:At least one Influence Ally							PREVARGTEQ:Reputation,6															DESC:Your friends have keen ears and tend to pass along to you useful bits of information they come across.																															SOURCEPAGE:p.13
 Sidekick								TYPE:General								PRELEVEL:3																																							DESC:You have a partner																																													SOURCEPAGE:p.13
 Speed Dial								TYPE:General			PREFEAT:1,Well Connected																							PREVARGTEQ:Reputation,9															DESC:Your friends have keen ears and tend to pass along to you useful bits of information they come across.																															SOURCEPAGE:p.13
-Well Connected		OUTPUTNAME:Well-Connected																					PRETEXT:At least two allies of any type,						PREVARGTEQ:Reputation,6															DESC:Your allegiances think very highly of you and are willing to help you much more often.																																	SOURCEPAGE:p.13
+Well Connected		OUTPUTNAME:Well-Connected	TYPE:General																		PRETEXT:At least two allies of any type,						PREVARGTEQ:Reputation,6															DESC:Your allegiances think very highly of you and are willing to help you much more often.																																	SOURCEPAGE:p.13

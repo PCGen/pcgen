@@ -38,4 +38,4 @@ Mutants & Masterminds Copyright 2003, Green Ronin Publishing
 Swords of the Father Copyright 2003, The Game Mechanics.
 OGL Cybernet – CYBERPUNK ROLEPLAYING is Copyright 2003, Mongoose Publishing Limited.
 Blood and Space: Merchants, Pirates and Smugglers Copyright 2005, RPGObjects; Author Paul King, Charles Rice
-PCGen dataset conversion for Blood and Space: Merchants, Pirates and Smugglers Copyright 2005, PCgen Data team including, but not limited to, Paul W. King
+PCGen dataset conversion for Blood and Space: Merchants, Pirates and Smugglers Copyright 2005-2006, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).

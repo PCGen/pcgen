@@ -16,18 +16,18 @@ COPYRIGHT:Mutants & Masterminds Copyright 2003, Green Ronin Publishing
 COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics.
 COPYRIGHT:OGL Cybernet – CYBERPUNK ROLEPLAYING is Copyright 2003, Mongoose Publishing Limited.
 COPYRIGHT:Blood and Space: Merchants, Pirates and Smugglers Copyright 2005, RPGObjects; Author Paul King, Charles Rice
-COPYRIGHT:PCGen dataset conversion for Blood and Space: Merchants, Pirates and Smugglers Copyright 2005, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT).
+COPYRIGHT:PCGen dataset conversion for Blood and Space: Merchants, Pirates and Smugglers Copyright 2005-2006, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).
 
 INFOTEXT:This dataset requires the use of the MSRD Future dataset
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-CLASS:bns_mps_classes_advanced.lst
-CLASS:bns_mps_classes_prestige.lst
-EQUIPMENT:bns_mps_equip_armor.lst
-EQUIPMENT:bns_mps_equip_drug.lst
-EQUIPMENT:bns_mps_equip_general.lst
-FEAT:bns_mps_feats.lst
-FEAT:bns_mps_feats_hidden.lst
-FEAT:bns_mps_feats_mod.lst
+CLASS:merchantspiratesandsmugglers_classes_advanced.lst
+CLASS:merchantspiratesandsmugglers_classes_prestige.lst
+EQUIPMENT:merchantspiratesandsmugglers_equip_armor.lst
+EQUIPMENT:merchantspiratesandsmugglers_equip_drug.lst
+EQUIPMENT:merchantspiratesandsmugglers_equip_general.lst
+FEAT:merchantspiratesandsmugglers_feats.lst
+FEAT:merchantspiratesandsmugglers_feats_hidden.lst
+FEAT:merchantspiratesandsmugglers_feats_mod.lst
