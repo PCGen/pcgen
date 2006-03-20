@@ -152,7 +152,8 @@ final class PCGVer2Creator implements IOConstants
 		appendCharacterNameLine(buffer);
 		appendTabNameLine(buffer);
 		appendPlayerNameLine(buffer);
-		appendHeightLine(buffer);
+		// TODO Deprecated, to be removed in 5.10 Beta 1
+		// appendHeightLine(buffer);
 		appendWeightLine(buffer);
 		appendAgeLine(buffer);
 		appendGenderLine(buffer);
@@ -1783,12 +1784,15 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
+	// TODO deprecated Remove in 5.10 Beta 1
+	/*
 	private void appendHeightLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_HEIGHT).append(':');
 		buffer.append(aPC.getHeight());
 		buffer.append(LINE_SEP);
 	}
+	*/
 
 	private void appendLoadCompanionLine(StringBuffer buffer)
 	{

@@ -29,66 +29,85 @@ package pcgen.io;
  */
 interface IOConstants
 {
+	/** AGE tag */
 	String TAG_AGE                 = "AGE";
-
-	// AGE SET
+	/** AGE SET tag */
 	String TAG_AGESET              = "AGESET";
+	/** ALIGNALLOW */
 	String TAG_ALIGNALLOW          = "ALIGNALLOW";
+	/** ALIGN */
 	String TAG_ALIGNMENT           = "ALIGN";
+	/** APPLIEDTO */
 	String TAG_APPLIEDTO           = "APPLIEDTO";
+	/** ARMORPROF */
 	String TAG_ARMORPROF           = "ARMORPROF";
+	/** ASSOCIATED DATA */
 	String TAG_ASSOCIATEDDATA      = "ASSOCIATEDDATA";
+	/** AUTOSORTGEAR */
 	String TAG_AUTOSORTGEAR        = "AUTOSORTGEAR";
+	/** AUTOSORTSKILLS */
 	String TAG_AUTOSORTSKILLS      = "AUTOSORTSKILLS";
+	/** AUTOSPELLS */
 	String TAG_AUTOSPELLS          = "AUTOSPELLS";
+	/** AUTOADDKNOWN */
 	String TAG_AUTOADDKNOWN        = "AUTOADDKNOWN";
+	/** BASEITEM */
 	String TAG_BASEITEM            = "BASEITEM";
+	/** BIRTHDAY */
 	String TAG_BIRTHDAY            = "BIRTHDAY";
+	/** BIRTHPLACE */
 	String TAG_BIRTHPLACE          = "BIRTHPLACE";
+	/** CALCEQUIPSET */
 	String TAG_CALCEQUIPSET        = "CALCEQUIPSET";
-
-	// System information
+	/** CAMPAIGN - System Information */
 	String TAG_CAMPAIGN            = "CAMPAIGN";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed 5.10 Beta 1 */
 	String TAG_CAMPAIGNS           = "CAMPAIGNS";
-
-	// Character spells information
+	/** CANCASTPERDAY - character spells info */
 	String TAG_CANCASTPERDAY       = "CANCASTPERDAY";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed 5.10 Beta 1 */
 	String TAG_CARRIED             = "CARRIED";
+	/** CATCHPHRASE */
 	String TAG_CATCHPHRASE         = "CATCHPHRASE";
+	/** CHARACTERASSET */
 	String TAG_CHARACTERASSET      = "CHARACTERASSET";
-
-	// Character description/bio/history
+	/** CHARACTERBIO - Character description/bio/history */
 	String TAG_CHARACTERBIO        = "CHARACTERBIO";
+	/** CHARACTERCOMP */
 	String TAG_CHARACTERCOMP       = "CHARACTERCOMP";
+	/** CHARACTERDESC */
 	String TAG_CHARACTERDESC       = "CHARACTERDESC";
+	/** CHARACTERMAGIC */
 	String TAG_CHARACTERMAGIC      = "CHARACTERMAGIC";
-
-	// Character bio
+	/** Character Name */
 	String TAG_CHARACTERNAME       = "CHARACTERNAME";
+	/** CHOICE */
 	String TAG_CHOICE              = "CHOICE";
+	/** CHOSENFEAT */
 	String TAG_CHOSENFEAT          = "CHOSENFEAT";
+	/** CHOSENTEMPLATE */
 	String TAG_CHOSENTEMPLATE      = "CHOSENTEMPLATE";
+	/** CITY */
 	String TAG_CITY                = "CITY";
-
-	// Character class(es)
+	/** Character class(es) */
 	String TAG_CLASS               = "CLASS";
+	/** CLASSABILITIESLEVEL */
 	String TAG_CLASSABILITIESLEVEL = "CLASSABILITIESLEVEL";
-
-	// Character skills
+	/** CLASSBOUGHT - Character skills */
 	String TAG_CLASSBOUGHT         = "CLASSBOUGHT";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CLASSLEVEL          = "CLASSLEVEL";
+	/** CLASSSKILL */
 	String TAG_CLASSSKILL          = "CLASSSKILL";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed in 5.10 Beta 1 */
 	String TAG_COMP                = "COMP";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CONTAINS            = "CONTAINS";
+	/** COST - Currently (20/03/2006) only being used by CMP data sources */
 	String TAG_COST                = "COST";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CROSSCLASS          = "CROSSCLASS";
-	/** @deprecated Unused */
+	/** @deprecated Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CT                  = "CT";
 	String TAG_CUSTOMIZATION       = "CUSTOMIZATION";
 	String TAG_DATA                = "DATA";
@@ -148,6 +167,7 @@ interface IOConstants
 	String TAG_HAIRCOLOR = "HAIRCOLOR";
 	String TAG_HAIRSTYLE = "HAIRSTYLE";
 	String TAG_HANDED = "HANDED";
+	/** @deprecated to be removed in 5.10 Beta */
 	String TAG_HEIGHT = "HEIGHT";
 	String TAG_HITDICE = "HITDICE";
 	String TAG_HITPOINTS = "HITPOINTS";

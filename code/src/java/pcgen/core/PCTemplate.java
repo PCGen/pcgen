@@ -424,7 +424,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Set a lock on which hand will be the dominant one in characters this
 	 * Template is applied to
 	 *
-	 * XXX appears to be totally unused.  a private attribute with a setter but
+	 * @deprecated appears to be totally unused.  a private attribute with a setter but
 	 * no accessor.
 	 *
 	 * @param  handedString  the favoured hand

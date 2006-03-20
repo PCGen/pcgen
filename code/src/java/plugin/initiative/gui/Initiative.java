@@ -169,6 +169,10 @@ public class Initiative extends javax.swing.JPanel
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", jSplitPane1.getDividerLocation());
 	}
 
+	/**
+	 * Set the log
+	 * @param log
+	 */
 	public void setLog(LogUtilities log)
 	{
 		this.log = log;
@@ -312,6 +316,10 @@ public class Initiative extends javax.swing.JPanel
 		refreshTable();
 	}
 
+	/**
+	 * Add an initiative holder (a combatant)
+	 * @param iH
+	 */
 	public void addInitHolder(InitHolder iH)
 	{
 		if (iH instanceof Combatant)
@@ -328,6 +336,11 @@ public class Initiative extends javax.swing.JPanel
 		initList.add(iH);
 	}
 
+	/**
+	 * Add a new pcg combatant
+	 * @param pc
+	 * @param type
+	 */
 	public void addPcgCombatant(PlayerCharacter pc, String type)
 	{
 		String name = initList.getUniqueName(pc.getName());
@@ -520,6 +533,9 @@ public class Initiative extends javax.swing.JPanel
 		refreshTable();
 	}
 
+	/**
+	 * Check for dead combatants 
+	 */
 	public void checkDeadTabs()
 	{
 		for (int i = 0; i < initList.size(); i++)
@@ -541,6 +557,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Set the current initiative holder to dead
+	 * @param deadIH
+	 */
 	public void combatantDied(InitHolder deadIH)
 	{
 		writeToCombatTabWithRound(deadIH.getName() + " (" + deadIH.getPlayer() + ") Killed");
@@ -722,6 +742,11 @@ public class Initiative extends javax.swing.JPanel
 		refreshTable();
 	}
 
+	/**
+	 * Do Massive damage
+	 * @param cbt
+	 * @param damage
+	 */
 	public void doMassiveDamage(Combatant cbt, int damage)
 	{
 		int massiveType = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Type",
@@ -906,6 +931,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Set the combatant type
+	 * @param comType
+	 */
 	public void doSetCombatantType(String comType)
 	{
 		final List selectedList = getSelected();
@@ -1173,6 +1202,11 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Perform initial loading
+	 * @param initFile
+	 * @param comp
+	 */
 	public void loadINIT(File initFile, GMBComponent comp)
 	{
 		try
@@ -1504,6 +1538,10 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	//** End Initialization Functions **
+	
+	/**
+	 * Refresh the tabs
+	 */
 	public void refreshTabs()
 	{
 		for (int i = 0; i < initList.size(); i++)
@@ -1524,6 +1562,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Remove the pcg combatant
+	 * @param pc
+	 */
 	public void removePcgCombatant(PlayerCharacter pc)
 	{
 		for (int i = 0; i < initList.size(); i++)
@@ -1543,6 +1585,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Remove the tab
+	 * @param iH
+	 */
 	public void removeTab(InitHolder iH)
 	{
 		try
@@ -1595,7 +1641,12 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	//** End Functions implementing button calls for top toolbar **
+	
 	//** Functions implementing button calls for the bottom toolbar **
+	
+	/**
+	 * Save the initiative roll
+	 */
 	public void rollSave()
 	{
 		final List selectedList = getSelected();
@@ -2967,6 +3018,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Update the initiative holder
+	 * @param iH
+	 */
 	public static void initHolderUpdated(InitHolder iH)
 	{
 		if(iH instanceof Combatant)
@@ -2975,19 +3030,39 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
+	/**
+	 * Send a message stating that the combatant has been updated
+	 * @param cbt
+	 */
 	public static void combatantUpdated(Combatant cbt)
 	{
 		GMBus.send(new CombatantUpdatedMessage(GMGenSystem.inst, cbt));
 	}
 	//** End Other Variables **
 
+	/**
+	 * A cell editor
+	 */
 	public class TypeEditor extends DefaultCellEditor {
+		
+		/**
+		 * Constructor
+		 * @param items
+		 */
 		public TypeEditor(String[] items) {
 			super(new JComboBox(items));
 		}
 	}
 
+	/**
+	 * A table cell renderer
+	 */
 	public class TypeRenderer extends JComboBox implements TableCellRenderer {
+		
+		/**
+		 * Constructor
+		 * @param items
+		 */
 		public TypeRenderer(String[] items) {
 			super(items);
 		}

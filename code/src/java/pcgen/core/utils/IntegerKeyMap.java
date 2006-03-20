@@ -37,36 +37,66 @@ public class IntegerKeyMap
 
 	private final Map map = new HashMap();
 
+	/** Constructor */
 	public IntegerKeyMap()
 	{
 		// Do Nothing
 	}
 
+	/**
+	 * Get a characteristic
+	 * @param key
+	 * @return a characteristic
+	 */
 	public Integer getCharacteristic(IntegerKey key)
 	{
 		return (Integer) map.get(key);
 	}
 
+	/**
+	 * Set a characteristic
+	 * @param key
+	 * @param value
+	 */
 	public void setCharacteristic(IntegerKey key, Integer value)
 	{
 		map.put(key, value);
 	}
 
+	/**
+	 * Set a characteristic
+	 * @param key
+	 * @param value
+	 */
 	public void setCharacteristic(IntegerKey key, int value)
 	{
 		map.put(key, new Integer(value));
 	}
 
+	/**
+	 * return true if it has the characteristic
+	 * @param key
+	 * @return true if map has the characteristic
+	 */
 	public boolean hasCharacteristic(IntegerKey key)
 	{
 		return map.containsKey(key);
 	}
 
+	/**
+	 * Add all of the characteristics
+	 * @param scs
+	 */
 	public void addAllCharacteristics(IntegerKeyMap scs)
 	{
 		map.putAll(scs.map);
 	}
 	
+	/**
+	 * Remove a characteristic from the map
+	 * @param key
+	 * @return the previous charactersitc assocaited with that key or NULL
+	 */
 	public Integer removeCharacteristic(IntegerKey key) 
 	{
 		return (Integer) map.remove(key);

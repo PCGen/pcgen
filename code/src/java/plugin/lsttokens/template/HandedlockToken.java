@@ -6,6 +6,8 @@ import pcgen.persistence.lst.PCTemplateLstToken;
 
 /**
  * Class deals with HANDEDLOCK Token
+ * @deprecated To be removed in 5.10 Beta 1 (don't forget to remove entry in 
+ * build.xml file when you remove this class)
  */
 public class HandedlockToken implements PCTemplateLstToken {
 
