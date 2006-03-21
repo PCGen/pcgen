@@ -74,6 +74,7 @@ import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
@@ -1169,6 +1170,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	/**
 	 * Build the panel with the controls to add an item to the 
 	 * selected list.
+	 * @param button
+	 * @param title 
 	 *  
 	 * @return The panel.
 	 */
@@ -1187,6 +1190,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	/**
 	 * Build the panel with the controls to add an item to the 
 	 * selected list.
+	 * @param button 
+	 * @param title 
 	 *  
 	 * @return The panel.
 	 */
@@ -2030,14 +2035,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		JLabel avaLabel = new JLabel("Available: ");
 		leftPane.add(createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 		
-		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
 		leftPane.add(buildModPanel(addButton, "Click to add the selected item from the Available list of items"), BorderLayout.SOUTH);
 
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
 		columnButton.setText("^");
 
 		availableTable.setColAlign(COL_COST, SwingConstants.RIGHT);
@@ -2051,14 +2056,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		JLabel selLabel = new JLabel("Selected: ");
 		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
-		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
 		rightPane.add(buildDelPanel(removeButton, "Click to remove the selected item from the Selected list of items"), BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
-		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
 		columnButton2.setText("^");
 //		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
 //		selectedTable.setColAlign(COL_COST, SwingConstants.RIGHT);
@@ -3227,6 +3232,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * 
 	 * -1 shows as Hidden, and 0 is shown as blank. Any other value is
 	 * displayed as is.
+	 * 
+	 * @deperecated This class is not used, remove post 5.10 Beta 1
 	 */
 	private static final class OutputOrderRenderer extends DefaultTableCellRenderer
 	{
@@ -3335,10 +3342,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				return TreeTableModel.class;
 			}
-			else
-			{
-				return String.class;
-			}
+			return String.class;
 		}
 
 		/* The JTreeTableNode interface. */
@@ -3820,6 +3824,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			return retList;
 		}
 
+		/**
+		 * Get the column align list
+		 * @return the column align list 
+		 */
 		public List getMColumnAlignList()
 		{
 			List retAlignList = new ArrayList();

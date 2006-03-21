@@ -17,7 +17,7 @@ public class HandedlockToken implements PCTemplateLstToken {
 
 	 // set and lock character handedness, disabling pulldown menu in description section.
 	public boolean parse(PCTemplate template, String value) {
-		template.setHandedLock(value);
+		// template.setHandedLock(value);
 		return true;
 	}
 }

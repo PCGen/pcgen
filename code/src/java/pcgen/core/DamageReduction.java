@@ -143,19 +143,16 @@ public class DamageReduction implements Comparable
 			protectionValue += (int) thePC.getTotalBonusTo("DR", theBypass);
 			return protectionValue;
 		}
-		else
+		// If we don't have a PC we will see if we can parse the
+		// reduction value as an int, if we can't we will return
+		// the value "variable" for it instead.
+		try
 		{
-			// If we don't have a PC we will see if we can parse the
-			// reduction value as an int, if we can't we will return
-			// the value "variable" for it instead.
-			try
-			{
-				return Integer.parseInt(theReduction);
-			}
-			catch (NumberFormatException notUsed)
-			{
-				// Nothing we can do.
-			}
+			return Integer.parseInt(theReduction);
+		}
+		catch (NumberFormatException notUsed)
+		{
+			// Nothing we can do.
 		}
 		return -1;
 	}
@@ -583,6 +580,10 @@ public class DamageReduction implements Comparable
 		return buffer.toString();
 	}
 
+	/**
+	 * Test the DR code
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		int failures = 0;
