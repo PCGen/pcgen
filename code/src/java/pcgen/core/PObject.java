@@ -57,7 +57,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
-	
+
 	/** a boolean for whether something should recurse, default is false */
 	private static boolean dontRecurse = false;
 
@@ -70,7 +70,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/** List of associated items for the object */
 	protected ArrayList associatedList = null;
-	
+
 	/** List of Bonuses for the object */
 	private ArrayList bonusList = new ArrayList();
 	/** Class Skill List for the object */
@@ -79,25 +79,25 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	protected ArrayList ccSkillList = null;
 	/** List of Level Abilities for the object  */
 	private ArrayList levelAbilityList = null;
-	
+
 	/** The source campaign for the object */
 	private Campaign sourceCampaign = null;
 	private HashMap sourceMap = new HashMap();
 	private HashMap modSourceMap = null;
-	
-	/** 
-	 * A map of vision types associated with the object, 
-	 * Key: vision type, Value: vision range. 
+
+	/**
+	 * A map of vision types associated with the object,
+	 * Key: vision type, Value: vision range.
 	 */
 	protected Map vision = null;
 	private HashMap pluginDataMap = new HashMap();
 
 	protected String keyName = "";
 	protected String name = "";
-	
+
 	/** Indicates if this object should be displayed to the user in the UI. */
 	protected boolean visible = true;
-	
+
 	/** List of Pre-Requesites for the object  */
 	private ArrayList preReqList = null;
 	/** Map of the bonuses for the object  */
@@ -115,16 +115,18 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	private boolean nameIsPI = false;
 
 	private boolean isNewItem = true;
-	
+
 	/** Holds the level of encumberance due to armor for the object */
 	private int encumberedArmorMoveInt = Constants.LIGHT_LOAD;
 	/** Holds the level of encumberance due to load for the object */
 	private int encumberedLoadMoveInt = Constants.LIGHT_LOAD;
 
+	private ArrayList drList = new ArrayList();
+
 	/* ************
 	 * Methods
 	 * ************/
-	
+
 	/**
 	 * Set the associated list
 	 * @param index
@@ -312,7 +314,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * True if the description of this object is Product Identity 
+	 * True if the description of this object is Product Identity
 	 * @return if the description of this object is Product Identity
 	 */
 	public final boolean getDescIsPI()
@@ -500,7 +502,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		this.encumberedLoadMoveInt = encumberedLoadMoveInt;
 	}
-	
+
 	/**
 	 * Sets the natural weapon equipment items list for this object
 	 * @param aList
@@ -778,7 +780,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Add a new bonus to the list of bonuses 
+	 * Add a new bonus to the list of bonuses
 	 * @param aString
 	 * @return true if new bonus is not null
 	 */
@@ -1228,7 +1230,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Retrieve the vision types associated with the object. 
+	 * Retrieve the vision types associated with the object.
 	 * Key: vision type, Value: vision range.
 	 * @return Map of the vision types associated with the object.
 	 */
@@ -1324,9 +1326,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Add a natural weapon to the character list, also adds the 
+	 * Add a natural weapon to the character list, also adds the
 	 * appropriate weapon proficiency.
-	 *  
+	 *
 	 * @param weapon
 	 * @param level
 	 */
@@ -1349,11 +1351,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Returns true if this object has a pre requestie of the type that 
+	 * Returns true if this object has a pre requestie of the type that
 	 * is passed in.
-	 * 
+	 *
 	 * @param matchType
-	 * @return true if this object has a pre requestie of the type that 
+	 * @return true if this object has a pre requestie of the type that
 	 * is passed in
 	 */
 	public final boolean hasPreReqTypeOf(final String matchType)
@@ -1400,7 +1402,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/**
 	 * Apply the bonus to a PC, pass through object's default bonuslist
-	 * 
+	 *
 	 * @param aType
 	 * @param aName
 	 * @param obj
@@ -1414,7 +1416,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/**
 	 * Apply the bonus to a PC
-	 * 
+	 *
 	 * @param aType
 	 * @param aName
 	 * @param obj
@@ -1894,22 +1896,37 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Set the DR
 	 * @param drString
 	 */
-	public void setDR(String drString)
+//	public void setDR(String drString)
+//	{
+//		if (".CLEAR".equals(drString))
+//		{
+//			drString = null;
+//		 }
+//		stringChar.setCharacteristic(StringKey.DR_FORMULA, drString);
+//	}
+
+	public void addDR(DamageReduction aDR)
 	{
-		if (".CLEAR".equals(drString))
-		{
-			drString = null;
-		 }
-		stringChar.setCharacteristic(StringKey.DR_FORMULA, drString);
+		drList.add(aDR);
+	}
+
+	public void clearDR()
+	{
+		drList.clear();
 	}
 
 	/**
 	 * Get the DR
 	 * @return the DR
 	 */
-	public String getDR()
+//	public String getDR()
+//	{
+//		return stringChar.getCharacteristic(StringKey.DR_FORMULA);
+//	}
+
+	public List getDRList()
 	{
-		return stringChar.getCharacteristic(StringKey.DR_FORMULA);
+		return Collections.unmodifiableList(drList);
 	}
 
 	/**
@@ -1965,7 +1982,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	///////////////////////////////////////////////////////////////////////
 	// Accessor(s) and Mutator(s)
 	///////////////////////////////////////////////////////////////////////
-	
+
 	/**
 	 * Returns true if the item is new
 	 * @return true if the item is new
@@ -2363,11 +2380,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/**
 	 * Returns false
-	 * 
-	 * This method is meant to be overloaded by those classes that 
-	 * can have hidden types, which are currently Equipment, Feat and 
+	 *
+	 * This method is meant to be overloaded by those classes that
+	 * can have hidden types, which are currently Equipment, Feat and
 	 * Skill.
-	 * 
+	 *
 	 * @param idx
 	 * @return false
 	 */
@@ -2405,7 +2422,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * If aType begins with an &#34; (Exclamation Mark) the &#34; will be 
+	 * If aType begins with an &#34; (Exclamation Mark) the &#34; will be
 	 * removed before checking the type.
 	 *
 	 * @param aType
@@ -2428,7 +2445,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Deal with the type, whether to ADD, REMOVE it etc. 
+	 * Deal with the type, whether to ADD, REMOVE it etc.
 	 * @param aString
 	 */
 	public void setTypeInfo(final String aString)
@@ -2619,7 +2636,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Remove user defined types 
+	 * Remove user defined types
 	 * @param aString
 	 */
 	public final void removeType(final String aString)
@@ -2653,7 +2670,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/**
 	 * Get the region string
-	 * @return the region string 
+	 * @return the region string
 	 */
 	public final String getRegionString()
 	{
@@ -2661,7 +2678,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Set the remove list for the character list 
+	 * Set the remove list for the character list
 	 * @param arg
 	 */
 	public final void setRemoveString(final String arg)
@@ -2844,7 +2861,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Add the select armor proficiencies to the list 
+	 * Add the select armor proficiencies to the list
 	 * @param aList
 	 */
 	public final void addSelectedArmorProfs(final List aList)
@@ -3016,7 +3033,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Returns true if the PC has a bonus that is currently applied 
+	 * Returns true if the PC has a bonus that is currently applied
 	 * @param aPC
 	 * @param anObj
 	 * @return true if the PC has a bonus that is currently applied
@@ -3080,7 +3097,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * In some cases, we need a PI-formatted string to place within a 
+	 * In some cases, we need a PI-formatted string to place within a
 	 * pre-existing <html> tag
 	 * @return PI description
 	 */
@@ -3097,10 +3114,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		return piString(true);
 	}
-	 
+
 	/**
-	 * In some cases, we need a PI-formatted string to place within 
-	 * a pre-existing <html> tag 
+	 * In some cases, we need a PI-formatted string to place within
+	 * a pre-existing <html> tag
 	 * @return PI String with no header
 	 */
 	public String piSubString()
@@ -3780,10 +3797,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		return aString.toString();
 	}
-	 
+
 	 /**
 	  * Add automatic tags to a list
-	  * For example, tag = "ARMORPROF", aList is list of armor proficiencies 
+	  * For example, tag = "ARMORPROF", aList is list of armor proficiencies
 	  * @param tag
 	  * @param aList
 	  * @param aPC
@@ -4828,40 +4845,40 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	/**
 	 * Deal with the FeatMultipleChoice case for getAssociatedList
 	 * @param idx
-	 * @return the assocaited choice 
+	 * @return the assocaited choice
 	 */
 	private String dealWithFeatMultipleChoice(int idx) {
 		FeatMultipleChoice fmc;
 		int iCount;
-	
+
 		for (int i = 0; i < associatedList.size(); ++i)
 		{
 			fmc = (FeatMultipleChoice) associatedList.get(i);
 			iCount = fmc.getChoiceCount();
-	
+
 			if (idx < iCount)
 			{
 				return fmc.getChoice(idx);
 			}
-	
+
 			idx -= iCount;
 		}
-	
+
 		return "";
 	}
 
 	/**
 	 * Deal with the FeatMultipleChoice case for getAssociatedCount
-	 * @return the associated count 
+	 * @return the associated count
 	 */
 	private int dealWithFeatMultipleChoiceForCount() {
 		int iCount = 0;
-	
+
 		for (int i = 0; i < associatedList.size(); ++i)
 		{
 			iCount += ((FeatMultipleChoice) associatedList.get(i)).getChoiceCount();
 		}
-	
+
 		return iCount;
 	}
 
