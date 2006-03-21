@@ -388,53 +388,53 @@ public final class EditorMainForm extends JDialog
 
 /*    private void buildSynergyTab()
    {
-       pnlSynergy.setExtraLayout(new GridBagLayout());
-       lblQualifier.setText(PropertyFactory.getString("in_demSkillRank"));
-       lblQualifier.setLabelFor(cmbQualifier);
-       GridBagConstraints gbc = new GridBagConstraints();
-       gbc.gridx = 0;
-       gbc.gridy = 0;
-       gbc.fill = GridBagConstraints.HORIZONTAL;
-       gbc.insets = new Insets(2, 5, 2, 5);
-       gbc.anchor = GridBagConstraints.WEST;
-       pnlSynergy.addExtra(lblQualifier, gbc);
-       gbc = new GridBagConstraints();
-       gbc.gridx = 1;
-       gbc.gridy = 0;
-       gbc.fill = GridBagConstraints.HORIZONTAL;
-       gbc.insets = new Insets(2, 5, 2, 5);
-       gbc.anchor = GridBagConstraints.EAST;
+	   pnlSynergy.setExtraLayout(new GridBagLayout());
+	   lblQualifier.setText(PropertyFactory.getString("in_demSkillRank"));
+	   lblQualifier.setLabelFor(cmbQualifier);
+	   GridBagConstraints gbc = new GridBagConstraints();
+	   gbc.gridx = 0;
+	   gbc.gridy = 0;
+	   gbc.fill = GridBagConstraints.HORIZONTAL;
+	   gbc.insets = new Insets(2, 5, 2, 5);
+	   gbc.anchor = GridBagConstraints.WEST;
+	   pnlSynergy.addExtra(lblQualifier, gbc);
+	   gbc = new GridBagConstraints();
+	   gbc.gridx = 1;
+	   gbc.gridy = 0;
+	   gbc.fill = GridBagConstraints.HORIZONTAL;
+	   gbc.insets = new Insets(2, 5, 2, 5);
+	   gbc.anchor = GridBagConstraints.EAST;
    //        gbc.weightx = 1.0;
-           pnlSynergy.addExtra(cmbQualifier, gbc);
-           lblVariable.setText(PropertyFactory.getString("in_demSynergyBonus"));
-           lblVariable.setLabelFor(cmbVariable);
-           gbc = new GridBagConstraints();
-           gbc.gridx = 0;
-           gbc.gridy = 1;
-           gbc.fill = GridBagConstraints.HORIZONTAL;
-           gbc.insets = new Insets(2, 5, 2, 5);
-           gbc.anchor = GridBagConstraints.WEST;
-           pnlSynergy.addExtra(lblVariable, gbc);
-           gbc = new GridBagConstraints();
-           gbc.gridx = 1;
-           gbc.gridy = 1;
-           gbc.fill = GridBagConstraints.HORIZONTAL;
-           gbc.insets = new Insets(2, 5, 2, 5);
-           gbc.anchor = GridBagConstraints.EAST;
+		   pnlSynergy.addExtra(cmbQualifier, gbc);
+		   lblVariable.setText(PropertyFactory.getString("in_demSynergyBonus"));
+		   lblVariable.setLabelFor(cmbVariable);
+		   gbc = new GridBagConstraints();
+		   gbc.gridx = 0;
+		   gbc.gridy = 1;
+		   gbc.fill = GridBagConstraints.HORIZONTAL;
+		   gbc.insets = new Insets(2, 5, 2, 5);
+		   gbc.anchor = GridBagConstraints.WEST;
+		   pnlSynergy.addExtra(lblVariable, gbc);
+		   gbc = new GridBagConstraints();
+		   gbc.gridx = 1;
+		   gbc.gridy = 1;
+		   gbc.fill = GridBagConstraints.HORIZONTAL;
+		   gbc.insets = new Insets(2, 5, 2, 5);
+		   gbc.anchor = GridBagConstraints.EAST;
    //        gbc.weightx = 1.0;
-           pnlSynergy.addExtra(cmbVariable, gbc);
-           pnlSynergy.setAddFilter(new EditorAddFilter()
-           {
-               public Object encode(Object anObj)
-               {
-                   return encodeSynergyEntry((String) anObj);
-               }
-               public Object decode(Object anObj)
-               {
-                   return decodeSynergyEntry((String) anObj);
-               }
-           });
-       }
+		   pnlSynergy.addExtra(cmbVariable, gbc);
+		   pnlSynergy.setAddFilter(new EditorAddFilter()
+		   {
+			   public Object encode(Object anObj)
+			   {
+				   return encodeSynergyEntry((String) anObj);
+			   }
+			   public Object decode(Object anObj)
+			   {
+				   return decodeSynergyEntry((String) anObj);
+			   }
+		   });
+	   }
  */
 	private String decodeSynergyEntry(String entry)
 	{
@@ -612,7 +612,8 @@ public final class EditorMainForm extends JDialog
 
 		thisPObject.getBonusList().clear();
 		thisPObject.clearVariableList();
-		thisPObject.setDR(".CLEAR");
+//		thisPObject.setDR(".CLEAR");
+		thisPObject.clearDR();
 		thisPObject.clearPreReq();
 		thisPObject.clearSpecialAbilityList();
 		thisPObject.setSR(".CLEAR");
@@ -701,24 +702,24 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 
-			    sel = pnlQSpells.getSelectedList();
+				sel = pnlQSpells.getSelectedList();
 				if (thisPObject.isNewItem())
-				    thisPObject.setNewItem(false);
+					thisPObject.setNewItem(false);
 				spellSupport.clearSpellLevelMap();
 				thisPObject.getSpellSupport().clearSpellInfoMap();
 
 				for (int i = 0; i < sel.length; ++i)
 				{
-				    aString = sel[i].toString();
-				    final int idx = aString.indexOf('=');
-				    final String domainName = thisPObject.getName(), spellName, spellLevel;
-				    if (idx > 0)
-				    {
-				        spellName = aString.substring(idx+2);
-				        spellLevel = aString.substring(idx-1,idx);
-				        spellSupport.putLevel("DOMAIN", domainName, spellName, spellLevel);
-				        spellSupport.putInfo("DOMAIN", spellName, domainName, spellLevel);
-				    }
+					aString = sel[i].toString();
+					final int idx = aString.indexOf('=');
+					final String domainName = thisPObject.getName(), spellName, spellLevel;
+					if (idx > 0)
+					{
+						spellName = aString.substring(idx+2);
+						spellLevel = aString.substring(idx-1,idx);
+						spellSupport.putLevel("DOMAIN", domainName, spellName, spellLevel);
+						spellSupport.putInfo("DOMAIN", spellName, domainName, spellLevel);
+					}
 				}
 
 				break;
@@ -870,7 +871,7 @@ public final class EditorMainForm extends JDialog
 					if (idx > 0)
 					{
 						((Spell) thisPObject).setLevelInfo("CLASS|" + aString.substring(0, idx),
-						    aString.substring(idx + 1));
+							aString.substring(idx + 1));
 					}
 				}
 
@@ -885,7 +886,7 @@ public final class EditorMainForm extends JDialog
 					if (idx > 0)
 					{
 						((Spell) thisPObject).setLevelInfo("DOMAIN|" + aString.substring(0, idx),
-						    aString.substring(idx + 1));
+							aString.substring(idx + 1));
 					}
 				}
 
@@ -1239,55 +1240,55 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 
-			    availableList.clear();
+				availableList.clear();
 				selectedList.clear();
 
 				SpellSupport spellSupt = thisPObject.getSpellSupport();
 				if (thisPObject.isNewItem())
 				{
-				    spellSupt.clearSpellInfoMap();
-				    spellSupt.clearSpellLevelMap();
-				    for (e = Globals.getSpellMap().values().iterator(); e.hasNext();)
-				    {
-				        final Object obj = e.next();
+					spellSupt.clearSpellInfoMap();
+					spellSupt.clearSpellLevelMap();
+					for (e = Globals.getSpellMap().values().iterator(); e.hasNext();)
+					{
+						final Object obj = e.next();
 
-				        if (obj instanceof Spell)
-				        {
-				            availableList.add(obj);
-				        }
-				    }
+						if (obj instanceof Spell)
+						{
+							availableList.add(obj);
+						}
+					}
 				}
 				else
 				{
-				    availableList = new ArrayList(Globals.getSpellMap().values().size());
+					availableList = new ArrayList(Globals.getSpellMap().values().size());
 
-				    for (e = Globals.getSpellMap().values().iterator(); e.hasNext();)
-				    {
-				        final Object obj = e.next();
+					for (e = Globals.getSpellMap().values().iterator(); e.hasNext();)
+					{
+						final Object obj = e.next();
 
-				        if (obj instanceof Spell)
-				        {
-				            String spellName = obj.toString();
+						if (obj instanceof Spell)
+						{
+							String spellName = obj.toString();
 
-				            if (spellSupt.containsInfoFor("DOMAIN", spellName))
-				            {
-				            	int i = spellSupt.getInfo("DOMAIN", spellName).level;
-				                selectedList.add(encodeSpellEntry(obj.toString(), Integer.toString(i)));
-				            }
-				            else
-				            {
-				                availableList.add(obj);
-				            }
-				        }
-				    }
+							if (spellSupt.containsInfoFor("DOMAIN", spellName))
+							{
+								int i = spellSupt.getInfo("DOMAIN", spellName).level;
+								selectedList.add(encodeSpellEntry(obj.toString(), Integer.toString(i)));
+							}
+							else
+							{
+								availableList.add(obj);
+							}
+						}
+					}
 
-			    }
-			    Globals.sortPObjectList(availableList);
+				}
+				Globals.sortPObjectList(availableList);
 
-			    pnlQSpells.setAvailableList(availableList, true);
-			    pnlQSpells.setSelectedList(selectedList, true);
+				pnlQSpells.setAvailableList(availableList, true);
+				pnlQSpells.setSelectedList(selectedList, true);
 
-			    break;
+				break;
 
 			case EditorConstants.EDIT_FEAT:
 				break;
@@ -1319,7 +1320,7 @@ public final class EditorMainForm extends JDialog
 				// remove this race's granted templates from the available list and place into selected list
 				//
 				moveGrantedTemplatesFromAvailableToSelected(((Race) thisPObject).getTemplateList(), selectedList,
-				    selectedList2, availableList);
+					selectedList2, availableList);
 
 				pnlTemplates.setAvailableList(availableList, true);
 				pnlTemplates.setSelectedList(selectedList, true);
@@ -1472,7 +1473,7 @@ public final class EditorMainForm extends JDialog
 					for (int index = 0; index < cm.getNumberOfMovementTypes(); index++)
 					{
 						final String aMove = MovementPanel.makeMoveString(cm.getMovementType(index),
-							    cm.getMovement(index), null, null);
+								cm.getMovement(index), null, null);
 						movementValues.add(aMove);
 					}
 				}
@@ -1734,7 +1735,7 @@ public final class EditorMainForm extends JDialog
 				if ((lvlInfo != null) && (lvlInfo.size() != iCount))
 				{
 					Logging.errorPrint(Integer.toString(iCount) + " classes and domains found. Should have been "
-					    + Integer.toString(lvlInfo.size()) + "\n" + lvlInfo);
+						+ Integer.toString(lvlInfo.size()) + "\n" + lvlInfo);
 				}
 
 				break;
@@ -1763,7 +1764,7 @@ public final class EditorMainForm extends JDialog
 				// remove this template's granted templates from the available list and place into selected list
 				//
 				moveGrantedTemplatesFromAvailableToSelected(((PCTemplate) thisPObject).getTemplateList(), selectedList,
-				    selectedList2, availableList);
+					selectedList2, availableList);
 
 				pnlTemplates.setAvailableList(availableList, true);
 				pnlTemplates.setSelectedList(selectedList, true);
@@ -2075,7 +2076,7 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 
-			    //
+				//
 				// Domain Spells allow levels 1 to 9
 				//
 				availableList.clear();
@@ -2303,7 +2304,7 @@ public final class EditorMainForm extends JDialog
 	 * @param availableList
 	 */
 	private static void moveGrantedTemplatesFromAvailableToSelected(List templateList, List selectedList,
-	    List selectedList2, List availableList)
+		List selectedList2, List availableList)
 	{
 		Iterator e;
 		String aString;
@@ -2375,7 +2376,7 @@ public final class EditorMainForm extends JDialog
 				//lblVariable = new JLabel();
 				pnlDomains = new AvailableSelectedPanel();
 				pnlFollowers = new QualifiedAvailableSelectedPanel("in_demQualifier", "in_demVariable",
-					    new EditorAddFilter()
+						new EditorAddFilter()
 						{
 							public Object encode(Object anObj)
 							{
@@ -2387,7 +2388,7 @@ public final class EditorMainForm extends JDialog
 								return decodeFollowerEntry((String) anObj);
 							}
 						},
-					    new ItemListener()
+						new ItemListener()
 						{
 							public void itemStateChanged(ItemEvent evt)
 							{
@@ -2403,7 +2404,7 @@ public final class EditorMainForm extends JDialog
 				pnlSkills = new AvailableSelectedPanel(true);
 				pnlWeapons = new AvailableSelectedPanel();
 				pnlQSpells = new QualifiedAvailableSelectedPanel("in_demLevel", null,
-					    new EditorAddFilter()
+						new EditorAddFilter()
 						{
 							public Object encode(Object anObj)
 							{
@@ -2456,7 +2457,7 @@ public final class EditorMainForm extends JDialog
 				//lblVariable = new JLabel();
 				pnlClasses = new AvailableSelectedPanel(true);
 				pnlSynergy = new QualifiedAvailableSelectedPanel("in_demSkillRank", "in_demSynergyBonus",
-					    new EditorAddFilter()
+						new EditorAddFilter()
 						{
 							public Object encode(Object anObj)
 							{
@@ -2474,7 +2475,7 @@ public final class EditorMainForm extends JDialog
 			case EditorConstants.EDIT_SPELL:
 				pnlBase2 = new SpellBasePanel2();
 				pnlQClasses = new QualifiedAvailableSelectedPanel("in_demLevel", null,
-					    new EditorAddFilter()
+						new EditorAddFilter()
 						{
 							public Object encode(Object anObj)
 							{
@@ -2487,7 +2488,7 @@ public final class EditorMainForm extends JDialog
 							}
 						}, null);
 				pnlQDomains = new QualifiedAvailableSelectedPanel("in_demLevel", null,
-					    new EditorAddFilter()
+						new EditorAddFilter()
 						{
 							public Object encode(Object anObj)
 							{
@@ -2623,7 +2624,7 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_DOMAIN:
-			    jTabbedPane1.addTab("Spell Lists", pnlQSpells);
+				jTabbedPane1.addTab("Spell Lists", pnlQSpells);
 				break;
 
 			case EditorConstants.EDIT_FEAT:
@@ -2838,7 +2839,7 @@ public final class EditorMainForm extends JDialog
 						final String qualifierType = aTok.nextToken();
 						final String variableName = aTok.nextToken();
 						parseAlignment(availableList, selectedList, aTok.nextToken(),
-						    " [" + qualifierType + ":" + variableName + ']');
+							" [" + qualifierType + ":" + variableName + ']');
 					}
 
 					i = idx;
@@ -2868,7 +2869,7 @@ public final class EditorMainForm extends JDialog
 			// we can correct the naming when we save
 			//
 			if ((bonusParts.size() == 5) && ((String) bonusParts.get(3)).startsWith("PRESKILL:1,")
-			    && ((String) bonusParts.get(4)).equalsIgnoreCase("TYPE=Synergy.STACK"))
+				&& ((String) bonusParts.get(4)).equalsIgnoreCase("TYPE=Synergy.STACK"))
 			{
 				final String bonus = (String) bonusParts.get(2);
 				String skill = ((String) bonusParts.get(3)).substring(11);
@@ -3036,7 +3037,8 @@ public final class EditorMainForm extends JDialog
 			saList.clear(); // or else it will get doubled on a save!
 		}
 
-		String drString = thisPObject.getDR();
+
+		String drString = DamageReduction.getDRString(null,thisPObject.getDRList());
 
 		if (drString != null)
 		{
