@@ -30,8 +30,10 @@ package pcgen.gui.tabs;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -42,7 +44,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -56,9 +57,9 @@ import java.util.StringTokenizer;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListSelectionModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -105,6 +106,8 @@ import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.EQFrame;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
@@ -146,12 +149,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private static int viewSelectMode = GuiConstants.INFOINVENTORY_VIEW_NAME; // keep track of what view mode we're in for Selected. defaults to "Name"
 	private static Integer saveAvailableViewMode = null;
 	private static Integer saveSelectedViewMode = null;
-	private static final int NUM_COL_AVAILABLE = 3;
-	private static final int NUM_COL_SELECTED = 4;
 	private static final int COL_NAME = 0;
 	private static final int COL_COST = 1;
-	private static final int COL_QTY_SRC = 2;
+	private static final int COL_QTY = 2;
 	private static final int COL_INDEX = 3;
+	private static final int COL_SRC = 4;
 
 	/**
 	 * typeSubtypeRoot is the base structure used by both the available
@@ -172,13 +174,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private FlippingSplitPane splitPane;
 	private JComboBoxEx cmbBuyPercent = new JComboBoxEx();
 	private JComboBoxEx cmbSellPercent = new JComboBoxEx();
-	private final JLabel avaLabel    = new JLabel("Available");
-	private final JLabel lblAvailableQFilter = new JLabel("QuickFilter:");
-	private final JLabel lblSelectedQFilter  = new JLabel("QuickFilter:");
+	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
+	private final JLabel lblSelectedQFilter  = new JLabel("Filter:");
 	private final JLabel goldLabel   = new JLabel(Globals.getLongCurrencyDisplay() + ": ");
 	private final JLabel lblBuyRate  = new JLabel("Buy percentage:");
 	private final JLabel lblSellRate = new JLabel("Sell percentage:");
-	private final JLabel selLabel    = new JLabel("Selected");
 	private final JLabel valueLabel  = new JLabel("Total Value: ");
 	private JButton addButton;
 	private JButton removeButton;
@@ -187,6 +187,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private JCheckBox allowDebtBox = new JCheckBox("Allow Debt");
 	private JCheckBox autoResize   = new JCheckBox("Auto Resize");
 	private JCheckBox autoSort     = new JCheckBox("Auto-sort output", true);
+	private JCheckBox chkViewAll = new JCheckBox();
 	private JCheckBox costBox      = new JCheckBox("Ignore Cost");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
@@ -198,7 +199,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private JPanel pnlSell = new JPanel();
 	private JPanel south   = new JPanel();
 	private JScrollPane eqScroll = new JScrollPane();
-	private JScrollPane scrollPane;
+//rivate JScrollPane scrollPane;
 	private JTextField textAvailableQFilter = new JTextField();
 	private JTextField textSelectedQFilter = new JTextField();
 	private JTextField gold = new JTextField();
@@ -828,7 +829,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					Float qty = new Float(newQty);
 					updatedItem.setQty(qty);
 					updatedItem.setNumberCarried(qty);
-					selectedModel.setValueForItemInNodes(null, updatedItem, newQty, COL_QTY_SRC);
+					selectedModel.setValueForItemInNodes(null, updatedItem, newQty, COL_QTY);
 				}
 			}
 			else // item is not in inventory; add it
@@ -1166,6 +1167,100 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	}
 
 	/**
+	 * Build the panel with the controls to add an item to the 
+	 * selected list.
+	 *  
+	 * @return The panel.
+	 */
+	private JPanel buildModPanel(JButton button, String title)
+	{
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(button, title); //$NON-NLS-1$
+		button.setEnabled(false);
+		button.setMargin(new Insets(1, 14, 1, 14));
+		panel.add(button);
+
+		return panel;
+	}
+
+	/**
+	 * Build the panel with the controls to add an item to the 
+	 * selected list.
+	 *  
+	 * @return The panel.
+	 */
+	private JPanel buildDelPanel(JButton button, String title)
+	{
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(button, title); //$NON-NLS-1$
+		button.setEnabled(false);
+		button.setMargin(new Insets(1, 14, 1, 14));
+		panel.add(button);
+		if (SettingsHandler.allowFeatDebugging())
+		{
+			panel.add(chkViewAll);
+		}
+
+		return panel;
+	}
+
+	private JPanel buildRemoveItemPanel()
+	{
+		JPanel riPanel = new JPanel();
+		riPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		riPanel.add(removeButton);
+
+		autoSort.setSelected(pc.getAutoSpells());
+		riPanel.add(autoSort);
+		
+		Utility.setDescription(autoSort, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
+		autoSort.setEnabled(true);
+		autoSort.setMargin(new Insets(1, 14, 1, 14));
+
+		return riPanel;
+	}
+	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
+	{
+		GridBagConstraints c = new GridBagConstraints();
+		JPanel filterPanel = new JPanel(new GridBagLayout());
+
+		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(treeLabel, c);
+
+		Utility.buildConstraints(c, 1, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(treeCb, c);
+
+		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(filterLabel, c);
+		
+		Utility.buildConstraints(c, 3, 0, 1, 1, 95, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.LINE_START;
+		filterPanel.add(filterText, c);
+		
+		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
+		c.insets = new Insets(1, 2, 1, 2);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		clearButton.setEnabled(false);
+		filterPanel.add(clearButton, c);
+		
+		return filterPanel;
+	}
+
+	/**
 	 * Creates the EquipmentModel that will be used.
 	 **/
 	private void createModels()
@@ -1288,7 +1383,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		selectedTable = new JTreeTable(selectedModel);
 
-		selectedTable.getColumnModel().getColumn(COL_QTY_SRC).setCellEditor(new QuantityEditor());
+		selectedTable.getColumnModel().getColumn(COL_QTY).setCellEditor(new QuantityEditor());
 		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellEditor(new OutputOrderEditor(
 				new String[]{ "First", "Last", "Hidden" }));
 
@@ -1515,27 +1610,28 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		PCGen_Frame1.setMessageAreaTextWithoutSaving("Equipment character is not proficient with are in Red.");
 		refresh();
 
+		int width;
 		int s = splitPane.getDividerLocation();
 		int t = bsplit.getDividerLocation();
 		int u = asplit.getDividerLocation();
-		int width;
-		TableColumn[] acol = new TableColumn[NUM_COL_AVAILABLE];
-		TableColumn[] scol = new TableColumn[NUM_COL_SELECTED];
-		int[] awidth = new int[NUM_COL_AVAILABLE];
-		int[] swidth = new int[NUM_COL_SELECTED];
 
-		for (int i = 0; i < NUM_COL_AVAILABLE; i++)
-		{
-			acol[i] = availableTable.getColumnModel().getColumn(i);
-			awidth[i] = acol[i].getWidth();
-		}
-
-		for (int i = 0; i < NUM_COL_SELECTED; i++)
-		{
-			scol[i] = selectedTable.getColumnModel().getColumn(i);
-			swidth[i] = scol[i].getWidth();
-		}
-
+//		TableColumn[] acol = new TableColumn[NUM_COL_AVAILABLE];
+//		TableColumn[] scol = new TableColumn[NUM_COL_SELECTED];
+//		int[] awidth = new int[NUM_COL_AVAILABLE];
+//		int[] swidth = new int[NUM_COL_SELECTED];
+//
+//		for (int i = 0; i < NUM_COL_AVAILABLE; i++)
+//		{
+//			acol[i] = availableTable.getColumnModel().getColumn(i);
+//			awidth[i] = acol[i].getWidth();
+//		}
+//
+//		for (int i = 0; i < NUM_COL_SELECTED; i++)
+//		{
+//			scol[i] = selectedTable.getColumnModel().getColumn(i);
+//			swidth[i] = scol[i].getWidth();
+//		}
+//
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
@@ -1549,11 +1645,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				TableColumn sCol = selectedTable.getColumnModel().getColumn(i);
 				width = Globals.getCustColumnWidth("InvSel", i);
 
-				if (width == 0)
-				{
-					sCol.setPreferredWidth(swidth[i]);
-				}
-				else
+				if (width != 0)
 				{
 					sCol.setPreferredWidth(width);
 				}
@@ -1567,11 +1659,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				TableColumn sCol = availableTable.getColumnModel().getColumn(i);
 				width = Globals.getCustColumnWidth("InvAva", i);
 
-				if (width == 0)
-				{
-					sCol.setPreferredWidth(swidth[i]);
-				}
-				else
+				if (width != 0)
 				{
 					sCol.setPreferredWidth(width);
 				}
@@ -1653,13 +1741,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					viewSelectComboBoxActionPerformed();
 				}
 			});
-		textAvailableQFilter.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					setAvailableQFilter();
-				}
-			});
 		textAvailableQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
 				public void changedUpdate(DocumentEvent evt)
@@ -1680,13 +1761,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				public void actionPerformed(ActionEvent evt)
 				{
 					clearAvailableQFilter();
-				}
-			});
-		textSelectedQFilter.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					setSelectedQFilter();
 				}
 			});
 		textSelectedQFilter.getDocument().addDocumentListener(new DocumentListener()
@@ -1941,116 +2015,61 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		center.setLayout(new BorderLayout());
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JPanel leftPane = new JPanel();
 		JPanel rightPane = new JPanel();
-		leftPane.setLayout(gridbag);
+
 		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
 		center.add(splitPane, BorderLayout.CENTER);
 
-		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
+		// Top Left - Available
+		leftPane.setLayout(new BorderLayout());
 
-		JPanel aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-		aPanel.add(avaLabel);
-		aPanel.add(viewComboBox);
-
-		ImageIcon newImage;
-		newImage = IconUtilitities.getImageIcon("Forward16.gif");
-		addButton = new JButton(newImage);
-		Utility.setDescription(addButton, "Click to add the selected item from the Available list of equipment");
-		addButton.setEnabled(false);
-		aPanel.add(addButton);
-		leftPane.add(aPanel);
-
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(lblAvailableQFilter, c);
-		leftPane.add(lblAvailableQFilter);
+		JLabel avaLabel = new JLabel("Available: ");
+		leftPane.add(createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 		
-		Utility.buildConstraints(c, 1, 1, 1, 1, 95, 0);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(textAvailableQFilter, c);
-		leftPane.add(textAvailableQFilter);
-		
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(clearAvailableQFilterButton, c);
-		clearAvailableQFilterButton.setEnabled(false);
-		leftPane.add(clearAvailableQFilterButton);
+		JScrollPane scrollPane = new JScrollPane(availableTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		leftPane.add(scrollPane, BorderLayout.CENTER);
+
+		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
+		leftPane.add(buildModPanel(addButton, "Click to add the selected item from the Available list of items"), BorderLayout.SOUTH);
+
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
 
 		availableTable.setColAlign(COL_COST, SwingConstants.RIGHT);
-		availableTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
-		availableTable.setColAlign(COL_QTY_SRC, SwingConstants.LEFT);
+//		availableTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
+//		availableTable.setColAlign(COL_SRC, SwingConstants.LEFT);
+		new TableColumnManager(availableTable, columnButton, availableModel);
 
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 95);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-		scrollPane = new JScrollPane(availableTable);
-		gridbag.setConstraints(scrollPane, c);
-		leftPane.add(scrollPane);
+		// Right Pane - Selected
+		rightPane.setLayout(new BorderLayout());
 
-		gridbag = new GridBagLayout();
-		c = new GridBagConstraints();
-		rightPane.setLayout(gridbag);
+		JLabel selLabel = new JLabel("Selected: ");
+		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
-		Utility.buildConstraints(c, 0, 0, 3, 1, 100, 5);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.CENTER;
-		aPanel = new JPanel();
-		gridbag.setConstraints(aPanel, c);
-		aPanel.add(selLabel);
-		aPanel.add(viewSelectComboBox);
-		newImage = IconUtilitities.getImageIcon("Back16.gif");
-		removeButton = new JButton(newImage);
-		Utility.setDescription(removeButton, "Click to add the selected item from the Selected list of equipment");
-		removeButton.setEnabled(false);
-		aPanel.add(removeButton);
-		aPanel.add(autoSort);
-		rightPane.add(aPanel);
+		scrollPane = new JScrollPane(selectedTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		rightPane.add(scrollPane, BorderLayout.CENTER);
 
-		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(lblSelectedQFilter, c);
-		rightPane.add(lblSelectedQFilter);
-		
-		Utility.buildConstraints(c, 1, 1, 1, 1, 95, 0);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(textSelectedQFilter, c);
-		rightPane.add(textSelectedQFilter);
-		
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		gridbag.setConstraints(clearSelectedQFilterButton, c);
-		clearSelectedQFilterButton.setEnabled(false);
-		rightPane.add(clearSelectedQFilterButton);
+		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
+		rightPane.add(buildDelPanel(removeButton, "Click to remove the selected item from the Selected list of items"), BorderLayout.SOUTH);
 
-		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
-		selectedTable.setColAlign(COL_COST, SwingConstants.RIGHT);
-		selectedTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
-		selectedTable.setColAlign(COL_QTY_SRC, SwingConstants.CENTER);
-		selectedTable.getColumnModel().getColumn(COL_QTY_SRC).setPreferredWidth(10);
-		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellRenderer(new OutputOrderRenderer());
-		selectedTable.getColumnModel().getColumn(COL_INDEX).setPreferredWidth(20);
+		JButton columnButton2 = new JButton();
+		scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+//		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
+//		selectedTable.setColAlign(COL_COST, SwingConstants.RIGHT);
+//		selectedTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
+//		selectedTable.setColAlign(COL_QTY, SwingConstants.CENTER);
+//		selectedTable.getColumnModel().getColumn(COL_QTY).setPreferredWidth(10);
+//		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellRenderer(new OutputOrderRenderer());
+//		selectedTable.getColumnModel().getColumn(COL_INDEX).setPreferredWidth(20);
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 90);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-		scrollPane = new JScrollPane(selectedTable);
-		gridbag.setConstraints(scrollPane, c);
-		rightPane.add(scrollPane);
+		rightPane.add(buildRemoveItemPanel(), BorderLayout.SOUTH);
 
 		TitledBorder title1 = BorderFactory.createTitledBorder("Equipment Info");
 		title1.setTitleJustification(TitledBorder.CENTER);
@@ -2401,7 +2420,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			clearSelectedQFilter();
 			return;
 		}
-		availableModel.setQFilter(aString);
 		selectedModel.setQFilter(aString);
 
 		if (saveSelectedViewMode == null)
@@ -3256,11 +3274,20 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * nodes which have at least 1 child are not leafs. Leafs are like files
 	 * and non-leafs are like directories.
 	 **/
-	private final class EquipmentModel extends AbstractTreeTableModel {
+	private final class EquipmentModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	{
 		private int currentMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME;
 
+		private static final int MODEL_TYPE_AVAIL = 0;
+		private static final int MODEL_TYPE_SELECTED = 1;
+
+		// Names of the columns.
+		private String[] names = { "Item", "Cost", "Qty", "Order",  "Source" };
+		private int[] widths = { 100, 100, 100, 100, 100 };
+
 		// Types of the columns.
-		private int modelType = 0; // availableModel=0,selectedModel=1
+		private int modelType = MODEL_TYPE_AVAIL; // availableModel
+		private List displayList;
 
 		/**
 		 * Creates a EquipmentModel
@@ -3271,16 +3298,30 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			super(null);
 
 			if (!available) {
-				modelType = 1;
+				modelType = MODEL_TYPE_SELECTED;
 			}
 
 			resetModel(mode, available);
+			int i = 1;
+			displayList = new ArrayList();
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+			if(available)
+			{
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
+			}
+			else
+			{
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+			}		
 		}
 
 		public boolean isCellEditable(Object node, int column) {
 			return ((column == COL_NAME)
-			|| ((modelType == 1) && (((PObjectNode) node).getItem() instanceof Equipment)
-			&& ((column == COL_QTY_SRC) || (column == COL_INDEX))));
+			|| ((modelType == MODEL_TYPE_SELECTED) && (((PObjectNode) node).getItem() instanceof Equipment)
+			&& ((column == COL_QTY) || (column == COL_INDEX))));
 		}
 
 		/**
@@ -3288,32 +3329,16 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column) {
-			switch (column) {
-				case COL_NAME:
-					return TreeTableModel.class;
-
-				case COL_COST:
-					return BigDecimal.class;
-
-				case COL_QTY_SRC:
-					if (modelType == 0) {
-						return String.class;
-					}
-
-					return Float.class;
-
-				case COL_INDEX:
-					return Integer.class;
-
-				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.getColumnClass the column " + column
-						+ " is not supported.");
-
-					break;
+		public Class getColumnClass(int column)
+		{
+			if(column == COL_NAME)
+			{
+				return TreeTableModel.class;
 			}
-
-			return String.class;
+			else
+			{
+				return String.class;
+			}
 		}
 
 		/* The JTreeTableNode interface. */
@@ -3322,12 +3347,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * Returns int number of columns.
 		 * @return column count
 		 */
-		public int getColumnCount() {
-			if (modelType == 0) {
-				return NUM_COL_AVAILABLE;
-			}
-
-			return NUM_COL_SELECTED;
+		public int getColumnCount()
+		{
+			return names.length;
 		}
 
 		/**
@@ -3335,39 +3357,91 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param column
 		 * @return column name
 		 */
-		public String getColumnName(int column) {
-			switch (column) {
-				case COL_NAME:
-					return "Item";
-
-				case COL_COST:
-					return "Cost";
-
-				case COL_QTY_SRC:
-					if (modelType == 0) {
-						return "Source";
-					}
-					return "Qty";
-
-				case COL_INDEX:
-					return "Order";
-
-				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.getColumnName the column " + column + " is not supported.");
-					return "";
-			}
+		public String getColumnName(int column) 
+		{
+			return names[column];
 		}
 
 		public Object getRoot() {
 			return (PObjectNode) super.getRoot();
 		}
 
+		/**
+		 * Returns Object value of the column.
+		 * @param node
+		 * @param column
+		 * @return value
+		 */
+		public Object getValueAt(Object node, int column)
+		{
+			final PObjectNode fn = (PObjectNode) node;
+			Object retVal = null;
+
+			Equipment eq = null;
+			Object temp = fn.getItem();
+			if (temp instanceof Equipment)
+			{
+				eq = (Equipment) temp;
+			}
+
+			switch (column) {
+				case COL_NAME:
+					retVal = fn.toString();
+					break;
+					
+				case COL_COST:
+					if (eq != null)
+					{
+						retVal = eq.getCost(pc).toString();
+					}
+					break;
+
+				case COL_QTY:
+					if (eq != null)
+					{
+						retVal = new Double(eq.qty()).toString();
+					}
+					break;
+
+				case COL_INDEX: // Output index
+					if (eq != null)
+					{
+						retVal = new Integer(eq.getOutputIndex()).toString();
+					}
+					break;
+
+				case COL_SRC: // Source
+					retVal = fn.getSource();
+					break;
+
+				case -1:
+					retVal = fn.getItem();
+					break;
+
+				default:
+					Logging.errorPrint("In InfoGear.EquipmentModel.getValueAt the column " + column + " is not supported.");
+					break;
+			}
+			return retVal;
+		}
+
+		/** 
+		 * "There can be only one" There must be a root object, though it can be hidden
+		 * to make it's existence basically a convenient way to keep track of the objects
+		 * 
+		 * @param aNode
+		 */
+		private void setRoot(PObjectNode aNode) {
+			super.setRoot(aNode);
+		}
+
+
 		public void setValueAt(Object value, Object node, int column) {
 			if (pc == null) {
 				return;
 			}
 
-			if (modelType != 1) {
+			if (modelType != MODEL_TYPE_SELECTED) {
 				return; // can only set values for selectedTableModel
 			}
 
@@ -3384,8 +3458,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 
 			switch (column) {
-				case COL_QTY_SRC:
-					setColumnQtySrc(selectedEquipment, value);
+				case COL_QTY:
+					setColumnQty(selectedEquipment, value);
 					break;
 
 				case COL_INDEX:
@@ -3398,7 +3472,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 		}
 
-		private void setColumnQtySrc(Equipment eq, Object value) {
+		private void setColumnQty(Equipment eq, Object value) {
 			double qtyToAdd = ((Float) value).floatValue() - eq.qty();
 
 			if (qtyToAdd > 0.0) {
@@ -3442,87 +3516,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			pc.setDirty(true);
 		}
 
-		/**
-		 * Returns Object value of the column.
-		 * @param node
-		 * @param column
-		 * @return value
-		 */
-		public Object getValueAt(Object node, int column) {
-			final PObjectNode fn = (PObjectNode) node;
-
-			switch (column) {
-				case COL_NAME: // Name
-					return getColumnName(fn);
-
-				case COL_COST: // Cost
-					return getColumnCost(fn);
-
-				case COL_QTY_SRC: // Source or Qty
-					return getColumnQtySrc(fn);
-
-				case COL_INDEX: // Output index
-					return getColumnIndex(fn);
-
-				case -1:
-					return getColumnEquipment(fn);
-
-				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.getValueAt the column " + column + " is not supported.");
-				  return null;
-			}
-		}
-
-		private Object getColumnEquipment(PObjectNode fn) {
-			if (fn != null) {
-				return fn.getItem();
-			}
-			Logging.errorPrint("Somehow we have no active node when doing getValueAt in InfoGear.");
-			return null;
-		}
-
-		private Object getColumnName(PObjectNode fn) {
-			if (fn != null) {
-				return fn.toString();
-			}
-			Logging.errorPrint("Somehow we have no active node when doing getValueAt in InfoGear.");
-			return "";
-		}
-
-		private Object getColumnCost(PObjectNode fn) {
-			if((fn != null) && (fn.getItem() instanceof Equipment)) {
-				Equipment aEq = (Equipment) fn.getItem();
-				return BigDecimalHelper.trimBigDecimal(aEq.getCost(pc));
-			}
-			return null;
-		}
-
-		private Object getColumnQtySrc(PObjectNode fn) {
-			if ((fn != null) && (modelType == 0)) {
-				StringBuffer b = new StringBuffer();
-				b.append("   ");
-				b.append(fn.getSource());
-
-				return b.toString();
-			}
-
-			if((fn != null) && (fn.getItem() instanceof Equipment)) {
-				Equipment aEq = (Equipment) fn.getItem();
-				return new Float(aEq.qty());
-			}
-			return null;
-		}
-
-		private Object getColumnIndex(PObjectNode fn) {
-			int outputIndex = 0;
-			if((fn != null) && (fn.getItem() instanceof Equipment)) {
-				Equipment aEq = (Equipment) fn.getItem();
-				outputIndex = aEq.getOutputIndex();
-			}
-
-			return new Integer(outputIndex);
-		}
-
 		private Equipment getBaseEquipment(Equipment selectedEquipment) {
 			String keyName = selectedEquipment.getKeyName();
 			Equipment baseEquipment = EquipmentList.getEquipmentNamed(keyName);
@@ -3532,16 +3525,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 
 			return baseEquipment;
-		}
-
-		/** 
-		 * "There can be only one" There must be a root object, though it can be hidden
-		 * to make it's existence basically a convenient way to keep track of the objects
-		 * 
-		 * @param aNode
-		 */
-		private void setRoot(PObjectNode aNode) {
-			super.setRoot(aNode);
 		}
 
 		private void setValueForItemInNodes(PObjectNode p, Equipment e, double f, int column) {
@@ -3556,7 +3539,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				final Equipment pe = (Equipment) obj;
 
 				switch (column) {
-					case COL_QTY_SRC:
+					case COL_QTY:
 						pe.setQty(new Float(f));
 
 						if (pe.getCarried().floatValue() > f) {
@@ -3823,12 +3806,62 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @return true if should be displayed
 		 */
 		private boolean shouldDisplayThis(Equipment equip) {
-			if (modelType == 0) {
+			if (modelType == MODEL_TYPE_AVAIL) {
 				return accept(pc, equip);
 			}
 			return true;
 		}
-	}
+		public List getMColumnList()
+		{
+			List retList = new ArrayList();
+			for(int i = 1; i < names.length; i++) {
+				retList.add(names[i]);
+			}
+			return retList;
+		}
+
+		public List getMColumnAlignList()
+		{
+			List retAlignList = new ArrayList();
+			for(int i = 1; i < names.length; i++) {
+				retAlignList.add(names[i]);
+			}
+			return retAlignList;
+		}
+
+		public boolean isMColumnDisplayed(int col)
+		{
+			return ((Boolean)displayList.get(col)).booleanValue();
+		}
+
+		public void setMColumnDisplayed(int col, boolean disp)
+		{
+			setColumnViewOption(modelType + "." + names[col + getMColumnOffset()], disp);
+			displayList.set(col, new Boolean(disp));
+		}
+
+		public int getMColumnOffset()
+		{
+			return 1;
+		}
+
+		public int getMColumnDefaultWidth(int col) {
+			return SettingsHandler.getPCGenOption("InfoGear.sizecol." + names[col + getMColumnOffset()], widths[col + getMColumnOffset()]);
+		}
+
+
+		public void setMColumnDefaultWidth(int col, int width) {
+			SettingsHandler.setPCGenOption("InfoGear.sizecol." + names[col + getMColumnOffset()], width);
+		}
+
+		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+			return SettingsHandler.getPCGenOption("InfoGear.viewcol." + colName, defaultVal);
+		}
+		
+		private void setColumnViewOption(String colName, boolean val) {
+			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val);
+		}
+}
 
 	private static final class QuantityEditor extends JTextField implements TableCellEditor
 	{
