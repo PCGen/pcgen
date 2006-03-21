@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Mar 21 09:25:20 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58
+#Original Entry By: Sean Silva-Miramon
+
+###Block:Attack
+# Modifier Name		Unique Key			Type					Visible		Source Page		Required Type			Special Property				Automaticaly Added to Inventory
+Slingshot Massdriver	KEY:ATTK_SLNG_MSSDRVR	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:p.11	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Slingshot Massdriver)	AUTO:EQUIP|Slingshot Massdriver
+
