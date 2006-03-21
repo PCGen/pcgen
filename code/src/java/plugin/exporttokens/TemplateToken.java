@@ -38,7 +38,7 @@ import java.util.StringTokenizer;
 /**
  * Deals with returning the values for the TEMPALTE Token
  * and it's Sub Tokens
- * 
+ *
  * TEMPLATE
  * TEMPLATE.x.NAME
  * TEMPLATE.x.OUTPUTNAME
@@ -110,7 +110,8 @@ public class TemplateToken extends Token
 			}
 			else if ("DR".equals(aLabel))
 			{
-				retString = getDRToken(template, pc);
+				retString = pc.calcDR();
+//				retString = getDRToken(template, pc);
 			}
 			else
 			{
@@ -138,13 +139,13 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of DR sub token
 	 */
-	public static String getDRToken(PCTemplate template, PlayerCharacter pc)
-	{
-		return template.getDR(pc.getTotalLevels(), pc.totalHitDice());
-	}
+//	public static String getDRToken(PCTemplate template, PlayerCharacter pc)
+//	{
+//		return template.getDR(pc.getTotalLevels(), pc.totalHitDice());
+//	}
 
 	/**
-	 * Get value of FEAT sub token 
+	 * Get value of FEAT sub token
 	 * @param template
 	 * @param pc
 	 * @return value of FEAT sub token
@@ -253,7 +254,7 @@ public class TemplateToken extends Token
 	}
 
 	/**
-	 * Get value of SR Sub token 
+	 * Get value of SR Sub token
 	 * @param template
 	 * @param pc
 	 * @return value of SR Sub token
