@@ -81,12 +81,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 //		race.setDR("5/Good");
 		race.addDR(new DamageReduction("5", "Good"));
-		assertEquals("Basic DR set.", "5/Good", race.getDRList().toString());
+		assertEquals("Basic DR set.", "5/Good", race.getDRList().get(0).toString());
 
 		race.clearDR();
 //		race.setDR("0/-");
 		race.addDR(new DamageReduction("0", "-"));
-		assertEquals("Basic DR set.", "0/-", race.getDRList().toString());
+		assertEquals("Basic DR set.", "0/-", race.getDRList().get(0).toString());
 
 //		template.setDR("0/-");
 		template.addDR(new DamageReduction("0", "-"));
