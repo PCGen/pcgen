@@ -43,6 +43,9 @@ import pcgen.core.utils.ListKey;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.core.prereq.Prerequisite;
 /**
  * <code>PCTemplate</code>.
  *
@@ -90,7 +93,7 @@ public final class PCTemplate extends PObject implements HasCost
 	private String  handed                = Constants.s_NONE;
 	private String  heightString          = Constants.s_NONE;
 	private String  levelAdjustment       = "0"; // now a string so that we can handle
-                                                 // formulae
+												 // formulae
 	private String  region                = Constants.s_NONE;
 	private String  subRace               = Constants.s_NONE;
 	private String  subregion             = Constants.s_NONE;
@@ -116,6 +119,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	private ArrayList removedSubTypes = new ArrayList();
 
+	private ArrayList levelMods = new ArrayList();
 
 	/**
 	 * Creates a new PCTemplate object.
@@ -142,7 +146,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Set the number of Bonus feats that this template grants the character it
 	 * is applied to at level 0 (i.e. before classes are added).
 	 *
-	 * @param  argBonusInitialFeats  Number of Bonus feats gained 
+	 * @param  argBonusInitialFeats  Number of Bonus feats gained
 	 */
 	public void setBonusInitialFeats(final int argBonusInitialFeats)
 	{
@@ -153,7 +157,7 @@ public final class PCTemplate extends PObject implements HasCost
 	/**
 	 * Get the number of Bonus feats that this template grants the character it
 	 * is applied to at level 0
-	 * 
+	 *
 	 * @return the number of Bonus feats
 	 */
 	public int getBonusInitialFeats()
@@ -216,22 +220,22 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(levelStrings); ++x)
 		{
 			if (
-			    contains(levelStrings.get(x).toString(), "CR:") &&
-			    doesLevelQualify(level, x))
+				contains(levelStrings.get(x).toString(), "CR:") &&
+				doesLevelQualify(level, x))
 			{
 				localCR += Integer.parseInt(
-					    getStringAfter("CR:", levelStrings.get(x).toString()));
+						getStringAfter("CR:", levelStrings.get(x).toString()));
 			}
 		}
 
 		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
 		{
 			if (
-			    contains(hitDiceStrings.get(x).toString(), "CR:") &&
-			    doesHitDiceQualify(hitdice, x))
+				contains(hitDiceStrings.get(x).toString(), "CR:") &&
+				doesHitDiceQualify(hitdice, x))
 			{
 				localCR += Integer.parseInt(
-					    getStringAfter("CR:", hitDiceStrings.get(x).toString()));
+						getStringAfter("CR:", hitDiceStrings.get(x).toString()));
 			}
 		}
 
@@ -265,7 +269,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Get a list of Feats chosen (from those potentially granted by this
-	 * Template) by the Character it was applied to. 
+	 * Template) by the Character it was applied to.
 	 *
 	 * @return  a hashmap of Feat names
 	 */
@@ -277,10 +281,10 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Set the COST of things granted by this Template.
-	 * 
+	 *
 	 * XXX This seems insane to me, it's used for at least two different
 	 * unrelated things in the code base.  The tag this is generated from
-	 * is undocumented and is not used in the current data. 
+	 * is undocumented and is not used in the current data.
 	 *
 	 * @param  argCost the cost as a string, it will be converted to a double
 	 * before being used.
@@ -310,53 +314,53 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param   level    The level to calculate the DR for
 	 * @param   hitdice  The Hit dice to calculate the DR for
 	 *
-	 * @return  the Damage Reduction granted by this Template at the given level and HD 
+	 * @return  the Damage Reduction granted by this Template at the given level and HD
 	 */
-	public String getDR(final int level, final int hitdice)
-	{
-		final StringBuffer drString = new StringBuffer();
-		boolean            isEmpty  = true;
-
-		if (getDR() != null)
-		{
-			drString.append(getDR().trim());
-			isEmpty = false;
-		}
-
-		int x;
-
-		for (x = 0; x < getListSize(levelStrings); ++x)
-		{
-			if (
-			    contains(levelStrings.get(x).toString(), "DR:") &&
-			    doesLevelQualify(level, x))
-			{
-				if (!isEmpty)
-				{
-					drString.append('|');
-				}
-				drString.append(getStringAfter("DR:", levelStrings.get(x).toString()));
-				isEmpty = false;
-			}
-		}
-
-		for (x = 0; x < getListSize(hitDiceStrings); ++x)
-		{
-			if (
-			    contains(hitDiceStrings.get(x).toString(), "DR:") &&
-			    doesHitDiceQualify(hitdice, x))
-			{
-				if (!isEmpty)
-				{
-					drString.append('|');
-				}
-				drString.append(getStringAfter("DR:", hitDiceStrings.get(x).toString()));
-				isEmpty = false;
-			}
-		}
-
-		return drString.toString();
-	}
+//	public String getDR(final int level, final int hitdice)
+//	{
+//		final StringBuffer drString = new StringBuffer();
+//		boolean            isEmpty  = true;
+//
+//		if (getDR() != null)
+//		{
+//			drString.append(getDR().trim());
+//			isEmpty = false;
+//		}
+//
+//		int x;
+//
+//		for (x = 0; x < getListSize(levelStrings); ++x)
+//		{
+//			if (
+//			    contains(levelStrings.get(x).toString(), "DR:") &&
+//			    doesLevelQualify(level, x))
+//			{
+//				if (!isEmpty)
+//				{
+//					drString.append('|');
+//				}
+//				drString.append(getStringAfter("DR:", levelStrings.get(x).toString()));
+//				isEmpty = false;
+//			}
+//		}
+//
+//		for (x = 0; x < getListSize(hitDiceStrings); ++x)
+//		{
+//			if (
+//			    contains(hitDiceStrings.get(x).toString(), "DR:") &&
+//			    doesHitDiceQualify(hitdice, x))
+//			{
+//				if (!isEmpty)
+//				{
+//					drString.append('|');
+//				}
+//				drString.append(getStringAfter("DR:", hitDiceStrings.get(x).toString()));
+//				isEmpty = false;
+//			}
+//		}
+//
+//		return drString.toString();
+//	}
 
 
 	/**
@@ -387,7 +391,7 @@ public final class PCTemplate extends PObject implements HasCost
 	/**
 	 * <code>setGenderLock</code> locks gender to appropriate PropertyFactory
 	 * setting if String matches 'Male','Female', or 'Neuter'.
-	 * 
+	 *
 	 * author arcady <arcady@users.sourceforge.net>
 	 *
 	 * @param  genderString
@@ -455,27 +459,27 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * 12
 	 *    The character now has a Hit Dice of 12.
-	 *    
+	 *
 	 * %+2
 	 *    Adds 2 to the current Hit Dice size.
-	 *    
+	 *
 	 * %-4
 	 *    Subtracts 4 from the current Hit Dice size.
-	 * 
+	 *
 	 * %*3
 	 *    Multiplies the current Hit Dice size by 3.
-	 * 
+	 *
 	 * %/2
 	 *    Divides the current Hit Dice size by 2.
-	 * 
+	 *
 	 * %up2
 	 *    Steps up the Hit Dice size by two steps. If the creature has a Hit
 	 *    Die of d6 it will be stepped up to d10.
-	 * 
+	 *
 	 * %down1
 	 *    Steps down the Hit Dice size by one step. If the creature has a Hit
 	 *    Die of d6 it will be stepped down to d4.
-	 * 
+	 *
 	 * %up1|CLASS.TYPE=Monster
 	 *    Steps up the Hit Dice size by one step for any Monster class levels
 	 *    the creature has. If the creature has a Monster class Hit Die of d8
@@ -504,7 +508,7 @@ public final class PCTemplate extends PObject implements HasCost
 	/**
 	 * Set a comma delimited list of the languages a character can choose from
 	 * based upon their Intelligence stat
-	 * 
+	 *
 	 * Identical function exists in PCClass.java. Refactor. XXX
 	 *
 	 * @param  aString
@@ -617,7 +621,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Takes an integer input which it uses to access Games mode's "statlist" array. 
+	 * Takes an integer input which it uses to access Games mode's "statlist" array.
 	 * If that stat has been locked at 10 then it is considered a non-ability.
 	 * XXX This is insanely bad design, it's completely arse about face. What should
 	 * have been done was find a way to mark a stat as a non-ability and then have the
@@ -660,7 +664,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Set up a penalty for being non=proficient with a weapon
 	 *
 	 * @param  npp the amount of penalty to apply to weapons that the creature
-	 * this template was applied to is not proficient with. 
+	 * this template was applied to is not proficient with.
 	 */
 	public void setNonProficiencyPenalty(final int npp)
 	{
@@ -670,8 +674,8 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Get the amount of penalty to apply to weapons that the creature
-	 * this template was applied to is not proficient with. 
-	 * 
+	 * this template was applied to is not proficient with.
+	 *
 	 * author: arcady June 4, 2002
 	 *
 	 * @return  nonProficiencyPenalty
@@ -931,10 +935,10 @@ public final class PCTemplate extends PObject implements HasCost
 	/**
 	 * Answers the question does the PC I've passed in meet the prerequisites of
 	 * this template.
-	 * 
+	 *
 	 * @param   aPC The PC that we're asking the question about
 	 *
-	 * @return true if the PC passes the Templates prerequisites  
+	 * @return true if the PC passes the Templates prerequisites
 	 */
 	public boolean isQualified(final PlayerCharacter aPC)
 	{
@@ -1049,7 +1053,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Query whether this Template is removable.  Factors in the visability of
-	 * the Template 
+	 * the Template
 	 *
 	 * @return  whether this Template is removable
 	 */
@@ -1058,8 +1062,8 @@ public final class PCTemplate extends PObject implements HasCost
 		boolean result = false;
 
 		if (
-		    (templateVisible == VISIBILITY_DEFAULT) ||
-		    (templateVisible == VISIBILITY_DISPLAY_ONLY))
+			(templateVisible == VISIBILITY_DEFAULT) ||
+			(templateVisible == VISIBILITY_DISPLAY_ONLY))
 		{
 			result = removable;
 		}
@@ -1072,7 +1076,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Get the Spell Resistance granted by this template to a character at a
 	 * given level (Class and Hit Dice).  This will include the absolute
 	 * adjustment made with SR:, LEVEL:<num>:SR and HD:<num>:SR tags
-	 * 
+	 *
 	 * Note: unlike DR and CR, the value returned here includes the PCs own
 	 * Spell Resistance.
 	 *
@@ -1080,7 +1084,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param   hitdice  The Hit dice to calculate the SR for
 	 * @param   aPC      DOCUMENT ME!
 	 *
-	 * @return  the Spell Resistance granted by this Template at the given level and HD 
+	 * @return  the Spell Resistance granted by this Template at the given level and HD
 	 */
 	public int getSR(final int level, final int hitdice, final PlayerCharacter aPC)
 	{
@@ -1089,26 +1093,26 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(levelStrings); ++x)
 		{
 			if (
-			    contains(levelStrings.get(x).toString(), "SR:") &&
-			    doesLevelQualify(level, x))
+				contains(levelStrings.get(x).toString(), "SR:") &&
+				doesLevelQualify(level, x))
 			{
 				aSR = Math.max(
-					    Integer.parseInt(
-					        getStringAfter("SR:", levelStrings.get(x).toString())),
-					    aSR);
+						Integer.parseInt(
+							getStringAfter("SR:", levelStrings.get(x).toString())),
+						aSR);
 			}
 		}
 
 		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
 		{
 			if (
-			    contains(hitDiceStrings.get(x).toString(), "SR:") &&
-			    doesHitDiceQualify(hitdice, x))
+				contains(hitDiceStrings.get(x).toString(), "SR:") &&
+				doesHitDiceQualify(hitdice, x))
 			{
 				aSR = Math.max(
-					    Integer.parseInt(
-					        getStringAfter("SR:", hitDiceStrings.get(x).toString())),
-					    aSR);
+						Integer.parseInt(
+							getStringAfter("SR:", hitDiceStrings.get(x).toString())),
+						aSR);
 			}
 		}
 
@@ -1138,12 +1142,12 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(levelStrings); ++x)
 		{
 			if (
-			    contains(levelStrings.get(x).toString(), "SA:") &&
-			    doesLevelQualify(level, x))
+				contains(levelStrings.get(x).toString(), "SA:") &&
+				doesLevelQualify(level, x))
 			{
 				final String         saString = getStringAfter(
-					    "SA:",
-					    levelStrings.get(x).toString());
+						"SA:",
+						levelStrings.get(x).toString());
 				final SpecialAbility sa       = new SpecialAbility(saString);
 
 				specialAbilityList.add(sa);
@@ -1153,12 +1157,12 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
 		{
 			if (
-			    contains(hitDiceStrings.get(x).toString(), "SA:") &&
-			    doesHitDiceQualify(hitdice, x))
+				contains(hitDiceStrings.get(x).toString(), "SA:") &&
+				doesHitDiceQualify(hitdice, x))
 			{
 				final String         saString = getStringAfter(
-					    "SA:",
-					    hitDiceStrings.get(x).toString());
+						"SA:",
+						hitDiceStrings.get(x).toString());
 				final SpecialAbility sa       = new SpecialAbility(saString);
 
 				specialAbilityList.add(sa);
@@ -1246,7 +1250,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Get the override that this template applies to size
-	 * 
+	 *
 	 * @return the size of the creature this Template is applied to
 	 */
 	public String getTemplateSize()
@@ -1257,13 +1261,13 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Set the visibility of this Template, where:
-	 * 
+	 *
 	 * 0 = VISIBILITY_HIDDEN
-	 * 
+	 *
 	 * 1 = VISIBILITY_DEFAULT
-	 * 
+	 *
 	 * 2 = VISIBILITY_OUTPUT_ONLY
-	 * 
+	 *
 	 * 3 = VISIBILITY_DISPLAY_ONLY
 	 *
 	 * @param  argTemplateVisible the visibility
@@ -1287,7 +1291,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Add to a list of Weapon Proficiencies that this template will grant to
-	 * creatures it is applied to.  Data is a | separated list of profs 
+	 * creatures it is applied to.  Data is a | separated list of profs
 	 *
 	 * @param  aString  the list of profs to add
 	 */
@@ -1336,8 +1340,8 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Set the override that this template applies to weight 
-	 * 
+	 * Set the override that this template applies to weight
+	 *
 	 * XXX another apparently useless piece of state with no accessor.
 	 *
 	 * @param  argWeightString the weight
@@ -1397,27 +1401,27 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 	}
 
-	
+
 	/**
-     * Grants the character an ability at the Hit die or hit die range specified.
-     * The text may contain the following tags: CR - Challenge Rating, DR - Damage
-     * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
-     * 
-     * 1-3:DR:5/1	Grants Damage Reduction of 5/+1 if natural hit dice is between
-     * 				one and three.
-     * 
-     * 1+:SR:15		Grants Spell Resistance of 15 if natural hit dice is greater
-     * 				than one.
-     * 
-     * 2-7:CR:2		Grants an increase in Challenge Rating of two if natural hit
-     * 				dice is between two and seven.
-     * 
-     * 15+:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability if natural
-     * 						hit dice is grater than fifteen.
-     * 
-     * 10+:FEAT:Alertness	Grants the "Alertness" feat if natural hit dice is
-     * 						greater than ten.
-     *
+	 * Grants the character an ability at the Hit die or hit die range specified.
+	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
+	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
+	 *
+	 * 1-3:DR:5/1	Grants Damage Reduction of 5/+1 if natural hit dice is between
+	 * 				one and three.
+	 *
+	 * 1+:SR:15		Grants Spell Resistance of 15 if natural hit dice is greater
+	 * 				than one.
+	 *
+	 * 2-7:CR:2		Grants an increase in Challenge Rating of two if natural hit
+	 * 				dice is between two and seven.
+	 *
+	 * 15+:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability if natural
+	 * 						hit dice is grater than fifteen.
+	 *
+	 * 10+:FEAT:Alertness	Grants the "Alertness" feat if natural hit dice is
+	 * 						greater than ten.
+	 *
 	 * @param  hitDiceString a string in the format specified above
 	 */
 	public void addHitDiceString(final String hitDiceString)
@@ -1431,7 +1435,34 @@ public final class PCTemplate extends PObject implements HasCost
 
 			return;
 		}
-
+		StringTokenizer tok = new StringTokenizer(hitDiceString, ":");
+		String hdStr = tok.nextToken();
+		String typeStr = tok.nextToken();
+		if ("DR".equals(typeStr))
+		{
+			String drVal = tok.nextToken();
+			String[] values = drVal.split("/");
+			if (values.length == 2)
+			{
+				DamageReduction dr = new DamageReduction(values[0], values[1]);
+				Prerequisite r = null;
+				try
+				{
+					PreParserFactory factory = PreParserFactory.getInstance();
+					r = factory.parse("PREHD:" + hdStr);
+				}
+				catch (PersistenceLayerException notUsed)
+				{
+					// Should never happen
+				}
+				if (r != null)
+				{
+					dr.addPreReq(r);
+				}
+				addDR(dr);
+			}
+			return;
+		}
 		if (hitDiceStrings == null)
 		{
 			hitDiceStrings = new ArrayList();
@@ -1442,23 +1473,23 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-     * Get an array of strings which may grant the following abilities at a given hit die:
-     * 
-     * 1-3:DR:5/1	Grants Damage Reduction of 5/+1 if natural hit dice is between
-     * 				one and three.
-     * 
-     * 1+:SR:15		Grants Spell Resistance of 15 if natural hit dice is greater
-     * 				than one.
-     * 
-     * 2-7:CR:2		Grants an increase in Challenge Rating of two if natural hit
-     * 				dice is between two and seven.
-     * 
-     * 15+:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability if natural
-     * 						hit dice is grater than fifteen.
-     * 
-     * 10+:FEAT:Alertness	Grants the "Alertness" feat if natural hit dice is
-     * 						greater than ten.
-     * 
+	 * Get an array of strings which may grant the following abilities at a given hit die:
+	 *
+	 * 1-3:DR:5/1	Grants Damage Reduction of 5/+1 if natural hit dice is between
+	 * 				one and three.
+	 *
+	 * 1+:SR:15		Grants Spell Resistance of 15 if natural hit dice is greater
+	 * 				than one.
+	 *
+	 * 2-7:CR:2		Grants an increase in Challenge Rating of two if natural hit
+	 * 				dice is between two and seven.
+	 *
+	 * 15+:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability if natural
+	 * 						hit dice is grater than fifteen.
+	 *
+	 * 10+:FEAT:Alertness	Grants the "Alertness" feat if natural hit dice is
+	 * 						greater than ten.
+	 *
 	 * @return an array of strings in the format specified above
 	 */
 	public ArrayList getHitDiceStrings()
@@ -1471,29 +1502,29 @@ public final class PCTemplate extends PObject implements HasCost
 		return hitDiceStrings;
 	}
 
-	
+
 
 	/**
-     * Grants the character an ability at the level specified (total character level).
-     * The text may contain the following tags: CR - Challenge Rating, DR - Damage
-     * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
-     * 
-     * Feats added by this tag are considered automatic feats and do not count against
-     * a PC's feat pool.
-     * 
-     * 1:DR:5/+1	Grants Damage Reduction of 5/+1 at Level 1.
-     * 
-     * 2:SR:15	Grants Spell Resistance of 15 at Level 2.
-     * 
-     * 3:CR:2	Grants an increase in Challenge Rating of two at Level 3.
-     * 
-     * 4:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability at Level 4.
-     * 
-     * 5:FEAT:Alertness	Grants the "Alertness" feat at Level 5.
-     * 
-     * 6:FEAT:TYPE.Fighter	Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
-     *
-	 * @param levelString a sting in the formate specified above 
+	 * Grants the character an ability at the level specified (total character level).
+	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
+	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
+	 *
+	 * Feats added by this tag are considered automatic feats and do not count against
+	 * a PC's feat pool.
+	 *
+	 * 1:DR:5/+1	Grants Damage Reduction of 5/+1 at Level 1.
+	 *
+	 * 2:SR:15	Grants Spell Resistance of 15 at Level 2.
+	 *
+	 * 3:CR:2	Grants an increase in Challenge Rating of two at Level 3.
+	 *
+	 * 4:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability at Level 4.
+	 *
+	 * 5:FEAT:Alertness	Grants the "Alertness" feat at Level 5.
+	 *
+	 * 6:FEAT:TYPE.Fighter	Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
+	 *
+	 * @param levelString a sting in the formate specified above
 	 */
 	public void addLevelString(final String levelString)
 	{
@@ -1504,6 +1535,35 @@ public final class PCTemplate extends PObject implements HasCost
 				levelStrings.clear();
 			}
 
+			return;
+		}
+		StringTokenizer tok = new StringTokenizer(levelString, ":");
+		String levelStr = tok.nextToken();
+		String typeStr = tok.nextToken();
+		if ("DR".equals(typeStr))
+		{
+			String drVal = tok.nextToken();
+			String[] values = drVal.split("/");
+			if (values.length == 2)
+			{
+				DamageReduction dr = new DamageReduction(values[0], values[1]);
+
+				Prerequisite r = null;
+				try
+				{
+					PreParserFactory factory = PreParserFactory.getInstance();
+					r = factory.parse("PRELEVEL:" + levelStr);
+				}
+				catch (PersistenceLayerException notUsed)
+				{
+					// Should never happen
+				}
+				if (r != null)
+				{
+					dr.addPreReq(r);
+				}
+				addDR(dr);
+			}
 			return;
 		}
 
@@ -1517,21 +1577,21 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-     * Grants the character an ability at the level specified (total character level).
-     * The text may contain the following tags: CR - Challenge Rating, DR - Damage
-     * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
-     * 
-     * 1:DR:5/+1	Grants Damage Reduction of 5/+1 at Level 1.
-     * 
-     * 2:SR:15	Grants Spell Resistance of 15 at Level 2.
-     * 
-     * 3:CR:2	Grants an increase in Challenge Rating of two at Level 3.
-     * 
-     * 4:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability at Level 4.
-     * 
-     * 5:FEAT:Alertness	Grants the "Alertness" feat at Level 5.
-     * 
-     * 6:FEAT:TYPE.Fighter	Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
+	 * Grants the character an ability at the level specified (total character level).
+	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
+	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
+	 *
+	 * 1:DR:5/+1	Grants Damage Reduction of 5/+1 at Level 1.
+	 *
+	 * 2:SR:15	Grants Spell Resistance of 15 at Level 2.
+	 *
+	 * 3:CR:2	Grants an increase in Challenge Rating of two at Level 3.
+	 *
+	 * 4:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability at Level 4.
+	 *
+	 * 5:FEAT:Alertness	Grants the "Alertness" feat at Level 5.
+	 *
+	 * 6:FEAT:TYPE.Fighter	Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
 	 *
 	 * @return  an array of stings in the format specified
 	 */
@@ -1545,7 +1605,7 @@ public final class PCTemplate extends PObject implements HasCost
 		return levelStrings;
 	}
 
-	
+
 
 	/**
 	 * Add a list of subsidiary Templates to this template i.e. Templates (or
@@ -1679,12 +1739,12 @@ public final class PCTemplate extends PObject implements HasCost
 	public String modifierString(final PlayerCharacter aPC)
 	{
 		final StringBuffer mods = new StringBuffer(50); // More likely to be true than 16
-                                                        // (the default)
+														// (the default)
 
 		for (
-		    int x = 0;
-		    x < SettingsHandler.getGame().getUnmodifiableStatList().size();
-		    ++x)
+			int x = 0;
+			x < SettingsHandler.getGame().getUnmodifiableStatList().size();
+			++x)
 		{
 			if (isNonAbility(x))
 			{
@@ -1706,6 +1766,11 @@ public final class PCTemplate extends PObject implements HasCost
 			mods.append("HITDIE:" + hitDieLock);
 		}
 
+		if (getDRList().size() != 0)
+		{
+			mods.append("DR:").append(DamageReduction.getDRString(aPC, getDRList()));
+		}
+
 		if (aPC == null)
 		{
 			if (ChallengeRating != 0)
@@ -1720,10 +1785,10 @@ public final class PCTemplate extends PObject implements HasCost
 				mods.append("SR:").append(x).append(' ');
 			}
 
-			if ((getDR() != null) && !"".equals(getDR()))
-			{
-				mods.append("DR:").append(getDR()).append(' ');
-			}
+//			if ((getDR() != null) && !"".equals(getDR()))
+//			{
+//				mods.append("DR:").append(getDR()).append(' ');
+//			}
 
 			return mods.toString();
 		}
@@ -1738,20 +1803,20 @@ public final class PCTemplate extends PObject implements HasCost
 		if (getCR(aPC.getTotalLevels(), aPC.totalHitDice()) != 0)
 		{
 			mods.append("CR:").append(getCR(aPC.getTotalLevels(), aPC.totalHitDice()))
-			    .append(' ');
+				.append(' ');
 		}
 
 		if (getSR(aPC.getTotalLevels(), aPC.totalHitDice(), aPC) != 0)
 		{
 			mods.append("SR:")
-			    .append(getSR(aPC.getTotalLevels(), aPC.totalHitDice(), aPC)).append(' ');
+				.append(getSR(aPC.getTotalLevels(), aPC.totalHitDice(), aPC)).append(' ');
 		}
 
-		if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))
-		{
-			mods.append("DR:").append(getDR(aPC.getTotalLevels(), aPC.totalHitDice()))
-			    .append(' ');
-		}
+//		if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))
+//		{
+//			mods.append("DR:").append(getDR(aPC.getTotalLevels(), aPC.totalHitDice()))
+//			    .append(' ');
+//		}
 
 		return mods.toString();
 	}
@@ -1762,7 +1827,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * If there are choices to be made
 	 *
 	 * @param   isImporting  Whether the PC is being imported
-	 * @param   aPC          
+	 * @param   aPC
 	 *
 	 * @return  a list of templates
 	 */
@@ -1799,7 +1864,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @param   aList    The list to be modified
 	 * @param   level    The level to add Special abilities for
-	 * @param   hitdice  the hit die (/range) to add Special Abilities for 
+	 * @param   hitdice  the hit die (/range) to add Special Abilities for
 	 *
 	 * @return  the list passed in with any special abilities this template grants added to it
 	 */
@@ -1820,7 +1885,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Adds one chosen language.
-	 * 
+	 *
 	 * TODO: Identical method in Race.java. Refactor.
 	 *
 	 * @param  flag
@@ -1831,9 +1896,9 @@ public final class PCTemplate extends PObject implements HasCost
 		if (!flag && !"".equals(chooseLanguageAutos))
 		{
 			final StringTokenizer tokens       = new StringTokenizer(
-				    chooseLanguageAutos,
-				    "|",
-				    false);
+					chooseLanguageAutos,
+					"|",
+					false);
 			final List            selectedList; // selected list of choices
 
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
@@ -1863,7 +1928,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Choose a template from template list, allow the chooser to be closed without
-	 * choosing a template 
+	 * choosing a template
 	 *
 	 * @param   templateList  List of available templates
 	 * @param   aPC           The Pc that prerequisites will be checked against
@@ -1886,9 +1951,9 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @return  the chosen template
 	 */
 	static String chooseTemplate(
-	    final String          templateList,
-	    final boolean         forceChoice,
-	    final PlayerCharacter aPC)
+		final String          templateList,
+		final boolean         forceChoice,
+		final PlayerCharacter aPC)
 	{
 		final List choiceTemplates = CoreUtility.split(templateList, '|');
 
@@ -1898,8 +1963,8 @@ public final class PCTemplate extends PObject implements HasCost
 			final PCTemplate template     = Globals.getTemplateNamed(templateName);
 
 			if (
-			    (template == null) ||
-			    !PrereqHandler.passesAll(template.getPreReqList(), aPC, template))
+				(template == null) ||
+				!PrereqHandler.passesAll(template.getPreReqList(), aPC, template))
 			{
 				choiceTemplates.remove(i);
 			}
@@ -1915,11 +1980,11 @@ public final class PCTemplate extends PObject implements HasCost
 		else if (choiceTemplates.size() > 0)
 		{
 			return Globals.chooseFromList(
-				    "Template Choice",
-				    choiceTemplates,
-				    null,
-				    1,
-				    forceChoice);
+					"Template Choice",
+					choiceTemplates,
+					null,
+					1,
+					forceChoice);
 		}
 
 		return "";
@@ -1927,7 +1992,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Add a subsidiary Template that this Template will add 
+	 * Add a subsidiary Template that this Template will add
 	 *
 	 * @param  templateName  the name of the Template to add
 	 */
@@ -2022,7 +2087,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Does the hit die fall within the range of the Hit dice string specified
-	 * by the index into the HitDiceStrings array 
+	 * by the index into the HitDiceStrings array
 	 *
 	 * @param   hitdice  the hit die
 	 * @param   index    of the Hit Die expression to test
@@ -2037,8 +2102,8 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		StringTokenizer tokens        = new StringTokenizer(
-			    (String) hitDiceStrings.get(index),
-			    ":");
+				(String) hitDiceStrings.get(index),
+				":");
 		final String    hitDiceString = tokens.nextToken();
 
 		if (hitDiceString.endsWith("+"))
@@ -2070,8 +2135,8 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		final StringTokenizer stuff = new StringTokenizer(
-			    (String) levelStrings.get(index),
-			    ":");
+				(String) levelStrings.get(index),
+				":");
 
 		return level >= Integer.parseInt(stuff.nextToken());
 	}
@@ -2086,10 +2151,10 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param  aPC          DOCUMENT ME!
 	 */
 	private void getLevelFeat(
-	    final String          levelString,
-	    final int             lvl,
-	    final String          featKey,
-	    final PlayerCharacter aPC)
+		final String          levelString,
+		final int             lvl,
+		final String          featKey,
+		final PlayerCharacter aPC)
 	{
 		if (contains(levelString, "FEAT:"))
 		{
@@ -2099,9 +2164,9 @@ public final class PCTemplate extends PObject implements HasCost
 			{
 				ArrayList          featList = new ArrayList();
 				final LevelAbility la       = LevelAbility.createAbility(
-					    this,
-					    lvl,
-					    "FEAT(" + featName + ")");
+						this,
+						lvl,
+						"FEAT(" + featName + ")");
 
 				la.process(featList, aPC, null);
 
@@ -2157,10 +2222,10 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @return  TODO DOCUMENT ME!
 	 */
 	public List feats(
-	    final int             level,
-	    final int             hitdice,
-	    final PlayerCharacter aPC,
-	    final boolean         addNew)
+		final int             level,
+		final int             hitdice,
+		final PlayerCharacter aPC,
+		final boolean         addNew)
 	{
 		final List feats;
 
@@ -2273,5 +2338,15 @@ public final class PCTemplate extends PObject implements HasCost
 	public Integer getReach()
 	{
 		return reach;
+	}
+
+	public void addLevelMod(final String aMod)
+	{
+		levelMods.add(aMod);
+	}
+
+	public List getLevelMods()
+	{
+		return Collections.unmodifiableList(levelMods);
 	}
 }
