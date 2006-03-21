@@ -117,6 +117,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 	private JCheckBox shouldAutoSpells = new JCheckBox(PropertyFactory
 		.getString("InfoSpells.autoload")); //$NON-NLS-1$
+	private JCheckBox canUseHigherSlots = new JCheckBox(PropertyFactory
+		.getString("InfoKnownSpells.canUseHigherSlots")); //$NON-NLS-1$
 
 	private JButton printHtml;
 	private JButton printPdf;
@@ -181,7 +183,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				int highestSpellLevel = aClass.getHighestLevelSpell();
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
-					if (pc.availableSpells(i, aClass, Globals.getDefaultSpellBook(), true, true, pc))
+					if (pc.availableSpells(i, aClass, Globals.getDefaultSpellBook(), true, true))
 					{
 						hasFree = true;
 						break;
@@ -212,6 +214,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		pc.getSpellList();
 		shouldAutoSpells.setSelected(pc.getAutoSpells());
+		canUseHigherSlots.setSelected(pc.getUseHigherKnownSlots());
 		updateBookList();
 
 		updateAvailableModel();
@@ -343,6 +346,13 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				pc.setAutoSpells(shouldAutoSpells.isSelected());
 			}
 		});
+		canUseHigherSlots.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					pc.setUseHigherKnownSlots(canUseHigherSlots.isSelected());
+				}
+			});
 		addSpellButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
@@ -578,17 +588,25 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	 */
 	private JPanel buildAddSpellPanel()
 	{
+		JPanel controlsPanel = new JPanel();
+		controlsPanel.setLayout(new BorderLayout());
 		JPanel asPanel = new JPanel();
 		asPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		shouldAutoSpells.setSelected(pc.getAutoSpells());
 		asPanel.add(shouldAutoSpells);
-		
+		controlsPanel.add(asPanel, BorderLayout.NORTH);
+
+		asPanel = new JPanel();
+		canUseHigherSlots.setSelected(pc.getUseHigherKnownSlots());
+		asPanel.add(canUseHigherSlots);
+
 		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
 		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
 		asPanel.add(addSpellButton);
+		controlsPanel.add(asPanel, BorderLayout.SOUTH);
 
-		return asPanel;
+		return controlsPanel;
 	}
 
 	/**

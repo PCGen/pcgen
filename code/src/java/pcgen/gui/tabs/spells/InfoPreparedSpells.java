@@ -41,6 +41,7 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -119,6 +120,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	private JComboBoxEx primaryViewSelectComboBox = new JComboBoxEx();
 	private JComboBoxEx secondaryViewSelectComboBox = new JComboBoxEx();
 
+	private JCheckBox canUseHigherSlots = new JCheckBox(PropertyFactory
+		.getString("InfoPreparedSpells.canUseHigherSlots")); //$NON-NLS-1$
+
 	private List characterMetaMagicFeats = new ArrayList();
 	
 	private JPanel botPane = new JPanel();
@@ -191,6 +195,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			return;
 		}
 
+		canUseHigherSlots.setSelected(pc.getUseHigherPreppedSlots());
 		pc.getSpellList();
 		updateBookList();
 
@@ -349,6 +354,13 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				}
 			}
 		});
+		canUseHigherSlots.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					pc.setUseHigherPreppedSlots(canUseHigherSlots.isSelected());
+				}
+			});
 		addSpellButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
@@ -592,27 +604,28 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	 */
 	private JPanel buildAddSpellPanel()
 	{
-		//GridBagConstraints c = new GridBagConstraints();
-
+		JPanel controlsPanel = new JPanel();
+		controlsPanel.setLayout(new BorderLayout());
 		JPanel asPanel = new JPanel();
+		asPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		canUseHigherSlots.setSelected(pc.getUseHigherPreppedSlots());
+		asPanel.add(canUseHigherSlots);
+		controlsPanel.add(asPanel, BorderLayout.NORTH);
+
+		asPanel = new JPanel();
 		asPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 
 		addSpellMMButton = new JButton(addSpellWithMetaMagicTitle);
 		createFeatList();
-		//c = new GridBagConstraints();
-		//Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
-		//c.insets = new Insets(2, 2, 2, 2);
 		asPanel.add(addSpellMMButton);
 		
-		//c = new GridBagConstraints();
-		//Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
-		//c.insets = new Insets(2, 2, 2, 2);
 		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
 		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
 		asPanel.add(addSpellButton);
+		controlsPanel.add(asPanel, BorderLayout.SOUTH);
 
-		return asPanel;
+		return controlsPanel;
 	}
 
 	/**

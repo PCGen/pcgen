@@ -456,6 +456,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		aPC.setAutoSpells(line.endsWith("Y"));
 	}
 
+	/**
+	 * Process the Use Higher Known Spell Slot line.
+	 * @param buffer The buffer to append to.
+	 */
+	private void parseUseHigherKnownSpellSlotsLine(String line)
+	{
+		aPC.setUseHigherKnownSlots(line.endsWith("Y"));
+	}
+
+	/**
+	 * Process the Use Higher Prepped Spell Slot line.
+	 * @param buffer The buffer to append to.
+	 */
+	private void parseUseHigherPreppedSpellSlotsLine(String line)
+	{
+		aPC.setUseHigherPreppedSlots(line.endsWith("Y"));
+	}
+
 	private void parseBirthdayLine(String line)
 	{
 		aPC.setBirthday(EntityEncoder.decode(line.substring(TAG_BIRTHDAY.length() + 1)));
@@ -567,6 +585,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (cache.containsKey(TAG_AUTOSPELLS))
 		{
 			parseAutoSpellsLine((String) cache.get(TAG_AUTOSPELLS).get(0));
+		}
+
+		if (cache.containsKey(TAG_USEHIGHERKNOWN))
+		{
+			parseUseHigherKnownSpellSlotsLine((String) cache.get(
+				TAG_USEHIGHERKNOWN).get(0));
+		}
+		if (cache.containsKey(TAG_USEHIGHERPREPPED))
+		{
+			parseUseHigherPreppedSpellSlotsLine((String) cache.get(
+				TAG_USEHIGHERPREPPED).get(0));
 		}
 
 		if (cache.containsKey(TAG_LOADCOMPANIONS))

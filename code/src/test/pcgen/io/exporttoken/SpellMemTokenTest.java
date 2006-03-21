@@ -151,7 +151,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 			.getName(), Globals.getDefaultSpellBook(), 1, 1);
 		assertEquals("No CHA, so should reject attempt to add spell",
 			"You can only learn 0 spells for level 1"
-				+ "\nand there are no higher-level slots available", result);
+				+ "\nand there are no higher-level slots available.", result);
 
 		SpellMemToken token = new SpellMemToken();
 		assertEquals("Retrieve spell from known list of arcane caster.",
@@ -185,7 +185,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 			spellBook, 1, 1);
 		assertEquals("No WIS, so should reject attempt to add spell",
 			"You can only prepare 0 spells for level 1"
-				+ "\nand there are no higher-level slots available", result);
+				+ "\nand there are no higher-level slots available.", result);
 
 		setPCStat(character, "WIS", 12);
 		character.calcActiveBonuses();

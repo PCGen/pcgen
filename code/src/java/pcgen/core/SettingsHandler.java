@@ -200,6 +200,7 @@ public final class SettingsHandler
 	private static final String tmpPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
 	private static final File tempPath = new File(getTmpPath());
 	private static boolean toolTipTextShown = true;
+	private static boolean useHigherLevelSlotsDefault = false;
 	private static boolean useMonsterDefault = true;
 	private static boolean wantToLoadMasterworkAndMagic = false;
 	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
@@ -1230,6 +1231,7 @@ public final class SettingsHandler
 		setSummaryTabShown(getPCGenOption("summaryTabShown", true)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setToolTipTextShown(getPCGenOption("toolTipTextShown", true)); //$NON-NLS-1$
+		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.PRINTOUT_WEAPONPROF)); //$NON-NLS-1$
@@ -1557,6 +1559,7 @@ public final class SettingsHandler
 		setPCGenOption("summaryTabShown", isSummaryTabShown()); //$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
 		setPCGenOption("toolTipTextShown", isToolTipTextShown()); //$NON-NLS-1$
+		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("useMonsterDefault", isUseMonsterDefault()); //$NON-NLS-1$
 		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
@@ -2270,6 +2273,23 @@ public final class SettingsHandler
 	public static void setUseFeatBenefits(final boolean arg)
 	{
 		useFeatBenefits = arg;
+	}
+
+	/**
+	 * @return Returns the useHigherLevelSlotsDefault.
+	 */
+	public static final boolean isUseHigherLevelSlotsDefault()
+	{
+		return useHigherLevelSlotsDefault;
+	}
+
+	/**
+	 * @param useHigherLevelSlotsDefault The useHigherLevelSlotsDefault to set.
+	 */
+	public static final void setUseHigherLevelSlotsDefault(
+		boolean useHigherLevelSlotsDefault)
+	{
+		SettingsHandler.useHigherLevelSlotsDefault = useHigherLevelSlotsDefault;
 	}
 
 	public static void setUseWaitCursor(final boolean b)

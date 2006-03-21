@@ -119,6 +119,7 @@ final class PCGVer2Creator implements IOConstants
 		appendGameModeLine(buffer);
 		appendTabLabelLine(buffer);
 		appendAutoSpellsLine(buffer);
+		appendUseHigherSpellSlotsLines(buffer);
 		appendLoadCompanionLine(buffer);
 		appendUseTempModsLine(buffer);
 		appendOutputSheetsLines(buffer);
@@ -1769,6 +1770,20 @@ final class PCGVer2Creator implements IOConstants
 	{
 		buffer.append(TAG_AUTOSPELLS).append(':');
 		buffer.append(aPC.getAutoSpells() ? "Y" : "N");
+		buffer.append(LINE_SEP);
+	}
+
+	/**
+	 * Append the settings related to higher level slot use for spells.
+	 * @param buffer The buffer to append to.
+	 */
+	private void appendUseHigherSpellSlotsLines(StringBuffer buffer)
+	{
+		buffer.append(TAG_USEHIGHERKNOWN).append(':');
+		buffer.append(aPC.getUseHigherKnownSlots() ? "Y" : "N");
+		buffer.append(LINE_SEP);
+		buffer.append(TAG_USEHIGHERPREPPED).append(':');
+		buffer.append(aPC.getUseHigherPreppedSlots() ? "Y" : "N");
 		buffer.append(LINE_SEP);
 	}
 

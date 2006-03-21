@@ -505,7 +505,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to no levels.",
-			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available",
+			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available.",
 			response);
 
 		response = character.addSpell(charSpell, new ArrayList(), "noclass", spellBookName, 1, 1);
@@ -518,7 +518,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to no levels.",
-			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available",
+			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available.",
 			response);
 
 		book.setType(SpellBook.TYPE_SPELL_BOOK);

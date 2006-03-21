@@ -171,6 +171,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	// whether to add auto known spells each level
 	private boolean autoKnownSpells = true;
 
+	// wether higher level spell slots should be used for lower levels
+	private boolean useHigherKnownSlots = SettingsHandler.isUseHigherLevelSlotsDefault();
+	private boolean useHigherPreppedSlots = SettingsHandler.isUseHigherLevelSlotsDefault();
+	
 	// should we also load companions on master load?
 	private boolean autoLoadCompanion = false;
 
@@ -4436,6 +4440,54 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
+	 * Determine whether higher level known spell slots can be 
+	 * used for lower level spells, or if known spells 
+	 * are restricted to their own level only.
+	 * 
+	 * @return Returns the useHigherKnownSlots.
+	 */
+	public final boolean getUseHigherKnownSlots()
+	{
+		return useHigherKnownSlots;
+	}
+
+	/**
+	 * Set whether higher level known spell slots can be 
+	 * used for lower level spells, or if known spells 
+	 * are restricted to their own level only.
+	 * 
+	 * @param useHigher Can higher level known spell slots be used?
+	 */
+	public final void setUseHigherKnownSlots(boolean useHigher)
+	{
+		this.useHigherKnownSlots = useHigher;
+	}
+
+	/**
+	 * Determine whether higher level prepared spell slots can be 
+	 * used for lower level spells, or if prepared spells 
+	 * are restricted to their own level only.
+	 * 
+	 * @return Returns the useHigherPreppedSlots.
+	 */
+	public final boolean getUseHigherPreppedSlots()
+	{
+		return useHigherPreppedSlots;
+	}
+
+	/**
+	 * Set whether higher level prepared spell slots can be 
+	 * used for lower level spells, or if prepared spells 
+	 * are restricted to their own level only.
+	 * 
+	 * @param useHigher Can higher level prepared spell slots be used?
+	 */
+	public final void setUseHigherPreppedSlots(boolean useHigher)
+	{
+		this.useHigherPreppedSlots = useHigher;
+	}
+
+	/**
 	 * type 0 = attack bonus; 1 = check1; 2 = check2; 3 = check3; etc, last one is = Unarmed
 	 * @param type
 	 * @param addBonuses
@@ -7609,35 +7661,61 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			spellBook.setNumSpells(spellBook.getNumSpells() + 1);
 		}
 		else if (!aClass.getMemorizeSpells()
-			&& !availableSpells(adjSpellLevel, aClass, bookName, true, acs.isSpecialtySpell(), this))
+			&& !availableSpells(adjSpellLevel, aClass, bookName, true, acs.isSpecialtySpell()))
 		{
+			String ret;
+			int maxAllowed;
 			// If this were a specialty spell, would there be room?
-			//
-			if (!acs.isSpecialtySpell() && availableSpells(adjSpellLevel, aClass, bookName, true, true, this))
+			if (!acs.isSpecialtySpell() && availableSpells(adjSpellLevel, aClass, bookName, true, true))
 			{
-				return "Your remaining slot(s) must be filled with your specialty";
+				ret = "Your remaining slot(s) must be filled with your specialty.";
+				maxAllowed = known;
 			}
-
+			else
+			{
+				ret = "You can only learn " + (known + specialKnown)
+					+ " spells for level " + adjSpellLevel
+					+ "\nand there are no higher-level slots available.";
+				maxAllowed = known + specialKnown;
+			}
 			int memTot = aClass.memorizedSpellForLevelBook(adjSpellLevel, bookName);
-			int spellDifference = (known + specialKnown) - memTot;
-
-			String ret = "You can only learn " + (known + specialKnown) + " spells for level " + adjSpellLevel
-			+ "\nand there are no higher-level slots available";
+			int spellDifference = maxAllowed - memTot;
 			if (spellDifference > 0)
 			{
-				ret += "\n" + spellDifference + " spells from lower levels are using slots for this level.";
+				ret += "\n"
+					+ spellDifference
+					+ " spells from lower levels are using slots for this level.";
 			}
 			return ret;
 		}
 		else if (aClass.getMemorizeSpells() && !isDefault
-			&& !availableSpells(adjSpellLevel, aClass, bookName, false, acs.isSpecialtySpell(), this))
+			&& !availableSpells(adjSpellLevel, aClass, bookName, false, acs.isSpecialtySpell()))
 		{
-			if (!acs.isSpecialtySpell() && availableSpells(adjSpellLevel, aClass, bookName, false, true, this))
+			String ret;
+			int maxAllowed;
+			if (!acs.isSpecialtySpell()
+				&& availableSpells(adjSpellLevel, aClass, bookName, false, true))
 			{
-				return "Your remaining slot(s) must be filled with your specialty or domain";
+				ret = "Your remaining slot(s) must be filled with your specialty or domain.";
+				maxAllowed = aClass.getCastForLevel(aClass.getLevel(),
+					adjSpellLevel, bookName, false, true, this);
 			}
-			return "You can only prepare " + cast + " spells for level " + adjSpellLevel
-			+ "\nand there are no higher-level slots available";
+			else
+			{
+				ret = "You can only prepare " + cast + " spells for level "
+					+ adjSpellLevel
+					+ "\nand there are no higher-level slots available.";
+				maxAllowed = cast;
+			}
+			int memTot = aClass.memorizedSpellForLevelBook(adjSpellLevel, bookName);
+			int spellDifference = maxAllowed - memTot;
+			if (spellDifference > 0)
+			{
+				ret += "\n"
+					+ spellDifference
+					+ " spells from lower levels are using slots for this level.";
+			}
+			return ret;
 		}
 
 		// determine if this spell already exists
@@ -12903,26 +12981,23 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * Fixes BUG [569517]
 	 *
 	 * @param level the level being checked for availability
-	 *              aClass       the class under consideration
-	 *              bookName       the name of the spellbook
-	 *              knownLearned       "true" if this is learning a spell, "false" if prepping
-	 *              isSpecialtySpell "true" iff this is a specialty for the given class
-	 * @param aClass
-	 * @param bookName
-	 * @param knownLearned
-	 * @param isSpecialtySpell
-	 * @param aPC
+	 * @param aClass       the class under consideration
+	 * @param bookName       the name of the spellbook
+	 * @param knownLearned       "true" if this is learning a spell, "false" if prepping
+	 * @param isSpecialtySpell "true" iff this is a specialty for the given class
 	 * @return         true or false, a new spell can be added
 	 */
-	public boolean availableSpells(final int level, final PCClass aClass, final String bookName, final boolean knownLearned,
-									final boolean isSpecialtySpell, final PlayerCharacter aPC)
+	public boolean availableSpells(final int level, final PCClass aClass,
+		final String bookName, final boolean knownLearned,
+		final boolean isSpecialtySpell)
 	{
 		boolean available = false;
 		final boolean isDivine = ("Divine".equalsIgnoreCase(aClass.getSpellType()));
+		final boolean canUseHigher = knownLearned ? getUseHigherKnownSlots()
+			: getUseHigherPreppedSlots();
 		int knownTot;
 		int knownNon;
 		int knownSpec;
-		int i;
 		int memTot;
 		int memNon;
 		int memSpec;
@@ -12937,20 +13012,20 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		int goodExcSpec = 0;
 		int goodExcNon = 0;
 
-		for (i = 0; i < level; ++i)
+		for (int i = 0; i < level; ++i)
 		{
 			// Get the number of castable slots
 			if (knownLearned)
 			{
-				knownNon = aClass.getKnownForLevel(aClass.getLevel(), i, bookName, aPC);
-				knownSpec = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), i, aPC);
+				knownNon = aClass.getKnownForLevel(aClass.getLevel(), i, bookName, this);
+				knownSpec = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), i, this);
 				knownTot = knownNon + knownSpec; // TODO: : value never used
 			}
 			else
 			{
 				// Get the number of castable slots
-				knownTot = aClass.getCastForLevel(aClass.getLevel(), i, bookName, true, true, aPC);
-				knownNon = aClass.getCastForLevel(aClass.getLevel(), i, bookName, false, true, aPC);
+				knownTot = aClass.getCastForLevel(aClass.getLevel(), i, bookName, true, true, this);
+				knownNon = aClass.getCastForLevel(aClass.getLevel(), i, bookName, false, true, this);
 				knownSpec = knownTot - knownNon;
 			}
 
@@ -13013,27 +13088,29 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		for (i = level;; ++i)
+		for (int i = level;; ++i)
 		{
 			if (knownLearned)
 			{
-				knownNon = aClass.getKnownForLevel(aClass.getLevel(), i, bookName, aPC);
-				knownSpec = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), i, aPC);
+				knownNon = aClass.getKnownForLevel(aClass.getLevel(), i, bookName, this);
+				knownSpec = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), i, this);
 				knownTot = knownNon + knownSpec; // for completeness
 			}
 			else
 			{
 				// Get the number of castable slots
-				knownTot = aClass.getCastForLevel(aClass.getLevel(), i, bookName, true, true, aPC);
-				knownNon = aClass.getCastForLevel(aClass.getLevel(), i, bookName, false, true, aPC);
+				knownTot = aClass.getCastForLevel(aClass.getLevel(), i, bookName, true, true, this);
+				knownNon = aClass.getCastForLevel(aClass.getLevel(), i, bookName, false, true, this);
 				knownSpec = knownTot - knownNon;
 			}
 
 			// At the level currently being looped through, if the number of casts
 			// is zero, that means we have reached a level beyond which no higher-level
 			// casts are possible.	Therefore, it's time to break.
+			// Likewise if we aren't allowed to use higher level slots, no sense in 
+			// going higher than the spell's level. 
 			//
-			if ((knownLearned && ((knownNon + knownSpec) == 0)) || (!knownLearned && (knownTot == 0)))
+			if (knownTot == 0 || (!canUseHigher && i > level))
 			{
 				break;
 			}
