@@ -91,6 +91,7 @@ public final class PCTemplate extends PObject implements HasCost
 	// If set these two will override any other choices.
 	private String  gender                = Constants.s_NONE;
 	private String  handed                = Constants.s_NONE;
+	/** @deprecated to remove heightString in 5.10 Beta */ 
 	private String  heightString          = Constants.s_NONE;
 	private String  levelAdjustment       = "0"; // now a string so that we can handle
 												 // formulae
@@ -444,7 +445,8 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * XXX appears to be totally unused.  a private attribute with a setter but
 	 * no accessor.
-	 *
+	 * 
+	 * @deprecated remove in 5.10 Beta 1
 	 * @param  argHeightString the height to lock the character at
 	 */
 	public void setHeightString(final String argHeightString)
@@ -766,10 +768,12 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 		}
 
+		/*
 		if (!Constants.s_NONE.equals(heightString))
 		{
 			txt.append("\tHEIGHT:").append(heightString);
 		}
+		*/
 
 		if (!hitDieLock.equals(""))
 		{
@@ -2294,17 +2298,29 @@ public final class PCTemplate extends PObject implements HasCost
 		return feats;
 	}
 
-
+	/**
+	 * Set face
+	 * @param width
+	 * @param height
+	 */
 	public void setFace(final double width, final double height)
 	{
 		face = new Point2D.Double(width, height);
 	}
 
+	/**
+	 * Get face
+	 * @return face
+	 */
 	public Point2D.Double getFace()
 	{
 		return face;
 	}
 
+	/**
+	 * Set hands
+	 * @param newHands
+	 */
 	public void setHands(final int newHands)
 	{
 		hands = new Integer(newHands);
@@ -2320,31 +2336,55 @@ public final class PCTemplate extends PObject implements HasCost
 		return hands;
 	}
 
+	/**
+	 * Set Legs
+	 * @param argLegs
+	 */
 	public void setLegs(final int argLegs)
 	{
 		legs = new Integer(argLegs);
 	}
 
+	/**
+	 * Get Legs
+	 * @return legs
+	 */
 	public Integer getLegs()
 	{
 		return legs;
 	}
 
+	/**
+	 * Set reach
+	 * @param newReach
+	 */
 	public void setReach(final int newReach)
 	{
 		reach = new Integer(newReach);
 	}
 
+	/**
+	 * Get reach
+	 * @return reach
+	 */
 	public Integer getReach()
 	{
 		return reach;
 	}
 
+	/**
+	 * Add level modifier
+	 * @param aMod
+	 */
 	public void addLevelMod(final String aMod)
 	{
 		levelMods.add(aMod);
 	}
 
+	/**
+	 * Get level modifiers
+	 * @return level modifiers
+	 */
 	public List getLevelMods()
 	{
 		return Collections.unmodifiableList(levelMods);
