@@ -32,6 +32,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Kit;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Globals;
 
 /**
  * Deals with applying a Template via a Kit
@@ -68,7 +69,8 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 
 		for (Iterator i = theTemplates.iterator(); i.hasNext(); )
 		{
-			aPC.addTemplate((PCTemplate)i.next());
+			PCTemplate template = (PCTemplate)i.next();
+			aPC.addTemplate(template, template.templatesAdded().size() == 0);
 		}
 
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
@@ -92,18 +94,64 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
+
 		final StringTokenizer aTok = new StringTokenizer(templateStr, "|");
 		while (aTok.hasMoreTokens())
 		{
 			final String template = aTok.nextToken();
 
-			final PCTemplate ret = aPC.addTemplateNamed(template);
-			if (ret == null && warnings != null)
+			final StringTokenizer subTok = new StringTokenizer(template, "[]");
+			PCTemplate templateToAdd = null;
+			while (subTok.hasMoreTokens())
 			{
-				warnings.add("TEMPLATE: Could not add template \"" + template + "\"");
-			}
+				String subStr = subTok.nextToken();
+//				final PCTemplate ret = aPC.addTemplateNamed(template);
+				if (subStr.startsWith("TEMPLATE:"))
+				{
+					final String ownedTemplateName = subStr.substring(9);
+					PCTemplate ownedTemplate = Globals.getTemplateNamed(ownedTemplateName);
+					if (ownedTemplate != null)
+					{
+						templateToAdd.addTemplateName(ownedTemplateName);
+					}
+					else
+					{
+						if (warnings != null)
+						{
+							warnings.add(
+								"TEMPLATE: Could not add owned template \""
+								+ ownedTemplateName + "\"");
+						}
+					}
+				}
+				else
+				{
+					PCTemplate potentialTemplate = Globals.getTemplateNamed(subStr);
+					if (potentialTemplate != null)
+					{
+						try
+						{
+							templateToAdd = (PCTemplate) potentialTemplate.
+								clone();
+						}
+						catch (CloneNotSupportedException notUsed)
+						{
+							// Should never happen
+						}
+					}
+					else
+					{
+						if (warnings != null)
+						{
+							warnings.add("TEMPLATE: Could not add template \""
+										 + template + "\"");
+						}
+					}
+				}
 
-			theTemplates.add(ret);
+			}
+			aPC.addTemplate(templateToAdd, templateToAdd.templatesAdded().size() == 0);
+			theTemplates.add(templateToAdd);
 		}
 
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
