@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Tue Mar 21 10:06:51 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 # This is specific classes for monsters with advancements requiring
@@ -103,12 +103,12 @@ CLASS:Drider Cleric	OUTPUTNAME:Drider	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:M
 CLASS:Drider Cleric	PRERACE:Drider (Cleric)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Cleric)1	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL=Drider Cleric					ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-2																	BONUS:PCLEVEL|Cleric|1
-3																	BONUS:PCLEVEL|Cleric|1
-4																	BONUS:PCLEVEL|Cleric|1
-5																	BONUS:PCLEVEL|Cleric|1
-6																	BONUS:PCLEVEL|Cleric|1
+1	ADD:SPELLCASTER(Cleric)1	SA:Spontaneous casting	BONUS:VAR|TurnLevelBase|CL					ADD:FEAT(TYPE.TurnUndead)	FEATAUTO:Basic Turning
+2															BONUS:PCLEVEL|Cleric|1
+3															BONUS:PCLEVEL|Cleric|1
+4															BONUS:PCLEVEL|Cleric|1
+5															BONUS:PCLEVEL|Cleric|1
+6															BONUS:PCLEVEL|Cleric|1
 
 # Class Name		Output Name		Hit Dice	Type			Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Drider Sorcerer	OUTPUTNAME:Drider	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
@@ -166,7 +166,11 @@ CLASS:Ghaele	HD:8		TYPE:Monster	MAXLEVEL:30	SOURCEPAGE:MonstersG.rtf	BONUS:CHECK
 CLASS:Ghaele	PRERACE:Ghaele	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ghaele	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	ADD:SPELLCASTER(Cleric)1	BONUS:PCLEVEL|Cleric|1					SPELLLEVEL:CLASS|Cleric=1|Obscuring Mist|Cleric=2|Wind Wall|Cleric=3|Gaseous Form|Cleric=4|Air Walk|Cleric=5|Control Winds|Cleric=6|Chain Lightning|Cleric=7|Control Weather|Cleric=8|Whirlwind|Cleric=9|Elemental Swarm	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
+###Block: Spell list adjustment
+1	SPELLLEVEL:CLASS|Cleric=1|Obscuring Mist|Cleric=2|Wind Wall|Cleric=3|Gaseous Form|Cleric=4|Air Walk|Cleric=5|Control Winds|Cleric=6|Chain Lightning|Cleric=7|Control Weather|Cleric=8|Whirlwind|Cleric=9|Elemental Swarm
+1	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
+###Block: Spellcasting progression
+1	ADD:SPELLCASTER(Cleric)1	BONUS:PCLEVEL|Cleric|1
 2						BONUS:PCLEVEL|Cleric|1
 3						BONUS:PCLEVEL|Cleric|1
 4						BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1

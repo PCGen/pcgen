@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Tue Mar 21 09:50:37 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:RSRD Epic	SOURCESHORT:RSRDEpic	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -49,9 +49,9 @@ CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	ABB:Ein		SOURCEPAGE:epicprest
 CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:20		PRESKILL:2,Diplomacy,Spot=10	PRESKILL:2,Bluff,Disguise=24
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE.Craft|TYPE.Profession
-1				SA:Improved Cover Identity (Ex/Su) %/day|EICover		BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0																												FEATAUTO:Sneak Attack
+1				SA:Improved Cover Identity (Ex/Su) %/day|EICover		BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0																													FEATAUTO:Sneak Attack
 2	REPEATLEVEL:3																															ADD:FEAT(TYPE=SpecialistTraining)
-3				SA:Read Thoughts (Su) %/day|EIReadThoughts			BONUS:VAR|EIReadThoughts|((CL+1)/4)							DEFINE:EIReadThoughts|0											SPELLS:Epic Infiltrator|CASTERLEVEL=15|TIMES=(((CL=Epic Infiltrator)+5)/8)|Mind Blank,18+INT
+3				SA:Read Thoughts (Su) %/day|EIReadThoughts			BONUS:VAR|EIReadThoughts|((CL+1)/4)							DEFINE:EIReadThoughts|0											SPELLS:Epic Infiltrator|CASTERLEVEL=15|TIMES=((var("CL=Epic Infiltrator")+5)/8)|Mind Blank,18+INT
 4				SA:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange	BONUS:VAR|EIFarSenses|((CL+1)/4)	BONUS:VAR|FarSensesRange|20*(CL+1)	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0
 
 # Epic Trapfinding does not exist
@@ -78,7 +78,8 @@ CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:20		PRESKI
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE.Craft|TYPE.Profession
 1								SA:Proselytize (Sp) %/day|HPProsetilyze				BONUS:VAR|HPProsetilyze|ceil(CL/10)	DEFINE:HPProsetilyze|0
-2	REPEATLEVEL:2	ADD:SPELLCASTER(Divine)																																																																																																																																							SPELLS:High Proselytizer|CASTERLEVEL=(TL)|TIMES=(((CL=High Proselytizer)+2)/4)|Heal,16+WIS
+2	REPEATLEVEL:2	ADD:SPELLCASTER(Divine)
+2																																																																																																																																														SPELLS:High Proselytizer|CASTERLEVEL=(TL)|TIMES=((var("CL=High Proselytizer")+2)/4)|Heal,16+WIS
 3								SA:Proselytize (Deific Touch) (Sp) %/day|HPProsetilyzeDT	BONUS:VAR|HPProsetilyzeDT|(CL+7)/10	DEFINE:HPProsetilyzeDT|0
 4	REPEATLEVEL:4																										ADD:FEAT(Armor Skin,Automatic Quicken Spell,Automatic Silent Spell,Automatic Still Spell,Bonus Domain,Enhance Spell,Epic Reputation,Epic Spell Focus,Epic Spell Penetration,Epic Spellcasting,Epic Will,Extended Life Span,Great Charisma,Great Wisdom,Ignore Material Components,Improved Alignment Based Casting,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Legendary Commander,Multispell,Negative Energy Burst,Permanent Emanation,Planar Turning,Polyglot,Positive Energy Aura,Spectral Strike,Spell Stowaway,Spell Opportunity,Spontaneous Domain Access,Spontaneous Spell,Tenacious Magic,Undead Mastery,Zone of Animation)
 5								SA:Proselytize (Deific Word) (Sp) %/day|HPProsetilyzeDW	BONUS:VAR|HPProsetilyzeDW|(CL+5)/10	DEFINE:HPProsetilyzeDW|0
@@ -95,7 +96,7 @@ CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TY
 1						SA:Unstoppable (Ex) %/day|LDUnstoppable	BONUS:VAR|LDUnstoppable|ceil(CL/5)													DEFINE:LDUnstoppable|0
 2						SA:Unmovable (Ex) %/day|LDUnmovable		BONUS:VAR|LDUnmovable|(CL+3)/5													DEFINE:LDUnmovable|0
 3						SA:Shrug Off Punishment (Ex)			BONUS:VAR|LDShrugOff|12*floor((CL+2)/5)						BONUS:HP|CURRENTMAX|LDShrugOff	DEFINE:LDShrugOff|0
-4				DR:3/-	SA:Thick Skinned (Ex)											BONUS:DR|-|3*(((CL+1)/5)-1)
+4				DR:3/-	SA:Thick Skinned (Ex)											BONUS:DR|-|3*((CL+1)/5-1)
 5	REPEATLEVEL:5																																ADD:FEAT(Armor Skin,Devastating Critical,Dire Charge,Epic Fortitude,Epic Prowess,Epic Toughness,Epic Weapon Focus,Epic Weapon Specialization,Fast Healing,Great Constitution,Great Strength,Improved Combat Reflexes,Overwhelming Critical,Penetrate Damage Reduction)
 
 
@@ -105,7 +106,7 @@ CLASS:Perfect Wight	HD:6		TYPE:Epic.PC	ABB:Pwi		SOURCEPAGE:epicprestiegclasses.r
 CLASS:Perfect Wight	PREFEAT:1,Self Concealment	PRELEVEL:20		PRESKILL:2,Hide,Move Silently=24	PREVARGTEQ:SneakAttack,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Search|Spot|Survival|TYPE.Craft|Tumble|Use Rope
-1																																																																												SPELLS:Perfect Wight|CASTERLEVEL=15|TIMES=(ceil((CL=Perfect Wight)/5))|Invisibility (Greater),14+CHA
+1																																																																												SPELLS:Perfect Wight|CASTERLEVEL=15|TIMES=ceil(var("CL=Perfect Wight")/5)|Invisibility (Greater),14+CHA
 2				SA:Improved Legerdemain (Su) %/day|PWLengerdemain	BONUS:VAR|PWLengerdemain|(CL+3)/5	DEFINE:PWLengerdemain|0
 3				SA:Incorporeal (Su) %/day|PWIncorporeal			BONUS:VAR|PWIncorporeal|(CL+2)/5	DEFINE:PWIncorporeal|0
 4				SA:Shadow Form (Su) %/day|PWShadowForm			BONUS:VAR|PWShadowForm|(CL+1)/5	DEFINE:PWShadowForm|0
@@ -118,11 +119,11 @@ CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	ABB:Sen		SOURCEPAGE:epicprestiegclasses
 CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREATT:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:20		PRESKILL:2,Diplomacy,Knowledge (Local)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE.Profession
-1																				SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(ceil((CL=Union Sentinel)/7))|Sending,15+CHA	SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(ceil((CL=Union Sentinel)/3))|Shield of Law,18+CHA
-2																				SPELLS:Union Sentinel|CASTERLEVEL=18|TIMES=(((CL=Union Sentinel)+4)/6)|Freedom,19+CHA	SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(((CL=Union Sentinel)+2)/4)|Knock,12+CHA
-3																				SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=((CL=Union Sentinel)/3)|Dimensional Anchor,14+CHA
+1																				SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(ceil(var("CL=Union Sentinel")/7))|Sending,15+CHA	SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(ceil(var("CL=Union Sentinel")/3))|Shield of Law,18+CHA
+2																				SPELLS:Union Sentinel|CASTERLEVEL=18|TIMES=((var("CL=Union Sentinel")+4)/6)|Freedom,19+CHA	SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=((var("CL=Union Sentinel")+2)/4)|Knock,12+CHA
+3																				SPELLS:Union Sentinel|CASTERLEVEL=15|TIMES=(var("CL=Union Sentinel")/3)|Dimensional Anchor,14+CHA
 4	SA:Portal Guardian (Su) %/day|USPortalGuardian	BONUS:VAR|USPortalGuardian|(CL+2)/6	DEFINE:USPortalGuardian|0
-5																				SPELLS:Union Sentinel|CASTERLEVEL=20|TIMES=((CL=Union Sentinel)/5)|Forcecage,17+CHA
+5																				SPELLS:Union Sentinel|CASTERLEVEL=20|TIMES=(var("CL=Union Sentinel")/5)|Forcecage,17+CHA
 7	SA:Imprisonment (Sp) %/week|USImprisonment	BONUS:VAR|USImprisonment|(CL-2)/5	DEFINE:USImprisonment|0
 
 ###Block: Support for Epic Spellcasting

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Tue Mar 21 10:32:08 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -84,15 +84,16 @@ CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handl
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
 CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
 # Turning
-3	BONUS:VAR|TurnLevel|CL-2	BONUS:VAR|TurnDamage|CL-2		FEATAUTO:Rebuke Undead|Basic Turning
+3	BONUS:VAR|TurnLevelBase|CL-2								FEATAUTO:Rebuke Undead|Basic Turning
+3	BONUS:VAR|TurnDamageBase|CL-2
 # Smite Good
-1	BONUS:VAR|SmiteGood|(CL=Ex Paladin)/4+1|PRECLASS:1,Ex Paladin=1	FEATAUTO:Smite Good
+1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1	FEATAUTO:Smite Good
 1	BONUS:VAR|SmiteGood|CL/5+1
 # Sneak Attack
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
-4	BONUS:VAR|SneakAttack|(CL-1)/3						FEATAUTO:Sneak Attack
+4	BONUS:VAR|SneakAttack|(CL-1)/3							FEATAUTO:Sneak Attack
 ###Block: Other Paladin related Abilities
-1	SA:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayonHands|0
+1	SA:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
 1	SA:Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
 5	SA:Undead Companion|PRECLASS:1,Ex Paladin=9	BONUS:VAR|UndeadCompanionLVL|TL|PRECLASS:1,Ex Paladin=9	DEFINE:UndeadCompanionLVL|0
@@ -184,7 +185,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 # Not sure if I added the Dodge AC bonus correctly in level line 1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|Base.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat				Required Race
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill

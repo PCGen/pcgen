@@ -72,7 +72,7 @@ Bardic Mass Suggestion		TYPE:Special	VISIBLE:NO	SA:Mass Suggestion (Sp) Will DC 
 ###Block: Monk abilities
 # Feat Name		Type			Visible	Define							Combat bonus													Add to base move														Modify VAR
 Monk AC		TYPE:Special	VISIBLE:NO	DEFINE:MonkAC|0	DEFINE:MonkACLvl|0		BONUS:COMBAT|AC|max(WIS,0)+MonkAC|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0																	BONUS:VAR|MonkAC|(MonkACLvl)/5
-Monk Movement	TYPE:Special	VISIBLE:NO	DEFINE:MonkMoveBonus|0	DEFINE:MonkMoveLvl|0																BONUS:MOVEADD|TYPE=Walk|MonkMoveBonus|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:VAR|MonkMoveBonus|((MonkMoveLvl)/3).TRUNC*10
+Monk Movement	TYPE:Special	VISIBLE:NO	DEFINE:MonkMoveBonus|0	DEFINE:MonkMoveLvl|0																BONUS:MOVEADD|TYPE=Walk|MonkMoveBonus|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:VAR|MonkMoveBonus|floor(var("MonkMoveLvl")/3)*10
 
 ###Block: Ranger Combat Styles
 # Feat Name					Type				Visible	Prohibited Feat				Var. Min. Value			Special Ability				Virtual Feat

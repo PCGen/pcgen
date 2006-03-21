@@ -56,7 +56,7 @@ ALIGN:TN
 CLASS:Warrior	LEVEL:1
 SKILL:Hide		RANK:1
 SKILL:Jump		RANK:2
-SKILL:LISTEN	RANK:2
+SKILL:Listen	RANK:2
 FEAT:Weapon Focus (Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
