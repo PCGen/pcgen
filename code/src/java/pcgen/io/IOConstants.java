@@ -167,7 +167,6 @@ interface IOConstants
 	String TAG_HAIRCOLOR = "HAIRCOLOR";
 	String TAG_HAIRSTYLE = "HAIRSTYLE";
 	String TAG_HANDED = "HANDED";
-	/** @deprecated to be removed in 5.10 Beta */
 	String TAG_HEIGHT = "HEIGHT";
 	String TAG_HITDICE = "HITDICE";
 	String TAG_HITPOINTS = "HITPOINTS";

@@ -987,13 +987,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			parsePlayerNameLine((String) cache.get(TAG_PLAYERNAME).get(0));
 		}
 
-		// TODO deprecated, to be removed in 5.10 Beta 1
-		/*
 		if (cache.containsKey(TAG_HEIGHT))
 		{
 			parseHeightLine((String) cache.get(TAG_HEIGHT).get(0));
 		}
-		*/
 
 		if (cache.containsKey(TAG_WEIGHT))
 		{
@@ -2174,10 +2171,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		aPC.setHanded(EntityEncoder.decode(line.substring(TAG_HANDED.length() + 1)));
 	}
 
-	/**
-	 * @deprecated to be removed in 5.10 Beta 1
-	 * @param line
-	 */
 	private void parseHeightLine(String line)
 	{
 		try
