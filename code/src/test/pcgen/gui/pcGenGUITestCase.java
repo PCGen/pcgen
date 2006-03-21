@@ -82,7 +82,8 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		catch (IOException e) {
 			// Ignore, see method comment
 		}
-		// make a copy of the options.ini file
+		// make a copy of the config files
+		new File("filepaths.ini").renameTo(new File("filepaths.ini.junit"));
 		new File("options.ini").renameTo(new File("options.ini.junit"));
 
 		// The String holder for the XML of the expected result
@@ -119,6 +120,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			// Make sure we don't delete the options.ini no matter what happens!
 			new File("options.ini").delete();
 			new File("options.ini.junit").renameTo(new File("options.ini"));
+			new File("filepaths.ini.junit").renameTo(new File("filepaths.ini"));
 		}
 
 		// Do the XML comparison
