@@ -2857,10 +2857,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return getSafeStringFor(StringKey.SPELLBOOK_AUTO_ADD_KNOWN);
 	}
 
-	
+
 	/**
 	 * Retrieve a spell book object given the name of the spell book.
-	 * 
+	 *
 	 * @param name The name of the spell book to be retrieved.
 	 * @return The spellbook (or null if not present).
 	 */
@@ -3670,7 +3670,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			equipmentMasterList.add(eq);
 		}
-		
+
 		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
 		{
 			SpellBook book = new SpellBook(eq.getName(), SpellBook.TYPE_SPELL_BOOK);
@@ -3998,6 +3998,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					if (templateSize.length() != 0)
 					{
 						iSize = Globals.sizeInt(templateSize);
+						if (iSize == 0 && !templateSize.equals("F"))
+						{
+							// We failed to get a size try and parse it as JEP
+							iSize = getVariableValue(templateSize, template.getName()).intValue();
+						}
 					}
 				}
 			}
@@ -4019,7 +4024,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
 		{
-			delSpellBook(eq.getName());				
+			delSpellBook(eq.getName());
 		}
 
 		equipmentList.remove(eq);
@@ -4709,7 +4714,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * Get an Iterator over the domains this character has
-	 * 
+	 *
 	 * @return the Iterator
 	 */
 	public Iterator getCharacterDomainListIterator()
@@ -7509,7 +7514,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					className.lastIndexOf('(')).trim());
 			}
 		}
-		
+
 		if (aClass == null)
 		{
 			return "No class named " + className;
@@ -7554,8 +7559,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		// don't allow adding spells which are prohibited to known 
-		// or prepared lists 
+		// don't allow adding spells which are prohibited to known
+		// or prepared lists
 		// But if a spell is both prohibited and in a specialty
 		// which can be the case for some spells, then allow it.
 		if (spellBook.getType() != SpellBook.TYPE_SPELL_BOOK
@@ -7579,7 +7584,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 
 		int numPages = 0;
-		
+
 		// known is the maximun spells that can be known this level
 		// listNum is the current spells already memorized this level
 		// cast is the number of spells that can be cast at this level
@@ -7589,8 +7594,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		// sk4p 13 Dec 2002
 		if (spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
-			// If this is a spellbook rather than known spells 
-			// or prepared spells, then let them add spells up to 
+			// If this is a spellbook rather than known spells
+			// or prepared spells, then let them add spells up to
 			// the page limit of the book.
 			setSpellLevelTemp(spellLevel);
 			numPages = getVariableValue(acs.getSpell(),
@@ -7598,7 +7603,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			// Check number of pages remaining in the book
 			if (numPages+spellBook.getNumPagesUsed() > spellBook.getNumPages())
 			{
-				return "There are not enough pages left to add this spell to the spell book."; 
+				return "There are not enough pages left to add this spell to the spell book.";
 			}
 			spellBook.setNumPagesUsed(numPages+spellBook.getNumPagesUsed());
 			spellBook.setNumSpells(spellBook.getNumSpells() + 1);
@@ -7731,7 +7736,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 */
 	public boolean addSpellBook(final SpellBook book)
 	{
-		
+
 		if (book != null)
 		{
 			String aName = book.getName();
@@ -7740,15 +7745,20 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				spellBooks.add(aName);
 				spellBookMap.put(aName, book);
 				setDirty(true);
-	
+
 				return true;
 			}
 		}
 
 		return false;
 	}
-	
+
 	public PCTemplate addTemplate(final PCTemplate inTemplate)
+	{
+		return addTemplate(inTemplate, true);
+	}
+
+	public PCTemplate addTemplate(final PCTemplate inTemplate, boolean doChoose)
 	{
 		if (inTemplate == null)
 		{
@@ -7798,12 +7808,41 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			return null;
 		}
 
+		for (Iterator i = inTemplate.getLevelMods().iterator(); i.hasNext(); )
+		{
+			String modString = (String)i.next();
+			StringTokenizer tok = new StringTokenizer(modString, "|");
+			while (tok.hasMoreTokens())
+			{
+				final String colString = tok.nextToken();
+				if (colString.startsWith("ADD"))
+				{
+					final String className = tok.nextToken();
+					final int level = getVariableValue(tok.nextToken(), "").intValue();
+
+					PCClass aClass = Globals.getClassNamed(className);
+
+					boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+					SettingsHandler.setShowHPDialogAtLevelUp(false);
+					boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+					SettingsHandler.setShowFeatDialogAtLevelUp(false);
+					int tempChoicePref = SettingsHandler.getSingleChoicePreference();
+					SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+
+					incrementClassLevel(level, aClass, true, true);
+
+					SettingsHandler.setSingleChoicePreference(tempChoicePref);
+					SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
+					SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+				}
+			}
+		}
 
 		this.setArmorProfListStable(false);
 		List l = inTmpl.getSafeListFor(ListKey.KITS);
 		for (int i1 = 0; i1 < l.size(); i1++)
 		{
-			KitUtilities.makeKitSelections(0, (String) l.get(i1), i1, this);
+			KitUtilities.makeKitSelections(0, (String)l.get(i1), i1, this);
 		}
 
 		calcActiveBonuses();
@@ -7829,12 +7868,20 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			setAutomaticFeatsStable(false);
 		}
 
-		final List templates = inTmpl.getTemplates(isImporting(), this);
-
+		List templates;
+		if (doChoose == true)
+		{
+			templates = inTmpl.getTemplates(isImporting(), this);
+		}
+		else
+		{
+			templates = inTmpl.templatesAdded();
+		}
 		for (int i = 0, x = templates.size(); i < x; ++i)
 		{
 			addTemplateNamed((String) templates.get(i));
 		}
+
 
 		setQualifyListStable(false);
 
@@ -8498,30 +8545,30 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 **/
 	public String calcDR()
 	{
-		Map drMap = new HashMap();
-		drMap = addStringToDRMap(drMap, race.getDR());
+		List drList = new ArrayList();
+		drList.addAll(race.getDRList());
 
 		if (deity != null)
 		{
-			drMap = addStringToDRMap(drMap, deity.getDR());
+			drList.addAll(deity.getDRList());
 		}
 
 		for (Iterator i = classList.iterator(); i.hasNext();)
 		{
 			final PCClass aClass = (PCClass) i.next();
-			drMap = addStringToDRMap(drMap, aClass.getDR());
+			drList.addAll(aClass.getDRList());
 		}
 
 		for (Iterator i = aggregateFeatList().iterator(); i.hasNext();)
 		{
 			final Ability aFeat = (Ability) i.next();
-			drMap = addStringToDRMap(drMap, aFeat.getDR());
+			drList.addAll(aFeat.getDRList());
 		}
 
 		for (Iterator i = getSkillList().iterator(); i.hasNext();)
 		{
 			final Skill aSkill = (Skill) i.next();
-			drMap = addStringToDRMap(drMap, aSkill.getDR());
+			drList.addAll(aSkill.getDRList());
 		}
 
 		for (Iterator i = characterDomainList.iterator(); i.hasNext();)
@@ -8530,7 +8577,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 			if (aCD.getDomain() != null)
 			{
-				drMap = addStringToDRMap(drMap, aCD.getDomain().getDR());
+				drList.addAll(aCD.getDomain().getDRList());
 			}
 		}
 
@@ -8540,7 +8587,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 			if (eq.isEquipped())
 			{
-				drMap = addStringToDRMap(drMap, eq.getDR());
+				drList.addAll(eq.getDRList());
 
 				List aList = eq.getEqModifierList(true);
 
@@ -8549,7 +8596,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					for (Iterator e2 = aList.iterator(); e2.hasNext();)
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-						drMap = addStringToDRMap(drMap, eqMod.getDR());
+						drList.addAll(eqMod.getDRList());
 					}
 				}
 
@@ -8560,7 +8607,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					for (Iterator e2 = aList.iterator(); e2.hasNext();)
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-						drMap = addStringToDRMap(drMap, eqMod.getDR());
+						drList.addAll(eqMod.getDRList());
 					}
 				}
 			}
@@ -8572,47 +8619,49 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		for (Iterator i = templateList.iterator(); i.hasNext();)
 		{
 			final PCTemplate aTemplate = (PCTemplate) i.next();
-			drMap = addStringToDRMap(drMap, aTemplate.getDR(atl, thd));
+			drList.addAll(aTemplate.getDRList());
+//			drMap = addStringToDRMap(drMap, aTemplate.getDR(atl, thd));
 		}
 
-		final StringBuffer DR = new StringBuffer();
-
-		for (Iterator i = drMap.keySet().iterator(); i.hasNext();)
-		{
-			final String damageType = i.next().toString();
-			String symbol = "";
-			int protectionValue = Integer.parseInt(drMap.get(damageType).toString());
-			int damageTypeAsInteger = 0;
-
-			try
-			{
-				damageTypeAsInteger = Integer.parseInt(damageType);
-			}
-			catch (NumberFormatException ignore)
-			{
-				 //Do nothing, the damage type is some kind of special value like 'Silver'
-			}
-
-			if (damageTypeAsInteger > 0)
-			{
-				symbol = "+";
-			}
-
-			//
-			// For some reason '+1' is coming out simply as '1', so need to tack on the
-			// '+' again
-			//
-			protectionValue += (int) getTotalBonusTo("DR", symbol + damageType);
-
-			if (DR.length() > 0)
-			{
-				DR.append(';');
-			}
-
-			DR.append(protectionValue).append('/').append(symbol).append(damageType);
-		}
-
-		return DR.toString();
+//		final StringBuffer DR = new StringBuffer();
+//
+//		for (Iterator i = drMap.keySet().iterator(); i.hasNext();)
+//		{
+//			final String damageType = i.next().toString();
+//			String symbol = "";
+//			int protectionValue = Integer.parseInt(drMap.get(damageType).toString());
+//			int damageTypeAsInteger = 0;
+//
+//			try
+//			{
+//				damageTypeAsInteger = Integer.parseInt(damageType);
+//			}
+//			catch (NumberFormatException ignore)
+//			{
+//				 //Do nothing, the damage type is some kind of special value like 'Silver'
+//			}
+//
+//			if (damageTypeAsInteger > 0)
+//			{
+//				symbol = "+";
+//			}
+//
+//			//
+//			// For some reason '+1' is coming out simply as '1', so need to tack on the
+//			// '+' again
+//			//
+//			protectionValue += (int) getTotalBonusTo("DR", symbol + damageType);
+//
+//			if (DR.length() > 0)
+//			{
+//				DR.append(';');
+//			}
+//
+//			DR.append(protectionValue).append('/').append(symbol).append(damageType);
+//		}
+//
+//		return DR.toString();
+		return DamageReduction.getDRString(this, drList);
 	}
 
 	public double calcMoveMult(final double move, final int index)
@@ -10381,6 +10430,37 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		templateLanguages.removeAll(inTmpl.getLanguageBonus());
 		removeNaturalWeapons(inTmpl);
 
+		PCTemplate t = this.getTemplateNamed(inTmpl.getName());
+		for (int i = inTmpl.getLevelMods().size() - 1; i >= 0; i-- )
+		{
+			String modString = (String)(inTmpl.getLevelMods().get(i));
+			StringTokenizer tok = new StringTokenizer(modString, "|");
+			while (tok.hasMoreTokens())
+			{
+				final String colString = tok.nextToken();
+				if (colString.startsWith("ADD"))
+				{
+					final String className = tok.nextToken();
+					final int level = getVariableValue(tok.nextToken(), "").intValue();
+
+					PCClass aClass = this.getClassNamed(className);
+
+					boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+					SettingsHandler.setShowHPDialogAtLevelUp(false);
+					boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+					SettingsHandler.setShowFeatDialogAtLevelUp(false);
+					int tempChoicePref = SettingsHandler.getSingleChoicePreference();
+					SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+
+					incrementClassLevel(-level, aClass, true, true);
+
+					SettingsHandler.setSingleChoicePreference(tempChoicePref);
+					SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
+					SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+				}
+			}
+		}
+
 		// It is hard to tell if removeTemplate() modifies
 		// inTmpl.templatesAdded(), so not safe to optimize
 		// the call to .size().	 XXX
@@ -11065,9 +11145,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Scan through the list of doains the character has to ensure that 
+	 * Scan through the list of doains the character has to ensure that
 	 * they are all still valid. Any invalid domains will be removed from
-	 * the character. 
+	 * the character.
 	 */
 	void validateCharacterDomains()
 	{
@@ -11468,7 +11548,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * Return a hashmap of the first maxCharacterLevel character levels that a character has taken
 	 * This will be a hash of "Class name"=>"number of levels as a string". For example,
 	 * {"Fighter"=>"2", "Cleric":"16"}
-	 * 
+	 *
 	 * @param maxCharacterLevel the maximum character level that we can include in this map
 	 * @return character level map
 	 */
@@ -12818,7 +12898,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	/**
 	 * availableSpells
 	 * sk4p 13 Dec 2002
-	 * 
+	 *
 	 * For learning or preparing a spell: Are there slots available at this level or higher
 	 * Fixes BUG [569517]
 	 *
@@ -13219,17 +13299,17 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 	}*/
 
-	
+
 	/**
 	 * Compute total bonus from a List of BonusObj's Use cost of bonus to adjust
 	 * total bonus up or down This method takes a list of bonus objects.
-	 * 
+	 *
 	 * For each object in the list, it gets the creating object and queries it for
 	 * its "COST".  It then multiplies the value of the bonus by this cost and
 	 * adds it to the cumulative total so far.  If subSearch is true, the choices
 	 * made in the object that the bonus originated in are searched, the effective
-	 * bonus is multiplied by the number of times this bonus appears in the list. 
-	 * 
+	 * bonus is multiplied by the number of times this bonus appears in the list.
+	 *
 	 * Note: This COST seems to be used for several different things
 	 * in the codebase, in feats for instance, it is used to modify the feat
 	 * pool by amounts other than 1 when selecting a given feat.  Here it is
@@ -13242,7 +13322,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 *
 	 * @return  the calculated cumulative bonus
 	 */
-	
+
 	private double calcBonusWithCostFromList(final List aList, final boolean subSearch)
 	{
 		double totalBonus = 0;
@@ -13618,9 +13698,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * returns the number of times a spell is memorized
 	 * Tag looks like: (SPELLTIMES%class&period;%book&period;%level&period;%spell)
 	 * aString looks like: SPELLTIMES2&period;-1&period;4&period;15
-	 * 
+	 *
 	 * where &period; is a fullstop (or period if you are from USA ;p)
-	 * 
+	 *
 	 * heavily stolen from replaceTokenSpellMem in ExportHandler.java
 	 * @param aString
 	 * @return spell times
@@ -13992,6 +14072,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		movementMultOp[tempMove.length] = multOp;
 	}
 
+	public void incrementClassLevel(final int numberOfLevels, final PCClass globalClass, final boolean bSilent)
+	{
+		incrementClassLevel(numberOfLevels, globalClass, bSilent, false);
+	}
+
 	/**
 	 * Change the number of levels a character has in a particular class.
 	 * Note: It is assumed that this method is not used as part of loading
@@ -14010,7 +14095,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 *            If true do not display any warning messages about adding or
 	 *            removing too many levels
 	 */
-	public void incrementClassLevel(final int numberOfLevels, final PCClass globalClass, final boolean bSilent)
+	public void incrementClassLevel(final int numberOfLevels, final PCClass globalClass, final boolean bSilent, final boolean bypassPrereqs)
 	{
 		// If not importing, load the spell list
 		if (!isImporting())
@@ -14021,7 +14106,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		// Make sure the character qualifies for the class if adding it
 		if (numberOfLevels > 0)
 		{
-			if (!globalClass.isQualified(this))
+			if (bypassPrereqs == false && !globalClass.isQualified(this))
 			{
 				return;
 			}
