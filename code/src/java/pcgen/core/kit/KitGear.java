@@ -369,14 +369,18 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			outOfFunds = true;
 		}
 
-		warnings.add("GEAR: Could not purchase " + (origQty-theQty) + " " + theEquipment.getName() + ". Not enough funds.");
-
 		//
 		// Can't buy none
 		//
 		if (theQty == 0)
 		{
 			return false;
+		}
+
+		if (outOfFunds)
+		{
+			warnings.add("GEAR: Could not purchase " + (origQty - theQty) + " "
+						 + theEquipment.getName() + ". Not enough funds.");
 		}
 
 		// Temporarily add the equipment so we can see if we can equip it.
