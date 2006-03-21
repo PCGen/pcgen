@@ -1,0 +1,27 @@
+# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+
+# Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
+# Moved new Prestige classes to starfarershb_classes_prestige
+# Moved NPC claases  to starfarershb_classes_npc.lst
+# Renamed starfarershb_classes.lst as starfarershb_classes_base.lst
+#    - Tir Gwaith
+
+#################
+#new NPC classes
+#################
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
+1	FEATAUTO:Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
+1	FEATAUTO:Rogue Weapon Proficiencies
+1	FEATAUTO:Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SA:Backstab +%d6|Backstab	BONUS:VAR|Backstab|CL/5+1	DEFINE:Backstab|0
+10														ADD:FEAT(TYPE.Fighter)
+15																		ADD:SPECIAL(Crippling Strike,Defensive Roll,Opportunist)
+20														ADD:FEAT(TYPE.Fighter)
