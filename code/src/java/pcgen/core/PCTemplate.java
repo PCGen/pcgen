@@ -1357,56 +1357,6 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Add a chosen feat to the Template
-	 *
-	 * @param  mapKey    The key to store the feat under
-	 * @param  mapValue  The name of the feat
-	 */
-	public void addChosenFeat(final String mapKey, final String mapValue)
-	{
-		if (chosenFeatStrings == null)
-		{
-			chosenFeatStrings = new HashMap();
-		}
-
-		chosenFeatStrings.put(mapKey, mapValue);
-	}
-
-
-	/**
-	 * Add a | separated list of available feat that this Template may grant
-	 *
-	 * @param  featString  The | separated list of feats
-	 */
-	public void addFeatString(final String featString)
-	{
-		if (".CLEAR".equals(featString))
-		{
-			if (featStrings != null)
-			{
-				featStrings.clear();
-			}
-
-			return;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(featString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String fs = aTok.nextToken();
-
-			if (featStrings == null)
-			{
-				featStrings = new ArrayList();
-			}
-
-			featStrings.add(fs);
-		}
-	}
-
-
-	/**
 	 * Grants the character an ability at the Hit die or hit die range specified.
 	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
 	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
@@ -2211,6 +2161,58 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 
 			addChosenFeat(featKey, featName);
+		}
+	}
+
+
+	/**
+	 * Add a chosen feat to the Template
+	 *
+	 * @param  mapKey    The key to store the feat under
+	 * @param  mapValue  The name of the feat
+	 */
+	public void addChosenFeat(final String mapKey, final String mapValue)
+	{
+		if (chosenFeatStrings == null)
+		{
+			chosenFeatStrings = new HashMap();
+		}
+
+		chosenFeatStrings.put(mapKey, mapValue);
+	}
+
+
+	/**
+	 * Add a | separated list of available feat that this Template may grant.
+	 * This is the function called by the Lst parser to make the feats
+	 * available to this Template
+	 *
+	 * @param  featString  The | separated list of feats
+	 */
+	public void addFeatString(final String featString)
+	{
+		if (".CLEAR".equals(featString))
+		{
+			if (featStrings != null)
+			{
+				featStrings.clear();
+			}
+
+			return;
+		}
+
+		final StringTokenizer aTok = new StringTokenizer(featString, "|", false);
+
+		while (aTok.hasMoreTokens())
+		{
+			final String fs = aTok.nextToken();
+
+			if (featStrings == null)
+			{
+				featStrings = new ArrayList();
+			}
+
+			featStrings.add(fs);
 		}
 	}
 
