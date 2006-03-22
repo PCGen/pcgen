@@ -28,6 +28,8 @@ package pcgen.core;
 
 import java.util.*;
 
+import pcgen.core.utils.CoreUtility;
+
 /**
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
@@ -359,9 +361,8 @@ public final class EquipmentUtilities
 			// we want what is inside the outermost parenthesis.
 			String subName = name.substring(start, end);
 			
-			for (Iterator specIt = Arrays.asList(subName.split("\\s*,\\s*")).iterator(); specIt.hasNext(); ) {
-				specifics.add(((String) specIt.next()).trim());
-			}
+			specifics.addAll(CoreUtility.split(subName, ','));
+			
 		}
 		
 		return altName;

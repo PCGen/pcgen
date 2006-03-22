@@ -26,6 +26,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -510,41 +511,13 @@ public final class CoreUtility
 	 */
 	public static List split(final String aString, final char separator)
 	{
-		int elems = 1;
-		int beginIndex = 0;
-		int endIndex;
-
-		if (aString.trim().length() == 0)
-		{
-			return new ArrayList(0);
+		ArrayList temp = new ArrayList();
+		
+		for (Iterator iter = Arrays.asList(aString.split(String.valueOf(separator))).iterator(); iter.hasNext(); ) {
+			temp.add(((String) iter.next()).trim());
 		}
 
-		for (int i = 0; i < aString.length(); ++i)
-		{
-			if (aString.charAt(i) == separator)
-			{
-				++elems;
-			}
-		}
-
-		final List result = new ArrayList(elems);
-
-		for (int i = 0; i < elems; ++i)
-		{
-			endIndex = aString.indexOf(separator, beginIndex);
-
-			if (endIndex == -1)
-			{
-				endIndex = aString.length();
-			}
-
-			result.add(aString.substring(beginIndex, endIndex).trim());
-
-			// Skip separator
-			beginIndex = endIndex + 1;
-		}
-
-		return result;
+		return temp;
 	}
 
 	/**
