@@ -30,6 +30,20 @@
 			enhance your character is some way. Each template is one line only and the first 
 			field must be the template name.</p>
 
+		<p></p><a name="ADDLEVEL"></a><hr>
+		<p class="new">*** New 5.9.7</p>
+		<p class="indent0"><strong>Tag Name:</strong> ADDLEVEL:x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number or Formula (Number of levels to add)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag will add the specified number of levels of the given class
+		to the character the template is applied to.  The levels function as normal class levels in all way
+		except that they will be removed when the template is removed.  These levels will be added regardless
+		of whether or not the character qualifies for the class in question.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ADDLEVEL:Animal|6</code></p>
+		<p class="indent3">Adds six levels of the Animal class to the character.</p>
+
 		<p></p><a name="BONUSFEATS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUSFEATS:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus feats)</p>
@@ -403,14 +417,22 @@
 		<p class="indent3">Removes all feats that have been granted/taken by the Paladin Class.</p>
 
 		<p></p><a name="SIZE"></a><hr>
+		<p class="new">*** Updated 5.9.7</p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Numeric value of the size value)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Size is used in determining TO-HIT, AC, and affects some skills 
-			(F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).</p>
+			(F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).<br/>
+			The following are the numeric values that are legal to set: 
+			(0=Fine, 1=Diminutive, 2=Tiny, 3=Small, 4=Medium, 5=Large, 6=Huge, 7=Gargantuan, 8=Colossal). 
+			Note that if a value outside this range is used the result is undefined.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SIZE:M</code></p>
 		<p class="indent3">Character is &quot;Medium&quot; size.</p>
+		<p class="indent2"><code>SIZE:max(AnimalSize,SIZE)</code></p>
+		<p class="indent3">Sets the character's size to the maximum of the variable &quot;AnimalSize&quot; and
+		current size.</p>
 
 		<p></p><a name="SUBRACE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SUBRACE:x</p>
