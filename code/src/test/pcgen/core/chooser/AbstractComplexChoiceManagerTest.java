@@ -79,7 +79,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 
 		PlayerCharacter aPC  = getCharacter();
 		
-		AbstractChoiceManager choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
@@ -124,7 +124,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 
 		PlayerCharacter aPC  = getCharacter();
 		
-		AbstractChoiceManager choiceManager = ChooserUtilities.getChoiceManager(anAbility, null, aPC);
+		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(anAbility, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
@@ -163,7 +163,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 
 		PlayerCharacter aPC  = getCharacter();
 		
-		AbstractChoiceManager choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");

@@ -54,25 +54,24 @@ public class SpellLevelChoiceManager extends AbstractChoiceManager
 
 	/**
 	 * Get the list of spells
-	 *
+	 * @param  aPc            DOCUMENT ME!
 	 * @param  availableList  DOCUMENT ME!
 	 * @param  selectedList   DOCUMENT ME!
-	 * @param  aPC            DOCUMENT ME!
 	 */
 	public void getChoices(
+	    PlayerCharacter aPc,
 	    List            availableList,
-	    List            selectedList,
-	    PlayerCharacter aPC)
+	    List            selectedList)
 	{
 		uniqueList.clear();
 		ChooserUtilities.buildSpellTypeChoices(
 		    availableList,
 		    uniqueList,
-		    aPC,
+		    aPc,
 		    Collections.enumeration(choices));
 	}
 
-	protected void applyChoices(
+	public void applyChoices(
 			final PlayerCharacter  aPC,
 			final List             selected,
 			List                   selectedBonusList)

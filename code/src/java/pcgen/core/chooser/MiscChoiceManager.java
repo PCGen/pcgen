@@ -40,7 +40,7 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 	 * @param selectedBonusList	unused parameter
 	 *
 	 */
-	protected void applyChoices(
+	public void applyChoices(
 			PlayerCharacter  aPC,
 			List             selected,
 			List             selectedBonusList)
@@ -85,15 +85,14 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 *
+	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @param aPC
 	 */
 	public void getChoices(
+			PlayerCharacter aPc,
 			List            availableList,
-			List            selectedList,
-			PlayerCharacter aPC)
+			List            selectedList)
 	{
 		Iterator it = choices.iterator();
 		while (it.hasNext())

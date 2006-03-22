@@ -77,7 +77,7 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 
 		PlayerCharacter aPC  = getCharacter();
 		
-		AbstractChoiceManager choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)));
 
 		try
@@ -122,8 +122,8 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 		List            Lone = new ArrayList();
 		List            Ltwo = new ArrayList();
 		
-		AbstractChoiceManager choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
-		choiceManager.getChoices(Lone, Ltwo, aPC);
+		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		choiceManager.getChoices(aPC, Lone, Ltwo);
 
 		is(new Integer(Lone.size()), eq(2), "Available list has 2 elements");
 		is(new Integer(Ltwo.size()), eq(0), "Selected list has no elements");

@@ -22,6 +22,7 @@
  */
 package pcgen.core.chooser;
 
+import pcgen.core.CategorisableStore;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -40,7 +41,7 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public abstract class AbstractChoiceManager
+public abstract class AbstractChoiceManager implements ChoiceManagerList
 {
 	protected final PlayerCharacter pc;
 	protected final PObject         pobject;
@@ -51,6 +52,21 @@ public abstract class AbstractChoiceManager
 	protected boolean               dupsAllowed      = false;
 	protected String                title            = "";
 	protected List                  uniqueList       = new ArrayList();
+
+	/**
+	 * Creates a new ChoiceManager object.  Without any choice initialisation
+	 *
+	 * @param  aPObject
+	 * @param  aPC
+	 */
+	public AbstractChoiceManager(
+	    PObject         aPObject,
+	    PlayerCharacter aPC)
+	{
+		super();
+		pobject   = aPObject;
+		pc        = aPC;
+	}
 
 	/**
 	 * Creates a new ChoiceManager object.
@@ -68,6 +84,14 @@ public abstract class AbstractChoiceManager
 		pobject   = aPObject;
 		pc        = aPC;
 
+		initialise(theChoices, aPC);
+	}
+
+	/**
+	 * @param theChoices
+	 * @param aPC
+	 */
+	private void initialise(String theChoices, PlayerCharacter aPC) {
 		final List   split = Arrays.asList(theChoices.split("[|]", 3));
 
 		if (split.size() < 3)
@@ -84,9 +108,13 @@ public abstract class AbstractChoiceManager
 		choices   = Arrays.asList(((String) split.get(2)).split("[|]"));
 	}
 
+
+	
+	
 	/**
-	 * return handled chooser
-	 * @return handled chooser
+	 * what type of chooser does this handle
+	 * 
+	 * @return
 	 */
 	public String typeHandled ()
 	{
@@ -94,30 +122,31 @@ public abstract class AbstractChoiceManager
 	}
 
 	/**
-	 * Get choices
-	 *
+	 * 
+	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @param aPC
 	 */
 	public abstract void getChoices(
+		    final PlayerCharacter aPc,
 		    final List            availableList,
-		    final List            selectedList,
-		    final PlayerCharacter aPC);
+		    final List            selectedList);
 
+
+	
 	/**
-	 * Do chooser
+	 * 
+	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 * @param selectedBonusList
-	 * @param aPC
-	 * @return the list of selected items
+	 * @return
 	 */
 	public List doChooser (
+		    PlayerCharacter       aPc,
 		    final List            availableList,
 		    final List            selectedList,
-		    final List            selectedBonusList,
-		    PlayerCharacter       aPC)
+		    final List            selectedBonusList)
 	{
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setAllowsDups(dupsAllowed);
@@ -150,7 +179,14 @@ public abstract class AbstractChoiceManager
 	 * @param selectedBonusList
 	 */
 
-	protected abstract void applyChoices(
+	/**
+	 * 
+	 * @param aPC
+	 * @param selected
+	 * @param selectedBonusList
+	 * @see pcgen.core.chooser.ChoiceManagerList#applyChoices(pcgen.core.PlayerCharacter, java.util.List, java.util.List)
+	 */
+	public abstract void applyChoices(
 			final PlayerCharacter  aPC,
 			final List             selected,
 			List                   selectedBonusList);

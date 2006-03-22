@@ -57,15 +57,14 @@ public class ShieldProfChoiceManager extends AbstractChoiceManager
 
 	/**
 	 * Get a list of shield proficiencies
-	 *
+	 * @param  aPc
 	 * @param  availableList
 	 * @param  selectedList
-	 * @param  aPC
 	 */
 	public void getChoices(
+	    PlayerCharacter aPc,
 	    List            availableList,
-	    List            selectedList,
-	    PlayerCharacter aPC)
+	    List            selectedList)
 	{
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_SHIELD_PROFS));
 
@@ -88,9 +87,9 @@ public class ShieldProfChoiceManager extends AbstractChoiceManager
 					if (
 					    eq.isShield() &&
 					    eq.isType(tempString) &&
-					    !availableList.contains(eq.profName(aPC)))
+					    !availableList.contains(eq.profName(aPc)))
 					{
-						availableList.add(eq.profName(aPC));
+						availableList.add(eq.profName(aPc));
 					}
 				}
 			}
@@ -101,9 +100,9 @@ public class ShieldProfChoiceManager extends AbstractChoiceManager
 				if (
 				    (eq != null) &&
 				    eq.isShield() &&
-				    !availableList.contains(eq.profName(aPC)))
+				    !availableList.contains(eq.profName(aPc)))
 				{
-					availableList.add(eq.profName(aPC));
+					availableList.add(eq.profName(aPc));
 				}
 			}
 		}
@@ -116,7 +115,7 @@ public class ShieldProfChoiceManager extends AbstractChoiceManager
 	 * @param  selected
 	 * @param  selectedBonusList
 	 */
-	protected void applyChoices(
+	public void applyChoices(
 	    PlayerCharacter  aPC,
 	    List selected,
 	    List             selectedBonusList)

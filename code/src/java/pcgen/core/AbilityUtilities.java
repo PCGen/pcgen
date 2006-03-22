@@ -697,7 +697,7 @@ public class AbilityUtilities
 				continue;
 			}
 	
-			// does not already have feat
+			// Get ability from global storage by Name
 			anAbility = Globals.getAbilityNamed("FEAT", aString);
 	
 			if (anAbility == null)

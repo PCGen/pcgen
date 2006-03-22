@@ -51,7 +51,20 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 	protected int     requestedSelections = 0;
 	protected int     maxNewSelections    = 0;
 	protected int     maxSelections       = 0;
-	private boolean   remove              = false;
+	protected boolean remove              = false;
+
+	/**
+	 * Creates a new ChoiceManager object.
+	 *
+	 * @param  aPObject
+	 * @param  aPC
+	 */
+	public AbstractComplexChoiceManager(
+	    PObject         aPObject,
+	    PlayerCharacter aPC)
+	{
+		super(aPObject, aPC);
+	}
 
 	/**
 	 * Creates a new ChoiceManager object.
@@ -65,16 +78,24 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 	    String          choiceString,
 	    PlayerCharacter aPC)
 	{
-		super(aPObject, choiceString, aPC);
+		super(aPObject, aPC);
+		initialise(choiceString, aPC);
+	}
+
+	/**
+	 * @param choiceString
+	 * @param aPC
+	 */
+	private void initialise(
+			String          choiceString,
+			PlayerCharacter aPC)
+	{
 		if (pobject instanceof Ability)
 		{
 			cost         = ((Ability) pobject).getCost();
 			dupsAllowed  = ((Ability) pobject).isStacks();
 			multiples    = ((Ability) pobject).isMultiples();
 		}
-
-		// ignore parameter
-        choiceString  = pobject.getChoiceString();
 
 		List mainList = Arrays.asList(choiceString.split("[|]"));
 		List subList  = Arrays.asList(((String) mainList.get(0)).split("="));
@@ -158,10 +179,10 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 	{
 		remove = true;
 		final List newSelections = doChooser (
+				aPC,
 				availableList,
 				selectedList,
-				selectedBonusList,
-				aPC);
+				selectedBonusList);
 
 		applyChoices(aPC, newSelections, null);
 		
@@ -171,17 +192,16 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 	/**
 	 * Do chooser.  SelectedBonusList is unused, it's only here so the interface is the
 	 * same as AbstractChoiceManager
-	 *
+	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 * @param selectedBonusList
-	 * @param aPC
 	 */
 	public List doChooser (
+		    PlayerCharacter       aPc,
 		    final List            availableList,
 		    final List            selectedList,
-		    final List            selectedBonusList,
-		    PlayerCharacter       aPC)
+		    final List            selectedBonusList)
 	{
 
 		if (requestedSelections < 0)

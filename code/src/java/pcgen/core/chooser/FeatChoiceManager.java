@@ -53,15 +53,14 @@ public class FeatChoiceManager extends AbstractChoiceManager
 	 * Construct the choices available from this ChoiceManager in availableList.
 	 * Any Feats that are eligible to be added to availableList that the PC
 	 * already has will also be added to selectedList.
-	 *
+	 * @param  aPc
 	 * @param  availableList
 	 * @param  selectedList
-	 * @param  aPC
 	 */
 	public void getChoices(
+	    final PlayerCharacter aPc,
 	    final List            availableList,
-	    final List            selectedList,
-	    final PlayerCharacter aPC)
+	    final List            selectedList)
 	{
 		if (pobject.getAssociatedCount() != 0)
 		{
@@ -78,11 +77,11 @@ public class FeatChoiceManager extends AbstractChoiceManager
 
 			if (
 			    (anAbility != null) &&
-			    PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
+			    PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
 			{
 				availableList.add(featName);
 
-				if (aPC.hasRealFeatNamed(featName) &&
+				if (aPc.hasRealFeatNamed(featName) &&
 				    !selectedList.contains(featName))
 				{
 					selectedList.add(featName);
@@ -98,7 +97,7 @@ public class FeatChoiceManager extends AbstractChoiceManager
 	 * @param selected
 	 * @param selectedBonusList
 	 */
-	protected void applyChoices(
+	public void applyChoices(
 			PlayerCharacter  aPC,
 			List             selected,
 			List             selectedBonusList)

@@ -62,15 +62,14 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 
 	/**
 	 * Get the Armour proficiency choices
-	 *
+	 * @param  aPc
 	 * @param  availableList
 	 * @param  selectedList
-	 * @param  aPC
 	 */
 	public void getChoices(
+	    PlayerCharacter aPc,
 	    List            availableList,
-	    List            selectedList,
-	    PlayerCharacter aPC)
+	    List            selectedList)
 	{
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_ARMOR_PROF));
 
@@ -93,9 +92,9 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 					if (
 					    eq.isArmor() &&
 					    eq.isType(tempString) &&
-					    !availableList.contains(eq.profName(aPC)))
+					    !availableList.contains(eq.profName(aPc)))
 					{
-						availableList.add(eq.profName(aPC));
+						availableList.add(eq.profName(aPc));
 					}
 				}
 			}
@@ -106,9 +105,9 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 				if (
 				    (eq != null) &&
 				    eq.isArmor() &&
-				    !availableList.contains(eq.profName(aPC)))
+				    !availableList.contains(eq.profName(aPc)))
 				{
-					availableList.add(eq.profName(aPC));
+					availableList.add(eq.profName(aPc));
 				}
 			}
 		}
@@ -121,7 +120,7 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 	 * @param  selected          a List of the choices to apply
 	 * @param  selectedBonusList unused
 	 */
-	protected void applyChoices(
+	public void applyChoices(
 	    final PlayerCharacter  aPC,
 	    final List             selected,
 	    List                   selectedBonusList)

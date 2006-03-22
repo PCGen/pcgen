@@ -100,15 +100,14 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 
 	/**
 	 * Get the list of appropriate Weapon Proficiencies
-	 *
+	 * @param  aPc            The Player Character.
 	 * @param  availableList  The list weapon proficiencies are added to.
 	 * @param  selectedList   Contains all entries for a weapon proficency key.
-	 * @param  aPC            The Player Character.
 	 */
 	public void getChoices(
+	    PlayerCharacter aPc,
 	    List            availableList,
-	    List            selectedList,
-	    PlayerCharacter aPC)
+	    List            selectedList)
 	{
 		weaponToProfMap.clear();
 
@@ -143,19 +142,19 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 
 			if ("DEITYWEAPON".equals(parsed))
 			{
-				buildWeaponProfDeityChoices(unparsed, availableList, adding, aPC);
+				buildWeaponProfDeityChoices(unparsed, availableList, adding, aPc);
 			}
 			else if (parsed.startsWith("TYPE=") || parsed.startsWith("TYPE."))
 			{
-				buildWeaponProfTypeChoices(unparsed, availableList, parsed, aPC);
+				buildWeaponProfTypeChoices(unparsed, availableList, parsed, aPc);
 			}
 			else if (parsed.startsWith("WIELD=") || parsed.startsWith("WIELD."))
 			{
-				buildWeaponProfWeildChoices(unparsed, availableList, parsed, aPC);
+				buildWeaponProfWeildChoices(unparsed, availableList, parsed, aPc);
 			}
 			else if (parsed.startsWith("!TYPE=") || parsed.startsWith("!TYPE."))
 			{
-				removeExcludedWeaponProfTypeChoices(parsed, availableList, aPC);
+				removeExcludedWeaponProfTypeChoices(parsed, availableList, aPc);
 			}
 			else
 			{
@@ -414,7 +413,7 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 	 * @param  selected				List of the choices made
 	 * @param  selectedBonusList	Doesn't seem to be used.
 	 */
-	protected void applyChoices(
+	public void applyChoices(
 	    final PlayerCharacter  aPC,
 	    final List             selected,
 	    List                   selectedBonusList)

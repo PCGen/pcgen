@@ -274,9 +274,9 @@ public class ChooserUtilities
 			return;
 		}
 
-		AbstractChoiceManager aMan = getChoiceManager(aPObject, aChoice, aPC);
+		ChoiceManagerList aMan = getChoiceManager(aPObject, aChoice, aPC);
 
-		aMan.getChoices(availableList, selectedList, aPC);
+		aMan.getChoices(aPC, availableList, selectedList);
 
 		if (
 			!process ||
@@ -285,10 +285,10 @@ public class ChooserUtilities
 			return;
 		}
 
-		final List newSelections = aMan.doChooser(availableList,
+		final List newSelections = aMan.doChooser(aPC,
+				                                  availableList,
 				                                  selectedList,
-				                                  selectedBonusList,
-				                                  aPC);
+				                                  selectedBonusList);
 
 		aMan.applyChoices(aPC, newSelections, null);
 	}
@@ -319,7 +319,7 @@ public class ChooserUtilities
 	 *
 	 * @return an initialised ChoiceManager
 	 */
-	public static AbstractChoiceManager getChoiceManager (
+	public static ChoiceManagerList getChoiceManager (
 			PObject         aPObject,
 			String          theChoices,
 			PlayerCharacter aPC)
@@ -382,7 +382,7 @@ public class ChooserUtilities
 			Object[] argsObject = {aPObject, choiceString, aPC};
 
 			Constructor constructor  = aClass.getConstructor(argsClass);
-			AbstractChoiceManager cm = (AbstractChoiceManager) constructor.newInstance(argsObject);
+			ChoiceManagerList cm = (ChoiceManagerList) constructor.newInstance(argsObject);
 			return cm;
 		}
 		catch (ClassNotFoundException e) {
