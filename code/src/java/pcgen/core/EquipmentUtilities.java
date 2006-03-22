@@ -326,7 +326,7 @@ public final class EquipmentUtilities
 	 *
 	 * @param   aName
 	 *
-	 * @return  the name with choices stripped
+	 * @return  the name with sub-choices stripped from it
 	 */
 	public static String removeChoicesFromName(String aName)
 	{
@@ -334,4 +334,37 @@ public final class EquipmentUtilities
 	
 		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
 	}
+
+
+	/**
+	 * Takes a string of the form "foo (bar, baz)", populates the array
+	 * with ["bar", "baz"] and returns foo.  All strings returned by this
+	 * function have had leading.trailing whitespace removed.
+	 * 
+	 * @param name
+	 * @param specifics 
+	 * 
+	 * @return the name with sub-choices stripped from it
+	 */
+	public static String getUndecoratedName(final String name, ArrayList specifics) {
+
+		String altName = removeChoicesFromName(name);
+
+		specifics.clear();
+		int start = name.indexOf('(') + 1;
+		int end   = name.lastIndexOf(')');
+		
+		if (start >= 0 && end > start) {
+
+			// we want what is inside the outermost parenthesis.
+			String subName = name.substring(start, end);
+			
+			for (Iterator specIt = Arrays.asList(subName.split("\\s*,\\s*")).iterator(); specIt.hasNext(); ) {
+				specifics.add(((String) specIt.next()).trim());
+			}
+		}
+		
+		return altName;
+	}
+
 }

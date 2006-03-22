@@ -83,7 +83,10 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 		if (realThing == null)
 		{
 			realThing = AbilityUtilities.retrieveAbilityKeyed(this.category, this.keyName);
-			// Globals.getAbilityKeyed(this.category, this.keyName);
+
+			if ((realThing != null) && (!realThing.getKeyName().equals(this.keyName))) {
+				
+			}
 		}
 
 		return realThing;
