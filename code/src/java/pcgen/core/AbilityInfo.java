@@ -29,6 +29,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,6 +49,8 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	private final String category;
 	private Ability      realThing;
 	private List         prereqList;
+	private ArrayList    decorations = new ArrayList(); 
+
 
 	/**
 	 * Make a new object to hold minimal info about Abilities
@@ -85,13 +89,25 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 			realThing = AbilityUtilities.retrieveAbilityKeyed(this.category, this.keyName);
 
 			if ((realThing != null) && (!realThing.getKeyName().equals(this.keyName))) {
-				// TODO Do Nothing
+				EquipmentUtilities.getUndecoratedName(this.keyName, decorations);
 			}
 		}
 
 		return realThing;
 	}
 
+	/**
+	 * Return an iterator over any Choices made for the Ability represented
+
+	 * @return an iterator
+	 */
+	public Iterator getChoicesIterator() {
+		return (getAbility() != null) ?
+				decorations.iterator() :
+					Collections.EMPTY_LIST.iterator();
+	}
+	
+	
 	/**
 	 * Get the category of the Ability this AbilityInfo object represents
 	 *
