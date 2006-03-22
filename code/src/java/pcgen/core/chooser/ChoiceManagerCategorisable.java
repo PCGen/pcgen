@@ -27,6 +27,7 @@ public interface ChoiceManagerCategorisable {
 	 *
 	 * @param store
 	 * @param previousSelections
+	 * @return list
 	 */
 	public abstract List doChooser(final CategorisableStore store,
 			final List previousSelections);

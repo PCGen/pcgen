@@ -5,7 +5,6 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import pcgen.core.CategorisableStore;
 import pcgen.core.PlayerCharacter;
 
 /**

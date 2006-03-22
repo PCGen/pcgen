@@ -45,7 +45,7 @@ import pcgen.util.TestHelper;
 public class AbilityFromTemplateChoiceManagerTest extends
 		AbstractCharacterTestCase {
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.chooser.AbilityFromTemplateChoiceManager.addToMaps(Categorisable)'
 	 */
 	public void testAddToMaps() {
@@ -158,7 +158,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.chooser.AbstractCategorisableChoiceManager.initialise(int, int, int)'
 	 */
 	public void testInitialise() {
@@ -206,7 +206,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		}
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.chooser.AbilityFromTemplateChoiceManager.AbilityFromTemplateChoiceManager(PObject, PlayerCharacter)'
 	 */
 	public void testAbilityFromTemplateChoiceManager() {
@@ -234,18 +234,18 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.chooser.AbstractCategorisableChoiceManager.doChooser(List, List, List, PlayerCharacter)'
 	 */
 	public void testDoChooserListListListPlayerCharacter() {
-
+		// TODO Do Nothing
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.chooser.AbstractCategorisableChoiceManager.doChooser(CategorisableStore, List)'
 	 */
 	public void testDoChooserCategorisableStoreList() {
-
+		// TODO Do Nothing
 	}
 
 }

@@ -22,7 +22,6 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.CategorisableStore;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;

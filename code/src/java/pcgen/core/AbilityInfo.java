@@ -85,7 +85,7 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 			realThing = AbilityUtilities.retrieveAbilityKeyed(this.category, this.keyName);
 
 			if ((realThing != null) && (!realThing.getKeyName().equals(this.keyName))) {
-				
+				// TODO Do Nothing
 			}
 		}
 
