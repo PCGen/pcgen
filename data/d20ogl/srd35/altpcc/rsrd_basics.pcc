@@ -53,8 +53,11 @@ FEAT:@/d20ogl/srd35/rsrd_feats_monster.lst
 
 # Stuff for Companions and Followers
 COMPANIONMOD:@/d20ogl/srd35/rsrd_companionmods.lst
-RACE:@/d20ogl/srd35/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Lizard|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel)
-RACE:@/d20ogl/srd35/rsrd_races__animals.lst|(INCLUDE:Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
+# Combining the two lines, since the INCLUDE only looks at the first one
+#	prob. because of the way the file is parsed, it only see the first instance of a file
+#RACE:@/d20ogl/srd35/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Lizard|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel)
+#RACE:@/d20ogl/srd35/rsrd_races__animals.lst|(INCLUDE:Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
+RACE:@/d20ogl/srd35/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Lizard|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
 CLASS:@/d20ogl/srd35/rsrd_classes_monsters.lst|(INCLUDE:Animal|Magical Beast)
 
 # Default Monster Kits
