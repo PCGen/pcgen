@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 21 10:32:08 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Mar 22 05:47:56 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -227,11 +227,11 @@ CLASS:Hierophant	HD:8		TYPE:PC.Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeC
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:Divine,1,7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
-1	ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
-2	ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
-3	ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
-4	ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
-5	ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
+1	BONUS:CASTERLEVEL|TYPE.Divine|CL	ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
+2							ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
+3							ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
+4							ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
+5							ADD:FEAT(TYPE=Hierophant,TYPE=Metamagic)
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
