@@ -113,7 +113,7 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 	/**
 	 * what type of chooser does this handle
 	 * 
-	 * @return
+	 * @return type of chooser
 	 */
 	public String typeHandled ()
 	{
@@ -139,7 +139,7 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 	 * @param availableList
 	 * @param selectedList
 	 * @param selectedBonusList
-	 * @return
+	 * @return list
 	 */
 	public List doChooser (
 		    PlayerCharacter       aPc,
