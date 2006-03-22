@@ -15,7 +15,7 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 INFOTEXT:This set loads the Equipment options from the Future section of the MSRD.
 
 # Do not remove the EXTRAFILE comment.
-#EXTRAFILE:OGL.txt
+#EXTRAFILE:readme.txt
 
 EQUIPMENT:msrd_future_equipment_armor.lst
 EQUIPMENT:msrd_future_equipment_equip.lst
