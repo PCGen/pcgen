@@ -146,7 +146,7 @@ public class AbilityStore extends CategorisableStore
 		}
 		else
 		{
-			if (!this.addNewCategory(toAdd))
+			if (!this.addCategorisable(toAdd))
 			{
 				String error = (getAbility) ? "Ability object" : "AbilityInfo object";
 				Logging.errorPrint("problem adding " + error);

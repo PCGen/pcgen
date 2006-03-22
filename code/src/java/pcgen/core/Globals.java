@@ -777,7 +777,7 @@ public final class Globals
 	 */
 	public static boolean addAbility (final Ability anAbility)
 	{
-		return abilityStore.addNewCategory(anAbility);
+		return abilityStore.addCategorisable(anAbility);
 	}
 
 	/**

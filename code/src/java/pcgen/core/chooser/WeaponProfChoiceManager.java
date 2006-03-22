@@ -133,7 +133,7 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 
 				while (profTok.hasMoreTokens())
 				{
-					weaponToProfMap.addNewCategory(
+					weaponToProfMap.addCategorisable(
 						new weaponToProf(profString, profTok.nextToken()));
 				}
 
@@ -201,7 +201,7 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 
 					while (cTok.hasMoreTokens())
 					{
-						weaponToProfMap.addNewCategory(new weaponToProf(bString, cTok.nextToken()));
+						weaponToProfMap.addCategorisable(new weaponToProf(bString, cTok.nextToken()));
 					}
 				}
 			}
@@ -352,7 +352,7 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 
 				while (cTok.hasMoreTokens())
 				{
-					weaponToProfMap.addNewCategory(new weaponToProf(bString, cTok.nextToken()));
+					weaponToProfMap.addCategorisable(new weaponToProf(bString, cTok.nextToken()));
 				}
 			}
 		}

@@ -69,7 +69,7 @@ public class CategorisableStore implements Cloneable
 	 * @return  true if the object was added correctly
 	 */
 
-	public boolean addNewCategory(final Categorisable aCatObj)
+	public boolean addCategorisable(final Categorisable aCatObj)
 	{
 		Map objMap = (HashMap) categoryMap.get(aCatObj.getCategory());
 
@@ -118,7 +118,7 @@ public class CategorisableStore implements Cloneable
 		while (it.hasNext())
 		{
 			final Categorisable ab = (Categorisable) it.next();
-			clone.addNewCategory(ab);
+			clone.addCategorisable(ab);
 		}
 
 		return clone;
