@@ -192,6 +192,33 @@ public class SpellBook
 		this.type = type;
 	}
 
+	/**
+	 * Retrieve the name of the spell book type.
+	 * @return The name of the type of spell book.
+	 */
+	public final String getTypeName()
+	{
+		String retValue = "";
+		switch (getType())
+		{
+			case SpellBook.TYPE_KNOWN_SPELLS:
+				retValue = "Known Spell List";
+				break;
+
+			case SpellBook.TYPE_PREPARED_LIST:
+				retValue = "Prepared Spell List";
+				break;
+
+			case SpellBook.TYPE_SPELL_BOOK:
+				retValue = "Spell Book";
+				break;
+
+			default:
+				retValue = "Unknown spell list type: " + getType();
+				break;
+		}
+		return retValue;
+	}
 
 	/**
 	 * Get the number of pages used.

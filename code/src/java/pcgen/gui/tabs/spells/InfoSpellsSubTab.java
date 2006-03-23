@@ -881,27 +881,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		b.append(book.getName()).append("</b></font>"); //$NON-NLS-1$ 
 
 		b.append(" ("); //$NON-NLS-1$
-		switch (book.getType())
-		{
-			case SpellBook.TYPE_KNOWN_SPELLS:
-				b.append("Known Spell List");
-				break;
-
-			case SpellBook.TYPE_PREPARED_LIST:
-				b.append("Prepared Spell List");
-				break;
-
-			case SpellBook.TYPE_SPELL_BOOK:
-				b.append("Spell Book");
-				break;
-
-			default:
-				b.append("<i>"); //$NON-NLS-1$
-				b.append("Unknown spell list type: ");
-				b.append(book.getType());
-				b.append("</i>"); //$NON-NLS-1$
-				break;
-		}
+		b.append(book.getTypeName());
 		if (book.getName().equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
