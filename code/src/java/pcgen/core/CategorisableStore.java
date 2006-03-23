@@ -24,6 +24,8 @@ package pcgen.core;
 
 import java.util.*;
 
+import pcgen.util.Logging;
+
 /**
  * Implements a storage facility for objects which implement the Categorisable
  * interface.
@@ -46,11 +48,24 @@ public class CategorisableStore implements Cloneable
 		{
 			public int compare(final Object o1, final Object o2)
 			{
-				return (((String) o1).compareToIgnoreCase(((String) o2)));
+				String s1 = ((Categorisable) o1).getName();
+				String s2 = ((Categorisable) o2).getName();
+				return (s1.compareToIgnoreCase(s2));
 			}
 		};
 
-	protected Map categoryMap = new HashMap();
+	private static final Comparator stringComp = new Comparator()
+		{
+			public int compare(final Object o1, final Object o2)
+			{
+				String s1 = (String) o1;
+				String s2 = (String) o2;
+				return (s1.compareToIgnoreCase(s2));
+			}
+		};
+
+
+		protected Map categoryMap = new HashMap();
 
 	/**
 	 * Make a new WareHouse
@@ -233,7 +248,7 @@ public class CategorisableStore implements Cloneable
 	 */
 	public Iterator getCategoryIterator()
 	{
-		TreeSet sortedAggregate = getSortedCategorySet(catNameComp);
+		TreeSet sortedAggregate = getSortedCategorySet(stringComp);
 
 		if (sortedAggregate == null)
 		{
