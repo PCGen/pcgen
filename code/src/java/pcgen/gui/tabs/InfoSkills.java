@@ -2435,6 +2435,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			resetModel(mode, available);
 			int i = 1;
 			displayList = new ArrayList();
+			displayList.add(new Boolean(true));	// Skill
 			if (available)
 			{
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Modifier
@@ -2476,9 +2477,45 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 */
 		public Class getColumnClass(int column)
 		{
-			if(column == COL_NAME)
+			GameMode gm;
+			switch (column)
 			{
-				return TreeTableModel.class;
+				case COL_NAME: //skill name
+					return TreeTableModel.class;
+
+				case COL_MOD: //skill modifier
+					return Integer.class;
+
+				case COL_RANK: //skill ranks
+					gm = SettingsHandler.getGame();
+					if (gm.hasSkillRankDisplayText())
+					{
+						return String.class;
+					}
+					return Float.class;
+
+				case COL_TOTAL: //total skill
+					gm = SettingsHandler.getGame();
+					if (gm.hasSkillRankDisplayText())
+					{
+						return String.class;
+					}
+					return Integer.class;
+
+				case COL_COST: //skill rank cost
+					return Integer.class;
+
+				case COL_INDEX: //display index
+					return Integer.class;
+
+				case COL_SRC:
+					break;
+
+				default:
+					Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_08") + column
+						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
+
+					break;
 			}
 			return String.class;
 		}
@@ -3019,12 +3056,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoSkills.sizecol." + names[col + getMColumnOffset()], widths[col + getMColumnOffset()]);
+			return SettingsHandler.getPCGenOption("InfoSkills.sizecol." + names[col], widths[col]);
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp)
 		{
-			setColumnViewOption(modelType + "." + names[col + getMColumnOffset()], disp);
+			setColumnViewOption(modelType + "." + names[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
@@ -3043,7 +3080,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoSkills.sizecol." + names[col + getMColumnOffset()], width);
+			SettingsHandler.setPCGenOption("InfoSkills.sizecol." + names[col], width);
 		}
 		
 		public List getMColumnList()
