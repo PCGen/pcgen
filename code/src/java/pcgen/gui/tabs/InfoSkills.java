@@ -2445,7 +2445,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Total
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Source
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Index
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Order
 			}
 			else
 			{
@@ -2454,7 +2454,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Total
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Source
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Index
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Order
 			}
 		}
 
@@ -2479,45 +2479,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 */
 		public Class getColumnClass(int column)
 		{
-			GameMode gm;
-			switch (column)
+			if(column == COL_NAME)
 			{
-				case COL_NAME: //skill name
-					return TreeTableModel.class;
-
-				case COL_MOD: //skill modifier
-					return Integer.class;
-
-				case COL_RANK: //skill ranks
-					gm = SettingsHandler.getGame();
-					if (gm.hasSkillRankDisplayText())
-					{
-						return String.class;
-					}
-					return Float.class;
-
-				case COL_TOTAL: //total skill
-					gm = SettingsHandler.getGame();
-					if (gm.hasSkillRankDisplayText())
-					{
-						return String.class;
-					}
-					return Integer.class;
-
-				case COL_COST: //skill rank cost
-					return Integer.class;
-
-				case COL_INDEX: //display index
-					return Integer.class;
-
-				case COL_SRC:
-					break;
-
-				default:
-					Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_08") + column
-						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
-
-					break;
+				return TreeTableModel.class;
 			}
 			return String.class;
 		}
