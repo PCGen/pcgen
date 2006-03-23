@@ -3233,7 +3233,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * -1 shows as Hidden, and 0 is shown as blank. Any other value is
 	 * displayed as is.
 	 * 
-	 * @deperecated This class is not used, remove post 5.10 Beta 1
+	 * @deperecated Check with Zaister before removing this class
 	 */
 	private static final class OutputOrderRenderer extends DefaultTableCellRenderer
 	{

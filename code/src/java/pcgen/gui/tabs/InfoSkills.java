@@ -2327,6 +2327,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 * 
 	 * -1 shows as Hidden, and 0 is shown as blank. Any other value is
 	 * displayed as is.
+	 * 
+	 * @deprecated See Zaister before deleting this class
 	 */
 	private static final class OutputOrderRenderer extends DefaultTableCellRenderer
 	{

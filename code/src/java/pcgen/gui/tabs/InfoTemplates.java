@@ -253,6 +253,10 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		return this;
 	}
 
+	/**
+	 * Set needs update flag for templates tab
+	 * @param b
+	 */
 	public static void setNeedsUpdate(boolean b)
 	{
 		needsUpdate = b;
@@ -1172,6 +1176,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		private int prevGlobalTemplateCount;
 		private String qFilter = null;
 
+		/** Constructor */
 		public PCTemplatesTableModel() {
 			resetModel(0);
 		}

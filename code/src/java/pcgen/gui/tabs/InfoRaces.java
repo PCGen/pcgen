@@ -268,10 +268,15 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		return this;
 	}
 
+	/**
+	 * Sets the nedsUpdate flag for Races tab
+	 * @param b
+	 */
 	public static void setNeedsUpdate(boolean b)
 	{
 		needsUpdate = b;
 	}
+	
 	/**
 	 * specifies whether the "match any" option should be available
 	 * @return true
@@ -587,7 +592,9 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 					try {
 						num = Integer.parseInt(txtHD.getText());
 					}
-					catch(Exception exe) {}
+					catch(Exception exe) {
+						// TODO Deal with this
+					}
 					PCGen_Frame1.addMonsterHD(num);
 					updateHD();
 				}
@@ -600,7 +607,9 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 					try {
 						num = Integer.parseInt(txtHD.getText());
 					}
-					catch(Exception exe) {}
+					catch(Exception exe) {
+						// TODO Deal with this
+					}
 					PCGen_Frame1.addMonsterHD(num * -1);
 					updateHD();
 				}

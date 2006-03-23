@@ -81,6 +81,7 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 	}
 
 	private void initActionListeners() {
+		// TODO Do Nothing
 	}
 
 	private void initComponents() {
@@ -250,6 +251,10 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 		}
 	}
 
+	/**
+	 * Sets the needsUpdate flag for Race and Tempalte tabs
+	 * @param b
+	 */
 	public static void setNeedsUpdate(boolean b) {
 		InfoRaces.setNeedsUpdate(b);
 		InfoTemplates.setNeedsUpdate(b);

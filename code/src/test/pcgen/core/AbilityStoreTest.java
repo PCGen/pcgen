@@ -29,6 +29,9 @@ import java.util.Iterator;
 
 import pcgen.PCGenTestCase;
 
+/**
+ * Test class for AbilityStore
+ */
 public class AbilityStoreTest extends PCGenTestCase {
 
 	/*

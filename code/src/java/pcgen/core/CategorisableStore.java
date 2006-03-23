@@ -24,8 +24,6 @@ package pcgen.core;
 
 import java.util.*;
 
-import pcgen.util.Logging;
-
 /**
  * Implements a storage facility for objects which implement the Categorisable
  * interface.
