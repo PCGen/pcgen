@@ -185,6 +185,8 @@ public final class SettingsHandler
 	private static int gearTab_AvailableListMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME;
 	private static int gearTab_SelectedListMode = GuiConstants.INFOINVENTORY_VIEW_NAME;
 	private static int raceTab_ListMode = GuiConstants.INFORACE_VIEW_NAME;
+	private static int templateTab_ListMode = GuiConstants.INFOTEMPLATE_VIEW_NAME;
+	private static int templateSelTab_ListMode = GuiConstants.INFOTEMPLATE_VIEW_NAME;
 	private static int skillsTab_AvailableListMode = GuiConstants.INFOSKILLS_VIEW_TYPE_NAME;
 	private static int skillsTab_SelectedListMode = GuiConstants.INFOSKILLS_VIEW_NAME;
 	private static int spellsTab_AvailableListMode = GuiConstants.INFOSPELLS_VIEW_CLASS;
@@ -1816,6 +1818,26 @@ public final class SettingsHandler
 	public static int getRaceTab_ListMode()
 	{
 		return raceTab_ListMode;
+	}
+
+	public static void setTemplateTab_ListMode(final int listMode)
+	{
+		templateTab_ListMode = listMode;
+	}
+
+	public static int getTemplateTab_ListMode()
+	{
+		return templateTab_ListMode;
+	}
+
+	public static void setTemplateSelTab_ListMode(final int listMode)
+	{
+		templateSelTab_ListMode = listMode;
+	}
+
+	public static int getTemplateSelTab_ListMode()
+	{
+		return templateSelTab_ListMode;
 	}
 
 	/**

@@ -80,7 +80,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	private static final int COL_PPCOST = 13;
 
 	private final int[] colDefaultWidth = {
-			100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100
+			200, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100
 	};
 
     // there are two roots. One for available spells
@@ -224,6 +224,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	private List makeDisplayList(boolean available)
 	{
 		List retList = new ArrayList();
+		retList.add(new Boolean(true));
 		if(available)
 		{
 			int i = 1;
@@ -1150,17 +1151,17 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 
 	public void setMColumnDisplayed(int col, boolean disp) {
-		setColumnViewOption(colNameList[col + getMColumnOffset() ], disp);
+		setColumnViewOption(colNameList[col], disp);
 		displayList.set(col, new Boolean(disp));
 	}
 
 
 	public int getMColumnDefaultWidth(int col) {
-		return SettingsHandler.getPCGenOption(getOptionName() + "sizecol." + colNameList[col + getMColumnOffset()], colDefaultWidth[col + getMColumnOffset()]);
+		return SettingsHandler.getPCGenOption(getOptionName() + "sizecol." + colNameList[col], colDefaultWidth[col]);
 	}
 
 	public void setMColumnDefaultWidth(int col, int width) {
-		SettingsHandler.setPCGenOption(getOptionName() + "sizecol." + colNameList[col + getMColumnOffset()], width);
+		SettingsHandler.setPCGenOption(getOptionName() + "sizecol." + colNameList[col], width);
 	}
 	
 	private boolean getColumnViewOption(String colName, boolean defaultVal) {

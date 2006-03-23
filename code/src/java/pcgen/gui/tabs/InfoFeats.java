@@ -1524,6 +1524,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			resetModel(mode, available, false);
 			int i = 1;
 			displayList = new ArrayList();
+			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
@@ -2364,7 +2365,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		public void setMColumnDisplayed(int col, boolean disp)
 		{
-			setColumnViewOption(names[col + getMColumnOffset()], disp);
+			setColumnViewOption(names[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
@@ -2374,13 +2375,13 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		}
 
 		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoFeats.sizecol." + names[col + getMColumnOffset()], widths[col + getMColumnOffset()]);
+			return SettingsHandler.getPCGenOption("InfoFeats.sizecol." + names[col], widths[col]);
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoFeats.sizecol." + names[col + getMColumnOffset()], width);
+			SettingsHandler.setPCGenOption("InfoFeats.sizecol." + names[col], width);
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoFeats.viewcol." + colName, defaultVal);
 		}

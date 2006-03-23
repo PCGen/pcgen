@@ -1777,7 +1777,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			PropertyFactory.getString("in_sourceLabel")
 		};
 		private final int[] deityColList = {
-				100, 100, 100, 100
+				200, 100, 100, 100
 		};
 
 		private List displayList = null;
@@ -1787,6 +1787,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			resetModel(mode);
 			displayList = new ArrayList();
 			int i = 1;
+			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
 			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
 			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
@@ -2220,7 +2221,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {
-			setColumnViewOption(deityNameList[col + getMColumnOffset()], disp);
+			setColumnViewOption(deityNameList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
@@ -2229,11 +2230,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col + getMColumnOffset()], deityColList[col + getMColumnOffset()]);
+			return SettingsHandler.getPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col], deityColList[col]);
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col + getMColumnOffset()], width);
+			SettingsHandler.setPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col], width);
 		}
 		
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
@@ -2261,12 +2262,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		};
 		
 		private final int[] domainWidthList = new int[] {
-				100, 100
+				200, 100
 		};
 		
 		private DomainModel()
 		{
 			displayList = new ArrayList();
+			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(domainColList[1], true)));
 		}
 
@@ -2429,7 +2431,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {
-			setColumnViewOption(domainColList[col + getMColumnOffset()], disp);
+			setColumnViewOption(domainColList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
@@ -2438,11 +2440,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoDomain.domain.sizecol." + domainColList[col + getMColumnOffset()], domainWidthList[col + getMColumnOffset()]);
+			return SettingsHandler.getPCGenOption("InfoDomain.domain.sizecol." + domainColList[col], domainWidthList[col]);
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoDomain.domain.sizecol." + domainColList[col + getMColumnOffset()], width);
+			SettingsHandler.setPCGenOption("InfoDomain.domain.sizecol." + domainColList[col], width);
 		}
 		
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {

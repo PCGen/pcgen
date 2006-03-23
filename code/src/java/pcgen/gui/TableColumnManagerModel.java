@@ -39,7 +39,7 @@ public interface TableColumnManagerModel {
 	 * @return the column default width
 	 */
 	public int getMColumnDefaultWidth(int col);
-	
+
 	/**
 	 * Set the column default width
 	 * @param col

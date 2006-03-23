@@ -148,6 +148,8 @@ public interface Constants
 		"Known",
 		"Prepared",
 		"Spellbooks",
+		"Races",
+		"Templates"
 	};
 
 	// Encumberence Constants (String)
@@ -336,7 +338,7 @@ public interface Constants
 	/** 6 */
 	int TAB_INVENTORY   = 6;
 	/** 7 */
-	int TAB_RACES       = 7;
+	int TAB_RACE_MASTER = 7;
 	/** 8 */
 	int TAB_SKILLS      = 8;
 	/** 9 */
@@ -359,6 +361,10 @@ public interface Constants
 	int TAB_PREPARED_SPELLS  = 17;
 	/** 18 */
 	int TAB_SPELLBOOKS  = 18;
+	/** 19 */
+	int TAB_RACES       = 19;
+	/** 20 */
+	int TAB_TEMPLATES   = 20;
 
 
 	/** For accessing <code>CategorisableStore</code>. */

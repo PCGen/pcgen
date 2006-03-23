@@ -183,7 +183,7 @@ public final class GameMode implements Comparable
 		tInfo[Constants.TAB_DOMAINS].tabName     = "in_domains";
 		tInfo[Constants.TAB_ABILITIES].tabName   = "in_feats";
 		tInfo[Constants.TAB_INVENTORY].tabName   = "in_inventory";
-		tInfo[Constants.TAB_RACES].tabName       = "in_race";
+		tInfo[Constants.TAB_RACE_MASTER].tabName = "in_race";
 		tInfo[Constants.TAB_SKILLS].tabName      = "in_skills";
 		tInfo[Constants.TAB_SPELLS].tabName      = "in_spells";
 		tInfo[Constants.TAB_SUMMARY].tabName     = "in_summary";
@@ -191,6 +191,8 @@ public final class GameMode implements Comparable
 		tInfo[Constants.TAB_KNOWN_SPELLS].tabName    = "in_known_spells";
 		tInfo[Constants.TAB_PREPARED_SPELLS].tabName = "in_prepared_spells";
 		tInfo[Constants.TAB_SPELLBOOKS].tabName  = "in_spellbooks";
+		tInfo[Constants.TAB_RACES].tabName       = "in_races";
+		tInfo[Constants.TAB_TEMPLATES].tabName   = "in_templates";
 	}
 
 	/**

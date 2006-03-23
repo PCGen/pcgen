@@ -1622,7 +1622,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			};
 		
 		private final int[] colDefaultWidth = {
-				100, 100, 35, 70, 35, 40, 60, 60, 100
+				200, 100, 35, 70, 35, 40, 60, 60, 100
 		};
 
 		/**
@@ -1641,6 +1641,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 			resetModel(mode, available);
 			displayList = new ArrayList();
+			displayList.add(new Boolean(true));
 			if(modelType == 0) {
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], false)));
@@ -2037,7 +2038,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {
-			setColumnViewOption(modelType + "." + colNameList[col + getMColumnOffset()], disp);
+			setColumnViewOption(modelType + "." + colNameList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
@@ -2046,11 +2047,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 
 		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoClasses.sizecol." + colNameList[col + getMColumnOffset()], colDefaultWidth[col + getMColumnOffset()]);
+			return SettingsHandler.getPCGenOption("InfoClasses.sizecol." + colNameList[col], colDefaultWidth[col]);
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoClasses.sizecol." + colNameList[col + getMColumnOffset()], width);
+			SettingsHandler.setPCGenOption("InfoClasses.sizecol." + colNameList[col], width);
 		}
 		
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
