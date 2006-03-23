@@ -193,4 +193,30 @@ public class AbilityStore extends CategorisableStore
 
 		return "";
 	}
+
+	/**
+	 * Get a representation of the objects held in this Store.  The representation
+	 * if to addAbilityInfo will produce a "clone" of this object.
+	 * 
+	 * @return a parsable representation of this Store
+	 */
+	public String getParsableStringRepresentation () {
+		String info = "";
+		
+		for(Iterator OuterIt = this.getCategoryIterator(); OuterIt.hasNext();) {
+			String cat = (String) OuterIt.next();
+			
+			if (info.length() > 0) {
+				info += "|";
+			}
+
+			info += "CATEGORY=" + cat;
+			for(Iterator innerIt = this.getKeyIterator(cat); innerIt.hasNext();) {
+				AbilityInfo ab = (AbilityInfo) innerIt.next();
+				info += "|" + ab.getKeyName();
+			}
+		}
+		
+		return info;
+	}
 }
