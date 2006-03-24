@@ -2,8 +2,6 @@
 # Original Entry by byngl
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-# Was this created from scratch????
-
 # Sorted by the "Magic Items on the Body" listing for now...
 # Equipment Name	Type			Cost		Weight	Slot Needed	MODS			Source Page
 Headband		TYPE:Headgear	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf

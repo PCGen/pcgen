@@ -1,0 +1,72 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:3.5 RSRD Basics
+RANK:1
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:RSRD
+SETTING:RSRD
+TYPE:RSRD.Partial
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky)
+
+INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
+
+
+CLASS:rsrd_classes_base.lst
+CLASS:rsrd_classes_monsters.lst
+COMPANIONMOD:rsrd_companionmods.lst
+DEITY:rsrd_deities.lst
+DOMAIN:rsrd_domains.lst
+
+EQUIPMENT:rsrd_equip_armorshields.lst
+EQUIPMENT:rsrd_equip_basetypes.lst
+EQUIPMENT:rsrd_equip_coinsgems.lst
+EQUIPMENT:rsrd_equip_poisons.lst
+EQUIPMENT:rsrd_equip_weap_ammo.lst
+EQUIPMENT:rsrd_equip_weap_melee.lst
+EQUIPMENT:rsrd_equip_weap_ranged.lst
+EQUIPMENT:rsrd_equip_weap_natural.lst
+EQUIPMENT:rsrd_equip.lst
+
+EQUIPMOD:rsrd_equipmods_base.lst
+EQUIPMOD:rsrd_equipmods_enhancing.lst
+
+FEAT:rsrd_feats_divine.lst
+FEAT:rsrd_feats_hidden.lst
+FEAT:rsrd_feats_hidden2.lst
+FEAT:rsrd_feats.lst
+
+KIT:rsrd_kits_races__animals.lst
+KIT:rsrd_kits_races__base.lst
+
+LANGUAGE:rsrd_languages.lst
+
+RACE:rsrd_races__animals.lst
+RACE:rsrd_races__base.lst
+
+SKILL:rsrd_skills.lst
+SPELL:rsrd_spells_divine.lst
+SPELL:rsrd_spells.lst
+
+TEMPLATE:rsrd_templates_hidden.lst
+TEMPLATE:rsrd_templates_tempmods.lst
+TEMPLATE:rsrd_templates_types.lst
+TEMPLATE:rsrd_templates_tempmods.lst
+
+WEAPONPROF:rsrd_weaponprofs.lst
+WEAPONPROF:rsrd_weaponprofs_natural.lst
+
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
+
+#
+# DONE
+#
