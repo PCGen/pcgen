@@ -3424,7 +3424,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				case COL_QTY:
 					if (eq != null)
 					{
-						retVal = new Double(eq.qty());
+						retVal = new Float(eq.qty());
 					}
 					break;
 
