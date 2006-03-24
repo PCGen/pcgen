@@ -41,11 +41,11 @@ LANGUAGE:sovereignlanguages.lst
 #FEAT:sovereignmagicfeats.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Uncanny Dodge|Sneak Attack)
+FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Uncanny Dodge|Sneak Attack)
 
 EQUIPMENT:sovereignarmormasterwork.lst
 FEAT:sovereignmagicfeats.lst
 EQUIPMENT:sovereignweapmasterwork.lst
 #EQUIPMOD:sovereignequipmods.lst
-EQUIPMOD:@/d20ogl/srd/srd_eqmods_mundane|(EXCLUDE:Armor Spikes|Shield Spikes)
-EQUIPMOD:@/d20ogl/srd/srd_eqmods_enhancing|(INCLUDE:+1 (Enhancement to Weapon or Ammunition)|+1 (Enhancement to Armor)|+1 (Enhancement to Shield)|+2 (Enhancement to Weapon or Ammunition)|+2 (Enhancement to Armor)|+2 (Enhancement to Shield)|+3 (Enhancement to Weapon or Ammunition)|+3 (Enhancement to Armor)|+3 (Enhancement to Shield)|+4 (Enhancement to Weapon or Ammunition)|+4 (Enhancement to Armor)|+4 (Enhancement to Shield)|+5 (Enhancement to Weapon or Ammunition)|+5 (Enhancement to Armor)|+5 (Enhancement to Shield)|Adamantine|Throwing)
+EQUIPMOD:@/d20ogl/srd/basics/srd_eqmods_mundane|(EXCLUDE:Armor Spikes|Shield Spikes)
+EQUIPMOD:@/d20ogl/srd/basics/srd_eqmods_enhancing|(INCLUDE:+1 (Enhancement to Weapon or Ammunition)|+1 (Enhancement to Armor)|+1 (Enhancement to Shield)|+2 (Enhancement to Weapon or Ammunition)|+2 (Enhancement to Armor)|+2 (Enhancement to Shield)|+3 (Enhancement to Weapon or Ammunition)|+3 (Enhancement to Armor)|+3 (Enhancement to Shield)|+4 (Enhancement to Weapon or Ammunition)|+4 (Enhancement to Armor)|+4 (Enhancement to Shield)|+5 (Enhancement to Weapon or Ammunition)|+5 (Enhancement to Armor)|+5 (Enhancement to Shield)|Adamantine|Throwing)

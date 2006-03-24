@@ -22,4 +22,4 @@ SKILL:dungeonsskills.lst
 SPELL:dungeonsspells.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Wizard Weapon Proficiencies|Rogue Weapon Proficiencies)
+FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Evasion|Improved Evasion|Wizard Weapon Proficiencies|Rogue Weapon Proficiencies)

@@ -32,4 +32,4 @@ SPELL:guardianspells.lst
 KIT:guardiankitsraces.lst
 
 #Includes to make everything work
-CLASS:@/d20ogl/srd/srd_classes_creature_types.lst|(INCLUDE:Shapechanger|Outsider)
+CLASS:@/d20ogl/srd/basics/srd_classes_creature_types.lst|(INCLUDE:Shapechanger|Outsider)

@@ -38,9 +38,9 @@ FEAT:modernmilitary_feats_hidden.lst
 FEAT:modernmilitary_feats_mod.lst
 FEAT:modernmilitary_feats_hidden_specops.lst
 # Need Sneak Attack from SRD 3.0 for Silent Kill
-FEAT:@/d20ogl/srd/srd_feats_hidden.lst|(INCLUDE:Sneak Attack)
+FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Sneak Attack)
 
 SKILL:modernmilitary_skills.lst
 SKILL:modernmilitary_skills_mod.lst
 # Use Rope from SRD.
-SKILL:@/d20ogl/srd/srd_skills.lst|(INCLUDE:Use Rope)
+SKILL:@/d20ogl/srd/basics/srd_skills.lst|(INCLUDE:Use Rope)
