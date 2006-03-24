@@ -38,5 +38,5 @@ FEAT:merchantspiratesandsmugglers_feats.lst
 FEAT:merchantspiratesandsmugglers_feats_mods.lst
 
 ### References to the RSRD.
-FEAT:@/d20ogl/srd35/rsrd_feats_hidden.lst|(INCLUDE:Sneak Attack|Rage)
+FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst|(INCLUDE:Sneak Attack|Rage)
 
