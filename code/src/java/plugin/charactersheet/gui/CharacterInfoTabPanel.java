@@ -93,10 +93,16 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab {
 	}
 
 	public void refresh() {
-		cp.refresh();
+		if (cp != null)
+		{
+			cp.refresh();
+		}
 	}
 	public void forceRefresh() {
-		cp.forceRefresh();
+		if (cp != null)
+		{
+			cp.forceRefresh();
+		}
 	}
 
 	public JComponent getView() {
