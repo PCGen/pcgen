@@ -549,11 +549,14 @@ public final class Globals
 		for (int i = 0; i < loopMax; ++i)
 		{
 			final StringTokenizer tTok = new StringTokenizer((String) getCustColumnWidth().get(i), "|", false);
-			final String tabName = tTok.nextToken();
-
-			if (tabName.equals(cName))
+			if (tTok.hasMoreTokens())
 			{
-				colSize = Integer.parseInt(tTok.nextToken());
+				final String tabName = tTok.nextToken();
+	
+				if (tabName.equals(cName))
+				{
+					colSize = Integer.parseInt(tTok.nextToken());
+				}
 			}
 		}
 
