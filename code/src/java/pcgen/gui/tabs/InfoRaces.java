@@ -135,7 +135,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	private JButton selButton = new JButton(PropertyFactory.getString("in_select"));
 	private JButton clearQFilterButton = new JButton("Clear");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
-	private final JLabel lblQFilter = new JLabel("QuickFilter:");
+	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JLabel raceText = new JLabel();
 	private JLabel raceTextLabel = new JLabel(PropertyFactory.getString("in_irSelectedRace"));
 	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortRaces"));

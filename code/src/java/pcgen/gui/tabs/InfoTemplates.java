@@ -121,7 +121,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortTempl"));
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private int viewMode = 0;
-	private final JLabel lblQFilter = new JLabel("QuickFilter:");
+	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JTextField textQFilter = new JTextField();
 	private JButton clearQFilterButton = new JButton("Clear");
 	private static Integer saveViewMode = null;
@@ -129,7 +129,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private JLabel selSortLabel = new JLabel(PropertyFactory.getString("in_irSortTemplSel"));
 	private JComboBoxEx viewSelComboBox = new JComboBoxEx();
 	private int viewSelMode = 0;
-	private final JLabel lblSelQFilter = new JLabel("QuickFilter:");
+	private final JLabel lblSelQFilter = new JLabel("Filter:");
 	private JTextField textSelQFilter = new JTextField();
 	private JButton clearSelQFilterButton = new JButton("Clear");
 	private static Integer saveSelViewMode = null;

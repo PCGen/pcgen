@@ -101,7 +101,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private JLabel lblHP = new JLabel();
 	private JLabel lblHPName = null;
 	private JLabel lblNextLevel = new JLabel();
-	private final JLabel lblQFilter = new JLabel("QuickFilter:");
+	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JLabel lblSkills = new JLabel();
 	private JLabel lblVariableDisplay = new JLabel();
 	private JLabel lblVariableDisplay2 = new JLabel();
