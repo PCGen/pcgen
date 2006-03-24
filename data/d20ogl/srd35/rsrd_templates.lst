@@ -117,64 +117,6 @@ Int Bonus +1			VISIBLE:NO				PREVAREQ:INTSCORE,2	BONUS:STAT|INT|1
 Int Bonus +2			VISIBLE:NO				PREVAREQ:INTSCORE,1	BONUS:STAT|INT|2
 Int Bonus +3			VISIBLE:NO				PREVAREQ:INTSCORE,0	BONUS:STAT|INT|3
 
-###Block: Dragon Disciple Attacks
-# Template Name				Visible	Template																	Required Size	Natural Attacks
-Dragon Disciple Attacks			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon Disciple Attacks Small|Dragon Disciple Attacks Medium|Dragon Disciple Attacks Large
-Dragon Disciple Attacks Small		VISIBLE:NO																			PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d3
-Dragon Disciple Attacks Medium	VISIBLE:NO																			PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4
-Dragon Disciple Attacks Large		VISIBLE:NO																			PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6
-
-###Block: Temporary Bonus Templates
-# Template Name				Visible	Source Page						Save checks bonus									Combat bonus															Bonus to skill																				Stat bonus							Choose								Temporary effect description
-Familiar within arms reach		VISIBLE:NO	SOURCEPAGE:ClassesII.rtf																															BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC																							TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
-
-# Conditional Templates
-Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
-Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
-Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
-Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|INT|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
-Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|WIS|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points
-Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|CHA|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points
-Blinded					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|AC|-2|PREAPPLY:ANYPC	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC	BONUS:SKILL|Search,STAT.STR,STAT.DEX|-4|PREAPPLY:ANYPC																														TEMPDESC:You cannot see
-Cowering					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|AC|-2|PREAPPLY:ANYPC	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																								TEMPDESC:You are frozen in fear and can take no actions
-Dazzled					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|TOHIT|-1|PREAPPLY:ANYPC											BONUS:SKILL|Search,Spot|-1|PREAPPLY:ANYPC																																	TEMPDESC:You are unable to see well because of overstimulation of the eyes
-Deafened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|INITIATIVE|-4|PREAPPLY:ANYPC																																																		TEMPDESC:You cannot hear
-Energy Drained				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|-1*(%CHOICE)|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|-1*(%CHOICE)|PREAPPLY:ANYPC										BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)|PREAPPLY:ANYPC									CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Negative Levels	TEMPDESC:You have gained one or more negative levels
-Entangled					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC																																	BONUS:STAT|DEX|-4|PREAPPLY:ANYPC												TEMPDESC:You are ensnared
-Exhausted					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|DEX,STR|-6|PREAPPLY:ANYPC											TEMPDESC:You are exhausted
-Fatigued					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|DEX,STR|-2|PREAPPLY:ANYPC											TEMPDESC:You are fatigued
-Frightened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|-2|PREAPPLY:ANYPC			BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC											BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																			TEMPDESC:You are frightened
-Invisible					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|TOHIT|2|TYPE=Invisibility|PREAPPLY:ANYPC																																																TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)
-Panicked					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|-2|PREAPPLY:ANYPC																				BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																			TEMPDESC:You are panicked and must drop anything you hold and flee at top speed from the source of your fear
-Prone						VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|TOHIT.MELEE|-4|PREAPPLY:ANYPC																																																	TEMPDESC:You are on the ground
-Shaken					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|-2|PREAPPLY:ANYPC			BONUS:COMBAT|TOHIT|-2|PREAPPLY:ANYPC											BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																			TEMPDESC:You are shaken
-Sickened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|-2|PREAPPLY:ANYPC			BONUS:COMBAT|TOHIT,DAMAGE.MELEE,DAMAGE.RANGED|-2|PREAPPLY:ANYPC							BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2|PREAPPLY:ANYPC																			TEMPDESC:You are sickened
-Stunned					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												BONUS:COMBAT|AC|-2|PREAPPLY:ANYPC	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																								TEMPDESC:You are stunned, you drop everything held, and cannot take actions
-
-###Block: Combat Templates
-
-# Template Name		Visible	Source Page			Combat bonus					Modify VAR																																							Temporary effect description
-Fighting Defensively	VISIBLE:NO	SOURCEPAGE:CombatI.rtf	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC	BONUS:VAR|TwoWeaponShield|1|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC	TEMPDESC:You are fighting defensively when attacking
-Total Defense		VISIBLE:NO	SOURCEPAGE:CombatI.rtf								BONUS:VAR|TwoWeaponShield|1|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
-
-###Block: Alternative Animal Companion
-
-# Template Name				Visible		Template
-Alternative Animal Companion Master	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:4th Level or Higher (Level -3)|7th Level or Higher (Level -6)|10th Level or Higher (Level -9)|13th Level or Higher (Level -12)|16th Level or Higher (Level -15)
-
-###Block: Alternative Animal Companion Level adjusters
-
-# Template Name				Visible	Modify VAR
-4th Level or Higher (Level -3)	VISIBLE:NO	BONUS:VAR|CompLevel|-3
-7th Level or Higher (Level -6)	VISIBLE:NO	BONUS:VAR|CompLevel|-6
-10th Level or Higher (Level -9)	VISIBLE:NO	BONUS:VAR|CompLevel|-9
-13th Level or Higher (Level -12)	VISIBLE:NO	BONUS:VAR|CompLevel|-12
-16th Level or Higher (Level -15)	VISIBLE:NO	BONUS:VAR|CompLevel|-15
-
-###Block: Awakened Animal
-# Template Name	Required Race					ADD:Language			KIT				Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
-Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
-
 #
 # End
 #

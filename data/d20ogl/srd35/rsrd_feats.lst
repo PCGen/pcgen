@@ -123,30 +123,6 @@ Weapon Specialization									TYPE:Special.Fighter													PREFEAT:1,Weapon 
 Whirlwind Attack										TYPE:General.Fighter	PREATT:4											PREFEAT:4,Dodge,Mobility,Spring Attack,Combat Expertise																											PRESTAT:2,DEX=13,INT=13																														DESC:See Text																																																																																																																																																																SOURCEPAGE:Feats.rtf
 Widen Spell											TYPE:Metamagic																																																																																			DESC:See Text																																																				ADDSPELLLEVEL:3																																																																																																										SOURCEPAGE:Feats.rtf
 
-###Block: Additional Feats from the Divine Characters section of the RSRD
-# Feat Name				Type			Req. Att.	Required Feat								Required Lvl	Required Skill				Req. Known Spell				Required Stat	Description		Stackable?	Multiple?	Choose				Choose a Feat		Add Spell Lvl	Modify VAR				Source Page
-Blindsight (5 ft Radius)	TYPE:General	PREATT:4	PREFEAT:1,Blind Fight																						PRESTAT:1,WIS=19	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Disguise Spell			TYPE:Metamagic			PREFEAT:1,Bardic Music										PRESKILL:1,TYPE.Perform=12											DESC:See Text														ADDSPELLLEVEL:1						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Divine Might			TYPE:Divine				PREFEAT:1,Turn Undead,Rebuke Undead	PREFEAT:1,Power Attack																PRESTAT:1,STR=13	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Divine Vengeance			TYPE:Divine				PREFEAT:1,Extra Turning	PREFEAT:1,Turn Undead																					DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Energy Substitution		TYPE:Metamagic			PREFEAT:1,TYPE=Metamagic									PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Extra Music				TYPE:General			PREFEAT:1,Bardic Music																									DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|BardicMusicTimes|4	SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Eyes in the Back of Your Head	TYPE:General	PREATT:3																										PRESTAT:1,WIS=19	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Fleet of Foot			TYPE:General			PREFEAT:1,Run																							PRESTAT:1,DEX=15	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Hold the Line			TYPE:General	PREATT:2	PREFEAT:1,Combat Reflexes																								DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Jack Of All Trades		TYPE:General													PRELEVEL:6																	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Knock Down				TYPE:General	PREATT:2	PREFEAT:1,Improved Trip																						PRESTAT:1,STR=15	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Persistent Spell			TYPE:Metamagic			PREFEAT:1,Extend Spell																									DESC:See Text														ADDSPELLLEVEL:6						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Plant Control			TYPE:General			PREFEAT:1,Plant Defiance															PRESPELL:1,Speak with Plants					DESC:See Text										ADD:FEAT(Rebuke Plant)1									SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Plant Defiance			TYPE:General																						PRESPELL:1,Detect Animals or Plants				DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Power Control			TYPE:General	PREATT:4	PREFEAT:1,Weapon Focus																									DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus|1													SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Reach Spell				TYPE:Metamagic																															DESC:See Text														ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Repeat Spell			TYPE:Metamagic																															DESC:See Text														ADDSPELLLEVEL:3						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Sacred Spell			TYPE:Metamagic																															DESC:See Text														ADDSPELLLEVEL:2						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Sharp Shooting			TYPE:General	PREATT:3	PREFEAT:2,Point Blank Shot,Precise Shot																						DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Subdual Substitution		TYPE:Metamagic			PREFEAT:1,TYPE=Metamagic									PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Superior Expertise		TYPE:General	PREATT:6																										PRESTAT:1,INT=13	DESC:See Text																						SOURCEPAGE:DivineAbilitiesandFeats.rtf
-
 #
 #
 # This lower section is for the Benefits section in the SRD.
@@ -268,30 +244,6 @@ Weapon Focus.MOD				DESC:You gain a +1 bonus on all attack rolls you make using 
 Weapon Specialization.MOD		DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon.
 Whirlwind Attack.MOD			DESC:When you use the full attack action, you can give up your regular attacks and instead make one melee attack at your full base attack bonus against each opponent within reach.
 Widen Spell.MOD				DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%. A widened spell uses up a spell slot three levels higher than the spell's actual level.
-
-###Block: Additional Feats from the Divine Characters section of the RSRD
-# Feat Name					Description
-Blindsight (5 ft Radius).MOD		DESC:Using senses such as acute hearing and sensitivity to vibrations, you detect the location of opponents who are no more than 5 feet away from you.
-Disguise Spell.MOD			DESC:You have mastered the art of casting spells unobtrusively, mingling verbal and somatic components into its music and performances so that others rarely catch you in the act of casting a spell.
-Divine Might.MOD				DESC:As a free action, spend one of your turn or rebuke undead attempts to add your Charisma bonus to your weapon damage for 1 full round.
-Divine Vengeance.MOD			DESC:You can spend one of your turn undead attempts to add 2d6 points of sacred energy damage to all your successful melee attacks against undead until the end of your next action.
-Energy Substitution.MOD			DESC:You choose one type of energy: acid, cold, electricity, fire, or sonic. When employing a spell with the acid, cold, electricity, fire, or sonic designator, you can modify the spell to use your chosen type of energy instead.
-Extra Music.MOD				DESC:You can use your bardic music four extra times per day.
-Eyes in the Back of Your Head.MOD	DESC:Attackers do not gain the usual +2 attack bonus when flanking you.
-Fleet of Foot.MOD				DESC:When running or charging, you can make a single direction change of 90 degrees or less.
-Hold the Line.MOD				DESC:You may make an attack of opportunity against a chagin opponent who enters an area you threaten.
-Jack Of All Trades.MOD			DESC:You can use any skill untrained, even those that normally require training.
-Knock Down.MOD				DESC:Whenever you deal 10 or more points of damage to your opponent in melee, you make a trip attack as a free action against the same target.
-Persistent Spell.MOD			DESC:A persistent spell has a duration of 24 hours.
-Plant Control.MOD				DESC:You can rebuke or command plant creatures as an evil cleric rebukes undead.
-Plant Defiance.MOD			DESC:You can turn (but not destroy) plant creatures as a good cleric turns undead.
-Power Control.MOD				DESC:When using the weapon you selected, you gain a +4 bonus on the roll to confirm a threat.
-Reach Spell.MOD				DESC:You may cast a spell that normally has a range of touch at any distance up to 30 feet.
-Repeat Spell.MOD				DESC:A repeated spell is automatically cast again at the beginning of your next round of actions.
-Sacred Spell.MOD				DESC:Half of the damage dealt by a sacred spell results directly from divine power and is therefore not subject to being reduced by protection from energy or similar magic.
-Sharp Shooting.MOD			DESC:Your targets only receive a +2 bonus to Armor class due to cover.
-Subdual Substitution.MOD		DESC:When employing a spell with the acid, cold, electricity, fire, or sonic designator, you can modify the spell to deal subdual damage instead of the indicated type of energy damage.
-Superior Expertise.MOD			DESC:When you use the Combat Expertise feat to improve your Armor Class, the number you subtract from your attack and add to your AC can be any number that does not exceed your base attack bonus.
 
 #
 # DONE

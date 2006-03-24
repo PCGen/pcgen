@@ -31,9 +31,11 @@ CLASS:rsrd_classes_prestige.lst
 DOMAIN:rsrd_domains.lst
 LANGUAGE:rsrd_languages.lst
 FEAT:rsrd_feats.lst
+FEAT:rsrd_feats_divine.lst
 RACE:rsrd_races__base.lst
 SKILL:rsrd_skills.lst
 SPELL:rsrd_spells.lst
+SPELL:rsrd_spells_divine.lst
 WEAPONPROF:rsrd_weaponprofs.lst
 WEAPONPROF:rsrd_weaponprofs_natural.lst
 ######KIT:rsrd_startingkits.lst
@@ -82,6 +84,7 @@ TEMPLATE:rsrd_templates_monsters.lst
 ########CLASS:rsrdclassesdragon.lst
 
 TEMPLATE:rsrd_templates.lst
+TEMPLATE:rsrd_templates_hidden.lst
 TEMPLATE:rsrd_templates_tempmods.lst
 FEAT:rsrd_feats_templates.lst
 

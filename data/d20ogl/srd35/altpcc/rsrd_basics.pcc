@@ -19,6 +19,7 @@ INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 RACE:@/d20ogl/srd35/rsrd_races__base.lst
 TEMPLATE:@/d20ogl/srd35/rsrd_templates_types.lst
 TEMPLATE:@/d20ogl/srd35/rsrd_templates_tempmods.lst
+TEMPLATE:@/d20ogl/srd35/rsrd_templates_hidden.lst
 LANGUAGE:@/d20ogl/srd35/rsrd_languages.lst
 ##############KIT:@/d20ogl/srd35/rsrd_startingkits.lst
 
@@ -28,6 +29,7 @@ SKILL:@/d20ogl/srd35/rsrd_skills.lst
 DEITY:@/d20ogl/srd35/rsrd_deities.lst
 DOMAIN:@/d20ogl/srd35/rsrd_domains.lst
 SPELL:@/d20ogl/srd35/rsrd_spells.lst
+SPELL:@/d20ogl/srd35/rsrd_spells_divine.lst
 
 #Hiding Starting Outfits
 HIDETYPE:EQUIP|Starting
@@ -45,6 +47,7 @@ EQUIPMOD:@/d20ogl/srd35/rsrd_equipmods_base.lst
 WEAPONPROF:@/d20ogl/srd35/rsrd_weaponprofs.lst
 
 FEAT:@/d20ogl/srd35/rsrd_feats.lst
+FEAT:@/d20ogl/srd35/rsrd_feats_divine.lst
 FEAT:@/d20ogl/srd35/rsrd_feats_hidden.lst
 FEAT:@/d20ogl/srd35/rsrd_feats_hidden2.lst
 FEAT:@/d20ogl/srd35/rsrd_feats_monster.lst
