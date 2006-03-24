@@ -512,8 +512,11 @@ public final class CoreUtility
 	public static List split(final String aString, final char separator)
 	{
 		ArrayList temp = new ArrayList();
+		String sepStr = "\\" + String.valueOf(separator);
 		
-		for (Iterator iter = Arrays.asList(aString.split(String.valueOf(separator))).iterator(); iter.hasNext(); ) {
+		for (Iterator iter = Arrays.asList(aString.split(sepStr)).iterator(); iter
+			.hasNext();)
+		{
 			temp.add(((String) iter.next()).trim());
 		}
 
