@@ -44,6 +44,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -3337,14 +3338,33 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column)
-		{
-			if(column == COL_NAME)
-			{
-				return TreeTableModel.class;
+		public Class getColumnClass(int column) {
+			switch (column) {
+				case COL_NAME:
+					return TreeTableModel.class;
+
+				case COL_COST:
+					return BigDecimal.class;
+
+				case COL_QTY:
+					return Float.class;
+
+				case COL_SRC:
+					return String.class;
+
+				case COL_INDEX:
+					return Integer.class;
+
+				default:
+					Logging.errorPrint("In InfoGear.EquipmentModel.getColumnClass the column " + column
+						+ " is not supported.");
+
+					break;
 			}
+
 			return String.class;
 		}
+
 
 		/* The JTreeTableNode interface. */
 
