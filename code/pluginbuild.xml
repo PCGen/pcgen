@@ -3792,6 +3792,13 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-template-plugins" depends="makeplugindirs" description="Build (Link) Weapon Prof Lst Token plugin jar files">
 		<!-- Template tokens-->
+		<jar jarfile="${lstplugins.dir}/TemplateLstToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/template/AbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/TemplateLstToken-ADDLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

@@ -74,17 +74,18 @@ public final class PCTemplate extends PObject implements HasCost
 	/** Visibility is GUI Only */
 	public static final int VISIBILITY_DISPLAY_ONLY = 3;
 
-	private ArrayList featStrings    = null;
-	private ArrayList hitDiceStrings = null;
-	private ArrayList levelStrings   = null;
-	private ArrayList templates      = new ArrayList();
+	private AbilityStore abilityCatStore     = null;
+	private ArrayList    featStrings         = null;
+	private ArrayList    hitDiceStrings      = null;
+	private ArrayList    levelStrings        = null;
+	private ArrayList    templates           = new ArrayList();
 
-	private ArrayList weaponProfBonus     = null;
-	private HashMap   chosenFeatStrings   = null;
-	private List      templatesAdded      = null;
-	private String    ageString           = Constants.s_NONE;
-	private String    chooseLanguageAutos = "";
-	private String    cost                = "1";
+	private ArrayList    weaponProfBonus     = null;
+	private HashMap      chosenFeatStrings   = null;
+	private List         templatesAdded      = null;
+	private String       ageString           = Constants.s_NONE;
+	private String       chooseLanguageAutos = "";
+	private String       cost                = "1";
 
 	private String favoredClass = "";
 
@@ -733,6 +734,12 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tFAVOREDCLASS:").append(favoredClass);
 		}
 
+		if (abilityCatStore != null)
+		{
+			txt.append("\tABILITY:");
+			txt.append(abilityCatStore.getParsableStringRepresentation());
+		}
+		
 		if (getListSize(featStrings) > 0)
 		{
 			final StringBuffer buffer = new StringBuffer();
@@ -1669,11 +1676,17 @@ public final class PCTemplate extends PObject implements HasCost
 			aTemp.weaponProfBonus = (ArrayList) weaponProfBonus.clone();
 		}
 
+		if (abilityCatStore != null) {
+			aTemp.abilityCatStore = new AbilityStore();
+			aTemp.abilityCatStore.addAbilityInfo(
+					abilityCatStore.getParsableStringRepresentation(), "", "|", false, false);
+		}
+
 		if (getListSize(featStrings) != 0)
 		{
 			aTemp.featStrings = (ArrayList) featStrings.clone();
 		}
-
+		
 		if (chosenFeatStrings != null)
 		{
 			aTemp.chosenFeatStrings = (HashMap) chosenFeatStrings.clone();
@@ -2097,12 +2110,13 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * TODO DOCUMENT ME!
+	 * This is the function that implements a chooser for Feats granted by level
+	 * and/or HD by Templates. 
 	 *
-	 * @param  levelString  DOCUMENT ME!
-	 * @param  lvl          DOCUMENT ME!
-	 * @param  featKey      DOCUMENT ME!
-	 * @param  aPC          DOCUMENT ME!
+	 * @param  levelString  The string to be parsed for the choices to offer
+	 * @param  lvl          The level this is being added at
+	 * @param  featKey      either L<lvl> or H<lvl>
+	 * @param  aPC          The PC that this Template is appled to
 	 */
 	private void getLevelFeat(
 		final String          levelString,
@@ -2183,37 +2197,45 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Add a | separated list of available feat that this Template may grant.
+	 * Add a | separated list of available abilities that this Template may
+	 * grant.  This is the function called by the Lst parser to make the
+	 * Abilities available to this Template.
+	 * 
+	 * See AbilityStore.addAbilityInfo for details of the string
+	 * 
+	 * @param abilityString
+	 */
+	public void addAbilityString (final String abilityString) {
+		
+		if (".CLEAR".equals(abilityString))
+		{
+			abilityCatStore = null;
+			return;
+		}
+		
+		if (abilityCatStore == null) {
+			abilityCatStore = new AbilityStore();
+		}
+		
+		abilityCatStore.addAbilityInfo(abilityString, "", "|", false, false);
+	}
+	
+	/**
+	 * Add a | separated list of available feats that this Template may grant.
 	 * This is the function called by the Lst parser to make the feats
 	 * available to this Template
 	 *
-	 * @param  featString  The | separated list of feats
+	 * @param  abilityString  The | separated list of feats
 	 */
-	public void addFeatString(final String featString)
+	public void addFeatString(final String abilityString)
 	{
-		if (".CLEAR".equals(featString))
+		if (".CLEAR".equals(abilityString))
 		{
-			if (featStrings != null)
-			{
-				featStrings.clear();
-			}
-
+			abilityCatStore = null;
 			return;
 		}
-
-		final StringTokenizer aTok = new StringTokenizer(featString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String fs = aTok.nextToken();
-
-			if (featStrings == null)
-			{
-				featStrings = new ArrayList();
-			}
-
-			featStrings.add(fs);
-		}
+		
+		addAbilityString("CATEGORY=FEAT|" + abilityString);
 	}
 
 
@@ -2244,6 +2266,19 @@ public final class PCTemplate extends PObject implements HasCost
 			feats = new ArrayList();
 		}
 
+		/* This is very, very temporary.
+		 * 
+		 * This needs to be changed very soon so that this entire routine uses
+		 * AbilityInfo objects instead of the names of abilities.
+		 */
+		if (abilityCatStore != null) {
+			Iterator it = abilityCatStore.getKeyIterator("ALL");
+			
+			while (it.hasNext()) {
+				feats.add(((AbilityInfo) it.next()).getKeyName());
+			}
+		}
+		
 		// arknight modified this back in 1.27 with the comment: Added support for
 		// Spycraft Game Mode we no longer support Spycraft (at this time), and this
 		// breaks other modes, so I've reverting back to the old method. I am also fixing
