@@ -48,7 +48,7 @@ public class EquipmentUtilitiesTest extends PCGenTestCase {
 		super.tearDown();
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */
 	public void testAppendToName() {
@@ -58,14 +58,14 @@ public class EquipmentUtilitiesTest extends PCGenTestCase {
 		is(EquipmentUtilities.appendToName(bare, decoration), strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");		
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.removeChoicesFromName(String)'
 	 */
 	public void testRemoveChoicesFromName() {
 		is(EquipmentUtilities.removeChoicesFromName("Bare Thing (Mad cow)"), strEq("Bare Thing"), "Choice is removed from name correctly");		
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.getUndecoratedName(String, ArrayList)'
 	 */
 	public void testGetUndecoratedName() {

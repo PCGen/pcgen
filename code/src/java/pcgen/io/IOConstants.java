@@ -31,263 +31,201 @@ interface IOConstants
 	/** AGE tag */
 	String TAG_AGE = "AGE";
 
-
 	/** AGE SET tag */
 	String TAG_AGESET = "AGESET";
-
 
 	/** ALIGNALLOW */
 	String TAG_ALIGNALLOW = "ALIGNALLOW";
 
-
 	/** ALIGN */
 	String TAG_ALIGNMENT = "ALIGN";
-
 
 	/** APPLIEDTO */
 	String TAG_APPLIEDTO = "APPLIEDTO";
 
-
 	/** ARMORPROF */
 	String TAG_ARMORPROF = "ARMORPROF";
-
 
 	/** ASSOCIATED DATA */
 	String TAG_ASSOCIATEDDATA = "ASSOCIATEDDATA";
 
-
 	/** AUTOSORTGEAR */
 	String TAG_AUTOSORTGEAR = "AUTOSORTGEAR";
-
 
 	/** AUTOSORTSKILLS */
 	String TAG_AUTOSORTSKILLS = "AUTOSORTSKILLS";
 
-
 	/** AUTOSPELLS */
 	String TAG_AUTOSPELLS = "AUTOSPELLS";
-
 
 	/** AUTOADDKNOWN */
 	String TAG_AUTOADDKNOWN = "AUTOADDKNOWN";
 
-
 	/** BASEITEM */
 	String TAG_BASEITEM = "BASEITEM";
-
 
 	/** BIRTHDAY */
 	String TAG_BIRTHDAY = "BIRTHDAY";
 
-
 	/** BIRTHPLACE */
 	String TAG_BIRTHPLACE = "BIRTHPLACE";
-
 
 	/** CALCEQUIPSET */
 	String TAG_CALCEQUIPSET = "CALCEQUIPSET";
 
-
 	/** CAMPAIGN - System Information */
 	String TAG_CAMPAIGN = "CAMPAIGN";
 
-
-	/**
-	 * @deprecated  Unused, to be removed 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed 5.10 Beta 1 */
 	String TAG_CAMPAIGNS = "CAMPAIGNS";
-
 
 	/** CANCASTPERDAY - character spells info */
 	String TAG_CANCASTPERDAY = "CANCASTPERDAY";
 
-
-	/**
-	 * @deprecated  Unused, to be removed 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed 5.10 Beta 1 */
 	String TAG_CARRIED = "CARRIED";
-
 
 	/** CATCHPHRASE */
 	String TAG_CATCHPHRASE = "CATCHPHRASE";
 
-
 	/** CHARACTERASSET */
 	String TAG_CHARACTERASSET = "CHARACTERASSET";
-
 
 	/** CHARACTERBIO - Character description/bio/history */
 	String TAG_CHARACTERBIO = "CHARACTERBIO";
 
-
 	/** CHARACTERCOMP */
 	String TAG_CHARACTERCOMP = "CHARACTERCOMP";
-
 
 	/** CHARACTERDESC */
 	String TAG_CHARACTERDESC = "CHARACTERDESC";
 
-
 	/** CHARACTERMAGIC */
 	String TAG_CHARACTERMAGIC = "CHARACTERMAGIC";
-
 
 	/** Character Name */
 	String TAG_CHARACTERNAME = "CHARACTERNAME";
 
-
 	/** CHOICE */
 	String TAG_CHOICE = "CHOICE";
-
 
 	/** CHOSENFEAT */
 	String TAG_CHOSENFEAT = "CHOSENFEAT";
 
-
 	/** CHOSENTEMPLATE */
 	String TAG_CHOSENTEMPLATE = "CHOSENTEMPLATE";
-
 
 	/** CITY */
 	String TAG_CITY = "CITY";
 
-
 	/** Character class(es) */
 	String TAG_CLASS = "CLASS";
-
 
 	/** CLASSABILITIESLEVEL */
 	String TAG_CLASSABILITIESLEVEL = "CLASSABILITIESLEVEL";
 
-
 	/** CLASSBOUGHT - Character skills */
 	String TAG_CLASSBOUGHT = "CLASSBOUGHT";
 
-
-	/**
-	 * @deprecated  Unused, to be removed in 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CLASSLEVEL = "CLASSLEVEL";
-
 
 	/** CLASSSKILL */
 	String TAG_CLASSSKILL = "CLASSSKILL";
 
-
-	/**
-	 * @deprecated  Unused, to be removed in 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
 	String TAG_COMP = "COMP";
 
-
-	/**
-	 * @deprecated  Unused, to be removed in 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CONTAINS = "CONTAINS";
-
 
 	/** COST - Currently (20/03/2006) only being used by CMP data sources */
 	String TAG_COST = "COST";
 
-
-	/**
-	 * @deprecated  Unused, to be removed in 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CROSSCLASS = "CROSSCLASS";
 
-
-	/**
-	 * @deprecated  Unused, to be removed in 5.10 Beta 1
-	 */
+	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
 	String TAG_CT            = "CT";
+
+	/** CUSTOMIZATION */
 	String TAG_CUSTOMIZATION = "CUSTOMIZATION";
+	/** DATA */
 	String TAG_DATA          = "DATA";
+	/** DEFINED */
 	String TAG_DEFINED       = "DEFINED";
 
-	// Character deity/domain
+	/** Character deity/domain */
 	String TAG_DEITY        = "DEITY";
+	/** DEITYALIGN */
 	String TAG_DEITYALIGN   = "DEITYALIGN";
+	/** DEITYDOMAINS */
 	String TAG_DEITYDOMAINS = "DEITYDOMAINS";
+	/** DEITYFAVWEAP */
 	String TAG_DEITYFAVWEAP = "DEITYFAVWEAP";
+	/** DESC */
 	String TAG_DESC         = "DESC";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_DESCRIPTOR = "DESCRIPTOR";
+	/** DOMAIN */
 	String TAG_DOMAIN     = "DOMAIN";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused remove in 5.10 Beta 1 */
 	String TAG_DOMAINFEATS  = "DOMAINFEATS";
+	/** DOMAINGRANTS */
 	String TAG_DOMAINGRANTS = "DOMAINGRANTS";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_DOMAINSKILLS = "DOMAINSKILLS";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_DOMAINSPECIALS = "DOMAINSPECIALS";
+	/** DOMAINSPELLS */
 	String TAG_DOMAINSPELLS   = "DOMAINSPELLS";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_DURATION = "DURATION";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_EFFECT = "EFFECT";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_EFFECTTYPE = "EFFECTTYPE";
 
-	// EquipSet Temporary Bonuses
+	/** EquipSet Temporary Bonuses */
 	String TAG_EQSETBONUS = "EQSETBONUS";
 
-	// Character equipment
+	/** Character equipment */
 	String TAG_EQUIPMENT = "EQUIPMENT";
+	/** Character equipment name */
 	String TAG_EQUIPNAME = "EQUIPNAME";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** equipped */
 	String TAG_EQUIPPED = "EQUIPPED";
+	/** EQUIPSET */
 	String TAG_EQUIPSET = "EQUIPSET";
 
-	// Character experience
+	/** Character experience */
 	String TAG_EXPERIENCE = "EXPERIENCE";
+	/** EXPRESSION */
 	String TAG_EXPRESSION = "EXPRESSION";
+	/** EYECOLOR */
 	String TAG_EYECOLOR   = "EYECOLOR";
 
-	// Character feats
+	/** Character feats */
 	String TAG_FEAT = "FEAT";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
+	/** @deprecated  Unused - remove in 5.10 Beta 1 */
 	String TAG_FEAT_CATEGORY = "CATEGORY";
+	/** FEATLIST */
 	String TAG_FEATLIST      = "FEATLIST";
+	/** FEATPOOL */
 	String TAG_FEATPOOL      = "FEATPOOL";
+	/** FILE */
 	String TAG_FILE          = "FILE";
 
-	// Character follower
+	/** Character follower */
 	String TAG_FOLLOWER  = "FOLLOWER";
 	String TAG_GAMEMODE  = "GAMEMODE";
 	String TAG_GENDER    = "GENDER";
