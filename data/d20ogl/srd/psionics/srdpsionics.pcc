@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$
+CAMPAIGN:3.0 SRD Psionics
+RANK:3
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:SRD
+TYPE:SRD.Partial
+SOURCELONG:System Reference Document
+SOURCESHORT:SRD
+SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Sigurdur H. Olafsson)
+
+INFOTEXT:SRD Psionics options. Requires the SRD Basics set.
+
+
+CLASS:srd_classes_psionic.lst
+
+COMPANIONMOD:srd_companion_mods_psionic.lst
+
+EQUIPMENT:srd_equip_basetypes_psionic.lst
+EQUIPMENT:srd_equip_dorjes_psionic.lst
+EQUIPMENT:srd_equip_psionic.lst
+EQUIPMENT:srd_equip_weap_melee_psionic.lst
+
+EQUIPMOD:srd_equipmods_psionic.lst
+
+FEAT:srd_feats_hidden_psionic.lst
+FEAT:srd_feats_psionic.lst
+
+KIT:srd_kits_races__psionic.lst
+
+RACE:srd_races__psionic.lst
+
+SKILL:srd_skills_psionic.lst
+
+SPELL:srd_spells_psionic.lst
+
+TEMPLATE:srd_templates_psionic.lst
+
+WEAPONPROF:srd_weapprofs_psionic.lst
+
+#
+# End
+#
