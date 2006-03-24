@@ -5,6 +5,7 @@ import java.util.Stack;
 import org.nfunk.jep.ParseException;
 
 import pcgen.util.PCGenCommand;
+import pcgen.util.PJEP;
 
 //
 // eg. roll("10+d10")
@@ -21,6 +22,18 @@ public class RollCommand extends PCGenCommand {
 		return "ROLL";
 	}
 
+	public boolean updateVariables(PJEP jep) {
+		return false;
+	}
+
+	/**
+	 * Is this command cacheable?
+	 * @return true if cacheable, false if not.
+	 */
+	public boolean getCachable() {
+		return false;
+	}
+	
 	/**
 	 * Runs getvar on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is

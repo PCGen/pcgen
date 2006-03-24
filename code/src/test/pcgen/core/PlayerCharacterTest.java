@@ -277,6 +277,33 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	}
 
 	/**
+	 * Test out the caching of variable values. 
+	 */
+	public void testGetVariableCaching()
+	{
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		final StatList statList = character.getStatList();
+		final List list = statList.getStats();
+		final PCStat stat = (PCStat) list.get(0);
+		stat.setBaseScore(16);
+		character.incrementClassLevel(2, pcClass);
+
+		int iVal = character.getVariableValue("roll(\"3d6\")+5","").intValue();
+		boolean match = true;
+		for (int i = 0; i < 10; i++)
+		{
+			match = (iVal == character.getVariableValue("roll(\"3d6\")+5","").intValue());
+			if (!match)
+			{
+				break;
+			}
+		}
+		
+		assertFalse("Roll function should not be cached.", match);
+	}
+	
+	/**
 	 * Test the processing of modFeat. Checks that when in select single and
 	 * close mode, only one instance of a feat with a sub-choice is added.
 	 */

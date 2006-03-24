@@ -26,7 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import org.nfunk.jep.ASTFunNode;
 import org.nfunk.jep.JEP;
+import org.nfunk.jep.Node;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommand;
 
@@ -95,6 +97,51 @@ public final class PJEP extends JEP
 		super.parseExpression(expression_in);
 	}
 
+	/**
+	 * Identify if the results of the calculation will be cachable.
+	 * 
+	 * @return True if the result would be cachable, false otherwise.
+	 */
+	public boolean isResultCachable()
+	{
+		boolean result = isResultCachable(getTopNode());
+		
+		return result;
+	}
+
+	/**
+	 * Identify if results from this node (and its children) are all cachable.
+	 * 
+	 * @param node The node to be checked.
+	 * @return True if the result would be cachable, false otherwise.
+	 */
+	public boolean isResultCachable(Node node)
+	{
+		for (int i = 0; i < node.jjtGetNumChildren(); i++)
+		{
+			Node child = node.jjtGetChild(i);
+			if (child instanceof ASTFunNode)
+			{
+				ASTFunNode funcNode = (ASTFunNode) child;
+				if (funcNode.getPFMC() instanceof PCGenCommand)
+				{
+					PCGenCommand cmd = (PCGenCommand) funcNode.getPFMC();
+					if (!cmd.getCachable())
+					{
+						return false;
+					}
+				}
+			}
+
+			if (!isResultCachable(child))
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+	
 	private boolean updateVariables()
 	{
 		boolean updated = true;

@@ -58,6 +58,22 @@ public abstract class VariableProcessor
 	private PlayerCharacter pc;
 
 	/**
+	 * <code>CachableResult</code> encapsulates a result returned from JEP processing 
+	 * allowing us to retrieve both the result and its cachability.
+	 */
+	private static class CachableResult
+	{
+		final Float result;
+		final boolean cachable;
+		
+		CachableResult(Float result, boolean cachable)
+		{
+			this.result = result;
+			this.cachable = cachable;
+		}
+	}
+	
+	/**
 	 * Create a new Variable Processor instance.
 	 * @param pc The character the processor is for.
 	 */
@@ -111,12 +127,14 @@ public abstract class VariableProcessor
 		}
 
 
-
-		total = processJepFormula(aSpell, aString, src);
-		if (total != null)
+		CachableResult cRes = processJepFormula(aSpell, aString, src);
+		if (cRes != null)
 		{
-			addCachedVariable(cacheString, total);
-			return total;
+			if (cRes.cachable)
+			{
+				addCachedVariable(cacheString, cRes.result);
+			}
+			return cRes.result;
 		}
 
 
@@ -460,9 +478,9 @@ public abstract class VariableProcessor
 	 * @param spell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
 	 * @param formula The formula to be evaluated
 	 * @param src     The source within which the variable is evaluated
-	 * @return The value of the variable
+	 * @return The value of the variable encapsulated in a CachableResult
 	 */
-	private Float processJepFormula(final Spell spell, final String formula, final String src)
+	private CachableResult processJepFormula(final Spell spell, final String formula, final String src)
 	{
 		Logging.debugPrint(jepIndent + "getJepVariable: " + formula);
 		jepIndent += "    ";
@@ -505,7 +523,8 @@ public abstract class VariableProcessor
 				Logging.debugPrint(jepIndent + "Result '" + formula + "' = " + result);
 				try
 				{
-					return new Float(result.toString());
+					return new CachableResult(new Float(result.toString()),
+						parser.isResultCachable());
 				}
 				catch (NumberFormatException nfe)
 				{
