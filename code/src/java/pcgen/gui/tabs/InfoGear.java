@@ -3417,26 +3417,26 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				case COL_COST:
 					if (eq != null)
 					{
-						retVal = eq.getCost(pc).toString();
+						retVal = eq.getCost(pc);
 					}
 					break;
 
 				case COL_QTY:
 					if (eq != null)
 					{
-						retVal = new Double(eq.qty()).toString();
+						retVal = new Double(eq.qty());
 					}
 					break;
 
 				case COL_INDEX: // Output index
 					if (eq != null)
 					{
-						retVal = new Integer(eq.getOutputIndex()).toString();
+						retVal = new Integer(eq.getOutputIndex());
 					}
 					break;
 
 				case COL_SRC: // Source
-					retVal = fn.getSource();
+					retVal = fn.getSource().toString();
 					break;
 
 				case -1:

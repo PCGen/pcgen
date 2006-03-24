@@ -2696,7 +2696,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					return fn.toString();
 
 				case COL_MOD: // Bonus mods
-					return mods.toString();
+					return mods;
 
 				case COL_RANK: // number of ranks
 					gm = SettingsHandler.getGame();
@@ -2704,7 +2704,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return gm.getSkillRankDisplayText(ranks.intValue());
 					}
-					return ranks.toString();
+					return ranks;
 
 				case COL_TOTAL: // Total skill level
 					gm = SettingsHandler.getGame();
@@ -2712,13 +2712,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return gm.getSkillRankDisplayText(mods.intValue() + ranks.intValue());
 					}
-					return new Integer(mods.intValue() + ranks.intValue()).toString();
+					return new Integer(mods.intValue() + ranks.intValue());
 
 				case COL_COST: // Cost to buy skill points
 
 					if (aSkill != null)
 					{
-						return new Integer(aSkill.costForPCClass(getSelectedPCClass(), pc)).toString();
+						return new Integer(aSkill.costForPCClass(getSelectedPCClass(), pc));
 					}
 
 					return "0";
@@ -2732,7 +2732,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					return fn.getSource();
 
 				case COL_INDEX: // Output index
-					return outputIndex.toString();
+					return outputIndex;
 
 				case -1:
 					return fn.getItem();
