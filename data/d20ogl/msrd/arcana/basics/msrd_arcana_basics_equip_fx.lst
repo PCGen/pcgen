@@ -126,9 +126,6 @@ Staff of Sorcerous Might	TYPE:FX.Magic.Artifact.Staff	COST:95	WT:5		EQMOD:CHARGE
 Talisman of Pure Good		TYPE:FX.Magic.Artifact.Amulet	COST:35	WT:0		EQMOD:CHARGED_ITEM_7|CHARGES[7]	SOURCEPAGE:ArcanaFXItems.rtf																																																																																																																									SPROP:On touch deals 6d6 points of damage to divine spellcasters without an allegiance to good (8d6 with allegiance to evil).	SPROP:Divine Spellcaster with an allegiance to good can cause a fiery crack to open at the feet of a Divine Spellcaster with an allegiance to evil, sending the victim hurtling to the center of earth.	SPROP:Works only on solid ground.	SPROP:The victim may get a Reflex save (DC 19)
 Talisman of Ultimate Evil	TYPE:FX.Magic.Artifact.Amulet	COST:35	WT:0		EQMOD:CHARGED_ITEM_7|CHARGES[7]	SOURCEPAGE:ArcanaFXItems.rtf																																																																																																																									SPROP:On touch deals 6d6 points of damage to divine spellcasters without an allegiance to evil (8d6 with allegiance to good).	SPROP:Divine Spellcaster with an allegiance to evil can cause a fiery crack to open at the feet of a Divine Spellcaster with an allegiance to good, sending the victim hurtling to the center of earth.	SPROP:Works only on solid ground.	SPROP:The victim may get a Reflex save (DC 19)
 
-###borrowed from RSRD for creatures, removing COST
-Ring (Protection +2).MOD						COST:0
-
 #
 # End
 #

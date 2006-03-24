@@ -2,7 +2,7 @@
 CAMPAIGN:Modern - FX
 RANK:1
 GAMEMODE:Modern
-TYPE:MSRD.Partial.Core
+TYPE:MSRD.Partial.Basics
 ISOGL:YES
 SOURCELONG:Modern System Reference Document - FX
 SOURCESHORT:MSRD
@@ -15,10 +15,11 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 INFOTEXT:This will load the FX options of the MSRD
 
 # FX
-CLASS:@\d20ogl\msrd\msrd_classes_fx.lst
-FEAT:@\d20ogl\msrd\msrd_feats_fx.lst
-SKILL:@\d20ogl\msrd\msrd_skills_fx.lst
-SPELL:@\d20ogl\msrd\msrd_fx_powers.lst
-SPELL:@\d20ogl\msrd\msrd_fx_spells.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_fx.lst
-EQUIPMOD:@\d20ogl\msrd\msrd_equipmods_fx.lst
+CLASS:msrd_modern_fx_classes.lst
+COMPANIONMOD:msrd_modern_fx_companionmods.lst
+EQUIPMENT:msrd_modern_fx_equip.lst
+EQUIPMOD:msrd_modern_fx_equipmods.lst
+FEAT:msrd_modern_fx_feats.lst
+SKILL:msrd_modern_fx_skills.lst
+SPELL:msrd_modern_fx_powers.lst
+SPELL:msrd_modern_fx_spells.lst

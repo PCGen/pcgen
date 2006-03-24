@@ -2,7 +2,7 @@
 CAMPAIGN:Modern - Basics
 RANK:1
 GAMEMODE:Modern
-TYPE:MSRD.Partial.Core
+TYPE:MSRD.Partial.Basics
 ISOGL:YES
 SOURCELONG:Modern System Reference Document - Basics
 SOURCESHORT:MSRD
@@ -14,32 +14,30 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This will load the basic options of the MSRD without FX, Menace or races other than Human
 
-CLASS:@\d20ogl\msrd\msrd_classes_pc.lst
-CLASS:@\d20ogl\msrd\msrd_classes_npc.lst
-CLASS:@\d20ogl\msrd\msrd_classes_advanced.lst
+CLASS:msrd_modern_basics_classes_pc.lst
+CLASS:msrd_modern_basics_classes_npc.lst
+CLASS:msrd_modern_basics_classes_advanced.lst
 
-EQUIPMENT:@\d20ogl\msrd\msrd_equip.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_vehicles.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_armor.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_ammo.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_melee.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_ranged.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_ranged_firearms.lst
-EQUIPMENT:@\d20ogl\msrd\msrd_equip_weap_vehicles.lst
-EQUIPMOD:@\d20ogl\msrd\msrd_equipmods.lst
+EQUIPMENT:msrd_modern_basics_equip.lst
+EQUIPMENT:msrd_modern_basics_equip_vehicles.lst
+EQUIPMENT:msrd_modern_basics_equip_armor.lst
+EQUIPMENT:msrd_modern_basics_equip_weap.lst
+EQUIPMENT:msrd_modern_basics_equip_weap_ammo.lst
+EQUIPMENT:msrd_modern_basics_equip_weap_melee.lst
+EQUIPMENT:msrd_modern_basics_equip_weap_ranged.lst
+EQUIPMENT:msrd_modern_basics_equip_weap_ranged_firearms.lst
+EQUIPMENT:msrd_modern_basics_equip_weap_vehicles.lst
+EQUIPMOD:msrd_modern_basics_equipmods.lst
 
-FEAT:@\d20ogl\msrd\msrd_feats.lst
-FEAT:@\d20ogl\msrd\msrd_feats_creature.lst
-FEAT:@\d20ogl\msrd\msrd_feats_hidden.lst
-FEAT:@\d20ogl\msrd\msrd_feats_occupations.lst
+FEAT:msrd_modern_basics_feats.lst
+FEAT:msrd_modern_basics_feats_hidden.lst
+FEAT:msrd_modern_basics_feats_occupations.lst
 
-LANGUAGE:@\d20ogl\msrd\msrd_languages.lst
-RACE:@\d20ogl\msrd\msrd_race_human.lst
-SKILL:@\d20ogl\msrd\msrd_skills.lst
+LANGUAGE:msrd_modern_basics_languages.lst
+RACE:msrd_modern_basics_race_human.lst
+SKILL:msrd_modern_basics_skills.lst
 
-TEMPLATE:@\d20ogl\msrd\msrd_templates.lst
-TEMPLATE:@\d20ogl\msrd\msrd_templates_creature.lst
-WEAPONPROF:@\d20ogl\msrd\msrd_weaponprofs.lst
+TEMPLATE:msrd_modern_basics_templates.lst
+WEAPONPROF:msrd_modern_basics_weaponprofs.lst
 
 
