@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Thu Mar 23 19:56:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor (andargor@yahoo.com)
 # Corrections/update: Barak (barak@voyager.net)
@@ -170,6 +170,10 @@ Alternative Animal Companion Master	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:4th Level or
 10th Level or Higher (Level -9)	VISIBLE:NO	BONUS:VAR|CompLevel|-9
 13th Level or Higher (Level -12)	VISIBLE:NO	BONUS:VAR|CompLevel|-12
 16th Level or Higher (Level -15)	VISIBLE:NO	BONUS:VAR|CompLevel|-15
+
+###Block: Awakened Animal
+# Template Name	Required Race					ADD:Language			KIT				Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
+Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
 
 #
 # End

@@ -628,3 +628,10 @@ SKILL:Spot		RANK:3
 FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Awakened Animal	VISIBLE:NO	APPLY:INSTANT
+STAT:INT=roll("3d6")+var("STAT.3.BASE")-var("STAT.3")|CHA=roll("1d3")+var("STAT.5.BASE")
+
+#
+# End
+#

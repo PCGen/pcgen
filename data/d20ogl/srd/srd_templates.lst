@@ -97,6 +97,10 @@ Ghost (1 Special Attack)	VISIBLE:NO	ADD:FEAT(TYPE=GhostAbility)1
 Ghost (2 Special Attacks)	VISIBLE:NO	ADD:FEAT(TYPE=GhostAbility)2
 Ghost (3 Special Attacks)	VISIBLE:NO	ADD:FEAT(TYPE=GhostAbility)3
 
+###Block: Awakened Animal
+# Template Name	Required Race					ADD:Language			KIT				Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
+Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
+
 #
 # End
 #
