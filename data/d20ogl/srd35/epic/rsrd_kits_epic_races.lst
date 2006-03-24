@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
-SOURCELONG:RSRD Epic	SOURCESHORT:RSRDEpic	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Abomination (Anaxim)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Anaxim)]
 RACE:Abomination (Anaxim)	!PRERACE:%
