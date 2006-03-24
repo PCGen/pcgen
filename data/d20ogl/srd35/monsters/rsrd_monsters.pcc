@@ -20,7 +20,6 @@ INFOTEXT:Subset of the RSRD that contains the Monsters.  Requires the RSRD Basic
 CLASS:rsrd_classes_monsters_dragons.lst
 CLASS:rsrd_classes_monsters_specific.lst
 
-FEAT:rsrd_feats_monster.lst
 FEAT:rsrd_feats_templates.lst
 
 KIT:rsrd_kits_races__vermin.lst

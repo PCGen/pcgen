@@ -39,6 +39,7 @@ EQUIPMOD:rsrd_equipmods_enhancing.lst
 FEAT:rsrd_feats_divine.lst
 FEAT:rsrd_feats_hidden.lst
 FEAT:rsrd_feats_hidden2.lst
+FEAT:rsrd_feats_monster.lst
 FEAT:rsrd_feats.lst
 
 KIT:rsrd_kits_races__animals.lst
