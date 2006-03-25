@@ -37,7 +37,6 @@ import javax.swing.JTabbedPane;
 
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
@@ -266,9 +265,8 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 
 	public List getToDos() {
 		List toDoList = new ArrayList();
-		if (Globals.s_EMPTYRACE.equals(pc.getRace()) || pc.getRace() == null) {
-			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
-		}
+		toDoList.addAll(races.getToDos());
+		toDoList.addAll(templates.getToDos());
 		return toDoList;
 	}
 }

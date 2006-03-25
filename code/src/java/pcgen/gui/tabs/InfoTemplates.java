@@ -42,7 +42,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -94,10 +93,12 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.ClickHandler;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableMouseAdapter;
 import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
@@ -139,10 +140,6 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private JLabel selSortLabel = new JLabel(PropertyFactory.getString("in_irSortTemplSel"));
 	private JComboBoxEx viewSelComboBox = new JComboBoxEx();
 	private int viewSelMode = 0;
-	private final JLabel lblSelQFilter = new JLabel("Filter:");
-	private JTextField textSelQFilter = new JTextField();
-	private JButton clearSelQFilterButton = new JButton("Clear");
-	private static Integer saveSelViewMode = null;
 	private JButton removeButton;
 
 	private TemplatesTableModel selectedModel;
@@ -191,6 +188,384 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			});
 	}
 
+	private void initActionListeners()
+	{
+		addFocusListener(new FocusAdapter()
+				{
+					public void focusGained(FocusEvent evt)
+					{
+						refresh();
+					}
+				});
+		addComponentListener(new ComponentAdapter()
+			{
+				public void componentShown(ComponentEvent evt)
+				{
+					formComponentShown();
+				}
+				public void componentResized(ComponentEvent e)
+				{
+					int s = split.getDividerLocation();
+
+					if (s > 0)
+					{
+						SettingsHandler.setPCGenOption("InfoTemplates.asplit", s);
+					}
+
+					s = bsplit.getDividerLocation();
+
+					if (s > 0)
+					{
+						SettingsHandler.setPCGenOption("InfoTemplates.bsplit", s);
+					}
+				}
+			});
+		removeButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					removeTemplate();
+				}
+			});
+		addButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					addTemplate();
+				}
+			});
+		viewComboBox.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					viewComboBoxActionPerformed();
+				}
+			});
+		viewSelComboBox.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					viewSelComboBoxActionPerformed();
+				}
+			});
+		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+			{
+				public void changedUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+			});
+		clearQFilterButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					clearQFilter();
+				}
+			});
+		availableTable.getSelectionModel().addListSelectionListener(new AvailableListSelectionListener());
+		selectedTable.getSelectionModel().addListSelectionListener(new SelectedListSelectionListener());
+		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
+		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), false));
+		FilterFactory.restoreFilterSettings(this);
+	}
+
+	/**
+	 * This method is called from within the
+	 * constructor to initialize the form
+	 **/
+	private void initComponents()
+	{
+		readyForRefresh = true;
+		typeRoot = new PObjectNode();
+		sourceRoot = new PObjectNode();
+
+		List typeList = new ArrayList();
+		List sourceList = new ArrayList();
+
+		for (Iterator i = Globals.getTemplateList().iterator(); i.hasNext();)
+		{
+			final PCTemplate template = (PCTemplate) i.next();
+
+			for (int ii = 0; ii < template.getMyTypeCount(); ++ii)
+			{
+				final String aString = template.getMyType(ii);
+				if (!typeList.contains(aString))
+				{
+					typeList.add(aString);
+				}
+
+			}
+			final String aString = template.getSourceWithKey("LONG");
+			if (aString == null)
+			{
+				Logging.errorPrint("PC template " + template.getName()
+					+ " has no source long entry.");
+			}
+			else if (!sourceList.contains(aString))
+			{
+				sourceList.add(aString);
+			}
+		}
+
+		Collections.sort(typeList);
+		if (!typeList.contains(PropertyFactory.getString("in_other")))
+		{
+			typeList.add(PropertyFactory.getString("in_other"));
+		}
+		PObjectNode[] pTypes = new PObjectNode[typeList.size()];
+		for (int i = 0; i < pTypes.length; i++)
+		{
+			pTypes[i] = new PObjectNode();
+			pTypes[i].setItem(typeList.get(i).toString());
+			pTypes[i].setParent(typeRoot);
+		}
+		typeRoot.setChildren(pTypes);
+
+		Collections.sort(sourceList);
+		PObjectNode[] pSources = new PObjectNode[sourceList.size()];
+		for (int i = 0; i < pSources.length; i++)
+		{
+			final String aString = sourceList.get(i).toString();
+			if (aString != null)
+			{
+				pSources[i] = new PObjectNode();
+				pSources[i].setItem(aString);
+				pSources[i].setParent(sourceRoot);
+			}
+		}
+		sourceRoot.setChildren(pSources);
+
+		//
+		// View List Sanity check
+		//
+		int iView = SettingsHandler.getTemplateTab_ListMode();
+		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME)
+		{
+			viewMode = iView;
+		}
+		SettingsHandler.setTemplateTab_ListMode(viewMode);
+		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
+		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
+		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewComboBox.setSelectedIndex(viewMode);
+
+		iView = SettingsHandler.getTemplateSelTab_ListMode();
+		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME)
+		{
+			viewMode = iView;
+		}
+		SettingsHandler.setTemplateSelTab_ListMode(viewSelMode);
+		viewSelComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
+		viewSelComboBox.addItem(PropertyFactory.getString("in_typeName"));
+		viewSelComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewSelComboBox.setSelectedIndex(viewSelMode);
+
+		createModels();
+		createTreeTables();
+		
+		buildTopPanel();
+
+		buildBottomPanel();
+
+		//----------------------------------------------------------------------
+		// now split the top and bottom panels
+		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
+		bsplit.setOneTouchExpandable(true);
+		bsplit.setDividerSize(10);
+
+		// now add all the panes (centered of course)
+		this.setLayout(new BorderLayout());
+		this.add(bsplit, BorderLayout.CENTER);
+
+		// add the sorter so that clicking on the TableHeader actually does something
+		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
+	}
+
+	private void createTreeTables() {
+		availableTable = new JTreeTable(availableModel);
+		availableTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		availableTree = availableTable.getTree();
+		availableTree.setRootVisible(false);
+		availableTree.setShowsRootHandles(true);
+		availableTree.setCellRenderer(new LabelTreeCellRenderer());
+		
+		selectedTable = new JTreeTable(selectedModel);
+		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		selectedTree = selectedTable.getTree();
+		selectedTree.setRootVisible(false);
+		selectedTree.setShowsRootHandles(true);
+		selectedTree.setCellRenderer(new LabelTreeCellRenderer());
+
+		hookupPopupMenu(availableTable);
+		hookupPopupMenu(selectedTable);
+	}
+
+	/**
+	 * Build the top panel.
+	 * topPane which will contain leftPane and rightPane
+	 * leftPane will have two panels and a scrollregion
+	 * rightPane will have one panel and a scrollregion
+	 */
+	private void buildTopPanel()
+	{
+		//-----------------------------------------------------------------------
+		// build the topPane which will contain leftPane and rightPane
+		// leftPane will have a panel and a scrollregion
+		// rightPane will have a single panel
+		//-----------------------------------------------------------------------
+
+		//-----------------------------------------------------------------------
+		//  Top Panel
+		//  - this has all the Template stuff in it
+		//-----------------------------------------------------------------------
+
+		topPane.setLayout(new BorderLayout());
+
+		JPanel leftPane = new JPanel();
+		JPanel rightPane = new JPanel();
+		leftPane.setLayout(new BorderLayout());
+		rightPane.setLayout(new BorderLayout());
+
+		split = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPane, rightPane);
+		split.setOneTouchExpandable(true);
+		split.setDividerSize(10);
+
+		topPane.add(split, BorderLayout.CENTER);
+
+
+		//-------------------------------------------------------------
+		//  Top Left Pane
+		//  - available templates
+
+		// Header
+		leftPane.add(createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+
+		// Data - All Available Templates Table
+		availablePane = new JScrollPane(availableTable);
+		availablePane.setViewportView(availableTable);
+		JButton columnButton = new JButton();
+		availablePane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(availableTable, columnButton, availableModel);
+
+		leftPane.add(availablePane, BorderLayout.CENTER);
+
+		JPanel bottomLeftPanel = new JPanel();
+		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
+		Utility.setDescription(addButton, PropertyFactory.getString("in_irTemplAddTip"));
+		addButton.setEnabled(true);
+		bottomLeftPanel.add(addButton);
+		leftPane.add(bottomLeftPanel, BorderLayout.SOUTH);
+
+		//-------------------------------------------------------------
+		//  Top Right Pane
+		//  - selected templates
+
+		// Header
+		rightPane.add(createFilterPane(selSortLabel, viewSelComboBox, null, null, null), BorderLayout.NORTH);
+
+		// Data - Selected Templates table
+		selectedPane = new JScrollPane();
+		selectedPane.setViewportView(selectedTable);
+		JButton columnButton2 = new JButton();
+		selectedPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+		rightPane.add(selectedPane, BorderLayout.CENTER);
+
+		JPanel rightBottomPanel = new JPanel();
+		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
+		Utility.setDescription(removeButton, PropertyFactory.getString("in_irTemplRemoveTip"));
+		removeButton.setEnabled(true);
+		rightBottomPanel.add(removeButton);
+		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
+	}
+
+	private void buildBottomPanel() {
+		JPanel mainPane = new JPanel();
+		mainPane.setLayout(new BorderLayout());
+
+		botPane.setLayout(new BorderLayout());		
+		botPane.add(mainPane, BorderLayout.CENTER);
+
+		//-------------------------------------------------------------
+		//  Bottom Pane
+		//  - Template Info
+
+		JScrollPane scroll = new JScrollPane();
+
+		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_irTemplateInfo"));
+		title1.setTitleJustification(TitledBorder.CENTER);
+		scroll.setBorder(title1);
+		infoLabel.setBackground(topPane.getBackground());
+		scroll.setViewportView(infoLabel);
+		mainPane.add(scroll);
+	}
+	
+	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
+	{
+		GridBagConstraints c = new GridBagConstraints();
+		JPanel filterPanel = new JPanel(new GridBagLayout());
+		int i = 0;
+
+		if(treeLabel != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(treeLabel, c);
+		}
+		
+		if(treeCb != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(treeCb, c);
+		}
+
+		if(filterLabel != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(filterLabel, c);
+		}
+		
+		if(filterText != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
+			c.insets = new Insets(1, 2, 1, 2);
+			c.fill = GridBagConstraints.HORIZONTAL;
+			c.anchor = GridBagConstraints.LINE_START;
+			filterPanel.add(filterText, c);
+		}
+		
+		if(clearButton != null)
+		{
+			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
+			c.insets = new Insets(0, 2, 0, 2);
+			c.fill = GridBagConstraints.NONE;
+			c.anchor = GridBagConstraints.LINE_START;
+			clearButton.setEnabled(false);
+			filterPanel.add(clearButton, c);
+		}
+		return filterPanel;
+	}
+
 	public void setPc(PlayerCharacter pc)
 	{
 		if(this.pc != pc || pc.getSerial() > serial)
@@ -235,10 +610,6 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	public List getToDos()
 	{
 		List toDoList = new ArrayList();
-		if (Globals.s_EMPTYRACE.equals(pc.getRace()) || pc.getRace() == null)
-		{
-			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
-		}
 		return toDoList;
 	}
 
@@ -371,70 +742,6 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	}
 
 	/**
-	 * <p>Handles the action from <code>rightButton</code>.  Adds the currently selected template
-	 * to the character if the character is qualified.</p>
-	 * <p>Forces update of all tabs by calling <code>forceUpdate()</code>, and updates
-	 * <code>allTemplatesDataModel</code> to refresh template or other dependancies.</p>
-	 */
-	private void addTemplate()
-	{
-		PCTemplate template = getSelectedTemplate();
-
-		if ((template == null) || !template.isQualified(pc))
-		{
-			return;
-		}
-
-		pc.setDirty(true);
-
-		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
-
-		if (pcTemplate == null)
-		{
-			pc.addTemplate(template);
-			pushUpdate();
-			availableModel.resetModel(viewMode, true);
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
-		}
-
-		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoFeats());
-		pane.setPaneForUpdate(pane.infoDomain());
-		pane.setPaneForUpdate(pane.infoSkills());
-		pane.setPaneForUpdate(pane.infoSpells());
-		pane.setPaneForUpdate(pane.infoSpecialAbilities());
-		pane.setPaneForUpdate(pane.infoSummary());
-		pane.refresh();
-
-		forceRefresh();
-	}
-	
-	private PCTemplate getSelectedTemplate()
-	{
-		if (lastTemplate == null)
-		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clNoTemplate"), Constants.s_APPNAME, MessageType.ERROR);
-		}
-
-		return lastTemplate;
-	}
-
-	private int getSelectedIndex(ListSelectionEvent e)
-	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
-
-		if (model == null)
-		{
-			return -1;
-		}
-
-		return model.getMinSelectionIndex();
-	}
-
-	/**
 	 * This is called when the tab is shown
 	 **/
 	private void formComponentShown()
@@ -484,560 +791,6 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
 		treeTable.addMouseListener(new TemplatePopupListener(treeTable, new TemplatePopupMenu(treeTable)));
-	}
-
-	private void initActionListeners()
-	{
-		addComponentListener(new ComponentAdapter()
-			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
-		addComponentListener(new ComponentAdapter()
-			{
-				public void componentResized(ComponentEvent e)
-				{
-					int s = split.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoRace.asplit", s);
-					}
-
-					s = bsplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoRace.bsplit", s);
-					}
-				}
-			});
-		removeButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					removeTemplate();
-				}
-			});
-		addButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					addTemplate();
-				}
-			});
-		viewComboBox.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewComboBoxActionPerformed();
-				}
-			});
-		viewSelComboBox.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewSelComboBoxActionPerformed();
-				}
-			});
-		textQFilter.getDocument().addDocumentListener(new DocumentListener()
-			{
-				public void changedUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void insertUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void removeUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-			});
-		textSelQFilter.getDocument().addDocumentListener(new DocumentListener()
-			{
-				public void changedUpdate(DocumentEvent evt)
-				{
-					setSelQFilter();
-				}
-				public void insertUpdate(DocumentEvent evt)
-				{
-					setSelQFilter();
-				}
-				public void removeUpdate(DocumentEvent evt)
-				{
-					setSelQFilter();
-				}
-			});
-		clearQFilterButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearQFilter();
-				}
-			});
-		clearSelQFilterButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearSelQFilter();
-				}
-			});
-		addFocusListener(new FocusAdapter()
-				{
-					public void focusGained(FocusEvent evt)
-					{
-						refresh();
-					}
-				});
-
-		availableTable.getSelectionModel().addListSelectionListener(new AvailableListSelectionListener());
-		selectedTable.getSelectionModel().addListSelectionListener(new SelectedListSelectionListener());
-	}
-
-	/**
-	 * This method is called from within the
-	 * constructor to initialize the form
-	 **/
-	private void initComponents()
-	{
-		readyForRefresh = true;
-		typeRoot = new PObjectNode();
-		sourceRoot = new PObjectNode();
-
-		List typeList = new ArrayList();
-		List sourceList = new ArrayList();
-
-		for (Iterator i = Globals.getTemplateList().iterator(); i.hasNext();)
-		{
-			final PCTemplate template = (PCTemplate) i.next();
-
-			for (int ii = 0; ii < template.getMyTypeCount(); ++ii)
-			{
-				final String aString = template.getMyType(ii);
-				if (!typeList.contains(aString))
-				{
-					typeList.add(aString);
-				}
-
-			}
-			final String aString = template.getSourceWithKey("LONG");
-			if (aString == null)
-			{
-				Logging.errorPrint("PC template " + template.getName()
-					+ " has no source long entry.");
-			}
-			else if (!sourceList.contains(aString))
-			{
-				sourceList.add(aString);
-			}
-		}
-
-		Collections.sort(typeList);
-		if (!typeList.contains(PropertyFactory.getString("in_other")))
-		{
-			typeList.add(PropertyFactory.getString("in_other"));
-		}
-		PObjectNode[] pTypes = new PObjectNode[typeList.size()];
-		for (int i = 0; i < pTypes.length; i++)
-		{
-			pTypes[i] = new PObjectNode();
-			pTypes[i].setItem(typeList.get(i).toString());
-			pTypes[i].setParent(typeRoot);
-		}
-		typeRoot.setChildren(pTypes);
-
-		Collections.sort(sourceList);
-		PObjectNode[] pSources = new PObjectNode[sourceList.size()];
-		for (int i = 0; i < pSources.length; i++)
-		{
-			final String aString = sourceList.get(i).toString();
-			if (aString != null)
-			{
-				pSources[i] = new PObjectNode();
-				pSources[i].setItem(aString);
-				pSources[i].setParent(sourceRoot);
-			}
-		}
-		sourceRoot.setChildren(pSources);
-
-		//
-		// View List Sanity check
-		//
-		int iView = SettingsHandler.getTemplateTab_ListMode();
-		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME)
-		{
-			viewMode = iView;
-		}
-		SettingsHandler.setTemplateTab_ListMode(viewMode);
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		viewComboBox.setSelectedIndex(viewMode);
-
-		iView = SettingsHandler.getTemplateSelTab_ListMode();
-		if (iView >= GuiConstants.INFOTEMPLATE_VIEW_NAME)
-		{
-			viewMode = iView;
-		}
-		SettingsHandler.setTemplateSelTab_ListMode(viewSelMode);
-		viewSelComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewSelComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewSelComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		viewSelComboBox.setSelectedIndex(viewSelMode);
-
-		createModels();
-		createTreeTables();
-		
-		buildTopPanel();
-
-		buildBottomPanel();
-
-		//----------------------------------------------------------------------
-		// now split the top and bottom panels
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
-		bsplit.setOneTouchExpandable(true);
-		bsplit.setDividerSize(10);
-
-		// now add all the panes (centered of course)
-		this.setLayout(new BorderLayout());
-		this.add(bsplit, BorderLayout.CENTER);
-
-		// add the sorter so that clicking on the TableHeader actually does something
-		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
-	}
-
-	private void createTreeTables() {
-		availableTable = new JTreeTable(availableModel);
-		availableTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		availableTable.setDoubleBuffered(false);
-
-		availableTree = availableTable.getTree();
-		availableTree.setRootVisible(false);
-		availableTree.setShowsRootHandles(true);
-		availableTree.setCellRenderer(new LabelTreeCellRenderer());
-		
-		selectedTable = new JTreeTable(selectedModel);
-		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		selectedTable.setDoubleBuffered(false);
-
-		selectedTree = selectedTable.getTree();
-		selectedTree.setRootVisible(false);
-		selectedTree.setShowsRootHandles(true);
-		selectedTree.setCellRenderer(new LabelTreeCellRenderer());
-
-		hookupPopupMenu(availableTable);
-		hookupPopupMenu(selectedTable);
-	}
-
-	/**
-	 * Build the top panel.
-	 * topPane which will contain leftPane and rightPane
-	 * leftPane will have two panels and a scrollregion
-	 * rightPane will have one panel and a scrollregion
-	 */
-	private void buildTopPanel()
-	{
-		//-----------------------------------------------------------------------
-		// build the topPane which will contain leftPane and rightPane
-		// leftPane will have a panel and a scrollregion
-		// rightPane will have a single panel
-		//-----------------------------------------------------------------------
-
-		//-----------------------------------------------------------------------
-		//  Top Panel
-		//  - this has all the Template stuff in it
-		//-----------------------------------------------------------------------
-
-		topPane.setLayout(new BorderLayout());
-
-		JPanel leftPane = new JPanel();
-		JPanel rightPane = new JPanel();
-		leftPane.setLayout(new BorderLayout());
-		rightPane.setLayout(new BorderLayout());
-
-		split = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPane, rightPane);
-		split.setOneTouchExpandable(true);
-		split.setDividerSize(10);
-
-		topPane.add(split, BorderLayout.CENTER);
-
-
-		//-------------------------------------------------------------
-		//  Top Left Pane
-		//  - available templates
-
-		// Header
-		leftPane.add(createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
-
-		// Data - All Available Templates Table
-		availablePane = new JScrollPane(availableTable);
-
-		MouseListener aml = new MouseAdapter()
-			{
-				public void mousePressed(MouseEvent e)
-				{
-					if (e.getClickCount() == 2)
-					{
-						addTemplate();
-					}
-				}
-			};
-			availableTable.addMouseListener(aml);
-
-		availablePane.setViewportView(availableTable);
-		JButton columnButton = new JButton();
-		availablePane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
-		columnButton.setText("^");
-		new TableColumnManager(availableTable, columnButton, availableModel);
-
-		leftPane.add(availablePane, BorderLayout.CENTER);
-
-		JPanel bottomLeftPanel = new JPanel();
-		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(addButton, PropertyFactory.getString("in_irTemplAddTip"));
-		addButton.setEnabled(true);
-		bottomLeftPanel.add(addButton);
-		leftPane.add(bottomLeftPanel, BorderLayout.SOUTH);
-
-		//-------------------------------------------------------------
-		//  Top Right Pane
-		//  - selected templates
-
-		// Header
-		rightPane.add(createFilterPane(selSortLabel, viewSelComboBox, lblSelQFilter, textSelQFilter, clearSelQFilterButton), BorderLayout.NORTH);
-
-		// Data - Selected Templates table
-		selectedPane = new JScrollPane();
-
-		aml = new MouseAdapter()
-			{
-				public void mousePressed(MouseEvent e)
-				{
-					if (e.getClickCount() == 2)
-					{
-						removeTemplate();
-					}
-				}
-			};
-		selectedTable.addMouseListener(aml);
-		selectedPane.setViewportView(selectedTable);
-		JButton columnButton2 = new JButton();
-		selectedPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
-		columnButton2.setText("^");
-		new TableColumnManager(selectedTable, columnButton2, selectedModel);
-		rightPane.add(selectedPane, BorderLayout.CENTER);
-
-		JPanel rightBottomPanel = new JPanel();
-		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(removeButton, PropertyFactory.getString("in_irTemplRemoveTip"));
-		removeButton.setEnabled(true);
-		rightBottomPanel.add(removeButton);
-		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
-	}
-
-	private void buildBottomPanel() {
-		JPanel mainPane = new JPanel();
-		mainPane.setLayout(new BorderLayout());
-
-		botPane.setLayout(new BorderLayout());		
-		botPane.add(mainPane, BorderLayout.CENTER);
-
-		//-------------------------------------------------------------
-		//  Bottom Pane
-		//  - Template Info
-
-		JScrollPane scroll = new JScrollPane();
-
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_irTemplateInfo"));
-		title1.setTitleJustification(TitledBorder.CENTER);
-		scroll.setBorder(title1);
-		infoLabel.setBackground(topPane.getBackground());
-		scroll.setViewportView(infoLabel);
-		mainPane.add(scroll);
-	}
-	
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-		int i = 0;
-
-		if(treeLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeLabel, c);
-		}
-		
-		if(treeCb != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeCb, c);
-		}
-
-		if(filterLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterLabel, c);
-		}
-		
-		if(filterText != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.HORIZONTAL;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterText, c);
-		}
-		
-		if(clearButton != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(0, 2, 0, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			clearButton.setEnabled(false);
-			filterPanel.add(clearButton, c);
-		}
-		return filterPanel;
-	}
-
-	/**
-	 * <p>Handles the action from <code>leftButton</code>.  Removes the currently selected template
-	 * from the character if the template is removeable.</p>
-	 * <p>Forces update of all tabs by calling <code>forceUpdate()</code>, and updates
-	 * <code>allTemplatesDataModel</code> to refresh template or other dependancies.</p>
-	 */
-	private void removeTemplate()
-	{
-		PCTemplate template = getSelectedTemplate();
-
-		if ((template == null) || !template.isQualified(pc))
-		{
-			return;
-		}
-
-		pc.setDirty(true);
-
-		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
-
-		if (pcTemplate == null)
-		{
-			pc.removeTemplate(template);
-			pushUpdate();
-			availableModel.resetModel(viewMode, true);
-			selectedModel.resetModel(viewSelMode, false);
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
-		}
-
-		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoFeats());
-		pane.setPaneForUpdate(pane.infoDomain());
-		pane.setPaneForUpdate(pane.infoSkills());
-		pane.setPaneForUpdate(pane.infoSpells());
-		pane.setPaneForUpdate(pane.infoSpecialAbilities());
-		pane.setPaneForUpdate(pane.infoSummary());
-		pane.refresh();
-
-		forceRefresh();
-	}
-
-	/**
-	 * Updates the Available table
-	 **/
-	private void updateAvailableModel()
-	{
-		List pathList = availableTable.getExpandedPaths();
-		createAvailableModel();
-		availableTable.updateUI();
-		availableTable.expandPathList(pathList);
-	}
-
-	/**
-	 * Updates the Selected table
-	 **/
-	private void updateSelectedModel()
-	{
-		List pathList = selectedTable.getExpandedPaths();
-		createSelectedModel();
-		selectedTable.updateUI();
-		selectedTable.expandPathList(pathList);
-	}
-
-	/**
-	 * Creates the ClassModel that will be used.
-	 */
-	private void createModels()
-	{
-		createSelectedModel();
-		createAvailableModel();
-	}
-
-	private void createAvailableModel()
-	{
-		if (availableModel == null)
-		{
-			availableModel = new TemplatesTableModel(viewMode, true);
-		}
-		else
-		{
-			availableModel.resetModel(viewMode, true);
-		}
-
-		if (availableSort != null)
-		{
-			availableSort.setRoot((PObjectNode) availableModel.getRoot());
-			availableSort.sortNodeOnColumn();
-		}
-	}
-
-	private void createSelectedModel()
-	{
-		if (selectedModel == null)
-		{
-			selectedModel = new TemplatesTableModel(viewSelMode, false);
-		}
-		else
-		{
-			selectedModel.resetModel(viewSelMode, false);
-		}
-
-		if (selectedSort != null)
-		{
-			selectedSort.setRoot((PObjectNode) selectedModel.getRoot());
-			selectedSort.sortNodeOnColumn();
-		}
-	}
-
-	/**
-	 * This recalculates the states of everything based
-	 * upon the currently selected character
-	 **/
-	private final void updateCharacterInfo()
-	{
-		if (!needsUpdate)
-		{
-			return;
-		}
-
-		availableModel.resetModel(viewMode, true);
-		selectedModel.resetModel(viewSelMode, false);
-		needsUpdate = false;
 	}
 
 	private void viewComboBoxActionPerformed()
@@ -1093,47 +846,183 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			saveViewMode = new Integer(viewMode);
 		}
-		viewMode = GuiConstants.INFORACE_VIEW_NAME;
+		viewMode = GuiConstants.INFOTEMPLATE_VIEW_NAME;
 		availableModel.resetModel(viewMode, true);
 		clearQFilterButton.setEnabled(true);
 		viewComboBox.setEnabled(false);
 		forceRefresh();
 	}
 
-	private void clearSelQFilter()
+	/**
+	 * <p>Handles the action from <code>rightButton</code>.  Adds the currently selected template
+	 * to the character if the character is qualified.</p>
+	 * <p>Forces update of all tabs by calling <code>forceUpdate()</code>, and updates
+	 * <code>allTemplatesDataModel</code> to refresh template or other dependancies.</p>
+	 */
+	private void addTemplate()
 	{
-		selectedModel.clearQFilter();
-		if (saveSelViewMode != null)
+		PCTemplate template = getSelectedTemplate();
+
+		if ((template == null) || !template.isQualified(pc))
 		{
-			viewSelMode = saveSelViewMode.intValue();
-			saveSelViewMode = null;
+			return;
 		}
-		selectedModel.resetModel(viewSelMode, false);
-		clearSelQFilterButton.setEnabled(false);
-		viewSelComboBox.setEnabled(true);
+
+		pc.setDirty(true);
+
+		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
+
+		if (pcTemplate == null)
+		{
+			pc.addTemplate(template);
+			pushUpdate();
+			availableModel.resetModel(viewMode, true);
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
+		}
+
+		forceRefresh();
+	}
+	
+	/**
+	 * <p>Handles the action from <code>leftButton</code>.  Removes the currently selected template
+	 * from the character if the template is removeable.</p>
+	 * <p>Forces update of all tabs by calling <code>forceUpdate()</code>, and updates
+	 * <code>allTemplatesDataModel</code> to refresh template or other dependancies.</p>
+	 */
+	private void removeTemplate()
+	{
+		PCTemplate template = getSelectedTemplate();
+
+		if ((template == null) || !template.isQualified(pc))
+		{
+			return;
+		}
+
+		pc.setDirty(true);
+
+		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
+
+		if (pcTemplate == null)
+		{
+			pc.removeTemplate(template);
+			pushUpdate();
+			availableModel.resetModel(viewMode, true);
+			selectedModel.resetModel(viewSelMode, false);
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
+		}
+
 		forceRefresh();
 	}
 
-	private void setSelQFilter()
+	private PCTemplate getSelectedTemplate()
 	{
-		String aString = textSelQFilter.getText();
-
-		if (aString.length() == 0)
+		if (lastTemplate == null)
 		{
-			clearSelQFilter();
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_irNoTemplate"), Constants.s_APPNAME, MessageType.ERROR);
+		}
+
+		return lastTemplate;
+	}
+
+	private int getSelectedIndex(ListSelectionEvent e)
+	{
+		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+
+		if (model == null)
+		{
+			return -1;
+		}
+
+		return model.getMinSelectionIndex();
+	}
+
+	/**
+	 * Creates the ClassModel that will be used.
+	 */
+	private void createModels()
+	{
+		createSelectedModel();
+		createAvailableModel();
+	}
+
+	private void createAvailableModel()
+	{
+		if (availableModel == null)
+		{
+			availableModel = new TemplatesTableModel(viewMode, true);
+		}
+		else
+		{
+			availableModel.resetModel(viewMode, true);
+		}
+
+		if (availableSort != null)
+		{
+			availableSort.setRoot((PObjectNode) availableModel.getRoot());
+			availableSort.sortNodeOnColumn();
+		}
+	}
+
+	private void createSelectedModel()
+	{
+		if (selectedModel == null)
+		{
+			selectedModel = new TemplatesTableModel(viewSelMode, false);
+		}
+		else
+		{
+			selectedModel.resetModel(viewSelMode, false);
+		}
+
+		if (selectedSort != null)
+		{
+			selectedSort.setRoot((PObjectNode) selectedModel.getRoot());
+			selectedSort.sortNodeOnColumn();
+		}
+	}
+
+	/**
+	 * Updates the Available table
+	 **/
+	private void updateAvailableModel()
+	{
+		List pathList = availableTable.getExpandedPaths();
+		createAvailableModel();
+		availableTable.updateUI();
+		availableTable.expandPathList(pathList);
+	}
+
+	/**
+	 * Updates the Selected table
+	 **/
+	private void updateSelectedModel()
+	{
+		List pathList = selectedTable.getExpandedPaths();
+		createSelectedModel();
+		selectedTable.updateUI();
+		selectedTable.expandPathList(pathList);
+	}
+
+	/**
+	 * This recalculates the states of everything based
+	 * upon the currently selected character
+	 **/
+	private final void updateCharacterInfo()
+	{
+		if (!needsUpdate)
+		{
 			return;
 		}
-		selectedModel.setQFilter(aString);
 
-		if (saveSelViewMode == null)
-		{
-			saveSelViewMode = new Integer(viewSelMode);
-		}
-		viewSelMode = GuiConstants.INFORACE_VIEW_NAME;
-		selectedModel.resetModel(viewSelMode, false);
-		clearSelQFilterButton.setEnabled(true);
-		viewSelComboBox.setEnabled(false);
-		forceRefresh();
+		updateAvailableModel();
+		updateSelectedModel();
+		needsUpdate = false;
 	}
 
 	/**
@@ -1177,9 +1066,15 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			displayList = new ArrayList();
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
+			if(available) {
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[2], true)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[3], true)));
+			}
+			else {
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[2], false)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[3], false)));
+			}
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[4], true)));
 		}
 
 		public boolean isCellEditable(Object node, int column)
@@ -1208,8 +1103,8 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					return String.class;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr4") + " " + column + " "
-						+ PropertyFactory.getString("in_clICEr2"));
+					Logging.errorPrint(PropertyFactory.getString("in_irIREr4") + " " + column + " "
+						+ PropertyFactory.getString("in_irIREr2"));
 
 					break;
 			}
@@ -1307,128 +1202,41 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		/**
-		 * This assumes the ClassModel exists
+		 * This assumes the TemplateModel exists
 		 * but needs to be repopulated
 		 * @param mode
 		 * @param available
 		 **/
 		private void resetModel(int mode, boolean available)
 		{
-			Iterator fI;
+			Iterator templItr;
 
 			if (available)
 			{
-				fI = Globals.getTemplateList().iterator();
+				templItr = Globals.getTemplateList().iterator();
 			}
 			else
 			{
-				fI = pc.getTemplateList().iterator();
+				templItr = pc.getTemplateList().iterator();
 			}
 
 			switch (mode)
 			{
 				case GuiConstants.INFOTEMPLATE_VIEW_NAME: // Name
-					setRoot(new PObjectNode()); // just need a blank one
-					String qFilter = this.getQFilter();
-
-					while (fI.hasNext())
-					{
-						final PCTemplate template = (PCTemplate) fI.next();
-
-						// in the availableTable, if filtering out unqualified items
-						// ignore any class the PC doesn't qualify for
-						if (!shouldDisplayThis(template))
-						{
-							continue;
-						}
-
-						if (qFilter == null || 
-								( template.getName().toLowerCase().indexOf(qFilter) >= 0 ||
-										template.getType().toLowerCase().indexOf(qFilter) >= 0 ))
-						{
-							PObjectNode aFN = new PObjectNode();
-							aFN.setParent((PObjectNode) super.getRoot());
-							aFN.setItem(template);
-							PrereqHandler.passesAll( template.getPreReqList(), pc, template );
-							((PObjectNode) super.getRoot()).addChild(aFN);
-						}
-					}
-
+					createNameViewModel(templItr);
 					break;
 
 				case GuiConstants.INFOTEMPLATE_VIEW_TYPE_NAME: // type/name
-					setRoot((PObjectNode) typeRoot.clone());
-
-					while (fI.hasNext())
-					{
-						final PCTemplate template = (PCTemplate) fI.next();
-
-						// in the availableTable, if filtering out unqualified items
-						// ignore any class the PC doesn't qualify for
-						if (!shouldDisplayThis(template))
-						{
-							continue;
-						}
-
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-						boolean added = false;
-
-						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
-						{
-							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| template.isType(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
-									.toString()))
-							{
-								PObjectNode aFN = new PObjectNode();
-								aFN.setParent(rootAsPObjectNode.getChild(i));
-								aFN.setItem(template);
-								PrereqHandler.passesAll(template.getPreReqList(), pc, template ) ;
-								rootAsPObjectNode.getChild(i).addChild(aFN);
-								added = true;
-							}
-						}
-					}
-
+					createTypeViewModel(templItr);
 					break;
 
 				case GuiConstants.INFOTEMPLATE_VIEW_SOURCE_NAME: // source/name
-					setRoot((PObjectNode) sourceRoot.clone());
-
-					while (fI.hasNext())
-					{
-						final PCTemplate template = (PCTemplate) fI.next();
-
-						// in the availableTable, if filtering out unqualified items
-						// ignore any class the PC doesn't qualify for
-						if (!shouldDisplayThis(template))
-						{
-							continue;
-						}
-
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-						boolean added = false;
-
-						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
-						{
-							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| template.getSourceWithKey("LONG").equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
-									.toString()))
-							{
-								PObjectNode aFN = new PObjectNode();
-								aFN.setParent(rootAsPObjectNode.getChild(i));
-								aFN.setItem(template);
-								PrereqHandler.passesAll(template.getPreReqList(), pc, template );
-								rootAsPObjectNode.getChild(i).addChild(aFN);
-								added = true;
-							}
-						}
-					}
-
+					createSourceViewModel(templItr);
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr1") + " " + mode + " "
-						+ PropertyFactory.getString("in_clICEr2"));
+					Logging.errorPrint(PropertyFactory.getString("in_irIREr1") + " " + mode + " "
+						+ PropertyFactory.getString("in_irIREr2"));
 
 					break;
 			}
@@ -1440,7 +1248,104 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
 			}
 		}
+		
+		private void createNameViewModel(Iterator templItr) {
+			setRoot(new PObjectNode()); // just need a blank one
+			String qFilter = this.getQFilter();
 
+			while (templItr.hasNext())
+			{
+				final PCTemplate template = (PCTemplate) templItr.next();
+
+				// in the availableTable, if filtering out unqualified items
+				// ignore any class the PC doesn't qualify for
+				if (!shouldDisplayThis(template))
+				{
+					continue;
+				}
+
+				if (qFilter == null || 
+						( template.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+								template.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+				{
+					PObjectNode aFN = new PObjectNode();
+					aFN.setParent((PObjectNode) super.getRoot());
+					aFN.setItem(template);
+					PrereqHandler.passesAll( template.getPreReqList(), pc, template );
+					((PObjectNode) super.getRoot()).addChild(aFN);
+				}
+			}
+			
+		}
+		
+		private void createTypeViewModel(Iterator templItr) {
+			setRoot((PObjectNode) typeRoot.clone());
+
+			while (templItr.hasNext())
+			{
+				final PCTemplate template = (PCTemplate) templItr.next();
+
+				// in the availableTable, if filtering out unqualified items
+				// ignore any class the PC doesn't qualify for
+				if (!shouldDisplayThis(template))
+				{
+					continue;
+				}
+
+				PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+				boolean added = false;
+
+				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
+				{
+					if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
+						|| template.isType(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+							.toString()))
+					{
+						PObjectNode aFN = new PObjectNode();
+						aFN.setParent(rootAsPObjectNode.getChild(i));
+						aFN.setItem(template);
+						PrereqHandler.passesAll(template.getPreReqList(), pc, template ) ;
+						rootAsPObjectNode.getChild(i).addChild(aFN);
+						added = true;
+					}
+				}
+			}
+		}
+
+		private void createSourceViewModel(Iterator templItr) {
+			setRoot((PObjectNode) sourceRoot.clone());
+
+			while (templItr.hasNext())
+			{
+				final PCTemplate template = (PCTemplate) templItr.next();
+
+				// in the availableTable, if filtering out unqualified items
+				// ignore any class the PC doesn't qualify for
+				if (!shouldDisplayThis(template))
+				{
+					continue;
+				}
+
+				PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+				boolean added = false;
+
+				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
+				{
+					if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
+						|| template.getSourceWithKey("LONG").equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+							.toString()))
+					{
+						PObjectNode aFN = new PObjectNode();
+						aFN.setParent(rootAsPObjectNode.getChild(i));
+						aFN.setItem(template);
+						PrereqHandler.passesAll(template.getPreReqList(), pc, template );
+						rootAsPObjectNode.getChild(i).addChild(aFN);
+						added = true;
+					}
+				}
+			}
+		}
+		
 		/**
 		 * return a boolean to indicate if the item should be included in the list.
 		 * Only Weapon, Armor and Shield type items should be checked for proficiency.
@@ -1449,10 +1354,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 */
 		private boolean shouldDisplayThis(final PCTemplate template)
 		{
-			return ((modelType == 1)
-					|| ((template.isVisible() == PCTemplate.VISIBILITY_DEFAULT
+			return ((template.isVisible() == PCTemplate.VISIBILITY_DEFAULT
 					|| template.isVisible() == PCTemplate.VISIBILITY_DISPLAY_ONLY)
-					&& accept(pc, template)));
+					&& accept(pc, template));
 		}
 
 		public List getMColumnList() {
@@ -1653,7 +1557,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				if (temp == null)
 				{
 					lastTemplate = null;
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clNoClass"), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_irNoTemplate"), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
@@ -1728,4 +1632,53 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 	}
+
+	private class AvailableClickHandler implements ClickHandler
+	{
+		public void singleClickEvent() { 
+			// Do Nothing 
+		}
+
+		public void doubleClickEvent()
+		{
+			// We run this after the event has been processed so that
+			// we don't confuse the table when we change its contents
+			SwingUtilities.invokeLater(new Runnable()
+			{
+				public void run()
+				{
+					addTemplate();
+				}
+			});
+		}
+		public boolean isSelectable(Object obj)
+		{
+			return !(obj instanceof String);
+		}
+	}
+
+	private class SelectedClickHandler implements ClickHandler
+	{
+		public void singleClickEvent() {
+			// Do nothing
+		}
+		
+		public void doubleClickEvent()
+		{
+			// We run this after the event has been processed so that
+			// we don't confuse the table when we change its contents
+			SwingUtilities.invokeLater(new Runnable()
+			{
+				public void run()
+				{
+					removeTemplate();
+				}
+			});
+		}
+		public boolean isSelectable(Object obj)
+		{
+			return !(obj instanceof String);
+		}
+	}
+
 }
