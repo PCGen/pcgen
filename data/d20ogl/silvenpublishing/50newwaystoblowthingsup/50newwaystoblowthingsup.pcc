@@ -14,10 +14,12 @@ COPYRIGHT:Open Game Licence v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by Dave Arneson and E. Gary Gygax.
 COPYRIGHT:PCGen dataset conversion for the 50 New Ways to Blow Things Up Copyright 2006, PCGen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith))
 
+# Cover picture, per sponsorship with BoD
+COVER:50newwaystoblowthingsup.jpg
+
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
 SPELL:50newwaystoblowthingsup_spells.lst
 FEAT:50newwaystoblowthingsup_feats.lst
 
-COVER:50newwaystoblowthingsup.jpg
