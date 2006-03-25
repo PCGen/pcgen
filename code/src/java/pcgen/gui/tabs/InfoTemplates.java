@@ -44,10 +44,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -59,17 +61,18 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.tree.TreePath;
 
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
@@ -77,23 +80,29 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JLabelPane;
-import pcgen.gui.utils.JTableEx;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
-import pcgen.gui.utils.TableSorter;
+import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -110,14 +119,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	static final long serialVersionUID = 2565545289875422981L;
 	private static boolean needsUpdate = true;
 
-	// if you change these, you also have to change
-	// the case statement in the RaceModel declaration
-	private AllTemplatesTableModel allTemplatesDataModel = new AllTemplatesTableModel();
-	private FlippingSplitPane split;
-	private FlippingSplitPane bsplit;
-	private JButton leftButton;
-	private JButton rightButton;
-
+	//Available Table
 	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortTempl"));
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private int viewMode = 0;
@@ -125,7 +127,15 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private JTextField textQFilter = new JTextField();
 	private JButton clearQFilterButton = new JButton("Clear");
 	private static Integer saveViewMode = null;
+	private JButton addButton;
 
+	private TemplatesTableModel availableModel;
+	private JTreeTableSorter availableSort = null;
+	private JScrollPane availablePane;
+	private JTreeTable availableTable;
+	private JTree availableTree = null;
+
+	//Selected Table
 	private JLabel selSortLabel = new JLabel(PropertyFactory.getString("in_irSortTemplSel"));
 	private JComboBoxEx viewSelComboBox = new JComboBoxEx();
 	private int viewSelMode = 0;
@@ -133,23 +143,29 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private JTextField textSelQFilter = new JTextField();
 	private JButton clearSelQFilterButton = new JButton("Clear");
 	private static Integer saveSelViewMode = null;
+	private JButton removeButton;
 
+	private TemplatesTableModel selectedModel;
+	private JTreeTableSorter selectedSort = null;
+	private JScrollPane selectedPane;
+	private JTreeTable selectedTable;
+	private JTree selectedTree = null;
+
+	//Other UI Elements
+	private FlippingSplitPane split;
+	private FlippingSplitPane bsplit;
 	private JLabelPane infoLabel = new JLabelPane();
 	private JPanel botPane = new JPanel();
 	private JPanel topPane = new JPanel();
-	private JScrollPane allTemplatesPane;
-	private JScrollPane currentTemplatesPane;
-	private JTableEx allTemplatesTable;
-	private JTableEx currentTemplatesTable;
+	private TreePath selPath;
+	private static PObjectNode typeRoot;
+	private static PObjectNode sourceRoot;
 
-	// the list from which to pull the templates to use
-	private List currentPCdisplayTemplates = new ArrayList(0);
-	private PCTemplatesTableModel currentTemplatesDataModel = new PCTemplatesTableModel();
-	private TableSorter sortedAllTemplatesModel = new TableSorter();
-	private TableSorter sortedCurrentTemplatesModel = new TableSorter();
-
+	// other
 	private boolean hasBeenSized = false;
+	private PCTemplate lastTemplate = null; //keep track of which PCTemplate was last selected from either table
 
+	//Character pane elements
 	private PlayerCharacter pc;
 	private int serial = 0;
 	private boolean readyForRefresh = false;
@@ -323,11 +339,14 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	public final void refreshFiltering()
 	{
-		allTemplatesDataModel.resetModel(viewMode);
+		availableModel.resetModel(viewMode, true);
+		selectedModel.resetModel(viewSelMode, false);
 	}
 
 	private void setInfoLabelText(PCTemplate temp, PObjectNode pn)
 	{
+		lastTemplate = temp; //even if that's null
+
 		StringBuffer b = new StringBuffer();
 		b.append("<html>");
 
@@ -359,34 +378,60 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 */
 	private void addTemplate()
 	{
-		if (allTemplatesTable.getSelectedRowCount() <= 0)
+		PCTemplate template = getSelectedTemplate();
+
+		if ((template == null) || !template.isQualified(pc))
 		{
 			return;
 		}
 
 		pc.setDirty(true);
 
-		PCTemplate theTmpl = allTemplatesDataModel.get(sortedAllTemplatesModel.getRowTranslated(
-					allTemplatesTable.getSelectedRow()));
+		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
 
-		if ((theTmpl != null) && theTmpl.isQualified(pc))
+		if (pcTemplate == null)
 		{
-			PCTemplate aTmpl = pc.getTemplateNamed(theTmpl.getName());
-
-			if (aTmpl == null)
-			{
-				pc.addTemplate(theTmpl);
-				pushUpdate();
-				allTemplatesDataModel.resetModel(viewMode);
-			}
-			else
-			{
-				JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
-			}
+			pc.addTemplate(template);
+			pushUpdate();
+			availableModel.resetModel(viewMode, true);
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
 		}
 
-		currentTemplatesDataModel.setFilter(currentTemplatesDataModel.curFilter);
-		currentTemplatesDataModel.resetModel(viewSelMode);
+		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoDomain());
+		pane.setPaneForUpdate(pane.infoSkills());
+		pane.setPaneForUpdate(pane.infoSpells());
+		pane.setPaneForUpdate(pane.infoSpecialAbilities());
+		pane.setPaneForUpdate(pane.infoSummary());
+		pane.refresh();
+
+		forceRefresh();
+	}
+	
+	private PCTemplate getSelectedTemplate()
+	{
+		if (lastTemplate == null)
+		{
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clNoTemplate"), Constants.s_APPNAME, MessageType.ERROR);
+		}
+
+		return lastTemplate;
+	}
+
+	private int getSelectedIndex(ListSelectionEvent e)
+	{
+		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+
+		if (model == null)
+		{
+			return -1;
+		}
+
+		return model.getMinSelectionIndex();
 	}
 
 	/**
@@ -395,7 +440,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_irSelectRace"));
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_irSelectTemplate"));
 		refresh();
 
 		int width;
@@ -404,22 +449,22 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (!hasBeenSized)
 		{
-			t = SettingsHandler.getPCGenOption("InfoRace.bsplit", (int) (InfoTemplates.this.getSize().getHeight() - 120));
-			u = SettingsHandler.getPCGenOption("InfoRace.asplit",
+			t = SettingsHandler.getPCGenOption("InfoTemplate.bsplit", (int) (InfoTemplates.this.getSize().getHeight() - 120));
+			u = SettingsHandler.getPCGenOption("InfoTemplate.asplit",
 					(int) ((InfoTemplates.this.getSize().getWidth() * 75.0) / 100.0));
 
 			// set the prefered width on allTemplatesTable
-			for (int i = 0; i < allTemplatesTable.getColumnCount(); i++)
+			for (int i = 0; i < availableTable.getColumnCount(); i++)
 			{
-				TableColumn sCol = allTemplatesTable.getColumnModel().getColumn(i);
-				width = Globals.getCustColumnWidth("Tamplate", i);
+				TableColumn sCol = availableTable.getColumnModel().getColumn(i);
+				width = Globals.getCustColumnWidth("Template", i);
 
 				if (width != 0)
 				{
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(allTemplatesTable, "Tamplate", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "Template", i));
 			}
 		}
 
@@ -436,9 +481,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 	}
 
-	private void hookupTemplatePopupMenu(JTableEx table)
+	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		table.addMouseListener(new TemplatePopupListener(table, new TemplatePopupMenu(table)));
+		treeTable.addMouseListener(new TemplatePopupListener(treeTable, new TemplatePopupMenu(treeTable)));
 	}
 
 	private void initActionListeners()
@@ -469,14 +514,14 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					}
 				}
 			});
-		leftButton.addActionListener(new ActionListener()
+		removeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
 				{
 					removeTemplate();
 				}
 			});
-		rightButton.addActionListener(new ActionListener()
+		addButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
 				{
@@ -541,12 +586,16 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					clearSelQFilter();
 				}
 			});
-		allTemplatesTable.getSelectionModel().addListSelectionListener(new AllListSelectionListener());
-		currentTemplatesTable.getSelectionModel().addListSelectionListener(new CurrentListSelectionListener());
+		addFocusListener(new FocusAdapter()
+				{
+					public void focusGained(FocusEvent evt)
+					{
+						refresh();
+					}
+				});
 
-		FilterFactory.restoreFilterSettings(this);
-		currentTemplatesDataModel.setFilter(currentTemplatesDataModel.curFilter);
-		currentTemplatesDataModel.resetModel(viewSelMode);
+		availableTable.getSelectionModel().addListSelectionListener(new AvailableListSelectionListener());
+		selectedTable.getSelectionModel().addListSelectionListener(new SelectedListSelectionListener());
 	}
 
 	/**
@@ -556,6 +605,65 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private void initComponents()
 	{
 		readyForRefresh = true;
+		typeRoot = new PObjectNode();
+		sourceRoot = new PObjectNode();
+
+		List typeList = new ArrayList();
+		List sourceList = new ArrayList();
+
+		for (Iterator i = Globals.getTemplateList().iterator(); i.hasNext();)
+		{
+			final PCTemplate template = (PCTemplate) i.next();
+
+			for (int ii = 0; ii < template.getMyTypeCount(); ++ii)
+			{
+				final String aString = template.getMyType(ii);
+				if (!typeList.contains(aString))
+				{
+					typeList.add(aString);
+				}
+
+			}
+			final String aString = template.getSourceWithKey("LONG");
+			if (aString == null)
+			{
+				Logging.errorPrint("PC template " + template.getName()
+					+ " has no source long entry.");
+			}
+			else if (!sourceList.contains(aString))
+			{
+				sourceList.add(aString);
+			}
+		}
+
+		Collections.sort(typeList);
+		if (!typeList.contains(PropertyFactory.getString("in_other")))
+		{
+			typeList.add(PropertyFactory.getString("in_other"));
+		}
+		PObjectNode[] pTypes = new PObjectNode[typeList.size()];
+		for (int i = 0; i < pTypes.length; i++)
+		{
+			pTypes[i] = new PObjectNode();
+			pTypes[i].setItem(typeList.get(i).toString());
+			pTypes[i].setParent(typeRoot);
+		}
+		typeRoot.setChildren(pTypes);
+
+		Collections.sort(sourceList);
+		PObjectNode[] pSources = new PObjectNode[sourceList.size()];
+		for (int i = 0; i < pSources.length; i++)
+		{
+			final String aString = sourceList.get(i).toString();
+			if (aString != null)
+			{
+				pSources[i] = new PObjectNode();
+				pSources[i].setItem(aString);
+				pSources[i].setParent(sourceRoot);
+			}
+		}
+		sourceRoot.setChildren(pSources);
+
 		//
 		// View List Sanity check
 		//
@@ -565,7 +673,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			viewMode = iView;
 		}
 		SettingsHandler.setTemplateTab_ListMode(viewMode);
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel") + "   ");
+		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
+		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
+		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
 		viewComboBox.setSelectedIndex(viewMode);
 
 		iView = SettingsHandler.getTemplateSelTab_ListMode();
@@ -573,10 +683,15 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			viewMode = iView;
 		}
-		SettingsHandler.setTemplateSelTab_ListMode(viewMode);
-		viewSelComboBox.addItem(PropertyFactory.getString("in_nameLabel") + "   ");
-		viewSelComboBox.setSelectedIndex(viewMode);
+		SettingsHandler.setTemplateSelTab_ListMode(viewSelMode);
+		viewSelComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
+		viewSelComboBox.addItem(PropertyFactory.getString("in_typeName"));
+		viewSelComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewSelComboBox.setSelectedIndex(viewSelMode);
 
+		createModels();
+		createTreeTables();
+		
 		buildTopPanel();
 
 		buildBottomPanel();
@@ -591,13 +706,31 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		this.setLayout(new BorderLayout());
 		this.add(bsplit, BorderLayout.CENTER);
 
-		addFocusListener(new FocusAdapter()
-			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+		// add the sorter so that clicking on the TableHeader actually does something
+		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
+	}
+
+	private void createTreeTables() {
+		availableTable = new JTreeTable(availableModel);
+		availableTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		availableTable.setDoubleBuffered(false);
+
+		availableTree = availableTable.getTree();
+		availableTree.setRootVisible(false);
+		availableTree.setShowsRootHandles(true);
+		availableTree.setCellRenderer(new LabelTreeCellRenderer());
+		
+		selectedTable = new JTreeTable(selectedModel);
+		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		selectedTable.setDoubleBuffered(false);
+
+		selectedTree = selectedTable.getTree();
+		selectedTree.setRootVisible(false);
+		selectedTree.setShowsRootHandles(true);
+		selectedTree.setCellRenderer(new LabelTreeCellRenderer());
+
+		hookupPopupMenu(availableTable);
+		hookupPopupMenu(selectedTable);
 	}
 
 	/**
@@ -641,8 +774,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		leftPane.add(createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		// Data - All Available Templates Table
-		allTemplatesTable = new JTableEx();
-		allTemplatesPane = new JScrollPane(allTemplatesTable);
+		availablePane = new JScrollPane(availableTable);
 
 		MouseListener aml = new MouseAdapter()
 			{
@@ -654,23 +786,21 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					}
 				}
 			};
-		allTemplatesTable.addMouseListener(aml);
+			availableTable.addMouseListener(aml);
 
-		sortedAllTemplatesModel.setModel(allTemplatesDataModel);
-		allTemplatesTable.setModel(sortedAllTemplatesModel);
-		allTemplatesPane.setViewportView(allTemplatesTable);
-		allTemplatesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		hookupTemplatePopupMenu(allTemplatesTable);
-		allTemplatesTable.setColAlign(0, SwingConstants.CENTER);
-		allTemplatesTable.setColAlign(2, SwingConstants.CENTER);
+		availablePane.setViewportView(availableTable);
+		JButton columnButton = new JButton();
+		availablePane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(availableTable, columnButton, availableModel);
 
-		leftPane.add(allTemplatesPane, BorderLayout.CENTER);
+		leftPane.add(availablePane, BorderLayout.CENTER);
 
 		JPanel bottomLeftPanel = new JPanel();
-		rightButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(rightButton, PropertyFactory.getString("in_irTemplAddTip"));
-		rightButton.setEnabled(true);
-		bottomLeftPanel.add(rightButton);
+		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
+		Utility.setDescription(addButton, PropertyFactory.getString("in_irTemplAddTip"));
+		addButton.setEnabled(true);
+		bottomLeftPanel.add(addButton);
 		leftPane.add(bottomLeftPanel, BorderLayout.SOUTH);
 
 		//-------------------------------------------------------------
@@ -681,11 +811,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		rightPane.add(createFilterPane(selSortLabel, viewSelComboBox, lblSelQFilter, textSelQFilter, clearSelQFilterButton), BorderLayout.NORTH);
 
 		// Data - Selected Templates table
-		currentTemplatesPane = new JScrollPane();
-
-		currentTemplatesTable = new JTableEx();
-		sortedCurrentTemplatesModel.setModel(currentTemplatesDataModel);
-		sortedCurrentTemplatesModel.addMouseListenerToHeaderInTable(currentTemplatesTable);
+		selectedPane = new JScrollPane();
 
 		aml = new MouseAdapter()
 			{
@@ -697,20 +823,19 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					}
 				}
 			};
-		currentTemplatesTable.addMouseListener(aml);
-
-		currentTemplatesTable.setModel(sortedCurrentTemplatesModel);
-		currentTemplatesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		currentTemplatesTable.setDoubleBuffered(false);
-		currentTemplatesPane.setViewportView(currentTemplatesTable);
-		hookupTemplatePopupMenu(currentTemplatesTable);
-		rightPane.add(currentTemplatesPane, BorderLayout.CENTER);
+		selectedTable.addMouseListener(aml);
+		selectedPane.setViewportView(selectedTable);
+		JButton columnButton2 = new JButton();
+		selectedPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+		rightPane.add(selectedPane, BorderLayout.CENTER);
 
 		JPanel rightBottomPanel = new JPanel();
-		leftButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(leftButton, PropertyFactory.getString("in_irTemplRemoveTip"));
-		leftButton.setEnabled(true);
-		rightBottomPanel.add(leftButton);
+		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
+		Utility.setDescription(removeButton, PropertyFactory.getString("in_irTemplRemoveTip"));
+		removeButton.setEnabled(true);
+		rightBottomPanel.add(removeButton);
 		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
 	}
 
@@ -797,28 +922,106 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 */
 	private void removeTemplate()
 	{
-		if (currentTemplatesTable.getSelectedRowCount() <= 0)
+		PCTemplate template = getSelectedTemplate();
+
+		if ((template == null) || !template.isQualified(pc))
 		{
 			return;
 		}
 
 		pc.setDirty(true);
 
-		PCTemplate theTmpl = (PCTemplate) currentPCdisplayTemplates.get(sortedCurrentTemplatesModel.getRowTranslated(
-					currentTemplatesTable.getSelectedRow()));
+		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
 
-		if (!theTmpl.isRemovable())
+		if (pcTemplate == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_irNotRemovable"), Constants.s_APPNAME, MessageType.ERROR);
-
-			return;
+			pc.removeTemplate(template);
+			pushUpdate();
+			availableModel.resetModel(viewMode, true);
+			selectedModel.resetModel(viewSelMode, false);
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
 		}
 
-		pc.removeTemplate(theTmpl);
-		pushUpdate();
-		allTemplatesDataModel.resetModel(viewMode);
-		currentTemplatesDataModel.setFilter(currentTemplatesDataModel.curFilter);
-		currentTemplatesDataModel.resetModel(viewSelMode);
+		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoDomain());
+		pane.setPaneForUpdate(pane.infoSkills());
+		pane.setPaneForUpdate(pane.infoSpells());
+		pane.setPaneForUpdate(pane.infoSpecialAbilities());
+		pane.setPaneForUpdate(pane.infoSummary());
+		pane.refresh();
+
+		forceRefresh();
+	}
+
+	/**
+	 * Updates the Available table
+	 **/
+	private void updateAvailableModel()
+	{
+		List pathList = availableTable.getExpandedPaths();
+		createAvailableModel();
+		availableTable.updateUI();
+		availableTable.expandPathList(pathList);
+	}
+
+	/**
+	 * Updates the Selected table
+	 **/
+	private void updateSelectedModel()
+	{
+		List pathList = selectedTable.getExpandedPaths();
+		createSelectedModel();
+		selectedTable.updateUI();
+		selectedTable.expandPathList(pathList);
+	}
+
+	/**
+	 * Creates the ClassModel that will be used.
+	 */
+	private void createModels()
+	{
+		createSelectedModel();
+		createAvailableModel();
+	}
+
+	private void createAvailableModel()
+	{
+		if (availableModel == null)
+		{
+			availableModel = new TemplatesTableModel(viewMode, true);
+		}
+		else
+		{
+			availableModel.resetModel(viewMode, true);
+		}
+
+		if (availableSort != null)
+		{
+			availableSort.setRoot((PObjectNode) availableModel.getRoot());
+			availableSort.sortNodeOnColumn();
+		}
+	}
+
+	private void createSelectedModel()
+	{
+		if (selectedModel == null)
+		{
+			selectedModel = new TemplatesTableModel(viewSelMode, false);
+		}
+		else
+		{
+			selectedModel.resetModel(viewSelMode, false);
+		}
+
+		if (selectedSort != null)
+		{
+			selectedSort.setRoot((PObjectNode) selectedModel.getRoot());
+			selectedSort.sortNodeOnColumn();
+		}
 	}
 
 	/**
@@ -832,9 +1035,8 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			return;
 		}
 
-		allTemplatesDataModel.resetModel(viewMode);
-		currentTemplatesDataModel.setFilter(currentTemplatesDataModel.curFilter);
-		currentTemplatesDataModel.resetModel(viewSelMode);
+		availableModel.resetModel(viewMode, true);
+		selectedModel.resetModel(viewSelMode, false);
 		needsUpdate = false;
 	}
 
@@ -846,6 +1048,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			viewMode = index;
 			SettingsHandler.setTemplateTab_ListMode(viewMode);
+			updateAvailableModel();
 		}
 	}
 
@@ -857,18 +1060,19 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			viewSelMode = index;
 			SettingsHandler.setTemplateSelTab_ListMode(viewSelMode);
+			updateSelectedModel();
 		}
 	}
 	
 	private void clearQFilter()
 	{
-		allTemplatesDataModel.clearQFilter();
+		availableModel.clearQFilter();
 		if (saveViewMode != null)
 		{
 			viewMode = saveViewMode.intValue();
 			saveViewMode = null;
 		}
-		allTemplatesDataModel.resetModel(viewMode);
+		availableModel.resetModel(viewMode, true);
 		clearQFilterButton.setEnabled(false);
 		viewComboBox.setEnabled(true);
 		forceRefresh();
@@ -883,14 +1087,14 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			clearQFilter();
 			return;
 		}
-		allTemplatesDataModel.setQFilter(aString);
+		availableModel.setQFilter(aString);
 
 		if (saveViewMode == null)
 		{
 			saveViewMode = new Integer(viewMode);
 		}
 		viewMode = GuiConstants.INFORACE_VIEW_NAME;
-		allTemplatesDataModel.resetModel(viewMode);
+		availableModel.resetModel(viewMode, true);
 		clearQFilterButton.setEnabled(true);
 		viewComboBox.setEnabled(false);
 		forceRefresh();
@@ -898,13 +1102,13 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 	private void clearSelQFilter()
 	{
-		currentTemplatesDataModel.clearQFilter();
+		selectedModel.clearQFilter();
 		if (saveSelViewMode != null)
 		{
 			viewSelMode = saveSelViewMode.intValue();
 			saveSelViewMode = null;
 		}
-		currentTemplatesDataModel.resetModel(viewSelMode);
+		selectedModel.resetModel(viewSelMode, false);
 		clearSelQFilterButton.setEnabled(false);
 		viewSelComboBox.setEnabled(true);
 		forceRefresh();
@@ -919,14 +1123,14 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			clearSelQFilter();
 			return;
 		}
-		currentTemplatesDataModel.setQFilter(aString);
+		selectedModel.setQFilter(aString);
 
 		if (saveSelViewMode == null)
 		{
 			saveSelViewMode = new Integer(viewSelMode);
 		}
 		viewSelMode = GuiConstants.INFORACE_VIEW_NAME;
-		currentTemplatesDataModel.resetModel(viewSelMode);
+		selectedModel.resetModel(viewSelMode, false);
 		clearSelQFilterButton.setEnabled(true);
 		viewSelComboBox.setEnabled(false);
 		forceRefresh();
@@ -938,31 +1142,78 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 * It pulls its data straight from Globals.getTemplateList()
 	 *
 	 **/
-	private final class AllTemplatesTableModel extends AbstractTableModel
+	private final class TemplatesTableModel extends AbstractTreeTableModel implements TableColumnManagerModel
 	{
 		static final long serialVersionUID = 2565545289875422981L;
-		private List displayTemplates = new ArrayList();
-		private final String[] ALL_TEMPLATES_COLUMN_NAMES = new String[]
-			{
-				PropertyFactory.getString("in_Q"), PropertyFactory.getString("in_nameLabel"),
-				PropertyFactory.getString("in_lvlAdj"), PropertyFactory.getString("in_modifier"),
-				PropertyFactory.getString("in_preReqs"), PropertyFactory.getString("in_source")
-			};
-		private int curFilter;
-		private int prevGlobalTemplateCount;
-		private String qFilter = null;
+		private static final int COL_NAME = 0;
+		private static final int COL_LEVEL = 1;
+		private static final int COL_MODIFIER = 2;
+		private static final int COL_REQS = 3;
+		private static final int COL_SRC = 4;
 
-		private AllTemplatesTableModel()
+		private final String[] COL_NAMES = new String[]
+			{
+				PropertyFactory.getString("in_nameLabel"),
+				PropertyFactory.getString("in_lvlAdj"),
+				PropertyFactory.getString("in_modifier"),
+				PropertyFactory.getString("in_preReqs"),
+				PropertyFactory.getString("in_source")
+			};
+		
+		private final int[] COL_DEFAULT_WIDTH = {
+				200, 35, 35, 100, 100
+		};
+		private int modelType = 0; // availableModel=0,selectedModel=1
+		private List displayList = null;
+
+		private TemplatesTableModel(int mode, boolean available)
 		{
-			resetModel(viewMode);
+			super(null);
+			if (!available)
+			{
+				modelType = 1;
+			}
+			resetModel(viewMode, available);
+			displayList = new ArrayList();
+			displayList.add(new Boolean(true));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
+		}
+
+		public boolean isCellEditable(Object node, int column)
+		{
+			return false;
 		}
 
 		/**
-		 * @param columnIndex the index of the column to retrieve
-		 * @return the type of the specified column
+		 * Returns Class for the column.
+		 * @param column
+		 * @return Class
 		 */
-		public Class getColumnClass(int columnIndex)
+		public Class getColumnClass(int column)
 		{
+			switch (column)
+			{
+				case COL_NAME:
+					return TreeTableModel.class;
+
+				case COL_LEVEL:
+					return Integer.class;
+
+				case COL_MODIFIER:
+				case COL_REQS:
+				case COL_SRC:
+					return String.class;
+
+				default:
+					Logging.errorPrint(PropertyFactory.getString("in_clICEr4") + " " + column + " "
+						+ PropertyFactory.getString("in_clICEr2"));
+
+					break;
+			}
+
 			return String.class;
 		}
 
@@ -971,7 +1222,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 */
 		public int getColumnCount()
 		{
-			return ALL_TEMPLATES_COLUMN_NAMES.length;
+			return COL_NAMES.length;
 		}
 
 		/**
@@ -980,21 +1231,28 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 */
 		public String getColumnName(int columnIndex)
 		{
-			return ((columnIndex >= 0) && (columnIndex < ALL_TEMPLATES_COLUMN_NAMES.length))
-			? ALL_TEMPLATES_COLUMN_NAMES[columnIndex] : "Out Of Bounds";
+			return ((columnIndex >= 0)
+					&& (columnIndex < COL_NAMES.length))
+					? COL_NAMES[columnIndex]
+					: "Out Of Bounds";
 		}
 
 		/**
-		 * @return the number of rows in the model
+		 * Returns the root node of the tree
+		 * @return the root node
 		 */
-		public int getRowCount()
+		public Object getRoot()
 		{
-			if (prevGlobalTemplateCount != Globals.getTemplateList().size())
-			{
-				updateFilter();
-			}
+			return (PObjectNode) super.getRoot();
+		}
 
-			return (displayTemplates != null) ? displayTemplates.size() : 0;
+		/**
+		 * There must be a root object, though it can be hidden
+		 * @param the root node
+		 */
+		private void setRoot(PObjectNode aNode)
+		{
+			super.setRoot(aNode);
 		}
 
 		/**
@@ -1002,42 +1260,45 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 * @param columnIndex the column of the cell to retrieve
 		 * @return the value of the cell
 		 */
-		public Object getValueAt(int rowIndex, int columnIndex)
+		public Object getValueAt(Object node, int columnIndex)
 		{
-			if (displayTemplates != null)
+			final PObjectNode fn = (PObjectNode) node;
+			PCTemplate template = null;
+			PCTemplate pcTemplate = null;
+			
+			if ((fn != null) && (fn.getItem() instanceof PCTemplate))
 			{
-				PCTemplate selectedTemplate = (PCTemplate) displayTemplates.get(rowIndex);
-				final PCTemplate pcTemplate = pc.getTemplateNamed(selectedTemplate.toString());
+				template = (PCTemplate) fn.getItem();
+				pcTemplate = pc.getTemplateNamed(template.toString());
+			}
 
-				if (pcTemplate != null)
-				{
-					selectedTemplate = pcTemplate;
-				}
+			if (pcTemplate != null)
+			{
+				template = pcTemplate;
+			}
 
+			if (template != null)
+			{
 				switch (columnIndex)
 				{
-					case 0:
-						return selectedTemplate.isQualified(pc) ? "Y" : "N";
-
-					case 1:
-						return selectedTemplate.toString();
-
-					case 2:
-						return "" + selectedTemplate.getLevelAdjustment(pc);
-
-					case 3:
-						return selectedTemplate.modifierString(pc);
-
-					case 4:
-						return selectedTemplate.preReqStrings();
-
-					case 5:
-						return selectedTemplate.getSource();
-
+					case COL_NAME:
+						return template.toString();
+	
+					case COL_LEVEL:
+						return new Integer(template.getLevelAdjustment(pc));
+	
+					case COL_MODIFIER:
+						return template.modifierString(pc);
+	
+					case COL_REQS:
+						return template.preReqStrings();
+	
+					case COL_SRC:
+						return template.getSource();
+	
 					default:
-						Logging.errorPrint("In InfoRace.AllTemplatesTableModel.getValueAt the column " + columnIndex
+						Logging.errorPrint("In InfoTemplates.AllTemplatesTableModel.getValueAt the column " + columnIndex
 							+ " is not supported.");
-
 						break;
 				}
 			}
@@ -1046,333 +1307,201 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		/**
-		 * Uses the ID from the jcbFilter, so any change to the list of filters
-		 * will require a modification of this method.
-		 * at the moment:
-		 * 0: All
-		 * 1: Qualified
-		 * @param filterID the filter type
-		 */
-		private void setFilter(int filterID)
+		 * This assumes the ClassModel exists
+		 * but needs to be repopulated
+		 * @param mode
+		 * @param available
+		 **/
+		private void resetModel(int mode, boolean available)
 		{
-			prevGlobalTemplateCount = Globals.getTemplateList().size();
-			displayTemplates = new ArrayList();
+			Iterator fI;
 
-			switch (filterID)
+			if (available)
 			{
-				case 0: // All
-
-					for (Iterator it = Globals.getTemplateList().iterator(); it.hasNext();)
-					{
-						PCTemplate pcTmpl = (PCTemplate) it.next();
-
-						if ((pcTmpl.isVisible() == 1) || (pcTmpl.isVisible() == 3))
-						{
-							displayTemplates.add(pcTmpl);
-						}
-					}
-
-					break;
-
-				case 1: // Qualified
-
-					for (Iterator it = Globals.getTemplateList().iterator(); it.hasNext();)
-					{
-						PCTemplate pcTmpl = (PCTemplate) it.next();
-
-						if (((pcTmpl.isVisible() == 1) || (pcTmpl.isVisible() == 3)) && pcTmpl.isQualified(pc))
-						{
-							displayTemplates.add(pcTmpl);
-						}
-					}
-
-					break;
-
-				default:
-					Logging.errorPrint("In InfoRace.AllTemplatesTableModel.setFilter the filter ID " + filterID
-						+ " is not supported.");
-
-					break;
-			}
-
-			fireTableDataChanged();
-			curFilter = filterID;
-		}
-
-		private PCTemplate get(int index)
-		{
-			return (PCTemplate) displayTemplates.get(index);
-		}
-
-		/**
-		 * Re-fetches and re-filters the data from the global template list.
-		 */
-		private void updateFilter()
-		{
-			setFilter(curFilter);
-		}
-
-		private void resetModel(int view)
-		{
-			displayTemplates.clear();
-
-			for (Iterator it = Globals.getTemplateList().iterator(); it.hasNext();)
-			{
-				final PCTemplate aPCTemplate = (PCTemplate) it.next();
-
-				if (((aPCTemplate.isVisible() % 2) == 1) && accept(pc, aPCTemplate))
-				{
-					if (qFilter == null || 
-							( aPCTemplate.getName().toLowerCase().indexOf(qFilter) >= 0 ||
-							aPCTemplate.getType().toLowerCase().indexOf(qFilter) >= 0 ))
-					{
-						displayTemplates.add(aPCTemplate);
-					}
-				}
-			}
-
-			fireTableDataChanged();
-		}
-
-		/**
-		 * Get the QuickFilter
-		 * @return QuickFilter
-		 */
-		public String getQFilter()
-		{
-			return qFilter;
-		}
-
-		/**
-		 * Set theQuickFilter
-		 * @param quickFilter
-		 */
-		public void setQFilter(String quickFilter) 
-		{
-			if(quickFilter != null) {
-				this.qFilter = quickFilter.toLowerCase();
-			}
-			else {
-				this.qFilter = null;
-			}
-		}
-
-		/**
-		 * Clear the QuickFilter
-		 */
-		public void clearQFilter() 
-		{
-			this.qFilter = null;
-		}
-	}
-
-	/**
-	 * This is the model for currently selected templates
-	 **/
-	private final class PCTemplatesTableModel extends AbstractTableModel
-	{
-		static final long serialVersionUID = 2565545289875422981L;
-		private int curFilter;
-		private int prevGlobalTemplateCount;
-		private String qFilter = null;
-
-		/** Constructor */
-		public PCTemplatesTableModel() {
-			resetModel(0);
-		}
-		
-		public Class getColumnClass(int columnIndex)
-		{
-			return String.class;
-		}
-
-		public int getColumnCount()
-		{
-			return 2;
-		}
-
-		public String getColumnName(int columnIndex)
-		{
-			switch (columnIndex)
-			{
-				case 0:
-					return "Template";
-
-				case 1:
-					return "Removable";
-
-				default:
-					Logging.errorPrint("In InfoRace.PCTemplatesTableModel.getColumnName the column " + columnIndex
-						+ " is not supported.");
-
-					break;
-			}
-
-			return "Out Of Bounds";
-		}
-
-		public int getRowCount()
-		{
-			return currentPCdisplayTemplates.size();
-		}
-
-		public Object getValueAt(int rowIndex, int columnIndex)
-		{
-			if ((pc != null) && (pc.getTemplateList() != null))
-			{
-				PCTemplate t = (PCTemplate) currentPCdisplayTemplates.get(rowIndex);
-
-				switch (columnIndex)
-				{
-					case 0:
-						return t.toString();
-
-					case 1:
-						return (t.isRemovable() ? "Yes" : "No");
-
-					default:
-						Logging.errorPrint("In InfoRace.PCTemplatesTableModel.getValueAt the column " + columnIndex
-							+ " is not supported.");
-
-						break;
-				}
-			}
-
-			return null;
-		}
-
-		/**
-		 * Uses the ID from the jcbFilter, so any change to the list
-		 * of filters will require a modification of this method.
-		 * at the moment:
-		 * 0: Visible
-		 * 1: Invisible
-		 * 2: All
-		 * @param filterID the filter type
-		 */
-		private void setFilter(int filterID)
-		{
-			if (pc == null)
-			{
-				currentPCdisplayTemplates = new ArrayList(0);
+				fI = Globals.getTemplateList().iterator();
 			}
 			else
 			{
-				prevGlobalTemplateCount = pc.getTemplateList().size();
-				currentPCdisplayTemplates = new ArrayList(prevGlobalTemplateCount);
-
-				switch (filterID)
-				{
-					case 0:
-
-						for (Iterator it = pc.getTemplateList().iterator(); it.hasNext();)
-						{
-							final PCTemplate pcTmpl = (PCTemplate) it.next();
-
-							if ((pcTmpl.isVisible() == 1) || (pcTmpl.isVisible() == 3))
-							{
-								currentPCdisplayTemplates.add(pcTmpl);
-							}
-						}
-
-						break;
-
-					case 1:
-
-						for (Iterator it = pc.getTemplateList().iterator(); it.hasNext();)
-						{
-							final PCTemplate pcTmpl = (PCTemplate) it.next();
-
-							if ((pcTmpl.isVisible() == 0) || (pcTmpl.isVisible() == 2))
-							{
-								currentPCdisplayTemplates.add(pcTmpl);
-							}
-						}
-
-						break;
-
-					case 2:
-						currentPCdisplayTemplates.addAll(pc.getTemplateList());
-
-						break;
-
-					default:
-						Logging.errorPrint("In InfoRace.PCTemplatesTableModel.setFilter the filter ID " + filterID
-							+ " is not supported.");
-
-						break;
-				}
+				fI = pc.getTemplateList().iterator();
 			}
 
-			fireTableDataChanged();
-			curFilter = filterID;
-		}
-		
-		private void resetModel(int view)
-		{
-			currentPCdisplayTemplates.clear();
+			switch (mode)
+			{
+				case GuiConstants.INFOTEMPLATE_VIEW_NAME: // Name
+					setRoot(new PObjectNode()); // just need a blank one
+					String qFilter = this.getQFilter();
 
-			if(pc != null) {
-				for (Iterator it = pc.getTemplateList().iterator(); it.hasNext();)
-				{
-					final PCTemplate aPCTemplate = (PCTemplate) it.next();
-	
-					if (((aPCTemplate.isVisible() % 2) == 1) && accept(pc, aPCTemplate))
+					while (fI.hasNext())
 					{
-						if (qFilter == null || 
-								( aPCTemplate.getName().toLowerCase().indexOf(qFilter) >= 0 ||
-								aPCTemplate.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+						final PCTemplate template = (PCTemplate) fI.next();
+
+						// in the availableTable, if filtering out unqualified items
+						// ignore any class the PC doesn't qualify for
+						if (!shouldDisplayThis(template))
 						{
-							currentPCdisplayTemplates.add(aPCTemplate);
+							continue;
+						}
+
+						if (qFilter == null || 
+								( template.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+										template.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+						{
+							PObjectNode aFN = new PObjectNode();
+							aFN.setParent((PObjectNode) super.getRoot());
+							aFN.setItem(template);
+							PrereqHandler.passesAll( template.getPreReqList(), pc, template );
+							((PObjectNode) super.getRoot()).addChild(aFN);
 						}
 					}
-				}
+
+					break;
+
+				case GuiConstants.INFOTEMPLATE_VIEW_TYPE_NAME: // type/name
+					setRoot((PObjectNode) typeRoot.clone());
+
+					while (fI.hasNext())
+					{
+						final PCTemplate template = (PCTemplate) fI.next();
+
+						// in the availableTable, if filtering out unqualified items
+						// ignore any class the PC doesn't qualify for
+						if (!shouldDisplayThis(template))
+						{
+							continue;
+						}
+
+						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+						boolean added = false;
+
+						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
+						{
+							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
+								|| template.isType(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+									.toString()))
+							{
+								PObjectNode aFN = new PObjectNode();
+								aFN.setParent(rootAsPObjectNode.getChild(i));
+								aFN.setItem(template);
+								PrereqHandler.passesAll(template.getPreReqList(), pc, template ) ;
+								rootAsPObjectNode.getChild(i).addChild(aFN);
+								added = true;
+							}
+						}
+					}
+
+					break;
+
+				case GuiConstants.INFOTEMPLATE_VIEW_SOURCE_NAME: // source/name
+					setRoot((PObjectNode) sourceRoot.clone());
+
+					while (fI.hasNext())
+					{
+						final PCTemplate template = (PCTemplate) fI.next();
+
+						// in the availableTable, if filtering out unqualified items
+						// ignore any class the PC doesn't qualify for
+						if (!shouldDisplayThis(template))
+						{
+							continue;
+						}
+
+						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+						boolean added = false;
+
+						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
+						{
+							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
+								|| template.getSourceWithKey("LONG").equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+									.toString()))
+							{
+								PObjectNode aFN = new PObjectNode();
+								aFN.setParent(rootAsPObjectNode.getChild(i));
+								aFN.setItem(template);
+								PrereqHandler.passesAll(template.getPreReqList(), pc, template );
+								rootAsPObjectNode.getChild(i).addChild(aFN);
+								added = true;
+							}
+						}
+					}
+
+					break;
+
+				default:
+					Logging.errorPrint(PropertyFactory.getString("in_clICEr1") + " " + mode + " "
+						+ PropertyFactory.getString("in_clICEr2"));
+
+					break;
 			}
 
-			fireTableDataChanged();
+			PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+
+			if (rootAsPObjectNode.getChildCount() > 0)
+			{
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+			}
+		}
+
+		/**
+		 * return a boolean to indicate if the item should be included in the list.
+		 * Only Weapon, Armor and Shield type items should be checked for proficiency.
+		 * @param aClass
+		 * @return true if it should be displayed
+		 */
+		private boolean shouldDisplayThis(final PCTemplate template)
+		{
+			return ((modelType == 1)
+					|| ((template.isVisible() == PCTemplate.VISIBILITY_DEFAULT
+					|| template.isVisible() == PCTemplate.VISIBILITY_DISPLAY_ONLY)
+					&& accept(pc, template)));
+		}
+
+		public List getMColumnList() {
+			List retList = new ArrayList();
+			for(int i = 1; i < COL_NAMES.length; i++) {
+				retList.add(COL_NAMES[i]);
+			}
+			return retList;
+		}
+
+		public boolean isMColumnDisplayed(int col) {
+			return ((Boolean)displayList.get(col)).booleanValue();
+		}
+
+		public void setMColumnDisplayed(int col, boolean disp) {
+			setColumnViewOption(modelType + "." + COL_NAMES[col], disp);
+			displayList.set(col, new Boolean(disp));
+		}
+
+		public int getMColumnOffset() {
+			return 1;
+		}
+
+		public int getMColumnDefaultWidth(int col) {
+			return SettingsHandler.getPCGenOption("InfoTemplates.sizecol." + COL_NAMES[col], COL_DEFAULT_WIDTH[col]);
+		}
+
+		public void setMColumnDefaultWidth(int col, int width) {
+			SettingsHandler.setPCGenOption("InfoTemplates.sizecol." + COL_NAMES[col], width);
 		}
 		
-		/**
-		 * Get the QuickFilter
-		 * @return QuickFilter
-		 */
-		public String getQFilter()
-		{
-			return qFilter;
+		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+			return SettingsHandler.getPCGenOption("InfoTemplates.viewcol." + colName, defaultVal);
 		}
-
-		/**
-		 * Set theQuickFilter
-		 * @param quickFilter
-		 */
-		public void setQFilter(String quickFilter) 
-		{
-			if(quickFilter != null) {
-				this.qFilter = quickFilter.toLowerCase();
-			}
-			else {
-				this.qFilter = null;
-			}
-		}
-
-		/**
-		 * Clear the QuickFilter
-		 */
-		public void clearQFilter() 
-		{
-			this.qFilter = null;
+		
+		private void setColumnViewOption(String colName, boolean val) {
+			SettingsHandler.setPCGenOption("InfoTemplates.viewcol." + colName, val);
 		}
 	}
 
 	private class TemplatePopupListener extends MouseAdapter
 	{
-		private JTableEx table;
+		private JTree tree;
 		private TemplatePopupMenu menu;
 
-		TemplatePopupListener(JTableEx aTable, TemplatePopupMenu aMenu)
+		TemplatePopupListener(JTreeTable treeTable, TemplatePopupMenu aMenu)
 		{
-			table = aTable;
-			menu = aMenu;
+			tree = treeTable.getTree();
+			this.menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
 				{
@@ -1399,7 +1528,8 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 									if ((ks != null) && keyStroke.equals(ks))
 									{
-										((JMenuItem) menuComponent).doClick(2);
+										selPath = tree.getSelectionPath();
+										((JMenuItem)menuComponent).doClick(2);
 
 										return;
 									}
@@ -1416,9 +1546,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					}
 				};
 
-			table.addKeyListener(myKeyListener);
+			treeTable.addKeyListener(myKeyListener);
 		}
-
+	
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
@@ -1433,10 +1563,14 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			if (evt.isPopupTrigger())
 			{
-				java.awt.Point p = evt.getPoint();
-				int rowIndex = table.rowAtPoint(p);
-				table.setRowSelectionInterval(rowIndex, rowIndex);
+				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
+				if (selPath == null)
+				{
+					return;
+				}
+
+				tree.setSelectionPath(selPath);
 				menu.show(evt.getComponent(), evt.getX(), evt.getY());
 			}
 		}
@@ -1446,9 +1580,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		static final long serialVersionUID = 2565545289875422981L;
 
-		TemplatePopupMenu(JTableEx table)
+		TemplatePopupMenu(JTreeTable treeTable)
 		{
-			if (table == allTemplatesTable)
+			if (treeTable == availableTable)
 			{
 				TemplatePopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_irAddTemplate"), "shortcut EQUALS"));
 			}
@@ -1495,32 +1629,101 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 	}
 
-	private class AllListSelectionListener implements ListSelectionListener
+	private class AvailableListSelectionListener implements ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
 			{
-				PCTemplate template = allTemplatesDataModel.get(sortedAllTemplatesModel.getRowTranslated(allTemplatesTable.getSelectedRow()));
+				/////////////////////////
+				// Byngl Feb 20/2002
+				// fix bug with displaying incorrect class when use cursor keys to navigate the tree
+				//
+				//final Object temp = availableTable.getTree().getLastSelectedPathComponent();
+				final int idx = getSelectedIndex(e);
 
+				if (idx < 0)
+				{
+					return;
+				}
+
+				Object temp = availableTable.getTree().getPathForRow(idx).getLastPathComponent();
+
+				/////////////////////////
+				if (temp == null)
+				{
+					lastTemplate = null;
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clNoClass"), Constants.s_APPNAME,
+						MessageType.ERROR);
+
+					return;
+				}
+
+				PCTemplate template = null;
 				PObjectNode pn = null;
-				//rightButton.setEnabled(template != null);
+
+				if (temp instanceof PObjectNode)
+				{
+					pn = (PObjectNode) temp;
+					temp = ((PObjectNode) temp).getItem();
+
+					if (temp instanceof PCTemplate)
+					{
+						template = (PCTemplate) temp;
+					}
+				}
+
+				addButton.setEnabled(template != null);
 				setInfoLabelText(template, pn);
 			}
 		}
 	}
 
-	private class CurrentListSelectionListener implements ListSelectionListener
+	private class SelectedListSelectionListener implements ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
 			{
-				PCTemplate template = (PCTemplate) currentPCdisplayTemplates.get(sortedCurrentTemplatesModel.getRowTranslated(
-						currentTemplatesTable.getSelectedRow()));
+				/////////////////////////
+				// Byngl Feb 20/2002
+				// fix bug with displaying incorrect class when use cursor keys to navigate the tree
+				//
+				//final Object temp = selectedTable.getTree().getLastSelectedPathComponent();
+				final int idx = getSelectedIndex(e);
 
+				if (idx < 0)
+				{
+					return;
+				}
+
+				Object temp = selectedTable.getTree().getPathForRow(idx).getLastPathComponent();
+
+				/////////////////////////
+				if (temp == null)
+				{
+					lastTemplate = null;
+					infoLabel.setText();
+
+					return;
+				}
+
+				PCTemplate template = null;
 				PObjectNode pn = null;
-				//rightButton.setEnabled(template != null);
+
+				if (temp instanceof PObjectNode)
+				{
+					pn = (PObjectNode) temp;
+
+					Object t = pn.getItem();
+
+					if (t instanceof PCTemplate)
+					{
+						template = (PCTemplate) t;
+					}
+				}
+
+				removeButton.setEnabled(template != null);
 				setInfoLabelText(template, pn);
 			}
 		}

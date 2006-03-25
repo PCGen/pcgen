@@ -48,6 +48,10 @@ public interface GuiConstants
 	// view modes for tables on template tab
 	/** INFOTEMPLATE_VIEW_NAME = 0 */
 	int INFOTEMPLATE_VIEW_NAME           		= 0;
+	/** INFOTEMPLATE_VIEW_TYPE_NAME = 1 */
+	int INFOTEMPLATE_VIEW_TYPE_NAME           	= 1;
+	/** INFOTEMPLATE_VIEW_SOURCE_NAME = 2 */
+	int INFOTEMPLATE_VIEW_SOURCE_NAME          	= 2;
 
 	//view modes for tables on classes tab
 	/** INFOCLASS_VIEW_NAME = 0 */

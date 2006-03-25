@@ -1703,11 +1703,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		/**
 		 * Returns int number of columns.
-		 * @return number of columns = 3
+		 * @return colNameList.length
 		 */
 		public int getColumnCount()
 		{
-			return 3;
+			return colNameList.length;
 		}
 
 		/**
