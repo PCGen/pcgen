@@ -26,7 +26,52 @@
  */
 package pcgen.gui;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.tree.TreePath;
+
+import pcgen.core.Campaign;
+import pcgen.core.Constants;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SourceUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -34,27 +79,22 @@ import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.*;
+import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.BrowserLauncher;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
+import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.SwingWorker;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.tree.TreePath;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.*;
-import java.io.IOException;
-import java.util.*;
 
 /**
  *  <code>MainSource</code> .
@@ -115,11 +155,10 @@ public class MainSource extends FilterAdapterPanel
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JLabelPane infoLabel;
+	private JPanel bLeftPane;
 	private JPanel center = new JPanel();
-	private JPanel jPanel1 = new JPanel();
 	private JPanel jPanel1n = new JPanel();
 	private JPanel jPanel1s = new JPanel();
-	private JScrollPane cScroll;
 	private JTreeTable availableTable; // the available Campaigns
 	private JTreeTable selectedTable; // the selected Campaigns
 	private List selectedCampaigns = new ArrayList();
@@ -280,17 +319,30 @@ public class MainSource extends FilterAdapterPanel
 				// We can turn on the website button, since now there is a source, if there is a URL for the campaign
 				websiteButton.setEnabled(!SourceUtilities.returnSourceInForm(aCamp, Constants.SOURCEWEB, false).equals(""));
 
-				StringBuffer b = new StringBuffer();
-				b.append("<html><b>").append(aCamp.getName()).append("</b><br>");
-				b.append("<b>TYPE</b>: ").append(aCamp.getType());
-				b.append("&nbsp; <b>RANK</b>: ").append(aCamp.getRank());
-				b.append("&nbsp; <b>GAME MODE</b>: ").append(aCamp.getGameModeString());
+				StringBuffer sb = new StringBuffer();
+				sb.append("<html>");
+				if(aCamp.getCoverFiles().size() > 0) {
+					CampaignSourceEntry image = (CampaignSourceEntry)aCamp.getCoverFiles().get(0);
+					sb.append("<img src='")
+						.append(image.getFile())
+						.append("' align='right'>");
+				}
+				sb.append("<b>")
+					.append(aCamp.getName())
+					.append("</b><br>");
+				sb.append("<b>TYPE</b>: ")
+					.append(aCamp.getType());
+				sb.append("&nbsp; <b>RANK</b>: ")
+					.append(aCamp.getRank());
+				sb.append("&nbsp; <b>GAME MODE</b>: ")
+					.append(aCamp.getGameModeString());
 
 				String bString = aCamp.getSource();
 
 				if (bString.length() > 0)
 				{
-					b.append("&nbsp; <b>SOURCE</b>: ").append(bString);
+					sb.append("&nbsp; <b>SOURCE</b>: ")
+						.append(bString);
 				}
 
 				boolean infoDisplayed = false;
@@ -298,7 +350,9 @@ public class MainSource extends FilterAdapterPanel
 
 				if (bString.length() > 0)
 				{
-					b.append("<p><b>INFORMATION</b>:<br>").append(bString).append("</p>");
+					sb.append("<p><b>INFORMATION</b>:<br>")
+						.append(bString)
+						.append("</p>");
 					infoDisplayed = true;
 				}
 
@@ -308,14 +362,15 @@ public class MainSource extends FilterAdapterPanel
 				{
 					if (!infoDisplayed)
 					{
-						b.append("<br");
+						sb.append("<br");
 					}
 
-					b.append("<b>COPYRIGHT</b>:<br>").append(bString);
+					sb.append("<b>COPYRIGHT</b>:<br>")
+						.append(bString);
 				}
 
-				b.append("</html>");
-				infoLabel.setText(b.toString());
+				sb.append("</html>");
+				infoLabel.setText(sb.toString());
 			}
 			else //must just be a branch node
 			{
@@ -740,19 +795,23 @@ public class MainSource extends FilterAdapterPanel
 
 		selectedTable.setColAlign(COL_LOADED, SwingConstants.CENTER);
 
+		bLeftPane = new JPanel(new BorderLayout());
+		JPanel bRightPane = new JPanel();
+
 		Border etched = null;
 		TitledBorder title1 = BorderFactory.createTitledBorder(etched, "Source Info");
 		title1.setTitleJustification(TitledBorder.CENTER);
 		infoLabel = new JLabelPane();
-		infoLabel.setBackground(rightPane.getBackground());
-		cScroll = new JScrollPane(infoLabel);
-		cScroll.setBorder(title1);
+		JScrollPane infoScroll = new JScrollPane(infoLabel);
+		infoScroll.setBorder(title1);
+		bLeftPane.add(infoScroll, BorderLayout.CENTER);
+		infoLabel.setBackground(bLeftPane.getBackground());
 
 		FlowLayout aFlow = new FlowLayout();
 		aFlow.setAlignment(FlowLayout.CENTER);
-		jPanel1.setLayout(new BorderLayout());
-		jPanel1.add(jPanel1n, BorderLayout.NORTH);
-		jPanel1.add(jPanel1s, BorderLayout.CENTER);
+		bRightPane.setLayout(new BorderLayout());
+		bRightPane.add(jPanel1n, BorderLayout.NORTH);
+		bRightPane.add(jPanel1s, BorderLayout.CENTER);
 		jPanel1n.setLayout(aFlow);
 		aFlow = new FlowLayout();
 		aFlow.setAlignment(FlowLayout.CENTER);
@@ -832,7 +891,7 @@ public class MainSource extends FilterAdapterPanel
 		pccButton.setToolTipText("Customise your own source to ease your loading process");
 		jPanel1s.add(pccButton);
 
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, cScroll, jPanel1);
+		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
@@ -1019,6 +1078,10 @@ public class MainSource extends FilterAdapterPanel
 		}
 
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(campaignStrings);
+	}
+
+	public void resetUI() {
+		infoLabel.setBackground(bLeftPane.getBackground());
 	}
 
 	private void resetViewNodes()

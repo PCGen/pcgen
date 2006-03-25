@@ -170,8 +170,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 	// sage_sam updated 11/13/2002 to match a change elsewhere in the code
 	private JLabelPane domainInfo = new JLabelPane();
-	private JScrollPane deityScroll = new JScrollPane();
-	private JScrollPane domainScroll = new JScrollPane();
 	private JTreeTableSorter deitySorter = null;
 	private TableSorter domainSorter = null;
 	private boolean hasBeenSized = false;
@@ -761,21 +759,27 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		buildTopPane();
 
+		JPanel bLeftPane = new JPanel(new BorderLayout());
+		JPanel bRightPane = new JPanel(new BorderLayout());
+
 		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_deityInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
-		deityScroll.setBorder(title1);
 		//deityInfo.setBackground(rightPane.getBackground());
-		deityScroll.setViewportView(deityInfo);
-		Utility.setDescription(deityScroll, PropertyFactory.getString("in_infoScrollTip"));
-
+		JScrollPane deityScroll = new JScrollPane(deityInfo);
+		deityScroll.setBorder(title1);
+		bLeftPane.add(deityScroll, BorderLayout.CENTER);
+		deityInfo.setBackground(bLeftPane.getBackground());
+		Utility.setDescription(bLeftPane, PropertyFactory.getString("in_infoScrollTip"));
+		
 		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_domainInfo"));
 		title2.setTitleJustification(TitledBorder.CENTER);
-		domainScroll.setBorder(title2);
-		//domainInfo.setBackground(rightPane.getBackground());
-		domainScroll.setViewportView(domainInfo);
-		Utility.setDescription(domainScroll, PropertyFactory.getString("in_infoScrollTip"));
-
-		aSplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, deityScroll, domainScroll);
+		JScrollPane domainScroll = new JScrollPane(domainInfo);
+		domainScroll.setBorder(title1);
+		bRightPane.add(domainScroll, BorderLayout.CENTER);
+		domainInfo.setBackground(bRightPane.getBackground());
+		Utility.setDescription(bRightPane, PropertyFactory.getString("in_infoScrollTip"));
+		
+		aSplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
 		aSplit.setOneTouchExpandable(true);
 		aSplit.setDividerSize(10);
 		aSplit.setDividerLocation(300);

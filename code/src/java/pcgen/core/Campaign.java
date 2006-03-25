@@ -60,6 +60,7 @@ public final class Campaign extends PObject
 		listChar.initializeListFor(ListKey.FILE_CLASS_SPELL);
 		listChar.initializeListFor(ListKey.FILE_COIN);
 		listChar.initializeListFor(ListKey.FILE_COMPANION_MOD);
+		listChar.initializeListFor(ListKey.FILE_COVER);
 		listChar.initializeListFor(ListKey.FILE_DEITY);
 		listChar.initializeListFor(ListKey.FILE_DOMAIN);
 		listChar.initializeListFor(ListKey.FILE_EQUIP);
@@ -139,6 +140,15 @@ public final class Campaign extends PObject
 	public void addAllCompanionModFiles(final List files)
 	{
 		listChar.addAllToListFor(ListKey.FILE_COMPANION_MOD, files);
+	}
+
+	/**
+	 *
+	 * @param files
+	 */
+	public void addAllCoverFiles(final List files)
+	{
+		listChar.addAllToListFor(ListKey.FILE_COVER, files);
 	}
 
 	/**
@@ -337,6 +347,15 @@ public final class Campaign extends PObject
 	public void addCompanionModFile(final CampaignSourceEntry file)
 	{
 		listChar.addToListFor(ListKey.FILE_COMPANION_MOD, file);
+	}
+
+	/**
+	 *
+	 * @param file
+	 */
+	public void addCoverFile(final CampaignSourceEntry file)
+	{
+		listChar.addToListFor(ListKey.FILE_COVER, file);
 	}
 
 	/**
@@ -596,13 +615,14 @@ public final class Campaign extends PObject
 	}
 
 	/**
-	 * Returns the coinFileList.
+	 * Returns the coverFileList.
 	 * @return List
 	 */
 	public List getCoinFiles()
 	{
 		return getListFor(ListKey.FILE_COIN);
 	}
+
 
 	/**
 	 * Returns the companionmodFileList.
@@ -611,6 +631,15 @@ public final class Campaign extends PObject
 	public List getCompanionModFiles()
 	{
 		return getListFor(ListKey.FILE_COMPANION_MOD);
+	}
+
+	/**
+	 * Returns the coverFileList.
+	 * @return List
+	 */
+	public List getCoverFiles()
+	{
+		return getListFor(ListKey.FILE_COVER);
 	}
 
 	/**

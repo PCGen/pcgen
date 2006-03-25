@@ -630,9 +630,9 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 						/////////////////////////
 						if (temp == null)
 						{
-							ShowMessageDelegate.showMessageDialog("Somehow, no " + getSingularTabName() + " was selected. Try again.", Constants.s_APPNAME,
-								MessageType.ERROR);
-
+							ShowMessageDelegate.showMessageDialog("Somehow, no "
+								+ getSingularTabName()
+								+ " was selected. Try again.", Constants.s_APPNAME, MessageType.ERROR);
 							return;
 						}
 
@@ -659,34 +659,42 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 						if (aFeat != null)
 						{
-							StringBuffer bString = new StringBuffer().append("<html><b>").append(aFeat.piSubString())
-								.append("</b> &nbsp;TYPE:").append(aFeat.getTypeUsingFlag(true));
+							StringBuffer sb = new StringBuffer();
+							sb.append("<html><b>")
+								.append(aFeat.piSubString())
+								.append("</b> &nbsp;TYPE:")
+								.append(aFeat.getTypeUsingFlag(true));
 
 							if (!aFeat.getCostString().equals("1"))
 							{
-								bString.append(" <b>Cost:</b>").append(aFeat.getCostString());
+								sb.append(" <b>Cost:</b>")
+									.append(aFeat.getCostString());
 							}
 
 							if (aFeat.isMultiples())
 							{
-								bString.append(" &nbsp;Can be taken more than once");
+								sb.append(" &nbsp;Can be taken more than once");
 							}
 
 							if (aFeat.isStacks())
 							{
-								bString.append(" &nbsp;Stacks");
+								sb.append(" &nbsp;Stacks");
 							}
 
 							final String cString = aFeat.preReqHTMLStrings(pc, false);
 
 							if (cString.length() > 0)
 							{
-								bString.append(" &nbsp;<b>Requirements</b>:").append(cString);
+								sb.append(" &nbsp;<b>Requirements</b>:")
+									.append(cString);
 							}
 
-							bString.append(" &nbsp;<b>Description</b>:").append(aFeat.piDescSubString())
-							.append(" &nbsp;<b>Source</b>:").append(aFeat.getSource()).append("</html>");
-							infoLabel.setText(bString.toString());
+							sb.append(" &nbsp;<b>Description</b>:")
+								.append(aFeat.piDescSubString())
+								.append(" &nbsp;<b>Source</b>:")
+								.append(aFeat.getSource())
+								.append("</html>");
+							infoLabel.setText(sb.toString());
 						}
 					}
 				}
@@ -754,34 +762,42 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 						if (aFeat != null)
 						{
-							StringBuffer bString = new StringBuffer().append("<html><b>").append(aFeat.piSubString())
-								.append("</b> &nbsp;TYPE:").append(aFeat.getType());
+							StringBuffer sb = new StringBuffer();
+							sb.append("<html><b>")
+								.append(aFeat.piSubString())
+								.append("</b> &nbsp;TYPE:")
+								.append(aFeat.getType());
 
 							if (!aFeat.getCostString().equals("1"))
 							{
-								bString.append(" <b>Cost:</b>").append(aFeat.getCostString());
+								sb.append(" <b>Cost:</b>")
+									.append(aFeat.getCostString());
 							}
 
 							if (aFeat.isMultiples())
 							{
-								bString.append(" &nbsp;Can be taken more than once");
+								sb.append(" &nbsp;Can be taken more than once");
 							}
 
 							if (aFeat.isStacks())
 							{
-								bString.append(" &nbsp;Stacks");
+								sb.append(" &nbsp;Stacks");
 							}
 
 							final String cString = aFeat.preReqHTMLStrings(pc, false);
 
 							if (cString.length() > 0)
 							{
-								bString.append(" &nbsp;<b>Requirements</b>:").append(cString);
+								sb.append(" &nbsp;<b>Requirements</b>:")
+									.append(cString);
 							}
 
-							bString.append(" &nbsp;<b>Description</b>:").append(aFeat.piDescSubString())
-							.append(" &nbsp;<b>Source</b>:").append(aFeat.getSource()).append("</html>");
-							infoLabel.setText(bString.toString());
+							sb.append(" &nbsp;<b>Description</b>:")
+								.append(aFeat.piDescSubString())
+								.append(" &nbsp;<b>Source</b>:")
+								.append(aFeat.getSource())
+								.append("</html>");
+							infoLabel.setText(sb.toString());
 						}
 					}
 				}

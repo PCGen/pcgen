@@ -127,7 +127,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	 *
 	 * @see MainSource
 	 */
-	private MainSource mainSource = new MainSource();
+	private MainSource mainSource;
 
 	/** Menubar for the main application. */
 	private MenuItems pcgenMenuBar;
@@ -2069,6 +2069,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		GameMode game = SettingsHandler.getGame();
 
+		mainSource = new MainSource();
 		if ((game != null) && (game.getTabShown(Constants.TAB_SOURCES)))
 		{
 			baseTabbedPane.addTab(game.getTabName(Constants.TAB_SOURCES), mainSource);
@@ -2222,6 +2223,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		pcgenMenuBar.openRecentPartyMenu.add(partyFileName, file);
 	}
 
+	protected void resetUI() {
+		mainSource.resetUI();
+	}
+	
 	private void removeTemporaryFiles()
 	{
 		final boolean cleanUp = SettingsHandler.getCleanupTempFiles();

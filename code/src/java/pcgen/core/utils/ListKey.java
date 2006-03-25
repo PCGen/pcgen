@@ -39,6 +39,7 @@ public final class ListKey {
 	public static final ListKey FILE_CLASS_SPELL = new ListKey();
 	public static final ListKey FILE_COIN = new ListKey();
 	public static final ListKey FILE_COMPANION_MOD = new ListKey();
+	public static final ListKey FILE_COVER = new ListKey();
 	public static final ListKey FILE_DEITY = new ListKey();
 	public static final ListKey FILE_DOMAIN = new ListKey();
 	public static final ListKey FILE_EQUIP = new ListKey();

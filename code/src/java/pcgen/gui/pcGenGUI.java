@@ -220,6 +220,7 @@ public class pcGenGUI
 		}
 
 		UIFactory.initLookAndFeel();
+		frame.resetUI();
 
 		processStartupArgs();
 

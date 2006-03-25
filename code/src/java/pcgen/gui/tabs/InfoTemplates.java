@@ -451,8 +451,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		leftPane.add(createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		// Data - All Available Templates Table
-		availablePane = new JScrollPane(availableTable);
-		availablePane.setViewportView(availableTable);
+		availablePane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton = new JButton();
 		availablePane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
 		columnButton.setText("^");
@@ -475,8 +474,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		rightPane.add(createFilterPane(selSortLabel, viewSelComboBox, null, null, null), BorderLayout.NORTH);
 
 		// Data - Selected Templates table
-		selectedPane = new JScrollPane();
-		selectedPane.setViewportView(selectedTable);
+		selectedPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton2 = new JButton();
 		selectedPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
 		columnButton2.setText("^");
@@ -1065,16 +1063,17 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			resetModel(viewMode, available);
 			displayList = new ArrayList();
 			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
 			if(available) {
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[2], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[3], true)));
 			}
 			else {
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], false)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[2], false)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[3], false)));
 			}
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[4], true)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[4], false)));
 		}
 
 		public boolean isCellEditable(Object node, int column)

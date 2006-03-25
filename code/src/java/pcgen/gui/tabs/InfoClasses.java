@@ -109,7 +109,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private JLabel skillCount = new JLabel();
 	private JLabelPane infoLabel = new JLabelPane();
 	private JPanel center = new JPanel();
-	private JPanel jPanel1 = new JPanel();
 	private JPanel pnlAltHP = new JPanel();
 	private JPanel pnlBAB = new JPanel();
 	private JPanel pnlDefense = new JPanel();
@@ -125,7 +124,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private JPanel pnlVariableDisplay3 = new JPanel();
 	private JPanel pnlWest = new JPanel();
 	private JPanel pnlXP = new JPanel();
-	private JScrollPane cScroll = new JScrollPane();
 	private JTextField textQFilter = new JTextField();
 	private JTreeTable availableTable; // the available Class
 	private JTreeTable selectedTable; // the selected Class
@@ -966,19 +964,23 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		buildTop();
 
+		JPanel bLeftPane = new JPanel(new BorderLayout());
+		JPanel bRightPane = new JPanel();
+
 		//  Bottom Left Pane - Class Info
 		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_clInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
-		cScroll.setBorder(title1);
-		//infoLabel.setBackground(rightPane.getBackground());
-		cScroll.setViewportView(infoLabel);
-		Utility.setDescription(cScroll, PropertyFactory.getString("in_infoScrollTip"));
-
+		JScrollPane infoScroll = new JScrollPane(infoLabel);
+		infoScroll.setBorder(title1);
+		infoLabel.setBackground(bLeftPane.getBackground());
+		bLeftPane.add(infoScroll, BorderLayout.CENTER);
+		Utility.setDescription(bLeftPane, PropertyFactory.getString("in_infoScrollTip"));
+		
 		//  Bottom Right Pane - Character Info
-		initSEPanel(jPanel1);
+		initSEPanel(bRightPane);
 
 		//  Split the Pane
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, cScroll, jPanel1);
+		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
