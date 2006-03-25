@@ -50,11 +50,9 @@ public interface ChoiceManagerList {
 	 * 
 	 * @param aPC
 	 * @param selected
-	 * @param selectedBonusList
 	 */
 	public abstract void applyChoices(
 			final PlayerCharacter aPC,
-			final List selected,
-			List selectedBonusList);
+			final List selected);
 
 }

@@ -37,13 +37,11 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 	 * to the constructor)
 	 * @param aPC
 	 * @param selected
-	 * @param selectedBonusList	unused parameter
 	 *
 	 */
 	public void applyChoices(
 			PlayerCharacter  aPC,
-			List             selected,
-			List             selectedBonusList)
+			List             selected)
 	{
 		String objPrefix = (pobject instanceof Domain)
 				? chooserHandled + '?'

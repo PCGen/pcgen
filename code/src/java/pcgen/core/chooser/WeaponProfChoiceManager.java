@@ -411,12 +411,10 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 	 *
 	 * @param  aPC					The Player Character.
 	 * @param  selected				List of the choices made
-	 * @param  selectedBonusList	Doesn't seem to be used.
 	 */
 	public void applyChoices(
 	    final PlayerCharacter  aPC,
-	    final List             selected,
-	    List                   selectedBonusList)
+	    final List             selected)
 	{
 		pobject.clearSelectedWeaponProfBonus();
 		aPC.setAutomaticFeatsStable(false);

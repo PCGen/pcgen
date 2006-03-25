@@ -118,12 +118,10 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 	 *
 	 * @param  aPC               unused
 	 * @param  selected          a List of the choices to apply
-	 * @param  selectedBonusList unused
 	 */
 	public void applyChoices(
 	    final PlayerCharacter  aPC,
-	    final List             selected,
-	    List                   selectedBonusList)
+	    final List             selected)
 	{
 		pobject.addSelectedArmorProfs(selected);
 	}

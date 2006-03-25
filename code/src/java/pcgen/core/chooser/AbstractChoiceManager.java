@@ -182,11 +182,9 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 	 * 
 	 * @param aPC
 	 * @param selected
-	 * @param selectedBonusList
-	 * @see pcgen.core.chooser.ChoiceManagerList#applyChoices(pcgen.core.PlayerCharacter, java.util.List, java.util.List)
+	 * @see pcgen.core.chooser.ChoiceManagerList#applyChoices(pcgen.core.PlayerCharacter, java.util.List)
 	 */
 	public abstract void applyChoices(
 			final PlayerCharacter  aPC,
-			final List             selected,
-			List                   selectedBonusList);
+			final List             selected);
 }

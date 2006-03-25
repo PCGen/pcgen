@@ -290,7 +290,7 @@ public class ChooserUtilities
 				                                  selectedList,
 				                                  selectedBonusList);
 
-		aMan.applyChoices(aPC, newSelections, null);
+		aMan.applyChoices(aPC, newSelections);
 	}
 	/**
 	 * Make a mapping so that we can look up the name of the class that

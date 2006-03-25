@@ -73,20 +73,19 @@ public class SpellLevelChoiceManager extends AbstractChoiceManager
 
 	public void applyChoices(
 			final PlayerCharacter  aPC,
-			final List             selected,
-			List                   selectedBonusList)
+			final List             selected)
 	{
 		Iterator it = selected.iterator();
 		while (it.hasNext())
 		{
 			final String chooseString = (String) it.next();
 
-			if (selectedBonusList.isEmpty())
+			if (uniqueList.isEmpty())
 			{
 				continue;
 			}
 
-			Iterator e = selectedBonusList.iterator();
+			Iterator e = uniqueList.iterator();
 			while (e.hasNext())
 			{
 				final String bonusString = (String) e.next();

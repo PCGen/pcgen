@@ -184,7 +184,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 				selectedList,
 				selectedBonusList);
 
-		applyChoices(aPC, newSelections, null);
+		applyChoices(aPC, newSelections);
 		
 		remove = false;
 	}

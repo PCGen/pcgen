@@ -70,12 +70,10 @@ public class AbilityFromTemplateChoiceManager extends
 	 * 
 	 * @param aPC
 	 * @param selected
-	 * @param selectedBonusList
 	 */
 	public void applyChoices(
 			PlayerCharacter aPC,
-			List            selected,
-			List            selectedBonusList)
+			List            selected)
 	{
 		return;
 	}
