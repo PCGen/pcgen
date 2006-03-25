@@ -37,8 +37,8 @@ WEAPONPROF:@\d20ogl\msrd\menaces\msrd_menaces_weaponprofs_natural.lst
 EQUIPMOD:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_equipmods.lst
 
 # borrowed spells and equipment from RSRD for creatures (innate spell like abilities and gear)
-SPELL:@\d20ogl\srd35\rsrd_spells.lst|(INCLUDE:Deep Slumber|Dispel Magic (Greater)|Entangle|Speak with Plants|Tree Shape|Tree Stride)
-EQUIPMENT:@\d20ogl\srd35\rsrd_equip_rings.lst|(INCLUDE:Ring (Protection +2))
+SPELL:@\d20ogl\srd35\basics\rsrd_spells.lst|(INCLUDE:Deep Slumber|Dispel Magic (Greater)|Entangle|Speak with Plants|Tree Shape|Tree Stride)
+EQUIPMENT:@\d20ogl\srd35\advanced\rsrd_equip_rings.lst|(INCLUDE:Ring (Protection +2))
 
 #
 # End
