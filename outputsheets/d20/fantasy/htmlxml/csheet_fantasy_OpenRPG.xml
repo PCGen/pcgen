@@ -25,13 +25,13 @@
     </nodehandler>
     <nodehandler class="rpg_grid_handler" icon="grid" module="rpg_grid" name="Abilities">
       <grid autosize="1" border="1">
-|FOR,%stat,0,COUNT[STATS]-1,1,1|
+|FOR,%stat,0,COUNT[STATS]-1,1,1|      
         <row>
           <cell>|STAT.%stat.NAME|</cell>
           <cell>|STAT.%stat|</cell>
           <cell>|STAT.%stat.MOD|</cell>
         </row>
-|ENDFOR|
+|ENDFOR| 
       </grid>
       <macros>
         <macro name=""/>
@@ -46,22 +46,21 @@
         <macro name=""/>
       </macros>
     </nodehandler>
-
+    
   </nodehandler>
-
   <nodehandler class="form_handler" icon="form" module="forms" name="Special Abilities">
     <form height="600" width="400"/>
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Feats" version="1.0">
       <text multiline="1" send_button="0">
-|FOR,%feat,0,COUNT[FEATS]-1,1,1|
+|FOR,%feat,0,COUNT[FEATS]-1,1,1| 
 |FEAT.%feat|
   |FEAT.%feat.DESC|
-|ENDFOR|
-|FOR,%feat,0,COUNT[FEATSAUTO],1,1|
+|ENDFOR|      
+|FOR,%feat,0,COUNT[FEATSAUTO],1,1| 
 |FEATAUTO.%feat|
   |FEATAUTO.%feat.DESC|
 |ENDFOR|
-|FOR,%feat,0,COUNT[VFEATS],1,1|
+|FOR,%feat,0,COUNT[VFEATS],1,1| 
 |VFEAT.%feat|
   |VFEAT.%feat.DESC|
 |ENDFOR|
@@ -78,11 +77,20 @@
       <text multiline="0" send_button="0">|TEMPLATELIST|</text>
     </nodehandler>
   </nodehandler>
-
+  
   <nodehandler class="form_handler" icon="form" module="forms" name="Combat">
     <form height="600" width="400"/>
     <nodehandler class="textctrl_handler" icon="d20" module="forms" name="Basic Attack Bonus">
       <text multiline="0" send_button="1">|ATTACK.MELEE.BASE|</text>
+    </nodehandler>
+    <nodehandler class="textctrl_handler" icon="d20" module="forms" name="Temporary To Hit Bonus">
+      <text multiline="0" send_button="1">0</text>
+    </nodehandler>
+    <nodehandler class="textctrl_handler" icon="d20" module="forms" name="Temporary Damage Bonus">
+      <text multiline="0" send_button="1">0</text>
+    </nodehandler>
+    <nodehandler class="textctrl_handler" icon="d20" module="forms" name="Temporary AC Bonus">
+      <text multiline="0" send_button="1">0</text>
     </nodehandler>
     <nodehandler class="textctrl_handler" icon="d20" module="forms" name="Initiative">
       <text multiline="0" send_button="1">[1d20|INITIATIVEMOD|]</text>
@@ -96,10 +104,10 @@
         <option selected="0" value="0">Reflex [|CHECK.REFLEX.TOTAL|+1d20]</option>
         <option selected="1" value="0">Will [|CHECK.2.TOTAL|+1d20]</option>
       </list>
-    </nodehandler>
+    </nodehandler>    
     <nodehandler class="listbox_handler" icon="gear" module="forms" name="Abilities">
       <list send_button="1" type="0">
-|FOR,%stat,0,COUNT[STATS]-1,1,1|
+|FOR,%stat,0,COUNT[STATS]-1,1,1|      
         <option selected="0" value="0">|STAT.%stat.NAME| [1d20|STAT.%stat.MOD|]</option>
 |ENDFOR|
       </list>
@@ -119,7 +127,7 @@
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Total PP">
       <text multiline="0" send_button="0">|VAR.TOTALPOWERPOINTS.INTVAL|</text>
     </nodehandler>
-|%|
+|%| 
 |%VAR.TurnLevel.GTEQ.1|
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="Turns/day out of |VAR.TurnUndead.INTVAL|">
       <text multiline="0" send_button="1"></text>
@@ -180,9 +188,9 @@
     <nodehandler class="tabber_handler" icon="tabber" module="containers" name="Weapons" version="1.0">
 |%VAR.BarbRageTimesLVL.GTEQ.1|    <nodehandler class="tabber_handler" icon="gear" module="containers" name="Regular">|%|
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
-|IIF(|(WEAPON.%weap.TOTALDAMAGE).INTVAL:0|)|
+|IIF(|(WEAPON.%weap.TOTALDAMAGE).INTVAL:0|)| 
 <!-- Not sure why this doesn't work. -->
-|ELSE|
+|ELSE| 
 |FOR,%test,0,STRLEN[WEAPON.%weap.NAME]-STRLEN[WEAPON.%weap.NAME.NOSTAR]-1,1,0|
 
        <nodehandler class="tabber_handler" icon="gear" module="containers" name="|WEAPON.%weap.NAME.NOSTAR|">
@@ -193,9 +201,9 @@
 <!-- no contents -->
 |FOR,%range,0,4,1,0|
 	<nodehandler class="form_handler" icon="form"	module="forms" name="|WEAPON.%weap.RANGELIST.%range|" version="1.0">
-|FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
+|FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|	
 		<nodehandler class="textctrl_handler" icon="d20" module="forms" name="|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|:">
-      		<text multiline="0" send_button="1">[1d20|WEAPON.%weap.RANGELIST.%range.TOTALHIT.%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|]</text>
+      		<text multiline="0" send_button="1">[1d20|WEAPON.%weap.RANGELIST.%range.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|]</text>
     	</nodehandler>
 |ENDFOR|
     </nodehandler>
@@ -214,9 +222,9 @@
              <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-               <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|]</option>
+               <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-               <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|]</option>
+               <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR| <!-- Number of attacks -->
               </list>
@@ -224,7 +232,7 @@
           </nodehandler>
 |ENDFOR|
 |ENDFOR| <!-- Ammo contents -->
-|ENDIF|
+|ENDIF| 
 <!-- end ranged -->
         </nodehandler>
 |ELSE|
@@ -232,55 +240,55 @@
 <nodehandler class="form_handler" icon="form"	module="forms" name="Separated">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 	<nodehandler class="textctrl_handler" icon="d20" module="forms" name="|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|:">
-      <text multiline="0" send_button="1">  [1d20|WEAPON.%weap.TOTALHIT.%atk|] Damage [|WEAPON.%weap.DAMAGE|]</text>
+      <text multiline="0" send_button="1">  [1d20|WEAPON.%weap.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.DAMAGE|]</text>
     </nodehandler>
-|ENDFOR|
+|ENDFOR|    
 </nodehandler>
 		<nodehandler class="listbox_handler" icon="gear" module="forms" name="As Equipped (|WEAPON.%weap.HAND|)">
            <list send_button="3" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|] Damage [|WEAPON.%weap.DAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.DAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="One Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|] Damage [|WEAPON.%weap.BASICDAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="Off Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.OHHIT.%atk|] Damage [|WEAPON.%weap.OHDAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.OHHIT.%atk| + !@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.OHDAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
-          </nodehandler>
+          </nodehandler>        
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2 Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT.%atk|] Damage [|WEAPON.%weap.THDAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.THDAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2WP HOH">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH.%atk|] Damage [|WEAPON.%weap.BASICDAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2WP LOH">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL.%atk|] Damage [|WEAPON.%weap.BASICDAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2W 2ndary">
            <list send_button="1" type="1">
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR|   Secondary: [1d20|WEAPON.%weap.TWOHIT|] Damage [|WEAPON.%weap.OHDAMAGE|]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR|   Secondary: [1d20|WEAPON.%weap.TWOHIT|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.OHDAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
             </list>
          </nodehandler>
      <!-- end not ranged -->
@@ -307,9 +315,9 @@
             <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-              <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR|  Secondary: [1d20|WEAPON.%weap.RANGELIST.%range.TOHIT.%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+4]</option>
+              <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR|  Secondary: [1d20|WEAPON.%weap.RANGELIST.%range.TOHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-			<option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR|  Secondary: [1d20|WEAPON.%weap.RANGELIST.%range.TOHIT.%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+4]</option>
+			<option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR|  Secondary: [1d20|WEAPON.%weap.RANGELIST.%range.TOHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR|
             </list>
@@ -329,9 +337,9 @@
               <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-                <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+4]</option>
+                <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-                <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+4]</option>
+                <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR|
               </list>
@@ -342,14 +350,14 @@
 |ENDFOR| <!-- Ammo -->
 |ENDIF| <!-- End Ranged -->
 |ELSE|
-<!-- greater raging melee -->
+<!-- greater raging melee : Can't do as equipped, the bonus can't be determined -->
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="One Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT%atk|+4] Damage [|WEAPON.%weap.BASICDAMAGE|+4]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-      <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT%atk|+4] Damage [|WEAPON.%weap.BASICDAMAGE|+4]</option>
+      <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR|
             </list>
@@ -357,21 +365,21 @@
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="Off Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.OHHIT%atk|+4] Damage [|WEAPON.%weap.OHDAMAGE|+2]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.OHHIT.%atk|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.OHDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
-          </nodehandler>
+          </nodehandler>        
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2 Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT%atk|+4] Damage [|WEAPON.%weap.THDAMAGE|+6]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT.%atk|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.THDAMAGE|+6+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2WP HOH">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH%atk|+4] Damage [|WEAPON.%weap.BASICDAMAGE|+4]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH%atk|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
@@ -379,13 +387,13 @@
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL%atk|+4] Damage [|WEAPON.%weap.BASICDAMAGE|+4]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL.%atk|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+4+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
           </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2W 2ndary">
            <list send_button="1" type="1">
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR|  Secondary: [1d20|WEAPON.%weap.TWOHIT|+4] Damage [|WEAPON.%weap.OHDAMAGE|+2]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR|  Secondary: [1d20|WEAPON.%weap.TWOHIT|+4+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.OHDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
             </list>
           </nodehandler>
 |ENDIF|
@@ -397,9 +405,9 @@
 
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
        <nodehandler class="tabber_handler" icon="gear" module="containers" name="|WEAPON.%weap.NAME.NOSTAR|">
-
-
-
+       
+       
+  
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
 <!-- raging ranged -->
 |IIF(WEAPON.%weap.CONTENTS:0)|
@@ -408,7 +416,7 @@
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="|WEAPON.%weap.RANGELIST.%range|">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.TOHIT%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+2]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.TOHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
             </list>
          </nodehandler>
@@ -426,7 +434,7 @@
            <nodehandler class="listbox_handler" icon="gear" module="forms" name="|WEAPON.%weap.RANGELIST.%range|">
              <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-               <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT%atk|] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|]</option>
+               <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| w. |WEAPON.%weap.CONTENTS%ammo| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.TOHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.CONTENTS%ammo.DAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
               </list>
             </nodehandler>
@@ -437,27 +445,28 @@
 <!-- end raging ranged -->
 |ELSE|
 <!-- raging notranged -->
+
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="One Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT%atk|+2] Damage [|WEAPON.%weap.BASICDAMAGE|+2]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TOTALHIT.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
            </list>
          </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="Off Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.OHHIT%atk|+2] Damage [|WEAPON.%weap.OHDAMAGE|+1]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.OHHIT.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.OHDAMAGE|+1+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDFOR|
            </list>
-         </nodehandler>
+         </nodehandler>        
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2 Hand">
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT%atk|+2] Damage [|WEAPON.%weap.THDAMAGE|+3]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.THDAMAGE|+3+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-      <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT%atk|+2] Damage [|WEAPON.%weap.THDAMAGE|+3]</option>
+      <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.THHIT.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.THDAMAGE|+3+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR|
            </list>
@@ -466,9 +475,9 @@
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH%atk|+2] Damage [|WEAPON.%weap.BASICDAMAGE|+2]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-			<option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH%atk|+2] Damage [|WEAPON.%weap.BASICDAMAGE|+2]</option>
+			<option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITH.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR|
            </list>
@@ -477,20 +486,20 @@
            <list send_button="1" type="1">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 |IIF(%atk:1)|
-             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL%atk|+2] Damage [|WEAPON.%weap.BASICDAMAGE|+2]</option>
+             <option selected="1" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ELSE|
-      <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL%atk|+2] Damage [|WEAPON.%weap.BASICDAMAGE|+2]</option>
+      <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|: [1d20|WEAPON.%weap.TWPHITL.%atk|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.BASICDAMAGE|+2+!@|NAME|::Temporary Damage Bonus@!]</option>
 |ENDIF|
 |ENDFOR|
            </list>
          </nodehandler>
          <nodehandler class="listbox_handler" icon="gear" module="forms" name="2W 2ndary">
            <list send_button="1" type="1">
-             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| Secondary: [1d20|WEAPON.%weap.TWOHIT|+2] Damage [|WEAPON.%weap.OHDAMAGE|+1]</option>
+             <option selected="0" value="0">|WEAPON.%weap.NAME.NOSTAR| Secondary: [1d20|WEAPON.%weap.TWOHIT|+2+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.OHDAMAGE|+1+!@|NAME|::Temporary Damage Bonus@!]</option>
            </list>
          </nodehandler>
 <!-- end raging notranged -->
-|ENDIF|
+|ENDIF|      
 <!-- end raging weapon -->
       </nodehandler>
 |ENDFOR|
@@ -502,12 +511,12 @@
   </nodehandler>
 <!-- end combat tab -->
   </nodehandler>
-
-
+  
+  
   <nodehandler class="tabber_handler" icon="tabber" module="containers" name="Weapon Summary" version="1.0">
-|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|  
     <nodehandler class="textctrl_handler" icon="note" module="forms" name="|WEAPON.%weap.NAME.NOSTAR|">
-      <text multiline="1" send_button="0">
+      <text multiline="1" send_button="0">  
 Name: |WEAPON.%weap.NAME.NOSTAR|
 Hands: |WEAPON.%weap.HAND|
 Damage Type: |WEAPON.%weap.TYPE|
@@ -522,7 +531,7 @@ Special Properties: |WEAPON.%weap.SPROP|
 
 This weapon is too exotic for an automatic statistical calculation.
 |else|
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)| 
 Ranges
 |FOR,%range,0,4,1,0|
   distance: |WEAPON.%weap.RANGELIST.%range|
@@ -531,23 +540,23 @@ Ranges
 |ENDFOR|
 |ELSE|
 One weapon, 1 hand, primary hand
-  to hit: |WEAPON.%weap.TOTALHIT|
-  damage: |WEAPON.%weap.BASICDAMAGE|
+  to hit: |WEAPON.%weap.TOTALHIT|   
+  damage: |WEAPON.%weap.BASICDAMAGE| 
 One weapon, 1 handed, offhand
-  to hit: |WEAPON.%weap.OHHIT|
-  damage: |WEAPON.%weap.OHDAMAGE|
+  to hit: |WEAPON.%weap.OHHIT| 
+  damage: |WEAPON.%weap.OHDAMAGE| 
 One weapon, 2 handed
-  to hit: |WEAPON.%weap.TOTALHIT|
-  damage: |WEAPON.%weap.THDAMAGE|
+  to hit: |WEAPON.%weap.TOTALHIT| 
+  damage: |WEAPON.%weap.THDAMAGE| 
 Two weapons, this weapon in primary hand, other hand with heavy weapon
-  to hit: |WEAPON.%weap.TWPHITH|
-  damage: |WEAPON.%weap.BASICDAMAGE|
+  to hit: |WEAPON.%weap.TWPHITH| 
+  damage: |WEAPON.%weap.BASICDAMAGE| 
 Two weapons, this weapon in primary hand, other hand with light weapon
-  to hit: |WEAPON.%weap.TWPHITL|
-  damage: |WEAPON.%weap.BASCIDAMAGE|
+  to hit: |WEAPON.%weap.TWPHITL| 
+  damage: |WEAPON.%weap.BASCIDAMAGE| 
 Two weapons, this weapon in off-hand
-  to hit: |WEAPON.%weap.TWOHIT|
-  damage: |WEAPON.%weap.OHDAMAGE|
+  to hit: |WEAPON.%weap.TWOHIT| 
+  damage: |WEAPON.%weap.OHDAMAGE| 
 |ENDIF|
 |ENDIF|
       </text>
@@ -581,8 +590,8 @@ Total weight caried: |TOTAL.WEIGHT.INTVAL|
 Current load:        |TOTAL.LOAD|
 
    Encumbrance
-Light:  |WEIGHT.LIGHT.INTVAL|
-Medium: |WEIGHT.MEDIUM.INTVAL|
+Light:  |WEIGHT.LIGHT.INTVAL|   
+Medium: |WEIGHT.MEDIUM.INTVAL|   
 Heavy:  |WEIGHT.HEAVY.INTVAL|
 
 </text>
@@ -639,10 +648,10 @@ SR: |SPELLMEM.%class.%sbook.%level.%spell.SR| Effect: |SPELLMEM.%class.%sbook.%l
 |ENDFOR|
         </nodehandler>
 |%||%SPELLLISTCLASS.%class|
-|ENDFOR|
+|ENDFOR|    
       </nodehandler>
     </nodehandler>|%|
-|ENDFOR|
+|ENDFOR|    
   </nodehandler>
   <nodehandler class="form_handler" icon="compass" module="forms" name="Description">
     <form height="600" width="400"/>
