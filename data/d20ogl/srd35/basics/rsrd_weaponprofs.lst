@@ -74,8 +74,8 @@ Halberd				TYPE:Martial	HANDS:2
 Lance					TYPE:Martial	HANDS:2
 Ranseur				TYPE:Martial	HANDS:2
 Scythe				TYPE:Martial	HANDS:2
-Sword (Bastard/Martial)		TYPE:Martial	HANDS:2
-Waraxe (Dwarven/Martial)	TYPE:Martial	HANDS:2
+Sword (Bastard)		TYPE:Martial.Exotic	HANDS:2
+Waraxe (Dwarven)	TYPE:Martial.Exotic	HANDS:2
 
 # --ranged
 Longbow				TYPE:Martial	HANDS:2
@@ -90,8 +90,6 @@ Siangham				TYPE:Exotic
 
 
 # -- 1-handers
-Sword (Bastard/Exotic)		TYPE:Exotic
-Waraxe (Dwarven/Exotic)		TYPE:Exotic
 Whip					TYPE:Exotic
 
 # -- 2-handers
