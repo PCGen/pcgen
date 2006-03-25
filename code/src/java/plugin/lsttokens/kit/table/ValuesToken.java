@@ -37,7 +37,7 @@ public class ValuesToken implements KitTableLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -47,7 +47,7 @@ public class ValuesToken implements KitTableLstToken
 
 	/**
 	 * parse
-	 * 
+	 *
 	 * @param kit
 	 *            Kit
 	 * @param value
@@ -75,6 +75,6 @@ public class ValuesToken implements KitTableLstToken
 			}
 			kit.addLookupValue(tableName, val, lowVal, highVal);
 		}
-		return false;
+		return true;
 	}
 }
