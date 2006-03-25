@@ -32,6 +32,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
+import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGIOHandler;
@@ -255,6 +256,11 @@ public class PObjectUtilities
 		else if ("HP".equals(choiceType))
 		{
 			setHPSelections(obj, availableList, selectedList, aTok);
+		}
+		else if ("PROFICIENCY".equals(choiceType))
+		{
+			title = "Choose Proficiency";
+			setProficiencySelections(obj, availableList, selectedList, aTok, aPC);
 		}
 		else if ("RACE".equals(choiceType))
 		{
@@ -1421,6 +1427,193 @@ public class PObjectUtilities
 		}
 
 		obj.addAssociatedTo(selectedList);
+	}
+
+	// CHOOSE:PROFICIENCY|<Type of Prof>|<scope>|<list of profs>
+	// Type of Prof = WEAPON, ARMOR, SHIELD
+	// scope = PC (proficiencies already possessed by PC), ALL (all profs of type), UNIQUE (all profs not already possessed by PC)
+	// list of profs = Either a list of specific profs or a prof TYPE
+	// XXX Note that ARMOR and SHIELD don't work at the moment since I can't get a list of
+	// armor or weapon proficiencies.
+	private static void setProficiencySelections(final PObject obj, final List availableList, final List selectedList, final StringTokenizer aTok, final PlayerCharacter aPC)
+	{
+		final int SCOPE_PC = 0;
+		final int SCOPE_ALL = 1;
+		final int SCOPE_UNIQUE = 2;
+
+		final String typeOfProf = aTok.nextToken();
+		
+		if (aTok.hasMoreTokens() == false)
+		{
+			Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format for WEAPON.");
+		}
+		final String scope = aTok.nextToken();
+		int intScope = -1;
+		if ("PC".equals(scope))
+		{
+			intScope = SCOPE_PC;
+		}
+		else if ("ALL".equals(scope))
+		{
+			intScope = SCOPE_ALL;
+		}
+		else if ("UNIQUE".equals(scope))
+		{
+			intScope = SCOPE_UNIQUE;
+		}
+		else
+		{
+			Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown scope " + scope);
+		}
+
+		if ("WEAPON".equals(typeOfProf))
+		{
+			String typeString = null;
+			
+			List profs = new ArrayList();
+			while (aTok.hasMoreTokens())
+			{
+				final String prof = aTok.nextToken();
+				if (prof.startsWith("TYPE.") || prof.startsWith("TYPE="))
+				{
+					typeString = prof.substring(5);
+					profs.addAll(Globals.getWeaponProfs(typeString, aPC));
+				}
+				else
+				{
+					WeaponProf aProf = Globals.getWeaponProfNamed(prof);
+					if (aProf != null)
+					{
+						profs.add(aProf);
+					}
+				}
+			}
+			Set pcProfs = null;
+			if (intScope == SCOPE_UNIQUE || intScope == SCOPE_PC)
+			{
+				pcProfs = aPC.getWeaponProfList();
+			}
+			for (Iterator i = profs.iterator(); i.hasNext();)
+			{
+				String profName = i.next().toString();
+				
+				if (intScope == SCOPE_ALL)
+				{
+					availableList.add(profName);
+				}
+				else if (intScope == SCOPE_PC)
+				{
+					if (pcProfs.contains(profName))
+					{
+						availableList.add(profName);
+					}
+				}
+				else if (intScope == SCOPE_UNIQUE)
+				{
+					WeaponProf wp = Globals.getWeaponProfNamed(profName);
+					List types = wp.getSafeListFor(ListKey.TYPE);
+					if (types.size() == 1 && pcProfs.contains(profName))
+					{
+						continue;
+					}
+					availableList.add(profName);
+				}
+			}
+		}
+		else if ("ARMOR".equals(typeOfProf))
+		{
+//			List checkList = null;
+//			if (intScope == SCOPE_ALL)
+//			{
+//				checkList = Globals.getArmorProfList();
+//			}
+//			else
+//			{
+//				checkList = aPC.getArmorProfList();
+//			}
+//			while (aTok.hasMoreTokens())
+//			{
+//				String prof = aTok.nextToken();
+//				if ("ALL".equals(prof))
+//				{
+//					if (intScope == SCOPE_UNIQUE)
+//					{
+//						List allProfs = Globals.getArmorProfList();
+//						for (Iterator i = allProfs.iterator(); i.hasNext();)
+//						{
+//							String aProf = (String)i.next();
+//							if (!checkList.contains(aProf))
+//							{
+//								availableList.add(aProf);
+//							}
+//						}
+//					}
+//					else
+//					{
+//						availableList.addAll(checkList);
+//					}
+//					return;
+//				}
+//				if (prof.startsWith("TYPE") == false)
+//				{
+//					prof = "TYPE." + prof;
+//				}
+//				if (checkList.contains(prof))
+//				{
+//					availableList.add(prof);
+//				}
+//					
+//			}
+		}
+		else if ("SHIELD".equals(typeOfProf))
+		{
+//			List checkList = null;
+//			if (intScope == SCOPE_ALL)
+//			{
+//				checkList = Globals.getShieldProfList();
+//			}
+//			else
+//			{
+//				checkList = aPC.getShieldProfList();
+//			}
+//			while (aTok.hasMoreTokens())
+//			{
+//				String prof = aTok.nextToken();
+//				if ("ALL".equals(prof))
+//				{
+//					if (intScope == SCOPE_UNIQUE)
+//					{
+//						List allProfs = Globals.getArmorProfList();
+//						for (Iterator i = allProfs.iterator(); i.hasNext();)
+//						{
+//							String aProf = (String)i.next();
+//							if (!checkList.contains(aProf))
+//							{
+//								availableList.add(aProf);
+//							}
+//						}
+//					}
+//					else
+//					{
+//						availableList.addAll(checkList);
+//					}
+//					return;
+//				}
+//				if (prof.startsWith("TYPE") == false)
+//				{
+//					prof = "TYPE." + prof;
+//				}
+//				if (checkList.contains(prof))
+//				{
+//					availableList.add(prof);
+//				}
+//					
+//			}
+		}
+		else
+		{
+			Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown type " + typeOfProf);
+		}
 	}
 
 	/**
