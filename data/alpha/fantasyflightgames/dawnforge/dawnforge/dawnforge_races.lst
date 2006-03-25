@@ -33,7 +33,7 @@ Dwarf (DF).MOD																																																																		
 #Dwarf (DF).MOD	DEFINE:TransfBonusSkillBalance|0	BONUS:SKILL|Balance|TransfBonusSkillBalance|TYPE=Transformation	DEFINE:TransfBonusSkillClimb|0	BONUS:SKILL|Climb|TransfBonusSkillClimb|TYPE=Transformation	DEFINE:TransfBonusSkillJump|0	BONUS:SKILL|Jump|TransfBonusSkillJump|TYPE=Transformation	DEFINE:TransfBonusSkillConcentration|0	BONUS:SKILL|Concentration|TransfBonusSkillConcentration|TYPE=Transformation
 #Dwarf (DF).MOD	DEFINE:TalentBonusSkillKnowArc|0	BONUS:SKILL|Knowledge (Arcana)|TalentBonusSkillKnowArc|TYPE=Talent	DEFINE:TalentBonusSkillKnowArc|0	BONUS:SKILL|Knowledge (Architecture and Engineering)|TalentBonusSkillKnowArchEng|TYPE=Talent	DEFINE:TalentBonusSkillKnowArc|0	BONUS:SKILL|Knowledge (Dungeoneering)|TalentBonusSkillKnowDun|TYPE=Talent
 Human (Saltblood).MOD																																																																																											BONUS:DR|-|-1																																																																													DR:1/-
-Gnome (DF).MOD																																																																																												BONUS:DR|piercing or slashing|-1																																																																										DR:1/piercing or slashing
+Gnome (DF).MOD																																																																																												BONUS:DR|piercing or slashing|-1																																																																										DR:1/Piercing or Slashing
 Orc (DF).MOD																																																																																												BONUS:DR|-|-1																																																																													DR:1/-
 
 

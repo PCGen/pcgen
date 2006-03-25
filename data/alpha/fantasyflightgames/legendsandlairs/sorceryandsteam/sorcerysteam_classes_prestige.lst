@@ -195,11 +195,11 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1		SA:Human Shield (Ex)
-3		SA:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
-6																								FEATAUTO:Uncanny Dodge
-9		SA:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
-10	DR:2	SA:Bastion of Protection (Ex)
+1			SA:Human Shield (Ex)
+3			SA:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
+6																									FEATAUTO:Uncanny Dodge
+9			SA:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
+10	DR:2/-	SA:Bastion of Protection (Ex)
 
 # Physician -----------------------------------------------------------------------------------
 
