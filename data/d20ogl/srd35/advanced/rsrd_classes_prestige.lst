@@ -85,7 +85,7 @@ CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handl
 CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
 # Turning
 3	BONUS:VAR|TurnLevelBase|CL-2								FEATAUTO:Rebuke Undead|Basic Turning
-3	BONUS:VAR|TurnDamageBase|CL-2
+3	BONUS:VAR|TurnDamagePlusBase|CL-2
 # Smite Good
 1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1	FEATAUTO:Smite Good
 1	BONUS:VAR|SmiteGood|CL/5+1
