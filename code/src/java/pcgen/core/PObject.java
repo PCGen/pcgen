@@ -3589,6 +3589,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final ArrayList getAssociatedList()
 	{
+		if (associatedList == null)
+		{
+			return new ArrayList();
+		}
 		return associatedList;
 	}
 
@@ -3955,6 +3959,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				}
 				else if ("%LIST".equals(tok))
 				{
+					List assoc = getAssociatedList();
 					for (Iterator e = getAssociatedList().iterator(); e.hasNext();)
 					{
 						final String wString = (String) e.next();
