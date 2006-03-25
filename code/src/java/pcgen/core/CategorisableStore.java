@@ -76,7 +76,7 @@ public class CategorisableStore implements Cloneable
 	/**
 	 * Add a Categorisable Object to this Collection
 	 *
-	 * @param   aCatObj  the ability to add
+	 * @param   aCatObj  the categorisable object to add
 	 *
 	 * @return  true if the object was added correctly
 	 */
