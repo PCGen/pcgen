@@ -1,5 +1,5 @@
 /*
- * WeaponProfChoiceManager.java
+ * SimpleWeaponProfChoiceManager.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -28,14 +28,14 @@ import pcgen.core.utils.ListKey;
 import java.util.*;
 
 /**
- * <code>WeaponProfChoiceManager</code>
+ * <code>SimpleWeaponProfChoiceManager</code>
  * 
  * Deal with choosing a weapon proficiency
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class WeaponProfChoiceManager extends AbstractChoiceManager
+public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 {
 	/**
 	 * <code>weaponToProf</code>
@@ -84,13 +84,13 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 	final CategorisableStore weaponToProfMap = new CategorisableStore();
 
 	/**
-	 * Creates a new WeaponProfChoiceManager object.
+	 * Creates a new SimpleWeaponProfChoiceManager object.
 	 *
 	 * @param  aPObject		Object holding the choice string used to generate lists.
 	 * @param  theChoices	The list of Weapon Proficency choices.
 	 * @param  aPC			The Player Character.
 	 */
-	public WeaponProfChoiceManager(
+	public SimpleWeaponProfChoiceManager(
 	    PObject         aPObject,
 	    String          theChoices,
 	    PlayerCharacter aPC)
@@ -494,5 +494,14 @@ public class WeaponProfChoiceManager extends AbstractChoiceManager
 
 		// make sure the list is built
 		aPC.getWeaponProfList();
+	}
+
+	/**
+	 * what type of chooser does this handle
+	 * 
+	 * @return type of chooser
+	 */
+	public String typeHandled() {
+		return chooserHandled;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * ArmorProfChoiceManager.java
+ * SimpleArmorProfChoiceManager.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -39,16 +39,16 @@ import java.util.Map;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class ArmorProfChoiceManager extends AbstractChoiceManager
+public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 {
 	/**
-	 * Creates a new ArmorProfChoiceManager object.
+	 * Creates a new SimpleArmorProfChoiceManager object.
 	 *
 	 * @param  aPObject
 	 * @param  theChoices
 	 * @param  aPC
 	 */
-	public ArmorProfChoiceManager(
+	public SimpleArmorProfChoiceManager(
 	    PObject         aPObject,
 	    String          theChoices,
 	    PlayerCharacter aPC)
@@ -124,5 +124,14 @@ public class ArmorProfChoiceManager extends AbstractChoiceManager
 	    final List             selected)
 	{
 		pobject.addSelectedArmorProfs(selected);
+	}
+
+	/**
+	 * what type of chooser does this handle
+	 * 
+	 * @return type of chooser
+	 */
+	public String typeHandled() {
+		return chooserHandled;
 	}
 }

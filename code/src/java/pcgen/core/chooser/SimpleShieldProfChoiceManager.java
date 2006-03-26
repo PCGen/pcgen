@@ -1,5 +1,5 @@
 /*
- * ShieldProfChoiceManager.java
+ * SimpleShieldProfChoiceManager.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -38,16 +38,16 @@ import java.util.Map;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class ShieldProfChoiceManager extends AbstractChoiceManager
+public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 {
 	/**
-	 * Creates a new ShieldProfChoiceManager object.
+	 * Creates a new SimpleShieldProfChoiceManager object.
 	 *
 	 * @param  aPObject
 	 * @param  theChoices
 	 * @param  aPC
 	 */
-	public ShieldProfChoiceManager(
+	public SimpleShieldProfChoiceManager(
 	    PObject         aPObject,
 	    String          theChoices,
 	    PlayerCharacter aPC)
@@ -119,5 +119,14 @@ public class ShieldProfChoiceManager extends AbstractChoiceManager
 	    List selected)
 	{
 		pobject.addSelectedShieldProfs(selected);
+	}
+
+	/**
+	 * what type of chooser does this handle
+	 * 
+	 * @return type of chooser
+	 */
+	public String typeHandled() {
+		return chooserHandled;
 	}
 }

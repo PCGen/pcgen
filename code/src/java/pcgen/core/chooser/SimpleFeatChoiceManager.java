@@ -1,5 +1,5 @@
 /*
- * FeatChoiceManager.java
+ * SimpleFeatChoiceManager.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -35,16 +35,16 @@ import java.util.List;
  * @version  $Revision$
  */
 
-public class FeatChoiceManager extends AbstractChoiceManager
+public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 {
 	/**
-	 * Creates a new FeatChoiceManager object.
+	 * Creates a new SimpleFeatChoiceManager object.
 	 *
 	 * @param  aPObject
 	 * @param  theChoices
 	 * @param  aPC
 	 */
-	public FeatChoiceManager(PObject aPObject, String theChoices, PlayerCharacter aPC)
+	public SimpleFeatChoiceManager(PObject aPObject, String theChoices, PlayerCharacter aPC)
 	{
 		super(aPObject, theChoices, aPC);
 	}
@@ -107,5 +107,14 @@ public class FeatChoiceManager extends AbstractChoiceManager
 			AbilityUtilities.modFeat(aPC, null, tempString, true, false);
 			pobject.addAssociated(tempString);
 		}
+	}
+
+	/**
+	 * what type of chooser does this handle
+	 * 
+	 * @return type of chooser
+	 */
+	public String typeHandled() {
+		return chooserHandled;
 	}
 }

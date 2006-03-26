@@ -1,5 +1,5 @@
 /*
- * ChoiceManager.java
+ * AbstractSimpleChoiceManager.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -40,7 +40,7 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public abstract class AbstractChoiceManager implements ChoiceManagerList
+public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 {
 	protected final PlayerCharacter pc;
 	protected final PObject         pobject;
@@ -58,7 +58,7 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 	 * @param  aPObject
 	 * @param  aPC
 	 */
-	public AbstractChoiceManager(
+	public AbstractSimpleChoiceManager(
 	    PObject         aPObject,
 	    PlayerCharacter aPC)
 	{
@@ -74,7 +74,7 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 	 * @param  theChoices
 	 * @param  aPC
 	 */
-	public AbstractChoiceManager(
+	public AbstractSimpleChoiceManager(
 	    PObject         aPObject,
 	    String          theChoices,
 	    PlayerCharacter aPC)
@@ -99,7 +99,7 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 			return;
 		}
 
-		chooserHandled     = (String) split.get(0);
+		this.chooserHandled = ((String) split.get(0));
 
 		final String var   = (String) split.get(1);
 		numberOfChoices    = aPC.getVariableValue(var, "").intValue();
@@ -110,16 +110,6 @@ public abstract class AbstractChoiceManager implements ChoiceManagerList
 
 	
 	
-	/**
-	 * what type of chooser does this handle
-	 * 
-	 * @return type of chooser
-	 */
-	public String typeHandled ()
-	{
-		return chooserHandled;
-	}
-
 	/**
 	 * 
 	 * @param aPc
