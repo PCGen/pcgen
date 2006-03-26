@@ -129,6 +129,7 @@ final class PreferencesDialog extends JDialog
 	private static String in_cmSelectExit = PropertyFactory.getString("in_Prefs_cmSelectExit");
 	private static String in_displayOGL = PropertyFactory.getString("in_Prefs_displayOGL");
 	private static String in_displayd20 = PropertyFactory.getString("in_Prefs_displayd20");
+	private static String in_displaySponsors = PropertyFactory.getString("in_Prefs_displaySponsors");
 	private static String in_dialogTitle = PropertyFactory.getString("in_Prefs_title");
 	private static String in_displayOpts = PropertyFactory.getString("in_Prefs_displayOpts");
 	private static String in_expertGUI = PropertyFactory.getString("in_Prefs_expertGUI");
@@ -265,6 +266,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox showToolbar = new JCheckBox();
 	private JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
 	private JCheckBox showd20 = new JCheckBox();
+	private JCheckBox showSponsors = new JCheckBox();
 	private JCheckBox statDialogShownAtLevelUp = new JCheckBox();
 	private JCheckBox showSkillModifier = new JCheckBox();
 	private JCheckBox enforceSpendingBeforeLevelUp = new JCheckBox();
@@ -871,6 +873,7 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setSaveCustomEquipment(saveCustom.isSelected());
 		SettingsHandler.setShowLicense(showOGL.isSelected());
 		SettingsHandler.setShowD20Info(showd20.isSelected());
+		SettingsHandler.setShowSponsors(showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
 
@@ -1268,6 +1271,7 @@ final class PreferencesDialog extends JDialog
 		saveCustom.setSelected(SettingsHandler.getSaveCustomEquipment());
 		showOGL.setSelected(SettingsHandler.showLicense());
 		showd20.setSelected(SettingsHandler.showD20Info());
+		showSponsors.setSelected(SettingsHandler.showSponsors());
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
 
@@ -2982,19 +2986,27 @@ final class PreferencesDialog extends JDialog
 		sourcesPanel.add(showd20);
 
 		Utility.buildConstraints(c, 0, 6, 3, 1, 0, 0);
-		label = new JLabel(in_sourceDisplay + ": ");
+		label = new JLabel(in_displaySponsors + ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
 		Utility.buildConstraints(c, 3, 6, 1, 1, 0, 0);
+		gridbag.setConstraints(showSponsors, c);
+		sourcesPanel.add(showSponsors);
+
+		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
+		label = new JLabel(in_sourceDisplay + ": ");
+		gridbag.setConstraints(label, c);
+		sourcesPanel.add(label);
+		Utility.buildConstraints(c, 3, 7, 1, 1, 0, 0);
 		sourceOptions = new JComboBoxEx(new String[]{ in_sdLong, in_sdMedium, in_sdShort, in_sdPage, in_sdWeb });
 		gridbag.setConstraints(sourceOptions, c);
 		sourcesPanel.add(sourceOptions);
 
-		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
 		label = new JLabel(in_loadURLs + ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 7, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
 		gridbag.setConstraints(loadURL, c);
 		sourcesPanel.add(loadURL);
 		loadURL.addActionListener(new ActionListener()
@@ -3009,11 +3021,11 @@ final class PreferencesDialog extends JDialog
 				}
 			});
 
-		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 9, 3, 1, 0, 0);
 		label = new JLabel(in_allowOverride + ": ");
 		gridbag.setConstraints(label, c);
 		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 3, 9, 1, 1, 0, 0);
 		gridbag.setConstraints(allowOverride, c);
 		sourcesPanel.add(allowOverride);
 

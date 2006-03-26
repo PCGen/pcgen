@@ -25,8 +25,11 @@
  */
 package pcgen.gui;
 
+import pcgen.core.Globals;
 import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -34,7 +37,10 @@ import gmgen.gui.GridBoxLayout;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,6 +48,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Create a simple panel to identify the program and those who contributed
@@ -89,6 +97,7 @@ final class MainAbout extends JPanel
 		mainPane.add(PropertyFactory.getString("in_abt_libraries"), buildIncludesPanel()); //$NON-NLS-1$
 		mainPane.add(PropertyFactory.getString("in_abt_license"), buildLicensePanel()); //$NON-NLS-1$
 		mainPane.add(PropertyFactory.getString("in_abt_awards"), buildAwardsPanel()); //$NON-NLS-1$
+		mainPane.add(PropertyFactory.getString("in_abt_sponsors"), buildSponsorsPanel()); //$NON-NLS-1$
 
 		setLayout(new BorderLayout());
 
@@ -363,6 +372,37 @@ final class MainAbout extends JPanel
 		panel.add(BorderLayout.CENTER, sp);
 		return panel;
 	}
+
+	private JPanel buildSponsorsPanel()
+	{
+		Border etched = null;
+		TitledBorder title = BorderFactory.createTitledBorder(etched, "Sponsor Info");
+		title.setTitleJustification(TitledBorder.CENTER);
+		JLabelPane sponsorLabel = new JLabelPane();
+		JScrollPane sp = new JScrollPane(sponsorLabel);
+		sp.setBorder(title);
+		JPanel panel = new JPanel(new BorderLayout());
+		sponsorLabel.setBackground(panel.getBackground());
+		panel.add(BorderLayout.CENTER, sp);
+		
+		List sponsors = Globals.getSponsors();
+		StringBuffer sb = new StringBuffer();
+		sb.append("<html><b>Our Sponsors</b><br>");
+		for(int i = 0; i < sponsors.size(); i++) {
+			Map sponsor = (Map)sponsors.get(i);
+			if(sponsor.get("SPONSOR").equals("PCGEN")) {
+				continue;
+			}
+			
+			sb.append("<img src='")
+				.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGEBANNER")))
+				.append("'><br>");
+		}
+		sb.append("</html>");
+		sponsorLabel.setText(sb.toString());
+		return panel;
+	}
+	
 
 	/**
 	 * Construct the license panel. This panel shows the full

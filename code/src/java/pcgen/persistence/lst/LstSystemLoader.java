@@ -65,7 +65,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SourceUtilities;
@@ -228,6 +227,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	private PCClassLoader classLoader            = new PCClassLoader();
 	private PaperInfoLoader paperLoader          = new PaperInfoLoader();
 	private PointBuyLoader pointBuyLoader        = new PointBuyLoader();
+	private SponsorLoader sponsorLoader          = new SponsorLoader();
 	private RaceLoader raceLoader                = new RaceLoader();
 	private final Set sourcesSet                 = new TreeSet();
 	private BioSet bioSet                        = new BioSet();
@@ -272,6 +272,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		classLoader.addObserver(this);
 		paperLoader.addObserver(this);
 		pointBuyLoader.addObserver(this);
+		sponsorLoader.addObserver(this);
 		raceLoader.addObserver(this);
 		sizeLoader.addObserver(this);
 		skillLoader.addObserver(this);
@@ -336,7 +337,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	public void initialize() throws PersistenceLayerException
 	{
 		loadGameModes();
-
+		loadSponsorsLstFile();
+		
 		// Load the initial campaigns
 		loadPCCFilesInDirectory(SettingsHandler.getPccFilesLocation().getAbsolutePath());
 		loadPCCFilesInDirectory(SettingsHandler.getPcgenVendorDataDir().getAbsolutePath());
@@ -345,6 +347,30 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		campaignLoader.initRecursivePccFiles();
 
 		Globals.sortPObjectList(Globals.getCampaignList());
+	}
+
+	/**
+	 * Load a game mode file.
+	 * First try the game mode directory. If that fails, try
+	 * reading the file from the default game mode directory.
+	 * @param lstFileLoader the Loader object for the type of file.
+	 * @param gameModeName the game mode
+	 * @param lstFileName the lst file to load
+	 * @param showMissing show the missing file as a warning. Some files are optional and shouldn't generate a warning
+	 */
+	private void loadSponsorsLstFile()
+	{
+		final String systemPrefix = SettingsHandler.getPcgenSystemDir() + File.separator;
+		final String sponsorDirectory = systemPrefix + "sponsors" + File.separator;
+
+		try
+		{
+			sponsorLoader.loadLstFile(sponsorDirectory + "sponsors.lst", null);
+		}
+		catch (PersistenceLayerException ple)
+		{
+			Logging.errorPrint("Warning: sponsors file is missing");
+		}
 	}
 
 	/**
@@ -475,6 +501,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			PObjectLoader.finishFeatProcessing();
 			//  Show the licenses
 			showLicensesIfNeeded();
+			showSponsorsIfNeeded();
 		}
 		finally
 		{
@@ -2055,7 +2082,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				}
 			}
 		}
-
 	}
 
 	private void loadGameModes()
@@ -2466,6 +2492,18 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		showOGL = false;
 		showD20 = false;
 		showLicensed = false;
+	}
+	
+	private void showSponsorsIfNeeded()
+	{
+		// Only worry about it if we're using the GUI
+		if (Globals.getUseGUI())
+		{
+			if (SettingsHandler.showSponsors())
+			{
+				pcGenGUI.showSponsors();
+			}
+		}
 	}
 
 	/**

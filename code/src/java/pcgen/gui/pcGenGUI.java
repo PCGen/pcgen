@@ -21,6 +21,42 @@
 package pcgen.gui;
 
 import gmgen.pluginmgr.PluginLoader;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Observer;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -30,25 +66,19 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.MessageWrapper;
 import pcgen.core.utils.ShowMessageConsoleObserver;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.*;
+import pcgen.gui.utils.DialogInputInterface;
+import pcgen.gui.utils.Hyperactive;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.ShowMessageGuiObserver;
+import pcgen.gui.utils.SwingChooser;
+import pcgen.gui.utils.SwingChooserRadio;
+import pcgen.gui.utils.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
+import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
-
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.io.*;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Observer;
 
 /**
  * <code>pcGenGUI</code> is the Main-Class for the application.
@@ -514,6 +544,73 @@ public class pcGenGUI
 		aFrame.getContentPane().add(aPane, BorderLayout.CENTER);
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
+		Utility.centerFrame(aFrame, false);
+		aFrame.setVisible(true);
+	}
+
+	public static void showSponsors()
+	{
+		String title = "PCGen's sponsors";
+
+		final JFrame aFrame = new JFrame(title);
+		final JButton jClose = new JButton("Close");
+		final JPanel jPanel = new JPanel();
+		final JCheckBox jCheckBox = new JCheckBox("Show on source load");
+		jPanel.add(jCheckBox);
+		jCheckBox.setSelected(SettingsHandler.showSponsors());
+		jCheckBox.addItemListener(new ItemListener()
+			{
+				public void itemStateChanged(ItemEvent evt)
+				{
+					SettingsHandler.setShowSponsors(jCheckBox.isSelected());
+				}
+			});
+		jPanel.add(jClose);
+		jClose.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					aFrame.dispose();
+				}
+			});
+		IconUtilitities.maybeSetIcon(aFrame, "PcgenIcon.gif");
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("<html>");
+		sb.append("<img src='")
+			.append(SponsorLoader.getConvertedSponsorPath((String)Globals.getSponsor("PCGEN").get("IMAGEBANNER")))
+			.append("'><br>");
+
+		String s = "";
+		if(Globals.getSponsors().size() > 2) {
+			s = "s";
+		}
+		sb.append("<H2><CENTER>Would like to thank our official sponsor")
+			.append(s)
+			.append(":</CENTER></h2>");
+		List sponsors = Globals.getSponsors();
+		int size = 172;
+		for(int i = 0; i < sponsors.size(); i++) {
+			Map sponsor = (Map)sponsors.get(i);
+			if(sponsor.get("SPONSOR").equals("PCGEN")) {
+				continue;
+			}
+			
+			size += 70;
+			sb.append("<img src='")
+				.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGEBANNER")))
+				.append("'><br>");
+		}
+		sb.append("</html>");
+		final JEditorPane a = new JEditorPane("text/html", sb.toString());
+		a.setEditable(false);
+
+		final JScrollPane aPane = new JScrollPane();
+		aPane.setViewportView(a);
+		aFrame.getContentPane().setLayout(new BorderLayout());
+		aFrame.getContentPane().add(aPane, BorderLayout.CENTER);
+		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
+		aFrame.setSize(new Dimension(505, size));
 		Utility.centerFrame(aFrame, false);
 		aFrame.setVisible(true);
 	}

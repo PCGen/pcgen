@@ -100,6 +100,7 @@ public final class SettingsHandler
 	private static boolean showD20InfoAtStart = true;
 	private static boolean loadURLs = false;
 	private static boolean showOGLOnLoad = true;
+	private static boolean showSponsorsOnLoad = true;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
 	private static int hpPct = 100;
@@ -140,6 +141,7 @@ public final class SettingsHandler
 	private static File pcgenCustomDir = new File(Globals.getDefaultPath() + File.separator + "data" + File.separator //$NON-NLS-1$
 		    + "customsources"); //$NON-NLS-1$
 	private static File pcgenVendorDataDir = new File(Globals.getDefaultPath() + File.separator + "vendordata"); //$NON-NLS-1$
+	private static File pcgenSponsorDir = new File(Globals.getDefaultPath() + File.separator + "system" + File.separator + "sponsors"); //$NON-NLS-1$
 	private static File pcgenDocsDir = null;
 
 	/**
@@ -1109,6 +1111,7 @@ public final class SettingsHandler
 		loadURLs = getPCGenOption("loadURLs", false); //$NON-NLS-1$
 		allowOverride = getPCGenOption("allowOverride", false); //$NON-NLS-1$
 		showOGLOnLoad = getPCGenOption("showOGLOnLoad", true); //$NON-NLS-1$
+		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(getPCGenOption("sourceDisplay", Constants.SOURCELONG)); //$NON-NLS-1$
 		Globals.setLanguage(getPCGenOption("language", null)); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1547,6 +1550,7 @@ public final class SettingsHandler
 		setPCGenOption("showImagePreview", isShowImagePreview()); //$NON-NLS-1$
 		setPCGenOption("showNatWeaponTab", showNatWeaponTab); //$NON-NLS-1$
 		setPCGenOption("showOGLOnLoad", showOGLOnLoad); //$NON-NLS-1$
+		setPCGenOption("showSponsorsOnLoad", showSponsorsOnLoad); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
 		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
@@ -1660,6 +1664,16 @@ public final class SettingsHandler
 	public static File getPcgenVendorDataDir()
 	{
 		return pcgenVendorDataDir;
+	}
+
+	public static void setPcgenSponsorDir(final File aFile)
+	{
+		pcgenSponsorDir = aFile;
+	}
+
+	public static File getPcgenSponsorDir()
+	{
+		return pcgenSponsorDir;
 	}
 
 	public static void setPcgenDocsDir(final File argPcgenDocsDir)
@@ -2121,6 +2135,11 @@ public final class SettingsHandler
 		showOGLOnLoad = arg;
 	}
 
+	public static void setShowSponsors(final boolean arg)
+	{
+		showSponsorsOnLoad = arg;
+	}
+
 	/**
 	 * Sets whether the Stat dialog should be shown at level up.
 	 * @param argShowStatDialogAtLevelUp Should the Stat dialog should be shown at level up?
@@ -2460,6 +2479,10 @@ public final class SettingsHandler
 		return showOGLOnLoad;
 	}
 
+	public static boolean showSponsors() {
+		return showSponsorsOnLoad;
+	}
+	
 	public static boolean showNaturalWeaponTab()
 	{
 		return showNatWeaponTab;

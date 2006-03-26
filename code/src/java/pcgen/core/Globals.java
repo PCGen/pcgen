@@ -115,6 +115,9 @@ public final class Globals
 	private static List             templateList    = new ArrayList(350);
 	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
 	private static SortedSet        saSet           = new TreeSet();
+	
+	private static Map sponsors = new HashMap();
+	private static List sponsorList = new ArrayList();
 
 	/** Weapon proficiency Data storage */
 	private static final WeaponProfDataStore weaponProfs = new WeaponProfDataStore();
@@ -4081,5 +4084,18 @@ public final class Globals
 		}
 
 		return path;
+	}
+
+	public static void addSponsor(Map sponsor) {
+		sponsors.put(sponsor.get("SPONSOR"), sponsor);
+		sponsorList.add(sponsor);
+	}
+	
+	public static List getSponsors() {
+		return sponsorList;
+	}
+	
+	public static Map getSponsor(String name) {
+		return (Map)sponsors.get(name);
 	}
 }

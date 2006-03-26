@@ -44,6 +44,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
@@ -92,6 +93,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.SwingWorker;
@@ -387,12 +389,18 @@ public class MainSource extends FilterAdapterPanel
 					path = pathNode.getItem().toString() + "." + path;
 				}
 
-				StringBuffer b = new StringBuffer();
+				StringBuffer sb = new StringBuffer();
 
 				// enclose the node-path name with the <p> tag so that we can parse for it later
-				b.append("<html><b>").append(path).append("</b><br>");
-				b.append("</html>");
-				infoLabel.setText(b.toString());
+				sb.append("<html><b>").append(path).append("</b><br>");
+				if(Globals.getSponsor(path) != null) {
+					Map sponsor = Globals.getSponsor(path);
+					sb.append("<img src='")
+						.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGELARGE")))
+						.append("'><br>");
+				}
+				sb.append("</html>");
+				infoLabel.setText(sb.toString());
 			}
 		}
 	}

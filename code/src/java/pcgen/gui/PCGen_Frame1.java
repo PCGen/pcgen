@@ -2792,6 +2792,16 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 					}, "help.ogl", null, null, true);
 			helpMenu.add(oglItem);
 
+			JMenuItem sponsorItem = Utility.createMenuItem("mnuHelpSponsors",
+					new ActionListener()
+					{
+						public void actionPerformed(ActionEvent e)
+						{
+							pcGenGUI.showSponsors();
+						}
+					}, "help.sponsors", null, null, true);
+			helpMenu.add(sponsorItem);
+
 			/*            JMenuItem d20Item = CoreUtility.createMenuItem("mnuHelpD20", new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
