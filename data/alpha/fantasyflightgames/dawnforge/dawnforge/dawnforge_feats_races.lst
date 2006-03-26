@@ -285,11 +285,11 @@ Gnome Talent Skills 9	TYPE:GnomeRacialTalent9	VISIBLE:NO																			STACK
 
 ###Block: Racial Transformations
 # Feat Name					Type						Visible	Required Feat	Prohibited Feat					Special Ability		Stackable?	Multiple?	Choose a Feat																												Damage reduction				Source Page
-Gnome Damage Reduction 2		TYPE:GnomeRacialTransformation2	VISIBLE:NO																	MULT:NO																															BONUS:DR|piercing or slashing|2	SOURCEPAGE:p.30
-Gnome Damage Reduction 4		TYPE:GnomeRacialTransformation4	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 2								MULT:NO																															BONUS:DR|piercing or slashing|2	SOURCEPAGE:p.30
-Gnome Damage Reduction 6		TYPE:GnomeRacialTransformation6	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 4								MULT:NO																															BONUS:DR|piercing or slashing|2	SOURCEPAGE:p.30
-Gnome Damage Reduction 8		TYPE:GnomeRacialTransformation8	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 6								MULT:NO																															BONUS:DR|piercing or slashing|2	SOURCEPAGE:p.30
-Gnome Damage Reduction 10		TYPE:GnomeRacialTransformation10	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 8								MULT:NO																															BONUS:DR|piercing or slashing|2	SOURCEPAGE:p.30
+Gnome Damage Reduction 2		TYPE:GnomeRacialTransformation2	VISIBLE:NO																	MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
+Gnome Damage Reduction 4		TYPE:GnomeRacialTransformation4	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 2								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
+Gnome Damage Reduction 6		TYPE:GnomeRacialTransformation6	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 4								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
+Gnome Damage Reduction 8		TYPE:GnomeRacialTransformation8	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 6								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
+Gnome Damage Reduction 10		TYPE:GnomeRacialTransformation10	VISIBLE:NO				!PREFEAT:1,Gnome Damage Reduction 8								MULT:NO																															BONUS:DR|Piercing or Slashing|2	SOURCEPAGE:p.30
 Ghosting					TYPE:GnomeRacialTransformation	VISIBLE:NO											SA:Ghosting					MULT:NO																																					SOURCEPAGE:p.30
 Fading					TYPE:GnomeRacialTransformation	VISIBLE:NO											SA:Fading					MULT:NO																																					SOURCEPAGE:p.30
 Improved Fading				TYPE:GnomeRacialTransformation	VISIBLE:NO	PREFEAT:1,Fading								SA:Improved Fading			MULT:NO																																					SOURCEPAGE:p.30
