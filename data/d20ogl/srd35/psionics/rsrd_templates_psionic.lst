@@ -48,7 +48,7 @@ Fast Healing Ability			VISIBLE:NO																																															
 Heavy Deflection Ability		VISIBLE:NO																																																															SA:Heavy Deflection (Ex)																																									BONUS:COMBAT|AC|4|TYPE=Deflection
 Improved Buff Ability			VISIBLE:NO																																																															SA:Improved Buff (Ex)																																																					BONUS:HP|CURRENTMAX|15
 Improved Critical Ability		VISIBLE:NO																																																															SA:Improved Critical (Ex)																																																																																FEAT:Improved Critical
-Improved Damage Reduction Ability	VISIBLE:NO		DR:0/magic																																																												SA:Improved Damage Reduction (Ex)																																																BONUS:DR|magic|3
+Improved Damage Reduction Ability	VISIBLE:NO		DR:0/magic																																																												SA:Improved Damage Reduction (Ex)																																																BONUS:DR|Magic|3
 Improved Fly Ability			VISIBLE:NO																																																															SA:Improved Fly (Ex)																																																																																						MOVE:Fly,40
 Improved Grab Ability			VISIBLE:NO																																																															SA:Improved Grab (Ex)
 Improved Swim Ability			VISIBLE:NO																																																															SA:Improved Swim (Ex)																																																																																						MOVE:Swim,60
@@ -71,7 +71,7 @@ Constrict Ability				VISIBLE:NO																																																	
 Dimension Slide Ability			VISIBLE:NO																																																															SA:Dimension Slide (Dimension Slide (HD lvl) 1x/round) (Sp)
 Energy Bolt Ability			VISIBLE:NO																																																															SA:Energy Bolt (Energy Bolt (8th lvl) 1x/round) (Sp)
 Extra Buff Ability			VISIBLE:NO																																																															SA:Extra Buff (Ex)																																																					BONUS:HP|CURRENTMAX|30
-Extreme Damage Reduction Ability	VISIBLE:NO																																																															SA:Extreme Damage Reduction (Ex)																																																BONUS:DR|magic|6
+Extreme Damage Reduction Ability	VISIBLE:NO																																																															SA:Extreme Damage Reduction (Ex)																																																BONUS:DR|Magic|6
 Extreme Deflection Ability		VISIBLE:NO																																																															SA:Extreme Deflection (Ex)																																									BONUS:COMBAT|AC|8|TYPE=Deflection
 Natural Invisibility Ability		VISIBLE:NO																																																															SA:Natural Invisibility (Su)
 Power Resistance Ability		VISIBLE:NO																																																															SA:Power Resistance (10+HD) (Ex)
