@@ -53,7 +53,8 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		chooserHandled = "MISC";
 		
-		if (((String) choices.get(0)).equals(chooserHandled)) {
+		if (choices != null && choices.size() > 0 &&
+				((String) choices.get(0)).equals(chooserHandled)) {
 			choices.remove(0);
 		}
 	}
