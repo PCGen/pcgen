@@ -3682,10 +3682,40 @@ function RemoveStat (attribute) {
      <td class="lt8sB" width="40%">NAME</td>
      <td class="lt8sB" width="60%">DESCRIPTION</td>
     </tr>
-|FOR,%feat,0,COUNT[FEATSALL]-1,1,0|
-|OIF(EVEN:%feat,<tr style="background:#DDDDDD">,<tr style="background:white">)|
-	<td class="lt8">|FEATALL.%feat|</td>
-	<td class="lt8">|FEATALL.%feat.DESC|</td>
+|FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|FEAT.VISIBLE.%feat|</td>
+     <td valign="top" align="left" class="font8">|FEAT.VISIBLE.%feat.DESC|</td>
+    </tr>
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|FEATAUTO.VISIBLE.%feat|</td>
+     <td valign="top" align="left" class="font8">|FEATAUTO.VISIBLE.%feat.DESC|</td>
+    </tr>
+|ENDFOR|
+|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|VFEAT.VISIBLE.%feat|</td>
+     <td valign="top" align="left" class="font8">|VFEAT.VISIBLE.%feat.DESC|</td>
+    </tr>
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|FEAT.HIDDEN.%feat|</td>
+     <td valign="top" align="left" class="font8">|FEAT.HIDDEN.%feat.DESC|</td>
+    </tr>
+|ENDFOR|
+|FOR,%feat,0,COUNT[FEATSAUTO.HIDDEN]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|FEATAUTO.HIDDEN.%feat|</td>
+     <td valign="top" align="left" class="font8">|FEATAUTO.HIDDEN.%feat.DESC|</td>
+    </tr>
+|ENDFOR|
+|FOR,%feat,0,COUNT[VFEATS.HIDDEN]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|VFEAT.HIDDEN.%feat|</td>
+     <td valign="top" align="left" class="font8">|VFEAT.HIDDEN.%feat.DESC|</td>
     </tr>
 |ENDFOR|
    </table>
