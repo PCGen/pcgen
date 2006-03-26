@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar  1 09:57:13 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision$ $Author$ -- Sun Mar 26 07:59:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: abernat/altered by dlm1065
 
@@ -6,23 +6,22 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Any item without a superscript 1 (rules for resizing for small) is assumed to not be resizable.
 
 ###Block:Alchemical Stuff and Liquids
-# Equipment Name			Type				Cost		Weight		Source Page
 #Acid					TYPE:Goods.Alchemical.Liquid	COST:9.97	WT:1.00		SOURCEPAGE:Equipment.rtf
-# Equipment Name			Type					Cost		Weight	Source Page
-Acid (Flask)			TYPE:Goods.Alchemical.Flask	COST:10	WT:1.00	SOURCEPAGE:Equipment.rtf
+# Equipment Name			Type							Cost		Weight	Source Page
+Acid (Flask)			TYPE:Goods.Alchemical.Flask.Consumable	COST:10	WT:1.00	SOURCEPAGE:Equipment.rtf
 #Alchemist's Fire			TYPE:Goods.Alchemical.Liquid	COST:19.97	WT:1.00		SOURCEPAGE:Equipment.rtf
-Alchemist's Fire (Flask)	TYPE:Goods.Alchemical.Flask	COST:20	WT:1.00	SOURCEPAGE:Equipment.rtf
+Alchemist's Fire (Flask)	TYPE:Goods.Alchemical.Flask.Consumable	COST:20	WT:1.00	SOURCEPAGE:Equipment.rtf
 #Antitoxin				TYPE:Goods.Liquid.Poison	COST:48.97	WT:.0625	SOURCEPAGE:Equipment.rtf
 #Antitoxin (Flask)			TYPE:Goods.Liquid.Poison.Vial	COST:49		WT:.0625	SOURCEPAGE:Equipment.rtf
-Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial	COST:50	WT:0		SOURCEPAGE:Equipment.rtf
-Everburning Torch			TYPE:Goods.Magic			COST:110	WT:1		SOURCEPAGE:Equipment.rtf
+Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial.Consumable	COST:50	WT:0		SOURCEPAGE:Equipment.rtf
+Everburning Torch			TYPE:Goods.Magic					COST:110	WT:1		SOURCEPAGE:Equipment.rtf
 #Holy Water				TYPE:Goods.Liquid		COST:24.97	WT:1.00		SOURCEPAGE:Equipment.rtf
-Holy Water (Flask)		TYPE:Goods.Flask			COST:25	WT:1		SOURCEPAGE:Equipment.rtf
-Smokestick				TYPE:Goods.Alchemical		COST:20	WT:0.5	SOURCEPAGE:Equipment.rtf
-Sunrod				TYPE:Goods.Alchemical		COST:2	WT:1		SOURCEPAGE:Equipment.rtf
-Tanglefoot Bag			TYPE:Goods.Alchemical		COST:50	WT:4		SOURCEPAGE:Equipment.rtf
-Thunderstone			TYPE:Goods.Alchemical		COST:30	WT:1		SOURCEPAGE:Equipment.rtf
-Tindertwig				TYPE:Goods.Alchemical		COST:1	WT:0		SOURCEPAGE:Equipment.rtf
+Holy Water (Flask)		TYPE:Goods.Flask.Consumable			COST:25	WT:1		SOURCEPAGE:Equipment.rtf
+Smokestick				TYPE:Goods.Alchemical.Consumable		COST:20	WT:0.5	SOURCEPAGE:Equipment.rtf
+Sunrod				TYPE:Goods.Alchemical.Consumable		COST:2	WT:1		SOURCEPAGE:Equipment.rtf
+Tanglefoot Bag			TYPE:Goods.Alchemical.Consumable		COST:50	WT:4		SOURCEPAGE:Equipment.rtf
+Thunderstone			TYPE:Goods.Alchemical.Consumable		COST:30	WT:1		SOURCEPAGE:Equipment.rtf
+Tindertwig				TYPE:Goods.Alchemical.Consumable		COST:1	WT:0		SOURCEPAGE:Equipment.rtf
 
 ###Block:Clothing
 # Equipment Name		Output Name				Type							Cost		Weight	Source Page				Special Property
@@ -40,99 +39,99 @@ Outfit (Scholar's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starti
 Outfit (Traveler's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:5		SOURCEPAGE:Equipment.rtf
 
 ###Block:Consumables
-# Equipment Name		Type						Cost		Weight	Source Page
-Ale (Gallon)		TYPE:Goods.Liquid.Food			COST:.2	WT:8		SOURCEPAGE:Equipment.rtf
-Ale (Mug)			TYPE:Goods.Food				COST:.04	WT:1		SOURCEPAGE:Equipment.rtf
-Banquet (Per Person)	TYPE:Goods.Food				COST:10			SOURCEPAGE:Equipment.rtf
-Bread (Loaf)		TYPE:Goods.Food.Resizable		COST:.02	WT:.5		SOURCEPAGE:Equipment.rtf
-Cheese (Hunk)		TYPE:Goods.Food.Resizable		COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
-Inn (Good/Per Day)	TYPE:Service.Lodging			COST:2			SOURCEPAGE:Equipment.rtf
-Inn (Common/Per Day)	TYPE:Service.Lodging			COST:.5			SOURCEPAGE:Equipment.rtf
-Inn (Poor/Per Day)	TYPE:Service.Lodging			COST:.2			SOURCEPAGE:Equipment.rtf
-Meals (Good/Per Day)	TYPE:Goods.Food.Resizable		COST:.5			SOURCEPAGE:Equipment.rtf
-Meals (Common/Per Day)	TYPE:Goods.Food.Resizable		COST:.3			SOURCEPAGE:Equipment.rtf
-Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable		COST:.1			SOURCEPAGE:Equipment.rtf
-Meat (Chunk)		TYPE:Goods.Food				COST:.3	WT:.5		SOURCEPAGE:Equipment.rtf
-Wine (Common/Pitcher)	TYPE:Goods.Food				COST:.2	WT:6		SOURCEPAGE:Equipment.rtf
-Wine (Fine/Bottle)	TYPE:Goods.Food				COST:10	WT:1.5	SOURCEPAGE:Equipment.rtf
+# Equipment Name		Type							Cost		Weight	Source Page
+Ale (Gallon)		TYPE:Goods.Liquid.Food				COST:.2	WT:8		SOURCEPAGE:Equipment.rtf
+Ale (Mug)			TYPE:Goods.Food					COST:.04	WT:1		SOURCEPAGE:Equipment.rtf
+Banquet (Per Person)	TYPE:Goods.Food					COST:10			SOURCEPAGE:Equipment.rtf
+Bread (Loaf)		TYPE:Goods.Food.Resizable.Consumable	COST:.02	WT:.5		SOURCEPAGE:Equipment.rtf
+Cheese (Hunk)		TYPE:Goods.Food.Resizable.Consumable	COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
+Inn (Good/Per Day)	TYPE:Service.Lodging				COST:2			SOURCEPAGE:Equipment.rtf
+Inn (Common/Per Day)	TYPE:Service.Lodging				COST:.5			SOURCEPAGE:Equipment.rtf
+Inn (Poor/Per Day)	TYPE:Service.Lodging				COST:.2			SOURCEPAGE:Equipment.rtf
+Meals (Good/Per Day)	TYPE:Goods.Food.Resizable			COST:.5			SOURCEPAGE:Equipment.rtf
+Meals (Common/Per Day)	TYPE:Goods.Food.Resizable			COST:.3			SOURCEPAGE:Equipment.rtf
+Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable			COST:.1			SOURCEPAGE:Equipment.rtf
+Meat (Chunk)		TYPE:Goods.Food.Consumable			COST:.3	WT:.5		SOURCEPAGE:Equipment.rtf
+Wine (Common/Pitcher)	TYPE:Goods.Food					COST:.2	WT:6		SOURCEPAGE:Equipment.rtf
+Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:Equipment.rtf
 #Wine (Fine)		TYPE:Goods.Liquid.Food.Resizable	COST:8	WT:1.5	SOURCEPAGE:Equipment.rtf
-Water (Pint)		TYPE:Goods.Liquid.Food.Resizable	COST:0	WT:1.00	SOURCEPAGE:Equipment.rtf
+Water (Pint)		TYPE:Goods.Liquid.Food.Resizable		COST:0	WT:1.00	SOURCEPAGE:Equipment.rtf
 
 ###Block:Goods
-# Equipment Name			Type							Contains								Cost		Weight	Source Page				Bonus to skill
-Backpack				TYPE:Goods.Container.General.Resizable	CONTAINS:-1|Any=-1						COST:2	WT:2		SOURCEPAGE:Equipment.rtf
-Barrel				TYPE:Goods.Container.General			CONTAINS:-1|Any=-1						COST:2	WT:30		SOURCEPAGE:Equipment.rtf
-Basket				TYPE:Goods.Container.General			CONTAINS:-1|Any=-1						COST:.4	WT:1		SOURCEPAGE:Equipment.rtf
-Bedroll				TYPE:Goods.General.Resizable												COST:.1	WT:5		SOURCEPAGE:Equipment.rtf
-Bell					TYPE:Goods.General													COST:1	WT:0		SOURCEPAGE:Equipment.rtf
-Blanket (Winter)			TYPE:Goods.General.Resizable												COST:.5	WT:3		SOURCEPAGE:Equipment.rtf
-Block and Tackle			TYPE:Goods.General													COST:5	WT:5		SOURCEPAGE:Equipment.rtf
-Bottle (Glass/Wine)		TYPE:Goods.Container.General.Resizable	CONTAINS:1.5|Liquid=3						COST:2	WT:0		SOURCEPAGE:Equipment.rtf
-Bucket				TYPE:Goods.Container.General			CONTAINS:-1|Any=-1						COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
-Caltrops				TYPE:Goods.General													COST:1	WT:2		SOURCEPAGE:Equipment.rtf
-Candle				TYPE:Goods.General													COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
-Canvas (Sq. Yd.)			TYPE:Goods.General													COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
-Case (Map or Scroll)		TYPE:Goods.Container.General			CONTAINS:-1|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
-Chain (10 Ft.)			TYPE:Goods.General													COST:30	WT:2		SOURCEPAGE:Equipment.rtf
-Chalk (1 piece)			TYPE:Goods.General													COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
-Chest					TYPE:Goods.Container.General			CONTAINS:-1|Any=-1						COST:2	WT:25		SOURCEPAGE:Equipment.rtf
-Crowbar				TYPE:Goods.General													COST:2	WT:5		SOURCEPAGE:Equipment.rtf
-Firewood (Per Day)		TYPE:Goods.General													COST:.01	WT:20		SOURCEPAGE:Equipment.rtf
-Fishhook				TYPE:Goods.General													COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
-Fishing Net (25 Sq. Ft.)	TYPE:Goods.General													COST:4	WT:5		SOURCEPAGE:Equipment.rtf
-Flask (Empty)			TYPE:Goods.Container.General.Flask		CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1		COST:.03	WT:1.5	SOURCEPAGE:Equipment.rtf
-Flint and Steel			TYPE:Goods.General													COST:1	WT:0		SOURCEPAGE:Equipment.rtf
-Grappling Hook			TYPE:Goods.General													COST:1	WT:4		SOURCEPAGE:Equipment.rtf
-Hammer				TYPE:Goods.General													COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
-Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial										COST:8	WT:0		SOURCEPAGE:Equipment.rtf
-Inkpen				TYPE:Goods.General.Writing												COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
-Jug (Clay)				TYPE:Goods.Container.General			CONTAINS:8|Liquid=-1|SpellComponent=1			COST:.03	WT:9		SOURCEPAGE:Equipment.rtf
-Ladder (10 Ft.)			TYPE:Goods.General													COST:.05	WT:20		SOURCEPAGE:Equipment.rtf
-Lamp (Common)			TYPE:Goods.General													COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
-Lantern (Bullseye)		TYPE:Goods.General													COST:12	WT:3		SOURCEPAGE:Equipment.rtf
-Lantern (Hooded)			TYPE:Goods.General													COST:7	WT:2		SOURCEPAGE:Equipment.rtf
-Lock (Very Simple)		TYPE:Goods.General													COST:20	WT:1		SOURCEPAGE:Equipment.rtf
-Lock (Average)			TYPE:Goods.General													COST:40	WT:1		SOURCEPAGE:Equipment.rtf
-Lock (Good)				TYPE:Goods.General													COST:80	WT:1		SOURCEPAGE:Equipment.rtf
-Lock (Amazing)			TYPE:Goods.General													COST:150	WT:1		SOURCEPAGE:Equipment.rtf
-Manacles (Small)			TYPE:Goods.General													COST:15	WT:2		SOURCEPAGE:Equipment.rtf
-Manacles (Medium)			TYPE:Goods.General													COST:15	WT:2		SOURCEPAGE:Equipment.rtf
-Manacles (Large)			TYPE:Goods.General													COST:150	WT:8		SOURCEPAGE:Equipment.rtf
-Manacles (Huge)			TYPE:Goods.General													COST:1500	WT:32		SOURCEPAGE:Equipment.rtf
-Manacles (Masterwork/Small)	TYPE:Goods.General.Masterwork												COST:50	WT:2		SOURCEPAGE:Equipment.rtf
-Manacles (Masterwork/Medium)	TYPE:Goods.General.Masterwork												COST:50	WT:2		SOURCEPAGE:Equipment.rtf
-Manacles (Masterwork/Large)	TYPE:Goods.General.Masterwork												COST:500	WT:8		SOURCEPAGE:Equipment.rtf
-Manacles (Masterwork/Huge)	TYPE:Goods.General.Masterwork												COST:5000	WT:32		SOURCEPAGE:Equipment.rtf
-Mirror (Small/Steel)		TYPE:Goods.General													COST:10	WT:.5		SOURCEPAGE:Equipment.rtf
-Mug or Tankard (Clay)		TYPE:Goods.Container.General			CONTAINS:1|Liquid=-1						COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
-Oil (1 Pt. Flask)			TYPE:Goods.General.Liquid.Flask											COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
-Paper (Sheet)			TYPE:Goods.General.Writing.Documents										COST:.4	WT:0		SOURCEPAGE:Equipment.rtf
-Parchment (Sheet)			TYPE:Goods.General.Writing.Documents										COST:.2	WT:0		SOURCEPAGE:Equipment.rtf
-Pick (Miner's)			TYPE:Goods.General													COST:3	WT:10		SOURCEPAGE:Equipment.rtf
-Pitcher (Clay)			TYPE:Goods.Container.General			CONTAINS:4|Liquid=-1						COST:.02	WT:5		SOURCEPAGE:Equipment.rtf
-Piton					TYPE:Goods.General													COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
-Pole (10 Ft.)			TYPE:Goods.General													COST:.2	WT:8		SOURCEPAGE:Equipment.rtf
-Pot (Iron)				TYPE:Goods.Container.General			CONTAINS:-1|Any=-1						COST:.5	WT:10		SOURCEPAGE:Equipment.rtf
-Pouch (Belt)			TYPE:Goods.Container.General.Resizable	CONTAINS:-1|Any=-1						COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
-Ram (Portable)			TYPE:Goods.General													COST:10	WT:20		SOURCEPAGE:Equipment.rtf
-Rations (Trail/Per Day)		TYPE:Goods.Food.Resizable												COST:.5	WT:1		SOURCEPAGE:Equipment.rtf
-Rope (Hempen/50 Ft.)		TYPE:Goods.General													COST:1	WT:10		SOURCEPAGE:Equipment.rtf
-Rope (Silk/50 Ft.)		TYPE:Goods.General													COST:10	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Use Rope|2|TYPE=Circumstance
-Sack					TYPE:Goods.Container.General.Resizable	CONTAINS:-1|Any=-1						COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
-Sealing Wax				TYPE:Goods.General.Writing												COST:1	WT:1		SOURCEPAGE:Equipment.rtf
-Sewing Needle			TYPE:Goods.General													COST:.5			SOURCEPAGE:Equipment.rtf
-Signal Whistle			TYPE:Goods.General													COST:.8			SOURCEPAGE:Equipment.rtf
-Signet Ring				TYPE:Goods.General.Ring													COST:5			SOURCEPAGE:Equipment.rtf
-Sledge				TYPE:Goods.General													COST:1	WT:10		SOURCEPAGE:Equipment.rtf
-Soap (Per Lb.)			TYPE:Goods.General													COST:.5	WT:1		SOURCEPAGE:Equipment.rtf
-Spade or Shovel			TYPE:Goods.General													COST:2	WT:8		SOURCEPAGE:Equipment.rtf
-Spyglass				TYPE:Goods.General													COST:1000	WT:1		SOURCEPAGE:Equipment.rtf
-Tent					TYPE:Goods.General.Resizable												COST:10	WT:20		SOURCEPAGE:Equipment.rtf
-Torch					TYPE:Goods.General													COST:.01	WT:1		SOURCEPAGE:Equipment.rtf
-Vial					TYPE:Goods.Container.General.Vial		CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1		COST:1	WT:.1		SOURCEPAGE:Equipment.rtf
-Waterskin				TYPE:Goods.Container.General			CONTAINS:4|Liquid=4						COST:1	WT:0		SOURCEPAGE:Equipment.rtf
-Waterskin (Filled)		TYPE:Goods.General.Resizable												COST:1	WT:4		SOURCEPAGE:Equipment.rtf
-Whetstone				TYPE:Goods.General													COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
+# Equipment Name			Type								Contains								Cost		Weight	Source Page				Bonus to skill
+Backpack				TYPE:Goods.Container.General.Resizable		CONTAINS:-1|Any=-1						COST:2	WT:2		SOURCEPAGE:Equipment.rtf
+Barrel				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:2	WT:30		SOURCEPAGE:Equipment.rtf
+Basket				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:.4	WT:1		SOURCEPAGE:Equipment.rtf
+Bedroll				TYPE:Goods.General.Resizable													COST:.1	WT:5		SOURCEPAGE:Equipment.rtf
+Bell					TYPE:Goods.General														COST:1	WT:0		SOURCEPAGE:Equipment.rtf
+Blanket (Winter)			TYPE:Goods.General.Resizable													COST:.5	WT:3		SOURCEPAGE:Equipment.rtf
+Block and Tackle			TYPE:Goods.General														COST:5	WT:5		SOURCEPAGE:Equipment.rtf
+Bottle (Glass/Wine)		TYPE:Goods.Container.General.Resizable		CONTAINS:1.5|Liquid=3						COST:2	WT:0		SOURCEPAGE:Equipment.rtf
+Bucket				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
+Caltrops				TYPE:Goods.General														COST:1	WT:2		SOURCEPAGE:Equipment.rtf
+Candle				TYPE:Goods.General.Consumable													COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
+Canvas (Sq. Yd.)			TYPE:Goods.General														COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
+Case (Map or Scroll)		TYPE:Goods.Container.General				CONTAINS:-1|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
+Chain (10 Ft.)			TYPE:Goods.General														COST:30	WT:2		SOURCEPAGE:Equipment.rtf
+Chalk (1 piece)			TYPE:Goods.General														COST:.01	WT:0		SOURCEPAGE:Equipment.rtf
+Chest					TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:2	WT:25		SOURCEPAGE:Equipment.rtf
+Crowbar				TYPE:Goods.General														COST:2	WT:5		SOURCEPAGE:Equipment.rtf
+Firewood (Per Day)		TYPE:Goods.General														COST:.01	WT:20		SOURCEPAGE:Equipment.rtf
+Fishhook				TYPE:Goods.General														COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
+Fishing Net (25 Sq. Ft.)	TYPE:Goods.General														COST:4	WT:5		SOURCEPAGE:Equipment.rtf
+Flask (Empty)			TYPE:Goods.Container.General.Flask			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1		COST:.03	WT:1.5	SOURCEPAGE:Equipment.rtf
+Flint and Steel			TYPE:Goods.General														COST:1	WT:0		SOURCEPAGE:Equipment.rtf
+Grappling Hook			TYPE:Goods.General														COST:1	WT:4		SOURCEPAGE:Equipment.rtf
+Hammer				TYPE:Goods.General														COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
+Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial											COST:8	WT:0		SOURCEPAGE:Equipment.rtf
+Inkpen				TYPE:Goods.General.Writing													COST:.1	WT:0		SOURCEPAGE:Equipment.rtf
+Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid=-1|SpellComponent=1			COST:.03	WT:9		SOURCEPAGE:Equipment.rtf
+Ladder (10 Ft.)			TYPE:Goods.General														COST:.05	WT:20		SOURCEPAGE:Equipment.rtf
+Lamp (Common)			TYPE:Goods.General														COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
+Lantern (Bullseye)		TYPE:Goods.General														COST:12	WT:3		SOURCEPAGE:Equipment.rtf
+Lantern (Hooded)			TYPE:Goods.General														COST:7	WT:2		SOURCEPAGE:Equipment.rtf
+Lock (Very Simple)		TYPE:Goods.General														COST:20	WT:1		SOURCEPAGE:Equipment.rtf
+Lock (Average)			TYPE:Goods.General														COST:40	WT:1		SOURCEPAGE:Equipment.rtf
+Lock (Good)				TYPE:Goods.General														COST:80	WT:1		SOURCEPAGE:Equipment.rtf
+Lock (Amazing)			TYPE:Goods.General														COST:150	WT:1		SOURCEPAGE:Equipment.rtf
+Manacles (Small)			TYPE:Goods.General														COST:15	WT:2		SOURCEPAGE:Equipment.rtf
+Manacles (Medium)			TYPE:Goods.General														COST:15	WT:2		SOURCEPAGE:Equipment.rtf
+Manacles (Large)			TYPE:Goods.General														COST:150	WT:8		SOURCEPAGE:Equipment.rtf
+Manacles (Huge)			TYPE:Goods.General														COST:1500	WT:32		SOURCEPAGE:Equipment.rtf
+Manacles (Masterwork/Small)	TYPE:Goods.General.Masterwork													COST:50	WT:2		SOURCEPAGE:Equipment.rtf
+Manacles (Masterwork/Medium)	TYPE:Goods.General.Masterwork													COST:50	WT:2		SOURCEPAGE:Equipment.rtf
+Manacles (Masterwork/Large)	TYPE:Goods.General.Masterwork													COST:500	WT:8		SOURCEPAGE:Equipment.rtf
+Manacles (Masterwork/Huge)	TYPE:Goods.General.Masterwork													COST:5000	WT:32		SOURCEPAGE:Equipment.rtf
+Mirror (Small/Steel)		TYPE:Goods.General														COST:10	WT:.5		SOURCEPAGE:Equipment.rtf
+Mug or Tankard (Clay)		TYPE:Goods.Container.General				CONTAINS:1|Liquid=-1						COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
+Oil (1 Pt. Flask)			TYPE:Goods.General.Liquid.Flask.Consumable										COST:.1	WT:1		SOURCEPAGE:Equipment.rtf
+Paper (Sheet)			TYPE:Goods.General.Writing.Documents											COST:.4	WT:0		SOURCEPAGE:Equipment.rtf
+Parchment (Sheet)			TYPE:Goods.General.Writing.Documents											COST:.2	WT:0		SOURCEPAGE:Equipment.rtf
+Pick (Miner's)			TYPE:Goods.General														COST:3	WT:10		SOURCEPAGE:Equipment.rtf
+Pitcher (Clay)			TYPE:Goods.Container.General				CONTAINS:4|Liquid=-1						COST:.02	WT:5		SOURCEPAGE:Equipment.rtf
+Piton					TYPE:Goods.General														COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
+Pole (10 Ft.)			TYPE:Goods.General														COST:.2	WT:8		SOURCEPAGE:Equipment.rtf
+Pot (Iron)				TYPE:Goods.Container.General				CONTAINS:-1|Any=-1						COST:.5	WT:10		SOURCEPAGE:Equipment.rtf
+Pouch (Belt)			TYPE:Goods.Container.General.Resizable		CONTAINS:-1|Any=-1						COST:1	WT:.5		SOURCEPAGE:Equipment.rtf
+Ram (Portable)			TYPE:Goods.General														COST:10	WT:20		SOURCEPAGE:Equipment.rtf
+Rations (Trail/Per Day)		TYPE:Goods.Food.Resizable.Consumable											COST:.5	WT:1		SOURCEPAGE:Equipment.rtf
+Rope (Hempen/50 Ft.)		TYPE:Goods.General														COST:1	WT:10		SOURCEPAGE:Equipment.rtf
+Rope (Silk/50 Ft.)		TYPE:Goods.General														COST:10	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Use Rope|2|TYPE=Circumstance
+Sack					TYPE:Goods.Container.General.Resizable		CONTAINS:-1|Any=-1						COST:.1	WT:.5		SOURCEPAGE:Equipment.rtf
+Sealing Wax				TYPE:Goods.General.Writing													COST:1	WT:1		SOURCEPAGE:Equipment.rtf
+Sewing Needle			TYPE:Goods.General														COST:.5			SOURCEPAGE:Equipment.rtf
+Signal Whistle			TYPE:Goods.General														COST:.8			SOURCEPAGE:Equipment.rtf
+Signet Ring				TYPE:Goods.General.Ring														COST:5			SOURCEPAGE:Equipment.rtf
+Sledge				TYPE:Goods.General														COST:1	WT:10		SOURCEPAGE:Equipment.rtf
+Soap (Per Lb.)			TYPE:Goods.General														COST:.5	WT:1		SOURCEPAGE:Equipment.rtf
+Spade or Shovel			TYPE:Goods.General														COST:2	WT:8		SOURCEPAGE:Equipment.rtf
+Spyglass				TYPE:Goods.General														COST:1000	WT:1		SOURCEPAGE:Equipment.rtf
+Tent					TYPE:Goods.General.Resizable													COST:10	WT:20		SOURCEPAGE:Equipment.rtf
+Torch					TYPE:Goods.General.Consumable													COST:.01	WT:1		SOURCEPAGE:Equipment.rtf
+Vial					TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1		COST:1	WT:.1		SOURCEPAGE:Equipment.rtf
+Waterskin				TYPE:Goods.Container.General				CONTAINS:4|Liquid=4						COST:1	WT:0		SOURCEPAGE:Equipment.rtf
+Waterskin (Filled)		TYPE:Goods.General.Resizable													COST:1	WT:4		SOURCEPAGE:Equipment.rtf
+Whetstone				TYPE:Goods.General														COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
 
 ###Block:Mounts and Related Gear
 # Barding is in armor .LST file
@@ -142,7 +141,7 @@ Dog (Guard)				TYPE:Goods.Mount										COST:25	WT:0				SOURCEPAGE:Equipment.rt
 Dog (Riding)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=-1	COST:150	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Donkey				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=-1	COST:8	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Mule					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=-1	COST:8	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Feed (Per Day)			TYPE:Goods.Mount										COST:.05	WT:10				SOURCEPAGE:Equipment.rtf
+Feed (Per Day)			TYPE:Goods.Mount.Consumable								COST:.05	WT:10				SOURCEPAGE:Equipment.rtf
 Horse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*600|Any=-1	COST:200	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
 Horse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*450|Any=-1	COST:75	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
 Warhorse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*900|Any=-1	COST:400	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
@@ -175,8 +174,8 @@ Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools			COST:5	
 Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools		COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Artisan's Tools (Woodworking)		TYPE:Goods.Tools.Artisan.WoodworkingTools			COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Woodworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
 Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable			COST:80	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Climb|2|TYPE=Circumstance
-Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable			COST:50	WT:8		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disguise|2|TYPE=Circumstance
-Healer's Kit				TYPE:Goods.Tools.Masterwork					COST:50	WT:1		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Heal|2|TYPE=Circumstance
+Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable.Consumable	COST:50	WT:8		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disguise|2|TYPE=Circumstance
+Healer's Kit				TYPE:Goods.Tools.Masterwork.Consumable			COST:50	WT:1		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Heal|2|TYPE=Circumstance
 Hourglass					TYPE:Goods.Tools							COST:25	WT:1		SOURCEPAGE:Equipment.rtf
 Holly and Mistletoe			TYPE:Goods.Tools.DivineFocus					COST:0	WT:0		SOURCEPAGE:Equipment.rtf
 Holy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus					COST:1	WT:0		SOURCEPAGE:Equipment.rtf
