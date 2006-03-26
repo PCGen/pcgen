@@ -356,7 +356,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Bull Rush
 FEAT:Improved Damage Threshold (+3)
 FEAT:Power Attack
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb|Web
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb (Spell)|Web
 
 STARTPACK:Default Dragon (Black Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Adult Dragon)]
 RACE:Dragon (Black Adult Dragon)	!PRERACE:1,%
@@ -428,7 +428,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Damage Threshold (+3)
 FEAT:Power Attack
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb|Web|Dispel Magic|Haste
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb (Spell)|Web|Dispel Magic|Haste
 
 STARTPACK:Default Dragon (Black Mature Adult Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Mature Adult Dragon)]
 RACE:Dragon (Black Mature Adult Dragon)	!PRERACE:1,%
@@ -500,7 +500,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Damage Threshold (+3)
 FEAT:Power Attack
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste
 
 STARTPACK:Default Dragon (Black Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Old Dragon)]
 RACE:Dragon (Black Old Dragon)	!PRERACE:1,%
@@ -573,7 +573,7 @@ FEAT:Improved Damage Threshold (+3)
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Stoneskin|Wall of Ice
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste|Stoneskin|Wall of Ice
 
 STARTPACK:Default Dragon (Black Very Old Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Old Dragon)]
 RACE:Dragon (Black Very Old Dragon)	!PRERACE:1,%
@@ -647,7 +647,7 @@ FEAT:Improved Damage Threshold (+3)
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire
 
 STARTPACK:Default Dragon (Black Ancient Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Ancient Dragon)]
 RACE:Dragon (Black Ancient Dragon)	!PRERACE:1,%
@@ -722,7 +722,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Renown
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire|Hold Monster|Wall of Force
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire|Hold Monster|Wall of Force
 
 STARTPACK:Default Dragon (Black King/Queen Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black King/Queen Dragon)]
 RACE:Dragon (Black King/Queen Dragon)	!PRERACE:1,%
@@ -797,7 +797,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Renown
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Dimension Door|Ice Storm|Stoneskin|Wall of Fire|Cone of Cold|Hold Monster|Wall of Force
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste|Slow|Dimension Door|Ice Storm|Stoneskin|Wall of Fire|Cone of Cold|Hold Monster|Wall of Force
 
 STARTPACK:Default Dragon (Black Emperor/Empress Dragon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Emperor/Empress Dragon)]
 RACE:Dragon (Black Emperor/Empress Dragon)	!PRERACE:1,%

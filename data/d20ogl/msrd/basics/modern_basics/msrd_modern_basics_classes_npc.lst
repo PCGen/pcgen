@@ -1,9 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# CVS $Revision$ $Author$ -- Sun Mar 26 01:23:18 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Corrected a bunch to standard.. - Tir Gwaith
-#added class Construct (Possessed) for use with possessed constructs that gain Feats and Skills like Outsiders. - Frank Kliewe
 
+#added class Dragon (True) for use with Dragons that have spellcasting abilities
+#added class Construct (Possessed) for use with possessed constructs that gain Feats and Skills like Outsiders.
 #added class Vermin (Sentient Swarm) for use with Sentient Swarms that gain Skills like Magical Beasts
 #added class Undead (unintelligent) for use with Undead with INT nonability that gain no Feats and no Skills - Frank Kliewe
 
@@ -44,6 +45,15 @@ CLASS:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	BONUS:CHECKS|B
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name		Hit Dice	Type			Source Page					Save checks bonus								Combat bonus		BONUS:FEAT
+CLASS:Dragon (True)	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:FEAT|POOL|(TL-1)/4
+# Class Name		Reg. Race Type
+CLASS:Dragon (True)	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon (True)	STARTSKILLPTS:6	MODTOSKILLS:YES
+13					ADD:SPELLCASTER(Mage)1
+16	REPEATLEVEL:3|0|40					BONUS:PCLEVEL|Mage|1
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT
 CLASS:Elemental (Air/Fire)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(TL-1)/4
