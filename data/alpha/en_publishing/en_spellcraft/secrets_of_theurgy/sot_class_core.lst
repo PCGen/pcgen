@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Mar 26 06:53:19 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoT	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
 
 # Class Name		Hit Dice	Type			Abbreviation	Ex Class				Source Page		Automatic Languages		Bonus Languages	Additional Devine Domain				Save checks bonus											Combat bonus					Add domain number		Modify VAR
@@ -9,15 +9,28 @@ CLASS:Elemental Druid	PREALIGN:LN,NG,TN,NE,CN
 CLASS:Elemental Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Druid|CL
-### Block: Basic Turning, to allow Elemental Druid access to turning/rebuking elementals
-1																			BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack								DEFINE:AllowImprovedTurning|1																	FEATAUTO:Basic Turning
-1																			BONUS:VAR|TurnLevelBase|CL											DEFINE:AllowExtraTurning|1
-1																			BONUS:VAR|TurnDamagePlusBase|CL
-1																			BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
-### Spellcasting block
-1																																																																							SPELLLEVEL:CLASS|Elemental Druid=0|Create Water,Cure Minor Wounds,Detect Magic,Detect Poison,Flare,Guidance,Know Direction,Light,Mending,Purify Food and Drink,Read Magic,Resistance,Virtue|Elemental Druid=1|Calm Animals,Charm Animal,Cure Light Wounds,Detect Animals or Plants,Detect Snares and Pits,Endure Elements,Entangle,Faerie Fire,Goodberry,Hide from Animals,Jump,Longstrider,Magic Fang,Magic Stone,Obscuring Mist,Pass without Trace,Produce Flame,Shillelagh,Speak with Animals,Summon Nature's Ally I|Elemental Druid=2|Animal Messenger,Animal Trance,Barkskin,Bear's Endurance,Bull's Strength,Cat's Grace,Chill Metal,Delay Poison,Fire Trap,Flame Blade,Flaming Sphere,Fog Cloud,Gust of Wind,Heat Metal,Hold Animal,Owl's Wisdom,Reduce Animal,Resist Energy,Restoration (Lesser),Soften Earth and Stone,Spider Climb,Summon Nature's Ally II,Summon Swarm,Tree Shape,Warp Wood,Wood Shape|Elemental Druid=3|Call Lightning,Contagion,Cure Moderate Wounds,Daylight,Diminish Plants,Dominate Animal,Magic Fang (Greater),Meld into Stone,Neutralize Poison,Plant Growth,Poison,Protection from Energy,Quench,Remove Disease,Sleet Storm,Snare,Speak with Plants,Spike Growth,Stone Shape,Summon Nature's Ally III,Water Breathing,Wind Wall|Elemental Druid=4|Air Walk,Antiplant Shell,Blight,Command Plants,Control Water,Cure Serious Wounds,Dispel Magic,Flame Strike,Freedom of Movement,Giant Vermin,Ice Storm,Reincarnate,Repel Vermin,Rusting Grasp,Scrying,Spike Stones,Summon Nature's Ally IV|Elemental Druid=5|Animal Growth,Atonement,Awaken,Baleful Polymorph,Call Lightning Storm,Commune with Nature,Control Winds,Cure Critical Wounds,Death Ward,Hallow,Insect Plague,Stoneskin,Summon Nature's Ally V,Transmute Mud to Rock,Transmute Rock to Mud,Tree Stride,Unhallow,Wall of Fire,Wall of Thorns|Elemental Druid=6|Antilife Shell,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Cure Light Wounds (Mass),Dispel Magic (Greater),Find the Path,Fire Seeds,Ironwood,Liveoak,Move Earth,Owl's Wisdom (Mass),Repel Wood,Spellstaff,Stone Tell,Summon Nature's Ally VI,Transport via Plants,Wall of Stone|Elemental Druid=7|Animate Plants,Changestaff,Control Weather,Creeping Doom,Cure Moderate Wounds (Mass),Fire Storm,Heal,Scrying (Greater),Summon Nature's Ally VII,Sunbeam,Transmute Metal to Wood,True Seeing,Wind Walk|Elemental Druid=8|Animal Shapes,Control Plants,Cure Serious Wounds (Mass),Earthquake,Finger of Death,Repel Metal or Stone,Reverse Gravity,Summon Nature's Ally VIII,Sunburst,Whirlwind,Word of Recall|Elemental Druid=9|Antipathy,Cure Critical Wounds (Mass),Elemental Swarm,Foresight,Regenerate,Shambler,Shapechange,Storm of Vengeance,Summon Nature's Ally IX,Sympathy
-### Block: Level progression
-1	CAST:3,1				SA:Nature Sense (Ex)	SA:Animal Companion (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2						AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Spear	FEATAUTO:Shield Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Basic Turning, to allow Elemental Druid access to turning/rebuking elementals
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+###Block: Spellcasting block
+1	SPELLLEVEL:CLASS|Elemental Druid=0|Create Water,Cure Minor Wounds,Detect Magic,Detect Poison,Flare,Guidance,Know Direction,Light,Mending,Purify Food and Drink,Read Magic,Resistance,Virtue
+1	SPELLLEVEL:CLASS|Elemental Druid=1|Calm Animals,Charm Animal,Cure Light Wounds,Detect Animals or Plants,Detect Snares and Pits,Endure Elements,Entangle,Faerie Fire,Goodberry,Hide from Animals,Jump,Longstrider,Magic Fang,Magic Stone,Obscuring Mist,Pass without Trace,Produce Flame,Shillelagh,Speak with Animals,Summon Nature's Ally I
+1	SPELLLEVEL:CLASS|Elemental Druid=2|Animal Messenger,Animal Trance,Barkskin,Bear's Endurance,Bull's Strength,Cat's Grace,Chill Metal,Delay Poison,Fire Trap,Flame Blade,Flaming Sphere,Fog Cloud,Gust of Wind,Heat Metal,Hold Animal,Owl's Wisdom,Reduce Animal,Resist Energy,Restoration (Lesser),Soften Earth and Stone,Spider Climb,Summon Nature's Ally II,Summon Swarm,Tree Shape,Warp Wood,Wood Shape
+1	SPELLLEVEL:CLASS|Elemental Druid=3|Call Lightning,Contagion,Cure Moderate Wounds,Daylight,Diminish Plants,Dominate Animal,Magic Fang (Greater),Meld into Stone,Neutralize Poison,Plant Growth,Poison,Protection from Energy,Quench,Remove Disease,Sleet Storm,Snare,Speak with Plants,Spike Growth,Stone Shape,Summon Nature's Ally III,Water Breathing,Wind Wall
+1	SPELLLEVEL:CLASS|Elemental Druid=4|Air Walk,Antiplant Shell,Blight,Command Plants,Control Water,Cure Serious Wounds,Dispel Magic,Flame Strike,Freedom of Movement,Giant Vermin,Ice Storm,Reincarnate,Repel Vermin,Rusting Grasp,Scrying,Spike Stones,Summon Nature's Ally IV
+1	SPELLLEVEL:CLASS|Elemental Druid=5|Animal Growth,Atonement,Awaken,Baleful Polymorph,Call Lightning Storm,Commune with Nature,Control Winds,Cure Critical Wounds,Death Ward,Hallow,Insect Plague,Stoneskin,Summon Nature's Ally V,Transmute Mud to Rock,Transmute Rock to Mud,Tree Stride,Unhallow,Wall of Fire,Wall of Thorns
+1	SPELLLEVEL:CLASS|Elemental Druid=6|Antilife Shell,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Cure Light Wounds (Mass),Dispel Magic (Greater),Find the Path,Fire Seeds,Ironwood,Liveoak,Move Earth,Owl's Wisdom (Mass),Repel Wood,Spellstaff,Stone Tell,Summon Nature's Ally VI,Transport via Plants,Wall of Stone
+1	SPELLLEVEL:CLASS|Elemental Druid=7|Animate Plants,Changestaff,Control Weather,Creeping Doom,Cure Moderate Wounds (Mass),Fire Storm,Heal,Scrying (Greater),Summon Nature's Ally VII,Sunbeam,Transmute Metal to Wood,True Seeing,Wind Walk
+1	SPELLLEVEL:CLASS|Elemental Druid=8|Animal Shapes,Control Plants,Cure Serious Wounds (Mass),Earthquake,Finger of Death,Repel Metal or Stone,Reverse Gravity,Summon Nature's Ally VIII,Sunburst,Whirlwind,Word of Recall
+1	SPELLLEVEL:CLASS|Elemental Druid=9|Antipathy,Cure Critical Wounds (Mass),Elemental Swarm,Foresight,Regenerate,Shambler,Shapechange,Storm of Vengeance,Summon Nature's Ally IX,Sympathy
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Spear
+1																	FEATAUTO:Shield Proficiency
+1																	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Level progression
+1	CAST:3,1				SA:Nature Sense (Ex)	SA:Animal Companion (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2
 2	CAST:4,2				SA:Woodland Stride (Ex)
 3	CAST:4,2,1				SA:Trackless Step (Ex)
 4	CAST:5,3,2				SA:Resist Nature's Lure (Ex)
@@ -40,6 +53,9 @@ CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages		Bonus Languages	Visible	Save checks bonus											Combat bonus
 CLASS:Ex Elemental Druid	HD:8		TYPE:Base.PC	ABB:XEDrd		SOURCEPAGE:5	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name			Skill Pts/Lvl
-CLASS:Ex Elemental Druid	STARTSKILLPTS:4
-1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear	FEATAUTO:Shield Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Elemental Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
+1	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Halfspear|Longspear
+1																		FEATAUTO:Shield Proficiency
+1																		FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+

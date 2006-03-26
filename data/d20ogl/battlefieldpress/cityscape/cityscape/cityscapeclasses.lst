@@ -77,10 +77,10 @@ CLASS:Cleric (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|CL
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Level progression
 1	CAST:3,1				SA:Spontaneous casting
 2	CAST:4,2

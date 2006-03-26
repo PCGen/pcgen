@@ -21,10 +21,10 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Turn Undead stuff
-3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	FEATAUTO:Turn Undead|Basic Turning
-3	BONUS:VAR|TurnLevelBase|CL-2				DEFINE:AllowExtraTurning|1
-3	BONUS:VAR|TurnDamagePlusBase|CL-2
-3	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	FEATAUTO:Turn Undead|Basic Turning
+3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
+3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal level progression
 1				SA:Detect Evil	SA:Divine Grace	SA:Divine Health	SA:Lay on Hands % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0	DEFINE:AllowHolyAvenger|1
 2				SA:Aura of Courage																																			FEATAUTO:Smite Evil

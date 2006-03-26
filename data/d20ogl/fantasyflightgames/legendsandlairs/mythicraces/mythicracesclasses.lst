@@ -61,7 +61,7 @@ CLASS:Chosen of Ba en Aset	PREALIGN:LG,NG,CG,CN	PREATT:6	PREFEAT:2,Power Attack,
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE.Profession|Ride|Swim|Tumble
 ###Block: Proficiencies
-1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies
+1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SA:Mystic Discipline (Light)																																	VFEAT:Evasion|Improved Unarmed Strike
@@ -134,10 +134,10 @@ CLASS:Eletum Aemidun	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|D
 ###Block: Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						FEATAUTO:Rebuke Undead|Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|var("CL=Cleric")
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base										FEATAUTO:Rebuke Undead|Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|var("CL=Cleric")|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Level Progression
 2	SA:Illusion of Life
 3	SA:Greater Turn Resistance	SA:Shade Imps

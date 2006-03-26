@@ -45,10 +45,10 @@ CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34
 # Class Name	Skill Pts/Lvl
 CLASS:The Dying	STARTSKILLPTS:2
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|CL
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Level progression
 1							SA:Incurable (Su)	SA:Resist Taint																			BONUS:STAT|CON|-1
 2																															BONUS:STAT|STR|-1	ADD:FEAT(Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter)
@@ -68,10 +68,10 @@ CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:1,Kno
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						FEATAUTO:Turn Undead|Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL*3/2			DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|CL
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								FEATAUTO:Turn Undead|Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL*3/2|TYPE=Level.REPLACE	DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -152,15 +152,15 @@ CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Palad
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
 1					SA:Atonement
-2												BONUS:VAR|TurnLevel|max(CL-1,0)	BONUS:PCLEVEL|Paladin|1
-3					SA:Searing Light %/day (Sp)|SearingLight	BONUS:VAR|SearingLight|CL/3		BONUS:PCLEVEL|Paladin|1	DEFINE:SearingLight|0
-4					SA:Last Rites (Su)										BONUS:PCLEVEL|Paladin|1
-5					SA:Life from Death (Ex)										BONUS:PCLEVEL|Paladin|1
-6																		BONUS:PCLEVEL|Paladin|1
-7					SA:Protection from Evil (Sp)									BONUS:PCLEVEL|Paladin|1
-8	SA:.CLEAR.Last Rites	SA:Last Rites (Advanced) (Su)									BONUS:PCLEVEL|Paladin|1
-9																		BONUS:PCLEVEL|Paladin|1
-10					SA:Holy Terror (Su)										BONUS:PCLEVEL|Paladin|1
+2												BONUS:VAR|TurnLevelBase|max(CL-1,0)|TYPE=Level.REPLACE	BONUS:PCLEVEL|Paladin|1
+3					SA:Searing Light %/day (Sp)|SearingLight	BONUS:VAR|SearingLight|CL/3						BONUS:PCLEVEL|Paladin|1	DEFINE:SearingLight|0
+4					SA:Last Rites (Su)														BONUS:PCLEVEL|Paladin|1
+5					SA:Life from Death (Ex)														BONUS:PCLEVEL|Paladin|1
+6																						BONUS:PCLEVEL|Paladin|1
+7					SA:Protection from Evil (Sp)													BONUS:PCLEVEL|Paladin|1
+8	SA:.CLEAR.Last Rites	SA:Last Rites (Advanced) (Su)													BONUS:PCLEVEL|Paladin|1
+9																						BONUS:PCLEVEL|Paladin|1
+10					SA:Holy Terror (Su)														BONUS:PCLEVEL|Paladin|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

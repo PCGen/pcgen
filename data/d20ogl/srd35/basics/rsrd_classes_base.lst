@@ -112,10 +112,10 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
-1	BONUS:VAR|TurnDamagePlusBase|CL
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6
@@ -283,10 +283,10 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 ###Block: Smite Evil
 1	BONUS:VAR|SmiteEvil|(CL/5)+1	FEATAUTO:Smite Evil
 ###Block: Turn Undead stuff
-4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
-4	BONUS:VAR|TurnDamagePlusBase|CL-3
-4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+4	BONUS:VAR|TurnLevelBase|CL-3|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|TurnDamagePlusBase|CL-3|TYPE=Level.REPLACE
+4	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Level progression
 1				SA:Aura of Good (Ex)																						DEFINE:AllowHolyAvenger|1	SPELLS:Paladin|TIMES=-1|CASTERLEVEL=var("CL=Paladin")|Detect Evil,11+WIS
 2				SA:Divine Grace (Su)	SA:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0

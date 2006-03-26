@@ -12,7 +12,7 @@ SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCES
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Boyar		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Boyar		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Skill		Required Stat	Required Text
 CLASS:Boyar		PRESKILL:1,Intimidate=8	PRESTAT:1,CHA=13	PRETEXT:Must own a Castle
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -35,7 +35,7 @@ CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handl
 10																	ADD:FEAT(TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Black Hussar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Black Hussar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Skill	Required Stat	Required Text
 CLASS:Black Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Nobility
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -57,7 +57,7 @@ CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|I
 10								BONUS:VAR|HussarCoursersFury|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Skill	Required Stat	Required Text
 CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -77,7 +77,7 @@ CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Int
 
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2
+CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE.Craft
 1																							ADD:Minour Poultice(Blessing,Cure Light Wounds,Curse,Prowess)									SPELLS:Herbalist|TIMES=var("CL=Herbalist")|Cure Minor Wounds
@@ -94,14 +94,14 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 19																							ADD:Major Poultice(Cure Serious Wounds,Repel Major Undead)
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2
+CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
-2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowExtraTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
-# Should these be referencing Cleric or Lautar????
-2	BONUS:VAR|TurnLevelBase|cl("Cleric")
-2	BONUS:VAR|TurnDamagePlusBase|cl("Cleric")
-2	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base		DEFINE:AllowExtraTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+# Should these be referencing Cleric or Lautar???? - converting from cl("Cleric") to CL. - Tir Gwaith
+2	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
+2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+2	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Progression
 1																									SPELLS:Lautar|TIMES=cl("Lautar")/3+1|Protection from Evil
 4							ADD:Song of Power(Allure,Bring the Rain,Call the Storm,Call the Herd,Calm Animal,Prowess,The Well Runs Dry)
