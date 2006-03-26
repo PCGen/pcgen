@@ -1015,4 +1015,80 @@ public class AbilityUtilities
 		aPc.setStableAutomaticFeatList(autoFeatList);
 		return autoFeatList;
 	}
+
+
+	/**
+	 * Extracts the contents of the first set of balanced parenthesis (including
+	 * any properly nested parenthesis).  "foo (bar, baz)" returns "bar, baz".
+	 *
+	 * @param aString the input string
+	 * @return the contents of the parenthesis
+	 */
+	static public String extractContentsOfFirstBalancedParens(String aString) {
+	
+		int open  = 0;
+		int start = aString.indexOf('(');
+		int end   = start;
+		
+		if (end > -1) {
+			while (end < aString.length()) {
+				switch (aString.charAt(end)) {
+				case '(':
+					open += 1;
+					break;
+					
+				case ')':
+					open -= 1;
+					break;
+					
+				default:
+				}
+				
+				if (open < 1) {
+					break;
+				}
+				end++;
+			}
+		}
+	
+		if (open < 1) {
+			aString = aString.substring(start, end);
+		}
+		return aString;
+	}
+
+
+	/**
+	 * Given the string "token<Prereq1|Prereq2|Prereq3>", this will clear preReqArray,
+	 * then populate it with "Prereq1", "Prereq2", "Prereq3" and return token.  
+	 *  
+	 * @param aString "token<Prereq1|Prereq2|Prereq3>"
+	 * @param preReqArray will contain any prereqs after the routine returns
+	 * 
+	 * @return the token 
+	 */
+	public static String extractTokenPrerequities(String aString, final List preReqArray) {
+	
+		preReqArray.clear();
+		String tokenString = aString;
+		String pString     = "";
+	
+		final StringTokenizer preTok  = new StringTokenizer(aString, "<>|", true);
+		
+		if (preTok.hasMoreTokens()) {
+			tokenString = preTok.nextToken();
+		}
+	
+		while (preTok.hasMoreTokens() && !(">").equals(pString))
+		{
+			pString = preTok.nextToken();
+	
+			if ((pString.startsWith("PRE") || pString.startsWith("!PRE")))
+			{
+				preReqArray.add(pString);
+			}
+		}
+	
+		return tokenString;
+	}
 }
