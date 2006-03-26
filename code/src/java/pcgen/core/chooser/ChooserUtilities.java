@@ -300,12 +300,12 @@ public class ChooserUtilities
 	private static void constructMap()
 	{
 		classLookup = new HashMap();
-		classLookup.put("ARMORPROF",  ArmorProfChoiceManager.class.getName());
-		classLookup.put("FEAT",       FeatChoiceManager.class.getName());
-		classLookup.put("MISC",       MiscChoiceManager.class.getName());
-		classLookup.put("SHIELDPROF", ShieldProfChoiceManager.class.getName());
-		classLookup.put("SPELLLEVEL", SpellLevelChoiceManager.class.getName());
-		classLookup.put("WEAPONPROF", WeaponProfChoiceManager.class.getName());
+		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
+		classLookup.put("ARMORPROF",            SimpleArmorProfChoiceManager.class.getName());
+		classLookup.put("FEAT",                 SimpleFeatChoiceManager.class.getName());
+		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
+		classLookup.put("SPELLLEVEL",           SimpleSpellLevelChoiceManager.class.getName());
+		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
 		mapconstructed = true;
 	}
 
