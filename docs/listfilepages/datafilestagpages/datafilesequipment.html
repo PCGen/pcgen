@@ -28,7 +28,6 @@
 			tags is relevant to all equipment</p>
 		
 		<p></p><a name="BASEITEM"></a><hr>
-		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> BASEITEM:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (name of base item)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -68,7 +67,6 @@
 		<p class="indent3">Item costs 5 gold peices.</p>
 
 		<p></p><a name="CONTAINS"></a><hr>
-		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> CONTAINS:x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (quantity held)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Type=&lt;itemtype&gt;)</p>
@@ -239,6 +237,21 @@
 		<p class="indent2"><code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code></p>
 		<p class="indent3">Type must be Magic, Piercing, Slashing and (Armor OR Shield).</p>
 		
+		<p></p><a name="QUALITY"></a><hr>
+		<p class="new">*** New 5.9.7</p>
+		<p class="indent0"><strong>Tag Name:</strong> QUALITY:x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the quality)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Text string value of the quality)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets the name and value of a quality which will be attached to the equipment. 
+		Qualities can be output by the 
+		<code><a href="../../outputsheetpages/tokens/outputsheettokensequip.html#EQ.QUALITY">EQ.0.QUALITY</a></code> tag</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>QUALITY:Restriction|Licensed</code></p>
+		<p class="indent3">The equipment has the &quot;Restriction&quot; quality which has a value of &quot;Licensed&quot;.</p>
+		<p class="indent2"><code>QUALITY:Black Market DC|(+1)</code></p>
+		<p class="indent3">The equipment has the &quot;Black Market DC&quot; quality which has a value of &quot;(+1)&quot;.</p>
+		
 		<p></p><a name="SIZE"></a><hr>
 		<p class="new">*** Updated 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
@@ -298,7 +311,6 @@
 			the output sheet reads &quot;+4 vs. code bugs&quot;.</p>
 
 		<p></p><a name="TYPE"></a><hr>
-		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Item Type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -347,7 +359,6 @@
 		<p class="indent3">Item has an armor check penalty of -6.</p>
 
 		<p></p><a name="ALTCRITICAL"></a><hr>
-		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> ALTCRITICAL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Secondary attack's critical modifier)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -360,7 +371,6 @@
 		<p class="indent3">2nd head has a critical modifier of x3.</p>
 
 		<p></p><a name="ALTCRITRANGE"></a><hr>
-		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> ALTCRITRANGE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Secondary attack's critical chance)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
