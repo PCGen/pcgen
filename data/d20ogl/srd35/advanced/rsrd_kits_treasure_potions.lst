@@ -1,0 +1,211 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Minor Potions	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Cure Light Wounds)			OPTION:1,10
+GEAR:Potion (Endure Elements)				OPTION:11,13
+GEAR:Potion (Hide from Animals)			OPTION:14,15
+GEAR:Potion (Hide from Undead)			OPTION:16,17
+GEAR:Potion (Jump)					OPTION:18,19
+GEAR:Potion (Mage Armor)				OPTION:20,22
+GEAR:Potion (Magic Fang)				OPTION:23,25
+GEAR:Oil of Magic Stone					OPTION:26
+GEAR:Oil of Magic Weapon				OPTION:27,29
+GEAR:Potion (Pass without Trace)			OPTION:30
+KIT:Potion (Protection from Alignment)	OPTION:31,32
+GEAR:Potion (Remove Fear)				OPTION:33,34
+GEAR:Potion (Sanctuary)					OPTION:35
+GEAR:Potion (Shield of Faith +2)			OPTION:36,38
+GEAR:Oil of Shillelagh					OPTION:39
+GEAR:Oil of Bless Weapon				OPTION:40,41
+GEAR:Potion (Enlarge Person)				OPTION:42,44
+GEAR:Potion (Reduce Person)				OPTION:45
+GEAR:Potion (Aid)						OPTION:46,47
+GEAR:Potion (Barkskin +2)				OPTION:48,50
+GEAR:Potion (Bear's Endurance)			OPTION:51,53
+GEAR:Potion (Blur)					OPTION:54,56
+GEAR:Potion (Bull's Strength)				OPTION:57,59
+GEAR:Potion (Cat's Grace)				OPTION:60,62
+GEAR:Potion (Cure Moderate Wounds)			OPTION:63,67
+GEAR:Potion (Oil of Darkness)				OPTION:68
+GEAR:Potion (Darkvision)				OPTION:69,71
+GEAR:Potion (Delay Poison)				OPTION:72,74
+GEAR:Potion (Eagle's Splendor)			OPTION:75,76
+GEAR:Potion (Fox's Cunning)				OPTION:77,78
+KIT:Potion or Oil of Invisibility		OPTION:79,81
+GEAR:Potion (Lesser Restoration)			OPTION:82,84
+KIT:Potion or Oil of Levitate			OPTION:85,86
+GEAR:Potion (Misdirection)				OPTION:87
+GEAR:Potion (Owl's Wisdom)				OPTION:88,89
+GEAR:Potion (Protection from Arrows 10/magic)	OPTION:90,91
+GEAR:Potion (Remove Paralysis)			OPTION:92,93
+KIT:Potion Resist Energy 10			OPTION:94,96
+GEAR:Potion (Shield of Faith +3)			OPTION:97
+GEAR:Potion (Spider Climb)				OPTION:98,99
+GEAR:Potion (Undetectable Alignment)		OPTION:100
+
+STARTPACK:Medium Potions	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Oil of Bless Weapon				OPTION:1,2
+GEAR:Potion (Enlarge Person)				OPTION:3,4
+GEAR:Potion (Reduce Person)				OPTION:5
+GEAR:Potion (Aid)						OPTION:6
+GEAR:Potion (Barkskin +2)				OPTION:7
+GEAR:Potion (Bear's Endurance)			OPTION:8,10
+GEAR:Potion (Blur)					OPTION:11,13
+GEAR:Potion (Bull's Strength)				OPTION:14,16
+GEAR:Potion (Cat's Grace)				OPTION:17,19
+GEAR:Potion (Cure Moderate Wounds)			OPTION:20,27
+GEAR:Potion (Oil of Darkness)				OPTION:28
+GEAR:Potion (Darkvision)				OPTION:29,30
+GEAR:Potion (Delay Poison)				OPTION:31
+GEAR:Potion (Eagle's Splendor)			OPTION:32,33
+GEAR:Potion (Fox's Cunning)				OPTION:34,35
+KIT:Potion or Oil of Invisibility			OPTION:36,37
+GEAR:Potion (Lesser Restoration)			OPTION:38
+KIT:Potion or Oil of Levitate				OPTION:39
+GEAR:Potion (Misdirection)				OPTION:40
+GEAR:Potion (Owl's Wisdom)				OPTION:41,42
+GEAR:Potion (Protection from Arrows 10/magic)	OPTION:43
+GEAR:Potion (Remove Paralysis)			OPTION:44
+KIT:Potion Resist Energy 10				OPTION:45,46
+GEAR:Potion (Shield of Faith +3)			OPTION:47,48
+GEAR:Potion (Spider Climb)				OPTION:49
+GEAR:Potion (Undetectable Alignment)		OPTION:50
+GEAR:Potion (Barkskin +3)				OPTION:51
+GEAR:Potion (Shield of Faith +4)			OPTION:52
+KIT:Potion (Resist Energy 20)				OPTION:53,55
+GEAR:Potion (Cure Serious Wounds)			OPTION:56,60
+GEAR:Potion (Oil of Daylight)				OPTION:61
+GEAR:Potion (Displacement)				OPTION:62,64
+GEAR:Potion (Oil of Flame Arrow)			OPTION:65
+GEAR:Potion (Fly)						OPTION:66,68
+GEAR:Potion (Gaseous Form)				OPTION:69
+GEAR:Potion (Greater Magic Fang +1)			OPTION:70,71
+GEAR:Potion (Oil of Greater Magic Weapon +1)	OPTION:72,73
+GEAR:Potion (Haste)					OPTION:74,75
+GEAR:Potion (Heroism)					OPTION:76,78
+GEAR:Potion (Oil of Keen Edge)			OPTION:79,80
+KIT:Potion (Magic Circle against Alignment)	OPTION:81
+GEAR:Potion (Oil of Magic Vestment +1)		OPTION:82,83
+GEAR:Potion (Neutralize Poison)			OPTION:84,86
+GEAR:Potion (Nondetection)				OPTION:87,88
+KIT:Potion (Protection from Energy)			OPTION:89,91
+GEAR:Potion (Rage)					OPTION:92,93
+GEAR:Potion (Remove Blindness/Deafness)		OPTION:94
+GEAR:Potion (Remove Curse)				OPTION:95
+GEAR:Potion (Remove Disease)				OPTION:96
+GEAR:Potion (Tongues)					OPTION:97
+GEAR:Potion (Water Breathing)				OPTION:98,99
+GEAR:Potion (Water Walk)				OPTION:100
+
+STARTPACK:Major Potions	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Blur)					OPTION:1,2
+GEAR:Potion (Cure Moderate Wounds)			OPTION:3,7
+GEAR:Potion (Darkvision)				OPTION:8,9
+KIT:Potion or Oil of Invisibility			OPTION:10,11
+GEAR:Potion (Lesser Restoration)			OPTION:12
+GEAR:Potion (Remove Paralysis)			OPTION:13
+GEAR:Potion (Shield of Faith +3)			OPTION:14
+GEAR:Potion (Undetectable Alignment)		OPTION:15
+GEAR:Potion (Barkskin +3)				OPTION:16
+GEAR:Potion (Shield of Faith +4)			OPTION:17,18
+KIT:Potion (Resist Energy 20)				OPTION:19,20
+GEAR:Potion (Cure Serious Wounds)			OPTION:21,28
+GEAR:Potion (Oil of Daylight)				OPTION:29
+GEAR:Potion (Displacement)				OPTION:30,32
+GEAR:Potion (Oil of Flame Arrow)			OPTION:33
+GEAR:Potion (Fly)						OPTION:34,38
+GEAR:Potion (Gaseous Form)				OPTION:39
+GEAR:Potion (Haste)					OPTION:40,41
+GEAR:Potion (Heroism)					OPTION:42,44
+GEAR:Potion (Oil of Keen Edge)			OPTION:45,46
+KIT:Potion (Magic Circle against Alignment)	OPTION:47
+GEAR:Potion (Neutralize Poison)			OPTION:48,50
+GEAR:Potion (Nondetection)				OPTION:51,52
+KIT:Potion (Protection from Energy)			OPTION:53,54
+GEAR:Potion (Rage)					OPTION:55
+GEAR:Potion (Remove Blindness/Deafness)		OPTION:56
+GEAR:Potion (Remove Curse)				OPTION:57
+GEAR:Potion (Remove Disease)				OPTION:58
+GEAR:Potion (Tongues)					OPTION:59
+GEAR:Potion (Water Breathing)				OPTION:60
+GEAR:Potion (Water Walk)				OPTION:61
+GEAR:Potion (Barkskin +4)				OPTION:62,63
+GEAR:Potion (Shield of Faith +5)			OPTION:64
+GEAR:Potion (Good Hope)					OPTION:65
+KIT:Potion (Resist Energy 30)				OPTION:66,68
+GEAR:Potion (Barkskin +5)				OPTION:69
+GEAR:Potion (Greater Magic Fang +2)			OPTION:70,73
+GEAR:Potion (Oil of Greater Magic Weapon +2)	OPTION:74,77
+GEAR:Potion (Oil of Magic Vestment +2)		OPTION:78,81
+GEAR:Potion (Protection from Arrows 15/Magic)	OPTION:82
+GEAR:Potion (Greater Magic Fang +3)			OPTION:83,85
+GEAR:Potion (Oil of Greater Magic Weapon +3)	OPTION:86,88
+GEAR:Potion (Oil of Magic Vestment +3)		OPTION:89,91
+GEAR:Potion (Greater Magic Fang +4)			OPTION:92,93
+GEAR:Potion (Oil of Greater Magic Weapon +4)	OPTION:94,95
+GEAR:Potion (Oil of Magic Vestment +4)		OPTION:96,97
+GEAR:Potion (Greater Magic Fang +5)			OPTION:98
+GEAR:Potion (Oil of Greater Magic Weapon +5)	OPTION:99
+GEAR:Potion (Oil of Magic Vestment +5)		OPTION:100
+
+STARTPACK:Potion (Protection from Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+GEAR:Potion (Protection from Chaos)	OPTION:1
+GEAR:Potion (Protection from Evil)	OPTION:2
+GEAR:Potion (Protection from Good)	OPTION:3
+GEAR:Potion (Protection from Law)	OPTION:4
+
+STARTPACK:Potion or Oil of Invisibility	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Invisibility)		OPTION:1,50
+GEAR:Potion (Oil of Invisibility)	OPTION:51,100
+
+STARTPACK:Potion or Oil of Levitate	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Levitate)		OPTION:1,50
+GEAR:Potion (Oil of Levitate)	OPTION:51,100
+
+STARTPACK:Potion Resist Energy 10	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Resist Energy 10/Acid)			OPTION:1,20
+GEAR:Potion (Resist Energy 10/Cold)			OPTION:21,40
+GEAR:Potion (Resist Energy 10/Electricity)	OPTION:41,60
+GEAR:Potion (Resist Energy 10/Fire)			OPTION:61,80
+GEAR:Potion (Resist Energy 10/Sonic)		OPTION:81,100
+
+STARTPACK:Potion (Resist Energy 20)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Resist Energy 20/Acid)			OPTION:1,20
+GEAR:Potion (Resist Energy 20/Cold)			OPTION:21,40
+GEAR:Potion (Resist Energy 20/Electricity)	OPTION:41,60
+GEAR:Potion (Resist Energy 20/Fire)			OPTION:61,80
+GEAR:Potion (Resist Energy 20/Sonic)		OPTION:81,100
+
+STARTPACK:Potion (Magic Circle against Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Magic Circle against Chaos)	OPTION:1,25
+GEAR:Potion (Magic Circle against Evil)	OPTION:26,50
+GEAR:Potion (Magic Circle against Good)	OPTION:51,75
+GEAR:Potion (Magic Circle against Law)	OPTION:76,100
+
+STARTPACK:Potion (Protection from Energy)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Protection from Energy/Acid)			OPTION:1,20
+GEAR:Potion (Protection from Energy/Cold)			OPTION:21,40
+GEAR:Potion (Protection from Energy/Electricity)	OPTION:41,60
+GEAR:Potion (Protection from Energy/Fire)			OPTION:61,80
+GEAR:Potion (Protection from Energy/Sonic)		OPTION:81,100
+
+STARTPACK:Potion (Resist Energy 30)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Potion (Resist Energy 30/Acid)			OPTION:1,20
+GEAR:Potion (Resist Energy 30/Cold)			OPTION:21,40
+GEAR:Potion (Resist Energy 30/Electricity)	OPTION:41,60
+GEAR:Potion (Resist Energy 30/Fire)			OPTION:61,80
+GEAR:Potion (Resist Energy 30/Sonic)		OPTION:81,100
+

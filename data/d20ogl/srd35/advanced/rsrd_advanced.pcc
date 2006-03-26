@@ -24,10 +24,31 @@ EQUIPMENT:rsrd_equip_potions.lst
 EQUIPMENT:rsrd_equip_rings.lst
 EQUIPMENT:rsrd_equip_rodsstaffswands.lst
 EQUIPMENT:rsrd_equip_scrolls.lst
+EQUIPMENT:rsrd_equip_treasure_coinsgems.lst
 EQUIPMENT:rsrd_equip_weap_ammo_specific.lst
 EQUIPMENT:rsrd_equip_weap_melee_specific.lst
 EQUIPMENT:rsrd_equip_weap_ranged_specific.lst
 EQUIPMENT:rsrd_equip_wondrousitems.lst
+
+EQUIPMOD:rsrd_equipmods_treasure_base.lst
+
+KIT:rsrd_kits_treasure_armor_shields.lst
+KIT:rsrd_kits_treasure_art.lst
+KIT:rsrd_kits_treasure_base.lst
+KIT:rsrd_kits_treasure_coins.lst
+KIT:rsrd_kits_treasure_gems.lst
+KIT:rsrd_kits_treasure_goods.lst
+KIT:rsrd_kits_treasure_items.lst
+KIT:rsrd_kits_treasure_magic_items.lst
+KIT:rsrd_kits_treasure_mundane_items.lst
+KIT:rsrd_kits_treasure_potions.lst
+KIT:rsrd_kits_treasure_rings.lst
+KIT:rsrd_kits_treasure_rods.lst
+KIT:rsrd_kits_treasure_scrolls.lst
+KIT:rsrd_kits_treasure_staffs.lst
+KIT:rsrd_kits_treasure_wands.lst
+KIT:rsrd_kits_treasure_weapons.lst
+KIT:rsrd_kits_treasure_wondrous_items.lst
 
 #
 # End

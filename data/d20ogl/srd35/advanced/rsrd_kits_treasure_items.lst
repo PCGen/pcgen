@@ -1,0 +1,180 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Treasure Table Items CR1	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Mundane Items		OPTION:72,95
+KIT:Treasure Table Minor Magic Items	OPTION:96,100
+
+STARTPACK:Treasure Table Items CR2	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Mundane Items		OPTION:50,85
+KIT:Treasure Table Minor Magic Items	OPTION:86,100
+
+STARTPACK:Treasure Table Items CR3	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Mundane Items 1d3	OPTION:50,79
+KIT:Treasure Table Minor Magic Items	OPTION:80,100
+
+STARTPACK:Treasure Table Items CR4	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Mundane Items 1d4	OPTION:43,62
+KIT:Treasure Table Minor Magic Items	OPTION:63,100
+
+STARTPACK:Treasure Table Items CR5	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Mundane Items 1d4	OPTION:58,67
+KIT:Treasure Table Minor Magic Items 1d3	OPTION:68,100
+
+STARTPACK:Treasure Table Items CR6	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Mundane Items 1d4	OPTION:55,59
+KIT:Treasure Table Minor Magic Items 1d3	OPTION:60,99
+KIT:Treasure Table Medium Magic Items	OPTION:100
+
+STARTPACK:Treasure Table Items CR7	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d3	OPTION:52,97
+KIT:Treasure Table Medium Magic Items	OPTION:98,100
+
+STARTPACK:Treasure Table Items CR8	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d4	OPTION:49,96
+KIT:Treasure Table Medium Magic Items	OPTION:97,100
+
+STARTPACK:Treasure Table Items CR9	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d4	OPTION:44,91
+KIT:Treasure Table Medium Magic Items	OPTION:92,100
+
+STARTPACK:Treasure Table Items CR10	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d4	OPTION:41,88
+KIT:Treasure Table Medium Magic Items	OPTION:89,99
+KIT:Treasure Table Major Magic Items	OPTION:100
+
+STARTPACK:Treasure Table Items CR11	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d4	OPTION:32,84
+KIT:Treasure Table Medium Magic Items	OPTION:85,98
+KIT:Treasure Table Major Magic Items	OPTION:99,100
+
+STARTPACK:Treasure Table Items CR12	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d6	OPTION:28,82
+KIT:Treasure Table Medium Magic Items	OPTION:83,97
+KIT:Treasure Table Major Magic Items	OPTION:98,100
+
+STARTPACK:Treasure Table Items CR13	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d6	OPTION:20,73
+KIT:Treasure Table Medium Magic Items	OPTION:74,95
+KIT:Treasure Table Major Magic Items	OPTION:96,100
+
+STARTPACK:Treasure Table Items CR14	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d6	OPTION:20,58
+KIT:Treasure Table Medium Magic Items	OPTION:59,92
+KIT:Treasure Table Major Magic Items	OPTION:93,100
+
+STARTPACK:Treasure Table Items CR15	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d10	OPTION:12,46
+KIT:Treasure Table Medium Magic Items	OPTION:47,90
+KIT:Treasure Table Major Magic Items	OPTION:91,100
+
+STARTPACK:Treasure Table Items CR16	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Minor Magic Items 1d10	OPTION:41,46
+KIT:Treasure Table Medium Magic Items 1d3	OPTION:47,90
+KIT:Treasure Table Major Magic Items	OPTION:91,100
+
+STARTPACK:Treasure Table Items CR17	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Medium Magic Items 1d3	OPTION:34,83
+KIT:Treasure Table Major Magic Items	OPTION:84,100
+
+STARTPACK:Treasure Table Items CR18	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Medium Magic Items 1d4	OPTION:25,80
+KIT:Treasure Table Major Magic Items	OPTION:81,100
+
+STARTPACK:Treasure Table Items CR19	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Medium Magic Items 1d4	OPTION:5,70
+KIT:Treasure Table Major Magic Items	OPTION:71,100
+
+STARTPACK:Treasure Table Items CR20	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Medium Magic Items 1d4	OPTION:26,65
+KIT:Treasure Table Major Magic Items 1d3	OPTION:66,100
+
+STARTPACK:Treasure Table Mundane Items 1d3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+KIT:Treasure Table Mundane Items	OPTION:1
+KIT:Treasure Table Mundane Items	OPTION:1,2
+KIT:Treasure Table Mundane Items	OPTION:1,3
+
+STARTPACK:Treasure Table Mundane Items 1d4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+KIT:Treasure Table Mundane Items	OPTION:1
+KIT:Treasure Table Mundane Items	OPTION:1,2
+KIT:Treasure Table Mundane Items	OPTION:1,3
+KIT:Treasure Table Mundane Items	OPTION:1,4
+
+STARTPACK:Treasure Table Minor Magic Items 1d3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+KIT:Treasure Table Minor Magic Items	OPTION:1
+KIT:Treasure Table Minor Magic Items	OPTION:1,2
+KIT:Treasure Table Minor Magic Items	OPTION:1,3
+
+STARTPACK:Treasure Table Minor Magic Items 1d4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+KIT:Treasure Table Minor Magic Items	OPTION:1
+KIT:Treasure Table Minor Magic Items	OPTION:1,2
+KIT:Treasure Table Minor Magic Items	OPTION:1,3
+KIT:Treasure Table Minor Magic Items	OPTION:1,4
+
+STARTPACK:Treasure Table Minor Magic Items 1d6	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d6")
+KIT:Treasure Table Minor Magic Items	OPTION:1
+KIT:Treasure Table Minor Magic Items	OPTION:1,2
+KIT:Treasure Table Minor Magic Items	OPTION:1,3
+KIT:Treasure Table Minor Magic Items	OPTION:1,4
+KIT:Treasure Table Minor Magic Items	OPTION:1,5
+KIT:Treasure Table Minor Magic Items	OPTION:1,6
+
+STARTPACK:Treasure Table Minor Magic Items 1d10	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d10")
+KIT:Treasure Table Minor Magic Items	OPTION:1
+KIT:Treasure Table Minor Magic Items	OPTION:1,2
+KIT:Treasure Table Minor Magic Items	OPTION:1,3
+KIT:Treasure Table Minor Magic Items	OPTION:1,4
+KIT:Treasure Table Minor Magic Items	OPTION:1,5
+KIT:Treasure Table Minor Magic Items	OPTION:1,6
+KIT:Treasure Table Minor Magic Items	OPTION:1,7
+KIT:Treasure Table Minor Magic Items	OPTION:1,8
+KIT:Treasure Table Minor Magic Items	OPTION:1,9
+KIT:Treasure Table Minor Magic Items	OPTION:1,10
+
+
+STARTPACK:Treasure Table Medium Magic Items 1d3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+KIT:Treasure Table Medium Magic Items	OPTION:1
+KIT:Treasure Table Medium Magic Items	OPTION:1,2
+KIT:Treasure Table Medium Magic Items	OPTION:1,3
+
+STARTPACK:Treasure Table Medium Magic Items 1d4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+KIT:Treasure Table Medium Magic Items	OPTION:1
+KIT:Treasure Table Medium Magic Items	OPTION:1,2
+KIT:Treasure Table Medium Magic Items	OPTION:1,3
+KIT:Treasure Table Medium Magic Items	OPTION:1,4
+
+STARTPACK:Treasure Table Major Magic Items 1d3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+KIT:Treasure Table Major Magic Items	OPTION:1
+KIT:Treasure Table Major Magic Items	OPTION:1,2
+KIT:Treasure Table Major Magic Items	OPTION:1,3
+

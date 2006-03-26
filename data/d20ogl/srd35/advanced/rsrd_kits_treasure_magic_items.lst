@@ -1,0 +1,38 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Treasure Table Minor Magic Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Minor Armor and Shields	OPTION:1,4
+KIT:Minor Weapons			OPTION:5,9
+KIT:Minor Potions			OPTION:10,44
+KIT:Minor Rings			OPTION:45,46
+KIT:Minor Scrolls			OPTION:47,81
+KIT:Minor Wands			OPTION:82,91
+KIT:Minor Wondrous Items	OPTION:92,100
+
+STARTPACK:Treasure Table Medium Magic Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Medium Armor and Shields	OPTION:1,10
+KIT:Medium Weapons		OPTION:11,20
+KIT:Medium Potions		OPTION:21,30
+KIT:Medium Rings			OPTION:31,40
+KIT:Medium Rods			OPTION:41,50
+KIT:Medium Scrolls		OPTION:51,65
+KIT:Medium Staffs			OPTION:66,68
+KIT:Medium Wands			OPTION:69,83
+KIT:Medium Wondrous Items	OPTION:84,100
+
+STARTPACK:Treasure Table Major Magic Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Major Armor and Shields	OPTION:1,10
+KIT:Major Weapons			OPTION:11,20
+KIT:Major Potions			OPTION:21,25
+KIT:Major Rings			OPTION:26,35
+KIT:Major Rods			OPTION:36,45
+KIT:Major Scrolls			OPTION:46,55
+KIT:Major Staffs			OPTION:56,75
+KIT:Major Wands			OPTION:76,80
+KIT:Major Wondrous Items	OPTION:81,100
+

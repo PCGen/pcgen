@@ -1,0 +1,134 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Minor Wands	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Wand (Detect Magic)				OPTION:1,2
+GEAR:Wand (Light)						OPTION:3,4
+GEAR:Wand (Burning Hands)				OPTION:5,7
+GEAR:Wand (Charm Animal)				OPTION:8,10
+GEAR:Wand (Charm Person)				OPTION:11,13
+GEAR:Wand (Color Spray)					OPTION:14,16
+GEAR:Wand (Cure Light Wounds)				OPTION:17,19
+GEAR:Wand (Detect Secret Doors)			OPTION:20,22
+GEAR:Wand (Enlarge Person)				OPTION:23,25
+GEAR:Wand (Magic Missile/1st level caster)	OPTION:26,28
+GEAR:Wand (Shocking Grasp)				OPTION:29,31
+GEAR:Wand (Summon Monster I)				OPTION:32,34
+GEAR:Wand (Magic Missile/3rd level caster)	OPTION:35,36
+GEAR:Wand (Magic Missile/5th level caster)	OPTION:37
+GEAR:Wand (Bear's Endurance)				OPTION:38,40
+GEAR:Wand (Bull's Strength)				OPTION:41,43
+GEAR:Wand (Cat's Grace)					OPTION:44,46
+GEAR:Wand (Cure Moderate Wounds)			OPTION:47,49
+GEAR:Wand (Darkness)					OPTION:50,51
+GEAR:Wand (Daylight)					OPTION:52,54
+GEAR:Wand (Delay Poison)				OPTION:55,57
+GEAR:Wand (Eagle's Splendor)				OPTION:58,60
+GEAR:Wand (False Life)					OPTION:61,63
+GEAR:Wand (Fox's Cunning)				OPTION:64,66
+GEAR:Wand (Ghoul Touch)					OPTION:67,68
+GEAR:Wand (Hold Person)					OPTION:69,71
+GEAR:Wand (Invisibility)				OPTION:72,74
+GEAR:Wand (Knock)						OPTION:75,77
+GEAR:Wand (Levitate)					OPTION:78,80
+GEAR:Wand (Acid Arrow)					OPTION:81,83
+GEAR:Wand (Mirror Image)				OPTION:84,86
+GEAR:Wand (Owl's Wisdom)				OPTION:87,89
+GEAR:Wand (Shatter)					OPTION:90,91
+GEAR:Wand (Silence)					OPTION:92,94
+GEAR:Wand (Summon Monster II)				OPTION:95,97
+GEAR:Wand (Web)						OPTION:98,100
+
+STARTPACK:Medium Wands	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Wand (Magic Missile/5th level caster)			OPTION:1,3
+GEAR:Wand (Bear's Endurance)						OPTION:4,7
+GEAR:Wand (Bull's Strength)						OPTION:8,11
+GEAR:Wand (Cat's Grace)							OPTION:12,15
+GEAR:Wand (Cure Moderate Wounds)					OPTION:16,20
+GEAR:Wand (Darkness)							OPTION:21,22
+GEAR:Wand (Daylight)							OPTION:23,24
+GEAR:Wand (Delay Poison)						OPTION:25,27
+GEAR:Wand (Eagle's Splendor)						OPTION:28,31
+GEAR:Wand (False Life)							OPTION:32,33
+GEAR:Wand (Fox's Cunning)						OPTION:34,37
+GEAR:Wand (Ghoul Touch)							OPTION:38
+GEAR:Wand (Hold Person)							OPTION:39
+GEAR:Wand (Invisibility)						OPTION:40,42
+GEAR:Wand (Knock)								OPTION:43,44
+GEAR:Wand (Levitate)							OPTION:45
+GEAR:Wand (Acid Arrow)							OPTION:46,47
+GEAR:Wand (Mirror Image)						OPTION:48,49
+GEAR:Wand (Owl's Wisdom)						OPTION:50,53
+GEAR:Wand (Shatter)							OPTION:54
+GEAR:Wand (Silence)							OPTION:55,56
+GEAR:Wand (Summon Monster II)						OPTION:57
+GEAR:Wand (Web)								OPTION:58,59
+GEAR:Wand (Magic Missile/7th level caster)			OPTION:60,62
+GEAR:Wand (Magic Missile/9th level caster)			OPTION:63,64
+GEAR:Wand (Call Lightning/5th level caster)			OPTION:65,67
+GEAR:Wand (Charm Person/heightened to 3rd-level spell)	OPTION:68
+GEAR:Wand (Contagion)							OPTION:69,70
+GEAR:Wand (Cure Serious Wounds)					OPTION:71,74
+GEAR:Wand (Dispel Magic)						OPTION:75,77
+GEAR:Wand (Fireball/5th level caster)				OPTION:78,81
+GEAR:Wand (Keen Edge)							OPTION:82,83
+GEAR:Wand (Lightning Bolt/5th level caster)			OPTION:84,87
+GEAR:Wand (Major Image)							OPTION:88,89
+GEAR:Wand (Slow)								OPTION:90,91
+GEAR:Wand (Suggestion)							OPTION:92,94
+GEAR:Wand (Summon Monster III)					OPTION:95,97
+GEAR:Wand (Fireball/6th level caster)				OPTION:98
+GEAR:Wand (Lightning Bolt/6th level caster)			OPTION:99
+GEAR:Wand (Searing Light/6th level caster)			OPTION:100
+
+STARTPACK:Major Wands	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Wand (Magic Missile/7th level caster)				OPTION:1,2
+GEAR:Wand (Magic Missile/9th level caster)				OPTION:3,5
+GEAR:Wand (Call Lightning/5th level caster)				OPTION:6,7
+GEAR:Wand (Charm Person/heightened to 3rd-level spell)		OPTION:8
+GEAR:Wand (Contagion)								OPTION:9,10
+GEAR:Wand (Cure Serious Wounds)						OPTION:11,13
+GEAR:Wand (Dispel Magic)							OPTION:14,15
+GEAR:Wand (Fireball/5th level caster)					OPTION:16,17
+GEAR:Wand (Keen Edge)								OPTION:18,19
+GEAR:Wand (Lightning Bolt/5th level caster)				OPTION:20,21
+GEAR:Wand (Major Image)								OPTION:22,23
+GEAR:Wand (Slow)									OPTION:24,25
+GEAR:Wand (Suggestion)								OPTION:26,27
+GEAR:Wand (Summon Monster III)						OPTION:28,29
+GEAR:Wand (Fireball/6th level caster)					OPTION:30,31
+GEAR:Wand (Lightning Bolt/6th level caster)				OPTION:32,33
+GEAR:Wand (Searing Light/6th level caster)				OPTION:34,35
+GEAR:Wand (Call Lightning/8th level caster)				OPTION:36,37
+GEAR:Wand (Fireball/8th level caster)					OPTION:38,39
+GEAR:Wand (Lightning Bolt/8th level caster)				OPTION:40,41
+GEAR:Wand (Charm Monster)							OPTION:42,45
+GEAR:Wand (Cure Critical Wounds)						OPTION:46,50
+GEAR:Wand (Dimensional Anchor)						OPTION:51,52
+GEAR:Wand (Fear)									OPTION:53,55
+GEAR:Wand (Greater Invisibility)						OPTION:56,59
+GEAR:Wand (Hold Person/heightened to 4th-level spell)			OPTION:60
+GEAR:Wand (Ice Storm)								OPTION:61,65
+GEAR:Wand (Inflict Critical Wounds)						OPTION:66,68
+GEAR:Wand (Neutralize Poison)							OPTION:69,72
+GEAR:Wand (Poison)								OPTION:73,74
+GEAR:Wand (Polymorph)								OPTION:75,77
+GEAR:Wand (Ray of Enfeeblement/heightened to 4th-level spell)	OPTION:78
+GEAR:Wand (Suggestion/heightened to 4th-level spell)			OPTION:79
+GEAR:Wand (Summon Monster IV)							OPTION:80,82
+GEAR:Wand (Wall of Fire)							OPTION:83,86
+GEAR:Wand (Wall of Ice)								OPTION:87,90
+GEAR:Wand (Dispel Magic/10th level caster)				OPTION:91
+GEAR:Wand (Fireball/10th level caster)					OPTION:92
+GEAR:Wand (Lightning Bolt/10th level caster)				OPTION:93
+GEAR:Wand (Chaos Hammer/8th Level Caster)					OPTION:94
+GEAR:Wand (Holy Smite/8th level caster)					OPTION:95
+GEAR:Wand (Order's Wrath/8th level caster)				OPTION:96
+GEAR:Wand (Unholy Blight/8th level caster)				OPTION:97
+GEAR:Wand (Restoration)								OPTION:98,99
+GEAR:Wand (Stoneskin)								OPTION:100
+#

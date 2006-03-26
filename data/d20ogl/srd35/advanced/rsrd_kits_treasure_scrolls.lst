@@ -1,0 +1,928 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Minor Scrolls	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Minor Arcane Scroll	OPTION:1,70
+KIT:Minor Divine Scroll	OPTION:71,100
+
+STARTPACK:Minor Arcane Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+KIT:Minor Arcane Scroll Spell	OPTION:1
+KIT:Minor Arcane Scroll Spell	OPTION:1,2
+KIT:Minor Arcane Scroll Spell	OPTION:1,3
+
+STARTPACK:Minor Arcane Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Arcane Scroll Level 0	OPTION:1,5
+KIT:Arcane Scroll Level 1	OPTION:6,50
+KIT:Arcane Scroll Level 2	OPTION:51,95
+KIT:Arcane Scroll Level 3	OPTION:96,100
+
+STARTPACK:Minor Divine Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+KIT:Minor Divine Scroll Spell	OPTION:1
+KIT:Minor Divine Scroll Spell	OPTION:1,2
+KIT:Minor Divine Scroll Spell	OPTION:1,3
+
+STARTPACK:Minor Divine Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Divine Scroll Level 0	OPTION:1,5
+KIT:Divine Scroll Level 1	OPTION:6,50
+KIT:Divine Scroll Level 2	OPTION:51,95
+KIT:Divine Scroll Level 3	OPTION:96,100
+
+STARTPACK:Medium Scrolls	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Medium Arcane Scroll	OPTION:1,70
+KIT:Medium Divine Scroll	OPTION:71,100
+
+STARTPACK:Medium Arcane Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+KIT:Medium Arcane Scroll Spell	OPTION:1
+KIT:Medium Arcane Scroll Spell	OPTION:1,2
+KIT:Medium Arcane Scroll Spell	OPTION:1,3
+KIT:Medium Arcane Scroll Spell	OPTION:1,4
+
+STARTPACK:Medium Arcane Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Arcane Scroll Level 2	OPTION:1,5
+KIT:Arcane Scroll Level 3	OPTION:6,65
+KIT:Arcane Scroll Level 4	OPTION:66,95
+KIT:Arcane Scroll Level 5	OPTION:96,100
+
+STARTPACK:Medium Divine Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+KIT:Medium Divine Scroll Spell	OPTION:1
+KIT:Medium Divine Scroll Spell	OPTION:1,2
+KIT:Medium Divine Scroll Spell	OPTION:1,3
+KIT:Medium Divine Scroll Spell	OPTION:1,4
+
+STARTPACK:Medium Divine Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Divine Scroll Level 2	OPTION:1,5
+KIT:Divine Scroll Level 3	OPTION:6,65
+KIT:Divine Scroll Level 4	OPTION:66,95
+KIT:Divine Scroll Level 5	OPTION:96,100
+
+STARTPACK:Major Scrolls	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Medium Arcane Scroll	OPTION:1,70
+KIT:Medium Divine Scroll	OPTION:71,100
+
+STARTPACK:Major Arcane Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d6")
+KIT:Major Arcane Scroll Spell	OPTION:1
+KIT:Major Arcane Scroll Spell	OPTION:1,2
+KIT:Major Arcane Scroll Spell	OPTION:1,3
+KIT:Major Arcane Scroll Spell	OPTION:1,4
+KIT:Major Arcane Scroll Spell	OPTION:1,5
+KIT:Major Arcane Scroll Spell	OPTION:1,6
+
+STARTPACK:Major Arcane Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Arcane Scroll Level 4	OPTION:1,5
+KIT:Arcane Scroll Level 5	OPTION:6,50
+KIT:Arcane Scroll Level 6	OPTION:51,70
+KIT:Arcane Scroll Level 7	OPTION:71,85
+KIT:Arcane Scroll Level 8	OPTION:86,95
+KIT:Arcane Scroll Level 9	OPTION:96,100
+
+STARTPACK:Major Divine Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d6")
+KIT:Major Divine Scroll Spell	OPTION:1
+KIT:Major Divine Scroll Spell	OPTION:1,2
+KIT:Major Divine Scroll Spell	OPTION:1,3
+KIT:Major Divine Scroll Spell	OPTION:1,4
+KIT:Major Divine Scroll Spell	OPTION:1,5
+KIT:Major Divine Scroll Spell	OPTION:1,6
+
+STARTPACK:Major Divine Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Divine Scroll Level 4	OPTION:1,5
+KIT:Divine Scroll Level 5	OPTION:6,50
+KIT:Divine Scroll Level 6	OPTION:51,70
+KIT:Divine Scroll Level 7	OPTION:71,85
+KIT:Divine Scroll Level 8	OPTION:86,95
+KIT:Divine Scroll Level 9	OPTION:96,100
+
+STARTPACK:Arcane Scroll Level 0	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Acid Splash)		OPTION:1,4
+GEAR:Scroll (Arcane Mark)		OPTION:5,8
+GEAR:Scroll (Dancing Lights)		OPTION:9,13
+GEAR:Scroll (Daze)			OPTION:14,17
+GEAR:Scroll (Detect Magic/Arcane)	OPTION:18,24
+GEAR:Scroll (Detect Poison/Arcane)	OPTION:25,28
+GEAR:Scroll (Disrupt Undead)		OPTION:29,32
+GEAR:Scroll (Flare/Arcane)		OPTION:33,37
+GEAR:Scroll (Ghost Sound)		OPTION:38,42
+GEAR:Scroll (Know Direction/Arcane)	OPTION:43,44
+GEAR:Scroll (Light/Arcane)		OPTION:45,50
+GEAR:Scroll (Lullaby)			OPTION:51,52
+GEAR:Scroll (Mage Hand)			OPTION:53,57
+GEAR:Scroll (Mending/Arcane)		OPTION:58,62
+GEAR:Scroll (Message)			OPTION:63,67
+GEAR:Scroll (Open/Close)		OPTION:68,72
+GEAR:Scroll (Prestidigitation)	OPTION:73,77
+GEAR:Scroll (Ray of Frost)		OPTION:78,81
+GEAR:Scroll (Read Magic/Arcane)	OPTION:82,87
+GEAR:Scroll (Resistance/Arcane)	OPTION:88,94
+GEAR:Scroll (Summon Instrument)	OPTION:95,96
+GEAR:Scroll (Touch of Fatigue)	OPTION:97,100
+
+STARTPACK:Arcane Scroll Level 1	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Alarm/Arcane)				OPTION:1,3
+GEAR:Scroll (Animate Rope)				OPTION:4,5
+GEAR:Scroll (Burning Hands)				OPTION:6,7
+GEAR:Scroll (Cause Fear/Arcane)			OPTION:8,9
+GEAR:Scroll (Charm Person)				OPTION:10,12
+GEAR:Scroll (Chill Touch)				OPTION:13,14
+GEAR:Scroll (Color Spray)				OPTION:15,16
+GEAR:Scroll (Comprehend Languages/Arcane)		OPTION:17,19
+GEAR:Scroll (Confusion/Lesser)			OPTION:20
+GEAR:Scroll (Cure Light Wounds/Arcane)		OPTION:21
+GEAR:Scroll (Detect Secret Doors)			OPTION:22,24
+GEAR:Scroll (Detect Undead/Arcane)			OPTION:25,26
+GEAR:Scroll (Disguise Self/Lvl 1)			OPTION:27,29
+GEAR:Scroll (Endure Elements/Arcane)		OPTION:30,32
+GEAR:Scroll (Enlarge Person)				OPTION:33,35
+GEAR:Scroll (Erase)					OPTION:36,37
+GEAR:Scroll (Expeditious Retreat)			OPTION:38,40
+GEAR:Scroll (Feather Fall)				OPTION:41
+GEAR:Scroll (Grease)					OPTION:42,43
+GEAR:Scroll (Hold Portal)				OPTION:44,45
+GEAR:Scroll (Hypnotism)					OPTION:46,47
+GEAR:Scroll (Identify)					OPTION:48,49
+GEAR:Scroll (Jump/Arcane)				OPTION:50,51
+GEAR:Scroll (Mage Armor)				OPTION:52,54
+GEAR:Scroll (Magic Missile)				OPTION:55,56
+GEAR:Scroll (Magic Weapon/Arcane)			OPTION:57,59
+GEAR:Scroll (Mount)					OPTION:60,62
+GEAR:Scroll (Magic Aura)				OPTION:63,64
+GEAR:Scroll (Obscuring Mist/Arcane)			OPTION:65,66
+GEAR:Scroll (Protection from Chaos/Arcane)	OPTION:67,68
+GEAR:Scroll (Protection from Evil/Arcane)		OPTION:69,70
+GEAR:Scroll (Protection from Good/Arcane)		OPTION:71,72
+GEAR:Scroll (Protection from Law/Arcane)		OPTION:73,74
+GEAR:Scroll (Ray of Enfeeblement)			OPTION:75,76
+GEAR:Scroll (Reduce Person)				OPTION:77,78
+GEAR:Scroll (Remove Fear/Arcane)			OPTION:79,80
+GEAR:Scroll (Shield)					OPTION:81,82
+GEAR:Scroll (Shocking Grasp)				OPTION:83,84
+GEAR:Scroll (Silent Image)				OPTION:85,86
+GEAR:Scroll (Sleep)					OPTION:87,88
+GEAR:Scroll (Summon Monster I/Arcane)		OPTION:89,90
+GEAR:Scroll (Floating Disk)				OPTION:91,93
+GEAR:Scroll (True Strike)				OPTION:94,95
+GEAR:Scroll (Undetectable Alignment/Arcane)	OPTION:96
+GEAR:Scroll (Unseen Servant)				OPTION:97,98
+GEAR:Scroll (Ventriloquism)				OPTION:99,100
+
+STARTPACK:Arcane Scroll Level 2	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animal Messenger/Arcane)	OPTION:1
+GEAR:Scroll (Animal Trance/Arcane)		OPTION:2
+GEAR:Scroll (Arcane Lock)			OPTION:3
+GEAR:Scroll (Bear's Endurance/Arcane)	OPTION:4,6
+GEAR:Scroll (Blindness/Deafness/Arcane)	OPTION:7,8
+GEAR:Scroll (Blur)				OPTION:9,10
+GEAR:Scroll (Bull's Strength/Arcane)	OPTION:11,13
+GEAR:Scroll (Calm Emotions/Arcane)		OPTION:14
+GEAR:Scroll (Cat's Grace/Arcane)		OPTION:15,17
+GEAR:Scroll (Command Undead)			OPTION:18,19
+GEAR:Scroll (Continual Flame/Arcane)	OPTION:20
+GEAR:Scroll (Cure Moderate Wounds/Arcane)	OPTION:21
+GEAR:Scroll (Darkness/Arcane)			OPTION:22
+GEAR:Scroll (Darkvision/Arcane)		OPTION:23,25
+GEAR:Scroll (Daze Monster)			OPTION:26
+GEAR:Scroll (Delay Poison/Arcane)		OPTION:27
+GEAR:Scroll (Detect Thoughts)			OPTION:28,29
+GEAR:Scroll (Disguise Self/Lvl 2)		OPTION:30,31
+GEAR:Scroll (Eagle's Splendor/Arcane)	OPTION:32,34
+GEAR:Scroll (Enthrall/Arcane)			OPTION:35
+GEAR:Scroll (False Life)			OPTION:36,37
+GEAR:Scroll (Flaming Sphere/Arcane)		OPTION:38,39
+GEAR:Scroll (Fog Cloud/Arcane)		OPTION:40
+GEAR:Scroll (Fox's Cunning)			OPTION:41,43
+GEAR:Scroll (Ghoul Touch)			OPTION:44
+GEAR:Scroll (Glitterdust)			OPTION:45,46
+GEAR:Scroll (Gust of Wind/Arcane)		OPTION:47
+GEAR:Scroll (Hypnotic Pattern)		OPTION:48,49
+GEAR:Scroll (Invisibility)			OPTION:50,52
+GEAR:Scroll (Knock)				OPTION:53,55
+GEAR:Scroll (Phantom Trap)			OPTION:56
+GEAR:Scroll (Levitate)				OPTION:57,58
+GEAR:Scroll (Locate Object/Arcane)		OPTION:59
+GEAR:Scroll (Magic Mouth)			OPTION:60
+GEAR:Scroll (Acid Arrow)			OPTION:61,62
+GEAR:Scroll (Minor Image)			OPTION:63
+GEAR:Scroll (Mirror Image)			OPTION:64,65
+GEAR:Scroll (Misdirection)			OPTION:66
+GEAR:Scroll (Obscure Object/Arcane)		OPTION:67
+GEAR:Scroll (Owl's Wisdom/Arcane)		OPTION:68,70
+GEAR:Scroll (Protection from Arrows)	OPTION:71,73
+GEAR:Scroll (Pyrotechnics)			OPTION:74,75
+GEAR:Scroll (Resist Energy/Arcane)		OPTION:76,78
+GEAR:Scroll (Rope Trick)			OPTION:79
+GEAR:Scroll (Scare)				OPTION:80
+GEAR:Scroll (Scorching Ray)			OPTION:81,82
+GEAR:Scroll (See Invisibility)		OPTION:83,85
+GEAR:Scroll (Shatter/Arcane)			OPTION:86
+GEAR:Scroll (Silence/Arcane)			OPTION:87
+GEAR:Scroll (Sound Burst/Arcane)		OPTION:88
+GEAR:Scroll (Spectral Hand)			OPTION:89
+GEAR:Scroll (Spider Climb/Arcane)		OPTION:90,91
+GEAR:Scroll (Summon Monster II/Arcane)	OPTION:92,93
+GEAR:Scroll (Summon Swarm/Arcane)		OPTION:94,95
+GEAR:Scroll (Hideous Laughter)		OPTION:96
+GEAR:Scroll (Touch of Idiocy)			OPTION:97
+GEAR:Scroll (Web)					OPTION:98,99
+GEAR:Scroll (Whispering Wind)			OPTION:100
+
+STARTPACK:Arcane Scroll Level 3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Arcane Sight)				OPTION:1,2
+GEAR:Scroll (Blink)					OPTION:3,4
+GEAR:Scroll (Clairaudience/Clairvoyance)		OPTION:5,6
+GEAR:Scroll (Cure Serious Wounds/Arcane)		OPTION:7
+GEAR:Scroll (Daylight/Arcane)				OPTION:8,10
+GEAR:Scroll (Deep Slumber)				OPTION:11,12
+GEAR:Scroll (Dispel Magic/Arcane)			OPTION:13,15
+GEAR:Scroll (Displacement)				OPTION:16,17
+GEAR:Scroll (Explosive Runes)				OPTION:18
+GEAR:Scroll (Fireball)					OPTION:19,20
+GEAR:Scroll (Flame Arrow)				OPTION:21,22
+GEAR:Scroll (Fly)						OPTION:23,25
+GEAR:Scroll (Gaseous Form)				OPTION:26,27
+GEAR:Scroll (Gentle Repose/Arcane)			OPTION:28,29
+GEAR:Scroll (Glibness)					OPTION:30
+GEAR:Scroll (Good Hope)					OPTION:31
+GEAR:Scroll (Halt Undead)				OPTION:32,33
+GEAR:Scroll (Haste)					OPTION:34,36
+GEAR:Scroll (Heroism)					OPTION:37,38
+GEAR:Scroll (Hold Person/Arcane)			OPTION:39,40
+GEAR:Scroll (Illusory Script)				OPTION:41
+GEAR:Scroll (Invisibility Sphere)			OPTION:42,44
+GEAR:Scroll (Keen Edge)					OPTION:45,47
+GEAR:Scroll (Tiny Hut)					OPTION:48,49
+GEAR:Scroll (Lightning Bolt)				OPTION:50,51
+GEAR:Scroll (Magic Circle against Chaos/Arcane)	OPTION:52,53
+GEAR:Scroll (Magic Circle against Evil/Arcane)	OPTION:54,55
+GEAR:Scroll (Magic Circle against Good/Arcane)	OPTION:56,57
+GEAR:Scroll (Magic Circle against Law/Arcane)	OPTION:58,59
+GEAR:Scroll (Magic Weapon/Greater/Arcane)		OPTION:60,62
+GEAR:Scroll (Major Image)				OPTION:63,64
+GEAR:Scroll (Nondetection/Arcane)			OPTION:65,66
+GEAR:Scroll (Phantom Steed)				OPTION:67,68
+GEAR:Scroll (Protection from Energy)		OPTION:69,71
+GEAR:Scroll (Rage)					OPTION:72,73
+GEAR:Scroll (Ray of Exhaustion)			OPTION:74,75
+GEAR:Scroll (Sculpt Sound)				OPTION:76
+GEAR:Scroll (Secret Page)				OPTION:77
+GEAR:Scroll (Sepia Snake Sigil)			OPTION:78
+GEAR:Scroll (Shrink Item)				OPTION:79
+GEAR:Scroll (Sleet Storm/Arcane)			OPTION:80,81
+GEAR:Scroll (Slow)					OPTION:82,83
+GEAR:Scroll (Speak with Animals/Arcane)		OPTION:84
+GEAR:Scroll (Stinking Cloud)				OPTION:85,86
+GEAR:Scroll (Suggestion)				OPTION:87,88
+GEAR:Scroll (Summon Monster III/Arcane)		OPTION:89,90
+GEAR:Scroll (Tongues)					OPTION:91,93
+GEAR:Scroll (Vampiric Touch)				OPTION:94,95
+GEAR:Scroll (Water Breathing/Arcane)		OPTION:96,98
+GEAR:Scroll (Wind Wall/Arcane)			OPTION:99,100
+
+STARTPACK:Arcane Scroll Level 4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animate Dead/Arcane)			OPTION:1,2
+GEAR:Scroll (Arcane Eye)				OPTION:3,5
+GEAR:Scroll (Bestow Curse/Arcane)			OPTION:6,7
+GEAR:Scroll (Charm Monster)				OPTION:8,10
+GEAR:Scroll (Confusion)					OPTION:11,13
+GEAR:Scroll (Contagion/Arcane)			OPTION:14,15
+GEAR:Scroll (Crushing Despair)			OPTION:16,17
+GEAR:Scroll (Cure Critical Wounds/Arcane)		OPTION:18
+GEAR:Scroll (Detect Scrying)				OPTION:19
+GEAR:Scroll (Dimension Door)				OPTION:20,23
+GEAR:Scroll (Dimensional Anchor/Arcane)		OPTION:24,26
+GEAR:Scroll (Enervation)				OPTION:27,28
+GEAR:Scroll (Enlarge Person/Mass)			OPTION:29,30
+GEAR:Scroll (Black Tentacles)				OPTION:31,32
+GEAR:Scroll (Fear)					OPTION:33,34
+GEAR:Scroll (Fire Shield)				OPTION:35,37
+GEAR:Scroll (Fire Trap/Arcane)			OPTION:38,39
+GEAR:Scroll (Freedom of Movement/Arcane)		OPTION:40,42
+GEAR:Scroll (Geas/Lesser)				OPTION:43
+GEAR:Scroll (Globe of Invulnerability/Lesser)	OPTION:44,46
+GEAR:Scroll (Hallucinatory Terrain)			OPTION:47,48
+GEAR:Scroll (Ice Storm/Arcane)			OPTION:49,50
+GEAR:Scroll (Illusory Wall)				OPTION:51,52
+GEAR:Scroll (Invisibility/Greater)			OPTION:53,55
+GEAR:Scroll (Secure Shelter)				OPTION:56,57
+GEAR:Scroll (Locate Creature)				OPTION:58
+GEAR:Scroll (Minor Creation)				OPTION:59,60
+GEAR:Scroll (Modify Memory)				OPTION:61
+GEAR:Scroll (Neutralize Poison/Arcane)		OPTION:62
+GEAR:Scroll (Resilient Sphere)			OPTION:63,64
+GEAR:Scroll (Phantasmal Killer)			OPTION:65,66
+GEAR:Scroll (Polymorph)					OPTION:67,68
+GEAR:Scroll (Rainbow Pattern)				OPTION:69,70
+GEAR:Scroll (Mnemonic Enhancer)			OPTION:71
+GEAR:Scroll (Reduce Person/Mass)			OPTION:72,73
+GEAR:Scroll (Remove Curse/Arcane)			OPTION:74,76
+GEAR:Scroll (Repel Vermin/Arcane)			OPTION:77
+GEAR:Scroll (Scrying/Arcane)				OPTION:78,79
+GEAR:Scroll (Shadow Conjuration)			OPTION:80,81
+GEAR:Scroll (Shout)					OPTION:82,83
+GEAR:Scroll (Solid Fog)					OPTION:84,85
+GEAR:Scroll (Speak with Plants/Arcane)		OPTION:86
+GEAR:Scroll (Stone Shape)				OPTION:87,88
+GEAR:Scroll (Stoneskin/Arcane)			OPTION:89,91
+GEAR:Scroll (Summon Monster IV/Arcane)		OPTION:92,93
+GEAR:Scroll (Wall of Fire/Arcane)			OPTION:94,96
+GEAR:Scroll (Wall of Ice)				OPTION:97,99
+GEAR:Scroll (Zone of Silence)				OPTION:100
+
+STARTPACK:Arcane Scroll Level 5	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animal Growth/Arcane)			OPTION:1,2
+GEAR:Scroll (Baleful Polymorph/Arcane)		OPTION:3,5
+GEAR:Scroll (Interposing Hand)			OPTION:6,7
+GEAR:Scroll (Blight/Arcane)				OPTION:8,9
+GEAR:Scroll (Break Enchantment/Arcane)		OPTION:10,12
+GEAR:Scroll (Cloudkill)					OPTION:13,14
+GEAR:Scroll (Cone of Cold)				OPTION:15,17
+GEAR:Scroll (Contact Other Plane)			OPTION:18,19
+GEAR:Scroll (Cure Light Wounds/Mass/Arcane)	OPTION:20
+GEAR:Scroll (Dismissal/Arcane)			OPTION:21,23
+GEAR:Scroll (Dispel Magic/Greater/Arcane/Lvl 5)	OPTION:24,26
+GEAR:Scroll (Dominate Person)				OPTION:27,28
+GEAR:Scroll (Dream)					OPTION:29
+GEAR:Scroll (Fabricate)					OPTION:30,31
+GEAR:Scroll (False Vision)				OPTION:32,33
+GEAR:Scroll (Feeblemind)				OPTION:34,35
+GEAR:Scroll (Hold Monster)				OPTION:36,39
+GEAR:Scroll (Secret Chest)				OPTION:40
+GEAR:Scroll (Magic Jar)					OPTION:41
+GEAR:Scroll (Major Creation)				OPTION:42,43
+GEAR:Scroll (Mind Fog)					OPTION:44,45
+GEAR:Scroll (Mirage Arcana)				OPTION:46,47
+GEAR:Scroll (Mage's Faithful Hound)			OPTION:48,49
+GEAR:Scroll (Mage's Private Sanctum)		OPTION:50,51
+GEAR:Scroll (Nightmare)					OPTION:52,53
+GEAR:Scroll (Overland Flight)				OPTION:54,57
+GEAR:Scroll (Passwall)					OPTION:58,60
+GEAR:Scroll (Permanency)				OPTION:61
+GEAR:Scroll (Persistent Image)			OPTION:62,63
+GEAR:Scroll (Planar Binding/Lesser)			OPTION:64,65
+GEAR:Scroll (Prying Eyes)				OPTION:66,67
+GEAR:Scroll (Telepathic Bond)				OPTION:68,69
+GEAR:Scroll (Seeming)					OPTION:70,71
+GEAR:Scroll (Sending/Arcane)				OPTION:72,74
+GEAR:Scroll (Shadow Evocation)			OPTION:75,76
+GEAR:Scroll (Song of Discord)				OPTION:77
+GEAR:Scroll (Summon Monster V/Arcane)		OPTION:78,79
+GEAR:Scroll (Symbol of Pain/Arcane)			OPTION:80
+GEAR:Scroll (Symbol of Sleep/Arcane)		OPTION:81
+GEAR:Scroll (Telekinesis)				OPTION:82,83
+GEAR:Scroll (Teleport)					OPTION:84,88
+GEAR:Scroll (Transmute Mud to Rock/Arcane)	OPTION:89,90
+GEAR:Scroll (Transmute Rock to Mud/Arcane)	OPTION:91,92
+GEAR:Scroll (Wall of Force)				OPTION:93,95
+GEAR:Scroll (Wall of Stone)				OPTION:96,98
+GEAR:Scroll (Waves of Fatigue)			OPTION:99,100
+
+STARTPACK:Arcane Scroll Level 6	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Acid Fog)					OPTION:1,2
+GEAR:Scroll (Analyze Dweomer)				OPTION:3,5
+GEAR:Scroll (Animate Objects/Arcane)		OPTION:6
+GEAR:Scroll (Antimatic Field/Arcane)		OPTION:7,9
+GEAR:Scroll (Bear's Endurance/Mass/Arcane)	OPTION:10,12
+GEAR:Scroll (Forceful Hand)				OPTION:13,14
+GEAR:Scroll (Bull's Strength/Mass/Arcane)		OPTION:15,17
+GEAR:Scroll (Cat's Grace/Mass/Arcane)		OPTION:18,20
+GEAR:Scroll (Chain Lightning)				OPTION:21,23
+GEAR:Scroll (Circle of Death)				OPTION:24,25
+GEAR:Scroll (Contingency)				OPTION:26
+GEAR:Scroll (Control Water/Arcane/Lvl 6)		OPTION:27,28
+GEAR:Scorll (Create Undead/Arcane)			OPTION:29
+GEAR:Scroll (Cure Moderate Wounds/Mass/Arcane)	OPTION:30
+GEAR:Scroll (Disintegrate)				OPTION:31,33
+GEAR:Scroll (Dispel Magic/Greater/Arcane/Lvl 6)	OPTION:34,37
+GEAR:Scroll (Eagle's Splendor/Mass/Arcane)	OPTION:38,40
+GEAR:Scroll (Eyebite)					OPTION:41,42
+GEAR:Scroll (Find the Path/Arcane)			OPTION:43
+GEAR:Scroll (Flesh to Stone)				OPTION:44,45
+GEAR:Scroll (Fox's Cunning/Mass)			OPTION:46,48
+GEAR:Scroll (Geas/Quest/Arcane)			OPTION:49
+GEAR:Scroll (Globe of Invulnerability)		OPTION:50,52
+GEAR:Scroll (Guards and Wards)			OPTION:53
+GEAR:Scroll (Heroes' Feast/Arcane)			OPTION:54
+GEAR:Scroll (Heroism/Greater)				OPTION:55,56
+GEAR:Scroll (Legend Lore)				OPTION:57
+GEAR:Scroll (Mislead)					OPTION:58,59
+GEAR:Scroll (Mage's Lucubration)			OPTION:60
+GEAR:Scroll (Move Earth/Arcane)			OPTION:61,62
+GEAR:Scroll (Freezing Sphere)				OPTION:63,64
+GEAR:Scroll (Owl's Wisdom/Mass/Arcane)		OPTION:65,67
+GEAR:Scroll (Permanent Image)				OPTION:68,69
+GEAR:Scroll (Planar Binding)				OPTION:70,71
+GEAR:Scroll (Programmed Image)			OPTION:72,73
+GEAR:Scroll (Repulsion/Arcane)			OPTION:74,75
+GEAR:Scroll (Shadow Walk)				OPTION:76,78
+GEAR:Scroll (Stone to Flesh)				OPTION:79,81
+GEAR:Scroll (Suggestion/Mass)				OPTION:82,83
+GEAR:Scroll (Summon Monster VI/Arcane)		OPTION:84,85
+GEAR:Scroll (Symbol of Fear/Arcane)			OPTION:86
+GEAR:Scroll (Symbol of Persuasion/Arcane)		OPTION:87
+GEAR:Scroll (Sympathetic Vibration)			OPTION:88
+GEAR:Scroll (Transformation)				OPTION:89,90
+GEAR:Scroll (True Seeing/Arcane)			OPTION:91,93
+GEAR:Scroll (Undeath to Death/Arcane)		OPTION:94,95
+GEAR:Scroll (Veil)					OPTION:96,97
+GEAR:Scroll (Wall of Iron)				OPTION:98,100
+
+STARTPACK:Arcane Scroll Level 7	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Arcane Sight/Greater)			OPTION:1,3
+GEAR:Scroll (Banishment/Arcane)			OPTION:4,7
+GEAR:Scroll (Grasping Hand)				OPTION:8,10
+GEAR:Scroll (Control Undead)				OPTION:11,13
+GEAR:Scroll (Control Weather/Arcane/Lvl 7)	OPTION:14,16
+GEAR:Scroll (Delayed Blast Fireball)		OPTION:17,19
+GEAR:Scroll (Instant Summons)				OPTION:20,21
+GEAR:Scroll (Ethereal Jaunt/Arcane)			OPTION:22,25
+GEAR:Scroll (Finger of Death/Arcane)		OPTION:26,28
+GEAR:Scroll (Forcecage)					OPTION:29,31
+GEAR:Scroll (Hold Person/Mass)			OPTION:32,35
+GEAR:Scroll (Insanity)					OPTION:36,38
+GEAR:Scroll (Invisibility/Mass)			OPTION:39,42
+GEAR:Scroll (Limited Wish)				OPTION:43
+GEAR:Scroll (Mage's Magnificent Mansion)		OPTION:44,45
+GEAR:Scroll (Mage's Sword)				OPTION:46,48
+GEAR:Scroll (Phase Door)				OPTION:49,51
+GEAR:Scroll (Plane Shift/Arcane)			OPTION:52,54
+GEAR:Scroll (Power Word Blind)			OPTION:55,57
+GEAR:Scroll (Prismatic Spray)				OPTION:58,61
+GEAR:Scroll (Project Image)				OPTION:62,64
+GEAR:Scroll (Reverse Gravity/Arcane)		OPTION:65,67
+GEAR:Scroll (Scrying/Greater/Arcane)		OPTION:68,70
+GEAR:Scroll (Sequester)					OPTION:71,73
+GEAR:Scroll (Shadow Conjuration/Greater)		OPTION:74,76
+GEAR:Scroll (Simulacrum)				OPTION:77
+GEAR:Scroll (Spell Turning)				OPTION:78,80
+GEAR:Scroll (Statue)					OPTION:81,82
+GEAR:Scroll (Summon Monster VII/Arcane)		OPTION:83,85
+GEAR:Scroll (Symbol of Stunning/Arcane)		OPTION:86
+GEAR:Scroll (Symbol of Weakness/Arcane)		OPTION:87
+GEAR:Scroll (Teleport Object)				OPTION:88,90
+GEAR:Scroll (Teleport/Greater)			OPTION:91,95
+GEAR:Scroll (Vision)					OPTION:96,97
+GEAR:Scroll (Waves of Exhaustion)			OPTION:98,100
+
+STARTPACK:Arcane Scroll Level 8	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Antipathy/Arcane)			OPTION:1,2
+GEAR:Scroll (Clenched Fist)				OPTION:3,5
+GEAR:Scroll (Binding)					OPTION:6,8
+GEAR:Scroll (Charm Monster/Mass)			OPTION:9,12
+GEAR:Scroll (Clone)					OPTION:13
+GEAR:Scroll (Create Greater Undead/Arcane)	OPTION:14,16
+GEAR:Scroll (Demand)					OPTION:17,19
+GEAR:Scroll (Dimensional Lock/Arcane)		OPTION:20,22
+GEAR:Scroll (Discern Location/Arcane)		OPTION:23,26
+GEAR:Scroll (Horrid Wilting)				OPTION:27,29
+GEAR:Scroll (Incendiary Cloud)			OPTION:30,32
+GEAR:Scroll (Iron Body)					OPTION:33,35
+GEAR:Scroll (Maze)					OPTION:36,38
+GEAR:Scroll (Mind Blank)				OPTION:39,41
+GEAR:Scroll (Moment of Prescience)			OPTION:42,44
+GEAR:Scroll (Telekinetic Sphere)			OPTION:45,48
+GEAR:Scroll (Irresistible Dance)			OPTION:49,51
+GEAR:Scroll (Planar Binding/Greater)		OPTION:52,54
+GEAR:Scroll (Polar Ray)					OPTION:55,57
+GEAR:Scroll (Polymorph Any Object)			OPTION:58,60
+GEAR:Scroll (Power Word Stun)				OPTION:61,63
+GEAR:Scroll (Prismatic Wall)				OPTION:64,66
+GEAR:Scroll (Protection from Spells)		OPTION:67,70
+GEAR:Scroll (Prying Eyes/Greater)			OPTION:71,73
+GEAR:Scroll (Scintillating Pattern)			OPTION:74,76
+GEAR:Scroll (Screen)					OPTION:77,78
+GEAR:Scroll (Shadow Evocation/Greater)		OPTION:79,81
+GEAR:Scroll (Shout/Greater)				OPTION:82,84
+GEAR:Scroll (Summon Monster VIII/Arcane)		OPTION:85,87
+GEAR:Scroll (Sunburst/Arcane)				OPTION:88,90
+GEAR:Scroll (Symbol of Death/Arcane)		OPTION:91
+GEAR:Scroll (Symbol of Insanity/Arcane)		OPTION:92
+GEAR:Scroll (Sympathy/Arcane)				OPTION:93,94
+GEAR:Scroll (Temporal Stasis)				OPTION:95,98
+GEAR:Scroll (Trap the Soul)				OPTION:99,100
+
+STARTPACK:Arcane Scroll Level 9	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Astral Projection/Arcane)	OPTION:1,3
+GEAR:Scroll (Crushing Hand)			OPTION:4,7
+GEAR:Scroll (Dominate Monster)		OPTION:8,12
+GEAR:Scroll (Energy Drain/Arcane)		OPTION:13,16
+GEAR:Scroll (Etherealness/Arcane)		OPTION:17,21
+GEAR:Scroll (Foresight/Arcane)		OPTION:22,25
+GEAR:Scroll (Freedom)				OPTION:26,31
+GEAR:Scroll (Gate)				OPTION:32,36
+GEAR:Scroll (Hold Monster/Mass)		OPTION:37,40
+GEAR:Scroll (Imprisonment)			OPTION:41,44
+GEAR:Scroll (Meteor Swarm)			OPTION:45,49
+GEAR:Scroll (Mage's Disjunction)		OPTION:50,53
+GEAR:Scroll (Power Word Kill)			OPTION:54,58
+GEAR:Scroll (Prismatic Sphere)		OPTION:59,62
+GEAR:Scroll (Refuge/Arcane)			OPTION:63,66
+GEAR:Scroll (Shades)				OPTION:67,70
+GEAR:Scroll (Shapechange/Arcane)		OPTION:71,76
+GEAR:Scroll (Soul Bind/Arcane)		OPTION:77,79
+GEAR:Scroll (Summon Monster IX)		OPTION:80,83
+GEAR:Scroll (Teleportation Circle)		OPTION:84,86
+GEAR:Scroll (Time Stop)				OPTION:87,91
+GEAR:Scroll (Wail of the Banshee)		OPTION:92,95
+GEAR:Scroll (Weird)				OPTION:96,99
+GEAR:Scroll (Wish)				OPTION:100
+
+STARTPACK:Divine Scroll Level 0	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Create Water)		OPTION:1,7
+GEAR:Scroll (Cure Minor Wounds)	OPTION:8,14
+GEAR:Scroll (Detect Magic/Divine)	OPTION:15,22
+GEAR:Scroll (Detect Poison/Divine)	OPTION:23,29
+GEAR:Scroll (Flare/Divine)		OPTION:30,36
+GEAR:Scroll (Guidance)			OPTION:37,43
+GEAR:Scroll (Inflict Minor Wounds)	OPTION:44,50
+GEAR:Scroll (Know Direction/Divine)	OPTION:51,57
+GEAR:Scroll (Light/Divine)		OPTION:58,65
+GEAR:Scroll (Mending/Divine)		OPTION:66,72
+GEAR:Scroll (Purify Food and Drink)	OPTION:73,79
+GEAR:Scroll (Read Magic/Divine)	OPTION:80,86
+GEAR:Scroll (Resistance/Divine)	OPTION:87,93
+GEAR:Scroll (Virtue)			OPTION:94,100
+
+STARTPACK:Divine Scroll Level 1	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Alarm/Divine)				OPTION:1
+GEAR:Scroll (Bane)					OPTION:2,3
+GEAR:Scroll (Bless)					OPTION:4,6
+GEAR:Scroll (Bless Water)				OPTION:7,9
+GEAR:Scroll (Bless Weapon)				OPTION:10
+GEAR:Scroll (Calm Animals)				OPTION:11,12
+GEAR:Scroll (Cause Fear/Divine)			OPTION:13,14
+GEAR:Scroll (Charm Animal)				OPTION:15,16
+GEAR:Scroll (Command)					OPTION:17,19
+GEAR:Scroll (Comprehend Languages/Divine)		OPTION:20,21
+GEAR:Scroll (Cure Light Wounds/Divine)		OPTION:22,26
+GEAR:Scroll (Curse Water)				OPTION:27,28
+GEAR:Scroll (Deathwatch)				OPTION:29,30
+GEAR:Scroll (Detect Animals or Plants)		OPTION:31,32
+KIT:Scroll (Detect Alignment)	OPTION:33,35
+GEAR:Scroll (Detect Snares and Pits)		OPTION:36,37
+GEAR:Scroll (Detect Undead/Divine)			OPTION:38,39
+GEAR:Scroll (Divine Favor)				OPTION:40,41
+GEAR:Scroll (Doom)					OPTION:42,43
+GEAR:Scroll (Endure Elements/Divine)		OPTION:44,48
+GEAR:Scroll (Entangle)					OPTION:49,50
+GEAR:Scroll (Entropic Shield)				OPTION:51,52
+GEAR:Scroll (Faerie Fire)				OPTION:53,54
+GEAR:Scroll (Goodberry)					OPTION:55,56
+GEAR:Scroll (Hide from Animals)			OPTION:57,58
+GEAR:Scroll (Hide from Undead)			OPTION:59,60
+GEAR:Scroll (Inflict Light Wounds)			OPTION:61,62
+GEAR:Scroll (Jump/Divine)				OPTION:63,64
+GEAR:Scroll (Longstrider)				OPTION:65,66
+GEAR:Scroll (Magic Fang)				OPTION:67,68
+GEAR:Scroll (Magic Stone)				OPTION:69,72
+GEAR:Scroll (Magic Weapon/Divine)			OPTION:73,74
+GEAR:Scroll (Obscuring Mist/Divine)			OPTION:75,78
+GEAR:Scroll (Pass Without Trace)			OPTION:79,80
+GEAR:Scroll (Produce Flame)				OPTION:81,82
+GEAR:Scroll (Protection from Chaos/Divine)	OPTION:83
+GEAR:Scroll (Protection from Evil/Divine)		OPTION:84
+GEAR:Scroll (Protection from Good/Divine)		OPTION:85
+GEAR:Scroll (Protection from Law/Divine)		OPTION:86
+GEAR:Scroll (Remove Fear/Divine)			OPTION:87,88
+GEAR:Scroll (Sanctuary)					OPTION:89,90
+GEAR:Scroll (Shield of Faith)				OPTION:91,92
+GEAR:Scroll (Shillelagh)				OPTION:93,94
+GEAR:Scroll (Speak with Animals/Divine)		OPTION:95,96
+GEAR:Scroll (Summon Monster I/Divine)		OPTION:97,98
+GEAR:Scroll (Summon Nature's Ally I)		OPTION:99,100
+
+STARTPACK:Scroll (Detect Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+GEAR:Scroll (Detect Chaos)	OPTION:1
+GEAR:Scroll (Detect Evil)	OPTION:2
+GEAR:Scroll (Detect Good)	OPTION:3
+GEAR:Scroll (Detect Law)	OPTION:4
+
+STARTPACK:Divine Scroll Level 2	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animal Messenger/Divine)		OPTION:1
+GEAR:Scroll (Animal Trance/Divine)			OPTION:2
+GEAR:Scroll (Augury)					OPTION:3,4
+GEAR:Scroll (Barkskin)					OPTION:5,6
+GEAR:Scroll (Bear's Endurance/Divine)		OPTION:7,9
+GEAR:Scroll (Bull's Strength/Divine)		OPTION:10,12
+GEAR:Scroll (Calm Emotions/Divine)			OPTION:13,14
+GEAR:Scroll (Cat's Grace/Divine)			OPTION:15,17
+GEAR:Scroll (Chill Metal)				OPTION:18
+GEAR:Scroll (Consecrate)				OPTION:19,20
+GEAR:Scroll (Cure Moderate Wounds/Divine)		OPTION:21,24
+GEAR:Scroll (Darkness/Divine)				OPTION:25,26
+GEAR:Scroll (Death Knell)				OPTION:27
+GEAR:Scroll (Delay Poison/Divine)			OPTION:28,30
+GEAR:Scroll (Desecrate)					OPTION:31,32
+GEAR:Scroll (Eagle's Splendor/Divine)		OPTION:33,35
+GEAR:Scroll (Enthrall/Divine)				OPTION:36,37
+GEAR:Scroll (Find Traps)				OPTION:38,39
+GEAR:Scroll (Fire Trap/Divine)			OPTION:40
+GEAR:Scroll (Flame Blade)				OPTION:41,42
+GEAR:Scroll (Flaming Sphere/Divine)			OPTION:43,44
+GEAR:Scroll (Fog Cloud/Divine)			OPTION:45,46
+GEAR:Scroll (Gentle Repose/Divine)			OPTION:47
+GEAR:Scroll (Gust of Wind/Divine)			OPTION:48
+GEAR:Scroll (Heat Metal)				OPTION:49
+GEAR:Scroll (Hold Animal)				OPTION:50,51
+GEAR:Scroll (Hold Person/Divine)			OPTION:52,54
+GEAR:Scroll (Inflict Moderate Wounds)		OPTION:55,56
+GEAR:Scroll (Make Whole)				OPTION:57,58
+GEAR:Scroll (Owl's Wisdom/Divine)			OPTION:59,61
+GEAR:Scroll (Reduce Animal)				OPTION:62
+GEAR:Scroll (Remove Paralysis)			OPTION:63,64
+GEAR:Scroll (Resist Energy/Divine)			OPTION:65,67
+GEAR:Scroll (Restoration/Lesser)			OPTION:68,70
+GEAR:Scroll (Shatter/Divine)				OPTION:71,72
+GEAR:Scroll (Shield Other)				OPTION:73,74
+GEAR:Scroll (Silence/Divine)				OPTION:75,76
+GEAR:Scroll (Snare/Lvl 2)				OPTION:77
+GEAR:Scroll (Soften Earth and Stone)		OPTION:78
+GEAR:Scroll (Sound Burst/Divine)			OPTION:79,80
+GEAR:Scroll (Speak with Plants/Divine/Lvl 2)	OPTION:81
+GEAR:Scroll (Spider Climb/Divine)			OPTION:82,83
+GEAR:Scroll (Spiritual Weapon)			OPTION:84,85
+GEAR:Scroll (Status)					OPTION:86
+GEAR:Scroll (Summon Monster II/Divine)		OPTION:87,88
+GEAR:Scroll (Summon Nature's Ally II)		OPTION:89,90
+GEAR:Scroll (Summon Swarm/Divine)			OPTION:91,92
+GEAR:Scroll (Tree Shape)				OPTION:93
+GEAR:Scroll (Undetectable Alignment/Divine)	OPTION:94,95
+GEAR:Scroll (Warp Wood)					OPTION:96,97
+GEAR:Scroll (Wood Shape)				OPTION:98
+GEAR:Scroll (Zone of Truth)				OPTION:99,100
+
+STARTPACK:Divine Scroll Level 3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animate Dead/Divine)			OPTION:1,2
+GEAR:Scroll (Bestow Curse/Divine)			OPTION:3,4
+GEAR:Scroll (Blindness/Deafness/Divine)		OPTION:5,6
+GEAR:Scroll (Call Lightning)				OPTION:7,8
+GEAR:Scroll (Contagion/Divine)			OPTION:9,10
+GEAR:Scroll (Continual Flame/Divine)		OPTION:11,12
+GEAR:Scroll (Create Food and Water)			OPTION:13,14
+GEAR:Scroll (Cure Serious Wounds/Divine)		OPTION:15,18
+GEAR:Scroll (Darkvision/Divine)			OPTION:19
+GEAR:Scroll (Daylight/Divine)				OPTION:20,21
+GEAR:Scroll (Deeper Darkness)				OPTION:22,23
+GEAR:Scroll (Diminish Plants)				OPTION:24,25
+GEAR:Scroll (Dispel Magic/Divine)			OPTION:26,27
+GEAR:Scroll (Dominate Animal)				OPTION:28,29
+GEAR:Scroll (Glyph of Warding)			OPTION:30,31
+GEAR:Scroll (Heal Mount)				OPTION:32
+GEAR:Scroll (Helping Hand)				OPTION:33,34
+GEAR:Scroll (Inflict Serious Wounds)		OPTION:35,36
+GEAR:Scroll (Invisibility Purge)			OPTION:37,38
+GEAR:Scroll (Locate Object/Divine)			OPTION:39,40
+KIT:Scroll (Magic Circle against Alignment)	OPTION:41,46
+GEAR:Scroll (Magic Fang/Greater)			OPTION:47,48
+GEAR:Scroll (Magic Vestment)				OPTION:49,50
+GEAR:Scroll (Meld into Stone)				OPTION:51,52
+GEAR:Scroll (Neutralize Poison/Divine)		OPTION:53,55
+GEAR:Scroll (Obscure Object/Divine)			OPTION:56,57
+GEAR:Scroll (Plant Growth)				OPTION:58,59
+GEAR:Scroll (Prayer)					OPTION:60,62
+GEAR:Scroll (Protection from Energy)		OPTION:63,64
+GEAR:Scroll (Quench)					OPTION:65,66
+GEAR:Scroll (Remove Blindness/Deafness)		OPTION:67,69
+GEAR:Scroll (Remove Curse/Divine)			OPTION:70,71
+GEAR:Scroll (Remove Disease)				OPTION:72,73
+GEAR:Scroll (Searing Light)				OPTION:74,76
+GEAR:Scroll (Sleet Storm/Divine)			OPTION:77,78
+GEAR:Scroll (Snare/Lvl 3)				OPTION:79,80
+GEAR:Scroll (Speak with Dead)				OPTION:81,83
+GEAR:Scroll (Speak with Plants/Divine/Lvl 3)	OPTION:84,85
+GEAR:Scroll (Spike Growth)				OPTION:86,87
+GEAR:Scroll (Summon Monster III/Divine)		OPTION:90,91
+GEAR:Scroll (Summon Nature's Ally III)		OPTION:92,93
+GEAR:Scroll (Water Breathing/Divine)		OPTION:94,96
+GEAR:Scroll (Water Walk)				OPTION:97,98
+GEAR:Scroll (Wind Wall/Divine)			OPTION:99,100
+
+STARTPACK:Scroll (Magic Circle against Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+GEAR:Scroll (Magic Circle against Chaos/Divine)	OPTION:1
+GEAR:Scroll (Magic Circle against Evil/Divine)	OPTION:2
+GEAR:Scroll (Magic Circle against Good/Divine)	OPTION:3
+GEAR:Scroll (Magic Circle against Law/Divine)	OPTION:4
+
+STARTPACK:Divine Scroll Level 4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Air Walk)					OPTION:1,5
+GEAR:Scroll (Antiplant Shell)				OPTION:6,7
+GEAR:Scroll (Blight/Divine)				OPTION:8,9
+GEAR:Scroll (Break Enchantment/Divine/Lvl 4)	OPTION:10,11
+GEAR:Scroll (Command Plants)				OPTION:12,13
+GEAR:Scroll (Control Water)				OPTION:14,15
+GEAR:Scroll (Cure Critical Wounds/Divine)		OPTION:16,21
+GEAR:Scroll (Death Ward)				OPTION:22,26
+GEAR:Scroll (Dimensional Anchor/Divine)		OPTION:27,31
+GEAR:Scroll (Disceern Lies)				OPTION:32,34
+GEAR:Scroll (Dismissal/Divine)			OPTION:35,37
+GEAR:Scroll (Divination)				OPTION:38,39
+GEAR:Scroll (Divine Power)				OPTION:40,42
+GEAR:Scroll (Freedom of Movement/Divine)		OPTION:43,47
+GEAR:Scroll (Giant Vermin)				OPTION:48,49
+GEAR:Scroll (Holy Sword)				OPTION:50,51
+GEAR:Scroll (Imbue with Spell Ability)		OPTION:52,54
+GEAR:Scroll (Inflict Critical Wounds)		OPTION:55,57
+GEAR:Scroll (Magic Weapon/Greater/Divine)		OPTION:58,60
+GEAR:Scroll (Nondetection/Divine)			OPTION:61,62
+GEAR:Scroll (Planar Ally/Lesser)			OPTION:63,64
+GEAR:Scroll (Poison)					OPTION:65,67
+GEAR:Scroll (Reincarnate)				OPTION:68,69
+GEAR:Scroll (Repel Vermin/Divine)			OPTION:70,71
+GEAR:Scroll (Restoration)				OPTION:72,76
+GEAR:Scroll (Rusting Grasp)				OPTION:77,78
+GEAR:Scroll (Sending/Divine)				OPTION:79,81
+GEAR:Scroll (Spell Immunity)				OPTION:82,85
+GEAR:Scroll (Spike Stones)				OPTION:86,87
+GEAR:Scroll (Summon Monster IV/Divine)		OPTION:88,90
+GEAR:Scroll (Summon Nature's Ally IV)		OPTION:91,93
+GEAR:Scroll (Tongues)					OPTION:94,98
+GEAR:Scroll (Tree Stride)				OPTION:99,100
+
+STARTPACK:Divine Scroll Level 5	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animal Growth/Divine)			OPTION:1,3
+GEAR:Scroll (Atonement)					OPTION:4,5
+GEAR:Scroll (Awaken)					OPTION:6
+GEAR:Scroll (Baleful Polymorph/Divine)		OPTION:7,9
+GEAR:Scroll (Break Enchantment/Divine/Lvl 5)	OPTION:10,13
+GEAR:Scroll (Call Lightning Storm)			OPTION:14,16
+GEAR:Scroll (Command/Greater)				OPTION:17,20
+GEAR:Scroll (Commune)					OPTION:21
+GEAR:Scroll (Commune with Nature)			OPTION:22
+GEAR:Scroll (Control Winds)				OPTION:23,24
+GEAR:Scroll (Cure Light Wounds/Mass/Divine)	OPTION:25,30
+GEAR:Scroll (Dispel Chaos)				OPTION:31
+GEAR:Scroll (Dispel Evil)				OPTION:32
+GEAR:Scroll (Dispel Good)				OPTION:33
+GEAR:Scroll (Dispel Law)				OPTION:34
+GEAR:Scroll (Disrupting Weapon)			OPTION:35,38
+GEAR:Scroll (Flame Strike)				OPTION:39,41
+GEAR:Scroll (Hallow)					OPTION:42,43
+GEAR:Scroll (Ice Storm/Divine)			OPTION:44,46
+GEAR:Scroll (Inflict Light Wounds/Mass)		OPTION:47,49
+GEAR:Scroll (Insect Plague)				OPTION:50,52
+GEAR:Scroll (Mark of Justice)				OPTION:53
+GEAR:Scroll (Plane Shift/Divine)			OPTION:54,56
+GEAR:Scroll (Raise Dead)				OPTION:57,58
+GEAR:Scroll (Righteous Might)				OPTION:59,61
+GEAR:Scroll (Scrying/Divine)				OPTION:62,63
+GEAR:Scroll (Slay Living)				OPTION:64,66
+GEAR:Scroll (Spell Resistance)			OPTION:67,69
+GEAR:Scroll (Stoneskin/Divine)			OPTION:70,71
+GEAR:Scroll (Summon Monster V/Divine)		OPTION:72,74
+GEAR:Scroll (Summon Nature's Ally V)		OPTION:75,77
+GEAR:Scroll (Symbol of Pain/Divine)			OPTION:78
+GEAR:Scroll (Symbol of Sleep/Divine)		OPTION:79
+GEAR:Scroll (Transmute Mud to Rock/Divine)	OPTION:80,82
+GEAR:Scroll (Transmute Rock to Mud/Divine)	OPTION:83,85
+GEAR:Scroll (True Seeing/Divine)			OPTION:86,89
+GEAR:Scroll (Unhallow)					OPTION:90,91
+GEAR:Scroll (Wall of Fire/Divine)			OPTION:92,94
+GEAR:Scroll (Wall of Stone)				OPTION:95,97
+GEAR:Scroll (Wall of Thorns)				OPTION:98,100
+
+STARTPACK:Divine Scroll Level 6	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animate Objects/Divine)		OPTION:1,3
+GEAR:Scroll (Antilife Shell)				OPTION:4,6
+GEAR:Scroll (Banishment/Divine)			OPTION:7,9
+GEAR:Scroll (Bear's Endurance/Mass/Divine)	OPTION:10,13
+GEAR:Scroll (Blade Barrier)				OPTION:14,16
+GEAR:Scroll (Bull's Strength/Mass/Divine)		OPTION:17,20
+GEAR:Scroll (Cat's Grace/Mass/Divine)		OPTION:21,24
+GEAR:Scroll (Create Undead/Divine)			OPTION:25
+GEAR:Scroll (Cure Moderate Wounds/Mass/Divine)	OPTION:26,29
+GEAR:Scroll (Dispel Magic/Greater/Divine)		OPTION:30,33
+GEAR:Scroll (Eagle's Splendor/Mass/Divine)	OPTION:34,37
+GEAR:Scroll (Find the Path/Divine)			OPTION:38,40
+GEAR:Scroll (Fire Seeds)				OPTION:41,43
+GEAR:Scroll (Forbiddance)				OPTION:44
+GEAR:Scroll (Geas/Quest/Divine)			OPTION:45
+GEAR:Scroll (Glyph of Warding/Greater)		OPTION:46
+GEAR:Scroll (Harm)					OPTION:47,49
+GEAR:Scroll (Heal)					OPTION:50,52
+GEAR:Scroll (Heroes' Feast/Divine)			OPTION:53,55
+GEAR:Scroll (Inflict Moderate Wounds/Mass)	OPTION:56,58
+GEAR:Scroll (Ironwood)					OPTION:59,61
+GEAR:Scroll (Liveoak)					OPTION:62
+GEAR:Scroll (Move Earth/Divine)			OPTION:63,65
+GEAR:Scroll (Owl's Wisdom/Mass/Divine)		OPTION:66,69
+GEAR:Scroll (Planar Ally)				OPTION:70,71
+GEAR:Scroll (Repel Wood)				OPTION:72,74
+GEAR:Scroll (Spellstaff)				OPTION:75,77
+GEAR:Scroll (Stone Tell)				OPTION:78,80
+GEAR:Scroll (Summon Monster VI/Divine)		OPTION:81,83
+GEAR:Scroll (Summon Nature's Ally VI)		OPTION:84,86
+GEAR:Scroll (Symbol of Fear/Divine)			OPTION:87
+GEAR:Scroll (Symbol of Persuasion/Divine)		OPTION:88
+GEAR:Scroll (Transport via Plants)			OPTION:89,91
+GEAR:Scroll (Undeath to Death/Divine)		OPTION:92,94
+GEAR:Scroll (Wind Walk)					OPTION:95,97
+GEAR:Scroll (Word of Recall)				OPTION:98,100
+
+STARTPACK:Divine Scroll Level 7	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animate Plants)			OPTION:1,5
+GEAR:Scroll (Blasphemy)				OPTION:6,9
+#GEAR:Scroll (Changestaff)									OPTION:10,14
+GEAR:Scroll (Control Weather/Divine)	OPTION:15,16
+GEAR:Scroll (Creeping Doom)			OPTION:17,21
+GEAR:Scroll (Cure Serious Wounds/Mass)	OPTION:22,27
+GEAR:Scroll (Destruction)			OPTION:28,32
+GEAR:Scroll (Dictum)				OPTION:33,36
+GEAR:Scroll (Ethereal Jaunt/Divine)		OPTION:37,41
+GEAR:Scroll (Holy Word)				OPTION:42,45
+GEAR:Scroll (Inflict Serious Wounds/Mass)	OPTION:46,50
+GEAR:Scroll (Refuge/Divine)			OPTION:51,55
+GEAR:Scroll (Regenerate/Lvl 7)		OPTION:56,60
+GEAR:Scroll (Repulsion/Divine)		OPTION:61,65
+GEAR:Scroll (Restoration/Greater)		OPTION:66,69
+GEAR:Scroll (Resurrection)			OPTION:70,71
+GEAR:Scroll (Scrying/Greater/Divine)	OPTION:72,76
+GEAR:Scroll (Summon Monster VII/Divine)	OPTION:77,81
+GEAR:Scroll (Summon Nature's Ally VII)	OPTION:82,85
+GEAR:Scroll (Sunbeam)				OPTION:86,90
+GEAR:Scroll (Symbol of Stunning/Divine)	OPTION:91
+GEAR:Scroll (Symbol of Weakness/Divine)	OPTION:92
+GEAR:Scroll (Transmute Metal to Wood)	OPTION:93,97
+GEAR:Scroll (Word of Chaos)			OPTION:98,100
+
+STARTPACK:Divine Scroll Level 8	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Animal Shapes)				OPTION:1,4
+GEAR:Scroll (Antimagic Field/Divine)		OPTION:5,10
+GEAR:Scroll (Cloak of Chaos)				OPTION:11,13
+GEAR:Scroll (Control Plants)				OPTION:14,17
+GEAR:Scroll (Create Greater Undead/Divine)	OPTION:18,20
+GEAR:Scroll (Cure Critical Wounds/Mass)		OPTION:21,27
+GEAR:Scroll (Dimensional Lock/Divine)		OPTION:28,32
+GEAR:Scroll (Discern Location/Divine)		OPTION:33,36
+GEAR:Scroll (Earthquake)				OPTION:37,41
+GEAR:Scroll (Finger of Death/Divine)		OPTION:42,45
+GEAR:Scroll (Fire Storm)				OPTION:46,49
+GEAR:Scroll (Holy Aura)					OPTION:50,52
+GEAR:Scroll (Inflict Critical Wounds/Mass)	OPTION:53,56
+GEAR:Scroll (Planar Ally/Greater)			OPTION:57,60
+GEAR:Scroll (Repel Metal or Stone)			OPTION:61,65
+GEAR:Scroll (Reverse Gravity/Divine)		OPTION:66,69
+GEAR:Scroll (Shield of Law)				OPTION:70,72
+GEAR:Scroll (Spell Immunity/Greater)		OPTION:73,76
+GEAR:Scroll (Summon Monster VIII/Divine)		OPTION:77,80
+GEAR:Scroll (Summon Nature's Ally VIII)		OPTION:81,84
+GEAR:Scroll (Sunburst/Divine)				OPTION:85,89
+GEAR:Scroll (Symbol of Death/Divine)		OPTION:90,91
+GEAR:Scroll (Symbol of Insanity/Divine)		OPTION:92,93
+GEAR:Scroll (Unholy Aura)				OPTION:94,96
+GEAR:Scroll (Whirlwind)					OPTION:97,100
+
+STARTPACK:Divine Scroll Level 9	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Scroll (Antipathy/Divine)		OPTION:1,4
+GEAR:Scroll (Astral Projection/Divine)	OPTION:5,7
+GEAR:Scroll (Elemental Swarm)			OPTION:8,13
+GEAR:Scroll (Energy Drain/Divine)		OPTION:14,19
+GEAR:Scroll (Etherealness/Divine)		OPTION:20,25
+GEAR:Scroll (Foresight/Divine)		OPTION:26,31
+GEAR:Scroll (Gate)				OPTION:32,37
+GEAR:Scroll (Heal/Mass)				OPTION:38,46
+GEAR:Scroll (Implosion)				OPTION:47,53
+GEAR:Scroll (Miracle)				OPTION:54,55
+GEAR:Scroll (Regenerate/Lvl 9)		OPTION:56,61
+GEAR:Scroll (Shambler)				OPTION:62,66
+GEAR:Scroll (Shapechange/Divine)		OPTION:67,72
+GEAR:Scroll (Soul Bind/Divine)		OPTION:73,77
+GEAR:Scroll (Storm of Vengeance)		OPTION:78,83
+GEAR:Scroll (Summon Monster IX)		OPTION:84,89
+GEAR:Scroll (Summon Nature's Ally IX)	OPTION:90,95
+GEAR:Scroll (Sympathy/Divine)			OPTION:96,99
+GEAR:Scroll (True Resurrection)		OPTION:100
+

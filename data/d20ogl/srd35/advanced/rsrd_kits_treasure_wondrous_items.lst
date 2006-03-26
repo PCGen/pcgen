@@ -1,0 +1,326 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Minor Wondrous Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Feather Token (Anchor)					OPTION:1
+GEAR:Universal Solvent						OPTION:2
+GEAR:Elixir of Love						OPTION:3
+GEAR:Unguent of Timelessness					OPTION:4
+GEAR:Feather Token (Fan)					OPTION:5
+GEAR:Dust of Tracelessness					OPTION:6
+GEAR:Elixir of Hiding						OPTION:7
+GEAR:Elixir of Sneaking						OPTION:8
+GEAR:Elixir of Swimming						OPTION:9
+GEAR:Elixir of Vision						OPTION:10
+GEAR:Silversheen							OPTION:11
+GEAR:Feather Token (Bird)					OPTION:12
+GEAR:Feather Token (Tree)					OPTION:13
+GEAR:Feather Token (Swan Boat)				OPTION:14
+GEAR:Elixir of Truth						OPTION:15
+GEAR:Feather Token (Whip)					OPTION:16
+GEAR:Dust of Dryness						OPTION:17
+GEAR:Bag of Tricks (Gray)					OPTION:18
+GEAR:Hand of the Mage						OPTION:19
+GEAR:Bracers of Armor +1					OPTION:20
+GEAR:Cloak of Resistance +1					OPTION:21
+GEAR:Pearl of Power (1st Level)				OPTION:22
+GEAR:Phylactery of Faithfulness				OPTION:23
+GEAR:Salve of Slipperiness					OPTION:24
+GEAR:Elixir of Fire Breath					OPTION:25
+GEAR:Pipes of teh Sewers					OPTION:26
+GEAR:Dust of Illusion						OPTION:27
+GEAR:Goggles of Minute Seeing					OPTION:28
+GEAR:Brooch of Shielding					OPTION:29
+GEAR:Necklace of Fireballs I					OPTION:30
+GEAR:Dust of Appearance						OPTION:31
+GEAR:Hat of Disguise						OPTION:32
+GEAR:Pipes of Sounding						OPTION:33
+GEAR:Efficient Quiver						OPTION:34
+GEAR:Amulet of Natural Armor +1				OPTION:35
+GEAR:Handy Haversack						OPTION:36
+GEAR:Horn of Fog							OPTION:37
+GEAR:Elemental Gem						OPTION:38
+GEAR:Robe of Bones						OPTION:39
+GEAR:Sovereign Glue						OPTION:40
+GEAR:Bag of Holding (Type 1)					OPTION:41
+GEAR:Boots of Elvenkind						OPTION:42
+GEAR:Boots of the winterlands					OPTION:43
+GEAR:Candle of Truth						OPTION:44
+GEAR:Cloak of Elvenkind						OPTION:45
+GEAR:Eyes of the Eagle						OPTION:46
+GEAR:Scarab (Golembane)						OPTION:47
+GEAR:Necklace of Fireballs II					OPTION:48
+GEAR:Stone of Alarm						OPTION:49
+GEAR:Bag of Tricks (Rust)					OPTION:50
+GEAR:Bead of Force						OPTION:51
+GEAR:Chime of Opening						OPTION:52
+GEAR:Horseshoes of Speed					OPTION:53
+GEAR:Rope of Climbing						OPTION:54
+GEAR:Dust of Disappearance					OPTION:55
+GEAR:Lens of Detection						OPTION:56
+GEAR:Vestment (Druid)						OPTION:57
+GEAR:Figurine of Wondrous Power (Silver Raven)		OPTION:58
+GEAR:Amulet of Health +2					OPTION:59
+GEAR:Bracers of Armor +2					OPTION:60
+GEAR:Cloak of Charisma +2					OPTION:61
+GEAR:Cloak of Resistance +2					OPTION:62
+GEAR:Gauntlets of Ogre Power					OPTION:63
+GEAR:Gloves of Arrow Snaring					OPTION:64
+GEAR:Gloves of Dexterity +2					OPTION:65
+GEAR:Headband of Intellect +2					OPTION:66
+GEAR:Ioun Stone (Clear)						OPTION:67
+GEAR:Restorative Ointment					OPTION:68
+GEAR:Marvelous Pigments						OPTION:69
+GEAR:Pearl of Power (2nd Level)				OPTION:70
+GEAR:Periapt of Wisdom +2					OPTION:71
+GEAR:Stone Salve							OPTION:72
+GEAR:Necklace of Fireballs III				OPTION:73
+GEAR:Circlet of Persuasion					OPTION:74
+GEAR:Slippers of Spider Climbing				OPTION:75
+GEAR:Incense of Meditation					OPTION:76
+GEAR:Bag of Holding (Type 2)					OPTION:77
+GEAR:Bracers of Archery (Lesser)				OPTION:78
+GEAR:Ioun Stone (Dusty Rose)					OPTION:79
+GEAR:Helm of Comprehend Languages and Read Magic	OPTION:80
+GEAR:Vest of Escape						OPTION:81
+GEAR:Eversmoking Bottle						OPTION:82
+GEAR:Sustaining Spoon						OPTION:83
+GEAR:Necklace of Fireballs IV					OPTION:84
+GEAR:Boots of Striding and Springing			OPTION:85
+GEAR:Wind Fan							OPTION:86
+GEAR:Amulet of Mighty Fists +1				OPTION:87
+GEAR:Horseshoes of a Zephyr					OPTION:88
+GEAR:Pipes of Haunting						OPTION:89
+GEAR:Necklace of Fireballs V					OPTION:90
+GEAR:Gloves of Swimming and Climbing			OPTION:91
+GEAR:Bag of Tricks (Tan)					OPTION:92
+GEAR:Circlet of Blasting (Minor)				OPTION:93
+GEAR:Horn of Goodness/Evil					OPTION:94
+GEAR:Robe of Useful Items					OPTION:95
+GEAR:Boat (Folding)						OPTION:96
+GEAR:Cloak of the Manta Ray					OPTION:97
+GEAR:Bottle of Air						OPTION:98
+GEAR:Bag of Holding (Type 3)					OPTION:99
+GEAR:Periapt of Health						OPTION:100
+
+STARTPACK:Medium Wondrous Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Boots of Levitation					OPTION:1
+GEAR:Harp of Charming						OPTION:2
+GEAR:Amulet of Natural Armor +2				OPTION:3
+GEAR:Golem Manual (Flesh)					OPTION:4
+GEAR:Hand of Glory						OPTION:5
+GEAR:Ioun Stone (Deep Red)					OPTION:6
+GEAR:Ioun Stone (Incandescent Blue)				OPTION:7
+GEAR:Ioun Stone (Pale Blue)					OPTION:8
+GEAR:Ioun Stone (Pink and Green)				OPTION:9
+GEAR:Ioun Stone (Pink)						OPTION:10
+GEAR:Ioun Stone (Scarlet and Blue)				OPTION:11
+GEAR:Deck of Illusions						OPTION:12
+GEAR:Necklace of Fireballs VI					OPTION:13
+GEAR:Candle of Invocation					OPTION:14
+GEAR:Bracers of Armor +3					OPTION:15
+GEAR:Cloak of Resistance +3					OPTION:16
+GEAR:Decanter of Endless Water				OPTION:17
+GEAR:Necklace of Adaptation					OPTION:18
+GEAR:Pearl of Power (3rd Level)				OPTION:19
+GEAR:Talisman of the Sphere					OPTION:20
+GEAR:Figurine of Wondrous Power (Serpentine Owl)	OPTION:21
+GEAR:Necklace of Fireballs VII				OPTION:22
+GEAR:Strand of Prayer Beads (Lesser)			OPTION:23
+GEAR:Bag of Holding (Type 4)					OPTION:24
+GEAR:Figurine of Wondrous Power (Bronze Griffon)	OPTION:25
+GEAR:Figurine of Wondrous Power (Ebony Fly)		OPTION:26
+GEAR:Glove of Storing						OPTION:27
+GEAR:Ioun Stone (Dark Blue)					OPTION:28
+GEAR:Stone Horse (Courser)					OPTION:29
+GEAR:Cape of the Mountebank					OPTION:30
+GEAR:Phylactery of Undead Turning				OPTION:31
+GEAR:Gauntlet of Rust						OPTION:32
+GEAR:Boots of Speed						OPTION:33
+GEAR:Goggles of Night						OPTION:34
+GEAR:Golem Manual (Clay)					OPTION:35
+GEAR:Medallion of Thoughts					OPTION:36
+GEAR:Pipes of Pain						OPTION:37
+GEAR:Blessed Book							OPTION:38
+GEAR:Belt (Monk's)						OPTION:39
+GEAR:Gem of Brightness						OPTION:40
+GEAR:Lyre of Building						OPTION:41
+GEAR:Cloak of Arachnida						OPTION:42
+GEAR:Stone Horse (Destrier)					OPTION:43
+GEAR:Belt of Dwarvenkind					OPTION:44
+GEAR:Periapt of Wound Closure					OPTION:45
+GEAR:Horn of the Tritons					OPTION:46
+GEAR:Pearl of the Sirines					OPTION:47
+GEAR:Figurine of Wondrous Power (Onyx Dog)		OPTION:48
+GEAR:Amulet of Health +4					OPTION:49
+GEAR:Belt of Giant Strength +4				OPTION:50
+GEAR:Boots (Winged)						OPTION:51
+GEAR:Bracers of Armor +4					OPTION:52
+GEAR:Cloak of Charisma +4					OPTION:53
+GEAR:Cloak of Resistance +4					OPTION:54
+GEAR:Gloves of Dexterity +4					OPTION:55
+GEAR:Headband of Intellect +4					OPTION:56
+GEAR:Pearl of Power (4th Level)				OPTION:57
+GEAR:Periapt of Wisdom +4					OPTION:58
+GEAR:Scabbard of Keen Edges					OPTION:59
+GEAR:Figurine of Wondrous Power (Golden Lions)		OPTION:60
+GEAR:Chime of Interruption					OPTION:61
+GEAR:Broom of Flying						OPTION:62
+GEAR:Figurine of Wondrous Power (Marble Elephant)	OPTION:63
+GEAR:Amulet of Natural Armor +3				OPTION:64
+GEAR:Ioun Stone (Iridescent)					OPTION:65
+GEAR:Bracelet of Friends					OPTION:66
+GEAR:Carpet of Flying (5x5)					OPTION:67
+GEAR:Horn of Blasting						OPTION:68
+GEAR:Ioun Stone (Pale Lavender)				OPTION:69
+GEAR:Ioun Stone (Pearly White)				OPTION:70
+GEAR:Portable Hole						OPTION:71
+GEAR:Stone of Good Luck (Luckstone)				OPTION:72
+GEAR:Figurine of Wondrous Power (Ivory Goats)		OPTION:73
+GEAR:Rope of Entanglement					OPTION:74
+GEAR:Golem Manual (Stone)					OPTION:75
+GEAR:Mask of the Skull						OPTION:76
+GEAR:Mattock of the Titans					OPTION:77
+GEAR:Circlet of Blasting (Major)				OPTION:78
+GEAR:Amulet of Mighty Fists +2				OPTION:79
+GEAR:Cloak of Displacement (Minor)				OPTION:80
+GEAR:Helm of Underwater Action				OPTION:81
+GEAR:Bracers of Archery (Greater)				OPTION:82
+GEAR:Bracers of Armor +5					OPTION:83
+GEAR:Cloak of Resistance +5					OPTION:84
+GEAR:Eyes of Doom							OPTION:85
+GEAR:Pearl of Power (5th Level)				OPTION:86
+GEAR:Maul of the Titans						OPTION:87
+GEAR:Strand of Prayer Beads					OPTION:88
+GEAR:Cloak of the Bat						OPTION:89
+GEAR:Iron Bands of Binding					OPTION:90
+GEAR:Cube of Frost Resistance					OPTION:91
+GEAR:Helm of Telepathy						OPTION:92
+GEAR:Periapt of Proof against Poison			OPTION:93
+GEAR:Robe of Scintillating Colors				OPTION:94
+GEAR:Manual of Bodily Health +1				OPTION:95
+GEAR:Manual of Gainful Exercise +1				OPTION:96
+GEAR:Manual of Quickness of Action +1			OPTION:97
+GEAR:Tome of Clear Thought +1					OPTION:98
+GEAR:Tome of Leadership and Influence +1			OPTION:99
+GEAR:Tome of Understanding +1					OPTION:100
+
+STARTPACK:Major Wondrous Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Dimensional Shackles					OPTION:1
+GEAR:Figurine of Wondrous Power (Obsidian Steed)	OPTION:2
+GEAR:Drums of Panic						OPTION:3
+GEAR:Ioun Stone (Orange)					OPTION:4
+GEAR:Ioun Stone (Pale Green)					OPTION:5
+GEAR:Lantern of Revealing					OPTION:6
+GEAR:Robe of Blending						OPTION:7
+GEAR:Amulet of Natural Armor +4				OPTION:8
+GEAR:Amulet of Proof against Detection and Location	OPTION:9
+GEAR:Carpet of Flying (5x10)					OPTION:10
+GEAR:Golem Manual (Iron)					OPTION:11
+GEAR:Amulet of Health +6					OPTION:12
+GEAR:Belt of Giant Strength +6				OPTION:13
+GEAR:Bracers of Armor +6					OPTION:14
+GEAR:Cloak of Charisma +6					OPTION:15
+GEAR:Gloves of Dexterity +6					OPTION:16
+GEAR:Headband of Intellect +6					OPTION:17
+GEAR:Ioun Stone (Vibrant Purple)				OPTION:18
+GEAR:Pearl of Power (6th Level)				OPTION:19
+GEAR:Periapt of Wisdom +6					OPTION:20
+GEAR:Scarab of Protection					OPTION:21
+GEAR:Ioun Stone (Lavender and Green)			OPTION:22
+GEAR:Ring Gates							OPTION:23
+GEAR:Crystal Ball							OPTION:24
+GEAR:Golem Manual (Greater Stone)				OPTION:25
+GEAR:Orb of Storms						OPTION:26
+GEAR:Boots of Teleportation					OPTION:27
+GEAR:Bracers of Armor +7					OPTION:28
+GEAR:Pearl of Power (7th Level)				OPTION:29
+GEAR:Amulet of Natural Armor +5				OPTION:30
+GEAR:Cloak of Displacement (Major)				OPTION:31
+GEAR:Crystal Ball (See Invisibility)			OPTION:32
+KIT:Horn of Valhalla		OPTION:33
+GEAR:Crystal Ball (Detect Thoughts)				OPTION:34
+GEAR:Carpet of Flying (6x9)					OPTION:35
+GEAR:Amulet of Mighty Fists +3				OPTION:36
+GEAR:Wings of Flying						OPTION:37
+GEAR:Cloak of Etherealness					OPTION:38
+GEAR:Instant Fortress						OPTION:39
+GEAR:Manual of Bodily Health +2				OPTION:40
+GEAR:Manual of Gainful Exercise +2				OPTION:41
+GEAR:Manual of Quickness of Action +2			OPTION:42
+GEAR:Tome of Clear Thought +2					OPTION:43
+GEAR:Tome of Leadership and Influence +2			OPTION:44
+GEAR:Tome of Understanding +2					OPTION:45
+GEAR:Eyes of Charming						OPTION:46
+GEAR:Robe of Stars						OPTION:47
+GEAR:Carpet of Flying (10x10)					OPTION:48
+GEAR:Darkskull							OPTION:49
+GEAR:Cube of Force						OPTION:50
+GEAR:Bracers of Armor +8					OPTION:51
+GEAR:Pearl of Power (8th Level)				OPTION:52
+GEAR:Crystal Ball (Telepathy)					OPTION:53
+GEAR:Horn of Blasting (Greater)				OPTION:54
+GEAR:Pearl of Power (2 Spells)				OPTION:55
+GEAR:Helm of Teleportation					OPTION:56
+GEAR:Gem of Seeing						OPTION:57
+KIT:Robe of the Archmagi	OPTION:58
+GEAR:Mantle of Faith						OPTION:59
+GEAR:Crystal Ball (True Seeing)				OPTION:60
+GEAR:Pearl of Power (9th Level)				OPTION:61
+GEAR:Well of Many Worlds					OPTION:62
+GEAR:Manual of Bodily Health +3				OPTION:63
+GEAR:Manual of Gainful Exercise +3				OPTION:64
+GEAR:Manual of Quickness of Action +3			OPTION:65
+GEAR:Tome of Clear Thought +3					OPTION:66
+GEAR:Tome of Leadership and Influence +3			OPTION:67
+GEAR:Tome of Understanding +3					OPTION:68
+GEAR:Apparatus of the Crab					OPTION:69
+GEAR:Mantle of Spell Resistance				OPTION:70
+GEAR:Mirror of Opposition					OPTION:71
+GEAR:Strand of Prayer Beads (Greater)			OPTION:72
+GEAR:Amulet of Mighty Fists +4				OPTION:73
+GEAR:Eyes of Petrification					OPTION:74
+GEAR:Bowl of Commanding Water Elementals			OPTION:75
+GEAR:Brazier of Commanding Fire Elementals		OPTION:76
+GEAR:Censer of Controlling Air Elementals			OPTION:77
+GEAR:Stone of Controlling Earth Elementals		OPTION:78
+GEAR:Manual of Bodily Health +4				OPTION:79
+GEAR:Manual of Gainful Exercise +4				OPTION:80
+GEAR:Manual of Quickness of Action +4			OPTION:81
+GEAR:Tome of Clear Thought +4					OPTION:82
+GEAR:Tome of Leadership and Influence +4			OPTION:83
+GEAR:Tome of Understanding +4					OPTION:84
+GEAR:Amulet of the Planes					OPTION:85
+GEAR:Robe of Eyes							OPTION:86
+GEAR:Helm of Brilliance						OPTION:87
+GEAR:Manual of Bodily Health +5				OPTION:88
+GEAR:Manual of Gainful Exercise +5				OPTION:89
+GEAR:Manual of Quickness of Action +5			OPTION:90
+GEAR:Tome of Clear Thought +5					OPTION:91
+GEAR:Tome of Leadership and Influence +5			OPTION:92
+GEAR:Tome of Understanding +5					OPTION:93
+GEAR:Efreeti Bottle						OPTION:94
+GEAR:Amulet of Mighty Fists +5				OPTION:95
+GEAR:Chaos Diamond						OPTION:96
+GEAR:Cubic Gate							OPTION:97
+GEAR:Iron Flask							OPTION:98
+GEAR:Mirror of Mental Prowess					OPTION:99
+GEAR:Mirror of Life Trapping					OPTION:100
+
+STARTPACK:Robe of the Archmagi	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Robe of the Archmagi (White)	OPTION:1,45
+GEAR:Robe of the Archmagi (Gray)	OPTION:46,75
+GEAR:Robe of the Archmagi (Black)	OPTION:76,100
+
+STARTPACK:Horn of Valhalla	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Horn of Valhalla (Silver)	OPTION:1,40
+GEAR:Horn of Valhalla (Brass)		OPTION:41,75
+GEAR:Horn of Valhalla (Bronze)	OPTION:76,90
+GEAR:Horn of Valhalla (Iron)		OPTION:91,100
+

@@ -1,0 +1,39 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Medium Staffs	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Staff (Charming)		OPTION:1,15
+GEAR:Staff (Fire)			OPTION:16,30
+GEAR:Staff (Swarming Insects)	OPTION:31,40
+GEAR:Staff (Healing)		OPTION:41,60
+GEAR:Staff (Size Alteration)	OPTION:61,75
+GEAR:Staff (Illumination)	OPTION:76,90
+GEAR:Staff (Frost)		OPTION:91,95
+GEAR:Staff (Defense)		OPTION:96,100
+
+STARTPACK:Major Staffs	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Staff (Charming)		OPTION:1,3
+GEAR:Staff (Fire)			OPTION:4,9
+GEAR:Staff (Swarming Insects)	OPTION:10,11
+GEAR:Staff (Healing)		OPTION:12,17
+GEAR:Staff (Size Alteration)	OPTION:18,19
+GEAR:Staff (Illumination)	OPTION:20,24
+GEAR:Staff (Frost)		OPTION:25,31
+GEAR:Staff (Defense)		OPTION:32,38
+GEAR:Staff (Abjuration)		OPTION:39,43
+GEAR:Staff (Conjuration)	OPTION:44,48
+GEAR:Staff (Enchantment)	OPTION:49,53
+GEAR:Staff (Evocation)		OPTION:54,58
+GEAR:Staff (Illusion)		OPTION:59,63
+GEAR:Staff (Necromancy)		OPTION:64,68
+GEAR:Staff (Transmutation)	OPTION:69,73
+GEAR:Staff (Divination)		OPTION:74,77
+GEAR:Staff (Earth and Stone)	OPTION:78,82
+GEAR:Staff (Woodlands)		OPTION:83,87
+GEAR:Staff (Life)			OPTION:88,92
+GEAR:Staff (Passage)		OPTION:93,97
+GEAR:Staff (Power)		OPTION:98,100
+

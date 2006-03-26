@@ -1,0 +1,56 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Medium Rods	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Rod (Enlarge/Lesser)			OPTION:1,7
+GEAR:Rod (Extend/Lesser)			OPTION:8,14
+GEAR:Rod (Silent/Lesser)			OPTION:15,21
+GEAR:Rod (Immovable)				OPTION:22,28
+GEAR:Rod (Empower/Lesser)			OPTION:29,35
+GEAR:Rod (Metal and Mineral Detection)	OPTION:36,42
+GEAR:Rod (Cancellation)				OPTION:43,53
+GEAR:Rod (Enlarge)				OPTION:54,57
+GEAR:Rod (Extend)					OPTION:58,61
+GEAR:Rod (Silent)					OPTION:62,65
+GEAR:Rod (Wonder)					OPTION:66,71
+GEAR:Rod (Python)					OPTION:72,79
+GEAR:Rod (Maximize/Lesser)			OPTION:80,83
+GEAR:Rod (Flame Extinguishing)		OPTION:84,89
+GEAR:Rod (Viper)					OPTION:90,97
+GEAR:Rod (Empower)				OPTION:98,99
+GEAR:Rod (Quicken/Lesser)			OPTION:100
+
+STARTPACK:Major Rods	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+GEAR:Rod (Cancellation)			OPTION:1,4
+GEAR:Rod (Enlarge)			OPTION:5,6
+GEAR:Rod (Extend)				OPTION:7,8
+GEAR:Rod (Silent)				OPTION:9,10
+GEAR:Rod (Wonder)				OPTION:11,14
+GEAR:Rod (Python)				OPTION:15,18
+GEAR:Rod (Flame Extinguishing)	OPTION:19,21
+GEAR:Rod (Viper)				OPTION:22,25
+GEAR:Rod (Enemy Detection)		OPTION:26,30
+GEAR:Rod (Enlarge/Greater)		OPTION:31,36
+GEAR:Rod (Extend/Greater)		OPTION:37,42
+GEAR:Rod (Silent/Greater)		OPTION:43,48
+GEAR:Rod (Splendor)			OPTION:49,53
+GEAR:Rod (Withering)			OPTION:54,58
+GEAR:Rod (Empower)			OPTION:59,64
+GEAR:Rod (Thunder and Lightning)	OPTION:65,69
+GEAR:Rod (Quicken/Lesser)		OPTION:70,73
+GEAR:Rod (Negation)			OPTION:74,77
+GEAR:Rod (Absorption)			OPTION:78,80
+GEAR:Rod (Flailing)			OPTION:81,84
+GEAR:Rod (Maximize)			OPTION:85,86
+GEAR:Rod (Rulership)			OPTION:87,88
+GEAR:Rod (Security)			OPTION:89,90
+GEAR:Rod (Lordly Might)			OPTION:91,92
+GEAR:Rod (Empower/Greater)		OPTION:93,94
+GEAR:Rod (Quicken)			OPTION:95,96
+GEAR:Rod (Alertness)			OPTION:97,98
+GEAR:Rod (Maximize/Greater)		OPTION:99
+GEAR:Rod (Quicken/Greater)		OPTION:100
+

@@ -1,0 +1,85 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Treasure Table Art	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d100")
+KIT:Treasure Table Art 55gp	OPTION:1,10
+KIT:Treasure Table Art 105gp	OPTION:11,25
+KIT:Treasure Table Art 350gp	OPTION:26,40
+KIT:Treasure Table Art 550gp	OPTION:41,50
+KIT:Treasure Table Art 700gp	OPTION:51,60
+KIT:Treasure Table Art 1050gp	OPTION:61,70
+KIT:Treasure Table Art 1400gp	OPTION:71,80
+KIT:Treasure Table Art 1750gp	OPTION:81,85
+KIT:Treasure Table Art 2500gp	OPTION:86,90
+KIT:Treasure Table Art 3500gp	OPTION:91,95
+KIT:Treasure Table Art 5000gp	OPTION:96,99
+KIT:Treasure Table Art 7000gp	OPTION:100
+
+STARTPACK:Treasure Table Art 55gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d4")
+GEAR:Art (Silver Ewer)					EQMOD:ART|EVAL(roll("1d10")*10)	OPTION:1
+GEAR:Art (Statuette (Carved Bone))			EQMOD:ART|EVAL(roll("1d10")*10)	OPTION:2
+GEAR:Art (Statuette (Ivory))				EQMOD:ART|EVAL(roll("1d10")*10)	OPTION:3
+GEAR:Art (Bracelet (Small/Gold/Finely Wrought))	EQMOD:ART|EVAL(roll("1d10")*10)	OPTION:4
+
+STARTPACK:Treasure Table Art 105gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+GEAR:Art (Vestments (Cloth of Gold))			EQMOD:ART|EVAL(roll("3d6")*10)	OPTION:1
+GEAR:Art (Mask (Black Velvet with Numerous Citrines))	EQMOD:ART|EVAL(roll("3d6")*10)	OPTION:2
+GEAR:Art (Chalice (Silver with Lapis Lazuli Gems)	EQMOD:ART|EVAL(roll("3d6")*10)	OPTION:3
+
+STARTPACK:Treasure Table Art 350gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Tapestry (Large/Wool/Well-Done))	EQMOD:ART|EVAL(roll("1d6")*100)	OPTION:1
+GEAR:Art (Mug (Brass with Jade Inlays))		EQMOD:ART|EVAL(roll("1d6")*100)	OPTION:2
+
+STARTPACK:Treasure Table Art 550gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Comb (Silver with Moonstones))				EQMOD:ART|EVAL(roll("1d10")*100)	OPTION:1
+GEAR:Art (Longsword (Silver-Plated with Jet Jewel in Hilt))	EQMOD:ART|EVAL(roll("1d10")*100)	OPTION:2
+
+STARTPACK:Treasure Table Art 700gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Harp (Carved Exotic Wood with Ivory Inlay and Zircon Gems))	EQMOD:ART|EVAL(roll("2d6")*100)	OPTION:1
+GEAR:Art (Idol (Solid Gold 10 lb.))							EQMOD:ART|EVAL(roll("2d6")*100)	OPTION:2
+
+STARTPACK:Treasure Table Art 1050gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+GEAR:Art (Comb (Gold Dragon with Red Garnet Eye))				EQMOD:ART|EVAL(roll("3d6")*100)	OPTION:1
+GEAR:Art (Stopper Cork (Gold and Topaz))						EQMOD:ART|EVAL(roll("3d6")*100)	OPTION:2
+GEAR:Art (Dagger (Ceremonial Electrum with Star Ruby in the Pommel))	EQMOD:ART|EVAL(roll("3d6")*100)	OPTION:3
+
+STARTPACK:Treasure Table Art 1400gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+GEAR:Art (Eyepatch (Mock Eye of Sapphire and Moonstone))	EQMOD:ART|EVAL(roll("4d6")*100)	OPTION:1
+GEAR:Art (Pendant (Fire Opal on Fine Gold Chain))		EQMOD:ART|EVAL(roll("4d6")*100)	OPTION:2
+GEAR:Art (Painting (Old Masterpiece))				EQMOD:ART|EVAL(roll("4d6")*100)	OPTION:3
+
+STARTPACK:Treasure Table Art 1750gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Mantle (Embroidered Silk and Velvet with Numerous Moonstones))	EQMOD:ART|EVAL(roll("5d6")*100)	OPTION:1
+GEAR:Art (Pendant (Sapphire on Gold Chain))						EQMOD:ART|EVAL(roll("5d6")*100)	OPTION:1
+
+STARTPACK:Treasure Table Art 2500gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d3")
+GEAR:Art (Glove (Embroidered and Bejeweled))	EQMOD:ART|EVAL(roll("1d4")*1000)	OPTION:1
+GEAR:Art (Anklet (Jeweled))				EQMOD:ART|EVAL(roll("1d4")*1000)	OPTION:2
+GEAR:Art (Music Box (Gold))				EQMOD:ART|EVAL(roll("1d4")*1000)	OPTION:3
+
+STARTPACK:Treasure Table Art 3500gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Circlet (Golden with Four Aquamarines))	EQMOD:ART|EVAL(roll("1d6")*1000)	OPTION:1
+GEAR:Art (Necklace (String of Small Pink Pearls))	EQMOD:ART|EVAL(roll("1d6")*1000)	OPTION:2
+
+STARTPACK:Treasure Table Art 5000gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Crown (Jeweled Gold))	EQMOD:ART|EVAL(roll("2d4")*1000)	OPTION:1
+GEAR:Art (Ring (Jeweled Electrum))	EQMOD:ART|EVAL(roll("2d4")*1000)	OPTION:2
+
+STARTPACK:Treasure Table Art 7000gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+SELECT:roll("1d2")
+GEAR:Art (Ring (Gold and Ruby))		EQMOD:ART|EVAL(roll("2d6")*1000)	OPTION:1
+GEAR:Art (Cup (Gold Set with Emeralds))	EQMOD:ART|EVAL(roll("2d6")*1000)	OPTION:2
+
