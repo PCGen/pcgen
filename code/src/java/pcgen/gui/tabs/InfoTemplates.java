@@ -448,7 +448,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		//  - available templates
 
 		// Header
-		leftPane.add(createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		// Data - All Available Templates Table
 		availablePane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -471,7 +471,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		//  - selected templates
 
 		// Header
-		rightPane.add(createFilterPane(selSortLabel, viewSelComboBox, null, null, null), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selSortLabel, viewSelComboBox, null, null, null), BorderLayout.NORTH);
 
 		// Data - Selected Templates table
 		selectedPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -510,60 +510,6 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		mainPane.add(scroll);
 	}
 	
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-		int i = 0;
-
-		if(treeLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeLabel, c);
-		}
-		
-		if(treeCb != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeCb, c);
-		}
-
-		if(filterLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterLabel, c);
-		}
-		
-		if(filterText != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.HORIZONTAL;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterText, c);
-		}
-		
-		if(clearButton != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(0, 2, 0, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			clearButton.setEnabled(false);
-			filterPanel.add(clearButton, c);
-		}
-		return filterPanel;
-	}
-
 	public void setPc(PlayerCharacter pc)
 	{
 		if(this.pc != pc || pc.getSerial() > serial)
@@ -1393,6 +1339,11 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoTemplates.viewcol." + colName, val);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

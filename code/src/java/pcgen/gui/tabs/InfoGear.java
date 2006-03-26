@@ -1233,44 +1233,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		return riPanel;
 	}
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(treeLabel, c);
-
-		Utility.buildConstraints(c, 1, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(treeCb, c);
-
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterLabel, c);
-		
-		Utility.buildConstraints(c, 3, 0, 1, 1, 95, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterText, c);
-		
-		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		clearButton.setEnabled(false);
-		filterPanel.add(clearButton, c);
-		
-		return filterPanel;
-	}
 
 	/**
 	 * Creates the EquipmentModel that will be used.
@@ -2040,7 +2002,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		leftPane.setLayout(new BorderLayout());
 
 		JLabel avaLabel = new JLabel("Available: ");
-		leftPane.add(createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 		
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -2061,7 +2023,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		rightPane.setLayout(new BorderLayout());
 
 		JLabel selLabel = new JLabel("Selected: ");
-		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
 		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
@@ -3908,6 +3870,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 }
 

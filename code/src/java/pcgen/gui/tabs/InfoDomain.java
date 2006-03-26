@@ -826,7 +826,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		splitPane.setDividerLocation(350);
 		center.add(splitPane, BorderLayout.CENTER);
 
-		leftPane.add(createFilterPane(new JLabel(PropertyFactory.getString("in_irSortDeities")), viewComboBox, new JLabel("Filter:"), textDeityQFilter, clearDeityQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(new JLabel(PropertyFactory.getString("in_irSortDeities")), viewComboBox, new JLabel("Filter:"), textDeityQFilter, clearDeityQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(deityTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton = new JButton();
@@ -848,7 +848,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		
 		rightPane.setLayout(new BorderLayout());
 
-		rightPane.add(createFilterPane(null, null, new JLabel("Filter:"), textDomainQFilter, clearDomainQFilterButton), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(null, null, new JLabel("Filter:"), textDomainQFilter, clearDomainQFilterButton), BorderLayout.NORTH);
 
 		JPanel rightBottom = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		domSelected = new JLabel(PropertyFactory.getString("in_domainSelected") + ": ");
@@ -877,52 +877,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		columnButton2.setText("^");
 		new TableColumnManager(domainTable, columnButton2, domainModel);
 		rightPane.add(scrollPane2);
-	}
-
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-		int i = 0;
-
-		if(treeLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeLabel, c);
-		}
-		
-		if(treeCb != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeCb, c);
-		}
-
-		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterLabel, c);
-		
-		Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterText, c);
-		
-		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-		c.insets = new Insets(0, 2, 0, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		clearButton.setEnabled(false);
-		filterPanel.add(clearButton, c);
-		
-		return filterPanel;
 	}
 
 	private void initActionListeners()
@@ -2248,6 +2202,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoDomain.deity.viewcol." + colName, val);
 		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 
 	/**
@@ -2457,6 +2416,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoDomain.domain.viewcol." + colName, val);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

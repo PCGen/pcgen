@@ -82,6 +82,7 @@ public class TableColumnManager implements MouseListener {
 				col.setWidth(model.getMColumnDefaultWidth(i + model.getMColumnOffset()));
 				col.setPreferredWidth(model.getMColumnDefaultWidth(i + model.getMColumnOffset()));
 				col.addPropertyChangeListener(new ColumnChangeListener(i + model.getMColumnOffset())); 
+				model.resetMColumn(i + model.getMColumnOffset(), col);
 				colModel.addColumn(col);
 			}
 		}

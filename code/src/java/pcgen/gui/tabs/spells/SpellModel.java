@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.CharacterDomain;
@@ -1181,5 +1182,11 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 			nameSb.append("right.");
 		}
 		return nameSb.toString();
+	}
+
+
+	public void resetMColumn(int col, TableColumn column) {
+		// TODO Auto-generated method stub
+		
 	}
 }

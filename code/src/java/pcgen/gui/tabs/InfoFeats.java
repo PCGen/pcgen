@@ -1229,7 +1229,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		leftPane.setLayout(new BorderLayout());
 
 		JLabel avaLabel = new JLabel("Available: ");
-		leftPane.add(createFilterPane(avaLabel, viewAvailComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewAvailComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -1246,7 +1246,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		rightPane.setLayout(new BorderLayout());
 
 		JLabel selLabel = new JLabel("Selected: ");
-		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
 		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
@@ -1302,45 +1302,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		}
 
 		return panel;
-	}
-
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(treeLabel, c);
-
-		Utility.buildConstraints(c, 1, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(treeCb, c);
-
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterLabel, c);
-		
-		Utility.buildConstraints(c, 3, 0, 1, 1, 95, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterText, c);
-		
-		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
-		c.insets = new Insets(0, 2, 0, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		clearButton.setEnabled(false);
-		filterPanel.add(clearButton, c);
-		
-		return filterPanel;
 	}
 
 	private void removeFeat()
@@ -1522,7 +1483,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		private static final int MODEL_TYPE_SELECTED = 1;
 
 		// Names of the columns.
-		private String[] names = { "Feat", "Type", "Cost", "Mult", "Stack", "Requirements", "Description", "Choices", "Source" };
+		private String[] names = {
+			"Feat",
+			"Type",
+			"Cost",
+			"Mult",
+			"Stack",
+			"Requirements",
+			"Description",
+			"Choices",
+			"Source"
+		};
 		private int[] widths = { 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
 		// Types of the columns.
@@ -1545,15 +1516,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			if(available)
 			{
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			}
 			else
 			{
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));
 				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			}
@@ -2404,6 +2377,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoFeats.viewcol." + colName, val);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

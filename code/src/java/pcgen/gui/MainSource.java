@@ -322,16 +322,16 @@ public class MainSource extends FilterAdapterPanel
 				websiteButton.setEnabled(!SourceUtilities.returnSourceInForm(aCamp, Constants.SOURCEWEB, false).equals(""));
 
 				StringBuffer sb = new StringBuffer();
+				sb.append("<b>")
+					.append(aCamp.getName())
+					.append("</b><br>");
 				sb.append("<html>");
 				if(aCamp.getCoverFiles().size() > 0) {
 					CampaignSourceEntry image = (CampaignSourceEntry)aCamp.getCoverFiles().get(0);
 					sb.append("<img src='")
 						.append(image.getFile())
-						.append("' align='right'>");
+						.append("'><br>");
 				}
-				sb.append("<b>")
-					.append(aCamp.getName())
-					.append("</b><br>");
 				sb.append("<b>TYPE</b>: ")
 					.append(aCamp.getType());
 				sb.append("&nbsp; <b>RANK</b>: ")

@@ -697,7 +697,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		mainPane.setLayout(new BorderLayout());
 		topPane.add(mainPane, BorderLayout.CENTER);
 
-		mainPane.add(createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		mainPane.add(InfoTabUtils.createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(raceTable);
 		raceTable.setColAlign(3, SwingConstants.CENTER);
@@ -747,60 +747,6 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		infoLabel.setBackground(topPane.getBackground());
 		scroll.setViewportView(infoLabel);
 		botPane.add(scroll);
-	}
-
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-		int i = 0;
-
-		if(treeLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeLabel, c);
-		}
-		
-		if(treeCb != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeCb, c);
-		}
-
-		if(filterLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterLabel, c);
-		}
-		
-		if(filterText != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.HORIZONTAL;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterText, c);
-		}
-		
-		if(clearButton != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(0, 2, 0, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			clearButton.setEnabled(false);
-			filterPanel.add(clearButton, c);
-		}
-		return filterPanel;
 	}
 
 	/**
@@ -1668,6 +1614,11 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoRaces.viewcol." + colName, val);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

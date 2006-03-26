@@ -526,45 +526,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		return new ExclusiveSkillFilter();
 	}
 
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(treeLabel, c);
-
-		Utility.buildConstraints(c, 1, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(treeCb, c);
-
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterLabel, c);
-		
-		Utility.buildConstraints(c, 3, 0, 1, 1, 95, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		filterPanel.add(filterText, c);
-		
-		Utility.buildConstraints(c, 4, 0, 1, 1, 0, 0);
-		c.insets = new Insets(1, 2, 1, 2);
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		clearButton.setEnabled(false);
-		filterPanel.add(clearButton, c);
-		
-		return filterPanel;
-	}
-
 	/**
 	 * Creates the ClassModel that will be used.
 	 */
@@ -1224,7 +1185,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		// Top Left - Available
 		leftPane.setLayout(new BorderLayout());
-		leftPane.add(createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -1240,7 +1201,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		// Right Pane - Selected
 		rightPane.setLayout(new BorderLayout());
 
-		rightPane.add(createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
 
 		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
@@ -3096,6 +3057,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoSkills.viewcol." + colName, defaultVal);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 	
 	}

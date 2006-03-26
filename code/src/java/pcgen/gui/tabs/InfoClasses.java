@@ -1011,7 +1011,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		center.add(splitPane, BorderLayout.CENTER);
 
 		//  Top Left Pane - Available Classes
-		leftPane.add(createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton = new JButton();
@@ -1050,60 +1050,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		removeButton.setEnabled(false);
 		rightBottomPanel.add(removeButton);
 		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
-	}
-
-	private JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
-	{
-		GridBagConstraints c = new GridBagConstraints();
-		JPanel filterPanel = new JPanel(new GridBagLayout());
-		int i = 0;
-
-		if(treeLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeLabel, c);
-		}
-		
-		if(treeCb != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(treeCb, c);
-		}
-
-		if(filterLabel != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterLabel, c);
-		}
-		
-		if(filterText != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
-			c.insets = new Insets(1, 2, 1, 2);
-			c.fill = GridBagConstraints.HORIZONTAL;
-			c.anchor = GridBagConstraints.LINE_START;
-			filterPanel.add(filterText, c);
-		}
-		
-		if(clearButton != null)
-		{
-			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
-			c.insets = new Insets(0, 2, 0, 2);
-			c.fill = GridBagConstraints.NONE;
-			c.anchor = GridBagConstraints.LINE_START;
-			clearButton.setEnabled(false);
-			filterPanel.add(clearButton, c);
-		}
-		return filterPanel;
 	}
 
 	private boolean maybeSetExperience(int xp)
@@ -2062,6 +2008,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoClasses.viewcol." + colName, val);
+		}
+
+		public void resetMColumn(int col, TableColumn column) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

@@ -2,6 +2,8 @@ package pcgen.gui;
 
 import java.util.List;
 
+import javax.swing.table.TableColumn;
+
 /**
  * Interface to manage table columns
  */
@@ -46,4 +48,11 @@ public interface TableColumnManagerModel {
 	 * @param width
 	 */
 	public void setMColumnDefaultWidth(int col, int width);
+	
+	/**
+	 * Sets any column specific renderers/editors
+	 * @param col
+	 * @param width
+	 */
+	public void resetMColumn(int col, TableColumn column);
 }
