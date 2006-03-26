@@ -142,6 +142,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private Map d_childTypes = null;
 	private Map treasureList = null;
 	private Purse baseCoinCost;
+	private Map qualityMap = new HashMap();
 
 	// support tracking of cost as coins.
 	private Purse coinCost;
@@ -7048,5 +7049,44 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 
 		return thisName + " (" + newSize + ")";
+	}
+	
+	public void setQuality(String key, String value) {
+		qualityMap.put(key, value);
+	}
+	
+	public String getQuality(String key) {
+		return (String)qualityMap.get(key);
+	}
+
+	public String getQuality(int num) {
+		for(Iterator i = qualityMap.keySet().iterator(); i.hasNext(); ) {
+			String key = i.next().toString();
+			num --;
+			if(num == 0) {
+				return key + ": " + (String)qualityMap.get(key);
+			}
+		}
+		return "";
+	}
+	
+	public Map getQualityMap() {
+		return qualityMap;
+	}
+	
+	public String getQualityString() {
+		StringBuffer sb = new StringBuffer();
+		boolean firstTime = true;
+		for(Iterator i = qualityMap.keySet().iterator(); i.hasNext(); ) {
+			if(!firstTime) {
+				sb.append(", ");
+			}
+			String key = i.next().toString();
+			sb.append(key)
+				.append(": ")
+				.append((String)qualityMap.get(key));
+			firstTime = false;
+		}
+		return sb.toString();
 	}
 }

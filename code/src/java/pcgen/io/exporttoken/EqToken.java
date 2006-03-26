@@ -1096,6 +1096,25 @@ public class EqToken extends Token
 			}
 			return getTypeToken(eq);
 		}
+		else if ("QUALITY".equals(token))
+		{
+			if(tokenizer.hasMoreTokens())
+			{
+				String next = tokenizer.nextToken();
+				try
+				{
+					int num =  Integer.parseInt(next);
+					return eq.getQuality(num);
+				}
+				catch(NumberFormatException e)
+				{
+					return eq.getQuality(next);
+				}
+			}
+			else {
+				return eq.getQualityString();
+			}
+		}
 		else if ("SPELLFAILURE".equals(token))
 		{
 			retString = getSpellFailureToken(pc, eq);

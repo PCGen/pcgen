@@ -153,9 +153,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private static Integer saveSelectedViewMode = null;
 	private static final int COL_NAME = 0;
 	private static final int COL_COST = 1;
-	private static final int COL_QTY = 2;
-	private static final int COL_INDEX = 3;
-	private static final int COL_SRC = 4;
+	private static final int COL_WEIGHT = 2;
+	private static final int COL_QTY = 3;
+	private static final int COL_INDEX = 4;
+	private static final int COL_SRC = 5;
 
 	/**
 	 * typeSubtypeRoot is the base structure used by both the available
@@ -747,9 +748,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				b.append(" <b>Charges</b>:").append(charges);
 			}
+			
+			bString = aEq.getQualityString(); 
+			if (bString.length() > 0)
+			{
+				b.append(" <b>QUALITIES</b>:").append(bString);
+			}
 
 			bString = aEq.getSource();
-
 			if (bString.length() > 0)
 			{
 				b.append(" <b>SOURCE</b>:").append(bString);
@@ -3290,8 +3296,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		private static final int MODEL_TYPE_SELECTED = 1;
 
 		// Names of the columns.
-		private String[] names = { "Item", "Cost", "Qty", "Order",  "Source" };
-		private int[] widths = { 100, 100, 100, 100, 100 };
+		private String[] names = { "Item", "Cost", "Weight", "Qty", "Order", "Source" };
+		private int[] widths = { 100, 20, 20, 20, 20, 100 };
 
 		// Types of the columns.
 		private int modelType = MODEL_TYPE_AVAIL; // availableModel
@@ -3313,15 +3319,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			int i = 1;
 			displayList = new ArrayList();
 			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 			if(available)
 			{
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 			}
 			else
 			{
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
 			}		
@@ -3346,6 +3355,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				case COL_COST:
 					return BigDecimal.class;
 
+				case COL_WEIGHT:
+					return Float.class;
+					
 				case COL_QTY:
 					return Float.class;
 
@@ -3420,7 +3432,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						retVal = eq.getCost(pc);
 					}
 					break;
-
+					
+				case COL_WEIGHT:
+					if (eq != null)
+					{
+						retVal = eq.getWeight(pc);
+					}
+					break;
+					
 				case COL_QTY:
 					if (eq != null)
 					{
