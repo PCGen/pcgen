@@ -4253,7 +4253,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		return PrereqHandler.passesAll(preReqList, (Equipment) p, currentPC);
 	}
 
-	final Object removeAssociated(final int i)
+	public final Object removeAssociated(final int i)
 	{
 		if (associatedList == null)
 		{
