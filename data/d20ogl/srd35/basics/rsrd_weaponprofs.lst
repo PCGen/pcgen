@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  7 21:03:41 2004 -- reformated by prettylst.pl v1.32 (build 353)
+# CVS $Revision$ $Author$ -- Sun Mar 26 01:04:29 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: abernat
 
@@ -8,7 +8,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Weapon Name			Type			Nb Hands
 # SIMPLE WEAPONS
 # -- unarmed
-# Weapon Name			Type			Nb Hands
+# Weapon Name			Type				Nb Hands
 Gauntlet				TYPE:Simple
 Unarmed Strike			TYPE:Simple
 
@@ -29,12 +29,12 @@ Mace (Heavy)			TYPE:Simple
 Morningstar				TYPE:Simple
 Shortspear				TYPE:Simple
 # -- 2-handers
-Longspear				TYPE:Simple		HANDS:2
-Quarterstaff			TYPE:Simple		HANDS:2
-Spear					TYPE:Simple		HANDS:2
+Longspear				TYPE:Simple			HANDS:2
+Quarterstaff			TYPE:Simple			HANDS:2
+Spear					TYPE:Simple			HANDS:2
 # -- Ranged
-Crossbow (Heavy)			TYPE:Simple		HANDS:2
-Crossbow (Light)			TYPE:Simple		HANDS:2
+Crossbow (Heavy)			TYPE:Simple			HANDS:2
+Crossbow (Light)			TYPE:Simple			HANDS:2
 Dart					TYPE:Simple
 Javelin				TYPE:Simple
 Sling					TYPE:Simple
@@ -63,23 +63,23 @@ Trident				TYPE:Martial
 Warhammer				TYPE:Martial
 
 # 2-handers
-Falchion				TYPE:Martial	HANDS:2
-Glaive				TYPE:Martial	HANDS:2
-Greataxe				TYPE:Martial	HANDS:2
-Greatclub				TYPE:Martial	HANDS:2
-Flail (Heavy)			TYPE:Martial	HANDS:2
-Greatsword				TYPE:Martial	HANDS:2
-Guisarme				TYPE:Martial	HANDS:2
-Halberd				TYPE:Martial	HANDS:2
-Lance					TYPE:Martial	HANDS:2
-Ranseur				TYPE:Martial	HANDS:2
-Scythe				TYPE:Martial	HANDS:2
-Sword (Bastard)		TYPE:Martial.Exotic	HANDS:2
-Waraxe (Dwarven)	TYPE:Martial.Exotic	HANDS:2
+Falchion				TYPE:Martial		HANDS:2
+Glaive				TYPE:Martial		HANDS:2
+Greataxe				TYPE:Martial		HANDS:2
+Greatclub				TYPE:Martial		HANDS:2
+Flail (Heavy)			TYPE:Martial		HANDS:2
+Greatsword				TYPE:Martial		HANDS:2
+Guisarme				TYPE:Martial		HANDS:2
+Halberd				TYPE:Martial		HANDS:2
+Lance					TYPE:Martial		HANDS:2
+Ranseur				TYPE:Martial		HANDS:2
+Scythe				TYPE:Martial		HANDS:2
+Sword (Bastard)			TYPE:Martial.Exotic	HANDS:2
+Waraxe (Dwarven)			TYPE:Martial.Exotic	HANDS:2
 
 # --ranged
-Longbow				TYPE:Martial	HANDS:2
-Shortbow				TYPE:Martial	HANDS:2
+Longbow				TYPE:Martial		HANDS:2
+Shortbow				TYPE:Martial		HANDS:2
 
 # EXOTIC
 # -- light
@@ -93,17 +93,17 @@ Siangham				TYPE:Exotic
 Whip					TYPE:Exotic
 
 # -- 2-handers
-Axe (Orc Double)			TYPE:Exotic		HANDS:2
-Chain (Spiked)			TYPE:Exotic		HANDS:2
-Flail (Dire)			TYPE:Exotic		HANDS:2
-Hammer (Gnome Hooked)		TYPE:Exotic		HANDS:2
-Sword (Two-Bladed)		TYPE:Exotic		HANDS:2
-Urgrosh (Dwarven)			TYPE:Exotic		HANDS:2
+Axe (Orc Double)			TYPE:Exotic			HANDS:2
+Chain (Spiked)			TYPE:Exotic			HANDS:2
+Flail (Dire)			TYPE:Exotic			HANDS:2
+Hammer (Gnome Hooked)		TYPE:Exotic			HANDS:2
+Sword (Two-Bladed)		TYPE:Exotic			HANDS:2
+Urgrosh (Dwarven)			TYPE:Exotic			HANDS:2
 
 # -- ranged
 Bolas					TYPE:Exotic
 Crossbow (Hand)			TYPE:Exotic
-Crossbow (Repeating Heavy)	TYPE:Exotic		HANDS:2
-Crossbow (Repeating Light)	TYPE:Exotic		HANDS:2
-Net					TYPE:Exotic		HANDS:2
+Crossbow (Repeating Heavy)	TYPE:Exotic			HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic			HANDS:2
+Net					TYPE:Exotic			HANDS:2
 Shuriken				TYPE:Exotic
