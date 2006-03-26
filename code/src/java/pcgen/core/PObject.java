@@ -4263,7 +4263,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		return associatedList.remove(i);
 	}
 
-	final void removeBonus(String bonusString, final String chooseString, final PlayerCharacter aPC)
+	public final void removeBonus(String bonusString, final String chooseString, final PlayerCharacter aPC)
 	{
 		bonusString = makeBonusString(bonusString, chooseString, aPC);
 

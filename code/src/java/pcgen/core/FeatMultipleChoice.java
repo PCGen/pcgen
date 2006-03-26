@@ -105,7 +105,7 @@ public final class FeatMultipleChoice implements Serializable
 	 * @param idx
 	 * @return String
 	 */
-	String getChoice(final int idx)
+	public String getChoice(final int idx)
 	{
 		if ((choices != null) && (idx < choices.size()))
 		{
@@ -119,7 +119,7 @@ public final class FeatMultipleChoice implements Serializable
 	 * Get the number of choices made.
 	 * @return number of choices
 	 */
-	int getChoiceCount()
+	public int getChoiceCount()
 	{
 		if (choices != null)
 		{
@@ -133,7 +133,7 @@ public final class FeatMultipleChoice implements Serializable
 	 * Get the list of chosen items.
 	 * @return choices
 	 */
-	List getChoices()
+	public List getChoices()
 	{
 		return choices;
 	}
@@ -142,7 +142,7 @@ public final class FeatMultipleChoice implements Serializable
 	 * Get the maximum number of choices allowed.
 	 * @return maximum choices
 	 */
-	int getMaxChoices()
+	public int getMaxChoices()
 	{
 		return maxChoices;
 	}

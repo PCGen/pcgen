@@ -5242,7 +5242,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * @param aString Description of the Parameter
 	 * @return     Description of the Return Value
 	 */
-	boolean typeStringContains(final String aString)
+	public boolean typeStringContains(final String aString)
 	{
 		return isType(aString);
 	}

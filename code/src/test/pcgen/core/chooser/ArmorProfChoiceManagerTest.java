@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * {@code ArmorProfChoiceManagerTest} test that the ArmorProfChoiceManager class is functioning correctly.
+ * {@code ArmorProfChoiceManagerTest} test that the SimpleArmorProfChoiceManager class is functioning correctly.
  *
  * @author Andrew Wilson <nuance@sourceforge.net>
  */

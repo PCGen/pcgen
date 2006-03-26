@@ -3469,7 +3469,7 @@ public final class Globals
 		return Integer.parseInt(sml.get(level - 1).toString());
 	}
 
-	static List getWeaponProfs(final String type, final PlayerCharacter aPC)
+	public static List getWeaponProfs(final String type, final PlayerCharacter aPC)
 	{
 		final List aList = new ArrayList();
 		final List bList = new ArrayList();

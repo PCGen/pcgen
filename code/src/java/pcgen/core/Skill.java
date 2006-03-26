@@ -1255,7 +1255,7 @@ public final class Skill extends PObject
 		return required;
 	}
 
-	String getRootName()
+	public String getRootName()
 	{
 		return rootName;
 	}
@@ -1266,7 +1266,7 @@ public final class Skill extends PObject
 	 * @param aPC TODO
 	 * @return cost for pcc class list
 	 */
-	int costForPCClassList(final List aPCClassList, final PlayerCharacter aPC)
+	public int costForPCClassList(final List aPCClassList, final PlayerCharacter aPC)
 	{
 		int anInt = Globals.getGameModeSkillCost_Exclusive(); // assume exclusive (can't buy)
 		final int classListSize = aPCClassList.size();

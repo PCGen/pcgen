@@ -150,7 +150,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 	}
 
 	/**
-	 * Test that a choice string with fewer tokens than necesary returns a
+	 * Test that a choice string with fewer tokens than necessary returns a
 	 * chooser with an empty choices list.
 	 */	
 
