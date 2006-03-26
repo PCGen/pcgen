@@ -35,8 +35,9 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class SpellLevelChoiceManager extends AbstractChoiceManager
+public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager
 {
+
 	/**
 	 * Creates a new SpellLevelChoiceManager object.
 	 *
@@ -44,7 +45,7 @@ public class SpellLevelChoiceManager extends AbstractChoiceManager
 	 * @param  theChoices
 	 * @param  aPC
 	 */
-	public SpellLevelChoiceManager(
+	public SimpleSpellLevelChoiceManager(
 	    PObject         aPObject,
 	    String          theChoices,
 	    PlayerCharacter aPC)
@@ -93,5 +94,14 @@ public class SpellLevelChoiceManager extends AbstractChoiceManager
 			}
 		}
 
+	}
+
+	/**
+	 * what type of chooser does this handle
+	 * 
+	 * @return type of chooser
+	 */
+	public String typeHandled() {
+		return chooserHandled;
 	}
 }
