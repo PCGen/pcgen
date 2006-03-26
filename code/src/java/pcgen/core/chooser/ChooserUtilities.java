@@ -300,7 +300,35 @@ public class ChooserUtilities
 	private static void constructMap()
 	{
 		classLookup = new HashMap();
+		classLookup.put("ARMORTYPE",            ArmorTypeChoiceManager.class.getName());
+		classLookup.put("CSKILLS",              ClassSkillsChoiceManager.class.getName());
+		classLookup.put("DOMAIN",               DomainChoiceManager.class.getName());
+		classLookup.put("EQUIPTYPE",            EquipmentTypeChoiceManager.class.getName());
+		classLookup.put("FEATADD",              FeatAddChoiceManager.class.getName());
+		classLookup.put("FEAT",                 FeatChoiceManager.class.getName());
+		classLookup.put("FEATLIST",             FeatListChoiceManager.class.getName());
+		classLookup.put("FEATSELECT",           FeatSelectChoiceManager.class.getName());
+		classLookup.put("HP",                   HPChoiceManager.class.getName());
+		classLookup.put("RACE",                 RaceChoiceManager.class.getName());
+		classLookup.put("SALIST",               SAListChoiceManager.class.getName());
+		classLookup.put("SCHOOLS",              SchoolsChoiceManager.class.getName());
+		classLookup.put("SKILLIST",             SkillListChoiceManager.class.getName());
+		classLookup.put("CCSKILLIST",           SkillListCrossClassChoiceManager.class.getName());
 		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
+		classLookup.put("NONCLASSSKILLLIST",    SkillListNonClassChoiceManager.class.getName());
+		classLookup.put("SKILLS",               SkillsChoiceManager.class.getName());
+		classLookup.put("SKILLSNAMED",          SkillsNamedChoiceManager.class.getName());
+		classLookup.put("SKILLSNAMEDTOCSKILL",  SkillsNamedToCCSkillChoiceManager.class.getName());
+		classLookup.put("SKILLSNAMEDTOCCSKILL", SkillsNamedToCSkillChoiceManager.class.getName());
+		classLookup.put("SPELLCLASES",          SpellClassesChoiceManager.class.getName());
+		classLookup.put("SPELLLEVEL",           SpellLevelChoiceManager.class.getName());
+		classLookup.put("SPELLLIST",            SpellListChoiceManager.class.getName());
+		classLookup.put("SPELLS",               SpellsChoiceManager.class.getName());
+		classLookup.put("STAT",                 StatChoiceManager.class.getName());
+		classLookup.put("WEAPONFOCUS",          WeaponFocusChoiceManager.class.getName());
+		classLookup.put("WEAPONPROFS",          WeaponProfChoiceManager.class.getName());
+		classLookup.put("WEAPONPROFTYPE",       WeaponProfTypeChoiceManager.class.getName());
+
 		classLookup.put("ARMORPROF",            SimpleArmorProfChoiceManager.class.getName());
 		classLookup.put("FEAT",                 SimpleFeatChoiceManager.class.getName());
 		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
