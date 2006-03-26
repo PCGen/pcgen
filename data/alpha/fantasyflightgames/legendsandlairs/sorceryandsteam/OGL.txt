@@ -35,4 +35,4 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arenson
 Swashbuckling Adventures Copyright 2002, Alderac Entertainment Group.
 Sorcery and Steam Copyright 2003, Fantasy Flight Publishing, Inc.
-PCGen dataset conversion for Fantasy Flight Games Sorcery and Steam Copyright 2003, PCgen Data team (Including, but not limited to) Eddy Anthony.
+PCGen dataset conversion for Fantasy Flight Games Sorcery and Steam Copyright 2003-2006, PCgen Data team (Including, but not limited to) Eddy Anthony.

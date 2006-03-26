@@ -68,15 +68,15 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimi
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SA:Stubborn Resolve (Ex)
-2						ADD:FEAT(TYPE=Brawler)1
+2						ADD:FEAT(TYPE.Brawler)1
 3	SA:Feinting Maneuver (Ex)
-4						ADD:FEAT(TYPE=Brawler)1
+4						ADD:FEAT(TYPE.Brawler)1
 5	SA:Grappler (Ex)
-6						ADD:FEAT(TYPE=Brawler)1
+6						ADD:FEAT(TYPE.Brawler)1
 7	SA:Defensive Stand (Ex)
-8						ADD:FEAT(TYPE=Brawler)1
+8						ADD:FEAT(TYPE.Brawler)1
 9	SA:Eyes of the Champion (Ex)
-10	SA:Final Attack (Ex)		ADD:FEAT(TYPE=Brawler)1
+10	SA:Final Attack (Ex)		ADD:FEAT(TYPE.Brawler)1
 
 # Demolitionist -------------------------------------------------------------------------------
 
@@ -89,8 +89,8 @@ CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disa
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Precise Touch +% (Ex)|PreciseTouch					BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0
-2	SA:Explosive Knowledge (Ex) (%d6 Bonus Damage)|ExplosiveKnowledge	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0
+1	SA:Precise Touch (Ex)								BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0
+2	SA:Explosive Knowledge (Ex) (%d6 bonus Damage)|ExplosiveKnowledge	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0
 4												BONUS:VAR|ExplosiveKnowledge|1
 5												BONUS:VAR|PreciseTouch|1
 6												BONUS:VAR|ExplosiveKnowledge|1
@@ -131,14 +131,14 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle 
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																														ADD:FEAT(TYPE=GameHunterFavored)
+1																														ADD:FEAT(TYPE.GameHunterFavored)
 2	SA:Scentless
 3	SA:Steady Aim +% (Ex)|SteadyAim	SA:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												DEFINE:SteadyAim|CL/3
-4	SA:Survivor (Ex)												BONUS:SKILL|Intuit Direction|Wilderness Lore|2|TYPE=Competence
-5																														ADD:FEAT(TYPE=GameHunterFavored)
-7	SA:Silent Hunter (Ex)											BONUS:SKILL|Hide|Move Silently|2|TYPE=Competence
-8	SA:Outdoorsman (Ex)											BONUS:SKILL|Climb|Swim|2|TYPE=Competence
-10	SA:Death Attack (Ex)																										ADD:FEAT(TYPE=GameHunterFavored)
+4	SA:Survivor (Ex)												BONUS:SKILL|Intuit Direction,Wilderness Lore|2|TYPE=Competence
+5																														ADD:FEAT(TYPE.GameHunterFavored)
+7	SA:Silent Hunter (Ex)											BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
+8	SA:Outdoorsman (Ex)											BONUS:SKILL|Climb,Swim|2|TYPE=Competence
+10	SA:Death Attack (Ex)																										ADD:FEAT(TYPE.GameHunterFavored)
 
 # Gun Glyph ----------------------------------------------------------------------------
 
@@ -231,7 +231,7 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Disable Device|Driv
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SA:Skilled Pilot +% (Ex)|SkilledPilot	SA:Combat Ace +% (Ex)|CombatAce						BONUS:SKILL|Drive|SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
+1	SA:Skilled Pilot +% (Ex)|SkilledPilot	SA:Combat Ace +% (Ex)|CombatAce						BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
 2	SA:Vehicle Evasion (Ex)
 4	SA:Combat Maneuvers (Ex)
 6	SA:Master Gunner (%d6) (Ex)|MasterGunner																				DEFINE:MasterGunner|1
@@ -315,10 +315,10 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 1																										FEATAUTO:Weapon Focus(Club)
 2	SA:Crowd Control (Ex)
 4	SA:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
-5																					ADD:FEAT(TYPE=Watchman)1
+5																					ADD:FEAT(TYPE.Watchman)1
 6	SA:Renewed Vitality (Ex)	BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
 8	SA:Presence of Authority (Ex)																					FEATAUTO:Leadership
-10	SA:Veteran Watchman (Ex)																ADD:FEAT(TYPE=Watchman)1
+10	SA:Veteran Watchman (Ex)																ADD:FEAT(TYPE.Watchman)1
 
 #
 # end
