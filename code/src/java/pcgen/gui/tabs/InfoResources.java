@@ -26,38 +26,87 @@
  *************************************************************************/
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumn;
+import javax.swing.tree.TreePath;
+
+import pcgen.core.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.tabs.resources.AvailableFollowerModel;
 import pcgen.gui.tabs.resources.SelectedFollowerModel;
-import pcgen.gui.utils.*;
-import pcgen.io.PCGIOHandler;
+import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableMouseAdapter;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.Utility;
 import pcgen.io.PCGFile;
+import pcgen.io.PCGIOHandler;
 import pcgen.util.Logging;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableColumn;
-import javax.swing.tree.TreePath;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.event.*;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -106,6 +155,11 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private boolean hasBeenSized = false;
 	private int viewMode = 0;
 	private int viewSortMode = 0;
+
+	private final JLabel lblQFilter = new JLabel("Filter:");
+	private JTextField textQFilter = new JTextField();
+	private JButton clearQFilterButton = new JButton("Clear");
+	private static Integer saveViewMode = null;
 
 	PlayerCharacter pc;
 	private int serial = 0;
@@ -680,10 +734,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		// rightPane will have one panel and a scrollregion
 		topPane.setLayout(new BorderLayout());
 
-		JPanel leftPane = new JPanel();
-		JPanel rightPane = new JPanel();
-		leftPane.setLayout(new BorderLayout());
-		rightPane.setLayout(new BorderLayout());
+		JPanel leftPane = new JPanel(new BorderLayout());
+		JPanel rightPane = new JPanel(new BorderLayout());
 
 		// split the left and right panes
 		topSplit.setLeftComponent(leftPane);
@@ -692,56 +744,51 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		topSplit.setDividerSize(10);
 		topSplit.setBorder(BorderFactory.createEtchedBorder());
 
-		// build the left pane
-		// for the available table
-		JPanel aPanel = new JPanel();
-		JPanel alPanel = new JPanel();
-		aPanel.setLayout(new BorderLayout(4, 0));
-		alPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 0));
-
-		shouldLoadCompanion.setSelected(pc.getLoadCompanion());
-		aPanel.add(shouldLoadCompanion, BorderLayout.WEST);
-
-		alPanel.add(sortLabel);
-		alPanel.add(viewSortBox);
-
-		ImageIcon newImage;
-		newImage = IconUtilitities.getImageIcon("Forward16.gif");
-		addButton.setIcon(newImage);
-		Utility.setDescription(addButton, "Click to add");
-		addButton.setEnabled(false);
-		alPanel.add(addButton);
-
-		aPanel.add(alPanel, BorderLayout.CENTER);
-
-		leftPane.add(aPanel, BorderLayout.NORTH);
-
+		leftPane.add(InfoTabUtils.createFilterPane(sortLabel, viewSortBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		
 		// the available table panel
-		JScrollPane scrollPane = new JScrollPane(availableTable);
+		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		Utility.setDescription(scrollPane, "Right click to add");
+		JButton columnButton = new JButton();
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		columnButton.setText("^");
+		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		availableTable.setColAlign(1, SwingConstants.CENTER);
 		availableTable.setColAlign(4, SwingConstants.CENTER);
 
+		// build the left pane
+		// for the available table
+		JPanel bottomLeftPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		shouldLoadCompanion.setSelected(pc.getLoadCompanion());
+		bottomLeftPane.add(shouldLoadCompanion, BorderLayout.WEST);
+		addButton.setIcon(IconUtilitities.getImageIcon("Forward16.gif"));
+		Utility.setDescription(addButton, "Click to add");
+		addButton.setEnabled(false);
+		bottomLeftPane.add(addButton);
+		leftPane.add(bottomLeftPane, BorderLayout.SOUTH);
+
 		// now build the right pane
 		// for the selected table
-		aPanel = new JPanel();
-		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 0));
+		JScrollPane scrollPane2 = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		Utility.setDescription(scrollPane2, "Right click to remove");
+		JButton columnButton2 = new JButton();
+		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		columnButton2.setText("^");
+		new TableColumnManager(selectedTable, columnButton2, selectedModel);
+		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
-		newImage = IconUtilitities.getImageIcon("Back16.gif");
-		delButton.setIcon(newImage);
+		JPanel bottomRightPane = new JPanel();
+		bottomRightPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		delButton.setIcon(IconUtilitities.getImageIcon("Back16.gif"));
 		Utility.setDescription(delButton, "Click to remove from List");
 		delButton.setEnabled(false);
-		aPanel.add(delButton);
+		bottomRightPane.add(delButton);
 		loadButton.setText("Load...");
 		loadButton.setEnabled(false);
-		aPanel.add(loadButton);
-		rightPane.add(aPanel, BorderLayout.NORTH);
-
-		scrollPane = new JScrollPane(selectedTable);
-		Utility.setDescription(scrollPane, "Right click to remove");
-		rightPane.add(scrollPane, BorderLayout.CENTER);
+		bottomRightPane.add(loadButton);
+		rightPane.add(bottomRightPane, BorderLayout.SOUTH);
 
 		// add the split pane to the top panel
 		topPane.add(topSplit, BorderLayout.CENTER);
@@ -1387,6 +1434,28 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 					pc.setLoadCompanion(shouldLoadCompanion.isSelected());
 				}
 			});
+		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+			{
+				public void changedUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+			});
+		clearQFilterButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					clearQFilter();
+				}
+			});
 	}
 
 	/**
@@ -1431,6 +1500,43 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 					refresh();
 				}
 			});
+	}
+
+	private void clearQFilter()
+	{
+		availableModel.clearQFilter();
+		if (saveViewMode != null)
+		{
+			viewSortMode = saveViewMode.intValue();
+			saveViewMode = null;
+		}
+		textQFilter.setText("");
+		availableModel.resetModel(viewSortMode);
+		clearQFilterButton.setEnabled(false);
+		viewSortBox.setEnabled(true);
+		updateAvailableModel();
+	}
+
+	private void setQFilter()
+	{
+		String aString = textQFilter.getText();
+
+		if (aString.length() == 0)
+		{
+			clearQFilter();
+			return;
+		}
+		availableModel.setQFilter(aString);
+
+		if (saveViewMode == null)
+		{
+			saveViewMode = new Integer(viewSortMode);
+		}
+		viewSortMode = 1;
+		availableModel.resetModel(viewSortMode);
+		clearQFilterButton.setEnabled(true);
+		viewSortBox.setEnabled(false);
+		updateAvailableModel();
 	}
 
 	/**

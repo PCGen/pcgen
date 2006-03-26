@@ -4,14 +4,17 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.CoreUtility;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
 
+import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,7 +31,7 @@ import java.util.List;
  *  Leafs are like files and non-leafs are like directories.
  *  The leafs contain an Object that we want to know about (Equipment)
  **/
-public final class SelectedFollowerModel extends AbstractTreeTableModel
+public final class SelectedFollowerModel extends AbstractTreeTableModel implements TableColumnManagerModel
 {
 	// column positions for Famliar tables
 	// if you change these, you also have to change
@@ -37,12 +40,16 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 	private static final int COL_TYPE = 1;
 	private static final int COL_FILE = 2;
 
+	private List displayList = null;
+
 	// there are two roots. One for available equipment
 	// and one for selected equipment profiles
 	private PObjectNode selRoot;
 
 	// list of columns names
 	private String[] selNameList = { "Type/Name", "Type/Race", "File Name" };
+
+	private final int[] selDefaultWidth = { 200, 100, 100 };
 
 	private PlayerCharacter pc;
 
@@ -64,6 +71,12 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 		setCharacter(pc);
 
 		resetModel();
+
+		int i = 1;
+		displayList = new ArrayList();
+		displayList.add(new Boolean(true));
+		displayList.add(new Boolean(getColumnViewOption(selNameList[i++], true)));
+		displayList.add(new Boolean(getColumnViewOption(selNameList[i++], true)));
 	}
 
 	/**
@@ -316,4 +329,45 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 		return selectedList;
 	}
 
+	public List getMColumnList() {
+		List retList = new ArrayList();
+		for(int i = 1; i < selNameList.length; i++) {
+			retList.add(selNameList[i]);
+		}
+		return retList;
+	}
+
+	public boolean isMColumnDisplayed(int col) {
+		return ((Boolean)displayList.get(col)).booleanValue();
+	}
+
+	public void setMColumnDisplayed(int col, boolean disp) {
+		setColumnViewOption( selNameList[col], disp);
+		displayList.set(col, new Boolean(disp));
+	}
+
+	public int getMColumnOffset() {
+		return 1;
+	}
+
+	public int getMColumnDefaultWidth(int col) {
+		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], selDefaultWidth[col]);
+	}
+
+	public void setMColumnDefaultWidth(int col, int width) {
+		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], width);
+	}
+	
+	private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.viewcol." + colName, defaultVal);
+	}
+	
+	private void setColumnViewOption(String colName, boolean val) {
+		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.viewcol." + colName, val);
+	}
+
+	public void resetMColumn(int col, TableColumn column) {
+		// TODO Auto-generated method stub
+		
+	}
 }

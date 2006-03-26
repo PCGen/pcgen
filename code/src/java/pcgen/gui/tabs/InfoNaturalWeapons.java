@@ -22,21 +22,30 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.JComponent;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+
+import pcgen.core.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.utils.JTableEx;
 import pcgen.util.Delta;
-
-import javax.swing.JComponent;
-import javax.swing.JScrollPane;
-import javax.swing.table.DefaultTableModel;
-import java.awt.BorderLayout;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.util.*;
 
 /**
  * ???

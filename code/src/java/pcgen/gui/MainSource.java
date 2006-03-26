@@ -55,6 +55,7 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
@@ -62,6 +63,8 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
@@ -80,6 +83,7 @@ import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.tabs.InfoTabUtils;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.IconUtilitities;
@@ -168,6 +172,11 @@ public class MainSource extends FilterAdapterPanel
 	private TreePath selPath;
 	private boolean hasBeenSized = false;
 	private boolean sourcesLoaded = false;
+
+	private final JLabel lblQFilter = new JLabel("Filter:");
+	private JTextField textQFilter = new JTextField();
+	private JButton clearQFilterButton = new JButton("Clear");
+	private static Integer saveViewMode = null;
 
 	// Right-click table item
 	private int selRow;
@@ -272,6 +281,43 @@ public class MainSource extends FilterAdapterPanel
 		 */
 		updateModels();
 		selectCampaignsByFilename(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
+	}
+
+	private void clearQFilter()
+	{
+		availableModel.clearQFilter();
+		if (saveViewMode != null)
+		{
+			viewMode = saveViewMode.intValue();
+			saveViewMode = null;
+		}
+		textQFilter.setText("");
+		availableModel.resetModel(viewMode, true, false);
+		clearQFilterButton.setEnabled(false);
+		viewComboBox.setEnabled(true);
+		updateAvailableModel();
+	}
+
+	private void setQFilter()
+	{
+		String aString = textQFilter.getText();
+
+		if (aString.length() == 0)
+		{
+			clearQFilter();
+			return;
+		}
+		availableModel.setQFilter(aString);
+
+		if (saveViewMode == null)
+		{
+			saveViewMode = new Integer(viewMode);
+		}
+		viewMode = VIEW_PRODUCT;
+		availableModel.resetModel(viewMode, true, false);
+		clearQFilterButton.setEnabled(true);
+		viewComboBox.setEnabled(false);
+		updateAvailableModel();
 	}
 
 	/**
@@ -709,6 +755,28 @@ public class MainSource extends FilterAdapterPanel
 					viewSelectComboBoxActionPerformed();
 				}
 			});
+		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+			{
+				public void changedUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void insertUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+				public void removeUpdate(DocumentEvent evt)
+				{
+					setQFilter();
+				}
+			});
+		clearQFilterButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					clearQFilter();
+				}
+			});
 	}
 
 	/**
@@ -750,35 +818,8 @@ public class MainSource extends FilterAdapterPanel
 
 		center.add(splitPane, BorderLayout.CENTER);
 
-		JPanel aPanel = new JPanel();
-		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		avaLabel.setText(PropertyFactory.getString("in_available"));
-		aPanel.add(avaLabel);
-		aPanel.add(viewComboBox);
-
-		leftPane.add(aPanel, BorderLayout.NORTH);
-
-		/*JButton sButton = new JButton(IconUtilitities.getImageIcon("Refresh16.gif"));
-		sButton.setMargin(new Insets(1, 14, 1, 14));
-		Utility.setDescription(sButton, "Click to change the orientation of the tables");
-		sButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					if (splitOrientation == JSplitPane.VERTICAL_SPLIT)
-					{
-						splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
-					}
-					else
-					{
-						splitOrientation = JSplitPane.VERTICAL_SPLIT;
-					}
-
-					splitPane.setOrientation(splitOrientation);
-					splitPane.setDividerLocation(.5);
-				}
-			});
-		aPanel.add(sButton);*/
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(availableTable);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -788,7 +829,7 @@ public class MainSource extends FilterAdapterPanel
 
 		rightPane.setLayout(new BorderLayout());
 
-		aPanel = new JPanel();
+		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		selLabel.setText(PropertyFactory.getString("in_selected"));
 		aPanel.add(selLabel);
@@ -1858,6 +1899,7 @@ public class MainSource extends FilterAdapterPanel
 
 				case VIEW_PRODUCT: // by Product Name
 					setRoot(new PObjectNode()); // just need a blank one
+					String qFilter = this.getQFilter();
 
 					while (fI.hasNext())
 					{
@@ -1876,11 +1918,16 @@ public class MainSource extends FilterAdapterPanel
 							continue;
 						}
 
-						PObjectNode aFN = new PObjectNode();
-						aFN.setParent(rootAsPObjectNode);
-						aFN.setItem(aCamp);
-						PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-						rootAsPObjectNode.addChild(aFN);
+						if (qFilter == null || 
+								( aCamp.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+								  aCamp.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+						{
+							PObjectNode aFN = new PObjectNode();
+							aFN.setParent(rootAsPObjectNode);
+							aFN.setItem(aCamp);
+							PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
+							rootAsPObjectNode.addChild(aFN);
+						}
 					}
 
 					break;

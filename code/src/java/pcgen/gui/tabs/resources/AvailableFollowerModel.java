@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
+import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
@@ -27,7 +31,7 @@ import pcgen.util.Logging;
  *  Leafs are like files and non-leafs are like directories.
  *  The leafs contain an Object that we want to know about (Equipment)
  **/
-public final class AvailableFollowerModel extends AbstractTreeTableModel
+public final class AvailableFollowerModel extends AbstractTreeTableModel implements TableColumnManagerModel
 {
 	// column positions for Famliar tables
 	// if you change these, you also have to change
@@ -45,12 +49,16 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 	private static final int VIEW_NAME = 1;
 	private static final int VIEW_RACETYPE = 2;
 
+	private List displayList = null;
+
 	// there are two roots. One for available equipment
 	// and one for selected equipment profiles
 	private PObjectNode avaRoot;
 
 	// list of columns names
-	private String[] avaNameList = { "" };
+	private String[] avaNameList = new String[]{ "Type/Name", "Size", "Speed", "Vision", "Alignment", "Type/Race", "Source" };
+
+	private final int[] avaDefaultWidth = { 200, 100, 100, 100, 100, 100, 100 };
 
 	private PlayerCharacter pc;
 
@@ -78,8 +86,17 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 		// you also need to change the static COL_XXX defines
 		// at the begining of this file
 		//
-		avaNameList = new String[]{ "Type/Name", "Size", "Speed", "Vision", "Alignment", "Type/Race", "Source" };
 		resetModel(viewMode);
+
+		int i = 1;
+		displayList = new ArrayList();
+		displayList.add(new Boolean(true));
+		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
 	}
 
 	/**
@@ -300,17 +317,23 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 				// and fill out the tree
 				Collection raceList = Globals.getRaceMap().values();
 				ArrayList rn = new ArrayList(raceList.size());
+				String qFilter = this.getQFilter();
 
 				for (Iterator iRace = raceList.iterator(); iRace.hasNext(); )
 				{
 					final Race aRace = (Race) iRace.next();
 
-					if (aRace != null)
+					if (qFilter == null || 
+							( aRace.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+							  aRace.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 					{
-						PObjectNode node = new PObjectNode();
-						node.setItem(aRace);
-						node.setParent(avaRoot);
-						rn.add(node);
+						if (aRace != null)
+						{
+							PObjectNode node = new PObjectNode();
+							node.setItem(aRace);
+							node.setParent(avaRoot);
+							rn.add(node);
+						}
 					}
 				}
 
@@ -456,5 +479,47 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 		{
 			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
 		}
+	}
+	
+	public List getMColumnList() {
+		List retList = new ArrayList();
+		for(int i = 1; i < avaNameList.length; i++) {
+			retList.add(avaNameList[i]);
+		}
+		return retList;
+	}
+
+	public boolean isMColumnDisplayed(int col) {
+		return ((Boolean)displayList.get(col)).booleanValue();
+	}
+
+	public void setMColumnDisplayed(int col, boolean disp) {
+		setColumnViewOption( avaNameList[col], disp);
+		displayList.set(col, new Boolean(disp));
+	}
+
+	public int getMColumnOffset() {
+		return 1;
+	}
+
+	public int getMColumnDefaultWidth(int col) {
+		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], avaDefaultWidth[col]);
+	}
+
+	public void setMColumnDefaultWidth(int col, int width) {
+		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], width);
+	}
+	
+	private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, defaultVal);
+	}
+	
+	private void setColumnViewOption(String colName, boolean val) {
+		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, val);
+	}
+
+	public void resetMColumn(int col, TableColumn column) {
+		// TODO Auto-generated method stub
+		
 	}
 }

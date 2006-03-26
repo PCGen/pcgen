@@ -60,7 +60,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -2342,6 +2341,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			viewMode = saveAvailableViewMode.intValue();
 			saveAvailableViewMode = null;
 		}
+		textAvailableQFilter.setText("");
 		availableModel.resetModel(viewMode, true);
 		clearAvailableQFilterButton.setEnabled(false);
 		viewComboBox.setEnabled(true);
@@ -2356,6 +2356,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			viewSelectMode = saveSelectedViewMode.intValue();
 			saveSelectedViewMode = null;
 		}
+		textSelectedQFilter.setText("");
 		selectedModel.resetModel(viewSelectMode, false);
 		clearSelectedQFilterButton.setEnabled(false);
 		viewSelectComboBox.setEnabled(true);

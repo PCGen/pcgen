@@ -1002,9 +1002,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private void buildTop() {
 		//GridBagLayout gridbag = new GridBagLayout();
 		//GridBagConstraints c = new GridBagConstraints();
-		JPanel leftPane = new JPanel();
-		JPanel rightPane = new JPanel();
-		leftPane.setLayout(new BorderLayout());
+		JPanel leftPane = new JPanel(new BorderLayout());
+		JPanel rightPane = new JPanel(new BorderLayout());
 		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
@@ -1028,8 +1027,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		leftPane.add(leftBottomPanel, BorderLayout.SOUTH);
 
 		//  Top Right Pane - Selected Classes
-		rightPane.setLayout(new BorderLayout());
-
 		JPanel rightTopPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		rightTopPanel.add(selLabel);
 		rightTopPanel.add(viewSelectComboBox);
@@ -1494,6 +1491,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			viewMode = saveViewMode.intValue();
 			saveViewMode = null;
 		}
+		textQFilter.setText("");
 		availableModel.resetModel(viewMode, true);
 		clearQFilterButton.setEnabled(false);
 		viewComboBox.setEnabled(true);

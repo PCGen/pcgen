@@ -3818,6 +3818,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			viewMode = saveViewMode.intValue();
 			saveViewMode = null;
 		}
+		textQFilter.setText("");
 		availableModel.resetModel(viewMode, MODEL_AVAIL);
 		clearQFilterButton.setEnabled(false);
 		viewComboBox.setEnabled(true);
