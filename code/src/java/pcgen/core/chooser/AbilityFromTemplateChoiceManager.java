@@ -31,10 +31,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-/**
- * @author andrew
- *
- */
 public class AbilityFromTemplateChoiceManager extends
 		AbstractCategorisableChoiceManager {
 

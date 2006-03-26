@@ -41,7 +41,7 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
+public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceManager
 {
 	protected boolean multiples           = false;
 	protected double  cost                = 1.0;
@@ -132,18 +132,8 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 			choices = Collections.EMPTY_LIST;
 			return;
 		}
-		
-		/* Note: this next section of code stores the first item in the list
-		 * of things remaining as the type of chooser handled.  It then also
-		 * stores it as the first of the choices.  It needs to do this because
-		 * Miscellaneous choosers don't have a chooser type in this list, all
-		 * the entries are valid choices.  This code can't tell the difference,
-		 * this means that when you subclass this you absolutely MUST check
-		 * if the first item in choices Matches the type of CHOOSER that was
-		 * created and if so not offer it as a choice. */
-		
-		chooserHandled = (String) mainList.get(i);
-		choices        = mainList.subList(i, mainList.size());
+
+		choices        = mainList.subList(i, mainList.size() - 1);
 
 		maxSelections  = (cost <= 0)
 				? (int)  (aPC.getRawFeats(false) + pobject.getAssociatedCount())
@@ -191,7 +181,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 
 	/**
 	 * Do chooser.  SelectedBonusList is unused, it's only here so the interface is the
-	 * same as AbstractChoiceManager
+	 * same as AbstractSimpleChoiceManager
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
@@ -279,5 +269,14 @@ public abstract class AbstractComplexChoiceManager extends AbstractChoiceManager
 		}
 		
 		return chooser.getSelectedList();
+	}
+
+	/**
+	 * what type of chooser does this handle
+	 * 
+	 * @return type of chooser
+	 */
+	public String typeHandled() {
+		return chooserHandled;
 	}
 }
