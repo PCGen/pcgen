@@ -1,12 +1,28 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Mar 26 02:36:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
-# Feat Name			Type			Visible	Required Feat				Special Ability				Description		Multiple?	Choose																																																						BONUS:DC				Bonus to skill		Source Page
-Artificer Skill Focus	TYPE:General	VISIBLE:NO							SA:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Clockworks)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|Use Rope|Use Steamcraft Device|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
-Musketeer Skill Focus	TYPE:General	VISIBLE:NO							SA:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device|1																						BONUS:SKILL|LIST|2	SOURCEPAGE:p.47
-Hypnotist DC Bonus	TYPE:General	VISIBLE:NO	PREFEAT:1,Spell Focus(Enchantment)							DESC:See Text	MULT:NO																																																								BONUS:DC|SCHOOL.Enchantment|2
-Reference Material	TYPE:Detective	VISIBLE:NO							SA:Reference Material (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge|1																																																							BONUS:SKILL|LIST|2	SOURCEPAGE:p.59
+# Feat Name				Type				Visible	Required Feat				Special Ability				Description		Multiple?	Choose																																																						BONUS:DC				Bonus to skill		Source Page
+Artificer Skill Focus		TYPE:General		VISIBLE:NO							SA:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Clockworks)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|Use Rope|Use Steamcraft Device|1						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
+Artificer Steamcraft Focus	TYPE:SteamcraftFocus	VISIBLE:NO							SA:Steamcraft Focus (%CHOICE)					MULT:YES	CHOOSE:Weapons|Armor|Vehicles|General
+Musketeer Skill Focus		TYPE:General		VISIBLE:NO							SA:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device|1																						BONUS:SKILL|LIST|2	SOURCEPAGE:p.47
+Hypnotist DC Bonus		TYPE:General		VISIBLE:NO	PREFEAT:1,Spell Focus(Enchantment)							DESC:See Text	MULT:NO																																																								BONUS:DC|SCHOOL.Enchantment|2
+Reference Material		TYPE:Detective		VISIBLE:NO							SA:Reference Material (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge|1																																																							BONUS:SKILL|LIST|2	SOURCEPAGE:p.59
+
+###Block: Arcane Performer Song Power
+# Feat Name		Type			Visible	Special Ability				Choose
+Song Power I	TYPE:SongPower	VISIBLE:NO	SA:Song Power I (Sp) (%CHOICE)	CHOOSE:Cause Fear|Charm Person|Detect Secret Doors|Expeditious retreat|Feather Fall|Hypnotism|Mage Armor|Protection from Chaos|Protection from  Evil|Protection from Good|Protection from Law|Sleep|Summon Monster I
+Song Power II	TYPE:SongPower	VISIBLE:NO	SA:Song Power II (Sp) (%CHOICE)	CHOOSE:Animal Trance|Blindness|Deafness|Blur|Bull's Strength|Cats Grace|Darkness|Daylight|Enthrall|Hold Person|Hypnotic Pattern|Mirror Image|Pyrotechnics|Scare|Shatter|Sound Burst|Summon Monster II|Summon Swarm|Whispering Wind
+Song Power III	TYPE:SongPower	VISIBLE:NO	SA:Song Power III (Sp) (%CHOICE)	CHOOSE:Charm Monster|Confusion|Dispell Magic|Displacement|Emotion|Fear|Lesser Geas|Phantom Steed|Remove Curse|Remove Disease|Sculpt Sound|Sommon Monster III
+Song Power IV	TYPE:SongPower	VISIBLE:NO	SA:Song Power IV (Sp) (%CHOICE)	CHOOSE:Break Enchantment|Dismissal|Dominate Person|Hold Monster|Legend Lore|Modify Memory|Rainbow Pattern|Shout|Summon Monster IV
+Song Power V	TYPE:SongPower	VISIBLE:NO	SA:Song Power V (Sp) (%CHOICE)	CHOOSE:Control Water|Dream|Greater Dispelling|Mind Fog|Nightmare|Summon Monster V
+
+###Block: Hypnotist Master of Enchantment
+# Feat Name				Type					Visible	Special Ability					Choose
+Master of Enchantment I		TYPE:MasterofEnchantment	VISIBLE:NO	SA:Master of Enchantment I (Sp) (%CHOICE)	CHOOSE:Charm Person|Hypnotism|Sleep
+Master of Enchantment II	TYPE:MasterofEnchantment	VISIBLE:NO	SA:Master of Enchantment I (Sp) (%CHOICE)	CHOOSE:Hideous Laughter|Hold Person|Suggestion
+Master of Enchantment III	TYPE:MasterofEnchantment	VISIBLE:NO	SA:Master of Enchantment I (Sp) (%CHOICE)	CHOOSE:Confusion|Emotion
+Master of Enchantment IV	TYPE:MasterofEnchantment	VISIBLE:NO	SA:Master of Enchantment I (Sp) (%CHOICE)	CHOOSE:Mind Fog|Feeblemind|Hold Monster
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
@@ -19,6 +35,17 @@ Musketeer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Fire
 Game Hunter Favored Enemy I	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=1													!PREFEAT:1,Game Hunter Favored Enemy I	SA:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy1	DEFINE:GHFavoredEnemy1|COUNT[FEATTYPE=GameHunterFavored.ALL]	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)
 Game Hunter Favored Enemy II	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=5	PREFEAT:1,Game Hunter Favored Enemy I						!PREFEAT:1,Game Hunter Favored Enemy II	SA:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy2	DEFINE:GHFavoredEnemy2|COUNT[FEATTYPE=GameHunterFavored.ALL]-1	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)
 Game Hunter Favored Enemy III	TYPE:GameHunterFavored	VISIBLE:NO	PRECLASS:1,Game Hunter=10	PREFEAT:2,Game Hunter Favored Enemy I,Game Hunter Favored Enemy II	!PREFEAT:1,Game Hunter Favored Enemy III	SA:Game Hunter favored enemy (%CHOICE) +%|GHFavoredEnemy3	DEFINE:GHFavoredEnemy3|COUNT[FEATTYPE=GameHunterFavored.ALL]-2	MULT:YES	CHOOSE:NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)
+
+###Block: Animal Lord Home Environment
+
+# Feat Name					Type				Visible	Special Ability
+Home Environment (Underground)	TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when Underground
+Home Environment (Plains)		TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when on the Plains
+Home Environment (Marshes)		TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when in Marshes
+Home Environment (Forest)		TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when in the Forest
+Home Environment (Hills)		TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when on the Hills
+Home Environment (Desert)		TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when in the Desert
+Home Environment (Mountains)		TYPE:HomeEnvironment	VISIBLE:NO	SA:+4 Track when in the Mountains
 
 ###Block: Animal Lord Totem Animals
 

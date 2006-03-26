@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Mar 26 01:55:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
-# Domain Name	Class Skill						Special Ability			Bonus to skill								List of Domain Spells by Level
-Steam										SA:Turn fire creature 1/day											SPELLLEVEL:DOMAIN|Steam=1|Obscuring Mist|Steam=2|Fog Cloud|Steam=3|Water Breathing|Steam=5|Solid Fog|Steam=8|Horrid Wilting|Steam=9|Elemental Swarm
-Technology		CSKILL:Knowledge (Steamcraft)|TYPE.Craft						BONUS:SKILL|Knowledge (Steamcraft),TYPE.Craft|2|TYPE=Sacred	SPELLLEVEL:DOMAIN|Technology=1|Magic Weapon|Technology=2|Find Traps|Technology=8|Simulacrum|Technology=9|Iron Body
+# Domain Name	Class Skill						Feat			Bonus to skill								List of Domain Spells by Level
+Steam										FEAT:Turn Fire											SPELLLEVEL:DOMAIN|Steam=1|Obscuring Mist|Steam=2|Fog Cloud|Steam=3|Water Breathing|Steam=5|Solid Fog|Steam=8|Horrid Wilting|Steam=9|Elemental Swarm
+Technology		CSKILL:Knowledge (Steamcraft)|TYPE.Craft				BONUS:SKILL|Knowledge (Steamcraft),TYPE.Craft|2|TYPE=Sacred	SPELLLEVEL:DOMAIN|Technology=1|Magic Weapon|Technology=2|Find Traps|Technology=8|Simulacrum|Technology=9|Iron Body
 
 #
 # end

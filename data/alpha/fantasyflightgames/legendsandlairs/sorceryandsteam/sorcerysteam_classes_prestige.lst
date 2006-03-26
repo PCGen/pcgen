@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Mar 26 02:36:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -15,7 +15,7 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 ###Block: Normal Level Progression
 1	ADD:SPELLCASTER(Arcane)	SA:Operations Expert (Ex)
 2	ADD:SPELLCASTER(Arcane)	SA:Makeshift Repairs (Ex)
-3	ADD:SPELLCASTER(Arcane)	SA:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive|ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0
+3	ADD:SPELLCASTER(Arcane)	SA:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0
 4	ADD:SPELLCASTER(Arcane)	SA:Freefall (Sp)
 5	ADD:SPELLCASTER(Arcane)	SA:Pinpoint Accuracy (Ex)
 6	ADD:SPELLCASTER(Arcane)								BONUS:VAR|ExpertAviator|2
@@ -38,16 +38,16 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 ###Block: Musical Prodigy
 1	SA:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	FEATAUTO:Musical Prodigy
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(ANY)															ADD:Song Power I (Sp) (Cause Fear,Charm Person,Detect Secret Doors,Expeditious retreat,Feather Fall,Hypnotism,Mage Armor,Protection from Chaos,Protection from  Evil,Protection from Good,Protection from Law,Sleep,Summon Monster I)
+1	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power I)
 2	ADD:SPELLCASTER(ANY)	SA:Masterful Performance (Ex)
 3	ADD:SPELLCASTER(ANY)	SA:Tools of the Trade (Ex)
-4	ADD:SPELLCASTER(ANY)															ADD:Song Power II (Sp) (Animal Trance,Blindness,Deafness,Blur,Bull's Strength,Cats Grace,Darkness,Daylight,Enthrall,Hold Person,Hypnotic Pattern,Mirror Image,Pyrotechnics,Scare,Shatter,Sound Burst,Summon Monster II,Summon Swarm,Whispering Wind)
+4	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power II)
 5	ADD:SPELLCASTER(ANY)
-6	ADD:SPELLCASTER(ANY)															ADD:Song Power III (Sp) (Charm Monster,Confusion,Dispell Magic,Displacement,Emotion,Fear,Lesser Geas,Phantom Steed,Remove Curse,Remove Disease,Sculpt Sound,Sommon Monster III)
+6	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power III)
 7	ADD:SPELLCASTER(ANY)
-8	ADD:SPELLCASTER(ANY)															ADD:Song Power IV (Sp) (Break Enchantment,Dismissal,Dominate Person,Hold Monster,Legend Lore,Modify Memory,Rainbow Pattern,Shout,Summon Monster IV)
+8	ADD:SPELLCASTER(ANY)															ADD:FEAT(Song Power IV)
 9	ADD:SPELLCASTER(ANY)	SA:Musical Genius (Ex)		BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5
-10	ADD:SPELLCASTER(ANY)	SA:Song Power Master (Ex)										ADD:Song Power V (Sp) (Control Water,Dream,Greater Dispelling,Mind Fog,Nightmare,Summon Monster V)
+10	ADD:SPELLCASTER(ANY)	SA:Song Power Master (Ex)										ADD:FEAT(Song Power V)
 ###Block: Bard Spells Known
 10	BONUS:DC|CLASS.Bard|2	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1|PRESTAT:1,CHA=24
 10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=14	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=26
@@ -171,16 +171,16 @@ CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER(ANY)																																				ADD:FEAT(Spell Focus(Enchantment),Hypnotist DC Bonus)1
+1	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Spell Focus(Enchantment),Hypnotist DC Bonus)1
 2					SA:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
 #2	FEATAUTO:Master Hypnotist	Not sure but I would think they left this out
-3	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment I (Charm Person,Hypnotism,Sleep)
-4																																																		FEATAUTO:Ultimate Hypnotist
-5	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment II (Hideous Laughter,Hold Person,Suggestion)
+3	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment I)
+4																																						FEATAUTO:Ultimate Hypnotist
+5	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment II)
 6
-7	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment III (Confusion,Emotion)
+7	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment III)
 8
-9	ADD:SPELLCASTER(ANY)																								ADD:Master of Enchantment IV (Mind Fog,Feeblemind,Hold Monster)
+9	ADD:SPELLCASTER(ANY)																								ADD:FEAT(Master of Enchantment IV)
 10					SA:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
 
 # Noble Bodyguard ----------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 25 22:31:01 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Mar 26 01:55:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -9,7 +9,7 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 ###Block: Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Animal Lord Skill....
-1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1	DEFINE:AnimalLordSkill1|0	ADD:Home Environment (Underground,Plains,Marshes,Forest,Hills,Desert,Mountains) +4 Track when in Home Environment
+1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1	DEFINE:AnimalLordSkill1|0	ADD:FEAT(TYPE.HomeEnvironment)
 1										DEFINE:ALSkillBonus|CL
 1										DEFINE:AnimalLordSkill5|0
 1										DEFINE:AnimalLordSkill9|0
@@ -46,14 +46,14 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomac
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)																						FEATAUTO:Feral Child
-2																								ADD:FEAT(Artificer Skill Focus)
-5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:Steamcraft Focus (Weapons,Armor,Vehicles,General)
-8																								ADD:FEAT(Artificer Skill Focus)
-12															ADD:Steamcraft Focus (Weapons,Armor,Vehicles,General)
-14																								ADD:FEAT(Artificer Skill Focus)
-19															ADD:Steamcraft Focus (Weapons,Armor,Vehicles,General)
-20																								ADD:FEAT(Artificer Skill Focus)
+1	SA:Sabotage (Ex)	SA:Steamcraft Creations (Ex)														FEATAUTO:Feral Child
+2															ADD:FEAT(Artificer Skill Focus)
+5	SA:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:FEAT(Artificer Steamcraft Focus)
+8															ADD:FEAT(Artificer Skill Focus)
+12															ADD:FEAT(Artificer Steamcraft Focus)
+14															ADD:FEAT(Artificer Skill Focus)
+19															ADD:FEAT(Artificer Steamcraft Focus)
+20															ADD:FEAT(Artificer Skill Focus)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus												Combat bonus
