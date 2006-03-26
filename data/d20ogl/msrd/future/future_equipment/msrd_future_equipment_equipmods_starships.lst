@@ -12,8 +12,8 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #described above.
 
 # Modifier Name	Unique Key			Special Property
-Starship		KEY:AASTARSHIP_LB		SPROP:Defense: %|sdefense	SPROP:Flat-footed Defense: %|sdefenseflat	SPROP:Autopilot Defense: %|sdefenseauto	SPROP:Hardness: %|shard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sinit	SPROP:Pilot's Class Bonus:+%|spilotCB	SPROP:Pilot's Dex Modifier: +%|spilotDEX	SPROP:Gunner's Attack Bonus: +%|sgunnerAB|PREMULT:2,[PREVARGTEQ:sgunnerAB,1],[PREVARLTEQ:sgunnerAB,5]	SPROP:Gunner's Attack Bonus: -|sgunnerAB|PREVAREQ:sgunnerAB,0	SPROP:Gunner's Attack Bonus: +%/+%|sgunnerAB|sgunnerAB-5|PREVARGTEQ:sgunnerAB,6	SPROP:Size: Huge (-2 size)|PREVAREQ:ssize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:ssize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:ssize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|slength	SPROP:Weight: %,000 lb.|sweight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|screwnum|PREVAREQ:screwtrain,4	SPROP:Crew:% (Ace +12)|screwnum|PREVAREQ:screwtrain,12	SPROP:Passenger Capacity: %|spass	SPROP:Cargo Capacity: %,000 lb.|scargo	SPROP:Grapple Modifier: +%|sgrapple
-Starship		KEY:AASTARSHIP_TON	SPROP:Defense: %|sdefense	SPROP:Flat-footed Defense: %|sdefenseflat	SPROP:Autopilot Defense: %|sdefenseauto	SPROP:Hardness: %|shard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sinit	SPROP:Pilot's Class Bonus:+%|spilotCB	SPROP:Pilot's Dex Modifier: +%|spilotDEX	SPROP:Gunner's Attack Bonus: +%|sgunnerAB|PREVARGTEQ:sgunnerAB,1	SPROP:Gunner's Attack Bonus: -|sgunnerAB|PREVAREQ:sgunnerAB,0	SPROP:Size: Huge (-2 size)|PREVAREQ:ssize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:ssize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:ssize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|slength	SPROP:Weight: % Tons|sweight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|screwnum|PREVAREQ:screwtrain,4	SPROP:Crew:% (Expert +8)|screwnum|PREVAREQ:screwtrain,8	SPROP:Passenger Capacity: %|spass	SPROP:Cargo Capacity: % Tons|scargo	SPROP:Grapple Modifier: +%|sgrapple
+Starship		KEY:AASTARSHIP_LB		SPROP:Defense: %|sDefense	SPROP:Flat-footed Defense: %|sDefenseFlat	SPROP:Autopilot Defense: %|sDefenseAuto	SPROP:Hardness: %|sHard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sInit	SPROP:Pilot's Class Bonus:+%|sPilotCB	SPROP:Pilot's Dex Modifier: +%|sPilotDEX	SPROP:Gunner's Attack Bonus: +%|sGunnerAB|PREMULT:2,[PREVARGTEQ:sGunnerAB,1],[PREVARLTEQ:sGunnerAB,5]	SPROP:Gunner's Attack Bonus: -|sGunnerAB|PREVAREQ:sGunnerAB,0	SPROP:Gunner's Attack Bonus: +%/+%|sGunnerAB|sGunnerAB-5|PREVARGTEQ:sGunnerAB,6	SPROP:Size: Huge (-2 size)|PREVAREQ:sSize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:sSize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:sSize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|sLength	SPROP:Weight: %,000 lb.|sWeight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|sCrewNUM|PREVAREQ:sCrewTrain,4	SPROP:Crew:% (Ace +12)|sCrewNUM|PREVAREQ:sCrewTrain,12	SPROP:Passenger Capacity: %|sPass	SPROP:Cargo Capacity: %,000 lb.|sCargo	SPROP:Grapple Modifier: +%|sGrapple
+Starship		KEY:AASTARSHIP_TON	SPROP:Defense: %|sDefense	SPROP:Flat-footed Defense: %|sDefenseFlat	SPROP:Autopilot Defense: %|sDefenseAuto	SPROP:Hardness: %|sHard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sInit	SPROP:Pilot's Class Bonus:+%|sPilotCB	SPROP:Pilot's Dex Modifier: +%|sPilotDEX	SPROP:Gunner's Attack Bonus: +%|sGunnerAB|PREVARGTEQ:sGunnerAB,1	SPROP:Gunner's Attack Bonus: -|sGunnerAB|PREVAREQ:sGunnerAB,0	SPROP:Size: Huge (-2 size)|PREVAREQ:sSize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:sSize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:sSize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|sLength	SPROP:Weight: % Tons|sWeight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|sCrewNUM|PREVAREQ:sCrewTrain,4	SPROP:Crew:% (Expert +8)|sCrewNUM|PREVAREQ:sCrewTrain,8	SPROP:Passenger Capacity: %|sPass	SPROP:Cargo Capacity: % Tons|sCargo	SPROP:Grapple Modifier: +%|sGrapple
 
 ###Block:Attack
 # Modifier Name						Unique Key				Type					Visible		Source Page				Required Type			Special Property											Automaticaly Added to Inventory
@@ -121,28 +121,28 @@ Thrusters			KEY:ENGN_THRUST		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCE
 
 ###Block:Armor
 # Modifier Name		Unique Key			Type					Visible		Source Page				Required Type			Modify VAR									Special Property
-Ablative Armor		KEY:ARMR_ABLATIVE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|shard|20|TYPE=Equipment					SPROP:Armor (Ablative), Mil(+3)
+Ablative Armor		KEY:ARMR_ABLATIVE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|sHard|20|TYPE=Equipment					SPROP:Armor (Ablative), Mil(+3)
 #COST:BASECOST/2+15
 Alloy Plating Armor	KEY:ARMR_ALLOY_PLATING	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf						BONUS:VAR|sTacSpeed|-1							SPROP:Armor (Alloy Plating)
 #COST:BASECOST/2+15
-Cerametal Armor		KEY:ARMR_CERAMETAL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|shard|10|TYPE=Equipment					SPROP:Armor (Cerametal), Lic(+1)
+Cerametal Armor		KEY:ARMR_CERAMETAL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|sHard|10|TYPE=Equipment					SPROP:Armor (Cerametal), Lic(+1)
 #COST:BASECOST/2+10
 Deflective Armor		KEY:ARMR_DEFLECTIVE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9												SPROP:Armor (Deflective), Hardness 40 against attacks that do not deal ballistic damage, Mil(+3)
 #COST:BASECOST/2+15
-Nanofluidic Armor		KEY:ARMR_NANOFLUIDIC	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|shard|30|TYPE=Equipment	BONUS:VAR|sTacSpeed|-1	SPROP:Armor (Nanofluidic), Mil(+3)
+Nanofluidic Armor		KEY:ARMR_NANOFLUIDIC	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			BONUS:VAR|sHard|30|TYPE=Equipment	BONUS:VAR|sTacSpeed|-1	SPROP:Armor (Nanofluidic), Mil(+3)
 #COST:BASECOST/2+15
-Neutronite Armor		KEY:ARMR_NEUTRONITE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|shard|20|TYPE=Equipment	BONUS:VAR|sTacSpeed|-1	SPROP:Armor (Neutronite), Mil(+3)
+Neutronite Armor		KEY:ARMR_NEUTRONITE	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		BONUS:VAR|sHard|20|TYPE=Equipment	BONUS:VAR|sTacSpeed|-1	SPROP:Armor (Neutronite), Mil(+3)
 #COST:BASECOST/2+15
 Polymeric Armor		KEY:ARMR_POLYMERIC	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9											SPROP:Armor (Polymeric), Lic(+1)
 #COST:BASECOST/2+10
-Vanadium Armor		KEY:ARMR_VANADIUM		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	BONUS:VAR|shard|10|TYPE=Equipment					SPROP:Armor (Vanadium), Mil(+3)
+Vanadium Armor		KEY:ARMR_VANADIUM		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	BONUS:VAR|sHard|10|TYPE=Equipment					SPROP:Armor (Vanadium), Mil(+3)
 #COST:BASECOST/2+15
 
 ###Block:Defense Systems
 # Modifier Name			Unique Key			Type					Visible		Type granted		Source Page				Required Type						Modify VAR																																					Special Property																																																																Define
 Advanced Damage Control		KEY:DFNS_ADV_DMG_CTRL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:DamageControl	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Improved Damage Control System 3d10)|PRETYPE:1,Ultralight	SPROP:Defense (Improved Damage Control System 4d10)|PRETYPE:1,Light	SPROP:Defense (Improved Damage Control System 5d10)|PRETYPE:1,Mediumweight	SPROP:Defense (Improved Damage Control System 6d10)|PRETYPE:1,Heavy	SPROP:Defense (Improved Damage Control System 7d10)|PRETYPE:1,Superheavy	SPROP:Mil(+3)
 #COST:28	BONUS:ITEMCOST|4|PRETYPE:1,Light	BONUS:ITEMCOST|9|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|15|PRETYPE:1,Heavy	BONUS:ITEMCOST|22|PRETYPE:1,Superheavy
-Autopilot System			KEY:DFNS_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf									BONUS:VAR|sdefenseauto|1|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sdefenseauto|2|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sdefenseauto|4|TYPE=Equipment|PREVAREQ:ssize,8									SPROP:Defense (Autopilot System)
+Autopilot System			KEY:DFNS_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf									BONUS:VAR|sDefenseAuto|1|TYPE=Equipment|PREVAREQ:sSize,6	BONUS:VAR|sDefenseAuto|2|TYPE=Equipment|PREVAREQ:sSize,7	BONUS:VAR|sDefenseAuto|4|TYPE=Equipment|PREVAREQ:sSize,8									SPROP:Defense (Autopilot System)
 #COST:BASECOST/4+5
 Chaff launcher			KEY:DFNS_CHAFF_LNCH	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Chaff Launcher, 16 bundles), Lic(+1)
 #COST:20 for launcher and 1 bundle, 15 for each additional bundle, make bundles equipment?
@@ -166,7 +166,7 @@ Displacer				KEY:DFNS_DISPLACER	TYPE:Transportation.Starship	VISIBLE:QUALIFY				
 #COST:BASECOST/2+10
 Heavy Fortification		KEY:DFNS_MEDM_FRTFCTN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9																																												SPROP:Defense (Heavy Fortification, converts all critical hits into regular hits), Lic(+1)
 #COST:BASECOST/2+10
-Improved Autopilot System	KEY:DFNS_IMP_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9				BONUS:VAR|sdefenseauto|3|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sdefenseauto|4|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sdefenseauto|5|TYPE=Equipment|PREVAREQ:ssize,8									SPROP:Defense (Improved Autopilot System)
+Improved Autopilot System	KEY:DFNS_IMP_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9				BONUS:VAR|sDefenseAuto|3|TYPE=Equipment|PREVAREQ:sSize,6	BONUS:VAR|sDefenseAuto|4|TYPE=Equipment|PREVAREQ:sSize,7	BONUS:VAR|sDefenseAuto|5|TYPE=Equipment|PREVAREQ:sSize,8									SPROP:Defense (Improved Autopilot System)
 #COST:BASECOST/2+5
 Improved Damage Control		KEY:DFNS_IMP_DMG_CTRL	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:DamageControl	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																										SPROP:Defense (Improved Damage Control System 2d10)|PRETYPE:1,Ultralight	SPROP:Defense (Improved Damage Control System 3d10)|PRETYPE:1,Light	SPROP:Defense (Improved Damage Control System 4d10)|PRETYPE:1,Mediumweight	SPROP:Defense (Improved Damage Control System 5d10)|PRETYPE:1,Heavy	SPROP:Defense (Improved Damage Control System 6d10)|PRETYPE:1,Superheavy
 #COST:23	BONUS:ITEMCOST|4|PRETYPE:1,Light	BONUS:ITEMCOST|9|PRETYPE:1,Mediumweight	BONUS:ITEMCOST|15|PRETYPE:1,Heavy	BONUS:ITEMCOST|22|PRETYPE:1,Superheavy
@@ -194,29 +194,29 @@ Stealth Screen			KEY:DFNS_STLTH_SCRN	TYPE:Transportation.Starship	VISIBLE:QUALIF
 ###Block:Sensors
 # Modifier Name			Unique Key			Type					Visible		Type granted	Keys to replace			Source Page				Required Type					Modify VAR																				Weapon prof. bonus					Special Property
 Achilles Targeting Software	KEY:SNSR_ACHILLES		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9	PRETYPE:1,TargetSys																						BONUS:WEAPONPROF=TYPE.Starship|CRITRANGEADD|1	SPROP:Sensors (Achilles Targetting Software), Res(+2)
-#COST:26	BONUS:ITEMCOST|5|PREVAREQ:ssize,7	BONUS:ITEMCOST|10|PREVAREQ:ssize,8
+#COST:26	BONUS:ITEMCOST|5|PREVAREQ:sSize,7	BONUS:ITEMCOST|10|PREVAREQ:sSize,8
 Class I Sensor Array		KEY:SNSR_CLASS_1		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf																																					SPROP:Sensors (Class I Sensor Array)
 #COST:21
 Class II Sensor Array		KEY:SNSR_CLASS_2		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9																																SPROP:Sensors (Class II Sensor Array)
 #COST:27
-Class III Sensor Array		KEY:SNSR_CLASS_3		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9			BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class III Sensor Array)
+Class III Sensor Array		KEY:SNSR_CLASS_3		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9			BONUS:VAR|sInit|2|TYPE=Equipment																								SPROP:Sensors (Class III Sensor Array)
 #COST:30
 Class IV Sensor Array		KEY:SNSR_CLASS_4		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9																																	SPROP:Sensors (Class IV Sensor Array)
 #COST:33
-Class V Sensor Array		KEY:SNSR_CLASS_5		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9				BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class V Sensor Array)
+Class V Sensor Array		KEY:SNSR_CLASS_5		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9				BONUS:VAR|sInit|2|TYPE=Equipment																								SPROP:Sensors (Class V Sensor Array)
 #COST:36
 Class VI Sensor Array		KEY:SNSR_CLASS_6		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9																																		SPROP:Sensors (Class VI Sensor Array)
 #COST:39
-Class VII Sensor Array		KEY:SNSR_CLASS_7		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9					BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class VII Sensor Array)
+Class VII Sensor Array		KEY:SNSR_CLASS_7		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9					BONUS:VAR|sInit|2|TYPE=Equipment																								SPROP:Sensors (Class VII Sensor Array)
 #COST:42
 Class VIII Sensor Array		KEY:SNSR_CLASS_8		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9																																		SPROP:Sensors (Class VIII Sensor Array)
 #COST:45
-Class IX Sensor Array		KEY:SNSR_CLASS_9		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9					BONUS:VAR|sinit|2|TYPE=Equipment																								SPROP:Sensors (Class IX Sensor Array)
+Class IX Sensor Array		KEY:SNSR_CLASS_9		TYPE:Transportation.Starship	VISIBLE:QUALIFY									SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9					BONUS:VAR|sInit|2|TYPE=Equipment																								SPROP:Sensors (Class IX Sensor Array)
 #COST:48
-Improved Targeting System	KEY:SNSR_IMP_TRGT_SYS	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:TargetSys	REPLACES:SNSR_TRGT_SYS		SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9				BONUS:VAR|sgunnerAB|3|PREVAREQ:ssize,6	BONUS:VAR|sgunnerAB|4|PREVAREQ:ssize,7	BONUS:VAR|sgunnerAB|5|PREVAREQ:ssize,8									SPROP:Sensors (Improved Targeting System), Lic(+1)
-#COST:22	BONUS:ITEMCOST|5|PREVAREQ:ssize,7	BONUS:ITEMCOST|10|PREVAREQ:ssize,8
-Targeting System			KEY:SNSR_TRGT_SYS		TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:TargetSys	REPLACES:SNSR_IMP_TRGT_SYS	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9			BONUS:VAR|sgunnerAB|1|PREVAREQ:ssize,6	BONUS:VAR|sgunnerAB|2|PREVAREQ:ssize,7	BONUS:VAR|sgunnerAB|3|PREVAREQ:ssize,8									SPROP:Sensors (Targeting System), Lic(+1)
-#COST:18	BONUS:ITEMCOST|5|PREVAREQ:ssize,7	BONUS:ITEMCOST|10|PREVAREQ:ssize,8
+Improved Targeting System	KEY:SNSR_IMP_TRGT_SYS	TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:TargetSys	REPLACES:SNSR_TRGT_SYS		SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9				BONUS:VAR|sGunnerAB|3|PREVAREQ:sSize,6	BONUS:VAR|sGunnerAB|4|PREVAREQ:sSize,7	BONUS:VAR|sGunnerAB|5|PREVAREQ:sSize,8									SPROP:Sensors (Improved Targeting System), Lic(+1)
+#COST:22	BONUS:ITEMCOST|5|PREVAREQ:sSize,7	BONUS:ITEMCOST|10|PREVAREQ:sSize,8
+Targeting System			KEY:SNSR_TRGT_SYS		TYPE:Transportation.Starship	VISIBLE:QUALIFY	ITYPE:TargetSys	REPLACES:SNSR_IMP_TRGT_SYS	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9			BONUS:VAR|sGunnerAB|1|PREVAREQ:sSize,6	BONUS:VAR|sGunnerAB|2|PREVAREQ:sSize,7	BONUS:VAR|sGunnerAB|3|PREVAREQ:sSize,8									SPROP:Sensors (Targeting System), Lic(+1)
+#COST:18	BONUS:ITEMCOST|5|PREVAREQ:sSize,7	BONUS:ITEMCOST|10|PREVAREQ:sSize,8
 
 ###Block:Communications
 # Modifier Name			Unique Key			Type					Visible		Source Page				Required Type									Special Property
@@ -239,9 +239,9 @@ Radio Transceiver			KEY:COMM_RADIO_TRNSCVR	TYPE:Transportation.Starship	VISIBLE:
 
 ###Block:Grappling Systems
 # Modifier Name		Unique Key			Type					Visible		Source Page				Modify VAR																										Special Property
-Grappler			KEY:GRAP_GRAPPLER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	BONUS:VAR|sgrapple|8|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sgrapple|12|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sgrapple|16|TYPE=Equipment|PREVAREQ:ssize,8	SPROP:Grappling System (Grappler)
+Grappler			KEY:GRAP_GRAPPLER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	BONUS:VAR|sGrapple|8|TYPE=Equipment|PREVAREQ:sSize,6	BONUS:VAR|sGrapple|12|TYPE=Equipment|PREVAREQ:sSize,7	BONUS:VAR|sGrapple|16|TYPE=Equipment|PREVAREQ:sSize,8	SPROP:Grappling System (Grappler)
 #COST:BASECOST/2+10
-Tractor Beam Emitter	KEY:GRAP_TRACTOR_BEAM	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	BONUS:VAR|sgrapple|8|TYPE=Equipment|PREVAREQ:ssize,6	BONUS:VAR|sgrapple|12|TYPE=Equipment|PREVAREQ:ssize,7	BONUS:VAR|sgrapple|16|TYPE=Equipment|PREVAREQ:ssize,8	SPROP:Grappling System (Tractor Beam Emitter)
+Tractor Beam Emitter	KEY:GRAP_TRACTOR_BEAM	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	BONUS:VAR|sGrapple|8|TYPE=Equipment|PREVAREQ:sSize,6	BONUS:VAR|sGrapple|12|TYPE=Equipment|PREVAREQ:sSize,7	BONUS:VAR|sGrapple|16|TYPE=Equipment|PREVAREQ:sSize,8	SPROP:Grappling System (Tractor Beam Emitter)
 #COST:BASECOST/2+15
 
 ###Block:Defense Systems for Mines
