@@ -124,6 +124,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		parseCachedLines();
+		checkWeaponProficiencies();
 	}
 
 	/*
@@ -496,9 +497,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseCachedLines() throws PCGParseException
 	{
-	    if (cache.containsKey(TAG_GAMEMODE)) {
-	        parseGameMode((String) cache.get(TAG_GAMEMODE).get(0));
-	    }
+		if (cache.containsKey(TAG_GAMEMODE)) {
+			parseGameMode((String) cache.get(TAG_GAMEMODE).get(0));
+		}
 
 
 
@@ -1109,7 +1110,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				parseWeaponProficienciesLine((String) it.next());
 			}
 
-			checkWeaponProficiencies();
+//			checkWeaponProficiencies();
 		}
 
 		/*
@@ -1238,7 +1239,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (!Globals.displayListsHappy())
 		{
 			throw new PCGParseException("parseCampaignLines", "N/A",
-			    "Insufficient campaign information to load character file.");
+				"Insufficient campaign information to load character file.");
 		}
 	}
 
@@ -1357,18 +1358,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			pcl = null;
 			for (Iterator iter = pcLevelInfoList.iterator(); iter.hasNext();) {
-                PCLevelInfo foundLevelInfo = (PCLevelInfo) iter.next();
-                if (classKeyName.equalsIgnoreCase( foundLevelInfo.getClassKeyName()) && level==foundLevelInfo.getLevel()) {
-                    pcl = foundLevelInfo;
-                    break;
-                }
-            }
+				PCLevelInfo foundLevelInfo = (PCLevelInfo) iter.next();
+				if (classKeyName.equalsIgnoreCase( foundLevelInfo.getClassKeyName()) && level==foundLevelInfo.getLevel()) {
+					pcl = foundLevelInfo;
+					break;
+				}
+			}
 			if (pcl==null) {
-			    pcl = aPC.saveLevelInfo(classKeyName);
-			    pcl.setLevel(level);
+				pcl = aPC.saveLevelInfo(classKeyName);
+				pcl.setLevel(level);
 			}
 			else {
-			    aPC.getLevelInfo().add(pcl);
+				aPC.getLevelInfo().add(pcl);
 			}
 			pcl.setSkillPointsRemaining(0);
 		}
@@ -1485,7 +1486,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						try
 						{
 							aPC.saveStatIncrease(element.getText().substring(0, idx),
-							    Integer.parseInt(element.getText().substring(idx + 1)), isPre);
+								Integer.parseInt(element.getText().substring(idx + 1)), isPre);
 						}
 						catch (NumberFormatException nfe)
 						{
@@ -1628,8 +1629,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				final String spellBase = EntityEncoder.decode(element.getText());
 
 				if ((SettingsHandler.getGame().getStatFromAbbrev(spellBase.toUpperCase()) > -1)
-				    || Constants.s_NONE.equalsIgnoreCase(spellBase) || "Any".equalsIgnoreCase(spellBase)
-				    || "SPELL".equalsIgnoreCase(spellBase))
+					|| Constants.s_NONE.equalsIgnoreCase(spellBase) || "Any".equalsIgnoreCase(spellBase)
+					|| "SPELL".equalsIgnoreCase(spellBase))
 				{
 					aPCClass.setSpellBaseStat(spellBase);
 				}
@@ -1646,7 +1647,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			for (int i = 0; i < level; ++i)
 			{
-			    PCLevelInfo levelInfo = aPC.saveLevelInfo(aPCClass.getKeyName());
+				PCLevelInfo levelInfo = aPC.saveLevelInfo(aPCClass.getKeyName());
 				aPCClass.addLevel(levelInfo, false, aPC);
 			}
 		}
@@ -1991,14 +1992,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				String appliedToKey = EntityEncoder.decode(element.getText());
 
-				if (aFeat.getName().endsWith("Weapon Proficiency"))
-				{
-					aPC.addWeaponProf(updateProficiencyName(appliedToKey, false));
-
-					// addWeaponProf adds the feat to this
-					// PC's list, so don't add it again!
-					added = true;
-				}
+				// This will delete a perfectly valid feat.  Removed 03/26/06 boomer70
+//				if (aFeat.getName().endsWith("Weapon Proficiency"))
+//				{
+//					aPC.addWeaponProf(updateProficiencyName(appliedToKey, false));
+//
+//					// addWeaponProf adds the feat to this
+//					// PC's list, so don't add it again!
+//					added = true;
+//				}
 
 				if (appliedToKey.startsWith(TAG_MULTISELECT))
 				{
@@ -2125,14 +2127,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 
 	private void parseGameMode(String line) throws PCGParseException {
-	    String requestedMode = line.substring(TAG_GAMEMODE.length()+1);
+		String requestedMode = line.substring(TAG_GAMEMODE.length()+1);
 
-	    GameMode currentGameMode = SettingsHandler.getGame();
-	    String currentMode = currentGameMode.getName();
+		GameMode currentGameMode = SettingsHandler.getGame();
+		String currentMode = currentGameMode.getName();
 
-	    if (!requestedMode.equals(currentMode)) {
-	        throw new PCGParseException("ParseGameMode", line, "Unable to load the character as it uses game mode: '"+requestedMode+"'. PCGen is currently using gamemode '"+currentMode+"'. Use the 'Settings->Game Mode / Campaign' menu to change the current game mode");
-	    }
+		if (!requestedMode.equals(currentMode)) {
+			throw new PCGParseException("ParseGameMode", line, "Unable to load the character as it uses game mode: '"+requestedMode+"'. PCGen is currently using gamemode '"+currentMode+"'. Use the 'Settings->Game Mode / Campaign' menu to change the current game mode");
+		}
 	}
 
 	private void parseGenderLine(String line)
@@ -2195,7 +2197,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (stok.countTokens() != 2)
 		{
-		    // TODO This if switch currently does nothing?
+			// TODO This if switch currently does nothing?
 		}
 
 		/** final String region = */ stok.nextToken(); //TODO: Is this intended to be thrown away? The value is never used.
@@ -2493,7 +2495,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aString.startsWith(TAG_HITPOINTS))
 				{
 					final StringTokenizer aTok = new StringTokenizer(aString.substring(TAG_HITPOINTS.length()), ":",
-						    false);
+							false);
 					int i = 0;
 
 					if (hitDice > 0)
@@ -2989,7 +2991,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					// it's either the class, sub-class or a cast-as class
 					// first see if it's the class
 					if (((aPCClass != null) && objectName.equals(aPCClass.getName()))
-					    || (aPCClass.getSpellKey().indexOf(typeName + '|' + objectName) >= 0))
+						|| (aPCClass.getSpellKey().indexOf(typeName + '|' + objectName) >= 0))
 					{
 						source = aPCClass;
 					}
@@ -3048,7 +3050,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		// just to make sure the spellbook is present
 		aPC.addSpellBook(spellBook);
-		SpellBook book = aPC.getSpellBookByName(spellBook); 
+		SpellBook book = aPC.getSpellBookByName(spellBook);
 
 		final int[] spellLevels = aSpell.levelForKey(source.getSpellKey(), aPC);
 
@@ -3095,7 +3097,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			// do not load auto knownspells into default spellbook
 			if (spellBook.equals(Globals.getDefaultSpellBook())
-			    && aPCClass.isAutoKnownSpell(aSpell.getKeyName(), level, aPC) && aPC.getAutoSpells())
+				&& aPCClass.isAutoKnownSpell(aSpell.getKeyName(), level, aPC) && aPC.getAutoSpells())
 			{
 				continue;
 			}
@@ -3417,16 +3419,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		for (int idx=0 ; idx<3 && idx<tokens.length ; idx++ ) {
 
-		    try {
-		        version[idx] = Integer.parseInt(tokens[idx]);
-		    }
-		    catch (NumberFormatException e) {
-		        // Something in the first 3 digits was not an integer
+			try {
+				version[idx] = Integer.parseInt(tokens[idx]);
+			}
+			catch (NumberFormatException e) {
+				// Something in the first 3 digits was not an integer
 				throw new PCGParseException("parseVersionLine", line, "Invalid PCGen version.");
-		    }
+			}
 		}
 		if (tokens.length==4) {
-		    pcgenVersionSuffix = tokens[3];
+			pcgenVersionSuffix = tokens[3];
 		}
 		pcgenVersion = version;
 	}
@@ -3753,7 +3755,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								aEquip.load(customProperties, "$", "=", aPC);
 								aEquip.setOutputName("");
 								if (!aEquip.isType(Constants.s_CUSTOM)) {
-								    aEquip.addMyType(Constants.s_CUSTOM);
+									aEquip.addMyType(Constants.s_CUSTOM);
 								}
 								EquipmentList.addEquipment((Equipment) aEquip.clone());
 							}
@@ -3803,11 +3805,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_COST.equals(tag))
 			{
-			    // TODO This else if switch currently does nothing?
+				// TODO This else if switch currently does nothing?
 			}
 			else if (TAG_WT.equals(tag))
 			{
-			    // TODO This else if switch currently does nothing?
+				// TODO This else if switch currently does nothing?
 			}
 		}
 	}
