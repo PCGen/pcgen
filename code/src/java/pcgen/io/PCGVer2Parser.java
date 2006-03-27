@@ -124,7 +124,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		parseCachedLines();
-		checkWeaponProficiencies();
 	}
 
 	/*
@@ -1110,7 +1109,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				parseWeaponProficienciesLine((String) it.next());
 			}
 
-//			checkWeaponProficiencies();
+			checkWeaponProficiencies();
 		}
 
 		/*
