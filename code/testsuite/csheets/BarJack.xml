@@ -1262,7 +1262,7 @@
  
  
 	<!-- Domains -->
-	<weapon_proficiencies>Armor Spikes, Axe, Axe (Throwing), Battleaxe, Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Light), Gauntlet, Gauntlet (Spiked), Glaive, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Halfspear, Hammer (Light), Handaxe, Javelin, Katana (Martial), Kusari-gama, Lance, Longbow, Longbow (Composite), Longspear, Longsword, Mace, Mace (Heavy), Mind Blade, Morningstar, Pick, Quarterstaff, Ranseur, Rapier, Ray, Sap, Scimitar, Scythe, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Sword (Bastard/Martial), Sword (Short), Trident, Unarmed Strike, Wakizashi, Waraxe (Dwarven/Martial), Warhammer</weapon_proficiencies>
+	<weapon_proficiencies>Armor Spikes, Axe, Axe (Throwing), Battleaxe, Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Light), Gauntlet, Gauntlet (Spiked), Glaive, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Halfspear, Hammer (Light), Handaxe, Javelin, Katana, Kusari-gama, Lance, Longbow, Longbow (Composite), Longspear, Longsword, Mace, Mace (Heavy), Mind Blade, Morningstar, Pick, Quarterstaff, Ranseur, Rapier, Ray, Sap, Scimitar, Scythe, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Wakizashi, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Common, Gnome, Orc</languages>
 
  
