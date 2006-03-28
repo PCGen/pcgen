@@ -34,8 +34,7 @@ Hammer (Light)			TYPE:Martial
 Handaxe				TYPE:Martial
 Javelin				TYPE:Simple
 Kama					TYPE:Exotic
-Katana (Exotic)			TYPE:Exotic
-Katana (Martial)			TYPE:Martial	HANDS:1IFLARGERTHANWEAPON
+Katana					TYPE:Martial.Exotic	HANDS:2
 Kukri					TYPE:Exotic
 Kusari-gama				TYPE:Martial
 Lance					TYPE:Martial
@@ -62,8 +61,7 @@ Shuriken				TYPE:Exotic
 Siangham				TYPE:Exotic
 Sickle				TYPE:Simple
 Sling					TYPE:Simple
-Sword (Bastard/Exotic)		TYPE:Exotic
-Sword (Bastard/Martial)		TYPE:Martial	HANDS:1IFLARGERTHANWEAPON
+Sword (Bastard)		TYPE:Martial.Exotic	HANDS:2
 Greatsword				TYPE:Martial
 Longsword				TYPE:Martial
 Sword (Short)			TYPE:Martial
@@ -71,7 +69,6 @@ Sword (Two-Bladed)		TYPE:Exotic
 Trident				TYPE:Martial
 Unarmed Strike			TYPE:Simple
 Wakizashi				TYPE:Martial
-Waraxe (Dwarven/Exotic)		TYPE:Exotic
-Waraxe (Dwarven/Martial)	TYPE:Martial	HANDS:1IFLARGERTHANWEAPON
+Waraxe (Dwarven)		TYPE:Martial.Exotic		HANDS:2
 Warhammer				TYPE:Martial
 Whip					TYPE:Exotic
