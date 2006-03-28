@@ -1442,7 +1442,7 @@ public class PObjectUtilities
 		final int SCOPE_UNIQUE = 2;
 
 		final String typeOfProf = aTok.nextToken();
-		
+
 		if (aTok.hasMoreTokens() == false)
 		{
 			Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format for WEAPON.");
@@ -1469,7 +1469,7 @@ public class PObjectUtilities
 		if ("WEAPON".equals(typeOfProf))
 		{
 			String typeString = null;
-			
+
 			List profs = new ArrayList();
 			while (aTok.hasMoreTokens())
 			{
@@ -1496,7 +1496,7 @@ public class PObjectUtilities
 			for (Iterator i = profs.iterator(); i.hasNext();)
 			{
 				String profName = i.next().toString();
-				
+
 				if (intScope == SCOPE_ALL)
 				{
 					availableList.add(profName);
@@ -1562,7 +1562,7 @@ public class PObjectUtilities
 //				{
 //					availableList.add(prof);
 //				}
-//					
+//
 //			}
 		}
 		else if ("SHIELD".equals(typeOfProf))
@@ -1607,13 +1607,14 @@ public class PObjectUtilities
 //				{
 //					availableList.add(prof);
 //				}
-//					
+//
 //			}
 		}
 		else
 		{
 			Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown type " + typeOfProf);
 		}
+		obj.addAssociatedTo(selectedList);
 	}
 
 	/**
