@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Mar 27 17:49:29 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi and Max Kuney (MSRD by Paul King, Barak, & Hugo)
 
@@ -11,7 +11,7 @@ Card Sharp					TYPE:General																															PRESTAT:1,DEX=13	DESC:
 Cavalry Training				TYPE:General.PonySoldier.Wrangler										PREFEAT:2,Blazing Saddle,Defensive Riding							PRESKILL:1,Ride=10					DESC:Firing from horseback is as easy as standing on your own two feet.																																SOURCEPAGE:p. 107
 Combat Loading				TYPE:General.Gunslinger										PREATT:1	PREFEAT:1,Quick Reload																		DESC:You can reload your firearm even when bullets are flying.																																	SOURCEPAGE:p. 108
 Defensive Riding				TYPE:General.Fast.Brave.Desperado.Rustler.Scout.TinStar																			PRESKILL:1,Ride=4						DESC:Your skill at riding lets you avoid attacks.																																			SOURCEPAGE:p. 109
-Exotic Ranged Weapon Proficiency	TYPE:General.BountyHunter.Wrangler								PREATT:1																						DESC:You are proficient in a specific exotic ranged weapon.							MULT:YES	CHOOSE:ExoticRanged|1												AUTO:WEAPONPROF|LIST							SOURCEPAGE:p. 111
+Exotic Ranged Weapon Proficiency	TYPE:General.BountyHunter.Wrangler								PREATT:1																						DESC:You are proficient in a specific exotic ranged weapon.							MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.ExoticRanged							AUTO:WEAPONPROF|%LIST							SOURCEPAGE:p. 111
 Gunplay					TYPE:General.Gunslinger.Showman.TinStar																						PRESKILL:1,Sleight of Hand=4				DESC:You can perform fancy tricks with firearms.																																			SOURCEPAGE:p. 111
 Hammer Down					TYPE:General.Gunslinger										PREATT:6	PREFEAT:2,Point Blank Shot,Slip Hammer												PRESTAT:1,DEX=13	DESC:You can fan your pistol, and really let the lead fly.																																		SOURCEPAGE:p. 113
 Hollow Leg					TYPE:General.Maverick																																	DESC:You can drink most anyone under the table.																																				SOURCEPAGE:p. 113
