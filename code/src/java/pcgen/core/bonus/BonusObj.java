@@ -825,7 +825,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 		}
 
 		// We now have the substring we want to work on
-		final StringTokenizer cTok = new StringTokenizer(aString, ".");
+		final StringTokenizer cTok = new StringTokenizer(aString, ".,");
 
 		while (cTok.hasMoreTokens())
 		{
@@ -842,9 +842,10 @@ public abstract class BonusObj implements Serializable, Cloneable
 			}
 
 			// Now remove math strings: + - / *
+			// and comparison strings: > = <
 			// remember, a StringTokenizer will tokenize
 			// on any of the found delimiters
-			final StringTokenizer mTok = new StringTokenizer(controlString, "+-/*");
+			final StringTokenizer mTok = new StringTokenizer(controlString, "+-/*>=<");
 
 			while (mTok.hasMoreTokens())
 			{

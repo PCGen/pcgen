@@ -39,6 +39,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.spell.Spell;
 import pcgen.io.exporttoken.AttackToken;
+import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 
@@ -448,6 +449,59 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals("CL count not correct", 2.0, result.doubleValue(), 0.1);
 	}
 
+	/**
+	 * Test the processing of the MAX function with respect to character stats. 
+	 */
+	public void testMaxValue()
+	{
+		PlayerCharacter pc = getCharacter();
+		setPCStat(pc, "STR", 8);
+		setPCStat(pc, "DEX", 14);
+		pc.setUseTempMods(true);
+
+		assertEquals("STR", -1.0, pc.getVariableValue("STR", "").floatValue(),
+			0.1);
+		assertEquals("DEX", 2.0, pc.getVariableValue("DEX", "").floatValue(),
+			0.1);
+		assertEquals("max(STR,DEX)", 2.0, pc.getVariableValue("max(STR,DEX)",
+			"").floatValue(), 0.1);
+
+		StatToken statTok = new StatToken();
+		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));
+		assertEquals("Temp stat.", "14", statTok.getToken("STAT.1.NOEQUIP", pc, null));
+		assertEquals("Equip stat.", "14", statTok.getToken("STAT.1.NOTEMP", pc, null));
+		assertEquals("No equip/temp stat.", "14", statTok.getToken("STAT.1.NOEQUIP.NOTEMP", pc, null));
+		assertEquals("Base stat.", "14", statTok.getToken("STAT.1.NOEQUIP.NOTEMP", pc, null));
+
+		final BonusObj raceBonus = Bonus.newBonus("1|STAT|DEX|-2");
+		giantClass.addBonusList(raceBonus);
+		pc.setRace(giantRace);
+		pc.incrementClassLevel(4, giantClass);
+
+		assertEquals("Total stat.", "12", statTok.getToken("STAT.1", pc, null));
+		assertEquals("Temp stat.", "12", statTok.getToken("STAT.1.NOEQUIP", pc, null));
+		assertEquals("Base stat.", "12", statTok.getToken("STAT.1.NOEQUIP.NOTEMP", pc, null));
+		assertEquals("DEX", 1.0, pc.getVariableValue("DEX", "").floatValue(),
+			0.1);
+		assertEquals("max(STR,DEX)", 1.0, pc.getVariableValue("max(STR,DEX)",
+			"").floatValue(), 0.1);
+
+		Spell spell2 = new Spell();
+		spell2.setName("Concrete Boots");
+		spell2.addBonusList("STAT|DEX|-2");
+		BonusObj penalty = (BonusObj) spell2.getBonusList().get(0);
+		pc.addTempBonus(penalty);
+		penalty.setTargetObject(pc);
+		pc.calcActiveBonuses();
+
+		assertEquals("Total stat.", "10", statTok.getToken("STAT.1", pc, null));
+		assertEquals("Temp stat.", "10", statTok.getToken("STAT.1.NOEQUIP", pc, null));
+		assertEquals("Base stat.", "12", statTok.getToken("STAT.1.NOEQUIP.NOTEMP", pc, null));
+		assertEquals("DEX", 0.0, pc.getVariableValue("DEX", "").floatValue(),
+			0.1);
+		assertEquals("max(STR,DEX)-STR", 1.0, pc.getVariableValue("max(STR,DEX)-STR",
+			"").floatValue(), 0.1);
+	}
 
 	/**
 	 * Test the skills visibility fucntionality. We want to ensure that

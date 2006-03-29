@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
+import plugin.bonustokens.Var;
 
 /**
  * <code>BonusTest</code> test that the Bonus class is functioning
@@ -149,5 +150,16 @@ public class BonusTest extends AbstractCharacterTestCase
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		assertEquals("Variable value", -9.0, pc
 			.getVariableValue("-1*NegLevels", "").doubleValue(), 0.05);
+	}
+	
+	/**
+	 * Test the buildDepends method of BonusObj. 
+	 */
+	public void testBuildDepends()
+	{
+		BonusObj maxDexStr = new Var();
+		maxDexStr.setValue("VAR|NegLevels|max(STR,DEX)-STR");
+		assertTrue("Should have flagged a dependancy on DEX", maxDexStr.getDependsOn("DEX"));
+		assertTrue("Should have flagged a dependancy on STR", maxDexStr.getDependsOn("STR"));
 	}
 }

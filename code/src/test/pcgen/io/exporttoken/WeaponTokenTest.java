@@ -26,6 +26,7 @@ package pcgen.io.exporttoken;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
@@ -41,6 +42,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.spell.Spell;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 
@@ -60,6 +62,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Equipment dblWpn = null;
 	private Equipment bastardSword = null;
 	private Equipment largeSword = null;
+	private Equipment fineSword = null;
 	private Equipment bite = null;
 
 	/**
@@ -186,6 +189,17 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.setTypeInfo("MARTIAL");
 		Globals.addWeaponProf(wp);
 		character.addWeaponProf(wp.getName());
+
+		fineSword = new Equipment();
+		fineSword.setName("Longsword (Fine)");
+		fineSword.setOutputName("Longsword (Fine)");
+		fineSword.setProfName("Longsword");
+		fineSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
+		fineSword.setDamage("1d10");
+		fineSword.setCritMult("x2");
+		fineSword.setCritRange("2");
+		fineSword.setWield("OneHanded");
+		fineSword.setSize("M", true);
 
 		GameMode gm = SettingsHandler.getGame();
 		RuleCheck rc = new RuleCheck();
@@ -525,6 +539,53 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			.getToken("WEAPON.3.TOTALHIT", character, null));
 		assertEquals("Silly Bite - Total To Hit first attack", "+18", token
 			.getToken("WEAPON.3.TOTALHIT.0", character, null));
+	}
+
+	/**
+	 * Test the processing of a finesseable weapon both with and without weapon finesse 
+	 * and temporary bonuses. 
+	 */
+	public void testWpnFinesse()
+	{
+		PlayerCharacter character = getCharacter();
+		assertEquals("1-handed Prof should be longsword", "Longsword", fineSword
+			.profName(1, character));
+		assertEquals("2-handed prof should be longsword", "Longsword", fineSword
+			.profName(2, character));
+
+		character.addEquipment(fineSword);
+		EquipSet es = new EquipSet("0.1.3", "Longsword (Fine)", fineSword
+			.getName(), fineSword);
+		character.addEquipSet(es);
+		character.setCalcEquipmentList();
+
+		// Test weapon profs effects on large weapons
+		WeaponToken token = new WeaponToken();
+		assertEquals("Fine sword", "+18/+13/+8/+3", token
+			.getToken("WEAPON.3.BASEHIT", character, null));
+
+		// Now apply weapon finess and check dex is used rather than str
+		Ability wpnFinesse = new Ability();
+		wpnFinesse.setName("Weapon Finesse");
+		wpnFinesse.setKeyName("Weapon Finesse");
+		final BonusObj wfBonus = Bonus.newBonus("COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
+		wfBonus.setCreatorObject(wpnFinesse);
+		wpnFinesse.addBonusList(wfBonus);
+		character.addFeat(wpnFinesse, null);
+		assertEquals("Fine sword", "+19/+14/+9/+4", token
+			.getToken("WEAPON.3.BASEHIT", character, null));
+		
+		// Add a temp penalty to dex and check that it is applied
+		character.setUseTempMods(true);
+		Spell spell2 = new Spell();
+		spell2.setName("Concrete Boots");
+		spell2.addBonusList("STAT|DEX|-4");
+		BonusObj penalty = (BonusObj) spell2.getBonusList().get(0);
+		character.addTempBonus(penalty);
+		penalty.setTargetObject(character);
+		character.calcActiveBonuses();
+		assertEquals("Fine sword", "+18/+13/+8/+3", token
+			.getToken("WEAPON.3.BASEHIT", character, null));
 	}
 
 }
