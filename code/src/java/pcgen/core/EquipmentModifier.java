@@ -61,7 +61,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 	private static final int NAMINGOPTION_NOLIST  = 2;
 	private static final int NAMINGOPTION_NOTHING = 3;
 	private static final int NAMINGOPTION_SPELL   = 4;
-
+	private static final int NAMINGOPTION_TEXT    = 5;
+	
 	private static final String s_CHARGES           = "CHARGES";
 	private List                ignores             = new ArrayList();
 	private List                itemType            = new ArrayList();
@@ -78,6 +79,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	private int                 maxCharges          = 0;
 	private int                 minCharges          = 0;
 	private int                 namingOption        = NAMINGOPTION_NORMAL;
+	private String              namingOptionText    = "";
 	private int                 plus                = 0;
 	private String              fumbleRange         = "";
 
@@ -443,6 +445,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 */
 	public void setNamingOption(final String option)
 	{
+		namingOptionText = ""; 
 		if ("NOLIST".equalsIgnoreCase(option))
 		{
 			namingOption = NAMINGOPTION_NOLIST;
@@ -458,6 +461,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 		else if ("SPELL".equalsIgnoreCase(option))
 		{
 			namingOption = NAMINGOPTION_SPELL;
+		}
+		else if (option != null && option.toUpperCase().startsWith("TEXT="))
+		{
+			namingOption = NAMINGOPTION_TEXT;
+			namingOptionText = option.substring(5); 
 		}
 		else
 		{
@@ -833,6 +841,10 @@ public final class EquipmentModifier extends PObject implements Comparable
 		if (namingOption == NAMINGOPTION_NOTHING)
 		{
 			return "";
+		}
+		if (namingOption == NAMINGOPTION_TEXT)
+		{
+			return namingOptionText;
 		}
 
 		final StringBuffer aString = new StringBuffer(getName().length());
