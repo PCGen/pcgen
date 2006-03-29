@@ -230,7 +230,8 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	public List getToDos()
 	{
 		List toDoList = new ArrayList();
-		if (Globals.s_EMPTYRACE.equals(pc.getRace()) || pc.getRace() == null)
+		if (pc.getRace() == null
+			|| Constants.s_NONESELECTED.equals(pc.getRace().getName()))
 		{
 			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
 		}
