@@ -20,10 +20,10 @@ public class LangautoLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		final StringTokenizer aTok = new StringTokenizer(value, ",");
+		final StringTokenizer tok = new StringTokenizer(value, ",");
 
-		while (aTok.hasMoreTokens()) {
-			obj.addLanguageAuto(value);
+		while (tok.hasMoreTokens()) {
+			obj.addLanguageAuto(tok.nextToken());
 		}
 		return true;
 	}
