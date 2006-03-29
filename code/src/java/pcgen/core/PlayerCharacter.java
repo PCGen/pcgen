@@ -8970,9 +8970,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		SpellBook spellBook = getSpellBookByName(bookName);
 		if (spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
+			int pagesPerSpell = si.getNumPages() / si.getTimes();
 			spellBook.setNumPagesUsed(spellBook.getNumPagesUsed()
-				- si.getNumPages());
+				- pagesPerSpell);
 			spellBook.setNumSpells(spellBook.getNumSpells() - 1);
+			si.setNumPages(si.getNumPages()-pagesPerSpell);
 		}
 		si.setTimes(si.getTimes() - 1);
 
