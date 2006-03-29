@@ -35,11 +35,14 @@ import java.util.List;
 
 import gmgen.pluginmgr.PluginLoader;
 
+import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
+import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.EquipmentLoader;
@@ -150,4 +153,47 @@ public class TestHelper {
 		}
 		return null;
 	}
+
+	/**
+	 * Set the important info about a Skill
+	 * @param name The skill name
+	 * @param type The type info ("." separated)
+	 * @param stat The key stat
+	 * @param untrained Can this be used untrained
+	 * @param armorCheck should an armor check penalty be applied
+	 */
+	public static void makeSkill(
+			String name,
+			String type,
+			String stat,
+			String untrained,
+			String armorCheck)
+	{
+		Skill  aSkill = new Skill();
+		aSkill.setName(name);
+		aSkill.setTypeInfo(type);
+		aSkill.setKeyStat(stat);
+		aSkill.setUntrained(untrained);
+		aSkill.setACheck(armorCheck);
+		Globals.getSkillList().add(aSkill);
+	}
+
+	/**
+	 * Set the important info about a Skill
+	 * @param name The skill name
+	 * @param cat the category of this Ability
+	 * @param type The type info ("." separated)
+	 */
+	public static void makeAbility(
+			String name,
+			String cat,
+			String type)
+	{
+		Ability  anAbility = new Ability();
+		anAbility.setName(name);
+		anAbility.setCategory(cat);
+		anAbility.setTypeInfo(type);
+		Globals.addAbility(anAbility);
+	}
+
 }
