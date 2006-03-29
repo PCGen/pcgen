@@ -24,15 +24,20 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.HashMapToList;
-import pcgen.util.Logging;
-
-import java.util.*;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -42,19 +47,13 @@ import java.util.*;
 public class SpellSupport implements Cloneable
 {
 	private static final String PIPE = "|";
-
 	private static final String SPELLCASTER = "SPELLCASTER";
-
 	private static final String CLASSSPELLCASTER = "CLASS|SPELLCASTER";
-
 	private static final String ALL = "ALL";
 
 	private HashMap spellLevelMap = new HashMap();
-
 	private DoubleKeyMap spellInfoMap = new DoubleKeyMap();
-
 	private HashMapToList spellMap = new HashMapToList();
-
 	private HashMap preReqSpellLevelMap = new HashMap();
 
 	/*
@@ -74,28 +73,22 @@ public class SpellSupport implements Cloneable
 	public void putLevel(String tagType, String className, String spellName,
 			String spellLevel)
 	{
-		spellLevelMap.put(tagType + "|" + className + "|" + spellName,
-				spellLevel);
+		spellLevelMap.put(tagType + "|" + className + "|" + spellName, spellLevel);
 	}
 
-	public boolean containsLevelFor(String tagType, String className,
-			String spellName)
+	public boolean containsLevelFor(String tagType, String className, String spellName)
 	{
-		return spellLevelMap.containsKey(tagType + "|" + className + "|"
-				+ spellName);
+		return spellLevelMap.containsKey(tagType + "|" + className + "|" + spellName);
 	}
 
-	public void putInfo(String tagType, String spellName, String className,
-			String spellLevel)
+	public void putInfo(String tagType, String spellName, String className, String spellLevel)
 	{
-		spellInfoMap.put(tagType, spellName, new Info(className, Integer
-				.parseInt(spellLevel)));
+		spellInfoMap.put(tagType, spellName, new Info(className, Integer.parseInt(spellLevel)));
 	}
 
 	public class Info
 	{
 		public final String name;
-
 		public final int level;
 
 		public Info(String n, int l)
@@ -183,109 +176,11 @@ public class SpellSupport implements Cloneable
 		spellMap = new HashMapToList();
 	}
 
-	// SPELLLEVEL:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
-	public void addSpellLevel(final String line)
+	public void addSpellLevel(String tagType, String className, String spellName, String spellLevel, List preList)
 	{
-		final StringTokenizer aTok = new StringTokenizer(line, "|");
-
-		if (aTok.countTokens() < 3)
-		{
-			Logging.errorPrint("Badly formed SPELLLEVEL tag1: " + line);
-
-			return;
-		}
-
-		final String tagType = aTok.nextToken(); // CLASS or DOMAIN
-		final List preList = new ArrayList();
-
-		// The 2 lists below should always have the same number of items
-		final List wNameList = new ArrayList();
-		final List wSpellList = new ArrayList();
-
-		while (aTok.hasMoreTokens())
-		{
-			final String nameList = aTok.nextToken();
-
-			if (nameList.startsWith("PRE") || nameList.startsWith("!PRE"))
-			{
-				preList.add(nameList);
-
-				break;
-			}
-
-			if (nameList.indexOf("=") < 0)
-			{
-				Logging.errorPrint("Badly formed SPELLLEVEL tag2: " + line);
-
-				return;
-			}
-
-			wNameList.add(nameList);
-
-			if (!aTok.hasMoreTokens())
-			{
-				Logging.errorPrint("Badly formed SPELLLEVEL tag3: " + line);
-
-				return;
-			}
-
-			wSpellList.add(aTok.nextToken());
-		}
-
-		while (aTok.hasMoreTokens())
-		{
-			final String nameList = aTok.nextToken();
-
-			if (nameList.startsWith("PRE") || nameList.startsWith("!PRE"))
-			{
-				preList.add(nameList);
-			}
-			else
-			{
-				Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: " + line);
-
-				return;
-			}
-		}
-
-		for (Iterator iSpell = wSpellList.iterator(), iName = wNameList
-				.iterator(); iSpell.hasNext() || iName.hasNext();)
-		{
-			// Check to see if both exists
-			if (!(iSpell.hasNext() && iName.hasNext()))
-			{
-				Logging.errorPrint("Badly formed SPELLLEVEL tag4: " + line);
-
-				return;
-			}
-
-			final StringTokenizer bTok = new StringTokenizer((String) iSpell
-					.next(), ",");
-			final String classList = (String) iName.next();
-
-			while (bTok.hasMoreTokens())
-			{
-				final String spellLevel = classList.substring(classList
-						.indexOf("=") + 1);
-				final String spellName = bTok.nextToken();
-				final StringTokenizer cTok = new StringTokenizer(classList
-						.substring(0, classList.indexOf("=")), ",");
-
-				while (cTok.hasMoreTokens())
-				{
-					final String className = cTok.nextToken();
-
-					if (className.startsWith("SPELLCASTER.")
-							|| !containsLevelFor(tagType, className, spellName))
-					{
-						preReqSpellLevelMap.put(tagType + "|" + className + "|"
-								+ spellName, preList);
-						putLevel(tagType, className, spellName, spellLevel);
-						putInfo(tagType, spellName, className, spellLevel);
-					}
-				}
-			}
-		}
+		preReqSpellLevelMap.put(tagType + "|" + className + "|" + spellName, preList);
+		putLevel(tagType, className, spellName, spellLevel);
+		putInfo(tagType, spellName, className, spellLevel);
 	}
 
 	public Map getSpellMapPassesPrereqs(int levelMatch, PlayerCharacter pc)
@@ -307,50 +202,36 @@ public class SpellSupport implements Cloneable
 			}
 
 			// levelMatch == -1 means get all spells
-			if (((levelMatch == -1) && (levelInt >= 0))
-					|| ((levelMatch >= 0) && (levelInt == levelMatch)))
+			if (((levelMatch == -1) && (levelInt >= 0)) || ((levelMatch >= 0) && (levelInt == levelMatch)))
 			{
 				if (preReqSpellLevelMap.containsKey(key))
 				{
 					if (key.startsWith(CLASSSPELLCASTER))
 					{
 						String spellType = key.substring(18);
-						spellType = spellType.substring(0, spellType
-								.indexOf(PIPE));
+						spellType = spellType.substring(0, spellType.indexOf(PIPE));
 
-						if (ALL.equals(spellType)
-								|| pc.isSpellCaster(spellType, 1))
+						if (ALL.equals(spellType) || pc.isSpellCaster(spellType, 1))
 						{
-							if (PrereqHandler.passesAll(
-									(List) preReqSpellLevelMap.get(key), pc,
-									null))
+							if (PrereqHandler.passesAll((List) preReqSpellLevelMap.get(key), pc, null))
 							{
-								for (Iterator iClass = pc.getClassList()
-										.iterator(); iClass.hasNext();)
+								for (Iterator iClass = pc.getClassList().iterator(); iClass.hasNext();)
 								{
-									final PCClass aClass = (PCClass) iClass
-											.next();
+									final PCClass aClass = (PCClass) iClass.next();
 
-									if (aClass.getSpellType().equals(spellType)
-											|| ALL.equals(spellType))
+									if (aClass.getSpellType().equals(spellType) || ALL.equals(spellType))
 									{
 										StringBuffer tempSb = new StringBuffer();
-										tempSb
-												.append(aClass.getSpellKey())
-												.append(PIPE)
-												.append(
-														key
-																.substring(key
-																		.lastIndexOf(PIPE) + 1));
-										tempMap.put(tempSb.toString(), Integer
-												.toString(levelInt));
+										tempSb.append(aClass.getSpellKey())
+											.append(PIPE)
+											.append(key.substring(key.lastIndexOf(PIPE) + 1));
+										tempMap.put(tempSb.toString(), Integer.toString(levelInt));
 									}
 								}
 							}
 						}
 					}
-					else if (PrereqHandler.passesAll((List) preReqSpellLevelMap
-							.get(key), pc, null))
+					else if (PrereqHandler.passesAll((List) preReqSpellLevelMap.get(key), pc, null))
 					{
 						tempMap.put(key, Integer.toString(levelInt));
 					}
@@ -360,8 +241,7 @@ public class SpellSupport implements Cloneable
 		return tempMap;
 	}
 
-	public Map getSpellInfoMapPassesPrereqs(String key1, String key2,
-			PlayerCharacter pc)
+	public Map getSpellInfoMapPassesPrereqs(String key1, String key2, PlayerCharacter pc)
 	{
 		final Map tempMap = new HashMap();
 
@@ -369,8 +249,7 @@ public class SpellSupport implements Cloneable
 		{
 			Info si = (Info) spellInfoMap.get(key1, key2);
 			StringBuffer keysb = new StringBuffer();
-			keysb.append(key1).append(PIPE).append(si.name).append(PIPE)
-					.append(key2);
+			keysb.append(key1).append(PIPE).append(si.name).append(PIPE).append(key2);
 			String key = keysb.toString();
 			if (preReqSpellLevelMap.containsKey(key))
 			{
@@ -380,26 +259,21 @@ public class SpellSupport implements Cloneable
 
 					if (ALL.equals(spellType) || pc.isSpellCaster(spellType, 1))
 					{
-						if (PrereqHandler.passesAll((List) preReqSpellLevelMap
-								.get(key), pc, null))
+						if (PrereqHandler.passesAll((List) preReqSpellLevelMap.get(key), pc, null))
 						{
-							for (Iterator iClass = pc.getClassList().iterator(); iClass
-									.hasNext();)
+							for (Iterator iClass = pc.getClassList().iterator(); iClass.hasNext();)
 							{
 								final PCClass aClass = (PCClass) iClass.next();
 
-								if (aClass.getSpellType().equals(spellType)
-										|| ALL.equals(spellType))
+								if (aClass.getSpellType().equals(spellType) || ALL.equals(spellType))
 								{
-									tempMap.put(aClass.getSpellKey(),
-											new Integer(si.level));
+									tempMap.put(aClass.getSpellKey(), new Integer(si.level));
 								}
 							}
 						}
 					}
 				}
-				else if (PrereqHandler.passesAll((List) preReqSpellLevelMap
-						.get(key), pc, null))
+				else if (PrereqHandler.passesAll((List) preReqSpellLevelMap.get(key), pc, null))
 				{
 					StringBuffer tempSb = new StringBuffer();
 					tempSb.append(key1).append(PIPE).append(si.name);
@@ -488,8 +362,7 @@ public class SpellSupport implements Cloneable
 			final CharacterSpell cs = (CharacterSpell) i.next();
 			final Spell bSpell = cs.getSpell();
 
-			if (aSpell.equals(bSpell)
-					&& ((anOwner == null) || cs.getOwner().equals(anOwner)))
+			if (aSpell.equals(bSpell) && ((anOwner == null) || cs.getOwner().equals(anOwner)))
 			{
 				return cs;
 			}
@@ -535,8 +408,7 @@ public class SpellSupport implements Cloneable
 	 * @param level
 	 * @return List
 	 */
-	public final List getCharacterSpell(final Spell aSpell, final String book,
-			final int level)
+	public final List getCharacterSpell(final Spell aSpell, final String book, final int level)
 	{
 		return getCharacterSpell(aSpell, book, level, null);
 	}

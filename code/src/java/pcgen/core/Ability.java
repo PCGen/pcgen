@@ -19,17 +19,21 @@
  */
 package pcgen.core;
 
-import pcgen.core.levelability.LevelAbility;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.*;
-import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import pcgen.core.levelability.LevelAbility;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.utils.IntegerKey;
+import pcgen.core.utils.ListKey;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.core.utils.StringKey;
+import pcgen.util.Logging;
+import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.chooser.ChooserInterface;
 
 /**
  * Definition and games rules for an Ability.

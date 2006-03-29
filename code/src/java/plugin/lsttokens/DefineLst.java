@@ -4,6 +4,8 @@
  */
 package plugin.lsttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
@@ -19,13 +21,15 @@ public class DefineLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) throws PersistenceLayerException {
-		String[] tokens = value.split("\\|");
-		if (tokens.length != 2) {
-			throw new PersistenceLayerException("Unable to parse the Define 'DEFINE:"
-					+ value
-					+ "'. All defines are of the form DEFINE:variable|defaultValue.");
+		final StringTokenizer tok = new StringTokenizer(value, "|");
+		try {
+			String varName = tok.nextToken();
+			String defineFormula = tok.nextToken();
+			obj.addVariable(anInt, varName, defineFormula);
 		}
-		obj.addVariable(anInt, tokens[0], tokens[1]);
+		catch(Exception e) {
+			return false;
+		}
 		return true;
 	}
 }

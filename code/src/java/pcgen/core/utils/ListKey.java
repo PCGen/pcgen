@@ -32,6 +32,8 @@ public final class ListKey {
     
 	public static final ListKey AUTO_ARRAY = new ListKey();
 	public static final ListKey AUTO_LANGUAGES = new ListKey();
+	public static final ListKey CLASS_SKILLS = new ListKey();
+	public static final ListKey CROSS_CLASS_SKILLS = new ListKey();
 	public static final ListKey DOMAIN = new ListKey();
 	public static final ListKey FILE_BIO_SET = new ListKey();
 	public static final ListKey FILE_CLASS = new ListKey();

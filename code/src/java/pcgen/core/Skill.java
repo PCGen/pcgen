@@ -22,6 +22,11 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
@@ -34,11 +39,6 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * <code>Skill</code>.
@@ -1322,7 +1322,7 @@ public final class Skill extends PObject
 			return false;
 		}
 
-		if (aPC.getRace().hasCCSkill(name))
+		if (aPC.getRace().hasCcSkill(name))
 		{
 			return true;
 		}
@@ -1331,18 +1331,18 @@ public final class Skill extends PObject
 		{
 			final CharacterDomain aCD = (CharacterDomain) e.next();
 
-			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getName()) && aCD.getDomain().hasCCSkill(name))
+			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getName()) && aCD.getDomain().hasCcSkill(name))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCCSkill(name))
+		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(name))
 		{
 			return true;
 		}
 
-		if (aClass.hasCCSkill(name))
+		if (aClass.hasCcSkill(name))
 		{
 			return true;
 		}
@@ -1359,7 +1359,7 @@ public final class Skill extends PObject
 		{
 			final Ability aFeat = (Ability) i.next();
 
-			if (aFeat.hasCCSkill(name))
+			if (aFeat.hasCcSkill(name))
 			{
 				return true;
 			}
@@ -1369,7 +1369,7 @@ public final class Skill extends PObject
 		{
 			final Skill aSkill = (Skill) i.next();
 
-			if (aSkill.hasCCSkill(name))
+			if (aSkill.hasCcSkill(name))
 			{
 				return true;
 			}
@@ -1381,7 +1381,7 @@ public final class Skill extends PObject
 
 			if (eq.isEquipped())
 			{
-				if (eq.hasCCSkill(name))
+				if (eq.hasCcSkill(name))
 				{
 					return true;
 				}
@@ -1394,7 +1394,7 @@ public final class Skill extends PObject
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
 
-						if (eqMod.hasCCSkill(name))
+						if (eqMod.hasCcSkill(name))
 						{
 							return true;
 						}
@@ -1409,7 +1409,7 @@ public final class Skill extends PObject
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
 
-						if (eqMod.hasCCSkill(name))
+						if (eqMod.hasCcSkill(name))
 						{
 							return true;
 						}
@@ -1422,7 +1422,7 @@ public final class Skill extends PObject
 		{
 			final PCTemplate aTemplate = (PCTemplate) i.next();
 
-			if (aTemplate.hasCCSkill(name))
+			if (aTemplate.hasCcSkill(name));
 			{
 				return true;
 			}

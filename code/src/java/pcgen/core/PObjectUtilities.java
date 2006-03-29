@@ -36,6 +36,7 @@ import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGIOHandler;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -136,16 +137,16 @@ public class PObjectUtilities
 		int numChoices = -1;
 
 		double cost       = 1.0;
-		Ability anAbility = null;
+		Ability ability = null;
 		boolean stacks    = false;
 		boolean multiples = false;
 
 		if (obj instanceof Ability)
 		{
-			anAbility = (Ability) obj;
-			cost      = anAbility.getCost();
-			stacks    = anAbility.isStacks();
-			multiples = anAbility.isMultiples();
+			ability = (Ability) obj;
+			cost      = ability.getCost();
+			stacks    = ability.isStacks();
+			multiples = ability.isMultiples();
 		}
 
 		int i;
@@ -239,7 +240,7 @@ public class PObjectUtilities
 		else if ("FEATADD".equals(choiceType))
 		{
 			title = "Add a Feat";
-			anAbility = setFeatAddSelections(availableList, selectedList, aPC, aTok);
+			ability = setFeatAddSelections(availableList, selectedList, aPC, aTok);
 		}
 		else if ("FEATLIST".equals(choiceType))
 		{
@@ -316,9 +317,9 @@ public class PObjectUtilities
 		else if ("SPELLLIST".equals(choiceType))
 		{
 			title = "Spell Choice";
-			if (process && (anAbility != null))
+			if (process && (ability != null))
 			{
-				idxSelected = chooseAbility(anAbility);
+				idxSelected = chooseAbility(ability);
 				if (idxSelected < 0)
 				{
 					return false;
@@ -494,7 +495,7 @@ public class PObjectUtilities
 
 		if ("SKILLSNAMEDTOCSKILL".equals(choiceType))
 		{
-			for (iter = anAbility.getCSkillList().iterator(); iter.hasNext();)
+			for (iter = ability.getCSkillList().iterator(); iter.hasNext();)
 			{
 				final String tempString = (String) iter.next();
 
@@ -516,7 +517,7 @@ public class PObjectUtilities
 				}
 			}
 
-			anAbility.setCcSkillList(".CLEAR");
+			ability.clearCcSkills();
 		}
 
 		if (!"SPELLLIST".equals(choiceType))
@@ -600,7 +601,7 @@ public class PObjectUtilities
 				}
 			}
 
-			if (anAbility != null)
+			if (ability != null)
 			{
 				if ("SKILLLIST".equals(choiceType) || "SKILLSNAMEDTOCSKILL".equals(choiceType)
 					|| "NONCLASSSKILLLIST".equals(choiceType))
@@ -609,17 +610,17 @@ public class PObjectUtilities
 					{
 						for (Iterator e2 = Globals.getSkillList().iterator(); e2.hasNext();)
 						{
-							final Skill aSkill = (Skill) e2.next();
+							final Skill skill = (Skill) e2.next();
 
-							if (aSkill.getRootName().equalsIgnoreCase(chosenItem))
+							if (skill.getRootName().equalsIgnoreCase(chosenItem))
 							{
-								anAbility.setCSkillList(aSkill.getName());
+								ability.addCSkill(skill.getName());
 							}
 						}
 					}
 					else
 					{
-						anAbility.setCSkillList(chosenItem);
+						ability.addCSkill(chosenItem);
 					}
 				}
 				else if ("CCSKILLLIST".equals(choiceType) || "SKILLSNAMEDTOCCSKILL".equals(choiceType))
@@ -628,17 +629,17 @@ public class PObjectUtilities
 					{
 						for (Iterator e2 = Globals.getSkillList().iterator(); e2.hasNext();)
 						{
-							final Skill aSkill = (Skill) e2.next();
+							final Skill skill = (Skill) e2.next();
 
-							if (aSkill.getRootName().equalsIgnoreCase(chosenItem))
+							if (skill.getRootName().equalsIgnoreCase(chosenItem))
 							{
-								anAbility.setCcSkillList(aSkill.getName());
+								ability.addCcSkill(skill.getName());
 							}
 						}
 					}
 					else
 					{
-						anAbility.setCcSkillList(chosenItem);
+						ability.addCcSkill(chosenItem);
 					}
 				}
 				else if ("FEATADD".equals(choiceType))

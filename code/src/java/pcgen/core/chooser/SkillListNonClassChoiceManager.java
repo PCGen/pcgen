@@ -23,16 +23,16 @@
  */
 package pcgen.core.chooser;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * This is one of the choosers that deals with choosing a skill.
@@ -171,23 +171,23 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 
 			if (pobject != null && pobject instanceof Ability)
 			{
-				Ability anAbility = (Ability) pobject;
+				Ability ability = (Ability) pobject;
 
 				if (rootArrayList.contains(chosenItem))
 				{
 					for (Iterator e2 = Globals.getSkillList().iterator(); e2.hasNext();)
 					{
-						final Skill aSkill = (Skill) e2.next();
+						final Skill skill = (Skill) e2.next();
 
-						if (aSkill.getRootName().equalsIgnoreCase(chosenItem))
+						if (skill.getRootName().equalsIgnoreCase(chosenItem))
 						{
-							anAbility.setCSkillList(aSkill.getName());
+							ability.addCSkill(skill.getName());
 						}
 					}
 				}
 				else
 				{
-					anAbility.setCSkillList(chosenItem);
+					ability.addCSkill(chosenItem);
 				}
 			}
 			if (Globals.weaponTypesContains(chooserHandled))

@@ -4,6 +4,8 @@
  */
 package plugin.lsttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PObject;
 import pcgen.persistence.lst.GlobalLstToken;
 
@@ -18,7 +20,11 @@ public class LangautoLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.addLanguageAutos(value);
+		final StringTokenizer aTok = new StringTokenizer(value, ",");
+
+		while (aTok.hasMoreTokens()) {
+			obj.addLanguageAuto(value);
+		}
 		return true;
 	}
 }

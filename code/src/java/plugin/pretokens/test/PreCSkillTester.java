@@ -166,7 +166,7 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 			for (Iterator i = tempList.iterator(); i.hasNext();)
 			{
 				final PCTemplate aTemplate = (PCTemplate) i.next();
-				final ArrayList tempList2 = aTemplate.getCSkillList();
+				final List tempList2 = aTemplate.getCSkillList();
 
 				if (tempList2 == null)
 				{

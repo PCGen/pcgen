@@ -113,7 +113,7 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 
 					if (aSkill.getRootName().equalsIgnoreCase(chosenItem))
 					{
-						anAbility.setCcSkillList(aSkill.getName());
+						anAbility.addCcSkill(aSkill.getName());
 					}
 				}
 			}

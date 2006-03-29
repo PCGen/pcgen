@@ -18,7 +18,7 @@ public class NameispiLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setNameIsPI(value.startsWith("Y"));
+		obj.setNameIsPI(value.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }

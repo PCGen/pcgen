@@ -42,7 +42,6 @@ public final class StringKey {
 	public static final StringKey CATCH_PHRASE = new StringKey();
 	public static final StringKey CHOICE_STRING = new StringKey();
 	public static final StringKey CHOICE_TO_MODIFY = new StringKey();
-	public static final StringKey CLASS_SKILLS = new StringKey();
 	public static final StringKey COST = new StringKey();
 	public static final StringKey CURRENT_EQUIP_SET_NAME = new StringKey();
 	public static final StringKey DESCRIPTION = new StringKey();

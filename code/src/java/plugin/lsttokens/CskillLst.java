@@ -4,6 +4,8 @@
  */
 package plugin.lsttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PObject;
 import pcgen.persistence.lst.GlobalLstToken;
 
@@ -18,7 +20,10 @@ public class CskillLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setCSkillList(value);
+		final StringTokenizer tok = new StringTokenizer(value, "|");
+		while (tok.hasMoreTokens()) {
+			obj.addCSkill(tok.nextToken());
+		}
 		return true;
 	}
 }

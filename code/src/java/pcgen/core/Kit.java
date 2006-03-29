@@ -20,7 +20,13 @@
  */
 package pcgen.core;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
@@ -30,6 +36,7 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -107,7 +114,11 @@ public final class Kit extends PObject implements Comparable
 
 				if (aString.startsWith("LANGAUTO:"))
 				{
-					addLanguageAutos(aString.substring(9));
+					try {
+						PObjectLoader.parseTag(this, aString);
+					} catch (PersistenceLayerException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}

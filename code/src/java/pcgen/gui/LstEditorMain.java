@@ -150,21 +150,6 @@ public final class LstEditorMain extends JFrame
 			case EditorConstants.EDIT_SKILL:
 				Globals.getSkillList().add(editObject);
 				Globals.sortPObjectList(Globals.getSkillList());
-
-				// refresh class-skills for classes and domains
-				// to make sure this new class is accounted for
-				for (Iterator i = Globals.getClassList().iterator(); i.hasNext();)
-				{
-					PCClass aClass = (PCClass) i.next();
-					aClass.refreshCSkillList();
-				}
-
-				for (Iterator i = Globals.getDomainList().iterator(); i.hasNext();)
-				{
-					Domain aDomain = (Domain) i.next();
-					aDomain.refreshCSkillList();
-				}
-
 				break;
 
 			case EditorConstants.EDIT_SPELL:

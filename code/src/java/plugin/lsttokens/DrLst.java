@@ -29,49 +29,40 @@ public class DrLst implements GlobalLstToken {
 	public boolean parse(PObject obj, String value, int anInt) {
 		ArrayList preReqs = new ArrayList();
 		if (anInt > -9) {
-			try
-			{
+			try {
 				PreParserFactory factory = PreParserFactory.getInstance();
 				Prerequisite r = factory.parse("PRELEVEL:" + anInt);
 				preReqs.add(r);
 			}
-			catch (PersistenceLayerException notUsed)
-			{
-				// Should never happen
+			catch (PersistenceLayerException notUsed) {
+				return false;
 			}
 		}
 
-		if (".CLEAR".equals(value))
-		{
+		if (".CLEAR".equals(value)) {
 			obj.clearDR();
 			return true;
-		 }
+		}
 
 		StringTokenizer tok = new StringTokenizer(value, "|");
 		String[] values = tok.nextToken().split("/");
-		if (values.length != 2)
-		{
+		if (values.length != 2) {
 			return false;
 		}
 		DamageReduction dr = new DamageReduction(values[0], values[1]);
 
-		if (tok.hasMoreTokens())
-		{
-			try
-			{
+		if (tok.hasMoreTokens()) {
+			try {
 				PreParserFactory factory = PreParserFactory.getInstance();
 				Prerequisite r = factory.parse(tok.nextToken());
 				preReqs.add(r);
 			}
-			catch (PersistenceLayerException notUsed)
-			{
+			catch (PersistenceLayerException notUsed) {
 				return false;
 			}
 		}
-		if (preReqs.size() > 0)
-		{
-			for (Iterator i = preReqs.iterator(); i.hasNext(); )
-			{
+		if (preReqs.size() > 0) {
+			for (Iterator i = preReqs.iterator(); i.hasNext(); ) {
 				dr.addPreReq((Prerequisite)i.next());
 			}
 		}

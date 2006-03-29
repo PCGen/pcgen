@@ -20,10 +20,10 @@
  */
 package pcgen.core;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * <code>SpecialAbility</code>.

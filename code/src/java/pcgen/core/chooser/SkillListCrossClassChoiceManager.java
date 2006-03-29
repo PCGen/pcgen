@@ -114,13 +114,13 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 
 						if (aSkill.getRootName().equalsIgnoreCase(chosenItem))
 						{
-							anAbility.setCcSkillList(aSkill.getName());
+							anAbility.addCcSkill(aSkill.getName());
 						}
 					}
 				}
 				else
 				{
-					anAbility.setCcSkillList(chosenItem);
+					anAbility.addCcSkill(chosenItem);
 				}
 			}
 

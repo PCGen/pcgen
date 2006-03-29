@@ -28,6 +28,8 @@ package pcgen.io;
 import pcgen.core.*;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.PObjectLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -503,7 +505,13 @@ public final class PCGIOHandler extends IOHandler
 				for (int it3 = 0; it3 < aFeat.getAssociatedCount(); it3++)
 				{
 					final String skillString = aFeat.getAssociated(it3);
-					aFeat.setCSkillList(skillString);
+					try
+					{
+						PObjectLoader.parseTag(aFeat, "CSKILL:" + skillString);
+					} catch (PersistenceLayerException e)
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 

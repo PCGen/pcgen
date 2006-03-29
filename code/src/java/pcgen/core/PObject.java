@@ -73,10 +73,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/** List of Bonuses for the object */
 	private ArrayList bonusList = new ArrayList();
-	/** Class Skill List for the object */
-	protected ArrayList cSkillList = null;
-	/** Cross Class Skill List for the object */
-	protected ArrayList ccSkillList = null;
 	/** List of Level Abilities for the object  */
 	private ArrayList levelAbilityList = null;
 
@@ -207,101 +203,105 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Set the Cross Class skill list for this object
-	 * @param aString
+	 * Adds entry to the CSkill list
+	 * @param entry skill to add
 	 */
-	public final void setCcSkillList(final String aString)
+	public final void addCcSkill(String entry)
 	{
-		if ((aString == null) || (aString.length() <= 0))
+		Skill skill;
+		if (entry.startsWith(".CLEAR"))
 		{
-			return;
-		}
-
-		if (ccSkillList == null)
-		{
-			ccSkillList = new ArrayList();
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-		boolean isClearing = false;
-
-		while (aTok.hasMoreTokens())
-		{
-			String bString = aTok.nextToken();
-
-			if (bString.startsWith(".CLEAR") || isClearing)
+			if (".CLEAR".equals(entry))
 			{
-				isClearing = true;
-
-				if (".CLEAR".equals(bString))
-				{
-					ccSkillList.clear();
-				}
-				else
-				{
-					if (bString.startsWith(".CLEAR"))
-					{
-						bString = bString.substring(7);
-					}
-
-					if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
-					{
-						final String typeString = bString.substring(5);
-
-						for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
-						{
-							final Skill aSkill = (Skill) e1.next();
-							boolean toClear = true;
-							final StringTokenizer cTok = new StringTokenizer(typeString, ".");
-
-							while (cTok.hasMoreTokens() && toClear)
-							{
-								if (!aSkill.isType(cTok.nextToken()))
-								{
-									toClear = false;
-								}
-							}
-
-							if (toClear)
-							{
-								ccSkillList.remove(aSkill.getName());
-							}
-						}
-					}
-					else
-					{
-						ccSkillList.remove(bString);
-					}
-				}
-			}
-			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
-			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
-				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.isType(bString.substring(5)))
-					{
-						ccSkillList.add(aSkill.getName());
-					}
-				}
+				clearCcSkills();
 			}
 			else
 			{
-				ccSkillList.add(bString);
+				if (entry.startsWith(".CLEAR"))
+				{
+					entry = entry.substring(7);
+				}
+
+				if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
+				{
+					final String typeString = entry.substring(5);
+
+					for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+					{
+						skill = (Skill) e1.next();
+						boolean toClear = true;
+						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
+
+						while (cTok.hasMoreTokens() && toClear)
+						{
+							if (!skill.isType(cTok.nextToken()))
+							{
+								toClear = false;
+							}
+						}
+
+						if (toClear)
+						{
+							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getName());
+						}
+					}
+				}
+				else
+				{
+					listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, entry);
+				}
 			}
 		}
+		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
+		{
+			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			{
+				skill = (Skill) e1.next();
+
+				if (skill.isType(entry.substring(5)))
+				{
+					listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getName());
+				}
+			}
+		}
+		else if ("ALL".equals(entry))
+		{
+			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			{
+				skill = (Skill) e1.next();
+				listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getName());
+			}
+		}
+		else
+		{
+			listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, entry);
+		}
+	}
+	
+	/**
+	 * Adds all of the entries to the CSkills list
+	 * @param entries list of entries  
+	 */
+	public final void addAllCcSkills(final List entries)
+	{
+		listChar.addAllToListFor(ListKey.CROSS_CLASS_SKILLS, entries);
+	}
+	
+	/**
+	 * Clears the class skill list
+	 */
+	public void clearCcSkills()
+	{
+		listChar.removeListFor(ListKey.CROSS_CLASS_SKILLS);
 	}
 
 	/**
-	 * Get the Cross Class skill list for this object
-	 * @return the Cross Class skill list for this object
+	 * Get the list of class skills for this object
+	 * @return the list of class skills for this object
 	 */
-	public final ArrayList getCcSkillList()
+	public final List getCcSkillList()
 	{
-		return ccSkillList;
+		return listChar.getListFor(ListKey.CROSS_CLASS_SKILLS);
 	}
 
 	/**
@@ -440,22 +440,105 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Set the list of Class skills for this object
-	 * @param aString
+	 * Adds entry to the CSkill list
+	 * @param entry skill to add
 	 */
-	public final void setCSkillList(final String aString)
+	public final void addCSkill(String entry)
 	{
-		stringChar.setCharacteristic(StringKey.CLASS_SKILLS, aString);
-		refreshCSkillList();
+		Skill skill;
+		if (entry.startsWith(".CLEAR"))
+		{
+			if (".CLEAR".equals(entry))
+			{
+				clearCSkills();
+			}
+			else
+			{
+				if (entry.startsWith(".CLEAR"))
+				{
+					entry = entry.substring(7);
+				}
+
+				if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
+				{
+					final String typeString = entry.substring(5);
+
+					for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+					{
+						skill = (Skill) e1.next();
+						boolean toClear = true;
+						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
+
+						while (cTok.hasMoreTokens() && toClear)
+						{
+							if (!skill.isType(cTok.nextToken()))
+							{
+								toClear = false;
+							}
+						}
+
+						if (toClear)
+						{
+							listChar.removeFromListFor(ListKey.CLASS_SKILLS, skill.getName());
+						}
+					}
+				}
+				else
+				{
+					listChar.removeFromListFor(ListKey.CLASS_SKILLS, entry);
+				}
+			}
+		}
+		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
+		{
+			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			{
+				skill = (Skill) e1.next();
+
+				if (skill.isType(entry.substring(5)))
+				{
+					listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getName());
+				}
+			}
+		}
+		else if ("ALL".equals(entry))
+		{
+			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			{
+				skill = (Skill) e1.next();
+				listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getName());
+			}
+		}
+		else
+		{
+			listChar.addToListFor(ListKey.CLASS_SKILLS, entry);
+		}
+	}
+	
+	/**
+	 * Adds all of the entries to the CSkills list
+	 * @param entries list of entries  
+	 */
+	public final void addAllCSkills(final List entries)
+	{
+		listChar.addAllToListFor(ListKey.CLASS_SKILLS, entries);
+	}
+	
+	/**
+	 * Clears the class skill list
+	 */
+	public void clearCSkills()
+	{
+		listChar.removeListFor(ListKey.CLASS_SKILLS);
 	}
 
 	/**
 	 * Get the list of class skills for this object
 	 * @return the list of class skills for this object
 	 */
-	public final ArrayList getCSkillList()
+	public final List getCSkillList()
 	{
-		return cSkillList;
+		return listChar.getListFor(ListKey.CLASS_SKILLS);
 	}
 
 	/**
@@ -1244,41 +1327,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 *
 	 * @param aString is a list of equipment and new Profs
 	 */
-	public void addChangeProf(final String aString)
+	public void addChangeProf(String eqString, String newProf)
 	{
-		// aString should be of the format:
-		// Name1,TYPE.type1,Name3=Prof1|Name4,Name5=Prof2
-		//
-		// e.g.: TYPE.Hammer,Hand Axe=Simple|Urgosh,Waraxe=Martial
-		//
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			String nPart = aTok.nextToken();
-			String newProf;
-			final int indx = nPart.indexOf('=');
-
-			if (indx > 1)
-			{
-				newProf = nPart.substring(indx + 1);
-				nPart = nPart.substring(0, indx);
-			}
-			else
-			{
-				Logging.errorPrint("Malformed CHANGEPROF tag: " + nPart);
-
-				continue;
-			}
-
-			final StringTokenizer bTok = new StringTokenizer(nPart, ",");
-
-			while (bTok.hasMoreTokens())
-			{
-				final String eqString = bTok.nextToken();
-				changeProfMap.put(eqString, newProf);
-			}
-		}
+		changeProfMap.put(eqString, newProf);
 	}
 
 	/**
@@ -1635,16 +1686,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			retVal.variableList = (VariableList) variableList.clone();
 		}
 
-		if (cSkillList != null)
-		{
-			retVal.cSkillList = (ArrayList) cSkillList.clone();
-		}
-
-		if (ccSkillList != null)
-		{
-			retVal.ccSkillList = (ArrayList) ccSkillList.clone();
-		}
-
 		if (bonusMap != null)
 		{
 			retVal.bonusMap = new HashMap(bonusMap);
@@ -1759,105 +1800,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	public void putBonusMap(final String aKey, final String aVal)
 	{
 		getBonusMap().put(aKey, aVal);
-	}
-
-	/**
-	 * Refresh the class skill list
-	 */
-	public final void refreshCSkillList()
-	{
-		String classSkillString = stringChar.getCharacteristic(StringKey.CLASS_SKILLS);
-		if ((classSkillString == null) || (classSkillString.length() <= 0))
-		{
-			return;
-		}
-
-		if (cSkillList == null)
-		{
-			cSkillList = new ArrayList();
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(classSkillString, "|");
-		boolean isClearing = false;
-
-		while (aTok.hasMoreTokens())
-		{
-			String bString = aTok.nextToken();
-
-			if (bString.startsWith(".CLEAR") || isClearing)
-			{
-				isClearing = true;
-
-				if (".CLEAR".equals(bString))
-				{
-					cSkillList.clear();
-				}
-				else
-				{
-					if (bString.startsWith(".CLEAR"))
-					{
-						bString = bString.substring(7);
-					}
-
-					if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
-					{
-						final String typeString = bString.substring(5);
-
-						for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
-						{
-							final Skill aSkill = (Skill) e1.next();
-							boolean toClear = true;
-							final StringTokenizer cTok = new StringTokenizer(typeString, ".");
-
-							while (cTok.hasMoreTokens() && toClear)
-							{
-								if (!aSkill.isType(cTok.nextToken()))
-								{
-									toClear = false;
-								}
-							}
-
-							if (toClear)
-							{
-								cSkillList.remove(aSkill.getName());
-							}
-						}
-					}
-					else
-					{
-						cSkillList.remove(bString);
-					}
-				}
-			}
-			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
-			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
-				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.isType(bString.substring(5)))
-					{
-						cSkillList.add(aSkill.getName());
-					}
-				}
-			}
-			else if ("ALL".equals(bString))
-			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
-				{
-					aSkill = (Skill) e1.next();
-					cSkillList.add(aSkill.getName());
-				}
-			}
-			else
-			{
-				cSkillList.add(bString);
-			}
-		}
 	}
 
 	/**
@@ -2291,41 +2233,38 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Add automatic languages
 	 * @param aString
 	 */
-	public final void addLanguageAutos(final String aString)
+	public final void addLanguageAuto(final String langName)
 	{
-		final StringTokenizer aTok = new StringTokenizer(aString, ",");
-
 		ListKey autoLanguageListKey = ListKey.AUTO_LANGUAGES;
-
-		while (aTok.hasMoreTokens())
+		if (".CLEAR".equals(langName))
 		{
-			final String bString = aTok.nextToken();
+			listChar.removeListFor(autoLanguageListKey);
+		}
+		else if ("ALL".equals(langName))
+		{
+			listChar.addAllToListFor(autoLanguageListKey, Globals.getLanguageList());
+		}
+		else if (langName.startsWith("TYPE=") || langName.startsWith("TYPE."))
+		{
+			final String type = langName.substring(5);
+			List langList = Globals.getLanguageList();
+			langList = Globals.getLanguagesFromListOfType(langList, type);
+			listChar.addAllToListFor(autoLanguageListKey, langList);
+		}
+		else
+		{
+			final Language lang = Globals.getLanguageNamed(langName);
 
-			if (".CLEAR".equals(bString))
+			if (lang != null)
 			{
-				listChar.removeListFor(autoLanguageListKey);
-			}
-			else if ("ALL".equals(bString))
-			{
-				listChar.addAllToListFor(autoLanguageListKey, Globals.getLanguageList());
-			}
-			else if (bString.startsWith("TYPE=") || bString.startsWith("TYPE."))
-			{
-				final String aType = bString.substring(5);
-				List bList = Globals.getLanguageList();
-				bList = Globals.getLanguagesFromListOfType(bList, aType);
-				listChar.addAllToListFor(autoLanguageListKey, bList);
-			}
-			else
-			{
-				final Language aLang = Globals.getLanguageNamed(bString);
-
-				if (aLang != null)
-				{
-					listChar.addToListFor(autoLanguageListKey, aLang);
-				}
+				listChar.addToListFor(autoLanguageListKey, lang);
 			}
 		}
+	}
+	
+	public void clearLanguageAuto()
+	{
+		listChar.removeListFor(ListKey.AUTO_LANGUAGES);
 	}
 
 	/**
@@ -3256,11 +3195,13 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
+		List ccSkillList = getCcSkillList();
 		if ((ccSkillList != null) && (ccSkillList.size() != 0))
 		{
 			txt.append("\tCCSKILL:").append(CoreUtility.join(ccSkillList, "|"));
 		}
 
+		List cSkillList = getCSkillList();
 		if ((cSkillList != null) && (cSkillList.size() != 0))
 		{
 			txt.append("\tCSKILL:").append(CoreUtility.join(cSkillList, "|"));
@@ -3959,7 +3900,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				}
 				else if ("%LIST".equals(tok))
 				{
-					List assoc = getAssociatedList();
 					for (Iterator e = getAssociatedList().iterator(); e.hasNext();)
 					{
 						final String wString = (String) e.next();
@@ -4014,8 +3954,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		// This method currently does nothing so it may be overriden in PCClass.
 	}
 
-	final boolean hasCCSkill(final String aName)
+	final boolean hasCcSkill(final String aName)
 	{
+		List ccSkillList = getCcSkillList();
 		if ((ccSkillList == null) || ccSkillList.isEmpty())
 		{
 			return false;
@@ -4048,6 +3989,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	final boolean hasCSkill(final String aName)
 	{
+		List cSkillList = getCSkillList();
 		if ((cSkillList == null) || cSkillList.isEmpty())
 		{
 			return false;

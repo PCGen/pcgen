@@ -18,7 +18,7 @@ public class DescispiLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setDescIsPI(value.startsWith("Y"));
+		obj.setDescIsPI(value.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }

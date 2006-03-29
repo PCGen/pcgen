@@ -96,7 +96,7 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 				}
 			}
 
-			anAbility.setCcSkillList(".CLEAR");
+			anAbility.clearCcSkills();
 		}
 
 		pobject.clearAssociated();
@@ -131,7 +131,7 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 
 			if (pobject != null && pobject instanceof Ability)
 			{
-				pobject.setCcSkillList(chosenItem);
+				pobject.addCcSkill(chosenItem);
 			}
 			if (Globals.weaponTypesContains(chooserHandled))
 			{

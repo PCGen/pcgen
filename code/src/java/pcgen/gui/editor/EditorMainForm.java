@@ -996,10 +996,12 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlLanguages != null)
 		{
-			thisPObject.addLanguageAutos(".CLEAR");
+			thisPObject.clearLanguageAuto();
 			sel = pnlLanguages.getSelectedList();
-			aString = EditUtil.delimitArray(sel, ',');
-			thisPObject.addLanguageAutos(aString);
+			for (int i = 0; i < sel.length; i++)
+			{
+				thisPObject.addLanguageAuto(sel[i].toString());
+			}
 		}
 
 		//
@@ -1037,18 +1039,20 @@ public final class EditorMainForm extends JDialog
 			//
 			// Save granted class skills
 			//
-			thisPObject.setCSkillList(".CLEAR");
+			thisPObject.clearCSkills();
 			sel = pnlSkills.getSelectedList();
-			aString = EditUtil.delimitArray(sel, '|');
-			thisPObject.setCSkillList(aString);
+			for(int i = 0; i < sel.length; i++) {
+				thisPObject.addCSkill(sel[i].toString());
+			}
 
 			//
 			// Save granted cross class skills
 			//
-			thisPObject.setCcSkillList(".CLEAR");
+			thisPObject.clearCcSkills();
 			sel = pnlSkills.getSelectedList2();
-			aString = EditUtil.delimitArray(sel, '|');
-			thisPObject.setCcSkillList(aString);
+			for(int i = 0; i < sel.length; i++) {
+				thisPObject.addCcSkill(aString);
+			}
 		}
 
 		//
