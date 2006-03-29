@@ -12,7 +12,21 @@ import javax.swing.JTextField;
 
 import pcgen.gui.utils.Utility;
 
+/**
+ * Tab utilities
+ */
 public class InfoTabUtils {
+	
+	/**
+	 * Create a filter pane for a tab
+	 * 
+	 * @param treeLabel
+	 * @param treeCb
+	 * @param filterLabel
+	 * @param filterText
+	 * @param clearButton
+	 * @return the Filter pane
+	 */
 	public static JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
 	{
 		GridBagConstraints c = new GridBagConstraints();

@@ -95,6 +95,9 @@ public class EquipmentListTest extends PCGenTestCase
 		this.eq.setKeyName(this.OriginalKey);
 	}
 
+	/**
+	 * test the getEquipmentOfType method
+	 */
 	public void testGetEquipmentOfType()
 	{
 		EquipmentList.addEquipment(eq);

@@ -1085,7 +1085,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		/**
 		 * There must be a root object, though it can be hidden
-		 * @param the root node
+		 * @param aNode - the root node
 		 */
 		private void setRoot(PObjectNode aNode)
 		{
@@ -1093,7 +1093,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		/**
-		 * @param rowIndex the row of the cell to retrieve
+		 * @param node
 		 * @param columnIndex the column of the cell to retrieve
 		 * @return the value of the cell
 		 */
@@ -1291,7 +1291,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		/**
 		 * return a boolean to indicate if the item should be included in the list.
 		 * Only Weapon, Armor and Shield type items should be checked for proficiency.
-		 * @param aClass
+		 * @param template
 		 * @return true if it should be displayed
 		 */
 		private boolean shouldDisplayThis(final PCTemplate template)

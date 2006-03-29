@@ -1111,9 +1111,7 @@ public class EqToken extends Token
 					return eq.getQuality(next);
 				}
 			}
-			else {
-				return eq.getQualityString();
-			}
+			return eq.getQualityString();
 		}
 		else if ("SPELLFAILURE".equals(token))
 		{

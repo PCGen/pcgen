@@ -4940,7 +4940,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		
 		public void resetMColumn(int num, TableColumn column) {
 			if(modelType == MODEL_AVAIL) {
-					
+				// TODO Do Nothing?
 			}
 			else {
 				switch (num)

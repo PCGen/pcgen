@@ -227,17 +227,26 @@ interface IOConstants
 
 	/** Character follower */
 	String TAG_FOLLOWER  = "FOLLOWER";
+	/** GAMEMODE */
 	String TAG_GAMEMODE  = "GAMEMODE";
+	/** GENDER */
 	String TAG_GENDER    = "GENDER";
+	/** HAIRCOLOR */
 	String TAG_HAIRCOLOR = "HAIRCOLOR";
+	/** HAIRSTYLE */
 	String TAG_HAIRSTYLE = "HAIRSTYLE";
+	/** HANDED */
 	String TAG_HANDED    = "HANDED";
+	/** HEIGHT */
 	String TAG_HEIGHT    = "HEIGHT";
+	/** HITDICE */
 	String TAG_HITDICE   = "HITDICE";
+	/** HITPOINTS */
 	String TAG_HITPOINTS = "HITPOINTS";
+	/** HOLYITEM */
 	String TAG_HOLYITEM  = "HOLYITEM";
 
-	// Output Sheets
+	/** Output Sheets */
 	String TAG_HTMLOUTPUTSHEET = "OUTPUTSHEETHTML";
 	String TAG_ID              = "ID";
 	String TAG_INTERESTS       = "INTERESTS";

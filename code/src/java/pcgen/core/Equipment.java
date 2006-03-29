@@ -7064,14 +7064,29 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		return thisName + " (" + newSize + ")";
 	}
 	
+	/**
+	 * Set QUALITY
+	 * @param key
+	 * @param value
+	 */
 	public void setQuality(String key, String value) {
 		qualityMap.put(key, value);
 	}
 	
+	/**
+	 * Get QUALITY
+	 * @param key
+	 * @return quality
+	 */
 	public String getQuality(String key) {
 		return (String)qualityMap.get(key);
 	}
 
+	/**
+	 * Get quality
+	 * @param num
+	 * @return quality
+	 */
 	public String getQuality(int num) {
 		for(Iterator i = qualityMap.keySet().iterator(); i.hasNext(); ) {
 			String key = i.next().toString();
@@ -7083,10 +7098,18 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		return "";
 	}
 	
+	/**
+	 * Get quality map
+	 * @return quality map
+	 */
 	public Map getQualityMap() {
 		return qualityMap;
 	}
 	
+	/**
+	 * Get quality string
+	 * @return quality string
+	 */
 	public String getQualityString() {
 		StringBuffer sb = new StringBuffer();
 		boolean firstTime = true;

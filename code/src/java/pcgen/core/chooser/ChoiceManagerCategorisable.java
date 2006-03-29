@@ -27,6 +27,9 @@ import java.util.List;
 
 import pcgen.core.CategorisableStore;
 
+/**
+ * Choice Manager interface
+ */
 public interface ChoiceManagerCategorisable {
 
 	/**

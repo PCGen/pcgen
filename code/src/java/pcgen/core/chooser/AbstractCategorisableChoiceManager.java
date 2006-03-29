@@ -41,6 +41,9 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
+/**
+ * Abstract Categorisable Choice Manager
+ */
 public abstract class AbstractCategorisableChoiceManager extends
 		AbstractComplexChoiceManager implements ChoiceManagerCategorisable {
 

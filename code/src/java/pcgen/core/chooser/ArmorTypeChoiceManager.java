@@ -28,7 +28,6 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Logging;
 
 import java.util.Iterator;
 import java.util.List;

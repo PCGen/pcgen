@@ -3469,6 +3469,12 @@ public final class Globals
 		return Integer.parseInt(sml.get(level - 1).toString());
 	}
 
+	/**
+	 * Get the Weapon Profs
+	 * @param type
+	 * @param aPC
+	 * @return List of Weapon Profs
+	 */
 	public static List getWeaponProfs(final String type, final PlayerCharacter aPC)
 	{
 		final List aList = new ArrayList();
@@ -4086,15 +4092,28 @@ public final class Globals
 		return path;
 	}
 
+	/**
+	 * Add a sponsor, e.g. Silven Publishing
+	 * @param sponsor
+	 */
 	public static void addSponsor(Map sponsor) {
 		sponsors.put(sponsor.get("SPONSOR"), sponsor);
 		sponsorList.add(sponsor);
 	}
 	
+	/**
+	 * Get a list of sponsors of PCGen
+	 * @return list of sponsors of PCGen
+	 */
 	public static List getSponsors() {
 		return sponsorList;
 	}
 	
+	/**
+	 * Get a sponsor
+	 * @param name
+	 * @return sponsor
+	 */
 	public static Map getSponsor(String name) {
 		return (Map)sponsors.get(name);
 	}

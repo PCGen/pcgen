@@ -445,9 +445,9 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Set a lock on the height string.
 	 *
 	 * XXX appears to be totally unused.  a private attribute with a setter but
-	 * no accessor.
+	 * no accessor.  This was removed, but then had to be readded as saving 
+	 * HEIGHT to pcg file was failing
 	 * 
-	 * @deprecated remove in 5.10 Beta 1
 	 * @param  argHeightString the height to lock the character at
 	 */
 	public void setHeightString(final String argHeightString)

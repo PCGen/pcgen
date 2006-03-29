@@ -27,6 +27,9 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 
+/**
+ * Choice Manager List interface
+ */
 public interface ChoiceManagerList {
 
 	/**
