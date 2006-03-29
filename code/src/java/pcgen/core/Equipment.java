@@ -39,6 +39,8 @@ import java.io.BufferedWriter;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <code>Equipment</code>.
@@ -1185,7 +1187,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * Sets the cost attribute of the Equipment object
 	 *
 	 * @param aString The new cost value
-	 * @param bBase   The new cost value
+	 * @param bBase   if true, set the base cost along with the cost
 	 */
 	public void setCost(final String aString, final boolean bBase)
 	{
@@ -1288,14 +1290,17 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 			BigDecimal eqModCost;
 			String costFormula = aEqMod.getCost();
+			Pattern pat = Pattern.compile("BASECOST");
+			Matcher mat;
 
 			if ((aEqMod.getAssociatedCount() > 0) && !costFormula.equals(aEqMod.getCost(0)))
 			{
 				eqModCost = BigDecimalHelper.ZERO;
-
+				
 				for (int idx = 0; idx < aEqMod.getAssociatedCount(); ++idx)
 				{
-					costFormula = aEqMod.getCost(idx);
+					mat = pat.matcher(aEqMod.getCost(idx));
+					costFormula = mat.replaceAll("(BASECOST/" + getBaseQty() + ")");
 
 					final BigDecimal thisModCost = new BigDecimal(getVariableValue(costFormula, "", true, aPC).toString());
 
@@ -1315,6 +1320,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 			else
 			{
+				mat = pat.matcher(aEqMod.getCost());
+				costFormula = mat.replaceAll("(BASECOST/" + getBaseQty() + ")");
+
 				eqModCost = new BigDecimal(getVariableValue(costFormula, "", true, aPC).toString());
 
 				if (!aEqMod.getCostDouble())
@@ -1327,7 +1335,12 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 				}
 			}
 
-			c = c.add(eqModCost.multiply(new BigDecimal(Integer.toString(getBaseQty() * iCount))));
+			// Per D20 FAQ adjustments for special materials are per piece;
+			if (aEqMod.isType("BaseMaterial"))
+			{
+				eqModCost = eqModCost.multiply(new BigDecimal(getBaseQty()));
+			}
+			c = c.add(eqModCost);
 			iPlus += (aEqMod.getPlus() * iCount);
 		}
 
@@ -1367,14 +1380,14 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		// should be 6 gp. This would give a cost of 6.05 gp per arrow, 6.1 gp per bolt and 6.01 gp
 		// per bullet.
 		//
-		if (c.compareTo(BigDecimalHelper.ZERO) != 0)
-		{
-			//
-			// Convert to double and use math.ceil as ROUND_CEILING doesn't appear to work
-			// on BigDecimal.divide
-			final int baseQ = getBaseQty();
-			itemCost = new BigDecimal(Math.ceil(itemCost.doubleValue() / baseQ) * baseQ);
-		}
+		// if (c.compareTo(BigDecimalHelper.ZERO) != 0)
+		// {
+		// //
+		// // Convert to double and use math.ceil as ROUND_CEILING doesn't appear to work
+		// // on BigDecimal.divide
+		//     final int baseQ = getBaseQty();
+		//     itemCost = new BigDecimal(Math.ceil(itemCost.doubleValue() / baseQ) * baseQ);
+		// }
 
 		if (!isAmmunition() && !isArmor() && !isShield() && !isWeapon())
 		{
