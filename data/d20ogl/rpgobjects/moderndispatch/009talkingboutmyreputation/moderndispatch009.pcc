@@ -1,11 +1,14 @@
 # CVS $Revision$ $Author$ -- Sun Jan 22 04:43:36 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Modern Dispatch - #9 - Talking 'bout my Reputation
 GAMEMODE:Modern
-TYPE:RPGObjects.Modern Dispatch
 RANK:6
 GENRE:Modern
 BOOKTYPE:Magazine
 SETTING:Generic
+TYPE:RPGObjects.Modern Dispatch
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:Modern Dispatch #9 - Talking 'bout my Reputation
 SOURCESHORT:MD09-TBMR
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3993

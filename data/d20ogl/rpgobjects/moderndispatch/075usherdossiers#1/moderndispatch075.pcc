@@ -2,10 +2,13 @@
 CAMPAIGN:Modern Dispatch - #75 - U.S.H.E.R. Dossiers #1
 RANK:6
 GAMEMODE:Modern
-TYPE:RPGObjects.Modern Dispatch
 GENRE:Modern
 BOOKTYPE:Magazine
 SETTING:Blood and Secrets
+TYPE:RPGObjects.Modern Dispatch
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1
 SOURCESHORT:MD75-USHER#1
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198

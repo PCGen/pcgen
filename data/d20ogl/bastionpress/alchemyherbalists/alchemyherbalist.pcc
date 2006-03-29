@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Jul 13 08:19:36 2002 -- reformated by prettylst.pl v1.16 (build 169)
 CAMPAIGN:BP - Alchemy and Herbalists - Source Book
 GAMEMODE:3e
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Bastion Press.Supplement
-RANK:9
+PUBNAMELONG:Bastion Press
+PUBNAMESHORT:Bastion
+PUBNAMEWEB:http://www.bastionpress.com
 SOURCELONG:Bastion Press - Alchemy and Herbalists
 SOURCESHORT:AlchemyHrb
 SOURCEWEB:www.bastionpress.com

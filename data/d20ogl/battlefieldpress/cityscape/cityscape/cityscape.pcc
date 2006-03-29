@@ -1,13 +1,17 @@
 # CVS $Revision$ $Author$ -- Fri Aug  2 15:58:40 2002 -- reformated by prettylst.pl v1.17 (build 171)
 CAMPAIGN:Cityscape
 GAMEMODE:3e
+RANK:2
+GENRE:Planar
+BOOKTYPE:Campaign Setting
+SETTING:Cityscape
 TYPE:Battlefield Press.Sourcebook
-RANK:9
+PUBNAMELONG:Battlefield Press
+PUBNAMESHORT:Battlefield
+PUBNAMEWEB:http://battlefieldpress.com
 SOURCELONG:Battlefield Press - Cityscape
 SOURCESHORT:Cityscape
 SOURCEWEB:http://battlefieldpress.com
-ISLICENSED:YES
-LICENSE:Limited License for use of Goodies and Product Identity (PI) in Goodies: Battlefield Press, Inc. grants other OGL publishers a non-exclusive, irrevocable, royalty free limited license to use the goodies and the PI elements that appear in the names of races, spells, feats, skills, and classes. The use of PI elements is limited solely to using these PI elements in the goodies themselves and for no other use.
 ISOGL:YES
 COPYRIGHT:System Reference Document Copyright 2000, Wizard of the Coast, Inc.
 COPYRIGHT:Grim-n-Gritty Hit Point and Combat Rules Copyright 2001, Kenneth S. Hood
@@ -29,6 +33,9 @@ COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight, Inc.
 COPYRIGHT:Super-powered D20 Rules for Heroes Copyright 2001, Paul Arden Lidburg
 COPYRIGHT:Cityscape: City on the Nexus of the Omniverse Copyright 2002, Battlefield Press, Inc.
 COPYRIGHT:PCGen dataset conversion for Cityscape: City on the Nexus of the Omniverse Copyright 2002-2003, PCgen Data Team including, but not limited to, Rob Reed (Mynex), Andrew McDougall (Tir Gwaith).
+
+ISLICENSED:YES
+LICENSE:Limited License for use of Goodies and Product Identity (PI) in Goodies: Battlefield Press, Inc. grants other OGL publishers a non-exclusive, irrevocable, royalty free limited license to use the goodies and the PI elements that appear in the names of races, spells, feats, skills, and classes. The use of PI elements is limited solely to using these PI elements in the goodies themselves and for no other use.
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

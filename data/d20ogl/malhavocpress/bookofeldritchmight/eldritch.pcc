@@ -1,19 +1,25 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - Book of Eldritch Might - Source Book
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Malhavoc Press.Supplement
-RANK:9
+PUBNAMELONG:Malhavoc Press
+PUBNAMESHORT:Malhavoc
+PUBNAMEWEB:http://www.montecook.com
 SOURCELONG:Malhavoc Press - Book of Eldritch Might
 SOURCESHORT:BoEM1
 SOURCEWEB:http://www.montecook.com
-ISLICENSED:YES
-LICENSE:Proper names from The Book of Eldritch Might are ©2001-2004 Monte J. Cook and are used here with his permission.
-INFOTEXT:Proper names from The Book of Eldritch Might are ©2001-2004 Monte J. Cook and are used here with his permission.
 ISOGL:YES
 COPYRIGHT:The Book of Eldritch Might &copy;2001 Monte J. Cook
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:d20 System rules and Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:PCGen dataset conversion for The Book of Eldritch Might Copyright 2002-2005, PCgen Data team (including, but not limited to, Andrew McDougall (Tir Gwaith), Paul Miller, Paul W. King, Paul Grosse)
+ISLICENSED:YES
+LICENSE:Proper names from The Book of Eldritch Might are ©2001-2004 Monte J. Cook and are used here with his permission.
+
 INFOTEXT:Spell names and other proper names from The Book of Eldritch Might are ©2001-2005 Monte J. Cook and are used here with his permission.
 
 # Do not remove the EXTRAFILE comment.

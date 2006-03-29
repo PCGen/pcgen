@@ -2,11 +2,17 @@
 CAMPAIGN:RPGObjects - Blood and Space - High Flyers and Ground Pounders
 RANK:6
 GAMEMODE:Modern
+BOOKTYPE:Supplement
+GENRE:Future
+SETTING:Future
 TYPE:RPGObjects.Blood and Space
-ISOGL:YES
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:Blood and Space - High Flyers and Ground Pounders
 SOURCESHORT:BnS-HFnGP
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
+ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
 COPYRIGHT:Blood and Space Copyright 2004, RPGObjects; Author Charles Rice

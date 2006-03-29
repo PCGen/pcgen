@@ -1,14 +1,17 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:FFG - Seafarer's Handbook - Source Book
 GAMEMODE:3e
+RANK:9
 GENRE:Fantasy
 BOOKTYPE:SRD
-TYPE:Fantasy Flight Games.Sourcebook
-RANK:9
+SETTING:Generic
+TYPE:Fantasy Flight Games.Legends and Lairs
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com/
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook
 SOURCESHORT:SFHB
 SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
-ISD20:YES
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arenson

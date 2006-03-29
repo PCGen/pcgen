@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Avalanche - Black Flags
 GAMEMODE:3e
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Avalanche Press.Supplement
-RANK:9
+PUBNAMELONG:Avalanche Press
+PUBNAMESHORT:Avalanche
+PUBNAMEWEB:http://www.avalanchepress.com
 SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean
 SOURCESHORT:BlackFlags
 SOURCEWEB:http://www.avalanchepress.com

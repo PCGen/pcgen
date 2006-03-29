@@ -2,13 +2,17 @@
 CAMPAIGN:Green Ronin - Arcana - The Book of the Righteous
 RANK:9
 GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Book of the Righteous
+TYPE:Green Ronin Publishing.Supplement
 PUBNAMELONG:Green Ronin
 PUBNAMESHORT:Ronin
 PUBNAMEWEB:http://www.greenronin.com
-TYPE:Green Ronin Publishing.Supplement
 SOURCELONG:Arcana - The Book of the Righteous
 SOURCESHORT:BookRight
 SOURCEWEB:http://www.greenronin.com
+ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Creature Catalog, 2001, Scott Green, http://www.enworld.org/cc

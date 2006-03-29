@@ -1,9 +1,15 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:FFG - Dragonstar - Starfarer's Handbook
-#GAME:Dragonstar
 GAMEMODE:3e
-TYPE:Fantasy Flight Games.Core Rules.Dragon Star
-RANK:7
+#GAME:Dragonstar
+RANK:2
+GENRE:Space Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Dragonstar
+TYPE:Fantasy Flight Games.Dragonstar
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com/
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook
 SOURCESHORT:StarfarerH
 SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html

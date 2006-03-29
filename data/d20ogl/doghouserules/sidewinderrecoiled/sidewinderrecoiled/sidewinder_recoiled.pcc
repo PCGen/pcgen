@@ -2,11 +2,17 @@
 CAMPAIGN:Sidewinder: Recoiled
 RANK:1
 GAMEMODE:Sidewinder
-TYPE:Sidewinder
-ISOGL:YES
+GENRE:Western
+BOOKTYPE:Campaign Setting
+SETTING:Sidewinder
+TYPE:Dog House Rules.Sidewinder
+PUBNAMELONG:Dog House Rules
+PUBNAMESHORT:DHR
+PUBNAMEWEB:http://www.doghouserules.net/
 SOURCELONG:Sidewinder: Recoiled
 SOURCESHORT:S:R
 SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+ISOGL:YES
 COPYRIGHT:Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Modern System Reference Document Copyright 2002,Wizards of the Coast,Inc.;Authors Bill Slavicsek,Jeff Grubb,Rich Redman, Charles Ryan,based on material by Jonathan Tweet,Monte Cook,Skip Williams,Richard Baker,Peter Adkison,Bruce R. Cordell,John Tynes,Andy Collins,and JD Wiker

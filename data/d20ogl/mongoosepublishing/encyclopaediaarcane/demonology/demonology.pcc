@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Encyclopaedia Arcane - Demonology
 GAMEMODE:3e
-TYPE:Mongoose.Supplement.Encyclopaedia Arcane
 RANK:9
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Mongoose.Supplement.Encyclopaedia Arcane
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology
 SOURCESHORT:Demonology
 SOURCEWEB:http://www.mongoosepublishing.com

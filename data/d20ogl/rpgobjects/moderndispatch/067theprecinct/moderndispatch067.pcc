@@ -2,9 +2,13 @@
 CAMPAIGN:Modern Dispatch - #67 - The Precinct
 RANK:6
 GAMEMODE:Modern
-TYPE:RPGObjects.Modern Dispatch
 GENRE:Modern
 BOOKTYPE:Magazine
+SETTING:Generic
+TYPE:RPGObjects.Modern Dispatch
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:Modern Dispatch #67 - The Precinct
 SOURCESHORT:MD67-Precinct
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180

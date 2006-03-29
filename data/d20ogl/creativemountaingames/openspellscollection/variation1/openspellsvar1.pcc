@@ -1,12 +1,18 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:CMG - Lexus - Open Spells Collection Variation 1
 GAMEMODE:3e
+RANK:7
+GENRE:Fantasy
+BOOKTYPE:Sourcebook
+SETTING:Generic
 TYPE:Creative Mountain Games.Sourcebook.Open Spells
-RANK:9
-ISOGL:YES
+PUBNAMELONG:Creative Mountain Games
+PUBNAMESHORT:CMG
+PUBNAMEWEB:http://www.creativemountaingames.com/
 SOURCELONG:Open Spells Collection
 SOURCESHORT:OpenSpells
 SOURCEWEB:http://www.creativemountaingames.com
+ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Open Spells Collection Copyright 2002 Mark Alexander Clover.

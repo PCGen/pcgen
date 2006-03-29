@@ -3,7 +3,12 @@ CAMPAIGN:APG - Quests
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Alea Publishing Group.Game Enhancement
+PUBNAMELONG:Alea Publishing Group
+PUBNAMESHORT:Alea
+#PUBNAMEWEB:
 SOURCELONG:Quests
 SOURCESHORT:Quests
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup

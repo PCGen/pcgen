@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$ -- Mon Jun 17 17:46:40 2002 -- reformated by prettylst.pl v1.14
 CAMPAIGN:FFG - Spells and Spellcraft - Source Book
 GAMEMODE:3e
-TYPE:Fantasy Flight Games.Sourcebook
-RANK:9
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Fantasy Flight Games.Legends and Lairs
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com/
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft
 SOURCESHORT:Spellcraft
 SOURCEWEB:http://www.fantasyflightgames.com/ll.html

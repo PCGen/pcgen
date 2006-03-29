@@ -6,10 +6,13 @@ GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Modern
 TYPE:RPGObjects.Modern System.Gangland
-ISOGL:YES
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:Modern System - Gangland
 SOURCESHORT:Gangland
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
+ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
 COPYRIGHT:System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.: Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

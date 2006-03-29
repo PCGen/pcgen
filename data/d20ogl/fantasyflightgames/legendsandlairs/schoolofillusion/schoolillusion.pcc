@@ -2,11 +2,14 @@
 # Original entry by Ratheof Blithwyn
 CAMPAIGN:FFG - School of Illusion - Source Book
 GAMEMODE:3e
-TYPE:Fantasy Flight Games.Sourcebook
 RANK:9
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:Generic
+TYPE:Fantasy Flight Games.Legends and Lairs
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
-PUBNAMEWEB:http://www.fantasyflightgames.com
+PUBNAMEWEB:http://www.fantasyflightgames.com/
 SOURCELONG:Fantasy Flight Games - School of Illusion
 SOURCESHORT:Ill
 SOURCEWEB:http://www.fantasyflightgames.com/dd38.html

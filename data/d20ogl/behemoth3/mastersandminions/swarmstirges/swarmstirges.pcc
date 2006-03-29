@@ -1,9 +1,14 @@
 # CVS $Revision$ $Author$ -- Tue Feb  8 13:35:25 2005 -- reformated by prettylst.pl v1.34 (build 455)
 CAMPAIGN:Behemoth3 - Masters and Minions - Horde Book 1: A Swarm of Stirges
-RANK:3
+RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:Generic
 TYPE:Behemoth3.Masters and Minions
+PUBNAMELONG:Behemoth3
+PUBNAMESHORT:Behemoth3
+PUBNAMEWEB:http://www.behemoth3.com/
 SOURCELONG:A Swarm of Stirges
 SOURCESHORT:ASoS
 SOURCEWEB:http://www.behemoth3.com/

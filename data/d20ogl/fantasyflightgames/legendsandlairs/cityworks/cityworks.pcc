@@ -1,12 +1,17 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:FFG - City Works - Source Book
 GAMEMODE:3e
-TYPE:Fantasy Flight Games.Sourcebook
 RANK:6
+GENRE:Fantasy
+BOOKTYPE:Sourcebook
+SETTING:Generic
+TYPE:Fantasy Flight Games.Legends and Lairs
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
 SOURCELONG:Fantasy Flight Games - City Works
 SOURCESHORT:CW
 SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
-ISD20:YES
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

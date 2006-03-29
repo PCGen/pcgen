@@ -2,10 +2,13 @@
 CAMPAIGN:Modern Dispatch - #6 - 172nd Infantry Brigade [Sep]
 RANK:6
 GAMEMODE:Modern
-TYPE:RPGObjects.Modern Dispatch
 GENRE:Military
 BOOKTYPE:Magazine
 SETTING:Blood and Guts
+TYPE:RPGObjects.Modern Dispatch
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade [Sep]
 SOURCESHORT:MD06-172nd
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990

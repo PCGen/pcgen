@@ -1,12 +1,17 @@
 # CVS $Revision$ $Author$ -- Mon Dec 15 17:04:12 2003 -- reformated by prettylst.pl v1.32 (build 339)
 CAMPAIGN:Fantasy Community Council - Netbook of Magical Treasures
 GAMEMODE:3e
-TYPE:FanCC.Web Enhancement
 RANK:6
+GENRE:Fantasy
+BOOKTYPE:Web
+SETTING:Generic
+TYPE:FanCC.Web Enhancement
+PUBNAMELONG:Fantasy Community Council
+PUBNAMESHORT:FanCC
+PUBNAMEWEB:http://fancc.net/
 SOURCELONG:Netbook of Magical Treasures
 SOURCESHORT:NboMT
 SOURCEWEB:http://www.d20magicitems.org/
-ISD20:YES
 ISOGL:YES
 COPYRIGHT:&copy 2002 Fan Community Council
 

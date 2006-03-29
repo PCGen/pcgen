@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Encyclopaedia Arcane - Enchantment
 GAMEMODE:3e
-TYPE:Mongoose.Supplement.Encyclopaedia Arcane
 RANK:9
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Mongoose.Supplement.Encyclopaedia Arcane
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment
 SOURCESHORT:Enchantment
 SOURCEWEB:http://mongoosepublishing.com

@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:FFG - TrapsandTreachery - Source Book
 GAMEMODE:3e
-TYPE:Fantasy Flight Games.Sourcebook
 RANK:9
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Fantasy Flight Games.Legends and Lairs
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com/
 SOURCELONG:Fantasy Flight Games - Traps and Treachery
 SOURCESHORT:TrapTreach
 SOURCEWEB:http://www.fantasyflightgames.com/ll.html
