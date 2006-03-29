@@ -28,12 +28,14 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 import java.util.Iterator;
 import java.util.List;
 
 /**
- * This is the chooser that deals with choosing an armor type.
+ * This is the chooser that deals with choosing an armor type that the PC
+ * is already proficient with.
  */
 public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 
@@ -55,7 +57,7 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 		
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
-			choices.remove(0);
+			choices = choices.subList(1, choices.size());
 		}
 	}
 

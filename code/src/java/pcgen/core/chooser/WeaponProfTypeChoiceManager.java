@@ -57,7 +57,8 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 		{
 			chooserHandled = "WEAPONPROFTYPE";
 			title = (String) choices.get(0) + " Weapon Choice";
-			weaponType = (String) choices.remove(0);
+			weaponType = (String) choices.get(0);
+			choices = choices.subList(1, choices.size());
 		}
 	}
 
