@@ -408,6 +408,31 @@ public final class EquipmentModifier extends PObject implements Comparable
 	}
 
 	/**
+	 * Does this Equipment Modifier add aType to the equipment it is applied
+	 * to? If aType begins with an &#34; (Exclamation Mark) the &#34; will
+	 * be removed before checking the type.
+	 *
+	 * @param aType
+	 * @return Whether the item is of this type
+	 */
+	public boolean isIType(final String aType)
+	{
+		final String myType;
+
+		if ((aType.length() > 0) && (aType.charAt(0) == '!'))
+		{
+			myType = aType.substring(1).toUpperCase();
+		}
+		else
+		{
+			myType = aType.toUpperCase();
+		}
+
+		return itemType.contains(myType);
+	}
+
+	
+	/**
 	 * Get the maximum number of charges added by this object
 	 *
 	 * @return  the maximum number of charges
