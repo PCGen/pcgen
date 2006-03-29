@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$ -- Mon Dec 16 23:11:14 2002 -- reformated by prettylst.pl v1.20 (build 234)
 CAMPAIGN:Mongoose Publishing - Power Classes Volume I - Assassin
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Mongoose.Supplement.Power Classes
-RANK:9
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin
 SOURCESHORT:Assassin
 SOURCEWEB:http//www.mongoosepublishing.com

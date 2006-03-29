@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:RPGObjects - Darwin's World - Artifacts of the Ancients
 GAMEMODE:3e
+RANK:3
+GENRE:Future
+BOOKTYPE:Campaign Setting
+SETTING:Darwin's World
 TYPE:RPGObjects.Core.Darwin's World
-RANK:2
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients
 SOURCESHORT:ArtifactsA
 SOURCEWEB:http://www.darwinrpg.com

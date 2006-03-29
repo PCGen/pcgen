@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Atlas Games - Penumbra - Thieves in the Forest
 GAMEMODE:3e
-TYPE:Atlas Games.Module.Penumbra
 RANK:9
+GENRE:Fantasy
+BOOKTYPE:Module
+SETTING:Penumbra
+TYPE:Atlas Games.Module.Penumbra
+PUBNAMELONG:Atlas Games
+PUBNAMESHORT:Atlas
+PUBNAMEWEB:http://www.atlas-games.com/
 SOURCELONG:Atlas Games - Penumbra - Modules - Thieve's in the Forest
 SOURCESHORT:ThievesitF
 SOURCEWEB:http://www.atlas-games.com/pen_index.html

@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Gladiators - Sands of Death
-RANK:9
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Mongoose.Supplement
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death
 SOURCESHORT:Gladiators
 SOURCEWEB:http://mongoosepublishing.com

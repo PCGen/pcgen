@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Traveller's Tales - Seas of Blood
-RANK:9
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Mongoose.Supplement.Travellers Tales
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood
 SOURCESHORT:SeasofBlood
 SOURCEWEB:http://mongoosepublishing.com

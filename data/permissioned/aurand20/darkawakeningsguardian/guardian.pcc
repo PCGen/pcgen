@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Auran - Dark Awakenings - Guardian
 GAMEMODE:3e
+RANK:7
+GENRE:Fantasy
+BOOKTYPE:Module
+SETTING:Generic
 TYPE:Auran d20.Module
-RANK:9
+PUBNAMELONG:Auran d20
+PUBNAMESHORT:Auran
+PUBNAMEWEB:http://www.auran.com/d20
 SOURCELONG:Auran d20 - Dark Awakenings - Guardian
 SOURCESHORT:Guardian
 SOURCEWEB:http://www.auran.com/d20

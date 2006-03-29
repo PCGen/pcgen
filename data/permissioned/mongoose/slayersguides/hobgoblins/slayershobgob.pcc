@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Slayers Guide - Hobgoblins
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Accessory
+SETTING:Generic
 TYPE:Mongoose.Accessory.Slayers Guides
-RANK:9
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins
 SOURCESHORT:SGtHobgobl
 SOURCEWEB:http://mongoosepublishing.com

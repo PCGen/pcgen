@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Atlas Games - Penumbra - Beyond the Veil
 GAMEMODE:3e
-TYPE:Atlas Games.Module.Penumbra
 RANK:9
+GENRE:Fantasy
+BOOKTYPE:Module
+SETTING:Penumbra
+TYPE:Atlas Games.Module.Penumbra
+PUBNAMELONG:Atlas Games
+PUBNAMESHORT:Atlas
+PUBNAMEWEB:http://www.atlas-games.com/
 SOURCELONG:Atlas Games - Penumbra - Modules - Beyond the Veil
 SOURCESHORT:BeyondVeil
 SOURCEWEB:http://www.atlas-games.com/pen_index.html

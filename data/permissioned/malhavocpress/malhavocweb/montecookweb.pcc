@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - Monte Cook - Web Enhancements
 GAMEMODE:3e
+RANK:7
+GENRE:Fantasy
+BOOKTYPE:Web Enhancement
+SETTING:Generic
 TYPE:Malhavoc Press.Web
-RANK:9
+PUBNAMELONG:Malhavoc Press
+PUBNAMESHORT:Malhavoc
+PUBNAMEWEB:http://www.montecook.com
 SOURCELONG:Malhavoc Press - Web Enhancements
 SOURCESHORT:MalhavocWb
 SOURCEWEB:http://www.montecook.com

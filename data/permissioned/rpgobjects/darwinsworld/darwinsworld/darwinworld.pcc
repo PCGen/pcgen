@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:RPGObjects - Darwin's World - Complete World Rules
 GAMEMODE:3e
-TYPE:RPGObjects.Core.Darwin's World
 RANK:1
+GENRE:Future
+BOOKTYPE:Campaign Setting
+SETTING:Darwin's World
+TYPE:RPGObjects.Core.Darwin's World
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:RPGObjects - Darwin's World - Complete World Rules
 SOURCESHORT:DarwinWrld
 SOURCEWEB:http://www.darwinrpg.com

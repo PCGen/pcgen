@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Collectors Series - Quintessential Fighter
 GAMEMODE:3e
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 TYPE:Mongoose.Supplement.Collectors Series
-RANK:9
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter
 SOURCESHORT:QuintFight
 SOURCEWEB:http://mongoosepublishing.com
