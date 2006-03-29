@@ -1,8 +1,16 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - If Thoughts Could Kill - Source Book
-RANK:3
+RANK:6
 GAMEMODE:3e
-TYPE:Malhavoc Press.Supplement
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Malhavoc Press.Supplement
+PUBNAMELONG:Malhavoc Press
+PUBNAMESHORT:Malhavoc
+PUBNAMEWEB:http://www.montecook.com
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill
 SOURCESHORT:ITCK
 SOURCEWEB:http://www.montecook.com

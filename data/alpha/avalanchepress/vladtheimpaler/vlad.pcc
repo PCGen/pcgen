@@ -1,10 +1,16 @@
 # CVS $Revision$ $Author$ -- Sun Jun 20 16:02:08 2004 -- reformated by prettylst.pl v1.32 (build 363)
 CAMPAIGN:Avalanche - Vlad the Impaler
 GAMEMODE:3e
+RANK:9
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Avalanche Press.Supplement
-RANK:9
+PUBNAMELONG:Avalanche Press
+PUBNAMESHORT:Avalanche
+PUBNAMEWEB:http://www.avalanchepress.com
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia
 SOURCESHORT:Vlad
 SOURCEWEB:http://www.avalanchepress.com/gameVlad.php

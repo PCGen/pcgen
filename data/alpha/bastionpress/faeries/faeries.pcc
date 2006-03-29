@@ -3,9 +3,15 @@
 CAMPAIGN:BP - Faeries
 RANK:7
 GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:Sourcebook
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Bastion Press.Sourcebook.Faeries
+PUBNAMELONG:Bastion Press
+PUBNAMESHORT:Bastion
+PUBNAMEWEB:http://www.bastionpress.com
 SOURCELONG:Bastion Press - Faeries
 SOURCESHORT:Faeries
 SOURCEWEB:http://www.bastionpress.com

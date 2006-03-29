@@ -2,10 +2,13 @@
 #Orginal Entry: Beaver
 CAMPAIGN:The Witch's Handbook
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Green Ronin Publishing.Supplement.Master Class
-RANK:6
 PUBNAMELONG:Green Ronin
 PUBNAMESHORT:Ronin
 PUBNAMEWEB:http://www.greenronin.com

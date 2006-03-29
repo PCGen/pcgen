@@ -3,13 +3,19 @@
 CAMPAIGN:Mongoose Modern Pocket Handbook
 RANK:1
 GAMEMODE:Modern
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Mongoose.Pocket Handbook
-ISOGL:YES
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Modern Pocket Handbook
 SOURCESHORT:MMPH
 SOURCEWEB:http://www.mongoosepublishing.com
+ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
 COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2003, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Michael Beaver

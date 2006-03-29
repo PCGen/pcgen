@@ -9,6 +9,9 @@ SETTING:RSRD
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Mongoose.Pocket Handbook
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Pocket Players Handbook
 SOURCESHORT:MPPH
 SOURCEWEB:http://www.mongoosepublishing.com

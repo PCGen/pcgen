@@ -1,10 +1,16 @@
 # CVS $Revision$ $Author$ -- Mon Jan 30 22:27:38 2006 -- reformated by prettylst.pl v1.35 (build 555)
-CAMPAIGN:22 Talent Trees
+CAMPAIGN:Bloodstone Press - 22 Talent Trees
 RANK:6
 GAMEMODE:Modern
+GENRE:Modern
+BOOKTYPE:PDF
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets.Bloodstone Press
+TYPE:Alpha Datasets
 #TYPE:Bloodstone Press
+PUBNAMELONG:Bloodstone Press
+PUBNAMESHORT:Bloodstone
+PUBNAMEWEB:http://www.bloodstone-press.com/
 SOURCELONG:22 Talent Trees
 SOURCESHORT:22TT
 SOURCEWEB:http://www.bloodstone-press.com/22tt.html

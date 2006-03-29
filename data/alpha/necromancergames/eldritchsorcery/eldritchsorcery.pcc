@@ -5,7 +5,12 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Core
-TYPE:Necromancer Games.Supplement
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Necromancer Games.Supplement
+PUBNAMELONG:Necromancer Games
+PUBNAMESHORT:Necromancer
+PUBNAMEWEB:http://www.necromancergames.com/
 SOURCELONG:Eldritch Sorcery
 SOURCESHORT:EldSor
 SOURCEWEB:http://www.necromancergames.com/

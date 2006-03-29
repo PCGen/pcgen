@@ -1,19 +1,19 @@
 # CVS $Revision$ $Author$ -- Sat Oct 15 17:54:00 2005 -- reformated by prettylst.pl v1.35 (build 478)
 CAMPAIGN:FFG - Midnight - Campaign Source Book
 GAMEMODE:3e
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Campaign Sourcebook
+SETTING:Midnight
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Fantasy Flight Games.Campaign.Midnight
-RANK:9
-SOURCELONG:Midnight Campaign Source Book
-SOURCESHORT:MDNT
-SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
-SETTING:Midnight
-GENRE:Fantasy
-BOOKTYPE:Core Rules
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com/
+SOURCELONG:Midnight Campaign Source Book
+SOURCESHORT:MDNT
+SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.

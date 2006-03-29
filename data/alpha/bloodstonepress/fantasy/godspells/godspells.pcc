@@ -3,9 +3,14 @@ CAMPAIGN:Bloodstone Press - God Spells
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets.Bloodstone Press
+TYPE:Alpha Datasets
 #TYPE:Bloodstone Press.God Spells
+PUBNAMELONG:Bloodstone Press
+PUBNAMESHORT:Bloodstone
+PUBNAMEWEB:http://www.bloodstone-press.com/
 SOURCELONG:God Spells
 SOURCESHORT:GodSpells
 SOURCEWEB:http://www.bloodstone-press.com/godspells.html

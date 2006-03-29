@@ -1,17 +1,19 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Encyclopaedia Divine - Fey Magic
 GAMEMODE:3e
+RANK:9
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Mongoose.Supplement.Encyclopaedia Divine
-RANK:9
-SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic
-SOURCESHORT:Fey Magic
-SOURCEWEB:http://mongoosepublishing.com
 PUBNAMELONG:Mongoose Publishing
 PUBNAMESHORT:Mongoose
 PUBNAMEWEB:http://mongoosepublishing.com
-GENRE:Fantasy
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic
+SOURCESHORT:Fey Magic
+SOURCEWEB:http://mongoosepublishing.com
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

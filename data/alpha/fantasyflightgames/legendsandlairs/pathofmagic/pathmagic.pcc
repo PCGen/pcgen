@@ -2,17 +2,19 @@
 # Original entry by Ratheof Blithwyn
 CAMPAIGN:FFG - Path of Magic - Source Book
 GAMEMODE:3e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Fantasy Flight Games.Sourcebook
-RANK:6
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com
 SOURCELONG:Path of Magic
 SOURCESHORT:Magic
 SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
-ISD20:YES
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

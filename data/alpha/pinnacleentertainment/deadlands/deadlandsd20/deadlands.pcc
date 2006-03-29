@@ -2,7 +2,15 @@
 CAMPAIGN:PE - Deadlands Core Rulebook - Deadlands D20
 RANK:1
 GAMEMODE:Deadlands
-TYPE:Pinnacle Entertainment.Deadlands.Core Rules
+GENRE:Western
+BOOKTYPE:Campaign Setting
+SETTING:Deadlands
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Pinnacle Entertainment.Deadlands.Core Rules
+PUBNAMELONG:Pinnacle Entertainment
+PUBNAMESHORT:Pinnacle
+PUBNAMEWEB:http://www.peginc.com/
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook
 SOURCESHORT:Deadlands
 SOURCEWEB:http://www.peginc.com/index.htm

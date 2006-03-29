@@ -1,10 +1,16 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Behemoth3 - Masters and Minions - Horde Book 2: Maze of the Minotaur
-RANK:3
+RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:Generic
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Behemoth3.Masters and Minions
+PUBNAMELONG:Behemoth3
+PUBNAMESHORT:Behemoth3
+PUBNAMEWEB:http://www.behemoth3.com/
 SOURCELONG:Maze of the Minotaur
 SOURCESHORT:MotM
 SOURCEWEB:http://www.behemoth3.com/

@@ -1,8 +1,16 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:PE - Deadlands Web Enhancements
 GAMEMODE:Deadlands
-TYPE:Pinnacle Entertainment.Deadlands.Web
 RANK:4
+GENRE:Western
+BOOKTYPE:Web Enhancement
+SETTING:Deadlands
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Pinnacle Entertainment.Deadlands.Web
+PUBNAMELONG:Pinnacle Entertainment
+PUBNAMESHORT:Pinnacle
+PUBNAMEWEB:http://www.peginc.com/
 SOURCELONG:Pinnacle Entertainment (PE) - Deadlands Web Enhancements
 SOURCESHORT:DeadlndWeb
 SOURCEWEB:http://www.peginc.com

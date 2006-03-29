@@ -1,8 +1,14 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:SP - Sovereign Stone Core Rules
 GAMEMODE:SovereignStoneD20
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Sovereign Stone
 TYPE:Sovereign Press.Core Rules.Sovereign Stone
-RANK:9
+PUBNAMELONG:Sovereign Press
+PUBNAMESHORT:Sovereign
+PUBNAMEWEB:http://www.sovstone.com
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules
 SOURCESHORT:SovereignS
 SOURCEWEB:http://www.sovstone.com

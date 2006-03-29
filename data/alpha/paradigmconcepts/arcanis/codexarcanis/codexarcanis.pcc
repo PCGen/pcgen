@@ -2,11 +2,18 @@
 CAMPAIGN:Paradigm Concepts - Codex Arcanis
 GAMEMODE:3e
 RANK:5
-TYPE:Paradigm Concepts.Arcanis
-SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Arcanis
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Paradigm Concepts.Arcanis
+PUBNAMELONG:Paradigm Concepts, Inc
+PUBNAMESHORT:Paradigm
+PUBNAMEWEB:http://www.paradigmconcepts.com
+SOURCELONG:Paradigm - Codex Arcanis
 SOURCESHORT:Codex Arcanis
 SOURCEWEB:http://www.paradigmconcepts.com
-SETTING:Arcanis
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Codex Arcanis Copyright 2001, Paradigm Concepts, Inc.
 COPYRIGHT:PCGen dataset conversion for the Codex Arcanis Copyright 2005, PCGen Data team (Including, but not limited to Greg G (Phantom of Krankor), Eddy Anthony)

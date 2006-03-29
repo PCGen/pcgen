@@ -3,9 +3,14 @@ CAMPAIGN:Bloodstone - Spellbinder's Sourcebook
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets.Bloodstone Press
+TYPE:Alpha Datasets
 #TYPE:Bloodstone Press.Spellbinder's Sourcebook
+PUBNAMELONG:Bloodstone Press
+PUBNAMESHORT:Bloodstone
+PUBNAMEWEB:http://www.bloodstone-press.com/
 SOURCELONG:Spellbinder's Sourcebook
 SOURCESHORT:Spellbinder
 SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html

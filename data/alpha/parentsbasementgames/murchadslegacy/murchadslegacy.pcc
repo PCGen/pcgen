@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Wed Jun 29 10:01:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:PBG - Murchad's Legacy Campaign Setting
-RANK:2
+RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -8,8 +8,11 @@ SETTING:Murchad's Legacy
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Parent's Basement Games.Campaign
+PUBNAMELONG:Parent's Basement Games
+PUBNAMESHORT:PBG
+PUBNAMEWEB:http://www.parentsbasementgames.com
 SOURCELONG:Murchad's Legacy
-SOURCESHORT:Murchad's Legacy
+SOURCESHORT:Murchad
 SOURCEWEB:http://www.parentsbasementgames.com
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

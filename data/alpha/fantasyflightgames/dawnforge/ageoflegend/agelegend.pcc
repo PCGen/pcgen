@@ -2,17 +2,19 @@
 # Original entry by Ratheof Blithwyn
 CAMPAIGN:FFG - Dawnforge - Age of Legend - Player's Companion
 GAMEMODE:35e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Campaign Sourcebook
+SETTING:Dawnforge
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Fantasy Flight Games.Dawnforge
-RANK:6
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com
 SOURCELONG:Age of Legend
 SOURCESHORT:ALe
 SOURCEWEB:http://www.fantasyflightgames.com/df02.html
-ISD20:YES
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson
