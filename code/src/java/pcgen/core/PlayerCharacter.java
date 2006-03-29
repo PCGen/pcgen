@@ -9585,6 +9585,17 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return false;
 	}
 
+	/**
+	 * Change the number of levels a character has in a particular class.
+	 * Note: It is assumed that this method is not used as part of loading
+	 * a previously saved character.  there is no way to bypass the
+	 * prerequisties with this method, also this method does not print
+	 * warning messages
+	 * see: incrementClassLevel(int, PCClass, boolean, boolean);
+	 *  
+	 * @param mod the number of levels to add/remove
+	 * @param aClass the class to adjust
+	 */
 	public void incrementClassLevel(final int mod, final PCClass aClass)
 	{
 		incrementClassLevel(mod, aClass, false);
@@ -14149,7 +14160,22 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		movementMultOp[tempMove.length] = multOp;
 	}
 
-	public void incrementClassLevel(final int numberOfLevels, final PCClass globalClass, final boolean bSilent)
+	/**
+	 * Change the number of levels a character has in a particular class.
+	 * Note: It is assumed that this method is not used as part of loading
+	 * a previously saved character.  there is no way to bypass the
+	 * prerequisties with this method,
+	 * see: incrementClassLevel(int, PCClass, boolean, boolean);
+	 *  
+	 *
+	 * @param numberOfLevels number of levels to add
+	 * @param globalClass the class to add the levels to
+	 * @param bSilent whether or not to dispaly warning messages
+	 */
+	public void incrementClassLevel(
+			final int numberOfLevels,
+			final PCClass globalClass,
+			final boolean bSilent)
 	{
 		incrementClassLevel(numberOfLevels, globalClass, bSilent, false);
 	}
@@ -14171,8 +14197,16 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * @param bSilent
 	 *            If true do not display any warning messages about adding or
 	 *            removing too many levels
+	 * @param bypassPrereqs
+	 *            Whether we should bypass the checks as to whether or not the
+	 *            PC qualifies to take this class.  If true, the checks will be
+	 *            bypassed
 	 */
-	public void incrementClassLevel(final int numberOfLevels, final PCClass globalClass, final boolean bSilent, final boolean bypassPrereqs)
+	public void incrementClassLevel(
+			final int     numberOfLevels,
+			final PCClass globalClass,
+			final boolean bSilent,
+			final boolean bypassPrereqs)
 	{
 		// If not importing, load the spell list
 		if (!isImporting())
