@@ -38,10 +38,10 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
- * <code>VariableProcessor</code> is the base class for PCGen variable 
- * processors. These are classes that convert a formula or variable 
- * into a value and are used extensively both in defintions of objects 
- * and for output to output sheets. 
+ * <code>VariableProcessor</code> is the base class for PCGen variable
+ * processors. These are classes that convert a formula or variable
+ * into a value and are used extensively both in defintions of objects
+ * and for output to output sheets.
  *
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -58,21 +58,21 @@ public abstract class VariableProcessor
 	private PlayerCharacter pc;
 
 	/**
-	 * <code>CachableResult</code> encapsulates a result returned from JEP processing 
+	 * <code>CachableResult</code> encapsulates a result returned from JEP processing
 	 * allowing us to retrieve both the result and its cachability.
 	 */
 	private static class CachableResult
 	{
 		final Float result;
 		final boolean cachable;
-		
+
 		CachableResult(Float result, boolean cachable)
 		{
 			this.result = result;
 			this.cachable = cachable;
 		}
 	}
-	
+
 	/**
 	 * Create a new Variable Processor instance.
 	 * @param pc The character the processor is for.
@@ -146,9 +146,9 @@ public abstract class VariableProcessor
 
 
 	/**
-	 * Evaluate the variable using the old non-JEP variable parser. Use of this 
+	 * Evaluate the variable using the old non-JEP variable parser. Use of this
 	 * parser is being phased out.
-	 * 
+	 *
 	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
 	 * @param aString The variable to be evaluated
 	 * @param src     The source within which the variable is evaluated
@@ -199,7 +199,7 @@ public abstract class VariableProcessor
 				final String cString = aTok.nextToken();
 
 				if ("GT".equals(cString) || "GTEQ".equals(cString) || "EQ".equals(cString) || "LTEQ".equals(cString)
-				    || "LT".equals(cString))
+					|| "LT".equals(cString))
 				{
 					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); // truncat final . character
 					aTok.nextToken(); // discard next . character
@@ -298,7 +298,7 @@ public abstract class VariableProcessor
 
 					default:
 						Logging.errorPrint("ERROR - badly formed statement:" + aString + ":" + val1.toString() + ":"
-						    + val2.toString() + ":" + comp);
+							+ val2.toString() + ":" + comp);
 
 						return new Float(0.0);
 				}
@@ -312,9 +312,9 @@ public abstract class VariableProcessor
 			valString += aString.substring(i, i + 1);
 
 			if ((i == (aString.length() - 1)) || (delimiter.lastIndexOf(aString.charAt(i)) > -1)
-			    || ((valString.length() > 3)
-			    && (valString.endsWith("MIN") || (!valString.startsWith("MODEQUIP") && valString.endsWith("MAX"))
-			    || valString.endsWith("REQ"))))
+				|| ((valString.length() > 3)
+				&& (valString.endsWith("MIN") || (!valString.startsWith("MODEQUIP") && valString.endsWith("MAX"))
+				|| valString.endsWith("REQ"))))
 			{
 				if ((valString.length() == 1) && (delimiter.lastIndexOf(aString.charAt(i)) > -1))
 				{
@@ -338,7 +338,7 @@ public abstract class VariableProcessor
 					if (valString.endsWith(".TRUNC"))
 					{
 						valString = String.valueOf(getVariableValue(aSpell, valString.substring(0, valString.length() - 6), "", spellLevelTemp)
-							    .intValue());
+								.intValue());
 					}
 
 					if (valString.endsWith(".INTVAL"))
@@ -383,44 +383,46 @@ public abstract class VariableProcessor
 					}
 				}
 
-				try
+				if (valString.length() > 0)
 				{
-					if (valString.length() > 0)
+					float valFloat = 0.0f;
+					try
 					{
-						switch (mode)
-						{
-							case 0:
-								total = new Float(total.floatValue() + Float.parseFloat(valString));
-
-								break;
-
-							case 1:
-								total = new Float(total.floatValue() - Float.parseFloat(valString));
-
-								break;
-
-							case 2:
-								total = new Float(total.floatValue() * Float.parseFloat(valString));
-
-								break;
-
-							case 3:
-								total = new Float(total.floatValue() / Float.parseFloat(valString));
-
-								break;
-
-							default:
-								Logging.errorPrint("In PlayerCharacter.getVariableValue the mode " + mode
-								    + " is unsupported.");
-
-								break;
-						}
+						valFloat = Float.parseFloat(valString);
 					}
-				}
-				catch (NumberFormatException exc)
-				{
-					// Don't care, as it's just zero
-					//Logging.debugPrint("Will use default for total: " + total, exc);
+					catch (NumberFormatException exc)
+					{
+						// Don't care, as it's just zero
+						//Logging.debugPrint("Will use default for total: " + total, exc);
+					}
+					switch (mode)
+					{
+						case 0:
+							total = new Float(total.floatValue() + valFloat);
+
+							break;
+
+						case 1:
+							total = new Float(total.floatValue() - valFloat);
+
+							break;
+
+						case 2:
+							total = new Float(total.floatValue() * valFloat);
+
+							break;
+
+						case 3:
+							total = new Float(total.floatValue() / valFloat);
+
+							break;
+
+						default:
+							Logging.errorPrint("In PlayerCharacter.getVariableValue the mode " + mode
+								+ " is unsupported.");
+
+							break;
+					}
 				}
 
 				mode = nextMode;
@@ -471,10 +473,10 @@ public abstract class VariableProcessor
 
 
 	/**
-	 * Evaluate the forumla using the JEP parser. This will always be tried before 
-	 * using the old non-JEP parser and null will be returned if the forumla is not 
-	 * a recognised JEP formula. 
-	 * 
+	 * Evaluate the forumla using the JEP parser. This will always be tried before
+	 * using the old non-JEP parser and null will be returned if the forumla is not
+	 * a recognised JEP formula.
+	 *
 	 * @param spell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
 	 * @param formula The formula to be evaluated
 	 * @param src     The source within which the variable is evaluated
@@ -548,7 +550,7 @@ public abstract class VariableProcessor
 
 	/**
 	 * Lookup the value of a variable
-	 * 
+	 *
 	 * @param element The variable to be evaluated.
 	 * @param src     The source within which the variable is evaluated
 	 * @param spell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
@@ -560,7 +562,7 @@ public abstract class VariableProcessor
 
 	/**
 	 * Attempt to retrieve a cached value of a variable.
-	 * 
+	 *
 	 * @param lookup The name of the variable to be checked.
 	 * @return The value of the variable
 	 */
@@ -584,7 +586,7 @@ public abstract class VariableProcessor
 
 	/**
 	 * Add a new variable to the cache.
-	 * 
+	 *
 	 * @param lookup The name of the variable to be added.
 	 * @param value The value of the variable
 	 */
@@ -604,8 +606,8 @@ public abstract class VariableProcessor
 
 
 	/**
-	 * Restart caching of variable values. Used after caching has 
-	 * been paused by a call to pauseCache.  
+	 * Restart caching of variable values. Used after caching has
+	 * been paused by a call to pauseCache.
 	 */
 	public void restartCache()
 	{
@@ -614,8 +616,8 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * Pause caching of variable values. Normally used when making temporary 
-	 * changes to a character. 
+	 * Pause caching of variable values. Normally used when making temporary
+	 * changes to a character.
 	 */
 	public void pauseCache()
 	{
@@ -636,10 +638,10 @@ public abstract class VariableProcessor
 	private Map variableCache = new HashMap();
 
 	/**
-	 * Retrieve the current cache serial. This value identifies the currency 
+	 * Retrieve the current cache serial. This value identifies the currency
 	 * of the cache and can be compared against the serial of entries in the
 	 * cache to detemrine if they have expired.
-	 *  
+	 *
 	 * @return The current cache serial.
 	 */
 	public int getSerial()
@@ -648,7 +650,7 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * Set the current cache serial. This value identifies the currency 
+	 * Set the current cache serial. This value identifies the currency
 	 * of the cache and is generally set to match the PC's serial value.
 	 * @param serial The new serial value to set.
 	 */
@@ -658,10 +660,10 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * Retrieve a value from the cache. This method will not return 
-	 * expired values, but instead removes them from the cache if 
+	 * Retrieve a value from the cache. This method will not return
+	 * expired values, but instead removes them from the cache if
 	 * they are found.
-	 *  
+	 *
 	 * @param lookup The name of the variable (or the formula) to retrieve.
 	 * @return String The value of the variable, or null if a current value is not present in the cache.
 	 */
@@ -684,9 +686,9 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * Add a value to the cache. If the cache is paused, the value will 
-	 * not be added. 
-	 * 
+	 * Add a value to the cache. If the cache is paused, the value will
+	 * not be added.
+	 *
 	 * @param lookup The name of the variable (or the formula) to cache.
 	 * @param value  The value of the variable or formula.
 	 */
@@ -706,9 +708,9 @@ public abstract class VariableProcessor
 
 
 	/**
-	 * Returns a float value representing a variable used by the 
+	 * Returns a float value representing a variable used by the
 	 * export process, for example, any token that is used in an outputsheet.
-	 * 
+	 *
 	 * @param valString   The name of the token to process. i.e. "LOCK.CON"
 	 * @return   The evaluated value of valString as a String.
 	 */
@@ -745,9 +747,9 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * Retrieve the PlayerCharacter object that this VariableProcessor 
+	 * Retrieve the PlayerCharacter object that this VariableProcessor
 	 * instance serves.
-	 * 
+	 *
 	 * @return The PlayerCharacter instance.
 	 */
 	public PlayerCharacter getPc()
