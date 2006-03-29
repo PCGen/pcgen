@@ -198,9 +198,11 @@ Quick Use			TYPE:AdvancedSkill													DESC:You are very quick and efficient
 Talented			TYPE:AdvancedSkill										PRELEVELMAX:1	DESC:You are extraordinarily gifted in the use of a single skill.													CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90
 Track				TYPE:AdvancedSkill													DESC:You can follow the trail of pray - human and animal - across nearly any type of terrain.																																	SOURCEPAGE:p.90
 
-# Training is non functional at this time, need to find a way to add 4 points to the skill pool
-Training			TYPE:AdvancedSkill													DESC:You have devoted a great deal of your spare time to improving your skills.						STACK:YES	MULT:YES	CHOOSE:4 Skill Points																						SOURCEPAGE:p.91
-Unlocked Potential	TYPE:AdvancedSkill													DESC:You have devoted a great deal of your spare time to improving your skills.																																			SOURCEPAGE:p.91
+#TODO: Training is non functional at this time, need to find a way to add 4 points to the skill pool
+Training			TYPE:AdvancedSkill													DESC:You have devoted a great deal of your spare time to improving your skills.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							SOURCEPAGE:p.91
+
+#TODO: Unlocked Potential is non functional at this time, need a way to raise the max ranks for a class skill
+Unlocked Potential	TYPE:AdvancedSkill													DESC:You have incredible potential for improvement with one of your skills.									MULT:YES	CHOOSE:CSKILLS																							SOURCEPAGE:p.91
 
 ###Block: Style Feats
 
