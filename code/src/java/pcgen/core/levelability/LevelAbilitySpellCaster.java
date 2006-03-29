@@ -151,7 +151,7 @@ public class LevelAbilitySpellCaster extends LevelAbility
 	{
 		String token = aToken;
 		final String  casterName = token.substring(
-				token.lastIndexOf('(') + 1,
+				token.indexOf('(') + 1,
 				token.lastIndexOf(')'));
 
 		// If the SPELLCASTER bit is still there, strip it off
@@ -188,8 +188,8 @@ public class LevelAbilitySpellCaster extends LevelAbility
 				// if the string is ANY or if the string matches the class' spell
 				// type
 				if (
-					(token.equals("ANY")) ||
-					(token.equals(aClass.getSpellType())))
+					(token.equalsIgnoreCase("ANY")) ||
+					(token.equalsIgnoreCase(aClass.getSpellType())))
 				{
 					anArrayList.add(aClass.getKeyName());
 				}
