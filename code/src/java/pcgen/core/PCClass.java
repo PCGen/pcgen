@@ -224,33 +224,6 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Returns a list of BonusObj's which match Type, Name and Level
-	 * Will be used when I finish the conversion of PObject to use BonusObj
-	 * @deprecated Please leave JSC - 10/28/03
-	 * @param aType
-	 * @param aName
-	 * @param aLevel
-	 * @return List
-	 **/
-	public List getBonusListOfType(final String aType, final String aName, final int aLevel)
-	{
-		final List aList = new ArrayList();
-
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
-		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if ((aBonus.getTypeOfBonus().indexOf(aType) >= 0) && (aBonus.getBonusInfo().indexOf(aName) >= 0)
-				&& (aBonus.getPCLevel() <= aLevel))
-			{
-				aList.add(aBonus);
-			}
-		}
-
-		return aList;
-	}
-
-	/**
 	 * Method sets the bonusSpellBaseStat which will be used to determine the
 	 * number of bonus spells that a character can cast.
 	 *
