@@ -207,6 +207,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private boolean dirty;
     private String cachedNameWithoutCharges;
     private String cachedNameWithCharges;
+	private boolean virtualItem = false;
 
 	{
 		final DenominationList dl = Globals.getDenominationList();
@@ -1215,6 +1216,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	public BigDecimal getCost(final PlayerCharacter aPC)
 	{
 		BigDecimal c = BigDecimalHelper.ZERO;
+		
+		if (this.isVirtual())
+		{
+			return c;
+		}
 
 		//
 		// Do pre-sizing cost increment.
@@ -3416,6 +3422,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public Float getWeight(final PlayerCharacter aPC)
 	{
+		if (this.isVirtual())
+		{
+			return new Float(0.0);
+		}
 		return new Float(getWeightAsDouble(aPC));
 	}
 
@@ -3425,6 +3435,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public double getBaseWeightAsDouble()
 	{
+		if (this.isVirtual())
+		{
+			return 0.0;
+		}
+
 		double aWeight = weightInPounds;
 		aWeight += weightMod.doubleValue();
 
@@ -3438,6 +3453,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public double getWeightAsDouble(final PlayerCharacter aPC)
 	{
+		if (this.isVirtual())
+		{
+			return 0.0;
+		}
+
 		double f = bonusTo(aPC, "EQM", "WEIGHTMULT", true);
 
 		if (CoreUtility.doublesEqual(f, 0.0))
@@ -5971,6 +5991,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	private Float getWeightAdjustedForSize(final PlayerCharacter aPC, final String aSize)
 	{
+		if (this.isVirtual())
+		{
+			return new Float(0.0);
+		}
+
 		final SizeAdjustment newSA = SettingsHandler.getGame().getSizeAdjustmentNamed(aSize);
 		final SizeAdjustment currSA = SettingsHandler.getGame().getSizeAdjustmentNamed(getSize());
 
@@ -6869,6 +6894,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 	double getWeightInPounds()
 	{
+		if (this.isVirtual())
+		{
+			return 0.0;
+		}
+
 		return weightInPounds;
 	}
 
@@ -7128,5 +7158,22 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			firstTime = false;
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * Make this item virtual i.e. one that doesn't really exist and is only
+	 * used to hold temporary bonuses
+	 */
+	public void makeVirtual() {
+		this.virtualItem = true;
+	}
+
+	/**
+	 * Does this item really exist, or is it a phantom created to hold a bonus
+	 * 
+	 * @return Returns the virtualItem.
+	 */
+	private boolean isVirtual() {
+		return virtualItem;
 	}
 }
