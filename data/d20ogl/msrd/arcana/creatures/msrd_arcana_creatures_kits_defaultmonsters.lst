@@ -49,6 +49,7 @@ SKILL:Hide			RANK:11
 SKILL:Listen		RANK:11
 SKILL:Move Silently	RANK:11
 SKILL:Spot			RANK:9
+LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Personal Firearms Proficiency
 FEAT:Advanced Firearms Proficiency
 FEAT:Burst Fire
@@ -70,6 +71,7 @@ SKILL:Listen					RANK:14
 SKILL:Move Silently				RANK:14
 SKILL:Sense Motive				RANK:14
 SKILL:Spot						RANK:14
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Archaic Weapons Proficiency
 FEAT:Cleave
 FEAT:Improved Initiative
@@ -157,7 +159,7 @@ SKILL:Move Silently	RANK:8
 SKILL:Sense Motive	RANK:9
 SKILL:Spellcraft		RANK:8
 SKILL:Spot			RANK:10
-FEAT:Archaic Weapons Proficiency	FREE:YES
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Improved Initiative
@@ -201,6 +203,7 @@ SKILL:Move Silently		RANK:6
 SKILL:Repair			RANK:2
 SKILL:Spot				RANK:4
 SKILL:Tumble			RANK:4
+LEVELABILITY:Fey=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Alertness
 FEAT:Builder
 FEAT:Stealthy
@@ -347,6 +350,7 @@ SKILL:Research			RANK:18
 SKILL:Search			RANK:18
 SKILL:Sense Motive		RANK:18
 SKILL:Spot				RANK:18
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Advanced Firearms Proficiency
 FEAT:Burst Fire
 FEAT:Combat Martial Arts
@@ -401,7 +405,7 @@ SKILL:Listen		RANK:3
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:3
 SKILL:Swim			RANK:4
-FEAT:Simple Weapons Proficiency	FREE:YES
+LEVELABILITY:Aberration=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Archaic Weapons Proficiency
 FEAT:Alertness
 FEAT:Deceptive
@@ -415,8 +419,8 @@ SKILL:Concentration	RANK:13
 SKILL:Intimidate		RANK:13
 SKILL:Listen		RANK:12
 SKILL:Spot			RANK:13
+LEVELABILITY:Fey=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Archaic Weapons Proficiency	FREE:YES
-FEAT:Simple Weapons Proficiency	FREE:YES
 FEAT:Combat Reflexes
 FEAT:Improved Damage Threshold (+3)
 FEAT:Multiweapon Fighting
@@ -432,7 +436,7 @@ SKILL:Hide																											RANK:8
 SKILL:Disguise																										RANK:10
 SKILL:Perform (Sing)																									RANK:8
 SKILL:Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)	RANK:8
-FEAT:Simple Weapons Proficiency	FREE:YES
+LEVELABILITY:Fey=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Archaic Weapons Proficiency	FREE:YES
 FEAT:Personal Firearms Proficiency
 FEAT:Great Fortitude
@@ -444,7 +448,7 @@ STARTPACK:Default Skunk Ape	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Skunk Ape	!PRERACE:1,%
 NAME:Skunk Ape
-FEAT:Simple Weapons Proficiency
+LEVELABILITY:Monstrous Humanoid=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 SKILL:Hide			RANK:4
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
@@ -702,7 +706,7 @@ SKILL:Jump		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Survival	RANK:2
-FEAT:Simple Weapons Proficiency	FREE:YES
+LEVELABILITY:Giant=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Dodge
 FEAT:Mobility
 
@@ -712,6 +716,7 @@ RACE:Vivilor (1st-Level)	!PRERACE:1,%
 NAME:1st-level Vivilor
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Alertness
 
 STARTPACK:Default Vivilor (2nd-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (2nd-Level)]
@@ -722,6 +727,7 @@ SKILL:Climb		RANK:4
 SKILL:Jump		RANK:4
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Alertness
 
 STARTPACK:Default Vivilor (3rd-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (3rd-Level)]
@@ -732,6 +738,7 @@ SKILL:Climb		RANK:6
 SKILL:Jump		RANK:6
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Alertness
 
 STARTPACK:Default Vivilor (4th-Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (4th-Level)]
@@ -742,6 +749,7 @@ SKILL:Climb		RANK:8
 SKILL:Jump		RANK:8
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Alertness
 FEAT:Iron Will
 
@@ -753,6 +761,7 @@ SKILL:Climb		RANK:11
 SKILL:Jump		RANK:11
 SKILL:Listen	RANK:12
 SKILL:Spot		RANK:12
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Alertness
 FEAT:Iron Will
 
@@ -769,7 +778,7 @@ SKILL:Sense Motive	RANK:11
 SKILL:Spellcraft		RANK:10
 SKILL:Spot			RANK:2
 SKILL:Concentration	RANK:14
-FEAT:Archaic Weapons Proficiency	FREE:YES
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Multiattack
 FEAT:Power Attack
 
@@ -789,7 +798,7 @@ SKILL:Sense Motive	RANK:24
 SKILL:Spellcraft		RANK:24
 SKILL:Spot			RANK:16
 SKILL:Tumble		RANK:24
-FEAT:Archaic Weapons Proficiency	FREE:YES
+LEVELABILITY:Outsider=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Cleave
 FEAT:Improved Critical(Bite)
 FEAT:Improved Critical(Claw)
@@ -887,7 +896,6 @@ FEAT:Simple Weapons Proficiency
 GEAR:Greataxe			LOCATION:Both Hands
 GEAR:Scale Mail			LOCATION:DEFAULT
 GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
-GEAR:Sunglasses			LOCATION:DEFAULT
 
 STARTPACK:Default Robot (Arcanobot)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arcanobot]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
