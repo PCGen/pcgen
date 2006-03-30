@@ -46,6 +46,7 @@ import pcgen.util.chooser.ChooserInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.core.prereq.Prerequisite;
+
 /**
  * <code>PCTemplate</code>.
  *
@@ -58,18 +59,14 @@ public final class PCTemplate extends PObject implements HasCost
 	// Static properties
 	///////////////////////////////////////////////////////////////////////
 
-
 	/** Visibility is Hidden */
 	public static final int VISIBILITY_HIDDEN = 0;
-
 
 	/** Visibility is Default */
 	public static final int VISIBILITY_DEFAULT = 1;
 
-
 	/** Visibility is Output Sheets Only */
 	public static final int VISIBILITY_OUTPUT_ONLY = 2;
-
 
 	/** Visibility is GUI Only */
 	public static final int VISIBILITY_DISPLAY_ONLY = 3;
@@ -92,8 +89,7 @@ public final class PCTemplate extends PObject implements HasCost
 	// If set these two will override any other choices.
 	private String  gender                = Constants.s_NONE;
 	private String  handed                = Constants.s_NONE;
-	/** @deprecated to remove heightString in 5.10 Beta */ 
-	private String  heightString          = Constants.s_NONE;
+	
 	private String  levelAdjustment       = "0"; // now a string so that we can handle
 												 // formulae
 	private String  region                = Constants.s_NONE;
@@ -440,22 +436,6 @@ public final class PCTemplate extends PObject implements HasCost
 		handed = handedString;
 	}
 
-
-	/**
-	 * Set a lock on the height string.
-	 *
-	 * XXX appears to be totally unused.  a private attribute with a setter but
-	 * no accessor.  This was removed, but then had to be readded as saving 
-	 * HEIGHT to pcg file was failing
-	 * 
-	 * @param  argHeightString the height to lock the character at
-	 */
-	public void setHeightString(final String argHeightString)
-	{
-		heightString = argHeightString;
-	}
-
-
 	/**
 	 * Set a lock on the hitdie size of a character that this template is
 	 * applied to.   Possible formats for the lock include
@@ -774,13 +754,6 @@ public final class PCTemplate extends PObject implements HasCost
 				txt.append("\tHD:").append((String) e.next());
 			}
 		}
-
-		/*
-		if (!Constants.s_NONE.equals(heightString))
-		{
-			txt.append("\tHEIGHT:").append(heightString);
-		}
-		*/
 
 		if (!hitDieLock.equals(""))
 		{

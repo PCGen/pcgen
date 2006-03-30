@@ -237,7 +237,7 @@ interface IOConstants
 	String TAG_HAIRSTYLE = "HAIRSTYLE";
 	/** HANDED */
 	String TAG_HANDED    = "HANDED";
-	/** HEIGHT */
+	/** HEIGHT - Used by PCGVer2Creator & Parser */
 	String TAG_HEIGHT    = "HEIGHT";
 	/** HITDICE */
 	String TAG_HITDICE   = "HITDICE";

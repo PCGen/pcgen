@@ -7,7 +7,6 @@ package plugin.lsttokens;
 import java.util.StringTokenizer;
 
 import pcgen.core.PObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 
 /**
@@ -20,7 +19,7 @@ public class DefineLst implements GlobalLstToken {
 		return "DEFINE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) throws PersistenceLayerException {
+	public boolean parse(PObject obj, String value, int anInt) {
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		try {
 			String varName = tok.nextToken();
