@@ -287,8 +287,7 @@ public class ChooserUtilities
 
 		final List newSelections = aMan.doChooser(aPC,
 				                                  availableList,
-				                                  selectedList,
-				                                  selectedBonusList);
+				                                  selectedList);
 
 		aMan.applyChoices(aPC, newSelections);
 	}
