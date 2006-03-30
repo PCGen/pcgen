@@ -1824,14 +1824,31 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	/**
 	 * Get the choices for this PC
 	 * @param aChoice
-	 * @param selectedBonusList
 	 * @param aPC
 	 */
-	public final void getChoices(final String aChoice, final List selectedBonusList, final PlayerCharacter aPC)
+	public final void getChoices(
+			final String          aChoice,
+			final PlayerCharacter aPC)
 	{
 		final List availableList = new ArrayList();
-		final List selectedList = new ArrayList();
-		ChooserUtilities.getChoices(this, aChoice, selectedBonusList, availableList, selectedList, true, aPC);
+		final List selectedList  = new ArrayList();
+		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
+	}
+
+	/**
+	 * Get the choices for this PC
+	 * @param aChoice
+	 * @param availableList
+	 * @param selectedList
+	 * @param aPC
+	 */
+	final void getChoices(
+			final String          aChoice, 
+			final List            availableList,
+			final List            selectedList,
+			final PlayerCharacter aPC)
+	{
+		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
 	}
 
 	/**
@@ -2968,7 +2985,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public void makeChoices(final PlayerCharacter aPC)
 	{
-		getChoices(getChoiceString(), null, aPC);
+		getChoices(getChoiceString(), aPC);
 	}
 
 	/**
@@ -3665,11 +3682,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				putBonusMap(bonusType, String.valueOf(bonus + Float.parseFloat(aVal)));
 			}
 		}
-	}
-
-	final void getChoices(final String aChoice, final List selectedBonusList, final List availableList, final List selectedList, final PlayerCharacter aPC)
-	{
-		ChooserUtilities.getChoices(this, aChoice, selectedBonusList, availableList, selectedList, true, aPC);
 	}
 
 	final void setPreReq(final int index, final Prerequisite aString)

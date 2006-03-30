@@ -122,7 +122,7 @@ public class PObjectUtilities
 			aChoiceString.startsWith("ARMORPROF|")  ||
 			aChoiceString.startsWith("SHIELDPROF|"))
 		{
-			obj.getChoices(aChoiceString, null, availableList, selectedList, aPC);
+			obj.getChoices(aChoiceString, availableList, selectedList, aPC);
 
 			return false;
 		}

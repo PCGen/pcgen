@@ -116,7 +116,7 @@ final class LevelAbilityList extends LevelAbility
 
 			if ((theChoice != null) && (theChoice.length() > 0))
 			{
-				owner.getChoices(theChoice, selectedBonusList, aPC);
+				owner.getChoices(theChoice, aPC);
 			}
 			else if (selectedBonusList.size() > 0)
 			{

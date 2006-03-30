@@ -701,7 +701,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				if (profBonusObject instanceof CharacterDomain)
 				{
 					final Domain aDomain = ((CharacterDomain) profBonusObject).getDomain();
-					aDomain.getChoices(aDomain.getChoiceString(), new ArrayList(), pc);
+					aDomain.getChoices(aDomain.getChoiceString(), pc);
 				}
 				else
 				{
@@ -712,21 +712,21 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 						profWeapons = ((PCClass) profBonusObject).getWeaponProfBonus();
 						((PCClass) profBonusObject).getChoices("WEAPONPROF|1|"
 						    + CoreUtility.join(profWeapons, "[WEAPONPROF]|")
-						    + PropertyFactory.getString("in_proficiency"), new ArrayList(), pc);
+						    + PropertyFactory.getString("in_proficiency"), pc);
 					}
 					else if (profBonusObject instanceof Race)
 					{
 						profWeapons = ((Race) profBonusObject).getWeaponProfBonus();
 						((Race) profBonusObject).getChoices("WEAPONPROF|1|"
 						    + CoreUtility.join(profWeapons, "[WEAPONPROF]|")
-						    + PropertyFactory.getString("in_proficiency"), new ArrayList(), pc);
+						    + PropertyFactory.getString("in_proficiency"), pc);
 					}
 					else if (profBonusObject instanceof PCTemplate)
 					{
 						profWeapons = ((PCTemplate) profBonusObject).getWeaponProfBonus();
 						((PCTemplate) profBonusObject).getChoices("WEAPONPROF|1|"
 						    + CoreUtility.join(profWeapons, "[WEAPONPROF]|")
-						    + PropertyFactory.getString("in_proficiency"), new ArrayList(), pc);
+						    + PropertyFactory.getString("in_proficiency"), pc);
 					}
 				}
 

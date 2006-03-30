@@ -232,7 +232,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			aBonusList.add(aTok.nextToken());
 		}
 
-		getChoices(choices, aBonusList, aPC);
+		getChoices(choices, aPC);
 	}
 
 	/**
