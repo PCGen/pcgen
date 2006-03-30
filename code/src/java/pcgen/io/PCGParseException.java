@@ -37,16 +37,6 @@ final class PCGParseException extends Exception
 
 	/**
 	 * Constructor
-	 *
-	 * @deprecated Unused
-	 */
-	PCGParseException()
-	{
-		this("", "", "");
-	}
-
-	/**
-	 * Constructor
 	 * @param errorMethod
 	 * @param errorLine
 	 * @param errorMessage

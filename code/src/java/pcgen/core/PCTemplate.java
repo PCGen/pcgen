@@ -406,21 +406,6 @@ public final class PCTemplate extends PObject implements HasCost
 		return gender;
 	}
 
-
-	/**
-	 * Set a lock on which hand will be the dominant one in characters this
-	 * Template is applied to
-	 *
-	 * @deprecated appears to be totally unused.  a private attribute with a setter but
-	 * no accessor.
-	 *
-	 * @param  handedString  the favoured hand
-	 */
-	public void setHandedLock(final String handedString)
-	{
-		handed = handedString;
-	}
-
 	/**
 	 * Set a lock on the hitdie size of a character that this template is
 	 * applied to.   Possible formats for the lock include

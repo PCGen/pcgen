@@ -97,11 +97,11 @@ public class LogUtilities implements LogReceiver
 	// end removeReceiver
 
 	/**
-	 *  Log a message associated with a specific owner - from LogReceiver
+	 * Log a message associated with a specific owner - from LogReceiver
 	 *
-	 *@param  owner    The owning component of the message
-	 *@param  message  The message to send
-	 *@since        GMGen 3.3
+	 * @param  owner    The owning component of the message
+	 * @param  message  The message to send
+	 * @since        GMGen 3.3
 	 */
 	public void logMessage(String owner, String message)
 	{
@@ -125,12 +125,10 @@ public class LogUtilities implements LogReceiver
 	// end logMessage - 2 params
 
 	/**
-	 *  Log a message without an owner - from LogReceiver
+	 * Log a message without an owner - from LogReceiver
 	 *
-	 *@param  message  The message to send
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
+	 * @param  message  The message to send
+	 * @since        GMGen 3.3
 	 */
 	public void logMessage(String message)
 	{
@@ -152,20 +150,6 @@ public class LogUtilities implements LogReceiver
 	}
 
 	// end addReceiver
-
-	/**
-	 *  Remove a receiver from the list to be called with new messages.
-	 *
-	 *@param  rcvr  the receiver to be removed.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public void removeReceiver(LogReceiver rcvr)
-	{
-		receivers.remove(rcvr);
-	}
-
 	// end logMessage - 1 param
 }
 

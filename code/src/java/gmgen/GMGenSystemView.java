@@ -41,9 +41,8 @@ import java.awt.Component;
 public class GMGenSystemView extends JPanel implements ChangeListener
 {
 	/**
-	 *  A value that signifies the current pane that is showing.
-	 *
-	 * @deprecated Unused
+	 * A value that signifies the current pane that is showing.  Is not 
+	 * directly used in this class, but is needed to support interface
 	 */
 	public static int currentPane;
 
@@ -74,21 +73,6 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	public static JTabbedPane getTabPane()
 	{
 		return tabbedPane;
-	}
-
-	/**
-	 *  Adds a pane to the panel. The system will call it sending it a <code>
-	 * JPanel</code> and that will be placed in the view.
-	 *
-	 *@param  paneName  the name to be on the tab.
-	 *@param  pane      the pane to be displayed.
-	 *@since            GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public void addPane(String paneName, JPanel pane)
-	{
-		tabbedPane.addTab(paneName, pane);
 	}
 
 	/**

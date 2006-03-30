@@ -120,26 +120,6 @@ public class OverPanel extends javax.swing.JPanel
 		initData();
 	}
 
-	/**
-	 *  Initialization of the bulk of preferences.  sets the defaults
-	 *  if this is the first time you have used this version
-	 *  @deprecated Code here is commented out and therefore not run
-	 *  to be removed in 5.9.6
-	 */
-	public void initPrefs()
-	{
-/*        boolean prefsSet = namePrefs.getBoolean("arePrefsSet", false);
-   if (!prefsSet) {
-       namePrefs.putBoolean("arePrefsSet", true);
-   }
-   double version = namePrefs.getDouble("Version", 0);
-   if (version < 0.5 || !prefsSet) {
-       namePrefs.putDouble("Version", 0.5);
-   }
-   namePrefs.putDouble("SubVersion", 0);
- */
-	}
-
 	private void butToDistActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_butToDistActionPerformed
 

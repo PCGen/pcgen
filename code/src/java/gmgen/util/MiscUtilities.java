@@ -105,43 +105,6 @@ public final class MiscUtilities
 	}
 
 	/**
-	 *  Returns the file name component of the specified path.
-	 *
-	 *@param  path  The path
-	 *@return       The file name
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static String getFileName(String path)
-	{
-		if (path.equals("/"))
-		{
-			return path;
-		}
-
-		if (path.endsWith("/") || path.endsWith(File.separator))
-		{
-			path = path.substring(0, path.length() - 1);
-		}
-
-		int index = Math.max(path.lastIndexOf('/'), path.lastIndexOf(File.separatorChar));
-
-		if (index == -1)
-		{
-			index = path.indexOf(':');
-		}
-
-		// don't want getFileName("roots:") to return ""
-		if ((index == -1) || (index == (path.length() - 1)))
-		{
-			return path;
-		}
-
-		return path.substring(index + 1);
-	}
-
-	/**
 	 *  Returns the localization property with the specified name, formatting it
 	 *  with the <code>java.text.MessageFormat.format()</code> method.
 	 *
@@ -195,17 +158,6 @@ public final class MiscUtilities
 		component.setCursor(cursor);
 	}
 	 // end setCursor
-
-	/**
-	 *  Sets the any property values that need to be set on close
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static void setOptionsProperties()
-	{
-		//Set any properties that need to be set based on the last run.
-	}
 
 	/**
 	 *  Returns the parent of the specified path.
@@ -561,23 +513,6 @@ public final class MiscUtilities
 	}
 
 	/**
-	 *  Constructs an absolute path name from three path components. This method is
-	 *  VFS-aware.
-	 *
-	 *@param  parent  The parent directory
-	 *@param  path1   The first path
-	 *@param  path2   The second path
-	 *@return         the absolute path name
-	 *@since          GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static String constructPath(String parent, String path1, String path2)
-	{
-		return constructPath(constructPath(parent, path1), path2);
-	}
-
-	/**
 	 * Copy a file
 	 * @param from_file
 	 * @param to_file
@@ -728,25 +663,6 @@ public final class MiscUtilities
 		}
 
 		return new String(clsName, 0, clsName.length - 6);
-	}
-
-	/**
-	 *  Reads the localization properties file.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static void readLocalizationProperties()
-	{
-		try
-		{
-			FileInputStream in = new FileInputStream("/pcgen/gui/prop/LanguageBundle.properties");
-			localization.load(in);
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint("No localization file found.");
-		}
 	}
 
 	/** Converts a Color to an 7 byte hex string starting with '#'.

@@ -20,9 +20,6 @@
  */
 package gmgen.util;
 
-import javax.swing.UIManager;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.io.File;
 
 /**
@@ -47,7 +44,6 @@ public class OperatingSystem
 	private static final int VMS = 0xDEAD2;
 	private static final int UNKNOWN = 0xBAD;
 	private static int os;
-	private static int hasScreenMenuBar = -1;
 
 	static
 	{
@@ -114,19 +110,6 @@ public class OperatingSystem
 	}
 
 	/**
-	 *  Returns if we're running MacOS X and using the native look and feel.
-	 *
-	 *@return    if we're running MacOS X and using the native look and feel.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final boolean isMacOSLF()
-	{
-		return (isMacOS() && UIManager.getLookAndFeel().isNativeLookAndFeel());
-	}
-
-	/**
 	 *  Returns if we're running OS/2.
 	 *
 	 *@return    if we're running OS/2.
@@ -135,50 +118,6 @@ public class OperatingSystem
 	public static final boolean isOS2()
 	{
 		return os == OS2;
-	}
-
-	/**
-	 *  Returns the bounds of the default screen.
-	 *
-	 *@return    the bounds of the default screen.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final Rectangle getScreenBounds()
-	{
-		int screenX = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		int screenY = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-		int x;
-		int y;
-		int w;
-		int h;
-
-		if (isMacOS())
-		{
-			x = 0;
-			y = 22;
-			w = screenX;
-			h = screenY - y - 4;
-
-			//shadow size
-		}
-		else if (isWindows())
-		{
-			x = -4;
-			y = -4;
-			w = screenX - (2 * x);
-			h = screenY - (2 * y);
-		}
-		else
-		{
-			x = 0;
-			y = 0;
-			w = screenX;
-			h = screenY;
-		}
-
-		return new Rectangle(x, y, w, h);
 	}
 
 	/**
@@ -193,20 +132,6 @@ public class OperatingSystem
 	}
 
 	/**
-	 * Returns if we're unning VMS.  Yah, right... pull the other one, it's got
-	 * bells on it.
-	 *
-	 *@return    if we're running VMS.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final boolean isVMS()
-	{
-		return os == VMS;
-	}
-
-	/**
 	 *  Returns if we're running Windows 95/98/ME/NT/2000/XP.
 	 *
 	 *@return    if we're running Windows 95/98/ME/NT/2000/XP.
@@ -215,73 +140,5 @@ public class OperatingSystem
 	public static final boolean isWindows()
 	{
 		return (os == WINDOWS_9x) || (os == WINDOWS_NT);
-	}
-
-	/**
-	 *  Returns if we're running Windows 95/98/ME.
-	 *
-	 *@return    if we're running Windows 95/98/ME.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final boolean isWindows9x()
-	{
-		return os == WINDOWS_9x;
-	}
-
-	/**
-	 *  Returns if we're running Windows NT/2000/XP.
-	 *
-	 *@return    if we're running Windows NT/2000/XP.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final boolean isWindowsNT()
-	{
-		return os == WINDOWS_NT;
-	}
-
-	/**
-	 *  Returns if Java 2 version 1.4 is in use.
-	 *
-	 *@return    if Java 2 v 1.4 is being used
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final boolean isJava14()
-	{
-		return IS_JAVA_14;
-	}
-
-	/**
-	 *  Returns whether the screen menu bar on Mac OS X is in use.
-	 *
-	 *@return    whether the screen menu bar on Mac OS X is in use.
-	 *@since        GMGen 3.3
-	 *
-	 * @deprecated Unused
-	 */
-	public static final boolean hasScreenMenuBar()
-	{
-		if (!isMacOS())
-		{
-			return false;
-		}
-		else if (hasScreenMenuBar == -1)
-		{
-			String result = System.getProperty("apple.laf.useScreenMenuBar");
-
-			if (result == null)
-			{
-				result = System.getProperty("com.apple.macos.useScreenMenuBar");
-			}
-
-			hasScreenMenuBar = (result.equals("true")) ? 1 : 0;
-		}
-
-		return (hasScreenMenuBar == 1);
 	}
 }

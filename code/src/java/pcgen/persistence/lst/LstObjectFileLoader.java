@@ -458,24 +458,6 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	}
 
 	/**
-	 * This method, when implemented, will perform a single .FORGET
-	 * operation.
-	 * @deprecated instead implement performForget(PObject)
-	 * @param forgetName containing the name of the object to forget
-	 *
-	 * Commented out, to be removed later
-	 */
-	/*private void performForget(String forgetName)
-	{
-		PObject objToForget = getObjectNamed(forgetName);
-
-		if (objToForget != null)
-		{
-			performForget(objToForget);
-		}
-	}*/
-
-	/**
 	 * This method will perform a single .MOD
 	 * operation.  Loaders can [typically] use the name without checking
 	 * for (or stripping off) .MOD due to the implementation of

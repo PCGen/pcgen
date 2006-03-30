@@ -40,10 +40,4 @@ public class ImageFileChooser extends JFileChooser
 	{
 		this(new File(strCurrentPath));
 	}
-
-	/** @deprecated Unused */
-	public ImageFileChooser()
-	{
-		this((File) null);
-	}
 }

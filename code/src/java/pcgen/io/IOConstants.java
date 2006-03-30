@@ -28,7 +28,7 @@ package pcgen.io;
  */
 interface IOConstants
 {
-	/** AGE tag */
+	/** AGE tag - Used by PCGVer2Creator and Parser */
 	String TAG_AGE = "AGE";
 
 	/** AGE SET tag */
@@ -76,14 +76,8 @@ interface IOConstants
 	/** CAMPAIGN - System Information */
 	String TAG_CAMPAIGN = "CAMPAIGN";
 
-	/** @deprecated  Unused, to be removed 5.10 Beta 1 */
-	String TAG_CAMPAIGNS = "CAMPAIGNS";
-
 	/** CANCASTPERDAY - character spells info */
 	String TAG_CANCASTPERDAY = "CANCASTPERDAY";
-
-	/** @deprecated  Unused, to be removed 5.10 Beta 1 */
-	String TAG_CARRIED = "CARRIED";
 
 	/** CATCHPHRASE */
 	String TAG_CATCHPHRASE = "CATCHPHRASE";
@@ -127,26 +121,11 @@ interface IOConstants
 	/** CLASSBOUGHT - Character skills */
 	String TAG_CLASSBOUGHT = "CLASSBOUGHT";
 
-	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
-	String TAG_CLASSLEVEL = "CLASSLEVEL";
-
 	/** CLASSSKILL */
 	String TAG_CLASSSKILL = "CLASSSKILL";
 
-	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
-	String TAG_COMP = "COMP";
-
-	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
-	String TAG_CONTAINS = "CONTAINS";
-
 	/** COST - Currently (20/03/2006) only being used by CMP data sources */
 	String TAG_COST = "COST";
-
-	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
-	String TAG_CROSSCLASS = "CROSSCLASS";
-
-	/** @deprecated  Unused, to be removed in 5.10 Beta 1 */
-	String TAG_CT            = "CT";
 
 	/** CUSTOMIZATION */
 	String TAG_CUSTOMIZATION = "CUSTOMIZATION";
@@ -163,35 +142,18 @@ interface IOConstants
 	String TAG_DEITYDOMAINS = "DEITYDOMAINS";
 	/** DEITYFAVWEAP */
 	String TAG_DEITYFAVWEAP = "DEITYFAVWEAP";
+
 	/** DESC */
 	String TAG_DESC         = "DESC";
 
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_DESCRIPTOR = "DESCRIPTOR";
 	/** DOMAIN */
 	String TAG_DOMAIN     = "DOMAIN";
 
-	/** @deprecated  Unused remove in 5.10 Beta 1 */
-	String TAG_DOMAINFEATS  = "DOMAINFEATS";
 	/** DOMAINGRANTS */
 	String TAG_DOMAINGRANTS = "DOMAINGRANTS";
 
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_DOMAINSKILLS = "DOMAINSKILLS";
-
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_DOMAINSPECIALS = "DOMAINSPECIALS";
 	/** DOMAINSPELLS */
 	String TAG_DOMAINSPELLS   = "DOMAINSPELLS";
-
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_DURATION = "DURATION";
-
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_EFFECT = "EFFECT";
-
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_EFFECTTYPE = "EFFECTTYPE";
 
 	/** EquipSet Temporary Bonuses */
 	String TAG_EQSETBONUS = "EQSETBONUS";
@@ -216,8 +178,6 @@ interface IOConstants
 	/** Character feats */
 	String TAG_FEAT = "FEAT";
 
-	/** @deprecated  Unused - remove in 5.10 Beta 1 */
-	String TAG_FEAT_CATEGORY = "CATEGORY";
 	/** FEATLIST */
 	String TAG_FEATLIST      = "FEATLIST";
 	/** FEATPOOL */
@@ -265,10 +225,6 @@ interface IOConstants
 	String TAG_MASTER         = "MASTER";
 
 
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_MISC              = "MISC";
 	String TAG_MONEY             = "MONEY";
 	String TAG_MULTISELECT       = "MULTISELECT";
 	String TAG_NAME              = "NAME";
@@ -287,10 +243,6 @@ interface IOConstants
 	String TAG_POSTSTAT          = "POSTSTAT";
 
 
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_POWERNAME      = "POWERNAME";
 	String TAG_PRESTAT        = "PRESTAT";
 	String TAG_PROHIBITED     = "PROHIBITED";
 	String TAG_PROMPT         = "PROMPT";
@@ -299,10 +251,6 @@ interface IOConstants
 	String TAG_RACE           = "RACE";
 
 
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_RANGE      = "RANGE";
 	String TAG_RANKS      = "RANKS";
 	String TAG_REGION     = "REGION";
 	String TAG_RESIDENCE  = "RESIDENCE";
@@ -311,11 +259,6 @@ interface IOConstants
 	String TAG_SAVE       = "SAVE";
 	String TAG_SAVES      = "SAVES";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_SCHOOL               = "SCHOOL";
 	String TAG_SCORE                = "SCORE";
 	String TAG_SKILL                = "SKILL";
 	String TAG_SKILLPOINTSGAINED    = "SKILLSGAINED";
@@ -330,10 +273,6 @@ interface IOConstants
 	String TAG_SPEECHPATTERN        = "SPEECHPATTERN";
 
 
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_SPELL         = "SPELL";
 	String TAG_SPELLBASE     = "SPELLBASE";
 	String TAG_SPELL_BOOK    = "BOOK";
 	String TAG_SPELLBOOK     = "SPELLBOOK";
@@ -344,26 +283,11 @@ interface IOConstants
 	String TAG_SPELLNUMPAGES = "SPELLNUMPAGES";
 
 
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_SR = "SR";
 
 	// Character attributes
 	String TAG_STAT     = "STAT";
 	String TAG_SUBCLASS = "SUBCLASS";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_SUBSCHOOL = "SUBSCHOOL";
-
-
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_SYMBOL   = "SYMBOL";
 	String TAG_SYNERGY  = "SYNERGY";
 	String TAG_TABLABEL = "TABLABEL";
 	String TAG_TABNAME  = "TABNAME";
@@ -372,11 +296,6 @@ interface IOConstants
 	String TAG_TEMPBONUS      = "TEMPBONUS";
 	String TAG_TEMPBONUSBONUS = "TBBONUS";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_TEMPBONUSSOURCE = "TBSOURCE";
 	String TAG_TEMPBONUSTARGET = "TBTARGET";
 	String TAG_TEMPLATE        = "TEMPLATE";
 
@@ -384,18 +303,8 @@ interface IOConstants
 	String TAG_TEMPLATESAPPLIED = "TEMPLATESAPPLIED";
 	String TAG_TIMES            = "TIMES";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_TOTALWT = "TOTALWT";
 	String TAG_TYPE    = "TYPE";
 
-
-	/**
-	 * @deprecated  Unused
-	 */
-	String TAG_UNLIMITEDPOOLCHECKED = "UNLIMITEDPOOLCHECKED";
 	String TAG_USETEMPMODS          = "USETEMPMODS";
 	String TAG_USEHIGHERKNOWN       = "USEHIGHERKNOWN";
 	String TAG_USEHIGHERPREPPED     = "USEHIGHERPREPPED";

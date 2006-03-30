@@ -3838,15 +3838,6 @@ public final class ExportHandler
 	 */
 
 	/**
-	 * @return Returns the canWrite.
-	 *
-	 * @deprecated Unused
-	 */
-	public final boolean getCanWrite()
-	{
-		return canWrite;
-	}
-	/**
 	 * @param canWrite The canWrite to set.
 	 */
 	public final void setCanWrite(boolean canWrite)
@@ -3877,34 +3868,12 @@ public final class ExportHandler
 	}
 
 	/**
-	 * @param existsOnly The existsOnly value to set.
-	 *
-	 * @deprecated Unused
-	 */
-	public final void setExistsOnly(boolean existsOnly)
-	{
-		this.existsOnly = existsOnly;
-	}
-
-	/**
-	 * @return Returns the noMoreItems.
-	 *
-	 * @deprecated Unused
-	 */
-	public final boolean getNoMoreItems()
-	{
-		return noMoreItems;
-	}
-
-	/**
 	 * @param noMoreItems The noMoreItems value to set.
 	 */
 	public final void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
 	}
-
-
 
 	/**
 	 * Get the token string

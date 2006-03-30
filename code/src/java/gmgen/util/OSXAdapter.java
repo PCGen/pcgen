@@ -34,23 +34,6 @@ public class OSXAdapter extends ApplicationAdapter
 		mainApp = inApp;
 	}
 
-	/** 
-	 * Another static entry point for EAWT functionality.  Enables the
-	 * "Preferences..." menu item in the application menu.
-	 * 
-	 * @param enabled
-	 * @deprecated Unused
-	 */
-	public static void enablePrefs(boolean enabled)
-	{
-		if (theApplication == null)
-		{
-			theApplication = new com.apple.eawt.Application();
-		}
-
-		theApplication.setEnabledPreferencesMenu(enabled);
-	}
-
 	public void handlePreferences(ApplicationEvent ae)
 	{
 		if (mainApp != null)

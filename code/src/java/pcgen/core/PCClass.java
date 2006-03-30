@@ -2251,16 +2251,6 @@ public class PCClass extends PObject
 		return list;
 	}
 
-
-
-
-	public boolean isPrestige()
-	{
-		Logging.errorPrint("IsPrestige should be deprecated.");
-
-		return isType("PRESTIGE");
-	}
-
 	public boolean isQualified(final PlayerCharacter aPC)
 	{
 
@@ -3651,20 +3641,6 @@ public class PCClass extends PObject
 	final int getNumSpellsFromSpecialty()
 	{
 		return numSpellsFromSpecialty;
-	}
-
-	boolean isNPC()
-	{
-		Logging.errorPrint("IsNPC should be deprecated.");
-
-		return isType("NPC");
-	}
-
-	boolean isPC()
-	{
-		Logging.errorPrint("IsPC should be deprecated.");
-
-		return ((getMyTypeCount() == 0) || isType("PC"));
 	}
 
 	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC)

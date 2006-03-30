@@ -67,20 +67,6 @@ public class GMGenSystem extends JFrame implements ChangeListener, MenuListener,
 	public static GMGenSystem inst;
 
 	/**
-	 *  Default width for the GUI.
-	 *
-	 * @deprecated Unused
-	 */
-	public static final int DEFAULT_WIDTH = 700;
-
-	/**
-	 *  Default height for the GUI.
-	 *
-	 * @deprecated Unused
-	 */
-	public static final int DEFAULT_HEIGHT = 500;
-
-	/**
 	 *  Boolean true if this is a Macintosh system.
 	 */
 	public static boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));

@@ -38,8 +38,6 @@ import java.util.StringTokenizer;
  */
 public abstract class SpellListToken extends Token
 {
-	/** @deprecated Unused */
-	protected static final int SPELLTAG_UNKNOWN = -1;
 	protected static final int SPELLTAG_CAST = 0;
 	protected static final int SPELLTAG_KNOWN = 1;
 	protected static final int SPELLTAG_BOOK = 2;

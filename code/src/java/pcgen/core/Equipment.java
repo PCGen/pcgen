@@ -6264,7 +6264,6 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * Description of the Method
 	 *
 	 * @return Description of the Return Value
-	 * @deprecated -- this is dead code; sage_sam 04 Sept 2003
 	 */
 	private SortedSet eqTypeList()
 	{

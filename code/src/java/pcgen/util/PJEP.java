@@ -158,12 +158,10 @@ public final class PJEP extends JEP
 
 	/**
 	 * @deprecated
+	 * eg. cl("Fighter")
+	 * eg. cl("Fighter", 21)
+	 * eg. cl()
 	 */
-	//
-	// eg. cl("Fighter")
-	// eg. cl("Fighter", 21)
-	// eg. cl()
-	//
 	private final class ClassLevel extends PostfixMathCommand
 	{
 		private ClassLevel()

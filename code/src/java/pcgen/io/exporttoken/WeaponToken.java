@@ -496,19 +496,6 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the name sub token
-	 * @param eq
-	 * @param pc
-	 * @return name sub token
-	 *
-	 * @deprecated Unused
-	 */
-	public static String getNameToken(Equipment eq, PlayerCharacter pc)
-	{
-		return getNameToken(eq, pc, false);
-	}
-
-	/**
 	 * Get the is light sub token
 	 * @param pc
 	 * @param eq
@@ -2049,12 +2036,13 @@ public class WeaponToken extends Token
 
 		int secondariesToadd = 1 + (int) pc.getTotalBonusTo("COMBAT", "ATTACKS-SECONDARY");
 
-		/* The data team wishes to keep the old syntax for secondary attacks.
+		/* 
+		 * The data team wishes to keep the old syntax for secondary attacks.
 		 * The docs have been updated to reflect this.  The new syntax (with
 		 * the hyphen, see above) is not used in the repository.  This comment
 		 * is here so that the old syntax will not be deprecated or removed in
-		 * the future. */
-
+		 * the future.
+		 */
 		secondariesToadd += (int) pc.getTotalBonusTo("COMBAT", "SECONDARYATTACKS");
 
 		if (pc.getPrimaryWeapons().isEmpty() && (hitMode == HITMODE_TOTALHIT))
