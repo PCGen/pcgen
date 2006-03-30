@@ -5715,8 +5715,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 
 			if (eqMod.isType("MagicalEnhancement")
-				|| (eqMod.isType("Enhancement") && eqMod.isType("Magic"))
-				|| (eqMod.isIType("Enhancement") && eqMod.isIType("Magic")))
+				|| (eqMod.isIType("Magic")))
 			{
 				return eqMod;
 			}
