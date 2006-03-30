@@ -1913,7 +1913,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		{
 			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 
-			if ("MASTERWORK".equalsIgnoreCase(eqMod.getName()))
+			if ("MASTERWORK".equalsIgnoreCase(eqMod.getName())
+				|| eqMod.isIType("Masterwork"))
 			{
 				eqMaster = eqMod.getName();
 
@@ -1921,14 +1922,17 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-		final String magic1 = getMagicBonus(eqModifierList);
+		final EquipmentModifier magicMod1 = getMagicBonus(eqModifierList);
+		final String magic1 = (magicMod1 == null ? "" : magicMod1.getName());
 		final String desc1 = getNameFromModifiers(modList, magic1, "");
+		EquipmentModifier magicMod2 = null;
 		String magic2 = "";
 		String desc2 = "";
 
 		if (isDouble())
 		{
-			magic2 = getMagicBonus(altEqModifierList);
+			magicMod2 = getMagicBonus(altEqModifierList);
+			magic2 = (magicMod2 == null ? "" : magicMod2.getName());
 			desc2 = getNameFromModifiers(altModList, magic2, "");
 		}
 
@@ -1960,7 +1964,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 			if (magic1.length() != 0)
 			{
-				itemName.append(magic1);
+				itemName.append(magicMod1.getEquipNamePortion());
 			}
 			else
 			{
@@ -1973,7 +1977,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 				if (magic2.length() != 0)
 				{
-					itemName.append(magic2);
+					itemName.append(magicMod2.getEquipNamePortion());
 				}
 				else
 				{
@@ -5704,19 +5708,21 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * @param eqModList Description of the Parameter
 	 * @return     The magicBonus value
 	 */
-	private static String getMagicBonus(final List eqModList)
+	private static EquipmentModifier getMagicBonus(final List eqModList)
 	{
 		for (Iterator e = eqModList.iterator(); e.hasNext();)
 		{
 			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 
-			if (eqMod.isType("MagicalEnhancement"))
+			if (eqMod.isType("MagicalEnhancement")
+				|| (eqMod.isType("Enhancement") && eqMod.isType("Magic"))
+				|| (eqMod.isIType("Enhancement") && eqMod.isIType("Magic")))
 			{
-				return eqMod.getName();
+				return eqMod;
 			}
 		}
 
-		return "";
+		return null;
 	}
 
 	/**
@@ -5754,7 +5760,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 					sMod.append('/');
 				}
 
-				sMod.append(eqMod.toString());
+				sMod.append(eqMod.getEquipNamePortion());
 			}
 		}
 

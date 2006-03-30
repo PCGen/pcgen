@@ -858,10 +858,22 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 	/**
 	 * Return a string representation of the EquipmentModifier
-	 *
+	 * TODO: This needs to call getEquipNamePortion until after 5.10, when it can be changed to a programmer useful string as per normal.
+	 * 
 	 * @return  a String representation of the EquipmentModifier
 	 */
 	public String toString()
+	{
+		return getEquipNamePortion();
+	}
+	
+	/**
+	 * Returns the name that should be added to the equipment item as 
+	 * a result of the presence of this equipment modifier.
+	 *  
+	 * @return The text to be added to the equipment name.
+	 */
+	public String getEquipNamePortion()
 	{
 		if (namingOption == NAMINGOPTION_NOTHING)
 		{
