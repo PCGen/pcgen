@@ -408,13 +408,29 @@
 		<p class="indent3">Creates the key.</p>
 
 		<p></p><a name="NAMEOPT"></a><hr>
+		<p class="new">*** Updated 5.9.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> NAMEOPT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> NOLIST</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> NONAME</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> NORMAL</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NOTHING</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TEXT=&lt;text&gt;</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to determine the naming convention when offering a choice of 
-			skills to apply this modifier to.</p>
+		<p class="indent2">This is used to set the naming convention used when an EQMOD is added to an equipment item. 
+		Without this tag the EQMOD name is added as is to the equipment name in parentheses after the original equipment name 
+		and separated from other EQMOD names by slashes. 
+		If an EQMOD has a CHOOSE in it normally the choice made will follow the name of the EQMOD in parentheses. 
+		Available options work as follows:</p><br>
+		<ul class="indent3">
+		  	<li>NAMEOPT:NORMAL - Passes the name and choice to the equipment, same effect if the NAMEOPT tag is not present.</li>
+			<li>NAMEOPT:NOLIST - Passes the name of the EQMOD but not the choice (if any) to the equipment.</li>
+			<li>NAMEOPT:NONAME - Passes the choice made to the equipment but not the name of the EQMOD.</li>
+			<li>NAMEOPT:NOTHING - No text is added to the equipment name.</li>
+			<li>NAMEOPT:SPELL - If the EQMOD has a spell chooser this option passes the spell details to the equipment. 
+			The details displayed are: SpellName/Metamagic feat applied/Class/Level.</li>
+			<li>NAMEOPT:TEXT=&lt;Text&gt; - Specified text is passed to the equipment.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>Craft[tab]CHOOSE:SKILL|TYPE=CRAFT[tab]BONUS:SKILL|%CHOICE|2[tab]</code></p>
 		<p class="indent3">selecting &quot;Craft (Armorsmithing)&quot; in the chooser with:</p>
@@ -423,6 +439,9 @@
 			<li>NAMEOPT:NONAME - generate &quot;Craft (Armorsmithing)&quot; as the name.</li>
 			<li>NAMEOPT:NORMAL - generate &quot;Craft (Craft (Armorsmithing))&quot; as the name.</li>
 		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>NAMEOPT:SPELL</code></p>
+		<p class="indent3">Customizing boots with an invisibility spell might generate: Boots (Invisibility/Extend Spell/Wizard/5th).</p>
 
 		<p></p><a name="PLUS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PLUS:x</p>
