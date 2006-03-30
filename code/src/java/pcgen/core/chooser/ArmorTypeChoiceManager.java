@@ -24,7 +24,6 @@
 package pcgen.core.chooser;
 
 import pcgen.core.Ability;
-import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -93,57 +92,31 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 	}
 
 	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor).  I took out all the code that was't doing anything
-	 * I really can't see what this is doing at all.  I've checked back through
-	 * the old code in CVS and it wasn't my refactorings that made this do
-	 * nothing.
+	 * Associate a choice with the pobject.
 	 * 
-	 * @param aPC
-	 * @param selected
+	 * @param aPc 
+	 * @param item the choice to associate
+	 * @param prefix 
 	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
+	protected void associateChoice(
+			final PlayerCharacter aPc,
+			final String          item,
+			final String          prefix)
 	{
-
-		pobject.clearAssociated();
-
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
-		{
-			objPrefix = chooserHandled + '?';
-		}
-
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
-			}
-		}
-		else
-		{
-			if (cost > 0)
-			{
-				featCount = ((maxSelections - selected.size()) * cost);
-			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
+		/* this code was originally added to a class called Utility.java
+		 * in August 2002.  As far as I can see there was no mechanism then
+		 * which allowed aBonusList to be populated.  There has not been
+		 * any such mechanism in the code ever.  I believe that this
+		 * ChoiceManager is replacing a chooser which has never worked.
+		 * It is currently unused in the data repository.
+		 * Andrew Wilson 30 March 2006 
+		 */
+		//		for (Iterator e = aBonusList.iterator(); e.hasNext();)
+		//		{
+		//			final String bString = (String) e.next();
+		//			pobject.addAssociated(prefix + item);
+		//			pobject.applyBonus("ARMORPROF=" + bString, item, aPc);
+		//		}
 	}
 
 }

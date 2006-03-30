@@ -29,6 +29,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.util.Logging;
 
 import java.util.Iterator;
 import java.util.List;
@@ -79,7 +80,9 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager {
 		{
 			aSkill = (Skill) iter.next();
 
-			if (aSkill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class())
+			int sCost = aSkill.costForPCClassList(aPc.getClassList(), aPc); 
+
+			if (sCost == Globals.getGameModeSkillCost_Class())
 			{
 				availableList.add(aSkill.getName());
 			}
@@ -87,71 +90,5 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager {
 
 		pobject.addAssociatedTo(selectedList);
 	}
-	
-	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
-	 *
-	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
-	{
-		String objPrefix = "";
 
-		if (pobject instanceof Domain)
-		{
-			objPrefix = chooserHandled + '?';
-		}
-
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			if (multiples && !dupsAllowed)
-			{
-				if (!pobject.containsAssociated(objPrefix + chosenItem))
-				{
-					pobject.addAssociated(objPrefix + chosenItem);
-				}
-			}
-			else
-			{
-				pobject.addAssociated(objPrefix + chosenItem);
-			}
-
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
-			}
-		}
-		else
-		{
-			if (cost > 0)
-			{
-				featCount = ((maxSelections - selected.size()) * cost);
-			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
-	}
-	
 }

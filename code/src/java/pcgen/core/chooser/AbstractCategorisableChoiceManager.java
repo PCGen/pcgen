@@ -86,14 +86,12 @@ public abstract class AbstractCategorisableChoiceManager extends
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @param selectedBonusList
 	 * @return an empty list
 	 */
 	public List doChooser (
 		    PlayerCharacter aPc,
 		    final List      availableList,
-		    final List      selectedList,
-		    final List      selectedBonusList)
+		    final List      selectedList)
 	{
 		Logging.errorPrint("Wrong doChooser called, there is a bug somewhere" );
 		return Collections.EMPTY_LIST;

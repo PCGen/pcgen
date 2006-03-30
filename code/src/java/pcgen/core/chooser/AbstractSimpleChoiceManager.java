@@ -128,14 +128,12 @@ public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @param selectedBonusList
 	 * @return list
 	 */
 	public List doChooser (
 		    PlayerCharacter       aPc,
 		    final List            availableList,
-		    final List            selectedList,
-		    final List            selectedBonusList)
+		    final List            selectedList)
 	{
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setAllowsDups(dupsAllowed);

@@ -54,14 +54,12 @@ public interface ChoiceManagerList {
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @param selectedBonusList
 	 * @return the list of selected items
 	 */
 	public abstract List doChooser(
 			PlayerCharacter aPc,
 			final List availableList,
-			final List selectedList,
-			final List selectedBonusList);
+			final List selectedList);
 
 	
 	/**

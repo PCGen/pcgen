@@ -32,6 +32,7 @@ import pcgen.util.chooser.ChooserInterface;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -171,8 +172,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 		final List newSelections = doChooser (
 				aPC,
 				availableList,
-				selectedList,
-				selectedBonusList);
+				selectedList);
 
 		applyChoices(aPC, newSelections);
 		
@@ -180,18 +180,16 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	}
 
 	/**
-	 * Do chooser.  SelectedBonusList is unused, it's only here so the interface is the
-	 * same as AbstractSimpleChoiceManager
+	 * Do chooser.  
+	 * 
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @param selectedBonusList
 	 */
 	public List doChooser (
 		    PlayerCharacter       aPc,
 		    final List            availableList,
-		    final List            selectedList,
-		    final List            selectedBonusList)
+		    final List            selectedList)
 	{
 
 		if (requestedSelections < 0)
@@ -279,4 +277,100 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	public String typeHandled() {
 		return chooserHandled;
 	}
+
+	/**
+	 * Apply the choices selected to the associated PObject (the one passed
+	 * to the constructor)
+	 * @param aPC
+	 * @param selected
+	 *
+	 */
+	public void applyChoices(
+			PlayerCharacter  aPC,
+			List             selected)
+	{
+		cleanUpAssociated(aPC, selected.size());
+	
+		String objPrefix = (pobject instanceof Domain)
+				? chooserHandled + '?'
+				: "";
+	
+		if (pobject instanceof Ability)
+		{
+		    ((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
+		}
+	
+		Iterator it = selected.iterator();
+		while (it.hasNext())
+		{
+			associateChoice(aPC, (String) it.next(), objPrefix);	
+		}
+	
+		adjustFeats(aPC, selected);
+	
+		if (objPrefix.length() != 0)
+		{
+			aPC.setAutomaticFeatsStable(false);
+		}
+	}
+
+	/**
+	 * Perform any necessary clean up of the associated property of pobject.
+	 *
+	 * @param aPc
+	 * @param size
+	 */
+	protected void cleanUpAssociated(
+			PlayerCharacter aPc,
+			int             size)
+	{
+		pobject.clearAssociated();
+	}
+
+	/**
+	 * Associate a choice with the pobject.
+	 * 
+	 * @param aPc 
+	 * @param item the choice to associate
+	 * @param prefix 
+	 */
+	protected void associateChoice(
+			final PlayerCharacter aPc,
+			final String          item,
+			final String          prefix)
+	{
+		final String name = prefix + item;
+
+		if (multiples && !dupsAllowed)
+		{
+			if (!pobject.containsAssociated(name))
+			{
+				pobject.addAssociated(name);
+			}
+		}
+		else
+		{
+			pobject.addAssociated(name);
+		}
+	}
+
+	/**
+	 * Adjust the number of feats the PC has available to take account of this choice
+	 *
+	 * @param aPC
+	 * @param selected
+	 */
+	protected void adjustFeats(PlayerCharacter aPC, List selected) {
+		double featCount = aPC.getFeats();
+	
+		if (cost > 0)
+		{
+			featCount = (numberOfChoices > 0)
+					? featCount - cost
+					: ((maxSelections - selected.size()) * cost);
+		}
+	
+		aPC.adjustFeats(featCount - aPC.getFeats());
+	}
+
 }
