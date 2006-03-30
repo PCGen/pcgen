@@ -23,9 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -118,77 +115,34 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 		pobject.addAssociatedTo(selectedList);
 	}
 
-
 	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
-	 *
+	 * Associate a choice with the pobject.  Only here so we can override part
+	 * of the behaviour of applyChoices
+	 * 
+	 * @param aPc 
+	 * @param item the choice to associate
+	 * @param prefix 
 	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
+	protected void associateChoice(
+			final PlayerCharacter aPc,
+			final String          item,
+			final String          prefix)
 	{
-		pobject.clearAssociated();
+		final String name = prefix + item;
 
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
+		for (Iterator e = aBonusList.iterator(); e.hasNext();)
 		{
-			objPrefix = chooserHandled + '?';
+			final String bString = (String) e.next();
+
+			pobject.addAssociated(name);
+			pobject.applyBonus(bString, name, aPc);
 		}
 
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			for (Iterator e = aBonusList.iterator(); e.hasNext();)
-			{
-				final String bString = (String) e.next();
-				pobject.addAssociated(objPrefix + chosenItem);
-				pobject.applyBonus(bString, chosenItem, aPC);
-			}
-			
-			if (Globals.weaponTypesContains(chooserHandled))
-			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
-			}
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
-			}
-		}
-		else
-		{
-			if (cost > 0)
-			{
-				featCount = ((maxSelections - selected.size()) * cost);
-			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
 	}
 
-
+	
 	/**
-	 * For the times when you want the bonus list instead if the available list.
+	 * For the times when you want the bonus list instead of the available list.
 	 * In a previous life this code was selected by the boolean flag process, if
 	 * it was false, then the contents of availableList in getChoices was
 	 * replaced with the contents of this

@@ -246,19 +246,15 @@ public class ChooserUtilities
 	 *
 	 * @param  aPObject
 	 * @param  aChoice
-	 * @param  selectedBonusList
 	 * @param  availableList
 	 * @param  selectedList
-	 * @param  process
 	 * @param  aPC
 	 */
 	public static void getChoices(
 		final PObject         aPObject,
 		String                aChoice,
-		final List            selectedBonusList,
 		final List            availableList,
 		final List            selectedList,
-		final boolean         process,
 		final PlayerCharacter aPC)
 	{
 		String choiceString = aPObject.getChoiceString();
@@ -278,9 +274,7 @@ public class ChooserUtilities
 
 		aMan.getChoices(aPC, availableList, selectedList);
 
-		if (
-			!process ||
-			((availableList.size() + selectedList.size()) == 0))
+		if (availableList.size() + selectedList.size() == 0)
 		{
 			return;
 		}

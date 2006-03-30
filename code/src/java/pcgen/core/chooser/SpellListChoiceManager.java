@@ -25,7 +25,6 @@ package pcgen.core.chooser;
 
 import pcgen.core.Ability;
 import pcgen.core.Constants;
-import pcgen.core.Domain;
 import pcgen.core.FeatMultipleChoice;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -45,8 +44,10 @@ import java.util.List;
  */
 public class SpellListChoiceManager extends AbstractComplexChoiceManager
 {
-	int     idxSelected = -1;
-	boolean interactive = false;
+	int                idxSelected = -1;
+	boolean            interactive = false;
+	FeatMultipleChoice fmc         = null;
+
 
 	/**
 	 * Make a new spell level chooser.
@@ -90,8 +91,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 
 			if (idxSelected >= 0)
 			{
-				final FeatMultipleChoice fmc = (FeatMultipleChoice) pobject
-					.getAssociatedObject(idxSelected);
+				fmc = (FeatMultipleChoice) pobject.getAssociatedObject(idxSelected);
 				maxNewSelections    = fmc.getMaxChoices();
 				requestedSelections = maxNewSelections;
 			}
@@ -103,77 +103,68 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 		}
 	}
 
-
 	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
+	 * Perform any necessary clean up of the associated property of pobject.
 	 *
+	 * @param aPc
 	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
+	protected void cleanUpAssociated(
+			PlayerCharacter aPc,
+			int             size)
 	{
-		if ("SPELLLIST".equals(chooserHandled))
+		if (idxSelected >= 0)
 		{
-			if (idxSelected >= 0)
-			{
-				pobject.removeAssociated(idxSelected);
+			pobject.removeAssociated(idxSelected);
 
-				if (selected.size() == 0)
-				{
-					aPC.adjustFeats(1);
-				}
-			}
-			else if (selected.size() != 0)
+			if (size == 0)
 			{
-				aPC.adjustFeats(-1);
+				aPc.adjustFeats(1);
 			}
 		}
-
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
+		else if (size != 0)
 		{
-			objPrefix = chooserHandled + '?';
+			aPc.adjustFeats(-1);
 		}
-
-		FeatMultipleChoice fmc = null;
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			if ("SPELLLIST".equals(chooserHandled))
-			{
-				if (fmc == null)
-				{
-					fmc = new FeatMultipleChoice();
-					fmc.setMaxChoices(maxNewSelections);
-					pobject.addAssociated(fmc);
-				}
-
-				fmc.addChoice(chosenItem);
-			}
-
-			if (Globals.weaponTypesContains(chooserHandled))
-			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
-			}
-		}
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
+		
+		/* nulling this out because we can't do it in apply choices but we want
+		 * it done before applyChoices calls associateChoice */
+		fmc = null;
 	}
 
+	/**
+	 * Associate a choice with the pobject.  Only here so we can override part
+	 * of the behaviour of applyChoices
+	 * 
+	 * @param aPc 
+	 * @param item the choice to associate
+	 * @param prefix 
+	 */
+	protected void associateChoice(
+			final PlayerCharacter aPc,
+			final String          item,
+			final String          prefix)
+	{
+		if (fmc == null)
+		{
+			fmc = new FeatMultipleChoice();
+			fmc.setMaxChoices(maxNewSelections);
+			pobject.addAssociated(fmc);
+		}
+
+		fmc.addChoice(item);
+	}
+
+	/**
+	 * Adjust the number of feats the PC has available to take account of this choice
+	 *
+	 * @param aPC
+	 * @param selected
+	 */
+	protected void adjustFeats(
+			PlayerCharacter aPC,
+			List            selected)
+	{
+	}
 
 	/**
 	 * This type of chooser only works on Abilities that have sub abilities.  For
@@ -191,7 +182,6 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 		final List aList     = new ArrayList();
 		aList.add("New");
 
-		FeatMultipleChoice fmc;
 		final StringBuffer sb = new StringBuffer(100);
 
 		for (int j = 0; j < anAbility.getAssociatedCount(); ++j)

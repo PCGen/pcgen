@@ -23,9 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.PCGIOHandler;
@@ -89,17 +86,12 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 		pobject.addAssociatedTo(selectedList);
 	}
 
-	
 	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
+	 * Hook so we can add behaviour to some of the sub classes but not others.
 	 *
 	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
+	protected void cleanUpAssociated(
+			final PlayerCharacter aPc, int size)
 	{
 		// remove previous selections from special abilities
 		// aBonusList contains all possible selections in form: <displayed info>|<special ability>
@@ -114,88 +106,53 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 
 				if (bString.startsWith(prefix))
 				{
-					pobject.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPC);
+					pobject.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPc);
 
 					break;
 				}
 			}
 		}
 
-		if (!"SPELLLIST".equals(chooserHandled))
+		super.cleanUpAssociated(aPc, size);
+	}
+
+	
+	/**
+	 * Associate a choice with the pobject.
+	 * 
+	 * @param aPc 
+	 * @param name the choice to associate
+	 */
+	protected void associateChoice(
+			final PlayerCharacter aPc, 
+			final String          name,
+			final String          objPrefix)
+	{
+		
+		if (multiples && !dupsAllowed)
 		{
-			pobject.clearAssociated();
-		}
-
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
-		{
-			objPrefix = chooserHandled + '?';
-		}
-
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			if (multiples && !dupsAllowed)
+			if (!pobject.containsAssociated(name))
 			{
-				if (!pobject.containsAssociated(objPrefix + chosenItem))
-				{
-					pobject.addAssociated(objPrefix + chosenItem);
-				}
-			}
-			else
-			{
-				final String prefix = chosenItem + "|";
-				pobject.addAssociated(objPrefix + chosenItem);
-
-				// SALIST: aBonusList contains all possible selections in form: <displayed info>|<special ability>
-				for (int x = 0; x < aBonusList.size(); ++x)
-				{
-					final String bString = (String) aBonusList.get(x);
-
-					if (bString.startsWith(prefix))
-					{
-						pobject.addBonusList(bString.substring(bString.indexOf('|') + 1));
-
-						break;
-					}
-				}
-			}
-
-			if (Globals.weaponTypesContains(chooserHandled))
-			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
-			}
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
+				pobject.addAssociated(name);
 			}
 		}
 		else
 		{
-			if (cost > 0)
+			final String prefix = name + "|";
+			pobject.addAssociated(objPrefix + name);
+			
+			// SALIST: aBonusList contains all possible selections in form: <displayed info>|<special ability>
+			for (int x = 0; x < aBonusList.size(); ++x)
 			{
-				featCount = ((maxSelections - selected.size()) * cost);
+				final String bString = (String) aBonusList.get(x);
+				
+				if (bString.startsWith(prefix))
+				{
+					pobject.addBonusList(bString.substring(bString.indexOf('|') + 1));
+					
+					break;
+				}
 			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
 		}
 	}
 

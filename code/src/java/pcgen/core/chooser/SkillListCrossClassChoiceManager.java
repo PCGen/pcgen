@@ -24,14 +24,12 @@
 package pcgen.core.chooser;
 
 import pcgen.core.Ability;
-import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * This is one of the choosers that deals with choosing a skill.
@@ -60,99 +58,39 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 		}
 	}
 
-
 	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
-	 *
+	 * Associate a choice with the pobject.
+	 * 
+	 * @param aPc 
+	 * @param item the choice to associate
+	 * @param prefix 
 	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
+	protected void associateChoice(
+			final PlayerCharacter aPc,
+			final String          item,
+			final String          prefix)
 	{
-		pobject.clearAssociated();
+		super.associateChoice(aPc, item, prefix);
 
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
+		if (pobject != null && pobject instanceof Ability)
 		{
-			objPrefix = chooserHandled + '?';
-		}
-
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			if (multiples && !dupsAllowed)
+			Ability ability = (Ability) pobject;
+			if (rootArrayList.contains(item))
 			{
-				if (!pobject.containsAssociated(objPrefix + chosenItem))
+				for (Iterator e2 = Globals.getSkillList().iterator(); e2.hasNext();)
 				{
-					pobject.addAssociated(objPrefix + chosenItem);
+					final Skill skill = (Skill) e2.next();
+
+					if (skill.getRootName().equalsIgnoreCase(item))
+					{
+						ability.addCcSkill(skill.getName());
+					}
 				}
 			}
 			else
 			{
-				pobject.addAssociated(objPrefix + chosenItem);
-
+				ability.addCcSkill(item);
 			}
-
-			if (pobject != null && pobject instanceof Ability)
-			{
-				Ability anAbility = (Ability) pobject;
-				
-				if (rootArrayList.contains(chosenItem))
-				{
-					for (Iterator e2 = Globals.getSkillList().iterator(); e2.hasNext();)
-					{
-						final Skill aSkill = (Skill) e2.next();
-
-						if (aSkill.getRootName().equalsIgnoreCase(chosenItem))
-						{
-							anAbility.addCcSkill(aSkill.getName());
-						}
-					}
-				}
-				else
-				{
-					anAbility.addCcSkill(chosenItem);
-				}
-			}
-
-			if (Globals.weaponTypesContains(chooserHandled))
-			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
-			}
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
-			}
-		}
-		else
-		{
-			if (cost > 0)
-			{
-				featCount = ((maxSelections - selected.size()) * cost);
-			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
 		}
 	}
 

@@ -23,10 +23,7 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.Domain;
 import pcgen.core.EquipmentList;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -68,8 +65,8 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List      availableList,
-			final List      selectedList)
+			final List            availableList,
+			final List            selectedList)
 	{
 		Iterator choiceIt = choices.iterator();
 
@@ -81,79 +78,4 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
 		pobject.addAssociatedTo(selectedList);
 	}
 
-	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
-	 *
-	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
-	{
-
-		pobject.clearAssociated();
-
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
-		{
-			objPrefix = chooserHandled + '?';
-		}
-
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			if (multiples && !dupsAllowed)
-			{
-				if (!pobject.containsAssociated(objPrefix + chosenItem))
-				{
-					pobject.addAssociated(objPrefix + chosenItem);
-				}
-			}
-			else
-			{
-				pobject.addAssociated(objPrefix + chosenItem);
-
-			}
-
-			if (Globals.weaponTypesContains(chooserHandled))
-			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
-			}
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
-			}
-		}
-		else
-		{
-			if (cost > 0)
-			{
-				featCount = ((maxSelections - selected.size()) * cost);
-			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
-	}
-
-	
 }

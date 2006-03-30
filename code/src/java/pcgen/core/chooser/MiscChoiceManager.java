@@ -23,8 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.Domain;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -81,56 +79,6 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 			}
 		}
 		pobject.addAssociatedTo(selectedList);
-	}
-
-
-	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
-	 *
-	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
-	{
-		String objPrefix = (pobject instanceof Domain)
-				? chooserHandled + '?'
-				: "";
-
-		if (pobject instanceof Ability)
-		{
-		    ((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		Iterator it = selected.iterator();
-		while (it.hasNext())
-		{
-			final String chosenItem = (String) it.next();
-			final String name       = objPrefix + chosenItem;
-
-			if (!multiples || dupsAllowed || !pobject.containsAssociated(name))
-			{
-				pobject.addAssociated(name);
-			}
-		}
-
-		double featCount = aPC.getFeats();
-
-		if (cost > 0)
-		{
-			featCount = (numberOfChoices > 0)
-					? featCount - cost
-					: ((maxSelections - selected.size()) * cost);
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
 	}
 
 }

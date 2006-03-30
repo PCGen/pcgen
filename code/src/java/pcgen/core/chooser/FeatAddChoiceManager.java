@@ -225,7 +225,6 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 		}
 	}
 
-	
 	/**
 	 * Apply the choices selected to the associated PObject (the one passed
 	 * to the constructor)
@@ -237,6 +236,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 			PlayerCharacter  aPC,
 			List             selected)
 	{
+
 		pobject.clearAssociated();
 
 		String objPrefix = "";
@@ -268,19 +268,12 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 
 			if (anAbility != null)
 			{
-				if ("FEATADD".equals(chooserHandled))
+				if (!aPC.hasRealFeatNamed(chosenItem))
 				{
-					if (!aPC.hasRealFeatNamed(chosenItem))
-					{
-						aPC.adjustFeats(1);
-					}
-
-					AbilityUtilities.modFeat(aPC, null, chosenItem, true, false);
+					aPC.adjustFeats(1);
 				}
-			}
-			if (Globals.weaponTypesContains(chooserHandled))
-			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
+
+				AbilityUtilities.modFeat(aPC, null, chosenItem, true, false);
 			}
 		}
 
