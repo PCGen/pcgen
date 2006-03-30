@@ -80,7 +80,6 @@ public final class PCTemplate extends PObject implements HasCost
 	private ArrayList    weaponProfBonus     = null;
 	private HashMap      chosenFeatStrings   = null;
 	private List         templatesAdded      = null;
-	private String       ageString           = Constants.s_NONE;
 	private String       chooseLanguageAutos = "";
 	private String       cost                = "1";
 
@@ -96,7 +95,6 @@ public final class PCTemplate extends PObject implements HasCost
 	private String  subRace               = Constants.s_NONE;
 	private String  subregion             = Constants.s_NONE;
 	private String  templateSize          = "";
-	private String  weightString          = Constants.s_NONE;
 	private TreeSet languageBonus         = new TreeSet();
 	private boolean removable             = true;
 	private int     ChallengeRating       = 0;
@@ -126,19 +124,6 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		// Empty Constructor
 	}
-
-
-	/**
-	 * Set the Age String property.
-	 * XXX: this property appears to be unused Andrew Wilson 20060307
-	 *
-	 * @param  argAgeString a string representing the Age of a PC
-	 */
-	public void setAgeString(final String argAgeString)
-	{
-		ageString = argAgeString;
-	}
-
 
 	/**
 	 * Set the number of Bonus feats that this template grants the character it
@@ -679,11 +664,6 @@ public final class PCTemplate extends PObject implements HasCost
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getName());
 
-		if (!Constants.s_NONE.equals(ageString))
-		{
-			txt.append("\tAGE:").append(ageString);
-		}
-
 		if (bonusInitialFeats != 0)
 		{
 			txt.append("\tBONUSFEATS:").append(bonusInitialFeats);
@@ -803,11 +783,6 @@ public final class PCTemplate extends PObject implements HasCost
 		if ((templateSize != null) && (templateSize.length() > 0))
 		{
 			txt.append("\tSIZE:").append(templateSize);
-		}
-
-		if (!Constants.s_NONE.equals(weightString))
-		{
-			txt.append("\tWEIGHT:").append(weightString);
 		}
 
 		if (!"alwaysValid".equals(getQualifyString()))
@@ -1321,20 +1296,6 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		return getListSize(weaponProfBonus);
 	}
-
-
-	/**
-	 * Set the override that this template applies to weight
-	 *
-	 * XXX another apparently useless piece of state with no accessor.
-	 *
-	 * @param  argWeightString the weight
-	 */
-	public void setWeightString(final String argWeightString)
-	{
-		weightString = argWeightString;
-	}
-
 
 	/**
 	 * Grants the character an ability at the Hit die or hit die range specified.

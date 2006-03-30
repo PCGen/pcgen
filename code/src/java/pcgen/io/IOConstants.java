@@ -406,6 +406,7 @@ interface IOConstants
 
 	// Character weapon proficiencies
 	String TAG_WEAPONPROF = "WEAPONPROF";
+	/** WEIGHT - Used by PCGVer2 Parser and Creator */
 	String TAG_WEIGHT     = "WEIGHT";
 	String TAG_WT         = "WT";
 }
