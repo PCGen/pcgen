@@ -1,0 +1,127 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 29 20:48:29 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+#AUTHOR:Evan Miller, 2004
+###Block: RSRD Modified skills
+# Skill Name						Type
+Knowledge (Arcana).MOD					TYPE:Other
+Knowledge (Architecture and Engineering).MOD	TYPE:Other
+Knowledge (Dungeoneering).MOD				TYPE:Other
+Knowledge (Local).MOD					TYPE:Local.Other
+Knowledge (Nature).MOD					TYPE:Other
+Knowledge (Nobility and Royalty).MOD		TYPE:Other
+Knowledge (Religion).MOD				TYPE:Religion.Other
+Knowledge (The Planes).MOD				TYPE:Other
+
+###Block: Arcanis Skills
+# Skill Name					Product Identity?	Key Stat	Untrained?		Type								Source Page
+Craft (Flintlock)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.SpecialCraft			SOURCEPAGE:pg. 123
+Craft (Fletchery)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Basket Weaving)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Bookbinding)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Brassmaking)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Calligraphy)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Cartwrighting)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Chandlery)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Cobbling)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Coopering)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Coppersmithing)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Drawing)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Dyemaking)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Furniture Making)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Furriery)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Gem Cutting)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Glass Blowing)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Goldsmithing)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Hatmaking)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Hornworking)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Jewelling)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Locksmithing)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Mapmaking)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Masonry)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Music Instrument Making)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Papermaking)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Pewtersmithing)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Sailmaking)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Skinning)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Soapmaking)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Tailoring)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Tanning)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Tattooing)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Weaving)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Vinting)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+Craft (Scribing)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:pg. 122
+
+Knowledge (Religion:Belisarda)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion.Other	SOURCEPAGE:pg. 124
+Knowledge (Religion:Elemental Lords)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion.Other	SOURCEPAGE:pg. 124
+Knowledge (Religion:Hurrian)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion.Other	SOURCEPAGE:pg. 124
+Knowledge (Religion:Neroth)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion.Other	SOURCEPAGE:pg. 124
+Knowledge (Religion:Tzizhet)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Religion.Other	SOURCEPAGE:pg. 124
+Knowledge (Science)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge				SOURCEPAGE:pg. 126
+Knowledge (Warfare and Tactics)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge				SOURCEPAGE:pg. 126
+
+Profession (Apothecary)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Baker)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Barber)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Barrister)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Beggar)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Boater)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Sea				SOURCEPAGE:pg. 127
+Profession (Bookkeeper)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Brewer)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Bureaucrat)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Butcher)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Butler)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Cleaner)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Clerk)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Cook)								KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Courtesan)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Driver)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Educator)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Embalmer)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Engineer-Architect)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Farmer)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Farrier)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Fisherman)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Sea				SOURCEPAGE:pg. 127
+Profession (Gambler)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Gardner)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Guide)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Gunner)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Hairdresser)						KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Herbalist)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Herdsman)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Innkeeper)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Launderer)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Lumberjack)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Maidservant)						KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Masseuse)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Merchant)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Midwife)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Miller)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Mortician)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Navigator)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Sea				SOURCEPAGE:pg. 127
+Profession (Nursemaid)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Physician)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Guard)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Porter)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Rancher)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Sage)								KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Sailor)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Sea				SOURCEPAGE:pg. 127
+Profession (Scribe)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Soldier)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Waiter)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Siege Engineer)						KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Slaver)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Soldier)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Stablehand)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Steward)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Teamster)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Trader)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Trapper)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Undertaker)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Warehouser)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+Profession (Woodcutter)							KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:pg. 127
+
+Research									KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence
+
+#
+# End
+#

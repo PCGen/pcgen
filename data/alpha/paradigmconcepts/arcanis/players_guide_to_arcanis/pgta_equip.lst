@@ -1,0 +1,192 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 29 20:31:33 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+#AUTHOR:Evan Miller, 2004
+
+# Equipment Name
+# Simple Melee Weapons
+# Light
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Equipment Name				Product Identity?	Output Name							Required Proficiency				Type																	Alternative Type				Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Weapon prop. bonus													Special Property
+Pugio																	PROFICIENCY:Pugio					TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Light.Simple.Standard.Piercing.Dagger														COST:2	WT:1				CRITMULT:x2			CRITRANGE:2							DAMAGE:1d4					EQMOD:STEEL			WIELD:Light		RANGE:10	SIZE:M
+Dagger (Sarishan Steel)			NAMEISPI:YES									PROFICIENCY:Dagger				TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Light.Simple.Standard.Piercing.Slashing.Sarishan.Dagger											COST:402	WT:1				CRITMULT:x2			CRITRANGE:2							DAMAGE:1d4					EQMOD:STEEL			WIELD:Light		RANGE:10	SIZE:M																	SPROP:Ingnores DR of Bound Infernals
+
+# One-Handed
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aspergil (Light)							OUTPUTNAME:Aspergil, [NAME]				PROFICIENCY:Aspergil (Light)			TYPE:Weapon.Melee.OneHanded.LowWeight.Simple.Standard.Bludgeoning.Mace																COST:15	WT:4				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL			WIELD:OneHanded			SIZE:M																	SPROP:Can hold 1 flask of liquid
+
+# Two Handed
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aspergil (Heavy)							OUTPUTNAME:Aspergil, [NAME]				PROFICIENCY:Aspergil (Heavy)			TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.TwoHanded.Mace																	COST:25	WT:8				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:Can hold 2 flasks of liquid
+Godentang																PROFICIENCY:Godentang				TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.TwoHanded.Mace																	COST:8	WT:9				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M
+
+# Special
+Cafelan Combat Cloak			NAMEISPI:YES									PROFICIENCY:Cafelan Combat Cloak		TYPE:Weapon.Melee.Simple.Standard.Finesseable.Light.Bludgeoning.Cloak																COST:15	WT:2				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d3									WIELD:Light				SIZE:M																	SPROP:Must have the Cloak Use or Cloak Attack feats to use properly.
+Tail Bracer																PROFICIENCY:Tail Bracer				TYPE:Weapon.Melee.Exotic.Standard.Bludgeoning.OneHanded.Piercing.Gauntlet															COST:30	WT:10				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:Light				SIZE:M																	SPROP:May only be used by Ss'ressen
+
+
+#Martial Melee Weapons
+#Light -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Gladius																PROFICIENCY:Gladius				TYPE:Weapon.Martial.Melee.Light.Standard.Piercing.Sword																		COST:20	WT:5				CRITMULT:x2			CRITRANGE:2							DAMAGE:1d8					EQMOD:STEEL			WIELD:Light				SIZE:M
+
+# One Handed
+Crowsbeak (Horseman's)						OUTPUTNAME:[NAME] Crowsbeak				PROFICIENCY:Crowsbeak (Horseman's)		TYPE:Weapon.Melee.Standard.OneHanded.Martial.Piercing.Mace																		COST:12	WT:7				CRITMULT:x4			CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL			WIELD:Onehanded			SIZE:M																	SPROP:+2 to disarm attempts
+Koncerz																PROFICIENCY:Koncerz				TYPE:Weapon.Melee.Standard.OneHanded.Martial.Piercing.Lance																		COST:18	WT:6				CRITMULT:x2			CRITRANGE:2							DAMAGE:1d6					EQMOD:STEEL			WIELD:Onehanded			SIZE:M																	SPROP:10 ft reach
+Kopesh																PROFICIENCY:Kopesh				TYPE:Weapon.Melee.Standard.OneHanded.Martial.Slashing.Sword																		COST:20	WT:6				CRITMULT:x2			CRITRANGE:2							DAMAGE:2d4					EQMOD:STEEL			WIELD:Onehanded			SIZE:M
+Lancea																PROFICIENCY:Lancea				TYPE:Weapon.Melee.Ranged.Thrown.Standard.OneHanded.Martial.Piercing.Spear															COST:2	WT:3				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:WOOD			WIELD:Onehanded	RANGE:25	SIZE:M																	SPROP:+4 to resist being disarmed
+Sword (Reaver)							OUTPUTNAME:[NAME] Sword					PROFICIENCY:Sword (Reaver)			TYPE:Weapon.Melee.Standard.OneHanded.Martial.Slashing.Sword																		COST:35	WT:8				CRITMULT:x2			CRITRANGE:3							DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M																	SPROP:8hp and hardness 10	SPROP:+1 to disarm attempts
+Saber																	PROFICIENCY:Saber					TYPE:Weapon.Melee.Standard.OneHanded.LowWeight.Martial.Slashing.Sword																COST:20	WT:4				CRITMULT:x2			CRITRANGE:1							DAMAGE:2d4					EQMOD:STEEL			WIELD:OneHanded
+Spatha																PROFICIENCY:Spatha				TYPE:Weapon.Melee.Standard.OneHanded.LowWeight.Martial.Piercing.Sword																COST:16	WT:4				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M																	SPROP:-4 to attack and damage if used on foot.	SPROP:10 ft reach	SPROP:On a charge damage is x2 + mounts strength modifier
+
+#Two-Handed
+Pike (Awl)								OUTPUTNAME:Pike, Awl					PROFICIENCY:Pike (Awl)				TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Piercing.Polearm																	COST:14	WT:11				CRITMULT:x3			CRITRANGE:1							DAMAGE:2d4					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach	SPROP:Double damage when set against a charge
+Bardiche																PROFICIENCY:Bardiche				TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Polearm																	COST:17	WT:16				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d12					EQMOD:STEEL			WIELD:TwoHanded
+Axe (Bearded)							OUTPUTNAME:[NAME] Axe					PROFICIENCY:Axe (Bearded)			TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Axe																		COST:25	WT:20				CRITMULT:x3			CRITRANGE:1							DAMAGE:3d4					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M	BONUS:WEAPON|TOHIT|-4|PREVARLT:STR,16										SPROP:+2 damage on Sunder attempts
+Axe (Treslauder)							OUTPUTNAME:[NAME] Axe					PROFICIENCY:Axe (Treslauder)			TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Piercing.Polearm																COST:16	WT:15				CRITMULT:x3			CRITRANGE:1							DAMAGE:2d6					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach
+Crowsbeak (Footman's)						OUTPUTNAME:Crowsbeak, [NAME]				PROFICIENCY:Crowsbeak (Footman's)		TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Piercing.Polearm																	COST:17	WT:9				CRITMULT:x4			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:+2 to Trip attampts	SPROP:+2 to disarm attempts
+Flamberge																PROFICIENCY:Flamberge				TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Sword																		COST:75	WT:15				CRITMULT:x2			CRITRANGE:2							DAMAGE:3d4					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M	BONUS:WEAPON|TOHIT|-1|PREFEAT:1,Martial Weapon Proficiency (Flamberge)	BONUS:WEAPON|DAMAGE|1	SPROP:+1 to intimidate checks when openly displayed
+Glaive-Guisarme															PROFICIENCY:Glaive-Guisarme			TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Polearm																	COST:9	WT:15				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach	SPROP:+1 to trip and disarm attempts
+Great Trident															PROFICIENCY:Great Trident			TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Piercing.Trident																	COST:22	WT:13				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach
+Guisarme-Voulge															PROFICIENCY:Guisarme-Voulge			TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Piercing.Polearm																COST:10	WT:12				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach	SPROP:+1 to hit mounted opponents and +2 to trip the mount
+Kopia																	PROFICIENCY:Kopia					TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Piercing.Lance																		COST:15	WT:9				CRITMULT:x3			CRITRANGE:1							DAMAGE:2d4					EQMOD:WOOD			WIELD:TwoHanded			SIZE:M																	SPROP:15 ft Reach	SPROP:Breaks after a successful hit
+Pike																	PROFICIENCY:Pike					TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Piercing.Polearm																	COST:12	WT:10				CRITMULT:x2			CRITRANGE:1							DAMAGE:2d4					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:15 ft Reach
+Terbutje																PROFICIENCY:Terbutje				TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Bludgeoning.Piercing.Club																COST:10	WT:10				CRITMULT:x2			CRITRANGE:1							DAMAGE:2d6					EQMOD:WOOD			WIELD:TwoHanded			SIZE:M
+Voulge																PROFICIENCY:Voulge				TYPE:Weapon.Melee.Standard.TwoHanded.Martial.Slashing.Polearm																	COST:8	WT:14				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach
+
+#Ranged
+Footbow																PROFICIENCY:Footbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Footbow											CONTAINS:1|Arrow=1	COST:300	WT:5		SLOTS:2	CRITMULT:x3			CRITRANGE:1							DAMAGE:1d12					EQMOD:WOOD			WIELD:TwoHanded	RANGE:150	SIZE:M	BONUS:WEAPON|DAMAGE|min(STR,0)											SPROP:String must be changed after three shots
+Footbow (Mighty +0)						OUTPUTNAME:[NAME] Footbow STR0			PROFICIENCY:Footbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Footbow.Composite									CONTAINS:1|Arrow=1	COST:300	WT:5		SLOTS:2	CRITMULT:x3			CRITRANGE:1							DAMAGE:1d12					EQMOD:WOOD			WIELD:TwoHanded	RANGE:150	SIZE:M																	SPROP:String must be changed after three shots
+Mattiobarbuli															PROFICIENCY:Mattiobarbuli			TYPE:Weapon.Martial.Ranged.Thrown.Piercing.Light.Standard.Dart																	COST:1	WT:.5				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL			WIELD:OneHanded	RANGE:25	SIZE:M
+Pila (Heavy)							OUTPUTNAME:[NAME] Pila					PROFICIENCY:Pila (Heavy)			TYPE:Weapon.Martial.Ranged.Thrown.Piercing.Standard.Spear																		COST:5	WT:5				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:WOOD			WIELD:OneHanded	RANGE:10	SIZE:M
+Pila (Light)							OUTPUTNAME:[NAME] Pila					PROFICIENCY:Pila (Light)			TYPE:Weapon.Martial.Ranged.Thrown.Piercing.Standard.Spear																		COST:3	WT:3				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:WOOD			WIELD:OneHanded	RANGE:20	SIZE:M
+
+
+#Exotic Melee Weapons
+#Light -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Drusus																PROFICIENCY:Drusus				TYPE:Weapon.Melee.Light.Standard.Exotic.Slashing.Piercing.Finesseable.Sword															COST:370	WT:4				CRITMULT:x3			CRITRANGE:2							DAMAGE:2d4					EQMOD:STEEL.MWORKW	WIELD:Light				SIZE:M
+Unden Knife																PROFICIENCY:Unden Knife				TYPE:Weapon.Melee.Light.Standard.Exotic.Slashing.Piercing.Finesseable.Dagger															COST:5	WT:1				CRITMULT:x2			CRITRANGE:3							DAMAGE:1d4					EQMOD:STEEL			WIELD:Light		RANGE:5	SIZE:M	BONUS:WEAPON|DAMAGE|1													SPROP:-2 to hit and damage when thrown
+Warfan																PROFICIENCY:Warfan				TYPE:Weapon.Melee.Light.Standard.Exotic.Slashing.Piercing.Finesseable.Warfan															COST:10	WT:1				CRITMULT:x3			CRITRANGE:2							DAMAGE:1d6					EQMOD:STEEL			WIELD:Light				SIZE:M
+
+#One-Handed
+Sword (Chain)							OUTPUTNAME:[NAME] Sword					PROFICIENCY:Sword (Chain)			TYPE:Weapon.Melee.OneHanded.LowWeight.Standard.Exotic.Slashing.Sword.Whip															COST:500	WT:4				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL.MWORKW	WIELD:OneHanded			SIZE:M
+Sword (Kio)								OUTPUTNAME:[NAME] Sword					PROFICIENCY:Sword (Kio)				TYPE:Weapon.Melee.Finesseable.OneHanded.LowWeight.Standard.Exotic.Slashing.Piercing.Sword													COST:1000	WT:3				CRITMULT:x2			CRITRANGE:3							DAMAGE:1d8					EQMOD:STEEL.GMWORKW	WIELD:OneHanded			SIZE:M
+Steel Whip																PROFICIENCY:Whip					TYPE:Weapon.Melee.OneHanded.Standard.Exotic.Bludgeoning.Finesseable.Whip															COST:15	WT:6				CRITMULT:x2			CRITRANGE:2							DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M
+
+
+#Two-Handed -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Amplus Machaera															PROFICIENCY:Amplus Machaera			TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Slashing.Sword																		COST:150	WT:30				CRITMULT:x2			CRITRANGE:2							DAMAGE:2d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M
+Sword (Crocodile)							OUTPUTNAME:[NAME] Sword					PROFICIENCY:Sword (Crocodile)			TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Slashing.Sword																		COST:60	WT:13				CRITMULT:x2			CRITRANGE:2							DAMAGE:1d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:Ignores 1/2 the hardness when sundering a slashing weapon.	SPROP:+1 to all disarm attempts, and to avoid being disarmed.
+Double Spear															PROFICIENCY:Double Spear			TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Piercing.Double.Monk.Spear						ALTTYPE:Exotic.Melee.Piercing						COST:50	WT:10				CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:1		DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:STEEL			WIELD:TwoHanded			SIZE:M
+Mancatcher																PROFICIENCY:Mancatcher				TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Piercing.Spear																		COST:30	WT:5				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:10 ft Reach
+Spiral Spear															PROFICIENCY:Spiral Spear			TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Ranged.Thrown.Piercing.Spear															COST:135	WT:7				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL			WIELD:TwoHanded	RANGE:15	SIZE:M
+Tralian Hammer															PROFICIENCY:Tralian Hammer			TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Bludgeoning.Piercing.Polearm															COST:145	WT:18				CRITMULT:x3			CRITRANGE:1							DAMAGE:2d8					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M
+Tremarian Sworock															PROFICIENCY:Tremarian Sworock			TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Bludgeoning.Slashing.Polearm															COST:150	WT:20				CRITMULT:x3			CRITRANGE:1							DAMAGE:2d6					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M	BONUS:WEAPON|TOHIT|-4|PREVARLT:STR,16
+Yhark																	PROFICIENCY:Yhark					TYPE:Weapon.Melee.TwoHanded.Standard.Exotic.Slashing.Double.Polearm						ALTTYPE:Exotic.Melee.Bludgeoning					COST:70	WT:20				CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:1		DAMAGE:1d10	ALTDAMAGE:1d6		EQMOD:STEEL			WIELD:TwoHanded			SIZE:M																	SPROP:+4 to hit a mounted opponent and +4 to trip (unhorse) them.
+
+#Exotic Ranged Weapons -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bola (Voei)								OUTPUTNAME:[NAME] Bola					PROFICIENCY:Bola (Voei)				TYPE:Weapon.Exotic.Standard.Ranged.Thrown.Bludgeoning.Piercing.Bola																COST:50	WT:18				CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded	RANGE:15	SIZE:M	BONUS:WEAPON|TOHIT|-4|PREVARLT:STR,18
+Boomerang Axe															PROFICIENCY:Boomerang Axe			TYPE:Weapon.Exotic.Standard.Ranged.Thrown.Slashing.Axe																		COST:9	WT:5				CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL			WIELD:OneHanded	RANGE:10	SIZE:M
+Chain Net																PROFICIENCY:Chain Net				TYPE:Weapon.Exotic.Standard.Ranged.Thrown.Bludgeoning.Net																		COST:100	WT:25				CRITMULT:x1			CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL			WIELD:TwoHanded	RANGE:5	SIZE:M
+Disk Crossbow (Repeating)					OUTPUTNAME:[NAME] Disk Crossbow			PROFICIENCY:Disk Crossbow (Repeating)	TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow											CONTAINS:6|Disks=6	COST:65	WT:10				CRITMULT:x2			CRITRANGE:3							DAMAGE:1d6					EQMOD:WOOD			WIELD:TwoHanded	RANGE:100	SIZE:M
+
+Altherian Flintlock (Pistol)		NAMEISPI:YES	OUTPUTNAME:Altherian Fintlock [NAME]		PROFICIENCY:Altherian Flintlock (Pistol)	TYPE:Weapon.Exotic.Standard.Ranged.Piercing.Flintlock.Pistol																	COST:400	WT:5				CRITMULT:x3			CRITRANGE:2							DAMAGE:3d4					EQMOD:WOOD			WIELD:OneHanded	RANGE:50	SIZE:M																	SPROP:Can be used as a light mace in melee
+Altherian Flintlock (Rifle)		NAMEISPI:YES	OUTPUTNAME:Altherian Fintlock [NAME]		PROFICIENCY:Altherian Flintlock (Rifle)	TYPE:Weapon.Exotic.Standard.Ranged.TwoHanded.Piercing.Flintlock.Rifle																COST:500	WT:15				CRITMULT:x3			CRITRANGE:2							DAMAGE:4d4					EQMOD:WOOD			WIELD:TwoHanded	RANGE:100	SIZE:M																	SPROP:Can be used as a greatclub in melee
+Altherian Steel Flintlock (Pistol)	NAMEISPI:YES	OUTPUTNAME:Altherian Steel Fintlock [NAME]	PROFICIENCY:Altherian Flintlock (Pistol)	TYPE:Weapon.Exotic.Standard.Ranged.Piercing.Flintlock.Pistol																	COST:1600	WT:3				CRITMULT:x3			CRITRANGE:2							DAMAGE:3d4					EQMOD:WOOD			WIELD:OneHanded	RANGE:50	SIZE:M																	SPROP:Can be used as a light mace in melee
+Altherian Steel Flintlock (Rifle)	NAMEISPI:YES	OUTPUTNAME:Altherian Steel Fintlock [NAME]	PROFICIENCY:Altherian Flintlock (Rifle)	TYPE:Weapon.Exotic.Standard.Ranged.TwoHanded.Piercing.Flintlock.Rifle																COST:2000	WT:11				CRITMULT:x3			CRITRANGE:2							DAMAGE:4d4					EQMOD:WOOD			WIELD:TwoHanded	RANGE:100	SIZE:M																	SPROP:Can be used as a greatclub in melee
+
+Altherian Scattergun			NAMEISPI:YES									PROFICIENCY:Altherian Scattergun		TYPE:Weapon.Exotic.Standard.Ranged.Piercing.Flintlock.Pistol																	COST:400	WT:15				CRITMULT:x2			CRITRANGE:1							DAMAGE:2d4					EQMOD:WOOD			WIELD:OneHanded	RANGE:20	SIZE:M																	SPROP:Can be used as a heavy mace in melee
+Pistol																PROFICIENCY:Altherian Flintlock (Pistol)	TYPE:Weapon.Exotic.Standard.Ranged.Piercing.Flintlock.Pistol																	COST:600	WT:5				CRITMULT:x3			CRITRANGE:1							DAMAGE:2d4					EQMOD:WOOD			WIELD:OneHanded	RANGE:30	SIZE:M																	SPROP:Misfire chance
+Blunderbuss																PROFICIENCY:Blunderbuss				TYPE:Weapon.Exotic.Standard.Ranged.Piercing.TwoHanded.Flintlock.Rifle																COST:400	WT:30				CRITMULT:x1			CRITRANGE:1							DAMAGE:3d6					EQMOD:WOOD			WIELD:TwoHanded			SIZE:M																	SPROP:Automatically hits everything in a 20' Cone
+
+
+###Block: Siege Weapons -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Equipment Name	Output Name				Required Proficiency		Type											Contains								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Modifier		Wield Category	Range		Size		Special Property
+Cannon (Field)	OUTPUTNAME:Cannon, [NAME]	PROFICIENCY:Cannon (Field)	TYPE:Weapon.Siege.Standard.Ranged.Container.Projectile.Cannon	CONTAINS:1|Cannonball=1|Mortar Shell=1			COST:1500	WT:1000	CRITMULT:x1			CRITRANGE:1			DAMAGE:Special	EQMOD:STEEL.WOOD	WIELD:Unusable	RANGE:200	SIZE:M	SPROP:Damage dealt depends on shell type used
+Cannon (Siege)	OUTPUTNAME:Cannon, [NAME]	PROFICIENCY:Cannon (Siege)	TYPE:Weapon.Siege.Standard.Ranged.Container.Projectile.Cannon	CONTAINS:1|Siege Cannonball=1|Siege Mortar Shell=1	COST:2500	WT:2800	CRITMULT:x1			CRITRANGE:1			DAMAGE:Special	EQMOD:STEEL.WOOD	WIELD:Unusable	RANGE:300	SIZE:M	SPROP:Damage dealt depends on shell type used
+
+###Block: Ammunition -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Equipment Name			Output Name						Type								Cost		Weight	Base Quantity	Damage	Modifier		MODS		Range		Special Property
+Disk (Crossbow/Repeating/6)	OUTPUTNAME:Disk, Repeating, Crossbow (6)	TYPE:Ammunition.Standard.Disk				COST:3	WT:1		BASEQTY:6				EQMOD:STEEL		MODS:YES
+Disk (Crossbow/Repeating)	OUTPUTNAME:Disk, Repeating, Crossbow	TYPE:Ammunition.Standard.Individual.Disk		COST:.5	WT:.2		BASEQTY:1				EQMOD:STEEL		MODS:YES
+Blastpowder (20)										TYPE:Ammunition.Standard.Blastpowder		COST:100	WT:2		BASEQTY:20				EQMOD:STEEL		MODS:YES
+Blastpowder (10)										TYPE:Ammunition.Standard.Blastpowder		COST:50	WT:1		BASEQTY:10				EQMOD:STEEL		MODS:YES
+Blastpowder											TYPE:Ammunition.Standard.Blastpowder.Individual	COST:5	WT:.1		BASEQTY:1				EQMOD:STEEL		MODS:YES
+Arrow (Footbow/20)		OUTPUTNAME:Arrow, Footbow (20)		TYPE:Ammunition.Standard.Arrow			COST:10	WT:2		BASEQTY:20				EQMOD:STEEL.WOOD	MODS:YES
+Arrow (Footbow)			OUTPUTNAME:Arrow, Footbow			TYPE:Ammunition.Standard.Arrow.Individual		COST:.5	WT:.1		BASEQTY:1				EQMOD:STEEL.WOOD	MODS:YES
+Footbow Strings (5)									TYPE:Ammunition.Standard.String			COST:5	WT:0		BASEQTY:5
+Footbow String										TYPE:Ammunition.Standard.String.Individual	COST:1	WT:0		BASEQTY:1
+Cannon Ball											TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:100	WT:15		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:6d6 Bludgeoning Damage
+Mortal Shell										TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:300	WT:20		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:5d6 Piercing/Fire Damage in a 20 ft radius
+Siege Mortal Shell									TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:450	WT:30		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:8d6 Piercing/Fire Damage in a 30 ft radius
+Siege Cannon Ball										TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:150	WT:25		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:10d6 Bludgeoning Damage
+
+Fragmentation Bomb									TYPE:Goods.Alchemical.Vial				COST:50	WT:2		BASEQTY:1		DAMAGE:2d6						RANGE:10
+
+###Block: Armor -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Equipment Name				Product Identity?	Output Name					Type									Cost		Weight	Required Feat								AC Penalty Check	Modifier	Maximum DEX Bonus	% of Spell Failure	Combat bonus					BONUS:EQMARMOR							Add to base move
+Heavy Leather Coat												TYPE:Armor.Light.Suit.Standard.Nonmetal			COST:100	WT:20												ACCHECK:-1				MAXDEX:6		SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE	BONUS:EQMARMOR|SPELLFAILURE|-15|PRECLASS:1,Bard=1
+Muscle Cuirass													TYPE:Armor.Light.Suit.Standard				COST:400	WT:15												ACCHECK:-2				MAXDEX:5		SPELLFAILURE:15		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:EQMARMOR|SPELLFAILURE|-15|PRECLASS:1,Bard=1
+Reinforced Leather Jacket											TYPE:Armor.Light.Suit.Standard.Nonmetal			COST:150	WT:15												ACCHECK:-1				MAXDEX:5		SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	BONUS:EQMARMOR|SPELLFAILURE|-10|PRECLASS:1,Bard=1
+Sicarite Leather				NAMEISPI:YES							TYPE:Armor.Light.Suit.Standard.Nonmetal			COST:40	WT:15												ACCHECK:-1				MAXDEX:6		SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE	BONUS:EQMARMOR|SPELLFAILURE|-5|PRECLASS:1,Bard=1
+Sicarite Studded Leather		NAMEISPI:YES							TYPE:Armor.Light.Suit.Standard.Nonmetal			COST:100	WT:20												ACCHECK:-2				MAXDEX:5		SPELLFAILURE:10		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:EQMARMOR|SPELLFAILURE|-10|PRECLASS:1,Bard=1
+
+Ss'ressen Scale				NAMEISPI:YES							TYPE:Armor.Medium.Suit.Standard.Nonmetal			COST:800	WT:25												ACCHECK:-3				MAXDEX:5		SPELLFAILURE:15		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Ring Mail														TYPE:Armor.Medium.Suit.Standard				COST:250	WT:25												ACCHECK:-4				MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Brigandine														TYPE:Armor.Medium.Suit.Standard				COST:200	WT:40												ACCHECK:-6				MAXDEX:0		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Lorica Segmentata													TYPE:Armor.Medium.Suit.Standard.ExoticArmor.Lorica	COST:300	WT:25												ACCHECK:-5		EQMOD:STEEL	MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
+Lorica Segmentata (Proficient)				OUTPUTNAME:Lorica Segmentata		TYPE:Armor.Medium.Suit.Standard.ExoticArmor.Lorica	COST:300	WT:25		PREFEAT:1,Exotic Armor Proficiency(Lorica Segmentata)		ACCHECK:-3		EQMOD:STEEL	MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE										BONUS:MOVEADD|TYPE.Walk|10
+Milandisian Cuirass			NAMEISPI:YES							TYPE:Armor.Medium.Suit.Standard.ExoticArmor		COST:350	WT:30												ACCHECK:-5		EQMOD:STEEL	MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Milandisian Cuirass (Proficient)	NAMEISPI:YES	OUTPUTNAME:Milandisian Cuirass	TYPE:Armor.Medium.Suit.Standard.ExoticArmor		COST:350	WT:30		PREFEAT:1,Exotic Armor Proficiency(Milandisian Cuirass)	ACCHECK:-4		EQMOD:STEEL	MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE										BONUS:MOVEADD|TYPE.Walk|5
+
+Chain and Plate													TYPE:Armor.Heavy.Suit.Standard				COST:600	WT:40												ACCHECK:-5				MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|7|TYPE=Armor.REPLACE
+Andrean Plate				NAMEISPI:YES							TYPE:Armor.Heavy.Suit.Standard.ExoticArmor		COST:7500	WT:65												ACCHECK:-8		EQMOD:STEEL	MAXDEX:1		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor.REPLACE
+Andrean Plate (Proficient)		NAMEISPI:YES	OUTPUTNAME:Andrean Plate		TYPE:Armor.Heavy.Suit.Standard.ExoticArmor		COST:7500	WT:65		PREFEAT:1,Exotic Armor Proficiency(Andrean Plate)		ACCHECK:-4		EQMOD:STEEL	MAXDEX:1		SPELLFAILURE:30		BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE
+
+###Block: Goods -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Equipment Name				Product Identity?	Output Name							Type								Contains								Cost		Weight	Source Page			Special Property
+Altherian Powder Horn			NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:5	WT:.5		SOURCEPAGE:pg. 245	SPROP:10 hardness and fire resistance 10.
+Altherian Compass				NAMEISPI:YES									TYPE:Goods.General														COST:2000	WT:90		SOURCEPAGE:pg. 245
+Altherian Sextant				NAMEISPI:YES									TYPE:Goods.General														COST:1000	WT:5		SOURCEPAGE:pg. 245	SPROP:Must have at least 1 rank in Survival and 3 ranks in Profession (cartographer, or Navigator) or Knowledge (Geography). Auto succeed to find position on map.
+Altherian Shot Bandolier		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:100	WT:1.5	SOURCEPAGE:pg. 245
+Altherian Shot Belt Pouch		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:150	WT:.5		SOURCEPAGE:pg. 245	SPROP:Standard action to open or close. Protects shot from water or fire for 6 rounds.
+Flintlock Pistol Bandolier													TYPE:Goods.General.Container				CONTAINS:-1|Pistol=4|Blastpowder=8				COST:10	WT:3		SOURCEPAGE:pg. 247	SPROP:Protects items from water and fire for 1 round.
+Mess Cooking Kit							OUTPUTNAME:Mess/Cooking Kit				TYPE:Goods.General														COST:5	WT:2		SOURCEPAGE:pg. 247
+Potion scroll Belt						OUTPUTNAME:Potion/Scroll Belt				TYPE:Goods.General.Container				CONTAINS:-1|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
+Potion Scroll Bandolier						OUTPUTNAME:Potion/Scroll Bandolier			TYPE:Goods.General.Container				CONTAINS:-1|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
+Spellcaster's Bandolier														TYPE:Goods.General.Container				CONTAINS:-1|Total=10|Wand=4|Scroll=4|Potion=2|Vial=2	COST:60	WT:2		SOURCEPAGE:pg. 248
+Waterproof Flintlock Case (Pistol)												TYPE:Goods.General.Container				CONTAINS:-1|Pistol=1						COST:30	WT:.5		SOURCEPAGE:pg. 248
+Waterproof Flintlock Case (Rifle)												TYPE:Goods.General.Container				CONTAINS:-1|Rifle=1						COST:40	WT:1		SOURCEPAGE:pg. 248
+Wrist Holder															TYPE:Goods.General.Container				CONTAINS:-1|Any=1							COST:10	WT:.5		SOURCEPAGE:pg. 248
+Wrist Holder (Masterwork)					OUTPUTNAME:Wrist Holder, Masterwork			TYPE:Goods.General.Container.Masterwork		CONTAINS:-1|Any=1							COST:50	WT:0		SOURCEPAGE:pg. 248
+
+Altherian Signal Rocket (Flare)	NAMEISPI:YES									TYPE:Goods.Alchemical														COST:100	WT:1		SOURCEPAGE:pg.
+Altherian Signal Rocket (Flash)	NAMEISPI:YES									TYPE:Goods.Alchemical														COST:50	WT:1		SOURCEPAGE:pg. 246
+Altherian Signal Rocket (Whistle)	NAMEISPI:YES									TYPE:Goods.Alchemical														COST:40	WT:1		SOURCEPAGE:pg. 246
+
+Flintlock Toolkit (Pistol)													TYPE:Goods.Tools															COST:10	WT:1		SOURCEPAGE:pg. 247
+Flintlock Toolkit (Rifle)													TYPE:Goods.Tools															COST:20	WT:2		SOURCEPAGE:pg. 247
+Map Making Kit															TYPE:Goods.Tools.Artisan.CartographerTools										COST:150	WT:5		SOURCEPAGE:pg. 247
+
+Book (Blank/Papyrus)														TYPE:Goods.General.Writing.Documents											COST:10	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Book (Blank/Parchment)														TYPE:Goods.General.Writing.Documents											COST:12	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Book (Blank/Paper)														TYPE:Goods.General.Writing.Documents											COST:13	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Book (Blank/Vellum)														TYPE:Goods.General.Writing.Documents											COST:15	WT:3		SOURCEPAGE:pg. 247	SPROP:100 pages
+Ink (Writing/Black/5 oz.)					OUTPUTNAME:Ink, Writing, Black, 5 oz.		TYPE:Goods.General.Writing													COST:10	WT:0		SOURCEPAGE:pg. 247
+Ink (Writing/Assorted Colors/2 oz.)				OUTPUTNAME:Ink, Writing, Assorted Colors, 2 oz.	TYPE:Goods.General.Writing													COST:32	WT:0		SOURCEPAGE:pg. 247
+
+Boat (Collapsable)						OUTPUTNAME:Boat, Collapsable				TYPE:Goods.Transportation.Container.Ships		CONTAINS:600|Any=-1						COST:600	WT:50		SOURCEPAGE:pg. 246
+Chariot (Riding)							OUTPUTNAME:Chariot, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:600|Any=-1						COST:75	WT:250	SOURCEPAGE:pg. 247
+Chariot (Riding/Fine)						OUTPUTNAME:Chariot, Riding, Fine			TYPE:Goods.Transportation.Container			CONTAINS:600|Any=-1						COST:200	WT:275	SOURCEPAGE:pg. 247
+Chariot (Riding/Elaborate)					OUTPUTNAME:Chariot, Riding, Elaborate		TYPE:Goods.Transportation.Container			CONTAINS:600|Any=-1						COST:400	WT:300	SOURCEPAGE:pg. 247
+Chariot (War)							OUTPUTNAME:Chariot, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:1200|Any=-1						COST:150	WT:350	SOURCEPAGE:pg. 247
+Chariot (War/Commanders)					OUTPUTNAME:Chariot, War, Commanders			TYPE:Goods.Transportation.Container			CONTAINS:1200|Any=-1						COST:300	WT:375	SOURCEPAGE:pg. 247
+Coach (Ornamental)						OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=-1						COST:7000	WT:750	SOURCEPAGE:pg. 247
+Coach (War)								OUTPUTNAME:Coach, [NAME]				TYPE:Goods.Transportation.Container			CONTAINS:3120|Any=-1						COST:1500	WT:1000	SOURCEPAGE:pg. 247
+
+###Block: Misc. Items -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Equipment Name		Type					Cost		Weight	Choose a Feat
+White Sash of Purity	TYPE:Special.Cert.Station	COST:0	WT:0		ADD:FEAT(TYPE=Gentry)1
+
+#
+# End
+#

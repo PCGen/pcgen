@@ -1,0 +1,667 @@
+# CVS $Revision: $ $Author: $ -- Thu Mar 30 21:26:18 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+#AUTHOR:Evan Miller, 2004
+
+# Class Name	Modify VAR
+CLASS:Druid.MOD	BONUS:VAR|WildEmpathy|-5|PRERACE:1,Dark-Kin
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Bearer of Woe	HD:8		TYPE:Base.PC	ABB:HCA		SOURCEPAGE:pg. 73	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL	Required Deity	Prohibited Race
+CLASS:Bearer of Woe	PREALIGN:LG	PREDEITY:Anshar	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bearer of Woe	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Knowledge (Geography)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Bearer of Woe	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Bearer of Woe|CL/2|PRECLASS:1,Bearer of Woe=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2						SA:Aura of Faith (Ex)																																								FEATAUTO:Simple Weapon Proficiency|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6								SA:AC Bonus (Ex)	SA:I Feel Your Pain (Su) ~ Heal % hp/day|PainLevel	SA:Mind Over Matter (Su)	BONUS:VAR|PainLevel|max(CON,0)*CL																	DEFINE:PainLevel|0	FEATAUTO:Monk AC
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6								SA:You Shall Know My Pain ~ Inflict up to % hp 1/day and heal same amount|PainLevel																														FEATAUTO:Endurance
+4	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,0				SA:Empowered Fist (Ex)
+5	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,0
+6	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,1		DR:1/-	SA:Pain Tolerance (Ex)																																								FEATAUTO:Diehard
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1
+8	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,0				SA:Divine Grace (Ex)																					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+9	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,0
+10	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1				SA:Improved Pain Tolerance (Ex)																											BONUS:DR|-|max(floor(max(CON,0)/2),1)
+11	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,0
+12	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,1			SA:Aura of Courage (Ex)	SA:Inner Strength (Su)										BONUS:VAR|ChannelTimesBase|max(CON,1)
+13	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,1
+14	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,2,1,1,0			SA:Travail Stasis (Ex)
+15	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,2,1,1,1
+16	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,2,2,1,1			SA:Resilience (Su)
+17	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,2,2,2,1
+18	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,3,2,2,1			SA:Perseverance Over Pain (Sp)
+19	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,3,3,3,2
+20	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,3,3,3,3			SA:Martyrdom (Su)
+
+#############################################################################################################
+
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Beltinian Hospitaler	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HCBlt		SOURCEPAGE:pg. 79	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL	Required Deity	Prohibited Race
+CLASS:Beltinian Hospitaler	PREALIGN:LN	PREDEITY:Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Beltinian Hospitaler	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
+CLASS:Beltinian Hospitaler	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Beltinian Hospitaler|CL/2|PRECLASS:1,Beltinian Hospitaler=2
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|TurnDamagePlusBase|CL-3
+4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)	SA:Mercy For All	SA:Weapons of Our Mother (Ex)																						VFEAT:Two Weapon Fighting|PREMULT:1,[PREEQUIPBOTH:1,Quarterstaff],[PREEQUIPTWOWEAPON:1,Mace (Light)]	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2	CAST:0,0		SA:Divine Grace (Su)	SA:Lay on Hands (Su) % hp/day|LayOnHands	SA:Merciful Strike (Ex)	BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
+3	CAST:0,1		SA:Divine Health (Ex)
+4	CAST:0,2,0
+5	CAST:0,3,1
+6	CAST:0,3,2
+7	CAST:0,3,2,0
+8	CAST:0,3,3,1	SA:No Harm Comes to My Charge (Ex)
+9	CAST:0,3,3,2
+10	CAST:0,3,3,2,0	SA:Call Upon My Ancestors (Su)
+11	CAST:0,3,3,3,1
+12	CAST:0,3,3,3,2
+13	CAST:0,3,3,3,2,0
+14	CAST:0,3,3,3,3,1	SA:Honor Thy Word (Su)
+15	CAST:0,4,3,3,3,2
+16	CAST:0,4,4,3,3,2
+17	CAST:0,4,4,4,3,3
+18	CAST:0,4,4,4,4,3	SA:Cessation of Hostility (Su)
+19	CAST:0,4,4,4,4,4
+20	CAST:0,4,4,4,4,4	SA:Ancestor in Waiting (Ex)
+
+########################################################################################################
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Deathbringer	HD:10		TYPE:Base.PC	ABB:HCNrt		SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL	Required Deity	Prohibited Race
+CLASS:Deathbringer	PREALIGN:LG	PREDEITY:Neroth	!PRERACE:1,Elorii,Ss'ressen
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Deathbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Deathbringer|CL/2|PRECLASS:1,Deathbringer=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3			DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)	SA:Smite Evil (Su) %/day|SmiteEvil				BONUS:VAR|SmiteEvil|1								DEFINE:SmiteEvil|0	SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil		AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2				SA:Divine Grace (Ex)																BONUS:CHECKS|ALL|max(CHA,0)					SPELLS:ClassAbility|TIMES=max(CHA,1)|CASTERLEVEL=CL|Deathwatch
+3				SA:Divine Health (Ex)	SA:Aura of Courage (Ex)
+4	CAST:0,0		SA:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
+5	CAST:0,0
+6	CAST:0,1		SA:Special Mount (Sp)
+7	CAST:0,1
+8	CAST:0,1,0		SA:Neroth's Grasp (Su)
+9	CAST:0,1,0
+10	CAST:0,1,1															BONUS:VAR|SmiteEvil|max(CHA,1)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	SA:To Hear My Voice is to Know Fear (Su)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:Horror of Horrors (Sp) - May only be used against Evil aligned creatures																SPELLS:ClassAbility|TIMES=1|Phantasmal Killer,15+CHA
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:Shroud of Oblivion (Sp)
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Final Word (Su)
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:Life Beyond Life (Ex)
+
+#######################################################################################################3
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Fatespinner	HD:10		TYPE:Base.PC	ABB:HCL		SOURCEPAGE:pg. 95	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Deity	Multiple Requirements
+CLASS:Fatespinner	PREALIGN:CG,CN,CE	PREDEITY:Larissa	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:Tultipetan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fatespinner	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|Listen|TYPE.Profession|Ride|Spot|Sense Motive
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Fatespinner	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Fatespinner|CL/2|PRECLASS:1,Fatespinner=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)	SA:Detect Aura (Sp)									AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+2				SA:Divine Grace (Su)	SA:Borrowed Time (Su)	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+3				SA:Divine Health (Ex)
+4	CAST:0,0		SA:Pull the Strands of Fate (Su)
+5	CAST:0,0
+6	CAST:0,1		SA:More Borrowed Time (Su)
+7	CAST:0,1
+8	CAST:0,1,0		SA:Walk the Web of Fate (Su)
+9	CAST:0,1,0
+10	CAST:0,1,1		SA:Portents of Things to Come (Ex)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	SA:Savant (Su)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:Fate Favors the Will (Su)
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:Supreme Savant (Su)
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Blessed Agility (Sp)																		FEATAUTO:Evasion
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:Alternate Reality (Su)
+
+
+#########################################################################################################
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Harbinger of the Dawn	HD:10		TYPE:Base.PC	ABB:HCIlr		SOURCEPAGE:pg. 93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL		Required Deity	Multiple Requirements
+CLASS:Harbinger of the Dawn	PREALIGN:LG,LN,LE	PREDEITY:Saluwe	PREMULT:1,[PRERACE:1,Val,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PREREGION:Solanos Mor]]
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Harbinger of the Dawn	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
+CLASS:Harbinger of the Dawn	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Harbinger of the Dawn|CL/2|PRECLASS:1,Harbinger of the Dawn=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|TurnDamagePlusBase|CL-3
+4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+###Block:Level Stuff
+1				SA:Aura of Faith (Su)	SA:Smite Chaos (Su) (%/Day, +% to hit, +% Damage)|SmiteChaos|ChaosHit|ChaosDamage	BONUS:VAR|ChaosHit|max(CHA,0)	BONUS:VAR|ChaosDamage|CL									DEFINE:SmiteChaos|1	DEFINE:ChaosHit|0	DEFINE:ChaosDamage|0	SPELLS:ClassAbility|TIMES=-1|Detect Chaos	AUTO:WEAPONPROF|TYPE=Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+2				SA:Lay on Hands (Su) % hp/day|LayOnHands	SA:Divine Grace (Su)								BONUS:VAR|LayOnHands|max(CHA,0)*CL					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
+3				SA:Aura of Courage (Ex)	SA:Divine Health (Ex)
+4	CAST:0,0																																																													FEATAUTO:Weapon Focus(Gladius)
+5	CAST:0,0
+6	CAST:0,1		SA:Perfect Emotions (Ex)																																																							FEATAUTO:Improved Familiar
+7	CAST:0,1
+8	CAST:0,1,0		SA:Smite Infidel (Su) %/Day|SmiteInfidel																														DEFINE:SmiteInfidel|1
+9	CAST:0,1,0
+10	CAST:0,1,1																																						DEFINE:SmiteChaos|max(CHA,1)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	SA:Voice of Our Lord (Su)																																																							FEATAUTO:Weapon Specialization(Gladius)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0																																					DEFINE:SmiteInfidel|max(CHA,1)
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:Ensorcell Me Not (Su)
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Brilliance of Illir (Sp)
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:Perfect Glory of Illir (Su)
+
+
+#########################################################################################################
+
+
+# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Holy Judge of Nier	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:HCNr		SOURCEPAGE:pg. 101	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Required AL		Multiple Requirements
+CLASS:Holy Judge of Nier	PREALIGN:LG,LN,LE	PREMULT:1,[PRERACE:1,Human],[PRERACE:1,Val]
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Holy Judge of Nier	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Local|TYPE.Profession|Ride|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels
+CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3			DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)	SA:Discern Aura (Sp)	SA:Smite Infidel (Su) (%/Day, +% to hit, +% Damage)|SmiteInfidel|InfidelHit|InfidelDamage	BONUS:VAR|InfidelHit|max(CHA,0)	BONUS:VAR|InfidelDamage|CL									DEFINE:SmiteInfidel|0	DEFINE:SmiteInfidel|1	DEFINE:InfidelHit|0	DEFINE:InfidelDamage|0	AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2				SA:Divine Grace (Su)	SA:Fiery Touch (Su) 1/Day																										BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+3				SA:Aura of Courage (Ex)	SA:Divine Health (Ex)
+4	CAST:0,0																																																																	FEATAUTO:Weapon Focus (Greatsword)
+5	CAST:0,0
+6	CAST:0,1		SA:Stand and Be Judged (Su)
+7	CAST:0,1
+8	CAST:0,1,0		SA:Energumen (Su)
+9	CAST:0,1,0
+10	CAST:0,1,1																																												DEFINE:SmiteInfidel|max(CHA,1)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1																																																																FEATAUTO:Weapon Specialization (Greatsword)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:To Hear My Voice is to Know Fear (Su)
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:Conflagration (Sp) 1/Day
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Gavel of Nier (Su)
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:My Word is Law (Su) - Your xp is at maximum (%)|WordLaw														BONUS:VAR|WordLaw|200+(20*CON)														DEFINE:WordLaw|0
+
+############################################################################################################3
+
+# Class Name				Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Knight of the Twelve Oaks	HD:10		TYPE:Base.PC	ABB:HCBls		SOURCEPAGE:pg. 77	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Required AL		Required Deity		Required Race
+CLASS:Knight of the Twelve Oaks	PREALIGN:LG,NG,CG	PREDEITY:Belisarda	PRERACE:1,Elorii
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Twelve Oaks	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
+# Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Knight of the Twelve Oaks|CL/2|PRECLASS:1,Knight of the Twelve Oaks=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack								ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack			DEFINE:AllowImprovedTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+4	BONUS:VAR|TurnLevelBase|CL						DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|TurnDamagePlusBase|CL
+4	BONUS:VAR|TurnCheckBase|CHA|TYPE=Knight of the Twelve Oaks
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)											BONUS:VAR|SmiteEvil|(CL/6)+1																SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil				AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Smite Evil	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2				SA:Divine Grace (Su)	SA:Lay on Hands (Su) % hp/day|LayOnHands				BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	DEFINE:LayOnHands|0
+3				SA:Know Thy Friends (Sp)	SA:Divine Health (Ex)																				DEFINE:DiscernTimes|max(CHA,1)	SPELLS:ClassAbility|TIMES=DiscernTimes|CASTERLEVEL=CL|Discern Lies
+4	CAST:0,0		SA:Defender of the Children (Ex)
+5	CAST:0,0
+6	CAST:0,1		SA:Special Mount (Sp)																															SPELLS:ClassAbility|TIMES=ChannelTimesBase|CASTERLEVEL=CL|Shield Other (KoTO)
+7	CAST:0,1
+8	CAST:0,1,0		SA:Smite the Wayward Spirits (Su)
+9	CAST:0,1,0
+10	CAST:0,1,1		SA:Truth Be Told (Sp)																									DEFINE:DiscernTimes|-1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	SA:One is Many (Sp)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:The Truth is Revealed (Sp)	SA:Touch of Belisarda (Sp) 1/week																								SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Heal
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:Divine Spell Resistance % (Su)|EloriiSpell	SA:Smite Those Who Betray (Su)	BONUS:VAR|EloriiSpell|10+CL										DEFINE:EloriiSpell|0
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Divine Damage Reduction % (Su)|max(CHA,1)
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:I May Take What I Have Given (Su)
+
+###############################################################################################################
+
+# Class Name				Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Order of the Inner Demon	HD:10		TYPE:Base.PC	ABB:HCSrs		SOURCEPAGE:pg. 106	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Required AL	Required Deity	Multiple Requirements
+CLASS:Order of the Inner Demon	PREALIGN:LG	PREDEITY:Sarish	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:Encalan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Order of the Inner Demon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (The Planes)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+# Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Order of the Inner Demon	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Order of the Inner Demon|CL/2|PRECLASS:1,Order of the Inner Demon=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack						ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+4	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT(Turn Infernal)		FEATAUTO:Basic Turning
+4	BONUS:VAR|TurnLevelBase|CL-3				DEFINE:AllowExtraTurning|1
+4	BONUS:VAR|TurnDamagePlusBase|CL-3
+4	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+
+###Block: Level Stuff
+1									SA:Aura of Faith (Ex)	SA:Discern Infernal (Sp)	SA:Path of the Tainted (Ex)	SA:Unnatural Aura (Ex)																																			BONUS:SKILL|Handle Animal,Ride|-2						ADD:FEAT(TYPE=InnerDemon)1								AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+2									SA:Lure of Darkness (Ex)	SA:The Night Hides Not (Ex)																																																																							FEATAUTO:Favored Enemy (Infernal)|Favored Bonus__Infernal
+3									SA:Immune to Poison (Su)	SA:Acid and Cold Resistance % (Su)|ResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SA:Acid, Cold, and Fire Resistance % (Su)|ResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock	BONUS:VAR|ResistLevel|floor(CL/2)							DEFINE:ResistLevel|0
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1							SA:Blessing of Sarish (Su)	SA:Symbiosis I (Su)																																																							ADD:FEAT(TYPE=InnerDemonFirst)1
+7	CAST:0,1
+8	CAST:0,1,0							SA:Fiendish Mount (Sp)
+9	CAST:0,1,0
+10	CAST:0,1,1		SA:.CLEAR.Symbiosis I (Su)	SA:Symbiosis II (Su)																																																												ADD:FEAT(TYPE=InnerDemonSecond)1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1						SA:Aura of Courage (Ex)	SA:Fire Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SA:Electricity Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock			BONUS:VAR|GreaterResistLevel|CL							DEFINE:GreaterResistLevel|0
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:.CLEAR.Symbiosis II (Su)	SA:Symbiosis III (Su)																																																												ADD:FEAT(TYPE=InnerDemonThird)1
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1						SA:Nightmare Mount (Sp)
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:.CLEAR.Symbiosis III (Su)	SA:Symbiosis IV (Su)																																																												ADD:FEAT(TYPE=InnerDemonFourth)1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3						SA:Apotheosis (Su)																																																																		TEMPLATE:Outsider	TEMPLATE:Native
+
+################################################################################################################
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Patrician	HD:6		TYPE:Base.PC	ABB:Pat		SOURCEPAGE:pg. 114	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Listen|TYPE.Perform|TYPE.Profession|Ride|Research|Sense Motive|Speak Language
+###Block: Level Stuff
+1	SA:Educated	SA:Estate|PREVARGT:CL,TL/2																																		ADD:FEAT(PatricianVal,PatricianNonVal)				FEATAUTO:Simple Weapon Proficiency|PatricianTemplates|Armor Proficiency (Light)
+2	SA:Eyes and Ears - % Choices|EyesEarsNumber	SA:Skilled	BONUS:VAR|EyesEarsNumber|1											DEFINE:EyesEarsNumber|0						ADD:CLASSSKILLS(CROSSCLASSSKILLS)1
+3	SA:Coordinate +%|CoordinateBonus					BONUS:VAR|CoordinateBonus|1											DEFINE:CoordinateBonus|0											ADD:FEAT(TYPE=Patrician)
+4	SA:Allowance - % gp|AllowanceAmount					BONUS:VAR|AllowanceAmount|10*max(CHA,0)*CL*AllowanceLevel	BONUS:VAR|AllowanceLevel|1	DEFINE:AllowanceLevel|0	DEFINE:AllowanceAmount|0
+5																																																VFEAT:Leadership
+6											BONUS:VAR|EyesEarsNumber|1																				ADD:CLASSSKILLS(CROSSCLASSSKILLS)1
+7											BONUS:VAR|CoordinateBonus|1																										ADD:FEAT(TYPE=Patrician)
+8	SA:Loyal Servant +%|ServantBonus					BONUS:VAR|ServantBonus|1											DEFINE:ServantBonus|0
+9	SA:Lesser Rebuke (Ex)
+10											BONUS:VAR|EyesEarsNumber|1																				ADD:CLASSSKILLS(CROSSCLASSSKILLS)1
+11											BONUS:VAR|CoordinateBonus|1																										ADD:FEAT(TYPE=Patrician)
+12											BONUS:VAR|AllowanceLevel|1
+13																																									ADD:FEAT(Improved Leadership)
+14											BONUS:VAR|EyesEarsNumber|1																				ADD:CLASSSKILLS(CROSSCLASSSKILLS)1
+15											BONUS:VAR|CoordinateBonus|1																										ADD:FEAT(TYPE=Patrician)
+16											BONUS:VAR|ServantBonus|1
+17	SA:Second Estate
+18											BONUS:VAR|EyesEarsNumber|1																				ADD:CLASSSKILLS(CROSSCLASSSKILLS)1
+19											BONUS:VAR|CoordinateBonus|1																										ADD:FEAT(TYPE=Patrician)
+20											BONUS:VAR|AllowanceLevel|1
+
+#####################################################################################################################
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Philosophic Warrior	HD:8		TYPE:Base.PC	ABB:HCAlt		SOURCEPAGE:pg. 71	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL		Required Deity	Prohibited Race
+CLASS:Philosophic Warrior	PREALIGN:LG,LN,LE	PREDEITY:Althares	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Philosophic Warrior	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Examine Martial Technique|Handle Animal|Heal|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
+# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Philosophic Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Philosophic Warrior|CL/2|PRECLASS:1,Philosophic Warrior=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)																																									AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency	CHANGEPROF:Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)=Martial
+2				SA:Wisdom of Althares (Su)	SA:Comprehend Languages (Su) ~ As the spell at will	BONUS:CHECKS|Fortitude,Reflex|max(WIS,0)
+3				SA:Know Thy Enemy (Ex)
+4	CAST:0,0																																																			FEATAUTO:Scribe Scroll
+5	CAST:0,0
+6	CAST:0,1		SA:Defender of Altheria (Ex)	SA:Exploit Flaw (Ex)
+7	CAST:0,1
+8	CAST:0,1,0		SA:Divine Health (Su)
+9	CAST:0,1,0
+10	CAST:0,1,1		SA:Exploit Technique (Ex)	SA:Special Mount(Sp)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	SA:Aura of Courage (Ex)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0	SA:Insight of Althares (Ex)
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:Tools of the Trade (Ex)																	VFEAT:Exotic Armor Proficiency(Lorica Segmentata)|Exotic Armor Proficiency(Andrean Plate)|Exotic Armor Proficiency(Milandisian Cuirass)	AUTO:WEAPONPROF|TYPE.Exotic
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Steel Mind (Ex)
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:Master of Thy Craft (Ex)
+
+###################################################################################################################
+
+# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		HASSUBCLASS:YES	SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Altherin (Ancient Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Local|TYPE.Religion|Knowledge (The Planes)|Perform (Oratory)|TYPE.Profession|Sense Motive|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
+CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+#
+SUBCLASS:Priest of Althares		PREDEITY:Althares
+SUBCLASSLEVEL:1						SA:Right to Carry																																																																												ADD:FEAT(TYPE=TurnUndead)	ADD:FEAT(TYPE=TurnUndead)		VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))	AUTO:WEAPONPROF|Warhammer
+SUBCLASSLEVEL:5																																BONUS:VAR|AgesKnowledgeLevel|CL/2|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT(Knowledge of the Ages)
+SUBCLASS:Priest of Anshar		PREDEITY:Anshar
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)							VFEAT:Improved Unarmed Strike
+SUBCLASSLEVEL:3																																																																																															VFEAT:Endurance
+SUBCLASSLEVEL:9																																																																																															VFEAT:Diehard
+SUBCLASS:Priest of Belisarda		PREDEITY:Belisarda	CSKILL:Knowledge (Geography)|Knowledge (Nature)|Survival
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)																		AUTO:WEAPONPROF|Longbow
+SUBCLASS:Priest of Beltine		PREDEITY:Beltine
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnNerothGood)	ADD:FEAT(TYPE=TurnBeltineGood)												AUTO:WEAPONPROF|Quarterstaff
+SUBCLASS:Priest of Cadic		PREDEITY:Cadic		CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)	ADD:FEAT(TYPE=TurnCadicGood)		VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:WEAPONPROF|Sword (Short)
+SUBCLASSLEVEL:5																																BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																																										ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+SUBCLASS:Priest of Hurrian		PREDEITY:Hurrian		CSKILL:Survival
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)																		AUTO:WEAPONPROF|Longsword
+SUBCLASS:Priest of Illir		PREDEITY:Illir
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)	ADD:FEAT(TYPE=TurnIllirGood)		VFEAT:Gladius Exotic Weapon Proficiency					AUTO:WEAPONPROF|Gladius
+SUBCLASSLEVEL:5						SA:Fearless (Ex)
+SUBCLASS:Priest of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Survival
+SUBCLASSLEVEL:1						SA:Ignore detrimental effects from natural heat between 80-150 degrees F.																																																																		ADD:FEAT(TYPE=TurnUndead)																		AUTO:WEAPONPROF|Flail (Heavy)
+SUBCLASS:Priest of Larissa		PREDEITY:Larissa		CSKILL:TYPE.Perform|Tumble
+SUBCLASSLEVEL:1	DOMAIN:Divination|Pleasure																																																													BONUS:DOMAIN|NUMBER|1															ADD:FEAT(TYPE=TurnUndead)							VFEAT:Exotic Weapon Proficiency(Whip)					AUTO:WEAPONPROF|Rapier		FEATAUTO:Simple Weapon Proficiency
+SUBCLASSLEVEL:3																																																				BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
+SUBCLASS:Priest of Neroth		PREDEITY:Neroth
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnNerothGood)	ADD:FEAT(TYPE=TurnBeltineGood)												AUTO:WEAPONPROF|Scythe
+SUBCLASS:Priest of Nier			PREDEITY:Nier
+SUBCLASSLEVEL:1						SA:+1 per die of damage on spells cast with the fire descriptor.	SA:When turning undead, the Priest of Nier must destroy the undead or nothing happens.																																																					ADD:FEAT(TYPE=TurnUndead)																		AUTO:WEAPONPROF|Greatsword
+SUBCLASS:Priest of Saluwe		PREDEITY:Saluwe
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)																		AUTO:WEAPONPROF|Spear
+SUBCLASSLEVEL:3						SA:Wild Empathy (Ex)																																																																																																						FEATAUTO:Track
+SUBCLASSLEVEL:4						SA:Animal Companion (Ex)
+SUBCLASS:Priest of Sarish		PREDEITY:Sarish
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)																		AUTO:WEAPONPROF|Dagger								ADD:EQUIP(Dagger (Sarishan Steel))	LANGAUTO:Infernal
+SUBCLASSLEVEL:3																																																																																																															FEATAUTO:Magical Aptitude
+SUBCLASSLEVEL:10						SA:Mark of My Brother
+SUBCLASS:Priest of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
+SUBCLASSLEVEL:1																																																																																				ADD:FEAT(TYPE=TurnUndead)	ADD:FEAT(TYPE=TurnYarrisGood)													AUTO:WEAPONPROF|Trident
+SUBCLASSLEVEL:2						SA:Effected by Endure Elements when within 1 mile of any large body of water.
+SUBCLASSLEVEL:3						SA:Wild Empathy (Ex) (Water Only)																																																											BONUS:SKILL|Profession (Navigator),Survival,Swim|2
+###Block: Basic Turn Undead
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack							DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:TurnLevelSpecial|0	FEATAUTO:Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:Althares,Cadic,Fire Dragon,Larissa,Sarish
+1	BONUS:VAR|TurnLevelBase|CL-2|PREDEITY:Hurrian,Yarris
+1	BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:Anshar,Illir,Saluwe
+1	BONUS:VAR|TurnLevelBase|CL|PREDEITY:Belisarda,Nier
+1	BONUS:VAR|TurnLevelBase|CL+2|PREDEITY:Beltine,Neroth
+1	BONUS:VAR|TurnDamagePlusBase|CL
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase-2|PREDEITY:Beltine,Neroth
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+1|PREDEITY:Illir
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+3|PREDEITY:Yarris
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase|PREDEITY:Cadic
+###Block: Channeling Stuff
+1	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+1	BONUS:VAR|ChannelLevelBase|CL
+1	BONUS:VAR|ChannelDamagePlusBase|CL
+1	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level progression
+1	CAST:3,1				SA:Aura of Faith (Ex)	SA:Trust in Faith	SA:Spontaneous Casting	SA:Rituals of the Faith
+2	CAST:4,2
+3	CAST:4,2,1				SA:Divine Health (Ex)
+4	CAST:5,3,2
+5	CAST:5,3,2,1			SA:Dogma (Ex)	SA:Sermon (Inspire the Faithful) (Su)|PRESKILL:2,TYPE.Religion,Perform (Oratory)=8			BONUS:DOMAIN|NUMBER|1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1			SA:Respect (Ex)	SA:Privilege (Ex)
+10	CAST:6,4,4,3,3,2			SA:Unshakable Dogma (Ex)															BONUS:DOMAIN|NUMBER|1
+11	CAST:6,5,4,4,3,2,1		SA:Sermon (Divine Inspiration) (Su)|PREMULT:2,[PRESKILL:1,TYPE.Religion=10],[PRESKILL:1,Perform (Oratory)=13]
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1		SA:Forceful Aura (Su)
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2		SA:Divine Presence (Su)
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3	SA:Sermon (Inspiration to the Masses) (Su)|PRESKILL:2,TYPE.Religion,Perform (Oratory)=15
+20	CAST:6,5,5,5,5,5,4,4,4,4
+
+###################################################################################################################
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Sea Lord	HD:8		TYPE:Base.PC	ABB:HCY		SOURCEPAGE:pg. 111	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Deity	Prohibited Race
+CLASS:Sea Lord	PREALIGN:LG,NG,CG	PREDEITY:Yarris	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sea Lord	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|TYPE.Local|Knowledge (Nature)|Listen|Move Silently|TYPE.Sea|Ride|Search|Spot|Survival|Swim|Use Rope
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Sea Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sea Lord|CL/2|PRECLASS:1,Sea Lord=4
+###Block: Channeling Stuff
+2	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+2	BONUS:VAR|ChannelLevelBase|CL-1
+2	BONUS:VAR|ChannelDamagePlusBase|CL-1
+2	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1							SA:Aura of Faith (Ex)	SA:+2 to all skill checks when used at sea.													AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+2
+3							SA:Divine Health (Ex)	SA:Yarris' Embrace (Sp)
+4	CAST:0,0		MOVE:Swim,30	SA:At One with the Sea (Ex)	SA:Divine Grace (Ex)	SA:First Pearl of Yarris (Su) - Medium/Medium, Humanoid	BONUS:CHECKS|ALL|max(CHA,0)
+5	CAST:0,0
+6	CAST:0,1					SA:Second Pearl of Yarris (Su) - Animal/Monstrous Humanoid
+7	CAST:0,1
+8	CAST:0,1,0					SA:Third Pearl of Yarris (Su) - Small/Large, Plant/Vermin
+9	CAST:0,1,0
+10	CAST:0,1,1					SA:Fourth Pearl of Yarris (Su) - Giant	SA:Greater at One with the Sea (Ex)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1				SA:Fifth Pearl of Yarris (Su) - Tiny/Huge, Ooze
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0				SA:Sixth Pearl of Yarris (Su) - Abberation
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1				SA:Seventh Pearl of Yarris (Su) - Diminutive/Gargantuan, Magical Beast
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1				SA:Eighth Pearl of Yarris (Su) - Water Elemental
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3				SA:Ninth Pearl of Yarris (Su) - Fine/Colossal, Outsider
+
+############################################################################################################
+
+# Class Name				Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Sentinel of the Blazing Wyrm	HD:10		TYPE:Base.PC	ABB:HCFD		SOURCEPAGE:pg. 86	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name				Required AL		Required Deity		Required Race
+CLASS:Sentinel of the Blazing Wyrm	PREALIGN:LG,LN	PREDEITY:Fire Dragon	PRERACE:1,Ss'ressen
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Sentinel of the Blazing Wyrm	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Nature:Ss'ressen)|Knowledge (Geography:Ssethregore)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Swim
+# Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sentinel of the Blazing Wyrm|CL/2|PRECLASS:1,Sentinel of the Blazing Wyrm=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				VISION:Darkvision (60')					SA:Aura of Faith (Ex)	SA:Detect Evil (Sp)																													SPELLS:ClassAbility|TIMES=-1|CASTERLEVEL=CL|Detect Evil												AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2												SA:Defensive Stance (Ex)	SA:Divine Grace (Ex)	SA:Talons of Flame (Su) % hp/day|TalonFlame	BONUS:VAR|TalonFlame|CHA*CL			BONUS:CHECKS|ALL|max(CHA,0)				DEFINE:TalonFlame|0
+3												SA:Aura of COurage (Ex)	SA:Burning Blood (Ex) ~ immune to natural poisons
+4	CAST:0,0										SA:Ssethric Enforcer (Su)
+5	CAST:0,0
+6	CAST:0,1																																																																								FEATAUTO:Dragon's Hide
+7	CAST:0,1
+8	CAST:0,1,0										SA:Protective Ward (Su)
+9	CAST:0,1,0										SA:Sanction of the Fire Drake (Sp)
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1									SA:Ability Boost - Str (Ex)																									BONUS:STAT|STR|2
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0									SA:Breath of Fire (Su) ~ Reflex DC %|BreathSave										BONUS:VAR|BreathSave|10+(floor(CL/2))+CHA									DEFINE:BreathSave|0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1									SA:Ability Boost - Con (Ex)																									BONUS:STAT|CON|2
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1					SR:CHA+10	DR:10/Magic	SA:Shimmering Scales (Su)
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3									SA:Dragon Apotheosis (Ex)																																										TEMPLATE:CHOOSE:Dragon Apotheosis (Red)|Dragon Apotheosis (Gold)
+
+###################################################################################################################
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Storm Lord	HD:10		TYPE:Base.PC	ABB:HCHrr		SOURCEPAGE:pg. 89	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Deity	Multiple Requirements
+CLASS:Storm Lord	PREALIGN:LG,NG,CG	PREDEITY:Hurrian	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:Tir Betoqi]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Storm Lord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Storm Lord|CL/2|PRECLASS:1,Storm Lord=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1				SA:Aura of Faith (Ex)														BONUS:VAR|SmiteEvil|1											SPELLS:ClassAbility|TIMES=-1|Detect Evil					AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Smite Evil	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
+2				SA:Divine Grace (Su)	SA:Electricity Resistance % (Su)|2*CL													BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+3				SA:Aura of Courage (Ex)	SA:Divine Health (Ex)
+4	CAST:0,0																																																	FEATAUTO:Weapon Focus (Longsword)
+5	CAST:0,0
+6	CAST:0,1		SA:Hand of the Storm Lord - Fortitude DC % (Sp)|10+CHA+(floor(CL/2))	SA:Ride the Lightning (Sp)
+7	CAST:0,1
+8	CAST:0,1,0		SA:Thunderclap - %d4 dmg, deaf for 2d4 rounds, Fortitude Save DC % (Sp)|CL|10+CHA+(floor(CL/2))
+9	CAST:0,1,0
+10	CAST:0,1,1		SA:Special Mount (Sp)
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1																																																FEATAUTO:Weapon Specialization (Longsword)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0																		BONUS:VAR|SmiteEvil|max(CHA,1)
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1	SA:The Heavens Speak (Sp)																											SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Call Lightning Storm
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1	SA:Voice Like Thunder (Sp) 1/week																										SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Holy Word
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3	SA:I Am the Storm (Su)
+
+###############################################################################################################
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Twilight Warrior	HD:8		TYPE:Base.PC	ABB:HCCdc		SOURCEPAGE:pg. 83	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL	Required Deity	Prohibited Race
+CLASS:Twilight Warrior	PREALIGN:LN	PREDEITY:Cadic	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Twilight Warrior	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE.Religion|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Twilight Warrior|CL/2|PRECLASS:1,Twilight Warrior=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###BLOCK:Uncanny Dodge Stuff
+8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
+###Block: Level Stuff
+1				VISION:Darkvision (60')	SA:Aura of Faith (Ex)	SA:Pierce the Veil of Shadow (Su)																													AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+2								SA:Cloak of Cadic (Su)
+3								SA:Shadow Jump (Su)
+4	CAST:0,0						SA:Divine Grace (Su)									BONUS:VAR|SmiteEvil|1	BONUS:CHECKS|ALL|max(CHA,0)																							FEATAUTO:Smite Evil
+5	CAST:0,0						SA:Trapfinding
+6	CAST:0,1						SA:Cloak of Cadic (Womb of Darkness) (Su)															ADD:FEAT(Evasion)1
+7	CAST:0,1
+8	CAST:0,1,0						SA:Turn Shadows (Su)																		ADD:FEAT(Uncanny Dodge)1
+9	CAST:0,1,0
+10	CAST:0,1,1						SA:Cloak of Cadic (Moonless Night) (Su)																				SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1					SA:Aura of Courage (Ex)																		ADD:FEAT(Slippery Mind)1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0					SA:Cloak of Cadic (Cover of Night) (Su)	SA:Hide in Plain Sight (Su)
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1					SA:Shadow Mage (Sp)																							SPELLS:ClassAbility|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration (Greater)
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1					SA:Shadow Master (Su)																		ADD:FEAT(Improved Evasion)1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3					SA:Shadow Jump 1000 ft. (Su)	SA:Shadow Blend (Su)
+
+############################################################################################################
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Verdant Champion	HD:10		TYPE:Base.PC	ABB:HCSlw		SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL	Required Deity	Prohibited Race
+CLASS:Verdant Champion	PREALIGN:LN	PREDEITY:Saluwe	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Verdant Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+CLASS:Verdant Champion	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Verdant Champion|CL/2|PRECLASS:1,Verdant Champion=4
+###Block: Channeling Stuff
+4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT(TYPE=Channeling)	FEATAUTO:Basic Channeling
+4	BONUS:VAR|ChannelLevelBase|CL-3
+4	BONUS:VAR|ChannelDamagePlusBase|CL-3
+4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
+###Block: Level Stuff
+1						SA:Aura of Faith (Ex)	SA:Stability (Ex)	SA:Strength of the Earth (Su)																				AUTO:WEAPONPROF|TYPE.Martial	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Shield Proficiency
+2						SA:Divine Grace (Ex)	SA:Lay on Hands (Su) % hp/day|LayOnHands		BONUS:VAR|LayOnHands|max(CHA,0)*CL	BONUS:CHECKS|ALL|max(CHA,0)					DEFINE:LayOnHands|0
+3						SA:Divine Health (Ex)	SA:Thorn of Saluwe (Sp)
+4	CAST:0,0				SA:Gaea's Embrace (Su)
+5	CAST:0,0
+6	CAST:0,1				SA:Special Mount (Sp)	SA:Earth Mastery (Ex)
+7	CAST:0,1
+8	CAST:0,1,0				SA:Gaea's Ward (Su)
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1	DR:0/-	SA:Like the Mountain (Su)																			BONUS:DR|-|max(CHA,1)
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1			SA:Ley Line (Su)
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1			SA:Tremorsense %' (Su)|TremorLevel							BONUS:VAR|TremorLevel|5*max(CHA,1)										DEFINE:TremorLevel|0
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3			SA:Earthshaker (Su)
+
+#
+# End
+#

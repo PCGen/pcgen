@@ -1,0 +1,74 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 29 20:31:33 2006 -- reformated by prettylst.pl v1.35 (build 561)
+#------light---------
+# Equipment Name			Type					Modifier
+Armor Spikes.MOD			TYPE:Light
+Dagger.MOD				TYPE:Light
+Dagger (Punching).MOD		TYPE:Light
+Mace (Light).MOD			TYPE:Light
+Gauntlet (Spiked).MOD		TYPE:Light
+#-----one handed -------
+Club.MOD				TYPE:OneHanded.LowWeight
+Mace (Heavy).MOD			TYPE:OneHanded
+Morningstar.MOD			TYPE:OneHanded
+Shortspear.MOD			TYPE:OneHanded.LowWeight
+#-----two handed -------
+Longspear.MOD			TYPE:TwoHanded
+Quarterstaff.MOD			TYPE:TwoHanded
+Spear.MOD				TYPE:TwoHanded
+
+####Block: Martial Weapons
+#------light---------
+Axe (Throwing).MOD		TYPE:Light
+Hammer (Light).MOD		TYPE:Light
+Handaxe.MOD				TYPE:Light
+Kukri.MOD				TYPE:Light
+Pick (Light).MOD			TYPE:Light
+Sap.MOD				TYPE:Light
+Spiked Armor.MOD			TYPE:Light
+Sword (Short).MOD			TYPE:Light
+#-----one handed -------
+Battleaxe.MOD			TYPE:OneHanded
+Flail.MOD				TYPE:OneHanded
+Longsword.MOD			TYPE:OneHanded.LowWeight
+Pick (Heavy).MOD			TYPE:OneHanded
+Rapier.MOD				TYPE:OneHanded.LowWeight
+Scimitar.MOD			TYPE:OneHanded.LowWeight
+Trident.MOD				TYPE:OneHanded.LowWeight
+Warhammer.MOD			TYPE:OneHanded
+#-----two handed -------
+Falchion.MOD			TYPE:TwoHanded
+Glaive.MOD				TYPE:TwoHanded
+Greataxe.MOD			TYPE:TwoHanded
+Greatclub.MOD			TYPE:TwoHanded
+Flail (Heavy).MOD			TYPE:TwoHanded
+Greatsword.MOD			TYPE:TwoHanded
+Guisarme.MOD			TYPE:TwoHanded
+Halberd.MOD				TYPE:TwoHanded
+Lance.MOD				TYPE:TwoHanded
+Ranseur.MOD				TYPE:TwoHanded
+Scythe.MOD				TYPE:TwoHanded
+
+####Block: Exotic Weapons
+#------light---------
+Kama.MOD				TYPE:Light
+Nunchaku.MOD			TYPE:Light
+Sai.MOD				TYPE:Light
+Siangham.MOD			TYPE:Light
+#-----one handed -------
+Sword (Bastard).MOD		TYPE:OneHanded
+Waraxe (Dwarven).MOD		TYPE:OneHanded
+Whip.MOD				TYPE:OneHanded.LowWeight
+#-----two handed -------
+Axe (Orc Double).MOD		TYPE:TwoHanded
+Chain (Spiked).MOD		TYPE:TwoHanded
+Flail (Dire).MOD			TYPE:TwoHanded
+Hammer (Gnome Hooked).MOD	TYPE:TwoHanded
+Sword (Two-Bladed).MOD		TYPE:TwoHanded
+Urgrosh (Dwarven).MOD		TYPE:TwoHanded
+
+Holy Symbol (Wooden).MOD						EQMOD:WOOD
+Holy Symbol (Silver).MOD						EQMOD:STEEL
+
+#
+# End
+#

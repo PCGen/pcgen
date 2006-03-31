@@ -1,0 +1,96 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 29 20:31:33 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+#AUTHOR:Evan Miller, 2004
+
+# Laid out to match RSRD ordering
+# Weapon Name			Type			Nb Hands
+# SIMPLE WEAPONS
+
+# -- light melee
+# Weapon Name			Type			Nb Hands
+Pugio					TYPE:Simple
+
+# -- 1-handers
+Aspergil (Light)			TYPE:Simple
+
+# -- 2-handers
+Aspergil (Heavy)			TYPE:Simple		HANDS:2
+Godentang				TYPE:Simple		HANDS:2
+
+# MARTIAL
+# -- light
+Gladius				TYPE:Martial
+
+# 1-handers
+Crowsbeak (Horseman's)		TYPE:Martial
+Koncerz				TYPE:Martial
+Kopesh				TYPE:Martial
+Lancea				TYPE:Martial
+Sword (Reaver)			TYPE:Martial
+Saber					TYPE:Martial
+Spatha				TYPE:Martial
+
+# 2-handers
+Pike (Awl)				TYPE:Martial	HANDS:2
+Bardiche				TYPE:Martial	HANDS:2
+Axe (Bearded)			TYPE:Martial	HANDS:2
+Crowsbeak (Footman's)		TYPE:Martial	HANDS:2
+Flamberge				TYPE:Martial	HANDS:2
+Glaive-Guisarme			TYPE:Martial	HANDS:2
+Great Trident			TYPE:Martial	HANDS:2
+Guisarme-Voulge			TYPE:Martial	HANDS:2
+Kopia					TYPE:Martial	HANDS:2
+Pike					TYPE:Martial	HANDS:2
+Terbutje				TYPE:Martial	HANDS:2
+Axe (Treslauder)			TYPE:Martial	HANDS:2
+Voulge				TYPE:Martial	HANDS:2
+
+# --ranged
+Footbow				TYPE:Martial	HANDS:2
+Mattiobarbuli			TYPE:Martial
+Pila (Heavy)			TYPE:Martial
+Pila (Light)			TYPE:Martial
+
+# EXOTIC
+# -- light
+Drusus				TYPE:Exotic
+Unden Knife				TYPE:Exotic
+Warfan				TYPE:Exotic
+
+# -- 1-handers
+Sword (Chain)			TYPE:Exotic
+Sword (Kio)				TYPE:Exotic
+Steel Whip				TYPE:Exotic
+
+# -- 2-handers
+Amplus Machaera			TYPE:Exotic		HANDS:2
+Sword (Crocodile)			TYPE:Exotic		HANDS:2
+Double Spear			TYPE:Exotic		HANDS:2
+Manchatcher				TYPE:Exotic		HANDS:2
+Spiral Spear			TYPE:Exotic		HANDS:2
+Tralian Hammer			TYPE:Exotic		HANDS:2
+Tremarian Sworock			TYPE:Exotic		HANDS:2
+Yhark					TYPE:Exotic		HANDS:2
+
+# -- ranged
+Bola (Voei)				TYPE:Exotic
+Boomerang Axe			TYPE:Exotic
+Chain Net				TYPE:Exotic		HANDS:2
+Disc Crossbow (Repeating)	TYPE:Exotic		HANDS:2
+Altherian Flintlock (Pistol)	TYPE:Exotic
+Altherian Scattergun		TYPE:Exotic
+Pistol				TYPE:Exotic
+Altherian Flintlock (Rifle)	TYPE:Exotic		HANDS:2
+Blunderbuss				TYPE:Exotic		HANDS:2
+
+# -- Special
+Cafelan Combat Cloak		TYPE:Simple
+Tail Bracer				TYPE:Exotic		HANDS:0
+
+# -- Siege
+Cannon (Field)			TYPE:Siege		HANDS:0
+Cannon (Siege)			TYPE:Siege		HANDS:0
+
+#
+# End
+#

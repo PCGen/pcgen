@@ -1,0 +1,45 @@
+# CVS $Revision: $ $Author: $ -- Thu Mar 30 21:26:18 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+#AUTHOR:Evan Miller, 2004
+
+# Language				Product Identity?	Type
+Altherin (Ancient Imperial)	NAMEISPI:YES	TYPE:Spoken.Written.Imperial
+Ancient Auxunite			NAMEISPI:YES	TYPE:Spoken.Written.Ancient
+Cancerese				NAMEISPI:YES	TYPE:Spoken.Written.Canceri
+Chauni				NAMEISPI:YES	TYPE:Spoken.Written.Chauni
+Druidic							TYPE:Spoken.Written.Druidic
+Dwarven							TYPE:Spoken.Written.Dwarf
+Eloran				NAMEISPI:YES	TYPE:Spoken.Written.Elorii
+Gnollish							TYPE:Spoken
+Golic					NAMEISPI:YES	TYPE:Spoken.Written
+Harnen				NAMEISPI:YES	TYPE:Spoken.Written
+High Coryani			NAMEISPI:YES	TYPE:Spoken.Written.High
+High Khitani			NAMEISPI:YES	TYPE:Spoken.Written.HighK
+Infernal				NAMEISPI:YES	TYPE:Spoken.Written.Infernal
+Kion					NAMEISPI:YES	TYPE:Spoken.Written
+Low Coryani				NAMEISPI:YES	TYPE:Spoken.Written.Low
+Low Khitani				NAMEISPI:YES	TYPE:Spoken.Written.LowK
+Milandisian				NAMEISPI:YES	TYPE:Spoken.Written.Milandisian
+Myrantian				NAMEISPI:YES	TYPE:Spoken.Written.Myrantian
+Orcan								TYPE:Spoken
+Ss'ressen				NAMEISPI:YES	TYPE:Spoken.Written.Reptile
+Ssethric				NAMEISPI:YES	TYPE:Spoken.Written
+Ancient Tenecian			NAMEISPI:YES	TYPE:Spoken.Written
+Unden					NAMEISPI:YES	TYPE:Spoken.Written
+Yhing Hir				NAMEISPI:YES	TYPE:Spoken.Written.Ying
+Ymandrake				NAMEISPI:YES	TYPE:Spoken.Written
+
+# Elemental Languages
+Auran								TYPE:Spoken
+Aquan								TYPE:Spoken
+Ignan								TYPE:Spoken
+Terran							TYPE:Spoken
+
+# Planer Languages
+Abyssal							TYPE:Spoken
+Celestial							TYPE:Spoken
+Infernal							TYPE:Spoken
+
+#
+# End
+#

@@ -1,0 +1,207 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 29 22:26:07 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
+#AUTHOR:Evan Miller, 2004
+
+
+###Block: MISC., FEAT, AND CLASS RELATED TEMPLATES
+# Template Name	Visible	QUALIFY				FAVOREDCLASS		Removable?		Type			GENDERLOCK
+Outsider.MOD															TYPE:Outsider
+ChurchEdu		VISIBLE:NO						FAVOREDCLASS:Cleric	REMOVABLE:NO
+Fair Sex		VISIBLE:NO										REMOVABLE:NO				GENDERLOCK:Female
+
+Bowman		VISIBLE:NO	QUALIFY:Weapon Specialization					REMOVABLE:NO
+
+###Block: Patrician Choices
+# Template Name				Visible	Choose					Feat
+Proficient with a Martial Weapon	VISIBLE:NO							FEAT:Martial Weapon Proficiency
+Proficient with Flintlock Pistol	VISIBLE:NO							FEAT:Exotic Weapon Proficiency (Altherian Flintlock (Pistol))
+Proficient with Deity's Weapon	VISIBLE:NO	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+
+
+###Block: Character Stuff
+# Template Name	Visible	Template																																									Source Page				Required Class	Removable?
+Monastic Orders	VISIBLE:YES	TEMPLATE:CHOOSE:Order of the Iron Soul|Order of the Blade|Order of the Perfect Union|Brotherhood of Man|Order of the Bronze Sepulcer|Order of the Incandescent Path|Order of the Pearl Maidens|Contemplation of the Elements|Order of the Iridescent Scales	SOURCEPAGE:Codex Compendium	PRECLASS:1,Monk=1	REMOVABLE:YES
+
+###Block: Background and other Feat Templates
+# Template Name	Visible	FAVOREDCLASS		Feat																											Removable?		Natural Attacks
+Fishmonger		VISIBLE:NO	FAVOREDCLASS:Bard																													REMOVABLE:YES
+Legionnaire		VISIBLE:NO	FAVOREDCLASS:Fighter	FEAT:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Exotic Armor Proficiency(Lorica Segmentata)|Martial Weapon Proficiency(Gladius)	REMOVABLE:NO
+Tail Attack		VISIBLE:NO																																			NATURALATTACKS:Tail,Weapon.Natural.Melee.Bludgeoning,*2,1d6
+
+###Block: Secret Socities
+# Template Name		Product Identity?	Visible
+Orthodoxy			NAMEISPI:YES	VISIBLE:YES
+Azure Way			NAMEISPI:YES	VISIBLE:YES
+Emerald Society		NAMEISPI:YES	VISIBLE:YES
+Hawk				NAMEISPI:YES	VISIBLE:YES
+Shield			NAMEISPI:YES	VISIBLE:YES
+Mourners in Silence	NAMEISPI:YES	VISIBLE:YES
+
+
+#############################	REGIONAL TEMPLATES	###################################################
+###Block: Regions
+# Template Name	Product Identity?	Visible	Template																				Required Race		Prohibited Race				Class Skill							Change Weapon Prof. Category		Automatic Languages						REGION
+Altheria		NAMEISPI:YES	VISIBLE:YES																										!PRERACE:1,Elorii,Dwarf,Ss'ressen	CSKILL:Knowledge (History)|TYPE.Craft		CHANGEPROF:TYPE.Flintlock=Martial	LANGAUTO:Altherin (Ancient Imperial),Low Coryani	REGION:Altheria
+Elonbe		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Elorii								CSKILL:Survival																					REGION:Elonbe
+Hinterlands		NAMEISPI:YES	VISIBLE:YES	TEMPLATE:CHOOSE:The South|Mil Takara|The Pengik Peninsula|The Vanomir|Sicaris|The Northern Desert|She'Haulk Mountains|Censure					!PRERACE:1,Elorii,Dwarf,Ss'ressen															LANGAUTO:Low Coryani,Ying Hir					REGION:Hinterlands
+Milandir		NAMEISPI:YES	VISIBLE:YES	TEMPLATE:CHOOSE:Eastmarch|Moratavia|Naeraanth|Sylvania|Tralia															!PRERACE:1,Elorii,Dwarf																	LANGAUTO:Low Coryani,Milandisian				REGION:Milandir
+Canceri		NAMEISPI:YES	VISIBLE:YES	TEMPLATE:CHOOSE:Blood March|Cold Plains|Nier's Spine																	!PRERACE:1,Elorii,Dwarf,Ss'ressen															LANGAUTO:Low Coryani,Cancerese				REGION:Canceri
+Coryan		NAMEISPI:YES	VISIBLE:YES	TEMPLATE:CHOOSE:Annonica|Balantica|Cafela|Illonia|Salantis|Toranestra|Ulfia|Valentia|Western Marches									!PRERACE:1,Elorii,Dwarf,Ss'ressen																								REGION:Coryan
+League of Princes	NAMEISPI:YES	VISIBLE:YES	TEMPLATE:CHOOSE:Capharra|Pajharo|Bhiharn|Lhyllifel|Mhyrcia																!PRERACE:1,Elorii,Dwarf,Ss'ressen																								REGION:League of Princes
+Solanos Mor		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Dwarf,Gnome							CSKILL:Craft (Weaponsmithing)																			REGION:Solanos Mor
+Encali		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Dwarf,Gnome							CSKILL:Craft (Gemcutting)																			REGION:Encali
+Tir Betoq		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Dwarf,Gnome							CSKILL:Craft (Glass Blowing)																			REGION:Tir Betoq
+Tultipet		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Dwarf,Gnome							CSKILL:Knowledge (Arcana: Prognostication)																REGION:Tultipet
+Nol Dappa		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Dwarf,Gnome							CSKILL:Craft (Armorsmithing)																			REGION:Nol Dappa
+Entaris		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Elorii								CSKILL:Diplomacy																					REGION:Entaris
+
+###Block: Subregions
+# Template Name		Product Identity?	Visible		Class Skill						Automatic Languages		SUBREGION
+Annonica			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Appraise										SUBREGION:Annonica
+Balantica			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Balantica
+Bhiharn			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Sense Motive									SUBREGION:Bhiharn
+Blood March			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Diplomacy										SUBREGION:Blood March
+Cafela			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Bluff										SUBREGION:Cafela
+Capharra			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Diplomacy										SUBREGION:Capharra
+Censure			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Sense Motive									SUBREGION:Censure
+Cold Plains			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Hide											SUBREGION:Cold Plains
+Eastmarch			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Ride											SUBREGION:Eastmarch
+Illonia			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Diplomacy										SUBREGION:Illonia
+Lhyllifel			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Diplomacy					LANGAUTO:Low Coryani,Eloran	SUBREGION:Lhyllifel
+Mil Takara			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Black Market									SUBREGION:Mil Takara
+Moratavia			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Spot											SUBREGION:Moratavia
+Mhyrcia			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Mhyrcia
+Naeraanth			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Appraise										SUBREGION:Naeraanth
+Nier's Spine		NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Nier's Spine
+Pajharo			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Pajharo
+Salantis			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Profession (Sailor)|Survival							SUBREGION:Salantis
+She'Haulk Mountains	NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:She'Haulk Mountains
+Sicaris			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Appraise										SUBREGION:Sicaris
+Sylvania			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Sylvania
+The Northern Desert	NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Northern Desert
+The Pengik Peninsula	NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Pengik Peninsula
+The South			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Ride											SUBREGION:South
+The Vanomir			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Ride											SUBREGION:Vanomir
+Toranestra			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Move Silently									SUBREGION:Toranestra
+Tralia			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Gather Information								SUBREGION:Tralia
+Ulfia				NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Search										SUBREGION:Ulfia
+Valentia			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Craft (Blacksmithing)|Sense Motive						SUBREGION:Valentia
+Western Marches		NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Ride											SUBREGION:Western Marches
+
+
+
+#################################	ELORII TEMPLATES	############################################
+###Block: Elorii Subraces
+# Template Name	Product Identity?	Visible	Special Ability							Save checks bonus		Bonus to skill							Stat bonus							FAVOREDCLASS		Automatic Languages			Move			Removable?		SUBRACE		Type		Spells
+Ardakene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domains.			BONUS:CHECKS|Will|2	BONUS:SKILL|Heal,Survival|2|TYPE=Racial			BONUS:STAT|WIS,CHA|2	BONUS:STAT|STR,CON|-2	FAVOREDCLASS:Cleric	LANGAUTO:Eloran,Low Coryani					REMOVABLE:NO	SUBRACE:Ardakene			SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Cleric")|Speak With Animals
+Berokene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domain except water.	BONUS:CHECKS|Will|2	BONUS:SKILL|Balance,Profession (Sailor)|2|TYPE=Racial	BONUS:STAT|WIS,DEX|2	BONUS:STAT|INT,CON|-2	FAVOREDCLASS:Rogue	LANGAUTO:Eloran,Low Coryani,Aquan	MOVE:Swim,30	REMOVABLE:NO	SUBRACE:Berokene
+Kelekene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domain except fire.	BONUS:CHECKS|Will|2	BONUS:SKILL|Intimidate|2|TYPE=Racial			BONUS:STAT|INT,DEX|2	BONUS:STAT|WIS,CON|-2	FAVOREDCLASS:Wizard	LANGAUTO:Eloran,Low Coryani,Ignan				REMOVABLE:NO	SUBRACE:Kelekene
+Marokene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domain except earth.	BONUS:CHECKS|Will|2	BONUS:SKILL|Spot,Search|2|TYPE=Racial			BONUS:STAT|STR|2	BONUS:STAT|INT,CHA|-2		FAVOREDCLASS:Fighter	LANGAUTO:Eloran,Low Coryani,Terran				REMOVABLE:NO	SUBRACE:Marokene
+Osalikene		NAMEISPI:YES	VISIBLE:YES	SA:May not select any elemental domain except air.	BONUS:CHECKS|Will|2	BONUS:SKILL|Tumble,Jump|2|TYPE=Racial			BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON,WIS|-2	FAVOREDCLASS:Bard		LANGAUTO:Eloran,Low Coryani,Auran				REMOVABLE:NO	SUBRACE:Osalikene
+
+Ascendant Elorii	NAMEISPI:YES	VISIBLE:NO																																												REMOVABLE:NO				TYPE:Native
+
+###Block: Elorii Bloodline Feat Templates
+# Template Name	Visible	FAVOREDCLASS		Removable?
+PastFighter		VISIBLE:NO	FAVOREDCLASS:Fighter	REMOVABLE:NO
+PastBarbarian	VISIBLE:NO	FAVOREDCLASS:Barbarian	REMOVABLE:NO
+PastRanger		VISIBLE:NO	FAVOREDCLASS:Ranger	REMOVABLE:NO
+PastPaladin		VISIBLE:NO	FAVOREDCLASS:Paladin	REMOVABLE:NO
+PastMonk		VISIBLE:NO	FAVOREDCLASS:Monk		REMOVABLE:NO
+PastWizard		VISIBLE:NO	FAVOREDCLASS:Wizard	REMOVABLE:NO
+PastSorcerer	VISIBLE:NO	FAVOREDCLASS:Sorcerer	REMOVABLE:NO
+PastRogue		VISIBLE:NO	FAVOREDCLASS:Rogue	REMOVABLE:NO
+PastCleric		VISIBLE:NO	FAVOREDCLASS:Cleric	REMOVABLE:NO
+PastDruid		VISIBLE:NO	FAVOREDCLASS:Druid	REMOVABLE:NO
+
+
+
+#############################	VAL TEMPLATES	################################################
+
+###Block: Val Bloodlines
+# Template Name	Product Identity?	FAVOREDCLASS			SUBRACE
+Abebi			NAMEISPI:YES	FAVOREDCLASS:Expert		SUBRACE:Abebi
+Assante		NAMEISPI:YES	FAVOREDCLASS:Patrician		SUBRACE:Assante
+Baucisz		NAMEISPI:YES	FAVOREDCLASS:Rogue		SUBRACE:Baucisz
+Borda			NAMEISPI:YES	FAVOREDCLASS:Rogue		SUBRACE:Borda
+Dellenov		NAMEISPI:YES	FAVOREDCLASS:Druid		SUBRACE:Dellenov
+Emman			NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Emman
+Haupt			NAMEISPI:YES	FAVOREDCLASS:Ranger		SUBRACE:Haupt
+Inares		NAMEISPI:YES	FAVOREDCLASS:Ranger		SUBRACE:Inares
+Ishi			NAMEISPI:YES	FAVOREDCLASS:Cleric		SUBRACE:Ishi
+Mehan			NAMEISPI:YES	FAVOREDCLASS:Conjurer		SUBRACE:Mehan
+Mordane		NAMEISPI:YES	FAVOREDCLASS:Necromancer	SUBRACE:Mordane
+Ossan			NAMEISPI:YES	FAVOREDCLASS:Ranger		SUBRACE:Ossan
+Sheem			NAMEISPI:YES	FAVOREDCLASS:Bard			SUBRACE:Sheem
+Sunga			NAMEISPI:YES	FAVOREDCLASS:Cleric		SUBRACE:Sunga
+Sosi			NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Sosi
+Tensen		NAMEISPI:YES	FAVOREDCLASS:Barbarian		SUBRACE:Tensen
+Trisin		NAMEISPI:YES	FAVOREDCLASS:Bard			SUBRACE:Trisin
+Virdan		NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Virdan
+
+HolrynAbebi		NAMEISPI:YES	FAVOREDCLASS:Expert		SUBRACE:Holryn
+HolrynAssante	NAMEISPI:YES	FAVOREDCLASS:Patrician		SUBRACE:Holryn
+HolrynBaucisz	NAMEISPI:YES	FAVOREDCLASS:Rogue		SUBRACE:Holryn
+HolrynBorda		NAMEISPI:YES	FAVOREDCLASS:Rogue		SUBRACE:Holryn
+HolrynDellenov	NAMEISPI:YES	FAVOREDCLASS:Druid		SUBRACE:Holryn
+HolrynEmman		NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Holryn
+HolrynHaupt		NAMEISPI:YES	FAVOREDCLASS:Ranger		SUBRACE:Holryn
+HolrynInares	NAMEISPI:YES	FAVOREDCLASS:Ranger		SUBRACE:Holryn
+HolrynIshi		NAMEISPI:YES	FAVOREDCLASS:Cleric		SUBRACE:Holryn
+HolrynMehan		NAMEISPI:YES	FAVOREDCLASS:Conjurer		SUBRACE:Holryn
+HolrynMordane	NAMEISPI:YES	FAVOREDCLASS:Necromancer	SUBRACE:Holryn
+HolrynOssan		NAMEISPI:YES	FAVOREDCLASS:Ranger		SUBRACE:Holryn
+HolrynSheem		NAMEISPI:YES	FAVOREDCLASS:Bard			SUBRACE:Holryn
+HolrynSunga		NAMEISPI:YES	FAVOREDCLASS:Cleric		SUBRACE:Holryn
+HolrynSosi		NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Holryn
+HolrynTensen	NAMEISPI:YES	FAVOREDCLASS:Barbarian		SUBRACE:Holryn
+HolrynTrisin	NAMEISPI:YES	FAVOREDCLASS:Bard			SUBRACE:Holryn
+HolrynVirdan	NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Holryn
+
+
+###Block: Bloodrank Levels
+# Template Name	Visible		Special Ability			Define		Required Race	Required Template			Modify VAR			Choose a Feat													Removable?
+First Bloodrank	VISIBLE:DISPLAY	SA:Val Bloorank %|ValBlood	DEFINE:ValBlood|0	PRERACE:1,Val						BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne)											REMOVABLE:NO
+Second Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:First Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne)											REMOVABLE:NO
+Third Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Second Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo)								REMOVABLE:NO
+Fourth Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Third Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo)								REMOVABLE:NO
+Fifth Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Fourth Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree)					REMOVABLE:NO
+Sixth Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Fifth Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree)					REMOVABLE:NO
+Seventh Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Sixth Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree,TYPE=BloodRankFour)	REMOVABLE:NO
+
+
+
+##################################	DARK-KIN TEMPLATES	###########################################
+###Block: Infernal and Daemonic Taint Aspects
+# Template Name	Visible		Special Ability														Define			Modify VAR							Weapon prof. bonus			Natural Attacks
+SharpClaws		VISIBLE:EXPORT																																			NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d3
+WickedTeeth		VISIBLE:NO																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Bludgeoning,*2,1d3
+MassiveHorns	VISIBLE:NO																																				NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*2,1d6
+WickedSting		VISIBLE:NO		SA:Poison Sting (Ex) - Fortitude Save DC % (Primary 1d4 Str/Secondary 2d4 Str)|StingSaveDC	DEFINE:StingSaveDC|0	BONUS:VAR|StingSaveDC|10+(floor(TL/2))+CON	BONUS:WEAPONPROF=Sting|TOHIT|-5	NATURALATTACKS:Sting,Weapon.Natural.Melee.Piercing,*2,1d6
+
+
+###Block: DWARF TEMPLATES	################################################
+# Template Name	Product Identity?	Visible	Special Ability																																			Bonus to skill					Stat bonus					FAVOREDCLASS		Automatic Languages		Bonus Languages									Removable?		SUBRACE
+Encalan		NAMEISPI:YES	VISIBLE:NO	SA:+1 racial bonus on attack rolls against trolls.	SA:+4 Dodge bonus to Armor Class against trolls.	SA:+2 racial bonus on Appraise and Craft checks that are related to gemstones or precious metals.			BONUS:SKILL|TYPE.Craft|4|TYPE=Racial	BONUS:STAT|INT|2	BONUS:STAT|STR|-2	FAVOREDCLASS:Conjurer						LANGBONUS:High Coryani,Altherin (Ancient Imperial),Infernal		REMOVABLE:NO	SUBRACE:Encali
+Nol Dappan		NAMEISPI:YES	VISIBLE:NO	SA:Fire Resistance 10	SA:+1 racial bonus on attack rolls against gnolls.	SA:+4 Dodge bonus to Armor Class against gnolls.	SA:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items.	BONUS:SKILL|TYPE.Craft|4|TYPE=Racial							FAVOREDCLASS:Barbarian						LANGBONUS:Yhing Hir,Cancerese							REMOVABLE:NO	SUBRACE:Nol Dappa
+Solani		NAMEISPI:YES	VISIBLE:NO	SA:+1 racial bonus on attack rolls against giants.	SA:+4 Dodge bonus to Armor Class against monsters of the giant type.	SA:+2 racial bonus on Appraise and Craft checks that are related to stone or metal.			BONUS:SKILL|TYPE.Craft|4|TYPE=Racial	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	FAVOREDCLASS:Fighter						LANGBONUS:High Coryani,Altherin (Ancient Imperial),Milandisian	REMOVABLE:NO	SUBRACE:Solanis Mor
+Tir Betoqi		NAMEISPI:YES	VISIBLE:NO	SA:+1 racial bonus on attack rolls against Infernals.	SA:+4 Dodge bonus to Armor Class against infernals.	SA:+2 racial bonus on Appraise and Craft checks that are related to glassware or crystal items.				BONUS:SKILL|TYPE.Craft|4|TYPE=Racial	BONUS:STAT|CON|2	BONUS:STAT|DEX|-2	FAVOREDCLASS:Storm Lord						LANGBONUS:Kion,Unden,Infernal							REMOVABLE:NO	SUBRACE:Tir Betoq
+Tultipetan		NAMEISPI:YES	VISIBLE:NO	SA:+1 racial bonus on attack rolls against voei.	SA:+4 Dodge bonus to Armor Class against voei.	SA:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items.						BONUS:SKILL|TYPE.Craft|4|TYPE=Racial	BONUS:STAT|WIS|2	BONUS:STAT|CON|-2	FAVOREDCLASS:Monk		LANGAUTO:Low Khitan,Dwarven	LANGBONUS:High Coryani,Altherin (Ancient Imperial)			REMOVABLE:NO	SUBRACE:Tultipet
+
+
+###Block: Ss'Ressen Templates	########################################
+# Template Name		Visible	Template		Combat bonus						Bonus to skill				Stat bonus						FAVOREDCLASS		Virtual Feat		Automatic Languages			Bonus Languages						Removable?		SUBRACE				GENDERLOCK
+Black Talon Male		VISIBLE:YES	TEMPLATE:Milandir	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Balance,Jump,Swim|2	BONUS:STAT|DEX|2	BONUS:STAT|INT|-2		FAVOREDCLASS:Ranger					LANGAUTO:Ss'ressen,Milandisian	LANGBONUS:Ssethric,Low Coryani,Cancerese		REMOVABLE:NO	SUBRACE:Black Talon Clutch	GENDERLOCK:Male
+Black Talon Female	VISIBLE:YES	TEMPLATE:Milandir	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Balance,Jump,Swim|2	BONUS:STAT|DEX|2	BONUS:STAT|INT|-2		FAVOREDCLASS:Ranger					LANGAUTO:Ss'ressen,Milandisian	LANGBONUS:Ssethric,Low Coryani,Cancerese		REMOVABLE:NO	SUBRACE:Black Talon Clutch	GENDERLOCK:Female
+Ashen Hide Male		VISIBLE:YES	TEMPLATE:Canceri	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE							BONUS:STAT|DEX|2	BONUS:STAT|INT,CHA|-2	FAVOREDCLASS:Barbarian	VFEAT:Dragon's Hide	LANGAUTO:Ss'ressen,Cancerese		LANGBONUS:Ssethric,Low Coryani,Milandisian	REMOVABLE:NO	SUBRACE:Ashen Hide Clutch	GENDERLOCK:Male
+Ashen Hide Female		VISIBLE:YES	TEMPLATE:Canceri	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE							BONUS:STAT|DEX|2	BONUS:STAT|INT,CHA|-2	FAVOREDCLASS:Barbarian	VFEAT:Dragon's Hide	LANGAUTO:Ss'ressen,Cancerese		LANGBONUS:Ssethric,Low Coryani,Milandisian	REMOVABLE:NO	SUBRACE:Ashen Hide Clutch	GENDERLOCK:Female
+
+###Block: Sentinel of the Blazing Wyrm Apotheosis Templates
+# Template Name			CR	Visible		Level Adjustment	Template												Source Page				Special Ability																								Define				Prohibited Class						Combat bonus						Stat bonus					Modify VAR							Type		Vision
+Dragon Apotheosis			CR:2	VISIBLE:NO		LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings	TEMPLATE:CHOOSE:Bite ~ Claw (Medium)	SOURCEPAGE:MonstersG-H.rtf																											DEFINE:HalfDragonBreathDC|0									BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|HalfDragonBreathDC|10+HD+max(CON,0)	TYPE:Dragon	VISION:Darkvision (60')|Low-light
+Dragon Apotheosis (Red)			VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis									SOURCEPAGE:pg. 89			SA:Immunity to Fire (Ex)	SA:Immune to sleep and paralysis effects (Ex)	SA:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC						!PRECLASS:1,Sentinel of the Blazing Wyrm=20
+Dragon Apotheosis (Gold)		VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis									SOURCEPAGE:pg. 89			SA:Immunity to Fire (Ex)	SA:Immune to sleep and paralysis effects (Ex)	SA:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC						!PRECLASS:1,Sentinel of the Blazing Wyrm=20
+
+#
+# End
+#
