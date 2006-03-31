@@ -6179,6 +6179,12 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			addSpells(deity);
 		}
 
+		for (Iterator i = characterDomainList.iterator(); i.hasNext();)
+		{
+			final CharacterDomain aCD = (CharacterDomain) i.next();
+			addSpells(aCD.getDomain());
+		}
+
 		for (Iterator i = classList.iterator(); i.hasNext();)
 		{
 			final PCClass aClass = (PCClass) i.next();
