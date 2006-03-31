@@ -84,8 +84,8 @@ Whirlwind Attack			TYPE:General.Fighter	PREATT:4											PREFEAT:4,Dodge,Mobil
 # Currently the Multidexterity and Multiweapon Fighting feats are only displayed properly
 #    in the eqsheet.htm created by the Equip tab.
 # Feat Name				Type					Visible		Min. nb of Hand	Req. Movement	Required Stat	Required Template				Description		Stackable?	Multiple?	Choose		Combat bonus						Class Skill			Cost		Source Page
-Flyby Attack			TYPE:General.Fighter.Dragon							PREMOVE:Fly=1										DESC:See Text																						SOURCEPAGE:srdfeats.rtf
-Hover					TYPE:General.Dragon								PREMOVE:Fly=1				PRETEMPLATE:Dragon|Half-Dragon	DESC:See Text																						SOURCEPAGE:srdmonstersdragons.rtf
+Flyby Attack			TYPE:General.Fighter.Dragon							PREMOVE:1,Fly=1										DESC:See Text																						SOURCEPAGE:srdfeats.rtf
+Hover					TYPE:General.Dragon								PREMOVE:1,Fly=1				PRETEMPLATE:Dragon|Half-Dragon	DESC:See Text																						SOURCEPAGE:srdmonstersdragons.rtf
 Improved Control Shape		TYPE:Special															PRETEMPLATE:Lycanthrope			DESC:See Text																CSKILL:Control Shape	COST:0	SOURCEPAGE:srdmonsterstemplates.rtf
 Multidexterity			TYPE:General.Fighter					PREHANDSGT:2				PRESTAT:1,DEX=15							DESC:See Text								BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4							SOURCEPAGE:srdfeats.rtf
 Multiweapon Fighting		TYPE:General.Fighter					PREHANDSGT:2													DESC:See Text								BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2							SOURCEPAGE:srdfeats.rtf
