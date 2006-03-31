@@ -4039,11 +4039,12 @@ function RemoveStat (attribute) {
   <td class="ct8"><i>School:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|<br /></td>
  </tr>
 |OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
-  <td colspan="7" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
+  <td colspan="6" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
   <td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
  </tr>
-|OIF(EVEN:%spell,<tr style="background:#DDDDDD">,<tr style="background:white">)|
-  <td colspan="9" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+|OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
+  <td colspan="6" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td colspan="2" class="rt8"><i>Caster Level:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
  </tr>
 |ENDFOR|
  <tr>
@@ -4081,11 +4082,12 @@ function RemoveStat (attribute) {
   <td class="ct8"><i>School:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|<br /></td>
  </tr>
 |OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
-  <td colspan="7" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
-  <td colspan="2" class="rt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
+  <td colspan="6" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
+  <td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
  </tr>
 |OIF(EVEN:%spell,<tr style="background:#DDDDDD">,<tr style="background:white">)|
-  <td colspan="9" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td colspan="6" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td colspan="2" class="rt8"><i>Caster Level:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
  </tr>
 |ENDFOR|
  <tr>
@@ -4173,8 +4175,10 @@ function RemoveStat (attribute) {
   <td colspan="8" class="lt8"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
   <td colspan="2" class="rt8"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
  </tr>
-|OIF(EVEN:%spell,<tr style="background:#DDDDDD">,<tr style="background:white">)|
-  <td colspan="10" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+<!-- |OIF(EVEN:%spell,<tr style="background:#DDDDDD">,<tr style="background:white">)| -->
+|OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
+  <td colspan="8" class="lt8"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td colspan="2" class="rt8"><i>Caster Level:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
  </tr>
 |ENDFOR|
 |ENDIF|
