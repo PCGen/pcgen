@@ -34,7 +34,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -248,19 +247,9 @@ public class AbilityUtilities
 	    final PCLevelInfo levelInfo,
 	    PlayerCharacter   aPC)
 	{
-		Ability anAbility = Globals.getAbilityNamed("FEAT", featName);
-		List    choices   = null;
-
-		if (!anAbility.getName().equalsIgnoreCase(featName))
-		{
-			final int i = featName.indexOf('(');
-			final int j = featName.indexOf(')');
-
-			if ((i >= 0) && (j >= 0))
-			{
-				choices = Arrays.asList(featName.substring(i + 1, j).split(","));
-			}
-		}
+		ArrayList choices     = new ArrayList();
+		String    abilityName = EquipmentUtilities.getUndecoratedName(featName, choices);
+		Ability   anAbility   = Globals.getAbilityNamed("FEAT", abilityName);
 
 		return addVirtualFeat(anAbility, choices, addList, aPC, levelInfo);
 	}

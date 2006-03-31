@@ -29,6 +29,7 @@
 package pcgen.persistence.lst.utils;
 
 import pcgen.core.Ability;
+import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -73,8 +74,9 @@ public class FeatParser {
 			}
 			else
 			{
-				// We have a feat name
-				Ability anAbility = Globals.getAbilityNamed("FEAT", aPart);
+				ArrayList choices     = new ArrayList();
+				String    abilityName = EquipmentUtilities.getUndecoratedName(aPart, choices);
+				Ability   anAbility   = Globals.getAbilityNamed("FEAT", abilityName);
 
 				if (anAbility != null)
 				{
@@ -82,31 +84,10 @@ public class FeatParser {
 					anAbility.setFeatType(Ability.ABILITY_VIRTUAL);
 					anAbility.clearPreReq();
 
-					//
-					// Check for crazy things like:
-					//   Weapon Finesse (Claw, Bite)
-					// Which means add the Weapon Finesse
-					// feat and apply to Claw and Bite
-					//
-					if (!anAbility.getName().equalsIgnoreCase(aPart))
-					{
-						final int i = aPart.indexOf('(');
-						final int j = aPart.indexOf(')');
-
-						if ((i >= 0) && (j >= 0))
-						{
-							final StringTokenizer bTok = new StringTokenizer(aPart.substring(i + 1, j), ",");
-
-							while (bTok.hasMoreTokens())
-							{
-								final String a = bTok.nextToken();
-
-								if (!anAbility.containsAssociated(a))
-								{
-									anAbility.addAssociated(a);
-								}
-							}
-						}
+					Iterator choiceIt = choices.iterator();
+					
+					while (choiceIt.hasNext()) {
+						anAbility.addAssociated((String) choiceIt.next());
 					}
 
 					aList.add(anAbility);
@@ -116,9 +97,9 @@ public class FeatParser {
 
 		if ((preString.length() > 0) && !aList.isEmpty())
 		{
-			for (Iterator e = aList.iterator(); e.hasNext();)
+			for (Iterator abilityIt = aList.iterator(); abilityIt.hasNext();)
 			{
-				Ability anAbility = (Ability) e.next();
+				Ability anAbility = (Ability) abilityIt.next();
 
 				try
 				{

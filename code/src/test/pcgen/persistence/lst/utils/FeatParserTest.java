@@ -27,6 +27,7 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.util.TestHelper;
 
 /**
  */
@@ -102,4 +103,22 @@ public class FeatParserTest extends AbstractCharacterTestCase {
         		"", prereq.toString());
     }
 
+    /**
+     * testParseVirtualFeatList3
+     */
+	public void testParseVirtualFeatList3() {
+		TestHelper.makeAbility("Two Weapon Fighting", "FEAT", "Fighter");
+		TestHelper.makeAbility("Weapon Finesse", "FEAT", "Fighter");
+		TestHelper.makeAbility("Random Ability 1", "FEAT", "Fighter");
+		TestHelper.makeAbility("Random Ability 1", "FEAT", "Fighter");
+
+        List feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|Weapon Finesse (Bite, Claws)");
+        is(new Integer(feats.size()), eq(2), "size of list");
+
+        is(((Ability)feats.get(0)).getName(), strEq("Two Weapon Fighting"), "First feat is correct");
+        is(((Ability)feats.get(1)).getName(), strEq("Weapon Finesse"),      "Second feat is correct");
+
+        is(((Ability)feats.get(1)).getAssociated(0), strEq("Bite"), "First choice is correct");
+        is(((Ability)feats.get(1)).getAssociated(1), strEq("Claws"), "Second choice is correct");
+	}
 }
