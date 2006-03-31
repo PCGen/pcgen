@@ -228,7 +228,7 @@ Iron Flask								TYPE:Magic.Wondrous.Vial				COST:170000	WT:1		SOURCEPAGE:Magic
 Lantern of Revealing							TYPE:Magic.Wondrous									COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf
 Lens of Detection								TYPE:Magic.Wondrous									COST:3500	WT:1														SOURCEPAGE:MagicItemsV.rtf						BONUS:SKILL|Search|5																				SPROP:+5 to Survival while Tracking
 Lyre of Building								TYPE:Magic.Wondrous									COST:13000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Mantle of Faith								TYPE:Magic.Wondrous.Clothing								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/evil
+Mantle of Faith								TYPE:Magic.Wondrous.Clothing								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/Evil
 Mantle of Spell Resistance						TYPE:Magic.Wondrous									COST:90000	WT:0														SOURCEPAGE:MagicItemsV.rtf	SR:21
 Manual of Bodily Health +1						TYPE:Magic.Wondrous.Book								COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
 Manual of Bodily Health +2						TYPE:Magic.Wondrous.Book								COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
