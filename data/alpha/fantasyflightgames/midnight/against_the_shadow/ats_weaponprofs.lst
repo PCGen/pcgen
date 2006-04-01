@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Aaron Divinsky
+
+# Weapon Name			Type
+Farmer's Rope			TYPE:Simple
+Tack Whip				TYPE:Simple
+Horse Hammer			TYPE:Simple
+Wogren Jawhelm			TYPE:Simple
+
+Orc Slitter				TYPE:Exotic
+Staghorn				TYPE:Exotic
+Atharak				TYPE:Exotic
+Lance (Halfling)			TYPE:Exotic
+Tangle Spear			TYPE:Exotic
+Vardatch (Crafted)		TYPE:Exotic
+Bladed Staff			TYPE:Exotic
+Dornish Horse Spear		TYPE:Exotic
+Lance (Sarcosan)			TYPE:Exotic
+Vardatch (Crafted (Greater))	TYPE:Exotic
+
+Orcish Plagueskull		TYPE:Simple
+Inutek				TYPE:Martial
+
+#
+# End
+#

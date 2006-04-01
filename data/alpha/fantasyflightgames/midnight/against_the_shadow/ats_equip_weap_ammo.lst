@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# Original Entry By: Aaron Divinsky
+
+### TODO: Not really sure how to do this.
+# Equipment Name		Output Name					Type							Cost		Weight	Modifier		Source Page
+Shard Arrow (Longbow)	OUTPUTNAME:Shard Arrow, Longbow	TYPE:Ammunition.Standard.Wooden.Arrow	COST:12	WT:.5		EQMOD:STEEL.WOOD	SOURCEPAGE:p. 84
+Shard Arrow (Shortbow)	OUTPUTNAME:Shard Arrow, Shortbow	TYPE:Ammunition.Standard.Wooden.Arrow	COST:12	WT:.5		EQMOD:STEEL.WOOD	SOURCEPAGE:p. 84
+
+#
+# End
+#

@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Eddy Anthony
+
+# Skill Name		Key Stat	Untrained?		Exclusive?		Type
+Knowledge (Herbalism)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge
+
+#
+# End
+#

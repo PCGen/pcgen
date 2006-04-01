@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+#Original Entry By: Aaron Divinsky
+
+# Template Name					Visible	Template																																																											Required Size	Automaticaly Added to Inventory	Natural Attacks
+Weak Claw 2 ~ Very Weak Bite			VISIBLE:NO	TEMPLATE:CHOOSE:Weak Claw 2 ~ Very Weak Bite (Small)|Weak Claw 2 ~ Very Weak Bite (Medium)
+
+###Block: Weak Claw 2 ~ Very Weak Bite
+Weak Claw 2 ~ Very Weak Bite (Small)	VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Weak Claw 2 ~ Very Weak Bite (Medium)	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2
