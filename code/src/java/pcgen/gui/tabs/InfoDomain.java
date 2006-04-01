@@ -1081,20 +1081,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 
 			// Update the list of deities
-//			List deityList = deityModel.getData();
-//			deityList.clear();
-//
-//			for (Iterator it = Globals.getDeityList().iterator(); it.hasNext();)
-//			{
-//				final Deity aDeity = (Deity) it.next();
-//
-//				if (accept(pc, aDeity))
-//				{
-//					deityList.add(aDeity);
-//				}
-//			}
-
-////			deityModel.fireTableDataChanged();
+			createModel();
+			deityTable.updateUI();
 
 			// Set the displayed deity name
 			if (pc.getDeity() != null)
@@ -1366,8 +1354,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		deityModel.setQFilter(null);
 		textDeityQFilter.setText(null);
 		viewComboBox.setEnabled(true);
-		createModel();
-		deityTable.updateUI();
 		forceRefresh();
 	}
 
@@ -1389,8 +1375,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		viewMode = GuiConstants.INFODOMAIN_VIEW_NAME;
 		clearDeityQFilterButton.setEnabled(true);
 		viewComboBox.setEnabled(false);
-		createModel();
-		deityTable.updateUI();
 		forceRefresh();
 	}
 

@@ -521,7 +521,11 @@ public final class Deity extends PObject
 	 */
 	public void setPantheonList(final List pantheonList)
 	{
-		listChar.addAllToListFor(ListKey.PANTHEON, pantheonList);
+		for (Iterator iter = pantheonList.iterator(); iter.hasNext();)
+		{
+			String pantheon = (String) iter.next();
+			addPantheon(pantheon);
+		}
 	}
 
 	/**
@@ -530,7 +534,11 @@ public final class Deity extends PObject
 	 */
 	public void setRacePantheonList(final List raceList)
 	{
-		listChar.addAllToListFor(ListKey.RACEPANTHEON, raceList);
+		for (Iterator iter = raceList.iterator(); iter.hasNext();)
+		{
+			String race = (String) iter.next();
+			addRacePantheon(race);
+		}
 	}
 
 	/**
