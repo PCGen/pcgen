@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Apr  1 10:04:07 2006 -- reformated by prettylst.pl v1.35 (build 555)
-SOURCELONG:Malhavoc Press - If Thoughts Could Kill|SOURCESHORT:ITCK|SOURCEWEB:http://www.montecook.com
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 
 # Class Name		Product Identity?	Hit Dice	Type					Abbreviation	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Psionic.Prestige	ABB:CoA		SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
