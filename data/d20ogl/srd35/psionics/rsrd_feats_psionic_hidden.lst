@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Sat Apr  1 10:44:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -46,3 +46,11 @@ MindBlade Bladewind		TYPE:Special	VISIBLE:NO	SA:Bladewind
 MindBlade Knife to the Soul	TYPE:Special	VISIBLE:NO	SA:Knife to the Soul
 MindBlade Multiple Throw	TYPE:Special	VISIBLE:NO	SA:Multiple Throw
 
+###Block: elocator abilities
+# Feat Name			Type			Visible	Special Ability		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+Elocator Transporter	TYPE:Special	VISIBLE:NO	SA:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
+
+###Block: thrallherd abilities
+# Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose			Bonus to spell known/L			List of Class Spells by Level
+Thrallherd Charm		TYPE:Special	VISIBLE:NO	SA:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%;LEVEL=1|1]	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
+Thrallherd Dominate	TYPE:Special	VISIBLE:NO	SA:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%;LEVEL=4|1]	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)

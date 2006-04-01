@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Sat Apr  1 10:44:44 2006 -- reformated by prettylst.pl v1.35 (build 555)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -34,13 +34,12 @@ CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentratio
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1	ADD:SPELLCASTER(Psionic)	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																																												FEATAUTO:Sidestep Charge
+1	ADD:SPELLCASTER(Psionic)	SA:Scorn Earth (Su)	SA:Sidestep Charge (Ex)																																					FEATAUTO:Sidestep Charge
 2						SA:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
-3	ADD:SPELLCASTER(Psionic)	SA:Dimension Step (Su)																																				SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
+3	ADD:SPELLCASTER(Psionic)	SA:Dimension Step (Su)																													SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
 4	ADD:SPELLCASTER(Psionic)	SA:Flanker (designate adjacent square to be determination for flanking)(Ex)
 5																					BONUS:VAR|OpportunisticStrike|2
-6	ADD:SPELLCASTER(Psionic)	SA:Transporter (Psionic Teleport & Psionic Plane Shift become known powers)(Ex)													CHOOSE:SPELLLEVEL|1|TYPE=Psionic|3|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=3|1]																		SPELLLEVEL:CLASS|%=3|Teleport (Psionic)
-6																																CHOOSE:SPELLLEVEL|1|TYPE=Psionic|3|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=3|1]																		SPELLLEVEL:CLASS|%=3|Plane Shift (Psionic)
+6	ADD:SPELLCASTER(Psionic)																											ADD:FEAT(Elocator Transporter)
 7	ADD:SPELLCASTER(Psionic)	SA:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)
 8																					BONUS:VAR|OpportunisticStrike|2
 9	ADD:SPELLCASTER(Psionic)	SA:Dimension Spring Attack (Su)(1x/day)
@@ -162,9 +161,9 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Cr
 ###Block: Class Info
 1						SA:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
 2	ADD:SPELLCASTER(Psionic)
-3	ADD:SPELLCASTER(Psionic)	SA:Psionic Charm (Ex)																			CHOOSE:SPELLLEVEL|1|TYPE=Psionic|3|3[BONUS:SPELLKNOWN|CLASS=%;LEVEL=3|1]	SPELLLEVEL:CLASS|%=3|Charm (Psionic)
+3	ADD:SPELLCASTER(Psionic)																							ADD:FEAT(Thrallherd Charm)
 4	ADD:SPELLCASTER(Psionic)
-5	ADD:SPELLCASTER(Psionic)	SA:Psionic Dominate (Ex)																		CHOOSE:SPELLLEVEL|1|TYPE=Psionic|5|5[BONUS:SPELLKNOWN|CLASS=%;LEVEL=5|1]	SPELLLEVEL:CLASS|%=5|Dominate (Psionic)
+5	ADD:SPELLCASTER(Psionic)																							ADD:FEAT(Thrallherd Dominate)
 6	ADD:SPELLCASTER(Psionic)
 7	ADD:SPELLCASTER(Psionic)	SA:Greater Dominate (Ex)
 8	ADD:SPELLCASTER(Psionic)
