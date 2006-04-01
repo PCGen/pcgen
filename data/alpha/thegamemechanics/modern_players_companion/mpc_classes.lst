@@ -1,0 +1,386 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 18:29:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
+# Original Entry by: Frank Kliewe
+
+###Adding 'Instinctive Response' Talent Tree to Fast Hero
+
+# Class Name
+CLASS:Fast.MOD
+SUBCLASS:Fast Hero	COST:0
+SUBCLASSLEVEL:1	ADD:.CLEAR
+SUBCLASSLEVEL:1			ADD:FEAT(TYPE=Defensive,TYPE=IncreasedSpeed,TYPE=InstinctiveResponse)
+SUBCLASSLEVEL:2			ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:3			ADD:FEAT(TYPE=Defensive,TYPE=IncreasedSpeed,TYPE=InstinctiveResponse)
+SUBCLASSLEVEL:4			ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:5			ADD:FEAT(TYPE=Defensive,TYPE=IncreasedSpeed,TYPE=InstinctiveResponse)
+SUBCLASSLEVEL:6			ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:7			ADD:FEAT(TYPE=Defensive,TYPE=IncreasedSpeed,TYPE=InstinctiveResponse)
+SUBCLASSLEVEL:8			ADD:FEAT(TYPE=Fast)
+SUBCLASSLEVEL:9			ADD:FEAT(TYPE=Defensive,TYPE=IncreasedSpeed,TYPE=InstinctiveResponse)
+SUBCLASSLEVEL:10			ADD:FEAT(TYPE=Fast)
+
+###Adding 'Deduction' Talent Tree to Smart Hero
+
+# Class Name
+CLASS:Smart.MOD
+SUBCLASS:Smart Hero	COST:0
+SUBCLASSLEVEL:1	ADD:.CLEAR
+SUBCLASSLEVEL:1			ADD:FEAT(TYPE=Research,TYPE=Strategy,TYPE=Deduction)
+SUBCLASSLEVEL:2			ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:3			ADD:FEAT(TYPE=Research,TYPE=Strategy,TYPE=Deduction)
+SUBCLASSLEVEL:4			ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:5			ADD:FEAT(TYPE=Research,TYPE=Strategy,TYPE=Deduction)
+SUBCLASSLEVEL:6			ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:7			ADD:FEAT(TYPE=Research,TYPE=Strategy,TYPE=Deduction)
+SUBCLASSLEVEL:8			ADD:FEAT(TYPE=Smart)
+SUBCLASSLEVEL:9			ADD:FEAT(TYPE=Research,TYPE=Strategy,TYPE=Deduction)
+SUBCLASSLEVEL:10			ADD:FEAT(TYPE=Smart)
+
+#			     #
+### ADVANCED CLASSES ###
+#			     #
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Adept		HD:6		TYPE:PC.Advanced	ABB:Adpt		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Required Skill
+CLASS:Adept		PRESKILL:1,Craft (Chemical)=3	PRESKILL:2,Gather Information,Knowledge (Arcane Lore)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Adept		STARTSKILLPTS:5	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Spellbook		Caster level			Use Spell List
+CLASS:Adept		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLBOOK:NO	BONUS:CASTERLEVEL|Adept|CL	SPELLLIST:1|Mage
+###Block: Standard
+1	CAST:5,3		KNOWN:4,2						BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light	BONUS:MISC|SPELLFAILURE|30|PREEQUIP:2,TYPE=Armor,TYPE=Medium	BONUS:MISC|SPELLFAILURE|40|PREEQUIP:2,TYPE=Armor,TYPE=Heavy	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]	ADD:FEAT(Arcane Skills)
+2	CAST:6,4		KNOWN:5,2		SA:Scribe Tattoo
+3	CAST:6,5		KNOWN:5,3																																																																																														ADD:FEAT(TYPE=Adept)
+4	CAST:6,6,3		KNOWN:6,3,1		SA:Combat Casting
+5	CAST:6,6,4		KNOWN:6,4,2		SA:Brew Potion
+6	CAST:6,6,5,3	KNOWN:7,4,2,1																																																																																													ADD:FEAT(TYPE=Adept)
+7	CAST:6,6,6,4	KNOWN:7,5,3,2	SA:Scribe Scroll
+8	CAST:6,6,6,5,3	KNOWN:8,5,3,2,1	SA:Eschew Materials
+9	CAST:6,6,6,6,4	KNOWN:8,5,4,3,2																																																																																													ADD:FEAT(TYPE=Adept)
+10	CAST:6,6,6,6,5,3	KNOWN:9,5,4,3,2,1	SA:Maximize Spell
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Arcane Scholar	HD:6		TYPE:PC.Advanced	ABB:ArSc		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3
+# Class Name		Required Feat			Required Skill												Required Stat
+CLASS:Arcane Scholar	PREFEAT:2,Educated,Studious	PRESKILL:4,Decipher Script,Knowledge (Arcane Lore),Knowledge (History),Research=6	PRESTAT:1,INT=13
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Scholar	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spellcraft
+1	SA:Detect Magic																					ADD:FEAT(Arcane Skills)
+2							BONUS:VAR|ASCL|CL	BONUS:MISC|SR|ASCL								DEFINE:ASCL|0	ADD:FEAT(Class Ability Magic Defense)
+3																								ADD:FEAT(TYPE=ArcaneScholar)
+4	SA:Master of Tomes										BONUS:SKILL|Research|CL|TYPE=Competence
+5	SA:Master of Wondrous Items
+6																								ADD:FEAT(TYPE=ArcaneScholar)
+7	SA:Master of Wands and Scrolls
+8	SA:Augment Spell Resistance					BONUS:MISC|SR|5
+9																								ADD:FEAT(TYPE=ArcaneScholar)
+10																								ADD:FEAT(Master of Incantations)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
+CLASS:Bounty Hunter	HD:8		TYPE:PC.Advanced	ABB:BHntr		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Req. Att.	Required Feat						Required Skill
+CLASS:Bounty Hunter	PREATT:2	PREFEAT:2,Track,Personal Firearms Proficiency	PRESKILL:5,Investigate,Sense Motive,Spot,Survival,Treat Injury=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bounty Hunter	STARTSKILLPTS:5	CSKILL:Bluff|Disable Device|Drive|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot|Survival|Treat Injury
+1	SA:Target Bonus +%|Trgt_Bns	BONUS:VAR|Trgt_Bns|1											DEFINE:Trgt_Bns|0
+2																							ADD:FEAT(Sharp Eye)
+3																							ADD:FEAT(TYPE=BountyHunter)
+4	SA:Improved Grapple		BONUS:VAR|Trgt_Bns|1	BONUS:COMBAT|TOHIT.GRAPPLE|4
+5	SA:Swift Track
+6																							ADD:FEAT(TYPE=BountyHunter)
+7	SA:Most Wanted			BONUS:VAR|Trgt_Bns|1						BONUS:SKILL|Profession|1				ADD:FEAT(Windfall)	ADD:FEAT(Renown)
+8	SA:Bring 'em Back Alive
+9																							ADD:FEAT(TYPE=BountyHunter)
+10	SA:Sudden Insight			BONUS:VAR|Trgt_Bns|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Confidence Artist	HD:6		TYPE:PC.Advanced	ABB:ConArt		MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Required Skill
+CLASS:Confidence Artist	PRESKILL:3,Bluff,Gather Information,Sleight of Hand=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Confidence Artist	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Diplomacy|Disguise|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Act)|Perform (Sing)|Profession|Read/Write Language|Research|Sense Motive|Sleight of Hand|Speak Language|Spot
+1	SA:Self Confidence (Confidence Artist)
+2	SA:Hidden Motives
+3																	ADD:FEAT(TYPE=ConArtist)
+4	SA:Sympathetic Ear				BONUS:SKILL|Gather Information|CL|TYPE=Circumstance
+5	SA:Sticky Fingers					BONUS:SKILL|Sleight of Hands|CL|TYPE=Circumstance
+6																	ADD:FEAT(TYPE=ConArtist)
+7	SA:Honest Eyes					BONUS:SKILL|Diplomacy|CL|TYPE=Circumstance
+8	SA:Shift the Blame
+9																	ADD:FEAT(TYPE=ConArtist)
+10	SA:Utterly Convincing
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Criminologist	HD:6		TYPE:PC.Advanced	ABB:Crlgst		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name		Required Skill											Required Stat
+CLASS:Criminologist	PRESKILL:5,Research,TYPE.Knowledge,TYPE.Knowledge,TYPE.Knowledge,Search=6	PRESTAT:1,INT=14
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Criminologist	STARTSKILLPTS:9	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Disable Device|Forgery|Gather Information|Investigate|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Repair|Research|Search|Sense Motive|Spot|Survival
+1						ADD:FEAT(Sharp Eye)
+2	SA:Contact (low-level)
+3						ADD:FEAT(TYPE=Criminologist)
+4	SA:Burning the Midnight Oil
+5	SA:Contact (mid-level)
+6						ADD:FEAT(TYPE=Criminologist)
+7	SA:Case Files
+8	SA:Contact (high-level)
+9						ADD:FEAT(TYPE=Criminologist)
+10	SA:Smoking Gun
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Dead Shot	HD:8		TYPE:PC.Advanced	ABB:DdSht		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3
+# Class Name	Req. Att.	Required Feat							Required Skill
+CLASS:Dead Shot	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,Far Shot	PRESKILL:2,Concentration,Spot=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dead Shot	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Disguise|Gather Information|Hide|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Profession|Spot|Survival
+1	SA:Dead Aim
+2					ADD:FEAT(Dead Shot Weapon Focus)
+3					ADD:FEAT(TYPE=DeadShot)
+4	SA:Camouflage
+5					ADD:FEAT(Staggering Shot)
+6					ADD:FEAT(TYPE=DeadShot)
+7					ADD:FEAT(Dead Shot Greater Weapon Focus)
+8	SA:Improved Dead Aim
+9					ADD:FEAT(TYPE=DeadShot)
+10					ADD:FEAT(Bull's Eye)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Enforcer	HD:12		TYPE:PC.Advanced	ABB:Enfrc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name	Req. Att.	Required Feat	Required Skill
+CLASS:Enforcer	PREATT:3	PREFEAT:1,Brawl	PRESKILL:1,Intimidate=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Enforcer	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Speak Language|Sense Motive|Search
+1	SA:Sucker Punch
+2	SA:Lose It %/day|LOSE_IT	BONUS:VAR|LOSE_IT|1										DEFINE:LOSE_IT|0
+3																						ADD:FEAT(TYPE=Enforcer)
+4																										VFEAT:Combat Martial Arts
+5						BONUS:VAR|LOSE_IT|1
+6																						ADD:FEAT(TYPE=Enforcer)
+7	SA:Street Cred							BONUS:SKILL|Intimidate|Var.Reputation|TYPE=Class
+8						BONUS:VAR|LOSE_IT|1
+9																						ADD:FEAT(TYPE=Enforcer)
+10	SA:Big Shot
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Fixer		HD:6		TYPE:PC.Advanced	ABB:Fxr		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name	Required Feat	Required Skill
+CLASS:Fixer		PREFEAT:1,Favor	PRESKILL:3,Diplomacy,Gather Information,Knowledge (Current Events)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fixer		STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Forgery|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Repair|Research|Sense Motive|Speak Language
+1							SA:Word on the Street
+2							SA:Contact (low-level)
+3												ADD:FEAT(TYPE=Fixer)
+4							SA:Pack Rat
+5							SA:Contact (mid-level)
+6												ADD:FEAT(TYPE=Fixer)
+7							SA:Make a Call (ordinary)
+8							SA:Contact (high-level)
+9												ADD:FEAT(TYPE=Fixer)
+10	SA:.CLEAR.Make a Call (ordinary)	SA:Make a Call (heroic)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Gentle Warrior	HD:8		TYPE:PC.Advanced	ABB:GntlW		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Required Feat										Required Skill		Var. Min. Value
+CLASS:Gentle Warrior	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Balance=6	PREVARGTEQ:ClassDefense,4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Gentle Warrior	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|Spot|Tumble
+1					ADD:FEAT(Uncanny Dodge X1,Uncanny Dodge X2)	FEAT:Unarmed Weapon Finesse
+2	SA:Improved Grapple
+3					ADD:FEAT(TYPE=GentleWarrior)
+4					ADD:FEAT(Uncanny Dodge X2)
+5	SA:At Arm's Length
+6					ADD:FEAT(TYPE=GentleWarrior)
+7	SA:Hard to Hold
+8	SA:Greater Grapple
+9					ADD:FEAT(TYPE=GentleWarrior)
+10	SA:Nerve Pinch
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Hacker	HD:6		TYPE:PC.Advanced	ABB:Hckr		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Required Feat		Required Skill
+CLASS:Hacker	PREFEAT:1,Gearhead	PRESKILL:3,Computer Use,Craft (Electronic),Knowledge (Technology)=6	PRESKILL:2,Disable Device,Repair=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hacker	STARTSKILLPTS:7	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Writing)|Decipher Script|Diplomacy|Disable Device|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
+1	SA:Online Presence
+2	SA:Read/Write Code
+3					ADD:FEAT(TYPE=Hacker)
+4					ADD:FEAT(Hacker Abilities)
+5	SA:False Account
+6					ADD:FEAT(TYPE=Hacker)
+7					ADD:FEAT(Hacker Abilities)
+8					ADD:FEAT(Hacker Abilities)
+9					ADD:FEAT(TYPE=Hacker)
+10	SA:Improved Degradation
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Opinion Maker	HD:6		TYPE:PC.Advanced	ABB:OpMkr		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name		Required Skill												Var. Min. Value
+CLASS:Opinion Maker	PRESKILL:2,Bluff,Diplomacy=6	PRESKILL:2,Knowledge (Current Events),Sense Motive=3	PREVARGTEQ:Reputation,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Opinion Maker	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Writing)|Diplomacy|Disguise|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Research|Sense Motive|Speak Language
+1	SA:Renown							BONUS:VAR|Reputation|3
+2	SA:Sound Bites
+3																			ADD:FEAT(TYPE=OpinionMaker)
+4	SA:Winning Smile (Will save DC %)|WINNING_SMILE	BONUS:VAR|WINNING_SMILE|10+CL+CHA	DEFINE:WINNING_SMILE|0
+5	SA:Improved Renown					BONUS:VAR|Reputation|3
+6																			ADD:FEAT(TYPE=OpinionMaker)
+7	SA:Personal Assistant
+8	SA:Greater Renown						BONUS:VAR|Reputation|3
+9																			ADD:FEAT(TYPE=OpinionMaker)
+10	SA:Entourage
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Profiler	HD:6		TYPE:PC.Advanced	ABB:Prfl		MAXLEVEL:10	SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name	Required Feat		Required Skill
+CLASS:Profiler	PREFEAT:1,Attentive	PRESKILL:2,Knowledge (Behavioral Sciences),Sense Motive=6	PRESKILL:1,Gather Information=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Profiler	STARTSKILLPTS:7	CSKILL:Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
+1	SA:Profile
+2	SA:Read Target +%|READ_TARGET	BONUS:VAR|READ_TARGET|1	DEFINE:READ_TARGET|0
+3														ADD:FEAT(TYPE=Profiler)
+4	SA:Identify Motive
+5	SA:Enhanced Profile
+6						BONUS:VAR|READ_TARGET|2					ADD:FEAT(TYPE=Profiler)
+7	SA:Anticipate Move
+8						BONUS:VAR|READ_TARGET|1
+9														ADD:FEAT(TYPE=Profiler)
+10	SA:Mindhunter			BONUS:VAR|READ_TARGET|2
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Survivalist	HD:10		TYPE:PC.Advanced	ABB:Survl		MAXLEVEL:10	SOURCEPAGE:p.39	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Required Check		Required Skill							Var. Min. Value
+CLASS:Survivalist	PRECHECK:1,Fortitude=2	PRESKILL:2,Climb,Survival=6	PRESKILL:1,Navigate=3	PREVARGTEQ:ClassDefense,2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Survivalist	STARTSKILLPTS:5	CSKILL:Balance|Climb|Craft (Structural)|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Ride|Search|Speak Language|Survival|Swim|Treat Injury
+1	SA:Athletic			BONUS:SKILL|Climb,Swim|2
+2										ADD:FEAT(Naturalist)
+3										ADD:FEAT(TYPE=Survivalist)
+4															VFEAT:Endurance
+5										ADD:FEAT(Naturalist)
+6										ADD:FEAT(TYPE=Survivalist)
+7	SA:Orienteering
+8										ADD:FEAT(Naturalist)
+9										ADD:FEAT(TYPE=Survivalist)
+10	SA:Live off the Land
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Transporter	HD:8		TYPE:PC.Advanced	ABB:Trnsp		MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Required Check Base	Required Feat			Required Skill
+CLASS:Transporter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Transporter	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive||Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Profession|Pilot|Read/Write Language|Repair|Speak Language|Tumble
+1							ADD:FEAT(Uncanny Dodge X1,Uncanny Dodge X2)
+2	SA:Leadfoot	SA:Sense of Direction
+3							ADD:FEAT(TYPE=Transporter)
+4	SA:Born to Drive
+5	SA:Need for Speed
+6							ADD:FEAT(TYPE=Transporter)
+7	SA:Nursing the Turns
+8	SA:Redlining the Needle
+9							ADD:FEAT(TYPE=Transporter)
+10	SA:On a Dime
+
+#			     #
+### PRESTIGE CLASSES ###
+#			     #
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Commander	HD:6		TYPE:PC.Prestige	ABB:Cmndr		MAXLEVEL:5	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name	Required Skill											Var. Min. Value
+CLASS:Commander	PRESKILL:4,Diplomacy,Intimidate,Knowledge (Current Events),Sense Motive=12	PREVARGTEQ:Reputation,5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Commander	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Writing)|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
+1	SA:Lead by Example	SA:Self Confidence (Commander)
+2	SA:Supreme Inspiration
+3	SA:Rattle the Enemy
+4	SA:Blood and Guts
+5	SA:Rout the Enemy
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Dark Sage	HD:6		TYPE:PC.Prestige	ABB:DkSg		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL)/3
+# Class Name	Required Feat					Required Skill									Required Stat
+CLASS:Dark Sage	PREFEAT:3,Arcane Skills,Educated,Studious	PRESKILL:3,Decipher Script,Knowledge (Arcane Lore),Research=13	PRESTAT:1,INT=13
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dark Sage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spellcraft
+1						BONUS:MISC|SR|CL	ADD:FEAT(Master of Incantations)	ADD:FEAT(Class Ability Magic Defense)
+2	SA:Condensed Incantations
+3	SA:Augment Spell Resistance	BONUS:MISC|SR|5
+4	SA:Cloistered Incantations
+5	SA:Solitary Incantations
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Martial Arts Master	HD:8		TYPE:PC.Prestige	ABB:MAM		MAXLEVEL:5	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+4)/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1.5)*2/3	BONUS:VAR|Reputation|(CL)/5
+# Class Name			Req. Att.	Required Feat										Required Skill					Var. Min. Value
+CLASS:Martial Arts Master	PREATT:6	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Balance=12	PRESKILL:1,Jump=6	PREVARGTEQ:ClassDefense,7
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Martial Arts Master	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|Speak Language|Spot|Tumble
+1					SA:Focus Ki
+2								ADD:FEAT(Advanced Techniques)
+3	SA:.CLEAR.Focus Ki	SA:Fortify Ki
+4								ADD:FEAT(Advanced Techniques)
+5	SA:.CLEAR.Fortify Ki	SA:Hone Ki
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Master Tinkerer	HD:6		TYPE:PC.Prestige	ABB:MTnkr		MAXLEVEL:5	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+4)/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name		Required Feat			Required Skill
+CLASS:Master Tinkerer	PREFEAT:2,Cautious,Gearhead	PRESKILL:2,Computer Use,Disable Device=14	PRESKILL:1,Craft (Electronic),Craft (Mechanical)=14
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Master Tinkerer	STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
+1	SA:Build Small Robot																									ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
+2	SA:Jury Rig +%|Mstr_Tnkr_Rig|!PREVARGTEQ:TechieRig,1	BONUS:VAR|TechieRig|Mstr_Tnkr_Rig|PREVARGTEQ:TechieRig,1	BONUS:VAR|Mstr_Tnkr_Rig|2	DEFINE:Mstr_Tnkr_Rig|0
+3	SA:Build Medium Robot																									ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
+4	SA:A.I.								BONUS:VAR|Mstr_Tnkr_Rig|2
+5	SA:Build Large Robot																									ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Mentalist	HD:6		TYPE:PC.Prestige	ABB:Mntl		MAXLEVEL:5	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL)/3
+# Class Name	Required Skill					Req. Spell Type
+CLASS:Mentalist	PRESKILL:2,Autohypnosis,Concentration=14	PRESPELLTYPE:Psionic,1,3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mentalist	STARTSKILLPTS:7	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Search|Sense Motive|Speak Language
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Mentalist	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Mentalist|CL	SPELLLIST:2|Telepath|Psionic Agent
+1																																																						FEATAUTO:PsionicClass
+1													BONUS:VAR|MentalistML|CL	BONUS:VAR|MentalistML|var("BL=Mentalist")																					DEFINE:MentalistML|0
+1													BONUS:VAR|BasePowerPoints|7	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:MentalistML,2	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:MentalistML,3	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:MentalistML,4
+1													BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:MentalistML,5
+1													BONUS:VAR|BonusPowerPoints|max(((CHA*2)-1),0)
+
+1	KNOWN:1,1,1,1,1					SA:Draw Power (%)|Drw_Pwr	BONUS:VAR|Drw_Pwr|CL+var("CL=Psionic Agent")+var("CL=Psionic Assassin")																					DEFINE:Drw_Pwr|0
+2	KNOWN:1,1,1,2,2					SA:Power Crystal																																							ADD:FEAT(TYPE=Mentalist)
+3	KNOWN:2,1,1,2,2,1																																														ADD:FEAT(Trigger Power)
+4	KNOWN:2,2,2,2,3,2																																														ADD:FEAT(TYPE=Mentalist)
+5	KNOWN:2,2,2,3,3,2	SA:.CLEAR.Power Crystal	SA:Improve Power Crystal
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Psionic Assassin	HD:8		TYPE:PC.Prestige	ABB:PsAss		MAXLEVEL:5	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|(CL+4)/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Required Skill					Req. Spell Type
+CLASS:Psionic Assassin	PRESKILL:2,Autohypnosis,Concentration=14	PRESPELLTYPE:Psionic,1,3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psionic Assassin	STARTSKILLPTS:5	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Speak Language|Spot|Swim
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
+CLASS:Psionic Assassin	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Assassin|CL	SPELLLIST:2|Battle Mind|Psionic Agent
+1																																																											FEATAUTO:PsionicClass
+1													BONUS:VAR|PsionicAssassinML|CL	BONUS:VAR|PsionicAssassinML|BL=Psionic Assassin																						DEFINE:PsionicAssassinML|0
+1													BONUS:VAR|BasePowerPoints|5	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionicAssassinML,2	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PsionicAssassinML,3	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicAssassinML,4
+1													BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsionicAssassinML,5
+
+1	KNOWN:1,1,1,1	SA:Draw Power (%)|Drw_Pwr|!PRECLASS:1,Mentalist=1	BONUS:VAR|Drw_Pwr|var("CL=Psionic Agent")+var("CL=Psionic Assassin")|!PRECLASS:1,Mentalist=1																				DEFINE:Drw_Pwr|0
+2	KNOWN:1,1,1,2,1	SA:Psi Blade|!PRECLASS:1,Battle Mind=3																																											ADD:FEAT(TYPE=PsionicAssassin)
+3	KNOWN:1,1,1,2,2	SA:Cold Stare
+4	KNOWN:2,2,2,3,2																																																		ADD:FEAT(TYPE=PsionicAssassin)
+5	KNOWN:2,2,2,3,3	SA:Keen Thoughts
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Silent Intruder	HD:8		TYPE:PC.Prestige	ABB:SIntr		MAXLEVEL:5	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Fortitude|(CL+4)/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3
+# Class Name		Required Check		Required Skill							Var. Min. Value
+CLASS:Silent Intruder	PRECHECK:1,Reflex=8	PRESKILL:3,Hide,Move Silently,Sleight of Hand=14	PREVARGTEQ:ClassDefense,9
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Silent Intruder	STARTSKILLPTS:7	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Investigate|Jump|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Tumble
+1	SA:Unnoticable					BONUS:SKILL|Hide|CL|TYPE=Competence
+2	SA:Padded Feet					BONUS:SKILL|Move Silently|CL|TYPE=Competence
+3	SA:Sticky Fingers	SA:Without A Trace	BONUS:SKILL|Sleight of Hands|CL|TYPE=Circumstance
+4	SA:Skeleton Key
+5	SA:Hide in Plain Sight
+

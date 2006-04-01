@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 17:40:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
+# Original Entry by: Frank Kliewe
+
+#Moonlighter feat second occupations from MSRD Future
+# Feat Name						Type				Visible		Required Feat				Prohibited Feat					Choose a Feat					Modify VAR			Source Page
+Second Occupation (Astronaut Trainee)	TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Astronaut_Trainee	!PREFEAT:1,Occupation (Astronaut Trainee)	ADD:FEAT(TYPE=Astronaut_Trainee_Skills)2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Colonist)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Colonist			!PREFEAT:1,Occupation (Colonist)		ADD:FEAT(TYPE=Colonist_Skills)2		BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Drifter)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Drifter)		ADD:FEAT(TYPE=Drifter_Skills)3		BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Gladiator)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Gladiator		!PREFEAT:1,Occupation (Gladiator)		ADD:FEAT(TYPE=Gladiator_Skills)		BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Heir)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Heir			!PREFEAT:1,Occupation (Heir)			ADD:FEAT(TYPE=Heir_Skills)2			BONUS:VAR|WealthBonus|6	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Outcast)			TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,Toughness			!PREFEAT:1,Occupation (Outcast)		ADD:FEAT(TYPE=Outcast_Skills)			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Scavenger)			TYPE:SecondOccupation	VISIBLE:EXPORT							!PREFEAT:1,Occupation (Scavenger)		ADD:FEAT(TYPE=Scavenger_Skills)3		BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+Second Occupation (Transporter)		TYPE:SecondOccupation	VISIBLE:EXPORT	PREFEAT:1,TYPE.Transporter		!PREFEAT:1,Occupation (Transporter)		ADD:FEAT(TYPE=Transporter_Skills)2		BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+
