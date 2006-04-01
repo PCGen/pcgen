@@ -51,6 +51,6 @@ MindBlade Multiple Throw	TYPE:Special	VISIBLE:NO	SA:Multiple Throw
 Elocator Transporter	TYPE:Special	VISIBLE:NO	SA:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
 
 ###Block: thrallherd abilities
-# Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose			Bonus to spell known/L			List of Class Spells by Level
-Thrallherd Charm		TYPE:Special	VISIBLE:NO	SA:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%;LEVEL=1|1]	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
-Thrallherd Dominate	TYPE:Special	VISIBLE:NO	SA:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%;LEVEL=4|1]	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
+# Feat Name			Type			Visible	Special Ability			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+Thrallherd Charm		TYPE:Special	VISIBLE:NO	SA:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
+Thrallherd Dominate	TYPE:Special	VISIBLE:NO	SA:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
