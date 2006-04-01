@@ -1,0 +1,45 @@
+# CVS $Revision: $ $Author: $ -- Thu Mar 16 10:50:00 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+
+# Feat Name					Type
+Acrobatic.MOD				TYPE:Primitive_Feat.MysteryMan
+Advanced Combat Martial Arts.MOD	TYPE:MysteryMan
+Alertness.MOD				TYPE:Primitive_Feat.GMan.Hitman.IntrepidReporter.MysteryMan
+Animal Affinity.MOD			TYPE:Primitive_Feat
+Archaic Weapons Proficiency.MOD	TYPE:Primitive_Feat.Hitman
+Armor Proficiency (Light).MOD		TYPE:GMan.Hitman
+Armor Proficiency (Medium).MOD	TYPE:GMan.Hitman
+Athletic.MOD				TYPE:Primitive_Feat
+Attentive.MOD				TYPE:GMan.IntrepidReporter
+Blind-Fight.MOD				TYPE:MysteryMan
+Brawl.MOD					TYPE:GMan.Hitman
+Combat Expertise.MOD			TYPE:MobBoss.MysteryMan
+Confident.MOD				TYPE:Hitman.MobBoss
+Deceptive.MOD				TYPE:Psychic_Roaring_Feat.IntrepidReporter.MobBoss.MysteryMan
+Defensive Martial Arts.MOD		TYPE:MysteryMan
+Dodge.MOD					TYPE:MysteryMan
+Double Tap.MOD				TYPE:Hitman
+Drive-By Attack.MOD			TYPE:Hitman
+Educated.MOD				TYPE:Psychic_Roaring_Feat
+Far Shot.MOD				TYPE:Hitman
+Frightful Presence.MOD			TYPE:MobBoss
+Guide.MOD					TYPE:Primitive_Feat
+Improved Combat Martial Arts.MOD	TYPE:MysteryMan
+Information Network.MOD			TYPE:MobBoss
+Inspired Leadership.MOD			TYPE:MobBoss
+Iron Will.MOD				TYPE:IntrepidReporter.MobBoss
+Low Profile.MOD				TYPE:Hitman
+Meticulous.MOD				TYPE:IntrepidReporter
+Mobility.MOD				TYPE:MysteryMan
+Personal Firearms Proficiency.MOD	TYPE:MobBoss
+Point Blank Shot.MOD			TYPE:GMan.Hitman
+Precise Shot.MOD				TYPE:GMan
+Quick Draw.MOD				TYPE:Hitman
+Quick Reload.MOD				TYPE:Hitman
+Renown.MOD					TYPE:GMan.Hitman.IntrepidReporter.MobBoss
+Run.MOD					TYPE:Primitive_Feat
+Spring Attack.MOD				TYPE:MysteryMan
+Trustworthy.MOD				TYPE:IntrepidReporter.MobBoss
+Vehicle Expert.MOD			TYPE:GMan
+Wild Talent.MOD				TYPE:Psychic_Roaring_Feat
+Windfall.MOD				TYPE:Psychic_Roaring_Feat

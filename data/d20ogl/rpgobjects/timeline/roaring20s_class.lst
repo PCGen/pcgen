@@ -1,0 +1,68 @@
+# CVS $Revision: $ $Author: $ -- Thu Mar 16 10:48:44 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:G Man		HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:G Man		PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Investigate=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Search|Sense Motive|Spot
+1																FEATAUTO:Weapon Focus(Tommy Gun)
+2				SA:Witness Protect
+3	REPEATLEVEL:3									ADD:FEAT(TYPE=GMan)
+4								BONUS:VAR|StillBuster|1					FEATAUTO:Still Buster
+5				SA:Dead or Alive
+7				SA:Untouchable
+8								BONUS:VAR|StillBuster|1
+10								BONUS:VAR|StillBuster|1
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
+1							BONUS:VAR|BloodMoney|((CL+4)/4)*2					FEATAUTO:Blood Money
+2							BONUS:VAR|DirtyDeeds|(CL+5)/5						FEATAUTO:Dirty Deeds
+3	REPEATLEVEL:3										ADD:FEAT(TYPE=Hitman)
+7				SA:Calling Card
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Intrepid Reporter	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name		Required Feat		Required Skill
+CLASS:Intrepid Reporter	PREFEAT:1,Trustworthy	PRESKILL:2,Gather Information,Knowledge (Current Events)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Intrepid Reporter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Diplomacy|Drive|Forgery|Gather Information|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Listen|Research|Search|Sense Motive|Spot
+1							BONUS:VAR|ReliableSources|CL							FEATAUTO:Reliable Sources
+2							BONUS:VAR|HumanPolygraph|CL							FEATAUTO:Human Polygraph
+3	REPEATLEVEL:3									ADD:FEAT(TYPE=IntrepidReporter)
+4				SA:Newshound
+7				SA:Hunch
+8				SA:Extra!
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Mob Boss	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name	Required Feat		Required Skill
+CLASS:Mob Boss	PREFEAT:1,Henchmen	PRESKILL:2,Bluff,Knowledge (Streetwise)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Sense Motive
+1							BONUS:VAR|UndueInfluence|CL					FEATAUTO:Undue Influence
+2																FEATAUTO:Contraband
+3	REPEATLEVEL:3									ADD:FEAT(TYPE=MobBoss)
+3				SA:Captain
+5				SA:Vendetta
+8				SA:Capo
+10				SA:Godfather
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Req. Att.	Required Feat			Required Skill
+CLASS:Mystery Man	PREATT:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate,Knowledge (Streetwise)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
+1								BONUS:VAR|Persona|CL						FEATAUTO:Persona
+2				SA:Cloak of Secrecy
+3	REPEATLEVEL:3									ADD:FEAT(TYPE=MysteryMan)
+4				SA:Cloak of Fear
+7				SA:Phantom
+8				SA:Quick Change

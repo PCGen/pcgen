@@ -1,0 +1,25 @@
+# CVS $Revision: $ $Author: $ -- Thu Mar 16 10:48:44 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+
+###Block:G Man abilities
+# Feat Name		Type			Visible	Define			Weapon prof. bonus
+Still Buster	TYPE:ClassAbility	VISIBLE:NO	DEFINE:StillBuster|0	BONUS:WEAPONPROF=TYPE.Melee|DAMAGE|StillBuster	BONUS:WEAPONPROF=TYPE.Ranged|DAMAGE-SHORTRANGE|StillBuster
+
+###Block:Hitman abilities
+# Feat Name	Type			Visible	Special Ability				Define
+Blood Money	TYPE:ClassAbility	VISIBLE:NO	SA:Blood Money +%|BloodMoney		DEFINE:BloodMoney|0
+Dirty Deeds	TYPE:ClassAbility	VISIBLE:NO	SA:Dirty Deeds +%d6|DirtyDeeds	DEFINE:DirtyDeeds|0
+
+###Block:Intrepid Reporter abilities
+# Feat Name		Type			Visible	Special Ability																																				Define				Bonus to skill
+Reliable Sources	TYPE:ClassAbility	VISIBLE:NO	SA:Reliable Sources (2 hours)|PREVARLT:ReliableSources,5	SA:Reliable Sources (1 hour)|PREMULT:2,[PREVARGTEQ:ReliableSources,5],[PREVARLT:ReliableSources,10]	SA:Reliable Sources (1 minute)|PREVARGTEQ:ReliableSources,10	DEFINE:ReliableSources|0
+Human Polygraph	TYPE:ClassAbility	VISIBLE:NO																																							DEFINE:HumanPolygraph|0		BONUS:SKILL|Sense Motive|HumanPolygraph
+
+###Block:Mob Boss abilities
+# Feat Name		Type			Visible	Special Ability																																Define			Modify VAR
+Undue Influence	TYPE:ClassAbility	VISIBLE:NO	SA:Undue Influence (low)|PREVARLT:UndueInfluence,4	SA:Undue Influence (medium)|PREMULT:2,[PREVARGTEQ:UndueInfluence,4],[PREVARLT:UndueInfluence,7]	SA:Undue Influence (high)|PREVARGTEQ:UndueInfluence,7	DEFINE:UndueInfluence|0
+Contraband		TYPE:ClassAbility	VISIBLE:NO																																							BONUS:VAR|WealthBonus|Reputation
+
+###Block:Mystery Man abilities
+# Feat Name	Type				Visible	Special Ability																													Define
+Persona	TYPE:ClassAbilities	VISIBLE:NO	SA:Persona|PREVARLT:Persona,5	SA:Persona (2 alternate identities)|PREMULT:2,[PREVARGTEQ:Persona,5],[PREVARLT:Persona,10]	SA:Persona (3 alternate identities)|PREVARGTEQ:Persona,10	DEFINE:Persona|0

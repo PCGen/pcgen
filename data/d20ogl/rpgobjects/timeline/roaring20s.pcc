@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Wed Mar 15 13:27:18 2006 -- reformated by prettylst.pl v1.35 (build 561)
+CAMPAIGN:RPGObjects - Timeline - The Roaring 20s
+RANK:6
+GAMEMODE:Modern
+BOOKTYPE:Supplement
+GENRE:Modern
+SETTING:Timeline
+TYPE:RPGObjects.Timeline
+SOURCELONG:Timeline: The Roaring 20s
+SOURCESHORT:R20
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.: Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Timeline: The Roaring 20s; Copyright 2005, RPGObjects; Author Charles Rice
+COPYRIGHT:PCGen dataset conversion for Timeline: The Roaring 20s Copyright 2006, PCGen Data team (including, but not limited to, Paul W. King, Frank Kliewe)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:roaring20s_class.lst
+EQUIPMENT:roaring20s_equipment.lst
+FEAT:roaring20s_feats.lst
+FEAT:roaring20s_feats_hidden.lst
+FEAT:roaring20s_feats_mod.lst
+FEAT:roaring20s_feats_occupation.lst
+WEAPONPROF:roaring20s_weaponprof.lst
