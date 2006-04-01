@@ -311,8 +311,8 @@ public class ChooserUtilities
 		classLookup.put("NONCLASSSKILLLIST",    SkillListNonClassChoiceManager.class.getName());
 		classLookup.put("SKILLS",               SkillsChoiceManager.class.getName());
 		classLookup.put("SKILLSNAMED",          SkillsNamedChoiceManager.class.getName());
-		classLookup.put("SKILLSNAMEDTOCSKILL",  SkillsNamedToCCSkillChoiceManager.class.getName());
-		classLookup.put("SKILLSNAMEDTOCCSKILL", SkillsNamedToCSkillChoiceManager.class.getName());
+		classLookup.put("SKILLSNAMEDTOCCSKILL", SkillsNamedToCCSkillChoiceManager.class.getName());
+		classLookup.put("SKILLSNAMEDTOCSKILL",  SkillsNamedToCSkillChoiceManager.class.getName());
 		classLookup.put("SPELLCLASES",          SpellClassesChoiceManager.class.getName());
 		classLookup.put("SPELLLEVEL",           SpellLevelChoiceManager.class.getName());
 		classLookup.put("SPELLLIST",            SpellListChoiceManager.class.getName());
