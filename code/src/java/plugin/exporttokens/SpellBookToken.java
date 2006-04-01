@@ -73,9 +73,12 @@ public class SpellBookToken extends Token
 			aLabel = aTok.nextToken();
 		}
 
-
-		String bookName = (String) pc.getSpellBooks().get(bookNum);
-		SpellBook book = pc.getSpellBookByName(bookName);
+		SpellBook book = null;
+		if (bookNum >= 0 && bookNum < pc.getSpellBooks().size())
+		{
+			String bookName = (String) pc.getSpellBooks().get(bookNum);
+			book = pc.getSpellBookByName(bookName);
+		}
 		if (book != null)
 		{
 			if ("NAME".equals(aLabel))
