@@ -56,8 +56,8 @@ public class AbilityUtilities
 	 * @return  the Ability if found, otherwise null
 	 */
 	public static Ability getFeatNamedInList(
-	    final List   aFeatList,
-	    final String featName)
+		final List   aFeatList,
+		final String featName)
 	{
 		return getFeatNamedInList(aFeatList, featName, -1);
 	}
@@ -76,9 +76,9 @@ public class AbilityUtilities
 	 * @return  the Ability if found, otherwise null
 	 */
 	public static Ability getFeatNamedInList(
-	    final List   aFeatList,
-	    final String featName,
-	    final int    featType)
+		final List   aFeatList,
+		final String featName,
+		final int    featType)
 	{
 		if (aFeatList.isEmpty())
 		{
@@ -112,8 +112,8 @@ public class AbilityUtilities
 	 * @return  the Ability if found, otherwise null
 	 */
 	public static Ability getMatchingFeatInList(
-	    final List    abilityList,
-	    final Ability argAbility)
+		final List    abilityList,
+		final Ability argAbility)
 	{
 		if (abilityList.isEmpty())
 		{
@@ -178,11 +178,11 @@ public class AbilityUtilities
 	 * @return  the list with the new Ability added
 	 */
 	public static List addVirtualFeat(
-	    Ability               anAbility,
-	    final List            choices,
-	    final List            addList,
-	    final PlayerCharacter aPC,
-	    final PCLevelInfo     levelInfo)
+		Ability               anAbility,
+		final List            choices,
+		final List            addList,
+		final PlayerCharacter aPC,
+		final PCLevelInfo     levelInfo)
 	{
 		if (anAbility != null)
 		{
@@ -242,10 +242,10 @@ public class AbilityUtilities
 	 * @return  the list with the new Ability added
 	 */
 	public static List addVirtualFeat(
-	    final String      featName,
-	    final List        addList,
-	    final PCLevelInfo levelInfo,
-	    PlayerCharacter   aPC)
+		final String      featName,
+		final List        addList,
+		final PCLevelInfo levelInfo,
+		PlayerCharacter   aPC)
 	{
 		ArrayList choices     = new ArrayList();
 		String    abilityName = EquipmentUtilities.getUndecoratedName(featName, choices);
@@ -274,11 +274,11 @@ public class AbilityUtilities
 	 *          not currently have the Ability.
 	 */
 	public static int modFeat(
-	    PlayerCharacter   aPC,
-	    final PCLevelInfo playerCharacterLevelInfo,
-	    String            featName,
-	    final boolean     addIt,
-	    boolean           addAll)
+		PlayerCharacter   aPC,
+		final PCLevelInfo playerCharacterLevelInfo,
+		String            featName,
+		final boolean     addIt,
+		boolean           addAll)
 	{
 		if (!aPC.isImporting())
 		{
@@ -375,12 +375,12 @@ public class AbilityUtilities
 	 */
 
 	public static int modAbility (
-	    PlayerCharacter   aPC,
-	    final PCLevelInfo playerCharacterLevelInfo,
-	    Ability           argAbility,
-	    String            choice,
-	    final boolean     addIt,
-	    boolean           addAll)
+		PlayerCharacter   aPC,
+		final PCLevelInfo playerCharacterLevelInfo,
+		Ability           argAbility,
+		String            choice,
+		final boolean     addIt,
+		boolean           addAll)
 	{
 
 		int     retVal  = addIt ? 1 : 0;
@@ -434,13 +434,13 @@ public class AbilityUtilities
 	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
 	private static int finaliseAbility(
-	    Ability         anAbility,
-	    String          choice,
-	    PlayerCharacter aPC,
-	    final boolean   addIt,
-	    boolean         addAll,
-	    boolean         added,
-	    int             retVal)
+		Ability         anAbility,
+		String          choice,
+		PlayerCharacter aPC,
+		final boolean   addIt,
+		boolean         addAll,
+		boolean         added,
+		int             retVal)
 	{
 		// how many sub-choices to make
 		double j = (anAbility.getAssociatedCount() * anAbility.getCost(aPC)) + aPC.getFeats();
@@ -470,8 +470,8 @@ public class AbilityUtilities
 						added = true;
 					}
 					else if (
-					    addIt &&
-					    (anAbility.isStacks() || !anAbility.containsAssociated(choice)))
+						addIt &&
+						(anAbility.isStacks() || !anAbility.containsAssociated(choice)))
 					{
 						anAbility.addAssociated(choice);
 					}
@@ -484,14 +484,14 @@ public class AbilityUtilities
 			else
 			{
 				if (
-				    (anAbility.getChoiceString().lastIndexOf('|') >= 0) &&
-				    Globals.weaponTypesContains(
-				        anAbility.getChoiceString().substring(0,
-				            anAbility.getChoiceString().lastIndexOf('|'))))
+					(anAbility.getChoiceString().lastIndexOf('|') >= 0) &&
+					Globals.weaponTypesContains(
+						anAbility.getChoiceString().substring(0,
+							anAbility.getChoiceString().lastIndexOf('|'))))
 				{
 					final String aName =
 						anAbility.getChoiceString().substring(0,
-						    anAbility.getChoiceString().lastIndexOf('|'));
+							anAbility.getChoiceString().lastIndexOf('|'));
 					aPC.addWeaponProfToChosenFeats(aName);
 				}
 			}
@@ -527,7 +527,7 @@ public class AbilityUtilities
 			for (int x = 0; x < anAbility.templatesAdded().size(); ++x)
 			{
 				aPC.removeTemplate(
-				    aPC.getTemplateNamed((String) anAbility.templatesAdded().get(x)));
+					aPC.getTemplateNamed((String) anAbility.templatesAdded().get(x)));
 			}
 			anAbility.subAddsForLevel(-9, aPC);
 		}
@@ -589,68 +589,68 @@ public class AbilityUtilities
 	{
 		String altName = "";
 		String subName = "";
-	
+
 		if (abilityName.endsWith(")"))
 		{
 			// we want what is inside the outermost parens.
 			subName = abilityName.substring(
-				    abilityName.indexOf('(') + 1,
-				    abilityName.lastIndexOf(')'));
+					abilityName.indexOf('(') + 1,
+					abilityName.lastIndexOf(')'));
 			altName = abilityName.substring(0, abilityName.indexOf('(')).trim();
 		}
-	
+
 		Ability anAbility = getFeatNamedInList(
-			    theAbilityList,
-			    abilityName);
-	
+				theAbilityList,
+				abilityName);
+
 		if ((anAbility == null) && (altName.length() != 0))
 		{
 			anAbility = getFeatNamedInList(theAbilityList, altName);
 		}
-	
+
 		/* This feat is not in autoFeatList, get the global definition, clone it, attach
 		 * sub-type (if any) and add */
-	
+
 		if (anAbility == null)
 		{
 			anAbility = Globals.getAbilityNamed("FEAT", abilityName);
-	
+
 			if ((anAbility == null) && (altName.length() != 0))
 			{
 				anAbility = Globals.getAbilityNamed("FEAT", altName);
 			}
-	
+
 			if (anAbility != null)
 			{
 				anAbility = (Ability) anAbility.clone();
-	
+
 				if (subName.length() != 0)
 				{
 					anAbility.addAssociated(subName);
 				}
-	
+
 				anAbility.setFeatType(Ability.ABILITY_AUTOMATIC);
 				theAbilityList.add(anAbility);
 			}
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(
-				    "Adding unknown feat: " + abilityName,
-				    Constants.s_APPNAME,
-				    MessageType.INFORMATION);
+					"Adding unknown feat: " + abilityName,
+					Constants.s_APPNAME,
+					MessageType.INFORMATION);
 			}
 		}
-	
+
 		/* Already have feat, add sub-type (if any) */
-	
+
 		else
 		{
 			if (subName.length() != 0)
 			{
 				if (
-				    anAbility.isStacks() ||
-				    (anAbility.isMultiples() &&
-				        !anAbility.containsAssociated(subName)))
+					anAbility.isStacks() ||
+					(anAbility.isMultiples() &&
+						!anAbility.containsAssociated(subName)))
 				{
 					anAbility.addAssociated(subName);
 				}
@@ -668,36 +668,36 @@ public class AbilityUtilities
 	 * @param all
 	 */
 	static void modFeatsFromList(final PlayerCharacter aPC,
-			                     final PCLevelInfo     playerCharacterLevelInfo,
-			                     final String          aList,
-			                     final boolean         addIt,
-			                     final boolean         all)
+								 final PCLevelInfo     playerCharacterLevelInfo,
+								 final String          aList,
+								 final boolean         addIt,
+								 final boolean         all)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aList, ",");
-	
+
 		while (aTok.hasMoreTokens())
 		{
 			String aString = aTok.nextToken();
 			Ability anAbility = aPC.getFeatNamed(aString);
 			StringTokenizer bTok = null;
-	
+
 			if (anAbility != null)
 			{
 				continue;
 			}
-	
+
 			// Get ability from global storage by Name
 			anAbility = Globals.getAbilityNamed("FEAT", aString);
-	
+
 			if (anAbility == null)
 			{
 				// could not find Feat, try trimming off contents of parenthesis
 				bTok = new StringTokenizer(aString, "()", true);
-	
+
 				final String bString = bTok.nextToken();
 				final int beginIndex = bString.length() + 1;
 				final int endIndex = aString.lastIndexOf(')');
-	
+
 				if (beginIndex <= aString.length())
 				{
 					if (endIndex >= beginIndex)
@@ -729,7 +729,7 @@ public class AbilityUtilities
 					aPC.addFeat(anAbility, playerCharacterLevelInfo);
 				}
 			}
-	
+
 			if (anAbility == null)
 			{
 				// if we still haven't found it, try a different string
@@ -737,35 +737,35 @@ public class AbilityUtilities
 				{
 					return;
 				}
-	
+
 				anAbility = Globals.getAbilityNamed("FEAT", aString);
-	
+
 				if (anAbility == null)
 				{
 					Logging.errorPrint("Feat not found in PlayerCharacter.modFeatsFromList: " + aString);
-	
+
 					return;
 				}
-	
+
 				anAbility = (Ability) anAbility.clone();
 				aPC.addFeat(anAbility, playerCharacterLevelInfo);
 			}
-	
+
 			if ((bTok != null) && bTok.hasMoreTokens())
 			{
 				while (bTok.hasMoreTokens())
 				{
 					aString = bTok.nextToken();
-	
+
 					if ("DEITYWEAPON".equals(aString))
 					{
 						WeaponProf wp = null;
-	
+
 						if (aPC.getDeity() != null)
 						{
 							wp = Globals.getWeaponProfNamed(aPC.getDeity().getFavoredWeapon());
 						}
-	
+
 						if (wp != null)
 						{
 							if (addIt) // TODO: condition always true
@@ -804,25 +804,11 @@ public class AbilityUtilities
 						aPC.adjustFeats(-anAbility.getCost(aPC));
 					}
 				}
-	
+
 				modFeat(aPC, playerCharacterLevelInfo, aString, addIt, all);
 			}
-	
-			if (anAbility.getName().endsWith("Weapon Proficiency"))
-			{
-				for (int e = 0; e < anAbility.getAssociatedCount(); ++e)
-				{
-					final String wprof = anAbility.getAssociated(e);
-					final WeaponProf wp = Globals.getWeaponProfNamed(wprof);
-	
-					if (wp != null)
-					{
-						aPC.addWeaponProfToChosenFeats(wprof);
-					}
-				}
-			}
 		}
-	
+
 		aPC.setAutomaticFeatsStable(false);
 	}
 
@@ -830,33 +816,33 @@ public class AbilityUtilities
 	/**
 	 * Build and return a list of the Ability objects associated with the given
 	 * PlayerCharacter object
-	 * @param aPc 
-	 * 
+	 * @param aPc
+	 *
 	 * @return a List of the Abilities this Character has
 	 */
-	
+
 	static public List rebuildAutoAbilityList(PlayerCharacter aPc) {
-	
+
 		final List autoFeatList;
 		autoFeatList = new ArrayList();
-	
+
 		//
 		// add racial feats
 		//
 		if ((aPc.getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
 		{
 			final StringTokenizer aTok = new StringTokenizer(aPc.getRace().getFeatList(aPc), "|");
-	
+
 			while (aTok.hasMoreTokens())
 			{
 				addToFeatList(autoFeatList, aTok.nextToken());
 			}
 		}
-	
+
 		for (Iterator e = aPc.getClassListIterator(); e.hasNext();)
 		{
 			final PCClass aClass = (PCClass) e.next();
-	
+
 			for (Iterator e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
 			{
 				//
@@ -864,15 +850,15 @@ public class AbilityUtilities
 				// lvl|feat_name
 				//
 				final String aString = (String) e1.next();
-	
+
 				if (aString.indexOf('|') < 1)
 				{
 					continue;
 				}
-	
+
 				final StringTokenizer aTok = new StringTokenizer(aString, "|");
 				int i;
-	
+
 				try
 				{
 					i = Integer.parseInt(aTok.nextToken());
@@ -881,20 +867,20 @@ public class AbilityUtilities
 				{
 					i = 9999; //TODO: Replace magic value with an appropriate constant. Constants.INVALID_LEVEL perhaps?
 				}
-	
+
 				if (i > aClass.getLevel())
 				{
 					continue;
 				}
-	
+
 				String autoFeat = aTok.nextToken();
 				final int idx = autoFeat.indexOf('[');
-	
+
 				if (idx >= 0)
 				{
 					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
 					final List preReqList = new ArrayList();
-	
+
 					while (bTok.hasMoreTokens())
 					{
 						final String prereqString = bTok.nextToken();
@@ -909,9 +895,9 @@ public class AbilityUtilities
 							Logging.errorPrint(ple.getMessage(), ple);
 						}
 					}
-	
+
 					autoFeat = autoFeat.substring(0, idx);
-	
+
 					if (preReqList.size() != 0)
 					{
 						//
@@ -921,18 +907,18 @@ public class AbilityUtilities
 						{
 							aPc.setStableAutomaticFeatList(autoFeatList);
 						}
-	
+
 						if (! PrereqHandler.passesAll(preReqList, aPc, null ))
 						{
 							continue;
 						}
 					}
 				}
-	
+
 				addToFeatList(autoFeatList, autoFeat);
 			}
 		}
-	
+
 		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !aPc.getTemplateList().isEmpty())
 		{
 			for (Iterator e = aPc.getTemplateListIterator(); e.hasNext();)
@@ -940,14 +926,14 @@ public class AbilityUtilities
 				aPc.setStableAutomaticFeatList(autoFeatList);
 				final PCTemplate aTemplate = (PCTemplate) e.next();
 				final List templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
-	
+
 				if (!templateFeats.isEmpty())
 				{
 					for (Iterator e2 = templateFeats.iterator(); e2.hasNext();)
 					{
 						final String aString = (String) e2.next();
 						final StringTokenizer aTok = new StringTokenizer(aString, ",");
-	
+
 						while (aTok.hasMoreTokens())
 						{
 							addToFeatList(autoFeatList, aTok.nextToken());
@@ -956,24 +942,24 @@ public class AbilityUtilities
 				}
 			}
 		}
-	
+
 		if (!aPc.getCharacterDomainList().isEmpty())
 		{
 			for (Iterator e = aPc.getCharacterDomainListIterator(); e.hasNext();)
 			{
 				final CharacterDomain aCD = (CharacterDomain) e.next();
 				final Domain aDomain = aCD.getDomain();
-	
+
 				if (aDomain != null)
 				{
 					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
 					{
 						final String aString = aDomain.getAssociated(e2);
-	
+
 						if (aString.startsWith("FEAT"))
 						{
 							final int idx = aString.indexOf('?');
-	
+
 							if (idx > -1)
 							{
 								addToFeatList(autoFeatList, aString.substring(idx + 1));
@@ -984,9 +970,9 @@ public class AbilityUtilities
 							}
 						}
 					}
-	
+
 					final Iterator anIt = aDomain.getFeatIterator();
-	
+
 					for (; anIt.hasNext();)
 					{
 						final AbilityInfo abI = (AbilityInfo) anIt.next();
@@ -995,7 +981,7 @@ public class AbilityUtilities
 				}
 			}
 		}
-	
+
 		//
 		// Need to save current as stable as getAutoWeaponProfs() needs it
 		//
@@ -1014,32 +1000,32 @@ public class AbilityUtilities
 	 * @return the contents of the parenthesis
 	 */
 	static public String extractContentsOfFirstBalancedParens(String aString) {
-	
+
 		int open  = 0;
 		int start = aString.indexOf('(');
 		int end   = start;
-		
+
 		if (end > -1) {
 			while (end < aString.length()) {
 				switch (aString.charAt(end)) {
 				case '(':
 					open += 1;
 					break;
-					
+
 				case ')':
 					open -= 1;
 					break;
-					
+
 				default:
 				}
-				
+
 				if (open < 1) {
 					break;
 				}
 				end++;
 			}
 		}
-	
+
 		if (open < 1) {
 			aString = aString.substring(start, end);
 		}
@@ -1049,35 +1035,35 @@ public class AbilityUtilities
 
 	/**
 	 * Given the string "token<Prereq1|Prereq2|Prereq3>", this will clear preReqArray,
-	 * then populate it with "Prereq1", "Prereq2", "Prereq3" and return token.  
-	 *  
+	 * then populate it with "Prereq1", "Prereq2", "Prereq3" and return token.
+	 *
 	 * @param aString "token<Prereq1|Prereq2|Prereq3>"
 	 * @param preReqArray will contain any prereqs after the routine returns
-	 * 
-	 * @return the token 
+	 *
+	 * @return the token
 	 */
 	public static String extractTokenPrerequities(String aString, final List preReqArray) {
-	
+
 		preReqArray.clear();
 		String tokenString = aString;
 		String pString     = "";
-	
+
 		final StringTokenizer preTok  = new StringTokenizer(aString, "<>|", true);
-		
+
 		if (preTok.hasMoreTokens()) {
 			tokenString = preTok.nextToken();
 		}
-	
+
 		while (preTok.hasMoreTokens() && !(">").equals(pString))
 		{
 			pString = preTok.nextToken();
-	
+
 			if ((pString.startsWith("PRE") || pString.startsWith("!PRE")))
 			{
 				preReqArray.add(pString);
 			}
 		}
-	
+
 		return tokenString;
 	}
 }
