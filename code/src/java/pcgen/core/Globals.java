@@ -3565,9 +3565,9 @@ public final class Globals
 	 *
 	 * @param weaponType The weapon type to add
 	 */
-	static void addWeaponType(final String weaponType)
+	public static void addWeaponType(final String weaponType)
 	{
-		weaponTypes.add(weaponType);
+		weaponTypes.add(weaponType.toUpperCase());
 	}
 
 	/**

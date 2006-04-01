@@ -50,12 +50,13 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 			PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
-		if (choices != null && choices.size() > 0 &&
-				Globals.weaponTypesContains((String) choices.get(0)))
+		if (choices != null && choices.size() > 1 &&
+				((String) choices.get(0)).equalsIgnoreCase("WEAPONPROFTYPE") &&
+				Globals.weaponTypesContains((String) choices.get(1)))
 		{
 			chooserHandled = "WEAPONPROFTYPE";
-			title = (String) choices.get(0) + " Weapon Choice";
-			weaponType = (String) choices.get(0);
+			title = (String) choices.get(1) + " Weapon Choice";
+			weaponType = (String) choices.get(1);
 			choices = choices.subList(1, choices.size());
 		}
 	}
