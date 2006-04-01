@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Mar 31 18:29:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision: $ $Author: $ -- Sat Apr  1 04:34:00 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
@@ -327,11 +327,11 @@ CLASS:Master Tinkerer	HD:6		TYPE:PC.Prestige	ABB:MTnkr		MAXLEVEL:5	SOURCEPAGE:p.
 CLASS:Master Tinkerer	PREFEAT:2,Cautious,Gearhead	PRESKILL:2,Computer Use,Disable Device=14	PRESKILL:1,Craft (Electronic),Craft (Mechanical)=14
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Tinkerer	STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
-1	SA:Build Small Robot																									ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
+1	SA:Build Small Robot																									ADD:FEAT(Electronic Mastercraft,Mechanical Mastercraft)	QUALIFY:Electronic Mastercraft|Mechanical Mastercraft
 2	SA:Jury Rig +%|Mstr_Tnkr_Rig|!PREVARGTEQ:TechieRig,1	BONUS:VAR|TechieRig|Mstr_Tnkr_Rig|PREVARGTEQ:TechieRig,1	BONUS:VAR|Mstr_Tnkr_Rig|2	DEFINE:Mstr_Tnkr_Rig|0
-3	SA:Build Medium Robot																									ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
+3	SA:Build Medium Robot																									ADD:FEAT(Electronic Mastercraft,Mechanical Mastercraft)
 4	SA:A.I.								BONUS:VAR|Mstr_Tnkr_Rig|2
-5	SA:Build Large Robot																									ADD:FEAT(Mastercraft (Electronic),Mastercraft (Mechanical))
+5	SA:Build Large Robot																									ADD:FEAT(Electronic Mastercraft,Mechanical Mastercraft)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Mentalist	HD:6		TYPE:PC.Prestige	ABB:Mntl		MAXLEVEL:5	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL)/3
@@ -362,7 +362,7 @@ CLASS:Psionic Assassin	STARTSKILLPTS:5	CSKILL:Autohypnosis|Balance|Climb|Concent
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
 CLASS:Psionic Assassin	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Assassin|CL	SPELLLIST:2|Battle Mind|Psionic Agent
 1																																																											FEATAUTO:PsionicClass
-1													BONUS:VAR|PsionicAssassinML|CL	BONUS:VAR|PsionicAssassinML|BL=Psionic Assassin																						DEFINE:PsionicAssassinML|0
+1													BONUS:VAR|PsionicAssassinML|CL	BONUS:VAR|PsionicAssassinML|var("BL=Psionic Assassin")																				DEFINE:PsionicAssassinML|0
 1													BONUS:VAR|BasePowerPoints|5	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionicAssassinML,2	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PsionicAssassinML,3	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicAssassinML,4
 1													BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsionicAssassinML,5
 

@@ -35,8 +35,8 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
 Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
 Ultramodern Firearms d20, Copyright 2002, Charles McManus Ryan
-Ammunition Variants, Copyright 2003, The Games Mechanics, Inc.
-Complete Feats, Copyright 2003, The Games Mechanics, Inc.
+Ammunition Variants, Copyright 2003, The Game Mechanics, Inc.
+Complete Feats, Copyright 2003, The Game Mechanics, Inc.
 Modern Player's Companion, Copyright 2003, The Game Mechanics, Inc.; Author Stan!
 Modern Player's Companion, Volume Two, Copyright 2003, The Game Mechanics, Inc.; Author Stan!
 Modern Player's Companion (Print), Copyright 2003, The Game Mechanics, Inc.; Author Stan!
