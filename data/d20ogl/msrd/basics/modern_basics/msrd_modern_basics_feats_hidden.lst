@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Apr  2 06:16:53 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Barak & Hugo & Tir Gwaith
 
@@ -74,7 +74,7 @@ Trick					TYPE:Talent.SmartTalent.Strategy		VISIBLE:NO		PREFEAT:1,TYPE=Research	
 
 #Dedicated Talents
 Empathy				TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO																													SA:Empathy																																																																																	SOURCEPAGE:msrdbasicclasses.rtf
-Improved Aid Another		TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO		PREFEAT:1,Empathy																									SA:Improved Aid Another %|ImprovedAid		DEFINE:ImprovedAid|0		STACK:YES	MULT:YES	CHOOSE:Improved Aid Another																																																				BONUS:VAR|ImprovedAid|1						SOURCEPAGE:msrdbasicclasses.rtf
+Improved Aid Another		TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO		PREFEAT:1,Empathy																									SA:Improved Aid Another %|ImprovedAid		DEFINE:ImprovedAid|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																						BONUS:VAR|ImprovedAid|1						SOURCEPAGE:msrdbasicclasses.rtf
 Intuition				TYPE:Talent.DedicatedTalent.Empathic	VISIBLE:NO		PREFEAT:1,Empathy																									SA:Intuition																																																																																SOURCEPAGE:msrdbasicclasses.rtf
 Healing Knack			TYPE:Talent.DedicatedTalent.Healing		VISIBLE:NO																													SA:Healing Knack																																																																		BONUS:SKILL|Treat Injury|2										SOURCEPAGE:msrdbasicclasses.rtf
 Healing Touch I			TYPE:Talent.DedicatedTalent.Healing		VISIBLE:NO		PREFEAT:1,Healing Knack																								SA:Healing Touch																																																																																SOURCEPAGE:msrdbasicclasses.rtf
@@ -96,9 +96,9 @@ Inspiration				TYPE:Talent.CharismaticTalent.Leadership	VISIBLE:NO		PREFEAT:1,Co
 Greater Inspiration		TYPE:Talent.CharismaticTalent.Leadership	VISIBLE:NO		PREFEAT:2,Coordinate,Inspiration																						SA:Greater Inspiration																																																																															SOURCEPAGE:msrdbasicclasses.rtf
 
 ###Block: Techie Mastercraft
-# Feat Name			Type				Visible	Required Class		Special Ability						Define				Stackable?	Multiple?	Choose	Modify VAR				Source Page
-Electronic Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:+1	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
-Mechanical Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:+1	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
+# Feat Name			Type				Visible	Required Class		Special Ability						Define				Stackable?	Multiple?	Choose		Modify VAR				Source Page
+Electronic Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Mechanical Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SA:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
 
 ###Block: Soldier and Gunslinger pseudofeats
 # Feat Name				Type			Visible	Required Feat						Var. Min. Value			Special Ability						Description		Multiple?	Choose					Weapon prof. bonus				Source Page
