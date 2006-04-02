@@ -5,7 +5,9 @@ RANK:6
 GENRE:Modern
 BOOKTYPE:Sourcebook
 SETTING:Martial Arts
-TYPE:The Game Mechanics.Sourcebook
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:The Game Mechanics.Sourcebook
 PUBNAMELONG:The Game Mechanics,Inc.
 PUBNAMESHORT:TGM
 PUBNAMEWEB:http://www.thegamemechanics.com
