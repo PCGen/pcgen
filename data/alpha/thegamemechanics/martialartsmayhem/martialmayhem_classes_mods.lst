@@ -1,0 +1,29 @@
+# CVS $Revision: $ $Author: $ -- Sat Apr  1 23:37:32 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com
+#Original Entry by: Frank Kliewe
+
+# Class Name		Add
+CLASS:Gunslinger.MOD	ADD:.CLEAR.LEVEL2	ADD:.CLEAR.LEVEL3	ADD:.CLEAR.LEVEL6	ADD:.CLEAR.LEVEL8	ADD:.CLEAR.LEVEL9
+1	SA:.CLEAR.Close Combat Shot	ADD:FEAT(1st Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+2						ADD:FEAT(2nd Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+3						ADD:FEAT(3rd Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+4	SA:.CLEAR.Defensive Position	ADD:FEAT(4th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+5	SA:.CLEAR.Lightning Shot	ADD:FEAT(5th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+6						ADD:FEAT(6th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+7	SA:.CLEAR.Sharp Shooting	ADD:FEAT(7th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+8						ADD:FEAT(8th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+9						ADD:FEAT(9th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+10	SA:.CLEAR.Bullseye		ADD:FEAT(10th Level Gunslinger Class Abilities,TYPE.BallisticFistPre,TYPE.BallisticFist)
+
+# Class Name	Add
+CLASS:Soldier.MOD	ADD:.CLEAR.LEVEL1	ADD:.CLEAR.LEVEL2	ADD:.CLEAR.LEVEL3	ADD:.CLEAR.LEVEL5	ADD:.CLEAR.LEVEL6	ADD:.CLEAR.LEVEL8	ADD:.CLEAR.LEVEL9
+1																			ADD:FEAT(1st Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+2						BONUS:VAR|WeapSpecQualify|-1									ADD:FEAT(2nd Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+3						BONUS:VAR|WeapSpecQualify|1									ADD:FEAT(3rd Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+4	SA:.CLEAR.Tactical Aid															ADD:FEAT(4th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+5																			ADD:FEAT(5th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+6																			ADD:FEAT(6th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+7	SA:.CLEAR.Improved Reaction						BONUS:COMBAT|INITIATIVE|-2|TYPE=Competence	ADD:FEAT(7th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+8																			ADD:FEAT(8th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+9																			ADD:FEAT(9th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
+10	SA:.CLEAR.Critical Strike														ADD:FEAT(10th Level Soldier Class Abilities,TYPE.MilitaryMAPre,TYPE.MilitaryMA)
