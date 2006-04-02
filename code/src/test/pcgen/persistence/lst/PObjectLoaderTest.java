@@ -33,8 +33,8 @@ import gmgen.pluginmgr.PluginLoader;
 import java.util.List;
 
 import junit.framework.Test;
-import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import pcgen.PCGenTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
@@ -42,7 +42,7 @@ import pcgen.core.Variable;
 import pcgen.core.utils.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 
-public class PObjectLoaderTest extends TestCase {
+public class PObjectLoaderTest extends PCGenTestCase {
 	public PObjectLoaderTest(String name)
 	{
 		super(name);
@@ -84,12 +84,11 @@ public class PObjectLoaderTest extends TestCase {
 		
 		try 
 		{
-			PObjectLoader.parseTag(feat, "DEFINE:Foo");
-			fail("Should have thrown a PersistenceLayerException");
+			is(new Boolean(PObjectLoader.parseTag(feat, "DEFINE:Foo")), eq(false), "Parse fails for badly formed define");
 		}
 		catch (PersistenceLayerException ple)
 		{
-			assertEquals( "Unable to parse the Define 'DEFINE:Foo'. All defines are of the form DEFINE:variable|defaultValue.", ple.getMessage() );
+			fail("parseTag throws exception instead of passing back false");
 		}
 	}
 	
