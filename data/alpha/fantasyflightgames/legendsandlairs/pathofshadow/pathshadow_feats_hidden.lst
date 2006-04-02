@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 21:26:45 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -36,15 +36,15 @@ Insight into Deceit	TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SA:Insight into De
 ##########################
 
 ###Block:Acolyte of Chance special abilities (similar to the rogue)
-# Feat Name						Type					Visible	Required Feat			Prohibited Feat			!PRESA				Special Ability			Spells							Stackable?	Multiple?	Choose			Choose a Feat			Save checks bonus		Modify VAR				Source Page
-Lucky Strike					TYPE:ChanceSpecialAbilities	VISIBLE:NO																													STACK:YES	MULT:YES	CHOOSE:Lucky Strike										BONUS:VAR|LuckyStrike|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Close Call						TYPE:ChanceSpecialAbilities	VISIBLE:NO																													STACK:YES	MULT:YES	CHOOSE:Close Call											BONUS:VAR|CloseCall|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:One More Time (Su)												MULT:NO																			SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Random Action					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Random Action (Sp)		SPELLS:Random Action|TIMES=1|Random Action			MULT:NO																			SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Acolyte of Chance Lightning Reflexes A	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SA:Lightning Reflexes (Ex)											MULT:NO										BONUS:CHECKS|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SA:Lightning Reflexes (Ex)											MULT:NO					ADD:FEAT(Lightning Reflexes)										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Dumb Luck						TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Dumb Luck (Ex)													MULT:NO																			SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Vitality of Chance (Ex)											MULT:NO														BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+# Feat Name						Type					Visible	Required Feat			Prohibited Feat			!PRESA				Special Ability			Spells							Stackable?	Multiple?	Choose		Choose a Feat			Save checks bonus		Modify VAR				Source Page
+Lucky Strike					TYPE:ChanceSpecialAbilities	VISIBLE:NO																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|LuckyStrike|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Close Call						TYPE:ChanceSpecialAbilities	VISIBLE:NO																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|CloseCall|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:One More Time (Su)												MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Random Action					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Random Action (Sp)		SPELLS:Random Action|TIMES=1|Random Action			MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes A	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SA:Lightning Reflexes (Ex)											MULT:NO									BONUS:CHECKS|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SA:Lightning Reflexes (Ex)											MULT:NO				ADD:FEAT(Lightning Reflexes)										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Dumb Luck						TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Dumb Luck (Ex)													MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SA:Vitality of Chance (Ex)											MULT:NO													BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 
 ###Block:
 #Evasion							VISIBLE:NO	SA:Evasion (Ex)|PHBFeatEvasion	DEFINE:PHBFeatEvasion|COUNT[FEATNAME=Improved Evasion]-1	SOURCEPAGE:Chap.3, Rogue, Special Abilities
@@ -59,9 +59,9 @@ Trace Enchantment IV							VISIBLE:NO	SA:Trace Enchantment (cross planar) (Su)		
 
 
 ###Block:Packrat "+1 level of existing class" of bard or rogue
-# Feat Name			Type					Visible	Required Class		Stackable?	Multiple?	Choose				Caster level bonus
-PackratRogueIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Rogue=1	STACK:YES	MULT:YES	CHOOSE:+1 level of rogue
-PackratBardIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Bard=1		STACK:YES	MULT:YES	CHOOSE:+1 level of bard		BONUS:PCLEVEL|Bard|1
+# Feat Name			Type					Visible	Required Class		Stackable?	Multiple?	Choose		Caster level bonus
+PackratRogueIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Rogue=1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+PackratBardIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Bard=1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Bard|1
 
 
 ###Block:Queen's Coronet

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 21:28:15 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -34,6 +34,6 @@ Manufacture Magic Poison		TYPE:ItemCreation	PRECLASS:1,Spellcaster=5												
 Mirror Sight				TYPE:Eldritch	PRECLASS:1,Spellcaster=1																				PRESTAT:1,CHA=19								DESC:You can look through a mirror and see an image that is reflected in a specific other mirror or an individual reflected in any other mirror.					MULT:NO																																																	SOURCEPAGE:p.24
 Precise Touch				TYPE:Metamagic																																			DESC:You can cast area spells as if they were touch spells.																				MULT:NO																																						ADDSPELLLEVEL:-1									SOURCEPAGE:p.25
 Subliminal Spellcasting			TYPE:Eldritch	PRECLASS:1,Spellcaster=3										PRESKILL:1,Bluff=1							PRESTAT:1,CHA=11								DESC:You cast a spell so subtly as to make it extremely difficult to detect that it even happened.													MULT:NO																																																	SOURCEPAGE:p.25
-Subtle Scrying				TYPE:General																																			DESC:You are harder to detect when you are scrying someone.																		STACK:YES	MULT:YES	CHOOSE:DC|+10 DC to notice the sensor																																										SOURCEPAGE:p.25
+Subtle Scrying				TYPE:General																																			DESC:You are harder to detect when you are scrying someone.																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																														SOURCEPAGE:p.25
 Sustain Song (Sostenuto)		TYPE:General.Song																															PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's duration with your skill in music.																		MULT:NO																																																	SOURCEPAGE:p.25
 Vivify Song (Maestoso)			TYPE:General.Song																															PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's potency with your skill in music.																		MULT:NO																																																	SOURCEPAGE:p.25

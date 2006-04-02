@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 20:09:20 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 
@@ -13,9 +13,9 @@ Greater Power Penetration	TYPE:Psionic									PREFEAT:1,Power Penetration	PREFE
 Greater Psionic Focus		TYPE:Psionic									PREFEAT:1,Psionic Focus	PREFEAT:1,PsionicClass													DESC:See text			MULT:YES	CHOOSE:FEAT=Psionic Focus|1																													BONUS:DC|SCHOOL.%LIST|4|TYPE=PsiFocus																												SOURCEPAGE:srdpsionicfeats.rtf
 Improved Psicrystal		TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text			MULT:YES	CHOOSE:Artiste|Bully|Coward|Friendly|Hero|Liar|Meticulous|Observant|Poised|Resolve|Sage|Singleminded|Sneak|Sympathetic																																																SOURCEPAGE:srdpsionicfeats.rtf
 Inertial Armor			TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text																															BONUS:COMBAT|AC|4|TYPE=Armor|PREAPPLY:PC																																			SOURCEPAGE:srdpsionicfeats.rtf
-Inner Strength			TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text	STACK:YES	MULT:YES	CHOOSE:Power Points																	ADD:FEAT(Inner Strength Points)																																										SOURCEPAGE:srdpsionicfeats.rtf
-Mental Adversary			TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,CHA=13	DESC:See text	STACK:YES	MULT:YES	CHOOSE:Bonus to damage																																																																SOURCEPAGE:srdpsionicfeats.rtf
-Mental Leap				TYPE:Psionic									PREFEAT:1,PsionicClass											PRESKILL:1,Jump=6	PRESTAT:1,STR=13	DESC:See text	STACK:YES	MULT:YES	CHOOSE:Bonus to jump																																																																SOURCEPAGE:srdpsionicfeats.rtf
+Inner Strength			TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		ADD:FEAT(Inner Strength Points)																																										SOURCEPAGE:srdpsionicfeats.rtf
+Mental Adversary			TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,CHA=13	DESC:See text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																	SOURCEPAGE:srdpsionicfeats.rtf
+Mental Leap				TYPE:Psionic									PREFEAT:1,PsionicClass											PRESKILL:1,Jump=6	PRESTAT:1,STR=13	DESC:See text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																	SOURCEPAGE:srdpsionicfeats.rtf
 Metacreative			TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text			MULT:YES	CHOOSE:Craft Crystal Capacitor|Craft Dorje|Craft Psionic Arms and Armor|Craft Universal Item|Encode Stone|Scribe Tatoo																																																SOURCEPAGE:srdpsionicfeats.rtf
 Mind Trap				TYPE:Psionic									PREFEAT:1,Psychic Bastion	PREFEAT:1,PsionicClass												DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf
 Power Penetration			TYPE:Psionic									PREFEAT:1,PsionicClass																	DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf
@@ -33,7 +33,7 @@ Psychic Inquisitor		TYPE:Psionic									PREFEAT:1,Psychoanalyst	PREFEAT:1,Psion
 Psychoanalyst			TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,CHA=13	DESC:See text																																																																	BONUS:SKILL|Bluff,Diplomacy,Intimidate|2	SOURCEPAGE:srdpsionicfeats.rtf
 Rapid Metabolism			TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,CON=13	DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf
 Return Shot				TYPE:Psionic									PREFEAT:2,Point Blank Shot,Psionic Shot	PREFEAT:1,PsionicClass							PRESTAT:1,DEX=13	DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf
-Speed of Thought			TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,WIS=13	DESC:See text	STACK:YES	MULT:YES	CHOOSE:+10 to Base Move																	ADD:FEAT(Speed of Thought Movement)																																										SOURCEPAGE:srdpsionicfeats.rtf
+Speed of Thought			TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,WIS=13	DESC:See text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		ADD:FEAT(Speed of Thought Movement)																																										SOURCEPAGE:srdpsionicfeats.rtf
 Stand Still				TYPE:Psionic									PREFEAT:1,PsionicClass														PRESTAT:1,STR=13	DESC:See text																																																																								SOURCEPAGE:srdpsionicfeats.rtf
 Talented				TYPE:Psionic									PREFEAT:1,Inner Strength	PREFEAT:1,PsionicClass												DESC:See text																									ADD:FEAT(TYPE=TalentedFreePowers)1																																										SOURCEPAGE:srdpsionicfeats.rtf
 Trigger Power			TYPE:Psionic									PREFEAT:2,Inner Strength,Talented	PREFEAT:1,PsionicClass											DESC:See text	STACK:YES	MULT:YES	CHOOSE:0 Lvl Power Known|1st Lvl Power Known|2nd Lvl Power Known|3rd Lvl Power Known																																																					SOURCEPAGE:srdpsionicfeats.rtf

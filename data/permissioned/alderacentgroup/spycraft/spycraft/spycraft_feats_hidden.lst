@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 21:08:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.com/
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -33,9 +33,9 @@ Uncanny Dodge		TYPE:Special			VISIBLE:NO	SA:Uncanny Dodge (Dex bonus to Defense)
 Evasion			TYPE:Special			VISIBLE:NO	SA:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	SA:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	SA:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3							DEFINE:EvasionFactor|0
 
 Fast Movement		TYPE:FixerSpecialAbility	VISIBLE:NO																																																																BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
-Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:Once per session																						BONUS:VAR|FixerImprovisation|1
-Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:Once per session																						BONUS:VAR|FixerMasterThief|1
-Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:NO	MULT:YES						ADD:FEAT(Skill Mastery)3
+Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerImprovisation|1
+Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerMasterThief|1
+Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																		STACK:NO	MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT(Skill Mastery)3
 Skill Mastery		TYPE:SpecialAbility		VISIBLE:NO	SA:Skill Mastery (%CHOICE)																																													STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL|1
 Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SA:Stash It
 
@@ -44,7 +44,7 @@ Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SA:Stash It
 # Feat Name						Type					Visible	Required Feat				Special Ability						Define				Stackable?	Multiple?	Choose					Choose a Feat												ADD:Language			Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
 Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																				STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS|1																																									CSKILL:LIST
 
-Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES																					ADD:Language(TYPE=Spoken)1
+Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		ADD:Language(TYPE=Spoken)1
 Faceman Cold Read					TYPE:CrossClassAbility		VISIBLE:NO							SA:Cold Read (1/session)									STACK:NO	MULT:NO
 Faceman Quick Change				TYPE:CrossClassAbility		VISIBLE:NO							SA:Quick Change (%/session)|PointmanQuickChange	DEFINE:PointmanQuickChange|1	STACK:NO	MULT:NO
 Faceman Quick Change (additional session)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Faceman Quick Change														STACK:NO	MULT:NO																																									BONUS:VAR|PointmanQuickChange|1
@@ -74,16 +74,16 @@ Wheelman Familiarity +2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Wheelman
 
 ###Block:  Snoop Abilities
 
-# Feat Name							Type			Visible	Required Feat				Special Ability									Define					Stackable?	Multiple?	Choose a Feat			Modify VAR
+# Feat Name							Type			Visible	Required Feat				Special Ability									Define					Stackable?	Multiple?	Choose		Choose a Feat			Modify VAR
 Comb the Streets						TYPE:SnoopAbility	VISIBLE:NO							SA:Comb the Streets (%/session)|CombtheStreets				DEFINE:CombtheStreets|1			STACK:NO	MULT:NO
-Comb the Streets (additional sessions)		TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Comb the Streets																			STACK:NO	MULT:YES						BONUS:VAR|CombtheStreets|1
+Comb the Streets (additional sessions)		TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Comb the Streets																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|CombtheStreets|1
 
 Intercept Communication					TYPE:SnoopAbility	VISIBLE:NO							SA:Intercept Communication (%/session)|InterceptCommunication	DEFINE:InterceptCommunication|1	STACK:NO	MULT:NO
-Intercept Communication (additional sessions)	TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Intercept Communication																		STACK:NO	MULT:YES						BONUS:VAR|InterceptCommunication|1
+Intercept Communication (additional sessions)	TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Intercept Communication																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|InterceptCommunication|1
 
 Intelligence Analysis					TYPE:SnoopAbility	VISIBLE:NO							SA:Intelligence Analysis													STACK:NO	MULT:NO
 Electronics Familiarity					TYPE:SnoopAbility	VISIBLE:NO							SA:Electronics Familiarity													STACK:NO	MULT:NO
-Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STACK:NO	MULT:YES	ADD:FEAT(Skill Mastery)3+INT
+Snoop Skill Mastery					TYPE:SnoopAbility	VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT(Skill Mastery)3+INT
 
 ###Block:  Soldier Abilities
 

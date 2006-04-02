@@ -44,8 +44,8 @@ Favored Tech IV								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=15		
 Favored Tech V								TYPE:FavoredTech		VISIBLE:NO				PRECLASS:1,Mechanist=20			PREFEAT:4,Favored Tech I,Favored Tech II,Favored Tech III,Favored Tech IV	!PREFEAT:1,Favored Tech V	SA:Favored Tech (%CHOICE) +%|FavoredTech5		DEFINE:FavoredTech5|COUNT[FEATTYPE=FavoredTech]-4							MULT:YES	CHOOSE:COUNT=1|Aircraft|Armor|Ground vehicles|Electronics|Explosives|Handguns|Heavy weapons|Machines|Melee weapons|Rifles|Robots|Spacecraft|Traps|Watercraft
 
 #Techie Mastercraft
-Mastercraft (Electronic)						TYPE:MasterElectronic	VISIBLE:NO				PRECLASS:1,Techie=5																					SA:Mastercraft (Electronic) +%|MasterElectronic	DEFINE:MasterElectronic|COUNT[FEATTYPE=MasterElectronic]				STACK:YES	MULT:YES	CHOOSE:Electronic
-Mastercraft (Mechanical)						TYPE:MasterMechanical	VISIBLE:NO				PRECLASS:1,Techie=5																					SA:Mastercraft (Mechanical) +%|MasterMechanical	DEFINE:MasterMechanical|COUNT[FEATTYPE=MasterMechanical]				STACK:YES	MULT:YES	CHOOSE:Mechanical
+Mastercraft (Electronic)						TYPE:MasterElectronic	VISIBLE:NO				PRECLASS:1,Techie=5																					SA:Mastercraft (Electronic) +%|MasterElectronic	DEFINE:MasterElectronic|COUNT[FEATTYPE=MasterElectronic]				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Mastercraft (Mechanical)						TYPE:MasterMechanical	VISIBLE:NO				PRECLASS:1,Techie=5																					SA:Mastercraft (Mechanical) +%|MasterMechanical	DEFINE:MasterMechanical|COUNT[FEATTYPE=MasterMechanical]				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 
 # Soldier Favored Weapon
 Favored Weapon								TYPE:Special							PRECLASS:1,Soldier=2																																							DESC:See Text	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST																								BONUS:WEAPONPROF=%LIST|TOHIT|2		SOURCEPAGE:p.

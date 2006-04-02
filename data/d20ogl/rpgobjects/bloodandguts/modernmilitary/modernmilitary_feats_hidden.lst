@@ -46,12 +46,12 @@ Treat Injury(class skill).MOD					TYPE:NBCSkills.MedicalSkills
 Psychotherapy Qualify						TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																																												ADD:FEAT(Psychotherapy)
 Surgery Qualify							TYPE:MedicalFeat																									VISIBLE:NO	PREFEAT:1,Officer Candidate School																																												ADD:FEAT(Surgery)
 
-Advanced Amphibious Training					TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Amphibious Assault Training																																				STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|AmphibiousTraining|1
-Advanced Arctic Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Arctic Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|ArcticTraining|1
-Advanced Desert Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Desert Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|DesertTraining|1
-Advanced Jungle/Swamp Training				TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College																																				STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|JungleTraining|1
-Advanced Mountain Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Mountain Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|MountainTraining|1
-Advanced Urban Training						TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Urban Warfare College																																					STACK:YES	MULT:YES	CHOOSE:Bonus|+1					BONUS:VAR|UrbanTraining|1
+Advanced Amphibious Training					TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Amphibious Assault Training																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AmphibiousTraining|1
+Advanced Arctic Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Arctic Warfare College																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ArcticTraining|1
+Advanced Desert Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Desert Warfare College																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|DesertTraining|1
+Advanced Jungle/Swamp Training				TYPE:Terrain.NavyBoat																								VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|JungleTraining|1
+Advanced Mountain Training					TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Mountain Warfare College																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|MountainTraining|1
+Advanced Urban Training						TYPE:Terrain																									VISIBLE:NO	PREFEAT:1,Urban Warfare College																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|UrbanTraining|1
 
 Air Superiority							TYPE:Special																									VISIBLE:NO																	SA:Air Superiority +%|AirSuperiority												DEFINE:AirSuperiority|0
 Strafing								TYPE:Special																									VISIBLE:NO																	SA:SA:Strafing +%|Strafing														DEFINE:Strafing|0

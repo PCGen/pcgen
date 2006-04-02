@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 21:08:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -30,8 +30,8 @@ Quick Healer													TYPE:BasicCombat																				PRESTAT:1,CON=13		D
 Run															TYPE:BasicCombat																								DESC:You are able to move five times your speed when running.																																																																								SOURCEPAGE:p.70
 Sidestep														TYPE:BasicCombat																				PRESTAT:1,DEX=13		DESC:You are good at evading attacks.																																																																												SOURCEPAGE:p.70
 Surge of Speed													TYPE:BasicCombat																								DESC:You may preform an additional action each round.																																																																										SOURCEPAGE:p.71
-Toughness VP													TYPE:BasicCombat																								DESC:You are tougher than normal																					STACK:YES	MULT:YES	CHOOSE:HP|+4 VP																																			BONUS:HP|CURRENTMAX|4												SOURCEPAGE:p.71
-Toughness WP													TYPE:BasicCombat																								DESC:You are tougher than normal																					STACK:YES	MULT:YES	CHOOSE:HP|+2 WP																																			BONUS:HP|ALTHP|2													SOURCEPAGE:p.71
+Toughness VP													TYPE:BasicCombat																								DESC:You are tougher than normal																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																			BONUS:HP|CURRENTMAX|4												SOURCEPAGE:p.71
+Toughness WP													TYPE:BasicCombat																								DESC:You are tougher than normal																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																			BONUS:HP|ALTHP|2													SOURCEPAGE:p.71
 Two Weapon Fighting					OUTPUTNAME:Two-Weapon Fighting		TYPE:BasicCombat														PREHANDSEQ:2								DESC:You are able to fight with a weapon in each hand, making one extra attack each round for the off-hand weapon.																																								BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2																SOURCEPAGE:p.71
 Weapon Group Proficiency (Hurled)										TYPE:BasicCombat																								DESC:You are proficient with hurled weapons.																																							AUTO:WEAPONPROF|TYPE.Hurled																																SOURCEPAGE:p.71
 Weapon Group Proficiency (Handgun)										TYPE:BasicCombat																								DESC:You are proficient with handguns.																																								AUTO:WEAPONPROF|TYPE.Handgun																																SOURCEPAGE:p.71
@@ -195,7 +195,7 @@ False Start			TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill								DESC:You have 
 Grand Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Advanced Skill Mastery	PRELEVEL:12					DESC:You excel with one particular skill.															MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.90
 Perfect Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Grand Skill Mastery		PRELEVEL:18					DESC:You have become one of the world's greatest experts in a particular field.								MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.90
 Quick Use			TYPE:AdvancedSkill													DESC:You are very quick and efficient with a particular skill.											MULT:YES	CHOOSE:SKILLS|1																							SOURCEPAGE:p.90
-Talented			TYPE:AdvancedSkill										PRELEVELMAX:1	DESC:You are extraordinarily gifted in the use of a single skill.													CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90
+Talented			TYPE:AdvancedSkill										PRELEVELMAX:1	DESC:You are extraordinarily gifted in the use of a single skill.											MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|1	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90
 Track				TYPE:AdvancedSkill													DESC:You can follow the trail of pray - human and animal - across nearly any type of terrain.																																	SOURCEPAGE:p.90
 
 #TODO: Training is non functional at this time, need to find a way to add 4 points to the skill pool
@@ -206,25 +206,25 @@ Unlocked Potential	TYPE:AdvancedSkill													DESC:You have incredible poten
 
 ###Block: Style Feats
 
-# Feat Name		Type		Required Feat		Required Lvl	Req. Special Ability	Required Skill				Required Stat	Special Ability						Define					Description																																							Stackable?	Multiple?	Choose			Modify VAR					Source Page
-Card Shark		TYPE:Style																																			DESC:You dabbled with competitive gambling for many years.																																													SOURCEPAGE:p.91
-Charmer		TYPE:Style																																			DESC:You have a way of bringing people around.																																															SOURCEPAGE:p.91
-Filthy Rich		TYPE:Style																																			DESC:You don't just live the high life - you were born to it.																																												SOURCEPAGE:p.91
-Five Star Service	TYPE:Style	PREFEAT:1,Filthy Rich																															DESC:You are known around the world as a connoisseur of the high life.																																											SOURCEPAGE:p.91
-Flawless Identity	TYPE:Style																																			DESC:You have a perfect cover identity, complete with history, eyewitnesses and documentation.																																							SOURCEPAGE:p.92
-Fortunate		TYPE:Style																					SA:Extra %d4 Action Die|FortunateExtraActionDie	DEFINE:FortunateExtraActionDie|0	DESC:You are unusually lucky, even for a trained agent.																															STACK:YES	MULT:YES	CHOOSE:Extra Action Die	BONUS:VAR|FortunateExtraActionDie|1	SOURCEPAGE:p.92
-Handler		TYPE:Style	PREFEAT:1,Undermine																															DESC:You are experienced in recruiting and cultivating moles within enemy organizations.																																								SOURCEPAGE:p.92
-Hard Core		TYPE:Style																																			DESC:There is a core of fierce professionalism in you that makes even your worst enemies treat you with respect.																																				SOURCEPAGE:p.93
-Mark			TYPE:Style																		PRESTAT:1,WIS=13															DESC:You can size someone up with a glance.																																															SOURCEPAGE:p.93
-Old Debts		TYPE:Style								PRESA:Backup																									DESC:Friends help you move. Real friends help you move bodies.																																												SOURCEPAGE:p.93
-Personal Staff	TYPE:Style	PREFEAT:1,Filthy Rich																															DESC:You have a small network of servants, assistants and aids you may call upon in non-combat situations.																																					SOURCEPAGE:p.94
-Play the Odds	TYPE:Style																																			DESC:You are a cold and calculating gambler, able to study the odds and formulate strategies for victory that make bookies shudder.																																	SOURCEPAGE:p.94
-Political Favors	TYPE:Style					PRELEVEL:3																													DESC:You have put critical information in front of powerful individuals in the past. Now they owe you a little quid pro quo.																																		SOURCEPAGE:p.94
-Private Identity	TYPE:Style																					SA:Private Identities - %|PrivateIdentities	DEFINE:PrivateIdentities|0		DESC:You have a hidden identity.																																			STACK:YES	MULT:YES	CHOOSE:Private Identity	BONUS:VAR|PrivateIdentities|1		SOURCEPAGE:p.94
-Safe House		TYPE:Style																																			DESC:Whether it’s an old family estate or just a rented flat, there’s always a roof over your head — usually one not far from the action.																																SOURCEPAGE:p.94
-Silver Tongue	TYPE:Style																																			DESC:You have a knack for making even the unthinkable sound not only possible, but very, very appealing.																																					SOURCEPAGE:p.94
-The Look		TYPE:Style																		PRESTAT:1,CHA=13															DESC:Whether it's devilishly handsome good looks, a laugh that melts hearts, all the right curves, or a smile that makes people weak in the knees, you've got what it takes to make members of the opposite sex stop and give you the eye.															SOURCEPAGE:p.94
-Undermine		TYPE:Style												PRESKILL:2,Innuendo,Sense Motive=2	PRESTAT:1,CHA=13															DESC:You excel at playing with people's insecurities.																																														SOURCEPAGE:p.94
+# Feat Name		Type		Required Feat		Required Lvl	Req. Special Ability	Required Skill				Required Stat	Special Ability						Define					Description																																							Stackable?	Multiple?	Choose		Modify VAR					Source Page
+Card Shark		TYPE:Style																																			DESC:You dabbled with competitive gambling for many years.																																												SOURCEPAGE:p.91
+Charmer		TYPE:Style																																			DESC:You have a way of bringing people around.																																														SOURCEPAGE:p.91
+Filthy Rich		TYPE:Style																																			DESC:You don't just live the high life - you were born to it.																																											SOURCEPAGE:p.91
+Five Star Service	TYPE:Style	PREFEAT:1,Filthy Rich																															DESC:You are known around the world as a connoisseur of the high life.																																										SOURCEPAGE:p.91
+Flawless Identity	TYPE:Style																																			DESC:You have a perfect cover identity, complete with history, eyewitnesses and documentation.																																						SOURCEPAGE:p.92
+Fortunate		TYPE:Style																					SA:Extra %d4 Action Die|FortunateExtraActionDie	DEFINE:FortunateExtraActionDie|0	DESC:You are unusually lucky, even for a trained agent.																															STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|FortunateExtraActionDie|1	SOURCEPAGE:p.92
+Handler		TYPE:Style	PREFEAT:1,Undermine																															DESC:You are experienced in recruiting and cultivating moles within enemy organizations.																																							SOURCEPAGE:p.92
+Hard Core		TYPE:Style																																			DESC:There is a core of fierce professionalism in you that makes even your worst enemies treat you with respect.																																			SOURCEPAGE:p.93
+Mark			TYPE:Style																		PRESTAT:1,WIS=13															DESC:You can size someone up with a glance.																																														SOURCEPAGE:p.93
+Old Debts		TYPE:Style								PRESA:Backup																									DESC:Friends help you move. Real friends help you move bodies.																																											SOURCEPAGE:p.93
+Personal Staff	TYPE:Style	PREFEAT:1,Filthy Rich																															DESC:You have a small network of servants, assistants and aids you may call upon in non-combat situations.																																				SOURCEPAGE:p.94
+Play the Odds	TYPE:Style																																			DESC:You are a cold and calculating gambler, able to study the odds and formulate strategies for victory that make bookies shudder.																																SOURCEPAGE:p.94
+Political Favors	TYPE:Style					PRELEVEL:3																													DESC:You have put critical information in front of powerful individuals in the past. Now they owe you a little quid pro quo.																																	SOURCEPAGE:p.94
+Private Identity	TYPE:Style																					SA:Private Identities - %|PrivateIdentities	DEFINE:PrivateIdentities|0		DESC:You have a hidden identity.																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|PrivateIdentities|1		SOURCEPAGE:p.94
+Safe House		TYPE:Style																																			DESC:Whether it’s an old family estate or just a rented flat, there’s always a roof over your head — usually one not far from the action.																															SOURCEPAGE:p.94
+Silver Tongue	TYPE:Style																																			DESC:You have a knack for making even the unthinkable sound not only possible, but very, very appealing.																																				SOURCEPAGE:p.94
+The Look		TYPE:Style																		PRESTAT:1,CHA=13															DESC:Whether it's devilishly handsome good looks, a laugh that melts hearts, all the right curves, or a smile that makes people weak in the knees, you've got what it takes to make members of the opposite sex stop and give you the eye.														SOURCEPAGE:p.94
+Undermine		TYPE:Style												PRESKILL:2,Innuendo,Sense Motive=2	PRESTAT:1,CHA=13															DESC:You excel at playing with people's insecurities.																																													SOURCEPAGE:p.94
 
 #
 # End

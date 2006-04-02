@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Mar 20 03:43:29 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 19:54:05 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -15,16 +15,16 @@ Skill Mastery	TYPE:Special.RogueAbilities	VISIBLE:EXPORT															DESC:Take
 
 ###Block:Archmage High Arcana Class Abilities
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
-# Feat Name				Type			Visible	Required Class		Req. Spell Type		Special Ability					Define			Stackable?	Multiple?	Choose				Bonus to spell cast/day				Modify VAR			Source Page
-Arcane Fire				TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,9	SA:Arcane Fire											MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1					SOURCEPAGE:prestigeclasses.rtf
-Arcane Reach			TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,7	SA:Arcane Reach											MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:prestigeclasses.rtf
-Mastery of Counterspelling	TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,7	SA:Mastery of Counterspelling									MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:prestigeclasses.rtf
-Mastery of Elements		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,8	SA:Mastery of Elements										MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|-1					SOURCEPAGE:prestigeclasses.rtf
-Mastery of Shaping		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,6	SA:Mastery of Shaping										MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|-1					SOURCEPAGE:prestigeclasses.rtf
-Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell Power +1											MULT:NO						BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:prestigeclasses.rtf
+# Feat Name				Type			Visible	Required Class		Req. Spell Type		Special Ability					Define			Stackable?	Multiple?	Choose		Bonus to spell cast/day				Modify VAR			Source Page
+Arcane Fire				TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,9	SA:Arcane Fire											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1					SOURCEPAGE:prestigeclasses.rtf
+Arcane Reach			TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,7	SA:Arcane Reach											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:prestigeclasses.rtf
+Mastery of Counterspelling	TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,7	SA:Mastery of Counterspelling									MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1					SOURCEPAGE:prestigeclasses.rtf
+Mastery of Elements		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,8	SA:Mastery of Elements										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|-1					SOURCEPAGE:prestigeclasses.rtf
+Mastery of Shaping		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,6	SA:Mastery of Shaping										MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|-1					SOURCEPAGE:prestigeclasses.rtf
+Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell Power +1											MULT:NO				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1					SOURCEPAGE:prestigeclasses.rtf
 #Needs alot of work -- Needs a way to dynamicly select a spell from spelllist and then get the level and class of the spell for removal of the spell slot
 #This is now set to indicate how many times the ability has been choosen
-Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:Spell-Like Ability	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:prestigeclasses.rtf
+Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:prestigeclasses.rtf
 
 ###Block: Horizon Walker Terrain Abilities
 # Feat Name			Type			Visible	Special Ability								Add to magical move						Bonus to skill								Source Page

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Apr  1 21:09:27 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
 
 # Feat Name			Type			Required AL				Req. Att.	Required Class		Required Feat			Required Lvl	Maximum Level	Required Skill			Required Stat	Prohibited Stat	Description																							Stackable?	Multiple?	Choose								Bonus to skill							Source Page
@@ -8,7 +8,7 @@ Arcane Knowledge		TYPE:General												PREFEAT:1,Arcane Sensitivity										
 Arcane Sensitivity	TYPE:General																							PRESKILL:1,Use Magic Device=1							DESC:Your skill at activating magic items comes not only from training and study but also from your innate ability to detect magical auras.																							SOURCEPAGE:p.46
 Back Alley Brawler	TYPE:Rogue							PREATT:2	PRECLASS:1,Rogue=1																							DESC:In combat you are a wildcat, biting, clawing, and kicking your enemies without regard to any archaic notions of chivalry or fair play.																							SOURCEPAGE:p.46-7
 Blinding Strike		TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Back Alley Brawler																		DESC:Your mastery of underhanded, dishonourable tactics allows you to temporarily blind your foe.																														SOURCEPAGE:p.47-8
-Clever Designer		TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Trapmaster																			DESC:You have a talent for producing traps that are hard to detect and difficult to disarm.									STACK:YES	MULT:YES	CHOOSE:Clever Designer +2 Search/Disable DC											SOURCEPAGE:p.48
+Clever Designer		TYPE:Rogue									PRECLASS:1,Rogue=1	PREFEAT:1,Trapmaster																			DESC:You have a talent for producing traps that are hard to detect and difficult to disarm.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																SOURCEPAGE:p.48
 Contacts			TYPE:Rogue									PRECLASS:1,Rogue=1																							DESC:You have friends in the right places.																	STACK:YES	MULT:YES	CHOOSE:Fence|Law Enforcement|Temple|Wizards' Guild										SOURCEPAGE:p.48-9
 Contemptible Target	TYPE:General												PREFEAT:1,Low Key																	!PRESTAT:1,STR=14	DESC:You appear weak and puny, causing opponents to ignore you in combat.																																		SOURCEPAGE:p.49
 Craft Matrix		TYPE:Rogue									PRECLASS:1,Rogue=1												PRESKILL:1,Use Magic Device=1							DESC:Using your knowledge of magical devices, you are capale of crafting physical vessels for magical energy.																												SOURCEPAGE:p.49

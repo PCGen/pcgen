@@ -9,7 +9,7 @@ Cybermonger				TYPE:General.Charismatic																									DESC:You have ac
 # not sure how to do this line: you gain a +2 bonus to three skills while in EVA: Computer Use, Demolitions, Knowledge (tactics), Navigate, Survival and Tumble.
 EVA Training			TYPE:General																											DESC:You have learned how to fight and survive in spacesuits outside of a spacecraft.												SOURCEPAGE:p.5
 
-Extra Psycher			TYPE:General																							PREVARGTEQ:Psyche,1	DESC:You can use your psyche more often a day than normal						STACK:YES	MULT:YES	CHOOSE:+4 Psyche	BONUS:VAR|Psyche|4	SOURCEPAGE:p.5
+Extra Psycher			TYPE:General																							PREVARGTEQ:Psyche,1	DESC:You can use your psyche more often a day than normal						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|Psyche|4	SOURCEPAGE:p.5
 
 ###Block: hidden
 # Feat Name		Type			Visible	Special Ability					Define

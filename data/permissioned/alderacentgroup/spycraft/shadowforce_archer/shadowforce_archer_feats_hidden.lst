@@ -24,12 +24,12 @@ Mentalist Psi Mastery			TYPE:MentalistAbility			VISIBLE:EXPORT																		
 Physical Adept Psi Mastery		TYPE:PhysicalAdeptAbility		VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Physical|1		BONUS:SKILL|LIST|2|TYPE=Psionic
 Telepath Psi Mastery			TYPE:TelepathAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Telepathic|1	BONUS:SKILL|LIST|2|TYPE=Psionic
 
-Strength Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Str																			BONUS:STAT|STR|1
-Dexterity Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Dex																			BONUS:STAT|DEX|1
-Constitution Ability Bonus		TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Con																			BONUS:STAT|CON|1
-Intelligence Ability Bonus		TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Int																			BONUS:STAT|INT|1
-Wisdom Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Wis																			BONUS:STAT|WIS|1
-Charisma Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:+1 Cha																			BONUS:STAT|CHA|1
+Strength Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:STAT|STR|1
+Dexterity Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:STAT|DEX|1
+Constitution Ability Bonus		TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:STAT|CON|1
+Intelligence Ability Bonus		TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:STAT|INT|1
+Wisdom Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:STAT|WIS|1
+Charisma Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:STAT|CHA|1
 
 # Psionic Feat Support
 
