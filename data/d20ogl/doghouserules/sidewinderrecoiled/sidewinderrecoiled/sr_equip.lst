@@ -87,29 +87,29 @@ Wrap (Women's)			OUTPUTNAME:[NAME] Wrap			TYPE:Goods.Clothing	COST:15	WT:0					S
 Vest											TYPE:Goods.Clothing	COST:1	WT:0					SOURCEPAGE:p. 156
 
 ###Block: Provisions
-# Equipment Name			Output Name					Type				Cost		Weight	Base Quantity	Source Page
-Bacon (Side)			OUTPUTNAME:[NAME] of Bacon		TYPE:Goods.Provisions	COST:6	WT:40					SOURCEPAGE:p. 157
-Beef (Side)				OUTPUTNAME:[NAME] of Beef		TYPE:Goods.Provisions	COST:5	WT:65					SOURCEPAGE:p. 157
-Beef (Dried)			OUTPUTNAME:[NAME] Beef			TYPE:Goods.Provisions	COST:.2	WT:1					SOURCEPAGE:p. 157
-Beer (Glass)			OUTPUTNAME:[NAME] of Beer		TYPE:Goods.Provisions	COST:.05	WT:0					SOURCEPAGE:p. 157
-Beer (Small Keg)			OUTPUTNAME:[NAME] of Beer		TYPE:Goods.Provisions	COST:2	WT:10					SOURCEPAGE:p. 157
-Chewing Gum (100 Pieces)	OUTPUTNAME:[NAME] of Chewing Gum	TYPE:Goods.Provisions	COST:.25	WT:5					SOURCEPAGE:p. 157
-Chocolate (8 Oz. Tin)		OUTPUTNAME:[NAME] of Chocolate	TYPE:Goods.Provisions	COST:.1	WT:.5		BASEQTY:100		SOURCEPAGE:p. 157
-Coffee (2 Lb. Tin)		OUTPUTNAME:[NAME] of Coffee		TYPE:Goods.Provisions	COST:.5	WT:2					SOURCEPAGE:p. 157
-Corned Beef										TYPE:Goods.Provisions	COST:5.75	WT:100				SOURCEPAGE:p. 157
-Crackers										TYPE:Goods.Provisions	COST:1.5	WT:25					SOURCEPAGE:p. 157
-Flour (Sack)			OUTPUTNAME:[NAME] of Flour		TYPE:Goods.Provisions	COST:20	WT:50					SOURCEPAGE:p. 157
-Jerky (Pouch)			OUTPUTNAME:[NAME] of Jerky		TYPE:Goods.Provisions	COST:.15	WT:1					SOURCEPAGE:p. 157
-Meal (Average)			OUTPUTNAME:[NAME] Meal			TYPE:Goods.Provisions	COST:.25	WT:0					SOURCEPAGE:p. 157
-Meal (Good)				OUTPUTNAME:[NAME] Meal			TYPE:Goods.Provisions	COST:.75	WT:0					SOURCEPAGE:p. 157
-Meal (Aboard Train)		OUTPUTNAME:Meal [NAME]			TYPE:Goods.Provisions	COST:1.5	WT:0					SOURCEPAGE:p. 157
-Oatmeal (Sack)			OUTPUTNAME:[NAME] of Oatmeal		TYPE:Goods.Provisions	COST:4	WT:50					SOURCEPAGE:p. 157
-Rations (1 Week)			OUTPUTNAME:[NAME]'s Rations		TYPE:Goods.Provisions	COST:10	WT:10					SOURCEPAGE:p. 157
-Root Beer (Bottle)		OUTPUTNAME:[NAME] of Root Beer	TYPE:Goods.Provisions	COST:.1	WT:1					SOURCEPAGE:p. 157
-Sugar											TYPE:Goods.Provisions	COST:.1	WT:1					SOURCEPAGE:p. 157
-Tea (8 Oz. Tin)			OUTPUTNAME:[NAME] of Tea		TYPE:Goods.Provisions	COST:.5	WT:.5					SOURCEPAGE:p. 157
-Whiskey (Shot)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions	COST:.1	WT:0					SOURCEPAGE:p. 157
-Whiskey (Bottle)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions	COST:2	WT:3					SOURCEPAGE:p. 157
+# Equipment Name			Output Name					Type						Cost		Weight	Base Quantity	Source Page
+Bacon (Side)			OUTPUTNAME:[NAME] of Bacon		TYPE:Goods.Provisions			COST:6	WT:40					SOURCEPAGE:p. 157
+Beef (Side)				OUTPUTNAME:[NAME] of Beef		TYPE:Goods.Provisions			COST:5	WT:65					SOURCEPAGE:p. 157
+Beef (Dried)			OUTPUTNAME:[NAME] Beef			TYPE:Goods.Provisions.Consumable	COST:.2	WT:1					SOURCEPAGE:p. 157
+Beer (Glass)			OUTPUTNAME:[NAME] of Beer		TYPE:Goods.Provisions			COST:.05	WT:0					SOURCEPAGE:p. 157
+Beer (Small Keg)			OUTPUTNAME:[NAME] of Beer		TYPE:Goods.Provisions			COST:2	WT:10					SOURCEPAGE:p. 157
+Chewing Gum (100 Pieces)	OUTPUTNAME:[NAME] of Chewing Gum	TYPE:Goods.Provisions			COST:.25	WT:5					SOURCEPAGE:p. 157
+Chocolate (8 Oz. Tin)		OUTPUTNAME:[NAME] of Chocolate	TYPE:Goods.Provisions			COST:.1	WT:.5		BASEQTY:100		SOURCEPAGE:p. 157
+Coffee (2 Lb. Tin)		OUTPUTNAME:[NAME] of Coffee		TYPE:Goods.Provisions			COST:.5	WT:2					SOURCEPAGE:p. 157
+Corned Beef										TYPE:Goods.Provisions			COST:5.75	WT:100				SOURCEPAGE:p. 157
+Crackers										TYPE:Goods.Provisions			COST:1.5	WT:25					SOURCEPAGE:p. 157
+Flour (Sack)			OUTPUTNAME:[NAME] of Flour		TYPE:Goods.Provisions			COST:20	WT:50					SOURCEPAGE:p. 157
+Jerky (Pouch)			OUTPUTNAME:[NAME] of Jerky		TYPE:Goods.Provisions.Consumable	COST:.15	WT:1					SOURCEPAGE:p. 157
+Meal (Average)			OUTPUTNAME:[NAME] Meal			TYPE:Goods.Provisions			COST:.25	WT:0					SOURCEPAGE:p. 157
+Meal (Good)				OUTPUTNAME:[NAME] Meal			TYPE:Goods.Provisions			COST:.75	WT:0					SOURCEPAGE:p. 157
+Meal (Aboard Train)		OUTPUTNAME:Meal [NAME]			TYPE:Goods.Provisions			COST:1.5	WT:0					SOURCEPAGE:p. 157
+Oatmeal (Sack)			OUTPUTNAME:[NAME] of Oatmeal		TYPE:Goods.Provisions.Consumable	COST:4	WT:50					SOURCEPAGE:p. 157
+Rations (1 Week)			OUTPUTNAME:[NAME]'s Rations		TYPE:Goods.Provisions.Consumable	COST:10	WT:10					SOURCEPAGE:p. 157
+Root Beer (Bottle)		OUTPUTNAME:[NAME] of Root Beer	TYPE:Goods.Provisions.Consumable	COST:.1	WT:1					SOURCEPAGE:p. 157
+Sugar											TYPE:Goods.Provisions			COST:.1	WT:1					SOURCEPAGE:p. 157
+Tea (8 Oz. Tin)			OUTPUTNAME:[NAME] of Tea		TYPE:Goods.Provisions			COST:.5	WT:.5					SOURCEPAGE:p. 157
+Whiskey (Shot)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions			COST:.1	WT:0					SOURCEPAGE:p. 157
+Whiskey (Bottle)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions			COST:2	WT:3					SOURCEPAGE:p. 157
 
 ###Block: Outdoor Equipment
 # Equipment Name			Output Name				Type				Cost		Weight	Source Page
@@ -119,7 +119,7 @@ Binoculars (10x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor	COST:25	WT:3	
 Canteen									TYPE:Goods.Outdoor	COST:.5	WT:1		SOURCEPAGE:p. 157
 Compass									TYPE:Goods.Outdoor	COST:2	WT:0		SOURCEPAGE:p. 157
 Gun Cleaning Kit								TYPE:Goods.Outdoor	COST:1.5	WT:1		SOURCEPAGE:p. 157
-Oil for Lamps (1 Gallon)	OUTPUTNAME:[NAME] Lamp Oil	TYPE:Goods.Outdoor	COST:.1	WT:8		SOURCEPAGE:p. 157
+Oil for Lamps (1 Gallon)	OUTPUTNAME:[NAME] Lamp Oil	TYPE:Goods.Outdoor.Consumable	COST:.1	WT:8		SOURCEPAGE:p. 157
 Oil Lamp									TYPE:Goods.Outdoor	COST:1.5	WT:4		SOURCEPAGE:p. 157
 Scabbard (Rifle)			OUTPUTNAME:[NAME] Scabbard	TYPE:Goods.Outdoor	COST:2.5	WT:2		SOURCEPAGE:p. 157
 Tent (Miner's)			OUTPUTNAME:[NAME] Tent		TYPE:Goods.Outdoor	COST:6	WT:30		SOURCEPAGE:p. 157
@@ -195,10 +195,10 @@ Typewriter									TYPE:Goods.Business	COST:35	WT:20					SOURCEPAGE:p. 159
 ###Block: Medical Equipment
 # Equipment Name				Output Name					Type				Cost		Weight	Source Page
 Doctor's Bag with Instruments								TYPE:Goods.Medical	COST:25	WT:15		SOURCEPAGE:p. 159
-Ether (1 Dose)				OUTPUTNAME:[NAME] of Ether		TYPE:Goods.Medical	COST:.25	WT:0		SOURCEPAGE:p. 159
+Ether (1 Dose)				OUTPUTNAME:[NAME] of Ether		TYPE:Goods.Medical.Consumable	COST:.25	WT:0		SOURCEPAGE:p. 159
 Eyeglasses											TYPE:Goods.Medical	COST:2	WT:0		SOURCEPAGE:p. 159
-Laudanum (1 Dose)				OUTPUTNAME:[NAME] of Laudanum		TYPE:Goods.Medical	COST:.35	WT:0		SOURCEPAGE:p. 159
-Nitrous Oxide (1 Dose)			OUTPUTNAME:[NAME] of Nitrous Oxide	TYPE:Goods.Medical	COST:.25	WT:0		SOURCEPAGE:p. 159
+Laudanum (1 Dose)				OUTPUTNAME:[NAME] of Laudanum		TYPE:Goods.Medical.Consumable	COST:.35	WT:0		SOURCEPAGE:p. 159
+Nitrous Oxide (1 Dose)			OUTPUTNAME:[NAME] of Nitrous Oxide	TYPE:Goods.Medical.Consumable	COST:.25	WT:0		SOURCEPAGE:p. 159
 Quinine											TYPE:Goods.Medical	COST:.5	WT:0		SOURCEPAGE:p. 159
 Veterinary Bag with Instruments							TYPE:Goods.Medical	COST:22	WT:20		SOURCEPAGE:p. 159
 
@@ -220,7 +220,7 @@ Electrical Tool Kit								TYPE:Goods.Toolkit	COST:110	WT:50					SOURCEPAGE:p. 1
 Evidence Kit									TYPE:Goods.Toolkit	COST:14	WT:10					SOURCEPAGE:p. 160	BONUS:SKILL|Investigate|CircumstanceAdjustment|TYPE=Circumstance
 First Aid Kit									TYPE:Goods.Toolkit	COST:5	WT:5					SOURCEPAGE:p. 160
 Forgery Kit										TYPE:Goods.Toolkit	COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
-Fuse (1 Yard)			OUTPUTNAME:[NAME] of Fuse		TYPE:Goods.Tools		COST:.05	WT:0					SOURCEPAGE:p. 160
+Fuse (1 Yard)			OUTPUTNAME:[NAME] of Fuse		TYPE:Goods.Tools.Consumable		COST:.05	WT:0					SOURCEPAGE:p. 160
 Handsaw										TYPE:Goods.Tools		COST:1.5	WT:2					SOURCEPAGE:p. 160
 Hammer										TYPE:Goods.Tools		COST:.5	WT:2					SOURCEPAGE:p. 160
 Lantern										TYPE:Goods.Tools		COST:.8	WT:2					SOURCEPAGE:p. 160
@@ -231,7 +231,7 @@ Ore Car										TYPE:Goods.Tools		COST:15	WT:150				SOURCEPAGE:p. 160
 Pan											TYPE:Goods.Tools		COST:.1	WT:.5					SOURCEPAGE:p. 160
 Pick											TYPE:Goods.Tools		COST:1	WT:4					SOURCEPAGE:p. 160
 Plow (Horse Drawn)		OUTPUTNAME:[NAME] Plow			TYPE:Goods.Tools		COST:6.5	WT:80					SOURCEPAGE:p. 160
-Rope (1 Yard)			OUTPUTNAME:[NAME] of Rope		TYPE:Goods.Tools		COST:.05	WT:0					SOURCEPAGE:p. 160
+Rope (1 Yard)			OUTPUTNAME:[NAME] of Rope		TYPE:Goods.Tools.Consumable		COST:.05	WT:0					SOURCEPAGE:p. 160
 Scales										TYPE:Goods.Tools		COST:3	WT:10					SOURCEPAGE:p. 160
 Shovel										TYPE:Goods.Tools		COST:1	WT:6					SOURCEPAGE:p. 160
 Surgeon's Kit									TYPE:Goods.Toolkit	COST:35	WT:20					SOURCEPAGE:p. 160
