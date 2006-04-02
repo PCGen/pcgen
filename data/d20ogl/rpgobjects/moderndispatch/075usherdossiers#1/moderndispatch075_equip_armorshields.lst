@@ -3,5 +3,5 @@ SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1
 # Original Entry by: Paul W. King
 
 ###Block: Armor
-# Equipment Name	Product Identity?	Type					Cost		Weight	Required Template			AC Penalty Check	Maximum DEX Bonus	Source Page		Vision			Combat bonus																		Bonus to skill					Weapon prof. bonus					Special Property
-Shadow Armor	NAMEISPI:YES	TYPE:Armor.Suit.Light.PL6	COST:25	WT:10		PRETEMPLATE:1,Shadow Soldiers	ACCHECK:-0		MAXDEX:6		SOURCEPAGE:p.5	VISION:Darkvision (120)	BONUS:COMBAT|AC|1|TYPE=Equipment.REPLACE	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Light)|TYPE=Equipment.REPLACE	BONUS:SKILL|Computer Use|4|TYPE=Equipment	BONUS:WEAPONPROF=TYPE.Ranged|1|TYPE=Equipment	SPROP:Mil +8
+# Equipment Name	Product Identity?	Type					Cost		Weight	Required Template			AC Penalty Check	Maximum DEX Bonus	Source Page		Vision			Combat bonus																Bonus to skill					Weapon prof. bonus					Special Property
+Shadow Armor	NAMEISPI:YES	TYPE:Armor.Suit.Light.PL6	COST:25	WT:10		PRETEMPLATE:1,Shadow Soldiers	ACCHECK:-0		MAXDEX:6		SOURCEPAGE:p.5	VISION:Darkvision (120)	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK	BONUS:SKILL|Computer Use|4|TYPE=Equipment	BONUS:WEAPONPROF=TYPE.Ranged|1|TYPE=Equipment	SPROP:Mil +8
