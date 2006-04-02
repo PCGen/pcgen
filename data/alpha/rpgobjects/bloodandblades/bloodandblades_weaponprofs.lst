@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Sun Apr  2 01:16:25 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
+#Original entry by: Frank Kliewe
+
+# Weapon Name	Type
+Crowbar		TYPE:Simple
+Hammer		TYPE:Simple
+Ice Pick		TYPE:Simple
+Wrench		TYPE:Simple
+Fireman's Axe	TYPE:Archaic
+Pitchfork		TYPE:Archaic
+Bladed Glove	TYPE:Exotic
+Garrote		TYPE:Exotic
+Power Drill		TYPE:Exotic
+Scythe		TYPE:Exotic
+Sickle		TYPE:Exotic
