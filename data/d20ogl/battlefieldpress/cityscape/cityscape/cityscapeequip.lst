@@ -5,22 +5,22 @@ SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://
 # Equipment Name				Output Name						Type							Contains			Cost		Weight	Size		Source Page		Bonus to skill																Special Property
 Acid (Flask).MOD																						COST:10
 Alchemist's Fire (Flask).MOD																				COST:20
-Bomb													TYPE:Goods.Explosives								COST:150	WT:1		SIZE:M	SOURCEPAGE:p.
-40mm Fragmentation Grenade (6)								TYPE:Goods.Explosives								COST:10	WT:1		SIZE:S	SOURCEPAGE:p.																			SPROP:Case of 6
-40mm Fragmentation Grenade									TYPE:Goods.Explosives								COST:1.67	WT:.17	SIZE:S	SOURCEPAGE:p.
-C4/Semtex												TYPE:Goods.Explosives								COST:3.75	WT:.25	SIZE:M	SOURCEPAGE:p.
-Det Cord												TYPE:Goods.Explosives								COST:25	WT:2		SIZE:L	SOURCEPAGE:p.																			SPROP:50 ft.
+Bomb													TYPE:Goods.Explosives.Consumable						COST:150	WT:1		SIZE:M	SOURCEPAGE:p.
+40mm Fragmentation Grenade (6)								TYPE:Goods.Explosives.Consumable						COST:10	WT:1		SIZE:S	SOURCEPAGE:p.																			SPROP:Case of 6
+40mm Fragmentation Grenade									TYPE:Goods.Explosives.Consumable						COST:1.67	WT:.17	SIZE:S	SOURCEPAGE:p.
+C4/Semtex												TYPE:Goods.Explosives.Consumable						COST:3.75	WT:.25	SIZE:M	SOURCEPAGE:p.
+Det Cord												TYPE:Goods.Explosives.Consumable						COST:25	WT:2		SIZE:L	SOURCEPAGE:p.																			SPROP:50 ft.
 Dynamite (12 sticks)										TYPE:Goods.Explosives								COST:80	WT:12		SIZE:T	SOURCEPAGE:p.
-Dynamite												TYPE:Goods.Explosives								COST:6.67	WT:1		SIZE:T	SOURCEPAGE:p.
-Grenade (Fragmentation)			OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives								COST:80	WT:1		SIZE:S	SOURCEPAGE:p.
-Grenade (Smoke)				OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives								COST:35	WT:1		SIZE:M	SOURCEPAGE:p.
-Grenade (Thermite/6)			OUTPUTNAME:Thermite Grenades			TYPE:Goods.Explosives								COST:150	WT:12		SIZE:M	SOURCEPAGE:p.																			SPROP:Case of 6
-Grenade (Thermite)			OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives								COST:25	WT:2		SIZE:M	SOURCEPAGE:p.
-Grenade (White Phosphorous/6)		OUTPUTNAME:White Phosphorous Grenades	TYPE:Goods.Explosives								COST:175	WT:12		SIZE:M	SOURCEPAGE:p.																			SPROP:Case of 6
-Grenade (White Phosphorous)		OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives								COST:29.17	WT:2		SIZE:M	SOURCEPAGE:p.
+Dynamite												TYPE:Goods.Explosives.Consumable						COST:6.67	WT:1		SIZE:T	SOURCEPAGE:p.
+Grenade (Fragmentation)			OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives.Consumable						COST:80	WT:1		SIZE:S	SOURCEPAGE:p.
+Grenade (Smoke)				OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives.Consumable						COST:35	WT:1		SIZE:M	SOURCEPAGE:p.
+Grenade (Thermite/6)			OUTPUTNAME:Thermite Grenades			TYPE:Goods.Explosives.Consumable						COST:150	WT:12		SIZE:M	SOURCEPAGE:p.																			SPROP:Case of 6
+Grenade (Thermite)			OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives.Consumable						COST:25	WT:2		SIZE:M	SOURCEPAGE:p.
+Grenade (White Phosphorous/6)		OUTPUTNAME:White Phosphorous Grenades	TYPE:Goods.Explosives.Consumable						COST:175	WT:12		SIZE:M	SOURCEPAGE:p.																			SPROP:Case of 6
+Grenade (White Phosphorous)		OUTPUTNAME:[NAME] Grenade			TYPE:Goods.Explosives.Consumable						COST:29.17	WT:2		SIZE:M	SOURCEPAGE:p.
 Holy Water (Flask).MOD																					COST:25
-Molotiv Coctail											TYPE:Goods.Exposives								COST:5	WT:1		SIZE:M	SOURCEPAGE:p.
-Smokebomb												TYPE:Goods.Exposives								COST:70	WT:1		SIZE:M	SOURCEPAGE:p.
+Molotiv Coctail											TYPE:Goods.Exposives.Consumable						COST:5	WT:1		SIZE:M	SOURCEPAGE:p.
+Smokebomb												TYPE:Goods.Exposives.Consumable						COST:70	WT:1		SIZE:M	SOURCEPAGE:p.
 Tanglefoot Bag.MOD																					COST:50
 Thunderstone.MOD																						COST:30
 
@@ -34,8 +34,8 @@ Caller ID Defeater										TYPE:Goods.Electronic								COST:30	WT:1				SOURCEP
 Cellular Interceptor										TYPE:Goods.Electronic								COST:50	WT:.5				SOURCEPAGE:p.
 Camera (35mm)											TYPE:Goods.General.Photo							COST:500	WT:2				SOURCEPAGE:p.
 Camera (Digital)											TYPE:Goods.Electronic.Photo							COST:200	WT:.5				SOURCEPAGE:p.
-Camera (Disposable)										TYPE:Goods.General.Photo							COST:15	WT:.5				SOURCEPAGE:p.
-Film													TYPE:Goods.General.Photo							COST:5	WT:.5				SOURCEPAGE:p.
+Camera (Disposable)										TYPE:Goods.General.Photo.Consumable						COST:15	WT:.5				SOURCEPAGE:p.
+Film													TYPE:Goods.General.Photo.Consumable							COST:5	WT:.5				SOURCEPAGE:p.
 Film Developing (Roll)										TYPE:Goods.Service.Photo							COST:35	WT:0				SOURCEPAGE:p.
 Chemical Light Sticks (5)									TYPE:Goods.General								COST:15	WT:1				SOURCEPAGE:p.
 Computer (Desktop)			OUTPUTNAME:[NAME] Computer			TYPE:Goods.Electronic								COST:800	WT:10				SOURCEPAGE:p.
