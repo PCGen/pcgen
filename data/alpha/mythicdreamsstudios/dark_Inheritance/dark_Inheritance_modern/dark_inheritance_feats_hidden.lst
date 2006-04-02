@@ -1,0 +1,98 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 21:36:36 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
+#Original Entry by: Frank Kliewe
+
+#Had to break up Mental Talent Class Ability because it only shows Improved Aid Another, but no other choices. Couldn't figure out why.
+
+###Block: Legacy Traits
+# Feat Name			Type				Visible	Special Ability						Stackable?	Multiple?	Choose																								Bonus to skill				Source Page
+Social Grace		TYPE:CrimsonLordTrait	VISIBLE:NO	SA:Social Grace (%CHOICE)(Trait)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Listen|TYPE=Perform|Sense Motive|Spot|1	BONUS:SKILL|LIST|2|TYPE=Legacy	SOURCEPAGE:p.100
+Natural Scholar		TYPE:HiddenSunsTrait	VISIBLE:NO	SA:Natural Scholar (%CHOICE) (Trait)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Decipher Script|Forgery|Hide|Investigate|TYPE=Knowledge|Research|Sense Motive|Treat Injury|1					BONUS:SKILL|LIST|2|TYPE=Legacy	SOURCEPAGE:p.103
+Knowledge Obsession	TYPE:HiddenSunsWeakness	VISIBLE:NO	SA:Knowledge Obsession (%CHOICE) (Weakness)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Knowledge|1																							SOURCEPAGE:p.103
+Soaring Sight		TYPE:StormCrowTrait	VISIBLE:NO	SA:Soaring Sight (%CHOICE) (Trait)			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Concentration|Knowledge (Earth and Life Sciences)|Knowledge (Tactics)|Listen|Navigate|Search|Spot|Survival|1		BONUS:SKILL|LIST|2|TYPE=Legacy	SOURCEPAGE:p.106
+Call of the Wild		TYPE:WildBloodTrait	VISIBLE:NO	SA:Call of the Wild (%CHOICE) (Trait)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Handle Animal|Intimidate|Knowledge (Streetwise)|Move Silently|Sense Motive|Scrounge|Survival|1				BONUS:SKILL|LIST|2|TYPE=Legacy	SOURCEPAGE:p.112
+
+###Block: Class Abilities
+# Feat Name						Type					Visible	Special Ability																				Define		Stackable?	Multiple?	Choose																																																			Choose a Feat				Bonus to HP										Bonus to skill							Stat bonus		Modify VAR			Source Page
+Shot in the Arm					TYPE:StimFreakAbility		VISIBLE:NO	SA:Shot in the Arm (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:COUNT=1|STAT|INT|WIS|CHA																																																																																SOURCEPAGE:p.113
+Ability Enhancement (STR)			TYPE:PhysicalEnhancement	VISIBLE:NO	SA:Physical Enhancement (STR) x%|AE_STR																DEFINE:AE_STR|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Enhancement|Enhancement|Enhancement|Enhancement																																																																			BONUS:STAT|STR|1	BONUS:VAR|AE_STR|1	SOURCEPAGE:p.115
+Ability Enhancement (DEX)			TYPE:PhysicalEnhancement	VISIBLE:NO	SA:Physical Enhancement (DEX) x%|AE_DEX																DEFINE:AE_DEX|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Enhancement|Enhancement|Enhancement|Enhancement																																																																			BONUS:STAT|DEX|1	BONUS:VAR|AE_DEX|1	SOURCEPAGE:p.115
+Ability Enhancement (CON)			TYPE:PhysicalEnhancement	VISIBLE:NO	SA:Physical Enhancement (CON) x%|AE_CON																DEFINE:AE_CON|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Enhancement|Enhancement|Enhancement|Enhancement																																																																			BONUS:STAT|CON|1	BONUS:VAR|AE_CON|1	SOURCEPAGE:p.115
+Physical Aptitude					TYPE:PhysicalEnhancement	VISIBLE:NO	SA:Physical Aptitude (%CHOICE)																				STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|1																																																										BONUS:SKILL|LIST|CL=Super Soldier|TYPE=Enhancement								SOURCEPAGE:p.115
+Physical Talent					TYPE:PhysicalEnhancement	VISIBLE:NO	SA:Physical Talent (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:FEATADD|Evasion|Extreme Effort|Increased Speed|Remain Conscious|Robust|Stamina																																																																							SOURCEPAGE:p.115
+Animal Senses					TYPE:PhysicalEnhancement	VISIBLE:NO	SA:Animal Senses (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:FEATADD|Alertness|Animal Sense (Low-light vision)|Animal Sense (Scent)																																																																									SOURCEPAGE:p.115
+Ability Enhancement (INT)			TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Enhancement (INT) x%|AE_INT																DEFINE:AE_INT|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Enhancement|Enhancement|Enhancement																																																																					BONUS:STAT|INT|1	BONUS:VAR|AE_INT|1	SOURCEPAGE:p.115
+Ability Enhancement (WIS)			TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Enhancement (WIS) x%|AE_WIS																DEFINE:AE_WIS|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Enhancement|Enhancement|Enhancement																																																																					BONUS:STAT|WIS|1	BONUS:VAR|AE_WIS|1	SOURCEPAGE:p.115
+Ability Enhancement (CHA)			TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Enhancement (CHA) x%|AE_CHA																DEFINE:AE_CHA|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|Enhancement|Enhancement|Enhancement																																																																					BONUS:STAT|CHA|1	BONUS:VAR|AE_CHA|1	SOURCEPAGE:p.115
+Mental Aptitude					TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Aptitude (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Intelligence|1																																																															BONUS:SKILL|LIST|CL=Super Soldier|TYPE=Enhancement								SOURCEPAGE:p.115
+#Mental Talent					TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (%CHOICE)						STACK:NO	MULT:YES	CHOOSE:FEATADD|Aware|Cool Under Pressure|Improved Aid Another|Intuition|Linguist|Plan|Savant																	SOURCEPAGE:p.115
+Mental Talent (Aware)				TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Aware)																					STACK:NO	MULT:NO																																																					ADD:FEAT(Aware)																															SOURCEPAGE:p.115
+Mental Talent (Cool Under Pressure)		TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Cool Under Pressure)																			STACK:NO	MULT:NO																																																					ADD:FEAT(Cool Under Pressure)																													SOURCEPAGE:p.115
+Mental Talent (Improved Aid Another)	TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Improved Aid Another)																			STACK:NO	MULT:NO																																																					ADD:FEAT(Improved Aid Another)																												SOURCEPAGE:p.115
+Mental Talent (Intuition)			TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Intuition)																					STACK:NO	MULT:NO																																																					ADD:FEAT(Intuition)																														SOURCEPAGE:p.115
+Mental Talent (Linguist)			TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Linguist)																					STACK:NO	MULT:NO																																																					ADD:FEAT(Linguist)																														SOURCEPAGE:p.115
+Mental Talent (Plan)				TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Plan)																						STACK:NO	MULT:NO																																																					ADD:FEAT(Plan)																															SOURCEPAGE:p.115
+Mental Talent (Savant)				TYPE:MentalEnhancement		VISIBLE:NO	SA:Mental Talent (Savant)																					STACK:NO	MULT:YES	CHOOSE:NOCHOICE																																																		ADD:FEAT(Savant)																															SOURCEPAGE:p.115
+Boost Initiative					TYPE:EldritchAbility		VISIBLE:NO	SA:Boost Initiative																																																																																																															SOURCEPAGE:p.118
+Deep Wound						TYPE:EldritchAbility		VISIBLE:NO	SA:Deep Wound																																																																																																																SOURCEPAGE:p.118
+Glancing Blow					TYPE:EldritchAbility		VISIBLE:NO	SA:Glancing Blow																																																																																																																SOURCEPAGE:p.118
+Spell Resistance Eldritch Ability		TYPE:EldritchAbility		VISIBLE:NO	SA:Spell Resistance %(using spell levels) or % (spending an action point)|10+var("CL=Eldritch Monk")|15+var("CL=Eldritch Monk")																																																																																													SOURCEPAGE:p.118
+Move as the Wind					TYPE:EldritchAbility		VISIBLE:NO	SA:Move as the Wind																																																																																																															SOURCEPAGE:p.118
+Favored Terrain					TYPE:ExplorerAbility		VISIBLE:NO	SA:Favored Terrain (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|Cold Desert|Cold Forest|Cold Hill|Cold Marsh|Cold Mountain|Cold Plains|Cold Underground|Hot Desert|Hot Forest|Hot Hill|Hot Marsh|Hot Mountain|Hot Plains|Hot Underground|Temperate Desert|Temperate Forest|Temperate Hill|Temperate Marsh|Temperate Mountain|Temperate Plains|Temperate Underground																																		SOURCEPAGE:p.119
+Improved Favored Terrain			TYPE:ExplorerAbility		VISIBLE:NO	SA:Improved Favored Terrain (%CHOICE)																			STACK:NO	MULT:YES	CHOOSE:FEAT=Favored Terrain																																																																																	SOURCEPAGE:p.121
+Driven						TYPE:CrusadingAdvocateAbility	VISIBLE:NO	SA:Driven																																																																																						BONUS:HP|CURRENTMAX|CHA*CL=Crusading Advocate|PREVARGT:CHA,0																	SOURCEPAGE:p.128
+Crusading Advocate Skill Mastery		TYPE:CrusadingAdvocateAbility	VISIBLE:NO	SA:Skill Mastery (%CHOICE)																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=INT+CHA|SKILLS|INT+CHA																																																																															SOURCEPAGE:p.129
+Minor Success Reputation Bonus		TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (+1 bonus to Reputation)																																																																																																								BONUS:VAR|Reputation|1	SOURCEPAGE:p.129
+Minor Success Wealth BONUS			TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (+2 bonus to Wealth)																																																																																																								BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.129
+Minor Success mid level contact		TYPE:MinorSuccess			VISIBLE:NO	SA:Minor Success (mid-level contact, max.level %)|max(cl(CrusadingAdvocate)/2,8)																																																																																																					SOURCEPAGE:p.129
+Major Success Reputation Bonus		TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (+2 bonus to Reputation)																																																																																																								BONUS:VAR|Reputation|2	SOURCEPAGE:p.130
+Major Success Wealth BONUS			TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (+3 bonus to Wealth)																																																																																																								BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.130
+Major Success high level contact		TYPE:MajorSuccess			VISIBLE:NO	SA:Major Success (high-level contact, max.level %)|max(cl(CrusadingAdvocate)/2,12)																																																																																																					SOURCEPAGE:p.130
+
+###Block: Subchoices of Class Abilities
+# Feat Name					Type			Visible	Special Ability	Vision
+Animal Sense (low-light vision)	TYPE:AnimalSense	VISIBLE:NO				VISION:Low-light
+Animal Sense (scent)			TYPE:AnimalSense	VISIBLE:NO	SA:Scent
+
+###Block: modified Talents for use by the Super Soldier class
+# Feat Name				Clear Prereq.	Multiple Requirements														Bonus to HP						Bonus to skill
+Robust.MOD																								BONUS:HP|CURRENTMAX|CL=Super Soldier
+Stamina.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Robust],[PRECLASS:1,Super Soldier=1]
+Aware.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Skill Emphasis],[PRECLASS:1,Super Soldier=1]
+Cool Under Pressure.MOD		PRE:.CLEAR		PREMULT:1,[PREMULT:2,[PREFEAT:1,Skill Emphasis],[PREFEAT:1,Aware,Faith]],[PRECLASS:1,Super Soldier=1]
+Improved Aid Another.MOD	PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Empathy],[PRECLASS:1,Super Soldier=1]
+Intuition.MOD			PRE:.CLEAR		PREMULT:1,[PREFEAT:1,Empathy],[PRECLASS:1,Super Soldier=1]
+Linguist.MOD			PRE:.CLEAR		PREMULT:1,[PRESKILLTOT:Read/Write Language,Speak Language=3],[PRECLASS:1,Super Soldier=1]
+Plan.MOD				PRE:.CLEAR		PREMULT:1,[PREFEAT:1,TYPE=Research],[PRECLASS:1,Super Soldier=1]
+Savant.MOD																															BONUS:SKILL|LIST|CL=Super Soldier
+
+###Block: Daemon Form Abilities
+# Feat Name							Type			Visible	Required Size	Special Ability											Stackable?	Multiple?	Choose																		Template				Combat bonus						Bonus to HP			BONUS:SIZEMOD		Damage Reduction
+Claws (Daemon Form)					TYPE:DaemonForm	VISIBLE:NO				SA:Claws(Ex)																																		TEMPLATE:Daemon Claws
+Daemonic Armor (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO				SA:Daemonic Armor(Ex)																																						BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
+Daemonic Aura (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO				SA:Daemonic Aura(Ex)(Fort Save DC %)|10+(TL-LevelsBeforePossession)/2+CON
+Damage Reduction (Daemon Form)			TYPE:DaemonForm	VISIBLE:NO				SA:Damage Reduction(Ex)																																																						DR:15/+1
+Deadly Breath (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO				SA:Deadly Breath(Su) (Reflex Save DC %)|10+(TL-LevelsBeforePossession)/2+CON
+Enormous Maw (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO				SA:Enormous Maw(Ex)																																	TEMPLATE:Daemon Maw
+Foulness (Daemon Form)					TYPE:DaemonForm	VISIBLE:NO				SA:Foulness(Ex) (Fort Save DC %)|10+(TL-LevelsBeforePossession)/2+CON
+Huge Size (Daemon Form)					TYPE:DaemonForm	VISIBLE:NO	PRESIZEEQ:L		SA:Huge Size(Ex)																																																			BONUS:SIZEMOD|NUMBER|1
+Immunity (Daemon Form)					TYPE:DaemonForm	VISIBLE:NO				SA:Immunity(Ex) (vs. %CHOICE)									STACK:NO	MULT:YES	CHOOSE:Acid|Cold|Sonic/Concussion|Electricity|Fire|Ballistic|Bludgeoning|Piercing|Slashing|Poison|Radiation|1
+Large Size (Daemon Form)				TYPE:DaemonForm	VISIBLE:NO	PRESIZEEQ:M		SA:Large Size(Ex)																																																			BONUS:SIZEMOD|NUMBER|1
+Massive Damage Threshold Boost (Daemon Form)	TYPE:DaemonForm	VISIBLE:NO				SA:Massive Damage Threshold Boost(Ex)																																											BONUS:HP|ALTHP|CONSCORE
+Abyssal Tentacles (Daemon Form)			TYPE:DaemonForm	VISIBLE:NO				SA:Abyssal Tentacles(Su)																																TEMPLATE:Daemon Tentacles
+
+###Block: Abyssal Powers
+# Feat Name				Type			Visible	Required Class		Special Ability														Stackable?	Multiple?	Choose		Combat bonus				Bonus to skill				Cost
+Abyssal Deflection		TYPE:AbyssalPower	VISIBLE:NO					SA:Abyssal Deflection(Ex)																			BONUS:COMBAT|AC|4|TYPE=Profane
+Abyssal Smite			TYPE:AbyssalPower	VISIBLE:NO					SA:Abyssal Smite(Su)
+Abyssal Initiate			TYPE:AbyssalPower	VISIBLE:NO	PRECLASS:1,Initiate=1	SA:Abyssal Initiate(Ex)
+Abyssal Touch			TYPE:AbyssalPower	VISIBLE:NO					SA:Touch of the Abyss(Su)																															COST:2
+Aura of Fear (Abyssal Power)	TYPE:AbyssalPower	VISIBLE:NO					SA:Aura of Fear(Su) (Will Save DC %)|10+(TL-LevelsBeforePossession)/2+CHA
+Baleful Attacks			TYPE:AbyssalPower	VISIBLE:NO					SA:Baleful Attacks(Su)																				BONUS:COMBAT|TOHIT.Melee|CHA
+Fast Healing (Abyssal Power)	TYPE:AbyssalPower	VISIBLE:NO					SA:Fast Healing(Ex) (Fast Healing %)|4*var("COUNT[FEATNAME=Fast Healing (Abyssal Power)]")	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Freezing Touch			TYPE:AbyssalPower	VISIBLE:NO					SA:Freezing Touch(Su) (Fort Save DC %)|10+(TL-LevelsBeforePossession)/2+CHA
+One with Shadows			TYPE:AbyssalPower	VISIBLE:NO					SA:One with Shadows(Su)																										BONUS:SKILL|Hide|4|TYPE=Profane
+Probe Soul				TYPE:AbyssalPower	VISIBLE:NO					SA:Probe Soul(Su) (Will Save DC %)|10+(TL-LevelsBeforePossession)/2+CHA
+Sacrificial Magic			TYPE:AbyssalPower	VISIBLE:NO	PRECLASS:1,Initiate=1	SA:Sacrificial Magic(Su)
+True Seeing				TYPE:AbyssalPower	VISIBLE:NO					SA:True Seeing(Su)																																COST:2
+Words of Power			TYPE:AbyssalPower	VISIBLE:NO					SA:Words of Power(Sp)																																COST:2

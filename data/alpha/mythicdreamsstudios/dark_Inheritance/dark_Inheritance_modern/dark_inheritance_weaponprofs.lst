@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 31 21:17:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
+# Original Entry by: Frank Kliewe
+
+#Firearms
+# Weapon Name			Type				Nb Hands
+Colt Delta Elite			TYPE:PersonalFirearm
+HK 0.45 Mk23 Mod 0 USSOCOM	TYPE:PersonalFirearm
+FN P90				TYPE:PersonalFirearm
+HK MP5SD6				TYPE:PersonalFirearm
+Alliant OICW			TYPE:PersonalFirearm	HANDS:2
+Norinco QB2				TYPE:PersonalFirearm	HANDS:2
+Benelli M1 Super 90		TYPE:PersonalFirearm	HANDS:2
+Daewoo USAS-12			TYPE:PersonalFirearm	HANDS:2
+HK 512				TYPE:PersonalFirearm	HANDS:2
+Pancor Jackhammer			TYPE:PersonalFirearm	HANDS:2
