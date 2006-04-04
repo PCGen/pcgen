@@ -9,11 +9,22 @@
 
 	<xsl:template match="melee">
 		<xsl:param name="column_width" select="'wide'" />
-		<xsl:call-template name="simple_weapon">
-					<xsl:with-param name="to_hit" select="to_hit"/>
-					<xsl:with-param name="damage" select="damage"/>
+		<xsl:choose>
+			<xsl:when test="w1_h1_p/to_hit='N/A' ">
+				<xsl:call-template name="simple_weapon">
+					<xsl:with-param name="to_hit" select="w1_h2/to_hit"/>
+					<xsl:with-param name="damage" select="w1_h2/damage"/>
 					<xsl:with-param name="column_width" select="$column_width"/>
-		</xsl:call-template>
+				</xsl:call-template>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:call-template name="simple_weapon">
+					<xsl:with-param name="to_hit" select="w1_h1_p/to_hit"/>
+					<xsl:with-param name="damage" select="w1_h1_p/damage"/>
+					<xsl:with-param name="column_width" select="$column_width"/>
+				</xsl:call-template>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 
