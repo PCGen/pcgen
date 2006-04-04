@@ -208,38 +208,62 @@ interface IOConstants
 
 	/** Output Sheets */
 	String TAG_HTMLOUTPUTSHEET = "OUTPUTSHEETHTML";
+	/** ID */
 	String TAG_ID              = "ID";
+	/** INTERESTS */
 	String TAG_INTERESTS       = "INTERESTS";
 
-	// Kits
+	/** Kits */
 	String TAG_KIT = "KIT";
 
-	// Character languages
+	/** Character languages */
 	String TAG_LANGUAGE       = "LANGUAGE";
+	/** LEVEL */
 	String TAG_LEVEL          = "LEVEL";
+	/** ABILITY */
 	String TAG_LEVELABILITY   = "ABILITY";
+	/** LOADCOMPANIONS */
 	String TAG_LOADCOMPANIONS = "LOADCOMPANIONS";
+	/** LOCATION */
 	String TAG_LOCATION       = "LOCATION";
+	/** KEY (for Java maps) */
 	String TAG_MAPKEY         = "KEY";
+	/** VALUE (stored in map) */
 	String TAG_MAPVALUE       = "VALUE";
+	/** MASTER */
 	String TAG_MASTER         = "MASTER";
 
-
+	/** MONEY */
 	String TAG_MONEY             = "MONEY";
+	/** MULTISELECT */
 	String TAG_MULTISELECT       = "MULTISELECT";
+	/** NAME */
 	String TAG_NAME              = "NAME";
+	/** NOTE */
 	String TAG_NOTE              = "NOTE";
+	/** OUTPUTORDER */
 	String TAG_OUTPUTORDER       = "OUTPUTORDER";
+	/** PARENTID */
 	String TAG_PARENTID          = "PARENTID";
+	/** PCGVERSION */
 	String TAG_PCGVERSION        = "PCGVERSION";
+	/** OUTPUTSHEETPDF */
 	String TAG_PDFOUTPUTSHEET    = "OUTPUTSHEETPDF";
+	/** PERSONALITYTRAIT1 */
 	String TAG_PERSONALITYTRAIT1 = "PERSONALITYTRAIT1";
+	/** PERSONALITYTRAIT2 */
 	String TAG_PERSONALITYTRAIT2 = "PERSONALITYTRAIT2";
+	/** PHOBIAS */
 	String TAG_PHOBIAS           = "PHOBIAS";
+	/** PLAYERNAME */
 	String TAG_PLAYERNAME        = "PLAYERNAME";
+	/** POOLPOINTS */
 	String TAG_POOLPOINTS        = "POOLPOINTS";
+	/** POOLPOINTSAVAIL */
 	String TAG_POOLPOINTSAVAIL   = "POOLPOINTSAVAIL";
+	/** PORTRAIT */
 	String TAG_PORTRAIT          = "PORTRAIT";
+	/** POSTSTAT */
 	String TAG_POSTSTAT          = "POSTSTAT";
 
 
@@ -272,50 +296,72 @@ interface IOConstants
 	String TAG_SPECIALTY            = "SPECIALTY";
 	String TAG_SPEECHPATTERN        = "SPEECHPATTERN";
 
-
+	/** SPELLBASE */
 	String TAG_SPELLBASE     = "SPELLBASE";
+	/** BOOK */
 	String TAG_SPELL_BOOK    = "BOOK";
+	/** SPELLBOOK */
 	String TAG_SPELLBOOK     = "SPELLBOOK";
+	/** SPELLLEVEL */
 	String TAG_SPELLLEVEL    = "SPELLLEVEL";
+	/** SPELLLIST */
 	String TAG_SPELLLIST     = "SPELLLIST";
+	/** SPELLNAME */
 	String TAG_SPELLNAME     = "SPELLNAME";
+	/** SPELLPPCOST (Psionics) */
 	String TAG_SPELLPPCOST   = "SPELLPPCOST";
+	/** SPELLNUMPAGES */
 	String TAG_SPELLNUMPAGES = "SPELLNUMPAGES";
 
-
-
-	// Character attributes
+	/** Character attributes */
 	String TAG_STAT     = "STAT";
+	/** SUBCLASS */
 	String TAG_SUBCLASS = "SUBCLASS";
 
+	/** SYNERGY */
 	String TAG_SYNERGY  = "SYNERGY";
+	/** TABLABEL */
 	String TAG_TABLABEL = "TABLABEL";
+	/** TABNAME */
 	String TAG_TABNAME  = "TABNAME";
 
-	// Temporary Bonuses
+	/** Temporary Bonuses */
 	String TAG_TEMPBONUS      = "TEMPBONUS";
+	/** TBBONUS */
 	String TAG_TEMPBONUSBONUS = "TBBONUS";
 
+	/** TBTARGET */
 	String TAG_TEMPBONUSTARGET = "TBTARGET";
+	/** TEMPLATE */
 	String TAG_TEMPLATE        = "TEMPLATE";
 
-	// Character templates
+	/** Character templates */
 	String TAG_TEMPLATESAPPLIED = "TEMPLATESAPPLIED";
+	/** TIMES */
 	String TAG_TIMES            = "TIMES";
 
+	/** TYPE */
 	String TAG_TYPE    = "TYPE";
 
+	/** USETEMPMODS */
 	String TAG_USETEMPMODS          = "USETEMPMODS";
+	/** USEHIGHERKNOWN (SPELL) */
 	String TAG_USEHIGHERKNOWN       = "USEHIGHERKNOWN";
+	/** USEHIGHERPREPPED (SPELL) */
 	String TAG_USEHIGHERPREPPED     = "USEHIGHERPREPPED";
+	/** VALUE */
 	String TAG_VALUE                = "VALUE";
+	/** VERSION */
 	String TAG_VERSION              = "VERSION";
+	/** VFEAT */
 	String TAG_VFEAT                = "VFEAT";
+	/** WEAPON */
 	String TAG_WEAPON               = "WEAPON";
 
-	// Character weapon proficiencies
+	/** Character weapon proficiencies */
 	String TAG_WEAPONPROF = "WEAPONPROF";
 	/** WEIGHT - Used by PCGVer2 Parser and Creator */
 	String TAG_WEIGHT     = "WEIGHT";
+	/** WT */
 	String TAG_WT         = "WT";
 }
