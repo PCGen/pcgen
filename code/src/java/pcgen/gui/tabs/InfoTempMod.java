@@ -51,6 +51,7 @@ import java.util.StringTokenizer;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
@@ -103,6 +104,7 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
 
@@ -143,6 +145,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	private FlippingSplitPane topVertSplit;
 	private JButton applyBonusButton;
 	private JButton removeBonusButton;
+	private JLabel tempModsDisabledWarning;
 	/* commented out until we fix temp mods, do not delete
 	private JCheckBox useTempMods;
 	*/
@@ -187,7 +190,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			this.pc = pc;
 			serial = pc.getSerial();
 			forceRefresh();
-			pc.setUseTempMods(true);
+			// Commented out for [ 1461012 ] EquipSet temp bonuses setting
+			// as the currently selected equipset controls if temp mods 
+			// are applied or not.
+			//pc.setUseTempMods(true);
 		}
 	}
 
@@ -328,8 +334,28 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		/* commented out until we fix temp mods, do not delete
 		useTempMods.setSelected(pc.getUseTempMods());
 		*/
+		
+		updateTempModDisabledWarning();
 
 		needsUpdate = false;
+	}
+
+	/**
+	 * Update the warning message displayed if temporary 
+	 * mods are turned off in the equipset.
+	 */
+	private void updateTempModDisabledWarning()
+	{
+		if (!pc.getUseTempMods())
+		{
+			tempModsDisabledWarning.setText(PropertyFactory
+				.getString("InfoTempMod.warn.mods.off")); //$NON-NLS-1$
+		}
+		else
+		{
+			tempModsDisabledWarning.setText(""); //$NON-NLS-1$
+		}
+		tempModsDisabledWarning.updateUI();
 	}
 
 	/**
@@ -1420,10 +1446,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		removeBonusButton = new JButton("Remove");
 		removeBonusButton.setEnabled(false);
 
+		tempModsDisabledWarning = new JLabel("");		
 		/* commented out until we fix temp mods, do not delete
 		iPanel.add(useTempMods, BorderLayout.WEST);
 		*/
 		iPanel.add(removeBonusButton, BorderLayout.CENTER);
+		iPanel.add(tempModsDisabledWarning, BorderLayout.EAST);
 
 		rPanel.add(iPanel);
 

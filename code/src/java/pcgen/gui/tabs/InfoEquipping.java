@@ -1932,20 +1932,30 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				pc.setCalcEquipSetId(eqSetId);
 				pc.setCalcEquipmentList();
+				pc.setUseTempMods(eSet.getUseTempMods());
 				pc.setDirty(true);
 				updateTotalWeight();
 
 				// now Update all the other tabs
-				CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-				pane.setPaneForUpdate(pane.infoSpecialAbilities());
-				pane.setPaneForUpdate(pane.infoClasses());
-				pane.setPaneForUpdate(pane.infoFeats());
-				pane.setPaneForUpdate(pane.infoSkills());
-				pane.setPaneForUpdate(pane.infoSpells());
-				pane.setPaneForUpdate(pane.infoSummary());
-				pane.refresh();
+				updateOtherTabs();
 			}
 		}
+	}
+
+	/**
+	 * Update all the other tabs affected by equip set changes.
+	 */
+	private void updateOtherTabs()
+	{
+		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+		pane.setPaneForUpdate(pane.infoSpecialAbilities());
+		pane.setPaneForUpdate(pane.infoClasses());
+		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoSkills());
+		pane.setPaneForUpdate(pane.infoSpells());
+		pane.setPaneForUpdate(pane.infoSummary());
+		pane.setPaneForUpdate(pane.infoInventory().getTempModPane());
+		pane.refresh();
 	}
 
 	/**
@@ -4383,6 +4393,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						eSet.clearTempBonusList();
 					}
 
+					if (eSet.getIdPath().equals(pc.getCalcEquipSetId()))
+					{
+						pc.setUseTempMods(eSet.getUseTempMods());
+						updateOtherTabs();
+					}
 					break;
 
 				default:

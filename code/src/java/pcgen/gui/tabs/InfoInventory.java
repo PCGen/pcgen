@@ -182,6 +182,15 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	}
 
 	/**
+	 * Return the current temporary modifier pane
+	 * @return The temp mod pane, if any
+	 */
+	InfoTempMod getTempModPane()
+	{
+		return tempmod;
+	}
+	
+	/**
 	 * delegates filter related stuff to gear tab
 	 * @return available filters
 	 **/

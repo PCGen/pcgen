@@ -86,7 +86,7 @@ public final class EquipSet implements Comparable, Cloneable
 	private String name = "";
 	private String note = "";
 	private String value = "";
-	private boolean useTempBonuses;
+	private boolean useTempBonuses = true;
 
 	/**
 	 * Constructor
