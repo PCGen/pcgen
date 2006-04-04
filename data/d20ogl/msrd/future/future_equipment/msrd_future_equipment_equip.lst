@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Apr  4 03:33:45 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
@@ -16,7 +16,7 @@ Heads-Up Display (HUD)										TYPE:Goods.Tools.Electronic.Eyegear.HUD	COST:7	W
 Laser Tripwire											TYPE:Goods.Tools.Surveillance			COST:5	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf
 Nanobeacon												TYPE:Goods.General.Electronic			COST:8	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Radius 500 miles
 Shepherd Chip											TYPE:Goods.General				COST:12	WT:0		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
-Spray LCD												TYPE:Goods.Tools					COST:8	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:grants the paint-on LCD gadget for 1 hour
+Spray LCD												TYPE:Goods.Tools.Consumable			COST:8	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:grants the paint-on LCD gadget for 1 hour
 
 #Survival Equipment
 Portable Environment Generator								TYPE:Goods.Tools					COST:13	WT:5		SIZE:M	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:30' sphere of custom environment
@@ -25,11 +25,11 @@ Puritizer												TYPE:Goods.Tools					COST:9	WT:2		SIZE:S	SOURCEPAGE:FutureE
 Soother Pulse											TYPE:Goods.Tools					COST:14	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:+6 equipment bonus on all Handle Animal checks when dealing with an animal identified in the soother pulse's database
 
 #Progress Level 6 Chemical and Medical Equipment
-Chemical (Antitox)										TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the poison and its effects in 1d6 rounds
-Chemical (Boost)											TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf	BONUS:CHECKS|Reflex|2|PREAPPLY:ANYPC	BONUS:HP|ALTHP|4|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|10|PREAPPLY:ANYPC								BONUS:STAT|STR|4|PREAPPLY:ANYPC	SPROP:Illegal(+4)
-Chemical (Neutrad)										TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the radiation poisoning and its effects in 1d4 hours
-Chemical (Solvaway)										TYPE:Goods.Medical.PL6				COST:5	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:designed to break through the restricting compound fired by tangler guns and tangler grenades
-Chemical (Sporekill)										TYPE:Goods.Medical.PL6				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the disease and its effects in 1d10 hours
+Chemical (Antitox)										TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the poison and its effects in 1d6 rounds
+Chemical (Boost)											TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf	BONUS:CHECKS|Reflex|2|PREAPPLY:ANYPC	BONUS:HP|ALTHP|4|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|10|PREAPPLY:ANYPC								BONUS:STAT|STR|4|PREAPPLY:ANYPC	SPROP:Illegal(+4)
+Chemical (Neutrad)										TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the radiation poisoning and its effects in 1d4 hours
+Chemical (Solvaway)										TYPE:Goods.Medical.PL6.Consumable		COST:5	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:designed to break through the restricting compound fired by tangler guns and tangler grenades
+Chemical (Sporekill)										TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:target character is completely cured of the disease and its effects in 1d10 hours
 Medkit (Advanced)				OUTPUTNAME:Medkit, advanced			TYPE:Goods.Medical.Tools			COST:7	WT:3		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Treat Injury|2|TYPE=Equipment
 Medkit (Fast Use)				OUTPUTNAME:Medkit, fast use			TYPE:Goods.Medical.Tools			COST:7	WT:3		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:use the Treat Injury skill with the fast-use medkit as a move action
 Plastic Surgery Kit (Personal)	OUTPUTNAME:Plastic Surgery Kit, personal	TYPE:Goods.Medical.Tools			COST:11	WT:1		SIZE:T	SOURCEPAGE:FutureEquipment.rtf
@@ -53,11 +53,11 @@ Sensor (Geocomp)				OUTPUTNAME:Sensor, geocomp			TYPE:Goods.Tools.Electronic.PL6
 Sensor (Motion)				OUTPUTNAME:Sensor, motion			TYPE:Goods.Tools.Electronic.PL6		COST:14	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:indicates the location of any moving object within 100 feet
 
 #Progress Level 6 Survival Equipment
-Aquaconverter											TYPE:Goods.General.PL6				COST:13	WT:4		SIZE:M	SOURCEPAGE:FutureEquipment.rtf
-Violet Rations											TYPE:Goods.General.PL6				COST:5	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf
+Aquaconverter											TYPE:Goods.General.PL6.Consumable		COST:13	WT:4		SIZE:M	SOURCEPAGE:FutureEquipment.rtf
+Violet Rations											TYPE:Goods.General.PL6.Consumable		COST:5	WT:0		SIZE:F	SOURCEPAGE:FutureEquipment.rtf
 
 #Progress Level 7 Chemical and Medical Equipment
-Chemical (Biocort)										TYPE:Goods.Medical.PL7				COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:heals at twice the normal rate for a 24-hour period
+Chemical (Biocort)										TYPE:Goods.Medical.PL7.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:heals at twice the normal rate for a 24-hour period
 
 #Progress Level 7 Miscelleaneous Equipment
 Galpos Device											TYPE:Goods.Tools.PL7				COST:6	WT:3		SIZE:S	SOURCEPAGE:FutureEquipment.rtf
@@ -74,8 +74,8 @@ Sensor (Mechanicomp)			OUTPUTNAME:Sensor, mechanicomp		TYPE:Goods.Tools.Electron
 Sensor (Medicomp)				OUTPUTNAME:Sensor, medicomp			TYPE:Goods.Tools.Electronic.PL7		COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Treat Injury|4|TYPE=Equipment							SPROP:identify a creature's current and maximum hit points, Lic(+1)
 
 #Progress Level 8 Chemical and Medical Equipment
-Chemical (Plastiflesh)										TYPE:Goods.Medical.PL8				COST:6	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:immediately recovers 1d4 hit points
-Chemical (Truthtell)										TYPE:Goods.Medical.PL8				COST:8	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Will save (DC 18) or be compelled to speak truthfully for the next 3d10 minutes, Lic(+1)
+Chemical (Plastiflesh)										TYPE:Goods.Medical.PL8.Consumable		COST:6	WT:0.5	SIZE:T	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:immediately recovers 1d4 hit points
+Chemical (Truthtell)										TYPE:Goods.Medical.PL8.Consumable		COST:8	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																		SPROP:Will save (DC 18) or be compelled to speak truthfully for the next 3d10 minutes, Lic(+1)
 Regen Wand												TYPE:Goods.Medical.PL8				COST:18	WT:1		SIZE:S	SOURCEPAGE:FutureEquipment.rtf																					BONUS:SKILL|Treat Injury|4|TYPE=Equipment
 
 #Progress Level 8 Miscelleaneous Equipment

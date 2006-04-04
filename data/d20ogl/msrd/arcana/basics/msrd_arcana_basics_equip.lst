@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Apr  4 03:33:45 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -25,27 +25,27 @@ Video Shades (Black and White)	TYPE:Goods.Tools.Surveillance	COST:23	WT:0		SOURC
 Video Shades (Color)			TYPE:Goods.Tools.Surveillance	COST:24	WT:0		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 150 ft.
 
 ###Block: Professional Equipment
-# Equipment Name				Type			Cost		Weight	Base Quantity	Source Page					Special Property
-Breaking and Entering Kit		TYPE:Goods.Tools	COST:20	WT:50					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Ill (+4)
-Capture Kit					TYPE:Goods.Tools	COST:21	WT:57					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
-Chemistry Kit				TYPE:Goods.Tools	COST:13	WT:15					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Lic (+1)
-Compressor (hydraulic)			TYPE:Goods.Tools	COST:13	WT:50					SOURCEPAGE:ArcanaEquipment.rtf
-Concertina Wire (20 ft.)		TYPE:Goods.Tools	COST:11	WT:15					SOURCEPAGE:ArcanaEquipment.rtf
-Fiend Hunter's Kit			TYPE:Goods.Tools	COST:21	WT:40					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
-Forced Entry Kit				TYPE:Goods.Tools	COST:21	WT:135				SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
-Generator (Portable)			TYPE:Goods.Tools	COST:19	WT:125				SOURCEPAGE:ArcanaEquipment.rtf	SPROP:2 gallons of gas power a house for 8 hours
-Glasscutter (circular)			TYPE:Goods.Tools	COST:13	WT:5					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)	SPROP:Dex check (DC 10) to avoid shattering the glass
-Headset (standard)			TYPE:Goods.Tools	COST:13	WT:0					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
-Headset (w/light)				TYPE:Goods.Tools	COST:14	WT:0					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
-Headset (w/camera)			TYPE:Goods.Tools	COST:16	WT:1					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
-Holy Water (flask)			TYPE:Goods.Tools	COST:15	WT:1					SOURCEPAGE:ArcanaEquipment.rtf
-Jaws of Life				TYPE:Goods.Tools	COST:18	WT:40					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:requires a hydraulic compressor to work	SPROP:+10 bonus on Strength checks to open doors
-Liquid Metal Embrittlement Sprayer	TYPE:Goods.Tools	COST:18	WT:50					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 10 ft.	SPROP:reduces the hardness of metal permanently by half after 1d6x10 minutes	SPROP:1 tank filling covers 10 squares  of 1.5m
-Marbles (1 bag)				TYPE:Goods.Toys	COST:3	WT:.5					SOURCEPAGE:ArcanaEquipment.rtf
-Ram (portable)				TYPE:Goods.Tools	COST:12	WT:35					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
-Road Flare (3)				TYPE:Goods.Tools	COST:3	WT:1.5	BASEQTY:3		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
-Vampire Slayer's Kit			TYPE:Goods.Tools	COST:16	WT:20					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
-Winch (portable)				TYPE:Goods.Tools	COST:16	WT:15					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Strength 30, 150 ft. cable (hardness4, hp 5)
+# Equipment Name				Type					Cost		Weight	Base Quantity	Source Page					Special Property
+Breaking and Entering Kit		TYPE:Goods.Tools			COST:20	WT:50					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Ill (+4)
+Capture Kit					TYPE:Goods.Tools			COST:21	WT:57					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
+Chemistry Kit				TYPE:Goods.Tools			COST:13	WT:15					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Lic (+1)
+Compressor (hydraulic)			TYPE:Goods.Tools			COST:13	WT:50					SOURCEPAGE:ArcanaEquipment.rtf
+Concertina Wire (20 ft.)		TYPE:Goods.Tools			COST:11	WT:15					SOURCEPAGE:ArcanaEquipment.rtf
+Fiend Hunter's Kit			TYPE:Goods.Tools			COST:21	WT:40					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
+Forced Entry Kit				TYPE:Goods.Tools			COST:21	WT:135				SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)
+Generator (Portable)			TYPE:Goods.Tools			COST:19	WT:125				SOURCEPAGE:ArcanaEquipment.rtf	SPROP:2 gallons of gas power a house for 8 hours
+Glasscutter (circular)			TYPE:Goods.Tools			COST:13	WT:5					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res (+2)	SPROP:Dex check (DC 10) to avoid shattering the glass
+Headset (standard)			TYPE:Goods.Tools			COST:13	WT:0					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
+Headset (w/light)				TYPE:Goods.Tools			COST:14	WT:0					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
+Headset (w/camera)			TYPE:Goods.Tools			COST:16	WT:1					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:No walkie-talkie or cell phone included
+Holy Water (flask)			TYPE:Goods.Tools.Consumable	COST:15	WT:1					SOURCEPAGE:ArcanaEquipment.rtf
+Jaws of Life				TYPE:Goods.Tools			COST:18	WT:40					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:requires a hydraulic compressor to work	SPROP:+10 bonus on Strength checks to open doors
+Liquid Metal Embrittlement Sprayer	TYPE:Goods.Tools.Consumable	COST:18	WT:50					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Range 10 ft.	SPROP:reduces the hardness of metal permanently by half after 1d6x10 minutes	SPROP:1 tank filling covers 10 squares  of 1.5m
+Marbles (1 bag)				TYPE:Goods.Toys.Consumable	COST:3	WT:.5					SOURCEPAGE:ArcanaEquipment.rtf
+Ram (portable)				TYPE:Goods.Tools			COST:12	WT:35					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
+Road Flare (3)				TYPE:Goods.Tools.Consumable	COST:3	WT:1.5	BASEQTY:3		SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
+Vampire Slayer's Kit			TYPE:Goods.Tools			COST:16	WT:20					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Res(+2)
+Winch (portable)				TYPE:Goods.Tools			COST:16	WT:15					SOURCEPAGE:ArcanaEquipment.rtf	SPROP:Strength 30, 150 ft. cable (hardness4, hp 5)
 
 ###Block: Sports Equipment
 # Equipment Name	Type			Cost		Weight	Source Page					Special Property

@@ -35,9 +35,9 @@ Tool Belt										TYPE:Goods.Clothing.Belt	COST:9	WT:2		SOURCEPAGE:msrdequipmen
 # Equipment Name				Output Name					Type								Cost		Weight	Source Page
 Camera (35mm)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:17	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Camera (Digital)				OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:14	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Disposable)			OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo			COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Film)				OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo			COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
-Camera (Film Developing (Roll))	OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo			COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Disposable)			OUTPUTNAME:Camera, [NAME]		TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Film)				OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
+Camera (Film Developing (Roll))	OUTPUTNAME:[NAME]				TYPE:Goods.Tools.Electronic.Photo.Consumable	COST:3	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
 Cell Phone											TYPE:Goods.Tools.Electronic				COST:9	WT:*		SOURCEPAGE:msrdequipmentgeneral.rtf
 Computer (Desktop)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Desktop.Spellbook	COST:22	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf
 Computer (Notebook)			OUTPUTNAME:Computer, [NAME]		TYPE:Goods.Tools.Electronic.Notebook.Spellbook	COST:23	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
@@ -68,12 +68,12 @@ Telephone Tap (Telephone Line Tracer)	OUTPUTNAME:[NAME]	TYPE:Goods.Tools.Surveil
 ###Block: Professional Equipment
 # Equipment Name			Output Name						Type					Cost		Weight	Source Page					Bonus to skill
 Bolt Cutter											TYPE:Goods.Tools			COST:6	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
-Caltrops (25)										TYPE:Goods.General		COST:5	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
+Caltrops (25)										TYPE:Goods.General.Consumable	COST:5	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Car opening Kit										TYPE:Goods.Tools			COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Chemical Kit										TYPE:Goods.Tools			COST:16	WT:6		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Craft (chemical)|CircumstanceAdjustment|TYPE=Circumstance
 Demolitions Kit										TYPE:Goods.Tools			COST:13	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
 Disguise Kit										TYPE:Goods.Tools			COST:12	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Disguise|CircumstanceAdjustment|TYPE=Circumstance
-Duct Tape											TYPE:Goods.General		COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Duct Tape											TYPE:Goods.General.Consumable	COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Electrical Tool Kit (Basic)	OUTPUTNAME:Electrical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:14	WT:12		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Craft (electronic)|CircumstanceAdjustment|TYPE=Circumstance
 Electrical Tool Kit (Deluxe)	OUTPUTNAME:Electrical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:21	WT:33		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Craft (electronic)|2+CircumstanceAdjustment|TYPE=Circumstance
 Evidence Kit (Basic)		OUTPUTNAME:Evidence Kit, [NAME]		TYPE:Goods.Tools			COST:7	WT:6		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Investigate|CircumstanceAdjustment|TYPE=Circumstance
@@ -82,7 +82,7 @@ Fake ID											TYPE:Goods.General				WT:*		SOURCEPAGE:msrdequipmentgeneral.rt
 First Aid Kit										TYPE:Goods.Tools			COST:5	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Forgery Kit											TYPE:Goods.Tools			COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
 Handcuffs (Steel)			OUTPUTNAME:Handcuffs, [NAME]			TYPE:Goods.General		COST:7	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
-Handcuffs (Zip-Tie/25)		OUTPUTNAME:Handcuffs, Zip-Tie (25)		TYPE:Goods.General		COST:6	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Handcuffs (Zip-Tie/25)		OUTPUTNAME:Handcuffs, Zip-Tie (25)		TYPE:Goods.General.Consumable	COST:6	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 Instrument (Keyboard)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:12	WT:12		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (keyboards)|CircumstanceAdjustment|TYPE=Circumstance
 Instrument (Percussion)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:14	WT:50		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (percussion)|CircumstanceAdjustment|TYPE=Circumstance
 Instrument (Stringed)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:13	WT:7		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (stringed)|CircumstanceAdjustment|TYPE=Circumstance
@@ -104,16 +104,16 @@ Backpack									TYPE:Goods.General.Container	CONTAINS:60|Any=60	COST:10	WT:3		S
 Binoculars (Standard)		OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:7	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Binoculars (Rangefinding)	OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:15	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Binoculars (Electro-Optical)	OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:16	WT:4		SOURCEPAGE:msrdequipmentgeneral.rtf
-Chemical Light Stick							TYPE:Goods.General								WT:.2		SOURCEPAGE:msrdequipmentgeneral.rtf
-Chemical Light Sticks (5)						TYPE:Goods.General						COST:2	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Chemical Light Stick							TYPE:Goods.General.Consumable							WT:.2		SOURCEPAGE:msrdequipmentgeneral.rtf
+Chemical Light Sticks (5)						TYPE:Goods.General.Consumable					COST:2	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Climbing Gear								TYPE:Goods.General.Tools					COST:11	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Climb|CircumstanceAdjustment|TYPE=Circumstance
 Compass									TYPE:Goods.General						COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Navigate|2|TYPE=Equipment
-Fire Extinguisher								TYPE:Goods.General						COST:8	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
+Fire Extinguisher								TYPE:Goods.General.Consumable					COST:8	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Flash Goggles								TYPE:Goods.General.Eyegear					COST:15	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Flashlight (Penlight)		OUTPUTNAME:[NAME]			TYPE:Goods.General						COST:3	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 Flashlight (Standard)		OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General						COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Flashlight (Battery Flood)	OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General						COST:6	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
-Gas Mask									TYPE:Goods.General						COST:13	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
+Gas Mask									TYPE:Goods.General.Consumable					COST:13	WT:5		SOURCEPAGE:msrdequipmentgeneral.rtf
 GPS Receiver								TYPE:Goods.General						COST:15	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Map (Road Atlas)			OUTPUTNAME:Map, [NAME]		TYPE:Goods.General						COST:4	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Map (Tactical Map)		OUTPUTNAME:Map, [NAME]		TYPE:Goods.General						COST:3	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
@@ -124,15 +124,15 @@ Sleeping Bag								TYPE:Goods.General						COST:9	WT:4		SOURCEPAGE:msrdequipmen
 Tent (2-Person Dome)		OUTPUTNAME:Tent, [NAME]		TYPE:Goods.General						COST:11	WT:4		SOURCEPAGE:msrdequipmentgeneral.rtf
 Tent (4-Person Dome)		OUTPUTNAME:Tent, [NAME]		TYPE:Goods.General						COST:12	WT:7		SOURCEPAGE:msrdequipmentgeneral.rtf
 Tent (8-Person Dome)		OUTPUTNAME:Tent, [NAME]		TYPE:Goods.General						COST:13	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf
-Trail Rations (12)							TYPE:Goods.General						COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Trail Rations (12)							TYPE:Goods.General.Consumable					COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 
 ###Block: Weapon Accessories
 # Equipment Name			Output Name				Type							Contains			Cost		Weight	Source Page
 Box Magazine								TYPE:Goods.WeaponAccessory.Container	CONTAINS:-1|Bullet=100	COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Blasting cap)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory							COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Radio Controlled)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory							COST:10	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Timed)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory							COST:7	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory							COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Blasting cap)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:4	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Radio Controlled)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:10	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Timed)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:7	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
+Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable					COST:6	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Holster (Hip)			OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:-1|Firearm=1	COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Holster (Concealed carry)	OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:-1|Firearm=1	COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 # Original Entry by: Phantom of Krankor
