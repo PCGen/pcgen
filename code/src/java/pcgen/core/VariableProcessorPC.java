@@ -1116,7 +1116,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[MOVE]".equals(valString))
 		{
-			valString = Integer.toString(getPc().getMovements().length);
+			valString = Integer.toString(getPc().getNumberOfMovements());
 		}
 		else if ("COUNT[NOTES]".equals(valString))
 		{
