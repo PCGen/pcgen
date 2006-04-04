@@ -29,6 +29,7 @@
 package pcgen.persistence.lst.utils;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
@@ -76,14 +77,19 @@ public class FeatParser {
 			{
 				ArrayList choices     = new ArrayList();
 				String    abilityName = EquipmentUtilities.getUndecoratedName(aPart, choices);
-				Ability   anAbility   = Globals.getAbilityNamed("FEAT", abilityName);
+				Ability   anAbility   = AbilityUtilities.getAbilityFromList(aList, "FEAT", abilityName, -1);
+				
+				if (anAbility == null) {
+					anAbility = Globals.getAbilityNamed("FEAT", abilityName);					
+					if (anAbility != null) {
+						anAbility = (Ability) anAbility.clone();
+						anAbility.setFeatType(Ability.ABILITY_VIRTUAL);
+						anAbility.clearPreReq();
+					}
+				}
 
 				if (anAbility != null)
 				{
-					anAbility = (Ability) anAbility.clone();
-					anAbility.setFeatType(Ability.ABILITY_VIRTUAL);
-					anAbility.clearPreReq();
-
 					Iterator choiceIt = choices.iterator();
 					
 					while (choiceIt.hasNext()) {

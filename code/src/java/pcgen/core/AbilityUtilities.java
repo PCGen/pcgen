@@ -46,60 +46,82 @@ import java.util.StringTokenizer;
  */
 public class AbilityUtilities
 {
-	/**
-	 * Find an ability that matches a given name in a list (using this is
-	 * probably a really bad idea since it doesn't pay attention to category)
-	 *
-	 * @param   aFeatList  A list of Ability Objects
-	 * @param   featName   The name of the Ability being looked for
-	 *
-	 * @return  the Ability if found, otherwise null
-	 */
-	public static Ability getFeatNamedInList(
-		final List   aFeatList,
-		final String featName)
-	{
-		return getFeatNamedInList(aFeatList, featName, -1);
-	}
-
-
-	/**
-	 * Find an ability that matches a given name in a list (using this is
-	 * probably a really bad idea since it doesn't pay attention to category).
-	 * Also takes an integer representing a type, -1 always matches, otherwise
-	 * an ability will only be returned if its type is the same as featType
-	 *
-	 * @param   aFeatList
-	 * @param   featName
-	 * @param   featType
-	 *
-	 * @return  the Ability if found, otherwise null
-	 */
-	public static Ability getFeatNamedInList(
-		final List   aFeatList,
-		final String featName,
-		final int    featType)
-	{
-		if (aFeatList.isEmpty())
-		{
-			return null;
-		}
-
-		for (Iterator e = aFeatList.iterator(); e.hasNext();)
-		{
-			final Ability aFeat = (Ability) e.next();
-
-			if (aFeat.getName().equalsIgnoreCase(featName))
-			{
-				if ((featType == -1) || (aFeat.getFeatType() == featType))
-				{
-					return aFeat;
-				}
-			}
-		}
-
-		return null;
-	}
+//	/**
+//	 * Find an ability that matches a given name in a list (using this is
+//	 * probably a really bad idea since it doesn't pay attention to category)
+//	 *
+//	 * @param   aFeatList  A list of Ability Objects
+//	 * @param cat TODO
+//	 * @param   featName   The name of the Ability being looked for
+//	 * @param type TODO
+//	 * @return  the Ability if found, otherwise null
+//	 */
+//	public static Ability getFeatNamedInList(
+//		final List   aFeatList,
+//		String cat, final String featName, int type)
+//	{
+//		AbilityInfo abInfo = new AbilityInfo("FEAT", featName);
+//		return getAbilityFromList(aFeatList, abInfo, -1);
+//	}
+//
+//	/**
+//	 * Find an ability that matches a given name in a list (using this is
+//	 * probably a really bad idea since it doesn't pay attention to category).
+//	 * Also takes an integer representing a type, -1 always matches, otherwise
+//	 * an ability will only be returned if its type is the same as featType
+//	 *
+//	 * @param   aFeatList
+//	 * @param   featName
+//	 * @param   featType
+//	 *
+//	 * @return  the Ability if found, otherwise null
+//	 */
+//	public static Ability getFeatNamedInList(
+//		final List   aFeatList,
+//		final String featName,
+//		final int    featType)
+//	{
+//		if (aFeatList.isEmpty())
+//		{
+//			return null;
+//		}
+//
+//		for (Iterator e = aFeatList.iterator(); e.hasNext();)
+//		{
+//			final Ability aFeat = (Ability) e.next();
+//
+//			if (aFeat.getName().equalsIgnoreCase(featName))
+//			{
+//				if ((featType == -1) || (aFeat.getFeatType() == featType))
+//				{
+//					return aFeat;
+//				}
+//			}
+//		}
+//
+//		return null;
+//	}
+//
+//	/**
+//	 * Find an ability that matches a given name in a list (If you use this it
+//	 * defaults to category FEAT). Also takes an integer representing a type, -1
+//	 * always matches, otherwise an ability will only be returned if its type is
+//	 * the same as featType
+//	 *
+//	 * @param   anAbilityList
+//	 * @param   featName
+//	 * @param   abilityType
+//	 *
+//	 * @return  the Ability if found, otherwise null
+//	 */
+//	public static Ability getFeatNamedInList(
+//		final List   anAbilityList,
+//		final String featName,
+//		final int    abilityType)
+//	{
+//		AbilityInfo abInfo = new AbilityInfo("FEAT", featName);
+//		return getAbilityFromList(anAbilityList, abInfo, abilityType);
+//	}
 
 
 	/**
@@ -145,7 +167,9 @@ public class AbilityUtilities
 	 *
 	 * @return  The ability in category "cat" called "token"
 	 */
-	public static Ability retrieveAbilityKeyed(String cat, final String token)
+	public static Ability retrieveAbilityKeyed(
+		String       cat,
+		final String token)
 	{
 		Ability ab = Globals.getAbilityKeyed(cat, token);
 
@@ -214,7 +238,7 @@ public class AbilityUtilities
 					levelInfo.addObject(newAbility);
 				}
 			}
-			else if (getMatchingFeatInList(addList, newAbility) == null)
+			else if (getAbilityFromList(addList, newAbility) == null)
 			{
 				addList.add(newAbility);
 
@@ -245,7 +269,7 @@ public class AbilityUtilities
 		final String      featName,
 		final List        addList,
 		final PCLevelInfo levelInfo,
-		PlayerCharacter   aPC)
+		final PlayerCharacter   aPC)
 	{
 		ArrayList choices     = new ArrayList();
 		String    abilityName = EquipmentUtilities.getUndecoratedName(featName, choices);
@@ -274,35 +298,32 @@ public class AbilityUtilities
 	 *          not currently have the Ability.
 	 */
 	public static int modFeat(
-		PlayerCharacter   aPC,
-		final PCLevelInfo playerCharacterLevelInfo,
-		String            featName,
-		final boolean     addIt,
-		boolean           addAll)
+		final PlayerCharacter aPC,
+		final PCLevelInfo     playerCharacterLevelInfo,
+		      String          featName,
+		final boolean         addIt,
+		      boolean         addAll)
 	{
 		if (!aPC.isImporting())
 		{
 			aPC.getSpellList();
 		}
 
-		int     retVal  = addIt ? 1 : 0;
-		boolean added   = false;
-		String  subName = "";
+		      ArrayList choices        = new ArrayList();
+		      int       retVal         = addIt ? 1 : 0;
+		      boolean   added          = false;
+		final String    undoctoredName = featName;
+		final String    baseName       = EquipmentUtilities.getUndecoratedName(featName, choices);
+		      String    subName        = choices.size() > 0 ? (String) choices.get(0) : "";
 
 		// See if our choice is not auto or virtual
-		Ability      anAbility = aPC.getRealFeatNamed(featName);
-		final String oldName   = featName;
+		Ability anAbility = aPC.getRealFeatNamed(undoctoredName);
 
 		// if a feat named featName doesn't exist, and featName
 		// contains a (blah) descriptor, try removing it.
-		if ((anAbility == null) && featName.endsWith(")"))
+		if (anAbility == null)
 		{
-			final int idx = featName.indexOf('(');
-
-			// we want what is inside the outermost parenthesis
-			subName   = featName.substring(idx + 1, featName.lastIndexOf(')'));
-			featName  = featName.substring(0, idx).trim();
-			anAbility = aPC.getRealFeatNamed(featName);
+			anAbility = aPC.getRealFeatNamed(baseName);
 
 			if (addAll && (anAbility != null) && (subName.length() != 0))
 			{
@@ -315,15 +336,14 @@ public class AbilityUtilities
 		if (addIt && (anAbility == null))
 		{
 			// adding feat for first time
-			anAbility = Globals.getAbilityNamed("FEAT", featName);
+			anAbility = Globals.getAbilityNamed("FEAT", baseName);
 
 			if (anAbility == null)
 			{
-				anAbility = Globals.getAbilityNamed("FEAT", oldName);
+				anAbility = Globals.getAbilityNamed("FEAT", undoctoredName);
 
 				if (anAbility != null)
 				{
-					featName = oldName;
 					subName  = "";
 				}
 			}
@@ -334,7 +354,7 @@ public class AbilityUtilities
 			}
 			else
 			{
-				Logging.errorPrint("Feat not found: " + oldName);
+				Logging.errorPrint("Feat not found: " + undoctoredName);
 
 				return retVal;
 			}
@@ -374,13 +394,13 @@ public class AbilityUtilities
 	 * @return  1 if adding the Ability or 0 if removing it.
 	 */
 
-	public static int modAbility (
-		PlayerCharacter   aPC,
-		final PCLevelInfo playerCharacterLevelInfo,
-		Ability           argAbility,
-		String            choice,
-		final boolean     addIt,
-		boolean           addAll)
+	public static int modAbility(
+		final PlayerCharacter aPC,
+		final PCLevelInfo     playerCharacterLevelInfo,
+		final Ability         argAbility,
+		final String          choice,
+		final boolean         addIt,
+		      boolean         addAll)
 	{
 
 		int     retVal  = addIt ? 1 : 0;
@@ -395,7 +415,7 @@ public class AbilityUtilities
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
 		List realAbilities = aPC.getRealFeatsList();
-		Ability pcAbility  = getMatchingFeatInList(realAbilities, argAbility);
+		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
 
 		if (addAll && (pcAbility != null) && (choice.length() != 0))
 		{
@@ -434,22 +454,23 @@ public class AbilityUtilities
 	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
 	private static int finaliseAbility(
-		Ability         anAbility,
-		String          choice,
-		PlayerCharacter aPC,
+		final Ability         anAbility,
+		final String          choice,
+		final PlayerCharacter aPC,
 		final boolean   addIt,
-		boolean         addAll,
+		final boolean         addAll,
 		boolean         added,
 		int             retVal)
 	{
 		// how many sub-choices to make
 		double j = (anAbility.getAssociatedCount() * anAbility.getCost(aPC)) + aPC.getFeats();
 
-		// process ADD tags from the feat definition
-		if (!addIt)
-		{
-			anAbility.modAdds(addIt, aPC);
-		}
+//		// process ADD tags from the feat definition
+		// Don't need this anymore since ADD tags are parsed globally
+//		if (!addIt)
+//		{
+//			anAbility.modAdds(addIt, aPC);
+//		}
 
 		boolean canSetFeats = true;
 
@@ -512,7 +533,7 @@ public class AbilityUtilities
 			{
 				KitUtilities.makeKitSelections(0, (String)l.get(i), 1, aPC);
 			}
-			anAbility.modAdds(addIt, aPC);
+			// anAbility.modAdds(addIt, aPC);
 		}
 
 		// if no sub choices made (i.e. all of them removed in Chooser box),
@@ -575,87 +596,92 @@ public class AbilityUtilities
 
 
 	/**
-	 * Convert the name of an Ability (currently only handles FEATS) into an
-	 * Ability object and add it to theFeatList TODO expand this routine so that
-	 * it can handle more than feats.  This may involve changes where it is
-	 * called so that they pass a different list depending on the category of
-	 * Ability object, but they would need to pass the category as well and it
-	 * may be simpler to pass AbilityInfo objects instead.
+	 * Search the List passed in for an instance of the Ability matching
+	 * category and Ability name.  If we don't find it, attempt to locate
+	 * it in global Storage and, if it's there, clone it and add it the List.
+	 * If we got an ability, then add any sub choices from the name to the
+	 * associated list of the ability.
 	 *
 	 * @param  theAbilityList  A list of abilities to add to
+	 * @param category The category of Ability to add
 	 * @param  abilityName     The name of the Ability to Add
 	 */
-	static void addToFeatList(final List theAbilityList, final String abilityName)
+	static void addToAbilityList(
+			final List   theAbilityList,
+			final String category,
+			final String abilityName)
 	{
-		String altName = "";
-		String subName = "";
+		ArrayList choices = new ArrayList();
+		EquipmentUtilities.getUndecoratedName(abilityName, choices);
+		String  subName = choices.size() > 0 ? (String) choices.get(0) : "";
 
-		if (abilityName.endsWith(")"))
-		{
-			// we want what is inside the outermost parens.
-			subName = abilityName.substring(
-					abilityName.indexOf('(') + 1,
-					abilityName.lastIndexOf(')'));
-			altName = abilityName.substring(0, abilityName.indexOf('(')).trim();
-		}
-
-		Ability anAbility = getFeatNamedInList(
-				theAbilityList,
-				abilityName);
-
-		if ((anAbility == null) && (altName.length() != 0))
-		{
-			anAbility = getFeatNamedInList(theAbilityList, altName);
-		}
-
-		/* This feat is not in autoFeatList, get the global definition, clone it, attach
-		 * sub-type (if any) and add */
+		AbilityInfo abInf = new AbilityInfo("FEAT", abilityName);
+		Ability anAbility = getAbilityFromList(theAbilityList, abInf);
 
 		if (anAbility == null)
 		{
-			anAbility = Globals.getAbilityNamed("FEAT", abilityName);
-
-			if ((anAbility == null) && (altName.length() != 0))
-			{
-				anAbility = Globals.getAbilityNamed("FEAT", altName);
-			}
+			anAbility = cloneGlobalAbility(category, abilityName);
 
 			if (anAbility != null)
 			{
-				anAbility = (Ability) anAbility.clone();
-
-				if (subName.length() != 0)
-				{
-					anAbility.addAssociated(subName);
-				}
-
 				anAbility.setFeatType(Ability.ABILITY_AUTOMATIC);
 				theAbilityList.add(anAbility);
 			}
-			else
-			{
-				ShowMessageDelegate.showMessageDialog(
-					"Adding unknown feat: " + abilityName,
-					Constants.s_APPNAME,
-					MessageType.INFORMATION);
-			}
 		}
 
-		/* Already have feat, add sub-type (if any) */
+		if (anAbility == null &&
+				subName.length() != 0 && 
+				anAbility.canAddAssociation(subName))
+		{
+			anAbility.addAssociated(subName);
+		}
 
+	}
+
+	/**
+	 * If an ability in Global storage matches the category and name passed
+	 * in, then return a clone of that Ability.  If there are any choices in
+	 * parenthesis, they will be discarded (i.e. the caller of this routine
+	 * should add them if appropriate).
+	 * 
+	 * @param category
+	 * @param abilityName
+	 *
+	 * @return a clone of a global ability
+	 */
+	private static Ability cloneGlobalAbility(
+			final String category,
+			final String abilityName)
+	{
+		ArrayList choices          = new ArrayList();
+		final     String  baseName = EquipmentUtilities.getUndecoratedName(abilityName, choices);
+		final     String  subName  = choices.size() > 0 ? (String) choices.get(0) : "";
+		          Ability anAbility;
+
+		anAbility = Globals.getAbilityNamed(category, abilityName);
+
+		if ((anAbility == null) && (baseName.length() != 0))
+		{
+			anAbility = Globals.getAbilityNamed(category, baseName);
+		}
+
+		if (anAbility != null)
+		{
+			anAbility = (Ability) anAbility.clone();
+			if (subName.length() > 0)
+			{
+				anAbility.addAssociated(subName);
+			}
+		}
 		else
 		{
-			if (subName.length() != 0)
-			{
-				if (
-					anAbility.isStacks() ||
-					(anAbility.isMultiples() &&
-						!anAbility.containsAssociated(subName)))
-				{
-					anAbility.addAssociated(subName);
-				}
-			}
+			ShowMessageDelegate.showMessageDialog(
+				"Adding unknown feat: " + abilityName,
+				Constants.s_APPNAME,
+				MessageType.INFORMATION);
 		}
+
+		return anAbility;
 	}
 
 
@@ -835,7 +861,7 @@ public class AbilityUtilities
 
 			while (aTok.hasMoreTokens())
 			{
-				addToFeatList(autoFeatList, aTok.nextToken());
+				addToAbilityList(autoFeatList, "FEAT", aTok.nextToken());
 			}
 		}
 
@@ -915,7 +941,7 @@ public class AbilityUtilities
 					}
 				}
 
-				addToFeatList(autoFeatList, autoFeat);
+				addToAbilityList(autoFeatList, "FEAT", autoFeat);
 			}
 		}
 
@@ -936,7 +962,7 @@ public class AbilityUtilities
 
 						while (aTok.hasMoreTokens())
 						{
-							addToFeatList(autoFeatList, aTok.nextToken());
+							addToAbilityList(autoFeatList, "FEAT", aTok.nextToken());
 						}
 					}
 				}
@@ -962,7 +988,7 @@ public class AbilityUtilities
 
 							if (idx > -1)
 							{
-								addToFeatList(autoFeatList, aString.substring(idx + 1));
+								addToAbilityList(autoFeatList, "FEAT", aString.substring(idx + 1));
 							}
 							else
 							{
@@ -976,7 +1002,7 @@ public class AbilityUtilities
 					for (; anIt.hasNext();)
 					{
 						final AbilityInfo abI = (AbilityInfo) anIt.next();
-						addToFeatList(autoFeatList, abI.getKeyName());
+						addToAbilityList(autoFeatList, "FEAT", abI.getKeyName());
 					}
 				}
 			}
@@ -1066,4 +1092,191 @@ public class AbilityUtilities
 
 		return tokenString;
 	}
+
+	/**
+	 * Find an ability in a list that matches a given AbilityInfo Object. Also
+	 * takes an integer representing a type, -1 always matches, otherwise an
+	 * ability will only be returned if its type is the same as abilityType
+	 * 
+	 * @param anAbilityList
+	 * @param aCat
+	 * @param aName
+	 * @param abilityType
+	 * 
+	 * @return the Ability if found, otherwise null
+	 */
+	public static Ability getAbilityFromList(
+			final List   anAbilityList,
+			final String aCat,
+			final String aName,
+			final int    abilityType) 
+	{
+		AbilityInfo abInfo = new AbilityInfo(aCat, aName);
+		return getAbilityFromList(anAbilityList, abInfo, abilityType);
+	}
+
+	/**
+	 * Find an ability in a list that matches a given Ability or AbilityInfo
+	 * Object.
+	 * 
+	 * @param anAbilityList
+	 * @param abilityInfo
+	 * 
+	 * @return the Ability if found, otherwise null
+	 */
+	public static Ability getAbilityFromList(
+			final List          anAbilityList,
+			final Categorisable abilityInfo)
+	{
+		return getAbilityFromList(anAbilityList, abilityInfo, -1);
+	}
+
+	/**
+	 * Find an ability in a list that matches a given Ability or AbilityInfo
+	 * Object. Also takes an integer representing a type, -1 always matches,
+	 * otherwise an ability will only be returned if its type is the same as
+	 * abilityType
+	 * 
+	 * @param anAbilityList
+	 * @param abilityInfo
+	 * @param abilityType
+	 * 
+	 * @return the Ability if found, otherwise null
+	 */
+	public static Ability getAbilityFromList(
+		final List          anAbilityList,
+		final Categorisable abilityInfo,
+		final int           abilityType)
+	{
+		if (anAbilityList.isEmpty()) {
+			return null;
+		}
+
+		for (Iterator abListIt = anAbilityList.iterator(); abListIt.hasNext();) {
+			final Ability anAbility = (Ability) abListIt.next();
+
+			if (AbilityUtilities.areSameAbility(anAbility, abilityInfo)) {
+				if ((abilityType == -1) || (anAbility.getFeatType() == abilityType)) {
+					return anAbility;
+				}
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Do the strings passed in represent the same Ability object in the
+	 * Category category?
+	 *
+	 * @param first
+	 * @param second
+	 * @return true if the same object is represented
+	 */
+	static public boolean areSameAbility(
+			final String category,
+			final String first,
+			final String second)
+	{
+		if (category == null || first == null || second == null) {
+			return false;
+		}
+		Categorisable newFirst = new AbilityInfo(category, first);
+		return areSameAbility(newFirst, second);
+	}
+
+	/**
+	 * Do the Categorisable object and the string passed in represent the
+	 * same ability?  the string is assumed to be in the same Category as the
+	 * Categorisable object.
+	 *
+	 * @param first
+	 * @param second
+	 * @return true if the same object is represented
+	 */
+	static public boolean areSameAbility(
+			final Categorisable first,
+			final String second)
+	{
+		if (first == null || second == null) {
+			return false;
+		}
+		Categorisable newSecond = new AbilityInfo(first.getCategory(), second);
+		return areSameAbility(first, newSecond);
+	}
+
+	/**
+	 * Do the Categorisable objects passed in represent the same ability?
+	 *
+	 * @param first
+	 * @param second
+	 * @return true if the same object is represented
+	 */
+	static public boolean areSameAbility(
+			final Categorisable first,
+			final Categorisable second)
+	{
+		if (first == null || second == null) {
+			return false;
+		}
+
+		boolean multFirst  = getIsMultiples(first);
+		boolean multSecond = getIsMultiples(second);
+		boolean nameCheck  = false;
+
+		if (multFirst && multSecond) {
+			/*
+			 * The are both Multiply applicable, so strip the decorations (parts
+			 * in brackets) from the name, then check the undecorated names are
+			 * equal.
+			 */
+			ArrayList decorationsThis = new ArrayList();
+			ArrayList decorationsThat = new ArrayList();
+			String undecoratedThis = EquipmentUtilities.getUndecoratedName(first.getKeyName(), decorationsThis);
+			String undecoratedThat = EquipmentUtilities.getUndecoratedName(second.getKeyName(), decorationsThat);
+			nameCheck = undecoratedThis.compareToIgnoreCase(undecoratedThat) == 0;
+
+		} else if (multFirst || multSecond) {
+
+			// one is multiply applicable but the other isn't. They can't be the
+			// same Ability
+			return false;
+		} else {
+
+			/*
+			 * They're not multiply selectable, so anything in brackets isn't a
+			 * choice, it's part of the name
+			 */
+			nameCheck = first.getKeyName().compareToIgnoreCase(second.getKeyName()) == 0;
+		}
+
+		return (nameCheck && first.getCategory().compareToIgnoreCase(second.getCategory()) == 0);
+	}
+
+	/**
+	 * Find out if this Categorisable Object can be applied to a character
+	 * multiple times
+	 * 
+	 * @param aCatObj
+	 * @return true if can be applied multiple times
+	 */
+	private static boolean getIsMultiples(
+			final Categorisable aCatObj)
+	{
+		if (aCatObj instanceof Ability)
+		{
+			return ((Ability) aCatObj).isMultiples();
+		}
+		else if (aCatObj instanceof AbilityInfo)
+		{
+			Ability ability = ((AbilityInfo) aCatObj).getAbility();
+			if (ability == null)
+			{
+				return false;
+			}
+			return ability.isMultiples();
+		}
+		return false;
+	}
+
 }

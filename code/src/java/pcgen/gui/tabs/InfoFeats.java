@@ -149,7 +149,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private static final int HASABILITY_NO        = 0;
 	private static final int HASABILITY_CHOSEN    = 1;
 	private static final int HASABILITY_AUTOMATIC = 2;
-	private static final int HASABILITY_VIRTUAL      = 4;
+	private static final int HASABILITY_VIRTUAL   = 4;
 	static final int FEAT_OK = 0;
 	static final int FEAT_DUPLICATE = 1;
 	static final int FEAT_NOT_QUALIFIED = 2;
@@ -1723,7 +1723,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 					/*else*/ if (pc.hasFeatVirtual(featName))
 					{
-						returnValue.add(AbilityUtilities.getFeatNamedInList(pc.getVirtualFeatList(), featName));
+						returnValue.add(AbilityUtilities.getAbilityFromList(pc.getVirtualFeatList(), "FEAT", featName, -1));
 					}
 				}
 				else

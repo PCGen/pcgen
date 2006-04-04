@@ -90,16 +90,18 @@ public class CategorisableStore implements Cloneable
 			objMap = new HashMap();
 			categoryMap.put(aCatObj.getCategory(), objMap);
 		}
+		
+		String key = aCatObj.getKeyName().toLowerCase();
 
 		/* Keys absolutely must be unique */
-		if (objMap.get(aCatObj.getKeyName()) != null)
+		if (objMap.get(key) != null)
 		{
 			return false;
 		}
 
-		objMap.put(aCatObj.getKeyName(), aCatObj);
+		objMap.put(key, aCatObj);
 
-		if (objMap.get(aCatObj.getKeyName()) == aCatObj)
+		if (objMap.get(key) == aCatObj)
 		{
 			return true;
 		}
@@ -155,8 +157,10 @@ public class CategorisableStore implements Cloneable
 		{
 			return null;
 		}
+		
+		String key = aKey.toLowerCase();
 
-		return (Categorisable) objMap.get(aKey);
+		return (Categorisable) objMap.get(key);
 	}
 
 	/**
@@ -372,8 +376,10 @@ public class CategorisableStore implements Cloneable
 		{
 			return false;
 		}
+		
+		String key = aKey.toLowerCase();
 
-		final Categorisable aCatObj = (Categorisable) objMap.remove(aKey);
+		final Categorisable aCatObj = (Categorisable) objMap.remove(key);
 
 		return (aCatObj != null);
 	}
@@ -410,7 +416,7 @@ public class CategorisableStore implements Cloneable
 			    itCatObj.getName().equalsIgnoreCase(aName) ||
 			    itCatObj.getName().equalsIgnoreCase(strippedName))
 			{
-				final String        aKey    = itCatObj.getKeyName();
+				final String        aKey    = itCatObj.getKeyName().toLowerCase();
 				final HashMap       objMap  = (HashMap) categoryMap.get(aCategory);
 				final Categorisable aCatObj = (Categorisable) objMap.remove(aKey);
 

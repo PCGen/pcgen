@@ -1594,7 +1594,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public Ability getRealFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getFeatNamedInList(featList, featName);
+		return AbilityUtilities.getAbilityFromList(featList, "FEAT", featName, -1);
 	}
 
 
@@ -1622,7 +1622,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public boolean hasRealFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getFeatNamedInList(featList, featName) != null;
+		return AbilityUtilities.getAbilityFromList(featList, "FEAT", featName, -1) != null;
 	}
 
 
@@ -3810,7 +3810,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		for (Iterator i = getWeaponProfList().iterator(); i.hasNext();)
 		{
-			if (aName.equalsIgnoreCase((String) i.next()))
+			String profName = (String) i.next();
+			if (aName.equalsIgnoreCase(profName))
 			{
 				return true;
 			}
@@ -5209,7 +5210,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public Ability getFeatAutomaticNamed(final String featName)
 	{
-		return AbilityUtilities.getFeatNamedInList(featAutoList(), featName);
+		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", featName, -1);
 	}
 
 	/**
@@ -5236,25 +5237,24 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getFeatNamedInList(aggregateFeatList(), featName);
+		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, -1);
 	}
 
 	public Ability getFeatNamed(final String featName, final int featType)
 	{
-		return AbilityUtilities.getFeatNamedInList(aggregateFeatList(), featName, featType);
+		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, featType);
 	}
 
 	/**
 	 * Searches the characters feats for an Ability object which is a clone of the
 	 * same Base ability as the Ability passed in
-	 * TODO Update this for categories when PlayerCharacter supports them properly
 	 *
 	 * @param anAbility
 	 * @return the Ability if found, otherwise null
 	 */
 	public Ability getAbilityMatching(final Ability anAbility)
 	{
-		return AbilityUtilities.getMatchingFeatInList(aggregateFeatList(), anAbility);
+		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), anAbility);
 	}
 
 	/**
@@ -9431,7 +9431,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 */
 	public boolean hasFeatAutomatic(final String featName)
 	{
-		return AbilityUtilities.getFeatNamedInList(featAutoList(), featName) != null;
+		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", featName, -1) != null;
 	}
 
 	/**
@@ -9443,7 +9443,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 */
 	public boolean hasFeatVirtual(final String featName)
 	{
-		return AbilityUtilities.getFeatNamedInList(getVirtualFeatList(), featName) != null;
+		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(), "FEAT", featName, -1) != null;
 	}
 
 	public boolean hasMadeKitSelectionForAgeSet(final int index)
@@ -12496,18 +12496,29 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					}
 				}
 
-				Ability anAbility = AbilityUtilities.getFeatNamedInList(aFeatList, featName);
+				      ;
+				Ability anAbility = AbilityUtilities.getAbilityFromList(aFeatList, "FEAT", featName, -1);
+//				if ((anAbility == null) != (checkAbility == null))
+//				{
+//					Logging.errorPrint("For feat name: " + featName);
+//					if (anAbility == null) {
+//						Logging.errorPrint("Original Code: null");
+//					} else {
+//						Logging.errorPrint("Original Code: " + anAbility.getName());
+//					}
+//					if (checkAbility == null) {
+//						Logging.errorPrint("New Code: null");
+//					} else {
+//						Logging.errorPrint("New Code: " + checkAbility.getName());
+//					}
+//				}
+				
+				
 				if (anAbility != null)
 				{
-					// No need to add to list,
-					// if multiples not allowed
-					if (anAbility.isMultiples())
-					{
-						if (!anAbility.containsAssociated(aString))
-						{
-							anAbility.addAssociated(aString);
-							anAbility.sortAssociated();
-						}
+					if (anAbility.isMultiples() && !anAbility.containsAssociated(aString)) {
+						anAbility.addAssociated(aString);
+						anAbility.sortAssociated();
 					}
 				}
 				else

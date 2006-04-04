@@ -41,6 +41,7 @@ import pcgen.core.spell.Spell;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Logging;
+import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 
 import java.awt.HeadlessException;
@@ -335,6 +336,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	 */
 	public void testExoticWpnProf()
 	{
+		Ability profA = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
+		profA.setMultiples("YES");
+		profA.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		profA.addAutoArray("AUTO:WEAPONPROF|%LIST");
+		
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass);
@@ -344,19 +350,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
 
 		AbilityUtilities.modFeat(character, null, "Exotic Weapon Proficiency (Weapon A)", true, false);
-		assertTrue("First Proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
+		assertTrue("First Proficient in Weapon A",    character.hasWeaponProfNamed("Weapon A"));
 		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
 		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
 
 		AbilityUtilities.modFeat(character, null, "Exotic Weapon Proficiency (Weapon B)", true, false);
-		assertTrue("Second Proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
-		assertTrue("Proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
+		assertTrue("Second Proficient in Weapon A",   character.hasWeaponProfNamed("Weapon A"));
+		assertTrue("Proficient in Weapon B",          character.hasWeaponProfNamed("Weapon B"));
 		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
 
 		AbilityUtilities.modFeat(character, null, "Exotic Weapon Proficiency (Weapon C)", true, false);
 		assertTrue("Third Proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
-		assertTrue("Proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
-		assertTrue("Proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
+		assertTrue("Proficient in Weapon B",       character.hasWeaponProfNamed("Weapon B"));
+		assertTrue("Proficient in Weapon C",       character.hasWeaponProfNamed("Weapon C"));
 	}
 
 	/* (non-Javadoc)

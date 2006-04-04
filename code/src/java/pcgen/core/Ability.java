@@ -22,7 +22,6 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
@@ -388,6 +387,18 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
+	 * Whether we can add newAssociation to the associated list of this
+	 * Ability
+	 *
+	 * @param newAssociation
+	 * @return true if we can add the association
+	 */
+	public boolean canAddAssociation(String newAssociation)
+	{
+		return 	this.isStacks() || (this.isMultiples() && !this.containsAssociated(newAssociation));
+	}
+	
+	/**
 	 * Bog standard clone method
 	 *
 	 * @return  a copy of this Ability
@@ -593,161 +604,170 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return PrereqHandler.passesAll(getPreReqList(), pc, this);
 	}
 
+	/**
+	 * TODO Documents this 
+	 *
+	 * @param addIt
+	 * @param pc
+	 * 
+	 * @deprecated no longer used ADD is processed by PObject there is no
+	 * (reachable) code in the system to set addString
+	 */
 	void modAdds(final boolean addIt, final PlayerCharacter pc)
 	{
-		String addString = getAddString();
-		if (addString.length() == 0)
-		{
-			return;
-		}
-
-		final PlayerCharacter aPC = pc;
-
-		if (aPC == null)
-		{
-			return;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(addString, "|", false);
-
-		if (aTok.countTokens() < 2)
-		{
-			Logging.errorPrint("Badly formed ADD. " + addString);
-			return;
-		}
-
-		final String addType = aTok.nextToken();
-		final String addSec  = aTok.nextToken();
-
-		if ("WEAPONPROFS".equals(addType))
-		{
-			aPC.setAutomaticFeatsStable(false);
-		}
-		else if ("FAVOREDCLASS".equals(addType))
-		{
-			if ("LIST".equals(addSec))
-			{
-				for (int e = 0; e < getAssociatedCount(); ++e)
-				{
-					if (addIt)
-					{
-						aPC.addFavoredClass(getAssociated(e));
-					}
-					else
-					{
-						aPC.removeFavoredClass(getAssociated(e));
-					}
-				}
-			}
-			else
-			{
-				if (addIt)
-				{
-					aPC.addFavoredClass(addSec);
-
-					while (aTok.countTokens() > 0)
-					{
-						aPC.addFavoredClass(aTok.nextToken());
-					}
-				}
-				else
-				{
-					aPC.removeFavoredClass(addSec);
-
-					while (aTok.countTokens() > 0)
-					{
-						aPC.removeFavoredClass(aTok.nextToken());
-					}
-				}
-			}
-		}
-
-		// This code needs to be made to add an assortment of special abilities
-		else if ("SPECIAL".equals(addType))
-		// Takes a \ delimited list of special abilities and lets you choose one to add.
-		// BUG: currently adds 2 items from the list. --- arcady 10/12/2001
-		{
-			final List saList = aPC.getSpecialAbilityList();
-
-			if ("LIST".equals(addSec))
-			{
-				for (int e = 0; e < getAssociatedCount(); ++e)
-				{
-					if (addIt)
-					{
-						final SpecialAbility sa = new SpecialAbility(getAssociated(e));
-						saList.add(sa);
-
-						// aPC.getSpecialAbilityList().add(getAssociated(e));
-					}
-					else
-					{
-						final SpecialAbility sa = new SpecialAbility(getAssociated(e));
-						saList.remove(sa);
-
-						// aPC.getSpecialAbilityList().remove(getAssociated(e));
-					}
-				}
-			}
-			else
-			{
-				if (addIt)
-				{
-					final SpecialAbility sa = new SpecialAbility(addSec);
-					saList.add(sa);
-
-					while (aTok.countTokens() > 0)
-					{
-						final SpecialAbility sa2 = new SpecialAbility(aTok.nextToken());
-						saList.add(sa2);
-					}
-				}
-				else
-				{
-					final SpecialAbility sa = new SpecialAbility(addSec);
-					saList.remove(sa);
-
-					while (aTok.countTokens() > 0)
-					{
-						final SpecialAbility sa2 = new SpecialAbility(aTok.nextToken());
-						saList.remove(sa2);
-					}
-				}
-			}
-		}
-		else if ("TEMPLATE".equals(addType))
-		{
-			if (addIt)
-			{
-				aPC.addTemplateNamed(addSec);
-			}
-			else
-			{
-				final PCTemplate aTemplate = Globals.getTemplateNamed(addSec);
-				aPC.removeTemplate(aTemplate);
-			}
-
-			while (aTok.countTokens() > 0)
-			{
-				final String templateName = aTok.nextToken();
-
-				if (addIt)
-				{
-					aPC.addTemplateNamed(templateName);
-				}
-				else
-				{
-					final PCTemplate aTemplate = Globals.getTemplateNamed(templateName);
-					aPC.removeTemplate(aTemplate);
-				}
-			}
-		}
-		else
-		{
-			Logging.debugPrint("WARNING: ADD:"
-					+ addType + "|" + addSec
-					+ " not handled for ability " + name);
-		}
+//		String addString = getAddString();
+//		if (addString.length() == 0)
+//		{
+//			return;
+//		}
+//
+//		final PlayerCharacter aPC = pc;
+//
+//		if (aPC == null)
+//		{
+//			return;
+//		}
+//
+//		final StringTokenizer aTok = new StringTokenizer(addString, "|", false);
+//
+//		if (aTok.countTokens() < 2)
+//		{
+//			Logging.errorPrint("Badly formed ADD. " + addString);
+//			return;
+//		}
+//
+//		final String addType = aTok.nextToken();
+//		final String addSec  = aTok.nextToken();
+//
+//		if ("WEAPONPROFS".equals(addType))
+//		{
+//			aPC.setAutomaticFeatsStable(false);
+//		}
+//		else if ("FAVOREDCLASS".equals(addType))
+//		{
+//			if ("LIST".equals(addSec))
+//			{
+//				for (int e = 0; e < getAssociatedCount(); ++e)
+//				{
+//					if (addIt)
+//					{
+//						aPC.addFavoredClass(getAssociated(e));
+//					}
+//					else
+//					{
+//						aPC.removeFavoredClass(getAssociated(e));
+//					}
+//				}
+//			}
+//			else
+//			{
+//				if (addIt)
+//				{
+//					aPC.addFavoredClass(addSec);
+//
+//					while (aTok.countTokens() > 0)
+//					{
+//						aPC.addFavoredClass(aTok.nextToken());
+//					}
+//				}
+//				else
+//				{
+//					aPC.removeFavoredClass(addSec);
+//
+//					while (aTok.countTokens() > 0)
+//					{
+//						aPC.removeFavoredClass(aTok.nextToken());
+//					}
+//				}
+//			}
+//		}
+//
+//		// This code needs to be made to add an assortment of special abilities
+//		else if ("SPECIAL".equals(addType))
+//		// Takes a \ delimited list of special abilities and lets you choose one to add.
+//		// BUG: currently adds 2 items from the list. --- arcady 10/12/2001
+//		{
+//			final List saList = aPC.getSpecialAbilityList();
+//
+//			if ("LIST".equals(addSec))
+//			{
+//				for (int e = 0; e < getAssociatedCount(); ++e)
+//				{
+//					if (addIt)
+//					{
+//						final SpecialAbility sa = new SpecialAbility(getAssociated(e));
+//						saList.add(sa);
+//
+//						// aPC.getSpecialAbilityList().add(getAssociated(e));
+//					}
+//					else
+//					{
+//						final SpecialAbility sa = new SpecialAbility(getAssociated(e));
+//						saList.remove(sa);
+//
+//						// aPC.getSpecialAbilityList().remove(getAssociated(e));
+//					}
+//				}
+//			}
+//			else
+//			{
+//				if (addIt)
+//				{
+//					final SpecialAbility sa = new SpecialAbility(addSec);
+//					saList.add(sa);
+//
+//					while (aTok.countTokens() > 0)
+//					{
+//						final SpecialAbility sa2 = new SpecialAbility(aTok.nextToken());
+//						saList.add(sa2);
+//					}
+//				}
+//				else
+//				{
+//					final SpecialAbility sa = new SpecialAbility(addSec);
+//					saList.remove(sa);
+//
+//					while (aTok.countTokens() > 0)
+//					{
+//						final SpecialAbility sa2 = new SpecialAbility(aTok.nextToken());
+//						saList.remove(sa2);
+//					}
+//				}
+//			}
+//		}
+//		else if ("TEMPLATE".equals(addType))
+//		{
+//			if (addIt)
+//			{
+//				aPC.addTemplateNamed(addSec);
+//			}
+//			else
+//			{
+//				final PCTemplate aTemplate = Globals.getTemplateNamed(addSec);
+//				aPC.removeTemplate(aTemplate);
+//			}
+//
+//			while (aTok.countTokens() > 0)
+//			{
+//				final String templateName = aTok.nextToken();
+//
+//				if (addIt)
+//				{
+//					aPC.addTemplateNamed(templateName);
+//				}
+//				else
+//				{
+//					final PCTemplate aTemplate = Globals.getTemplateNamed(templateName);
+//					aPC.removeTemplate(aTemplate);
+//				}
+//			}
+//		}
+//		else
+//		{
+//			Logging.debugPrint("WARNING: ADD:"
+//					+ addType + "|" + addSec
+//					+ " not handled for ability " + name);
+//		}
 	}
 
 	/**
@@ -1087,15 +1107,11 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * Test whether other is the same base ability as this (ignoring any changes
 	 *  made to apply either to a PC)
 	 *
-	 * @param other
+	 * @param that
 	 * @return true is the abilities are copies of the same base ability
 	 */
-	public boolean isSameBaseAbility(Ability other) {
-
-		/* Other is not null. Same category and either of Keynames match or BenefitDescriptions match */
-		return (other != null
-				&& this.getCategory().compareToIgnoreCase(other.getCategory()) == 0
-				&& ((this.getKeyName().compareToIgnoreCase(other.getKeyName()) == 0)
-				|| (this.getBenefitDescription().compareToIgnoreCase(other.getBenefitDescription()) == 0)));
+	public boolean isSameBaseAbility(Ability that) {
+		return AbilityUtilities.areSameAbility(this, that);
 	}
+
 }

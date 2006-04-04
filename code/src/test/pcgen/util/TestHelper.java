@@ -183,8 +183,9 @@ public class TestHelper {
 	 * @param name The skill name
 	 * @param cat the category of this Ability
 	 * @param type The type info ("." separated)
+	 * @return The ability (which has also been added to global storage
 	 */
-	public static void makeAbility(
+	public static Ability makeAbility(
 			String name,
 			String cat,
 			String type)
@@ -194,6 +195,7 @@ public class TestHelper {
 		anAbility.setCategory(cat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);
+		return anAbility;
 	}
 
 }

@@ -610,6 +610,7 @@ public class LevelAbilityAbility extends LevelAbility
 					    pcLevelInfo);
 
 				final Ability pcAbility = AbilityUtilities.getMatchingFeatInList(aList, ab);
+//				final Ability pcAbility = AbilityUtilities.getAbilityFromList(aList, ab);
 
 				if (pcAbility != null)
 				{
