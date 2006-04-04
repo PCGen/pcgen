@@ -24,6 +24,7 @@ CLASS:rsrd_classes_base.lst
 CLASS:rsrd_classes_monsters.lst
 COMPANIONMOD:rsrd_companionmods.lst
 DEITY:rsrd_deities.lst
+DOMAIN:rsrd_domains_divine.lst
 DOMAIN:rsrd_domains.lst
 
 EQUIPMENT:rsrd_equip_armorshields.lst
