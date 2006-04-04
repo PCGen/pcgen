@@ -284,18 +284,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * This method sets that this tab needs to update its
-	 * displayed information the next time that it is selected
-	 * @param flag
-	 *
-	 * @deprecated Unused
-	 */
-	public static void setNeedsUpdate(boolean flag)
-	{
-		needsUpdate = flag;
-	}
-
-	/**
 	 * specifies whether the "match any" option should be available
 	 * @return true
 	 */

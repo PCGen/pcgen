@@ -7032,7 +7032,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	/**
 	 * Sets the critMult attribute of the Equipment object
 	 *
-	 * @param aString The new critMult value
+	 * @param aMult The new critMult value
 	 */
 	public void setCritMult(final int aMult)
 	{
@@ -7062,7 +7062,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	/**
 	 * Sets the altCritMult attribute of the Equipment object
 	 *
-	 * @param aString The new altCritMult value
+	 * @param aMult The new altCritMult value
 	 */
 	public void setAltCritMult(final int aMult)
 	{
