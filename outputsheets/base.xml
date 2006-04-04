@@ -498,6 +498,7 @@
 				<sequence>|%weap|</sequence>
 			</common>
 			<melee>
+				<hand>|WEAPON.%weap.HAND|</hand>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
 					<to_hit>|WEAPON.%weap.BASEHIT|</to_hit>
