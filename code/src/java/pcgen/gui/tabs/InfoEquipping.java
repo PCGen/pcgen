@@ -732,7 +732,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				b.append(" <b>Crit Mult</b>:").append(bString);
 
-				if (eqI.isDouble() && !eqI.getCritMult().equals(eqI.getAltCritMult()))
+				if (eqI.isDouble() && !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
 				{
 					b.append('/').append(eqI.getAltCritMult());
 				}
@@ -1263,7 +1263,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			addEquipButton(new Float(1));
@@ -1279,7 +1279,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			// We run this after the event has been processed so that
@@ -3210,10 +3210,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		buildTopPanel();
-		
+
 		buildBottomPanel();
 	}
-	
+
 	private void buildTopPanel() {
 		// build topPane which will contain leftPane and rightPane
 		// leftPane will have two panels and a scrollregion
@@ -3266,7 +3266,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
-		
+
 		JPanel bottomRightPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		Utility.setDescription(setNoteButton, "Add additional info to this item");
 		setNoteButton.setEnabled(false);
@@ -3280,7 +3280,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		delEquipButton.setEnabled(false);
 		bottomRightPane.add(delEquipButton);
 		rightPane.add(bottomRightPane, BorderLayout.SOUTH);
-		
+
 		// add the sorter tables to that clicking on the TableHeader
 		// actualy does something (gawd damn it's slow!)
 		availableSort = new JTreeTableSorter(availableTable, (MyPONode) availableModel.getRoot(), availableModel);
@@ -3390,9 +3390,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		// now add the entire mess (centered of course)
 		this.setLayout(new BorderLayout());
-		this.add(bsplit, BorderLayout.CENTER);		
+		this.add(bsplit, BorderLayout.CENTER);
 	}
-	
+
 	private final List locationChoices(Equipment eqI, List containers)
 	{
 		// Some Equipment locations are based on the number of hands
@@ -4776,7 +4776,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						for (Iterator fI = pc.getEquipmentMasterList().iterator(); fI.hasNext();)
 						{
 							final Equipment aEq = (Equipment) fI.next();
-							if (qFilter == null || 
+							if (qFilter == null ||
 									( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 ||
 									aEq.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 							{
@@ -4892,7 +4892,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			return colNameList;
 		}
-		
+
 		private int[] getWidthList() {
 			int[] colWidthList = null;
 			if(modelType == MODEL_AVAIL) {
@@ -4937,7 +4937,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			String[] colNameList = getNameList();
 			SettingsHandler.setPCGenOption("InfoEquipping.sizecol." + modelType + "." +  colNameList[col], width);
 		}
-		
+
 		public void resetMColumn(int num, TableColumn column) {
 			if(modelType == MODEL_AVAIL) {
 				// TODO Do Nothing?
@@ -4960,11 +4960,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			}
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoEquipping.viewcol." + modelType + "." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoEquipping.viewcol." + modelType + "." + colName, val);
 		}

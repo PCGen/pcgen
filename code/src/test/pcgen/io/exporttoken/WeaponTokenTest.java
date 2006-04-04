@@ -116,11 +116,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Class
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
-	        myClass.setAbbrev("Myc");
+			myClass.setAbbrev("Myc");
 		myClass.setSkillPointFormula("3");
-	        final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
-	        myClass.addBonusList(babClassBonus);
-	        Globals.getClassList().add(myClass);
+			final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
+			myClass.addBonusList(babClassBonus);
+			Globals.getClassList().add(myClass);
 		character.incrementClassLevel(1, myClass, true);
 
 
@@ -131,8 +131,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.setTypeInfo("Weapon.Melee.Martial.Double.Standard.Bludgeoning.Flail");
 		dblWpn.setDamage("1d10");
 		dblWpn.setAltDamage("1d6");
-		dblWpn.setCritMult("x2");
-		dblWpn.setAltCritMult("x2");
+		dblWpn.setCritMult(2);
+		dblWpn.setAltCritMult(2);
 		dblWpn.setCritRange("1");
 		dblWpn.setAltCritRange("1");
 		dblWpn.setSlots(2);
@@ -151,7 +151,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.setProfName("Sword (Bastard/[Hands])");
 		bastardSword.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
 		bastardSword.setDamage("1d10");
-		bastardSword.setCritMult("x2");
+		bastardSword.setCritMult(2);
 		bastardSword.setCritRange("2");
 		bastardSword.setWield("TwoHanded");
 		bastardSword.setSize("M", true);
@@ -179,7 +179,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.setProfName("Longsword");
 		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
 		largeSword.setDamage("1d10");
-		largeSword.setCritMult("x2");
+		largeSword.setCritMult(2);
 		largeSword.setCritRange("2");
 		largeSword.setWield("OneHanded");
 		largeSword.setSize("L", true);
@@ -196,7 +196,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.setProfName("Longsword");
 		fineSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
 		fineSword.setDamage("1d10");
-		fineSword.setCritMult("x2");
+		fineSword.setCritMult(2);
 		fineSword.setCritRange("2");
 		fineSword.setWield("OneHanded");
 		fineSword.setSize("M", true);
@@ -222,7 +222,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.setNumberCarried(new Float(1));
 		bite.setAttacksProgress(false);
 		bite.setDamage("1d10");
-		bite.setCritMult("x2");
+		bite.setCritMult(2);
 		bite.setCritRange("2");
 		bite.setWield("OneHanded");
 		bite.setProfName("SillyBite");
@@ -542,8 +542,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the processing of a finesseable weapon both with and without weapon finesse 
-	 * and temporary bonuses. 
+	 * Test the processing of a finesseable weapon both with and without weapon finesse
+	 * and temporary bonuses.
 	 */
 	public void testWpnFinesse()
 	{
@@ -574,7 +574,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.addFeat(wpnFinesse, null);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token
 			.getToken("WEAPON.3.BASEHIT", character, null));
-		
+
 		// Add a temp penalty to dex and check that it is applied
 		character.setUseTempMods(true);
 		Spell spell2 = new Spell();

@@ -151,7 +151,7 @@ public class NaturalattacksLst implements GlobalLstToken {
 
 		anEquip.setDamage(aTok.nextToken());
 		anEquip.setCritRange("1");
-		anEquip.setCritMult("x2");
+		anEquip.setCritMult(2);
 		anEquip.setProfName(attackName);
 
 		// sage_sam 02 Dec 2002 for Bug #586332

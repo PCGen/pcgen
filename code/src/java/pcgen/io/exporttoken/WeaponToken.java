@@ -490,7 +490,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("ISLIGHT"))
 		{
-		    return getIsLightToken(pc, eq);
+			return getIsLightToken(pc, eq);
 		}
 		return "";
 	}
@@ -503,7 +503,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getIsLightToken(PlayerCharacter pc, Equipment eq)
 	{
-	    return Globals.isWeaponLightForPC(pc, eq) ? "TRUE" : "FALSE";
+		return Globals.isWeaponLightForPC(pc, eq) ? "TRUE" : "FALSE";
 	}
 
 	/**
@@ -707,16 +707,7 @@ public class WeaponToken extends Token
 		int mult = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profName(pc), "CRITMULTADD")
 		 + getWeaponProfTypeBonuses(pc, eq, "CRITMULTADD", WPTYPEBONUS_PC);
 
-		int critMult;
-
-		try
-		{
-			critMult = Integer.parseInt(eq.getCritMult().substring(1));
-		}
-		catch (Exception e)
-		{
-			critMult = 0;
-		}
+		int critMult = eq.getCritMultiplier();
 
 		sb.append((critMult + mult) + "");
 
@@ -1635,15 +1626,15 @@ public class WeaponToken extends Token
 
 
 	private static String getToHit(PlayerCharacter pc,
-			               Equipment eq,
-				       String profName,
-				       int range,
-				       int content,
-				       int ammo,
-				       int hands,
-				       int hitMode,
-				       int attackNum,
-				       boolean totalHit)
+						   Equipment eq,
+					   String profName,
+					   int range,
+					   int content,
+					   int ammo,
+					   int hands,
+					   int hitMode,
+					   int attackNum,
+					   boolean totalHit)
 	{
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
@@ -1736,7 +1727,7 @@ public class WeaponToken extends Token
 				baseBonus = 0;
 			}
 			else if (	hitMode == HITMODE_TWPHITH ||
-				 	hitMode == HITMODE_TWPHITL)
+					 hitMode == HITMODE_TWPHITL)
 			{
 				// TWF Primary hand
 				baseBonus = -6;
@@ -1901,7 +1892,7 @@ public class WeaponToken extends Token
 			if (range < rangeSize)
 			{
 				// at short range, add SHORTRANGE bonus
-			       	if (thisRange <= shortRange)
+					   if (thisRange <= shortRange)
 				{
 					baseBonus += (int) pc.getTotalBonusTo("COMBAT", "TOHIT-SHORTRANGE");
 					baseBonus += (int) pc.getTotalBonusTo("TOHIT", "SHORTRANGE");
@@ -2036,7 +2027,7 @@ public class WeaponToken extends Token
 
 		int secondariesToadd = 1 + (int) pc.getTotalBonusTo("COMBAT", "ATTACKS-SECONDARY");
 
-		/* 
+		/*
 		 * The data team wishes to keep the old syntax for secondary attacks.
 		 * The docs have been updated to reflect this.  The new syntax (with
 		 * the hyphen, see above) is not used in the repository.  This comment
@@ -2438,8 +2429,8 @@ public class WeaponToken extends Token
 			/* This modifies damage (by size) from the default when the race is
 			 * not the default size and the character is the default size for
 			 * their race */
-            boolean applySize = (eqSize == iMod);
-            String uDamString = pc.getUnarmedDamageString(false, false, applySize);
+			boolean applySize = (eqSize == iMod);
+			String uDamString = pc.getUnarmedDamageString(false, false, applySize);
 
 			StringTokenizer bTok = new StringTokenizer(damString, " d+-", false);
 			bTok.nextToken();
@@ -2463,21 +2454,21 @@ public class WeaponToken extends Token
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=Unarmed Strike", "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
 
-            /* If not applying the race size modifier, then damString will
-             * represent the damage as if this Character were the default
-             * size.  Set eqSize to adjust from damage for the default size,
-             * not the race's actual size.
-             */
-            if (!applySize)
-            {
+			/* If not applying the race size modifier, then damString will
+			 * represent the damage as if this Character were the default
+			 * size.  Set eqSize to adjust from damage for the default size,
+			 * not the race's actual size.
+			 */
+			if (!applySize)
+			{
 				final SizeAdjustment defAdj = SettingsHandler.getGame().getDefaultSizeAdjustment();
 				if (defAdj != null)
 				{
-	            	eqSize = Globals.sizeInt(defAdj.getAbbreviation());
-	            }
-            }
+					eqSize = Globals.sizeInt(defAdj.getAbbreviation());
+				}
+			}
 
-            damString = Globals.adjustDamage(damString, eqSize, iMod);
+			damString = Globals.adjustDamage(damString, eqSize, iMod);
 		}
 		return damString;
 	}

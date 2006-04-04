@@ -33,7 +33,7 @@ import java.util.StringTokenizer;
 
 /**
  * <code>WeaponhToken</code>.
- * 
+ *
  * @author	binkley
  * @version	$Revision$
  */
@@ -41,10 +41,10 @@ public class WeaponhToken extends WeaponToken
 {
 	/** Weaponh token */
 	public static final String TOKEN_NAME = "WEAPONH";
-	
+
 	/**
 	 * Gets the token name
-	 * 
+	 *
 	 * @return The token name.
 	 * @see	pcgen.io.exporttoken.Token#getTokenName()
 	 */
@@ -87,11 +87,11 @@ public class WeaponhToken extends WeaponToken
 
 	/**
 	 * Create a fake Unarmed Strike equipment so we don't need it in the .lst files anymore
-	 * 
+	 *
 	 * @param pc The character used to generate the size.
 	 * @return The Unarmed Strike equipment.
 	 */
-	public static Equipment getWeaponEquipment(PlayerCharacter pc) 
+	public static Equipment getWeaponEquipment(PlayerCharacter pc)
 	{
 		// Creating a fake Unarmed Strike equipment so we
 		// don't need it in the .lst files anymore
@@ -103,7 +103,7 @@ public class WeaponhToken extends WeaponToken
 		eq.setCost("0", true);
 		eq.setWeight("0");
 		eq.setDamage("1d1");
-		eq.setCritMult("x2");
+		eq.setCritMult(2);
 		eq.setCritRange("1");
 		eq.setModifiersAllowed(false);
 		eq.setModifiersRequired(false);

@@ -174,7 +174,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	// wether higher level spell slots should be used for lower levels
 	private boolean useHigherKnownSlots = SettingsHandler.isUseHigherLevelSlotsDefault();
 	private boolean useHigherPreppedSlots = SettingsHandler.isUseHigherLevelSlotsDefault();
-	
+
 	// should we also load companions on master load?
 	private boolean autoLoadCompanion = false;
 
@@ -4440,10 +4440,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Determine whether higher level known spell slots can be 
-	 * used for lower level spells, or if known spells 
+	 * Determine whether higher level known spell slots can be
+	 * used for lower level spells, or if known spells
 	 * are restricted to their own level only.
-	 * 
+	 *
 	 * @return Returns the useHigherKnownSlots.
 	 */
 	public final boolean getUseHigherKnownSlots()
@@ -4452,10 +4452,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Set whether higher level known spell slots can be 
-	 * used for lower level spells, or if known spells 
+	 * Set whether higher level known spell slots can be
+	 * used for lower level spells, or if known spells
 	 * are restricted to their own level only.
-	 * 
+	 *
 	 * @param useHigher Can higher level known spell slots be used?
 	 */
 	public final void setUseHigherKnownSlots(boolean useHigher)
@@ -4464,10 +4464,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Determine whether higher level prepared spell slots can be 
-	 * used for lower level spells, or if prepared spells 
+	 * Determine whether higher level prepared spell slots can be
+	 * used for lower level spells, or if prepared spells
 	 * are restricted to their own level only.
-	 * 
+	 *
 	 * @return Returns the useHigherPreppedSlots.
 	 */
 	public final boolean getUseHigherPreppedSlots()
@@ -4476,10 +4476,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Set whether higher level prepared spell slots can be 
-	 * used for lower level spells, or if prepared spells 
+	 * Set whether higher level prepared spell slots can be
+	 * used for lower level spells, or if prepared spells
 	 * are restricted to their own level only.
-	 * 
+	 *
 	 * @param useHigher Can higher level prepared spell slots be used?
 	 */
 	public final void setUseHigherPreppedSlots(boolean useHigher)
@@ -5076,7 +5076,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				eqm.removeType("Double");
 				eqm.setTypeInfo("Head2");
 				eqm.setDamage(eqm.getAltDamage(this));
-				eqm.setCritMult(eqm.getAltCritMult());
+				eqm.setCritMult(eqm.getRawAltCritMult());
 				eqm.setCritRange(Integer.toString(eqm.getRawCritRange(false)));
 				eqm.getEqModifierList(true).clear();
 				eqm.getEqModifierList(true).addAll(eqm.getEqModifierList(false));
@@ -9600,7 +9600,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * prerequisties with this method, also this method does not print
 	 * warning messages
 	 * see: incrementClassLevel(int, PCClass, boolean, boolean);
-	 *  
+	 *
 	 * @param mod the number of levels to add/remove
 	 * @param aClass the class to adjust
 	 */
@@ -13126,8 +13126,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			// At the level currently being looped through, if the number of casts
 			// is zero, that means we have reached a level beyond which no higher-level
 			// casts are possible.	Therefore, it's time to break.
-			// Likewise if we aren't allowed to use higher level slots, no sense in 
-			// going higher than the spell's level. 
+			// Likewise if we aren't allowed to use higher level slots, no sense in
+			// going higher than the spell's level.
 			//
 			if (knownTot == 0 || (!canUseHigher && i > level))
 			{
@@ -14174,7 +14174,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * a previously saved character.  there is no way to bypass the
 	 * prerequisties with this method,
 	 * see: incrementClassLevel(int, PCClass, boolean, boolean);
-	 *  
+	 *
 	 *
 	 * @param numberOfLevels number of levels to add
 	 * @param globalClass the class to add the levels to

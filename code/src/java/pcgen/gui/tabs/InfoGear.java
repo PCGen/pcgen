@@ -229,7 +229,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 //	private static final int EQUIPMENT_EQUIPPED = 2;
 //	private static final int EQUIPMENT_CONTAINED = 3;
 	// Right-click inventory item
-	
+
 	private PlayerCharacter pc;
 	private int serial = 0;
 
@@ -711,7 +711,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				b.append(" <b>Crit Mult</b>:").append(bString);
 
-				if (aEq.isDouble() && !aEq.getCritMult().equals(aEq.getAltCritMult()))
+				if (aEq.isDouble() && !(aEq.getCritMultiplier() == aEq.getAltCritMultiplier()))
 				{
 					b.append('/').append(aEq.getAltCritMult());
 				}
@@ -747,8 +747,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				b.append(" <b>Charges</b>:").append(charges);
 			}
-			
-			bString = aEq.getQualityString(); 
+
+			bString = aEq.getQualityString();
 			if (bString.length() > 0)
 			{
 				b.append(" <b>QUALITIES</b>:").append(bString);
@@ -772,9 +772,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	/**
 	 * This method performs the actual adjustment of the character's
 	 * equipment
-	 * 
+	 *
 	 * Do NOT modify the equipment set directly or from any method other than this one
-	 * 
+	 *
 	 * Method overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 *
 	 * @param equipItemToAdjust Equipment item selected to update
@@ -1174,11 +1174,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	}
 
 	/**
-	 * Build the panel with the controls to add an item to the 
+	 * Build the panel with the controls to add an item to the
 	 * selected list.
 	 * @param button
-	 * @param title 
-	 *  
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildModPanel(JButton button, String title)
@@ -1194,11 +1194,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	}
 
 	/**
-	 * Build the panel with the controls to add an item to the 
+	 * Build the panel with the controls to add an item to the
 	 * selected list.
-	 * @param button 
-	 * @param title 
-	 *  
+	 * @param button
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildDelPanel(JButton button, String title)
@@ -1225,7 +1225,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		autoSort.setSelected(pc.getAutoSpells());
 		riPanel.add(autoSort);
-		
+
 		Utility.setDescription(autoSort, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		autoSort.setEnabled(true);
 		autoSort.setMargin(new Insets(1, 14, 1, 14));
@@ -1265,7 +1265,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			buyOneListener.actionPerformed(null);
@@ -1281,7 +1281,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			SwingUtilities.invokeLater(sellOneRunnable);
@@ -2002,7 +2002,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		JLabel avaLabel = new JLabel("Available: ");
 		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
-		
+
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
@@ -2383,7 +2383,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		clearAvailableQFilterButton.setEnabled(true);
 		viewComboBox.setEnabled(false);
 		forceRefresh();
-		
+
 	}
 
 	private void setSelectedQFilter()
@@ -3199,10 +3199,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	/**
 	 * OutputOrderRenderer is a small extension of the standard JLabel based
 	 * table cell renderer that allows it to interpret a few special values
-	 * 
+	 *
 	 * -1 shows as Hidden, and 0 is shown as blank. Any other value is
 	 * displayed as is.
-	 * 
+	 *
 	 * @deperecated Check with Zaister before removing this class
 	 */
 	private static final class OutputOrderRenderer extends DefaultTableCellRenderer
@@ -3296,7 +3296,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
-			}		
+			}
 		}
 
 		public boolean isCellEditable(Object node, int column) {
@@ -3320,7 +3320,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 				case COL_WEIGHT:
 					return Float.class;
-					
+
 				case COL_QTY:
 					return Float.class;
 
@@ -3357,7 +3357,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param column
 		 * @return column name
 		 */
-		public String getColumnName(int column) 
+		public String getColumnName(int column)
 		{
 			return names[column];
 		}
@@ -3388,21 +3388,21 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				case COL_NAME:
 					retVal = fn.toString();
 					break;
-					
+
 				case COL_COST:
 					if (eq != null)
 					{
 						retVal = eq.getCost(pc);
 					}
 					break;
-					
+
 				case COL_WEIGHT:
 					if (eq != null)
 					{
 						retVal = eq.getWeight(pc);
 					}
 					break;
-					
+
 				case COL_QTY:
 					if (eq != null)
 					{
@@ -3432,10 +3432,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			return retVal;
 		}
 
-		/** 
+		/**
 		 * "There can be only one" There must be a root object, though it can be hidden
 		 * to make it's existence basically a convenient way to keep track of the objects
-		 * 
+		 *
 		 * @param aNode
 		 */
 		private void setRoot(PObjectNode aNode) {
@@ -3788,8 +3788,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			while (fI.hasNext()) {
 				final Equipment aEq = (Equipment) fI.next();
-				if (qFilter == null || 
-						( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 || 
+				if (qFilter == null ||
+						( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 ||
 						  aEq.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 				{
 					addItemToModel(aEq, false);
@@ -3829,7 +3829,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		/**
 		 * Get the column align list
-		 * @return the column align list 
+		 * @return the column align list
 		 */
 		public List getMColumnAlignList()
 		{
@@ -3868,14 +3868,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoGear.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 }
 

@@ -24,9 +24,9 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * <code>VariableProcessorEq</code> is a processor for variables 
- * associated with a character's equipment. This class converts 
- * formulas or variables into values and is used extensively 
+ * <code>VariableProcessorEq</code> is a processor for variables
+ * associated with a character's equipment. This class converts
+ * formulas or variables into values and is used extensively
  * both in defintions of objects and for output to output sheets.
  *
  * Last Editor: $Author$
@@ -35,41 +35,41 @@ import pcgen.util.Logging;
  * @author Chris Ward <frugal@purplewombat.co.uk>
  * @version $Revision$
  */
-public class VariableProcessorEq extends VariableProcessor 
+public class VariableProcessorEq extends VariableProcessor
 {
 
-    private Equipment eq;
-    private boolean primaryHead;
+	private Equipment eq;
+	private boolean primaryHead;
 
 
-    /**
-     * Create a new VariableProcessorEq instance for an equipment item, and pc. It 
-     * also allows splitting of the processing of the heads of double weapons.
-     *   
-     * @param eq The item of equipment  being processed.
-     * @param pc The player character being processed. 
-     * @param primaryHead Is this the primary head of a double weapon?
-     */
-    public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead) {
-        super(pc);
-        this.eq = eq;
-        this.primaryHead = primaryHead;
-    }
-    
-    /**
-     * @see pcgen.core.VariableProcessor#lookupVariable(java.lang.String, java.lang.String, pcgen.core.spell.Spell)
-     */
-    Float lookupVariable(String element, String src, Spell spell) 
-    {
+	/**
+	 * Create a new VariableProcessorEq instance for an equipment item, and pc. It
+	 * also allows splitting of the processing of the heads of double weapons.
+	 *
+	 * @param eq The item of equipment  being processed.
+	 * @param pc The player character being processed.
+	 * @param primaryHead Is this the primary head of a double weapon?
+	 */
+	public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead) {
+		super(pc);
+		this.eq = eq;
+		this.primaryHead = primaryHead;
+	}
+
+	/**
+	 * @see pcgen.core.VariableProcessor#lookupVariable(java.lang.String, java.lang.String, pcgen.core.spell.Spell)
+	 */
+	Float lookupVariable(String element, String src, Spell spell)
+	{
 		Float retVal = null;
-        if (getPc().hasVariable(element))
+		if (getPc().hasVariable(element))
 		{
 			final Float value = getPc().getVariable(element, true, true, src, "", decrement);
 			Logging.debugPrint(jepIndent + "variable for: '" + element + "' = " + value);
 			retVal = new Float(value.doubleValue());
 		}
-        
-        if (retVal==null) {
+
+		if (retVal==null) {
 			final String foo = getInternalVariable(spell, element, src);
 			if (foo != null)
 			{
@@ -80,19 +80,19 @@ public class VariableProcessorEq extends VariableProcessor
 				}
 				catch (NumberFormatException nfe)
 				{
-				    // What we got back was not a number
+					// What we got back was not a number
 				}
 				if (d != null) {
 					if (!d.isNaN())
 					{
-					    retVal = d;
+						retVal = d;
 						Logging.debugPrint(jepIndent + "internal variable for: '" + element + "' = " + d);
 					}
 				}
 			}
 		}
-        
-        if (retVal==null) {
+
+		if (retVal==null) {
 			final String foo = getExportVariable(element);
 			if (foo != null)
 			{
@@ -103,55 +103,55 @@ public class VariableProcessorEq extends VariableProcessor
 				}
 				catch (NumberFormatException nfe)
 				{
-				    // What we got back was not a number
+					// What we got back was not a number
 				}
 				if (d != null) {
 					if (!d.isNaN())
 					{
-					    retVal = d;
+						retVal = d;
 						Logging.debugPrint(jepIndent + "export variable for: '" + element + "' = " + d);
 					}
 				}
 			}
-        }
-        
-        return retVal;
-    }
+		}
 
-    
-    /**
-     * Retrieve a pre-coded variable for a piece of equipment. These are known properties of 
-     * all equipment items. If a value is not found for the equipment item, a search will be 
-     * made of the character. 
-     * 
+		return retVal;
+	}
+
+
+	/**
+	 * Retrieve a pre-coded variable for a piece of equipment. These are known properties of
+	 * all equipment items. If a value is not found for the equipment item, a search will be
+	 * made of the character.
+	 *
 	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
-     * @param valString The variable to be evaluated
-     * @param src The source within which the variable is evaluated
-     * @return The value of the variable
-     */
-    public String getInternalVariable(final Spell aSpell, String valString, final String src) 
-    {
-        String retVal = null;
+	 * @param valString The variable to be evaluated
+	 * @param src The source within which the variable is evaluated
+	 * @return The value of the variable
+	 */
+	public String getInternalVariable(final Spell aSpell, String valString, final String src)
+	{
+		String retVal = null;
 		if ("SIZE".equals(valString))
 		{
-		    retVal = String.valueOf(eq.sizeInt());
+			retVal = String.valueOf(eq.sizeInt());
 		}
 		else if (valString.startsWith("EQUIP.SIZE"))
 		{
 			if (valString.equals("EQUIP.SIZE"))
 			{
-			    retVal = eq.getSize();
+				retVal = eq.getSize();
 			}
 			else if (valString.substring(11).equals("INT"))
 			{
-			    retVal = String.valueOf(eq.sizeInt());
+				retVal = String.valueOf(eq.sizeInt());
 			}
 		}
 		else if ("WT".equals(valString))
 		{
 			if (eq.isCalculatingCost() && eq.isWeightAlreadyUsed())
 			{
-			    retVal = "0";
+				retVal = "0";
 			}
 			else
 			{
@@ -162,7 +162,7 @@ public class VariableProcessorEq extends VariableProcessor
 				}
 				else
 				{
-				    retVal = String.valueOf(eq.getWeightInPounds());
+					retVal = String.valueOf(eq.getWeightInPounds());
 				}
 
 				eq.setWeightAlreadyUsed( true );
@@ -170,7 +170,7 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if ("BASECOST".equals(valString))
 		{
-		    retVal = eq.getBaseCost().toString();
+			retVal = eq.getBaseCost().toString();
 		}
 		else if ("DMGDIE".equals(valString))
 		{
@@ -184,29 +184,29 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if ("EQACCHECK".equals(valString))
 		{
-		    retVal = eq.getAcCheck().toString();
+			retVal = eq.getAcCheck().toString();
 		}
 		else if ("EQHANDS".equals(valString))
 		{
-		    retVal = Integer.toString(eq.getSlots());
+			retVal = Integer.toString(eq.getSlots());
 		}
 		else if ("EQSPELLFAIL".equals(valString))
 		{
-		    retVal = eq.getSpellFailure().toString();
+			retVal = eq.getSpellFailure().toString();
 		}
 		else if ("RANGE".equals(valString))
 		{
-		    retVal = eq.getRange().toString();
+			retVal = eq.getRange().toString();
 		}
 		else if ("CRITMULT".equals(valString))
 		{
 			if (primaryHead)
 			{
-			    retVal = String.valueOf(eq.getCritMultiplier());
+				retVal = eq.getCritMult();
 			}
 			else
 			{
-			    retVal = String.valueOf(eq.getAltCritMultiplier());
+				retVal = eq.getAltCritMult();
 			}
 		}
 		else
@@ -215,19 +215,19 @@ public class VariableProcessorEq extends VariableProcessor
 			{
 				if (valString.equals(SettingsHandler.getGame().s_ATTRIBSHORT[j]))
 				{
-				    retVal = String.valueOf(getPc().getStatList().getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[j]));
+					retVal = String.valueOf(getPc().getStatList().getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[j]));
 
 					break;
 				}
 			}
 		}
-		if (retVal==null) 
+		if (retVal==null)
 		{
-		    // we have not managed to find an internal variable for the equipment, so try to find
-		    // one for the character.
-		    VariableProcessorPC vpc = new VariableProcessorPC(getPc());
-		    retVal = vpc.getInternalVariable(aSpell, valString, src);
+			// we have not managed to find an internal variable for the equipment, so try to find
+			// one for the character.
+			VariableProcessorPC vpc = new VariableProcessorPC(getPc());
+			retVal = vpc.getInternalVariable(aSpell, valString, src);
 		}
 		return retVal;
-    }
+	}
 }
