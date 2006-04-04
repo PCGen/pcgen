@@ -372,6 +372,13 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 	</target>
 
 	<target name="build-optimize" depends="compile-optimize, jar, jar-all-plugins, build-extra" description="Do an [incremental] build (compile, jar) with optimization on.">
+		<!-- fix for UNIXen; harmless on Windows -->
+		<chmod file="pcgendev.sh" perm="a+rx" />
+		<copy todir="${basedir}">
+			<fileset dir="${bin.dir}" includes="**/*.jar" />
+			<fileset dir="${bin.dir}" includes="**/*.bat" />
+			<fileset dir="${bin.dir}" includes="**/*.sh" />
+		</copy>
 		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
 	</target>
 
