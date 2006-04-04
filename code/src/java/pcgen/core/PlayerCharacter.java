@@ -12498,21 +12498,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 				      ;
 				Ability anAbility = AbilityUtilities.getAbilityFromList(aFeatList, "FEAT", featName, -1);
-//				if ((anAbility == null) != (checkAbility == null))
-//				{
-//					Logging.errorPrint("For feat name: " + featName);
-//					if (anAbility == null) {
-//						Logging.errorPrint("Original Code: null");
-//					} else {
-//						Logging.errorPrint("Original Code: " + anAbility.getName());
-//					}
-//					if (checkAbility == null) {
-//						Logging.errorPrint("New Code: null");
-//					} else {
-//						Logging.errorPrint("New Code: " + checkAbility.getName());
-//					}
-//				}
-				
 				
 				if (anAbility != null)
 				{
