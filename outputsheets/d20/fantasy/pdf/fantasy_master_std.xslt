@@ -4405,12 +4405,18 @@
 					<xsl:value-of select="effect"/>
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="5">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Target: </fo:inline>
 					<xsl:value-of select="target"/>
 				</fo:block>
 			</fo:table-cell>
+			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
+				<fo:block text-align="start" font-size="5pt">
+					<fo:inline font-style="italic">Caster Level: </fo:inline>
+					<xsl:value-of select="casterlevel"/>
+				</fo:block>
+			</fo:table-cell>			
 		</fo:table-row>
 	</xsl:template>
 	<!--
