@@ -870,6 +870,24 @@ Wisdom
 |FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip1.CHARGES,1,0|
         <font style="font-size: 9pt">&#9744;</font>
 |ENDFOR|
+|IIF(EQ.%equip1.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip1.TYPE:Potion)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip1.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
         </td>
         <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|<br /></td>
         <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.QTY|<br /></td>
@@ -900,6 +918,24 @@ Wisdom
 |FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip2.CHARGES,1,0|
         <font style="font-size: 9pt">&#9744;</font>
 |ENDFOR|
+|IIF(EQ.%equip2.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip2.TYPE:Potion)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip2.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 9pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
         </td>
         <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.LOCATION|<br /></td>
         <td valign="top" class="border8" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.QTY|<br /></td>
