@@ -854,13 +854,31 @@
        </tr>
 |FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Virtual.NOT.Gem]-1)/2,1,0|
 |OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-        <td valign="top" class="border8">&nbsp;|EQ.Not.Virtual.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b>|&nbsp;
+        <td valign="top" class="border8">&nbsp;|EQ.Not.Virtual.NOT.Gem.%equip1.NAME.MAGIC~<b>~</b>|<br />
 |IIF(EQ.Not.Virtual.NOT.Gem.%equip1.SPROP: )|
-        <font style="font-size: 5pt">(|EQ.Not.Virtual.NOT.Gem.%equip1.SPROP|)</font><br />
+        <font style="font-size: 5pt">(|EQ.Not.Virtual.NOT.Gem.%equip1.SPROP|)</font>
 |ENDIF|
 |FOR,%charges,1,EQ.Not.Virtual.NOT.Gem.%equip1.CHARGES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
+|IIF(EQ.%equip1.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip1.TYPE:Potion)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip1.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
         </td>
         <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip1.LOCATION|<br /></td>
         <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip1.QTY|<br /></td>
@@ -883,11 +901,29 @@
 |OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
         <td valign="top" class="border8">&nbsp;|EQ.Not.Virtual.NOT.Gem.%equip2.NAME.MAGIC~<b>~</b>|<br />
 |IIF(EQ.Not.Virtual.NOT.Gem.%equip2.SPROP: )|
-        <font style="font-size: 5pt">(|EQ.Not.Virtual.NOT.Gem.%equip2.SPROP|)</font><br />
+        <font style="font-size: 5pt">(|EQ.Not.Virtual.NOT.Gem.%equip2.SPROP|)</font>
 |ENDIF|
 |FOR,%charges,1,EQ.Not.Virtual.NOT.Gem.%equip2.CHARGES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
+|IIF(EQ.%equip2.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip2.TYPE:Potion)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip2.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
         </td>
         <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip2.LOCATION|<br /></td>
         <td valign="top" class="border8" align="center">|EQ.Not.Virtual.NOT.Gem.%equip2.QTY|<br /></td>
