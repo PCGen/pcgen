@@ -13,7 +13,7 @@ Fists of Shadow		TYPE:FX.Wondrous.Magic	COST:29	WT:0.5	SOURCEPAGE:p.49	SPELLS:Fi
 
 ###Block: Magic Items
 # Equipment Name			Type						Contains		Cost		Weight	Modifier					Source Page		Vision			Special Property
-Band-Aids of Curing (10)	TYPE:FX.Wondrous.Magic						COST:29	WT:0								SOURCEPAGE:p.198					SPROP:immediately heals 1d8*3 hp
+Band-Aids of Curing (10)	TYPE:FX.Wondrous.Magic		BASEQTY:10			COST:29	WT:0								SOURCEPAGE:p.198					SPROP:immediately heals 1d8*3 hp
 Closed-Circuit PDA		TYPE:FX.Wondrous.Magic						COST:35	WT:1								SOURCEPAGE:p.199
 Djinni Gold Card			TYPE:FX.Wondrous.Magic						COST:35	WT:0								SOURCEPAGE:p.199					SPROP:grants a +3d8-3 bonus to Wealth
 Ever-Full Pizza Box		TYPE:FX.Wondrous.Magic						COST:32	WT:0								SOURCEPAGE:p.199
