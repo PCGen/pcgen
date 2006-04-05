@@ -654,7 +654,9 @@ public class PObjectUtilities
 			}
 			if (Globals.weaponTypesContains(choiceType))
 			{
-				aPC.addWeaponProf(objPrefix + chosenItem);
+				// TODO This should go away if we ever depricate the
+				// CHOOSE:<weapon_type> syntax - boomer70
+				obj.addAutoArray("WEAPONPROF|" + chosenItem);
 			}
 		}
 

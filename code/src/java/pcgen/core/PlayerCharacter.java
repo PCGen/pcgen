@@ -8070,44 +8070,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public void addWeaponProf(final String aString)
 	{
-		addWeaponProfToChosenFeats(aString);
+		weaponProfList.add(aString);
 		setDirty(true);
-	}
-
-	/**
-	 * Add the Weapon Proficiency named profName to this character's Abilities.
-	 * @param profName
-	 *
-	 * The method needs access to a list of existing weapon proficiencies.  So,
-	 * we make a list of the current Proficiencies before calling it and pass it
-	 * in.  When it returns, we add any nonduplicate Abilities to the normal
-	 * Abilities list.
-	 *
-	 * Added this private method which was very similar to addWeaponProf, except
-	 * it doesn't set the character dirty.  Need it because the same code was
-	 * being duplicated in several places and they didn't set the character dirty.
-	 */
-	void addWeaponProfToChosenFeats(final String profName) {
-		ArrayList temp = new ArrayList();
-		getWeaponProfAbilities(temp);
-		addWeaponProfToList(temp, profName, false);
-		addNonDuplicateAbilities(temp);
-	}
-
-	/**
-	 * Get a list of all chosen Abilities this PC has which are Weapon Proficiencies
-	 * @param temp
-	 */
-	private void getWeaponProfAbilities(ArrayList temp) {
-		Iterator it = this.getRealFeatsIterator();
-		while (it.hasNext())
-		{
-			Ability ab = (Ability) it.next();
-			if (ab.isWeaponProficiency())
-			{
-				temp.add(ab);
-			}
-		}
 	}
 
 	/**

@@ -58,7 +58,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	/** Ability is Virtual */
 	public static final int ABILITY_VIRTUAL = 2;
 
-	private boolean isWeaponProf = false;
 	private boolean multiples = false;
 	private boolean needsSaving = false;
 	private boolean stacks = false;
@@ -360,33 +359,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Set the name of this ability
-	 *
-	 * @param  name
-	 */
-	// overrides the set name in PObject so that we can set the is weapon
-	// proficiency
-	// property
-	public void setName(final String name)
-	{
-		super.setName(name);
-
-		// this only changes when the name does, so set it here instead of
-		// calculating every time isWeaponProficiency is called
-		this.isWeaponProf = (getName().toUpperCase().indexOf("WEAPON PROFICIENCY") >= 0);
-	}
-
-	/**
-	 * Determine if this ability is a weapon proficiency ability or not.
-	 *
-	 * @return  True if the ability is a weapon proficiency.
-	 */
-	public boolean isWeaponProficiency()
-	{
-		return isWeaponProf;
-	}
-
-	/**
 	 * Whether we can add newAssociation to the associated list of this
 	 * Ability
 	 *
@@ -412,14 +384,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			anAbility = (Ability) super.clone();
 			anAbility.multiples = multiples;
 			anAbility.stacks = stacks;
-			anAbility.isWeaponProf = isWeaponProf;
 		}
 		catch (CloneNotSupportedException e)
 		{
 			ShowMessageDelegate.showMessageDialog(
-			    e.getMessage(),
-			    Constants.s_APPNAME,
-			    MessageType.ERROR);
+				e.getMessage(),
+				Constants.s_APPNAME,
+				MessageType.ERROR);
 		}
 
 		return anAbility;
@@ -509,8 +480,8 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final StringBuffer aStrBuf = new StringBuffer(getOutputName());
 
 		if ((getAssociatedCount() > 0)
-				&& !name.endsWith("Weapon Proficiency")
-				&& !name.startsWith("Armor Proficiency"))
+				&& !name.startsWith("Armor Proficiency")
+				)
 		{
 			if ((getChoiceString().length() == 0) || (multiples && stacks))
 			{
@@ -587,9 +558,9 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 					sb.append(aName.substring(idx + 7));
 					sa = new SpecialAbility(
-						    sb.toString(),
-						    sa.getSASource(),
-						    sa.getSADesc());
+							sb.toString(),
+							sa.getSASource(),
+							sa.getSADesc());
 				}
 
 				aList.add(sa);
@@ -791,12 +762,12 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final List selectedList  = new ArrayList(); // selected list of choices
 
 		return PObjectUtilities.modChoices(
-			    this,
-			    availableList,
-			    selectedList,
-			    true,
-			    aPC,
-			    addIt);
+				this,
+				availableList,
+				selectedList,
+				true,
+				aPC,
+				addIt);
 	}
 
 	/**
@@ -809,19 +780,19 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @return modified choices
 	 */
 	public boolean modChoices(
-	    final PlayerCharacter aPC,
-	    final boolean         addIt,
-	    final List            availableList,
-	    final List            selectedList,
-	    final boolean         process)
+		final PlayerCharacter aPC,
+		final boolean         addIt,
+		final List            availableList,
+		final List            selectedList,
+		final boolean         process)
 	{
 		return PObjectUtilities.modChoices(
-			    this,
-			    availableList,
-			    selectedList,
-			    process,
-			    aPC,
-			    addIt);
+				this,
+				availableList,
+				selectedList,
+				process,
+				aPC,
+				addIt);
 	}
 
 	/**
@@ -1029,12 +1000,12 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		}
 
 		PObjectUtilities.modChoices(
-		    anAbility,
-		    abilityList,
-		    selectedList,
-		    false,
-		    aPC,
-		    true);
+			anAbility,
+			abilityList,
+			selectedList,
+			false,
+			aPC,
+			true);
 
 		final int currentSelections = selectedList.size();
 
@@ -1048,7 +1019,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setPoolFlag(true); // user is required to use all available
-		                           // pool points
+								   // pool points
 		chooser.setPool(0); // need to remove 1 to add another
 
 		chooser.setTitle("Modify selections for " + abilityName);

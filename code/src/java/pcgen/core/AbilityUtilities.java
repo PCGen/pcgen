@@ -485,12 +485,7 @@ public class AbilityUtilities
 				}
 				else
 				{
-					if (addIt && anAbility.isWeaponProficiency())
-					{
-						aPC.addWeaponProfToChosenFeats(choice);
-						added = true;
-					}
-					else if (
+					if (
 						addIt &&
 						(anAbility.isStacks() || !anAbility.containsAssociated(choice)))
 					{
@@ -500,20 +495,6 @@ public class AbilityUtilities
 					{
 						anAbility.removeAssociated(choice);
 					}
-				}
-			}
-			else
-			{
-				if (
-					(anAbility.getChoiceString().lastIndexOf('|') >= 0) &&
-					Globals.weaponTypesContains(
-						anAbility.getChoiceString().substring(0,
-							anAbility.getChoiceString().lastIndexOf('|'))))
-				{
-					final String aName =
-						anAbility.getChoiceString().substring(0,
-							anAbility.getChoiceString().lastIndexOf('|'));
-					aPC.addWeaponProfToChosenFeats(aName);
 				}
 			}
 		}

@@ -63,7 +63,7 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
@@ -82,8 +82,8 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 			final List            selectedList)
 	{
 		final List       tArrayList = Globals.getWeaponProfs(weaponType, aPc);
-		      Iterator   iter;
-		      WeaponProf tempProf;
+			  Iterator   iter;
+			  WeaponProf tempProf;
 
 		for (iter = tArrayList.iterator(); iter.hasNext();)
 		{
@@ -97,10 +97,10 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 	/**
 	 * Associate a choice with the pobject.  Only here so we can override part
 	 * of the behaviour of applyChoices
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -108,10 +108,10 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 			final String          prefix)
 	{
 		super.associateChoice(aPc, item, prefix);
-		
+
 		if (Globals.weaponTypesContains(weaponType))
 		{
-			aPc.addWeaponProf(prefix + item);
+			pobject.addAutoArray("WEAPONPROF|" + item);
 		}
 	}
 
