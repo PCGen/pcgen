@@ -34,6 +34,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
+import java.util.Collection;
 
 /**
  * Encapsulates a single DR entity.
@@ -181,20 +182,20 @@ public class DamageReduction implements Comparable
 
 	/**
 	 * Gets a list of Damage Types that bypass this DR.  This ls just a raw
-	 * list of types
-	 * @return List
+	 * list of types.
+	 * @return Collection of unique types converted to lower case
 	 */
-	public List getBypassList()
+	public Collection getBypassList()
 	{
 		StringTokenizer tok = new StringTokenizer(theBypass, " ");
-		ArrayList ret = new ArrayList();
+		HashSet ret = new HashSet();
 
 		while (tok.hasMoreTokens())
 		{
 			final String val = tok.nextToken();
 			if (! ("or".equalsIgnoreCase(val) || "and".equalsIgnoreCase(val)))
 			{
-				ret.add(val);
+				ret.add(val.toLowerCase());
 			}
 		}
 		return ret;
@@ -232,8 +233,8 @@ public class DamageReduction implements Comparable
 	 */
 	public boolean equals(Object other)
 	{
-		List l1 = getBypassList();
-		List l2 = ( (DamageReduction) other).getBypassList();
+		Collection l1 = getBypassList();
+		Collection l2 = ( (DamageReduction) other).getBypassList();
 		if (l1.containsAll(l2) && l2.containsAll(l1))
 		{
 			return getReductionValue()
@@ -264,7 +265,7 @@ public class DamageReduction implements Comparable
 	 */
 	public int hashCode()
 	{
-		List l = getBypassList();
+		ArrayList l = new ArrayList(getBypassList());
 		Collections.sort(l);
 		int hash = 0;
 		for (Iterator i = l.iterator(); i.hasNext(); )
@@ -285,6 +286,20 @@ public class DamageReduction implements Comparable
 	public static DamageReduction addDRs(final DamageReduction dr1,
 										 final DamageReduction dr2)
 	{
+		DamageReduction DR1 = PrereqHandler.passesAll(dr1.thePreReqs, dr1.thePC, null) ? dr1 : null;
+		DamageReduction DR2 = PrereqHandler.passesAll(dr2.thePreReqs, dr2.thePC, null) ? dr2 : null;
+		if (DR1 == null && DR2 != null)
+		{
+			return DR2;
+		}
+		else if (DR1 != null && DR2 == null)
+		{
+			return DR1;
+		}
+		else if (DR1 == null && DR2 == null)
+		{
+			return null;
+		}
 		// Intersect the two DRs to see if we have anything in common.
 		HashSet hs1 = new HashSet(dr1.getBypassList());
 		HashSet hs2 = new HashSet(dr2.getBypassList());
@@ -384,10 +399,31 @@ public class DamageReduction implements Comparable
 	public static String combineDRs(final DamageReduction dr1,
 									final DamageReduction dr2)
 	{
+		DamageReduction DR1 = PrereqHandler.passesAll(dr1.thePreReqs, dr1.thePC, null) ? dr1 : null;
+		DamageReduction DR2 = PrereqHandler.passesAll(dr2.thePreReqs, dr2.thePC, null) ? dr2 : null;
+		if (DR1 == null && DR2 != null)
+		{
+			return DR2.toString();
+		}
+		else if (DR1 != null && DR2 == null)
+		{
+			return DR1.toString();
+		}
+		else if (DR1 == null && DR2 == null)
+		{
+			return "";
+		}
 		DamageReduction drResult = addDRs(dr1, dr2);
 		if (drResult == null)
 		{
-			return dr1.toString() + "; " + dr2.toString();
+			if (dr1.compareTo(dr2) <= 0)
+			{
+				return dr1.toString() + "; " + dr2.toString();
+			}
+			else
+			{
+				return dr2.toString() + "; " + dr1.toString();
+			}
 		}
 		return drResult.toString();
 	}
@@ -413,7 +449,7 @@ public class DamageReduction implements Comparable
 				continue;
 			}
 
-			if (dr.getBypass().indexOf(" or ") != -1)
+			if (dr.getBypass().toLowerCase().indexOf(" or ") != -1)
 			{
 				ret.add(dr);
 				i.remove();
@@ -434,7 +470,8 @@ public class DamageReduction implements Comparable
 		for (Iterator i = inList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = (DamageReduction) i.next();
-			String[] splits = dr.getBypass().split(" and ");
+			final String bypass = dr.getBypass().replaceAll(" AND ", " and ");
+			String[] splits = bypass.split(" and ");
 			if (splits.length == 1)
 			{
 				ret.add(dr);
@@ -465,21 +502,21 @@ public class DamageReduction implements Comparable
 		for (Iterator i = andList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = (DamageReduction) i.next();
+			final String bypass = dr.getBypass().toLowerCase();
 			if (dr.getReductionValue() == -1)
 			{
 				ret.add(dr);
 				continue;
 			}
-			DamageReduction match = (DamageReduction) lookup.get(dr.getBypass().
-				toLowerCase());
+			DamageReduction match = (DamageReduction) lookup.get(bypass);
 			if (match == null)
 			{
-				lookup.put(dr.getBypass(), dr);
+				lookup.put(bypass, dr);
 			}
 			else if (dr.getReductionValue() > match.getReductionValue())
 			{
-				lookup.remove(match.getBypass());
-				lookup.put(dr.getBypass().toLowerCase(), dr);
+				lookup.remove(match.getBypass().toLowerCase());
+				lookup.put(bypass, dr);
 			}
 		}
 		ret.addAll(lookup.values());
@@ -493,11 +530,14 @@ public class DamageReduction implements Comparable
 		for (Iterator i = orList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = (DamageReduction) i.next();
-			String[] orValues = dr.getBypass().split(" or ");
+			final String bypass = dr.getBypass().replaceAll(" OR ", " or ");
+			String[] orValues = bypass.split(" or ");
 			boolean shouldAdd = true;
 			for (int j = 0; j < orValues.length; j++)
 			{
-				DamageReduction andDR = (DamageReduction) lookup.get(orValues[j]);
+				// See if we already have a value for this type from the 'and'
+				// processing.
+				DamageReduction andDR = (DamageReduction)lookup.get(orValues[j].toLowerCase());
 				if (andDR != null)
 				{
 					if (andDR.getReductionValue() >= dr.getReductionValue())
@@ -578,477 +618,5 @@ public class DamageReduction implements Comparable
 			doneFirst = true;
 		}
 		return buffer.toString();
-	}
-
-	/**
-	 * Test the DR code
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		int failures = 0;
-
-		DamageReduction dr1 = new DamageReduction("10", "magic");
-		DamageReduction dr2 = new DamageReduction("10", "good");
-
-		String result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "good");
-		dr2 = new DamageReduction("5", "good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-		dr1 = new DamageReduction("10", "magic");
-		dr2 = new DamageReduction("5", "good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic; 5/good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("15", "Good");
-		dr2 = new DamageReduction("10", "good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("15/Good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("15", "Good");
-		dr2 = new DamageReduction("10", "magic and good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("15/Good; 10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic");
-		dr2 = new DamageReduction("5", "good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic; 5/good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic and good");
-		dr2 = new DamageReduction("5", "evil");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic and good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic or good");
-		dr2 = new DamageReduction("10", "good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic or good");
-		dr2 = new DamageReduction("5", "good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic or good; 5/good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic and good");
-		dr2 = new DamageReduction("5", "magic and good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic or good");
-		dr2 = new DamageReduction("5", "magic and good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic or good; 5/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic or good");
-		dr2 = new DamageReduction("15", "magic");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("15/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic or good");
-		dr2 = new DamageReduction("15", "magic and good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("15/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic or lawful");
-		dr2 = new DamageReduction("15", "magic and good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("15/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic and good");
-		dr2 = new DamageReduction("10", "magic and lawful");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic and good and lawful"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "magic good");
-		dr2 = new DamageReduction("10", "magic");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("5", "good");
-		dr2 = new DamageReduction("10", "magic and good");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		dr1 = new DamageReduction("10", "lawful");
-		dr2 = new DamageReduction("5", "evil");
-		result = DamageReduction.combineDRs(dr1, dr2);
-		System.out.println(dr1.toString() + " + " + dr2.toString() + " = "
-						   + result);
-		if (!result.equals("10/lawful; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		//
-		// --------------------------------------------------------------------
-		//
-		ArrayList drList = new ArrayList();
-		String listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals(""))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("10/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("10/magic and good"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("15", "Good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "evil"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic or good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-		drList.add(new DamageReduction("10", "magic or good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic or good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("5", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic or good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/Good; 10/magic; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("15", "magic"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic or good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("15", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic or lawful"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("15", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic and good"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		drList.add(new DamageReduction("10", "magic and lawful"));
-		listResult = getDRString(null, drList);
-		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		if (!listResult.equals("15/magic and Good; 10/lawful; 5/evil"))
-		{
-			failures++;
-			System.out.println("**** Failed.");
-		}
-
-		System.out.println(failures + " failures.");
 	}
 }
