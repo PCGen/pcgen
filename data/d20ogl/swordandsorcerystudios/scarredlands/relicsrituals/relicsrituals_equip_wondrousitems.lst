@@ -18,7 +18,7 @@ Bestiary of Binding			NAMEISPI:YES										TYPE:Magic.Wondrous							COST:99200
 Blood Bands of Awakening		NAMEISPI:YES										TYPE:Magic.Wondrous							COST:24600	WT:0															SOURCEPAGE:p.178
 Bloodstone					NAMEISPI:YES										TYPE:Magic.Wondrous							COST:500	WT:0															SOURCEPAGE:p.178-179
 Bone Needles				NAMEISPI:YES										TYPE:Magic.Wondrous							COST:300	WT:0															SOURCEPAGE:p.179
-Book of Knowledge				NAMEISPI:YES										TYPE:Magic.Wondrous							COST:10400	WT:3															SOURCEPAGE:p.179
+Book of Knowledge				NAMEISPI:YES										TYPE:Magic.Wondrous.Book						COST:10400	WT:3															SOURCEPAGE:p.179
 Boots (Landing)				NAMEISPI:YES	OUTPUTNAME:Boot of [NAME]					TYPE:Magic.Wondrous.Boot						COST:2200	WT:1															SOURCEPAGE:p.179-180
 Breath of Life				NAMEISPI:YES										TYPE:Magic.Wondrous							COST:78000	WT:2															SOURCEPAGE:p.180
 Burdensome Coin				NAMEISPI:YES										TYPE:Magic.Wondrous							COST:8000	WT:0															SOURCEPAGE:p.180
