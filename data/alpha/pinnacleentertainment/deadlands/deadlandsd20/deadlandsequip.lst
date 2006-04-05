@@ -16,7 +16,7 @@ Holster					TYPE:Goods.General		CONTAINS:4|Any=4		COST:3	WT:1		SOURCEPAGE:p.71
 Holster (Quick-draw)			TYPE:Goods.General		CONTAINS:4|Any=4		COST:11	WT:11		SOURCEPAGE:p.71
 Iron skillet				TYPE:Goods.General						COST:.5	WT:5		SOURCEPAGE:p.71
 Lantern					TYPE:Goods.General						COST:2.5	WT:4		SOURCEPAGE:p.71
-Lantern Oil (1 gallon)			TYPE:Goods.General						COST:.1	WT:6		SOURCEPAGE:p.71
+Lantern Oil (1 gallon)			TYPE:Goods.General.Consumable					COST:.1	WT:6		SOURCEPAGE:p.71
 Matches (100)				TYPE:Goods.General						COST:.5	WT:.25	SOURCEPAGE:p.71
 Mess kit					TYPE:Goods.General						COST:2	WT:3		SOURCEPAGE:p.71
 Paper (Sheet)				TYPE:Goods.General.Paper					COST:.4	WT:0		SOURCEPAGE:p.71

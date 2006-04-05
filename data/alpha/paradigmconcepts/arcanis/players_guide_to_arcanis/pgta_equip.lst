@@ -120,7 +120,7 @@ Mortal Shell										TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:300	WT:
 Siege Mortal Shell									TYPE:Ammunition.Standard.Piercing.Fire.Cannon	COST:450	WT:30		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:8d6 Piercing/Fire Damage in a 30 ft radius
 Siege Cannon Ball										TYPE:Ammunition.Standard.Bludgeoning.Cannon	COST:150	WT:25		BASEQTY:1				EQMOD:STEEL		MODS:YES			SPROP:10d6 Bludgeoning Damage
 
-Fragmentation Bomb									TYPE:Goods.Alchemical.Vial				COST:50	WT:2		BASEQTY:1		DAMAGE:2d6						RANGE:10
+Fragmentation Bomb									TYPE:Goods.Alchemical.Vial.Consumable		COST:50	WT:2		BASEQTY:1		DAMAGE:2d6						RANGE:10
 
 ###Block: Armor -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Equipment Name				Product Identity?	Output Name					Type									Cost		Weight	Required Feat								AC Penalty Check	Modifier	Maximum DEX Bonus	% of Spell Failure	Combat bonus					BONUS:EQMARMOR							Add to base move
@@ -151,7 +151,7 @@ Altherian Shot Bandolier		NAMEISPI:YES									TYPE:Goods.General.Container				C
 Altherian Shot Belt Pouch		NAMEISPI:YES									TYPE:Goods.General.Container				CONTAINS:20|Blastpowder=20					COST:150	WT:.5		SOURCEPAGE:pg. 245	SPROP:Standard action to open or close. Protects shot from water or fire for 6 rounds.
 Flintlock Pistol Bandolier													TYPE:Goods.General.Container				CONTAINS:-1|Pistol=4|Blastpowder=8				COST:10	WT:3		SOURCEPAGE:pg. 247	SPROP:Protects items from water and fire for 1 round.
 Mess Cooking Kit							OUTPUTNAME:Mess/Cooking Kit				TYPE:Goods.General														COST:5	WT:2		SOURCEPAGE:pg. 247
-Potion scroll Belt						OUTPUTNAME:Potion/Scroll Belt				TYPE:Goods.General.Container				CONTAINS:-1|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
+Potion Scroll Belt						OUTPUTNAME:Potion/Scroll Belt				TYPE:Goods.General.Container				CONTAINS:-1|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
 Potion Scroll Bandolier						OUTPUTNAME:Potion/Scroll Bandolier			TYPE:Goods.General.Container				CONTAINS:-1|Total=5|Scroll=5|Vial=5|Potion=5		COST:50	WT:1		SOURCEPAGE:pg. 247
 Spellcaster's Bandolier														TYPE:Goods.General.Container				CONTAINS:-1|Total=10|Wand=4|Scroll=4|Potion=2|Vial=2	COST:60	WT:2		SOURCEPAGE:pg. 248
 Waterproof Flintlock Case (Pistol)												TYPE:Goods.General.Container				CONTAINS:-1|Pistol=1						COST:30	WT:.5		SOURCEPAGE:pg. 248

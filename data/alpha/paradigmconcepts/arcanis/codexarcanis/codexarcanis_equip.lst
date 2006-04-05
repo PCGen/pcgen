@@ -8,7 +8,7 @@ Gladius										TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal.Sword						CO
 
 # Exotic Melee Weapons
 Yhark											TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Metal		ALTTYPE:Bludgeoning	COST:50	WT:20		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10		ALTDAMAGE:1d6					RANGE:10	SIZE:L	SOURCEPAGE:p.177	SPROP:May be set to receive a charge, gives a +4 to trip when used to dismount a rider.
-Tralian Hammer									TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Peircing.Metal					COST:45	WT:18		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d8											SIZE:L	SOURCEPAGE:p.177	SPROP:May be used as Piercing or Bludgeoning damage
+Tralian Hammer									TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Piercing.Metal					COST:45	WT:18		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d8											SIZE:L	SOURCEPAGE:p.177	SPROP:May be used as Piercing or Bludgeoning damage
 
 # Exotic Ranged Weapons
 Disk Crossbow (Repeating)							TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Wooden							COST:65	WT:10		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6+1								RANGE:100	SIZE:M	SOURCEPAGE:p.177
@@ -29,8 +29,8 @@ Lorica Segmentata			TYPE:Armor.Medium.Suit.Standard.Metal	COST:400	WT:25		ACCHEC
 
 ###Block: Other Stuff
 # Equipment Name								Type					Cost		Weight
-Illuminated Perfection (Holy Book of Illiir)			TYPE:Goods.Books			COST:10	WT:1
-Illuminated Perfection (Holy Book of Illiir) [High Quality]	TYPE:Goods.Books.Masterwork	COST:50	WT:3
+Illuminated Perfection (Holy Book of Illiir)			TYPE:Goods.Books			COST:10	WT:1	SOURCEPAGE:p.
+Illuminated Perfection (Holy Book of Illiir) [High Quality]	TYPE:Goods.Books.Masterwork	COST:50	WT:3	SOURCEPAGE:p.
 
 #
 # End

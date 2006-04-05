@@ -3,8 +3,8 @@ SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad's Legacy	SOURCEWEB:http://www.pa
 #Original Entry: Eddy Anthony (MoSaT)
 
 # Equipment Name			Type							Contains			Cost		Weight	Source Page
-Homeblood (deteriorated)	TYPE:Goods.Liquid.Poison							COST:300	WT:.0625	SOURCEPAGE:p.20
-Homeblood (pure)			TYPE:Goods.Liquid.Poison							COST:4500	WT:.0625	SOURCEPAGE:p.20
+Homeblood (deteriorated)	TYPE:Goods.Liquid.Poison.Consumable						COST:300	WT:.0625	SOURCEPAGE:p.20
+Homeblood (pure)			TYPE:Goods.Liquid.Poison.Consumable						COST:4500	WT:.0625	SOURCEPAGE:p.20
 
 Powder Horn				TYPE:Goods.GunPowder								COST:7	WT:3		SOURCEPAGE:p.20
 Powder Keg				TYPE:Goods.GunPowder								COST:43	WT:20		SOURCEPAGE:p.20
