@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20
 
-# Equipment Name	Type			Cost		Weight	Source Page
-Potion (Farshyl)	TYPE:Magic.Potion	COST:150	WT:0		SOURCEPAGE:p.79
+# Equipment Name	Output Name				Type					Cost		Weight	Source Page
+Potion (Farshyl)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:150	WT:0		SOURCEPAGE:p.79
