@@ -115,7 +115,7 @@ public final class Globals
 	private static List             templateList    = new ArrayList(350);
 	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
 	private static SortedSet        saSet           = new TreeSet();
-	
+
 	private static Map sponsors = new HashMap();
 	private static List sponsorList = new ArrayList();
 
@@ -555,7 +555,7 @@ public final class Globals
 			if (tTok.hasMoreTokens())
 			{
 				final String tabName = tTok.nextToken();
-	
+
 				if (tabName.equals(cName))
 				{
 					colSize = Integer.parseInt(tTok.nextToken());
@@ -566,7 +566,7 @@ public final class Globals
 		return colSize;
 	}
 	// END Game Modes Section.
-	
+
 	/**
 	 * Get the default path
 	 * @return default path
@@ -749,7 +749,7 @@ public final class Globals
 	}
 
 	/**
-	 * Set equipment slot type count 
+	 * Set equipment slot type count
 	 * @param aString
 	 * @param aNum
 	 */
@@ -1039,7 +1039,7 @@ public final class Globals
 	}
 
 	/**
-	 * Get game mode skill cost for class 
+	 * Get game mode skill cost for class
 	 * @return game modeskill cost for class
 	 */
 	public static int getGameModeSkillCost_Class()
@@ -1048,7 +1048,7 @@ public final class Globals
 	}
 
 	/**
-	 * Get game mode skill cost for cross-class 
+	 * Get game mode skill cost for cross-class
 	 * @return game modeskill cost for cross-class
 	 */
 	public static int getGameModeSkillCost_CrossClass()
@@ -1057,7 +1057,7 @@ public final class Globals
 	}
 
 	/**
-	 * Get game mode skill cost for exclusive 
+	 * Get game mode skill cost for exclusive
 	 * @return game modeskill cost for exclusive
 	 */
 	public static int getGameModeSkillCost_Exclusive()
@@ -1180,7 +1180,7 @@ public final class Globals
 
 	/**
 	 * Get kit info
-	 * @return kit info 
+	 * @return kit info
 	 */
 	public static List getKitInfo()
 	{
@@ -1313,7 +1313,7 @@ public final class Globals
 	}
 
 	/**
-	 * Get PCC class type list 
+	 * Get PCC class type list
 	 * @return PCC class type list
 	 */
 	public static List getPCClassTypeList()
@@ -1834,7 +1834,7 @@ public final class Globals
 	}
 
 	/**
-	 * Get the template list 
+	 * Get the template list
 	 * @return list of tempaltes
 	 */
 	public static List getTemplateList()
@@ -2250,7 +2250,7 @@ public final class Globals
 	}
 
 	// Spell info section
-	
+
 	/**
 	 * Add to the spell casting times set
 	 * @param aString
@@ -2261,7 +2261,7 @@ public final class Globals
 	}
 
 	/**
-	 * Add to the spell components set 
+	 * Add to the spell components set
 	 * @param aString
 	 */
 	public static void addSpellComponentSet(final String aString)
@@ -2796,10 +2796,10 @@ public final class Globals
 	}
 
 	/**
-	 * Return TRUE if the weapon profs have a variable named x 
+	 * Return TRUE if the weapon profs have a variable named x
 	 * @param collectionOfNames
 	 * @param variableString
-	 * @return TRUE if the weapon profs have a variable named x 
+	 * @return TRUE if the weapon profs have a variable named x
 	 */
 	public static boolean hasWeaponProfVariableNamed(final Collection collectionOfNames, final String variableString)
 	{
@@ -3485,29 +3485,6 @@ public final class Globals
 		String wpString;
 		WeaponProf tempProf;
 
-		for (Iterator e = aPC.getRace().getWeaponProfs().iterator(); e.hasNext();)
-		{
-			aString = (String) e.next();
-			aTok = new StringTokenizer(aString, "|");
-			typeString = aTok.nextToken();
-			wpString = aTok.nextToken();
-			tempProf = getWeaponProfNamed(wpString);
-
-			if (tempProf == null)
-			{
-				continue;
-			}
-
-			if (typeString.equalsIgnoreCase(type))
-			{
-				aList.add(tempProf);
-			}
-			else
-			{
-				bList.add(tempProf);
-			}
-		}
-
 		for (Iterator e = aPC.getChangeProfList().iterator(); e.hasNext();)
 		{
 			aString = (String) e.next();
@@ -4100,7 +4077,7 @@ public final class Globals
 		sponsors.put(sponsor.get("SPONSOR"), sponsor);
 		sponsorList.add(sponsor);
 	}
-	
+
 	/**
 	 * Get a list of sponsors of PCGen
 	 * @return list of sponsors of PCGen
@@ -4108,7 +4085,7 @@ public final class Globals
 	public static List getSponsors() {
 		return sponsorList;
 	}
-	
+
 	/**
 	 * Get a sponsor
 	 * @param name

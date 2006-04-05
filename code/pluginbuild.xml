@@ -21,7 +21,7 @@ jar-all-plugins - Generate the plugin jar files
 	<property name="lstplugins.dir" value="${plugins.dir}/lstplugins" />
 	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
 	<property name="jepplugins.dir" value="${plugins.dir}/jepplugins" />
-	
+
 
 	<target name="jar-all-plugins" depends="makeplugindirs,jar-gmgen-plugins,jar-export-plugins,jar-bonus-plugins,jar-pre-plugins,jar-lst-plugins, jar-systemlst-plugins, jar-jep-plugins" description="Build (Link) plugin jar files">
 	</target>
@@ -2831,7 +2831,7 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 	</target>
-	
+
 	<target name="jar-lst-diety-plugins" depends="makeplugindirs" description="Build (Link) Diety Lst Token plugin jar files">
 		<!-- Deity tokens-->
 		<jar jarfile="${lstplugins.dir}/DeityLstToken-ALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
@@ -2912,7 +2912,7 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 	</target>
-	
+
 	<target name="jar-lst-domain-plugins" depends="makeplugindirs" description="Build (Link) Do Lst Token plugin jar files">
 		<!-- Domain tokens-->
 		<jar jarfile="${lstplugins.dir}/DomainLstToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
@@ -3463,13 +3463,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/race/MonsterclassToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/RaceLstToken-PROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/race/ProfToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4482,7 +4475,7 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		
+
 	</target>
 
 	<target name="jar-jep-plugins" depends="makeplugindirs" description="Build (Link) Jep Command plugin jar files">

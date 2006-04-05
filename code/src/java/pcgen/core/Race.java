@@ -45,7 +45,6 @@ public final class Race extends PObject
 	private ArrayList monCCSkillList = null;
 	private ArrayList monCSkillList = null;
 	private ArrayList weaponProfBonus = new ArrayList();
-	private ArrayList weaponProfs = new ArrayList();
 	private HashMap hitPointMap = new HashMap();
 	private Integer initMod = new Integer(0);
 	private Integer naturalAC = new Integer(0);
@@ -868,23 +867,6 @@ public final class Race extends PObject
 			txt.append("\tLEVELADJUSTMENT:").append(levelAdjustment);
 		}
 
-		if ((weaponProfs != null) && (weaponProfs.size() > 0))
-		{
-			final StringBuffer buffer = new StringBuffer();
-
-			for (Iterator e = weaponProfs.iterator(); e.hasNext();)
-			{
-				if (buffer.length() != 0)
-				{
-					buffer.append('|');
-				}
-
-				buffer.append((String) e.next());
-			}
-
-			txt.append("\tPROF:").append(buffer.toString());
-		}
-
 		if (!"alwaysValid".equals(getQualifyString()))
 		{
 			txt.append("\tQUALIFY:").append(getQualifyString());
@@ -959,18 +941,6 @@ public final class Race extends PObject
 		return weaponProfBonus;
 	}
 
-	public void setWeaponProfs(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-		final String typeString = aTok.nextToken();
-		final String prefix = typeString + "|";
-
-		while (aTok.hasMoreTokens())
-		{
-			weaponProfs.add(prefix + aTok.nextToken());
-		}
-	}
-
 	public Object clone()
 	{
 		Race aRace = null;
@@ -1006,7 +976,6 @@ public final class Race extends PObject
 			aRace.hands = hands;
 			aRace.reach = reach;
 			aRace.face = face;
-			aRace.weaponProfs = (ArrayList) weaponProfs.clone();
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -1129,11 +1098,6 @@ public final class Race extends PObject
 	String getMonsterClass(final PlayerCharacter aPC)
 	{
 		return getMonsterClass(aPC, true);
-	}
-
-	ArrayList getWeaponProfs()
-	{
-		return weaponProfs;
 	}
 
 	int bonusForSkill(final String skillName)
