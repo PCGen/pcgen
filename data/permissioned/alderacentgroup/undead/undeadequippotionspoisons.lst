@@ -2,5 +2,5 @@
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20
 
-# Equipment Name		Product Identity?	Output Name				Type			Cost		Weight	Source Page
-Potion (Preservation)	NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:750	WT:0		SOURCEPAGE:p.81
+# Equipment Name		Product Identity?	Output Name				Type					Cost		Weight	Source Page
+Potion (Preservation)	NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.81
