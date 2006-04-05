@@ -1,6 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 #Original entry by: Knightcrawler
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
 # Equipment Name					Type					Cost		Weight	Slot Needed	Source Page		Virtual Feat		Bonus to skill														Special Property
 Almeron's Cloak					TYPE:Magic.Wondrous.Cape	COST:18000	WT:1				SOURCEPAGE:p.169																					SPROP:Grants wearer the ability to tree stride once per dayas the spell.
 Baldon's Lens					TYPE:Magic.Wondrous.Eyegear	COST:6000	WT:0				SOURCEPAGE:p.169																					SPROP:When the len's is passed over text, the text visible through the lens appears in the holder's native tongue.

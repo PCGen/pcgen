@@ -1,23 +1,24 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
-# Equipment Name		Type			Cost		Weight	Source Page
-Belladonna			TYPE:Goods.Poison	COST:.5	WT:0		SOURCEPAGE:p.43
-Caustic Alkali		TYPE:Goods.Poison	COST:15	WT:0		SOURCEPAGE:p.43
-Final Touch			TYPE:Goods.Poison	COST:516.7	WT:0		SOURCEPAGE:p.43
-Foxglove			TYPE:Goods.Poison	COST:5	WT:0		SOURCEPAGE:p.43
-Hellebore			TYPE:Goods.Poison	COST:.8	WT:0		SOURCEPAGE:p.43
-Locoweed			TYPE:Goods.Poison	COST:1	WT:0		SOURCEPAGE:p.43
-Opium				TYPE:Goods.Poison	COST:10	WT:0		SOURCEPAGE:p.43
-Poison Ivy			TYPE:Goods.Poison	COST:.5	WT:0		SOURCEPAGE:p.43
-Psilocybe			TYPE:Goods.Poison	COST:1	WT:0		SOURCEPAGE:p.43
-Ragweed Pollen		TYPE:Goods.Poison	COST:0	WT:0		SOURCEPAGE:p.43
-Toadstool			TYPE:Goods.Poison	COST:.6	WT:0		SOURCEPAGE:p.43
-Draught of Wounding	TYPE:Magic.Poison	COST:1520	WT:0		SOURCEPAGE:p.46
-Enfeebling Sting		TYPE:Magic.Poison	COST:3300	WT:0		SOURCEPAGE:p.46
-Ghastly Mist		TYPE:Magic.Poison	COST:300	WT:0		SOURCEPAGE:p.46
-Paste of Pestilence	TYPE:Magic.Poison	COST:1400	WT:0		SOURCEPAGE:p.46
-Powder of Paralysis	TYPE:Magic.Poison	COST:3750	WT:0		SOURCEPAGE:p.46
-Seasoning of Shrinking	TYPE:Magic.Poison	COST:300	WT:0		SOURCEPAGE:p.47
-Hideous Laughing Venom	TYPE:Magic.Poison	COST:450	WT:0		SOURCEPAGE:p.47
-Touch of the Unholy	TYPE:Magic.Poison	COST:1400	WT:0		SOURCEPAGE:p.47
-Will-Breaker		TYPE:Magic.Poison	COST:1600	WT:0		SOURCEPAGE:p.48
+
+# Equipment Name		Type					Cost		Weight	Source Page
+Belladonna			TYPE:Goods.Poison.Consumable	COST:.5	WT:0		SOURCEPAGE:p.43
+Caustic Alkali		TYPE:Goods.Poison.Consumable	COST:15	WT:0		SOURCEPAGE:p.43
+Final Touch			TYPE:Goods.Poison.Consumable	COST:516.7	WT:0		SOURCEPAGE:p.43
+Foxglove			TYPE:Goods.Poison.Consumable	COST:5	WT:0		SOURCEPAGE:p.43
+Hellebore			TYPE:Goods.Poison.Consumable	COST:.8	WT:0		SOURCEPAGE:p.43
+Locoweed			TYPE:Goods.Poison.Consumable	COST:1	WT:0		SOURCEPAGE:p.43
+Opium				TYPE:Goods.Poison.Consumable	COST:10	WT:0		SOURCEPAGE:p.43
+Poison Ivy			TYPE:Goods.Poison.Consumable	COST:.5	WT:0		SOURCEPAGE:p.43
+Psilocybe			TYPE:Goods.Poison.Consumable	COST:1	WT:0		SOURCEPAGE:p.43
+Ragweed Pollen		TYPE:Goods.Poison.Consumable	COST:0	WT:0		SOURCEPAGE:p.43
+Toadstool			TYPE:Goods.Poison.Consumable	COST:.6	WT:0		SOURCEPAGE:p.43
+Draught of Wounding	TYPE:Magic.Poison.Consumable	COST:1520	WT:0		SOURCEPAGE:p.46
+Enfeebling Sting		TYPE:Magic.Poison.Consumable	COST:3300	WT:0		SOURCEPAGE:p.46
+Ghastly Mist		TYPE:Magic.Poison.Consumable	COST:300	WT:0		SOURCEPAGE:p.46
+Paste of Pestilence	TYPE:Magic.Poison.Consumable	COST:1400	WT:0		SOURCEPAGE:p.46
+Powder of Paralysis	TYPE:Magic.Poison.Consumable	COST:3750	WT:0		SOURCEPAGE:p.46
+Seasoning of Shrinking	TYPE:Magic.Poison.Consumable	COST:300	WT:0		SOURCEPAGE:p.47
+Hideous Laughing Venom	TYPE:Magic.Poison.Consumable	COST:450	WT:0		SOURCEPAGE:p.47
+Touch of the Unholy	TYPE:Magic.Poison.Consumable	COST:1400	WT:0		SOURCEPAGE:p.47
+Will-Breaker		TYPE:Magic.Poison.Consumable	COST:1600	WT:0		SOURCEPAGE:p.48
