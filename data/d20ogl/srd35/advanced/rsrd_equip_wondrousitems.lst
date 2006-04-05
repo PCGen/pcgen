@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar  1 09:57:13 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision$ $Author$ -- Tue Apr  4 19:21:06 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -77,7 +77,7 @@ Brazier of Commanding Fire Elementals									TYPE:Magic.Wondrous						COST:1000
 Brooch of Shielding												TYPE:Magic.Wondrous.Amulet					COST:1500	WT:0				EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:MagicItemsV.rtf
 Broom of Flying													TYPE:Magic.Wondrous						COST:17000	WT:3										SOURCEPAGE:MagicItemsV.rtf
 ###Block:C's
-# Equipment Name					Output Name						Type					Cost		Weight	Modifier					Source Page				Save checks bonus							Bonus to skill					Stat bonus					Modify VAR
+# Equipment Name					Output Name						Type						Cost		Weight	Modifier					Source Page				Virtual Feat		Save checks bonus							Bonus to skill					Stat bonus					Modify VAR
 Candle of Invocation											TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5							SOURCEPAGE:MagicItemsV.rtf
 Candle of Truth												TYPE:Magic.Wondrous.Consumable	COST:2500	WT:0.5							SOURCEPAGE:MagicItemsV.rtf
 Cape of the Mountebank											TYPE:Magic.Wondrous.Cape		COST:10080	WT:1								SOURCEPAGE:MagicItemsV.rtf
@@ -85,27 +85,27 @@ Carpet of Flying (5x5)											TYPE:Magic.Wondrous			COST:20000	WT:8								SO
 Carpet of Flying (5x10)											TYPE:Magic.Wondrous			COST:35000	WT:15								SOURCEPAGE:MagicItemsV.rtf
 Carpet of Flying (10x10)										TYPE:Magic.Wondrous			COST:60000	WT:10								SOURCEPAGE:MagicItemsV.rtf
 Censer of Controlling Air Elementals								TYPE:Magic.Wondrous			COST:100000	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Chaos Diamond												TYPE:Magic.Wondrous			COST:160000	WT:1								SOURCEPAGE:MagicItemsV.rtf	VFEAT:Negative Levels	BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,LE,NG,TN,NE
+Chaos Diamond												TYPE:Magic.Wondrous			COST:160000	WT:1								SOURCEPAGE:MagicItemsV.rtf	VFEAT:Negative Levels																							BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,LE,NG,TN,NE
 Chime of Interruption											TYPE:Magic.Wondrous			COST:16800	WT:1								SOURCEPAGE:MagicItemsV.rtf
 Chime of Opening												TYPE:Magic.Wondrous			COST:3000	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:MagicItemsV.rtf
 Circlet of Blasting (Minor)										TYPE:Magic.Wondrous.Headgear		COST:6480	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Circlet of Blasting (Major)										TYPE:Magic.Wondrous.Headgear		COST:23760	WT:0								SOURCEPAGE:MagicItemsV.rtf
-Circlet of Persuasion											TYPE:Magic.Wondrous.Headgear		COST:4500	WT:0								SOURCEPAGE:MagicItemsV.rtf										BONUS:SKILL|STAT=CHA|3|TYPE=Competence							BONUS:VAR|TurnCheckBase|3|TYPE=Competence
+Circlet of Persuasion											TYPE:Magic.Wondrous.Headgear		COST:4500	WT:0								SOURCEPAGE:MagicItemsV.rtf														BONUS:SKILL|STAT=CHA|3|TYPE=Competence							BONUS:VAR|TurnCheckBase|3|TYPE=Competence
 Cloak of Arachnida											TYPE:Magic.Wondrous.Cape		COST:14000	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Cloak of the Bat												TYPE:Magic.Wondrous.Cape		COST:26000	WT:1								SOURCEPAGE:MagicItemsV.rtf										BONUS:SKILL|Hide|5|TYPE=Competence
-Cloak of Charisma +2											TYPE:Magic.Wondrous.Cape		COST:4000	WT:2								SOURCEPAGE:MagicItemsV.rtf																	BONUS:STAT|CHA|2|TYPE=Enhancement
-Cloak of Charisma +4											TYPE:Magic.Wondrous.Cape		COST:16000	WT:2								SOURCEPAGE:MagicItemsV.rtf																	BONUS:STAT|CHA|4|TYPE=Enhancement
-Cloak of Charisma +6											TYPE:Magic.Wondrous.Cape		COST:36000	WT:2								SOURCEPAGE:MagicItemsV.rtf																	BONUS:STAT|CHA|6|TYPE=Enhancement
+Cloak of the Bat												TYPE:Magic.Wondrous.Cape		COST:26000	WT:1								SOURCEPAGE:MagicItemsV.rtf														BONUS:SKILL|Hide|5|TYPE=Competence
+Cloak of Charisma +2											TYPE:Magic.Wondrous.Cape		COST:4000	WT:2								SOURCEPAGE:MagicItemsV.rtf																					BONUS:STAT|CHA|2|TYPE=Enhancement
+Cloak of Charisma +4											TYPE:Magic.Wondrous.Cape		COST:16000	WT:2								SOURCEPAGE:MagicItemsV.rtf																					BONUS:STAT|CHA|4|TYPE=Enhancement
+Cloak of Charisma +6											TYPE:Magic.Wondrous.Cape		COST:36000	WT:2								SOURCEPAGE:MagicItemsV.rtf																					BONUS:STAT|CHA|6|TYPE=Enhancement
 Cloak of Displacement (Minor)			OUTPUTNAME:Cloak of Displacement, [NAME]	TYPE:Magic.Wondrous.Cape		COST:24000	WT:1								SOURCEPAGE:MagicItemsV.rtf
 Cloak of Displacement (Major)			OUTPUTNAME:Cloak of Displacement, [NAME]	TYPE:Magic.Wondrous.Cape		COST:50000	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Cloak of Elvenkind											TYPE:Magic.Wondrous.Cape		COST:2500	WT:1								SOURCEPAGE:MagicItemsV.rtf										BONUS:SKILL|Hide|5|TYPE=Competence
+Cloak of Elvenkind											TYPE:Magic.Wondrous.Cape		COST:2500	WT:1								SOURCEPAGE:MagicItemsV.rtf														BONUS:SKILL|Hide|5|TYPE=Competence
 Cloak of Etherealness											TYPE:Magic.Wondrous.Cape		COST:55000	WT:1								SOURCEPAGE:MagicItemsV.rtf
 Cloak of the Manta Ray											TYPE:Magic.Wondrous.Cape		COST:7200	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Cloak of Resistance +1											TYPE:Magic.Wondrous.Cape		COST:1000	WT:1								SOURCEPAGE:MagicItemsV.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance
-Cloak of Resistance +2											TYPE:Magic.Wondrous.Cape		COST:4000	WT:1								SOURCEPAGE:MagicItemsV.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance
-Cloak of Resistance +3											TYPE:Magic.Wondrous.Cape		COST:9000	WT:1								SOURCEPAGE:MagicItemsV.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance
-Cloak of Resistance +4											TYPE:Magic.Wondrous.Cape		COST:16000	WT:1								SOURCEPAGE:MagicItemsV.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance
-Cloak of Resistance +5											TYPE:Magic.Wondrous.Cape		COST:25000	WT:1								SOURCEPAGE:MagicItemsV.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|5|TYPE=Resistance
+Cloak of Resistance +1											TYPE:Magic.Wondrous.Cape		COST:1000	WT:1								SOURCEPAGE:MagicItemsV.rtf					BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance
+Cloak of Resistance +2											TYPE:Magic.Wondrous.Cape		COST:4000	WT:1								SOURCEPAGE:MagicItemsV.rtf					BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance
+Cloak of Resistance +3											TYPE:Magic.Wondrous.Cape		COST:9000	WT:1								SOURCEPAGE:MagicItemsV.rtf					BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance
+Cloak of Resistance +4											TYPE:Magic.Wondrous.Cape		COST:16000	WT:1								SOURCEPAGE:MagicItemsV.rtf					BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance
+Cloak of Resistance +5											TYPE:Magic.Wondrous.Cape		COST:25000	WT:1								SOURCEPAGE:MagicItemsV.rtf					BONUS:CHECKS|Fortitude,Reflex,Will|5|TYPE=Resistance
 Crystal Ball												TYPE:Magic.Wondrous			COST:42000	WT:7								SOURCEPAGE:MagicItemsV.rtf
 Crystal Ball (Detect Thoughts)		OUTPUTNAME:Crystal Ball with [NAME]		TYPE:Magic.Wondrous			COST:51000	WT:7								SOURCEPAGE:MagicItemsV.rtf
 Crystal Ball (See Invisibility)		OUTPUTNAME:Crystal Ball with [NAME]		TYPE:Magic.Wondrous			COST:50000	WT:7								SOURCEPAGE:MagicItemsV.rtf
