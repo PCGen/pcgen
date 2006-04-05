@@ -96,10 +96,10 @@ Thruster pack	TYPE:HighTechGoods.Space	COST:500	WT:10		SOURCEPAGE:p.114
 Vac suit		TYPE:HighTechGoods.Space	COST:2200	WT:60		SOURCEPAGE:p.114
 
 ###Block: Power cells
-# Equipment Name	Type					Cost		Weight	Source Page
-Microcell		TYPE:HighTechGoods.Powercell	COST:10	WT:0		SOURCEPAGE:p.114
-Minicell		TYPE:HighTechGoods.Powercell	COST:15	WT:1		SOURCEPAGE:p.114
-Heavy cell		TYPE:HighTechGoods.Powercell	COST:50	WT:5		SOURCEPAGE:p.114
+# Equipment Name	Type							Cost		Weight	Source Page
+Microcell		TYPE:HighTechGoods.Powercell.Consumable	COST:10	WT:0		SOURCEPAGE:p.114
+Minicell		TYPE:HighTechGoods.Powercell.Consumable	COST:15	WT:1		SOURCEPAGE:p.114
+Heavy cell		TYPE:HighTechGoods.Powercell.Consumable	COST:50	WT:5		SOURCEPAGE:p.114
 
 ###Block: Clothing
 # Equipment Name	Type					Cost		Weight	Source Page
