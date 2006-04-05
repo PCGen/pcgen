@@ -8,8 +8,8 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.co
 # Small ---------------
 
 # Equipment Name					Output Name				Required Proficiency				Type									Cost		Weight	Critical Hit Range	Fumble Range	Damage		Range		Size		Source Page		Special Property
-C4												PROFICIENCY:C4
-Dynamite											PROFICIENCY:Dynamite
+C4												PROFICIENCY:C4					TYPE:Gear.Standard.Consumable
+Dynamite											PROFICIENCY:Dynamite				TYPE:Gear.Standard.Consumable
 
 # Large ---------------
 

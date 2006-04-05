@@ -32,14 +32,14 @@ PDA							TYPE:Gear.Standard.Container.Computer	CONTAINS:1|Software=-1	COST:3	WT
 
 # Drugs and Poisons --------------------------------------------------------------------------------------------------
 
-Contact poison					TYPE:Gear.Standard.drug								COST:3	WT:-					SOURCEPAGE:p.128
-Knockout drug					TYPE:Gear.Standard.drug								COST:3	WT:-					SOURCEPAGE:p.128
-Lethal poison I					TYPE:Gear.Standard.drug								COST:7	WT:-					SOURCEPAGE:p.128
-Lethal poison II					TYPE:Gear.Standard.drug								COST:10	WT:-					SOURCEPAGE:p.128
-Nerve drug						TYPE:Gear.Standard.drug								COST:5	WT:-					SOURCEPAGE:p.128
-Paralytic poison					TYPE:Gear.Standard.drug								COST:3	WT:-					SOURCEPAGE:p.128
-Sodium pentothal (truth serum)		TYPE:Gear.Standard.drug								COST:3	WT:-					SOURCEPAGE:p.128
-Weakening poison					TYPE:Gear.Standard.drug								COST:2	WT:-					SOURCEPAGE:p.128
+Contact poison					TYPE:Gear.Standard.Drug.Consumable						COST:3	WT:-					SOURCEPAGE:p.128
+Knockout drug					TYPE:Gear.Standard.Drug.Consumable						COST:3	WT:-					SOURCEPAGE:p.128
+Lethal poison I					TYPE:Gear.Standard.Drug.Consumable						COST:7	WT:-					SOURCEPAGE:p.128
+Lethal poison II					TYPE:Gear.Standard.Drug.Consumable						COST:10	WT:-					SOURCEPAGE:p.128
+Nerve drug						TYPE:Gear.Standard.Drug.Consumable						COST:5	WT:-					SOURCEPAGE:p.128
+Paralytic poison					TYPE:Gear.Standard.Drug.Consumable						COST:3	WT:-					SOURCEPAGE:p.128
+Sodium pentothal (truth serum)		TYPE:Gear.Standard.Drug.Consumable						COST:3	WT:-					SOURCEPAGE:p.128
+Weakening poison					TYPE:Gear.Standard.Drug.Consumable						COST:2	WT:-					SOURCEPAGE:p.128
 
 # Food and Lodging ---------------------------------------------------------------------------------------------------
 
@@ -84,14 +84,14 @@ Kit (Sweeper)					TYPE:Gear.Standard.Tool								COST:4	WT:15					SOURCEPAGE:p.1
 
 Flashlight						TYPE:Gear.Standard.Tool								COST:1	WT:1					SOURCEPAGE:p.129
 Floodlight						TYPE:Gear.Standard.Tool								COST:2	WT:75					SOURCEPAGE:p.129
-Glowstick						TYPE:Gear.Standard.Tool								COST:-	WT:.5					SOURCEPAGE:p.129
+Glowstick						TYPE:Gear.Standard.Tool.Consumable						COST:-	WT:.5					SOURCEPAGE:p.129
 Lantern						TYPE:Gear.Standard.Tool								COST:1	WT:3					SOURCEPAGE:p.129
 
 # Medical gear -------------------------------------------------------------------------------------------------------
 
-Antidote shot					TYPE:Gear.Standard.Medical							COST:3	WT:.1					SOURCEPAGE:p.129
-Liquid skin patch					TYPE:Gear.Standard.Medical							COST:5	WT:.1					SOURCEPAGE:p.129
-Stimulant shot					TYPE:Gear.Standard.Medical							COST:3	WT:.1					SOURCEPAGE:p.129
+Antidote shot					TYPE:Gear.Standard.Medical.Consumable					COST:3	WT:.1					SOURCEPAGE:p.129
+Liquid skin patch					TYPE:Gear.Standard.Medical.Consumable					COST:5	WT:.1					SOURCEPAGE:p.129
+Stimulant shot					TYPE:Gear.Standard.Medical.Consumable					COST:3	WT:.1					SOURCEPAGE:p.129
 
 # Optics --------------------------------------------------------------------------------------------------------------
 
