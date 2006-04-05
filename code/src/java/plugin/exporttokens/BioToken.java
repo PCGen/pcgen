@@ -60,7 +60,7 @@ public class BioToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String beforeValue = "";
-		String afterValue = "<br>";
+		String afterValue = "<br/>";
 		boolean addAfterOnLast = true;
 
 		if (tokenSource.length()<=3 || tokenSource.charAt(3)==',')

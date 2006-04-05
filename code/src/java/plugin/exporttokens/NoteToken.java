@@ -61,9 +61,9 @@ public class NoteToken extends Token
 		List noteList = getNoteList(pc, name);
 
 		String beforeHeader = "<b>";
-		String afterHeader = "</b><br>";
+		String afterHeader = "</b><br/>";
 		String beforeValue = "";
-		String afterValue = "<br>";
+		String afterValue = "<br/>";
 		String token = "ALL";
 
 		if(tok.hasMoreTokens())
