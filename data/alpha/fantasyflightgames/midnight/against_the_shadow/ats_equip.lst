@@ -12,10 +12,10 @@ Poison Stone			TYPE:Goods.Container.General			CONTAINS:-1|Poison=10	COST:420	WT:
 
 ###Block:Alchemical Stuff and Liquids
 
-# Equipment Name	Type						Cost		Weight	Source Page
-Corspe Acid		TYPE:Goods.Alchemical.Liquid		COST:240	WT:1		SOURCEPAGE:p. 88
-Essence of Silver	TYPE:Goods.Alchemical.Liquid.Poison	COST:700	WT:1		SOURCEPAGE:p. 88
-Orcbane		TYPE:Goods.Alchemical.Liquid.Poison	COST:150	WT:1		SOURCEPAGE:p. 88
+# Equipment Name	Type								Cost		Weight	Source Page
+Corspe Acid		TYPE:Goods.Alchemical.Consumable.Liquid		COST:240	WT:1		SOURCEPAGE:p. 88
+Essence of Silver	TYPE:Goods.Alchemical.Consumable.Liquid.Poison	COST:700	WT:1		SOURCEPAGE:p. 88
+Orcbane		TYPE:Goods.Alchemical.Consumable.Liquid.Poison	COST:150	WT:1		SOURCEPAGE:p. 88
 
 #
 # End
