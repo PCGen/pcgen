@@ -33,4 +33,4 @@ Hotel Stay (four star/per day)	OUTPUTNAME:Hotel stay, four star (per day)	TYPE:G
 Hotel Stay (resort/per day)		OUTPUTNAME:Hotel stay, resort (per day)		TYPE:Goods.Lodging.Resizable								COST:200	WT:0
 Motel Stay (per day)											TYPE:Goods.Lodging.Resizable								COST:15	WT:0
 
-Meals (MRE/per day)											TYPE:Goods.Food.Resizable								COST:6	WT:1
+Meals (MRE/per day)											TYPE:Goods.Food.Resizable.Consumable						COST:6	WT:1
