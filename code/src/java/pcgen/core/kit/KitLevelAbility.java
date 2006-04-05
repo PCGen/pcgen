@@ -51,16 +51,25 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	private transient PCClass theClass = null;
 
+	/** Constructor */
 	public KitLevelAbility()
 	{
 		// Empty Constructor
 	}
 
+	/**
+	 * Set the class
+	 * @param className
+	 */
 	public void setClass(final String className)
 	{
 		theClassName = className;
 	}
 
+	/**
+	 * Set the level
+	 * @param level
+	 */
 	public void setLevel(final int level)
 	{
 		theLevel = level;
@@ -78,17 +87,30 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 			theChoices.addAll(choices);
 		}
 
+		/**
+		 * Get the ability
+		 * @return ability
+		 */
 		public final String getAbility()
 		{
 			return theAbilityName;
 		}
 
+		/**
+		 * Get choices
+		 * @return choices
+		 */
 		public final List getChoices()
 		{
 			return theChoices;
 		}
 	}
 
+	/**
+	 * Add an ability
+	 * @param anAbility
+	 * @param choices
+	 */
 	public void addAbility(final String anAbility, final List choices)
 	{
 		theAbilities.add(new AbilityChoice(anAbility, choices));

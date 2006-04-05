@@ -34,8 +34,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Loads abilities for levels added by a Kit
+ */
 public class KitLevelAbilityLoader
 {
+	/**
+	 * Parse the line
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{

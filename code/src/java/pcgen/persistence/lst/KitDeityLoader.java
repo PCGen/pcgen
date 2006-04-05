@@ -34,8 +34,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with loading DEITY for KIT
+ */
 public class KitDeityLoader
 {
+	/**
+	 * parse the line 
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{
@@ -59,7 +68,7 @@ public class KitDeityLoader
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			KitDeityLstToken token = (KitDeityLstToken) tokenMap.get(key);
 

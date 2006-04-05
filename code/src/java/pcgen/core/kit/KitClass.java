@@ -48,31 +48,55 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	private transient int theLevel = -1;
 	private transient boolean doLevelAbilities = true;
 
+	/**
+	 * Constructor
+	 * @param aClassName
+	 */
 	public KitClass(final String aClassName)
 	{
 		theClassName = aClassName;
 	}
 
+	/**
+	 * Get the class name
+	 * @return class name
+	 */
 	public String getClassName()
 	{
 		return theClassName;
 	}
 
+	/**
+	 * Set the level
+	 * @param aLevelStr
+	 */
 	public void setLevel(final String aLevelStr)
 	{
 		theLevelString = aLevelStr;
 	}
 
+	/**
+	 * Get the level string
+	 * @return level string
+	 */
 	public String getLevelString()
 	{
 		return theLevelString;
 	}
 
+	/**
+	 * Set the sub class
+	 * @param aClassName
+	 */
 	public void setSubClass(final String aClassName)
 	{
 		theSubClass = aClassName;
 	}
 
+	/**
+	 * Get the sub class
+	 * @return sub class
+	 */
 	public String getSubClass()
 	{
 		return theSubClass;

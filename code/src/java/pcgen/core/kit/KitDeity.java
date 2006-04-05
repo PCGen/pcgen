@@ -32,6 +32,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Deal with Dieties via Kits 
+ */
 public class KitDeity extends BaseKit implements Serializable, Cloneable
 {
 	// Only change the UID when the serialized form of the class has also changed
@@ -46,6 +49,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	private transient Deity theDeity = null;
 	private transient List domainsToAdd = null;
 
+	/**
+	 * Constructor
+	 * @param aDeityName
+	 */
 	public KitDeity(final String aDeityName)
 	{
 		theDeityName = aDeityName;
@@ -60,6 +67,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		return theDeityName;
 	}
 
+	/**
+	 * Add the domain
+	 * @param aDomainName
+	 */
 	public void addDomain(final String aDomainName)
 	{
 		if (theDomains == null)
@@ -69,6 +80,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		theDomains.add(aDomainName);
 	}
 
+	/**
+	 * Get domains
+	 * @return list of domains
+	 */
 	public List getDomains()
 	{
 		if (theDomains == null)
@@ -78,11 +93,20 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 
 		return Collections.unmodifiableList(theDomains);
 	}
+	
+	/**
+	 * Set the COUNT formula
+	 * @param argCountFormula
+	 */
 	public void setCountFormula(final String argCountFormula)
 	{
 		countFormula = argCountFormula;
 	}
 
+	/**
+	 * Get the COUNT formula
+	 * @return COUNT formula
+	 */
 	public String getCountFormula()
 	{
 		return countFormula;

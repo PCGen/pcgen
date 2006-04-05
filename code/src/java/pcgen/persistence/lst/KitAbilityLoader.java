@@ -10,8 +10,19 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with loading Abilities for Kits
+ */
 public class KitAbilityLoader
 {
+	/**
+	 * Parse the line
+	 * 
+	 * @param kit
+	 * @param colString
+	 * @param isFeat
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString, boolean isFeat)
 			throws PersistenceLayerException
 	{
@@ -42,7 +53,7 @@ public class KitAbilityLoader
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			KitAbilityLstToken token = (KitAbilityLstToken) tokenMap.get(key);
 

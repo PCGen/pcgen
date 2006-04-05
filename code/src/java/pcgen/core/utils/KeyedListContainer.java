@@ -32,17 +32,54 @@ import java.util.List;
  */
 public interface KeyedListContainer
 {
+	/**
+	 * Returns true if it contains a list for that key
+	 * @param key
+	 * @return true if it contains a list for that key
+	 */
 	public boolean containsListFor(ListKey key);
 
+	/**
+	 * Retrieves a list based on key
+	 * @param key
+	 * @return list
+	 */
 	public List getListFor(ListKey key);
 
+	/**
+	 * Get the size of a list based off a key
+	 * @param key
+	 * @return The size of a list based off a key
+	 */
 	public int getSizeOfListFor(ListKey key);
 
+	/**
+	 * Returns true if a value is in a list for that key
+	 * @param key
+	 * @param value
+	 * @return true if a value is in a list for that key
+	 */
 	public boolean containsInList(ListKey key, String value);
 
+	/**
+	 * Gets an element from the list
+	 * @param key
+	 * @param i
+	 * @return An element from the list
+	 */
 	public Object getElementInList(ListKey key, int i);
 
+	/**
+	 * Get safe list
+	 * @param key
+	 * @return safe list
+	 */
 	public List getSafeListFor(ListKey key);
 	
+	/**
+	 * Get the size of a safe list
+	 * @param key
+	 * @return The size of a safe list
+	 */
 	public int getSafeSizeOfListFor(ListKey key);
 }

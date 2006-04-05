@@ -60,16 +60,28 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	private transient Equipment theTarget = null;
 	private transient BigDecimal theCost = BigDecimalHelper.ZERO;
 
+	/**
+	 * Constructor
+	 * @param gearName
+	 */
 	public KitGear(final String gearName)
 	{
 		name = gearName;
 	}
 
+	/**
+	 * Get the equipmentt modifiers for this gear
+	 * @return The equipmentt modifiers for this gear
+	 */
 	public List getEqMods()
 	{
 		return eqMods;
 	}
 
+	/**
+	 * Set the max cost
+	 * @param argMaxCost
+	 */
 	public void setMaxCost(final String argMaxCost)
 	{
 		try
@@ -82,6 +94,10 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		}
 	}
 
+	/**
+	 * Get the max cost
+	 * @return max cost
+	 */
 	public int getMaxCost()
 	{
 		return maxCost;
@@ -96,11 +112,19 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		qty = argQty;
 	}
 
+	/**
+	 * Get the quantity
+	 * @return quantity
+	 */
 	public String getQty()
 	{
 		return qty;
 	}
 
+	/**
+	 * Add a equipment modifier
+	 * @param argEqMod
+	 */
 	public void addEqMod(final String argEqMod)
 	{
 		if (eqMods == null)
@@ -111,21 +135,37 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		eqMods.add(argEqMod);
 	}
 
+	/**
+	 * Set the size
+	 * @param aSize
+	 */
 	public void setSize(final String aSize)
 	{
 		size =  aSize;
 	}
 
+	/**
+	 * Get the size
+	 * @return size
+	 */
 	public String getSize()
 	{
 		return size;
 	}
 
+	/**
+	 * Set the location of the gear
+	 * @param aLocation
+	 */
 	public void setLocation(final String aLocation)
 	{
 		theLocationStr = aLocation;
 	}
 
+	/**
+	 * Get the location of the gear
+	 * @return location of the gear
+	 */
 	public String getLocation()
 	{
 		return theLocationStr;

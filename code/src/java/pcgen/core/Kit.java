@@ -625,17 +625,35 @@ public final class Kit extends PObject implements Comparable
 		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPreReqList(), false);
 	}
 
+	/**
+	 * Add new lookup table
+	 * @param tableName
+	 */
 	public void addLookupTable(final String tableName)
 	{
 		lookupTables.put(tableName, new LookupTable());
 	}
 
+	/**
+	 * Add a new lookup value to the table
+	 * @param tableName
+	 * @param lookupValue
+	 * @param lowVal
+	 * @param highVal
+	 */
 	public void addLookupValue(final String tableName, final String lookupValue, final String lowVal, final String highVal)
 	{
 		LookupTable table = (LookupTable)lookupTables.get(tableName);
 		table.addEntry(lookupValue, lowVal, highVal);
 	}
 
+	/**
+	 * Get a value out of the table
+	 * @param pc
+	 * @param tableName
+	 * @param value
+	 * @return A value out of the table
+	 */
 	public String getTableValue(PlayerCharacter pc, final String tableName, String value)
 	{
 		LookupTable t = (LookupTable)lookupTables.get(tableName);
@@ -647,6 +665,12 @@ public final class Kit extends PObject implements Comparable
 		return t.getEntry(pc, val);
 	}
 
+	/**
+	 * Perform a lookup
+	 * @param aPC
+	 * @param aValue
+	 * @return result
+	 */
 	public String lookup(PlayerCharacter aPC, String aValue)
 	{
 		int commaInd = aValue.indexOf(",");
@@ -668,11 +692,23 @@ public final class Kit extends PObject implements Comparable
 			// Empty Constructor
 		}
 
+		/**
+		 * Add an entry to the table
+		 * @param value
+		 * @param lowVal
+		 * @param highVal
+		 */
 		public void addEntry(final String value, final String lowVal, final String highVal)
 		{
 			values.add(new TableEntry(value, lowVal, highVal));
 		}
 
+		/**
+		 * Get an entry from the table
+		 * @param pc
+		 * @param value
+		 * @return entry
+		 */
 		public String getEntry(PlayerCharacter pc, int value)
 		{
 			for (Iterator i = values.iterator(); i.hasNext(); )
@@ -720,6 +756,10 @@ public final class Kit extends PObject implements Comparable
 				return false;
 			}
 
+			/**
+			 * Get the value
+			 * @return value
+			 */
 			public String getValue()
 			{
 				return value;

@@ -42,6 +42,12 @@ import pcgen.util.Logging;
  */
 public class KitFundsLoader
 {
+	/**
+	 * Parse the line
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{
@@ -64,7 +70,7 @@ public class KitFundsLoader
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			KitFundsLstToken token = (KitFundsLstToken) tokenMap.get(key);
 

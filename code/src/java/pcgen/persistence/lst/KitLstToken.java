@@ -42,6 +42,7 @@ public abstract class KitLstToken implements LstToken
 	 * @param aKit the Kit object to add this information to
 	 * @param value the token string
 	 * @return true if parse OK
+	 * @throws PersistenceLayerException 
 	 */
 	public abstract boolean parse(Kit aKit, String value)
 		throws PersistenceLayerException;
