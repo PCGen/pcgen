@@ -8,27 +8,27 @@ SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB
 Aquatic Quiver									TYPE:Goods.Container.General.Aquatic		CONTAINS:20|Arrow=20|Bolt=20|Total=20	COST:5	WT:1				SOURCEPAGE:p.24
 Disquise Kit (Waterproof)	OUTPUTNAME:Disquise Kit, Waterproof	TYPE:Goods.Tools.Resizable.Aquatic										COST:250	WT:8				SOURCEPAGE:p.24						BONUS:SKILL|Disguise|2
 Goggles (Swimming)		OUTPUTNAME:Goggles, Swimming		TYPE:Goods.General.Resizable.Aquatic.Eyegear								COST:5	WT:1				SOURCEPAGE:p.24
-Sailor's Wax									TYPE:Goods.Alchemical.Aquatic											COST:10	WT:-				SOURCEPAGE:p.24
+Sailor's Wax									TYPE:Goods.Alchemical.Aquatic.Consumable									COST:10	WT:-				SOURCEPAGE:p.24
 Swimming Gear (Gloves)								TYPE:Goods.General.Resizable.Aquatic.Glove								COST:50	WT:1		SLOTS:2	SOURCEPAGE:p.24						BONUS:SKILL|Swim|1	BONUS:SKILL|Disable Device,Open Lock,Pick Pocket|-2
 Swimming Gear (Flippers)							TYPE:Goods.General.Resizable.Aquatic.Boot									COST:50	WT:1		SLOTS:2	SOURCEPAGE:p.24	BONUS:MOVEMULT|TYPE=Walk|.5	BONUS:SKILL|Swim|1
 
 ###Block: Underwave Equipment
 
 # Equipment Name			Output Name						Type										Cost		Weight	Source Page
-Acid bulb											TYPE:Goods.Alchemical.Aquatic						COST:90	WT:.25	SOURCEPAGE:p.27
+Acid bulb											TYPE:Goods.Alchemical.Consumable.Aquatic				COST:90	WT:.25	SOURCEPAGE:p.27
 Glowmold Lantern (Hooded)	OUTPUTNAME:Glowmold Lantern, Hooded		TYPE:Goods.General.Resizable.Aquatic				COST:15	WT:3		SOURCEPAGE:p.28
 Glowmold Lantern (Bullseye)	OUTPUTNAME:Glowmold Lantern, Bullseye	TYPE:Goods.General.Resizable.Aquatic				COST:15	WT:3		SOURCEPAGE:p.28
-Glowmold fuel										TYPE:Goods.General.Aquatic						COST:.3	WT:.25	SOURCEPAGE:p.28
-Jellyfish paste										TYPE:Goods.General.Aquatic						COST:360	WT:-		SOURCEPAGE:p.28
+Glowmold fuel										TYPE:Goods.General.Aquatic.Consumable				COST:.3	WT:.25	SOURCEPAGE:p.28
+Jellyfish paste										TYPE:Goods.General.Aquatic.Consumable				COST:360	WT:-		SOURCEPAGE:p.28
 Spell shell											TYPE:Goods.General.Writing.Documents.Resizable.Aquatic	COST:5	WT:.5		SOURCEPAGE:p.29
 
 ###Block: Siege Engines
 
-# Equipment Name	Type					Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
-Bomb (Acid)		TYPE:Goods.Siege Engines	COST:250	CRITMULT:-			CRITRANGE:1			DAMAGE:4d6	RANGE:200	SOURCEPAGE:p.105
-Bomb (Fire)		TYPE:Goods.Siege Engines	COST:300	CRITMULT:-			CRITRANGE:1			DAMAGE:5d6	RANGE:200	SOURCEPAGE:p.105
-Bomb (Shrapnel)	TYPE:Goods.Siege Engines	COST:200	CRITMULT:-			CRITRANGE:1			DAMAGE:2d6	RANGE:200	SOURCEPAGE:p.105
-Cannon		TYPE:Goods.Siege Engines	COST:5000	CRITMULT:-			CRITRANGE:1			DAMAGE:6d6	RANGE:300	SOURCEPAGE:p.105
+# Equipment Name	Type						Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
+Bomb (Acid)		TYPE:Goods.Siege Engines.Consumable	COST:250	CRITMULT:-			CRITRANGE:1			DAMAGE:4d6	RANGE:200	SOURCEPAGE:p.105
+Bomb (Fire)		TYPE:Goods.Siege Engines.Consumable	COST:300	CRITMULT:-			CRITRANGE:1			DAMAGE:5d6	RANGE:200	SOURCEPAGE:p.105
+Bomb (Shrapnel)	TYPE:Goods.Siege Engines.Consumable	COST:200	CRITMULT:-			CRITRANGE:1			DAMAGE:2d6	RANGE:200	SOURCEPAGE:p.105
+Cannon		TYPE:Goods.Siege Engines		COST:5000	CRITMULT:-			CRITRANGE:1			DAMAGE:6d6	RANGE:300	SOURCEPAGE:p.105
 
 ###Block: Ship Castles
 

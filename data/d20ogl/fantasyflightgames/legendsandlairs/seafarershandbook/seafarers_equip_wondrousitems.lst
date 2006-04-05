@@ -13,4 +13,4 @@ Figurehead of Protection				TYPE:Magic.Wondrous			COST:27000	WT:300						SOURCEP
 Master Wheel						TYPE:Magic.Wondrous			COST:72000	WT:75							SOURCEPAGE:p.41
 Helmet of the Crab					TYPE:Magic.Wondrous.Headgear		COST:5800	WT:3							SOURCEPAGE:p.41											BONUS:COMBAT|AC|1|TYPE=Enhancement	SPROP:Wearer cannot be suprised
 Lacedon Cloak						TYPE:Magic.Wondrous.Cape		COST:4750	WT:1							SOURCEPAGE:p.41	SPELLS:Lacedon Cloak|TIMES=6|CASTERLEVEL=7|Ghoul Touch,15	BONUS:COMBAT|AC|2|TYPE=Enhancement
-Waterproof Scroll						TYPE:WaterproofScroll			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:p.24																	SPROP:Ignors all damage caused by immersion in or exposure to water
+Waterproof Scroll						TYPE:WaterproofScroll.Consumable	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:p.24																	SPROP:Ignors all damage caused by immersion in or exposure to water
