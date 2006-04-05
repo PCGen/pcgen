@@ -45,6 +45,9 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		super();
 	}
 
+	/**
+	 * Test the basic DR Handling
+	 */
 	public void testBasicDRHandling()
 	{
 		DamageReduction dr1 = new DamageReduction("5", "magic");
@@ -66,6 +69,9 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		is(new Boolean(true), eq(dr1.equals(dr2)));
 	}
 
+	/**
+	 * Test the adding of DRs
+	 */
 	public void testAddDRs()
 	{
 		DamageReduction dr1 = new DamageReduction("10", "magic");
@@ -81,6 +87,10 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		assertEquals(true, result == null);
 	}
 
+	/**
+	 * Test PREREQs for DRs
+	 * @throws Exception
+	 */
 	public void testPreReqs() throws Exception
 	{
 		DamageReduction dr1 = new DamageReduction("10", "magic");
@@ -109,6 +119,9 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		assertEquals("10/good", result);
 	}
 
+	/**
+	 * Test combinign DRs
+	 */
 	public void testCombineDRs()
 	{
 		DamageReduction dr1 = new DamageReduction("10", "magic");
@@ -238,6 +251,9 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		assertEquals("10/lawful; 5/evil", result);
 	}
 
+	/**
+	 * Test the retrieval of the DR String
+	 */
 	public void testGetDRString()
 	{
 		ArrayList drList = new ArrayList();

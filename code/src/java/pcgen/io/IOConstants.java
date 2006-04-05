@@ -266,34 +266,57 @@ interface IOConstants
 	/** POSTSTAT */
 	String TAG_POSTSTAT          = "POSTSTAT";
 
-
+	/** PRESTAT */
 	String TAG_PRESTAT        = "PRESTAT";
+	/** PROHIBITED */
 	String TAG_PROHIBITED     = "PROHIBITED";
+	/** PROMPT */
 	String TAG_PROMPT         = "PROMPT";
+	/** PURCHASEPOINTS */
 	String TAG_PURCHASEPOINTS = "PURCHASEPOINTS";
+	/** QUANTITY */
 	String TAG_QUANTITY       = "QUANTITY";
+	/** RACE */
 	String TAG_RACE           = "RACE";
 
-
+	/** RANKS */
 	String TAG_RANKS      = "RANKS";
+	/** REGION */
 	String TAG_REGION     = "REGION";
+	/** RESIDENCE */
 	String TAG_RESIDENCE  = "RESIDENCE";
+	/** ROLLMETHOD */
 	String TAG_ROLLMETHOD = "ROLLMETHOD";
+	/** SA */
 	String TAG_SA         = "SA";
+	/** SAVE */
 	String TAG_SAVE       = "SAVE";
+	/** SAVES */
 	String TAG_SAVES      = "SAVES";
 
+	/** SCORE */
 	String TAG_SCORE                = "SCORE";
+	/** SKILL */
 	String TAG_SKILL                = "SKILL";
+	/** SKILLSGAINED */
 	String TAG_SKILLPOINTSGAINED    = "SKILLSGAINED";
+	/** SKILLSREMAINING */
 	String TAG_SKILLPOINTSREMAINING = "SKILLSREMAINING";
+	/** SKILLPOOL */
 	String TAG_SKILLPOOL            = "SKILLPOOL";
+	/** SKILLSOUTPUTORDER */
 	String TAG_SKILLSOUTPUTORDER    = "SKILLSOUTPUTORDER";
+	/** SKINCOLOR */
 	String TAG_SKINCOLOR            = "SKINCOLOR";
+	/** SOURCE */
 	String TAG_SOURCE               = "SOURCE";
+	/** SPECIALABILITIES */
 	String TAG_SPECIALABILITIES     = "SPECIALABILITIES";
+	/** SPECIALTIES */
 	String TAG_SPECIALTIES          = "SPECIALTIES";
+	/** SPECIALTY */
 	String TAG_SPECIALTY            = "SPECIALTY";
+	/** SPEECHPATTERN */
 	String TAG_SPEECHPATTERN        = "SPEECHPATTERN";
 
 	/** SPELLBASE */

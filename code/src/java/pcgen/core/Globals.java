@@ -3481,8 +3481,6 @@ public final class Globals
 		final List bList = new ArrayList();
 		String aString;
 		StringTokenizer aTok;
-		String typeString;
-		String wpString;
 		WeaponProf tempProf;
 
 		for (Iterator e = aPC.getChangeProfList().iterator(); e.hasNext();)

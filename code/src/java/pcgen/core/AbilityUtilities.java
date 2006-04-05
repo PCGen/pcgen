@@ -1149,7 +1149,8 @@ public class AbilityUtilities
 	/**
 	 * Do the strings passed in represent the same Ability object in the
 	 * Category category?
-	 *
+	 * 
+	 * @param category 
 	 * @param first
 	 * @param second
 	 * @return true if the same object is represented

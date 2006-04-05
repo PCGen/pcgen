@@ -420,10 +420,7 @@ public class DamageReduction implements Comparable
 			{
 				return dr1.toString() + "; " + dr2.toString();
 			}
-			else
-			{
-				return dr2.toString() + "; " + dr1.toString();
-			}
+			return dr2.toString() + "; " + dr1.toString();
 		}
 		return drResult.toString();
 	}

@@ -27,6 +27,9 @@ package pcgen.core;
 import pcgen.PCGenTestCase;
 import pcgen.util.TestHelper;
 
+/**
+ * Class to test ABILITY
+ */
 public class AbilityTest extends PCGenTestCase {
 
 	/**
@@ -51,7 +54,7 @@ public class AbilityTest extends PCGenTestCase {
 		super.tearDown();
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.Ability.isSameBaseAbility(Ability)'
 	 */
 	public final void testIsSameBaseAbility() {
