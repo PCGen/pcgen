@@ -73,7 +73,7 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 			final List            availableList,
 			final List            selectedList)
 	{
-
+		// TODO Finish this?
 	}
 
 	void setWeaponProfTypeSelections(

@@ -52,7 +52,7 @@ public interface TableColumnManagerModel {
 	/**
 	 * Sets any column specific renderers/editors
 	 * @param col
-	 * @param width
+	 * @param column 
 	 */
 	public void resetMColumn(int col, TableColumn column);
 }
