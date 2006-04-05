@@ -80,15 +80,15 @@ Map								TYPE:Goods.Arcanum.Map																				COST:1000	WT:0		SIZE:S	SOUR
 Clothing (Ancient)					TYPE:Goods.Clothing.JunkItems.Resizable																	COST:150	WT:0				SOURCEPAGE:p.54
 
 #Foodstuffs
-Canned Food							TYPE:Goods.FoodStuffs																				COST:5	WT:0		SIZE:S	SOURCEPAGE:p.55
-Dehydrated Food Pill					TYPE:Goods.FoodStuffs																				COST:5	WT:0		SIZE:T	SOURCEPAGE:p.55
-Goo Tube							TYPE:Goods.FoodStuffs																				COST:5	WT:0		SIZE:T	SOURCEPAGE:p.55
-HEVE Candy							TYPE:Goods.FoodStuffs																				COST:10	WT:0		SIZE:T	SOURCEPAGE:p.55
-Power Bars							TYPE:Goods.FoodStuffs																				COST:5	WT:0		SIZE:T	SOURCEPAGE:p.55
-Readi-Meal							TYPE:Goods.FoodStuffs																				COST:10	WT:0		SIZE:S	SOURCEPAGE:pp.55,56
-Salt Pill							TYPE:Goods.FoodStuffs																				COST:10	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
-Soup Mix							TYPE:Goods.FoodStuffs																				COST:1	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
-Synthihol (bottle)					TYPE:Goods.FoodStuffs																				COST:10	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
+Canned Food							TYPE:Goods.FoodStuffs.Consumable																		COST:5	WT:0		SIZE:S	SOURCEPAGE:p.55
+Dehydrated Food Pill					TYPE:Goods.FoodStuffs.Consumable																		COST:5	WT:0		SIZE:T	SOURCEPAGE:p.55
+Goo Tube							TYPE:Goods.FoodStuffs.Consumable																		COST:5	WT:0		SIZE:T	SOURCEPAGE:p.55
+HEVE Candy							TYPE:Goods.FoodStuffs.Consumable																		COST:10	WT:0		SIZE:T	SOURCEPAGE:p.55
+Power Bars							TYPE:Goods.FoodStuffs.Consumable																		COST:5	WT:0		SIZE:T	SOURCEPAGE:p.55
+Readi-Meal							TYPE:Goods.FoodStuffs.Consumable																		COST:10	WT:0		SIZE:S	SOURCEPAGE:pp.55,56
+Salt Pill							TYPE:Goods.FoodStuffs.Consumable																		COST:10	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
+Soup Mix							TYPE:Goods.FoodStuffs.Consumable																		COST:1	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
+Synthihol (bottle)					TYPE:Goods.FoodStuffs.Consumable																		COST:10	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
 
 #Gizmos
 # Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Combat bonus						Bonus to skill									Stat bonus					Special Property
@@ -160,29 +160,29 @@ X-Ray Goggles						TYPE:Goods.Gizmos.Powered																			COST:25000	WT:2		
 
 #Good Juju
 # Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Combat bonus						Bonus to skill									Stat bonus					Special Property
-Antitox							TYPE:Goods.GoodJuju.Drug.Medical																		COST:375	WT:0		SIZE:T	SOURCEPAGE:pp.57,58
+Antitox							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:375	WT:0		SIZE:T	SOURCEPAGE:pp.57,58
 Diagnostic Scanner					TYPE:Goods.GoodJuju.Medical.Device.Powered																COST:10500	WT:0		SIZE:S	SOURCEPAGE:pp.58,59																				BONUS:SKILL|Knowledge (Pathology)|10|TYPE=Enhancement
-Filter Dose							TYPE:Goods.GoodJuju.Drug.Medical																		COST:400	WT:0		SIZE:T	SOURCEPAGE:p.58
-Halazone Tablets						TYPE:Goods.GoodJuju																				COST:50	WT:0		SIZE:T	SOURCEPAGE:p.58
+Filter Dose							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:400	WT:0		SIZE:T	SOURCEPAGE:p.58
+Halazone Tablets						TYPE:Goods.GoodJuju.Consumable																		COST:50	WT:0		SIZE:T	SOURCEPAGE:p.58
 Healing Pack						TYPE:Goods.GoodJuju.Medical.Device.Powered																COST:70000	WT:2		SIZE:S	SOURCEPAGE:pp.58,59
-Hemochem							TYPE:Goods.GoodJuju.Drug.Medical																		COST:100	WT:0		SIZE:T	SOURCEPAGE:p.58
-Hercurin							TYPE:Goods.GoodJuju.Drug.Enhancement																	COST:150	WT:0		SIZE:T	SOURCEPAGE:p.58
-K-O Shot							TYPE:Goods.GoodJuju.Drug																			COST:150	WT:0		SIZE:T	SOURCEPAGE:p.58
+Hemochem							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:100	WT:0		SIZE:T	SOURCEPAGE:p.58
+Hercurin							TYPE:Goods.GoodJuju.Drug.Consumable.Enhancement																COST:150	WT:0		SIZE:T	SOURCEPAGE:p.58
+K-O Shot							TYPE:Goods.GoodJuju.Drug.Consumable																		COST:150	WT:0		SIZE:T	SOURCEPAGE:p.58
 Medical Kit (Civilian)					TYPE:Goods.GoodJuju.Container.Medical			CONTAINS:0|Total=9|Drug.Medical=9									COST:4650	WT:3		SIZE:M	SOURCEPAGE:pp.58,59
 Medical Kit (Military)					TYPE:Goods.GoodJuju.Container.Medical			CONTAINS:0|Total=13|Drug.Medical=13									COST:6150	WT:3		SIZE:M	SOURCEPAGE:pp.58,59
 Medi-Spray (Healing)					TYPE:Goods.GoodJuju.Drug.Medical																		COST:250	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
 Medi-Spray (Spore Neutralization)			TYPE:Goods.GoodJuju.Drug.Medical																		COST:450	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
 Pocket Nurse						TYPE:Goods.GoodJuju.Medical.Device.Powered		CONTAINS:0|Total=3|Drug=3										COST:8000	WT:0		SIZE:S	SOURCEPAGE:pp.58-60
-Proton Energy Pill					TYPE:Goods.GoodJuju.Drug.Medical																		COST:450	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
-Rad-Purge Shot						TYPE:Goods.GoodJuju.Drug.Medical																		COST:375	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Proton Energy Pill					TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:450	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Rad-Purge Shot						TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:375	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
 Ready Syringe						TYPE:Goods.GoodJuju.Medical.Device																		COST:5	WT:0		SIZE:T	SOURCEPAGE:pp.58,60
 Regen Tank							TYPE:Goods.GoodJuju.Medical.Device.Powered.Building															COST:175000	WT:9999	SIZE:H	SOURCEPAGE:pp.58,59
-Stimshot A							TYPE:Goods.GoodJuju.Drug.Medical																		COST:150	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
-Stimshot B							TYPE:Goods.GoodJuju.Drug.Medical																		COST:300	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
-Superegen							TYPE:Goods.GoodJuju.Drug.Medical																		COST:150	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
-Sustainer Shot						TYPE:Goods.GoodJuju.Drug.Medical																		COST:250	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
-Tailored Narcotics					TYPE:Goods.GoodJuju.Drug																			COST:50	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
-Truth Serum							TYPE:Goods.GoodJuju.Drug																			COST:250	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Stimshot A							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:150	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Stimshot B							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:300	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Superegen							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:150	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Sustainer Shot						TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:250	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Tailored Narcotics					TYPE:Goods.GoodJuju.Drug.Consumable																		COST:50	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
+Truth Serum							TYPE:Goods.GoodJuju.Drug.Consumable																		COST:250	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
 
 #Junk Items
 # Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Combat bonus						Bonus to skill									Stat bonus					Special Property

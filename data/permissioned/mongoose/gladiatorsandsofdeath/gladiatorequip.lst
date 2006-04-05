@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com
+
 # Equipment Name	Type				Contains			Cost		Weight	Source Page
 Chariot (Light)	TYPE:Goods.Vehicle	CONTAINS:800|Any=-1	COST:300	WT:300	SOURCEPAGE:p.53
 Chariot (Medium)	TYPE:Goods.Vehicle	CONTAINS:1200|Any=-1	COST:500	WT:450	SOURCEPAGE:p.53

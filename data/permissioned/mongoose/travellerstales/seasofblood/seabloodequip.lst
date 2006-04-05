@@ -2,7 +2,7 @@
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
 
 # Equipment Name							Type							Contains							Cost			Weight	Source Page		Combat bonus			Bonus to skill								Special Property
-Tarred Armour							TYPE:Goods.Alchemical												COST:25		WT:1		SOURCEPAGE:p.71	BONUS:COMBAT|AC|1|TYPE=Tar											SPROP:Double damage from fire-based attacks. Reapply once a month.
+Tarred Armour							TYPE:Goods.Alchemical.Consumable										COST:25		WT:1		SOURCEPAGE:p.71	BONUS:COMBAT|AC|1|TYPE=Tar											SPROP:Double damage from fire-based attacks. Reapply once a month.
 Case (Watertight Scroll)					TYPE:Goods.Container				CONTAINS:3|Total=6|Scroll=6|Documents=6|Paper=6	COST:5		WT:.5		SOURCEPAGE:p.71																SPROP:Water-tight
 Sea Chest								TYPE:Goods.Container				CONTAINS:200|Any=200					COST:25		WT:30		SOURCEPAGE:p.71																SPROP:Water-tight
 Mechanical Log (Gnomish)					TYPE:Goods.Tools													COST:750		WT:12		SOURCEPAGE:p.						BONUS:SKILL|Profession (Navigator)|1|TYPE=Circumstance
