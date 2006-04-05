@@ -50,8 +50,8 @@ Bracers of Armor +8																	TYPE:Magic.Wondrous.Bracer																CO
 Brazier of Commanding Fire Elementals														TYPE:Magic.Wondrous																	COST:100000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Brooch of Shielding																	TYPE:Magic.Wondrous.Amulet																COST:1500	WT:0														EQMOD:CHARGED_ITEM_101|CHARGES[101]			SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Broom of Flying																		TYPE:Magic.Wondrous																	COST:15100	WT:3																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Candle of Invocation																	TYPE:Magic.Wondrous																	COST:7800	WT:0.5																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Candle of Truth																		TYPE:Magic.Wondrous																	COST:2500	WT:0.5																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Candle of Invocation																	TYPE:Magic.Wondrous.Consumable															COST:7800	WT:0.5																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Candle of Truth																		TYPE:Magic.Wondrous.Consumable															COST:2500	WT:0.5																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Cape of the Mountebank																	TYPE:Magic.Wondrous.Cape																COST:12960	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Carpet of Flying (3x5)																	TYPE:Magic.Wondrous																	COST:18000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Carpet of Flying (4x6)																	TYPE:Magic.Wondrous																	COST:29000	WT:8																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
@@ -92,11 +92,11 @@ Decanter of Endless Water																TYPE:Magic.Wondrous																	COS
 Deck of Illusions																		TYPE:Magic.Wondrous																	COST:9200	WT:0.5																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Dimensional Shackles																	TYPE:Magic.Wondrous																	COST:26000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Drums of Panic																		TYPE:Magic.Wondrous																	COST:30000	WT:10																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Dust of Appearance																	TYPE:Magic.Wondrous																	COST:2100	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Dust of Disappearance																	TYPE:Magic.Wondrous																	COST:3500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Dust of Dryness																		TYPE:Magic.Wondrous																	COST:850	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Dust of Illusion																		TYPE:Magic.Wondrous																	COST:500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Dust of Tracelessness																	TYPE:Magic.Wondrous																	COST:250	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Dust of Appearance																	TYPE:Magic.Wondrous.Consumable															COST:2100	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Dust of Disappearance																	TYPE:Magic.Wondrous.Consumable															COST:3500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Dust of Dryness																		TYPE:Magic.Wondrous.Consumable															COST:850	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Dust of Illusion																		TYPE:Magic.Wondrous.Consumable															COST:500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Dust of Tracelessness																	TYPE:Magic.Wondrous.Consumable															COST:250	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Efficient Quiver																		TYPE:Magic.Wondrous.Container								CONTAINS:*-1|Ammunition=60|Thrown=18|Weapon=6	COST:1800	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Efreeti Bottle																		TYPE:Magic.Wondrous																	COST:150000	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Everburning Torch																		TYPE:Magic.Wondrous																	COST:90	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
@@ -105,12 +105,12 @@ Eyes of Charming																		TYPE:Magic.Wondrous.Eyegear																COS
 Eyes of Doom																		TYPE:Magic.Wondrous.Eyegear																COST:24500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Eyes of the Eagle																		TYPE:Magic.Wondrous.Eyegear																COST:1000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																																BONUS:SKILL|Spot|5|TYPE=Circumstance
 Eyes of Petrification																	TYPE:Magic.Wondrous.Eyegear																COST:98000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Feather Token (Anchor)																	TYPE:Magic.Wondrous																	COST:50	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Feather Token (Bird)																	TYPE:Magic.Wondrous																	COST:300	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Feather Token (Fan)																	TYPE:Magic.Wondrous																	COST:200	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Feather Token (Swan Boat)																TYPE:Magic.Wondrous																	COST:450	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Feather Token (Tree)																	TYPE:Magic.Wondrous																	COST:100	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Feather Token (Whip)																	TYPE:Magic.Wondrous																	COST:500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Feather Token (Anchor)																	TYPE:Magic.Wondrous.Consumable															COST:50	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Feather Token (Bird)																	TYPE:Magic.Wondrous.Consumable															COST:300	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Feather Token (Fan)																	TYPE:Magic.Wondrous.Consumable															COST:200	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Feather Token (Swan Boat)																TYPE:Magic.Wondrous.Consumable															COST:450	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Feather Token (Tree)																	TYPE:Magic.Wondrous.Consumable															COST:100	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Feather Token (Whip)																	TYPE:Magic.Wondrous.Consumable															COST:500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Figurine of Wondrous Power (Bronze Griffon)													TYPE:Magic.Wondrous																	COST:10000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Figurine of Wondrous Power (Ebony Fly)														TYPE:Magic.Wondrous																	COST:10000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Figurine of Wondrous Power (Golden Lions)														TYPE:Magic.Wondrous																	COST:16500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
@@ -155,7 +155,7 @@ Horn of Valhalla (Iron)																	TYPE:Magic.Wondrous																	COST
 Horn of Valhalla (Silver)																TYPE:Magic.Wondrous																	COST:50000	WT:2																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Horseshoes of Speed																	TYPE:Magic.Wondrous																	COST:1900	WT:3																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Horseshoes of a Zephyr																	TYPE:Magic.Wondrous																	COST:3000	WT:3																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Incense of Meditation																	TYPE:Magic.Wondrous																	COST:4900	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Incense of Meditation																	TYPE:Magic.Wondrous.Consumable															COST:4900	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Instant Fortress																		TYPE:Magic.Wondrous																	COST:55000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Ioun Stone (Dull Grey)																	TYPE:Magic.Wondrous																	COST:25	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Ioun Stone (Dusty Rose)																	TYPE:Magic.Wondrous																	COST:4000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																																												BONUS:COMBAT|AC|1|TYPE=Insight
@@ -179,22 +179,22 @@ Lantern of Revealing																	TYPE:Magic.Wondrous																	COST:30
 Lens of Detection																		TYPE:Magic.Wondrous																	COST:3500	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																																BONUS:SKILL|Search|10																																																																																																																																																																																																																																																																																			SPROP:+10 to Wilderness Lore while Tracking
 Lyre of Building																		TYPE:Magic.Wondrous																	COST:13000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Mantle of Spell Resistance																TYPE:Magic.Wondrous																	COST:90000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																				SR:21
-Manual of Bodily Health +1																TYPE:Magic.Wondrous.Book																COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Bodily Health +2																TYPE:Magic.Wondrous.Book																COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Bodily Health +3																TYPE:Magic.Wondrous.Book																COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Bodily Health +4																TYPE:Magic.Wondrous.Book																COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Bodily Health +5																TYPE:Magic.Wondrous.Book																COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Gainful Exercise +1																TYPE:Magic.Wondrous.Book																COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Gainful Exercise +2																TYPE:Magic.Wondrous.Book																COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Gainful Exercise +3																TYPE:Magic.Wondrous.Book																COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Gainful Exercise +4																TYPE:Magic.Wondrous.Book																COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Gainful Exercise +5																TYPE:Magic.Wondrous.Book																COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Quickness of Action +1															TYPE:Magic.Wondrous.Book																COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Quickness of Action +2															TYPE:Magic.Wondrous.Book																COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Quickness of Action +3															TYPE:Magic.Wondrous.Book																COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Quickness of Action +4															TYPE:Magic.Wondrous.Book																COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Manual of Quickness of Action +5															TYPE:Magic.Wondrous.Book																COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Marvelous Pigments																	TYPE:Magic.Wondrous																	COST:5500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Bodily Health +1																TYPE:Magic.Wondrous.Book.Consumable															COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Bodily Health +2																TYPE:Magic.Wondrous.Book.Consumable															COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Bodily Health +3																TYPE:Magic.Wondrous.Book.Consumable															COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Bodily Health +4																TYPE:Magic.Wondrous.Book.Consumable															COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Bodily Health +5																TYPE:Magic.Wondrous.Book.Consumable															COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Gainful Exercise +1																TYPE:Magic.Wondrous.Book.Consumable															COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Gainful Exercise +2																TYPE:Magic.Wondrous.Book.Consumable															COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Gainful Exercise +3																TYPE:Magic.Wondrous.Book.Consumable															COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Gainful Exercise +4																TYPE:Magic.Wondrous.Book.Consumable															COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Gainful Exercise +5																TYPE:Magic.Wondrous.Book.Consumable															COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Quickness of Action +1															TYPE:Magic.Wondrous.Book.Consumable															COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Quickness of Action +2															TYPE:Magic.Wondrous.Book.Consumable															COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Quickness of Action +3															TYPE:Magic.Wondrous.Book.Consumable															COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Quickness of Action +4															TYPE:Magic.Wondrous.Book.Consumable															COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Manual of Quickness of Action +5															TYPE:Magic.Wondrous.Book.Consumable															COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Marvelous Pigments																	TYPE:Magic.Wondrous.Consumable															COST:5500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Mask of the Skull																		TYPE:Magic.Wondrous																	COST:25000	WT:3																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Mattock of the Titans													PROFICIENCY:Morningstar	TYPE:Magic.Wondrous.Weapon.Simple.Melee.Bludgeoning.Piercing.Metal.Mace									COST:23000	WT:120			CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6							SIZE:G	SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																																																																																																			BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement																																																																																																																																																																																																												SPROP:Smashes rock and removes dirt in the hands of a Huge user
 Maul of the Titans													PROFICIENCY:Greatclub	TYPE:Magic.Wondrous.Weapon.Martial.Melee.Bludgeoning.Wooden.Club										COST:25000	WT:160			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10							SIZE:L	SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																																																																																																			BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PRESTAT:1,STR=18																																																																																																																																																																																																	SPROP:Triple damage to inanimate objects, Must have an 18 Strength to wield properly
@@ -262,31 +262,31 @@ Scarab (Golembane/Iron)																	TYPE:Magic.Wondrous.Amulet														
 Scarab (Golembane/Flesh and Clay)															TYPE:Magic.Wondrous.Amulet																COST:1800	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Scarab (Golembane/Any)																	TYPE:Magic.Wondrous.Amulet																COST:2500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Slippers of Spider Climbing																TYPE:Magic.Wondrous.Boot																COST:2000	WT:0.5	SLOTS:2																			SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Sovereign Glue																		TYPE:Magic.Wondrous.Vial																COST:2400	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Sovereign Glue																		TYPE:Magic.Wondrous.Vial.Consumable															COST:2400	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Stone of Alarm																		TYPE:Magic.Wondrous																	COST:1000	WT:2																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Stone of Controlling Earth Elementals														TYPE:Magic.Wondrous																	COST:100000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Stone of Good Luck (Luckstone)															TYPE:Magic.Wondrous																	COST:10000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																																			BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck																						BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck																																		BONUS:VAR|TurnCheckBase|1|TYPE=Luck																																																																																																																																																																																																																												SPROP:+1 Luck bonus to ability checks
 Stone Horse (Corsair)																	TYPE:Magic.Wondrous																	COST:10000	WT:6000																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Stone Horse (Destrier)																	TYPE:Magic.Wondrous																	COST:14000	WT:6000																					SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Stone Salve																			TYPE:Magic.Wondrous.Vial																COST:4000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Stone Salve																			TYPE:Magic.Wondrous.Vial.Consumable															COST:4000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Sustaining Spoon																		TYPE:Magic.Wondrous																	COST:5500	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Talisman of the Sphere																	TYPE:Magic.Wondrous																	COST:9000	WT:1																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Clear Thought +1																TYPE:Magic.Wondrous.Book																COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Clear Thought +2																TYPE:Magic.Wondrous.Book																COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Clear Thought +3																TYPE:Magic.Wondrous.Book																COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Clear Thought +4																TYPE:Magic.Wondrous.Book																COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Clear Thought +5																TYPE:Magic.Wondrous.Book																COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Leadership and Influence +1															TYPE:Magic.Wondrous.Book																COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Leadership and Influence +2															TYPE:Magic.Wondrous.Book																COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Leadership and Influence +3															TYPE:Magic.Wondrous.Book																COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Leadership and Influence +4															TYPE:Magic.Wondrous.Book																COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Leadership and Influence +5															TYPE:Magic.Wondrous.Book																COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Understanding +1																TYPE:Magic.Wondrous.Book																COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Understanding +2																TYPE:Magic.Wondrous.Book																COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Understanding +3																TYPE:Magic.Wondrous.Book																COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Understanding +4																TYPE:Magic.Wondrous.Book																COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Tome of Understanding +5																TYPE:Magic.Wondrous.Book																COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
-Universal Solvent																		TYPE:Magic.Wondrous.Vial																COST:2000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Clear Thought +1																TYPE:Magic.Wondrous.Book.Consumable															COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Clear Thought +2																TYPE:Magic.Wondrous.Book.Consumable															COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Clear Thought +3																TYPE:Magic.Wondrous.Book.Consumable															COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Clear Thought +4																TYPE:Magic.Wondrous.Book.Consumable															COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Clear Thought +5																TYPE:Magic.Wondrous.Book.Consumable															COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Leadership and Influence +1															TYPE:Magic.Wondrous.Book.Consumable															COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Leadership and Influence +2															TYPE:Magic.Wondrous.Book.Consumable															COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Leadership and Influence +3															TYPE:Magic.Wondrous.Book.Consumable															COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Leadership and Influence +4															TYPE:Magic.Wondrous.Book.Consumable															COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Leadership and Influence +5															TYPE:Magic.Wondrous.Book.Consumable															COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Understanding +1																TYPE:Magic.Wondrous.Book.Consumable															COST:27500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Understanding +2																TYPE:Magic.Wondrous.Book.Consumable															COST:55000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Understanding +3																TYPE:Magic.Wondrous.Book.Consumable															COST:82500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Understanding +4																TYPE:Magic.Wondrous.Book.Consumable															COST:110000	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Tome of Understanding +5																TYPE:Magic.Wondrous.Book.Consumable															COST:137500	WT:5																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
+Universal Solvent																		TYPE:Magic.Wondrous.Vial.Consumable															COST:2000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
 Vest of Escape																		TYPE:Magic.Wondrous.Shirt																COST:2000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																																BONUS:SKILL|Escape Artist|6|TYPE=Competence	BONUS:SKILL|Open Lock|4|TYPE=Competence
 Vestments (Druid)																		TYPE:Magic.Wondrous.Clothing																COST:5800	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf																																																																																																																					BONUS:VAR|WildShapeTimes|1
 Vestments of Faith																	TYPE:Magic.Wondrous.Clothing																COST:76000	WT:0																						SOURCEPAGE:srdmagicitemswondrousitems.rtf
