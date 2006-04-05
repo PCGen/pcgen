@@ -38,11 +38,11 @@ Distorted Spectacles	TYPE:Foci.Goods.Tools	COST:50	WT:0		SOURCEPAGE:p.55
 
 #
 ###Block: Drugs
-# Equipment Name		Type				Cost		Weight	Source Page
-Displacer Blood		TYPE:Alchemical.Drug	COST:75	WT:0		SOURCEPAGE:p.56
-Destrachan Wax		TYPE:Alchemical.Drug	COST:60	WT:0		SOURCEPAGE:p.56
-Vision Powder		TYPE:Alchemical.Drug	COST:100	WT:0		SOURCEPAGE:p.56
-Distillation of Dreams	TYPE:Alchemical.Drug	COST:200	WT:0		SOURCEPAGE:p.56
+# Equipment Name		Type						Cost		Weight	Source Page
+Displacer Blood		TYPE:Alchemical.Drug.Consumable	COST:75	WT:0		SOURCEPAGE:p.56
+Destrachan Wax		TYPE:Alchemical.Drug.Consumable	COST:60	WT:0		SOURCEPAGE:p.56
+Vision Powder		TYPE:Alchemical.Drug.Consumable	COST:100	WT:0		SOURCEPAGE:p.56
+Distillation of Dreams	TYPE:Alchemical.Drug.Consumable	COST:200	WT:0		SOURCEPAGE:p.56
 
 
 #
