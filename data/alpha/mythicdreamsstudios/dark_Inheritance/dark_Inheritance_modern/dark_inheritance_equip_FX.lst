@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 21:17:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 # Original Entry by: Frank Kliewe
 
@@ -12,19 +12,19 @@ The Chongquing Fan	TYPE:FX.Wondrous.Magic	COST:33	WT:3		SOURCEPAGE:p.49									
 Fists of Shadow		TYPE:FX.Wondrous.Magic	COST:29	WT:0.5	SOURCEPAGE:p.49	SPELLS:Fists of Shadow|TIMES=-1|CASTERLEVEL=3|Spider Climb,11	SPROP:+4 to Hide in dark or shadowy conditions.
 
 ###Block: Magic Items
-# Equipment Name			Type						Contains		Cost		Weight	Modifier					Source Page		Vision			Special Property
-Band-Aids of Curing (10)	TYPE:FX.Wondrous.Magic		BASEQTY:10			COST:29	WT:0								SOURCEPAGE:p.198					SPROP:immediately heals 1d8*3 hp
-Closed-Circuit PDA		TYPE:FX.Wondrous.Magic						COST:35	WT:1								SOURCEPAGE:p.199
-Djinni Gold Card			TYPE:FX.Wondrous.Magic						COST:35	WT:0								SOURCEPAGE:p.199					SPROP:grants a +3d8-3 bonus to Wealth
-Ever-Full Pizza Box		TYPE:FX.Wondrous.Magic						COST:32	WT:0								SOURCEPAGE:p.199
-Faux Fire Emerald			TYPE:FX.Wondrous.Magic						COST:25	WT:0								SOURCEPAGE:p.199
-Hand-Held TV of Viewfinding	TYPE:FX.Wondrous.Magic						COST:32	WT:2								SOURCEPAGE:p.199					SPROP:Will Save DC 13
-Hot Key				TYPE:FX.Wondrous.Magic						COST:27	WT:0		EQMOD:CHARGED_ITEM_3|CHARGES[3]	SOURCEPAGE:p.199
-Pistol Talisman			TYPE:FX.Wondrous.Magic						COST:28	WT:0								SOURCEPAGE:p.200					SPROP:Transforms into a fully loaded handgun of your choice
-Shades of Darkvision		TYPE:FX.Wondrous.Magic						COST:31	WT:0								SOURCEPAGE:p.200	VISION:Darkvision (60')
-The Van				TYPE:FX.Wondrous.Magic						COST:42	WT:0								SOURCEPAGE:p.200
-Wallet of Currency		TYPE:FX.Wondrous.Magic						COST:33	WT:0		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.200					SPROP:Changes any money within it to any other currency at will, may grant a +1 bonus to Wealth for 1 purchase
-Wallet of Holding			TYPE:FX.Magic.Wondrous.Container	CONTAINS:*250	COST:32	WT:0								SOURCEPAGE:p.200					SPROP:No objects larger than a football or heavier than 25 pounds
+# Equipment Name			Type						Contains		Cost		Weight	Base Quantity	Modifier					Source Page		Vision			Special Property
+Band-Aids of Curing (10)	TYPE:FX.Wondrous.Magic						COST:29	WT:0		BASEQTY:10								SOURCEPAGE:p.198					SPROP:immediately heals 1d8*3 hp
+Closed-Circuit PDA		TYPE:FX.Wondrous.Magic						COST:35	WT:1											SOURCEPAGE:p.199
+Djinni Gold Card			TYPE:FX.Wondrous.Magic						COST:35	WT:0											SOURCEPAGE:p.199					SPROP:grants a +3d8-3 bonus to Wealth
+Ever-Full Pizza Box		TYPE:FX.Wondrous.Magic						COST:32	WT:0											SOURCEPAGE:p.199
+Faux Fire Emerald			TYPE:FX.Wondrous.Magic						COST:25	WT:0											SOURCEPAGE:p.199
+Hand-Held TV of Viewfinding	TYPE:FX.Wondrous.Magic						COST:32	WT:2											SOURCEPAGE:p.199					SPROP:Will Save DC 13
+Hot Key				TYPE:FX.Wondrous.Magic						COST:27	WT:0					EQMOD:CHARGED_ITEM_3|CHARGES[3]	SOURCEPAGE:p.199
+Pistol Talisman			TYPE:FX.Wondrous.Magic						COST:28	WT:0											SOURCEPAGE:p.200					SPROP:Transforms into a fully loaded handgun of your choice
+Shades of Darkvision		TYPE:FX.Wondrous.Magic						COST:31	WT:0											SOURCEPAGE:p.200	VISION:Darkvision (60')
+The Van				TYPE:FX.Wondrous.Magic						COST:42	WT:0											SOURCEPAGE:p.200
+Wallet of Currency		TYPE:FX.Wondrous.Magic						COST:33	WT:0					EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.200					SPROP:Changes any money within it to any other currency at will, may grant a +1 bonus to Wealth for 1 purchase
+Wallet of Holding			TYPE:FX.Magic.Wondrous.Container	CONTAINS:*250	COST:32	WT:0											SOURCEPAGE:p.200					SPROP:No objects larger than a football or heavier than 25 pounds
 
 #
 # End
