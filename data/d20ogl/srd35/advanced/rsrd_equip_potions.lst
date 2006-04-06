@@ -13,8 +13,8 @@ Potion (Hide from Undead)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consu
 Potion (Jump)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Mage Armor)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Magic Fang)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Oil of Magic Stone										TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Oil of Magic Weapon										TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Stone)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Magic Weapon)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Pass without Trace)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Protection from Chaos)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Protection from Evil)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
@@ -23,8 +23,8 @@ Potion (Protection from Law)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Co
 Potion (Remove Fear)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Sanctuary)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Shield of Faith +2)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Oil of Shillelagh											TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Oil of Bless Weapon										TYPE:Magic.Potion.Consumable	COST:100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion(Oil of Shillelagh)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion(Oil of Bless Weapon)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Enlarge Person)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Reduce Person)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Aid)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
