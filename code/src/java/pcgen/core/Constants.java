@@ -373,4 +373,7 @@ public interface Constants
 	// of FEAT to Feat, the pre-req tree fails on the Feats tab.
 	/** For accessing <code>CategorisableStore</code>. */
 	String FEAT_CATEGORY = "FEAT";
+	
+	/** For Tokens that need to know they're dealing with a .fo file */
+	String XSL_FO_EXTENSION = "fo";
 }

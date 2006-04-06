@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
@@ -55,12 +56,16 @@ public class BioToken extends Token
 	}
 
 	/**
+	 * TODO  Could expand Token itself or even create a sub class of Token so that 
+	 * the beforeValue and afterValue can be handled more cleanly.  Also see comment 
+	 * on Token.replaceWithDelimiter itself
+	 *  
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String beforeValue = "";
-		String afterValue = "<br/>";
+		String afterValue = getAfterValue(eh);
 		boolean addAfterOnLast = true;
 
 		if (tokenSource.length()<=3 || tokenSource.charAt(3)==',')
@@ -122,5 +127,19 @@ public class BioToken extends Token
 
 		return bioList;
 	}
+
+	/**
+	 * TODO  This method could become common across several OS tokens
+	 * Helper method to return a CR/LF equivalent for different OS tempaltes
+	 * @param eh
+	 * @return CR/LF equivalent
+	 */
+	private static String getAfterValue(ExportHandler eh) {
+		if (eh.getTemplateFile().getName().endsWith(Constants.XSL_FO_EXTENSION)) {
+			return "			</fo:block><fo:block font-size=\"9pt\" text-indent=\"5mm\" space-after.optimum=\"2mm\">";
+		} 
+		return "<br/>";
+	}
+	
 }
 

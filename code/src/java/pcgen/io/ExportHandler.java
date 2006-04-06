@@ -339,6 +339,15 @@ public final class ExportHandler
 		this.templateFile = templateFile;
 	}
 
+	/**
+	 * Returns the current templateFile being used
+	 * @retun templateFile
+	 */
+	public File getTemplateFile()
+	{
+		return templateFile;
+	}
+	
 	private int getVarValue(String var, PlayerCharacter aPC)
 	{
 		char chC;
