@@ -1,32 +1,32 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com
 #Original entry by: Paul "Yes, that Paul" Grosse
 
 #Potion Name
-# Equipment Name					Output Name				Type					Cost		Weight	Source Page
-Animate Animal					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:25	WT:0		SOURCEPAGE:p.19
-Animate Skeleton					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.20
-Animate Zombie					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.20
-Bleeding Wound					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.21
-Bones of Steel					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.21
-Chill Blood						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.22
-Death's Shadow					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.22
-Detect Dead						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:25	WT:0		SOURCEPAGE:p.23
-Identify Undead					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:25	WT:0		SOURCEPAGE:p.25
-Invigoration of Undeath				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.25
-Protection from Undead				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.25
-Sensory Link					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.28
-Shadow Horror					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.28
-Shadow Mastery					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.28
-Skull Snare						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:25	WT:0		SOURCEPAGE:p.30
-Strike Barren					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.31
-Undead Conduit					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.32
-Voice of Deathly Whispers			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.32
-Visage of the Dead				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.32
-Wound							OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.33
+# Equipment Name					Output Name				Type						Cost		Weight	Source Page
+Animate Animal					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.19
+Animate Skeleton					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.20
+Animate Zombie					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.20
+Bleeding Wound					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.21
+Bones of Steel					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.21
+Chill Blood						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.22
+Death's Shadow					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.22
+Detect Dead						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.23
+Identify Undead					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.25
+Invigoration of Undeath				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.25
+Protection from Undead				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.25
+Sensory Link					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.28
+Shadow Horror					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.28
+Shadow Mastery					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.28
+Skull Snare						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.30
+Strike Barren					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.31
+Undead Conduit					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.32
+Voice of Deathly Whispers			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.32
+Visage of the Dead				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.32
+Wound							OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.33
 
 #Scrolls
-# Equipment Name					Output Name				Type					Cost		Weight	Source Page
+# Equipment Name					Output Name				Type						Cost		Weight	Source Page
 Scroll of (Animate Animal)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.19
 Scroll of (Animate Skeleton)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:.01	SOURCEPAGE:p.20
 Scroll of (Animate Zombie)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:.01	SOURCEPAGE:p.20

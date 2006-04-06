@@ -1,27 +1,27 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com
 #ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
 
 #Potions
-# Equipment Name				Output Name				Type					Cost		Weight	Source Page
-Potion (Beyond Words)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:750	WT:0		SOURCEPAGE:p.27
-Potion (Confidante)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:750	WT:0		SOURCEPAGE:p.29
-Potion (Enhance Bond)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:50	WT:0		SOURCEPAGE:p.31
-Potion (Favour's Focus I)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:50	WT:0		SOURCEPAGE:p.31
-Potion (Favour's Focus II)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:300	WT:0		SOURCEPAGE:p.32
-Potion (Favour's Focus III)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:750	WT:0		SOURCEPAGE:p.32
-Potion (Greater Daze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:300	WT:0		SOURCEPAGE:p.35
-Potion (Kenning the Heart)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:50	WT:0		SOURCEPAGE:p.36
-Potion (Moment's Pause)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:50	WT:0		SOURCEPAGE:p.37
-Potion (Piercing Gaze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:300	WT:0		SOURCEPAGE:p.38
-Potion (Rapturous Touch)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:300	WT:0		SOURCEPAGE:p.38
-Potion (Seductive Smile)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:300	WT:0		SOURCEPAGE:p.38
-Potion (Thrall's Understanding)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:300	WT:0		SOURCEPAGE:p.39
-Potion (Wave of Hesitation)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable			COST:750	WT:0		SOURCEPAGE:p.41
+# Equipment Name				Output Name				Type						Cost		Weight	Source Page
+Potion (Beyond Words)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.27
+Potion (Confidante)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.29
+Potion (Enhance Bond)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Favour's Focus I)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Favour's Focus II)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.32
+Potion (Favour's Focus III)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.32
+Potion (Greater Daze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.35
+Potion (Kenning the Heart)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.36
+Potion (Moment's Pause)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.37
+Potion (Piercing Gaze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Rapturous Touch)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Seductive Smile)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Thrall's Understanding)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.39
+Potion (Wave of Hesitation)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.41
 
 #Scroll name
 #9 Clr, Drd, Wiz		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01
-# Equipment Name				Output Name				Type					Cost		Weight	Source Page
+# Equipment Name				Output Name				Type						Cost		Weight	Source Page
 Scroll (Beyond Words)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:.01	SOURCEPAGE:p.27
 Scroll (Bonded Souls)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.27
 Scroll (Bonded Thoughts)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.27

@@ -1,73 +1,73 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 #Original entry by: Paul "Yes, that Paul" Grosse
 
 #Potion Name
-# Equipment Name					Output Name				Type						Cost		Weight	Source Page
-Potion (Acidic Vapors)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.10
-Potion (Aegis of the Gods)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.11
-Potion (Aura of Darkness)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.12
-Potion (Aura of Light)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.12
-Potion (Black Cloud of Horror)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.13
-Potion (Bloodblade)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.13
-Potion (Chameleon Skin)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.14
-Potion (Claws of the Demon)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.14
-Potion (Cleanse Minor Vermin)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.15
-Potion (Debilitating Decrescendo)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:1050	WT:0		SOURCEPAGE:p.17
-Potion (Desiccate)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.17
-Potion (Detect Ward)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.17
-Potion (Dig)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.18
-Potion (Dirge of the Walking Dead)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:400	WT:0		SOURCEPAGE:p.18
-Potion (Disruption Missiles)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.18
-Potion (Divine Heart)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.20
-Potion (Doom Fog)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.20
-Potion (Dramatic Visage)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:400	WT:0		SOURCEPAGE:p.20
-Potion (Enlarge Ward)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.21
-Potion (Exhaust)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.21
-Potion (False History)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:1050	WT:0		SOURCEPAGE:p.22
-Potion (False Love's Kiss)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.22
-Potion (Fearsome Fortissimo)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.22
-Potion (Felonious Friend I)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.23
-Potion (Fleet Feet)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.24
-Potion (Forgetfulness)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.25
-Potion (Gandar's Chatterbox)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:400	WT:0		SOURCEPAGE:p.26
-Potion (Gossip)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:1050	WT:0		SOURCEPAGE:p.27
-Potion (Hammerstrike)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.28
-Potion (Hesitate)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.28
-Potion (Illusionary Bolt)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.29
-Potion (Immobilize)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:400	WT:0		SOURCEPAGE:p.29
-Potion (Imprint)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.29
-Potion (Inspire)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:400	WT:0		SOURCEPAGE:p.31
-Potion (Instability)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.31
-Potion (Jester's Gift)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:100	WT:0		SOURCEPAGE:p.31
-Potion (Lucius's Rustling Leaves)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.32
-Potion (Malediction of Razors)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.33
-Potion (Mantle of Shadows)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.33
-Potion (Marathon Prowess)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.33
-Potion (Paraphasic Pianissimo)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:1050	WT:0		SOURCEPAGE:p.35
-Potion (Protect Book)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.36
-Potion (Quakethrust)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.37
-Potion (Quill)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.38
-Potion (Rescue)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.38
-Potion (Restore Page)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.39
-Potion (Reveal Ward)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.39
-Potion (Scribe)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.40
-Potion (Shelve)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.40
-Potion (Shockwave)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.41
-Potion (Stench)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.41
-Potion (Stonelore)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:400	WT:0		SOURCEPAGE:p.41
-Potion (Summarize)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:25	WT:0		SOURCEPAGE:p.42
-Potion (Surface)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.43
-Potion (Sword of Justice)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.43
-Potion (Syron's Energy Armor)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.44
-Potion (Tickle Finger)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.44
-Potion (Trigger Trap)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.44
-Potion (Unravel)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.46
-Potion (Valus's Mass Missile)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.46
-Potion (Vigilant Guardians)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.47
-Potion (Weightless Cube)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.49
-Potion (Whirlwind of Ice)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.49
-Potion (Zone of Visibility)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.50
+# Equipment Name					Output Name				Type								Cost		Weight	Source Page
+Potion (Acidic Vapors)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.10
+Potion (Aegis of the Gods)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.11
+Potion (Aura of Darkness)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.12
+Potion (Aura of Light)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.12
+Potion (Black Cloud of Horror)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.13
+Potion (Bloodblade)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.13
+Potion (Chameleon Skin)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.14
+Potion (Claws of the Demon)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.14
+Potion (Cleanse Minor Vermin)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.15
+Potion (Debilitating Decrescendo)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:1050	WT:0		SOURCEPAGE:p.17
+Potion (Desiccate)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.17
+Potion (Detect Ward)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.17
+Potion (Dig)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.18
+Potion (Dirge of the Walking Dead)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:400	WT:0		SOURCEPAGE:p.18
+Potion (Disruption Missiles)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.18
+Potion (Divine Heart)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.20
+Potion (Doom Fog)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.20
+Potion (Dramatic Visage)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:400	WT:0		SOURCEPAGE:p.20
+Potion (Enlarge Ward)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.21
+Potion (Exhaust)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.21
+Potion (False History)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:1050	WT:0		SOURCEPAGE:p.22
+Potion (False Love's Kiss)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.22
+Potion (Fearsome Fortissimo)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.22
+Potion (Felonious Friend I)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.23
+Potion (Fleet Feet)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.24
+Potion (Forgetfulness)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.25
+Potion (Gandar's Chatterbox)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:400	WT:0		SOURCEPAGE:p.26
+Potion (Gossip)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:1050	WT:0		SOURCEPAGE:p.27
+Potion (Hammerstrike)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.28
+Potion (Hesitate)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.28
+Potion (Illusionary Bolt)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.29
+Potion (Immobilize)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:400	WT:0		SOURCEPAGE:p.29
+Potion (Imprint)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.29
+Potion (Inspire)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:400	WT:0		SOURCEPAGE:p.31
+Potion (Instability)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.31
+Potion (Jester's Gift)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:100	WT:0		SOURCEPAGE:p.31
+Potion (Lucius's Rustling Leaves)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.32
+Potion (Malediction of Razors)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.33
+Potion (Mantle of Shadows)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.33
+Potion (Marathon Prowess)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.33
+Potion (Paraphasic Pianissimo)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:1050	WT:0		SOURCEPAGE:p.35
+Potion (Protect Book)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.36
+Potion (Quakethrust)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.37
+Potion (Quill)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:25	WT:0		SOURCEPAGE:p.38
+Potion (Rescue)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.38
+Potion (Restore Page)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.39
+Potion (Reveal Ward)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.39
+Potion (Scribe)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.40
+Potion (Shelve)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:25	WT:0		SOURCEPAGE:p.40
+Potion (Shockwave)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.41
+Potion (Stench)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.41
+Potion (Stonelore)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:400	WT:0		SOURCEPAGE:p.41
+Potion (Summarize)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:25	WT:0		SOURCEPAGE:p.42
+Potion (Surface)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.43
+Potion (Sword of Justice)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.43
+Potion (Syron's Energy Armor)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.44
+Potion (Tickle Finger)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.44
+Potion (Trigger Trap)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.44
+Potion (Unravel)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.46
+Potion (Valus's Mass Missile)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.46
+Potion (Vigilant Guardians)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.47
+Potion (Weightless Cube)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:300	WT:0		SOURCEPAGE:p.49
+Potion (Whirlwind of Ice)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:50	WT:0		SOURCEPAGE:p.49
+Potion (Zone of Visibility)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		SOURCEPAGE:p.50
 
 # Scrolls
 # Equipment Name					Output Name				Type								Cost		Weight	Source Page

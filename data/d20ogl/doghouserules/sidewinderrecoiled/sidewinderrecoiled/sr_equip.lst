@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 # Original Entry by: Lone Jedi (MSRD by Phantom of Krankor)
 
@@ -112,22 +112,22 @@ Whiskey (Shot)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions			COST:.1	W
 Whiskey (Bottle)			OUTPUTNAME:[NAME] of Whiskey		TYPE:Goods.Provisions			COST:2	WT:3					SOURCEPAGE:p. 157
 
 ###Block: Outdoor Equipment
-# Equipment Name			Output Name				Type				Cost		Weight	Source Page
-Bed Roll									TYPE:Goods.Outdoor	COST:4	WT:10		SOURCEPAGE:p. 157
-Binoculars (5x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor	COST:15	WT:2.5	SOURCEPAGE:p. 157
-Binoculars (10x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor	COST:25	WT:3		SOURCEPAGE:p. 157
-Canteen									TYPE:Goods.Outdoor	COST:.5	WT:1		SOURCEPAGE:p. 157
-Compass									TYPE:Goods.Outdoor	COST:2	WT:0		SOURCEPAGE:p. 157
-Gun Cleaning Kit								TYPE:Goods.Outdoor	COST:1.5	WT:1		SOURCEPAGE:p. 157
+# Equipment Name			Output Name				Type					Cost		Weight	Source Page
+Bed Roll									TYPE:Goods.Outdoor		COST:4	WT:10		SOURCEPAGE:p. 157
+Binoculars (5x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor		COST:15	WT:2.5	SOURCEPAGE:p. 157
+Binoculars (10x)			OUTPUTNAME:[NAME] Binoculars	TYPE:Goods.Outdoor		COST:25	WT:3		SOURCEPAGE:p. 157
+Canteen									TYPE:Goods.Outdoor		COST:.5	WT:1		SOURCEPAGE:p. 157
+Compass									TYPE:Goods.Outdoor		COST:2	WT:0		SOURCEPAGE:p. 157
+Gun Cleaning Kit								TYPE:Goods.Outdoor		COST:1.5	WT:1		SOURCEPAGE:p. 157
 Oil for Lamps (1 Gallon)	OUTPUTNAME:[NAME] Lamp Oil	TYPE:Goods.Outdoor.Consumable	COST:.1	WT:8		SOURCEPAGE:p. 157
-Oil Lamp									TYPE:Goods.Outdoor	COST:1.5	WT:4		SOURCEPAGE:p. 157
-Scabbard (Rifle)			OUTPUTNAME:[NAME] Scabbard	TYPE:Goods.Outdoor	COST:2.5	WT:2		SOURCEPAGE:p. 157
-Tent (Miner's)			OUTPUTNAME:[NAME] Tent		TYPE:Goods.Outdoor	COST:6	WT:30		SOURCEPAGE:p. 157
-Trail Cook's Kit								TYPE:Goods.Outdoor	COST:3	WT:80		SOURCEPAGE:p. 157
-Trap with Chain (5"/Mink)	OUTPUTNAME:Mink Trap		TYPE:Goods.Outdoor	COST:.25	WT:2.5	SOURCEPAGE:p. 157
-Trap with Chain (6.5"/Beaver)	OUTPUTNAME:Beaver Trap		TYPE:Goods.Outdoor	COST:.39	WT:3		SOURCEPAGE:p. 157
-Trap with Chain (8"/Wolf)	OUTPUTNAME:Wolf Trap		TYPE:Goods.Outdoor	COST:1.85	WT:9		SOURCEPAGE:p. 157
-Trap with Chain (16"/Bear)	OUTPUTNAME:Bear Trap		TYPE:Goods.Outdoor	COST:11.75	WT:17		SOURCEPAGE:p. 157
+Oil Lamp									TYPE:Goods.Outdoor		COST:1.5	WT:4		SOURCEPAGE:p. 157
+Scabbard (Rifle)			OUTPUTNAME:[NAME] Scabbard	TYPE:Goods.Outdoor		COST:2.5	WT:2		SOURCEPAGE:p. 157
+Tent (Miner's)			OUTPUTNAME:[NAME] Tent		TYPE:Goods.Outdoor		COST:6	WT:30		SOURCEPAGE:p. 157
+Trail Cook's Kit								TYPE:Goods.Outdoor		COST:3	WT:80		SOURCEPAGE:p. 157
+Trap with Chain (5"/Mink)	OUTPUTNAME:Mink Trap		TYPE:Goods.Outdoor		COST:.25	WT:2.5	SOURCEPAGE:p. 157
+Trap with Chain (6.5"/Beaver)	OUTPUTNAME:Beaver Trap		TYPE:Goods.Outdoor		COST:.39	WT:3		SOURCEPAGE:p. 157
+Trap with Chain (8"/Wolf)	OUTPUTNAME:Wolf Trap		TYPE:Goods.Outdoor		COST:1.85	WT:9		SOURCEPAGE:p. 157
+Trap with Chain (16"/Bear)	OUTPUTNAME:Bear Trap		TYPE:Goods.Outdoor		COST:11.75	WT:17		SOURCEPAGE:p. 157
 
 ###Block: Animals, Livestock and Pelts
 # Equipment Name		Output Name				Type				Cost		Weight	Source Page
@@ -193,50 +193,50 @@ Tombstone									TYPE:Goods.Business	COST:11	WT:50					SOURCEPAGE:p. 159
 Typewriter									TYPE:Goods.Business	COST:35	WT:20					SOURCEPAGE:p. 159
 
 ###Block: Medical Equipment
-# Equipment Name				Output Name					Type				Cost		Weight	Source Page
-Doctor's Bag with Instruments								TYPE:Goods.Medical	COST:25	WT:15		SOURCEPAGE:p. 159
+# Equipment Name				Output Name					Type					Cost		Weight	Source Page
+Doctor's Bag with Instruments								TYPE:Goods.Medical		COST:25	WT:15		SOURCEPAGE:p. 159
 Ether (1 Dose)				OUTPUTNAME:[NAME] of Ether		TYPE:Goods.Medical.Consumable	COST:.25	WT:0		SOURCEPAGE:p. 159
-Eyeglasses											TYPE:Goods.Medical	COST:2	WT:0		SOURCEPAGE:p. 159
+Eyeglasses											TYPE:Goods.Medical		COST:2	WT:0		SOURCEPAGE:p. 159
 Laudanum (1 Dose)				OUTPUTNAME:[NAME] of Laudanum		TYPE:Goods.Medical.Consumable	COST:.35	WT:0		SOURCEPAGE:p. 159
 Nitrous Oxide (1 Dose)			OUTPUTNAME:[NAME] of Nitrous Oxide	TYPE:Goods.Medical.Consumable	COST:.25	WT:0		SOURCEPAGE:p. 159
-Quinine											TYPE:Goods.Medical	COST:.5	WT:0		SOURCEPAGE:p. 159
-Veterinary Bag with Instruments							TYPE:Goods.Medical	COST:22	WT:20		SOURCEPAGE:p. 159
+Quinine											TYPE:Goods.Medical		COST:.5	WT:0		SOURCEPAGE:p. 159
+Veterinary Bag with Instruments							TYPE:Goods.Medical		COST:22	WT:20		SOURCEPAGE:p. 159
 
 ###Block: Tools and Kits
-# Equipment Name			Output Name					Type				Cost		Weight	Base Quantity	Source Page		Bonus to skill
-Anvil											TYPE:Goods.Tools		COST:15	WT:80					SOURCEPAGE:p. 160
-Axe											TYPE:Goods.Tools		COST:1	WT:5					SOURCEPAGE:p. 160
-Barbed Wire (50 Yards)		OUTPUTNAME:[NAME] of Barbed Wire	TYPE:Goods.Tools		COST:1	WT:20					SOURCEPAGE:p. 160
-Blacksmith's Tool Set								TYPE:Goods.Toolkit	COST:15	WT:100				SOURCEPAGE:p. 160
-Blasting Caps (1 Dozen)		OUTPUTNAME:[NAME] Blasting Caps	TYPE:Goods.Tools		COST:.5	WT:0		BASEQTY:12		SOURCEPAGE:p. 160
-Carpenter's Tool Set								TYPE:Goods.Toolkit	COST:21	WT:30					SOURCEPAGE:p. 160
-Chemical Kit									TYPE:Goods.Toolkit	COST:80	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Chemical)|CircumstanceAdjustment|TYPE=Circumstance
-Demolitions Kit									TYPE:Goods.Toolkit	COST:11	WT:20					SOURCEPAGE:p. 160	BONUS:SKILL|Demolitions|CircumstanceAdjustment|TYPE=Circumstance
-Disguise Kit									TYPE:Goods.Toolkit	COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Disguise|CircumstanceAdjustment|TYPE=Circumstance
-Druggist's Kit									TYPE:Goods.Toolkit	COST:110	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Pharmaceutical)|CircumstanceAdjustment|TYPE=Circumstance
-Dynamite (Stick)			OUTPUTNAME:[NAME] of Dynamite		TYPE:Goods.Tools		COST:.25	WT:.5					SOURCEPAGE:p. 160
-Electric Detonator								TYPE:Goods.Tools		COST:5	WT:1					SOURCEPAGE:p. 160
-Electrical Tool Kit								TYPE:Goods.Toolkit	COST:110	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Electric)|CircumstanceAdjustment|TYPE=Circumstance
-Evidence Kit									TYPE:Goods.Toolkit	COST:14	WT:10					SOURCEPAGE:p. 160	BONUS:SKILL|Investigate|CircumstanceAdjustment|TYPE=Circumstance
-First Aid Kit									TYPE:Goods.Toolkit	COST:5	WT:5					SOURCEPAGE:p. 160
-Forgery Kit										TYPE:Goods.Toolkit	COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
-Fuse (1 Yard)			OUTPUTNAME:[NAME] of Fuse		TYPE:Goods.Tools.Consumable		COST:.05	WT:0					SOURCEPAGE:p. 160
-Handsaw										TYPE:Goods.Tools		COST:1.5	WT:2					SOURCEPAGE:p. 160
-Hammer										TYPE:Goods.Tools		COST:.5	WT:2					SOURCEPAGE:p. 160
-Lantern										TYPE:Goods.Tools		COST:.8	WT:2					SOURCEPAGE:p. 160
-Lockpick Set									TYPE:Goods.Toolkit	COST:8	WT:1					SOURCEPAGE:p. 160
-Mechanical Tool Kit								TYPE:Goods.Toolkit	COST:30	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Mechanical)|CircumstanceAdjustment|TYPE=Circumstance	BONUS:SKILL|Craft (Structural)|CircumstanceAdjustment|TYPE=Circumstance
-Medical Kit										TYPE:Goods.Toolkit	COST:25	WT:15					SOURCEPAGE:p. 160
-Ore Car										TYPE:Goods.Tools		COST:15	WT:150				SOURCEPAGE:p. 160
-Pan											TYPE:Goods.Tools		COST:.1	WT:.5					SOURCEPAGE:p. 160
-Pick											TYPE:Goods.Tools		COST:1	WT:4					SOURCEPAGE:p. 160
-Plow (Horse Drawn)		OUTPUTNAME:[NAME] Plow			TYPE:Goods.Tools		COST:6.5	WT:80					SOURCEPAGE:p. 160
-Rope (1 Yard)			OUTPUTNAME:[NAME] of Rope		TYPE:Goods.Tools.Consumable		COST:.05	WT:0					SOURCEPAGE:p. 160
-Scales										TYPE:Goods.Tools		COST:3	WT:10					SOURCEPAGE:p. 160
-Shovel										TYPE:Goods.Tools		COST:1	WT:6					SOURCEPAGE:p. 160
-Surgeon's Kit									TYPE:Goods.Toolkit	COST:35	WT:20					SOURCEPAGE:p. 160
-Wirecutters										TYPE:Goods.Tools		COST:2.5	WT:2					SOURCEPAGE:p. 160
-Wheelbarrow (Steel/Miner's)	OUTPUTNAME:Steel Wheelbarrow		TYPE:Goods.Tools		COST:6	WT:80					SOURCEPAGE:p. 160
+# Equipment Name			Output Name					Type					Cost		Weight	Base Quantity	Source Page		Bonus to skill
+Anvil											TYPE:Goods.Tools			COST:15	WT:80					SOURCEPAGE:p. 160
+Axe											TYPE:Goods.Tools			COST:1	WT:5					SOURCEPAGE:p. 160
+Barbed Wire (50 Yards)		OUTPUTNAME:[NAME] of Barbed Wire	TYPE:Goods.Tools			COST:1	WT:20					SOURCEPAGE:p. 160
+Blacksmith's Tool Set								TYPE:Goods.Toolkit		COST:15	WT:100				SOURCEPAGE:p. 160
+Blasting Caps (1 Dozen)		OUTPUTNAME:[NAME] Blasting Caps	TYPE:Goods.Tools			COST:.5	WT:0		BASEQTY:12		SOURCEPAGE:p. 160
+Carpenter's Tool Set								TYPE:Goods.Toolkit		COST:21	WT:30					SOURCEPAGE:p. 160
+Chemical Kit									TYPE:Goods.Toolkit		COST:80	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Chemical)|CircumstanceAdjustment|TYPE=Circumstance
+Demolitions Kit									TYPE:Goods.Toolkit		COST:11	WT:20					SOURCEPAGE:p. 160	BONUS:SKILL|Demolitions|CircumstanceAdjustment|TYPE=Circumstance
+Disguise Kit									TYPE:Goods.Toolkit		COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Disguise|CircumstanceAdjustment|TYPE=Circumstance
+Druggist's Kit									TYPE:Goods.Toolkit		COST:110	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Pharmaceutical)|CircumstanceAdjustment|TYPE=Circumstance
+Dynamite (Stick)			OUTPUTNAME:[NAME] of Dynamite		TYPE:Goods.Tools			COST:.25	WT:.5					SOURCEPAGE:p. 160
+Electric Detonator								TYPE:Goods.Tools			COST:5	WT:1					SOURCEPAGE:p. 160
+Electrical Tool Kit								TYPE:Goods.Toolkit		COST:110	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Electric)|CircumstanceAdjustment|TYPE=Circumstance
+Evidence Kit									TYPE:Goods.Toolkit		COST:14	WT:10					SOURCEPAGE:p. 160	BONUS:SKILL|Investigate|CircumstanceAdjustment|TYPE=Circumstance
+First Aid Kit									TYPE:Goods.Toolkit		COST:5	WT:5					SOURCEPAGE:p. 160
+Forgery Kit										TYPE:Goods.Toolkit		COST:8	WT:5					SOURCEPAGE:p. 160	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
+Fuse (1 Yard)			OUTPUTNAME:[NAME] of Fuse		TYPE:Goods.Tools.Consumable	COST:.05	WT:0					SOURCEPAGE:p. 160
+Handsaw										TYPE:Goods.Tools			COST:1.5	WT:2					SOURCEPAGE:p. 160
+Hammer										TYPE:Goods.Tools			COST:.5	WT:2					SOURCEPAGE:p. 160
+Lantern										TYPE:Goods.Tools			COST:.8	WT:2					SOURCEPAGE:p. 160
+Lockpick Set									TYPE:Goods.Toolkit		COST:8	WT:1					SOURCEPAGE:p. 160
+Mechanical Tool Kit								TYPE:Goods.Toolkit		COST:30	WT:50					SOURCEPAGE:p. 160	BONUS:SKILL|Craft (Mechanical)|CircumstanceAdjustment|TYPE=Circumstance	BONUS:SKILL|Craft (Structural)|CircumstanceAdjustment|TYPE=Circumstance
+Medical Kit										TYPE:Goods.Toolkit		COST:25	WT:15					SOURCEPAGE:p. 160
+Ore Car										TYPE:Goods.Tools			COST:15	WT:150				SOURCEPAGE:p. 160
+Pan											TYPE:Goods.Tools			COST:.1	WT:.5					SOURCEPAGE:p. 160
+Pick											TYPE:Goods.Tools			COST:1	WT:4					SOURCEPAGE:p. 160
+Plow (Horse Drawn)		OUTPUTNAME:[NAME] Plow			TYPE:Goods.Tools			COST:6.5	WT:80					SOURCEPAGE:p. 160
+Rope (1 Yard)			OUTPUTNAME:[NAME] of Rope		TYPE:Goods.Tools.Consumable	COST:.05	WT:0					SOURCEPAGE:p. 160
+Scales										TYPE:Goods.Tools			COST:3	WT:10					SOURCEPAGE:p. 160
+Shovel										TYPE:Goods.Tools			COST:1	WT:6					SOURCEPAGE:p. 160
+Surgeon's Kit									TYPE:Goods.Toolkit		COST:35	WT:20					SOURCEPAGE:p. 160
+Wirecutters										TYPE:Goods.Tools			COST:2.5	WT:2					SOURCEPAGE:p. 160
+Wheelbarrow (Steel/Miner's)	OUTPUTNAME:Steel Wheelbarrow		TYPE:Goods.Tools			COST:6	WT:80					SOURCEPAGE:p. 160
 
 
 ###Block: Shops and Laboratories
