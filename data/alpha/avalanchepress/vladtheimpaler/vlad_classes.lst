@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 # Original Entry by: Jerril
 
@@ -97,7 +97,7 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
-2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base		DEFINE:AllowExtraTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
+2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ADD:FEAT(TYPE=TurnUndead)	FEATAUTO:Basic Turning
 # Should these be referencing Cleric or Lautar???? - converting from cl("Cleric") to CL. - Tir Gwaith
 2	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 2	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE

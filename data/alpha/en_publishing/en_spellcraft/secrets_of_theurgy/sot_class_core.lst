@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 06:53:19 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoT	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
 
 # Class Name		Hit Dice	Type			Abbreviation	Ex Class				Source Page		Automatic Languages		Bonus Languages	Additional Devine Domain				Save checks bonus											Combat bonus					Add domain number		Modify VAR
 CLASS:Elemental Druid	HD:8		TYPE:Base.PC	ABB:EDrd		EXCLASS:Ex Elemental Druid	SOURCEPAGE:5	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	ADDDOMAINS:Air.Animal.Earth.Fire.Plant.Water	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|CompLevel|CL
