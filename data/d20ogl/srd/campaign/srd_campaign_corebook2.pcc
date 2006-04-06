@@ -1,0 +1,86 @@
+# CVS $Revision: 576 $ $Author: tir-gwaith $
+CAMPAIGN:3.0 SRD - Campaign Set - Core Books I and II
+RANK:1
+GAMEMODE:3e
+GENRE:Fantasy
+BOOKTYPE:SRD
+SETTING:SRD
+TYPE:SRD.Campaign
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
+SOURCELONG:System Reference Document
+SOURCESHORT:SRD
+SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Paul W. King, Chris Chandler (Barak), Sigurdur H. Olafsson)
+
+INFOTEXT:This is a subset of the SRD containing rules generally found in Core Books I and II, this should not be loaded with any other SRD sets.
+
+# Basics
+CLASS:@/d20ogl/srd/basics/srd_classes_base.lst
+CLASS:@/d20ogl/srd/basics/srd_classes_creature_types.lst|(INCLUDE:Animal|Magical Beast)
+
+COMPANIONMOD:@/d20ogl/srd/basics/srd_companion_mods.lst
+
+DEITY:@/d20ogl/srd/basics/srd_deities.lst
+
+DOMAIN:@/d20ogl/srd/basics/srd_domains.lst
+
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_basetypes.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_coinsgems.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ranged.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
+EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst
+EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
+
+FEAT:@/d20ogl/srd/basics/srd_feats_descriptions.lst
+FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
+FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)
+
+KIT:@/d20ogl/srd/basics/srd_kits_races__animals.lst
+KIT:@/d20ogl/srd/basics/srd_kits_races__phb.lst
+KIT:@/d20ogl/srd/basics/srd_starting_kits.lst
+
+LANGUAGE:@/d20ogl/srd/basics/srd_languages.lst
+
+RACE:@/d20ogl/srd/basics/srd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Lizard|Owl|Rat|Raven|Snake (Tiny Viper)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
+RACE:@/d20ogl/srd/basics/srd_races__phb.lst
+
+SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Control Shape)
+
+SPELL:@/d20ogl/srd/basics/srd_spells.lst
+
+TEMPLATE:@/d20ogl/srd/basics/srd_templates_types.lst
+
+WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs_natural.lst
+WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
+
+# Hiding internal types
+HIDETYPE:EQUIP|ArmorsmithingTools|BasketweavingTools|BookbindingTools|BowmakingTools|BlacksmithingTools|CalligraphyTools|CarpentryTools|CobblingTools
+HIDETYPE:EQUIP|GemcuttingTools|LeatherworkingTools|LocksmithingTools|PaintingTools|PotteryTools|SculptureTools|ShipmakingTools|StoneworkingTools
+HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools
+
+
+# Advanced
+CLASS:@/d20ogl/srd/advanced/srd_classes_prestige.lst
+
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_armorshields_specific.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_artifacts.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_potions_poisons.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_rings.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_rodsstaffswands.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_scrolls.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_ammo_specific.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_melee_specific.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_ranged_specific.lst
+EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_wondrousitems.lst
+
+#
+# End
+#
