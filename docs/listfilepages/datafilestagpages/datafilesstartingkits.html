@@ -99,6 +99,19 @@
 		<p class="indent2"><code>STARTPACK:Bar1</code></p>
 		<p class="indent3">Would create a new available kit called &quot;Bar1&quot;.</p>
 		
+		<p></p><a name="ABILITY"></a><hr>
+		<p class="new">*** New 5.9.7</p>
+		<p class="indent0"><strong>Tag Name:</strong> ABILITY:PROMPT:FEAT(x)|CHOICE:y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat choices)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat to select)</p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+		<p class="indent2">The <code>ABILITY</code> tag is used to select the choice presented by an <code>ADD:FEAT</code> chooser in a class level line. &nbsp;The Feat choices parameter must match the choices used in the <code>ADD:FEAT</code> this <code>ABILITY</code> is selecting for. &nbsp;The Feat to select should be a valid selection but this is not checked by the kit.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Lines starting with LEVELABILITY.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LEVELABILITY:Ranger=1 &lt;tab&gt; ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Elf))</code></p>
+		<p class="indent3">Selects Humanoid (Elf) as a ranger's first favored enemy selection.</p>
+
 		<p></p><a name="ALIGN"></a><hr>
 		<p class="new">*** New 5.9.3</p>
 		<p class="indent0"><strong>Tag Name:</strong> ALIGN:x|x</p>
@@ -110,6 +123,18 @@
 		<p class="indent3">Grants a choice of any good alignment.</p>
 		<p class="indent2"><code>ALIGN:CE</code></p>
 		<p class="indent3">Sets the alignment to Chaotic Evil.</p>
+
+		<p></p><a name="APPLY"></a><hr>
+		<p class="new">*** New 5.9.6</p>
+		<p class="indent0"><strong>Tag Name:</strong> APPLY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (INSTANT or PERMANENT)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Selects if the selection of this kit is stored with the character or not. &nbsp;<code>PERMANENT</code> means the kit will be stored with the character that selects it and will not be available to be selected again. &nbsp;INSTANT means the kit will not be stored and can be selected any number of times.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">APPLY can only be used on <code>STARTPACK</code> lines.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>APPLY:INSTANT</code></p>
+		<p class="indent3">Sets this kit to be usable multiple times.</p>
 
 		<p></p><a name="CLASSLEVEL"></a><hr>
 		<p class="new">*** New 5.9.3</p>
@@ -212,6 +237,7 @@
 		<p class="indent3">The gear granted by the KIT is granted for twice the normal cost.</p>
 		
 		<p></p><a name="FEAT"></a><hr>
+		<p class="new">*** Updated 5.9.7</p>
 		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat TYPE)</p>
@@ -279,6 +305,19 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
 		<p class="indent2"> This is a comma delimited list of languages that the character automatically gains.</p>
+
+		<p></p><a name="LEVELABILITY"></a><hr>
+		<p class="new">*** New 5.9.7</p>
+		<p class="indent0"><strong>Tag Name:</strong> LEVELABILITY:x=y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Level ability is granted at)</p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+		<p class="indent2">LEVELABILITY signifies what class and level the following ABILITY tag is specifying the choice for.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">LEVELABILITY is used in kit lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LEVELABILITY:Ranger=1 &lt;tab&gt; ABILITY:PROMPT:FEAT(TYPE.Favored Enemy)|CHOICE:Favored Enemy (Humanoid (Elf))</code></p>
+		<p class="indent3">Selects Humanoid (Elf) as a ranger's first favored enemy selection.</p>
 
 		<p></p><a name="LOCATION"></a><hr>
 		<p class="new">*** New 5.9.3</p>
