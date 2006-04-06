@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Mar 16 20:40:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:LoAC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
 
 # Feat Name		Type			Visible	Special Ability									Define
 Color of Money	TYPE:Special	VISIBLE:NO	SA:Color of Money +% (%/day)|ColorOfMoneyBonus|ColorOfMoneyTimes	DEFINE:ColorOfMoneyTimes|0	DEFINE:ColorOfMoneyBonus|0

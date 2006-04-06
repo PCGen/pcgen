@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Mar 16 20:40:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:LoAC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
