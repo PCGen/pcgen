@@ -57,6 +57,13 @@ $Revision$
 $Author$
 $Date$
 -->
+
+<!-- 
+	VERY IMPORTANT:
+
+	The IIF, ELSE, ENDIF, FOR etc tokens cannot have whitespace in front of them
+	otherwise they will not process correctly!
+-->
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| [|POOL.COST| Points]</title>
@@ -3561,43 +3568,43 @@ function RemoveStat (attribute) {
 
 <!-- Start Turning Table -->
 |IIF(HASVAR:TurnLevelBase)|
-	|IIF(HASFEAT:Turn Undead)|
+|IIF(HASFEAT:Turn Undead)|
 		<div id="TURNUNDEAD"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Rebuke Undead)|
+|ENDIF|
+|IIF(HASFEAT:Rebuke Undead)|
 		<div id="REBUKEUNDEAD"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Turn Air)|
+|ENDIF|
+|IIF(HASFEAT:Turn Air)|
 		<div id="TURNAIR"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Rebuke Air)|
+|ENDIF|
+|IIF(HASFEAT:Rebuke Air)|
 		<div id="REBUKEAIR"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Turn Earth)|
+|ENDIF|
+|IIF(HASFEAT:Turn Earth)|
 		<div id="TURNEARTH"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Rebuke Earth)|
+|ENDIF|
+|IIF(HASFEAT:Rebuke Earth)|
 		<div id="REBUKEEARTH"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Turn Water)|
+|ENDIF|
+|IIF(HASFEAT:Turn Water)|
 		<div id="TURNWATER"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Rebuke Water)|
+|ENDIF|
+|IIF(HASFEAT:Rebuke Water)|
 		<div id="REBUKEWATER"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Turn Fire)|
+|ENDIF|
+|IIF(HASFEAT:Turn Fire)|
 		<div id="TURNFIRE"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Rebuke Fire)|
+|ENDIF|
+|IIF(HASFEAT:Rebuke Fire)|
 		<div id="REBUKEFIRE"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Turn Plant)|
+|ENDIF|
+|IIF(HASFEAT:Turn Plant)|
 		<div id="TURNPLANT"></div>
-	|ENDIF|
-	|IIF(HASFEAT:Rebuke Plant)|
+|ENDIF|
+|IIF(HASFEAT:Rebuke Plant)|
 		<div id="REBUKEPLANT"></div>
-	|ENDIF|
-	<script language="javascript" type="text/javascript">TurnTablePrintAll();</script>
+|ENDIF|
+<script language="javascript" type="text/javascript">TurnTablePrintAll();</script>
 |ENDIF|
 <!-- Stop Turning Table -->
 
