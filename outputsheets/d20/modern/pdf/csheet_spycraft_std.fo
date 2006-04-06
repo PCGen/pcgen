@@ -2351,16 +2351,14 @@
 							<fo:block font-size="7pt" font-family="ZapfDingbats">|FOR.0,EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.CHARGES,5,&#x274F;, , ,1|</fo:block>
 <!-- Assume that no item will have more than 10 types -->
 <!-- Assume that no item will have both potion and ammunition as types -->
-|FOR,%types,0,10,1,1|
-|IIF(EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.TYPE%types:POTION)|
+|IIF(EQ.%equip.TYPE:Consumable)|
 							<!-- Display the number of potions as a series of checkboxes -->
 							<fo:block font-size="7pt" font-family="ZapfDingbats">|FOR.0,EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.QTY,5,&#x274F;, , ,1|</fo:block>
 |ENDIF|
-|IIF(EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.TYPE%types:AMMUNITION)|
+|IIF(EQ.%equip.TYPE:Ammunition)|
 							<!-- Display the ammunition as a series of checkboxes -->
 							<fo:block font-size="7pt" font-family="ZapfDingbats">|FOR.0,EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.QTY,5,&#x274F;, , ,1|</fo:block>
 |ENDIF|
-|ENDFOR|
 						</fo:table-cell>
 						<fo:table-cell text-align="center"><fo:block space-before.optimum="1pt" font-size="7pt">|EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.LOCATION|</fo:block>	</fo:table-cell>
 						<fo:table-cell>	<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">|EQ.MERGELOC.NOT.Coin.NOT.Gem.%equip.QTY|</fo:block>	</fo:table-cell>

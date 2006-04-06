@@ -993,6 +993,18 @@ Wisdom
 |FOR,%charges,1,EQ.Not.Gadget.NOT.Vehicle.NOT.Mount.%equip1.CHARGES,1,0|
         <font face="Wingdings" style="font-size: 7pt">o</font>
 |ENDFOR|
+|IIF(EQ.%equip1.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip1.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.%equip1.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
         </td>
         <td valign="top" class="border8" align="center">|EQ.Not.Gadget.NOT.Vehicle.NOT.Mount.%equip1.LOCATION|<br /></td>
         <td valign="top" class="border8" align="center">|EQ.Not.Gadget.NOT.Vehicle.NOT.Mount.%equip1.QTY|<br /></td>
@@ -1020,6 +1032,18 @@ Wisdom
 |FOR,%charges,1,EQ.Not.Gadget.NOT.Vehicle.NOT.Mount.%equip2.CHARGES,1,0|
         <font face="Wingdings" style="font-size: 7pt">o</font>
 |ENDFOR|
+|IIF(EQ.%equip2.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.%equip2.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|ENDIF|
+|ENDIF|
         </td>
         <td valign="top" class="border8" align="center">|EQ.Not.Gadget.NOT.Vehicle.NOT.Mount.%equip2.LOCATION|<br /></td>
         <td valign="top" class="border8" align="center">|EQ.Not.Gadget.NOT.Vehicle.NOT.Mount.%equip2.QTY|<br /></td>
