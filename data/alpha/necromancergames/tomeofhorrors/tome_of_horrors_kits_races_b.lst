@@ -1,0 +1,325 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+### ERRATA: Skill totals are not possible
+###         Balance +1 Stat +4 Racial = +5 OK
+###         Hide -4 Size +1 Stat +3 Ranks = +0 OK
+###         Jump +4 Speed +4 Stat +4 Racial = +12 listed as +6
+###         Listen +2 Stat +2 Ranks = +4 OK
+###         Spot +2 Stat +2 Ranks = +4 OK
+###         Swim +4 Stat +4 Racial = +8 listed as +7
+###         9 skill points left over.
+STARTPACK:Default Babbler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Babbler]
+ALIGN:CE
+RACE:Babbler	!PRERACE:%
+NAME:Babbler
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Hide		RANK:3
+FEAT:Improved Initiative
+FEAT:Multiattack
+
+STARTPACK:Default Banderlog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Banderlog]
+ALIGN:TN
+RACE:Banderlog	!PRERACE:%
+NAME:Banderlog
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Climb		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Weapon Focus (Coconut)
+GEAR:Club		SIZE:PC	LOCATION:Primary Hand
+GEAR:Coconut	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Baric	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Baric]
+ALIGN:TN
+RACE:Baric	!PRERACE:%
+NAME:Baric
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+
+STARTPACK:Default Barrow Wight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barrow Wight]
+ALIGN:CE
+RACE:Barrow Wight	!PRERACE:%
+NAME:Barrow Wight
+STAT:STR=10|DEX=10|INT=11|WIS=11|CHA=10
+SKILL:Climb			RANK:6
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Search		RANK:6
+SKILL:Spot			RANK:6
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Power Attack
+
+STARTPACK:Default Basidirond	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Basidirond]
+ALIGN:TN
+RACE:Basidirond	!PRERACE:%
+NAME:Basidirond
+STAT:STR=11|DEX=11|CON=10|WIS=11|CHA=11
+
+STARTPACK:Default Basilisk (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Basilisk (Greater)]
+ALIGN:TN
+RACE:Basilisk (Greater)	!PRERACE:%
+NAME:Basilisk, Greater
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+SKILL:Hide		RANK:3
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Bat (Doombat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bat (Doombat)]
+ALIGN:NE
+RACE:Bat (Doombat)	!PRERACE:%
+NAME:Doombat
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Stealthy
+FEAT:Skill Focus (Move Silently)
+
+STARTPACK:Default Bat (Mobat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bat (Mobat)]
+ALIGN:TN
+RACE:Bat (Mobat)	!PRERACE:%
+NAME:Mobat
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+SKILL:Move Silently	RANK:2
+FEAT:Flyby Attack
+FEAT:Weapon Finesse
+FEAT:Alertness
+FEAT:Stealthy
+FEAT:Skill Focus (Move Silently)
+
+STARTPACK:Default Beetle (Giant Boring)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Beetle (Giant Boring)]
+ALIGN:TN
+RACE:Beetle (Giant Boring)	!PRERACE:%
+NAME:Beetle, Giant Boring
+STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=11
+
+STARTPACK:Default Beetle (Giant Death Watch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Beetle (Giant Death Watch)]
+ALIGN:TN
+RACE:Beetle (Giant Death Watch)	!PRERACE:%
+NAME:Beetle, Giant Death Watch
+STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=11
+
+STARTPACK:Default Beetle (Giant Rhinoceros)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Beetle (Giant Rhinoceros)]
+ALIGN:TN
+RACE:Beetle (Giant Rhinoceros)	!PRERACE:%
+NAME:Beetle, Giant Rhinoceros
+STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=11
+
+STARTPACK:Default Beetle (Giant Slicer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Beetle (Giant Slicer)]
+ALIGN:TN
+RACE:Beetle (Giant Slicer)	!PRERACE:%
+NAME:Beetle, Giant Slicer
+STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=11
+
+STARTPACK:Default Belabra	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Belabra]
+ALIGN:TN
+RACE:Belabra	!PRERACE:%
+NAME:Belabra
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Toughness
+
+### ERRATA: Listen and Spot can not have 11 ranks (excedes MAXRANK of 10)
+STARTPACK:Default Bhuta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bhuta]
+ALIGN:LE|NE|CE
+RACE:Bhuta	!PRERACE:%
+NAME:Bhuta
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+SKILL:Escape Artist	RANK:8
+SKILL:Hide			RANK:5
+SKILL:Intimidate		RANK:7
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:10
+FEAT:Power Attack
+FEAT:Toughness
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Default Blindheim	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blindheim]
+ALIGN:CE
+RACE:Blindheim	!PRERACE:%
+NAME:Blindheim
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:4
+FEAT:Alertness
+FEAT:Weapon Finesse
+
+STARTPACK:Default Blood Hawk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blood Hawk]
+ALIGN:TN
+RACE:Blood Hawk	!PRERACE:%
+NAME:Blood Hawk
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Default Bloody Bones	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bloody Bones]
+ALIGN:CE
+RACE:Bloody Bones	!PRERACE:%
+NAME:Bloody Bones
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:7
+SKILL:Escape Artist	RANK:7
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:5
+SKILL:Spot			RANK:7
+FEAT:Great Fortitude
+FEAT:Weapon Focus (Tendril)
+
+STARTPACK:Default Boalisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Boalisk]
+ALIGN:TN
+RACE:Boalisk	!PRERACE:%
+NAME:Boalisk
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Balance	RANK:1
+SKILL:Climb		RANK:1
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Swim		RANK:1
+FEAT:Alertness
+FEAT:Toughness
+
+STARTPACK:Default Bog Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bog Beast]
+ALIGN:TN
+RACE:Bog Beast	!PRERACE:%
+NAME:Bog Beast
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Track
+
+STARTPACK:Default Bog Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bog Mummy]
+ALIGN:CE
+RACE:Bog Mummy	!PRERACE:%
+NAME:Bog Mummy
+STAT:STR=11|DEX=10|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Toughness
+
+STARTPACK:Default Boggart	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Boggart]
+ALIGN:CE
+RACE:Boggart	!PRERACE:%
+NAME:Boggart
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Bluff			RANK:4
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+SKILL:Search		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:5
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Dodge
+
+STARTPACK:Default Bone Cobbler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bone Cobbler]
+ALIGN:CE
+RACE:Bone Cobbler	!PRERACE:%
+NAME:Bone Cobbler
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:4
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+SKILL:Survival		RANK:4
+FEAT:Two Weapon Fighting
+FEAT:Weapon Focus (Hammer (Light))
+GEAR:Hammer (Light)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Hammer (Light)	SIZE:PC	LOCATION:Secondary Hand
+
+STARTPACK:Default Bonesnapper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bonesnapper]
+ALIGN:TN
+RACE:Bonesnapper	!PRERACE:%
+NAME:Bonesnapper
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:3
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Tail Slap)
+
+STARTPACK:Default Bonesucker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bonesucker]
+ALIGN:TN
+RACE:Bonesucker	!PRERACE:%
+NAME:Bonesucker
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:4
+SKILL:Search		RANK:5
+SKILL:Spot			RANK:4
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Brownie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Brownie]
+ALIGN:LG
+RACE:Brownie	!PRERACE:%
+NAME:Brownie
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Bluff				RANK:3
+SKILL:Craft (Leatherworking)	RANK:3
+SKILL:Craft (Metalworking)	RANK:3
+SKILL:Craft (Woodworking)	RANK:3
+SKILL:Escape Artist		RANK:3
+SKILL:Hide				RANK:3
+SKILL:Listen			RANK:3
+SKILL:Move Silently		RANK:3
+SKILL:Search			RANK:2
+SKILL:Sense Motive		RANK:3
+SKILL:Spot				RANK:3
+FEAT:Dodge
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Buckawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Buckawn]
+ALIGN:TN
+RACE:Buckawn	!PRERACE:%
+NAME:Buckawn
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:3
+SKILL:Craft (Poisonmaking)	RANK:2
+SKILL:Escape Artist		RANK:4
+SKILL:Listen			RANK:4
+SKILL:Move Silently		RANK:4
+SKILL:Search			RANK:3
+SKILL:Spot				RANK:4
+FEAT:Dodge
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
+GEAR:Dart	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Bunyip	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bunyip]
+ALIGN:TN
+RACE:Bunyip	!PRERACE:%
+NAME:Bunyip
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Weapon Focus (Bite)
+

@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+
+
+#Exotic Ranged
+# Equipment Name	Required Proficiency	Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Range		Size		Source Page
+Coconut		PROFICIENCY:Coconut	TYPE:Weapon.Simple.Ranged.Bludgeoning.Standard.Thrown	COST:0	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD		WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p. 27
+
+Net of Snaring	PROFICIENCY:Net		TYPE:Enhancement.Weapon.Exotic.Ranged.Specific.Thrown	COST:0	WT:6																		RANGE:10			SOURCEPAGE:p. 147
+Soulcatcher Net	PROFICIENCY:Net		TYPE:Enhancement.Weapon.Exotic.Ranged.Specific.Thrown	COST:0	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:GHOST_R				RANGE:10			SOURCEPAGE:p. 155
+
+Rock			PROFICIENCY:Rock		TYPE:Weapon.Exotic.Ranged.Bludgeoning.Standard.Thrown	COST:0	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4				WIELD:OneHanded	RANGE:10	SIZE:M	SOURCEPAGE:p. 251

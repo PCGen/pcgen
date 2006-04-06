@@ -1,0 +1,58 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Inphidian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Inphidian]
+ALIGN:NE
+RACE:Inphidian	!PRERACE:%
+NAME:Inphidian
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Craft (Poisonmaking)	RANK:7
+SKILL:Hide				RANK:3
+SKILL:Listen			RANK:3
+SKILL:Move Silently		RANK:3
+SKILL:Search			RANK:2
+SKILL:Spot				RANK:3
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Default Iron Cobra	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Iron Cobra]
+GENDER:None
+ALIGN:TN
+RACE:Iron Cobra	!PRERACE:%
+NAME:Iron Cobra
+STAT:STR=10|DEX=11|WIS=11|CHA=11
+
+STARTPACK:Default Jack-O-Lantern	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jack-O-Lantern]
+ALIGN:TN
+RACE:Jack-O-Lantern	!PRERACE:%
+NAME:Jack-O-Lantern	GENDER:None
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Stealthy
+
+STARTPACK:Default Jaculi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jaculi]
+ALIGN:TN
+RACE:Jaculi	!PRERACE:%
+NAME:Jaculi
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Default Jellyfish (Monstrous)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jellyfish (Monstrous)]
+ALIGN:TN
+RACE:Jellyfish (Monstrous)	!PRERACE:%
+NAME:Jellyfish, Monstrous
+STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Jupiter Bloodsucker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Jupiter Bloodsucker]
+ALIGN:TN
+RACE:Jupiter Bloodsucker	!PRERACE:%
+NAME:Jupiter Bloodsucker
+STAT:STR=10|DEX=11|CON=10|WIS=10|CHA=10
+

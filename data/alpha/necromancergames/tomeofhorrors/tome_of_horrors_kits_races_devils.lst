@@ -1,0 +1,426 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Devil (Amon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Amon)]
+ALIGN:LE
+RACE:Devil (Amon)	!PRERACE:%
+NAME:Devil: Amon (Duke of Hell)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Appraise			RANK:20
+SKILL:Balance			RANK:22
+SKILL:Bluff				RANK:26
+SKILL:Climb				RANK:26
+SKILL:Concentration		RANK:21
+SKILL:Diplomacy			RANK:26
+SKILL:Escape Artist		RANK:22
+SKILL:Gather Information	RANK:16
+SKILL:Hide				RANK:15
+SKILL:Intimidate			RANK:26
+SKILL:Jump				RANK:3
+SKILL:Knowledge (Arcana)	RANK:26
+SKILL:Knowledge (The Planes)	RANK:28
+SKILL:Knowledge (Religion)	RANK:20
+SKILL:Listen			RANK:25
+SKILL:Move Silently		RANK:13
+SKILL:Search			RANK:23
+SKILL:Sense Motive		RANK:21
+SKILL:Spellcraft			RANK:21
+SKILL:Spot				RANK:25
+SKILL:Survival			RANK:25
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Greave Cleave
+FEAT:Improved Critical (Mace (Heavy))
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability (Fireball)
+FEAT:Weapon Focus (Mace (Heavy))
+FEAT:Blinding Speed
+FEAT:Overwhelming Critical (Mace (Heavy))
+GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.LAW_M.THNDR_M
+
+STARTPACK:Default Devil (Baaphel)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Baaphel)]
+ALIGN:LE
+RACE:Devil (Baaphel)	!PRERACE:%
+NAME:Devil: Baaphel (Duke of Hell)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Bluff				RANK:23
+SKILL:Concentration		RANK:23
+SKILL:Craft (Alchemy)		RANK:21
+SKILL:Diplomacy			RANK:20
+SKILL:Escape Artist		RANK:18
+SKILL:Gather Information	RANK:23
+SKILL:Intimidate			RANK:23
+SKILL:Jump				RANK:16
+SKILL:Knowledge (Arcana)	RANK:23
+SKILL:Knowledge (The Planes)	RANK:23
+SKILL:Listen			RANK:23
+SKILL:Move Silently		RANK:20
+SKILL:Search			RANK:21
+SKILL:Sense Motive		RANK:21
+SKILL:Spellcraft			RANK:18
+SKILL:Spot				RANK:23
+SKILL:Survival			RANK:23
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Power Attack
+FEAT:Weapon Focus (Scythe)
+GEAR:Chainmail	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+GEAR:Scythe		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.LAW_M.KEEN
+
+STARTPACK:Default Devil (Bael)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bael)]
+ALIGN:LE
+RACE:Devil (Bael)	!PRERACE:%
+NAME:Devil: Bael (Duke of Hell)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Bluff				RANK:23
+SKILL:Climb				RANK:20
+SKILL:Concentration		RANK:24
+SKILL:Diplomacy			RANK:24
+SKILL:Disguise			RANK:20
+SKILL:Escape Artist		RANK:17
+SKILL:Gather Information	RANK:16
+SKILL:Intimidate			RANK:24
+SKILL:Jump				RANK:13
+SKILL:Knowledge (Arcana)	RANK:22
+SKILL:Knowledge (The Planes)	RANK:24
+SKILL:Knowledge (Religion)	RANK:16
+SKILL:Listen			RANK:22
+SKILL:Move Silently		RANK:10
+SKILL:Search			RANK:18
+SKILL:Sense Motive		RANK:19
+SKILL:Spellcraft			RANK:23
+SKILL:Spot				RANK:22
+SKILL:Survival			RANK:18
+SKILL:Use Rope			RANK:15
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Critical (Morningstar)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Weapon Focus (Morningstar)
+GEAR:Chainmail	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKA.PLUS4W.UNHLY_M.TELE
+
+STARTPACK:Default Devil (Geryon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Geryon)]
+ALIGN:LE
+RACE:Devil (Geryon)	!PRERACE:%
+NAME:Devil: Geryon (Arch-Devil)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Appraise			RANK:34
+SKILL:Bluff				RANK:22
+SKILL:Concentration		RANK:38
+SKILL:Craft (Alchemy)		RANK:24
+SKILL:Decipher Script		RANK:32
+SKILL:Diplomacy			RANK:38
+SKILL:Escape Artist		RANK:28
+SKILL:Gather Information	RANK:26
+SKILL:Intimidate			RANK:38
+SKILL:Knowledge (Arcana)	RANK:38
+SKILL:Knowledge (The Planes)	RANK:38
+SKILL:Knowledge (Religion)	RANK:38
+SKILL:Listen			RANK:38
+SKILL:Search			RANK:30
+SKILL:Sense Motive		RANK:28
+SKILL:Spellcraft			RANK:38
+SKILL:Spot				RANK:38
+SKILL:Survival			RANK:38
+FEAT:Cleave
+FEAT:Combat Casting
+FEAT:Improved Critical (Tail Sting)
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability (Ice Storm)
+FEAT:Weapon Focus (Claw)
+FEAT:Weapon Focus (Tail String)
+FEAT:Enhance Spell
+FEAT:Epic Spellcasting
+FEAT:Improved Combat Casting
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Poison|Detect Magic|Flare|Ghost Sound|Mending|Open/Close|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Burning Hands|Color Spray|Hold Portal|Shocking Grasp|Ventriloquism
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur|Continual Flame|Darkness|Hypnotic Pattern|Misdirection
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement|Hold Person|Lightning Bolt|Major Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bestow Curse|Confusion|Crushing Despair|Phantasmal Killer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|False Vision|Feeblemind|Passwall|Wall of Stone
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disintegrate|Suggestion (Mass)|Shadow Walk
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Delayed Blast Fireball|Power Word Blind|Spell Turning
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Horrid Wilting|Prismatic Wall|Scintillating Pattern
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Imprisonment|Hold Monster (Mass)|Time Stop
+SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells (Arcane/CHA)|Crown of Vermin|Spell Worm
+GEAR:Bull's Horn	LOCATION:Equipped
+
+STARTPACK:Default Devil (Ghaddar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Ghaddar)]
+ALIGN:LE
+RACE:Devil (Ghaddar)	!PRERACE:%
+NAME:Devil, Ghaddar
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:19
+SKILL:Concentration	RANK:19
+SKILL:Intimidate		RANK:19
+SKILL:Listen		RANK:19
+SKILL:Move Silently	RANK:19
+SKILL:Search		RANK:19
+SKILL:Sense Motive	RANK:19
+SKILL:Spot			RANK:19
+SKILL:Survival		RANK:19
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Devil (Gorson)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Gorson)]
+ALIGN:LE
+RACE:Devil (Gorson)	!PRERACE:%
+NAME:Devil: Gorson (The Blood Duke)
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Balance			RANK:14
+SKILL:Bluff				RANK:20
+SKILL:Concentration		RANK:17
+SKILL:Diplomacy			RANK:16
+SKILL:Hide				RANK:23
+SKILL:Intimidate			RANK:27
+SKILL:Knowledge (Anatomy)	RANK:27
+SKILL:Knowledge (Arcana)	RANK:20
+SKILL:Knowledge (The Planes)	RANK:24
+SKILL:Knowledge (Religion)	RANK:17
+SKILL:Listen			RANK:21
+SKILL:Move Silently		RANK:20
+SKILL:Profession (Torturer)	RANK:23
+SKILL:Sense Motive		RANK:19
+SKILL:Spellcraft			RANK:18
+SKILL:Spot				RANK:21
+SKILL:Survival			RANK:23
+SKILL:Use Rope			RANK:16
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Overrun
+FEAT:Improved Critical (Battleaxe)
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Power Attack
+FEAT:Weapon Focus (Battleaxe)
+GEAR:Battleaxe	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.WOUND
+
+STARTPACK:Default Devil (Hutijin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Hutijin)]
+ALIGN:LE
+RACE:Devil (Hutijin)	!PRERACE:%
+NAME:Devil: Hutijin (Duke of Hell)
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=11|CHA=11
+SKILL:Balance			RANK:6
+SKILL:Bluff				RANK:19
+SKILL:Climb				RANK:21
+SKILL:Concentration		RANK:21
+SKILL:Diplomacy			RANK:19
+SKILL:Disguise			RANK:21
+SKILL:Gather Information	RANK:20
+SKILL:Hide				RANK:21
+SKILL:Intimidate			RANK:21
+SKILL:Jump				RANK:21
+SKILL:Knowledge (Arcana)	RANK:21
+SKILL:Knowledge (Local)		RANK:13
+SKILL:Knowledge (Religion)	RANK:21
+SKILL:Knowledge (The Planes)	RANK:21
+SKILL:Listen			RANK:21
+SKILL:Move Silently		RANK:21
+SKILL:Search			RANK:21
+SKILL:Spellcraft			RANK:21
+SKILL:Spot				RANK:21
+SKILL:Survival			RANK:7
+SKILL:Tumble			RANK:21
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Weapon Focus (Trident)
+FEAT:Improved Critical (Trident)
+FEAT:Greater Weapon Focus (Trident)
+FEAT:Improved Initiative
+FEAT:Quicken Spell Like Ability (Fireball)
+GEAR:Trident		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.FLM_BR_M.UNHLY_M
+GEAR:Net of Snaring	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Devil (Lucifer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Lucifer)]
+ALIGN:LE
+RACE:Devil (Lucifer)	!PRERACE:%
+NAME:Devil: Lucifer
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Balance			RANK:54
+SKILL:Bluff				RANK:54
+SKILL:Concentration		RANK:54
+SKILL:Craft (Alchemy)		RANK:54
+SKILL:Decipher Script		RANK:54
+SKILL:Diplomacy			RANK:54
+SKILL:Gather Information	RANK:54
+SKILL:Intimidate			RANK:54
+SKILL:Knowledge (Arcana)	RANK:54
+SKILL:Knowledge (The Planes)	RANK:54
+SKILL:Knowledge (Religion)	RANK:54
+SKILL:Listen			RANK:54
+SKILL:Search			RANK:54
+SKILL:Sense Motive		RANK:54
+SKILL:Spellcraft			RANK:54
+SKILL:Spot				RANK:54
+SKILL:Survival			RANK:54
+FEAT:Cleave
+FEAT:Combat Casting
+FEAT:Craft Rod
+FEAT:Craft Wondrous Item
+FEAT:Empower Spell
+FEAT:Extend Spell
+FEAT:Improved Initiative
+FEAT:Maximize Spell
+FEAT:Power Attack
+FEAT:Quicken Spell
+FEAT:Scribe Scroll
+FEAT:Silent Spell
+FEAT:Toughness
+FEAT:Track
+FEAT:Blinding Speed
+FEAT:Enhance Spell
+FEAT:Epic Spellcasting
+FEAT:Improved Combat Casting
+GEAR:Rod of Infernus	LOCATION:Carried
+DEITY:None	DOMAIN:Evil (NSA)|Law (NSA)|War (NSA)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash|Arcane Mark|Daze|Dancing Lights|Ghost Sound|Ray of Frost|Read Magic|Resistance|Touch of Fatigue
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray|Hold Portal|Jump|Ray of Enfeeblement|Unseen Servant
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Lock|Fog Cloud|Acid Arrow|Scorching Ray|Touch of Idiocy
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blink|Deep Slumber|Hold Person|Ray of Exhaustion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster|Dimensional Anchor|Ice Storm|Shout
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cloudkill|Magic Jar|Mind Fog|Seeming
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Fog|Contingency|Flesh to Stone
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Forcecage|Finger of Death|Waves of Exhaustion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sunburst|Horrid Wilting|Iron Body
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dominate Monster|Soul Bind|Wish
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Calm Emotion|Magic Circle against Chaos|Divine Power|Dispel Good|Blade Barrier|Power Word Blind|Power Word Stun|Power Word Kill
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Detect Poison|Guidance|Light|Mending|Reading
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bane|Curse Water|Detect Chaos|Doom=2|Inflict Light Wounds=2|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Darkness|Death Knell|Delay Poison|Hold Person=3|Sound Burst
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead=2|Blindness/Deafness|Contagion=2|Inflict Serious Wounds|Obscure Object
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Ward|Dimensional Anchor|Discern Lies|Dismissal|Divine Power|Freedom of Movement|Inflict Critical Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Break Enchantment|Flame Strike=2|Insect Plague|Raise Dead|Slay Living|True Seeing
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment|Geas/Quest|Harm|Inflict Moderate Wounds (Mass)|Word of Recall
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Destruction|Restoration (Greater)|Inflict Serious Wounds (Mass)|Repulsion|Resurrection
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Earthquake|Fire Storm|Spell Immunity (Greater)|Shield of Law
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Gate|Heal (Mass)|Storm of Vengeance|True Resurrection
+SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells|Enslave|Epic Mage Armor|Greater Ruin
+
+STARTPACK:Default Devil (Moloch)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Moloch)]
+ALIGN:LE
+RACE:Devil (Moloch)	!PRERACE:%
+NAME:Devil: Moloch (Arch Devil)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Appraise			RANK:24
+SKILL:Bluff				RANK:37
+SKILL:Climb				RANK:37
+SKILL:Concentration		RANK:37
+SKILL:Diplomacy			RANK:31
+SKILL:Gather Information	RANK:29
+SKILL:Intimidate			RANK:37
+SKILL:Jump				RANK:12
+SKILL:Knowledge (Arcana)	RANK:37
+SKILL:Knowledge (Religion)	RANK:37
+SKILL:Knowledge (The Planes)	RANK:37
+SKILL:Listen			RANK:37
+SKILL:Move Silently		RANK:20
+SKILL:Search			RANK:37
+SKILL:Sense Motive		RANK:20
+SKILL:Spellcraft			RANK:37
+SKILL:Spot				RANK:37
+SKILL:Survival			RANK:10
+FEAT:Cleave
+FEAT:Combat Casting
+FEAT:Great Cleave
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Maximize Spell
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Quicken Spell
+FEAT:Weapon Focus (Whip)
+FEAT:Epic Toughness
+FEAT:Improved Combat Casting
+DEITY:None	DOMAIN:Evil (NSA)|Law (NSA)|Strength (NSA)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Desecrate|Magic Circle against Chaos|Spell Immunity|Dispel Good|Create Undead|Dictum|Shield of Law|Crushing Hand
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Inflict Minor Wounds=3|Light|Read Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bane|Cause Fear|Command|Comprehend Languages|Doom|Inflict Light Wounds=3|Augury|Calm Emotions|Darkness|Death Knell|Inflict Moderate Wounds|Shatter|Spiritual Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Blindness/Deafness|Glyph of Warding|Invisibility Purge|Magic Circle against Good|Searing Light|Stone Shape|Wind Wall
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Air Walk|Dimensional Anchor|Freedom of Movement|Giant Vermin|Inflict Critical Wounds=3
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command (Greater)|Insect Plague|Inflict Light Wounds (Mass)=2|Slay Living|Symbol of Pain
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Antilife Shell|Blade Barrier|Forbiddance|Geas/Quest|Harm
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Control Weather|Dictum|Inflict Serious Wounds (Mass)|Refuge|Resurreciton
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Greater Undead=2|Inflict Critical Wounds (Mass)|Shield of Law|Symbol of Death
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Energy Drain|Miracle|Soul Bind|True Resurrection
+GEAR:Whip (6 tail)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.UNHLY_M.SHOCK_M
+
+STARTPACK:Default Devil (Nupperibo)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Nupperibo)]
+ALIGN:LE
+RACE:Devil (Nupperibo)	!PRERACE:%
+NAME:Devil, Nupperibo
+STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=10
+
+STARTPACK:Default Devil (Titivilus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Titivilus)]
+ALIGN:LE
+RACE:Devil (Titivilus)	!PRERACE:%
+NAME:Devil: Titivilus (Duke of Hell)
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Appraise			RANK:20
+SKILL:Bluff				RANK:22
+SKILL:Concentration		RANK:20
+SKILL:Decipher Script		RANK:22
+SKILL:Diplomacy			RANK:22
+SKILL:Escape Artist		RANK:18
+SKILL:Forgery			RANK:22
+SKILL:Gather Information	RANK:22
+SKILL:Hide				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:20
+SKILL:Knowledge (The Planes)	RANK:21
+SKILL:Listen			RANK:21
+SKILL:Move Silently		RANK:18
+SKILL:Sense Motive		RANK:14
+SKILL:Sleight of Hand		RANK:18
+SKILL:Spellcraft			RANK:22
+SKILL:Spot				RANK:21
+SKILL:Survival			RANK:19
+FEAT:Combat Casting
+FEAT:Combat Expertise
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Negotiator
+FEAT:Power Attack
+FEAT:Quicken Spell Like Ability (Confusion)
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.ALCHM.WOUND
+
+STARTPACK:Default Devil (Tormentor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Tormentor)]
+ALIGN:LE
+RACE:Devil (Tormentor)	!PRERACE:%
+NAME:Devil, Tormentor (Tormentor of Souls)
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Balance			RANK:3
+SKILL:Climb				RANK:11
+SKILL:Concentration		RANK:10
+SKILL:Escape Artist		RANK:8
+SKILL:Intimidate			RANK:11
+SKILL:Jump				RANK:6
+SKILL:Knowledge (The Planes)	RANK:11
+SKILL:Listen			RANK:9
+SKILL:Search			RANK:11
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Survival			RANK:11
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Track
+GEAR:Battleaxe		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.GHOST_M
+GEAR:Soulcatcher Net	SIZE:PC	LOCATION:Carried
+
+

@@ -1,0 +1,134 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Ubue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ubue]
+RACE:Ubue	!PRERACE:%
+NAME:Ubue
+ALIGN:CG|CN|CE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb		RANK:1
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:1
+SKILL:Search	RANK:2
+SKILL:Spot		RANK:1
+FEAT:Power Attack
+FEAT:Weapon Focus (Club)
+GEAR:Hide	SIZE:PC	LOCATION:Equipped
+GEAR:Club	SIZE:PC	LOCATION:Primary Hand
+GEAR:Club	SIZE:PC	LOCATION:Secondary Hand
+GEAR:Club	SIZE:PC	LOCATION:Secondary Hand2
+
+STARTPACK:Default Vampire Rose	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire Rose]
+RACE:Vampire Rose	!PRERACE:%
+NAME:Vampire Rose
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=10
+
+STARTPACK:Default Vegepygmy (Commoner)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Commoner)]
+RACE:Vegepygmy (Commoner)	!PRERACE:%
+NAME:Commoner
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Vegepygmy (Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Worker)]
+RACE:Vegepygmy (Worker)	!PRERACE:%
+NAME:Worker
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Vegepygmy (Guard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Guard)]
+RACE:Vegepygmy (Guard)	!PRERACE:%
+NAME:Guard
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Toughness
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Vegepygmy (Bodyguard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Bodyguard)]
+RACE:Vegepygmy (Bodyguard)	!PRERACE:%
+NAME:Bodyguard
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Toughness
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Vegepygmy (Subchief)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Subchief)]
+RACE:Vegepygmy (Subchief)	!PRERACE:%
+NAME:Subchief
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Weapon Focus (Longspear)
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Vegepygmy (Chief)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vegepygmy (Chief)]
+RACE:Vegepygmy (Chief)	!PRERACE:%
+NAME:Chief
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:6
+SKILL:Listen		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:7
+FEAT:Alertness
+FEAT:Toughness
+FEAT:Weapon Focus (Longspear)
+GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Vilstrak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vilstrak]
+RACE:Vilstrak	!PRERACE:%
+NAME:Vilstrak (Tunnel Thug)
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Alertness
+
+STARTPACK:Default Volt	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Volt]
+RACE:Volt	!PRERACE:%
+NAME:Volt
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:3
+FEAT:Weapon Finesse
+
+STARTPACK:Default Vulchling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vulchling]
+RACE:Vulchling	!PRERACE:%
+NAME:Vulchling
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Weapon Finesse
+

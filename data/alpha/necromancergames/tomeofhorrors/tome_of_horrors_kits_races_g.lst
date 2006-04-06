@@ -1,0 +1,295 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Gambado	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gambado]
+ALIGN:CN
+RACE:Gambado	!PRERACE:%
+NAME:Gambado
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide	RANK:2
+SKILL:Spot	RANK:2
+SKILL:Jump	RANK:3
+FEAT:Alertness
+FEAT:Skill Focus (Hide)
+
+STARTPACK:Default Gargoyle (Four-Armed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gargoyle (Four-Armed)]
+ALIGN:CE
+RACE:Gargoyle (Four-Armed)	!PRERACE:%
+NAME:Gargoyle, Four-Armed
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+FEAT:Toughness
+
+STARTPACK:Default Gargoyle (Green Guardian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gargoyle (Green Guardian)]
+ALIGN:CE
+RACE:Gargoyle (Green Guardian)	!PRERACE:%
+NAME:Gargoyle, Green Guardian
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+FEAT:Toughness
+
+STARTPACK:Default Gargoyle (Margoyle)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gargoyle (Margoyle)]
+ALIGN:CE
+RACE:Gargoyle (Margoyle)	!PRERACE:%
+NAME:Gargoyle, Margoyle
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Toughness
+
+STARTPACK:Default Ghoul-Stirge	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ghoul-Stirge]
+ALIGN:CE
+RACE:Ghoul-Stirge	!PRERACE:%
+NAME:Ghoul-Stirge
+STAT:STR=10|DEX=11|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Weapon Finesse
+
+STARTPACK:Default Giant (Sand)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Sand)]
+ALIGN:NE
+RACE:Giant (Sand)	!PRERACE:%
+NAME:Giant, Sand
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Jump		RANK:15
+SKILL:Listen	RANK:15
+SKILL:Spot		RANK:15
+SKILL:Survival	RANK:15
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Weapon Focus (Greatsword)
+GEAR:Leather	SIZE:PC	LOCATION:Equipped
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
+
+STARTPACK:Default Giant (Wood)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Wood)]
+ALIGN:CG
+RACE:Giant (Wood)	!PRERACE:%
+NAME:Giant, Wood
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:8
+SKILL:Hide			RANK:8
+SKILL:Jump			RANK:8
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:8
+FEAT:Point Blank Shot
+FEAT:Power Attack
+FEAT:Weapon Focus (Longbow)
+GEAR:Leather			SIZE:PC	LOCATION:Equipped
+GEAR:Greatsword			SIZE:PC	LOCATION:Carried
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:BOWSTR|5
+
+STARTPACK:Default Gloomwing	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gloomwing]
+ALIGN:TN
+RACE:Gloomwing	!PRERACE:%
+NAME:Gloomwing
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:8
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:8
+FEAT:Flyby Attack
+FEAT:Weapon Finesse
+
+STARTPACK:Default Golem (Blood)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Blood)]
+ALIGN:TN
+RACE:Golem (Blood)	!PRERACE:%
+NAME:Golem, Blood
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Toughness
+
+STARTPACK:Default Golem (Ice)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Ice)]
+ALIGN:TN
+RACE:Golem (Ice)	!PRERACE:%
+NAME:Golem, Ice
+STAT:STR=11|DEX=11|WIS=11|CHA=11
+
+STARTPACK:Default Golem (Stone Guardian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Stone Guardian)]
+ALIGN:TN
+RACE:Golem (Stone Guardian)	!PRERACE:%
+NAME:Golem, Stone Guardian
+STAT:STR=11|DEX=11|WIS=11|CHA=11
+
+STARTPACK:Default Golem (Tallow)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Tallow)]
+ALIGN:TN
+RACE:Golem (Tallow)	!PRERACE:%
+NAME:Golem, Tallow
+STAT:STR=11|DEX=11|WIS=11|CHA=11
+
+STARTPACK:Default Golem (Wood)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Golem (Wood)]
+ALIGN:TN
+RACE:Golem (Wood)	!PRERACE:%
+NAME:Golem, Wood
+STAT:STR=10|DEX=11|WIS=11|CHA=11
+
+STARTPACK:Default Gorbel	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gorbel]
+ALIGN:TN
+RACE:Gorbel	!PRERACE:%
+NAME:Gorbel
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Flyby Attack
+
+STARTPACK:Default Gorgimera	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gorgimera]
+ALIGN:TN
+RACE:Gorgimera	!PRERACE:%
+NAME:Gorgimera
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Hover
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Gorgon (True/Sthenno)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gorgon (True/Sthenno)]
+ALIGN:LE
+RACE:Gorgon (True/Sthenno)	!PRERACE:%
+NAME:Sthenno
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Balance			RANK:11
+SKILL:Bluff				RANK:20
+SKILL:Craft (Alchemy)		RANK:21
+SKILL:Diplomacy			RANK:21
+SKILL:Disguise			RANK:15
+SKILL:Hide				RANK:20
+SKILL:Gather Information	RANK:10
+SKILL:Intimidate			RANK:21
+SKILL:Knowledge (Arcana)	RANK:21
+SKILL:Knowledge (The Planes)	RANK:21
+SKILL:Listen			RANK:21
+SKILL:Move Silently		RANK:21
+SKILL:Search			RANK:16
+SKILL:Sense Motive		RANK:16
+SKILL:Spot				RANK:21
+SKILL:Survival			RANK:17
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus (Claw)
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Snakes)
+
+STARTPACK:Default Gorgon (True/Euryale)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gorgon (True/Euryale)]
+ALIGN:LE
+RACE:Gorgon (True/Euryale)	!PRERACE:%
+NAME:Euryale
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Balance			RANK:21
+SKILL:Bluff				RANK:20
+SKILL:Craft (Alchemy)		RANK:23
+SKILL:Diplomacy			RANK:23
+SKILL:Disguise			RANK:23
+SKILL:Hide				RANK:15
+SKILL:Gather Information	RANK:23
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (Arcana)	RANK:23
+SKILL:Knowledge (The Planes)	RANK:23
+SKILL:Listen			RANK:23
+SKILL:Move Silently		RANK:23
+SKILL:Search			RANK:20
+SKILL:Sense Motive		RANK:18
+SKILL:Spot				RANK:23
+SKILL:Survival			RANK:22
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus (Claw)
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Snakes)
+
+STARTPACK:Default Gorilla Bear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gorilla Bear]
+ALIGN:TN
+RACE:Gorilla Bear	!PRERACE:%
+NAME:Gorilla Bear
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Climb		RANK:4
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+SKILL:Swim		RANK:3
+FEAT:Alertness
+FEAT:Toughness
+
+STARTPACK:Default Grippli	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Grippli]
+ALIGN:TN
+RACE:Grippli	!PRERACE:%
+NAME:Grippli
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+SKILL:Climb		RANK:3
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Dart			SIZE:PC	LOCATION:Carried
+GEAR:Net			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Groaning Spirit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Groaning Spirit]
+ALIGN:CE
+RACE:Groaning Spirit	!PRERACE:%
+NAME:Groaning Spirit
+STAT:DEX=11|INT=10|WIS=10|CHA=10
+SKILL:Bluff			RANK:10
+SKILL:Hide			RANK:10
+SKILL:Intimidate		RANK:10
+SKILL:Listen		RANK:10
+SKILL:Search		RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:SPot			RANK:10
+FEAT:Ability Focus (Keening)
+FEAT:Blind Fight
+FEAT:Improved Initiative
+
+STARTPACK:Default Gryph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gryph]
+ALIGN:NE
+RACE:Gryph	!PRERACE:%
+NAME:Gryph
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Default Guardian Daemon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Guardian Daemon]
+ALIGN:TN
+RACE:Guardian Daemon	!PRERACE:%
+NAME:Guardian Daemon
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Bluff				RANK:10
+SKILL:Hide				RANK:11
+SKILL:Intimidate			RANK:9
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Move Silently		RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+SKILL:Survival			RANK:10
+FEAT:Blind Fight
+FEAT:Multiattack
+FEAT:Power Attack
+

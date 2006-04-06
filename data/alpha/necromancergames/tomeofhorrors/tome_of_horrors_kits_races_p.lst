@@ -1,0 +1,105 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Pech	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pech]
+RACE:Pech	!PRERACE:%
+NAME:Pech
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Climb				RANK:4
+SKILL:Craft (Stonemasonry)	RANK:7
+SKILL:Knowledge (Stonework)	RANK:7
+SKILL:Listen			RANK:7
+SKILL:Move Silently		RANK:3
+SKILL:Profession (Miner)	RANK:7
+SKILL:Spot				RANK:7
+SKILL:Survival			RANK:3
+FEAT:Alertness
+FEAT:Power Attack
+GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Phantom Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phantom Stalker]
+RACE:Phantom Stalker	!PRERACE:%
+NAME:Phantom Stalker
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Power Attack
+
+STARTPACK:Default Phycomid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phycomid]
+RACE:Phycomid	!PRERACE:%
+NAME:Phycomid
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|WIS=11|CHA=11
+
+STARTPACK:Default Poltergeist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Poltergeist]
+RACE:Poltergeist	!PRERACE:%
+NAME:Poltergeist
+ALIGN:LE
+STAT:DEX=11|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Alertness
+
+STARTPACK:Default Protector	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Protector]
+RACE:Protector	!PRERACE:%
+NAME:Protector
+ALIGN:LN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Concentration		RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Escape Artist		RANK:10
+SKILL:Gather Information	RANK:10
+SKILL:Heal				RANK:10
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:TYPE=Knowledge		RANK:10
+SKILL:Listen			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spellcraft			RANK:10
+SKILL:Spot				RANK:10
+SKILL:Search			RANK:10
+SKILL:Survival			RANK:10
+FEAT:Combat Expertise
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+DEITY:None	DOMAIN:Protection|Law
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Shield Other|Protection from Energy|Order's Wrath
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Cure Minor Wounds|Detect Magic|Purify Food and Drink|Read Magic|Resistance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Bless Water|Detect Evil|Divine Favor|Endure Elements|Sanctuary
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Consecrate|Resist Energy|Shatter
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight|Magic Circle against Evil|Remove Curse
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Cure Critical Wounds
+
+STARTPACK:Default Pudding (Brown)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pudding (Brown)]
+RACE:Pudding (Brown)	!PRERACE:%
+NAME:Pudding, Brown
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|WIS=11|CHA=11
+
+STARTPACK:Default Pudding (Dun)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pudding (Dun)]
+RACE:Pudding (Dun)	!PRERACE:%
+NAME:Pudding, Dun
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|WIS=11|CHA=11
+
+STARTPACK:Default Pudding (White)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pudding (White)]
+RACE:Pudding (White)	!PRERACE:%
+NAME:Pudding, White
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|WIS=11|CHA=11
+
+STARTPACK:Default Pyrolisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Pyrolisk]
+RACE:Pyrolisk	!PRERACE:%
+NAME:Pyrolisk
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Iron Will
+

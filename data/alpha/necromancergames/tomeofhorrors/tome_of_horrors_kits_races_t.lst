@@ -1,0 +1,221 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Tabaxi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tabaxi]
+RACE:Tabaxi	!PRERACE:%
+NAME:Tabaxi
+ALIGN:CN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:2
+FEAT:Weapon Finesse
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Taer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Taer]
+RACE:Taer	!PRERACE:%
+NAME:Taer
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+FEAT:Multiattack
+GEAR:Shortspear	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Tenebrous Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tenebrous Worm]
+RACE:Tenebrous Worm	!PRERACE:%
+NAME:Tenebrous Worm
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:13
+SKILL:Listen		RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Spot			RANK:13
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Tentamort	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tentamort]
+RACE:Tentamort	!PRERACE:%
+NAME:Tentamort
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Climb			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:5
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Thorny	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thorny]
+RACE:Thorny	!PRERACE:%
+NAME:Thorny
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Combat Reflexes
+
+STARTPACK:Default Thunder Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thunder Beast]
+RACE:Thunder Beast	!PRERACE:%
+NAME:Thunder Beast
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Power Attack
+
+STARTPACK:Default Tick (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tick (Giant)]
+RACE:Tick (Giant)	!PRERACE:%
+NAME:Tick, Giant
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=10
+
+STARTPACK:Default Transposer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Transposer]
+RACE:Transposer	!PRERACE:%
+NAME:Transposer
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Bluff		RANK:2
+SKILL:Disguise	RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Skill Focus (Disguise)
+
+STARTPACK:Default Trapper	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Trapper]
+RACE:Trapper	!PRERACE:%
+NAME:Trapper
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:7
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Spot			RANK:15
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Improved Initiative
+FEAT:Skill Focus (Hide)
+FEAT:Toughness
+
+STARTPACK:Default Tri Flower Frond	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tri Flower Frond]
+RACE:Tri Flower Frond	!PRERACE:%
+NAME:Tri-Flower Frond
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
+
+STARTPACK:Default Troll (Cave)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Cave)]
+RACE:Troll (Cave)	!PRERACE:%
+NAME:Troll, Cave
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Multiattack
+
+STARTPACK:Default Troll (Ice)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Ice)]
+RACE:Troll (Ice)	!PRERACE:%
+NAME:Troll, Ice
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:3
+FEAT:Alertness
+
+STARTPACK:Default Troll (Rock)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Rock)]
+RACE:Troll (Rock)	!PRERACE:%
+NAME:Troll, Rock
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Default Troll (Swamp)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Swamp)]
+RACE:Troll (Swamp)	!PRERACE:%
+NAME:Troll, Swamp
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:1
+SKILL:Survival		RANK:1
+FEAT:Alertness
+FEAT:Iron Will
+
+STARTPACK:Default Troll (Two Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Troll (Two Headed)]
+RACE:Troll (Two Headed)	!PRERACE:%
+NAME:Troll, Two-Headed
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:5
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
+
+STARTPACK:Default Tsathar (Tsathar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tsathar (Tsathar)]
+RACE:Tsathar (Tsathar)	!PRERACE:%
+NAME:Tsathar
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:2
+SKILL:Escape Artist	RANK:2
+SKILL:Handle Animal	RANK:2
+SKILL:Hide			RANK:2
+SKILL:Jump			RANK:2
+SKILL:Listen		RANK:1
+SKILL:Search		RANK:1
+SKILL:Spot			RANK:1
+SKILL:Swim			RANK:2
+FEAT:Improved Initiative
+GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Tsathar (Tsathar Scourge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tsathar (Tsathar Scourge)]
+RACE:Tsathar (Tsathar Scourge)	!PRERACE:%
+NAME:Tsathar Scourge
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:2
+SKILL:Escape Artist	RANK:2
+SKILL:Handle Animal	RANK:5
+SKILL:Hide			RANK:2
+SKILL:Jump			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Search		RANK:2
+SKILL:Spot			RANK:2
+SKILL:Swim			RANK:2
+FEAT:Improved Initiative
+GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Tunnel Worm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Tunnel Worm]
+RACE:Tunnel Worm	!PRERACE:%
+NAME:Tunnel Worm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus (Bite)
+

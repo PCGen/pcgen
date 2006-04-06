@@ -1,0 +1,57 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Land Lamprey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Land Lamprey]
+ALIGN:TN
+RACE:Land Lamprey	!PRERACE:%
+NAME:Land Lamprey
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Default Lava Child	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lava Child]
+ALIGN:TN
+RACE:Lava Child	!PRERACE:%
+NAME:Lava Child
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Default Leech (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Leech (Giant)]
+ALIGN:TN
+RACE:Leech (Giant)	!PRERACE:%
+NAME:Leech, Giant
+STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Livestone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Livestone]
+ALIGN:TN
+RACE:Livestone	!PRERACE:%
+NAME:Livestone
+STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
+
+STARTPACK:Common Lurker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker%]
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Default Lurker Above	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker Above]
+RACE:Lurker Above	!PRERACE:%
+NAME:Lurker Above
+KIT:Common Lurker
+
+STARTPACK:Default Lurker Below	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Lurker Below]
+RACE:Lurker Below	!PRERACE:%
+NAME:Lurker Below
+KIT:Common Lurker
+

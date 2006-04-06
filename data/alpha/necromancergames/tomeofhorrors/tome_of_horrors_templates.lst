@@ -1,0 +1,503 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+# Template Name				Size		Visible	Template																			Special Ability														Required Race			Required Size	Required Stat	Required Template								Prohibited Template							Add to base move			Multiply base more		BONUS:SIZEMOD		Bonus to skill							Stat bonus		Modify VAR																								Feat																												Remove Object					Automatic Languages	Move			Removable?		Vision				GENDERLOCK		Spells																																																	Natural Attacks
+Male Only							VISIBLE:NO																																																																																																																																																																									GENDERLOCK:Male
+Female Only							VISIBLE:NO																																																																																																																																																																									GENDERLOCK:Female
+
+Daemon Common Traits					VISIBLE:NO																																					PRERACE:Daemon%																																																							BONUS:VAR|ResistCold,ResistElectricity,ResistFire|10																	FEAT:Summon Daemons|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Immune to Acid|Immune to Poison|Telepathy																									VISION:Darkvision (60')
+Demodand Common Traits					VISIBLE:NO																																					PRERACE:Demodand%																																																							BONUS:VAR|ResistCold,ResistFire|10																				FEAT:Summon Demodands|Immune to Acid|Immune to Poison|Immune to Mind-Affecting Effects|Resistance to Cold|Resistance to Fire|Scent																								VISION:Darkvision (120')				SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("RacialCL")|Detect Good|Detect Magic|Detect Thoughts,12+CHA|Fear,14+CHA|Gaseous Form|Invisibility (Self Only)|Magic Circle against Good|See Invisibility|Tongues	SPELLS:Innate|TIMES=3|CASTERLEVEL=var("RacialCL")|Dispel Magic|Fog Cloud|Ray of Enfeeblement
+Demon Common Traits					VISIBLE:NO																																					PRERACE:Demon%																																																							BONUS:VAR|ResistAcid,ResistCold,ResistFire|10																		FEAT:Immune to Electricity|Immune to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																											VISION:Darkvision (60')
+Devil Common Traits					VISIBLE:NO																																					PRERACE:Devil%																																																							BONUS:VAR|ResistAcid,ResistCold|10																				FEAT:Immune to Fire|Immune to Poison|Resistance to Acid|Resistance to Cold|Telepathy																															VISION:Darkvision (60')
+Devil Greater Traits					VISIBLE:NO																																					PRERACE:Devil%																																																																																FEAT:Spell-Like Abilities|Summon Devils|See in Darkness																																												SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("RacialCL")|Detect Good|Teleport (Greater/Self Only)|Wall of Fire
+Devil Royalty						VISIBLE:NO																																					PRERACE:Devil%																																																																																																																																					SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("RacialCL")|Blasphemy,17+CHA|Desecrate|Detect Magic|Invisibility (Greater)|Magic Circle against Good|See Invisibility|Tongues|Unholy Aura,18+CHA
+
+Demon of Corruption					VISIBLE:NO																																					PRERACE:Demon of Corruption%																																									BONUS:SKILL|Listen,Spot|4|TYPE=Racial						BONUS:VAR|ResistAcid,ResistCold,ResistFire|10	BONUS:VAR|SummonDemonsTimes|1	BONUS:VAR|SummonDemonsPercent|35	BONUS:VAR|WhisperOfMadnessDC|CHA	FEAT:Spell-Like Abilities|Summon Demons|Whisper of Madness|Immune to Electricity|Immune to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																		VISION:Darkvision (60')					SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("RacialCL")|Cause Fear,11+CHA|Detect Good|Invisibility (Self Only)
+
+Nabasu Traits						VISIBLE:NO																																					PRERACE:Demon (Nabasu%																																										BONUS:SKILL|Listen,Spot|8|TYPE=Racial						BONUS:VAR|DeathGazeTimes|HD-6	BONUS:VAR|DeathGazeRange|20	BONUS:VAR|DeathGazeDC|CHA	BONUS:VAR|SneakAttack|2							FEAT:Gaze (Death)|Sneak Attack|Spell-Like Abilities|Plane Shift																									LANGAUTO:Abyssal,Common															SPELLS:Innate|TIMES=-1|CASTERLEVEL=var("RacialCL")|Deeper Darkness (10-ft. Radius)|Cause Shadows
+
+Eblis (Ghost Sound)					VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Ghost Sound,10+CHA
+Eblis (Disguise Self)					VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Disguise Self,11+CHA
+Eblis (Hypnotism)						VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Hypnotism,11+CHA
+Eblis (Scare)						VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Scare,12+CHA
+Eblis (Fog Cloud)						VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Fog Cloud,12+CHA
+Eblis (Blur)						VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Blur,12+CHA
+Eblis (Hypnotic Pattern)				VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Hypnotic Pattern,12+CHA
+Eblis (Whispering Wind)					VISIBLE:NO																																					PRERACE:Eblis																																																							BONUS:VAR|RacialCL|4|TYPE=NoStack																				FEAT:Spell-Like Abilities																																																	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Whispering Wind,12+CHA
+
+### Dragon Attacks
+Dragon Attacks (Tiny)					VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:T																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Dragon Attacks (Small)					VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:S																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Dragon Attacks (Medium)					VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:M																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Dragon Attacks (Large)					VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:L																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,1d8
+Dragon Attacks (Huge)					VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:H																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Dragon Attacks (Gargantuan)				VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:G																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Dragon Attacks (Colossal)				VISIBLE:NO																																					PRERACE:Dragon			PRESIZEEQ:C																																																																																																																																																																																			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+
+### Mongrelman Templates
+Gnoll Head (Left)						VISIBLE:NO	TEMPLATE:Gnoll Eye	TEMPLATE:Gnoll Ear													SA:Gnoll Left Side of Head												PRERACE:Mongrelman
+Gnoll Head (Right)					VISIBLE:NO	TEMPLATE:Gnoll Eye	TEMPLATE:Gnoll Ear													SA:Gnoll Right Side of Head												PRERACE:Mongrelman
+Gnoll Upper Torso						VISIBLE:NO																					SA:Gnoll Upper Torso													PRERACE:Mongrelman
+Gnoll Lower Torso						VISIBLE:NO																					SA:Gnoll Lower Torso													PRERACE:Mongrelman
+Gnoll Upper Arm (Left)					VISIBLE:NO	TEMPLATE:Gnoll Arm																	SA:Gnoll Left Upper Arm													PRERACE:Mongrelman
+Gnoll Upper Arm (Right)					VISIBLE:NO	TEMPLATE:Gnoll Arm																	SA:Gnoll Right Upper Arm												PRERACE:Mongrelman
+Gnoll Lower Arm (Left)					VISIBLE:NO	TEMPLATE:Gnoll Arm																	SA:Gnoll Left Lower Arm													PRERACE:Mongrelman
+Gnoll Lower Arm (Right)					VISIBLE:NO	TEMPLATE:Gnoll Arm																	SA:Gnoll Right Lower Arm												PRERACE:Mongrelman
+Gnoll Upper Leg (Left)					VISIBLE:NO																					SA:Gnoll Left Upper Leg													PRERACE:Mongrelman
+Gnoll Upper Leg (Right)					VISIBLE:NO																					SA:Gnoll Right Upper Leg												PRERACE:Mongrelman
+Gnoll Lower Leg (Left)					VISIBLE:NO																					SA:Gnoll Left Lower Leg													PRERACE:Mongrelman
+Gnoll Lower Leg (Right)					VISIBLE:NO																					SA:Gnoll Right Lower Leg												PRERACE:Mongrelman
+Gnoll Foot (Left)						VISIBLE:NO																					SA:Gnoll Foot														PRERACE:Mongrelman
+Gnoll Foot (Right)					VISIBLE:NO																					SA:Gnoll Foot														PRERACE:Mongrelman
+Gnoll Hand (Left)						VISIBLE:NO																					SA:Gnoll Hand														PRERACE:Mongrelman
+Gnoll Hand (Right)					VISIBLE:NO																					SA:Gnoll Hand														PRERACE:Mongrelman
+Gnoll Jaw/Mouth						VISIBLE:NO																					SA:Gnoll Jaw/Mouth													PRERACE:Mongrelman
+
+Gnoll Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																																																													VISION:Darkvision (60')
+Gnoll Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+Gnoll Arm							VISIBLE:NO																					SA:+4 on Str checks using arm												PRERACE:Mongrelman
+
+Goblin Head (Left)					VISIBLE:NO	TEMPLATE:Goblin Eye	TEMPLATE:Goblin Ear													SA:Goblin Left Side of Head												PRERACE:Mongrelman
+Goblin Head (Right)					VISIBLE:NO	TEMPLATE:Goblin Eye	TEMPLATE:Goblin Ear													SA:Goblin Right Side of Head												PRERACE:Mongrelman
+Goblin Upper Torso					VISIBLE:NO																					SA:Goblin Upper Torso													PRERACE:Mongrelman
+Goblin Lower Torso					VISIBLE:NO																					SA:Goblin Lower Torso													PRERACE:Mongrelman
+Goblin Upper Arm (Left)					VISIBLE:NO	TEMPLATE:Goblin Arm																	SA:Goblin Left Upper Arm												PRERACE:Mongrelman
+Goblin Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Goblin Arm																	SA:Goblin Right Upper Arm												PRERACE:Mongrelman
+Goblin Lower Arm (Left)					VISIBLE:NO	TEMPLATE:Goblin Arm																	SA:Goblin Left Lower Arm												PRERACE:Mongrelman
+Goblin Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Goblin Arm																	SA:Goblin Right Lower Arm												PRERACE:Mongrelman
+Goblin Upper Leg (Left)					VISIBLE:NO																					SA:Goblin Left Upper Leg												PRERACE:Mongrelman
+Goblin Upper Leg (Right)				VISIBLE:NO																					SA:Goblin Right Upper Leg												PRERACE:Mongrelman
+Goblin Lower Leg (Left)					VISIBLE:NO																					SA:Goblin Left Lower Leg												PRERACE:Mongrelman
+Goblin Lower Leg (Right)				VISIBLE:NO																					SA:Goblin Right Lower Leg												PRERACE:Mongrelman
+Goblin Foot (Left)					VISIBLE:NO																					SA:Goblin Foot														PRERACE:Mongrelman
+Goblin Foot (Right)					VISIBLE:NO																					SA:Goblin Foot														PRERACE:Mongrelman
+Goblin Hand (Left)					VISIBLE:NO																					SA:Goblin Hand														PRERACE:Mongrelman
+Goblin Hand (Right)					VISIBLE:NO																					SA:Goblin Hand														PRERACE:Mongrelman
+Goblin Jaw/Mouth						VISIBLE:NO																					SA:Goblin Jaw/Mouth													PRERACE:Mongrelman
+
+Goblin Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																																																													VISION:Darkvision (60')
+Goblin Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+Goblin Arm							VISIBLE:NO																					SA:-2 on Str checks using arm												PRERACE:Mongrelman
+
+Hobgoblin Head (Left)					VISIBLE:NO	TEMPLATE:Hobgoblin Eye	TEMPLATE:Hobgoblin Ear													SA:Hobgoblin Left Side of Head											PRERACE:Mongrelman
+Hobgoblin Head (Right)					VISIBLE:NO	TEMPLATE:Hobgoblin Eye	TEMPLATE:Hobgoblin Ear													SA:Hobgoblin Right Side of Head											PRERACE:Mongrelman
+Hobgoblin Upper Torso					VISIBLE:NO																					SA:Hobgoblin Upper Torso												PRERACE:Mongrelman
+Hobgoblin Lower Torso					VISIBLE:NO																					SA:Hobgoblin Lower Torso												PRERACE:Mongrelman
+Hobgoblin Upper Arm (Left)				VISIBLE:NO																					SA:Hobgoblin Left Upper Arm												PRERACE:Mongrelman
+Hobgoblin Upper Arm (Right)				VISIBLE:NO																					SA:Hobgoblin Right Upper Arm												PRERACE:Mongrelman
+Hobgoblin Lower Arm (Left)				VISIBLE:NO																					SA:Hobgoblin Left Lower Arm												PRERACE:Mongrelman
+Hobgoblin Lower Arm (Right)				VISIBLE:NO																					SA:Hobgoblin Right Lower Arm												PRERACE:Mongrelman
+Hobgoblin Upper Leg (Left)				VISIBLE:NO																					SA:Hobgoblin Left Upper Leg												PRERACE:Mongrelman
+Hobgoblin Upper Leg (Right)				VISIBLE:NO																					SA:Hobgoblin Right Upper Leg												PRERACE:Mongrelman
+Hobgoblin Lower Leg (Left)				VISIBLE:NO																					SA:Hobgoblin Left Lower Leg												PRERACE:Mongrelman
+Hobgoblin Lower Leg (Right)				VISIBLE:NO																					SA:Hobgoblin Right Lower Leg												PRERACE:Mongrelman
+Hobgoblin Foot (Left)					VISIBLE:NO																					SA:Hobgoblin Foot														PRERACE:Mongrelman
+Hobgoblin Foot (Right)					VISIBLE:NO																					SA:Hobgoblin Foot														PRERACE:Mongrelman
+Hobgoblin Hand (Left)					VISIBLE:NO																					SA:Hobgoblin Hand														PRERACE:Mongrelman
+Hobgoblin Hand (Right)					VISIBLE:NO																					SA:Hobgoblin Hand														PRERACE:Mongrelman
+Hobgoblin Jaw/Mouth					VISIBLE:NO																					SA:Hobgoblin Jaw/Mouth													PRERACE:Mongrelman
+
+Hobgoblin Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																																																													VISION:Darkvision (60')
+Hobgoblin Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+
+Human Head (Left)						VISIBLE:NO																					SA:Human Left Side of Head												PRERACE:Mongrelman
+Human Head (Right)					VISIBLE:NO																					SA:Human Right Side of Head												PRERACE:Mongrelman
+Human Upper Torso						VISIBLE:NO																					SA:Human Upper Torso													PRERACE:Mongrelman
+Human Lower Torso						VISIBLE:NO																					SA:Human Lower Torso													PRERACE:Mongrelman
+Human Upper Arm (Left)					VISIBLE:NO																					SA:Human Left Upper Arm													PRERACE:Mongrelman
+Human Upper Arm (Right)					VISIBLE:NO																					SA:Human Right Upper Arm												PRERACE:Mongrelman
+Human Lower Arm (Left)					VISIBLE:NO																					SA:Human Left Lower Arm													PRERACE:Mongrelman
+Human Lower Arm (Right)					VISIBLE:NO																					SA:Human Right Lower Arm												PRERACE:Mongrelman
+Human Upper Leg (Left)					VISIBLE:NO																					SA:Human Left Upper Leg													PRERACE:Mongrelman
+Human Upper Leg (Right)					VISIBLE:NO																					SA:Human Right Upper Leg												PRERACE:Mongrelman
+Human Lower Leg (Left)					VISIBLE:NO																					SA:Human Left Lower Leg													PRERACE:Mongrelman
+Human Lower Leg (Right)					VISIBLE:NO																					SA:Human Right Lower Leg												PRERACE:Mongrelman
+Human Foot (Left)						VISIBLE:NO																					SA:Human Foot														PRERACE:Mongrelman
+Human Foot (Right)					VISIBLE:NO																					SA:Human Foot														PRERACE:Mongrelman
+Human Hand (Left)						VISIBLE:NO																					SA:Human Hand														PRERACE:Mongrelman
+Human Hand (Right)					VISIBLE:NO																					SA:Human Hand														PRERACE:Mongrelman
+Human Jaw/Mouth						VISIBLE:NO																					SA:Human Jaw/Mouth													PRERACE:Mongrelman
+
+Kobold Head (Left)					VISIBLE:NO	TEMPLATE:Kobold Eye	TEMPLATE:Kobold Ear													SA:Kobold Left Side of Head												PRERACE:Mongrelman
+Kobold Head (Right)					VISIBLE:NO	TEMPLATE:Kobold Eye	TEMPLATE:Kobold Ear													SA:Kobold Right Side of Head												PRERACE:Mongrelman
+Kobold Upper Torso					VISIBLE:NO																					SA:Kobold Upper Torso													PRERACE:Mongrelman
+Kobold Lower Torso					VISIBLE:NO																					SA:Kobold Lower Torso													PRERACE:Mongrelman
+Kobold Upper Arm (Left)					VISIBLE:NO	TEMPLATE:Kobold Arm																	SA:Kobold Left Upper Arm												PRERACE:Mongrelman
+Kobold Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Kobold Arm																	SA:Kobold Right Upper Arm												PRERACE:Mongrelman
+Kobold Lower Arm (Left)					VISIBLE:NO	TEMPLATE:Kobold Arm																	SA:Kobold Left Lower Arm												PRERACE:Mongrelman
+Kobold Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Kobold Arm																	SA:Kobold Right Lower Arm												PRERACE:Mongrelman
+Kobold Upper Leg (Left)					VISIBLE:NO																					SA:Kobold Left Upper Leg												PRERACE:Mongrelman
+Kobold Upper Leg (Right)				VISIBLE:NO																					SA:Kobold Right Upper Leg												PRERACE:Mongrelman
+Kobold Lower Leg (Left)					VISIBLE:NO																					SA:Kobold Left Lower Leg												PRERACE:Mongrelman
+Kobold Lower Leg (Right)				VISIBLE:NO																					SA:Kobold Right Lower Leg												PRERACE:Mongrelman
+Kobold Foot (Left)					VISIBLE:NO																					SA:Kobold Foot														PRERACE:Mongrelman
+Kobold Foot (Right)					VISIBLE:NO																					SA:Kobold Foot														PRERACE:Mongrelman
+Kobold Hand (Left)					VISIBLE:NO																					SA:Kobold Hand														PRERACE:Mongrelman
+Kobold Hand (Right)					VISIBLE:NO																					SA:Kobold Hand														PRERACE:Mongrelman
+Kobold Jaw/Mouth						VISIBLE:NO																					SA:Kobold Jaw/Mouth													PRERACE:Mongrelman
+
+Kobold Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|2|TYPE=Racial																																FEAT:Light Sensitivity																																										VISION:Darkvision (60')
+Kobold Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|2|TYPE=Racial
+Kobold Arm							VISIBLE:NO																					SA:-4 on Str checks using arm												PRERACE:Mongrelman
+
+Merfolk Head (Left)					VISIBLE:NO	TEMPLATE:Merfolk Eye	TEMPLATE:Merfolk Ear	TEMPLATE:Merfolk Head									SA:Merfolk Left Side of Head												PRERACE:Mongrelman
+Merfolk Head (Right)					VISIBLE:NO	TEMPLATE:Merfolk Eye	TEMPLATE:Merfolk Ear	TEMPLATE:Merfolk Head									SA:Merfolk Right Side of Head												PRERACE:Mongrelman
+Merfolk Upper Torso					VISIBLE:NO																					SA:Merfolk Upper Torso													PRERACE:Mongrelman
+Merfolk Lower Torso					VISIBLE:NO	TEMPLATE:Merfolk Torso (Lower)															SA:Merfolk Lower Torso													PRERACE:Mongrelman
+Merfolk Upper Arm (Left)				VISIBLE:NO																					SA:Merfolk Left Upper Arm												PRERACE:Mongrelman
+Merfolk Upper Arm (Right)				VISIBLE:NO																					SA:Merfolk Right Upper Arm												PRERACE:Mongrelman
+Merfolk Lower Arm (Left)				VISIBLE:NO																					SA:Merfolk Left Lower Arm												PRERACE:Mongrelman
+Merfolk Lower Arm (Right)				VISIBLE:NO																					SA:Merfolk Right Lower Arm												PRERACE:Mongrelman
+Merfolk Upper Leg (Left)				VISIBLE:NO	TEMPLATE:Merfolk Leg																	SA:Merfolk Left Upper Leg												PRERACE:Mongrelman
+Merfolk Upper Leg (Right)				VISIBLE:NO	TEMPLATE:Merfolk Leg																	SA:Merfolk Right Upper Leg												PRERACE:Mongrelman
+Merfolk Lower Leg (Left)				VISIBLE:NO	TEMPLATE:Merfolk Leg																	SA:Merfolk Left Lower Leg												PRERACE:Mongrelman
+Merfolk Lower Leg (Right)				VISIBLE:NO	TEMPLATE:Merfolk Leg																	SA:Merfolk Right Lower Leg												PRERACE:Mongrelman
+Merfolk Foot (Left)					VISIBLE:NO																					SA:Merfolk Foot														PRERACE:Mongrelman
+Merfolk Foot (Right)					VISIBLE:NO																					SA:Merfolk Foot														PRERACE:Mongrelman
+Merfolk Hand (Left)					VISIBLE:NO																					SA:Merfolk Hand														PRERACE:Mongrelman
+Merfolk Hand (Right)					VISIBLE:NO																					SA:Merfolk Hand														PRERACE:Mongrelman
+Merfolk Jaw/Mouth						VISIBLE:NO	TEMPLATE:Merfolk Head																	SA:Merfolk Jaw/Mouth													PRERACE:Mongrelman
+
+Merfolk Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|4|TYPE=Racial																																																																													VISION:Darkvision (60')
+Merfolk Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|4|TYPE=Racial
+Merfolk Head						VISIBLE:NO																					SA:Amphibious|PRETEMPLATE:Merfolk Head (Left),Merfolk Head (Right),Merfolk Jaw/Mouth		PRERACE:Mongrelman
+Merfolk Leg							VISIBLE:NO																																					PRERACE:Mongrelman																																	BONUS:MOVEMULT|TYPE.Walk|.5
+Merfolk Torso (Lower)					VISIBLE:NO																																					PRERACE:Mongrelman																												BONUS:MOVEADD|TYPE.Walk|-25																																																																																						MOVE:Swim,50
+
+Locathah Head (Left)					VISIBLE:NO	TEMPLATE:Locathah Eye	TEMPLATE:Locathah Ear	TEMPLATE:Locathah Head									SA:Locathah Left Side of Head												PRERACE:Mongrelman
+Locathah Head (Right)					VISIBLE:NO	TEMPLATE:Locathah Eye	TEMPLATE:Locathah Ear	TEMPLATE:Locathah Head									SA:Locathah Right Side of Head											PRERACE:Mongrelman
+Locathah Upper Torso					VISIBLE:NO																					SA:Locathah Upper Torso													PRERACE:Mongrelman
+Locathah Lower Torso					VISIBLE:NO																					SA:Locathah Lower Torso													PRERACE:Mongrelman
+Locathah Upper Arm (Left)				VISIBLE:NO																					SA:Locathah Left Upper Arm												PRERACE:Mongrelman
+Locathah Upper Arm (Right)				VISIBLE:NO																					SA:Locathah Right Upper Arm												PRERACE:Mongrelman
+Locathah Lower Arm (Left)				VISIBLE:NO																					SA:Locathah Left Lower Arm												PRERACE:Mongrelman
+Locathah Lower Arm (Right)				VISIBLE:NO																					SA:Locathah Right Lower Arm												PRERACE:Mongrelman
+Locathah Upper Leg (Left)				VISIBLE:NO																					SA:Locathah Left Upper Leg												PRERACE:Mongrelman
+Locathah Upper Leg (Right)				VISIBLE:NO																					SA:Locathah Right Upper Leg												PRERACE:Mongrelman
+Locathah Lower Leg (Left)				VISIBLE:NO																					SA:Locathah Left Lower Leg												PRERACE:Mongrelman
+Locathah Lower Leg (Right)				VISIBLE:NO																					SA:Locathah Right Lower Leg												PRERACE:Mongrelman
+Locathah Foot (Left)					VISIBLE:NO																					SA:Locathah Foot														PRERACE:Mongrelman
+Locathah Foot (Right)					VISIBLE:NO																					SA:Locathah Foot														PRERACE:Mongrelman
+Locathah Hand (Left)					VISIBLE:NO																					SA:Locathah Hand														PRERACE:Mongrelman
+Locathah Hand (Right)					VISIBLE:NO																					SA:Locathah Hand														PRERACE:Mongrelman
+Locathah Jaw/Mouth					VISIBLE:NO	TEMPLATE:Locathah Head																	SA:Locathah Jaw/Mouth													PRERACE:Mongrelman
+
+Locathah Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																																																													VISION:Darkvision (60')
+Locathah Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+Locathah Head						VISIBLE:NO																					SA:Amphibious|PRETEMPLATE:Locathah Head (Left),Locathah Head (Right),Locathah Jaw/Mouth		PRERACE:Mongrelman
+
+Sahuagin Head (Left)					VISIBLE:NO	TEMPLATE:Sahuagin Eye	TEMPLATE:Sahuagin Ear	TEMPLATE:Sahuagin Head									SA:Sahuagin Left Side of Head												PRERACE:Mongrelman
+Sahuagin Head (Right)					VISIBLE:NO	TEMPLATE:Sahuagin Eye	TEMPLATE:Sahuagin Ear	TEMPLATE:Sahuagin Head									SA:Sahuagin Right Side of Head											PRERACE:Mongrelman
+Sahuagin Upper Torso					VISIBLE:NO																					SA:Sahuagin Upper Torso													PRERACE:Mongrelman
+Sahuagin Lower Torso					VISIBLE:NO																					SA:Sahuagin Lower Torso													PRERACE:Mongrelman
+Sahuagin Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Sahuagin Arm																	SA:Sahuagin Left Upper Arm												PRERACE:Mongrelman
+Sahuagin Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Sahuagin Arm																	SA:Sahuagin Right Upper Arm												PRERACE:Mongrelman
+Sahuagin Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Sahuagin Arm																	SA:Sahuagin Left Lower Arm												PRERACE:Mongrelman
+Sahuagin Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Sahuagin Arm																	SA:Sahuagin Right Lower Arm												PRERACE:Mongrelman
+Sahuagin Upper Leg (Left)				VISIBLE:NO																					SA:Sahuagin Left Upper Leg												PRERACE:Mongrelman
+Sahuagin Upper Leg (Right)				VISIBLE:NO																					SA:Sahuagin Right Upper Leg												PRERACE:Mongrelman
+Sahuagin Lower Leg (Left)				VISIBLE:NO																					SA:Sahuagin Left Lower Leg												PRERACE:Mongrelman
+Sahuagin Lower Leg (Right)				VISIBLE:NO																					SA:Sahuagin Right Lower Leg												PRERACE:Mongrelman
+Sahuagin Foot (Left)					VISIBLE:NO																					SA:Sahuagin Foot														PRERACE:Mongrelman
+Sahuagin Foot (Right)					VISIBLE:NO																					SA:Sahuagin Foot														PRERACE:Mongrelman
+Sahuagin Hand (Left)					VISIBLE:NO																					SA:Sahuagin Hand														PRERACE:Mongrelman
+Sahuagin Hand (Right)					VISIBLE:NO																					SA:Sahuagin Hand														PRERACE:Mongrelman
+Sahuagin Jaw/Mouth					VISIBLE:NO	TEMPLATE:Sahuagin Head																	SA:Sahuagin Jaw/Mouth													PRERACE:Mongrelman
+
+Sahuagin Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																FEAT:Light Blindness																																										VISION:Darkvision (60')
+Sahuagin Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+Sahuagin Arm						VISIBLE:NO																					SA:+2 on Str checks using arm												PRERACE:Mongrelman
+Sahuagin Head						VISIBLE:NO																					SA:Amphibious|PRETEMPLATE:Sahuagin Head (Left),Sahuagin Head (Right),Sahuagin Jaw/Mouth		PRERACE:Mongrelman
+
+Dwarf Head (Left)						VISIBLE:NO	TEMPLATE:Dwarf Eye	TEMPLATE:Dwarf Head													SA:Dwarf Left Side of Head												PRERACE:Mongrelman
+Dwarf Head (Right)					VISIBLE:NO	TEMPLATE:Dwarf Eye	TEMPLATE:Dwarf Head													SA:Dwarf Right Side of Head												PRERACE:Mongrelman
+Dwarf Upper Torso						VISIBLE:NO	TEMPLATE:Dwarf Torso (Upper)																SA:Dwarf Upper Torso													PRERACE:Mongrelman
+Dwarf Lower Torso						VISIBLE:NO																					SA:Dwarf Lower Torso													PRERACE:Mongrelman
+Dwarf Upper Arm (Left)					VISIBLE:NO																					SA:Dwarf Left Upper Arm													PRERACE:Mongrelman
+Dwarf Upper Arm (Right)					VISIBLE:NO																					SA:Dwarf Right Upper Arm												PRERACE:Mongrelman
+Dwarf Lower Arm (Left)					VISIBLE:NO																					SA:Dwarf Left Lower Arm													PRERACE:Mongrelman
+Dwarf Lower Arm (Right)					VISIBLE:NO																					SA:Dwarf Right Lower Arm												PRERACE:Mongrelman
+Dwarf Upper Leg (Left)					VISIBLE:NO																					SA:Dwarf Left Upper Leg													PRERACE:Mongrelman
+Dwarf Upper Leg (Right)					VISIBLE:NO																					SA:Dwarf Right Upper Leg												PRERACE:Mongrelman
+Dwarf Lower Leg (Left)					VISIBLE:NO																					SA:Dwarf Left Lower Leg													PRERACE:Mongrelman
+Dwarf Lower Leg (Right)					VISIBLE:NO																					SA:Dwarf Right Lower Leg												PRERACE:Mongrelman
+Dwarf Foot (Left)						VISIBLE:NO																					SA:Dwarf Foot														PRERACE:Mongrelman
+Dwarf Foot (Right)					VISIBLE:NO																					SA:Dwarf Foot														PRERACE:Mongrelman
+Dwarf Hand (Left)						VISIBLE:NO																					SA:Dwarf Hand														PRERACE:Mongrelman
+Dwarf Hand (Right)					VISIBLE:NO																					SA:Dwarf Hand														PRERACE:Mongrelman
+Dwarf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Dwarf Head																	SA:Dwarf Jaw/Mouth													PRERACE:Mongrelman
+
+Dwarf Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Darkvision (60')
+Dwarf Head							VISIBLE:NO																					SA:Stonecunning|PRETEMPLATE:Dwarf Head (Left),Dwarf Head (Right),Dwarf Jaw/Mouth			PRERACE:Mongrelman
+Dwarf Torso (Upper)					VISIBLE:NO																					SA:+2 saves vs. poison													PRERACE:Mongrelman
+
+Elf Head (Left)						VISIBLE:NO	TEMPLATE:Elf Eye	TEMPLATE:Elf Ear	TEMPLATE:Elf Head												SA:Elf Left Side of Head												PRERACE:Mongrelman
+Elf Head (Right)						VISIBLE:NO	TEMPLATE:Elf Eye	TEMPLATE:Elf Ear	TEMPLATE:Elf Head												SA:Elf Right Side of Head												PRERACE:Mongrelman
+Elf Upper Torso						VISIBLE:NO																					SA:Elf Upper Torso													PRERACE:Mongrelman
+Elf Lower Torso						VISIBLE:NO																					SA:Elf Lower Torso													PRERACE:Mongrelman
+Elf Upper Arm (Left)					VISIBLE:NO																					SA:Elf Left Upper Arm													PRERACE:Mongrelman
+Elf Upper Arm (Right)					VISIBLE:NO																					SA:Elf Right Upper Arm													PRERACE:Mongrelman
+Elf Lower Arm (Left)					VISIBLE:NO																					SA:Elf Left Lower Arm													PRERACE:Mongrelman
+Elf Lower Arm (Right)					VISIBLE:NO																					SA:Elf Right Lower Arm													PRERACE:Mongrelman
+Elf Upper Leg (Left)					VISIBLE:NO																					SA:Elf Left Upper Leg													PRERACE:Mongrelman
+Elf Upper Leg (Right)					VISIBLE:NO																					SA:Elf Right Upper Leg													PRERACE:Mongrelman
+Elf Lower Leg (Left)					VISIBLE:NO																					SA:Elf Left Lower Leg													PRERACE:Mongrelman
+Elf Lower Leg (Right)					VISIBLE:NO																					SA:Elf Right Lower Leg													PRERACE:Mongrelman
+Elf Foot (Left)						VISIBLE:NO																					SA:Elf Foot															PRERACE:Mongrelman
+Elf Foot (Right)						VISIBLE:NO																					SA:Elf Foot															PRERACE:Mongrelman
+Elf Hand (Left)						VISIBLE:NO																					SA:Elf Hand															PRERACE:Mongrelman
+Elf Hand (Right)						VISIBLE:NO																					SA:Elf Hand															PRERACE:Mongrelman
+Elf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Elf Head																		SA:Elf Jaw/Mouth														PRERACE:Mongrelman
+
+Elf Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Search,Spot|2|TYPE=Racial																																																																												VISION:Low-light
+Elf Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|2|TYPE=Racial
+Elf Head							VISIBLE:NO																					SA:+2 saves vs. enchantments|PRETEMPLATE:Elf Head (Left),Elf Head (Right),Elf Jaw/Mouth		PRERACE:Mongrelman
+
+Gnome Head (Left)						VISIBLE:NO	TEMPLATE:Gnome Eye	TEMPLATE:Gnome Ear	TEMPLATE:Gnome Head									SA:Gnome Left Side of Head												PRERACE:Mongrelman
+Gnome Head (Right)					VISIBLE:NO	TEMPLATE:Gnome Eye	TEMPLATE:Gnome Ear	TEMPLATE:Gnome Head									SA:Gnome Right Side of Head												PRERACE:Mongrelman
+Gnome Upper Torso						VISIBLE:NO																					SA:Gnome Upper Torso													PRERACE:Mongrelman
+Gnome Lower Torso						VISIBLE:NO																					SA:Gnome Lower Torso													PRERACE:Mongrelman
+Gnome Upper Arm (Left)					VISIBLE:NO																					SA:Gnome Left Upper Arm													PRERACE:Mongrelman
+Gnome Upper Arm (Right)					VISIBLE:NO																					SA:Gnome Right Upper Arm												PRERACE:Mongrelman
+Gnome Lower Arm (Left)					VISIBLE:NO																					SA:Gnome Left Lower Arm													PRERACE:Mongrelman
+Gnome Lower Arm (Right)					VISIBLE:NO																					SA:Gnome Right Lower Arm												PRERACE:Mongrelman
+Gnome Upper Leg (Left)					VISIBLE:NO																					SA:Gnome Left Upper Leg													PRERACE:Mongrelman
+Gnome Upper Leg (Right)					VISIBLE:NO																					SA:Gnome Right Upper Leg												PRERACE:Mongrelman
+Gnome Lower Leg (Left)					VISIBLE:NO																					SA:Gnome Left Lower Leg													PRERACE:Mongrelman
+Gnome Lower Leg (Right)					VISIBLE:NO																					SA:Gnome Right Lower Leg												PRERACE:Mongrelman
+Gnome Foot (Left)						VISIBLE:NO																					SA:Gnome Foot														PRERACE:Mongrelman
+Gnome Foot (Right)					VISIBLE:NO																					SA:Gnome Foot														PRERACE:Mongrelman
+Gnome Hand (Left)						VISIBLE:NO																					SA:Gnome Hand														PRERACE:Mongrelman
+Gnome Hand (Right)					VISIBLE:NO																					SA:Gnome Hand														PRERACE:Mongrelman
+Gnome Jaw/Mouth						VISIBLE:NO	TEMPLATE:Gnome Head																	SA:Gnome Jaw/Mouth													PRERACE:Mongrelman
+
+Gnome Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Low-light
+Gnome Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|2|TYPE=Racial
+Gnome Head							VISIBLE:NO																					SA:+2 saves vs. illusions|PRETEMPLATE:Gnome Head (Left),Gnome Head (Right),Gnome Jaw/Mouth	PRERACE:Mongrelman
+
+Halfling Head (Left)					VISIBLE:NO	TEMPLATE:Halfling Ear																	SA:Halfling Left Side of Head												PRERACE:Mongrelman
+Halfling Head (Right)					VISIBLE:NO	TEMPLATE:Halfling Ear																	SA:Halfling Right Side of Head											PRERACE:Mongrelman
+Halfling Upper Torso					VISIBLE:NO	TEMPLATE:Halfling Torso (Both)|PRETEMPLATE:Halfling Lower Torso										SA:Halfling Upper Torso													PRERACE:Mongrelman
+Halfling Lower Torso					VISIBLE:NO	TEMPLATE:Halfling Torso (Lower)	TEMPLATE:Halfling Torso (Both)|PRETEMPLATE:Halfling Upper Torso				SA:Halfling Lower Torso													PRERACE:Mongrelman
+Halfling Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SA:Halfling Left Upper Arm												PRERACE:Mongrelman
+Halfling Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SA:Halfling Right Upper Arm												PRERACE:Mongrelman
+Halfling Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SA:Halfling Left Lower Arm												PRERACE:Mongrelman
+Halfling Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Halfling Arm																	SA:Halfling Right Lower Arm												PRERACE:Mongrelman
+Halfling Upper Leg (Left)				VISIBLE:NO																					SA:Halfling Left Upper Leg												PRERACE:Mongrelman
+Halfling Upper Leg (Right)				VISIBLE:NO																					SA:Halfling Right Upper Leg												PRERACE:Mongrelman
+Halfling Lower Leg (Left)				VISIBLE:NO																					SA:Halfling Left Lower Leg												PRERACE:Mongrelman
+Halfling Lower Leg (Right)				VISIBLE:NO																					SA:Halfling Right Lower Leg												PRERACE:Mongrelman
+Halfling Foot (Left)					VISIBLE:NO																					SA:Halfling Foot														PRERACE:Mongrelman
+Halfling Foot (Right)					VISIBLE:NO																					SA:Halfling Foot														PRERACE:Mongrelman
+Halfling Hand (Left)					VISIBLE:NO																					SA:Halfling Hand														PRERACE:Mongrelman
+Halfling Hand (Right)					VISIBLE:NO																					SA:Halfling Hand														PRERACE:Mongrelman
+Halfling Jaw/Mouth					VISIBLE:NO																					SA:Halfling Jaw/Mouth													PRERACE:Mongrelman
+
+Halfling Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+Halfling Arm						VISIBLE:NO																					SA:-2 on Str checks using arm												PRERACE:Mongrelman
+Halfling Torso (Both)			SIZE:S	VISIBLE:NO																																					PRERACE:Mongrelman
+Halfling Torso (Lower)					VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Climb,Jump,Move Silently|2|TYPE=Racial
+
+Orc Head (Left)						VISIBLE:NO	TEMPLATE:Orc Eye																		SA:Orc Left Side of Head												PRERACE:Mongrelman
+Orc Head (Right)						VISIBLE:NO	TEMPLATE:Orc Eye																		SA:Orc Right Side of Head												PRERACE:Mongrelman
+Orc Upper Torso						VISIBLE:NO																					SA:Orc Upper Torso													PRERACE:Mongrelman
+Orc Lower Torso						VISIBLE:NO																					SA:Orc Lower Torso													PRERACE:Mongrelman
+Orc Upper Arm (Left)					VISIBLE:NO	TEMPLATE:Orc Arm																		SA:Orc Left Upper Arm													PRERACE:Mongrelman
+Orc Upper Arm (Right)					VISIBLE:NO	TEMPLATE:Orc Arm																		SA:Orc Right Upper Arm													PRERACE:Mongrelman
+Orc Lower Arm (Left)					VISIBLE:NO	TEMPLATE:Orc Arm																		SA:Orc Left Lower Arm													PRERACE:Mongrelman
+Orc Lower Arm (Right)					VISIBLE:NO	TEMPLATE:Orc Arm																		SA:Orc Right Lower Arm													PRERACE:Mongrelman
+Orc Upper Leg (Left)					VISIBLE:NO																					SA:Orc Left Upper Leg													PRERACE:Mongrelman
+Orc Upper Leg (Right)					VISIBLE:NO																					SA:Orc Right Upper Leg													PRERACE:Mongrelman
+Orc Lower Leg (Left)					VISIBLE:NO																					SA:Orc Left Lower Leg													PRERACE:Mongrelman
+Orc Lower Leg (Right)					VISIBLE:NO																					SA:Orc Right Lower Leg													PRERACE:Mongrelman
+Orc Foot (Left)						VISIBLE:NO																					SA:Orc Foot															PRERACE:Mongrelman
+Orc Foot (Right)						VISIBLE:NO																					SA:Orc Foot															PRERACE:Mongrelman
+Orc Hand (Left)						VISIBLE:NO																					SA:Orc Hand															PRERACE:Mongrelman
+Orc Hand (Right)						VISIBLE:NO																					SA:Orc Hand															PRERACE:Mongrelman
+Orc Jaw/Mouth						VISIBLE:NO																					SA:Orc Jaw/Mouth														PRERACE:Mongrelman
+
+Orc Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																															FEAT:Light Sensitivity																																										VISION:Darkvision (60')
+Orc Arm							VISIBLE:NO																					SA:+4 on Str checks using arm												PRERACE:Mongrelman
+
+Ogre Head (Left)						VISIBLE:NO	TEMPLATE:Ogre Eye																		SA:Ogre Left Side of Head												PRERACE:Mongrelman
+Ogre Head (Right)						VISIBLE:NO	TEMPLATE:Ogre Eye																		SA:Ogre Right Side of Head												PRERACE:Mongrelman
+Ogre Upper Torso						VISIBLE:NO																					SA:Ogre Upper Torso													PRERACE:Mongrelman
+Ogre Lower Torso						VISIBLE:NO																					SA:Ogre Lower Torso													PRERACE:Mongrelman
+Ogre Upper Arm (Left)					VISIBLE:NO	TEMPLATE:Ogre Arm																		SA:Ogre Left Upper Arm													PRERACE:Mongrelman
+Ogre Upper Arm (Right)					VISIBLE:NO	TEMPLATE:Ogre Arm																		SA:Ogre Right Upper Arm													PRERACE:Mongrelman
+Ogre Lower Arm (Left)					VISIBLE:NO	TEMPLATE:Ogre Arm																		SA:Ogre Left Lower Arm													PRERACE:Mongrelman
+Ogre Lower Arm (Right)					VISIBLE:NO	TEMPLATE:Ogre Arm																		SA:Ogre Right Lower Arm													PRERACE:Mongrelman
+Ogre Upper Leg (Left)					VISIBLE:NO																					SA:Ogre Left Upper Leg													PRERACE:Mongrelman
+Ogre Upper Leg (Right)					VISIBLE:NO																					SA:Ogre Right Upper Leg													PRERACE:Mongrelman
+Ogre Lower Leg (Left)					VISIBLE:NO																					SA:Ogre Left Lower Leg													PRERACE:Mongrelman
+Ogre Lower Leg (Right)					VISIBLE:NO																					SA:Ogre Right Lower Leg													PRERACE:Mongrelman
+Ogre Foot (Left)						VISIBLE:NO																					SA:Ogre Foot														PRERACE:Mongrelman
+Ogre Foot (Right)						VISIBLE:NO																					SA:Ogre Foot														PRERACE:Mongrelman
+Ogre Hand (Left)						VISIBLE:NO																					SA:Ogre Hand														PRERACE:Mongrelman
+Ogre Hand (Right)						VISIBLE:NO																					SA:Ogre Hand														PRERACE:Mongrelman
+Ogre Jaw/Mouth						VISIBLE:NO																					SA:Ogre Jaw/Mouth														PRERACE:Mongrelman
+
+Ogre Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																															FEAT:Light Sensitivity																																										VISION:Darkvision (60')
+Ogre Arm							VISIBLE:NO																					SA:+10 on Str checks using arm											PRERACE:Mongrelman
+
+Troglodyte Head (Left)					VISIBLE:NO	TEMPLATE:Troglodyte Eye																	SA:Troglodyte Left Side of Head											PRERACE:Mongrelman
+Troglodyte Head (Right)					VISIBLE:NO	TEMPLATE:Troglodyte Eye																	SA:Troglodyte Right Side of Head											PRERACE:Mongrelman
+Troglodyte Upper Torso					VISIBLE:NO	TEMPLATE:Troglodyte Any Torso																SA:Troglodyte Upper Torso												PRERACE:Mongrelman
+Troglodyte Lower Torso					VISIBLE:NO	TEMPLATE:Troglodyte Any Torso																SA:Troglodyte Lower Torso												PRERACE:Mongrelman
+Troglodyte Upper Arm (Left)				VISIBLE:NO																					SA:Troglodyte Left Upper Arm												PRERACE:Mongrelman
+Troglodyte Upper Arm (Right)				VISIBLE:NO																					SA:Troglodyte Right Upper Arm												PRERACE:Mongrelman
+Troglodyte Lower Arm (Left)				VISIBLE:NO																					SA:Troglodyte Left Lower Arm												PRERACE:Mongrelman
+Troglodyte Lower Arm (Right)				VISIBLE:NO																					SA:Troglodyte Right Lower Arm												PRERACE:Mongrelman
+Troglodyte Upper Leg (Left)				VISIBLE:NO																					SA:Troglodyte Left Upper Leg												PRERACE:Mongrelman
+Troglodyte Upper Leg (Right)				VISIBLE:NO																					SA:Troglodyte Right Upper Leg												PRERACE:Mongrelman
+Troglodyte Lower Leg (Left)				VISIBLE:NO																					SA:Troglodyte Left Lower Leg												PRERACE:Mongrelman
+Troglodyte Lower Leg (Right)				VISIBLE:NO																					SA:Troglodyte Right Lower Leg												PRERACE:Mongrelman
+Troglodyte Foot (Left)					VISIBLE:NO																					SA:Troglodyte Foot													PRERACE:Mongrelman
+Troglodyte Foot (Right)					VISIBLE:NO																					SA:Troglodyte Foot													PRERACE:Mongrelman
+Troglodyte Hand (Left)					VISIBLE:NO																					SA:Troglodyte Hand													PRERACE:Mongrelman
+Troglodyte Hand (Right)					VISIBLE:NO																					SA:Troglodyte Hand													PRERACE:Mongrelman
+Troglodyte Jaw/Mouth					VISIBLE:NO																					SA:Troglodyte Jaw/Mouth													PRERACE:Mongrelman
+
+Troglodyte Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Darkvision (90')
+Troglodyte Any Torso					VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Hide|4|TYPE=Racial							BONUS:VAR|StenchDC|CON																						FEAT:Stench
+
+Crabman Head (Left)					VISIBLE:NO	TEMPLATE:Crabman Eye																	SA:Crabman Left Side of Head												PRERACE:Mongrelman
+Crabman Head (Right)					VISIBLE:NO	TEMPLATE:Crabman Eye																	SA:Crabman Right Side of Head												PRERACE:Mongrelman
+Crabman Upper Torso					VISIBLE:NO																					SA:Crabman Upper Torso													PRERACE:Mongrelman
+Crabman Lower Torso					VISIBLE:NO																					SA:Crabman Lower Torso													PRERACE:Mongrelman
+Crabman Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Crabman Arm																	SA:Crabman Left Upper Arm												PRERACE:Mongrelman
+Crabman Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Crabman Arm																	SA:Crabman Right Upper Arm												PRERACE:Mongrelman
+Crabman Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Crabman Arm																	SA:Crabman Left Lower Arm												PRERACE:Mongrelman
+Crabman Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Crabman Arm																	SA:Crabman Right Lower Arm												PRERACE:Mongrelman
+Crabman Upper Leg (Left)				VISIBLE:NO																					SA:Crabman Left Upper Leg												PRERACE:Mongrelman
+Crabman Upper Leg (Right)				VISIBLE:NO																					SA:Crabman Right Upper Leg												PRERACE:Mongrelman
+Crabman Lower Leg (Left)				VISIBLE:NO																					SA:Crabman Left Lower Leg												PRERACE:Mongrelman
+Crabman Lower Leg (Right)				VISIBLE:NO																					SA:Crabman Right Lower Leg												PRERACE:Mongrelman
+Crabman Foot (Left)					VISIBLE:NO																					SA:Crabman Foot														PRERACE:Mongrelman
+Crabman Foot (Right)					VISIBLE:NO																					SA:Crabman Foot														PRERACE:Mongrelman
+Crabman Hand (Left)					VISIBLE:NO	TEMPLATE:Crabman Hand																	SA:Crabman Hand														PRERACE:Mongrelman
+Crabman Hand (Right)					VISIBLE:NO	TEMPLATE:Crabman Hand																	SA:Crabman Hand														PRERACE:Mongrelman
+Crabman Jaw/Mouth						VISIBLE:NO																					SA:Crabman Jaw/Mouth													PRERACE:Mongrelman
+
+Crabman Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Darkvision (60')
+Crabman Arm							VISIBLE:NO																					SA:+6 on Str checks using arm												PRERACE:Mongrelman
+Crabman Hand						VISIBLE:NO																																					PRERACE:Mongrelman																																																						BONUS:VAR|SqueezeDice|1	BONUS:VAR|SqueezeDieSize|6																	FEAT:Improved Grab|Squeeze																																																																																																			NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+
+Bugbear Head (Left)					VISIBLE:NO	TEMPLATE:Bugbear Eye																	SA:Bugbear Left Side of Head												PRERACE:Mongrelman
+Bugbear Head (Right)					VISIBLE:NO	TEMPLATE:Bugbear Eye																	SA:Bugbear Right Side of Head												PRERACE:Mongrelman
+Bugbear Upper Torso					VISIBLE:NO																					SA:Bugbear Upper Torso													PRERACE:Mongrelman
+Bugbear Lower Torso					VISIBLE:NO																					SA:Bugbear Lower Torso													PRERACE:Mongrelman
+Bugbear Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Bugbear Arm																	SA:Bugbear Left Upper Arm												PRERACE:Mongrelman
+Bugbear Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Bugbear Arm																	SA:Bugbear Right Upper Arm												PRERACE:Mongrelman
+Bugbear Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Bugbear Arm																	SA:Bugbear Left Lower Arm												PRERACE:Mongrelman
+Bugbear Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Bugbear Arm																	SA:Bugbear Right Lower Arm												PRERACE:Mongrelman
+Bugbear Upper Leg (Left)				VISIBLE:NO																					SA:Bugbear Left Upper Leg												PRERACE:Mongrelman
+Bugbear Upper Leg (Right)				VISIBLE:NO																					SA:Bugbear Right Upper Leg												PRERACE:Mongrelman
+Bugbear Lower Leg (Left)				VISIBLE:NO																					SA:Bugbear Left Lower Leg												PRERACE:Mongrelman
+Bugbear Lower Leg (Right)				VISIBLE:NO																					SA:Bugbear Right Lower Leg												PRERACE:Mongrelman
+Bugbear Foot (Left)					VISIBLE:NO																					SA:Bugbear Foot														PRERACE:Mongrelman
+Bugbear Foot (Right)					VISIBLE:NO																					SA:Bugbear Foot														PRERACE:Mongrelman
+Bugbear Hand (Left)					VISIBLE:NO																					SA:Bugbear Hand														PRERACE:Mongrelman
+Bugbear Hand (Right)					VISIBLE:NO																					SA:Bugbear Hand														PRERACE:Mongrelman
+Bugbear Jaw/Mouth						VISIBLE:NO																					SA:Bugbear Jaw/Mouth													PRERACE:Mongrelman
+
+Bugbear Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																												VISION:Darkvision (60')
+Bugbear Arm							VISIBLE:NO																					SA:+4 on Str checks using arm												PRERACE:Mongrelman
+
+Minotaur Head (Left)					VISIBLE:NO	TEMPLATE:Minotaur Eye	TEMPLATE:Minotaur Ear	TEMPLATE:Minotaur Head (Partial)	TEMPLATE:Minotaur Head (Whole)	SA:Minotaur Left Side of Head												PRERACE:Mongrelman
+Minotaur Head (Right)					VISIBLE:NO	TEMPLATE:Minotaur Eye	TEMPLATE:Minotaur Ear	TEMPLATE:Minotaur Head (Partial)	TEMPLATE:Minotaur Head (Whole)	SA:Minotaur Right Side of Head											PRERACE:Mongrelman
+Minotaur Upper Torso					VISIBLE:NO																					SA:Minotaur Upper Torso													PRERACE:Mongrelman
+Minotaur Lower Torso					VISIBLE:NO																					SA:Minotaur Lower Torso													PRERACE:Mongrelman
+Minotaur Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Minotaur Arm																	SA:Minotaur Left Upper Arm												PRERACE:Mongrelman
+Minotaur Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Minotaur Arm																	SA:Minotaur Right Upper Arm												PRERACE:Mongrelman
+Minotaur Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Minotaur Arm																	SA:Minotaur Left Lower Arm												PRERACE:Mongrelman
+Minotaur Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Minotaur Arm																	SA:Minotaur Right Lower Arm												PRERACE:Mongrelman
+Minotaur Upper Leg (Left)				VISIBLE:NO																					SA:Minotaur Left Upper Leg												PRERACE:Mongrelman
+Minotaur Upper Leg (Right)				VISIBLE:NO																					SA:Minotaur Right Upper Leg												PRERACE:Mongrelman
+Minotaur Lower Leg (Left)				VISIBLE:NO																					SA:Minotaur Left Lower Leg												PRERACE:Mongrelman
+Minotaur Lower Leg (Right)				VISIBLE:NO																					SA:Minotaur Right Lower Leg												PRERACE:Mongrelman
+Minotaur Foot (Left)					VISIBLE:NO																					SA:Minotaur Foot														PRERACE:Mongrelman
+Minotaur Foot (Right)					VISIBLE:NO																					SA:Minotaur Foot														PRERACE:Mongrelman
+Minotaur Hand (Left)					VISIBLE:NO																					SA:Minotaur Hand														PRERACE:Mongrelman
+Minotaur Hand (Right)					VISIBLE:NO																					SA:Minotaur Hand														PRERACE:Mongrelman
+Minotaur Jaw/Mouth					VISIBLE:NO																					SA:Minotaur Jaw/Mouth													PRERACE:Mongrelman
+
+Minotaur Eye						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Search,Spot|4|TYPE=Racial																																																																												VISION:Darkvision (60')
+Minotaur Ear						VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|4|TYPE=Racial
+Minotaur Arm						VISIBLE:NO																					SA:+8 on Str checks using arm												PRERACE:Mongrelman
+Minotaur Head (Partial)					VISIBLE:NO																																					PRERACE:Mongrelman																		!PRETEMPLATE:Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																											NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Minotaur Head (Whole)					VISIBLE:NO																																					PRERACE:Mongrelman								PRETEMPLATE:Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																																					NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+
+Flind Head (Left)						VISIBLE:NO	TEMPLATE:Flind Eye	TEMPLATE:Flind Ear													SA:Flind Left Side of Head												PRERACE:Mongrelman
+Flind Head (Right)					VISIBLE:NO	TEMPLATE:Flind Eye	TEMPLATE:Flind Ear													SA:Flind Right Side of Head												PRERACE:Mongrelman
+Flind Upper Torso						VISIBLE:NO																					SA:Flind Upper Torso													PRERACE:Mongrelman
+Flind Lower Torso						VISIBLE:NO																					SA:Flind Lower Torso													PRERACE:Mongrelman
+Flind Upper Arm (Left)					VISIBLE:NO	TEMPLATE:Flind Arm																	SA:Flind Left Upper Arm													PRERACE:Mongrelman
+Flind Upper Arm (Right)					VISIBLE:NO	TEMPLATE:Flind Arm																	SA:Flind Right Upper Arm												PRERACE:Mongrelman
+Flind Lower Arm (Left)					VISIBLE:NO	TEMPLATE:Flind Arm																	SA:Flind Left Lower Arm													PRERACE:Mongrelman
+Flind Lower Arm (Right)					VISIBLE:NO	TEMPLATE:Flind Arm																	SA:Flind Right Lower Arm												PRERACE:Mongrelman
+Flind Upper Leg (Left)					VISIBLE:NO																					SA:Flind Left Upper Leg													PRERACE:Mongrelman
+Flind Upper Leg (Right)					VISIBLE:NO																					SA:Flind Right Upper Leg												PRERACE:Mongrelman
+Flind Lower Leg (Left)					VISIBLE:NO																					SA:Flind Left Lower Leg													PRERACE:Mongrelman
+Flind Lower Leg (Right)					VISIBLE:NO																					SA:Flind Right Lower Leg												PRERACE:Mongrelman
+Flind Foot (Left)						VISIBLE:NO																					SA:Flind Foot														PRERACE:Mongrelman
+Flind Foot (Right)					VISIBLE:NO																					SA:Flind Foot														PRERACE:Mongrelman
+Flind Hand (Left)						VISIBLE:NO																					SA:Flind Hand														PRERACE:Mongrelman
+Flind Hand (Right)					VISIBLE:NO																					SA:Flind Hand														PRERACE:Mongrelman
+Flind Jaw/Mouth						VISIBLE:NO																					SA:Flind Jaw/Mouth													PRERACE:Mongrelman
+
+Flind Eye							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Spot|3|TYPE=Racial																																																																													VISION:Darkvision (60')
+Flind Ear							VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Listen|3|TYPE=Racial
+Flind Arm							VISIBLE:NO																					SA:+4 on Str checks using arm												PRERACE:Mongrelman
+
+Lizardfolk Head (Left)					VISIBLE:NO																					SA:Lizardfolk Left Side of Head											PRERACE:Mongrelman
+Lizardfolk Head (Right)					VISIBLE:NO																					SA:Lizardfolk Right Side of Head											PRERACE:Mongrelman
+Lizardfolk Upper Torso					VISIBLE:NO																					SA:Lizardfolk Upper Torso												PRERACE:Mongrelman
+Lizardfolk Lower Torso					VISIBLE:NO	TEMPLATE:Lizardfolk Torso (Lower)															SA:Lizardfolk Lower Torso												PRERACE:Mongrelman
+Lizardfolk Upper Arm (Left)				VISIBLE:NO	TEMPLATE:Lizardfolk Arm																	SA:Lizardfolk Left Upper Arm												PRERACE:Mongrelman
+Lizardfolk Upper Arm (Right)				VISIBLE:NO	TEMPLATE:Lizardfolk Arm																	SA:Lizardfolk Right Upper Arm												PRERACE:Mongrelman
+Lizardfolk Lower Arm (Left)				VISIBLE:NO	TEMPLATE:Lizardfolk Arm																	SA:Lizardfolk Left Lower Arm												PRERACE:Mongrelman
+Lizardfolk Lower Arm (Right)				VISIBLE:NO	TEMPLATE:Lizardfolk Arm																	SA:Lizardfolk Right Lower Arm												PRERACE:Mongrelman
+Lizardfolk Upper Leg (Left)				VISIBLE:NO																					SA:Lizardfolk Left Upper Leg												PRERACE:Mongrelman
+Lizardfolk Upper Leg (Right)				VISIBLE:NO																					SA:Lizardfolk Right Upper Leg												PRERACE:Mongrelman
+Lizardfolk Lower Leg (Left)				VISIBLE:NO																					SA:Lizardfolk Left Lower Leg												PRERACE:Mongrelman
+Lizardfolk Lower Leg (Right)				VISIBLE:NO																					SA:Lizardfolk Right Lower Leg												PRERACE:Mongrelman
+Lizardfolk Foot (Left)					VISIBLE:NO																					SA:Lizardfolk Foot													PRERACE:Mongrelman
+Lizardfolk Foot (Right)					VISIBLE:NO																					SA:Lizardfolk Foot													PRERACE:Mongrelman
+Lizardfolk Hand (Left)					VISIBLE:NO	TEMPLATE:Lizardfolk Hand																SA:Lizardfolk Hand													PRERACE:Mongrelman
+Lizardfolk Hand (Right)					VISIBLE:NO	TEMPLATE:Lizardfolk Hand																SA:Lizardfolk Hand													PRERACE:Mongrelman
+Lizardfolk Jaw/Mouth					VISIBLE:NO	TEMPLATE:Lizardfolk Jaw																	SA:Lizardfolk Jaw/Mouth													PRERACE:Mongrelman
+
+Lizardfolk Arm						VISIBLE:NO																					SA:+2 on Str checks using arm												PRERACE:Mongrelman
+Lizardfolk Hand						VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																																																																																						NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+Lizardfolk Jaw						VISIBLE:NO																																					PRERACE:Mongrelman																																																																																																																																																																																						NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Lizardfolk Torso (Lower)				VISIBLE:NO																																					PRERACE:Mongrelman																																										BONUS:SKILL|Balance,Jump,Swim|4|TYPE=Racial
+
+Missing Head (Left)					VISIBLE:NO																					SA:Missing Left Side of Head												PRERACE:Mongrelman
+Missing Head (Right)					VISIBLE:NO																					SA:Missing Right Side of Head												PRERACE:Mongrelman
+Missing Upper Arm (Left)				VISIBLE:NO																					SA:Missing Left Upper Arm												PRERACE:Mongrelman
+Missing Upper Arm (Right)				VISIBLE:NO																					SA:Missing Right Upper Arm												PRERACE:Mongrelman
+Missing Lower Arm (Left)				VISIBLE:NO																					SA:Missing Left Lower Arm												PRERACE:Mongrelman
+Missing Lower Arm (Right)				VISIBLE:NO																					SA:Missing Right Lower Arm												PRERACE:Mongrelman
+Missing Upper Leg (Left)				VISIBLE:NO																					SA:Missing Left Upper Leg												PRERACE:Mongrelman
+Missing Upper Leg (Right)				VISIBLE:NO																					SA:Missing Right Upper Leg												PRERACE:Mongrelman
+Missing Lower Leg (Left)				VISIBLE:NO																					SA:Missing Left Lower Leg												PRERACE:Mongrelman
+Missing Lower Leg (Right)				VISIBLE:NO																					SA:Missing Right Lower Leg												PRERACE:Mongrelman
+Missing Foot (Left)					VISIBLE:NO																					SA:Missing Foot														PRERACE:Mongrelman
+Missing Foot (Right)					VISIBLE:NO																					SA:Missing Foot														PRERACE:Mongrelman
+Missing Hand (Left)					VISIBLE:NO																					SA:Missing Hand														PRERACE:Mongrelman
+Missing Hand (Right)					VISIBLE:NO																					SA:Missing Hand														PRERACE:Mongrelman
+Missing Jaw/Mouth						VISIBLE:NO																					SA:Missing Jaw/Mouth													PRERACE:Mongrelman
+
+
+Half Ogre Lang						VISIBLE:NO																																					PRERACE:Ogre (Half)					PRESTAT:1,INT=10																																																																																																											LANGAUTO:Giant
+
+Enlarged Spriggan						VISIBLE:YES																																					PRERACE:Spriggan																																							BONUS:SIZEMOD|NUMBER|2										BONUS:STAT|DEX|2	BONUS:VAR|SneakAttack|-2	BONUS:VAR|SprigganLarge|1																																																										REMOVABLE:YES
+
+Remove Resistance to Acid				VISIBLE:NO																																																																																																																																																			REMOVE:FEAT(Resistance to Acid)
+Remove Resistance to Cold				VISIBLE:NO																																																																																																																																																			REMOVE:FEAT(Resistance to Cold)
+Remove Resistance to Electricity			VISIBLE:NO																																																																																																																																																			REMOVE:FEAT(Resistance to Electricity)
+Remove Resistance to Fire				VISIBLE:NO																																																																																																																																																			REMOVE:FEAT(Resistance to Fire)
+
+Remove Telepathy						VISIBLE:NO																																																																																																																																																			REMOVE:FEAT(Telepathy)

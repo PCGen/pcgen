@@ -1,0 +1,155 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Abomination (Owlephant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Owlephant)]
+RACE:Abomination (Owlephant)	!PRERACE:%
+NAME:Owlephant
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Iron Will
+FEAT:Skill Focus (Listen)
+
+STARTPACK:Default Abomination (Tigrilla)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Tigrilla)]
+RACE:Abomination (Tigrilla)	!PRERACE:%
+NAME:Tigrilla
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+
+STARTPACK:Sample Beast of Chaos
+KIT:Default Lion
+NAME:Lion Beast of Chaos
+TEMPLATE:Beast of Chaos
+ALIGN:CN
+
+STARTPACK:Sample Bleeding Horror
+KIT:Default Minotaur
+NAME:Bleeding Horror Minotaur
+TEMPLATE:Bleeding Horror
+ALIGN:CE
+
+STARTPACK:Default Dire Bison	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Bison]
+RACE:Dire Bison	!PRERACE:%
+NAME:Dire Bison
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Power Attack
+
+STARTPACK:Default Dire Goat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Goat]
+RACE:Dire Goat	!PRERACE:%
+NAME:Dire Goat
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Great Fortitude
+
+STARTPACK:Default Dire Hippopotamus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Hippopotamus]
+RACE:Dire Hippopotamus	!PRERACE:%
+NAME:Dire Hippopotamus (Behemoth)
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:8
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Toughness
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Dire Porcupine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Porcupine]
+RACE:Dire Porcupine	!PRERACE:%
+NAME:Dire Porcupine
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:1
+FEAT:Weapon Focus (Quills)
+
+STARTPACK:Default Dire Ram	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Dire Ram]
+RACE:Dire Ram	!PRERACE:%
+NAME:Dire Ram
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Endurance
+
+STARTPACK:Default Foo Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Foo Dog]
+RACE:Foo Dog	!PRERACE:%
+NAME:Foo Dog
+ALIGN:CG
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Jump		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Survival	RANK:4
+FEAT:Alertness
+FEAT:Power Attack
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Sample Skeleton Warrior	VISIBLE:YES	EQUIPBUY:0
+NAME:Skeleton Warrior
+ALIGN:NE
+RACE:Human
+CLASS:Fighter	LEVEL:12
+STAT:STR=17|DEX=13|INT=12|WIS=13|CHA=12
+SKILL:Climb		RANK:7
+SKILL:Intimidate	RANK:8
+SKILL:Jump		RANK:7
+SKILL:Ride		RANK:9
+SKILL:Swim		RANK:1
+FEAT:Alertness
+FEAT:Lightning Reflexes
+LEVELABILITY:Fighter=1	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Focus(Sword (Bastard/Martial))
+LEVELABILITY:Fighter=2	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Power Attack
+FEAT:Run
+LEVELABILITY:Fighter=4	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Weapon Specialization (Sword (Bastard/Martial))
+FEAT:Track
+LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Cleave
+LEVELABILITY:Fighter=8	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Great Cleave
+FEAT:Blind Fight
+LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Quick Draw
+FEAT:Improved Initiative
+LEVELABILITY:Fighter=12	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Sunder
+GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W
+GEAR:Full Plate			SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
+GEAR:Cloak of Resistance +2	SIZE:PC	LOCATION:Equipped
+GEAR:Boots of Speed		SIZE:PC	LOCATION:Equipped
+TEMPLATE:Skeleton Warrior
+
+STARTPACK:Default Slime Zombie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Slime Zombie]
+RACE:Slime Zombie	!PRERACE:%
+NAME:Slime Zombie
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Weapon Focus (Morningstar)
+
+STARTPACK:Default Spectral Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Spectral Troll]
+RACE:Spectral Troll	!PRERACE:%
+NAME:Spectral Troll
+ALIGN:CE
+STAT:STR=11|DEX=10|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Iron Will
+FEAT:Track
+

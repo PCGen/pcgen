@@ -1,0 +1,65 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Hangman Tree	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hangman Tree]
+ALIGN:TN
+RACE:Hangman Tree	!PRERACE:%
+NAME:Hangman Tree
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:3
+SKILL:Spot		RANK:4
+SKILL:Listen	RANK:4
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Iron Will
+
+STARTPACK:Default Haunt	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Haunt]
+RACE:Haunt	!PRERACE:%
+NAME:Haunt
+STAT:DEX=11|WIS=10|CHA=10
+
+STARTPACK:Default Hell Moth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hell Moth]
+ALIGN:TN
+RACE:Hell Moth	!PRERACE:%
+NAME:Hell Moth
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Diehard
+FEAT:Endurance
+FEAT:Improved Initiative
+
+STARTPACK:Default Hippocampus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hippocampus]
+ALIGN:CG
+RACE:Hippocampus	!PRERACE:%
+NAME:Hippocampus
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Alertness
+FEAT:Endurance
+
+STARTPACK:Default Hoar Fox	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hoar Fox]
+ALIGN:TN
+RACE:Hoar Fox	!PRERACE:%
+NAME:Hoar Fox
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Default Huecuva	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Huecuva]
+ALIGN:CE
+RACE:Huecuva	!PRERACE:%
+NAME:Huecuva
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Improved Initiative
+

@@ -1,0 +1,271 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Carbuncle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Carbuncle]
+ALIGN:TN
+RACE:Carbuncle	!PRERACE:%
+NAME:Carbuncle
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Toughness
+
+STARTPACK:Default Carrion Moth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Carrion Moth]
+ALIGN:TN
+RACE:Carrion Moth	!PRERACE:%
+NAME:Carrion Moth
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Climb		RANK:2
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Combat Reflexes
+
+STARTPACK:Default Caryatid Column	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Caryatid Column]
+ALIGN:TN
+RACE:Caryatid Column	!PRERACE:%
+NAME:Caryatid Column
+STAT:STR=11|DEX=11|WIS=11|CHA=10
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Caterwaul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Caterwaul]
+ALIGN:CE
+RACE:Caterwaul	!PRERACE:%
+NAME:Caterwaul
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Balance		RANK:1
+SKILL:Jump			RANK:3
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:1
+FEAT:Alertness
+FEAT:Weapon Finesse
+
+STARTPACK:Default Cave Cricket	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cave Cricket]
+ALIGN:TN
+RACE:Cave Cricket	!PRERACE:%
+NAME:Cave Cricket
+STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=11
+
+STARTPACK:Default Cave Fisher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cave Fisher]
+ALIGN:TN
+RACE:Cave Fisher	!PRERACE:%
+NAME:Cave Fisher
+STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Cave Moray	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cave Moray]
+ALIGN:TN
+RACE:Cave Moray	!PRERACE:%
+NAME:Cave Moray
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Skill Focus (Hide)
+
+STARTPACK:Cerberus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cerberus]
+ALIGN:NE
+RACE:Cerberus	!PRERACE:%
+NAME:Cerberus
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Balance			RANK:33
+SKILL:Climb				RANK:33
+SKILL:Intimidate			RANK:33
+SKILL:Knowledge (The Planes)	RANK:33
+SKILL:Listen			RANK:33
+SKILL:Move Silently		RANK:33
+SKILL:Search			RANK:16
+SKILL:Sense Motive		RANK:15
+SKILL:Spot				RANK:33
+SKILL:Survival			RANK:33
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Great Cleave
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Mobility
+FEAT:Power Attack
+FEAT:Spring Attack
+FEAT:Track
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Chrystone	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chrystone]
+ALIGN:TN
+RACE:Chrystone	!PRERACE:%
+NAME:Chrystone
+STAT:STR=11|DEX=11|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+FEAT:Ability Focus (Breath Weapon (Cone/Color Spray))
+FEAT:Iron Will
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Clam (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clam (Giant)]
+ALIGN:TN
+RACE:Clam (Giant)	!PRERACE:%
+NAME:Giant Clam
+STAT:STR=10|DEX=11|CON=11|WIS=10|CHA=11
+
+STARTPACK:Default Clockwork (Drone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Drone)]
+ALIGN:TN
+RACE:Clockwork (Drone)	!PRERACE:%
+NAME:Drone
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Clockwork (Scout)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Scout)]
+ALIGN:TN
+RACE:Clockwork (Scout)	!PRERACE:%
+NAME:Scout
+STAT:STR=10|DEX=11|WIS=10|CHA=10
+
+STARTPACK:Default Clockwork (Overseer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Overseer)]
+ALIGN:TN
+RACE:Clockwork (Overseer)	!PRERACE:%
+NAME:Overseer
+STAT:STR=11|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Clockwork (Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Warrior)]
+ALIGN:TN
+RACE:Clockwork (Warrior)	!PRERACE:%
+NAME:Warrior
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Clockwork (Parasite)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Parasite)]
+ALIGN:TN
+RACE:Clockwork (Parasite)	!PRERACE:%
+NAME:Parasite
+STAT:STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Default Clockwork (Swarm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Swarm)]
+ALIGN:TN
+RACE:Clockwork (Swarm)	!PRERACE:%
+NAME:Swarm
+STAT:STR=10|DEX=11|WIS=11|CHA=10
+
+STARTPACK:Default Clockwork (Titan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Titan)]
+ALIGN:TN
+RACE:Clockwork (Titan)	!PRERACE:%
+NAME:Titan
+STAT:STR=10|DEX=11|WIS=10|CHA=10
+
+STARTPACK:Default Clockwork (Brain Gear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clockwork (Brain Gear)]
+ALIGN:TN
+RACE:Clockwork (Brain Gear)	!PRERACE:%
+NAME:Brain Gear
+STAT:STR=10|INT=10|WIS=10|CHA=10
+SKILL:Concentration			RANK:8
+SKILL:Diplomacy				RANK:8
+SKILL:Knowledge (Metalworking)	RANK:8
+SKILL:Listen				RANK:8
+SKILL:Search				RANK:8
+SKILL:Sense Motive			RANK:8
+SKILL:Spot					RANK:8
+FEAT:Great Fortitude
+FEAT:Iron Will
+
+STARTPACK:Default Clubnek	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Clubnek]
+ALIGN:TN
+RACE:Clubnek	!PRERACE:%
+NAME:Clubnek
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Jump		RANK:2
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+
+STARTPACK:Default Cobra Flower	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cobra Flower]
+ALIGN:TN
+RACE:Cobra Flower	!PRERACE:%
+NAME:Cobra Flower
+STAT:STR=11|DEX=11|CON=10|WIS=11|CHA=11
+
+STARTPACK:Default Coffer Corpse	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Coffer Corpse]
+ALIGN:CE
+RACE:Coffer Corpse	!PRERACE:%
+NAME:Coffer Corpse
+STAT:STR=10|DEX=10|INT=10|WIS=11|CHA=10
+SKILL:Intimidate	RANK:3
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Toughness
+
+STARTPACK:Default Cooshee	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cooshee]
+ALIGN:TN
+RACE:Cooshee	!PRERACE:%
+NAME:Cooshee
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:1
+SKILL:Survival		RANK:1
+FEAT:Track
+FEAT:Weapon Finesse
+
+STARTPACK:Default Crab (Monstrous)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crab (Monstrous)]
+ALIGN:TN
+RACE:Crab (Monstrous)	!PRERACE:%
+NAME:Crab, Monstrous
+STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Crabman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crabman]
+ALIGN:TN
+RACE:Crabman	!PRERACE:%
+NAME:Crabman
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:TYPE.Craft	RANK:3
+SKILL:Listen	RANK:3
+SKILL:Search	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Power Attack
+
+STARTPACK:Default Crayfish (Monstrous)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crayfish (Monstrous)]
+ALIGN:TN
+RACE:Crayfish (Monstrous)	!PRERACE:%
+NAME:Crayfish, Monstrous
+STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Crystalline Horror	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crystalline Horror]
+ALIGN:NE
+RACE:Crystalline Horror	!PRERACE:%
+NAME:Crystalline Horror
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Common Crypt Thing	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:Crypt Thing],[PRERACE:Crypt Guardian]
+ALIGN:TN
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=11
+SKILL:Bluff			RANK:5
+SKILL:Intimidate		RANK:6
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:5
+SKILL:Search		RANK:6
+SKILL:Sense Motive	RANK:5
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Default Crypt Thing	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crypt Thing]
+RACE:Crypt Thing	!PRERACE:%
+NAME:Crypt Thing
+KIT:Common Crypt Thing
+
+STARTPACK:Default Crypt Guardian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crypt Guardian]
+RACE:Crypt Guardian	!PRERACE:%
+NAME:Crypt Guardian
+KIT:Common Crypt Thing
+
+

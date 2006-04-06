@@ -1,0 +1,271 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Adherer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Adherer]
+ALIGN:LE
+RACE:Adherer	!PRERACE:%
+NAME:Adherer
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Default Aerial Servant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aerial Servant]
+ALIGN:TN
+RACE:Aerial Servant	!PRERACE:%
+NAME:Aerial Servant
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:3
+SKILL:Search		RANK:4
+SKILL:Spot			RANK:4
+SKILL:Survival		RANK:4
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Weapon Focus (Slam)
+
+STARTPACK:Common Algoid	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Algoid]
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:4
+FEAT:Alertness
+FEAT:Iron Will
+
+STARTPACK:Default Algoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Algoid]
+RACE:Algoid	!PRERACE:%
+NAME:Algoid
+KIT:Common Algoid
+
+STARTPACK:Common Al-mi'raj	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Al-mi'raj%]
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+ALIGN:TN
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+SKILL:Survival	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Default Al-mi'raj	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Al-mi'raj]
+RACE:Al-mi'raj	!PRERACE:%
+NAME:Al-mi'raj
+KIT:Common Al-mi'raj
+
+STARTPACK:Default Amphisbaena	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Amphisbaena]
+ALIGN:TN
+RACE:Amphisbaena	!PRERACE:%
+NAME:Amphisbaena
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:1
+SKILL:Search		RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Toughness
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Angel (Monadic Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Monadic Deva)]
+ALIGN:LG|NG|CG
+RACE:Angel (Monadic Deva)	!PRERACE:%
+NAME:Angel, Monadic Deva
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Concentration		RANK:13
+SKILL:Diplomacy			RANK:11
+SKILL:Escape Artist		RANK:13
+SKILL:Hide				RANK:7
+SKILL:Intimidate			RANK:13
+SKILL:Knowledge (The Planes)	RANK:13
+SKILL:TYPE=Knowledge		RANK:10	COUNT:2
+SKILL:Listen			RANK:13
+SKILL:Move Silently		RANK:6
+SKILL:Search			RANK:7
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:13
+SKILL:Survival			RANK:13
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Improved Initiative
+FEAT:Power Attack
+GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.SMITE.ADAMANT_WEAP
+
+STARTPACK:Default Angel (Movanic Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Angel (Movanic Deva)]
+ALIGN:LG|NG|CG
+RACE:Angel (Movanic Deva)	!PRERACE:%
+NAME:Angel, Movanic Deva
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Concentration		RANK:10
+SKILL:Diplomacy			RANK:11
+SKILL:Escape Artist		RANK:10
+SKILL:Hide				RANK:10
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (The Planes)	RANK:11
+SKILL:TYPE=Knowledge		RANK:9
+SKILL:Jump				RANK:8
+SKILL:Listen			RANK:11
+SKILL:Move Silently		RANK:11
+SKILL:Sense Motive		RANK:8
+SKILL:Spot				RANK:11
+SKILL:Survival			RANK:11
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Power Attack
+GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FLM_M
+
+STARTPACK:Default Animal Lord (Cat Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Lord (Cat Lord)]
+ALIGN:TN
+RACE:Animal Lord (Cat Lord)	!PRERACE:%
+NAME:Cat Lord
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Balance			RANK:16
+SKILL:Climb				RANK:19
+SKILL:Concentration		RANK:10
+SKILL:Escape Artist		RANK:22
+SKILL:Handle Animal		RANK:22
+SKILL:Heal				RANK:18
+SKILL:Hide				RANK:22
+SKILL:Knowledge (Nature)	RANK:20
+SKILL:Listen			RANK:20
+SKILL:Move Silently		RANK:22
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:15
+SKILL:Spot				RANK:20
+SKILL:Survival			RANK:13
+SKILL:Tumble			RANK:19
+FEAT:Acrobatic
+FEAT:Agile
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+
+STARTPACK:Default Animal Lord (Mouse Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animal Lord (Mouse Lord)]
+ALIGN:TN
+RACE:Animal Lord (Mouse Lord)	!PRERACE:%
+NAME:Mouse Lord
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Balance			RANK:18
+SKILL:Climb				RANK:18
+SKILL:Concentration		RANK:18
+SKILL:Diplomacy			RANK:8
+SKILL:Escape Artist		RANK:18
+SKILL:Handle Animal		RANK:18
+SKILL:Hide				RANK:18
+SKILL:Knowledge (Nature)	RANK:15
+SKILL:Listen			RANK:18
+SKILL:Move Silently		RANK:18
+SKILL:Spot				RANK:18
+SKILL:Survival			RANK:12
+SKILL:Swim				RANK:18
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Default Ant Lion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ant Lion]
+ALIGN:TN
+RACE:Ant Lion	!PRERACE:%
+NAME:Ant Lion
+STAT:STR=10|DEX=11|CON=11|WIS=11|CHA=11
+
+STARTPACK:Default Apparition	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Apparition]
+ALIGN:CE
+RACE:Apparition	!PRERACE:%
+NAME:Apparition
+STAT:DEX=10|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:7
+SKILL:Intimidate		RANK:7
+SKILL:TYPE.Knowledge	RANK:6
+SKILL:Listen		RANK:6
+SKILL:Search		RANK:6
+SKILL:Spot			RANK:6
+SKILL:Survival		RANK:6
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Improved Initiative
+
+STARTPACK:Default Archer Bush	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archer Bush]
+ALIGN:TN
+RACE:Archer Bush	!PRERACE:%
+NAME:Archer Bush
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:2
+FEAT:Weapon Focus (Thorns)
+
+STARTPACK:Default Ascomoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ascomoid]
+ALIGN:TN
+RACE:Ascomoid	!PRERACE:%
+NAME:Ascomoid
+STAT:STR=10|DEX=11|CON=11|WIS=11|CHA=11
+
+STARTPACK:Default Astral Shark	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Shark]
+ALIGN:TN
+RACE:Astral Shark	!PRERACE:%
+NAME:Astral Shark
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:11
+SKILL:Listen		RANK:11
+SKILL:Move Silently	RANK:11
+SKILL:Search		RANK:11
+SKILL:Spot			RANK:11
+SKILL:Survival		RANK:11
+FEAT:Alertness
+FEAT:Improved Critical (Bite)
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Atomie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Atomie]
+ALIGN:CN
+RACE:Atomie	!PRERACE:%
+NAME:Atomie
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Concentration	RANK:2
+SKILL:TYPE=Craft		RANK:2
+SKILL:Escape Artist	RANK:3
+SKILL:Handle Animal	RANK:2
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Perform (Dance)	RANK:1
+SKILL:Perform (Sing)	RANK:1
+SKILL:Search		RANK:1
+SKILL:Spot			RANK:2
+FEAT:Dodge
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Aurumvorax	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aurumvorax]
+ALIGN:TN
+RACE:Aurumvorax	!PRERACE:%
+NAME:Aurumvorax
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:4
+FEAT:Alertness
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Axe Beak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Axe Beak]
+ALIGN:TN
+RACE:Axe Beak	!PRERACE:%
+NAME:Axe Beak
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Multiattack
+

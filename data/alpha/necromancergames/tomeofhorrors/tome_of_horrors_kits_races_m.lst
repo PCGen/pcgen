@@ -1,0 +1,704 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Default Magnesium Spirit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Magnesium Spirit]
+ALIGN:LE
+RACE:Magnesium Spirit	!PRERACE:%
+NAME:Magnesium Spirit
+STAT:DEX=11|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Bluff				RANK:9
+SKILL:Concentration		RANK:9
+SKILL:Hide				RANK:4
+SKILL:Knowledge (The Planes)	RANK:9
+SKILL:Intimidate			RANK:7
+SKILL:Listen			RANK:9
+SKILL:Search			RANK:7
+SKILL:Sense Motive		RANK:9
+SKILL:Spot				RANK:9
+SKILL:Survival			RANK:7
+FEAT:Ability Focus (Soul Portal)
+FEAT:Blind Fight
+FEAT:Improved Initiative
+
+
+STARTPACK:Default Mandragora	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mandragora]
+ALIGN:NE
+RACE:Mandragora	!PRERACE:%
+NAME:Mandragora
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+
+STARTPACK:Default Mantari	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mantari]
+ALIGN:NE
+RACE:Mantari	!PRERACE:%
+NAME:Mantari
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:2
+FEAT:Alertness
+
+STARTPACK:Default Marble Snake	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Marble Snake]
+ALIGN:TN
+RACE:Marble Snake	!PRERACE:%
+NAME:Marble Snake
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Climb			RANK:1
+SKILL:Balance		RANK:1
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Alertness
+FEAT:Toughness
+
+STARTPACK:Default Medusa (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Medusa (Greater)]
+ALIGN:LE
+RACE:Medusa (Greater)	!PRERACE:%
+NAME:Medusa, Greater
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Bluff			RANK:7
+SKILL:Disguise		RANK:6
+SKILL:Intimidate		RANK:7
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:6
+FEAT:Point Blank Shot
+FEAT:Precise Shot
+FEAT:Weapon Focus (Snakes)
+GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:BOWSTR|2
+GEAR:Dagger				SIZE:PC	LOCATION:Carried
+
+STARTPACK:Default Midnight Peddler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Midnight Peddler]
+ALIGN:TN
+RACE:Midnight Peddler	!PRERACE:%
+NAME:Midnight Peddler
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Bluff				RANK:10
+SKILL:Craft (Woodworking)	RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Knowledge (History)	RANK:10
+SKILL:Knowledge (Local)		RANK:10
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Profession (Peddler)	RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+SKILL:Survival			RANK:10
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Improved Initiative
+
+STARTPACK:Default Mihstu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mihstu]
+ALIGN:NE
+RACE:Mihstu	!PRERACE:%
+NAME:Mihstu
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Hide			RANK:8
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:10
+SKILL:Search		RANK:8
+SKILL:Spot			RANK:9
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Common Mite	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite%]
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+SKILL:Hide			RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+
+STARTPACK:Default Mite (Common)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite (Common)]
+ALIGN:LE
+RACE:Mite (Common)	!PRERACE:%
+NAME:Common Mite
+KIT:Common Mite
+SKILL:Craft (Trapmaking)	RANK:1
+FEAT:Weapon Focus (Club)
+GEAR:Club	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Mite (Pestie)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mite (Pestie)]
+ALIGN:TN
+RACE:Mite (Pestie)	!PRERACE:%
+NAME:Pestie
+KIT:Common Mite
+SKILL:Sleight of Hand	RANK:1
+FEAT:Weapon Finesse
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Default Mongrelman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mongrelman]
+ALIGN:LN
+RACE:Mongrelman	!PRERACE:%
+NAME:Mongrelman
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Climb			RANK:1
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Sleight of Hand	RANK:2
+SKILL:Survival		RANK:1
+FEAT:Ability Focus (Sound Imitation)
+GEAR:Club	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Random Mongrelman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mongrelman]
+KIT:Default Mongrelman
+KIT:Mongrelman Head (Left)
+KIT:Mongrelman Head (Right)
+KIT:Mongrelman Upper Torso
+KIT:Mongrelman Lower Torso
+KIT:Mongrelman Upper Arm (Left)
+KIT:Mongrelman Upper Arm (Right)
+KIT:Mongrelman Lower Arm (Left)
+KIT:Mongrelman Lower Arm (Right)
+KIT:Mongrelman Upper Leg (Left)
+KIT:Mongrelman Upper Leg (Right)
+KIT:Mongrelman Lower Leg (Left)
+KIT:Mongrelman Lower Leg (Right)
+KIT:Mongrelman Foot (Left)
+KIT:Mongrelman Foot (Right)
+KIT:Mongrelman Hand (Left)
+KIT:Mongrelman Hand (Right)
+KIT:Mongrelman Jaw/Mouth
+
+STARTPACK:Mongrelman Head (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Head (Left)		OPTION:1
+TEMPLATE:Goblin Head (Left)		OPTION:2
+TEMPLATE:Hobgoblin Head (Left)	OPTION:3
+TEMPLATE:Human Head (Left)		OPTION:4
+TEMPLATE:Kobold Head (Left)		OPTION:5
+TEMPLATE:Merfolk Head (Left)		OPTION:6
+TEMPLATE:Locathah Head (Left)		OPTION:7
+TEMPLATE:Sahuagin Head (Left)		OPTION:8
+TEMPLATE:Dwarf Head (Left)		OPTION:9
+TEMPLATE:Elf Head (Left)		OPTION:10
+TEMPLATE:Gnome Head (Left)		OPTION:11
+TEMPLATE:Halfling Head (Left)		OPTION:12
+KIT:Orc or Ogre Head (Left)	OPTION:13
+TEMPLATE:Troglodyte Head (Left)	OPTION:14
+TEMPLATE:Crabman Head (Left)		OPTION:15
+TEMPLATE:Bugbear Head (Left)		OPTION:16
+TEMPLATE:Minotaur Head (Left)		OPTION:17
+TEMPLATE:Flind Head (Left)		OPTION:18
+TEMPLATE:Lizardfolk Head (Left)	OPTION:19
+TEMPLATE:Missing Head (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Head (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Head (Left)	OPTION:1
+TEMPLATE:Ogre Head (Left)	OPTION:2
+
+STARTPACK:Mongrelman Head (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Head (Right)		OPTION:1
+TEMPLATE:Goblin Head (Right)		OPTION:2
+TEMPLATE:Hobgoblin Head (Right)	OPTION:3
+TEMPLATE:Human Head (Right)		OPTION:4
+TEMPLATE:Kobold Head (Right)		OPTION:5
+TEMPLATE:Merfolk Head (Right)		OPTION:6
+TEMPLATE:Locathah Head (Right)	OPTION:7
+TEMPLATE:Sahuagin Head (Right)	OPTION:8
+TEMPLATE:Dwarf Head (Right)		OPTION:9
+TEMPLATE:Elf Head (Right)		OPTION:10
+TEMPLATE:Gnome Head (Right)		OPTION:11
+TEMPLATE:Halfling Head (Right)	OPTION:12
+KIT:Orc or Ogre Head (Right)	OPTION:13
+TEMPLATE:Troglodyte Head (Right)	OPTION:14
+TEMPLATE:Crabman Head (Right)		OPTION:15
+TEMPLATE:Bugbear Head (Right)		OPTION:16
+TEMPLATE:Minotaur Head (Right)	OPTION:17
+TEMPLATE:Flind Head (Right)		OPTION:18
+TEMPLATE:Lizardfolk Head (Right)	OPTION:19
+TEMPLATE:Missing Head (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Head (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Head (Right)	OPTION:1
+TEMPLATE:Ogre Head (Right)	OPTION:2
+
+STARTPACK:Mongrelman Upper Torso	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Upper Torso		OPTION:1
+TEMPLATE:Goblin Upper Torso		OPTION:2
+TEMPLATE:Hobgoblin Upper Torso	OPTION:3
+TEMPLATE:Human Upper Torso		OPTION:4
+TEMPLATE:Kobold Upper Torso		OPTION:5
+TEMPLATE:Merfolk Upper Torso		OPTION:6
+TEMPLATE:Locathah Upper Torso		OPTION:7
+TEMPLATE:Sahuagin Upper Torso		OPTION:8
+TEMPLATE:Dwarf Upper Torso		OPTION:9
+TEMPLATE:Elf Upper Torso		OPTION:10
+TEMPLATE:Gnome Upper Torso		OPTION:11
+TEMPLATE:Halfling Upper Torso		OPTION:12
+KIT:Orc or Ogre Upper Torso	OPTION:13
+TEMPLATE:Troglodyte Upper Torso	OPTION:14
+TEMPLATE:Crabman Upper Torso		OPTION:15
+TEMPLATE:Bugbear Upper Torso		OPTION:16
+TEMPLATE:Minotaur Upper Torso		OPTION:17
+TEMPLATE:Flind Upper Torso		OPTION:18
+TEMPLATE:Lizardfolk Upper Torso	OPTION:19
+KIT:Mongrelman Upper Torso	OPTION:20
+
+STARTPACK:Orc or Ogre Upper Torso	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Upper Torso	OPTION:1
+TEMPLATE:Ogre Upper Torso	OPTION:2
+
+STARTPACK:Mongrelman Lower Torso	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Lower Torso		OPTION:1
+TEMPLATE:Goblin Lower Torso		OPTION:2
+TEMPLATE:Hobgoblin Lower Torso	OPTION:3
+TEMPLATE:Human Lower Torso		OPTION:4
+TEMPLATE:Kobold Lower Torso		OPTION:5
+TEMPLATE:Merfolk Lower Torso		OPTION:6
+TEMPLATE:Locathah Lower Torso		OPTION:7
+TEMPLATE:Sahuagin Lower Torso		OPTION:8
+TEMPLATE:Dwarf Lower Torso		OPTION:9
+TEMPLATE:Elf Lower Torso		OPTION:10
+TEMPLATE:Gnome Lower Torso		OPTION:11
+TEMPLATE:Halfling Lower Torso		OPTION:12
+KIT:Orc or Ogre Lower Torso	OPTION:13
+TEMPLATE:Troglodyte Lower Torso	OPTION:14
+TEMPLATE:Crabman Lower Torso		OPTION:15
+TEMPLATE:Bugbear Lower Torso		OPTION:16
+TEMPLATE:Minotaur Lower Torso		OPTION:17
+TEMPLATE:Flind Lower Torso		OPTION:18
+TEMPLATE:Lizardfolk Lower Torso	OPTION:19
+KIT:Mongrelman Upper Torso	OPTION:20
+
+STARTPACK:Orc or Ogre Lower Torso	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Lower Torso	OPTION:1
+TEMPLATE:Ogre Lower Torso	OPTION:2
+
+STARTPACK:Mongrelman Upper Arm (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Upper Arm (Left)		OPTION:1
+TEMPLATE:Goblin Upper Arm (Left)		OPTION:2
+TEMPLATE:Hobgoblin Upper Arm (Left)		OPTION:3
+TEMPLATE:Human Upper Arm (Left)		OPTION:4
+TEMPLATE:Kobold Upper Arm (Left)		OPTION:5
+TEMPLATE:Merfolk Upper Arm (Left)		OPTION:6
+TEMPLATE:Locathah Upper Arm (Left)		OPTION:7
+TEMPLATE:Sahuagin Upper Arm (Left)		OPTION:8
+TEMPLATE:Dwarf Upper Arm (Left)		OPTION:9
+TEMPLATE:Elf Upper Arm (Left)			OPTION:10
+TEMPLATE:Gnome Upper Arm (Left)		OPTION:11
+TEMPLATE:Halfling Upper Arm (Left)		OPTION:12
+KIT:Orc or Ogre Upper Arm (Left)	OPTION:13
+TEMPLATE:Troglodyte Upper Arm (Left)	OPTION:14
+TEMPLATE:Crabman Upper Arm (Left)		OPTION:15
+TEMPLATE:Bugbear Upper Arm (Left)		OPTION:16
+TEMPLATE:Minotaur Upper Arm (Left)		OPTION:17
+TEMPLATE:Flind Upper Arm (Left)		OPTION:18
+TEMPLATE:Lizardfolk Upper Arm (Left)	OPTION:19
+TEMPLATE:Missing Upper Arm (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Upper Arm (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Upper Arm (Left)		OPTION:1
+TEMPLATE:Ogre Upper Arm (Left)	OPTION:2
+
+STARTPACK:Mongrelman Upper Arm (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Upper Arm (Right)		OPTION:1
+TEMPLATE:Goblin Upper Arm (Right)		OPTION:2
+TEMPLATE:Hobgoblin Upper Arm (Right)	OPTION:3
+TEMPLATE:Human Upper Arm (Right)		OPTION:4
+TEMPLATE:Kobold Upper Arm (Right)		OPTION:5
+TEMPLATE:Merfolk Upper Arm (Right)		OPTION:6
+TEMPLATE:Locathah Upper Arm (Right)		OPTION:7
+TEMPLATE:Sahuagin Upper Arm (Right)		OPTION:8
+TEMPLATE:Dwarf Upper Arm (Right)		OPTION:9
+TEMPLATE:Elf Upper Arm (Right)		OPTION:10
+TEMPLATE:Gnome Upper Arm (Right)		OPTION:11
+TEMPLATE:Halfling Upper Arm (Right)		OPTION:12
+KIT:Orc or Ogre Upper Arm (Right)	OPTION:13
+TEMPLATE:Troglodyte Upper Arm (Right)	OPTION:14
+TEMPLATE:Crabman Upper Arm (Right)		OPTION:15
+TEMPLATE:Bugbear Upper Arm (Right)		OPTION:16
+TEMPLATE:Minotaur Upper Arm (Right)		OPTION:17
+TEMPLATE:Flind Upper Arm (Right)		OPTION:18
+TEMPLATE:Lizardfolk Upper Arm (Right)	OPTION:19
+TEMPLATE:Missing Upper Arm (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Upper Arm (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Upper Arm (Right)	OPTION:1
+TEMPLATE:Ogre Upper Arm (Right)	OPTION:2
+
+STARTPACK:Mongrelman Lower Arm (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Lower Arm (Left)		OPTION:1
+TEMPLATE:Goblin Lower Arm (Left)		OPTION:2
+TEMPLATE:Hobgoblin Lower Arm (Left)		OPTION:3
+TEMPLATE:Human Lower Arm (Left)		OPTION:4
+TEMPLATE:Kobold Lower Arm (Left)		OPTION:5
+TEMPLATE:Merfolk Lower Arm (Left)		OPTION:6
+TEMPLATE:Locathah Lower Arm (Left)		OPTION:7
+TEMPLATE:Sahuagin Lower Arm (Left)		OPTION:8
+TEMPLATE:Dwarf Lower Arm (Left)		OPTION:9
+TEMPLATE:Elf Lower Arm (Left)			OPTION:10
+TEMPLATE:Gnome Lower Arm (Left)		OPTION:11
+TEMPLATE:Halfling Lower Arm (Left)		OPTION:12
+KIT:Orc or Ogre Lower Arm (Left)	OPTION:13
+TEMPLATE:Troglodyte Lower Arm (Left)	OPTION:14
+TEMPLATE:Crabman Lower Arm (Left)		OPTION:15
+TEMPLATE:Bugbear Lower Arm (Left)		OPTION:16
+TEMPLATE:Minotaur Lower Arm (Left)		OPTION:17
+TEMPLATE:Flind Lower Arm (Left)		OPTION:18
+TEMPLATE:Lizardfolk Lower Arm (Left)	OPTION:19
+TEMPLATE:Missing Lower Arm (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Lower Arm (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Lower Arm (Left)		OPTION:1
+TEMPLATE:Ogre Lower Arm (Left)	OPTION:2
+
+STARTPACK:Mongrelman Lower Arm (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Lower Arm (Right)		OPTION:1
+TEMPLATE:Goblin Lower Arm (Right)		OPTION:2
+TEMPLATE:Hobgoblin Lower Arm (Right)	OPTION:3
+TEMPLATE:Human Lower Arm (Right)		OPTION:4
+TEMPLATE:Kobold Lower Arm (Right)		OPTION:5
+TEMPLATE:Merfolk Lower Arm (Right)		OPTION:6
+TEMPLATE:Locathah Lower Arm (Right)		OPTION:7
+TEMPLATE:Sahuagin Lower Arm (Right)		OPTION:8
+TEMPLATE:Dwarf Lower Arm (Right)		OPTION:9
+TEMPLATE:Elf Lower Arm (Right)		OPTION:10
+TEMPLATE:Gnome Lower Arm (Right)		OPTION:11
+TEMPLATE:Halfling Lower Arm (Right)		OPTION:12
+KIT:Orc or Ogre Lower Arm (Right)	OPTION:13
+TEMPLATE:Troglodyte Lower Arm (Right)	OPTION:14
+TEMPLATE:Crabman Lower Arm (Right)		OPTION:15
+TEMPLATE:Bugbear Lower Arm (Right)		OPTION:16
+TEMPLATE:Minotaur Lower Arm (Right)		OPTION:17
+TEMPLATE:Flind Lower Arm (Right)		OPTION:18
+TEMPLATE:Lizardfolk Lower Arm (Right)	OPTION:19
+TEMPLATE:Missing Lower Arm (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Lower Arm (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Lower Arm (Right)	OPTION:1
+TEMPLATE:Ogre Lower Arm (Right)	OPTION:2
+
+STARTPACK:Mongrelman Upper Leg (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Upper Leg (Left)		OPTION:1
+TEMPLATE:Goblin Upper Leg (Left)		OPTION:2
+TEMPLATE:Hobgoblin Upper Leg (Left)		OPTION:3
+TEMPLATE:Human Upper Leg (Left)		OPTION:4
+TEMPLATE:Kobold Upper Leg (Left)		OPTION:5
+TEMPLATE:Merfolk Upper Leg (Left)		OPTION:6
+TEMPLATE:Locathah Upper Leg (Left)		OPTION:7
+TEMPLATE:Sahuagin Upper Leg (Left)		OPTION:8
+TEMPLATE:Dwarf Upper Leg (Left)		OPTION:9
+TEMPLATE:Elf Upper Leg (Left)			OPTION:10
+TEMPLATE:Gnome Upper Leg (Left)		OPTION:11
+TEMPLATE:Halfling Upper Leg (Left)		OPTION:12
+KIT:Orc or Ogre Upper Leg (Left)	OPTION:13
+TEMPLATE:Troglodyte Upper Leg (Left)	OPTION:14
+TEMPLATE:Crabman Upper Leg (Left)		OPTION:15
+TEMPLATE:Bugbear Upper Leg (Left)		OPTION:16
+TEMPLATE:Minotaur Upper Leg (Left)		OPTION:17
+TEMPLATE:Flind Upper Leg (Left)		OPTION:18
+TEMPLATE:Lizardfolk Upper Leg (Left)	OPTION:19
+TEMPLATE:Missing Upper Leg (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Upper Leg (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Upper Leg (Left)		OPTION:1
+TEMPLATE:Ogre Upper Leg (Left)	OPTION:2
+
+STARTPACK:Mongrelman Upper Leg (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Upper Leg (Right)		OPTION:1
+TEMPLATE:Goblin Upper Leg (Right)		OPTION:2
+TEMPLATE:Hobgoblin Upper Leg (Right)	OPTION:3
+TEMPLATE:Human Upper Leg (Right)		OPTION:4
+TEMPLATE:Kobold Upper Leg (Right)		OPTION:5
+TEMPLATE:Merfolk Upper Leg (Right)		OPTION:6
+TEMPLATE:Locathah Upper Leg (Right)		OPTION:7
+TEMPLATE:Sahuagin Upper Leg (Right)		OPTION:8
+TEMPLATE:Dwarf Upper Leg (Right)		OPTION:9
+TEMPLATE:Elf Upper Leg (Right)		OPTION:10
+TEMPLATE:Gnome Upper Leg (Right)		OPTION:11
+TEMPLATE:Halfling Upper Leg (Right)		OPTION:12
+KIT:Orc or Ogre Upper Leg (Right)	OPTION:13
+TEMPLATE:Troglodyte Upper Leg (Right)	OPTION:14
+TEMPLATE:Crabman Upper Leg (Right)		OPTION:15
+TEMPLATE:Bugbear Upper Leg (Right)		OPTION:16
+TEMPLATE:Minotaur Upper Leg (Right)		OPTION:17
+TEMPLATE:Flind Upper Leg (Right)		OPTION:18
+TEMPLATE:Lizardfolk Upper Leg (Right)	OPTION:19
+TEMPLATE:Missing Upper Leg (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Upper Leg (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Upper Leg (Right)	OPTION:1
+TEMPLATE:Ogre Upper Leg (Right)	OPTION:2
+
+STARTPACK:Mongrelman Lower Leg (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Lower Leg (Left)		OPTION:1
+TEMPLATE:Goblin Lower Leg (Left)		OPTION:2
+TEMPLATE:Hobgoblin Lower Leg (Left)		OPTION:3
+TEMPLATE:Human Lower Leg (Left)		OPTION:4
+TEMPLATE:Kobold Lower Leg (Left)		OPTION:5
+TEMPLATE:Merfolk Lower Leg (Left)		OPTION:6
+TEMPLATE:Locathah Lower Leg (Left)		OPTION:7
+TEMPLATE:Sahuagin Lower Leg (Left)		OPTION:8
+TEMPLATE:Dwarf Lower Leg (Left)		OPTION:9
+TEMPLATE:Elf Lower Leg (Left)			OPTION:10
+TEMPLATE:Gnome Lower Leg (Left)		OPTION:11
+TEMPLATE:Halfling Lower Leg (Left)		OPTION:12
+KIT:Orc or Ogre Lower Leg (Left)	OPTION:13
+TEMPLATE:Troglodyte Lower Leg (Left)	OPTION:14
+TEMPLATE:Crabman Lower Leg (Left)		OPTION:15
+TEMPLATE:Bugbear Lower Leg (Left)		OPTION:16
+TEMPLATE:Minotaur Lower Leg (Left)		OPTION:17
+TEMPLATE:Flind Lower Leg (Left)		OPTION:18
+TEMPLATE:Lizardfolk Lower Leg (Left)	OPTION:19
+TEMPLATE:Missing Lower Leg (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Lower Leg (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Lower Leg (Left)		OPTION:1
+TEMPLATE:Ogre Lower Leg (Left)	OPTION:2
+
+STARTPACK:Mongrelman Lower Leg (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Lower Leg (Right)		OPTION:1
+TEMPLATE:Goblin Lower Leg (Right)		OPTION:2
+TEMPLATE:Hobgoblin Lower Leg (Right)	OPTION:3
+TEMPLATE:Human Lower Leg (Right)		OPTION:4
+TEMPLATE:Kobold Lower Leg (Right)		OPTION:5
+TEMPLATE:Merfolk Lower Leg (Right)		OPTION:6
+TEMPLATE:Locathah Lower Leg (Right)		OPTION:7
+TEMPLATE:Sahuagin Lower Leg (Right)		OPTION:8
+TEMPLATE:Dwarf Lower Leg (Right)		OPTION:9
+TEMPLATE:Elf Lower Leg (Right)		OPTION:10
+TEMPLATE:Gnome Lower Leg (Right)		OPTION:11
+TEMPLATE:Halfling Lower Leg (Right)		OPTION:12
+KIT:Orc or Ogre Lower Leg (Right)	OPTION:13
+TEMPLATE:Troglodyte Lower Leg (Right)	OPTION:14
+TEMPLATE:Crabman Lower Leg (Right)		OPTION:15
+TEMPLATE:Bugbear Lower Leg (Right)		OPTION:16
+TEMPLATE:Minotaur Lower Leg (Right)		OPTION:17
+TEMPLATE:Flind Lower Leg (Right)		OPTION:18
+TEMPLATE:Lizardfolk Lower Leg (Right)	OPTION:19
+TEMPLATE:Missing Lower Leg (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Lower Leg (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Lower Leg (Right)	OPTION:1
+TEMPLATE:Ogre Lower Leg (Right)	OPTION:2
+
+STARTPACK:Mongrelman Foot (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Foot (Left)		OPTION:1
+TEMPLATE:Goblin Foot (Left)		OPTION:2
+TEMPLATE:Hobgoblin Foot (Left)	OPTION:3
+TEMPLATE:Human Foot (Left)		OPTION:4
+TEMPLATE:Kobold Foot (Left)		OPTION:5
+TEMPLATE:Merfolk Foot (Left)		OPTION:6
+TEMPLATE:Locathah Foot (Left)		OPTION:7
+TEMPLATE:Sahuagin Foot (Left)		OPTION:8
+TEMPLATE:Dwarf Foot (Left)		OPTION:9
+TEMPLATE:Elf Foot (Left)		OPTION:10
+TEMPLATE:Gnome Foot (Left)		OPTION:11
+TEMPLATE:Halfling Foot (Left)		OPTION:12
+KIT:Orc or Ogre Foot (Left)	OPTION:13
+TEMPLATE:Troglodyte Foot (Left)	OPTION:14
+TEMPLATE:Crabman Foot (Left)		OPTION:15
+TEMPLATE:Bugbear Foot (Left)		OPTION:16
+TEMPLATE:Minotaur Foot (Left)		OPTION:17
+TEMPLATE:Flind Foot (Left)		OPTION:18
+TEMPLATE:Lizardfolk Foot (Left)	OPTION:19
+TEMPLATE:Missing Foot (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Foot (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Foot (Left)	OPTION:1
+TEMPLATE:Ogre Foot (Left)	OPTION:2
+
+STARTPACK:Mongrelman Foot (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Foot (Right)		OPTION:1
+TEMPLATE:Goblin Foot (Right)		OPTION:2
+TEMPLATE:Hobgoblin Foot (Right)	OPTION:3
+TEMPLATE:Human Foot (Right)		OPTION:4
+TEMPLATE:Kobold Foot (Right)		OPTION:5
+TEMPLATE:Merfolk Foot (Right)		OPTION:6
+TEMPLATE:Locathah Foot (Right)	OPTION:7
+TEMPLATE:Sahuagin Foot (Right)	OPTION:8
+TEMPLATE:Dwarf Foot (Right)		OPTION:9
+TEMPLATE:Elf Foot (Right)		OPTION:10
+TEMPLATE:Gnome Foot (Right)		OPTION:11
+TEMPLATE:Halfling Foot (Right)	OPTION:12
+KIT:Orc or Ogre Foot (Right)	OPTION:13
+TEMPLATE:Troglodyte Foot (Right)	OPTION:14
+TEMPLATE:Crabman Foot (Right)		OPTION:15
+TEMPLATE:Bugbear Foot (Right)		OPTION:16
+TEMPLATE:Minotaur Foot (Right)	OPTION:17
+TEMPLATE:Flind Foot (Right)		OPTION:18
+TEMPLATE:Lizardfolk Foot (Right)	OPTION:19
+TEMPLATE:Missing Foot (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Foot (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Foot (Right)	OPTION:1
+TEMPLATE:Ogre Foot (Right)	OPTION:2
+
+STARTPACK:Mongrelman Hand (Left)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Hand (Left)		OPTION:1
+TEMPLATE:Goblin Hand (Left)		OPTION:2
+TEMPLATE:Hobgoblin Hand (Left)	OPTION:3
+TEMPLATE:Human Hand (Left)		OPTION:4
+TEMPLATE:Kobold Hand (Left)		OPTION:5
+TEMPLATE:Merfolk Hand (Left)		OPTION:6
+TEMPLATE:Locathah Hand (Left)		OPTION:7
+TEMPLATE:Sahuagin Hand (Left)		OPTION:8
+TEMPLATE:Dwarf Hand (Left)		OPTION:9
+TEMPLATE:Elf Hand (Left)		OPTION:10
+TEMPLATE:Gnome Hand (Left)		OPTION:11
+TEMPLATE:Halfling Hand (Left)		OPTION:12
+KIT:Orc or Ogre Hand (Left)	OPTION:13
+TEMPLATE:Troglodyte Hand (Left)	OPTION:14
+TEMPLATE:Crabman Hand (Left)		OPTION:15
+TEMPLATE:Bugbear Hand (Left)		OPTION:16
+TEMPLATE:Minotaur Hand (Left)		OPTION:17
+TEMPLATE:Flind Hand (Left)		OPTION:18
+TEMPLATE:Lizardfolk Hand (Left)	OPTION:19
+TEMPLATE:Missing Hand (Left)		OPTION:20
+
+STARTPACK:Orc or Ogre Hand (Left)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Hand (Left)	OPTION:1
+TEMPLATE:Ogre Hand (Left)	OPTION:2
+
+STARTPACK:Mongrelman Hand (Right)	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Hand (Right)		OPTION:1
+TEMPLATE:Goblin Hand (Right)		OPTION:2
+TEMPLATE:Hobgoblin Hand (Right)	OPTION:3
+TEMPLATE:Human Hand (Right)		OPTION:4
+TEMPLATE:Kobold Hand (Right)		OPTION:5
+TEMPLATE:Merfolk Hand (Right)		OPTION:6
+TEMPLATE:Locathah Hand (Right)	OPTION:7
+TEMPLATE:Sahuagin Hand (Right)	OPTION:8
+TEMPLATE:Dwarf Hand (Right)		OPTION:9
+TEMPLATE:Elf Hand (Right)		OPTION:10
+TEMPLATE:Gnome Hand (Right)		OPTION:11
+TEMPLATE:Halfling Hand (Right)	OPTION:12
+KIT:Orc or Ogre Hand (Right)	OPTION:13
+TEMPLATE:Troglodyte Hand (Right)	OPTION:14
+TEMPLATE:Crabman Hand (Right)		OPTION:15
+TEMPLATE:Bugbear Hand (Right)		OPTION:16
+TEMPLATE:Minotaur Hand (Right)	OPTION:17
+TEMPLATE:Flind Hand (Right)		OPTION:18
+TEMPLATE:Lizardfolk Hand (Right)	OPTION:19
+TEMPLATE:Missing Hand (Right)		OPTION:20
+
+STARTPACK:Orc or Ogre Hand (Right)	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Hand (Right)	OPTION:1
+TEMPLATE:Ogre Hand (Right)	OPTION:2
+
+STARTPACK:Mongrelman Jaw/Mouth	VISIBLE:NO
+SELECT:roll("1d20")
+TEMPLATE:Gnoll Jaw/Mouth	OPTION:1
+TEMPLATE:Goblin Jaw/Mouth	OPTION:2
+TEMPLATE:Hobgoblin Jaw/Mouth	OPTION:3
+TEMPLATE:Human Jaw/Mouth	OPTION:4
+TEMPLATE:Kobold Jaw/Mouth	OPTION:5
+TEMPLATE:Merfolk Jaw/Mouth	OPTION:6
+TEMPLATE:Locathah Jaw/Mouth	OPTION:7
+TEMPLATE:Sahuagin Jaw/Mouth	OPTION:8
+TEMPLATE:Dwarf Jaw/Mouth	OPTION:9
+TEMPLATE:Elf Jaw/Mouth		OPTION:10
+TEMPLATE:Gnome Jaw/Mouth	OPTION:11
+TEMPLATE:Halfling Jaw/Mouth	OPTION:12
+KIT:Orc or Ogre Jaw/Mouth	OPTION:13
+TEMPLATE:Troglodyte Jaw/Mouth	OPTION:14
+TEMPLATE:Crabman Jaw/Mouth	OPTION:15
+TEMPLATE:Bugbear Jaw/Mouth	OPTION:16
+TEMPLATE:Minotaur Jaw/Mouth	OPTION:17
+TEMPLATE:Flind Jaw/Mouth	OPTION:18
+TEMPLATE:Lizardfolk Jaw/Mouth	OPTION:19
+TEMPLATE:Missing Jaw/Mouth	OPTION:20
+
+STARTPACK:Orc or Ogre Jaw/Mouth	VISIBLE:NO
+SELECT:roll("1d2")
+TEMPLATE:Orc Jaw/Mouth	OPTION:1
+TEMPLATE:Ogre Jaw/Mouth	OPTION:2
+
+STARTPACK:Default Moon Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Moon Dog]
+ALIGN:NG
+RACE:Moon Dog	!PRERACE:%
+NAME:Moon Dog
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Concentration		RANK:12
+SKILL:Diplomacy			RANK:12
+SKILL:Knowledge (Arcana)	RANK:12
+SKILL:Knowledge (The Planes)	RANK:12
+SKILL:Listen			RANK:1
+SKILL:Move Silently		RANK:12
+SKILL:Search			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Spot				RANK:6
+SKILL:Survival			RANK:12
+FEAT:Alertness
+FEAT:Combat Casting
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Bite)
+
+STARTPACK:Default Muckdweller	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Muckdweller]
+ALIGN:TN
+RACE:Muckdweller	!PRERACE:%
+NAME:Muckdweller
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Spot			RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Default Mud Man	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mud Man]
+RACE:Mud Man	!PRERACE:%
+NAME:Mud Man
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Default Mummy of the Deep	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mummy of the Deep]
+RACE:Mummy of the Deep	!PRERACE:%
+NAME:Mummy of the Deep
+ALIGN:NE
+STAT:STR=11|DEX=10|INT=10|WIS=10|CHA=11
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Toughness
+
+STARTPACK:Default Mustard Jelly	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mustard Jelly]
+RACE:Mustard Jelly	!PRERACE:%
+NAME:Mustard Jelly
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:10
+SKILL:Move Silently	RANK:10
+FEAT:Alertness
+FEAT:Toughness
+FEAT:Weapon Focus (Slam)
+
