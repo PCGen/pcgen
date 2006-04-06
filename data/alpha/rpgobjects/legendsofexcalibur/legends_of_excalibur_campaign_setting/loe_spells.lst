@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:LOE	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 # Spell Name			Output Name						Classes of caster									School			Sub-School			Spell Descriptors			Type				Components				Casting Time			Range			Target Area																		Duration					Save Info						Spell Resistance				XP Cost	Description		Source Page
 Blood Oath											CLASSES:Crusader=4|Hermit,Priest,White Knight=5				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Divine			COMPS:V, S, DF			CASTTIME:1 minute			RANGE:Touch		TARGETAREA:One living creature														DURATION:Permanent			SAVEINFO:None					SPELLRES:Yes (harmless)					DESC:See text	SOURCEPAGE:75
 Crusader's Zeal										CLASSES:Crusader=2|Hermit,Priest,White Knight=3				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Divine			COMPS:V, S, DF			CASTTIME:1 standard action	RANGE:40 ft.	TARGETAREA:One living creature														DURATION:(CASTERLEVEL) rounds		SAVEINFO:None					SPELLRES:Yes (harmless)					DESC:See Text	SOURCEPAGE:75
