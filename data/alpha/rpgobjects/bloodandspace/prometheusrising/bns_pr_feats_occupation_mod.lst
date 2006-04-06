@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:BnS-PR	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 # Feat Name					Prohibited Race						Choose a Feat
 Occupation (Academic).MOD		!PRERACE:Android (Laborer),Android (Pilot)	ADD:FEAT(TYPE=AstronomerPreferredOccupation)	ADD:FEAT(TYPE=MenomePreferredOccupation)

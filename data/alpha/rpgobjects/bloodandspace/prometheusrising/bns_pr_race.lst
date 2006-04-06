@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:BnS-PR	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 # Race Name		Skills/Level		Starting Feats	Size		Move				Face/Space	Reach		Vision			Required Gender	Bonus to skill											Stat bonus														Modify VAR				Virtual Feat			Special Ability																									Define			Type			Template			Source Page		Choose a Feat
 Android (Laborer)					STARTFEATS:0	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5								BONUS:SKILL|TYPE.Constitution|CHA-CON							BONUS:STAT|STR|4	BONUS:STAT|DEX|3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-5														SA:Critical Systems	SA:Cybernetic Incompatibility	SA:Lifelike Appearance	SA:Manipulators	SA:Rejuvenation Cycle	SA:Repairable	SA:Robot Resurrection	DEFINE:LOCK.CON|10	TYPE:Construct	TEMPLATE:Construct	SOURCEPAGE:p.3
