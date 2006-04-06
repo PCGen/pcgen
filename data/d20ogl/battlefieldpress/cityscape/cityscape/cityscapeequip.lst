@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
 # Original Entry by: Tir Gwaith
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
 
@@ -35,7 +35,7 @@ Cellular Interceptor										TYPE:Goods.Electronic								COST:50	WT:.5				SOUR
 Camera (35mm)											TYPE:Goods.General.Photo							COST:500	WT:2				SOURCEPAGE:p.
 Camera (Digital)											TYPE:Goods.Electronic.Photo							COST:200	WT:.5				SOURCEPAGE:p.
 Camera (Disposable)										TYPE:Goods.General.Photo.Consumable						COST:15	WT:.5				SOURCEPAGE:p.
-Film													TYPE:Goods.General.Photo.Consumable							COST:5	WT:.5				SOURCEPAGE:p.
+Film													TYPE:Goods.General.Photo.Consumable						COST:5	WT:.5				SOURCEPAGE:p.
 Film Developing (Roll)										TYPE:Goods.Service.Photo							COST:35	WT:0				SOURCEPAGE:p.
 Chemical Light Sticks (5)									TYPE:Goods.General								COST:15	WT:1				SOURCEPAGE:p.
 Computer (Desktop)			OUTPUTNAME:[NAME] Computer			TYPE:Goods.Electronic								COST:800	WT:10				SOURCEPAGE:p.
