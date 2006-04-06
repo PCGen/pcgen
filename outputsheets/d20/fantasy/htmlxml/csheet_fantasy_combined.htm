@@ -305,42 +305,50 @@ AbArr[%stat] = new Ability("|STAT.%stat.NAME|","|STAT.%stat.LONGNAME|","|STAT.%s
 ModToStat[%stat] = 0;
 ModToStatMod[%stat] = 0;
 |ENDFOR|
+
+// ***********************************
 // Weapons (including default unarmed)
-//
-var RangedStuff;  // Used when constructing ranged information to add to weapons
+// ***********************************
+// The code below is 'interesting', the IIF and FOR statements 
+// _cannot_ have whitespace in front of them
+
+// Used when constructing ranged information to add to weapons
+var RangedStuff;
+
+// Deal with Unarmed
 WeapArr[0] = new Weapon( -1, "UNARMED", "Melee", "|WEAPONH.TOTALHIT|", "|WEAPONH.DAMAGE|", "T", "0&#39;", "|WEAPONH.CRIT|", "|WEAPONH.MULT|", "B", "T", "" );
-WeapArr[0].setOutputFormat(2);   // Non 2-weaponable melee
+WeapArr[0].setOutputFormat(2);
+
+// Loop throught the weapons
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
-WeapArr[%weap+1] = new Weapon(|%weap|,"|WEAPON.%weap.NAME|","|WEAPON.%weap.CATEGORY|","|WEAPON.%weap.TOTALHIT|","|WEAPON.%weap.DAMAGE|", FirstChar("|WEAPON.%weap.HAND|"), "|WEAPON.%weap.RANGE|", "|WEAPON.%weap.CRIT|", "|WEAPON.%weap.MULT|", "|WEAPON.%weap.TYPE|", "|WEAPON.%weap.SIZE|", "|WEAPON.%weap.SPROP|" );
+	WeapArr[%weap+1] = new Weapon(|%weap|,"|WEAPON.%weap.NAME|","|WEAPON.%weap.CATEGORY|","|WEAPON.%weap.TOTALHIT|","|WEAPON.%weap.DAMAGE|", FirstChar("|WEAPON.%weap.HAND|"), "|WEAPON.%weap.RANGE|", "|WEAPON.%weap.CRIT|", "|WEAPON.%weap.MULT|", "|WEAPON.%weap.TYPE|", "|WEAPON.%weap.SIZE|", "|WEAPON.%weap.SPROP|" );
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
-	WeapArr[%weap+1].setOutputFormat(1);  // ranged component
+		WeapArr[%weap+1].setOutputFormat(1);
 |IIF(WEAPON.%weap.CONTENTS:0)|
-		RangedStuff = new WeaponRangedAmmoData( "", "" );  // No contents, so we'll just be using default data
+			RangedStuff = new WeaponRangedAmmoData( "", "" );
 |FOR,%range,0,4,1,0|
-//alert( "Adding range increment |%range| for weapon |%weap|" );
 				RangedStuff.addRangeIncrement( "|WEAPON.%weap.RANGELIST.%range|'", "|WEAPON.%weap.RANGELIST.%range.TOTALHIT|", "|WEAPON.%weap.RANGELIST.%range.DAMAGE|" );
 |ENDFOR|
-		WeapArr[%weap+1].addRangedData( RangedStuff );
+			WeapArr[%weap+1].addRangedData( RangedStuff );
 |ELSE|
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 				RangedStuff = new WeaponRangedAmmoData( "|WEAPON.%weap.CONTENTS.%ammo|", "|WEAPON.%weap.CONTENTS.%ammo.SPROP|" );
 |FOR,%range,0,4,1,0|
-//alert( "Adding range increment |%range| for weapon |%weap|" );
-				RangedStuff.addRangeIncrement( "|WEAPON.%weap.RANGELIST.%range|'", "|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|", "|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|" );
+					RangedStuff.addRangeIncrement( "|WEAPON.%weap.RANGELIST.%range|'", "|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|", "|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|" );
 |ENDFOR|
 				WeapArr[%weap+1].addRangedData( RangedStuff );
 |ENDFOR|
 |ENDIF|
 |ELSE|
 |IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
-				WeapArr[%weap+1].setOutputFormat(2);   // Non 2-weaponable melee
+			WeapArr[%weap+1].setOutputFormat(2);
 |ELSE|
-				WeapArr[%weap+1].setOutputFormat(3);   // 2 weaponable melee
-				//                                    1H-P                      1H-O                     2H                       2W-P-(OH)                2W-P-(OL)                2W-OH           Damage:      1H-P                      1H-O                     2H                       2W-P-(OH)                2W-P-(OL)                2W-OH
-				WeapArr[%weap+1].addMeleeVector("|WEAPON.%weap.BASEHIT|", "|WEAPON.%weap.OHHIT|", "|WEAPON.%weap.THHIT|", "|WEAPON.%weap.TWPHITH|", "|WEAPON.%weap.TWPHITL|", "|WEAPON.%weap.TWOHIT|", "|WEAPON.%weap.BASICDAMAGE|", "|WEAPON.%weap.OHDAMAGE|", "|WEAPON.%weap.THDAMAGE|", "|WEAPON.%weap.BASICDAMAGE|", "|WEAPON.%weap.BASICDAMAGE|", "|WEAPON.%weap.OHDAMAGE|" );
+			WeapArr[%weap+1].setOutputFormat(3);
+			WeapArr[%weap+1].addMeleeVector("|WEAPON.%weap.BASEHIT|", "|WEAPON.%weap.OHHIT|", "|WEAPON.%weap.THHIT|", "|WEAPON.%weap.TWPHITH|", "|WEAPON.%weap.TWPHITL|", "|WEAPON.%weap.TWOHIT|", "|WEAPON.%weap.BASICDAMAGE|", "|WEAPON.%weap.OHDAMAGE|", "|WEAPON.%weap.THDAMAGE|", "|WEAPON.%weap.BASICDAMAGE|", "|WEAPON.%weap.BASICDAMAGE|", "|WEAPON.%weap.OHDAMAGE|" );
 |ENDIF|
 |ENDIF|
 |ENDFOR|
+
 // Set up the table of information about the checks
 CheckArr[FORTindex] = new Check("Fortitude", "Constitution", |CHECK.FORTITUDE.TOTAL|, |CHECK.FORTITUDE.BASE|,2,|CHECK.FORTITUDE.MAGIC|,|CHECK.FORTITUDE.EPIC|,|CHECK.FORTITUDE.MISC.NOMAGIC.NOSTAT|);
 CheckArr[REFindex] = new Check("Reflex", "Dexterity", |CHECK.REFLEX.TOTAL|, |CHECK.REFLEX.BASE|,1,|CHECK.REFLEX.MAGIC|,|CHECK.REFLEX.EPIC|,|CHECK.REFLEX.MISC.NOMAGIC.NOSTAT|);
@@ -1383,7 +1391,7 @@ function WeaponPrint()
 	else
 		document.getElementById('WeaponsExtra').innerHTML = tempHTML;
 }
-|IIF(HASVAR:TurnLevelBase)|
+// |IIF(HASVAR:TurnLevelBase)|
 function TurnTablePrint(title, turnLevel, turnDamage, turnCheck, turnsPerDay, numDice, sizeDie, notes)
 {
 	if ( AbArr[CHAindex].hasTempMod() )  // Cha is modified?
@@ -1523,7 +1531,7 @@ function TurnTablePrintAll()
 	TurnTablePrint('TURN PLANT',|VAR.TurnLevelPlant.INTVAL|,|VAR.TurnDamagePlusPlant.INTVAL|+AbArr[CHAindex].curModifierDiff(),|VAR.TurnCheckPlant.INTVAL|+AbArr[CHAindex].curModifierDiff(),|VAR.TurnTimesPlant.INTVAL|+AbArr[CHAindex].curModifierDiff(),|VAR.TurnDicePlant.INTVAL|,|VAR.TurnDieSizePlant.INTVAL|,'NOTE: You destroy Plant creatures with total hit dice up to |VAR.TurnLevelUndead/2.INTVAL|');
 |ENDIF|
 }
-|ENDIF| //HASVAR:TurnLevelBase
+// |ENDIF| //HASVAR:TurnLevelBase
 
 function NamePrint()
 {
@@ -3553,43 +3561,43 @@ function RemoveStat (attribute) {
 
 <!-- Start Turning Table -->
 |IIF(HASVAR:TurnLevelBase)|
-|IIF(HASFEAT:Turn Undead)|
+	|IIF(HASFEAT:Turn Undead)|
 		<div id="TURNUNDEAD"></div>
-|ENDIF|
-|IIF(HASFEAT:Rebuke Undead)|
+	|ENDIF|
+	|IIF(HASFEAT:Rebuke Undead)|
 		<div id="REBUKEUNDEAD"></div>
-|ENDIF|
-|IIF(HASFEAT:Turn Air)|
+	|ENDIF|
+	|IIF(HASFEAT:Turn Air)|
 		<div id="TURNAIR"></div>
-|ENDIF|
-|IIF(HASFEAT:Rebuke Air)|
+	|ENDIF|
+	|IIF(HASFEAT:Rebuke Air)|
 		<div id="REBUKEAIR"></div>
-|ENDIF|
-|IIF(HASFEAT:Turn Earth)|
+	|ENDIF|
+	|IIF(HASFEAT:Turn Earth)|
 		<div id="TURNEARTH"></div>
-|ENDIF|
-|IIF(HASFEAT:Rebuke Earth)|
+	|ENDIF|
+	|IIF(HASFEAT:Rebuke Earth)|
 		<div id="REBUKEEARTH"></div>
-|ENDIF|
-|IIF(HASFEAT:Turn Water)|
+	|ENDIF|
+	|IIF(HASFEAT:Turn Water)|
 		<div id="TURNWATER"></div>
-|ENDIF|
-|IIF(HASFEAT:Rebuke Water)|
+	|ENDIF|
+	|IIF(HASFEAT:Rebuke Water)|
 		<div id="REBUKEWATER"></div>
-|ENDIF|
-|IIF(HASFEAT:Turn Fire)|
+	|ENDIF|
+	|IIF(HASFEAT:Turn Fire)|
 		<div id="TURNFIRE"></div>
-|ENDIF|
-|IIF(HASFEAT:Rebuke Fire)|
+	|ENDIF|
+	|IIF(HASFEAT:Rebuke Fire)|
 		<div id="REBUKEFIRE"></div>
-|ENDIF|
-|IIF(HASFEAT:Turn Plant)|
+	|ENDIF|
+	|IIF(HASFEAT:Turn Plant)|
 		<div id="TURNPLANT"></div>
-|ENDIF|
-|IIF(HASFEAT:Rebuke Plant)|
+	|ENDIF|
+	|IIF(HASFEAT:Rebuke Plant)|
 		<div id="REBUKEPLANT"></div>
-|ENDIF|
-		<script language="javascript" type="text/javascript">TurnTablePrintAll();</script>
+	|ENDIF|
+	<script language="javascript" type="text/javascript">TurnTablePrintAll();</script>
 |ENDIF|
 <!-- Stop Turning Table -->
 
