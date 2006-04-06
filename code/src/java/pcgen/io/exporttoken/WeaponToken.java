@@ -2485,7 +2485,8 @@ public class WeaponToken extends Token
 		String profName = eq.profName(pc);
 		if (eq.isNatural())
 		{
-			int eqSize = Globals.sizeInt(pc.getRace().getSize());
+//			int eqSize = Globals.sizeInt(pc.getRace().getSize());
+			int eqSize = pc.racialSizeInt();
 			int iMod = pc.sizeInt();
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
