@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Fri Mar 24 21:26:21 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:http://pcgen.sourceforge.net/
+
+# Original Entry by: Eddy Anthony
+
+###Block: Weapon Accessories
+
+# Equipment Name	Type				Contains						Cost		Weight	Source Page
+Quiver		TYPE:Goods.Container	CONTAINS:-1|Total=20|Arrow=20|Bolt=20	COST:.1	WT:.5		SOURCEPAGE:PCGen Docs - PCGen OGC
+
+###Block: Armor Accessories
+
+# Equipment Name	Output Name				Type				Cost		Weight	Source Page
+Armor Padding						TYPE:Goods.Shirt		COST:5	WT:3		SOURCEPAGE:PCGen Docs - PCGen OGC
+Cap (Steel)		OUTPUTNAME:Steel Cap		TYPE:Goods.Headgear	COST:1	WT:2		SOURCEPAGE:PCGen Docs - PCGen OGC
+Helmet (Visored)	OUTPUTNAME:Visored Helmet	TYPE:Goods.Headgear	COST:5	WT:5		SOURCEPAGE:PCGen Docs - PCGen OGC
+
+###Block: Wondrous Items
+
+# Equipment Name		Type					Cost		Weight	Slot Needed	Source Page					Combat bonus
+Bracers of Armor +9	TYPE:Magic.Wondrous.Bracer	COST:81000	WT:1		SLOTS:2	SOURCEPAGE:PCGen Docs - PCGen OGC	BONUS:COMBAT|AC|9|TYPE=Armor
+Bracers of Armor +10	TYPE:Magic.Wondrous.Bracer	COST:100000	WT:1		SLOTS:2	SOURCEPAGE:PCGen Docs - PCGen OGC	BONUS:COMBAT|AC|10|TYPE=Armor
+
+#
+# End
+#
