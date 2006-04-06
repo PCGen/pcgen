@@ -1392,6 +1392,27 @@ public class PCClass extends PObject
 	}
 
 	/**
+	 * Return KNOWN: string for a level
+	 * @param aInt The level  of the class to be retrieved
+	 * @return String The KNOWN string, if any
+	 */
+	public String getKnownStringForLevel(int aInt)
+	{
+		List known = getKnownList();
+		
+		if (aInt > maxKnownLevel)
+		{
+			aInt = maxKnownLevel;
+		}
+		if (aInt >= 0 && aInt < known.size())
+		{
+			return (String) known.get(aInt);
+		}
+
+		return "";
+	}
+
+	/**
 	 * @return The list of automatically known spells.
 	 */
 	public List getKnownSpellsList()

@@ -23,16 +23,21 @@
 
 package pcgen.core.chooser;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Delta;
 import pcgen.util.Logging;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
 
 
 /**
@@ -107,45 +112,13 @@ public class ChooserUtilities
 			if (aString.startsWith("CLASS=") || aString.startsWith("CLASS."))
 			{
 				final PCClass aClass = aPC.getClassKeyed(aString.substring(6));
-				int           i      = 0;
 
-				while (i < mString.length())
+				if (mString.indexOf("MAXLEVEL") >= 0)
 				{
-					if (
-						(mString.length() > (7 + i)) &&
-						"MAXLEVEL".equals(mString.substring(i, i + 8)))
-					{
-						int       j      = -1;
-						final int aLevel = aClass.getLevel() - 1;
-
-						if (aLevel >= 0)
-						{ // some classes, like "Domain" are level 0, so this index would
-						  // be -1
-
-							final String          tempString = aClass
-								.getCastStringForLevel(aLevel);
-							final StringTokenizer bTok       = new StringTokenizer(
-									tempString,
-									",");
-							j = bTok.countTokens() - 1;
-						}
-
-						String bString = "";
-
-						if (mString.length() > (i + 8))
-						{
-							bString = mString.substring(i + 8);
-						}
-
-						// mString = mString.substring(0, i) + new Integer(j).toString()
-						// + bString;
-						mString = mString.substring(0, i) + String.valueOf(j) + bString;
-						--i; // back up one since we just did a replacement
-					}
-
-					++i;
+					int maxLevelVal = calcMaxSpellLevel(aClass);
+					mString = mString.replaceAll("MAXLEVEL", String
+						.valueOf(maxLevelVal));
 				}
-
 				maxLevel = aPC.getVariableValue(mString, "").intValue();
 
 				if (aClass != null)
@@ -179,43 +152,14 @@ public class ChooserUtilities
 
 					if (aClass.getSpellType().equals(aString))
 					{
-						if (mString.startsWith("MAXLEVEL"))
+						if (mString.indexOf("MAXLEVEL") >= 0)
 						{
-							int aLevel = aClass.getLevel();
-
-							aLevel += (int) aPC.getTotalBonusTo(
-									"PCLEVEL",
-									aClass.getName());
-							aLevel += (int) aPC.getTotalBonusTo(
-									"PCLEVEL",
-									"TYPE." + aString);
-
-							String bString = "0";
-
-							if (aLevel >= 0) // some classes, like "Domain" are level 0,
-											 // so this index would be -1
-							{
-								bString = aClass.getCastStringForLevel(aLevel);
-							}
-
-							if ("0".equals(bString))
-							{
-								maxLevel = -1;
-							}
-							else
-							{
-								final StringTokenizer bTok = new StringTokenizer(
-										bString,
-										",");
-								maxLevel = bTok.countTokens() - 1;
-							}
-
-							if (mString.length() > 8)
-							{
-								mString = mString.substring(8);
-								maxLevel += Delta.decode(mString).intValue();
-							}
+							int maxLevelVal = calcMaxSpellLevel(aClass,
+								aString, aPC);
+							mString = mString.replaceAll("MAXLEVEL", String
+								.valueOf(maxLevelVal));
 						}
+						maxLevel = aPC.getVariableValue(mString, "").intValue();
 
 						final String prefix = aClass.getName() + " ";
 
@@ -237,6 +181,86 @@ public class ChooserUtilities
 				}
 			}
 		}
+	}
+
+	/**
+	 * Calculate the maximum level of spell that is castable by the 
+	 * PC for the supplied Class. If the class is not restricted in 
+	 * what spells can be cast, its limits on known spells will be checked instead.
+	 * 
+	 * @param aClass The class to be checked.
+	 * @return The highest level spell castable 
+	 */
+	private static int calcMaxSpellLevel(final PCClass aClass)
+	{
+		if (aClass == null)
+		{
+			return 0;
+		}
+
+		int j = -1;
+		final int aLevel = aClass.getLevel();
+
+		if (aLevel >= 0)
+		{ // some classes, like "Domain" are level 0, so this index would
+			// be -1
+
+			String tempString = aClass.getCastStringForLevel(aLevel);
+			if (tempString == null || tempString.length() == 0)
+			{
+				tempString = aClass.getKnownStringForLevel(aLevel);
+			}
+			final StringTokenizer bTok = new StringTokenizer(tempString, ",");
+			j = bTok.countTokens() - 1;
+		}
+		return j;
+	}
+
+	/**
+	 * Calculate the maximum level of spell that is castable by the 
+	 * PC for the supplied Class. If the class is not restricted in 
+	 * what spells can be cast, its limits on known spells will be checked instead.
+	 * 
+	 * @param aClass The class to be checked.
+	 * @param aType The class type to be checked.
+	 * @param aPC The character to be checked.
+	 * @return The highest level spell castable 
+	 */
+	private static int calcMaxSpellLevel(final PCClass aClass,
+		final String aType, PlayerCharacter aPC)
+	{
+		if (aClass == null)
+		{
+			return 0;
+		}
+
+		int maxLevel = -1;
+		int aLevel = aClass.getLevel();
+		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getName());
+		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
+
+		String bString = "0";
+
+		if (aLevel >= 0) 
+		{  // some classes, like "Domain" are level 0,
+ 		   // so this index would be -1
+			bString = aClass.getCastStringForLevel(aLevel);
+			if (bString == null || bString.length() == 0)
+			{
+				bString = aClass.getKnownStringForLevel(aLevel);
+			}
+		}
+
+		if ("0".equals(bString))
+		{
+			maxLevel = -1;
+		}
+		else
+		{
+			final StringTokenizer bTok = new StringTokenizer(bString, ",");
+			maxLevel = bTok.countTokens() - 1;
+		}
+		return maxLevel;
 	}
 
 	/**

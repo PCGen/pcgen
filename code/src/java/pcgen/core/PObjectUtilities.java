@@ -26,7 +26,13 @@
  */
 package pcgen.core;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
@@ -36,7 +42,6 @@ import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGIOHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -1914,7 +1919,7 @@ public class PObjectUtilities
 	 * @param uniqueList
 	 * @param aBonusList
 	 */
-	private static void setSpellLevelSelections(
+	static void setSpellLevelSelections(
 			final PObject         obj,
 			final List            availableList,
 			final List            selectedList,
