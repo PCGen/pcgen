@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Paradigm Concepts, Inc - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
+# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
 # Martial Melee Weapons
@@ -28,9 +28,9 @@ Andrean Plate			TYPE:Armor.Heavy.Suit.Standard.Metal	COST:7500	WT:65		ACCHECK:-4
 Lorica Segmentata			TYPE:Armor.Medium.Suit.Standard.Metal	COST:400	WT:25		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:p.177	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2
 
 ###Block: Other Stuff
-# Equipment Name								Type					Cost		Weight
-Illuminated Perfection (Holy Book of Illiir)			TYPE:Goods.Books			COST:10	WT:1	SOURCEPAGE:p.
-Illuminated Perfection (Holy Book of Illiir) [High Quality]	TYPE:Goods.Books.Masterwork	COST:50	WT:3	SOURCEPAGE:p.
+# Equipment Name								Type					Cost		Weight	Source Page
+Illuminated Perfection (Holy Book of Illiir)			TYPE:Goods.Books			COST:10	WT:1		SOURCEPAGE:p.
+Illuminated Perfection (Holy Book of Illiir) [High Quality]	TYPE:Goods.Books.Masterwork	COST:50	WT:3		SOURCEPAGE:p.
 
 #
 # End
