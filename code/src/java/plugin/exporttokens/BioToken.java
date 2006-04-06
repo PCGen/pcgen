@@ -135,7 +135,7 @@ public class BioToken extends Token
 	 * @return CR/LF equivalent
 	 */
 	private static String getAfterValue(ExportHandler eh) {
-		if (eh.getTemplateFile().getName().endsWith(Constants.XSL_FO_EXTENSION)) {
+		if (eh != null && eh.getTemplateFile().getName().endsWith(Constants.XSL_FO_EXTENSION)) {
 			return "			</fo:block><fo:block font-size=\"9pt\" text-indent=\"5mm\" space-after.optimum=\"2mm\">";
 		} 
 		return "<br/>";

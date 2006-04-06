@@ -75,7 +75,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	public void testGetTokenStringPlayerCharacter() throws Exception
 	{
 		assertEquals("Default Bio",
-			"Test bio entry<br>2nd line<br>Third line<br>last one", new BioToken()
+			"Test bio entry<br/>2nd line<br/>Third line<br/>last one", new BioToken()
 				.getToken("BIO", getCharacter(), null));
 
 		assertEquals("Old Style Bio",
@@ -92,7 +92,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 			new BioToken().getToken("BIO.<b>.</b>| ", getCharacter(), null));
 
 		assertEquals("New Style Bio start only",
-			"**Test bio entry<br>**2nd line<br>**Third line<br>**last one<br>", new BioToken()
+			"**Test bio entry<br/>**2nd line<br/>**Third line<br/>**last one<br/>", new BioToken()
 				.getToken("BIO.**", getCharacter(), null));
 
 		assertEquals("New Style Bio start only",
