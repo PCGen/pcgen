@@ -46,7 +46,7 @@ Revisions: Chuck Pint 07/06/04 Fixed spacing problem with abilities stat block
 
 Revisions: Chuck Pint 10/09/04 Added turn/rebuke plants
 							   Added fix for sheets where there are less than 3 weapons
-							   Changed checks to use correct base stat mod (.NOTEMP.NOEQUIP)	
+							   Changed checks to use correct base stat mod (.NOTEMP.NOEQUIP)
 Revisions: Chuck Pint 10/17/04 Fixed modPlusMinusNone() to return "" for zero case - otherwise it returns "undefined"
 
 Revisions: Chuck Pint 12/04/04 Fixed minor HTML warnings, Undead turning (again!), Barbarian rage times,  and Psionics.
@@ -58,7 +58,7 @@ $Author$
 $Date$
 -->
 
-<!-- 
+<!--
 	VERY IMPORTANT:
 
 	The IIF, ELSE, ENDIF, FOR etc tokens cannot have whitespace in front of them
@@ -89,7 +89,7 @@ $Date$
 }
 </style>
 
-<!-- 
+<!--
 	each syle type consists of the following:
 	first : alignment type first is hozontal, second is vertical (c=center, l=left, r=right, b=bottom, t=top, m=middle)
 	second : number is always the font size
@@ -200,7 +200,7 @@ $Date$
 	.rt8  { font-size:8pt; text-align:right; vertical-align:top; }
 	.rt8s { font-size:8pt; text-align:right; vertical-align:top; border:1px solid black; }
 	.rt8sB{ font-size:8pt; text-align:right; vertical-align:top; border:1px solid black; font-weight:bold; }
-	
+
 	.c9   { font-size:9pt; text-align:center; }
 	.c9g  { font-size:9pt; text-align:center; background:#DDDDDD; }
 	.c10glB{ font-size:10pt; text-align:center; border:5px solid #DDDDDD; background:lightblue; font-weight:bold; }
@@ -225,7 +225,7 @@ $Date$
 	.lt9bw{ font-size:9pt; text-align:left; vertical-align:top; border-bottom-width:1px; border-bottom:1pt solid black; color:white; background:black; }
 	.r9   { font-size:9pt; text-align:right; }
 	.r9w  { font-size:9pt; text-align:center; color:white; background:black; }
-	
+
 	.c10gB { font-size:10pt; text-align:center; border:5px solid #DDDDDD; font-weight:bold; }
 	.c10glB{ font-size:10pt; text-align:center; border:5px solid #DDDDDD; background:lightblue; font-weight:bold; }
 	.c10mB { font-size:10pt; text-align:center; color:white; background:black; font-weight:bold; }
@@ -245,7 +245,7 @@ $Date$
 
 	.l14   { font-size:14pt; text-align:left; }
 	.l14b  { font-size:14pt; text-align:left; border-bottom-width:1px; border-bottom:1pt solid black; }
-	
+
 	INPUT.statmodbutton {
 		COLOR:#000000;
 		background-color:#DDDDDD;
@@ -316,7 +316,7 @@ ModToStatMod[%stat] = 0;
 // ***********************************
 // Weapons (including default unarmed)
 // ***********************************
-// The code below is 'interesting', the IIF and FOR statements 
+// The code below is 'interesting', the IIF and FOR statements
 // _cannot_ have whitespace in front of them
 
 // Used when constructing ranged information to add to weapons
@@ -1785,6 +1785,7 @@ function WeaponRangedAmmoDataAddRange( rangestring, AttackBonusstring, damagestr
 //  damageBaseArr string array RW  damageBase split into individual damage components
 //  category      string  RW "M"elee" or "R"anged"
 //  abilityNum    int     RW which stat number affects this weapon's "Attack Bonus" based upon cateogry
+//  isThrown	bool	  RO TRUE if this is a thrown weapon
 //  hands         string  RW "B"oth, "O"ff, "T"wo-weapon, "P"rimary, "N"one
 //  range         string  RW As passed from PCGen.  For output purposes only.
 //  modifyAttackBonus   string  RO Generate the weapon's (possibly modified) "Attack Bonus" string
@@ -1862,6 +1863,11 @@ function Weapon( wNum, wName, wCategory, wAttackBonus, wDam, wHands, wRange, wCr
 			}
 		}
 	}
+	// is this a thrown weapon?
+	if ( this.name.search("(Thrown)") != -1 )
+		this.isThrown = TRUE;
+	else
+		this.isThrown = FALSE;
 	this.hands = FirstChar( wHands );
 	this.range = wRange;
 	this.miscTHMod = 0;
@@ -1911,6 +1917,8 @@ function WeaponDamageIsModified()
 	if ( this.disabled != "" )
 	   return TRUE;
 	if ( this.category == "M" && AbArr[STRindex].hasTempMod() )
+		return TRUE;
+	if ( this.isThrown == TRUE && AbArr[STRindex].hasTempMod() )
 		return TRUE;
 	// A mighty ranged weapon might have its damage changed by a STR change.
 	// Basically if the unmodified STR bonus was below max mighty or
@@ -2153,7 +2161,10 @@ function WeaponModDamage()
 		aMod = aMod + this.miscDamMod;
 	}
 	else if ( this.category == "R" )  // Generally, non-mighty ranged weapons are unaffected by STR mod
-		aMod = this.miscDamMod;
+		if ( this.isThrown == FALSE)
+			aMod = this.miscDamMod;
+		else	//except thrown weapons
+			aMod = AbArr[STRindex].curmodifier() + this.miscDamMod;
 	else
 		aMod = this.miscDamMod + AbArr[STRindex].curModifierDiff();
 	// Decide if a partial modifier is going to have to be applied
