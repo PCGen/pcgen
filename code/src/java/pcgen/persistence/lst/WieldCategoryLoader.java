@@ -67,7 +67,7 @@ public class WieldCategoryLoader  {
 				final String value = colString.substring(idxColon + 1).trim();
 				LstUtils.deprecationCheck(token, "Wield Category", "miscinfo.lst from the " + gameMode.getName() + " Game Mode", value);
 				if (!token.parse(cat, value)) {
-					Logging.errorPrint("Error parsing wield catrgory:" + "miscinfo.lst from the " + gameMode.getName() + " Game Mode" + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing wield category:" + "miscinfo.lst from the " + gameMode.getName() + " Game Mode" + ':' + colString + "\"");
 				}
 			}
 			else {
