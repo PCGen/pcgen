@@ -309,7 +309,7 @@ CLASS:Sailmaster	PRESKILL:2,Profession (Sailor),Use Rope=8	PRESKILL:2,Climb,Bala
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Move Silently|Profession (Sailor)|Spot|Swim|Tumble|Use Rope
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
-CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
+CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Sailmaster=1|Animate Rope,Comprehend Languages,Create Water,Obscuring Mist
 1	SPELLLEVEL:CLASS|Sailmaster=2|Cat's Grace,Fog Cloud,Protection from Elements
@@ -338,7 +338,7 @@ CLASS:Shadow Hunter	PREALIGN:LG,NG,CG	PREFEAT:2,Alertness,Blind-Fight	PRESKILL:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Open Lock|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels
-CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
+CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Shadow Hunter|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Shadow Hunter=1|Bless Water,Cure Light Wounds,Detect Undead,Disrupt Undead,Halt Undead,Invisibility to Undead,Protection from Evil,Remove Fear
 1	SPELLLEVEL:CLASS|Shadow Hunter=2|Consecrate,Cure Moderate Wounds,Gentle Repose,Lesser Restoration,Remove Paralysis
