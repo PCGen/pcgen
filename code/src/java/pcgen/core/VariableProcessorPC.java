@@ -32,9 +32,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * <code>VariableProcessorPC</code> is a processor for variables 
- * associated with a character. This class converts formulas or 
- * variables into values and is used extensively both in 
+ * <code>VariableProcessorPC</code> is a processor for variables
+ * associated with a character. This class converts formulas or
+ * variables into values and is used extensively both in
  * defintions of objects and for output to output sheets.
  *
  * Last Editor: $Author$
@@ -43,15 +43,15 @@ import java.util.StringTokenizer;
  * @author Chris Ward <frugal@purplewombat.co.uk>
  * @version $Revision$
  */
-public class VariableProcessorPC extends VariableProcessor 
+public class VariableProcessorPC extends VariableProcessor
 {
 
 	/**
 	 * Create a new VariableProcessorPC instance for the character.
-	 * 
+	 *
 	 * @param pc The character to be processed.
 	 */
-	public VariableProcessorPC(PlayerCharacter pc) 
+	public VariableProcessorPC(PlayerCharacter pc)
 	{
 		super(pc);
 	}
@@ -59,7 +59,7 @@ public class VariableProcessorPC extends VariableProcessor
 	/**
 	 * @see pcgen.core.VariableProcessor#lookupVariable(java.lang.String, java.lang.String, pcgen.core.spell.Spell)
 	 */
-	public Float lookupVariable(String element, String src, Spell spell) 
+	public Float lookupVariable(String element, String src, Spell spell)
 	{
 		Float retVal = null;
 		if (getPc().hasVariable(element))
@@ -119,18 +119,18 @@ public class VariableProcessorPC extends VariableProcessor
 	}
 
 	/**
-	 * Count the number of times the character has the feat. This can be limited 
-	 * to either hidden or visible feats, and can be limited to only counting 
-	 * once per feat rather than once per time taken (e.g. Weapon specialisation 
+	 * Count the number of times the character has the feat. This can be limited
+	 * to either hidden or visible feats, and can be limited to only counting
+	 * once per feat rather than once per time taken (e.g. Weapon specialisation
 	 * in two weapons would count as 2 unless the onceOnly flag was true).
-	 *   
+	 *
 	 * @param feat The feat to be counted.
-	 * @param countVisible Should it be counted if it is visible? 
+	 * @param countVisible Should it be counted if it is visible?
 	 * @param countHidden Should it be counted if it is hidden?
 	 * @param onceOnly Should it be counted as one if was taken multiple times?
 	 * @return The number of occurrences of the feat.
 	 */
-	private int countVisibleFeat(final Ability feat, final boolean countVisible, final boolean countHidden, final boolean onceOnly) 
+	private int countVisibleFeat(final Ability feat, final boolean countVisible, final boolean countHidden, final boolean onceOnly)
 	{
 		int count = 0;
 
@@ -168,12 +168,12 @@ public class VariableProcessorPC extends VariableProcessor
 	}
 
 	/**
-	 * This function takes a list of feats and a list of types and returns 
+	 * This function takes a list of feats and a list of types and returns
 	 * the number of visible, or hidden feats that are in the list and of
-	 * one of the specified types. The visible flag determines if 
-	 * the result should be the number of hidden feats, or the number of 
+	 * one of the specified types. The visible flag determines if
+	 * the result should be the number of hidden feats, or the number of
 	 * visible feats
-	 * 
+	 *
 	 * @param featsList The feats to look through.
 	 * @param featTypesList The feat types to limit the search to.
 	 * @param countVisible  Count visible feats
@@ -205,12 +205,12 @@ public class VariableProcessorPC extends VariableProcessor
 	}
 
 	/**
-	 * This function takes a list of feats and a name and returns 
+	 * This function takes a list of feats and a name and returns
 	 * the number of visible, or hidden feats that are in the list and
-	 * have the requested name. The visible flag determines if 
-	 * the result should be the number of hidden feats, or the number of 
+	 * have the requested name. The visible flag determines if
+	 * the result should be the number of hidden feats, or the number of
 	 * visible feats
-	 * 
+	 *
 	 * @param argFeatList The feats to look through.
 	 * @param featName The name of the feat to find.
 	 * @param countVisible  Count visible feats
@@ -236,11 +236,11 @@ public class VariableProcessorPC extends VariableProcessor
 	}
 
 	/**
-	 * This function takes a list of feats and returns the number of visible, 
-	 * or hidden feats that are in the list The visible flag determines if 
-	 * the result should be the number of hidden feats, or the number of 
+	 * This function takes a list of feats and returns the number of visible,
+	 * or hidden feats that are in the list The visible flag determines if
+	 * the result should be the number of hidden feats, or the number of
 	 * visible feats
-	 * 
+	 *
 	 * @param itr an itertor over the feats to look through.
 	 * @param countVisible  Count visible feats
 	 * @param countHidden Count hidden feats
@@ -258,15 +258,15 @@ public class VariableProcessorPC extends VariableProcessor
 		return count;
 	}
 
-    /**
-     * Retrieve a pre-coded variable for a character. These are known properties of 
-     * all character. 
-     * 
+	/**
+	 * Retrieve a pre-coded variable for a character. These are known properties of
+	 * all character.
+	 *
 	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
-     * @param valString The variable to be evaluated
-     * @param src The source within which the variable is evaluated
-     * @return The value of the variable
-     */
+	 * @param valString The variable to be evaluated
+	 * @param src The source within which the variable is evaluated
+	 * @return The value of the variable
+	 */
 	protected String getInternalVariable(final Spell aSpell, String valString, final String src)
 	{
 		if (!Globals.checkRule(RuleConstants.SYS_LDPACSK))
@@ -607,6 +607,10 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ("SIZEMOD".equals(valString))
 		{
 			valString = String.valueOf((int) getPc().getSizeAdjustmentBonusTo("COMBAT", "AC"));
+		}
+		else if ("RACESIZE".equals(valString))
+		{
+			valString = String.valueOf(Globals.sizeInt(getPc().getRace().getSize()));
 		}
 		else if ("ENCUMBERANCE".equals(valString))
 		{
