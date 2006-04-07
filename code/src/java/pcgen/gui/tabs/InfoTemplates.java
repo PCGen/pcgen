@@ -366,7 +366,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		createModels();
 		createTreeTables();
-		
+
 		buildTopPanel();
 
 		buildBottomPanel();
@@ -393,7 +393,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		availableTree.setRootVisible(false);
 		availableTree.setShowsRootHandles(true);
 		availableTree.setCellRenderer(new LabelTreeCellRenderer());
-		
+
 		selectedTable = new JTreeTable(selectedModel);
 		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -489,7 +489,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		JPanel mainPane = new JPanel();
 		mainPane.setLayout(new BorderLayout());
 
-		botPane.setLayout(new BorderLayout());		
+		botPane.setLayout(new BorderLayout());
 		botPane.add(mainPane, BorderLayout.CENTER);
 
 		//-------------------------------------------------------------
@@ -505,7 +505,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		scroll.setViewportView(infoLabel);
 		mainPane.add(scroll);
 	}
-	
+
 	public void setPc(PlayerCharacter pc)
 	{
 		if(this.pc != pc || pc.getSerial() > serial)
@@ -756,7 +756,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			updateSelectedModel();
 		}
 	}
-	
+
 	private void clearQFilter()
 	{
 		availableModel.clearQFilter();
@@ -826,7 +826,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		forceRefresh();
 	}
-	
+
 	/**
 	 * <p>Handles the action from <code>leftButton</code>.  Removes the currently selected template
 	 * from the character if the template is removeable.</p>
@@ -846,7 +846,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
 
-		if (pcTemplate == null)
+		if (pcTemplate != null)
 		{
 			pc.removeTemplate(template);
 			pushUpdate();
@@ -855,7 +855,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
+			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irNotRemovable"));
 		}
 
 		forceRefresh();
@@ -989,7 +989,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				PropertyFactory.getString("in_preReqs"),
 				PropertyFactory.getString("in_source")
 			};
-		
+
 		private final int[] COL_DEFAULT_WIDTH = {
 				200, 35, 35, 100, 100
 		};
@@ -1102,7 +1102,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			final PObjectNode fn = (PObjectNode) node;
 			PCTemplate template = null;
 			PCTemplate pcTemplate = null;
-			
+
 			if ((fn != null) && (fn.getItem() instanceof PCTemplate))
 			{
 				template = (PCTemplate) fn.getItem();
@@ -1120,19 +1120,19 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				{
 					case COL_NAME:
 						return template.toString();
-	
+
 					case COL_LEVEL:
 						return new Integer(template.getLevelAdjustment(pc));
-	
+
 					case COL_MODIFIER:
 						return template.modifierString(pc);
-	
+
 					case COL_REQS:
 						return template.preReqStrings();
-	
+
 					case COL_SRC:
 						return template.getSource();
-	
+
 					default:
 						Logging.errorPrint("In InfoTemplates.AllTemplatesTableModel.getValueAt the column " + columnIndex
 							+ " is not supported.");
@@ -1190,7 +1190,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
 			}
 		}
-		
+
 		private void createNameViewModel(Iterator templItr) {
 			setRoot(new PObjectNode()); // just need a blank one
 			String qFilter = this.getQFilter();
@@ -1206,7 +1206,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					continue;
 				}
 
-				if (qFilter == null || 
+				if (qFilter == null ||
 						( template.getName().toLowerCase().indexOf(qFilter) >= 0 ||
 								template.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 				{
@@ -1217,9 +1217,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					((PObjectNode) super.getRoot()).addChild(aFN);
 				}
 			}
-			
+
 		}
-		
+
 		private void createTypeViewModel(Iterator templItr) {
 			setRoot((PObjectNode) typeRoot.clone());
 
@@ -1287,7 +1287,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			}
 		}
-		
+
 		/**
 		 * return a boolean to indicate if the item should be included in the list.
 		 * Only Weapon, Armor and Shield type items should be checked for proficiency.
@@ -1329,18 +1329,18 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		public void setMColumnDefaultWidth(int col, int width) {
 			SettingsHandler.setPCGenOption("InfoTemplates.sizecol." + COL_NAMES[col], width);
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoTemplates.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoTemplates.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 
@@ -1399,7 +1399,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 			treeTable.addKeyListener(myKeyListener);
 		}
-	
+
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
@@ -1582,8 +1582,8 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() { 
-			// Do Nothing 
+		public void singleClickEvent() {
+			// Do Nothing
 		}
 
 		public void doubleClickEvent()
@@ -1609,7 +1609,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		public void singleClickEvent() {
 			// Do nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			// We run this after the event has been processed so that
