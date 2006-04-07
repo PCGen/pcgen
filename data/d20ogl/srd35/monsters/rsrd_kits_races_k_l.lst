@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Fri Apr  7 13:33:12 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Kobold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Kobold]
@@ -163,8 +163,8 @@ SKILL:Listen		RANK:4
 SKILL:Spot			RANK:4
 SKILL:Swim			RANK:2
 GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
-GEAR:Greataxe			SIZE:M	LOCATION:Both Hands
-GEAR:Axe (Throwing)		SIZE:M	LOCATION:Carried
+GEAR:Greataxe		SIZE:M	LOCATION:Both Hands
+GEAR:Axe (Throwing)	SIZE:M	LOCATION:Carried
 
 STARTPACK:Default Lycanthrope (Wereboar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
 NAME:Wereboar
@@ -180,9 +180,9 @@ SKILL:Intimidate		RANK:4
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:2
 FEAT:Toughness
-GEAR:Battleaxe				SIZE:PC	LOCATION:Primary Hand
-GEAR:Javelin				SIZE:PC	LOCATION:Carried
-GEAR:Scale Mail				SIZE:PC	LOCATION:Equipped
+GEAR:Battleaxe			SIZE:PC	LOCATION:Primary Hand
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Default Lycanthrope (Wererat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
@@ -200,10 +200,10 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:2
 SKILL:Swim			RANK:2
-GEAR:Leather				SIZE:PC	LOCATION:Equipped
-GEAR:Buckler				SIZE:PC	LOCATION:Equipped
-GEAR:Rapier					SIZE:PC	LOCATION:Primary Hand
-GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+GEAR:Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Buckler		SIZE:PC	LOCATION:Equipped
+GEAR:Rapier			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
 STARTPACK:Default Lycanthrope (Weretiger)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
 NAME:Weretiger
@@ -260,8 +260,8 @@ FEAT:Weapon Focus(Greatclub)
 FEAT:Improved Bull Rush
 FEAT:Improved Sunder
 FEAT:Endurance
-GEAR:Hide				SIZE:PC	LOCATION:Equipped
-GEAR:Greatclub			SIZE:PC	LOCATION:Both Hands
+GEAR:Hide		SIZE:PC	LOCATION:Equipped
+GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Default Lycanthrope (Werewolf Lord)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Human]
 NAME:Werewolf Lord
@@ -290,11 +290,11 @@ LEVELABILITY:Fighter=6	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Cleave
 LEVELABILITY:Fighter=8	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Critical(Bite)
 FEAT:Improved Natural Armor
 LEVELABILITY:Fighter=10	ABILITY:PROMPT:FEAT(TYPE=Fighter)|CHOICE:Improved Natural Attack (Bite)
-FEAT:Weapon Focus (Bite)	FREE:YES
-GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped		EQMOD:MITHRAL_ARMR_LT.PLUS2A
-GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3S
+FEAT:Weapon Focus (Bite)				FREE:YES
+GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped	EQMOD:MITHRAL_ARMR_LT.PLUS2A
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3S
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS2W
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|4
-GEAR:Gauntlets of Ogre Power			LOCATION:Equipped
-GEAR:Cloak of Resistance +2			LOCATION:Equipped
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.BOWSTR|4
+GEAR:Gauntlets of Ogre Power	LOCATION:Equipped
+GEAR:Cloak of Resistance +2	LOCATION:Equipped
 
