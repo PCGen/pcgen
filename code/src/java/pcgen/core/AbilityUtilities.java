@@ -621,9 +621,7 @@ public class AbilityUtilities
 
 	/**
 	 * If an ability in Global storage matches the category and name passed
-	 * in, then return a clone of that Ability.  If there are any choices in
-	 * parenthesis, they will be discarded (i.e. the caller of this routine
-	 * should add them if appropriate).
+	 * in, then return a clone of that Ability.
 	 * 
 	 * @param category
 	 * @param abilityName
