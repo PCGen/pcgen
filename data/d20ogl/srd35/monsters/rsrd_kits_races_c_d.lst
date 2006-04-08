@@ -339,13 +339,13 @@ STARTPACK:Default Demon (Succubus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERAC
 RACE:Demon (Succubus)	!PRERACE:%
 NAME:Succubus
 ALIGN:CE
-SKILL:Diplomacy		RANK:4
+SKILL:Diplomacy		RANK:2
 SKILL:Bluff			RANK:9
 SKILL:Concentration	RANK:9
 SKILL:Disguise		RANK:9
 SKILL:Escape Artist	RANK:9
 SKILL:Hide			RANK:9
-SKILL:Intimidate		RANK:9
+SKILL:Intimidate		RANK:7
 SKILL:Listen		RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Search		RANK:9
@@ -404,9 +404,9 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Default Devil (Barbed (hamatula))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Barbed (hamatula))]
-RACE:Devil (Barbed (hamatula))	!PRERACE:%
-NAME:Barbed Devil (hamatula)
+STARTPACK:Default Devil (Barbed (Hamatula))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Barbed (Hamatula))]
+RACE:Devil (Barbed (Hamatula))	!PRERACE:%
+NAME:Barbed Devil (Hamatula)
 ALIGN:LE
 SKILL:Concentration	RANK:15
 SKILL:Hide			RANK:15
@@ -424,9 +424,9 @@ FEAT:Iron Will
 FEAT:Power Attack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Bearded (barbazu))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bearded (barbazu))]
-RACE:Devil (Bearded (barbazu))	!PRERACE:%
-NAME:Bearded Devil (barbazu)
+STARTPACK:Default Devil (Bearded (Barbazu))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bearded (Barbazu))]
+RACE:Devil (Bearded (Barbazu))	!PRERACE:%
+NAME:Bearded Devil (Barbazu)
 ALIGN:LE
 SKILL:Move Silently	RANK:7
 SKILL:Climb			RANK:9
@@ -440,9 +440,9 @@ FEAT:Weapon Focus(Glaive)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Glaive	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Devil (Bone (osyluth))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bone (osyluth))]
-RACE:Devil (Bone (osyluth))	!PRERACE:%
-NAME:Bone Devil (osyluth)
+STARTPACK:Default Devil (Bone (Osyluth))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Bone (Osyluth))]
+RACE:Devil (Bone (Osyluth))	!PRERACE:%
+NAME:Bone Devil (Osyluth)
 ALIGN:LE
 SKILL:Bluff			RANK:13
 SKILL:Concentration	RANK:13
@@ -460,9 +460,9 @@ FEAT:Iron Will
 FEAT:Multiattack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Chain (kyton))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Chain (kyton))]
-RACE:Devil (Chain (kyton))	!PRERACE:%
-NAME:Chain Devil (kyton)
+STARTPACK:Default Devil (Chain (Kyton))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Chain (Kyton))]
+RACE:Devil (Chain (Kyton))	!PRERACE:%
+NAME:Chain Devil (Kyton)
 ALIGN:LE
 SKILL:Climb				RANK:11
 SKILL:Escape Artist		RANK:11
@@ -479,7 +479,6 @@ STARTPACK:Default Devil (Erinyes)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE
 RACE:Devil (Erinyes)	!PRERACE:%
 NAME:Erinyes
 ALIGN:LE
-SKILL:Diplomacy		RANK:2
 SKILL:Concentration	RANK:12
 SKILL:Escape Artist	RANK:12
 SKILL:Hide			RANK:12
@@ -498,9 +497,9 @@ GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FLM_R.B
 GEAR:Longsword			SIZE:PC	LOCATION:Carried
 GEAR:Rope (Hempen/50 Ft.)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Devil (Hellcat (bezekira))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Hellcat (bezekira))]
-RACE:Devil (Hellcat (bezekira))	!PRERACE:%
-NAME:Hellcat (bezekira)
+STARTPACK:Default Devil (Hellcat (Bezekira))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Hellcat (Bezekira))]
+RACE:Devil (Hellcat (Bezekira))	!PRERACE:%
+NAME:Hellcat (Bezekira)
 ALIGN:LE
 SKILL:Balance		RANK:11
 SKILL:Climb			RANK:11
@@ -515,9 +514,9 @@ FEAT:Improved Initiative
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Devil (Horned (cornugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Horned (cornugon))]
-RACE:Devil (Horned (cornugon))	!PRERACE:%
-NAME:Horned Devil (cornugon)
+STARTPACK:Default Devil (Horned (Cornugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Horned (Cornugon))]
+RACE:Devil (Horned (Cornugon))	!PRERACE:%
+NAME:Horned Devil (Cornugon)
 ALIGN:LE
 SKILL:Bluff			RANK:18
 SKILL:Climb			RANK:18
@@ -538,9 +537,9 @@ FEAT:Weapon Focus(Chain (Spiked))
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Chain (Spiked)	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Devil (Ice (gelugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Ice (gelugon))]
-RACE:Devil (Ice (gelugon))	!PRERACE:%
-NAME:Ice Devil (gelugon)
+STARTPACK:Default Devil (Ice (Gelugon))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Devil (Ice (gelugon))]
+RACE:Devil (Ice (Gelugon))	!PRERACE:%
+NAME:Ice Devil (Gelugon)
 ALIGN:LE
 SKILL:Jump			RANK:17
 SKILL:Intimidate		RANK:17
@@ -553,6 +552,7 @@ SKILL:Search		RANK:17
 SKILL:Sense Motive	RANK:17
 SKILL:Spellcraft		RANK:17
 SKILL:Spot			RANK:17
+SKILL:TYPE=Knowledge	RANK:17	COUNT:3
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
