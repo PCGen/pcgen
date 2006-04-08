@@ -1040,7 +1040,7 @@
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Exotic Weapon Proficiency</name>
+			<name>Exotic Weapon Proficiency (Flail (Dire))</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
 			<type>GENERAL.FIGHTER</type>
 			<associated>Flail (Dire)</associated>

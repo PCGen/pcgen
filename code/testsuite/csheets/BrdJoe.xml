@@ -1049,7 +1049,7 @@
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Martial Weapon Proficiency</name>
+			<name>Martial Weapon Proficiency (Shortbow (Composite))</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
 			<type>GENERAL</type>
 			<associated>Shortbow (Composite)</associated>
