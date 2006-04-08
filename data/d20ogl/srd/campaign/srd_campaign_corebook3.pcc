@@ -44,13 +44,13 @@ FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst
 
 KIT:@/d20ogl/srd/basics/srd_kits_races__animals.lst
-KIT:@/d20ogl/srd/basics/srd_kits_races__phb.lst
+KIT:@/d20ogl/srd/basics/srd_kits_races__base.lst
 KIT:@/d20ogl/srd/basics/srd_starting_kits.lst
 
 LANGUAGE:@/d20ogl/srd/basics/srd_languages.lst
 
 RACE:@/d20ogl/srd/basics/srd_races__animals.lst
-RACE:@/d20ogl/srd/basics/srd_races__phb.lst
+RACE:@/d20ogl/srd/basics/srd_races__base.lst
 
 SKILL:@/d20ogl/srd/basics/srd_skills.lst
 

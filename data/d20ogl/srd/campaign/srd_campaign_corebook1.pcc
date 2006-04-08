@@ -45,7 +45,7 @@ FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:Leadership|Flyby Attack|Hover|Im
 LANGUAGE:@/d20ogl/srd/basics/srd_languages.lst
 
 RACE:@/d20ogl/srd/basics/srd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Lizard|Owl|Rat|Raven|Snake (Tiny Viper)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Heavy War)|Horse (Light War)|Mule|Pony|Pony (War))
-RACE:@/d20ogl/srd/basics/srd_races__phb.lst
+RACE:@/d20ogl/srd/basics/srd_races__base.lst
 
 SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Control Shape)
 
