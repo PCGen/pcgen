@@ -22,16 +22,16 @@
  */
 package pcgen.core;
 
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.CoreUtility;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * This tiny little class replaces a simple string representation of an Ability.
@@ -44,11 +44,15 @@ import java.util.List;
  */
 public class AbilityInfo extends Object implements Comparable, Categorisable
 {
-	private String       keyName;
-	private final String category;
-	private Ability      realThing;
-	private List         prereqList;
-	private ArrayList    decorations = new ArrayList(); 
+	protected String    keyName;
+	protected String    category;
+	private   Ability   realThing;
+	private   List      prereqList;
+	private   ArrayList decorations; 
+	protected char      delim       = '<';
+
+	private static final String split1 = "[<>\\|]"; 
+	private static final String split2 = "[\\[\\]\\|]"; 
 
 
 	/**
@@ -81,11 +85,12 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	 *
 	 * @return  Returns the Ability.
 	 */
-	public final Ability getAbility()
+	public Ability getAbility()
 	{
 		if (realThing == null)
 		{
-			realThing = AbilityUtilities.retrieveAbilityKeyed(this.category, this.keyName);
+			realThing   = AbilityUtilities.retrieveAbilityKeyed(this.category, this.keyName);
+			decorations = new ArrayList();
 
 			if ((realThing != null) && (!realThing.getKeyName().equals(this.keyName))) {
 				// get the decorations, throw away the name (because we already have it in keyname)
@@ -144,40 +149,37 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	 * Extract the key and any prerequisites that this Ability has, store them
 	 * in the object's fields
 	 *
-	 * @param  unparsed  "Item name[PRE1|PRE2|...|PREn]"
+	 * @param
 	 */
-	private void extractPrereqs(String unparsed)
+	protected void extractPrereqs(String unparsed)
 	{
-		int start = unparsed.indexOf('[');
+		int start = unparsed.indexOf(delim);
 
-		if ((start < 0) || !unparsed.endsWith("]"))
+		if ((start < 0))
 		{
 			// no Prereqs, assign directly to key field
 			this.keyName = unparsed;
 		}
 		else
 		{
-			// extract and assign the key from the unparsed key, prereq parameter
-			this.keyName = unparsed.substring(0, start);
-
-			int end = unparsed.length() - 1;
-
-			// extract the list of prereq strings
-			final String prereqString = unparsed.substring(start, end);
-			final List   preString    = CoreUtility.split(prereqString, '|');
-
 			if (prereqList == null)
 			{
 				prereqList = new ArrayList();
 			}
 
+			List     tokens = Arrays.asList(unparsed.split(delim == '<' ? split1 : split2));
+			Iterator tokIt  = tokens.iterator();
+
+			// extract and assign the choice from the unparsed string
+			this.keyName = (String) tokIt.next();
+
 			try
 			{
 				final PreParserFactory factory = PreParserFactory.getInstance();
 
-				for (Iterator it = preString.iterator(); it.hasNext();)
+				for (; tokIt.hasNext();)
 				{
-					final Prerequisite prereq = factory.parse((String) it.next());
+					final Prerequisite prereq = factory.parse((String) tokIt.next());
 
 					if (prereq != null)
 					{
