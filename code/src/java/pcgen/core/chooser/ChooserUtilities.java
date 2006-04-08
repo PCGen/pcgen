@@ -322,7 +322,7 @@ public class ChooserUtilities
 		classLookup.put("DOMAIN",               DomainChoiceManager.class.getName());
 		classLookup.put("EQUIPTYPE",            EquipmentTypeChoiceManager.class.getName());
 		classLookup.put("FEATADD",              FeatAddChoiceManager.class.getName());
-		classLookup.put("FEAT",                 FeatChoiceManager.class.getName());
+		classLookup.put("SINGLEFEAT",           FeatChoiceManager.class.getName());
 		classLookup.put("FEATLIST",             FeatListChoiceManager.class.getName());
 		classLookup.put("FEATSELECT",           FeatSelectChoiceManager.class.getName());
 		classLookup.put("HP",                   HPChoiceManager.class.getName());
@@ -391,7 +391,10 @@ public class ChooserUtilities
 		 * equals sign, this is the type of chooser.
 		 */
 		int i = 0;
-		while (i <= mainList.size() - 1 && ((String) mainList.get(i)).indexOf("=") > 0)
+		while (i <= mainList.size() - 1 &&
+				((String) mainList.get(i)).indexOf("=") > 0 &&
+				!(((String) mainList.get(i)).startsWith("FEAT=") ||
+						((String) mainList.get(i)).startsWith("FEAT.")))
 		{
 			i++;
 		}
@@ -399,7 +402,13 @@ public class ChooserUtilities
 		/* Use the name of the chooser to look up the full canonical
 		 * class name of the ChoiceManager that handles that type of chooser
 		 */
-		String type      = (i >= mainList.size()) ? "MISC" : (String) mainList.get(i++);
+		String type = (i >= mainList.size()) ? "MISC" : (String) mainList.get(i);
+		
+		if (type.startsWith("FEAT=") || type.startsWith("FEAT."))
+		{
+			type = "SINGLEFEAT";
+		}
+		
 		String className = (String) classLookup.get(type);
 
 		if (className == null)
@@ -431,20 +440,19 @@ public class ChooserUtilities
 			return cm;
 		}
 		catch (ClassNotFoundException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " Class not found");
+			Logging.errorPrint("Can't create Choice Manager: " + type + " Class not found", e);
 		}
 		catch (InstantiationException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " Can't instantiate class");
+			Logging.errorPrint("Can't create Choice Manager: " + type + " Can't instantiate class", e);
 		}
 		catch (IllegalAccessException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " Illegal access");
+			Logging.errorPrint("Can't create Choice Manager: " + type + " Illegal access", e);
 		}
 		catch (NoSuchMethodException e)  {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " no constructor found");
+			Logging.errorPrint("Can't create Choice Manager: " + type + " no constructor found", e);
 		}
 		catch (InvocationTargetException e) {
-			Logging.errorPrint("Can't create Choice Manager: " + type + " class threw an error");
-			Logging.errorPrint(e.getCause().toString());
+			Logging.errorPrint("Can't create Choice Manager: " + type + " class threw an error", e);
 		}
 		return null;
 	}

@@ -134,6 +134,8 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 			return;
 		}
 
+		i = i >= 0 ? i : 0;
+
 		choices        = mainList.subList(i, mainList.size());
 
 		maxSelections  = (cost <= 0)

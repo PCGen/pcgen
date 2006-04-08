@@ -27,6 +27,7 @@ import pcgen.core.Ability;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,8 +59,11 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager {
 					(CharSequence) choices.get(0));
 
 			if (mat.find()) {
-				choices.remove(0);
-				choices.add(mat.replaceFirst(""));
+				ArrayList newChoice = new ArrayList();
+				newChoice.addAll(choices);
+				newChoice.remove(0);
+				newChoice.add(mat.replaceFirst(""));
+				choices = newChoice;
 			}
 		}
 	}
