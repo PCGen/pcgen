@@ -203,7 +203,7 @@
 	<nodehandler class="form_handler" icon="form"	module="forms" name="|WEAPON.%weap.RANGELIST.%range|" version="1.0">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|	
 		<nodehandler class="textctrl_handler" icon="d20" module="forms" name="|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|:">
-      		<text multiline="0" send_button="1">[1d20|WEAPON.%weap.RANGELIST.%range.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|]</text>
+      		<text multiline="0" send_button="1">[1d20|WEAPON.%weap.RANGELIST.%range.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.RANGELIST.%range.DAMAGE|+!@|NAME|::Temporary Damage Bonus@!]]</text>
     	</nodehandler>
 |ENDFOR|
     </nodehandler>
@@ -240,7 +240,7 @@
 <nodehandler class="form_handler" icon="form"	module="forms" name="Separated">
 |FOR,%atk,0,WEAPON.%weap.NUMATTACKS-1,1,0|
 	<nodehandler class="textctrl_handler" icon="d20" module="forms" name="|WEAPON.%weap.NAME.NOSTAR| |(%atk+1).INTVAL|/|WEAPON.%weap.NUMATTACKS.INTVAL|:">
-      <text multiline="0" send_button="1">  [1d20|WEAPON.%weap.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.DAMAGE|]</text>
+      <text multiline="0" send_button="1">  [1d20|WEAPON.%weap.TOTALHIT.%atk|+!@|NAME|::Temporary To Hit Bonus@!] Damage [|WEAPON.%weap.DAMAGE|+!@|NAME|::Temporary Damage Bonus@!]</text>
     </nodehandler>
 |ENDFOR|    
 </nodehandler>
