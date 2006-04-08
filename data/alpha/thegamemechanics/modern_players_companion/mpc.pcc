@@ -37,10 +37,10 @@ EQUIPMOD:mpc_equipmod.lst
 FEAT:mpc_feats.lst
 FEAT:mpc_feats_hidden.lst
 FEAT:mpc_feats_occupations.lst
-FEAT:mpc_feats_2nd_occupations_msrd.lst
-FEAT:mpc_feats_2nd_occupations_msrd_future.lst
-FEAT:mpc_feats_2nd_occupations_msrd_arcana.lst
-KIT:mpc_kits_equipment_packages.lst
+FEAT:mpc_feats_2ndoccupations_msrd.lst
+FEAT:mpc_feats_2ndoccupations_msrd_future.lst
+FEAT:mpc_feats_2ndoccupations_msrd_arcana.lst
+KIT:mpc_kits_equipmentpackages.lst
 LANGUAGE:mpc_languages.lst
 TEMPLATE:mpc_templates.lst
 SPELL:mpc_spells.lst
