@@ -35,4 +35,4 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
 System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.: Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
 Gangland 2005, RPGObjects; Author Charles Rice
-PCGen dataset conversion for Gangland Copyright 2005, PCgen Data team including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith).
+PCGen dataset conversion for Gangland Copyright 2005-2006, PCGen Data team including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith).
