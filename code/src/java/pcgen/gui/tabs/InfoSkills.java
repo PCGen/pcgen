@@ -80,7 +80,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -2362,50 +2361,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 	 //End OutputOrderEditor classes
-
-	/**
-	 * OutputOrderRenderer is a small extension of the standard JLabel based
-	 * table cell renderer that allows it to interpret a few special values
-	 * 
-	 * -1 shows as Hidden, and 0 is shown as blank. Any other value is
-	 * displayed as is.
-	 * 
-	 * @deprecated See Zaister before deleting this class
-	 */
-	private static final class OutputOrderRenderer extends DefaultTableCellRenderer
-	{
-		private OutputOrderRenderer()
-		{
-			super();
-			setHorizontalAlignment(SwingConstants.CENTER);
-		}
-
-		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected,
-			boolean hasFocus, int row, int column)
-		{
-			JLabel comp = (JLabel) super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
-
-			if (value instanceof Integer)
-			{
-				int i = ((Integer) value).intValue();
-
-				if (i == -1)
-				{
-					comp.setText(PropertyFactory.getString("in_iskHidden")); //$NON-NLS-1$
-				}
-				else if (i == 0)
-				{
-					comp.setText(""); //$NON-NLS-1$
-				}
-				else
-				{
-					comp.setText(String.valueOf(i));
-				}
-			}
-
-			return comp;
-		}
-	}
 
 	private class ResortActionListener implements ActionListener
 	{
