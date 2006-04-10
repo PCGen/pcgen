@@ -3,7 +3,6 @@
 	<!--
 		PCGen Documentation Project
 
-		$Header: /cvsroot/pcgendocs/pcgendocs/docs/sourcehelp/modern/msrd_help.html,v 1.4 2006/02/04 01:20:17 frank_kliewe Exp $
 		$Author$
 		$Date$
 		$Revision$
@@ -26,15 +25,20 @@
 
 	<p class="indent1"><strong>Game Mode: Modern</strong></p>
 
+	<p class="indent1">MSRD &gt; COMPLETE</p>
+	<p class="indent2"><strong>MSRD - Future</strong></p>
+
 	<p class="indent1">MSRD &gt; PARTIAL</p>
 	<p class="indent2"><strong>Future - Basics</strong></p>
 	<p class="indent2"><strong>Future - Cybernetics</strong></p>
+	<p class="indent2"><strong>Future - Equipment</strong></p>
+	<p class="indent2"><strong>Future - Mecha</strong></p>
 	<p class="indent2"><strong>Future - Mutations</strong></p>
 	<p class="indent2"><strong>Future - Robots</strong></p>
 
 	<p class="indent1">To run this you also need to load one of these:</p>
-	<p class="indent2"><strong>MSRD &gt; Complete &gt; Modern</strong></p>
-	<p class="indent2"><strong>MSRD &gt; Partial &gt; Modern - Basic</strong></p>
+	<p class="indent2"><strong>MSRD &gt; COMPLETE &gt; MSRD - Basics</strong></p>
+	<p class="indent2"><strong>MSRD &gt; PARTIAL &gt; BASICS &gt; Modern - Basics</strong></p>
 
 	<p>The Future section of the Modern System Reference Document, or MSRD, contains the Future rules for the
 	  Modern d20 role playing game published by Wizards of the Coast under the Open Gaming License and contains
@@ -43,11 +47,13 @@
 	<h2>Loading the MSRD Future parts</h2>
 
 	<p class="indent1">To load the MSRD Future set you also need to load the MSRD Basics. You have two options
-	to accomplish this, either you can load the MSRD Complete set (including FX, Creatures, and Menaces material)
-	or you can load the MSRD Basics set and maybe add some of the other Partial Modern sets to that.
-	To that selection you add those parts of the MSRD Future section you desire to use. Future - Basics contains almost
-	all classes, feats, and occupations, Future - Equipment includes equipment, starships, and vehicles, the other names
-	should be self-explanatory.</p>
+	to accomplish this, either you can load the Complete MSRD - Basics set (including FX and Creatures material)
+	or you can load the Partial Modern - Basics set and maybe add some of the other Partial Modern sets to that.
+	To that selection you either add the Complete MSRD - Future set or only those parts of the MSRD Future section
+	you desire to use. You should not load a Complete section set and any of the Partial sets from that very section
+	at the same time because it is basically loading the same data twice.
+	The partial Future - Basics set contains almost all classes, feats, and occupations, the partial Future - Equipment
+	set includes personal gear, starships, and vehicles, the other names should be self-explanatory.</p>
 
 	<h1>Future - Basics</h1>
 
@@ -119,6 +125,52 @@
 	<p class="indent1">At this time we are not capable of supplying you with an equipment modifier for <i>fire-linked weapons</i>,
 	therefore you will not be able to simply customize a single starship weapon into groups of <i>fire-linked weapons</i>. You
 	will therefore be limited to those <i>fire-linked weapons</i> that are included in the dataset.</p>
+
+	<h1>Future - Mecha</h1>
+
+	<h2>Purchase DCs</h2>
+
+	<p class="indent1">The problems about <i>Purchase DC</i> described under Equipment pertain here as well. <i>Purchase
+	DC</i>s of items that get applied to a piece of equipment or <strong>Mecha</strong> (anything that only shows in the
+	window that pops up when you customize a piece of equipment or <strong>Mecha</strong>) if it doesn't add to the base
+	item's <i>Purchase DC</i> but calls for an additional <i>Wealth check</i> cannot be added to the base item and will
+	not show up at all in <strong>PCGen</strong>. It would have been possible to list the additional <i>Purchase DCs</i>
+	in the special properties of the item or <strong>Mecha</strong> it gets applied to, but many of these are already quite
+	filled with different informations, so we decided against that. Please look up these <i>Purchase DC</i>s in the <strong>
+	<i>Future</i></strong> section of the <strong>MSRD</strong>.</p>
+
+	<h2>Equipment Slots</h2>
+
+	<p class="indent1">Most equipment that gets applied to a <strong>Mecha</strong> needs to go to a predetermined equipment
+	slot. With the current <strong>PCGen</strong> code limitations it is not possible to do that. You will find the information
+	which slot a piece of equipment may go to in the special properties, so you can check the correctness, but there is no way
+	to enforce this. If you build a custom <strong>Mecha</strong>, you should do this outside of <strong>PCGen</strong> and
+	then customize the basic <strong>Mecha</strong> entries according to the built up that you already determined. <strong>
+	PCGen</strong> is not the proper tool to do that planning, it will just allow to to record your results.</p>
+
+	<h2>Equipping Mecha Weapons</h2>
+
+	<p class="indent1">There are two ways to equip a weapon to a <strong>Mecha</strong>: <i>hand held</i> or <i>built-in</i>.
+	To equip a weapon <i>hand held</i> to a <strong>Mecha</strong>, you just buy the weapon and equip it to your character. To
+	equip a <i>built-in</i> weapon to a <strong>Mecha</strong>, you need to customize the <strong>Mecha</strong> and add the
+	<i>equipment modifier</i> to it, that corresponds with the chosen weapon. The <i>equipment modifier</i> will then add the
+	weapon itself to your character, which you should equip as <i>not carried</i>. If you remove the <strong>Mecha</strong> from
+	your equipment later, that will not automatically remove the <strong>Mecha</strong> weapons as well, so you will be
+	required to remove those yourself.</p>
+
+	<h2>Piloting a Mecha</h2>
+
+	<p class="indent1">If you look at the rules for <strong>Mecha</strong>, you will see that these are more of a hybrid game element,
+	being so constituted that they include elements from equipment as well as creature templates. To effectively reproduce this
+	in <strong>PCGen</strong>, you will have to add not only the chosen <strong>Mecha</strong> from the <i>Equipment</i> tab, but also the
+	<strong>Mecha Pilot</strong> template from the <i>Templates</i> subtab on the <i>Race</i> tab. Without that template, the
+	<strong>Mecha</strong> is not going to work correctly.</p>
+
+	<h2>The Paragon Mecha</h2>
+
+	<p class="indent1">The <i>Paragon</i> <strong>Mecha</strong> should be getting the <i>Missile pack for M-87 Talon Missile
+	Launcher (4)</i> and the <i>Rocket pack for M-70 EMP Rocket Launcher (6)</i> twice, but the <i>AUTO:EQUIP</i> tag doesn't
+	work well with equipping the same item twice. You need to add the second pieces of these equipment packs manually.</p>
 
 	<h1>Future - Robots</h1>
 
