@@ -7147,7 +7147,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 	/**
 	 * Tests if this weapon is a light weapon for the specied PC.
-	 * @param The PlayerCharacter wielding the weapon.
+	 * @param pc - The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is light for the specified pc.
 	 */
 	public boolean isWeaponLightForPC(final PlayerCharacter pc)
@@ -7164,7 +7164,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 	/**
 	 * Tests if this weapon can be used in one hand by the specified PC.
-	 * @param The PlayerCharacter wielding the weapon.
+	 * @param pc - The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon can be used one handed.
 	 */
 	public boolean isWeaponOneHanded(final PlayerCharacter pc)
@@ -7182,7 +7182,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	/**
 	 * Tests if the weapon is either too large OR too small for the specified
 	 * PC to wield.
-	 * @param The PlayerCharacter wielding the weapon.
+	 * @param pc - The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is too large or too small.
 	 **/
 	public boolean isWeaponOutsizedForPC(final PlayerCharacter pc)
@@ -7199,7 +7199,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 	/**
 	 * Tests is the weapon is too large for the PC to use.
-	 * @param The PlayerCharacter wielding the weapon
+	 * @param pc - The PlayerCharacter wielding the weapon
 	 * @return true if the weapon is too large.
 	 **/
 	public boolean isWeaponTooLargeForPC(final PlayerCharacter pc)
@@ -7216,7 +7216,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 	/**
 	 * Tests if this weapon requires two hands to use.
-	 * @param The PlayerCharacter wielding the weapon.
+	 * @param pc - The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is two-handed for the specified pc
 	 */
 	public boolean isWeaponTwoHanded(final PlayerCharacter pc)

@@ -148,8 +148,8 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	/**
 	 * Extract the key and any prerequisites that this Ability has, store them
 	 * in the object's fields
-	 *
-	 * @param
+	 * 
+	 * @param unparsed 
 	 */
 	protected void extractPrereqs(String unparsed)
 	{

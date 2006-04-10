@@ -341,7 +341,7 @@ public final class ExportHandler
 
 	/**
 	 * Returns the current templateFile being used
-	 * @retun templateFile
+	 * @return templateFile
 	 */
 	public File getTemplateFile()
 	{

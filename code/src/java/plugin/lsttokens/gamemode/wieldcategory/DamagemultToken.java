@@ -1,8 +1,6 @@
 package plugin.lsttokens.gamemode.wieldcategory;
 
-import pcgen.core.PObject;
 import pcgen.core.character.WieldCategory;
-import pcgen.persistence.lst.Deprecated;
 import pcgen.persistence.lst.WieldCategoryLstToken;
 import java.util.StringTokenizer;
 

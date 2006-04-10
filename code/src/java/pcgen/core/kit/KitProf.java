@@ -57,6 +57,10 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 	private transient PObject thePObject = null;
 	private transient List weaponProfs = null;
 
+	/**
+	 * Constructor
+	 * @param argProfList
+	 */
 	public KitProf(final String argProfList)
 	{
 		final StringTokenizer aTok = new StringTokenizer(argProfList, "|");
@@ -67,16 +71,28 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		}
 	}
 
+	/**
+	 * Get the proficiency list for this kit
+	 * @return the proficiency list for this kit
+	 */
 	public List getProfList()
 	{
 		return profList;
 	}
 
+	/**
+	 * True if it is a racial proficiency
+	 * @return True if it is a racial proficiency
+	 */
 	public boolean isRacial()
 	{
 		return racialProf;
 	}
 
+	/**
+	 * Set racial proficiency flag
+	 * @param argRacial
+	 */
 	public void setRacialProf(final boolean argRacial)
 	{
 		racialProf = argRacial;
