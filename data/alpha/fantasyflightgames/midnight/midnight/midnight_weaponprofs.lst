@@ -8,5 +8,4 @@ Fighting Knife		TYPE:Exotic
 Sepi				TYPE:Exotic
 Cedeku			TYPE:Exotic
 Urutuk Hatchet		TYPE:Exotic
-Vardatch (Martial)	TYPE:Martial	HANDS:2
-Vardatch (Exotic)		TYPE:Exotic
+Vardatch			TYPE:Martial.Exotic

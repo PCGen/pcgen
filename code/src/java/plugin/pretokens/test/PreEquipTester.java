@@ -26,19 +26,17 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Iterator;
+import java.util.StringTokenizer;
+
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.RuleConstants;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
-
-import java.util.Iterator;
-import java.util.StringTokenizer;
 
 /**
  * @author wardc
@@ -80,17 +78,11 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 
 				if (targetEquip.startsWith("WIELDCATEGORY=") || targetEquip.startsWith("WIELDCATEGORY."))
 				{
-					if (eq.hasWield())
+					final WieldCategory wCat = eq.getEffectiveWieldCategory(character);
+					if ((wCat != null) && wCat.getName().equalsIgnoreCase(targetEquip.substring(14)))
 					{
-						if (Globals.checkRule(RuleConstants.SIZECAT) || Globals.checkRule(RuleConstants.SIZEOBJ))
-						{
-							final WieldCategory wCat = Globals.effectiveWieldCategory(character, eq);
-							if ((wCat != null) && wCat.getName().equalsIgnoreCase(targetEquip.substring(14)))
-							{
-								++runningTotal;
-								break;
-							}
-						}
+						++runningTotal;
+						break;
 					}
 				}
 				else if (targetEquip.startsWith("TYPE=") || targetEquip.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$

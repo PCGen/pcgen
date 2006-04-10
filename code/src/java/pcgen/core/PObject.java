@@ -277,16 +277,16 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, entry);
 		}
 	}
-	
+
 	/**
 	 * Adds all of the entries to the CSkills list
-	 * @param entries list of entries  
+	 * @param entries list of entries
 	 */
 	public final void addAllCcSkills(final List entries)
 	{
 		listChar.addAllToListFor(ListKey.CROSS_CLASS_SKILLS, entries);
 	}
-	
+
 	/**
 	 * Clears the class skill list
 	 */
@@ -514,16 +514,16 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			listChar.addToListFor(ListKey.CLASS_SKILLS, entry);
 		}
 	}
-	
+
 	/**
 	 * Adds all of the entries to the CSkills list
-	 * @param entries list of entries  
+	 * @param entries list of entries
 	 */
 	public final void addAllCSkills(final List entries)
 	{
 		listChar.addAllToListFor(ListKey.CLASS_SKILLS, entries);
 	}
-	
+
 	/**
 	 * Clears the class skill list
 	 */
@@ -1172,14 +1172,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 				final String aName = aEq.profName(character);
 				aList.add(aName + "|" + newProfType);
-
-				// Try for an Exotic version
-				final String aName2 = aEq.profName(1, character);
-
-				if (!aName2.equals(aName) && !aName2.equals(aEq.getName()))
-				{
-					aList.add(aName2 + "|" + newProfType);
-				}
 			}
 		}
 
@@ -1843,7 +1835,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * @param aPC
 	 */
 	final void getChoices(
-			final String          aChoice, 
+			final String          aChoice,
 			final List            availableList,
 			final List            selectedList,
 			final PlayerCharacter aPC)
@@ -2278,7 +2270,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 	}
-	
+
 	public void clearLanguageAuto()
 	{
 		listChar.removeListFor(ListKey.AUTO_LANGUAGES);

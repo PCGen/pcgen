@@ -26,15 +26,13 @@
  */
 package pcgen.core.prereq;
 
-import pcgen.core.Equipment;
-import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.RuleConstants;
-import pcgen.core.character.WieldCategory;
-import pcgen.util.PropertyFactory;
-
 import java.util.Iterator;
 import java.util.StringTokenizer;
+
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.WieldCategory;
+import pcgen.util.PropertyFactory;
 
 /**
  * @author wardc
@@ -72,17 +70,11 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 
 				if (aString.startsWith("WIELDCATEGORY=") || aString.startsWith("WIELDCATEGORY."))
 				{
-					if (eq.hasWield())
+					final WieldCategory wCat = eq.getEffectiveWieldCategory(character);
+					if ((wCat != null) && wCat.getName().equalsIgnoreCase(aString.substring(14)))
 					{
-						if (Globals.checkRule(RuleConstants.SIZECAT) || Globals.checkRule(RuleConstants.SIZEOBJ))
-						{
-							final WieldCategory wCat = Globals.effectiveWieldCategory(character, eq);
-							if ((wCat != null) && wCat.getName().equalsIgnoreCase(aString.substring(14)))
-							{
-								isEquipped = true;
-								break;
-							}
-						}
+						isEquipped = true;
+						break;
 					}
 				}
 				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$

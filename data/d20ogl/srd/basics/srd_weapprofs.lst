@@ -11,7 +11,7 @@ Battleaxe			TYPE:Martial
 Blowgun			TYPE:Simple
 Chain (Spiked)		TYPE:Exotic
 Club				TYPE:Simple
-Crossbow (Hand)		TYPE:Exotic			HANDS:1
+Crossbow (Hand)		TYPE:Exotic
 Crossbow (Heavy)		TYPE:Simple			HANDS:2
 Crossbow (Light)		TYPE:Simple			HANDS:2
 Crossbow (Repeating)	TYPE:Exotic			HANDS:2
@@ -34,7 +34,7 @@ Hammer (Light)		TYPE:Martial
 Handaxe			TYPE:Martial
 Javelin			TYPE:Simple
 Kama				TYPE:Exotic
-Katana			TYPE:Martial.Exotic	HANDS:2
+Katana			TYPE:Martial.Exotic	
 Kukri				TYPE:Exotic
 Kusari-gama			TYPE:Martial
 Lance				TYPE:Martial
@@ -47,7 +47,7 @@ Morningstar			TYPE:Simple
 Net				TYPE:Exotic
 Nunchaku			TYPE:Exotic
 Pick				TYPE:Martial
-Quarterstaff		TYPE:Simple			HANDS:2
+Quarterstaff		TYPE:Simple
 Ranseur			TYPE:Martial
 Rapier			TYPE:Martial
 Sap				TYPE:Martial
@@ -61,7 +61,7 @@ Shuriken			TYPE:Exotic
 Siangham			TYPE:Exotic
 Sickle			TYPE:Simple
 Sling				TYPE:Simple
-Sword (Bastard)		TYPE:Martial.Exotic	HANDS:2
+Sword (Bastard)		TYPE:Martial.Exotic
 Greatsword			TYPE:Martial
 Longsword			TYPE:Martial
 Sword (Short)		TYPE:Martial
@@ -69,6 +69,6 @@ Sword (Two-Bladed)	TYPE:Exotic
 Trident			TYPE:Martial
 Unarmed Strike		TYPE:Simple
 Wakizashi			TYPE:Martial
-Waraxe (Dwarven)		TYPE:Martial.Exotic	HANDS:2
+Waraxe (Dwarven)		TYPE:Martial.Exotic
 Warhammer			TYPE:Martial
 Whip				TYPE:Exotic

@@ -20,8 +20,8 @@ Nunchaku								PROFICIENCY:Nunchaku				TYPE:Weapon.Exotic.Melee.Bludgeoning.Sta
 Siangham								PROFICIENCY:Siangham				TYPE:Weapon.Exotic.Melee.Piercing.Standard.Monk											COST:3	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 
 #MEDIUM --------------------------------------------------------------------------------------------------------
-Sword (Bastard)		OUTPUTNAME:Sword, Bastard	PROFICIENCY:Sword (Bastard/[Hands])		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Sword										COST:35	WT:10									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
-Waraxe (Dwarven)		OUTPUTNAME:Waraxe, Dwarven	PROFICIENCY:Waraxe (Dwarven/[Hands])	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Axe											COST:30	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Sword (Bastard)		OUTPUTNAME:Sword, Bastard	PROFICIENCY:Sword (Bastard)			TYPE:Weapon.Martial.Exotic.Melee.Slashing.Standard.Sword									COST:35	WT:10		BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency (Sword (Bastard))							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Waraxe (Dwarven)		OUTPUTNAME:Waraxe, Dwarven	PROFICIENCY:Waraxe (Dwarven)			TYPE:Weapon.Martial.Exotic.Melee.Slashing.Standard.Axe									COST:30	WT:15		BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))							CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL											SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
 
 
 #LARGE ----------------------------------------------------------------------------------------------------------
@@ -99,6 +99,6 @@ Flurry of Blows							PROFICIENCY:Unarmed Strike			TYPE:Weapon.Natural.Unarmed.M
 #	or we redo Natural Attacks and Unarmed attacks. - Tir Gwaith
 
 # Asian Weapons from DMG
-Katana								PROFICIENCY:Katana ([Hands])			TYPE:Weapon.Exotic.Melee.Medium.Slashing.Asian.Sword										COST:100	WT:6									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL.MWORKW									SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
+Katana								PROFICIENCY:Katana				TYPE:Weapon.Martial.Exotic.Melee.Medium.Slashing.Asian.Sword								COST:100	WT:6		BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency (Katana)							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL.MWORKW									SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf
 Kusari-gama								PROFICIENCY:Kusari-gama				TYPE:Weapon.Martial.Melee.Bludgeoning.Slashing.Asian										COST:10	WT:3									CRITMULT:x2																DAMAGE:1d6					EQMOD:STEEL											SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
 Wakizashi								PROFICIENCY:Wakizashi				TYPE:Weapon.Martial.Melee.Slashing.Asian.Sword											COST:0	WT:3									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL.MWORKW									SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf

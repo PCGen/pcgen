@@ -3785,22 +3785,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Returns the number of hands required to wield weapon
-	 * @param eq
-	 * @param wp
-	 * @return number of hands required
-	 */
-	public int handsRequired(final Equipment eq, final WeaponProf wp)
-	{
-		if (!hasWeaponProfNamed(wp.getName()))
-		{
-			return 2;
-		}
-
-		return Globals.handsRequired(this, eq, wp);
-	}
-
-	/**
 	 * Checks to see if this PC has the weapon proficiency named aName
 	 *
 	 * @param aName
@@ -11883,10 +11867,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	private boolean isProficientWithWeapon(final Equipment eq)
 	{
-		final WeaponProf wp1 = Globals.getWeaponProfNamed(eq.profName(1, this));
-		final WeaponProf wp2 = Globals.getWeaponProfNamed(eq.profName(2, this));
+		final WeaponProf wp = eq.getExpandedWeaponProf(this);
 
-		if ((wp1 == null) || (wp2 == null))
+		if (wp == null)
 		{
 			return false;
 		}
@@ -11896,7 +11879,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			return true;
 		}
 
-		if (hasWeaponProfNamed(wp1.getName()) || hasWeaponProfNamed(wp2.getName()))
+		if (hasWeaponProfNamed(wp.getName()))
 		{
 			return true;
 		}
@@ -12460,9 +12443,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					}
 				}
 
-				      ;
+					  ;
 				Ability anAbility = AbilityUtilities.getAbilityFromList(aFeatList, "FEAT", featName, -1);
-				
+
 				if (anAbility != null)
 				{
 					if (anAbility.isMultiples() && !anAbility.containsAssociated(aString)) {
@@ -15255,16 +15238,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			{
 				aList.add(Constants.S_SHIELD);
 			}
-			else if (Globals.isWeaponOutsizedForPC(this, eqI))
+			else if (eqI.isWeaponOutsizedForPC(this))
 			{
 				// do nothing for outsized weapons
 			}
 			else
 			{
-				String wpSingle = eqI.profName(1, this);
-				WeaponProf wp = Globals.getWeaponProfNamed(wpSingle);
-
-				if (Globals.handsRequired(this, eqI, wp) == 1)
+				if (eqI.isWeaponOneHanded(this))
 				{
 					aList = getWeaponLocationChoices(hands, Constants.S_BOTH);
 				}
@@ -15370,7 +15350,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 
 		// Don't allow weapons that are too large for PC
-		if (eqI.isWeapon() && Globals.isWeaponOutsizedForPC(this, eqI) && !eqI.isNatural())
+		if (eqI.isWeapon() && eqI.isWeaponOutsizedForPC(this) && !eqI.isNatural())
 		{
 			return false;
 		}

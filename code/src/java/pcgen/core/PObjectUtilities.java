@@ -2396,17 +2396,17 @@ public class PObjectUtilities
 
 					if (!availableList.contains(bString))
 					{
-						if ("Light".equals(sString) && Globals.isWeaponLightForPC(aPC, eq))
+						if ("Light".equals(sString) && eq.isWeaponLightForPC(aPC))
 						{
 							availableList.add(bString);
 						}
 
-						if ("1 handed".equals(sString) && Globals.isWeaponOneHanded(aPC, eq, wp))
+						if ("1 handed".equals(sString) && eq.isWeaponOneHanded(aPC))
 						{
 							availableList.add(bString);
 						}
 
-						if ("2 handed".equals(sString) && Globals.isWeaponTwoHanded(aPC, eq, wp))
+						if ("2 handed".equals(sString) && eq.isWeaponTwoHanded(aPC))
 						{
 							availableList.add(bString);
 						}
@@ -2486,12 +2486,12 @@ public class PObjectUtilities
 					else if (sString.equalsIgnoreCase("LIGHT"))
 					{
 						// if this item is of the desired type, add it to the list
-						if (adding && !availableList.contains(wp.getName()) && Globals.isWeaponLightForPC(aPC, eq))
+						if (adding && !availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPC))
 						{
 							availableList.add(wp.getName());
 						}
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getName()) && Globals.isWeaponLightForPC(aPC, eq))
+						else if (!adding && availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPC))
 						{
 							availableList.remove(wp.getName());
 							setIter = availableList.iterator();

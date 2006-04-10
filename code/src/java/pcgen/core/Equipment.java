@@ -25,22 +25,41 @@
  */
 package pcgen.core;
 
+import java.io.BufferedWriter;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.character.WieldCategory;
 import pcgen.core.money.DenominationList;
 import pcgen.core.money.Denominations;
 import pcgen.core.money.Purse;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.*;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.EmptyIterator;
+import pcgen.core.utils.ListKey;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.FileAccess;
-import pcgen.util.*;
-
-import java.io.BufferedWriter;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.Delta;
+import pcgen.util.JEPResourceChecker;
+import pcgen.util.Logging;
+import pcgen.util.PJEP;
+import pcgen.util.PjepPool;
 
 /**
  * <code>Equipment</code>.
@@ -4636,79 +4655,14 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	}
 
 	/**
-	 * Description of the Method
-	 * @param aPC TODO
+	 * Returns the name of the proficiency required to use this weapon
+	 * @param aPC The PlayerCharacter wielding the weapon
 	 *
-	 * @return Description of the Return Value
+	 * @return The string name of the weapon proficiency required.
 	 */
 	public String profName(final PlayerCharacter aPC)
 	{
-		return profName(2, aPC);
-	}
-
-	/**
-	 * Description of the Method
-	 * @param hands int that equals number of hands
-	 * @param aPC TODO
-	 *
-	 * @return    returns weapon proficiency string
-	 */
-	public String profName(final int hands, final PlayerCharacter aPC)
-	{
-		String aWProf = profName;
-
-		if (aWProf.length() == 0)
-		{
-			aWProf = getName();
-		}
-
-		final int iOffs = aWProf.indexOf("[Hands]");
-
-		if (iOffs >= 0)
-		{
-			// You always want to return the Martial version
-			// Unless the PC doesn't have the Exotic Weapon Feat
-			// and is trying to wield this weapon with 1-hand
-			//  "Sword (Bastard/[Hands])"
-			// expands to:
-			//  "Sword (Bastard/Exotic)"
-			// or
-			//  "Sword (Bastard/Martial)"
-			//
-			final String sExotic = aWProf.substring(0, iOffs) + "Exotic" + aWProf.substring(iOffs + 7);
-			final String sMartial = aWProf.substring(0, iOffs) + "Martial" + aWProf.substring(iOffs + 7);
-
-			final WeaponProf wpExotic = Globals.getWeaponProfNamed(sExotic);
-			final WeaponProf wpMartial = Globals.getWeaponProfNamed(sMartial);
-
-			if (wpMartial == null)
-			{
-				return sExotic;
-			}
-
-			if ((wpExotic == null) || (hands == 0))
-			{
-				return sMartial;
-			}
-
-			// Check to see if non-handed weaponprof exists and,
-			// if it does, whether or not the PC can wield
-			// the weapon 1-handed. If so then use this proficiency
-			if (Globals.handsRequired(aPC, this, wpMartial) == hands)
-			{
-				return sMartial;
-			}
-			else if (Globals.handsRequired(aPC, this, wpExotic) == hands)
-			{
-				return sExotic;
-			}
-			else
-			{
-				return sMartial;
-			}
-		}
-
-		return aWProf;
+		return getExpandedWeaponProf(aPC).getName();
 	}
 
 	/**
@@ -7172,5 +7126,248 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 
 		return mult;
+	}
+
+	/**
+	 * Test to see if a weapon is Finesseable or not for a PC
+	 * @param aPC The PlayerCharacter wielding the weapon.
+	 * @return true if finessable
+	 **/
+	public boolean isFinessable(final PlayerCharacter aPC)
+	{
+		if (isType("Finesseable"))
+		{
+			return true;
+		}
+
+		final WieldCategory wCat = getEffectiveWieldCategory(aPC);
+
+		return (wCat.isFinessable());
+	}
+
+	/**
+	 * Tests if this weapon is a light weapon for the specied PC.
+	 * @param The PlayerCharacter wielding the weapon.
+	 * @return true if the weapon is light for the specified pc.
+	 */
+	public boolean isWeaponLightForPC(final PlayerCharacter pc)
+	{
+		if ((pc == null) || (!isWeapon()))
+		{
+			return false;
+		}
+
+		final WieldCategory wCat = getEffectiveWieldCategory(pc);
+
+		return (wCat.getName().equals("Light"));
+	}
+
+	/**
+	 * Tests if this weapon can be used in one hand by the specified PC.
+	 * @param The PlayerCharacter wielding the weapon.
+	 * @return true if the weapon can be used one handed.
+	 */
+	public boolean isWeaponOneHanded(final PlayerCharacter pc)
+	{
+		if ((pc == null) || (!isWeapon()))
+		{
+			return false;
+		}
+
+		final WieldCategory wCat = getEffectiveWieldCategory(pc);
+
+		return wCat.getHands() == 1;
+	}
+
+	/**
+	 * Tests if the weapon is either too large OR too small for the specified
+	 * PC to wield.
+	 * @param The PlayerCharacter wielding the weapon.
+	 * @return true if the weapon is too large or too small.
+	 **/
+	public boolean isWeaponOutsizedForPC(final PlayerCharacter pc)
+	{
+		if ((pc == null) || (!isWeapon()))
+		{
+			return true;
+		}
+
+		final WieldCategory wCat = getEffectiveWieldCategory(pc);
+
+		return (wCat.getHands() > 2 || wCat.getHands() < 0);
+	}
+
+	/**
+	 * Tests is the weapon is too large for the PC to use.
+	 * @param The PlayerCharacter wielding the weapon
+	 * @return true if the weapon is too large.
+	 **/
+	public boolean isWeaponTooLargeForPC(final PlayerCharacter pc)
+	{
+		if ((pc == null) || (!isWeapon()))
+		{
+			return false;
+		}
+
+		final WieldCategory wCat = getEffectiveWieldCategory(pc);
+
+		return (wCat.getHands() > 2);
+	}
+
+	/**
+	 * Tests if this weapon requires two hands to use.
+	 * @param The PlayerCharacter wielding the weapon.
+	 * @return true if the weapon is two-handed for the specified pc
+	 */
+	public boolean isWeaponTwoHanded(final PlayerCharacter pc)
+	{
+		if ((pc == null) || (!isWeapon()))
+		{
+			return false;
+		}
+
+		final WieldCategory wCat = getEffectiveWieldCategory(pc);
+
+		return wCat.getHands() == 2;
+	}
+
+	/**
+	 * Gets the minimum WieldCategory this weapon can be used at.  Accounts for
+	 * all modifiers that affect WieldCategory.  3.0 weapon sizes are mapped
+	 * to appropriate WieldCategories.
+	 * @param aPC The PlayerCharacter using the weapon
+	 * @return The minimum WieldCategory required to use the weapon.
+	 */
+	public WieldCategory getEffectiveWieldCategory(final PlayerCharacter aPC)
+	{
+		WieldCategory wCat = null;
+
+		WeaponProf wp = getExpandedWeaponProf(aPC);
+		if (hasWield())
+		{
+			// Get this equipments WieldCategory from gameMode
+			wCat = WieldCategory.findByName(getWield());
+
+			// Get the starting effective wield category
+			// TODO Fix this nonsense
+			wCat = wCat.adjustForSize(aPC, this);
+		}
+		else
+		{
+			int sizeDiff = 0;
+			int pcSize = aPC.sizeInt();
+
+			if (wp != null)
+			{
+				pcSize += aPC.getTotalBonusTo("WEAPONPROF=" + wp.getName(), "PCSIZE");
+			}
+			if (wCat != null && Globals.checkRule(RuleConstants.SIZEOBJ))
+			{
+				// In this case we have a 3.5 style equipments size.
+				// We need to map to a 3.0 style
+				sizeDiff = wCat.getObjectSizeInt(this) - pcSize;
+			}
+			else
+			{
+				sizeDiff = sizeInt() - pcSize;
+			}
+
+			if (sizeDiff > 1)
+			{
+				wCat = WieldCategory.findByName("TooLarge");
+			}
+			else if (sizeDiff == 1)
+			{
+				wCat = WieldCategory.findByName("TwoHanded");
+			}
+			else if (sizeDiff == 0)
+			{
+				wCat = WieldCategory.findByName("OneHanded");
+			}
+			else
+			{
+				wCat = WieldCategory.findByName("Light");
+			}
+		}
+
+		int aBump = 0;
+
+		// TODO Remove this code when support for this "feature" goes away
+		if (wp != null)
+		{
+			int iHands = wp.getHands();
+
+			if (iHands == WeaponProf.HANDS_SIZEDEPENDENT)
+			{
+				if (aPC.sizeInt() > sizeInt())
+				{
+					iHands = 1;
+				}
+				else
+				{
+					iHands = 2;
+				}
+			}
+			while (wCat.getHands() < iHands)
+			{
+				wCat = wCat.getWieldCategoryStep(1);
+			}
+		}
+		// See if there is a bonus associated with just this weapon
+		// Make sure this is profName(0) else you'll be sorry!
+		final String expProfName = wp.getName();
+		aBump += (int) aPC.getTotalBonusTo("WEAPONPROF=" + expProfName,
+										   "WIELDCATEGORY");
+
+		// or a bonus from the weapon itself
+		aBump += (int) bonusTo(aPC, "WEAPON", "WIELDCATEGORY", true);
+
+		return wCat.getWieldCategoryStep(aBump);
+	}
+
+	/**
+	 * Gets the WeaponProf required to wield this weapon.  Handles the "Hands"
+	 * version of the proficiency by returning the correct version of the
+	 * WeaponProf based on if the PC possesses the Exotic version.
+	 * @param aPC The PlayerCharacter using the weapon
+	 * @return The WeaponProf required to use the weapon.
+	 */
+	public WeaponProf getExpandedWeaponProf(final PlayerCharacter aPC)
+	{
+		String aWProf = profName;
+
+		if (aWProf.length() == 0)
+		{
+			aWProf = getName();
+		}
+
+		final int iOffs = aWProf.indexOf("[Hands]");
+
+		if (iOffs >= 0)
+		{
+			//  "Sword (Bastard/[Hands])"
+			// expands to:
+			//  "Sword (Bastard/Exotic)"
+			// or
+			//  "Sword (Bastard/Martial)"
+			//
+			final String sExotic = aWProf.substring(0, iOffs) + "Exotic"
+				+ aWProf.substring(iOffs + 7);
+			final String sMartial = aWProf.substring(0, iOffs) + "Martial"
+				+ aWProf.substring(iOffs + 7);
+
+			final WeaponProf wpExotic = Globals.getWeaponProfNamed(sExotic);
+			final WeaponProf wpMartial = Globals.getWeaponProfNamed(sMartial);
+
+			if (wpMartial != null && wpExotic != null)
+			{
+				if (aPC.hasWeaponProfNamed(sExotic))
+				{
+					return wpExotic;
+				}
+				return wpMartial;
+			}
+		}
+		return Globals.getWeaponProfNamed(aWProf);
 	}
 }

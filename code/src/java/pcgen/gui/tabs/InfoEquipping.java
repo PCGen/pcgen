@@ -25,24 +25,6 @@
  */
 package pcgen.gui.tabs;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -63,6 +45,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.ImageIcon;
@@ -107,7 +107,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
-import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
@@ -611,13 +610,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// Should only be meaningful for weapons, but if included on some other piece of
 			// equipment, show it anyway
 			//
-			if (eqI.hasWield())
+			if (eqI.isWeapon() || eqI.hasWield())
 			{
-				WieldCategory wCat = Globals.effectiveWieldCategory(pc, eqI);
-				if (wCat != null)
-				{
-					b.append(" <b>Wield:</b> ").append(wCat.getName());
-				}
+				WieldCategory wCat = eqI.getEffectiveWieldCategory(pc);
+				b.append(" <b>Wield:</b> ").append(wCat.getName());
 			}
 
 			//
@@ -2049,7 +2045,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		// Don't allow weapons that are too large for PC
-		if (eqI.isWeapon() && Globals.isWeaponOutsizedForPC(pc, eqI) && !eqI.isNatural())
+		if (eqI.isWeapon() && eqI.isWeaponOutsizedForPC(pc) && !eqI.isNatural())
 		{
 			return false;
 		}
@@ -3403,6 +3399,12 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		this.add(bsplit, BorderLayout.CENTER);
 	}
 
+	/**
+	 * @deprecated Consolidate this functionality to one place.
+	 * @param eqI Equipment
+	 * @param containers List
+	 * @return List
+	 */
 	private final List locationChoices(Equipment eqI, List containers)
 	{
 		// Some Equipment locations are based on the number of hands
@@ -3430,20 +3432,17 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				aList.add(Constants.S_SHIELD);
 			}
-			else if (eqI.isMelee() && Globals.isWeaponOutsizedForPC(pc, eqI))
+			else if (eqI.isMelee() && eqI.isWeaponOutsizedForPC(pc))
 			{
 				// do nothing for melee ousized;
 			}
-			else if (!(eqI.isMelee()) && Globals.isWeaponOutsizedForPC(pc, eqI))
+			else if (!(eqI.isMelee()) && eqI.isWeaponOutsizedForPC(pc))
 			{
 				// do nothing for ranged ousized;
 			}
 			else
 			{
-				String wpSingle = eqI.profName(1, pc);
-				WeaponProf wp = Globals.getWeaponProfNamed(wpSingle);
-
-				if (Globals.handsRequired(pc, eqI, wp) == 1)
+				if (eqI.isWeaponOneHanded(pc))
 				{
 					aList = getWeaponLocationChoices(hands, Constants.S_BOTH);
 

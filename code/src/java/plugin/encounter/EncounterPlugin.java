@@ -231,7 +231,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		else
 		{
 			generateXfromY(environments.crossReference(theView.getEnvironment().getSelectedItem().toString(), "File")
-			    .toString());
+				.toString());
 		}
 
 		updateUI();
@@ -279,7 +279,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 	 * @return True if active
 	 */
 	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 				&& tp.getSelectedComponent().equals(theView);
 	}
@@ -430,22 +430,22 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	public void mouseEntered(MouseEvent e)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public void mouseExited(MouseEvent e)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public void mousePressed(MouseEvent e)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public void mouseReleased(MouseEvent e)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	private void createView() {
@@ -870,7 +870,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			{
 				aList.add(Constants.S_UNARMED);
 			}
-			else if (Globals.isWeaponLightForPC(pc, eqI))
+			else if (eqI.isWeaponLightForPC(pc))
 			{
 				aList = getWeaponLocationChoices(hands, "");
 
@@ -886,10 +886,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			}
 			else
 			{
-				String wpSingle = eqI.profName(Equipment.EQUIPPED_PRIMARY, pc);
-				WeaponProf wp = Globals.getWeaponProfNamed(wpSingle);
-
-				if (Globals.handsRequired(pc, eqI, wp) == 1)
+				if (eqI.isWeaponOneHanded(pc))
 				{
 					aList = getWeaponLocationChoices(hands, Constants.S_BOTH);
 
@@ -1023,7 +1020,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		if (!canAddEquip(pc, eSet, locName, eqI))
 		{
 			JOptionPane.showMessageDialog(null, "Can not equip " + eqI.getName() + " to " + locName, "GMGen",
-			    JOptionPane.ERROR_MESSAGE);
+				JOptionPane.ERROR_MESSAGE);
 
 			return null;
 		}
@@ -1038,7 +1035,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		// If Carried/Equipped/Not Carried slot
 		// allow as many as they would like
 		if (locName.startsWith(Constants.S_CARRIED) || locName.startsWith(Constants.S_EQUIPPED)
-		    || locName.startsWith(Constants.S_NOTCARRIED))
+			|| locName.startsWith(Constants.S_NOTCARRIED))
 		{
 			return true;
 		}
@@ -1056,7 +1053,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		}
 
 		// Don't allow weapons that are too large for PC
-		if (Globals.isWeaponTooLargeForPC(pc, eqI))
+		if (eqI.isWeaponTooLargeForPC(pc))
 		{
 			return false;
 		}
@@ -1118,18 +1115,18 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 				// if Double Weapon or Both Hands, then no
 				// other weapon slots can be occupied
 				if ((locName.equals(Constants.S_BOTH) || locName.equals(Constants.S_DOUBLE)
-				    || locName.equals(Constants.S_TWOWEAPONS))
-				    && (es.getName().equals(Constants.S_PRIMARY) || es.getName().equals(Constants.S_SECONDARY)
-				    || es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)
-				    || es.getName().equals(Constants.S_TWOWEAPONS)))
+					|| locName.equals(Constants.S_TWOWEAPONS))
+					&& (es.getName().equals(Constants.S_PRIMARY) || es.getName().equals(Constants.S_SECONDARY)
+					|| es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)
+					|| es.getName().equals(Constants.S_TWOWEAPONS)))
 				{
 					return false;
 				}
 
 				// inverse of above case
 				if ((locName.equals(Constants.S_PRIMARY) || locName.equals(Constants.S_SECONDARY))
-				    && (es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)
-				    || es.getName().equals(Constants.S_TWOWEAPONS)))
+					&& (es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)
+					|| es.getName().equals(Constants.S_TWOWEAPONS)))
 				{
 					return false;
 				}
@@ -1178,7 +1175,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		String id = getNewIdPath(aPC, eSet);
 
 		Logging.debugPrint("--addEB-- IdPath:" + id + "  Parent:" + eSet.getIdPath() + " Location:" + locName
-		    + " eqName:" + eqI.getName() + "  eSet:" + eSet.getName());
+			+ " eqName:" + eqI.getName() + "  eSet:" + eSet.getName());
 
 		// now create a new EquipSet to add this Equipment item to
 		EquipSet newSet = new EquipSet(id, locName, eqI.getName(), eqI);

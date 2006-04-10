@@ -56,7 +56,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Weapon Prof Choice";
 		chooserHandled = "WEAPONPROFS";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -65,7 +65,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
@@ -76,7 +76,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 			final List            selectedList)
 	{
 		Iterator choicesIt = choices.iterator();
-		
+
 		while (choicesIt.hasNext())
 		{
 			final String aString = (String) choicesIt.next();
@@ -245,17 +245,17 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 
 					if (!availableList.contains(bString))
 					{
-						if ("Light".equals(sString) && Globals.isWeaponLightForPC(aPc, eq))
+						if ("Light".equals(sString) && eq.isWeaponLightForPC(aPc))
 						{
 							availableList.add(bString);
 						}
 
-						if ("1 handed".equals(sString) && Globals.isWeaponOneHanded(aPc, eq, wp))
+						if ("1 handed".equals(sString) && eq.isWeaponOneHanded(aPc))
 						{
 							availableList.add(bString);
 						}
 
-						if ("2 handed".equals(sString) && Globals.isWeaponTwoHanded(aPc, eq, wp))
+						if ("2 handed".equals(sString) && eq.isWeaponTwoHanded(aPc))
 						{
 							availableList.add(bString);
 						}
@@ -335,12 +335,12 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 					else if (sString.equalsIgnoreCase("LIGHT"))
 					{
 						// if this item is of the desired type, add it to the list
-						if (adding && !availableList.contains(wp.getName()) && Globals.isWeaponLightForPC(aPc, eq))
+						if (adding && !availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPc))
 						{
 							availableList.add(wp.getName());
 						}
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getName()) && Globals.isWeaponLightForPC(aPc, eq))
+						else if (!adding && availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPc))
 						{
 							availableList.remove(wp.getName());
 							setIter = availableList.iterator();

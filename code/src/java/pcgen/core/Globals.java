@@ -25,9 +25,30 @@
  */
 package pcgen.core;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.Random;
+import java.util.ResourceBundle;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import javax.swing.JFrame;
+
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
-import pcgen.core.character.WieldCategory;
 import pcgen.core.money.DenominationList;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -38,11 +59,6 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import javax.swing.JFrame;
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
 
 /**
  * This is like the top level model container. However,
@@ -865,31 +881,6 @@ public final class Globals
 	public static List getUnmodifiableAbilityList(String aCategory)
 	{
 		return abilityStore.getUnmodifiableList(aCategory);
-	}
-
-	/**
-	 * Test to see if a weapon is Finesseable or not
-	 * @param eq
-	 * @param aPC
-	 * @return TRUE if finessable
-	 **/
-	public static boolean isFinessable(final Equipment eq, final PlayerCharacter aPC)
-	{
-		if (eq.isType("Finesseable"))
-		{
-			return true;
-		}
-		else if (eq.hasWield())
-		{
-			final WieldCategory wCat = effectiveWieldCategory(aPC, eq);
-
-			if (wCat != null)
-			{
-				return (wCat.isFinessable());
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -1910,194 +1901,6 @@ public final class Globals
 	}
 
 	/**
-	 * @param pc
-	 * @param weapon
-	 * @return true if the weapon is light for the specified pc
-	 */
-	public static boolean isWeaponLightForPC(final PlayerCharacter pc, final Equipment weapon)
-	{
-		if ((pc == null) || (weapon == null))
-		{
-			return false;
-		}
-
-		if (weapon.hasWield())
-		{
-			if (Globals.checkRule(RuleConstants.SIZECAT))
-			{
-				// In 3.5, a 'Light' weapon is light
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-				if (wCat != null)
-				{
-					return (wCat.getName().equals("Light"));
-				}
-			}
-			else if (Globals.checkRule(RuleConstants.SIZEOBJ))
-			{
-				// Use Object Size to determin if weapon light
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-				if (wCat != null)
-				{
-					// use 3.5 code to get Object Size
-					return (pc.sizeInt() > wCat.getObjectSizeInt(weapon));
-				}
-				// Must be in 3.0 mode or something
-				return (pc.sizeInt() > weapon.sizeInt());
-			}
-		}
-		else
-		{
-			// Old Weapon code
-			// if a PC is a size category larger than
-			// the weapon it's considered light
-			return (pc.sizeInt() > weapon.sizeInt());
-		}
-
-		return false;
-	}
-
-	/**
-	 * @param pc
-	 * @param weapon
-	 * @param wp
-	 * @return true if the weapon is one-handed for the specified pc
-	 */
-	public static boolean isWeaponOneHanded(final PlayerCharacter pc, final Equipment weapon, final WeaponProf wp)
-	{
-		return isWeaponOneHanded(pc, weapon, wp, false);
-	}
-
-	/**
-	 * Returns TRUE if weapon is one handed
-	 * @param pc
-	 * @param weapon
-	 * @param wp
-	 * @param baseOnly
-	 * @return TRUE if weapon is one handed
-	 */
-	public static boolean isWeaponOneHanded(final PlayerCharacter pc, final Equipment weapon, final WeaponProf wp,
-		final boolean baseOnly)
-	{
-		if ((pc == null) || (weapon == null) || (wp == null))
-		{
-			return false;
-		}
-
-		if (handsRequired(pc, weapon, wp) == 1)
-		{
-			if (weapon.hasWield())
-			{
-				if (Globals.checkRule(RuleConstants.SIZECAT))
-				{
-					// Check was done in handsRequired()
-					return true;
-				}
-				else if (Globals.checkRule(RuleConstants.SIZEOBJ))
-				{
-					// Use Object Size
-					final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-					if (wCat != null)
-					{
-						// compare Object Sizes
-						return (pc.sizeInt() >= wCat.getObjectSizeInt(weapon));
-					}
-				}
-			}
-			else
-			{
-				// Old Code
-				int pcSize = pc.sizeInt();
-
-				if (!baseOnly)
-				{
-					pcSize += pc.getTotalBonusTo("WEAPONPROF=" + wp.getName(), "PCSIZE");
-				}
-
-				return (pcSize >= weapon.sizeInt());
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * @param pc
-	 * @param weapon
-	 * @return true if the weapon is too large or to small for PC
-	 **/
-	public static boolean isWeaponOutsizedForPC(final PlayerCharacter pc, final Equipment weapon)
-	{
-		if ((pc == null) || (weapon == null))
-		{
-			return true;
-		}
-
-		final int overSize = pc.sizeInt() + 1;
-		final int underSize = pc.sizeInt() - 1;
-
-		if (weapon.hasWield())
-		{
-			if (Globals.checkRule(RuleConstants.SIZECAT))
-			{
-				// 3.5 rules
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-				if (wCat != null)
-				{
-					return (wCat.getHands() > 2);
-				}
-			}
-			else if (Globals.checkRule(RuleConstants.SIZEOBJ))
-			{
-				// Use Object Size
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-				if (wCat != null)
-				{
-					// use 3.5 code to get Object Size
-					if (wCat.getObjectSizeInt(weapon) > overSize)
-					{
-						return true;
-					}
-					else if (wCat.getObjectSizeInt(weapon) < underSize)
-					{
-						return true;
-					}
-				}
-				else
-				{
-					// Must be in 3.0 mode or something
-					if (weapon.sizeInt() > overSize)
-					{
-						return true;
-					}
-					else if (weapon.sizeInt() < underSize)
-					{
-						return true;
-					}
-				}
-			}
-		}
-		else
-		{
-			// 3.0 Rules
-			if (weapon.sizeInt() > overSize)
-			{
-				return true;
-			}
-			else if (weapon.sizeInt() < (underSize - 1))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Get copy of weapon prof array
 	 * @return copy of weapon prof array
 	 */
@@ -2146,65 +1949,6 @@ public final class Globals
 	public static int getWeaponProfSize()
 	{
 		return weaponProfs.size();
-	}
-
-	/**
-	 * @param pc
-	 * @param weapon
-	 * @return true if the weapon is too large for the specified pc.
-	 **/
-	public static boolean isWeaponTooLargeForPC(final PlayerCharacter pc, final Equipment weapon)
-	{
-		if ((pc == null) || (weapon == null))
-		{
-			return false;
-		}
-
-		if (weapon.hasWield())
-		{
-			if (Globals.checkRule(RuleConstants.SIZECAT))
-			{
-				// 3.5 rules
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-				if (wCat != null)
-				{
-					return (wCat.getHands() > 2);
-				}
-			}
-			else if (Globals.checkRule(RuleConstants.SIZEOBJ))
-			{
-				// Use Object Size
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-				final int overSize = pc.sizeInt() + 1;
-
-				if (wCat != null)
-				{
-					// use 3.5 code to get Object Size
-					return (wCat.getObjectSizeInt(weapon) > overSize);
-				}
-				// Must be in 3.0 mode or something
-				return (weapon.sizeInt() > overSize);
-			}
-		}
-		else
-		{
-			// 3.0 Rules
-			return (weapon.sizeInt() > (pc.sizeInt() + 1));
-		}
-
-		return false;
-	}
-
-	/**
-	 * @param pc
-	 * @param weapon
-	 * @param wp
-	 * @return true if the weapon is two-handed for the specified pc
-	 */
-	public static boolean isWeaponTwoHanded(final PlayerCharacter pc, final Equipment weapon, final WeaponProf wp)
-	{
-		return isWeaponTwoHanded(pc, weapon, wp, false);
 	}
 
 	/**
@@ -2558,75 +2302,6 @@ public final class Globals
 	}
 
 	/**
-	 * Return WieldCategory based on PC vs Equipment size
-	 * @param aPC
-	 * @param eq
-	 * @return WeildCategory
-	 */
-	public static WieldCategory effectiveWieldCategory(final PlayerCharacter aPC, final Equipment eq)
-	{
-		// Get this equipments WieldCategory from gameMode
-		WieldCategory wCat = SettingsHandler.getGame().getWieldCategory(eq.getWield());
-
-		if (wCat == null)
-		{
-			return null;
-		}
-
-		// Get the starting effective wield category
-		String ewName = wCat.getWieldCategory(aPC, eq);
-		wCat = SettingsHandler.getGame().getWieldCategory(ewName);
-
-		// Change the effective Wield Category based on bonuses
-		WieldCategory bonusCat = wCat;
-
-		final String valString = SettingsHandler.getGame().getWCStepsFormula();
-		final String eqVar = "EQ:" + eq.getNonHeadedName();
-		final int sizeDiff = eq.getVariableValue(valString, eqVar, aPC).intValue();
-
-		int aBump = 0;
-
-		// See if there is a bonus associated with just this weapon
-		// Make sure this is profName(0) else you'll be sorry!
-		aBump += (int) aPC.getTotalBonusTo("WEAPONPROF=" + eq.profName(0, aPC), "WIELDCATEGORY");
-
-		// or a bonus from the weapon itself
-		//aBump += (int) eq.bonusTo("WEAPON", "WIELDCATEGORY");
-		aBump += (int) eq.bonusTo(aPC, "WEAPON", "WIELDCATEGORY", true);
-
-		// if the Equipment is not same Size category as PC then we
-		// need to compute bonuses that might change Wield Category
-		if (aPC.sizeInt() != eq.sizeInt())
-		{
-			aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", ewName);
-			aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", "ALL");
-		}
-		// See if the equip has the [Hands] modifier.
-		boolean hands = false;
-		if (eq.getProfName().indexOf("[Hands]") > 0) {
-			hands = true;
-			//aBump--;
-		}
-
-		if (bonusCat != null)
-		{
-			ewName = bonusCat.getWieldCategoryStep(aBump, eq.getWield(), sizeDiff, hands);
-			bonusCat = SettingsHandler.getGame().getWieldCategory(ewName);
-		}
-
-		if (bonusCat != null)
-		{
-			// return whichever one has the least number of hands
-			if (bonusCat.getHands() <= wCat.getHands())
-			{
-				return bonusCat;
-			}
-		}
-
-		return wCat;
-	}
-
-	/**
 	 * Clears all lists of game data.
 	 */
 	public static void emptyLists()
@@ -2747,52 +2422,6 @@ public final class Globals
 				Logging.errorPrint("Could not execute " + postExportCommand + " after exporting " + fileName, ex);
 			}
 		}
-	}
-
-	/**
-	 * Get the minimum number of hands required to wield a weapon
-	 * @param pc
-	 * @param weapon
-	 * @param wp
-	 * @return int
-	 **/
-	public static int handsRequired(final PlayerCharacter pc, final Equipment weapon, final WeaponProf wp)
-	{
-		if (wp == null)
-		{
-			 return 1;
-		}
-
-		int iHands = wp.getHands();
-
-		if (iHands == WeaponProf.HANDS_SIZEDEPENDENT)
-		{
-			if (pc.sizeInt() > weapon.sizeInt())
-			{
-				iHands = 1;
-			}
-			else
-			{
-				iHands = 2;
-			}
-		}
-
-		if (Globals.checkRule(RuleConstants.SIZECAT) && weapon.hasWield())
-		{
-			// 3.5 Wield Category rules
-			final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-			if (wCat != null)
-			{
-
-				if (wp.getHands() >= wCat.getHands() || pc.sizeInt() < weapon.sizeInt())
-				{
-					iHands = wCat.getHands();
-				}
-			}
-		}
-
-		return iHands;
 	}
 
 	/**
@@ -3949,62 +3578,6 @@ public final class Globals
 	private static boolean isUseGUI()
 	{
 		return useGUI;
-	}
-
-	private static boolean isWeaponTwoHanded(final PlayerCharacter pc, final Equipment weapon, final WeaponProf wp,
-		final boolean baseOnly)
-	{
-		if ((pc == null) || (weapon == null) || (wp == null))
-		{
-			return false;
-		}
-
-		int pcSize = pc.sizeInt();
-
-		if (weapon.hasWield())
-		{
-			if (Globals.checkRule(RuleConstants.SIZECAT))
-			{
-				// 3.5 Wield Category
-				if (handsRequired(pc, weapon, wp) == 2)
-				{
-					return true;
-				}
-			}
-			else if (Globals.checkRule(RuleConstants.SIZEOBJ))
-			{
-				// Use Object Size
-				final WieldCategory wCat = effectiveWieldCategory(pc, weapon);
-
-				if (wCat != null)
-				{
-					// use 3.5 code to get Object Size
-					return (wCat.getObjectSizeInt(weapon) > pcSize);
-				}
-			}
-		}
-		else
-		{
-			// Original Code
-			if (!baseOnly)
-			{
-				pcSize += pc.getTotalBonusTo("WEAPONPROF=" + wp.getName(), "PCSIZE");
-			}
-
-			// Check to see if it's a two handed weapon
-			if (handsRequired(pc, weapon, wp) == 2)
-			{
-				return true;
-			}
-
-			// If weapon is larger size than PC, it is two handed
-			if (weapon.sizeInt() > pcSize)
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	private static int bonusParsing(final Iterator i, final int level, int num)

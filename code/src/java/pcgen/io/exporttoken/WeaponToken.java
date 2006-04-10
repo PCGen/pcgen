@@ -503,7 +503,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getIsLightToken(PlayerCharacter pc, Equipment eq)
 	{
-		return Globals.isWeaponLightForPC(pc, eq) ? "TRUE" : "FALSE";
+		return eq.isWeaponLightForPC(pc) ? "TRUE" : "FALSE";
 	}
 
 	/**
@@ -1192,7 +1192,7 @@ public class WeaponToken extends Token
 			damageMode = DAMAGEMODE_DOUBLE;
 			hands = 1;
 		}
-		else if ((isDoubleSplit) && (Globals.isWeaponTwoHanded(pc, eq, wp)))
+		else if ((isDoubleSplit) && (eq.isWeaponTwoHanded(pc)))
 		{
 			damageMode = DAMAGEMODE_TWOHANDS;
 			hands = 2;
@@ -1219,7 +1219,7 @@ public class WeaponToken extends Token
 		else
 		{
 			// Not wielded, probably just carried
-			if (Globals.isWeaponTwoHanded(pc, eq, wp))
+			if (eq.isWeaponTwoHanded(pc))
 			{
 				damageMode = DAMAGEMODE_TWOHANDS;
 				hands = 2;
@@ -1230,7 +1230,7 @@ public class WeaponToken extends Token
 				damageMode = DAMAGEMODE_BASIC;
 			}
 		}
-		String profName = getRealProf(pc, eq, wpHands);
+		String profName = eq.profName(pc);
 		return getDamage(pc, eq, profName, range, content, ammo, bonusOnly, hands, damageMode, base);
 	}
 
@@ -1260,8 +1260,7 @@ public class WeaponToken extends Token
 	{
 		int damageMode = DAMAGEMODE_BASIC;
 		int hands = 1;
-		String profName = getRealProf(pc, eq, hands);
-		return getDamage(pc, eq, profName, range, content, ammo, bonusOnly, hands, damageMode, false);
+		return getDamage(pc, eq, eq.profName(pc), range, content, ammo, bonusOnly, hands, damageMode, false);
 	}
 
 	/**
@@ -1290,8 +1289,7 @@ public class WeaponToken extends Token
 	{
 		int damageMode = DAMAGEMODE_TWOHANDS;
 		int hands = 2;
-		String profName = getRealProf(pc, eq, hands);
-		return getDamage(pc, eq, profName, range, content, ammo, bonusOnly, hands, damageMode, false);
+		return getDamage(pc, eq, eq.profName(pc), range, content, ammo, bonusOnly, hands, damageMode, false);
 	}
 
 	/**
@@ -1320,8 +1318,7 @@ public class WeaponToken extends Token
 	{
 		int damageMode = DAMAGEMODE_OFFHAND;
 		int hands = 0;
-		String profName = getRealProf(pc, eq, hands);
-		return getDamage(pc, eq, profName, range, content, ammo, bonusOnly, hands, damageMode, false);
+		return getDamage(pc, eq, eq.profName(pc), range, content, ammo, bonusOnly, hands, damageMode, false);
 	}
 
 	/**
@@ -1382,7 +1379,7 @@ public class WeaponToken extends Token
 					// default to off-hand light
 					hitMode = HITMODE_TWPHITL;
 				}
-				else if (Globals.isWeaponLightForPC(pc, sEq))
+				else if (sEq.isWeaponLightForPC(pc))
 				{
 					// offhand light
 					hitMode = HITMODE_TWPHITL;
@@ -1396,7 +1393,7 @@ public class WeaponToken extends Token
 			// eq is Secondary
 			else if (pc.isSecondaryWeapon(eq))
 			{
-				if (Globals.isWeaponLightForPC(pc, eq))
+				if (eq.isWeaponLightForPC(pc))
 				{
 					// offhand light
 					hitMode = HITMODE_TWFOHL;
@@ -1433,7 +1430,7 @@ public class WeaponToken extends Token
 			// Not double or single
 			// Not primary or Secondary
 			// probably just carried
-			if (Globals.isWeaponTwoHanded(pc, eq, wp))
+			if (eq.isWeaponTwoHanded(pc))
 			{
 				// Two Handed weapon
 				hitMode = HITMODE_THHIT;
@@ -1445,9 +1442,8 @@ public class WeaponToken extends Token
 				hitMode = HITMODE_BASEHIT;
 			}
 		}
-		String profName = getRealProf(pc, eq, hitModeHands);
 
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, true);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, true);
 	}
 
 	/**
@@ -1475,8 +1471,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_BASEHIT;
-		String profName = getRealProf(pc, eq, hitModeHands);
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, false);
 	}
 
 	/**
@@ -1504,8 +1499,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TWPHITH;
-		String profName = getRealProf(pc, eq, hitModeHands);
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, false);
 	}
 
 	/**
@@ -1533,8 +1527,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TWPHITL;
-		String profName = getRealProf(pc, eq, hitModeHands);
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, false);
 	}
 
 	/**
@@ -1562,8 +1555,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TWOHIT;
-		String profName = getRealProf(pc, eq, hitModeHands);
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, false);
 	}
 
 	/**
@@ -1591,8 +1583,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_OHHIT;
-		String profName = getRealProf(pc, eq, hitModeHands);
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, false);
 	}
 
 	/**
@@ -1620,8 +1611,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 2;
 		int hitMode = HITMODE_THHIT;
-		String profName = getRealProf(pc, eq, hitModeHands);
-		return getToHit(pc, eq, profName, range, content, ammo, hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, eq.profName(pc), range, content, ammo, hitModeHands, hitMode, attackNum, false);
 	}
 
 
@@ -1642,11 +1632,11 @@ public class WeaponToken extends Token
 
 		// If it's a two handed weapon, but is not
 		// wielded as two handed, just punt now!
-		if (eq.isMelee() && (Globals.isWeaponTwoHanded(pc, eq, wp)))
+		if (eq.isMelee() && (eq.isWeaponTwoHanded(pc)))
 		{
-			if (	(!isDouble && !isDoubleSplit && hitMode != HITMODE_THHIT) ||
-				(isDoubleSplit &&
-					(hitMode == HITMODE_BASEHIT ||
+			if (	(!isDouble && !isDoubleSplit && (hitMode != HITMODE_THHIT)) ||
+				(isDoubleSplit && (
+					hitMode == HITMODE_BASEHIT ||
 					 hitMode == HITMODE_OHHIT   ||
 					 hitMode == HITMODE_TWPHITH)))
 			{
@@ -1654,7 +1644,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		if (eq.isMelee() && Globals.isWeaponOutsizedForPC(pc, eq) && !eq.isNatural())
+		if (eq.isMelee() && eq.isWeaponOutsizedForPC(pc) && !eq.isNatural())
 		{
 			return SettingsHandler.getInvalidToHitText();
 		}
@@ -1749,8 +1739,7 @@ public class WeaponToken extends Token
 			}
 
 			if ((hitMode == HITMODE_TWOHIT)
-				&& (isDouble || isDoubleSplit || Globals.isWeaponLightForPC(pc,
-					eq)))
+				&& (isDouble || isDoubleSplit || eq.isWeaponLightForPC(pc)))
 			{
 				baseBonus += pc.getOffHandLightBonus();
 			}
@@ -1794,11 +1783,12 @@ public class WeaponToken extends Token
 			eq.getLocation() == Equipment.EQUIPPED_SECONDARY ||
 			eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS)
 		{
-			if (Globals.isWeaponOneHanded(pc, eq, wp, false) != Globals.isWeaponOneHanded(pc, eq, wp, true))
-			{
-				baseBonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "TOHITOVERSIZE");
-				baseBonus += getWeaponProfTypeBonuses(pc, eq, "TOHITOVERSIZE", WPTYPEBONUS_PC);
-			}
+			// TODO Fix this
+//			if (eq.isWeaponOneHanded(pc, wp, false) != eq.isWeaponOneHanded(pc, wp, true))
+//			{
+//				baseBonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "TOHITOVERSIZE");
+//				baseBonus += getWeaponProfTypeBonuses(pc, eq, "TOHITOVERSIZE", WPTYPEBONUS_PC);
+//			}
 		}
 
 		if (	hitMode == HITMODE_TWPHITH ||
@@ -1854,7 +1844,7 @@ public class WeaponToken extends Token
 			baseBonus += (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + type);
 		}
 
-		if (range == -1 && eq.isMelee() && Globals.isFinessable(eq, pc))
+		if (range == -1 && eq.isMelee() && eq.isFinessable(pc))
 		{
 			baseBonus += (int) pc.getTotalBonusTo("COMBAT", "TOHIT.Finesseable");
 		}
@@ -2165,7 +2155,7 @@ public class WeaponToken extends Token
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 		WeaponProf wp = Globals.getWeaponProfNamed(profName);
 
-		if (eq.isMelee() && (Globals.isWeaponTwoHanded(pc, eq, wp)))
+		if (eq.isMelee() && (eq.isWeaponTwoHanded(pc)))
 		{
 			if (!isDouble && !isDoubleSplit
 				&& (damageMode != DAMAGEMODE_NORMAL)
@@ -2176,12 +2166,12 @@ public class WeaponToken extends Token
 			}
 		}
 
-		if (eq.isMelee() && Globals.isWeaponOutsizedForPC(pc, eq) && !eq.isNatural())
+		if (eq.isMelee() && eq.isWeaponOutsizedForPC(pc) && !eq.isNatural())
 		{
 			return SettingsHandler.getInvalidDmgText();
 		}
 
-		if (Globals.isWeaponLightForPC(pc, eq) && (hands == 2))
+		if (eq.isWeaponLightForPC(pc) && (hands == 2))
 		{
 			// if wielding a 'Light' weapon two handed
 			// treat as if wielding 1 handed for damage bonus
@@ -2502,16 +2492,6 @@ public class WeaponToken extends Token
 		}
 
 		return retString;
-	}
-
-	private static String getRealProf(PlayerCharacter pc, Equipment eq, int hands)
-	{
-		String realProf = eq.profName(pc);
-		if (!eq.isNatural() && (hands != 0))
-		{
-			realProf = eq.profName(hands, pc);
-		}
-		return realProf;
 	}
 
 	private static Equipment getAmmoUser(PlayerCharacter pc, Equipment eq, int ammo)

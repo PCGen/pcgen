@@ -579,14 +579,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			// Should only be meaningful for weapons, but if included on some other piece of
 			// equipment, show it anyway
 			//
-			if (aEq.hasWield())
+			if (aEq.isWeapon() || aEq.hasWield())
 			{
-				WieldCategory wCat = Globals.effectiveWieldCategory(pc, aEq);
-				if (wCat != null)
-				{
-					b.append(" <b>Wield:</b> ").append(wCat.getName());
-				}
+				WieldCategory wCat = aEq.getEffectiveWieldCategory(pc);
+				b.append(" <b>Wield:</b> ").append(wCat.getName());
 			}
+
 
 			//
 			// Only meaningful for weapons, armor and shields

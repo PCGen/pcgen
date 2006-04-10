@@ -1312,7 +1312,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 				if (eq != null)
 				{
-					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + eq.profName(0, getPc()), "PCSIZE");
+					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + eq.profName(getPc()), "PCSIZE");
 					List aList = eq.typeList();
 					Iterator itera = aList.iterator();
 					// loops for each equipment type

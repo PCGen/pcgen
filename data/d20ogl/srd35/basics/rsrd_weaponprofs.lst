@@ -29,9 +29,9 @@ Mace (Heavy)			TYPE:Simple
 Morningstar				TYPE:Simple
 Shortspear				TYPE:Simple
 # -- 2-handers
-Longspear				TYPE:Simple			HANDS:2
-Quarterstaff			TYPE:Simple			HANDS:2
-Spear					TYPE:Simple			HANDS:2
+Longspear				TYPE:Simple
+Quarterstaff			TYPE:Simple
+Spear					TYPE:Simple
 # -- Ranged
 Crossbow (Heavy)			TYPE:Simple			HANDS:2
 Crossbow (Light)			TYPE:Simple			HANDS:2
@@ -63,19 +63,19 @@ Trident				TYPE:Martial
 Warhammer				TYPE:Martial
 
 # 2-handers
-Falchion				TYPE:Martial		HANDS:2
-Glaive				TYPE:Martial		HANDS:2
-Greataxe				TYPE:Martial		HANDS:2
-Greatclub				TYPE:Martial		HANDS:2
-Flail (Heavy)			TYPE:Martial		HANDS:2
-Greatsword				TYPE:Martial		HANDS:2
-Guisarme				TYPE:Martial		HANDS:2
-Halberd				TYPE:Martial		HANDS:2
-Lance					TYPE:Martial		HANDS:2
-Ranseur				TYPE:Martial		HANDS:2
-Scythe				TYPE:Martial		HANDS:2
-Sword (Bastard)			TYPE:Martial.Exotic	HANDS:2
-Waraxe (Dwarven)			TYPE:Martial.Exotic	HANDS:2
+Falchion				TYPE:Martial
+Glaive				TYPE:Martial
+Greataxe				TYPE:Martial
+Greatclub				TYPE:Martial
+Flail (Heavy)			TYPE:Martial
+Greatsword				TYPE:Martial
+Guisarme				TYPE:Martial
+Halberd				TYPE:Martial
+Lance					TYPE:Martial
+Ranseur				TYPE:Martial
+Scythe				TYPE:Martial
+Sword (Bastard)			TYPE:Martial.Exotic
+Waraxe (Dwarven)			TYPE:Martial.Exotic
 
 # --ranged
 Longbow				TYPE:Martial		HANDS:2
@@ -93,17 +93,17 @@ Siangham				TYPE:Exotic
 Whip					TYPE:Exotic
 
 # -- 2-handers
-Axe (Orc Double)			TYPE:Exotic			HANDS:2
-Chain (Spiked)			TYPE:Exotic			HANDS:2
-Flail (Dire)			TYPE:Exotic			HANDS:2
-Hammer (Gnome Hooked)		TYPE:Exotic			HANDS:2
-Sword (Two-Bladed)		TYPE:Exotic			HANDS:2
-Urgrosh (Dwarven)			TYPE:Exotic			HANDS:2
+Axe (Orc Double)			TYPE:Exotic
+Chain (Spiked)			TYPE:Exotic
+Flail (Dire)			TYPE:Exotic
+Hammer (Gnome Hooked)		TYPE:Exotic
+Sword (Two-Bladed)		TYPE:Exotic
+Urgrosh (Dwarven)			TYPE:Exotic
 
 # -- ranged
 Bolas					TYPE:Exotic
 Crossbow (Hand)			TYPE:Exotic
 Crossbow (Repeating Heavy)	TYPE:Exotic			HANDS:2
 Crossbow (Repeating Light)	TYPE:Exotic			HANDS:2
-Net					TYPE:Exotic			HANDS:2
+Net					TYPE:Exotic
 Shuriken				TYPE:Exotic

@@ -19,7 +19,7 @@ Net				TYPE:Exotic
 Nunchaku			TYPE:Exotic
 Shuriken			TYPE:Exotic
 Siangham			TYPE:Exotic
-Sword (Bastard/Exotic)	TYPE:Exotic		HANDS:1IFLARGERTHANWEAPON
+Sword (Bastard)		TYPE:Martial.Exotic
 Sword (Two-Bladed)	TYPE:Exotic
 Katana			TYPE:Exotic
 Whip				TYPE:Exotic
@@ -38,7 +38,7 @@ Handaxe			TYPE:Martial
 Lance				TYPE:Martial
 Longbow			TYPE:Martial
 Longbow (Composite)	TYPE:Martial	HANDS:2
-Longspear			TYPE:Martial	HANDS:2
+Longspear			TYPE:Martial
 Pick				TYPE:Martial
 Ranseur			TYPE:Martial
 Rapier			TYPE:Martial
@@ -48,7 +48,7 @@ Scythe			TYPE:Martial
 Shortbow			TYPE:Martial	HANDS:2
 Shortbow (Composite)	TYPE:Martial	HANDS:2
 Speargun			TYPE:Martial	HANDS:2
-Greatsword			TYPE:Martial	HANDS:2
+Greatsword			TYPE:Martial
 Longsword			TYPE:Martial
 Sword (Short)		TYPE:Martial
 Trident			TYPE:Martial
@@ -56,9 +56,9 @@ Warhammer			TYPE:Martial
 Baseball Bat		TYPE:Simple
 Brass Knuckles		TYPE:Simple
 Club				TYPE:Simple
-Crossbow (Heavy)		TYPE:Simple
+Crossbow (Heavy)		TYPE:Simple		HANDS:2
 Crossbow (Light)		TYPE:Simple		HANDS:2
-Dagger			TYPE:Simple		HANDS:2
+Dagger			TYPE:Simple
 Dart				TYPE:Simple
 Gauntlet			TYPE:Simple
 Gauntlet (Spiked)		TYPE:Simple
@@ -68,7 +68,7 @@ Knife (Bowie)		TYPE:Simple
 Mace				TYPE:Simple
 Morningstar			TYPE:Simple
 Quarterstaff		TYPE:Simple
-Shortspear			TYPE:Simple		HANDS:2
+Shortspear			TYPE:Simple
 Sickle			TYPE:Simple
 Sling				TYPE:Simple
 Sword cane			TYPE:Simple

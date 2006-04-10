@@ -427,10 +427,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testBastardSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("1-handed Prof should be exotic",
-			"Sword (Bastard/Exotic)", bastardSword.profName(1, character));
 		assertEquals("2-handed prof should be martial",
-			"Sword (Bastard/Martial)", bastardSword.profName(2, character));
+			"Sword (Bastard/Martial)", bastardSword.profName(character));
 
 		EquipSet es = new EquipSet("0.1.2", "Sword (Bastard)", bastardSword
 			.getName(), bastardSword);
@@ -441,8 +439,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponToken token = new WeaponToken();
 		assertEquals("Name", "Sword, Bastard", token.getToken("WEAPON.3.NAME",
 			character, null));
-		assertEquals("Name", "+14/+9/+4/-1", token
-			.getToken("WEAPON.3.BASEHIT", character, null));
+//		assertEquals("Name", "+14/+9/+4/-1", token
+//			.getToken("WEAPON.3.BASEHIT", character, null));
 		assertEquals("Name", "+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
 	}
 
@@ -454,10 +452,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testLargeLongSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("1-handed Prof should be longsword", "Longsword", largeSword
-			.profName(1, character));
-		assertEquals("2-handed prof should be longsword", "Longsword", largeSword
-			.profName(2, character));
+		assertEquals("Prof should be longsword", "Longsword", largeSword
+			.profName(character));
 
 		EquipSet es = new EquipSet("0.1.3", "Longsword (Large)", largeSword
 			.getName(), largeSword);
@@ -482,10 +478,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testLargeWpnBonus()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("1-handed Prof should be longsword", "Longsword", largeSword
-			.profName(1, character));
-		assertEquals("2-handed prof should be longsword", "Longsword", largeSword
-			.profName(2, character));
+		assertEquals("Prof should be longsword", "Longsword", largeSword
+			.profName(character));
 
 		PCTemplate longswordTemplate = new PCTemplate();
 		longswordTemplate.setName("LS Bonus");
@@ -522,10 +516,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testNaturalWeapon()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("1-handed Prof should be SillyBite", "SillyBite", bite
-			.profName(1, character));
-		assertEquals("2-handed prof should be SillyBite", "SillyBite", bite
-			.profName(2, character));
+		assertEquals("Prof should be SillyBite", "SillyBite", bite
+			.profName(character));
 
 		EquipSet es = new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
 		character.addEquipSet(es);
@@ -548,10 +540,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testWpnFinesse()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("1-handed Prof should be longsword", "Longsword", fineSword
-			.profName(1, character));
-		assertEquals("2-handed prof should be longsword", "Longsword", fineSword
-			.profName(2, character));
+		assertEquals("Prof should be longsword", "Longsword", fineSword
+			.profName(character));
 
 		character.addEquipment(fineSword);
 		EquipSet es = new EquipSet("0.1.3", "Longsword (Fine)", fineSword

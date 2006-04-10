@@ -31,6 +31,8 @@ import java.util.Map;
 
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -60,6 +62,19 @@ public final class WieldCategory
 	private boolean finessBool;
 	private int hands = 999;
 	private int sizeDiff;
+
+	/** A map storing an integer key for the number of hands being used and
+	 * a float value which sets the damage multiplier.  Values in the table
+	 * are wrapped in Integer/Float objects.
+	 */
+	private Map damageMultipliers = new HashMap();
+
+	private static WieldCategory DEFAULT_TOOSMALL = null;
+	private static WieldCategory DEFAULT_LIGHT = null;
+	private static WieldCategory DEFAULT_ONEHANDED = null;
+	private static WieldCategory DEFAULT_TWOHANDED = null;
+	private static WieldCategory DEFAULT_TOOLARGE = null;
+	private static WieldCategory DEFAULT_UNUSABLE = null;
 
 	/**
 	 * New constructor
@@ -148,40 +163,68 @@ public final class WieldCategory
 	}
 
 	/**
-	 * Get the wield category name.
+	 * Get the WieldCategory adjusted for the size difference between the weapon
+	 * and the PC.  This uses the 3.5 equipment sizes.
+	 *
 	 * @param aPC Player character to get the weild category for.
 	 * @param eq Equipment to get the weild category for.
-	 * @return wield category name.
+	 * @return The ajusted WieldCategory
 	 */
-	public String getWieldCategory(final PlayerCharacter aPC, final Equipment eq)
+	public WieldCategory adjustForSize(final PlayerCharacter aPC,
+									   final Equipment eq)
 	{
-		if (aPC == null || eq == null)
+		if (aPC == null || eq == null || !eq.hasWield())
 		{
-			return name;
+			return this;
 		}
 
 		try
 		{
-			final PrerequisiteParserInterface parser = PreParserFactory.getInstance().getParser("VAR");
-			for (Iterator pc = switchMap.keySet().iterator(); pc.hasNext();)
+			// Check if we have a bonus that changes the weapons effective size
+			// for wield purposes.
+			final String oldEqSize = eq.getSize();
+			if (aPC.sizeInt() != eq.sizeInt())
+			{
+				int aBump = 0;
+				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", eq.getWield());
+				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", "ALL");
+				if (aBump != 0)
+				{
+					final int newSizeInt = eq.sizeInt() + aBump;
+					final SizeAdjustment sadj = SettingsHandler.getGame().
+						getSizeAdjustmentAtIndex(newSizeInt);
+					eq.setSize(sadj.getAbbreviation(), true);
+				}
+			}
+			final PrerequisiteParserInterface parser = PreParserFactory.
+				getInstance().getParser("VAR");
+			for (Iterator pc = switchMap.keySet().iterator(); pc.hasNext(); )
 			{
 				String aKey = (String) pc.next();
-	
-	
-				boolean invertResult=false;
-				if (aKey.startsWith("!")) {
+
+				boolean invertResult = false;
+				if (aKey.startsWith("!"))
+				{
 					invertResult = true;
 					aKey = aKey.substring(1);
 				}
 				final String aType = aKey.substring(3, aKey.indexOf(":"));
 				final String preVar = aKey.substring(aKey.indexOf(":") + 1);
-	
+
 				try
 				{
-					final Prerequisite prereq = parser.parse(aType, preVar, invertResult, false);
+					final Prerequisite prereq = parser.parse(aType, preVar,
+						invertResult, false);
 					if (PrereqHandler.passes(prereq, eq, aPC))
 					{
-						return (String) switchMap.get(aKey);
+						final String mappedCat = (String) switchMap.get(aKey);
+						WieldCategory wCat = SettingsHandler.getGame().
+							getWieldCategory(mappedCat);
+						if (wCat != null)
+						{
+							return wCat;
+						}
+						return this;
 					}
 				}
 				catch (PersistenceLayerException ple)
@@ -189,12 +232,14 @@ public final class WieldCategory
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
+			eq.setSize(oldEqSize, true);
 		}
-		catch(PersistenceLayerException ple) {
+		catch (PersistenceLayerException ple)
+		{
 			Logging.errorPrint(ple.getMessage(), ple);
 		}
 
-		return name;
+		return this;
 	}
 
 	/**
@@ -207,47 +252,17 @@ public final class WieldCategory
 	 * @param aHands
 	 * @return weild category step
 	 **/
-	public String getWieldCategoryStep(int aBump, final String wieldString, final int aSizeDiff, final boolean aHands)
+	public WieldCategory getWieldCategoryStep(int aBump)
 	{
-		// this structure is to chech if the size of the weapon is compensated by the bonus
-		if ("Light".equals(wieldString) && aSizeDiff > -aBump + 2)
-		{
-			return name;
-		}
-		else if ("OneHanded".equals(wieldString) && aSizeDiff > -aBump + 1)
-		{
-			return name;
-		}
-		else if ("TwoHanded".equals(wieldString) && aSizeDiff > -aBump && !aHands)
-		{
-			return name;
-		}
-		else if (aHands)
-		{
-			if (aSizeDiff + aBump == 0)
-			{
-				// in this case a hands weapon (bastard sword) can be wielded only in twohanded mode
-				aBump++;
-			}
-			else if (aSizeDiff + aBump > 0)
-			{
-				// in this case the object is too large
-				return name;
-			}
-			else {
-				// in this case the weapon can be wielded as a onehanded
-			}
-		}
-
 		final String aKey = Integer.toString(aBump);
 		final String newWC = (String) wcStepMap.get(aKey);
 
 		if (newWC != null)
 		{
-			return newWC;
+			return findByName(newWC);
 		}
 
-		return name;
+		return this;
 	}
 
 	/**
@@ -258,5 +273,157 @@ public final class WieldCategory
 	public void addSwitchMap(final String aKey, final String aVal)
 	{
 		switchMap.put(aKey, aVal);
+	}
+
+	/**
+	 * Add a new Damage Mult entry.
+	 * @param numHands Number of hands used to wield the weapon
+	 * @param multiplier Amount to multiply STR damage by
+	 */
+	public void addDamageMult(int numHands, float multiplier)
+	{
+		damageMultipliers.put(new Integer(numHands), new Float(multiplier));
+	}
+
+	/**
+	 * Returns the STR damage multiplier for this wield category.
+	 *
+	 * @param hands number of hands the weapon is wielded with
+	 * @return float the multiplier
+	 */
+	public float getDamageMult(int hands)
+	{
+		Float ret = (Float) damageMultipliers.get(new Integer(hands));
+		if (ret == null)
+		{
+			return 0.0f;
+		}
+		return ret.floatValue();
+	}
+
+	/**
+	 * Finds a WieldCategory object by name.  If a Game mode does not define
+	 * wield categories a default set will be used.
+	 * @param aCategory The wield category name to find
+	 * @return The WieldCategory matching the name or the "Unusable" category.
+	 */
+	public static WieldCategory findByName(final String aCategory)
+	{
+		WieldCategory wCat = SettingsHandler.getGame().getWieldCategory(
+			aCategory);
+		if (wCat == null)
+		{
+			// Handle Default WieldCategories
+			if ("Light".equals(aCategory))
+			{
+				if (DEFAULT_LIGHT == null)
+				{
+					DEFAULT_LIGHT = new WieldCategory("Light");
+					DEFAULT_LIGHT.setHands(1);
+					DEFAULT_LIGHT.setFinessable(true);
+					DEFAULT_LIGHT.addDamageMult(1, 1.0f);
+					DEFAULT_LIGHT.addDamageMult(2, 1.0f);
+					DEFAULT_LIGHT.addSwitchMap(
+						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "TooSmall");
+					DEFAULT_LIGHT.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "OneHanded");
+					DEFAULT_LIGHT.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2", "TwoHanded");
+					DEFAULT_LIGHT.addSwitchMap(
+						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3", "TooLarge");
+					DEFAULT_LIGHT.setWCStep(1, "OneHanded");
+					DEFAULT_LIGHT.setWCStep(2, "TwoHanded");
+				}
+				wCat = DEFAULT_LIGHT;
+			}
+			else if ("OneHanded".equals(aCategory))
+			{
+				if (DEFAULT_ONEHANDED == null)
+				{
+					DEFAULT_ONEHANDED = new WieldCategory("OneHanded");
+					DEFAULT_ONEHANDED.setHands(1);
+					DEFAULT_ONEHANDED.setFinessable(false);
+					DEFAULT_ONEHANDED.addDamageMult(1, 1.0f);
+					DEFAULT_ONEHANDED.addDamageMult(2, 1.5f);
+					DEFAULT_ONEHANDED.addSwitchMap(
+						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2", "TooSmall");
+					DEFAULT_ONEHANDED.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "Light");
+					DEFAULT_ONEHANDED.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "TwoHanded");
+					DEFAULT_ONEHANDED.addSwitchMap(
+						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2", "TooLarge");
+					DEFAULT_ONEHANDED.setWCStep( -1, "Light");
+					DEFAULT_ONEHANDED.setWCStep(1, "TwoHanded");
+				}
+				wCat = DEFAULT_ONEHANDED;
+			}
+			else if ("TwoHanded".equals(aCategory))
+			{
+				if (DEFAULT_TWOHANDED == null)
+				{
+					DEFAULT_TWOHANDED = new WieldCategory("TwoHanded");
+					DEFAULT_TWOHANDED.setFinessable(false);
+					DEFAULT_TWOHANDED.setHands(2);
+					DEFAULT_TWOHANDED.addDamageMult(2, 1.5f);
+					DEFAULT_TWOHANDED.addSwitchMap(
+						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3", "TooSmall");
+					DEFAULT_TWOHANDED.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2", "Light");
+					DEFAULT_TWOHANDED.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "OneHanded");
+					DEFAULT_TWOHANDED.addSwitchMap(
+						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "TooLarge");
+					DEFAULT_TWOHANDED.setWCStep( -2, "Light");
+					DEFAULT_TWOHANDED.setWCStep( -1, "OneHanded");
+				}
+				wCat = DEFAULT_TWOHANDED;
+			}
+			else if ("TooSmall".equals(aCategory))
+			{
+				if (DEFAULT_TOOSMALL == null)
+				{
+					DEFAULT_TOOSMALL = new WieldCategory("TooSmall");
+					DEFAULT_TOOSMALL.setFinessable(false);
+					DEFAULT_TOOSMALL.setHands(2);
+					DEFAULT_TOOSMALL.addDamageMult(2, 1.5f);
+					DEFAULT_TOOSMALL.addSwitchMap(
+						"PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3", "TooSmall");
+					DEFAULT_TOOSMALL.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2", "Light");
+					DEFAULT_TOOSMALL.addSwitchMap(
+						"PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1", "OneHanded");
+					DEFAULT_TOOSMALL.addSwitchMap(
+						"PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1", "TooLarge");
+					DEFAULT_TOOSMALL.setWCStep( -2, "Light");
+					DEFAULT_TOOSMALL.setWCStep( -1, "OneHanded");
+				}
+				wCat = DEFAULT_TOOSMALL;
+			}
+			else if ("TooLarge".equals(aCategory))
+			{
+				if (DEFAULT_TOOLARGE == null)
+				{
+					DEFAULT_TOOLARGE = new WieldCategory("TooLarge");
+					DEFAULT_TOOLARGE.setFinessable(false);
+					DEFAULT_TOOLARGE.setHands(999);
+					DEFAULT_TOOLARGE.setWCStep( -3, "Light");
+					DEFAULT_TOOLARGE.setWCStep( -2, "OneHanded");
+					DEFAULT_TOOLARGE.setWCStep( -1, "TwoHanded");
+					DEFAULT_TOOLARGE.setWCStep(0, "TwoHanded");
+				}
+				wCat = DEFAULT_TOOLARGE;
+			}
+			else
+			{
+				if (DEFAULT_UNUSABLE == null)
+				{
+					DEFAULT_UNUSABLE = new WieldCategory("Unusable");
+					DEFAULT_UNUSABLE.setHands(999);
+				}
+				wCat = DEFAULT_UNUSABLE;
+			}
+		}
+		return wCat;
 	}
 }
