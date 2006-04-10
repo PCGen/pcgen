@@ -93,21 +93,37 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		}
 	}
 
+	/**
+	 * Get the rank of the skill
+	 * @return rank
+	 */
 	public double getRank()
 	{
 		return rank;
 	}
 
+	/**
+	 * Get the name of the skill
+	 * @return name
+	 */
 	public String getSkillName()
 	{
 		return skillName;
 	}
 
+	/**
+	 * Get the name of the class of the skill
+	 * @return name of class
+	 */
 	public String getClassName()
 	{
 		return className;
 	}
 
+	/**
+	 * Set the class name of the skill
+	 * @param aClassName
+	 */
 	public void setClassName(String aClassName)
 	{
 		className = aClassName;

@@ -34,6 +34,12 @@ public final class KitSkillAdd //implements java.io.Serializable
 	private double ranks = 0.0;
 	private int cost = 0;
 
+	/**
+	 * Constructor
+	 * @param argSkill
+	 * @param aRanks
+	 * @param aCost
+	 */
 	public KitSkillAdd(final Skill argSkill, double aRanks, int aCost)
 	{
 		skill = argSkill;
@@ -41,11 +47,19 @@ public final class KitSkillAdd //implements java.io.Serializable
 		cost = aCost;
 	}
 
+	/**
+	 * Get ranks
+	 * @return ranks
+	 */
 	public double getRanks()
 	{
 		return ranks;
 	}
 
+	/**
+	 * Get skill
+	 * @return skill
+	 */
 	public Skill getSkill()
 	{
 		return skill;

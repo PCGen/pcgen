@@ -33,8 +33,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Kit table loader
+ */
 public class KitTableLoader
 {
+	/**
+	 * Parse the line
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{
@@ -58,7 +67,7 @@ public class KitTableLoader
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			KitTableLstToken token = (KitTableLstToken) tokenMap.get(key);
 

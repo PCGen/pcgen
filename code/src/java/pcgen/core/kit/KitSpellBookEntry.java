@@ -33,6 +33,7 @@ import java.util.List;
  */
 public class KitSpellBookEntry
 {
+	// TODO This variable is never used
 	private String className;
 	private String bookName;
 	private String theName = null;
@@ -41,6 +42,13 @@ public class KitSpellBookEntry
 
 	private PCClass theClass = null;
 
+	/**
+	 * 
+	 * @param aClassName
+	 * @param aBookName
+	 * @param aName
+	 * @param modifiers
+	 */
 	public KitSpellBookEntry(final String aClassName, final String aBookName,
 							 final String aName, final List modifiers)
 	{
@@ -63,11 +71,19 @@ public class KitSpellBookEntry
 		return bookName;
 	}
 
+	/**
+	 * Get the name
+	 * @return name
+	 */
 	public String getName()
 	{
 		return theName;
 	}
 
+	/**
+	 * Get the modifiers
+	 * @return the modifiers
+	 */
 	public List getModifiers()
 	{
 		List ret = theModifierList;
@@ -78,21 +94,38 @@ public class KitSpellBookEntry
 		return Collections.unmodifiableList(ret);
 	}
 
+	/**
+	 * Get the number of copies
+	 * @return the number of copies
+	 */
 	public int getCopies()
 	{
 		return theCount;
 	}
 
+	/**
+	 * Add copies
+	 * @param numCopies
+	 * @return the updated number of copies
+	 */
 	public int addCopies(final int numCopies)
 	{
 		return theCount += numCopies;
 	}
 
+	/**
+	 * Set the PC Class
+	 * @param aClass
+	 */
 	public void setPCClass(final PCClass aClass)
 	{
 		theClass = aClass;
 	}
 
+	/**
+	 * Get the class of the PC
+	 * @return the class of the PC
+	 */
 	public PCClass getPCClass()
 	{
 		return theClass;

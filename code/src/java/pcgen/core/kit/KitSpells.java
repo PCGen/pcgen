@@ -59,21 +59,34 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 	private transient List theSpells = null;
 
+	/** Constructor */
 	public KitSpells()
 	{
 		// Empty Constructor
 	}
 
+	/**
+	 * Set the count formula
+	 * @param argCountFormula
+	 */
 	public void setCountFormula(final String argCountFormula)
 	{
 		countFormula = argCountFormula;
 	}
 
+	/**
+	 * Get the count formula
+	 * @return count formula
+	 */
 	public String getCountFormula()
 	{
 		return countFormula;
 	}
 
+	/**
+	 * Get classes
+	 * @return a list of the classes
+	 */
 	public List getClasses()
 	{
 		Set keySet = spellMap.keySet();
@@ -82,11 +95,24 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		return ret;
 	}
 
+	/**
+	 * Get the spell books
+	 * @param className
+	 * @return the spell books
+	 */
 	public List getSpellBooks(final String className)
 	{
 		return (List)spellMap.get(className);
 	}
 
+	/**
+	 * Add a spell
+	 * @param aClass
+	 * @param aSpellBook
+	 * @param argSpell
+	 * @param metamagicFeats
+	 * @param countStr
+	 */
 	public void addSpell(final String aClass, final String aSpellBook,
 						 final String argSpell, final List metamagicFeats,
 						 final String countStr)

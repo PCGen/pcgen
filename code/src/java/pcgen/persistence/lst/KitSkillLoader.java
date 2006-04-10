@@ -34,8 +34,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with loading skills via kit
+ */
 public class KitSkillLoader
 {
+	/**
+	 * Parse line
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{
@@ -58,7 +67,7 @@ public class KitSkillLoader
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			KitSkillLstToken token = (KitSkillLstToken) tokenMap.get(key);
 

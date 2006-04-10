@@ -24,28 +24,50 @@ package pcgen.core.kit;
 
 import java.util.*;
 
+/**
+ * Spell books for kits
+ */
 public class KitSpellBook// extends BaseKit
 {
 	private String className;
 	private String theName;
 	private HashMap theSpells = new HashMap();
 
+	/**
+	 * Constructor
+	 * @param aClassName
+	 * @param aName
+	 */
 	public KitSpellBook(final String aClassName, final String aName)
 	{
 		className = aClassName;
 		theName = aName;
 	}
 
+	/**
+	 * Get the name of the spell book
+	 * @return the name of the spell book
+	 */
 	public final String getName()
 	{
 		return theName;
 	}
 
+	/**
+	 * Get the spells in the spell book
+	 * @return the spells in the spell book
+	 */
 	public Collection getSpells()
 	{
 		return theSpells.values();
 	}
 
+	/**
+	 * Add a spell to the spell book
+	 * @param aSpell
+	 * @param metamagicList
+	 * @param countStr
+	 */
 	public void addSpell(final String aSpell, final List metamagicList,
 						 final String countStr)
 	{

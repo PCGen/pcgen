@@ -22,8 +22,6 @@ package pcgen.core.kit;
 
 import pcgen.core.PObject;
 
-import java.math.BigDecimal;
-
 /**
  * <code>KitWrapper</code>.
  *
@@ -32,11 +30,10 @@ import java.math.BigDecimal;
  */
 public final class KitWrapper
 {
-	private BigDecimal cost = null;
 	private Object obj = null;
 	private PObject aPObject = null;
+	// TODO This variable is never read
 	private boolean free = false;
-	private int qty = 1;
 
 	/**
 	 * Constructor

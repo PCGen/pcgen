@@ -579,27 +579,44 @@ final class KitSelector extends JFrame
 
 	private class KitListModel extends AbstractListModel
 	{
+		/**
+		 * Constructor
+		 * @param aList
+		 */
 		public KitListModel(final List aList)
 		{
 			theList = new ArrayList(aList);
 		}
+		
 		public Object getElementAt(int index)
 		{
 			return theList.get(index);
 		}
+		
 		public int getSize()
 		{
 			return theList.size();
 		}
+		
+		/**
+		 * Add an item to the list model
+		 * @param anObj
+		 */
 		public void addItem(Object anObj)
 		{
 			theList.add(anObj);
 			Collections.sort(theList);
 		}
+		
+		/**
+		 * Remove an item from hte list model
+		 * @param item
+		 */
 		public void removeItem(Object item)
 		{
 			theList.remove(item);
 		}
+		
 		private ArrayList theList = null;
 	}
 

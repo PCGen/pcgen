@@ -33,8 +33,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with loading start packs for kits
+ */
 public class KitStartpackLoader
 {
+	/**
+	 * Parse the line
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{

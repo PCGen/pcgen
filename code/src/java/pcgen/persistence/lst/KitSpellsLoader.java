@@ -36,8 +36,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Deals with loading Kit Spells
+ */
 public class KitSpellsLoader
 {
+	/**
+	 * Parse the line
+	 * @param kit
+	 * @param colString
+	 * @throws PersistenceLayerException
+	 */
 	public static void parseLine(Kit kit, String colString)
 			throws PersistenceLayerException
 	{
@@ -94,7 +103,7 @@ public class KitSpellsLoader
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			KitSpellsLstToken token = (KitSpellsLstToken) tokenMap.get(key);
 

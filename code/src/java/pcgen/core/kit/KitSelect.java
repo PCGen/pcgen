@@ -41,16 +41,28 @@ public final class KitSelect extends BaseKit implements Serializable, Cloneable
 
 	private String theFormula = "";
 
+	/**
+	 * Constructor
+	 * @param formula
+	 */
 	public KitSelect(final String formula)
 	{
 		theFormula = formula;
 	}
 
+	/**
+	 * Get formula
+	 * @return formula
+	 */
 	public String getFormla()
 	{
 		return theFormula;
 	}
 
+	/**
+	 * Set formula
+	 * @param aFormula
+	 */
 	public void setFormula(final String aFormula)
 	{
 		theFormula = aFormula;
