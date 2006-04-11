@@ -111,6 +111,17 @@ public class PObjectUtilities
 		return aList.indexOf(selectedValue);
 	}
 
+	/**
+	 * Deal with CHOOSE tag processing
+	 *
+	 * @param obj
+	 * @param availableList
+	 * @param selectedList
+	 * @param process
+	 * @param aPC
+	 * @param addIt
+	 * @return
+	 */
 	public static final boolean modChoices(
 			final PObject         obj,
 				  List            availableList,
@@ -1105,7 +1116,7 @@ public class PObjectUtilities
 
 						final List aavailableList = new ArrayList(); // available list of choices
 						final List sselectedList = new ArrayList(); // selected list of choices
-						anAbility.modChoices(aPC, true, availableList, selectedList, false);
+						anAbility.modChoices(aavailableList, sselectedList, false, aPC, true);
 
 						//
 						// Remove any that don't match
@@ -1339,7 +1350,7 @@ public class PObjectUtilities
 
 						final List xavailableList = new ArrayList(); // available list of choices
 						final List xselectedList = new ArrayList(); // selected list of choices
-						theAbility.modChoices(aPC, true, xavailableList, xselectedList, false);
+						theAbility.modChoices(xavailableList, xselectedList, false, aPC, true);
 
 						//
 						// Remove any that don't match

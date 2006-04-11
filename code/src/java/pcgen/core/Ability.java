@@ -742,27 +742,22 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Opens a Chooser to allow sub-choices for this ability. The actual items
-	 * allowed to choose from are based on choiceString, as applied to current
-	 * character. Choices already made (getAssociatedList) are indicated in the
-	 * selectedList
+	 * Deal with CHOOSE tags.   The actual items the choice will be made from are
+	 * based on this.choiceString, as applied to current character. Choices already
+	 * made (getAssociatedList) are indicated in the selectedList.  This method
+	 * always processes the choices.
 	 *
 	 * @param   aPC    The Player Character that we're opening the chooser for.
-	 * @param   addIt  gets passed on to the PObjectUtilities, has something to
-	 *                 do with whether or not we're adding an ability.
+	 * @param   addIt  Whether to add or remove a choice from this Ability.
 	 *
-	 * @return  opens a Chooser to allow sub-choices for this ability. The
-	 *          actual items allowed to choose from are based on choiceString,
-	 *          as applied to current character. Choices already made
-	 *          (getAssociatedList) are indicated in the selectedList
+	 * @return  true if the Ability was modified, false otherwise
 	 */
 	public boolean modChoices(final PlayerCharacter aPC, final boolean addIt)
 	{
 		final List availableList = new ArrayList(); // available list of choices
 		final List selectedList  = new ArrayList(); // selected list of choices
 
-		return PObjectUtilities.modChoices(
-				this,
+		return modChoices(
 				availableList,
 				selectedList,
 				true,
@@ -771,20 +766,27 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
+	 * Deal with CHOOSE tags. The actual items the choice will be made from are
+	 * based on this.choiceString, as applied to current character. Choices already
+	 * made (getAssociatedList) are indicated in the selectedList.  This method
+	 * may also be used to build a list of choices available and choices
+	 * already made by passing false in the process parameter 
 	 *
-	 * @param aPC
-	 * @param addIt
 	 * @param availableList
 	 * @param selectedList
 	 * @param process
-	 * @return modified choices
+	 * @param aPC
+	 * @param addIt
+	 * 
+	 * @return true if we processed the list of choices, false if we used the routine to
+	 * build the list of choices without processing them. 
 	 */
 	public boolean modChoices(
-		final PlayerCharacter aPC,
-		final boolean         addIt,
 		final List            availableList,
 		final List            selectedList,
-		final boolean         process)
+		final boolean         process,
+		final PlayerCharacter aPC,
+		final boolean         addIt)
 	{
 		return PObjectUtilities.modChoices(
 				this,
@@ -999,13 +1001,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			return false;
 		}
 
-		PObjectUtilities.modChoices(
-			anAbility,
-			abilityList,
-			selectedList,
-			false,
-			aPC,
-			true);
+		// build a list of available choices and choices already made.
+		anAbility.modChoices(
+				abilityList,
+				selectedList,
+				false,
+				aPC,
+				true);
 
 		final int currentSelections = selectedList.size();
 

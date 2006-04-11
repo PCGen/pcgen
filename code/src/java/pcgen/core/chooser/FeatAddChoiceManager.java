@@ -25,7 +25,6 @@ package pcgen.core.chooser;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -164,7 +163,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 
 						final List aavailableList = new ArrayList(); // available list of choices
 						final List sselectedList = new ArrayList(); // selected list of choices
-						anAbility.modChoices(aPc, true, aavailableList, sselectedList, false);
+						anAbility.modChoices(aavailableList, sselectedList, false, aPc, true);
 
 						//
 						// Remove any that don't match

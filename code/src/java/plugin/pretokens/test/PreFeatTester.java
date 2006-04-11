@@ -90,7 +90,8 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
                         final List availableList = new ArrayList();
                         final List selectedList = new ArrayList();
                         final String aChoiceString = aFeat.getChoiceString();
-                        PObjectUtilities.modChoices(aFeat, availableList, selectedList, false, character, true);
+                        
+                        aFeat.modChoices(availableList, selectedList, false, character, true);
                         availableList.clear();
 
                         if (subKeyIsType) // TYPE syntax

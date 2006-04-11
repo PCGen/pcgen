@@ -356,11 +356,11 @@ public class LevelAbilityAbility extends LevelAbility
 		    (choiceString.indexOf("COUNT=") < 0))
 		{
 			anAbility.modChoices(
-			    aPC,
-			    true,
 			    availableList,
 			    selectedList,
-			    false);
+			    false,
+			    aPC,
+			    true);
 		}
 		else
 		{
