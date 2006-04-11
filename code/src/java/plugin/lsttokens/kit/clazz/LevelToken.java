@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.clazz;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.lst.KitClassLstToken;
 
+/**
+ * LevelToken (a component of Kits)
+ */
 public class LevelToken implements KitClassLstToken
 {
 	public boolean parse(KitClass kitClass, String value)

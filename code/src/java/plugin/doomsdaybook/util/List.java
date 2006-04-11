@@ -29,11 +29,24 @@ public class List extends ArrayList implements DataElement
 		this(allVars, "", "", 1);
 	}
 
+	/**
+	 * Constructor
+	 * @param allVars
+	 * @param title
+	 * @param id
+	 */
 	public List(VariableHashMap allVars, String title, String id)
 	{
 		this(allVars, title, id, 1);
 	}
 
+	/**
+	 * Constructor
+	 * @param allVars
+	 * @param title
+	 * @param id
+	 * @param weight
+	 */
 	public List(VariableHashMap allVars, String title, String id, int weight)
 	{
 		this.allVars = allVars;
@@ -118,6 +131,10 @@ public class List extends ArrayList implements DataElement
 		return retList;
 	}
 
+	/**
+	 * Set the id of the list
+	 * @param id
+	 */
 	public void setId(String id)
 	{
 		this.id = id;
@@ -133,6 +150,10 @@ public class List extends ArrayList implements DataElement
 		return retList;
 	}
 
+	/**
+	 * Get the range
+	 * @return the range
+	 */
 	public int getRange()
 	{
 		int rangeTop = 0;
@@ -151,6 +172,10 @@ public class List extends ArrayList implements DataElement
 		return rangeTop;
 	}
 
+	/**
+	 * Set the title of the list
+	 * @param title
+	 */
 	public void setTitle(String title)
 	{
 		this.title = title;
@@ -161,6 +186,10 @@ public class List extends ArrayList implements DataElement
 		return title;
 	}
 
+	/**
+	 * Set the weight
+	 * @param weight
+	 */
 	public void setWeight(int weight)
 	{
 		this.weight = weight;

@@ -29,9 +29,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-//LENGTH.HAIR
+/**
+ * LENGTH.HAIR Token
+ */
 public class LengthToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "LENGTH";
 
 	/**
@@ -58,6 +61,11 @@ public class LengthToken extends Token
 		return retString;
 	}
 
+	/**
+	 * Get the hair length token
+	 * @param pc
+	 * @return the hair length token
+	 */
 	public static String getHairToken(PlayerCharacter pc)
 	{
 		return pc.getHairStyle();

@@ -29,6 +29,9 @@ import pcgen.core.kit.KitLevelAbility;
 import pcgen.persistence.lst.KitLevelAbilityLstToken;
 import pcgen.util.Logging;
 
+/**
+ * Level Ability token (a component of Kits)
+ */
 public class LevelAbilityToken implements KitLevelAbilityLstToken
 {
 	/**

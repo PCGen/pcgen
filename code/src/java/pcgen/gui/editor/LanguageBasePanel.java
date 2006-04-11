@@ -51,16 +51,30 @@ public class LanguageBasePanel extends BasePanel
 		initComponentContents();
 	}
 
+	/**
+	 * Set the list of available types
+	 * @param aList
+	 * @param sort
+	 */
 	public void setTypesAvailableList(final List aList, final boolean sort)
 	{
 		pnlLanguageType.setAvailableList(aList, sort);
 	}
 
+	/**
+	 * Set the list of selected types
+	 * @param aList
+	 * @param sort
+	 */
 	public void setTypesSelectedList(final List aList, final boolean sort)
 	{
 		pnlLanguageType.setSelectedList(aList, sort);
 	}
 
+	/**
+	 * Get the list of selected types
+	 * @return the list of selected types
+	 */
 	public Object[] getTypesSelectedList()
 	{
 		return pnlLanguageType.getSelectedList();

@@ -32,9 +32,12 @@ import pcgen.io.exporttoken.Token;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 
-//LANGUAGES.x
+/**
+ * LANGUAGES.x Token
+ */
 public class LanguagesToken extends Token
 {
+	/** Token Name */
 	public static final String TOKENNAME = "LANGUAGES";
 
 	/**
@@ -88,6 +91,12 @@ public class LanguagesToken extends Token
 		return langBuf.toString();
 	}
 
+	/**
+	 * Get the languages token
+	 * @param pc
+	 * @param languageIndex
+	 * @return the languages token
+	 */
 	public static String getLanguagesToken(PlayerCharacter pc, int languageIndex)
 	{
 		SortedSet languageSet = pc.getLanguagesList();

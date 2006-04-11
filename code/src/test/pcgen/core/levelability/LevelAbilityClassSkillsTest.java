@@ -39,12 +39,16 @@ import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
+/**
+ * Tests for Level Ability Class Skills
+ */
 public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 
 	PCClass pcClass;
 	Race    emptyRace = new Race();
     boolean firstTime = true;
-	/*
+
+    /*
 	 * @see TestCase#setUp()
 	 */
 	protected void setUp() throws Exception {
@@ -74,7 +78,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		super.tearDown();
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	public void testGetChoicesList1() {
@@ -108,7 +112,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		}
 	}
 
-	/*
+	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	public void testGetChoicesList2() {
@@ -146,7 +150,8 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			Logging.debugPrint("Ignoring Headless excpetion.");
 		}
 	}
-	/*
+	
+	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	public void testGetChoicesList3() {

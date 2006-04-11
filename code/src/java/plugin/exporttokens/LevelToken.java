@@ -35,9 +35,12 @@ import pcgen.io.exporttoken.Token;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
-//LEVEL
+/**
+ * LEVEL token
+ */
 public class LevelToken extends Token
 {
+	/** Token name */
 	public static final String TOKENNAME = "LEVEL";
 
 	/**
@@ -102,21 +105,45 @@ public class LevelToken extends Token
 		return retString;
 	}
 
+	/**
+	 * Get the level class name
+	 * @param pc
+	 * @param pcl
+	 * @return the level class name
+	 */
 	public static String getLevelClassName(PlayerCharacter pc, PCLevelInfo pcl)
 	{
 		return pcl.getClassKeyName();
 	}
 
+	/**
+	 * Get the level class level
+	 * @param pc
+	 * @param pcl
+	 * @return the level class level
+	 */
 	public static String getLevelClassLevel(PlayerCharacter pc, PCLevelInfo pcl)
 	{
 		return Integer.toString(pcl.getLevel());
 	}
 
+	/**
+	 * Get the list of feats for the level
+	 * @param pc
+	 * @param pcl
+	 * @return the list of feats for the level
+	 */
 	public static String getLevelFeatList(PlayerCharacter pc, PCLevelInfo pcl)
 	{
 		return "";
 	}
 
+	/**
+	 * Get the HP for the level
+	 * @param pc
+	 * @param pcl
+	 * @return the HP for the level
+	 */
 	public static String getLevelHP(PlayerCharacter pc, PCLevelInfo pcl)
 	{
 		String classKeyName = pcl.getClassKeyName();
@@ -136,6 +163,11 @@ public class LevelToken extends Token
 		return "";
 	}
 
+	/**
+	 * Get the skill points for the level
+	 * @param pcl
+	 * @return the skill points for the level
+	 */
 	public static String getLevelSkillPoints(PCLevelInfo pcl)
 	{
 		return Integer.toString(pcl.getSkillPointsGained());
