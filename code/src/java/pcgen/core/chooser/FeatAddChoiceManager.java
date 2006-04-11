@@ -164,7 +164,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 
 						final List aavailableList = new ArrayList(); // available list of choices
 						final List sselectedList = new ArrayList(); // selected list of choices
-						anAbility.modChoices(aPc, true, availableList, selectedList, false);
+						anAbility.modChoices(aPc, true, aavailableList, sselectedList, false);
 
 						//
 						// Remove any that don't match
@@ -226,80 +226,27 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 	}
 
 	/**
-	 * Apply the choices selected to the associated PObject (the one passed
-	 * to the constructor)
-	 * @param aPC
-	 * @param selected
-	 *
+	 * Associate a choice with the pobject.
+	 * 
+	 * @param aPc 
+	 * @param item the choice to associate
+	 * @param prefix 
 	 */
-	public void applyChoices(
-			PlayerCharacter  aPC,
-			List             selected)
+	protected void associateChoice(
+			final PlayerCharacter aPc,
+			final String          item,
+			final String          prefix)
 	{
-
-		pobject.clearAssociated();
-
-		String objPrefix = "";
-
-		if (pobject instanceof Domain)
+		super.associateChoice(aPc, item, prefix);
+		
+		if (anAbility != null)
 		{
-			objPrefix = chooserHandled + '?';
-		}
-
-		if (pobject instanceof Ability) {
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
-		}
-
-		for (int i = 0; i < selected.size(); ++i)
-		{
-			final String chosenItem = (String) selected.get(i);
-
-			if (multiples && !dupsAllowed)
+			if (!aPc.hasRealFeatNamed(item))
 			{
-				if (!pobject.containsAssociated(objPrefix + chosenItem))
-				{
-					pobject.addAssociated(objPrefix + chosenItem);
-				}
-			}
-			else
-			{
-				pobject.addAssociated(objPrefix + chosenItem);
+				aPc.adjustFeats(1);
 			}
 
-			if (anAbility != null)
-			{
-				if (!aPC.hasRealFeatNamed(chosenItem))
-				{
-					aPC.adjustFeats(1);
-				}
-
-				AbilityUtilities.modFeat(aPC, null, chosenItem, true, false);
-			}
-		}
-
-		double featCount = aPC.getFeats();
-		if (numberOfChoices > 0)
-		{
-			if (cost > 0)
-			{
-				featCount -= cost;
-			}
-		}
-		else
-		{
-			if (cost > 0)
-			{
-				featCount = ((maxSelections - selected.size()) * cost);
-			}
-		}
-
-		aPC.adjustFeats(featCount - aPC.getFeats());
-
-		// This will get assigned by autofeat (if a feat)
-
-		if (objPrefix.length() != 0)
-		{
-			aPC.setAutomaticFeatsStable(false);
+			AbilityUtilities.modFeat(aPc, null, item, true, false);
 		}
 	}
 
