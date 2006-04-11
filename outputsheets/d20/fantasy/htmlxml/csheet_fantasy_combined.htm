@@ -1074,11 +1074,14 @@ function HPPrint()
 		document.getElementById('HP').bgColor = 'LIGHTBLUE';
 	else
 		document.getElementById('HP').bgColor = "white";
-	document.getElementById('WP').innerHTML = AbArr[CONindex].tempvalue;
-	if ( AbArr[CONindex].val != AbArr[CONindex].tempvalue )
-		document.getElementById('WP').bgColor = 'LIGHTBLUE';
-	else
-		document.getElementById('WP').bgColor = "white";
+	// WP = Wound Points, not always there
+	if (document.getElementById('WP') != null) {
+		document.getElementById('WP').innerHTML = AbArr[CONindex].tempvalue;
+		if ( AbArr[CONindex].val != AbArr[CONindex].tempvalue )
+			document.getElementById('WP').bgColor = 'LIGHTBLUE';
+		else
+			document.getElementById('WP').bgColor = "white";
+	}
 }
 function RagePrint()
 {
