@@ -4666,6 +4666,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		{
 			return getExpandedWeaponProf(aPC).getName();
 		}
+		if (profName == null || profName.length() == 0)
+		{
+			return this.getName();
+		}		
 		return profName;
 	}
 
