@@ -4209,15 +4209,35 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		return associatedList.remove(i);
 	}
 
-	public final void removeBonus(String bonusString, final String chooseString, final PlayerCharacter aPC)
+	/**
+	 * Remove the bonus from this objects list of bonuses.
+	 * 
+	 * @param bonusString The string representing the bonus
+	 * @param chooseString The choice that was made.
+	 * @param aPC The player character to remove th bonus from. 
+	 */
+	public final void removeBonus(final String bonusString, final String chooseString, final PlayerCharacter aPC)
 	{
-		bonusString = makeBonusString(bonusString, chooseString, aPC);
+		String bonus = makeBonusString(bonusString, chooseString, aPC);
 
 		int index = -1;
 
+		final BonusObj aBonus = Bonus.newBonus(bonus);
+		String bonusStrRep = String.valueOf(aBonus);
+
 		if (getBonusList() != null)
 		{
-			index = getBonusList().indexOf(bonusString);
+			int count = 0;
+			for (Iterator iter = getBonusList().iterator(); iter.hasNext();)
+			{
+				BonusObj listBonus = (BonusObj) iter.next();
+				if (listBonus.getCreatorObject().equals(this)
+					&& listBonus.toString().equals(bonusStrRep))
+				{
+					index = count;
+				}
+				count++;
+			}
 		}
 
 		if (index >= 0)
@@ -4226,10 +4246,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 		else
 		{
-			Logging.errorPrint("removeBonus: Could not find bonus: " + bonusString + " in bonusList.");
+			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus + " in bonusList " + getBonusList());
 		}
 
-		removeSave("BONUS|" + bonusString);
+		removeSave("BONUS|" + bonus);
 	}
 
 	final void sortAssociated()

@@ -143,6 +143,32 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 	}
 
+	
+	/**
+	 * Test the function of adding a bonus each time an associated value is chosen.
+	 */
+	public void testAssociatedBonus()
+	{
+		Ability pObj = new Ability();
+		pObj.setName("My PObject");
+		
+		PlayerCharacter aPC  = getCharacter();
+		aPC.addFeat(pObj, null);
+
+		pObj.addAssociated("TestPsion 1");
+		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC);
+		aPC.calcActiveBonuses();
+		pObj.addAssociated("TestPsion 1");
+		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC);
+		aPC.calcActiveBonuses();
+		pObj.addAssociated("TestPsion 1");
+		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC);
+		aPC.calcActiveBonuses();
+		assertEquals("Should get 3 bonus known spells", 3, (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
+
+	}
+	
 	protected void setUp() throws Exception
 	{
 		super.setUp();

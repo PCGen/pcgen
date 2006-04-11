@@ -12078,7 +12078,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 						listindex++;
 
 						aList.add(ab.toString().toUpperCase());
-						if (aTok.countTokens() > 0 || listindex >= cnt)
+						
+						// If we have processed all of the entriues, or this is not 
+						// a LIST bonus, don't add any more copies.
+						if (aTok.countTokens() > 0 || listindex >= cnt
+							|| !bonusInfo.equals("LIST"))
 						{
 							break;
 						}

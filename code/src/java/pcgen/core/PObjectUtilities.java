@@ -497,6 +497,24 @@ public class PObjectUtilities
 				}
 			}
 		}
+		else if ("SPELLLEVEL".equals(choiceType))
+		{
+			// remove previous selections from bonuses
+			// aBonusList contains the bonuses
+			for (int e = 0; e < obj.getAssociatedCount(); ++e)
+			{
+				final String aString = obj.getAssociated(e);
+				
+				for (Iterator bonusIter = aBonusList.iterator(); bonusIter
+					.hasNext();)
+				{
+					String bonus = (String) bonusIter.next();
+					obj.removeBonus(bonus, aString, aPC);
+				}
+			}
+			obj.clearAssociated();
+			
+		}
 
 		if ("SKILLSNAMEDTOCSKILL".equals(choiceType))
 		{
@@ -525,7 +543,7 @@ public class PObjectUtilities
 			ability.clearCcSkills();
 		}
 
-		if (!"SPELLLIST".equals(choiceType))
+		if (!"SPELLLIST".equals(choiceType) && !"SPELLLEVEL".equals(choiceType))
 		{
 			obj.clearAssociated();
 		}
