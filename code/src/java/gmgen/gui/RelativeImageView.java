@@ -1517,6 +1517,10 @@ public class RelativeImageView extends View implements ImageObserver
 			}
 		}
 
+		/**
+		 * Reset the segment
+		 * @param text
+		 */
 		public void reset(String text)
 		{
 			segment = new Segment(text.toCharArray(), 0, text.length());

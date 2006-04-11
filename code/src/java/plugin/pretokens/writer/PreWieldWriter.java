@@ -37,6 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
+/**
+ * Performs the writing for the PREWIELD tag
+ */
 public class PreWieldWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

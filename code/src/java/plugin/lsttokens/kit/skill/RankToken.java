@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.skill;
 import pcgen.core.kit.KitSkill;
 import pcgen.persistence.lst.KitSkillLstToken;
 
+/**
+ * RANK token
+ */
 public class RankToken implements KitSkillLstToken
 {
 	/**

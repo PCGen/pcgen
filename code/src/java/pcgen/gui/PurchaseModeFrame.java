@@ -791,6 +791,9 @@ final class PurchaseModeFrame extends JDialog
 			throw new ArrayIndexOutOfBoundsException("Column index out of bounds: " + column);
 		}
 
+		/**
+		 * Copy the saved purchase mode to the current one
+		 */
 		public void copySavedToCurrent()
 		{
 			if (savedValues != null)
@@ -810,6 +813,9 @@ final class PurchaseModeFrame extends JDialog
 			}
 		}
 
+		/**
+		 * Initialise the values
+		 */
 		public void initValues()
 		{
 			// get the ability score costs from settings

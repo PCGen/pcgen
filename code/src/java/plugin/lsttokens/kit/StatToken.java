@@ -29,7 +29,6 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Kit;
 import pcgen.core.kit.KitStat;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
 
@@ -59,10 +58,8 @@ public class StatToken extends KitLstToken
 	 * @param value
 	 *            the token string
 	 * @return true if parse OK
-	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
 	{
 		KitStat stats = null;
 		// Remove the STAT:

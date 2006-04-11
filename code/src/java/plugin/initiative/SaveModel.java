@@ -40,10 +40,13 @@ public class SaveModel extends PObjectModel
 	/** Bonus segment position */
 	private static final int SEGMENT_POSITION_BONUS = 1;
 	
-	/** Applicable save types */
+	/** Save Type = NONE */
 	public static final String SAVE_TYPE_NONE = "NONE";
+	/** Save Type = FORTITUDE */
 	public static final String SAVE_TYPE_FORTITUDE = "FORTITUDE";
+	/** Save Type = REFLEX */
 	public static final String SAVE_TYPE_REFLEX = "REFLEX";
+	/** Save Type = WILL */
 	public static final String SAVE_TYPE_WILL = "WILL";
 	
 	/** Bonus value */

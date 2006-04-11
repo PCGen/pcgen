@@ -37,7 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
+/**
+ * Writes PREUATT token
+ */
 public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

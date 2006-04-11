@@ -41,6 +41,10 @@ import plugin.pretokens.parser.PreVariableParser;
  */
 public class PreVariableParserTest extends TestCase
 {
+	/**
+	 * Main
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreVariableParserTest.class);

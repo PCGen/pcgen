@@ -164,6 +164,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 			PlayerCharacter aPC,
 			List            selected)
 	{
+		// TODO Some work here?
 	}
 
 	/**
@@ -352,9 +353,9 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 			{
 				for (int j = 0; j < assocList.size(); ++j)
 				{
-					final FeatMultipleChoice fmc        = (FeatMultipleChoice) assocList
+					final FeatMultipleChoice featMultChoice        = (FeatMultipleChoice) assocList
 						.get(j);
-					final List               fmcChoices = fmc.getChoices();
+					final List               fmcChoices = featMultChoice.getChoices();
 
 					if (fmcChoices != null)
 					{

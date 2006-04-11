@@ -40,6 +40,12 @@ public final class ResizeColumnListener implements PropertyChangeListener
 	private boolean mouseIsDown = true;
 	private int colIndex;
 
+	/**
+	 * Constructor
+	 * @param fromTable
+	 * @param fromString
+	 * @param fromIndex
+	 */
 	public ResizeColumnListener(JTableEx fromTable, String fromString, int fromIndex)
 	{
 		table = fromTable;

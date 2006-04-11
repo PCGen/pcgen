@@ -39,7 +39,9 @@ import java.util.ResourceBundle;
  */
 public final class PropertyFactory
 {
+	/** Undefined Property */
 	public static final String UNDEFINED = " not defined.";
+    
     private static ResourceBundle bundle;
 
 	/**
@@ -50,6 +52,11 @@ public final class PropertyFactory
 		init();
 	}
 
+	/**
+	 * Get the Mnemonic
+	 * @param property
+	 * @return Mnemonic of the property
+	 */
 	public static char getMnemonic(String property)
 	{
 		return getMnemonic(property, '\0');

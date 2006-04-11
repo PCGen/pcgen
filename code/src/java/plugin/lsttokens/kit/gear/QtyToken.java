@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.lst.KitGearLstToken;
 
+/**
+ * QTY token for Kit GEAR
+ */
 public class QtyToken implements KitGearLstToken
 {
 	/**

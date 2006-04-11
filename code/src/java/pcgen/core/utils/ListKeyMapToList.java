@@ -38,61 +38,117 @@ public class ListKeyMapToList
 
 	private final HashMapToList map = new HashMapToList();
 
+	/** Constructor */
 	public ListKeyMapToList()
 	{
 		// Do Nothing
 	}
 
+	/**
+	 * Add all lists to the map
+	 * @param lcs
+	 */
 	public void addAllLists(ListKeyMapToList lcs)
 	{
 		map.addAllLists(lcs.map);
 	}
 
+	/**
+	 * @param key
+	 * @param list
+	 */
 	public void addAllToListFor(ListKey key, List list)
 	{
 		map.addAllToListFor(key, list);
 	}
 
+	/**
+	 * Add value to a list
+	 * @param key
+	 * @param value
+	 */
 	public void addToListFor(ListKey key, Object value)
 	{
 		map.addToListFor(key, value);
 	}
 
+	/**
+	 * Returns true if list contains a value for a key
+	 * @param key
+	 * @return true if list contains a value for a key
+	 */
 	public boolean containsListFor(ListKey key)
 	{
 		return map.containsListFor(key);
 	}
 
+	/**
+	 * Get a list for a key
+	 * @param key
+	 * @return list
+	 */
 	public List getListFor(ListKey key)
 	{
 		return map.getListFor(key);
 	}
 
+	/**
+	 * Get an element in the list
+	 * @param key
+	 * @param i
+	 * @return element in list
+	 */
 	public Object getElementInList(ListKey key, int i)
 	{
 		return map.getElementInList(key, i);
 	}
 
+	/**
+	 * Initialise the list for a given key
+	 * @param key
+	 */
 	public void initializeListFor(ListKey key)
 	{
 		map.initializeListFor(key);
 	}
 
+	/**
+	 * Remove an item from a list
+	 * @param key
+	 * @param value
+	 * @return true, removal ok
+	 */
 	public boolean removeFromListFor(ListKey key, Object value)
 	{
 		return map.removeFromListFor(key, value);
 	}
 
+	/**
+	 * Remove a list from a map
+	 * @param key
+	 * @return removed list
+	 */
 	public List removeListFor(ListKey key)
 	{
 		return map.removeListFor(key);
 	}
 
+	/**
+	 * Get size of a list
+	 * @param key
+	 * @return size
+	 */
 	public int sizeOfListFor(ListKey key)
 	{
 		return map.sizeOfListFor(key);
 	}
 
+	/**
+	 * True if value is in a list
+	 * @param key
+	 * @param value
+	 * @return True if value is in a list
+	 */
 	public boolean containsInList(ListKey key, String value)
 	{
 		return map.containsInList(key, value);

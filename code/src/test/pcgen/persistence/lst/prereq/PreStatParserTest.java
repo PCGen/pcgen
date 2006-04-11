@@ -41,6 +41,10 @@ import plugin.pretokens.parser.PreStatParser;
  */
 public class PreStatParserTest extends TestCase
 {
+	/**
+	 * Main
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreStatParserTest.class);
@@ -60,7 +64,7 @@ public class PreStatParserTest extends TestCase
 			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		}
 		catch(Exception e) {
-			
+			// TODO Deal with this
 		}
 	}
 

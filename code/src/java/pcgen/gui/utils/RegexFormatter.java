@@ -48,6 +48,7 @@ public class RegexFormatter extends DefaultFormatter
 
 	private Matcher matcher;
 
+	/** Constructor */
 	public RegexFormatter()
 	{
 		super();

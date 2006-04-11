@@ -247,11 +247,8 @@ public final class WieldCategory
 	 * Thus it should always return the best possible wield category
 	 * and never a "bad" wield category
 	 * @param aBump
-	 * @param wieldString
-	 * @param aSizeDiff
-	 * @param aHands
 	 * @return weild category step
-	 **/
+	 */
 	public WieldCategory getWieldCategoryStep(int aBump)
 	{
 		final String aKey = Integer.toString(aBump);
@@ -288,12 +285,12 @@ public final class WieldCategory
 	/**
 	 * Returns the STR damage multiplier for this wield category.
 	 *
-	 * @param hands number of hands the weapon is wielded with
+	 * @param numHands number of hands the weapon is wielded with
 	 * @return float the multiplier
 	 */
-	public float getDamageMult(int hands)
+	public float getDamageMult(int numHands)
 	{
-		Float ret = (Float) damageMultipliers.get(new Integer(hands));
+		Float ret = (Float) damageMultipliers.get(new Integer(numHands));
 		if (ret == null)
 		{
 			return 0.0f;

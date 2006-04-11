@@ -1173,9 +1173,9 @@ public class WeaponToken extends Token
 	{
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
-		WeaponProf wp = Globals.getWeaponProfNamed(eq.profName(pc));
 		int damageMode = DAMAGEMODE_NORMAL;
 		int hands = 1;
+		// TODO Never used
 		int wpHands = 1;
 
 		if (eq.isNatural() && (eq.getLocation() == Equipment.EQUIPPED_SECONDARY))
@@ -1348,7 +1348,6 @@ public class WeaponToken extends Token
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TOTALHIT;
-		WeaponProf wp = Globals.getWeaponProfNamed(eq.profName(pc));
 
 		// First do unarmed.
 		if (eq.isUnarmed())
@@ -2153,7 +2152,6 @@ public class WeaponToken extends Token
 	{
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
-		WeaponProf wp = Globals.getWeaponProfNamed(profName);
 
 		if (eq.isMelee() && (eq.isWeaponTwoHanded(pc)))
 		{

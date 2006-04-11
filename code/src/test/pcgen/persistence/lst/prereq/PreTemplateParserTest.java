@@ -35,7 +35,15 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
 
+/**
+ * Tests PRETEMPLATE parsing
+ */
 public class PreTemplateParserTest extends TestCase {
+	
+	/**
+	 * Main
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreTemplateParserTest.class);

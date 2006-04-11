@@ -37,7 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
+/**
+ * Write PRESPELL Token
+ */
 public class PreSpellWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

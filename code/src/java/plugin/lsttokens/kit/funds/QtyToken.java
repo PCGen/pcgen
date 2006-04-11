@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.funds;
 import pcgen.core.kit.KitFunds;
 import pcgen.persistence.lst.KitFundsLstToken;
 
+/**
+ * QTY Token
+ */
 public class QtyToken implements KitFundsLstToken
 {
 	/**

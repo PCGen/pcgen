@@ -36,6 +36,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
+/**
+ * Writes out PREVAR token
+ */
 public class PreVariableWriter implements PrerequisiteWriterInterface
 {
 

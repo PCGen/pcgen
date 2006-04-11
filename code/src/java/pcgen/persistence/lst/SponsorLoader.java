@@ -21,12 +21,13 @@ public class SponsorLoader extends LstLineFileLoader {
 	
 	/** Constructor */
 	public SponsorLoader() {
+		// Empty Constructor
 	}
 	
 	/**
 	 * Parses a line 
-	 * @param gameMode
 	 * @param lstLine
+	 * @param sourceURL
 	 * @throws PersistenceLayerException
 	 */
 	public void parseLine(String lstLine, URL sourceURL) throws PersistenceLayerException {
@@ -63,6 +64,11 @@ public class SponsorLoader extends LstLineFileLoader {
 		Globals.addSponsor(sponsor);
 	}
 	
+	/**
+	 * Get the converted file path
+	 * @param file
+	 * @return the converted file path
+	 */
 	public static String getConvertedSponsorPath(String file) {
 		String convertedPath = SettingsHandler.getPcgenSponsorDir().getAbsolutePath() + File.separator + file;
 		// Not a URL; make sure to fix the path syntax
@@ -79,7 +85,9 @@ public class SponsorLoader extends LstLineFileLoader {
 		{
 			return new URL("file:" + convertedPath).toString();
 		}
-		catch (MalformedURLException e) {}
+		catch (MalformedURLException e) {
+			// TODO Deal with Exception
+		}
 		return "";
 	}
 

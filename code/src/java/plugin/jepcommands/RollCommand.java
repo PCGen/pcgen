@@ -7,13 +7,12 @@ import org.nfunk.jep.ParseException;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
 
-//
-// eg. roll("10+d10")
-//
+/**
+ * eg. roll("10+d10") 
+ */
 public class RollCommand extends PCGenCommand {
-	/**
-	 * Constructor
-	 */
+	
+	/** Constructor */
 	public RollCommand() {
 		numberOfParameters = 1;
 	}

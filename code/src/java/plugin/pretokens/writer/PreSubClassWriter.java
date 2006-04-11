@@ -37,6 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
+/**
+ * Writes PRESUBCLASS Token
+ */
 public class PreSubClassWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

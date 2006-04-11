@@ -29,6 +29,9 @@ import pcgen.core.kit.KitProf;
 import pcgen.persistence.lst.KitProfLstToken;
 import pcgen.util.Logging;
 
+/**
+ * PROF Token part of Kit Prof Lst Token
+ */
 public class ProfToken implements KitProfLstToken
 {
 	/**

@@ -37,7 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
+/**
+ * Does the writing of the PREVISION token
+ */
 public class PreVisionWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

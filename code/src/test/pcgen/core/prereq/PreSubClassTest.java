@@ -45,6 +45,10 @@ import plugin.pretokens.test.PreSubClassTester;
  */
 public class PreSubClassTest extends AbstractCharacterTestCase
 {
+	/**
+	 * Main
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreSubClassTest.class);

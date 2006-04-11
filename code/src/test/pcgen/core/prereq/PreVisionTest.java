@@ -12,10 +12,16 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 
-
+/**
+ * Tests PREVISION token
+ */
 public class PreVisionTest extends AbstractCharacterTestCase
 {
 
+	/**
+	 * Main
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreVisionTest.class);

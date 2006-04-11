@@ -268,7 +268,11 @@ final class RollInfo
 		}
 	}
 
-	// Boy, does this need testing!
+	/**
+	 * Main method
+	 * Boy, does this need testing!
+	 * @param args 
+	 */
 	public static void main(final String[] args)
 	{
 		Logging.setDebugMode(true);
