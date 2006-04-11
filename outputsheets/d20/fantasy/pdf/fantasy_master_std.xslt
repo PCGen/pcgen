@@ -1840,9 +1840,9 @@
 	<xsl:template match="attack" mode="ranged_melee">
 		<!-- BEGIN Attack table -->
 		<fo:table table-layout="fixed" space-before="2mm">
-			<fo:table-column column-width="17mm"/>
+			<fo:table-column column-width="18mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="22mm"/>
+			<fo:table-column column-width="21mm"/>
 			<fo:table-column column-width="3mm"/>
 			<fo:table-column column-width="21mm"/>
 			<fo:table-column column-width="2mm"/>
@@ -4416,7 +4416,7 @@
 					<fo:inline font-style="italic">Caster Level: </fo:inline>
 					<xsl:value-of select="casterlevel"/>
 				</fo:block>
-			</fo:table-cell>			
+			</fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 	<!--
