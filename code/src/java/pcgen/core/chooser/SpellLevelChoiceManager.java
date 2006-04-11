@@ -125,20 +125,20 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 			PlayerCharacter aPc,
 			int             size)
 	{
-	
-		// remove previous selections from bonuses	
-		// aBonusList contains the bonuses	
-		for (int e = 0; e < obj.getAssociatedCount(); ++e)	
-		{	
-			final String aString = obj.getAssociated(e);	
+
+		// remove previous selections from bonuses
+		// aBonusList contains the bonuses
+		for (int e = 0; e < pobject.getAssociatedCount(); ++e)
+		{
+			final String aString = pobject.getAssociated(e);
 
 			for (Iterator bonusIter = aBonusList.iterator(); bonusIter.hasNext();)	
-			{	
-				String bonus = (String) bonusIter.next();	
-				obj.removeBonus(bonus, aString, aPC);	
-			}	
-		}	
-		obj.clearAssociated();	
+			{
+				String bonus = (String) bonusIter.next();
+				pobject.removeBonus(bonus, aString, aPc);
+			}
+		}
+		pobject.clearAssociated();
 	}
 
 	
