@@ -196,7 +196,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	private boolean   importing           = false;
 
 	// Should temp mods/bonuses be used/saved?
-	private boolean useTempMods = false;
+	private boolean useTempMods = true;
 
 	// Whether one can trust the most recently calculated virtualFeatList
 	private boolean virtualFeatsStable = false;
