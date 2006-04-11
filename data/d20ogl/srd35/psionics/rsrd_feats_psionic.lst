@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 19:54:05 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Apr 11 18:36:10 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -37,7 +37,7 @@ Body Fuel				TYPE:Psionic																													PRETEMPLATE:Psionic					DE
 Boost Construct			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Combat Manifestation		TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Deep Impact				TYPE:Psionic				PREATT:5							PREFEAT:1,Psionic Weapon										PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
-Expanded Knowledge		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=3																		PRETEMPLATE:Psionic					DESC:See Text			MULT:YES	STACK:Yes		CHOOSE:SPELLLEVEL|1|TYPE=Psionic|1|(MAXLEVEL-1)[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]													SOURCEPAGE:PsionicFeats.rtf
+Expanded Knowledge		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=3																		PRETEMPLATE:Psionic					DESC:See Text	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Psionic|1|(MAXLEVEL-1)[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]													SOURCEPAGE:PsionicFeats.rtf
 Fell Shot				TYPE:Psionic				PREATT:5							PREFEAT:2,Point Blank Shot,Psionic Shot								PRESTAT:1,DEX=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Focused Sunder			TYPE:Psionic												PREFEAT:2,Power Attack,Improved Sunder								PRESTAT:1,STR=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Ghost Attack			TYPE:Psionic				PREATT:3																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
