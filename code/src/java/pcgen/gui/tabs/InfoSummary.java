@@ -270,7 +270,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				if (!pcClass.isQualified(pc))
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getName() + ".",
-					    Constants.s_APPNAME, MessageType.ERROR);
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
@@ -334,32 +334,6 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			}
 		};
 
-	/**
-	 * The listener for when an item other than race gets the focus, so
-	 * we can ensure that the PC's race has been updated.
-	 */
-	private FocusAdapter nonRaceFocusListener = new FocusAdapter()
-		{
-			/**
-			 *  Update character's race when the user moves away from
-			 * the race combo box.
-			 *
-			 * @param  evt  The FocusEvent
-			 */
-			public void focusGained(FocusEvent evt)
-			{
-				// Check to ensure that the race has been set.
-				final Runnable doUpdate = new Runnable()
-					{
-						public void run()
-						{
-							updateRace();
-						}
-					};
-
-				SwingUtilities.invokeLater(doUpdate);
-			}
-		};
 
 	/**
 	 * The listener for when the PC name has been changed so the
@@ -477,7 +451,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	/**
 	 * InfoSummary default constructor.
-	 * @param pc
+	 * @param pc PlayerCharacter to display summary for.
 	 */
 	public InfoSummary(PlayerCharacter pc)
 	{
@@ -668,7 +642,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	/**
 	 * Add a Monster HD
-	 * @param direction
+	 * @param direction Specifies if we are adding or removing HD.
 	 */
 	public void addMonsterHD(int direction)
 	{
@@ -778,7 +752,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	/**
 	 * This method gets the number of stat points used in the pool
-	 * @param pc
+	 * @param pc The PlayerCharacter to get used stat pool for
 	 * @return used stat pool
 	 */
 	private static int getUsedStatPool(PlayerCharacter pc)
@@ -804,7 +778,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	/**
 	 * This method sets the text in the race description field based on the race
 	 * selected.
-	 * @param aRace
+	 * @param aRace Race to display info for
 	 */
 	private void setInfoLabelText(Race aRace)
 	{
@@ -881,7 +855,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			if (aRace.getFavoredClass().length() != 0)
 			{
 				b.append(" &nbsp;<b>").append("FAVORED CLASS:").append("</b>").append((!aRace.getFavoredClass().equals(".")) //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-4$
-				    ? aRace.getFavoredClass() : PropertyFactory.getString("in_sumVarious")); //$NON-NLS-1$
+					? aRace.getFavoredClass() : PropertyFactory.getString("in_sumVarious")); //$NON-NLS-1$
 			}
 
 			if (aRace.getLevelAdjustment(pc) > 0)
@@ -897,7 +871,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	/**
 	 * This method sets the text in the class description field based on the class
 	 * selected.
-	 * @param aClass
+	 * @param aClass Class to display info for.
 	 */
 	private void setInfoLabelText(PCClass aClass)
 	{
@@ -986,10 +960,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				int epicBonus = (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");//$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				if (epicBonus > 0)
 				{
-				    statBuf.append('+');//$NON-NLS-1$
-				    statBuf.append(epicBonus);
-				    statBuf.append('=');//$NON-NLS-1$
-				    statBuf.append(bonus + epicBonus);
+					statBuf.append('+');//$NON-NLS-1$
+					statBuf.append(epicBonus);
+					statBuf.append('=');//$NON-NLS-1$
+					statBuf.append(bonus + epicBonus);
 				}
 			}
 			statBuf.append(" <b>").append(Globals.getGameModeHPAbbrev()).append("</b>: ").append(pc.hitPoints()); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1036,7 +1010,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			if ((levels > 0) && (pc.getAlignment() == SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE)))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAnAlignmentBeforeAddingClasses"), Constants.s_APPNAME, //$NON-NLS-1$
-				    MessageType.ERROR);
+					MessageType.ERROR);
 
 				return;
 			}
@@ -1062,8 +1036,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		final PCClass aClass = pc.getClassNamed(theClass.getName());
 
 		if (!Globals.checkRule(RuleConstants.LEVELCAP) //$NON-NLS-1$
-		    && ((levels > theClass.getMaxLevel())
-		    || ((aClass != null) && ((aClass.getLevel() + levels) > aClass.getMaxLevel()))))
+			&& ((levels > theClass.getMaxLevel())
+			|| ((aClass != null) && ((aClass.getLevel() + levels) > aClass.getMaxLevel()))))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumMaximumLevelIs") + theClass.getMaxLevel(), Constants.s_APPNAME, MessageType.INFORMATION);
 
@@ -1074,11 +1048,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		if ((pc.getTotalLevels() == 0) && (levels > 0))
 		{
 			if (SettingsHandler.getGame().isPurchaseStatMode()
-			    && (pc.getPointBuyPoints() > getUsedStatPool(pc)))
+				&& (pc.getPointBuyPoints() > getUsedStatPool(pc)))
 			{
 				int proceed = JOptionPane.showConfirmDialog(this, PropertyFactory.getString("in_sumPoolWarning"), //$NON-NLS-1$
-					    PropertyFactory.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
-					    JOptionPane.WARNING_MESSAGE);
+						PropertyFactory.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
+						JOptionPane.WARNING_MESSAGE);
 
 				if (proceed != JOptionPane.YES_OPTION)
 				{
@@ -1088,7 +1062,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			else if (SettingsHandler.isShowWarningAtFirstLevelUp())
 			{
 				final JCheckBox shouldDisplay = new JCheckBox(PropertyFactory.getString(
-					        "in_sumAbilitiesWarningCheckBox"), true); //$NON-NLS-1$
+							"in_sumAbilitiesWarningCheckBox"), true); //$NON-NLS-1$
 				shouldDisplay.addItemListener(new ItemListener()
 					{
 						public void itemStateChanged(ItemEvent evt)
@@ -1098,11 +1072,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					});
 
 				JPanel msgPanel = buildMessageLabelPanel(PropertyFactory.getString("in_sumAbilitiesWarning"), //$NON-NLS-1$
-					    shouldDisplay);
+						shouldDisplay);
 
 				int proceed = JOptionPane.showConfirmDialog(this, msgPanel,
-					    PropertyFactory.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
-					    JOptionPane.WARNING_MESSAGE);
+						PropertyFactory.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
+						JOptionPane.WARNING_MESSAGE);
 
 				if (proceed != JOptionPane.YES_OPTION)
 				{
@@ -1333,8 +1307,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		if (unqualified.length() > 0)
 		{
 			if (JOptionPane.showConfirmDialog(null,
-			        PropertyFactory.getString("in_sumExClassesWarning") + Constants.s_LINE_SEP + unqualified, //$NON-NLS-1$
-			        Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
+					PropertyFactory.getString("in_sumExClassesWarning") + Constants.s_LINE_SEP + unqualified, //$NON-NLS-1$
+					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
 				pc.setAlignment(oldAlignment, false, true);
 				alignmentComboBox.setSelectedIndex(oldAlignment);
@@ -1437,7 +1411,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	/**
 	 * This method enables the race controls that make changes to the character
-	 * @param enable
+	 * @param enable true if controls should be enabled.
 	 */
 	private void enableRaceControls(boolean enable)
 	{
@@ -1453,7 +1427,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	/**
 	 * This method enables the class controls that make changes to the character
-	 * @param enable
+	 * @param enable true if controls should be enabled
 	 */
 	private void enableClassControls(boolean enable)
 	{
@@ -2086,7 +2060,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		else
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumClassKindErrMsg"), Constants.s_APPNAME, //$NON-NLS-1$
-			    MessageType.ERROR);
+				MessageType.ERROR);
 		}
 
 		final PCClass pcSelectedClass = (PCClass) classComboBox.getSelectedItem();
@@ -2127,15 +2101,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		raceComboBox.addActionListener(raceListener);
 		raceComboBox.addFocusListener(raceFocusListener);
 		classComboBox.addActionListener(classListener);
-		classComboBox.addFocusListener(nonRaceFocusListener);
 		tabNameText.addFocusListener(tabNameAdapter);
 		playerNameText.addFocusListener(playerNameAdapter);
-		levelText.addFocusListener(nonRaceFocusListener);
 		lvlDownButton.addActionListener(levelCmdListener);
-		lvlDownButton.addFocusListener(nonRaceFocusListener);
 		lvlUpButton.addActionListener(levelCmdListener);
-		lvlUpButton.addFocusListener(nonRaceFocusListener);
-		statTable.addFocusListener(nonRaceFocusListener);
 
 		if (!SettingsHandler.isAbilitiesShownAsATab() && (abilitiesButton != null))
 		{
@@ -2148,7 +2117,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * If the requested change is valid based on the rules mode selected,
 	 * it performs the update on the character stat and forces the rest of
 	 * the connected items to update.
-	 * @param evt
+	 * @param evt The MouseEvent we are processing
 	 **/
 	private void statTableMouseClicked(MouseEvent evt)
 	{
@@ -2200,7 +2169,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + Integer.toString(aStat.getMaxValue()), Constants.s_APPNAME,
-						    MessageType.ERROR);
+							MessageType.ERROR);
 					}
 				}
 				else if ((pcPlayerLevels < 2) && (stat >= SettingsHandler.getGame().getPurchaseScoreMax(pc)) && isPurchaseMode)
@@ -2208,8 +2177,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + SettingsHandler.getGame().getStatDisplayText(SettingsHandler.getGame().getPurchaseScoreMax(pc)) + IN_PURCHASE_MODE,
-						    Constants.s_APPNAME,
-						    MessageType.ERROR);
+							Constants.s_APPNAME,
+							MessageType.ERROR);
 					}
 				}
 				else
@@ -2257,7 +2226,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + Integer.toString(aStat.getMinValue()), Constants.s_APPNAME,
-						    MessageType.ERROR);
+							MessageType.ERROR);
 					}
 				}
 				else if (pc.isNonAbility(selectedStat))
@@ -2272,7 +2241,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + SettingsHandler.getGame().getStatDisplayText(minPurchaseScore) + IN_PURCHASE_MODE, Constants.s_APPNAME,
-						    MessageType.ERROR);
+							MessageType.ERROR);
 					}
 				}
 				else
@@ -2385,15 +2354,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		raceComboBox.removeActionListener(raceListener);
 		raceComboBox.removeFocusListener(raceFocusListener);
 		classComboBox.removeActionListener(classListener);
-		classComboBox.removeFocusListener(nonRaceFocusListener);
 		tabNameText.removeFocusListener(tabNameAdapter);
 		playerNameText.removeFocusListener(playerNameAdapter);
-		levelText.removeFocusListener(nonRaceFocusListener);
 		lvlDownButton.removeActionListener(levelCmdListener);
-		lvlDownButton.removeFocusListener(nonRaceFocusListener);
 		lvlUpButton.removeActionListener(levelCmdListener);
-		lvlUpButton.removeFocusListener(nonRaceFocusListener);
-		statTable.removeFocusListener(nonRaceFocusListener);
 
 		if (!SettingsHandler.isAbilitiesShownAsATab() && (abilitiesButton != null))
 		{
@@ -2538,8 +2502,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				if ((pcPlayerLevels <= maxDiddleLevel) && (availablePool > 0) && (usedStatPool > availablePool))
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouHaveExcededTheMaximumPointsOf") + availablePool + PropertyFactory.getString("in_sumAsSpecifiedByTheMethod") //$NON-NLS-1$ //$NON-NLS-2$
-                    + SettingsHandler.getGame().getPurchaseModeMethodName() + "\"",
-					    Constants.s_APPNAME, MessageType.INFORMATION);
+					+ SettingsHandler.getGame().getPurchaseModeMethodName() + "\"",
+						Constants.s_APPNAME, MessageType.INFORMATION);
 				}
 			}
 		}
@@ -2611,7 +2575,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			}
 
 			poolLabel.setText(PropertyFactory.getString("in_sumStatTotal") + Integer.toString(statTotal) + PropertyFactory.getString("in_sumModifierTotal") //$NON-NLS-1$ //$NON-NLS-2$
-			    + Integer.toString(modTotal));
+				+ Integer.toString(modTotal));
 			poolText.setText(""); //$NON-NLS-1$
 		}
 	}
@@ -2839,7 +2803,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		/**
 		 * return a boolean to indicate if the item should be included in the list.
 		 * Only Weapon, Armor and Shield type items should be checked for proficiency.
-		 * @param aClass
+		 * @param aClass The Class we are testing
 		 * @return true if it should be displayed
 		 */
 		private boolean shouldDisplayThis(final PCClass aClass)
@@ -2957,7 +2921,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		}
 
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-		    boolean hasFocus, int row, int column)
+			boolean hasFocus, int row, int column)
 		{
 			if (column == INC_COLUMN)
 			{
@@ -3077,14 +3041,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				else if (statVal < aStat.getMinValue())
 				{
 					ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + SettingsHandler.getGame().getStatDisplayText(aStat.getMinValue()), Constants.s_APPNAME,
-					    MessageType.ERROR);
+						MessageType.ERROR);
 
 					return;
 				}
 				else if (statVal > aStat.getMaxValue())
 				{
 					ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + SettingsHandler.getGame().getStatDisplayText(aStat.getMaxValue()), Constants.s_APPNAME,
-					    MessageType.ERROR);
+						MessageType.ERROR);
 
 					return;
 				}
@@ -3095,7 +3059,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					if (statVal > maxPurchaseScore)
 					{
 						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + SettingsHandler.getGame().getStatDisplayText(maxPurchaseScore) + IN_PURCHASE_MODE, Constants.s_APPNAME,
-						    MessageType.ERROR);
+							MessageType.ERROR);
 
 						return;
 					}
@@ -3105,7 +3069,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					if (statVal < minPurchaseScore)
 					{
 						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + SettingsHandler.getGame().getStatDisplayText(minPurchaseScore) + IN_PURCHASE_MODE, Constants.s_APPNAME,
-						    MessageType.ERROR);
+							MessageType.ERROR);
 
 						return;
 					}
@@ -3154,7 +3118,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				updatePool(true);
 				if (rowIndex == BASE_COLUMN)
 				{
-				    // TODO This if switch currently does nothing?
+					// TODO This if switch currently does nothing?
 				}
 			}
 		}
@@ -3205,7 +3169,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					int iRace = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
 					return new Integer(pc.getStatList().getTotalStatFor(aStat)
-					    - pc.getStatList().getBaseStatFor(aStat) - iRace);
+						- pc.getStatList().getBaseStatFor(aStat) - iRace);
 
 				case TOTAL_COLUMN:
 
@@ -3277,54 +3241,54 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		return 0;
 	}
 
-    class ClassComboBoxRenderer extends JLabel implements ListCellRenderer
-    {
+	class ClassComboBoxRenderer extends JLabel implements ListCellRenderer
+	{
 
-        /**
-         * Constructor
-         */
-    	public ClassComboBoxRenderer()
-        {
-            setOpaque(true);
-        }
+		/**
+		 * Constructor
+		 */
+		public ClassComboBoxRenderer()
+		{
+			setOpaque(true);
+		}
 
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
-        {
-            if (value != null) {
-	            final PCClass aClass = (PCClass)value;
-	            setText(aClass.getName());
-	            if (isSelected)
-	            {
-	                if (aClass.isQualified(pc)) {
-		                setBackground(list.getSelectionBackground());
-		                setForeground(list.getSelectionForeground());
-	                }
-	                else {
-		                setBackground(Color.RED);
-		                setForeground(list.getSelectionForeground());
-	                }
-	            }
-	            else
-	            {
-	                if (aClass.isQualified(pc)) {
-		                setBackground(list.getBackground());
-		                setForeground(list.getForeground());
-	                }
-	                else {
-		                setBackground(list.getBackground());
-	                    setForeground(Color.RED);
-	                }
-	            }
-            }
+		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+		{
+			if (value != null) {
+				final PCClass aClass = (PCClass)value;
+				setText(aClass.getName());
+				if (isSelected)
+				{
+					if (aClass.isQualified(pc)) {
+						setBackground(list.getSelectionBackground());
+						setForeground(list.getSelectionForeground());
+					}
+					else {
+						setBackground(Color.RED);
+						setForeground(list.getSelectionForeground());
+					}
+				}
+				else
+				{
+					if (aClass.isQualified(pc)) {
+						setBackground(list.getBackground());
+						setForeground(list.getForeground());
+					}
+					else {
+						setBackground(list.getBackground());
+						setForeground(Color.RED);
+					}
+				}
+			}
 
-            return this;
-        }
-    }
+			return this;
+		}
+	}
 
 	/**
 	 * Update the displayed list of tasks to be done to complete the
 	 * current character.
-	 * @param todoList
+	 * @param todoList The list of TODOs we are adding to
 	 */
 	public void setToDoList(List todoList)
 	{
