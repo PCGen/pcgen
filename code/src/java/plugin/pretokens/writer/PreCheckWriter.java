@@ -37,6 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
+/**
+ * Writer for PRECHECK
+ */
 public class PreCheckWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

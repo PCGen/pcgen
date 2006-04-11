@@ -11,6 +11,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
+
 /**
  * @author wardc
  *
@@ -19,11 +20,10 @@ import pcgen.core.prereq.PrerequisiteTest;
  */
 public class PreCheckTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
 
+	/** Constructor */
 	public PreCheckTester() {
 		super();
 	}
-
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
@@ -31,7 +31,6 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 	public String kindHandled() {
 		return "CHECK"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)

@@ -6,9 +6,9 @@ import org.nfunk.jep.ParseException;
 
 import pcgen.util.PCGenCommand;
 
-//
-// eg. max(12.6, 20) --> 20
-//
+/**
+ * Deal with max() JEP command eg. max(12.6, 20) --> 20
+ */
 public class MaxCommand extends PCGenCommand {
 	/**
 	 * <p>

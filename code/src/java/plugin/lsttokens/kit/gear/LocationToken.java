@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.lst.KitGearLstToken;
 
+/**
+ * LOCATION Token for Kit Gears
+ */
 public class LocationToken implements KitGearLstToken
 {
 	/**

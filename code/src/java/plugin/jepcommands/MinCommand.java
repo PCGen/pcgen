@@ -6,16 +6,16 @@ import org.nfunk.jep.ParseException;
 
 import pcgen.util.PCGenCommand;
 
-//
-//eg. min(12.6, 20) --> 12.6
-//
+/**
+ * Deal with min JEP command eg. min(12.6, 20) --> 12.6
+ */
 public class MinCommand extends PCGenCommand {
+	
 	/**
 	 * <p>
 	 * Initializes the number of parameters to = -1, indicating a variable
 	 * number of parameters.
 	 * </p>
-	 *
 	 */
 	public MinCommand() {
 		super();

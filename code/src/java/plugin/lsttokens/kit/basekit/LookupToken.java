@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.basekit;
 import pcgen.core.kit.BaseKit;
 import pcgen.persistence.lst.BaseKitLstToken;
 
+/**
+ * LOOKUP token for base kits
+ */
 public class LookupToken implements BaseKitLstToken
 {
 	/**

@@ -37,6 +37,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
+/**
+ * Writer for PREBIRTH
+ */
 public class PreBirthPlaceWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 

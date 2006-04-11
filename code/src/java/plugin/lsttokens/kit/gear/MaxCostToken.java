@@ -28,6 +28,9 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.lst.KitGearLstToken;
 
+/**
+ * MAXCOST token for KIT Gear
+ */
 public class MaxCostToken implements KitGearLstToken
 {
 	/**

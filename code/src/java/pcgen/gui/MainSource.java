@@ -969,7 +969,8 @@ public class MainSource extends FilterAdapterPanel
 	/**
 	 * Build the panel with the controls to add a spell to a 
 	 * prepared list.
-	 *  
+	 * @param button 
+	 * @param title
 	 * @return The panel.
 	 */
 	private JPanel buildModSpellPanel(JButton button, String title)
@@ -1129,6 +1130,9 @@ public class MainSource extends FilterAdapterPanel
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(campaignStrings);
 	}
 
+	/**
+	 * Reset the UI
+	 */
 	public void resetUI() {
 		infoLabel.setBackground(bLeftPane.getBackground());
 	}

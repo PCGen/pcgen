@@ -53,6 +53,10 @@ public class LstUtils {
 		}
 	}
 	
+	/**
+	 * Log the deprecation warning
+	 * @param warning
+	 */
 	public static void deprecationWarning(String warning) {
 		Logging.errorPrint(warning);
 	}

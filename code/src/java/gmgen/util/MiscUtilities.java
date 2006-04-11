@@ -24,7 +24,6 @@
 package gmgen.util;
 
 import pcgen.core.Globals;
-import pcgen.util.Logging;
 
 import javax.swing.JOptionPane;
 import java.awt.Color;

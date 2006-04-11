@@ -28,15 +28,23 @@
  */
 package pcgen.core.utils;
 
-
-
+/**
+ * A Wrapper for messages in the PCGen System
+ */
 public class MessageWrapper {
+
 	private Object message;
 	private String title;
 	private MessageType messageType;
 	private Object parent;
 
-
+	/**
+	 * Constructor
+	 * @param message
+	 * @param title
+	 * @param messageType
+	 * @param parent
+	 */
 	public MessageWrapper(final Object message, final String title, final MessageType messageType, final Object parent) {
 		super();
 		this.message = message;
@@ -45,6 +53,12 @@ public class MessageWrapper {
 		this.parent = parent;
 	}
 
+	/**
+	 * Constructor
+	 * @param message
+	 * @param title
+	 * @param messageType
+	 */
 	public MessageWrapper(final Object message, final String title, final MessageType messageType) {
 		super();
 		this.message = message;
@@ -52,7 +66,6 @@ public class MessageWrapper {
 		this.messageType = messageType;
 		this.parent = null;
 	}
-
 
 	/**
 	 * @return Returns the message.

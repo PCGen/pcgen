@@ -363,6 +363,9 @@ public class MeleeWeaponPane extends javax.swing.JPanel {
 	private javax.swing.JLabel toHit2wpol;
 	// End of variables declaration//GEN-END:variables
 
+	/**
+	 * Set color
+	 */
 	public void setColor() {
 		setBackground(CharacterPanel.border);
 		setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
@@ -422,12 +425,20 @@ public class MeleeWeaponPane extends javax.swing.JPanel {
 		jPanel57.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
 	}
 
+	/**
+	 * Set the weapon
+	 * @param pc
+	 * @param eq
+	 */
 	public void setWeapon(PlayerCharacter pc, Equipment eq) {
 		this.pc = pc;
 		this.eq = eq;
 		refresh();
 	}
 
+	/**
+	 * Refresh the panel
+	 */
 	public void refresh() {
 		if(eq.isMelee() && !eq.isNatural()) {
 			damage1ho.setText(WeaponToken.getOHDamageToken(pc, eq, false));
