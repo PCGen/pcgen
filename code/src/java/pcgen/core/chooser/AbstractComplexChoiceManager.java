@@ -362,7 +362,10 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 * @param aPC
 	 * @param selected
 	 */
-	protected void adjustFeats(PlayerCharacter aPC, List selected) {
+	protected void adjustFeats(
+			PlayerCharacter aPC,
+			List            selected)
+	{
 		double featCount = aPC.getFeats();
 	
 		if (cost > 0)
