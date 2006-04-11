@@ -5594,11 +5594,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		if (eq.isShield())
 		{
-			return isProficientWithShield(eq);
+			final ArrayList aList = getShieldProfList();
+			return isProficientWith(eq, aList);
 		}
 		else if (eq.isArmor())
 		{
-			return isProficientWithArmor(eq);
+			final ArrayList aList = getArmorProfList();
+			return isProficientWith(eq, aList);
 		}
 		else if (eq.isWeapon())
 		{
@@ -9919,7 +9921,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			final Equipment eq = (Equipment) e.next();
 
-			if ((eq != null) && (!isProficientWithShield(eq)))
+			if ((eq != null) && (!isProficientWith(eq)))
 			{
 				bonus += eq.acCheck(this).intValue();
 			}
@@ -11824,41 +11826,36 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return iBonus;
 	}
 
-	private boolean isProficientWithArmor(final Equipment eq)
+	private boolean isProficientWith(final Equipment eq, final List aList)
 	{
-		final ArrayList aList = getArmorProfList();
-
 		// First, check to see if fits into any TYPE granted
 		for (int i = 0; i < aList.size(); ++i)
 		{
 			final String aString = aList.get(i).toString();
 
-			if ((aString.startsWith("TYPE=") || aString.startsWith("TYPE.")) && eq.isType(aString.substring(5)))
+			if ((aString.startsWith("TYPE=") || aString.startsWith("TYPE.")))
 			{
-				return true;
+				int matches = 0;
+				final StringTokenizer tok = new StringTokenizer(aString.substring(5), ".");
+				final int minMatches = tok.countTokens();
+				while (tok.hasMoreTokens())
+				{
+					final String aType = tok.nextToken();
+					if (eq.isType(aType))
+					{
+						matches++;
+					}
+				}
+				// We have to match all the tokens.
+				if (matches == minMatches)
+				{
+					return true;
+				}
 			}
-		}
-
-		return aList.contains(eq.profName(this));
-	}
-
-	private boolean isProficientWithShield(final Equipment eq)
-	{
-		final ArrayList aList = getShieldProfList();
-
-		// First, check to see if fits into any TYPE granted
-		for (int i = 0; i < aList.size(); ++i)
-		{
-			final String aString = aList.get(i).toString();
-
-			if (!aString.startsWith("TYPE=") && !aString.startsWith("TYPE."))
+			else
 			{
+				// All TYPE profs are at the begining of the list
 				break;
-			}
-
-			if (eq.isType(aString.substring(5)))
-			{
-				return true;
 			}
 		}
 
