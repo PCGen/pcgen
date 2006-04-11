@@ -107,14 +107,41 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 
 		// get appropriate choices for chooser
 		ChooserUtilities.buildSpellTypeChoices(
-		    availableList,
-		    uniqueList,
-		    aPc,
-		    choicesTok);
+			availableList,
+			uniqueList,
+			aPc,
+			choicesTok);
 
 		pobject.addAssociatedTo(selectedList);
 	}
 
+	/**
+	 * Perform any necessary clean up of the associated property of pobject.
+	 *
+	 * @param aPc
+	 * @param size
+	 */
+	protected void cleanUpAssociated(
+			PlayerCharacter aPc,
+			int             size)
+	{
+	
+		// remove previous selections from bonuses	
+		// aBonusList contains the bonuses	
+		for (int e = 0; e < obj.getAssociatedCount(); ++e)	
+		{	
+			final String aString = obj.getAssociated(e);	
+
+			for (Iterator bonusIter = aBonusList.iterator(); bonusIter.hasNext();)	
+			{	
+				String bonus = (String) bonusIter.next();	
+				obj.removeBonus(bonus, aString, aPC);	
+			}	
+		}	
+		obj.clearAssociated();	
+	}
+
+	
 	/**
 	 * Associate a choice with the pobject.  Only here so we can override part
 	 * of the behaviour of applyChoices
