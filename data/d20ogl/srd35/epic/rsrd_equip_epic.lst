@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Wed Apr 12 01:19:39 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 
@@ -149,24 +149,24 @@ Circlet of Eyes	TYPE:Magic.Wondrous.Headgear	COST:120000	WT:0		SOURCEPAGE:EpicMo
 
 ###Block: Artifacts
 #minor
-# Equipment Name				Required Proficiency				Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Size		Source Page				Stat bonus
-Everfull Purse											TYPE:Artifact.Minor											COST:0	WT:0.5																											SOURCEPAGE:epicArtifacts.rtf
-Libram of Gainful Conjuration									TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Libram of Ineffable Damnation									TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Libram of Silver Magic										TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Manual of Puissant Skill at Arms								TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Manual of Stealthly Pilfering									TYPE:Artifact.Minor											COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Rogue's Dice											TYPE:Artifact.Minor											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+# Equipment Name				Required Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Size		Source Page				Stat bonus					Weapon prop. bonus
+Everfull Purse									TYPE:Artifact.Minor												COST:0	WT:0.5																											SOURCEPAGE:epicArtifacts.rtf
+Libram of Gainful Conjuration							TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Libram of Ineffable Damnation							TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Libram of Silver Magic								TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Manual of Puissant Skill at Arms						TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Manual of Stealthly Pilfering							TYPE:Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
+Rogue's Dice									TYPE:Artifact.Minor												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 
 #major
-Axe of the Dwarvish Lords		PROFICIENCY:Waraxe (Dwarven)			TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.STEEL.PLUS_6_WEAP.THROW	WIELD:TwoHanded	SIZE:M	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:Dwarf%
-Codex of the Infinite Planes									TYPE:Artifact.Major											COST:0	WT:100																											SOURCEPAGE:epicArtifacts.rtf
-Cup of the Demigod										TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Talisman of the Demigod										TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Eye of the Orc											TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Golem Armor												TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Invulnerable Coat											TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Iron Gauntlet of War										TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Ring of Nine Facets										TYPE:Artifact.Major.Ring										COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Axe of the Dwarvish Lords		PROFICIENCY:Waraxe (Dwarven)	TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.STEEL.PLUS_6_WEAP.THROW	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:Dwarf%	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))
+Codex of the Infinite Planes							TYPE:Artifact.Major												COST:0	WT:100																											SOURCEPAGE:epicArtifacts.rtf
+Cup of the Demigod								TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Talisman of the Demigod								TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Eye of the Orc									TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Golem Armor										TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Invulnerable Coat									TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Iron Gauntlet of War								TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Ring of Nine Facets								TYPE:Artifact.Major.Ring											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 
 
