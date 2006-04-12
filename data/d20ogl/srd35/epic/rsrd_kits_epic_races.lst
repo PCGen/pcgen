@@ -420,7 +420,7 @@ STARTPACK:Default Behemoth (Gorilla)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRER
 RACE:Behemoth (Gorilla)	!PRERACE:%
 NAME:Behemoth (Gorilla)
 ALIGN:TN
-SKILL:Climb			RANK:32
+SKILL:Climb			RANK:24
 SKILL:Balance		RANK:24
 SKILL:Intimidate		RANK:24
 SKILL:Move Silently	RANK:24
@@ -440,12 +440,13 @@ STARTPACK:Default Brachyurus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[
 RACE:Brachyurus	!PRERACE:%
 NAME:Brachyurus
 SKILL:Jump			RANK:21
-SKILL:Hide			RANK:45
+SKILL:Hide			RANK:41
 SKILL:Listen		RANK:41
 SKILL:Move Silently	RANK:41
 SKILL:Spot			RANK:41
 SKILL:Survival		RANK:41
 FEAT:Alertness
+FEAT:Blinding Speed
 FEAT:Blinding Speed
 FEAT:Great Fortitude
 FEAT:Improved Bull Rush
@@ -546,9 +547,14 @@ SKILL:Listen	RANK:45
 SKILL:Spot		RANK:54
 FEAT:Alertness
 FEAT:Blinding Speed
+FEAT:Blinding Speed
 FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Epic Prowess
+FEAT:Epic Prowess
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Epic Will
 FEAT:Flyby Attack
@@ -573,6 +579,13 @@ FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Devastating Critical(Slam)
 FEAT:Epic Prowess
+FEAT:Epic Prowess
+FEAT:Epic Prowess
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Epic Will
 FEAT:Great Cleave
@@ -596,6 +609,10 @@ FEAT:Combat Reflexes
 FEAT:Dire Charge
 FEAT:Dodge
 FEAT:Epic Prowess
+FEAT:Epic Prowess
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Epic Will
 FEAT:Great Fortitude
@@ -622,6 +639,12 @@ FEAT:Combat Reflexes
 FEAT:Devastating Critical(Slam)
 FEAT:Dodge
 FEAT:Epic Prowess
+FEAT:Epic Prowess
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Epic Will
 FEAT:Great Cleave
