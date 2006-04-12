@@ -19,37 +19,37 @@ COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyr
 COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
 
 
-CLASS:msrd_arcana_basics_classes_advanced.lst
-CLASS:msrd_arcana_basics_classes_prestige.lst
-EQUIPMENT:msrd_arcana_basics_equip_organizations.lst
-EQUIPMENT:msrd_arcana_basics_equip.lst
-EQUIPMENT:msrd_arcana_basics_equip_armorshields.lst
-EQUIPMENT:msrd_arcana_basics_equip_vehicles.lst
-EQUIPMENT:msrd_arcana_basics_equip_weap_melee.lst
-EQUIPMENT:msrd_arcana_basics_equip_weap_ranged.lst
-EQUIPMENT:msrd_arcana_basics_equip_weap_ammo.lst
-EQUIPMENT:msrd_arcana_basics_equip_fx.lst
-EQUIPMENT:msrd_arcana_basics_equip_magic.lst
-EQUIPMOD:msrd_arcana_basics_equipmods.lst
-EQUIPMOD:msrd_arcana_basics_equipmods_fx.lst
-EQUIPMOD:msrd_arcana_basics_equipmods_organizations.lst
-WEAPONPROF:msrd_arcana_basics_weaponprofs.lst
+CLASS:arcanabasics_classes_advanced.lst
+CLASS:arcanabasics_classes_prestige.lst
+EQUIPMENT:arcanabasics_equip_organizations.lst
+EQUIPMENT:arcanabasics_equip.lst
+EQUIPMENT:arcanabasics_equip_armorshields.lst
+EQUIPMENT:arcanabasics_equip_vehicles.lst
+EQUIPMENT:arcanabasics_equip_weap_melee.lst
+EQUIPMENT:arcanabasics_equip_weap_ranged.lst
+EQUIPMENT:arcanabasics_equip_weap_ammo.lst
+EQUIPMENT:arcanabasics_equip_fx.lst
+EQUIPMENT:arcanabasics_equip_magic.lst
+EQUIPMOD:arcanabasics_equipmods.lst
+EQUIPMOD:arcanabasics_equipmods_fx.lst
+EQUIPMOD:arcanabasics_equipmods_organizations.lst
+WEAPONPROF:arcanabasics_weaponprofs.lst
 
-FEAT:msrd_arcana_basics_feats.lst
-FEAT:msrd_arcana_basics_feats_hidden.lst
-FEAT:msrd_arcana_basics_feats_occupations.lst
-FEAT:msrd_arcana_basics_feats_mod.lst
-LANGUAGE:msrd_arcana_basics_languages.lst
-SPELL:msrd_arcana_basics_spells.lst
-SPELL:msrd_arcana_basics_spells_incantations.lst
+FEAT:arcanabasics_feats.lst
+FEAT:arcanabasics_feats_hidden.lst
+FEAT:arcanabasics_feats_occupations.lst
+FEAT:arcanabasics_feats_mod.lst
+LANGUAGE:arcanabasics_languages.lst
+SPELL:arcanabasics_spells.lst
+SPELL:arcanabasics_spells_incantations.lst
 
-TEMPLATE:msrd_arcana_basics_templates.lst
-TEMPLATE:msrd_arcana_basics_templates_hidden.lst
-TEMPLATE:msrd_arcana_basics_templates_organizations.lst
-TEMPLATE:msrd_arcana_basics_templates_incantations.lst
+TEMPLATE:arcanabasics_templates.lst
+TEMPLATE:arcanabasics_templates_hidden.lst
+TEMPLATE:arcanabasics_templates_organizations.lst
+TEMPLATE:arcanabasics_templates_incantations.lst
 
 # Stuff referenced from other MSRD sets
-EQUIPMOD:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_equipmods.lst
+EQUIPMOD:@\d20ogl\msrd\basics\modern_basics\modernbasics_equipmods.lst
 
 
 #

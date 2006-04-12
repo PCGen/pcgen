@@ -1,10 +1,10 @@
 # CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
-CAMPAIGN:Future - Equipment
-RANK:1
+CAMPAIGN:Future - Basics
+RANK:3
 GAMEMODE:Modern
 GENRE:Sci-Fi
 BOOKTYPE:SRD
-SETTING:MOdern Future
+SETTING:Modern Future
 TYPE:MSRD.Partial.Future
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
@@ -18,24 +18,15 @@ COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the C
 COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
 COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
 
-INFOTEXT:This set loads the Equipment options from the Future section of the MSRD.
+INFOTEXT:This set loads the Basic options from the Future section of the MSRD including Classes, Feats, Skills, Occupations and Settings.
 
-# Do not remove the EXTRAFILE comment.
-#EXTRAFILE:readme.txt
 
-EQUIPMENT:msrd_future_equipment_armor.lst
-EQUIPMENT:msrd_future_equipment_equip.lst
-EQUIPMENT:msrd_future_equipment_starships.lst
-EQUIPMENT:msrd_future_equipment_travelerscience.lst
-EQUIPMENT:msrd_future_equipment_vehicles.lst
-EQUIPMENT:msrd_future_equipment_weap.lst
-EQUIPMENT:msrd_future_equipment_weap_melee.lst
-EQUIPMENT:msrd_future_equipment_weap_ammo.lst
-EQUIPMENT:msrd_future_equipment_weapons_ranged.lst
-EQUIPMENT:msrd_future_equipment_weapons_ranged_vehicles.lst
-EQUIPMENT:msrd_future_equipment_weapons_ranged_starships.lst
-EQUIPMOD:msrd_future_equipment_equipmods_gadgets.lst
-EQUIPMOD:msrd_future_equipment_equipmods_starships.lst
-EQUIPMOD:msrd_future_equipment_equipmods_travelerscience.lst
-EQUIPMOD:msrd_future_equipment_equipmods_vehicles.lst
-WEAPONPROF:msrd_future_equipment_weapon_proficiency.lst
+CLASS:futurebasics_classes_advanced.lst
+FEAT:futurebasics_feats.lst
+FEAT:futurebasics_feats_hidden.lst
+FEAT:futurebasics_feats_hidden_mod.lst
+FEAT:futurebasics_feats_mod.lst
+FEAT:futurebasics_feats_occupations.lst
+TEMPLATE:futurebasics_templates.lst
+TEMPLATE:futurebasics_templates_hidden.lst
+TEMPLATE:futurebasics_templates_environments.lst

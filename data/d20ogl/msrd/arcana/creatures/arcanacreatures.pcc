@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Jul 14 13:01:07 2005 -- reformated by prettylst.pl v1.35 (build 469)
-CAMPAIGN:Arcana - Psionics
+CAMPAIGN:Arcana - Creatures
 RANK:2
 GAMEMODE:Modern
 GENRE:Modern Arcana
@@ -18,11 +18,33 @@ COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the C
 COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
 COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
 
+EQUIPMENT:arcanacreatures_equip_fx.lst
+EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_weap_melee.lst|(INCLUDE:Falchion|Greataxe)
+WEAPONPROF:@\d20ogl\msrd\arcana\basics\arcanabasics_weaponprofs.lst|(INCLUDE:Falchion|Greataxe)
 
-CLASS:msrd_arcana_psionics_classes_advanced.lst
-FEAT:msrd_arcana_psionics_feats.lst
-FEAT:msrd_arcana_psionics_feats_hidden.lst
-SPELL:msrd_arcana_psionics_powers.lst
+FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst
+FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats_hidden.lst
+LANGUAGE:@\d20ogl\msrd\arcana\basics\arcanabasics_languages.lst
+RACE:arcanacreatures_races.lst
+RACE:arcanacreatures_races_dragons.lst
+KIT:arcanacreatures_kits_defaultmonsters.lst
+KIT:arcanacreatures_kits_defaultmonsters_dragons.lst
+
+SPELL:@\d20ogl\msrd\arcana\psionics\arcanapsionics_powers.lst
+SPELL:@\d20ogl\msrd\arcana\basics\arcanabasics_spells.lst
+SPELL:@\d20ogl\msrd\arcana\basics\arcanabasics_spells_incantations.lst
+
+TEMPLATE:@\d20ogl\msrd\arcana\basics\arcanabasics_templates.lst
+TEMPLATE:@\d20ogl\msrd\arcana\basics\arcanabasics_templates_hidden.lst
+
+# Stuff referenced from other MSRD sets
+CLASS:@\d20ogl\msrd\basics\modern_basics\modernbasics_classes_npc.lst
+WEAPONPROF:@\d20ogl\msrd\menaces\menaces_weaponprofs_natural.lst
+EQUIPMOD:@\d20ogl\msrd\basics\modern_basics\modernbasics_equipmods.lst
+
+# borrowed spells and equipment from RSRD for creatures (innate spell like abilities and gear)
+SPELL:@\d20ogl\srd35\basics\rsrd_spells.lst|(INCLUDE:Deep Slumber|Dispel Magic (Greater)|Entangle|Speak with Plants|Tree Shape|Tree Stride)
+EQUIPMENT:@\d20ogl\srd35\advanced\rsrd_equip_rings.lst|(INCLUDE:Ring (Protection +2))
 
 #
 # End
