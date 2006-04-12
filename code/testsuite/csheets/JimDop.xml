@@ -119,7 +119,7 @@
 		</size>
 		<speechtendency></speechtendency>
 		<type>MONSTROUS HUMANOID|DRAGON</type>
-		<vision>Darkvision (60&#39;), Low-light, Normal</vision>
+		<vision>Darkvision (60&#39;), Low-light</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>0 lbs.</weight_unit>
@@ -1158,10 +1158,14 @@
 			<description></description>
 		</ability>
 		<ability>
+			<name>Immunity to sleep and charm effects</name>
+			<description></description>
+		</ability>
+		<ability>
 			<name>Monstrous Humanoid Traits</name>
 			<description></description>
 		</ability>
-		<race>Detect Thoughts (Su), Change Shape (Su)</race>
+		<race>Detect Thoughts (Su), Change Shape (Su), Immunity to sleep and charm effects</race>
 		<class>
 			<class>Monstrous humanoid</class>
 			<ability></ability>
