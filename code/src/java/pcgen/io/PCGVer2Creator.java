@@ -1434,6 +1434,18 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_TYPE).append(':');
 				buffer.append(EntityEncoder.encode(aFeat.getType()));
 
+				if (aFeat.getAssociatedCount() > 0)
+				{
+					buffer.append('|');
+					buffer.append(TAG_APPLIEDTO).append(':');
+
+					if (aFeat.getAssociatedObject(0) instanceof FeatMultipleChoice)
+					{
+						buffer.append(TAG_MULTISELECT).append(':');
+					}
+
+					buffer.append(EntityEncoder.encode(aFeat.getAssociated(0)));
+				}
 				for (Iterator it3 = aFeat.getSafeListFor(saveListKey).iterator(); it3.hasNext();)
 				{
 					buffer.append('|');
@@ -1524,7 +1536,9 @@ final class PCGVer2Creator implements IOConstants
 		for (Iterator laIter = laList.iterator(); laIter.hasNext();)
 		{
 			String ability = (String) laIter.next();
-			if (matchString.equals(ability))
+			if (matchString.equals(ability)
+				&& (feat.getAssociatedCount() == 0 || (associated != null && associated
+					.length() > 0)))
 			{
 				laIter.remove();
 				return true;
