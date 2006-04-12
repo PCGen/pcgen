@@ -3052,6 +3052,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		SpellBook book = aPC.getSpellBookByName(spellBook);
 
 		final int[] spellLevels = aSpell.levelForKey(source.getSpellKey(), aPC);
+		boolean found = false;
 
 		for (int sindex = 0; sindex < spellLevels.length; ++sindex)
 		{
@@ -3059,7 +3060,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (level < 0)
 			{
-				boolean found = false;
 				List aList = source.getSpellList();
 
 				if (aList == null)
@@ -3084,16 +3084,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 				}
 
-				if (!found)
-				{
-					final String message = "Could not find spell " + aSpell.getName() + " in " + shortClassName(source)
-						+ " " + source.getName();
-					warnings.add(message);
-				}
-
 				continue;
 			}
 
+			found = true;
+			
 			// do not load auto knownspells into default spellbook
 			if (spellBook.equals(Globals.getDefaultSpellBook())
 				&& aPCClass.isAutoKnownSpell(aSpell.getKeyName(), level, aPC) && aPC.getAutoSpells())
@@ -3142,6 +3137,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 		 // end sindex for loop
+
+		if (!found)
+		{
+			final String message = "Could not find spell " + aSpell.getName() + " in " + shortClassName(source)
+				+ " " + source.getName();
+			warnings.add(message);
+		}
 	}
 
 	/*
@@ -3158,8 +3160,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final String subLine = line.substring(TAG_SPELLLIST.length() + 1);
 		final StringTokenizer stok = new StringTokenizer(subLine, "|", false);
 
-		try
-		{
+//		try
+//		{
 			final String className = stok.nextToken();
 			final PCClass aClass = aPC.getClassNamed(className);
 
@@ -3167,12 +3169,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final String tok = stok.nextToken();
 				aClass.addClassSpellList(tok);
+				PCClass spellClass = Globals.getClassNamed(tok);
+				if (spellClass != null)
+				{
+					aClass.getSpellSupport().addSpells(-1,spellClass.getSpellList());
+				}
 			}
-		}
-		catch (NumberFormatException exc)
-		{
-			//TODO: Should this really be ignored???
-		}
+//		}
+//		catch (NumberFormatException exc)
+//		{
+//			//TODO: Should this really be ignored???
+//		}
 	}
 
 	/*
