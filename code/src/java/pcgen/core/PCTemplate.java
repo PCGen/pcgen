@@ -679,7 +679,7 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tFAVOREDCLASS:").append(favoredClass);
 		}
 
-		if (abilityCatStore != null)
+		if (abilityCatStore != null && !abilityCatStore.isEmpty())
 		{
 			txt.append("\tABILITY:");
 			txt.append(abilityCatStore.getParsableStringRepresentation());
@@ -2129,6 +2129,11 @@ public final class PCTemplate extends PObject implements HasCost
 		if (".CLEAR".equals(abilityString))
 		{
 			abilityCatStore = null;
+			return;
+		}
+		
+		if (abilityString == null || "".equals(abilityString))
+		{
 			return;
 		}
 		
