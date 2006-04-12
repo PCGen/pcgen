@@ -2307,9 +2307,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			//
 			if (makeChange)
 			{
-				double featPool = pc.getRawFeats(false);
-				featPool -= poolMod;
-				pc.setFeats(featPool);
+				pc.adjustFeats(- poolMod);
 				showPointPool();
 			}
 		}
@@ -3101,9 +3099,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 							}
 						}
 
-						double featPool = pc.getRawFeats(false);
-						featPool -= poolMod;
-						pc.setFeats(featPool);
+						pc.adjustFeats( - poolMod);
 						showPointPool();
 					}
 				}

@@ -519,7 +519,6 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			if ("FEAT".equals(thisString))
 			{
 				aPC.adjustFeats(-1);
-//				aPC.setFeats(aPC.getFeats() - 1);
 			}
 			else if (thisString.startsWith("INIT|"))
 			{

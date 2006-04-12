@@ -4404,7 +4404,7 @@ public class PCClass extends PObject
 
 					if ((levAbility.level() == level) && levAbility.isFeat())
 					{
-						aPC.setFeats(aPC.getFeats() - 1);
+						aPC.adjustFeats( - 1);
 					}
 				}
 			}
@@ -4417,7 +4417,7 @@ public class PCClass extends PObject
 				setHitPoint(level - 1, zeroInt);
 			}
 
-			aPC.setFeats( aPC.getFeats() - aPC.getBonusFeatsForNewLevel(this) );
+			aPC.adjustFeats( - aPC.getBonusFeatsForNewLevel(this) );
 			setLevel(newLevel, aPC);
 			removeKnownSpellsForClassLevel(aPC);
 
@@ -5161,10 +5161,8 @@ public class PCClass extends PObject
 
 				final double postFeatCount = aPC.getUsedFeatCount();
 
-				//
 				// Adjust the feat count by the total number that were given
-				//
-				aPC.setFeats((aPC.getFeats() + postFeatCount) - preFeatCount);
+				aPC.adjustFeats(postFeatCount - preFeatCount);
 			}
 		}
 	}

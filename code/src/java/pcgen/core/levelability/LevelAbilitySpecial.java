@@ -95,7 +95,7 @@ final class LevelAbilitySpecial extends LevelAbility
 
 			if ("Free Feat".equals(selection))
 			{
-				aPC.setFeats(aPC.getFeats() + 1);
+				aPC.adjustFeats(1);
 				continue;
 			}
 
