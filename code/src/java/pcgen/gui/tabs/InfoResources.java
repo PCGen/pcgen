@@ -457,7 +457,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			String nName;
 			String aType;
 
-			Logging.errorPrint("addButton:race: " + aRace.getName() + " -> " + target);
+			Logging.debugPrint("addButton:race: " + aRace.getName() + " -> " + target);
 
 			// first ask for the name of the new object
 			Object nValue = JOptionPane.showInputDialog(null, "Please enter a name for new " + target + ":",

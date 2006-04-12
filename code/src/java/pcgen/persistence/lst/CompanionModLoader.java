@@ -87,7 +87,7 @@ public class CompanionModLoader
 				key = colString.substring(0, idxColon);
 			}
 			catch(Exception e) {
-				// TODO Handle Exception
+				throw new PersistenceLayerException();
 			}
 			CompanionModLstToken token = (CompanionModLstToken) tokenMap.get(key);
 			if (token != null)
