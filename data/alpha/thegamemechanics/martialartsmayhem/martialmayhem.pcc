@@ -27,7 +27,7 @@ COPYRIGHT:PCGen dataset conversion for Martial Arts Mayhem Copyright 2006, PCGen
 #EXTRAFILE:readme.txt
 
 CLASS:martialmayhem_classes_mods.lst
-EQUIPMENT:@\d20ogl\msrd\arcana\msrd_arcana_equip_armorshields.lst|(INCLUDE:Buckler|Shield (Impromptu)|Shield (Small)|Shield (Large)|Shield (Riot))
+EQUIPMENT:@/d20ogl/msrd/arcana/basics/arcanabasics_equip_armorshields.lst|(INCLUDE:Buckler|Shield (Impromptu)|Shield (Small)|Shield (Large)|Shield (Riot))
 EQUIPMENT:martialmayhem_equip_shields.lst
 EQUIPMENT:martialmayhem_equip_weap_melee.lst
 EQUIPMENT:martialmayhem_equip_weap_ranged.lst

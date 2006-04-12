@@ -43,10 +43,10 @@ TEMPLATE:sr_templates.lst
 
 # Stuff Imported from the MSRD
 
-TEMPLATE:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_templates.lst
-FEAT:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_feats_hidden.lst
-FEAT:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_feats_occupations.lst
-FEAT:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_feats.lst
-SKILL:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_skills.lst
-CLASS:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_classes_pc.lst
-EQUIPMOD:@\d20ogl\msrd\basics\modern_basics\msrd_modern_basics_equipmods.lst
+TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_hidden.lst
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_occupations.lst
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
+SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst
+CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
+EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst

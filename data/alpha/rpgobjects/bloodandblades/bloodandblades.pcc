@@ -95,11 +95,11 @@ TEMPLATE:bloodandblades_templates.lst
 WEAPONPROF:bloodandblades_weaponprofs.lst
 
 ###Referenced from MSRD Arcana
-SPELL:@\d20ogl\msrd\arcana\msrd_arcana_spells_incantations.lst
+SPELL:@/d20ogl/msrd/arcana/basics/arcanabasics_spells_incantations.lst
 
 ###Borrowed from RSRD
-SPELL:@\d20ogl\srd35\rsrd_spells.lst|(INCLUDE:Etherealness|Nightmare)
-SPELL:@\d20ogl\srd35\psionics\rsrd_powers_psionic.lst|(INCLUDE:Plane Shift (Psionic))
+SPELL:@/d20ogl/srd35/rsrd_spells.lst|(INCLUDE:Etherealness|Nightmare)
+SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst|(INCLUDE:Plane Shift (Psionic))
 
 ###
 #EOF

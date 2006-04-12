@@ -27,4 +27,4 @@ EQUIPMOD:moderndispatch001_equipmods.lst
 FEAT:moderndispatch001_feats.lst
 
 # Reference for .MOD/.COPY
-EQUIPMENT:@\d20ogl\msrd\arcana\basics\msrd_arcana_basics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Hide Armor|Scale Mail|Breastplate|Splint Mail|Banded Mail|Half Plate)
+EQUIPMENT:@/d20ogl/msrd/arcana/basics/arcanabasics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Hide Armor|Scale Mail|Breastplate|Splint Mail|Banded Mail|Half Plate)
