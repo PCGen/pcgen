@@ -230,7 +230,11 @@
 		<p class="indent0"><strong>Tag Name:</strong> SOURCEDATE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Date (Release date of source in format YYYY-MM)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> Allows PCGen to determine which of two sources is newer. Note: A source without this tag will be considered older than a source with a set date.</p>
+		<p class="indent2"> Allows PCGen to determine which of two sources is newer. 
+		A source without this tag will be considered older than a source with a set date. 
+		There is a preference which must be checked to activate this feature. 
+		In Preferences/PCGen/Sources check the box for 
+		"Allow newer sources to override duplicate object from older sources".</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCEDATE:2005-12</code></p>
 		<p class="indent3">This source was published in December 2005.</p>
@@ -296,6 +300,10 @@
 		<p class="indent2"><code>CLASS:http://www.foogames.com/fhandbook/fhbclasses.lst</code></p>
 		<p class="indent3">Loads the source file from a web site.</p>
 		
+		<p><span class="new">WARNING:</span> Do not use backslashes (\) for directory separators in file paths, 
+		use only forward slashes (/). backslashes work correctly on Windows systems but cause problems on Unix flavored systems 
+		such as Linux and Max OS X.</p>
+		
 		<p><span class="new">IMPORTANT NOTE:</span> The following tags can (and it is recommended for equipment) have multiple lines. 
 		The names of the list files in the example column are also only suggestions. 
 		To include the same type of files from the same directory on the same line 
@@ -313,12 +321,15 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Use to include other pcc files. It is recommended that you include this tag before any tags that load LST files. When including data files you only need to use their filename if they are located in the same directory as the PCC file, itself. If not, you must include path information along with the filename:</p>
 		<ul class="indent2">
-			<li>you may use relative paths (e.g., <code>PCC:..\peerdirectory\myothersource.pcc</code>), or;</li>
-			<li>a special absolute path (e.g., <code>PCC:@\foogames\sourcebooks\foo\core\fhandbook\fhb.pcc</code>).</li>
+			<li>you may use relative paths (e.g., <code>PCC:../peerdirectory/myothersource.pcc</code>), or;</li>
+			<li>a special absolute path (e.g., <code>PCC:@/foogames/sourcebooks/foo/core/fhandbook/fhb.pcc</code>).</li>
 		</ul>
 		<p class="indent2">Using the special character <code>@</code> indicates that you want to start the file search from the root data directory of PCGen instead of the directory where the current PCC file is located.</p>
+		<p class="indent2"><span class="new">WARNING:</span> Do not use backslashes (\) for directory separators in file paths, 
+		use only forward slashes (/). backslashes work correctly on Windows systems but cause problems on Unix flavored systems 
+		such as Linux and Max OS X.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PCC:..\foodir\foobook.pcc</code></p>
+		<p class="indent2"><code>PCC:../foodir/foobook.pcc</code></p>
 		
 		<p></p><a name="BIOSET"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BIOSET:x</p>
