@@ -154,7 +154,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	public PCGen_Frame1()
 	{
 		inst = this;
-		Globals.setRootFrame(this);
 
 		enableEvents(AWTEvent.WINDOW_EVENT_MASK);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -175,6 +174,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			Logging.errorPrint("jbInit", e);
 		}
 
+		Globals.setRootFrame(this);
 		GMBus.addToBus(this);
 		GMBus.addToBus(PreferencesDialog.getPreferencesComponent());
 		PluginLoader ploader = PluginLoader.inst();
