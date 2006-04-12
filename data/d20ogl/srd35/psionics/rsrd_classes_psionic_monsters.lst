@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr 11 22:33:14 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+#Original Entry: Eddy Anthony
+
+# Class Name	Hit Dice	Type			Source Page					Virtual Feat																				Save checks bonus											Combat bonus
+CLASS:Unbodied	HD:8		TYPE:Monster	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Monstrous Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Unbodied	PRERACETYPE:Monstrous humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Unbodied	STARTSKILLPTS:2	MODTOSKILLS:YES
+1	ADD:SPELLCASTER(Psion)1	BONUS:PCLEVEL|Psion|1
+2					BONUS:PCLEVEL|Psion|1
+3					BONUS:PCLEVEL|Psion|1
+4					BONUS:PCLEVEL|Psion|1
+
+
+
+#
+# End
+#

@@ -34,6 +34,7 @@ FEAT:rsrd_feats_psionic_hidden.lst
 WEAPONPROF:rsrd_weaponprofs_psionic.lst
 CLASS:rsrd_classes_psionic.lst
 CLASS:rsrd_classes_psionic_prestige.lst
+CLASS:rsrd_classes_psionic_monsters.lst
 EQUIPMENT:rsrd_equip_psionic.lst
 EQUIPMENT:rsrd_equip_weap_psionic.lst
 EQUIPMOD:rsrd_equipmods_psionic.lst
