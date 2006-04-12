@@ -34,4 +34,4 @@ TEMPLATE:menaces_templates_hidden.lst
 SPELL:menaces_spells.lst
 WEAPONPROF:menaces_weaponprofs_natural.lst
 
-WEAPONPROF:@\d20ogl\msrd\arcana\basics\arcanabasics_weaponprofs.lst|(INCLUDE:Greatsword)
+WEAPONPROF:@/d20ogl/msrd/arcana/basics/arcanabasics_weaponprofs.lst|(INCLUDE:Greatsword)

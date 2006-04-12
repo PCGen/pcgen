@@ -49,7 +49,7 @@ TEMPLATE:arcanabasics_templates_organizations.lst
 TEMPLATE:arcanabasics_templates_incantations.lst
 
 # Stuff referenced from other MSRD sets
-EQUIPMOD:@\d20ogl\msrd\basics\modern_basics\modernbasics_equipmods.lst
+EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
 
 
 #
