@@ -27,7 +27,7 @@ CLASS:coverthero_class.lst
 FEAT:coverthero_feats_hidden.lst
 FEAT:coverthero_feats_mods.lst
 
-SKILL:@\data\d20ogl\srd35\rsrd_skills.lst|(INCLUDE:Appraise)
+SKILL:@/data/d20ogl/srd35/rsrd_skills.lst|(INCLUDE:Appraise)
 
 #
 # End

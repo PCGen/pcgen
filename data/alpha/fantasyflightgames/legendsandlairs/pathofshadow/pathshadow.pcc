@@ -51,4 +51,4 @@ FEAT:pathshadow_feats_hidden_legendary.lst
 
 # References to SRD
 #TBD
-#FEAT:@\d20ogl\srd\srdfeatshidden.lst|(INCLUDE:Rebuke Undead|Turn Undead)
+#FEAT:@/d20ogl/srd/srdfeatshidden.lst|(INCLUDE:Rebuke Undead|Turn Undead)

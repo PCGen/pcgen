@@ -38,7 +38,7 @@ SKILL:hallowedmight_skills.lst
 
 KIT:hallowedmight_kits_races.lst
 
-FEAT:@\d20ogl\srd\srd_feats_hidden.lst
+FEAT:@/d20ogl/srd/srd_feats_hidden.lst
 
 #Not done yet
 EQUIPMENT:hallowedmight_equip_potions.lst
