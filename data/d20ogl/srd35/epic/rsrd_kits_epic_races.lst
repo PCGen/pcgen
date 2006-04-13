@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Thu Apr 13 01:09:47 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Abomination (Anaxim)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Anaxim)]
@@ -658,9 +658,9 @@ FEAT:Weapon Focus(Slam)
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
 STARTPACK:Default Genius Loci	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Genius Loci]
+STAT:DEX=10|CON=10|STR=10|INT=10|WIS=10|CHA=10
 RACE:Genius Loci	!PRERACE:%
 NAME:Genius Loci
-SKILL:Jump	RANK:3
 
 STARTPACK:Default Gibbering Orb	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Gibbering Orb]
 RACE:Gibbering Orb	!PRERACE:%
@@ -696,7 +696,7 @@ SKILL:Listen		RANK:28
 SKILL:Move Silently	RANK:28
 SKILL:Spot			RANK:28
 SKILL:Survival		RANK:28
-SKILL:Intimidate		RANK:26
+SKILL:Intimidate		RANK:24
 SKILL:Jump			RANK:26
 SKILL:Tumble		RANK:26
 FEAT:Dodge
@@ -780,10 +780,10 @@ FEAT:Weapon Focus(Slam)
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
 STARTPACK:Default Hoary Hunter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hoary Hunter]
+STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
 RACE:Hoary Hunter	!PRERACE:%
 NAME:Hoary Hunter
 ALIGN:NE
-SKILL:Diplomacy			RANK:4
 SKILL:Hide				RANK:49
 SKILL:Intimidate			RANK:49
 SKILL:Knowledge (Geography)	RANK:49
@@ -811,7 +811,7 @@ FEAT:Superior Initiative
 FEAT:Track
 FEAT:Trample
 FEAT:Weapon Focus(Longsword)
-STAT:DEX=11|INT=11|WIS=11|STR=10|CON=10|CHA=10
+GEAR:Longsword	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS_6_WEAP
 
 STARTPACK:Default Hoary Hunter (Hoary Steed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Hoary Hunter (Hoary Steed)]
 RACE:Hoary Hunter (Hoary Steed)	!PRERACE:%
