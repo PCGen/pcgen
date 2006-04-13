@@ -14674,11 +14674,12 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		for (Iterator e = companionModList.iterator(); e.hasNext();)
-		{
-			final CompanionMod cMod = (CompanionMod) e.next();
-			totalLevels += cMod.getHitDie();
-		}
+//		This is already accounted for in the monster levels above
+//		for (Iterator e = companionModList.iterator(); e.hasNext();)
+//		{
+//			final CompanionMod cMod = (CompanionMod) e.next();
+//			totalLevels += cMod.getHitDie();
+//		}
 
 		return totalLevels;
 	}
