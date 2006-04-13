@@ -40,6 +40,8 @@ SPELL:rsrd_spells_epic.lst
 KIT:rsrd_kits_epic_races.lst
 KIT:rsrd_kits_epic_races_dragons.lst
 
+WEAPONPROF:rsrd_weaponprofs_epic.lst
+
 #
 # End
 #

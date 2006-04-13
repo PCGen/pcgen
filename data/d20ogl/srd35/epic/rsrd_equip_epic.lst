@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Apr 12 01:19:39 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 13 18:08:30 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 
@@ -169,4 +169,8 @@ Invulnerable Coat									TYPE:Artifact.Major												COST:0	WT:0												
 Iron Gauntlet of War								TYPE:Artifact.Major												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 Ring of Nine Facets								TYPE:Artifact.Major.Ring											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
 
+###Block: Specific Weapons for Epic Monsters
+
+# Equipment Name	Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Size
+Leshay Weapon	PROFICIENCY:Leshay Weapon	TYPE:Weapon.Melee.Exotic.Specific.Slashing.Sword	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:STEEL.MWORKW.PLUS_10_WEAP.KEEN.BRI_EN_M	WIELD:Light		SIZE:M
 

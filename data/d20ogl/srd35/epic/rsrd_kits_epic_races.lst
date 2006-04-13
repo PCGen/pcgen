@@ -865,6 +865,7 @@ SKILL:Search			RANK:35
 SKILL:Spot				RANK:35
 SKILL:Knowledge (Religion)	RANK:33
 FEAT:Blinding Speed
+FEAT:Blinding Speed
 FEAT:Cleave
 FEAT:Epic Weapon Focus(Claw)
 FEAT:Great Cleave
@@ -907,9 +908,11 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Run
 FEAT:Toughness
+FEAT:Toughness
 FEAT:Track
 
 STARTPACK:Default Leshay	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Leshay]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=11
 RACE:Leshay	!PRERACE:%
 NAME:Leshay
 SKILL:Gather Information	RANK:4
@@ -920,7 +923,7 @@ SKILL:Disguise			RANK:53
 SKILL:Escape Artist		RANK:53
 SKILL:Hide				RANK:53
 SKILL:Move Silently		RANK:53
-SKILL:Diplomacy			RANK:57
+SKILL:Diplomacy			RANK:53
 SKILL:Search			RANK:46
 SKILL:Listen			RANK:51
 SKILL:Spot				RANK:51
@@ -943,7 +946,7 @@ FEAT:Spring Attack
 FEAT:Weapon Finesse
 FEAT:Weapon Focus(Leshay Weapon)
 FEAT:Whirlwind Attack
-STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=11
+GEAR:Leshay Weapon	LOCATION:Primary Hand
 
 STARTPACK:Default Living Vault	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Living Vault]
 RACE:Living Vault	!PRERACE:%
@@ -951,6 +954,7 @@ NAME:Living Vault
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Mercane	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mercane]
+STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
 RACE:Mercane	!PRERACE:%
 NAME:Mercane
 ALIGN:LN
@@ -966,11 +970,11 @@ SKILL:Knowledge (The Planes)	RANK:10
 SKILL:Listen			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Sleight of Hand		RANK:10
-SKILL:Profession (Bookkeeper)	RANK:13
+SKILL:Profession (Bookkeeper)	RANK:10
 FEAT:Combat Expertise
 FEAT:Improved Disarm
 FEAT:Improved Feint
-STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
+GEAR:Falchion	LOCATION:Both Hands	EQMOD:MWORKW
 
 STARTPACK:Default Mu Spore	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Mu Spore]
 RACE:Mu Spore	!PRERACE:%
@@ -983,9 +987,11 @@ SKILL:Spot				RANK:38
 SKILL:Diplomacy			RANK:2
 SKILL:Gather Information	RANK:2
 SKILL:Intimidate			RANK:2
-SKILL:Hide				RANK:54
+SKILL:Hide				RANK:38
 FEAT:Cleave
 FEAT:Epic Reflexes
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Great Cleave
 FEAT:Improved Critical(Bite)
@@ -1004,8 +1010,8 @@ SKILL:Knowledge (Arcana)	RANK:35
 SKILL:Knowledge (The Planes)	RANK:35
 SKILL:Move Silently		RANK:35
 SKILL:Search			RANK:35
-SKILL:Spellcraft			RANK:33
-SKILL:Hide				RANK:43
+SKILL:Spellcraft			RANK:31
+SKILL:Hide				RANK:35
 FEAT:Blind Fight
 FEAT:Combat Expertise
 FEAT:Combat Reflexes
