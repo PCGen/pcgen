@@ -759,7 +759,7 @@ final class ChooseSpellDialog extends JDialog
 
 					if (s.levelForKey(caster, casterName, pc) == baseSpellLevel)
 					{
-						if (SettingsHandler.guiUsesOutputName())
+						if (SettingsHandler.guiUsesOutputNameSpells())
 						{
 							spellsOfLevel.add(new SpellShell(s));
 						}

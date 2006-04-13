@@ -212,7 +212,8 @@ public final class SettingsHandler
 	private static String postExportCommandStandard = ""; //$NON-NLS-1$
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
 	private static boolean hideMonsterClasses = false;
-	private static boolean guiUsesOutputName = false;
+	private static boolean guiUsesOutputNameEquipment = false;
+	private static boolean guiUsesOutputNameSpells= false;
 	private static int singleChoicePreference = Constants.CHOOSER_SINGLECHOICEMETHOD_NONE;
 	private static int lastTipShown = -1;
 	private static boolean showMemoryArea = false;
@@ -671,9 +672,14 @@ public final class SettingsHandler
 		return getOptions().getProperty("gmgen.options." + optionName, defaultValue); //$NON-NLS-1$
 	}
 
-	public static void setGUIUsesOutputName(final boolean argUseOutputName)
+	public static void setGUIUsesOutputNameEquipment(final boolean argUseOutputNameEquipment)
 	{
-		guiUsesOutputName = argUseOutputName;
+		guiUsesOutputNameEquipment = argUseOutputNameEquipment;
+	}
+
+	public static void setGUIUsesOutputNameSpells(final boolean argUseOutputNameSpells)
+	{
+		guiUsesOutputNameSpells = argUseOutputNameSpells;
 	}
 
 	public static void setGame(final String g)
@@ -1153,7 +1159,8 @@ public final class SettingsHandler
 		setGearTab_SellRate(sellRate);
 		setGrimHPMode(getPCGenOption("grimHPMode", false)); //$NON-NLS-1$
 		setGrittyACMode(getPCGenOption("grittyACMode", false)); //$NON-NLS-1$
-		setGUIUsesOutputName(getPCGenOption("GUIUsesOutputName", false)); //$NON-NLS-1$
+		setGUIUsesOutputNameEquipment(getPCGenOption("GUIUsesOutputNameEquipment", false)); //$NON-NLS-1$
+		setGUIUsesOutputNameSpells(getPCGenOption("GUIUsesOutputNameSpells", false)); //$NON-NLS-1$
 		setHideMonsterClasses(getPCGenOption("hideMonsterClasses", false)); //$NON-NLS-1$
 		setHPMaxAtFirstLevel(getPCGenOption("hpMaxAtFirstLevel", true)); //$NON-NLS-1$
 		setHPPct(getPCGenOption("hpPct", 100)); //$NON-NLS-1$
@@ -1509,7 +1516,8 @@ public final class SettingsHandler
 		setPCGenOption("GearTab.sellRate", getGearTab_SellRate()); //$NON-NLS-1$
 		setPCGenOption("grimHPMode", isGrimHPMode()); //$NON-NLS-1$
 		setPCGenOption("grittyACMode", isGrittyACMode()); //$NON-NLS-1$
-		setPCGenOption("GUIUsesOutputName", guiUsesOutputName()); //$NON-NLS-1$
+		setPCGenOption("GUIUsesOutputNameEquipment", guiUsesOutputNameEquipment()); //$NON-NLS-1$
+		setPCGenOption("GUIUsesOutputNameSpells", guiUsesOutputNameSpells()); //$NON-NLS-1$
 		setPCGenOption("hideMonsterClasses", hideMonsterClasses()); //$NON-NLS-1$
 		setPCGenOption("hpMaxAtFirstLevel", isHPMaxAtFirstLevel()); //$NON-NLS-1$
 		setPCGenOption("hpPct", getHPPct()); //$NON-NLS-1$
@@ -2359,9 +2367,14 @@ public final class SettingsHandler
 		return weaponProfPrintout;
 	}
 
-	public static boolean guiUsesOutputName()
+	public static boolean guiUsesOutputNameEquipment()
 	{
-		return guiUsesOutputName;
+		return guiUsesOutputNameEquipment;
+	}
+
+	public static boolean guiUsesOutputNameSpells()
+	{
+		return guiUsesOutputNameSpells;
 	}
 
 	/**

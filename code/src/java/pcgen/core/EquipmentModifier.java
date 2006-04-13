@@ -895,7 +895,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 				final List metaFeats = getSpellMetafeats(listEntry);
 				String     spellName = getSpellName(listEntry);
 
-				if (SettingsHandler.guiUsesOutputName())
+				if (SettingsHandler.guiUsesOutputNameSpells())
 				{
 					final Spell aSpell = Globals.getSpellNamed(spellName);
 

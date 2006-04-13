@@ -337,7 +337,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		}
 		else if (item instanceof PObject)
 		{
-			if (pcgen.core.SettingsHandler.guiUsesOutputName())
+			if (pcgen.core.SettingsHandler.guiUsesOutputNameEquipment())
 			{
 				name = ((PObject) item).getOutputName();
 			}

@@ -197,7 +197,8 @@ final class PreferencesDialog extends JDialog
 	private static String in_tabAbilities = PropertyFactory.getString("in_Prefs_tabAbilities");
 	private static String in_unitSetType = PropertyFactory.getString("in_Prefs_unitSetType");
 	private static String in_useAutoWaitCursor = PropertyFactory.getString("in_Prefs_useAutoWaitCursor");
-	private static String in_useOutputNames = PropertyFactory.getString("in_Prefs_useOutputNames");
+	private static String in_useOutputNamesEquipment = PropertyFactory.getString("in_Prefs_useOutputNamesEquipment");
+	private static String in_useOutputNamesSpells = PropertyFactory.getString("in_Prefs_useOutputNamesSpells");
 	private static String in_wandMax = PropertyFactory.getString("in_Prefs_wandMax");
 	private static String in_warnFirstLevelUp = PropertyFactory.getString("in_Prefs_warnFirstLevelUp");
 	private static String in_weaponProfPrintout = PropertyFactory.getString("in_Prefs_weaponProfPrintout");
@@ -279,7 +280,8 @@ final class PreferencesDialog extends JDialog
 
 	// "Monsters"
 	private JCheckBox useMonsterDefault = new JCheckBox();
-	private JCheckBox useOutputNames = new JCheckBox();
+	private JCheckBox useOutputNamesEquipment = new JCheckBox();
+	private JCheckBox useOutputNamesSpells = new JCheckBox();
 	private JCheckBox waitCursor = new JCheckBox();
 	private JCheckBox weaponProfPrintout;
 	private JComboBoxEx abilityPurchaseModeCombo;
@@ -688,7 +690,8 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setShowImagePreview(showImagePreview.isSelected());
 		SettingsHandler.setToolBarShown(showToolbar.isSelected());
 		SettingsHandler.setUseWaitCursor(waitCursor.isSelected());
-		SettingsHandler.setGUIUsesOutputName(useOutputNames.isSelected());
+		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment.isSelected());
+		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells.isSelected());
 		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
 		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
@@ -1147,7 +1150,8 @@ final class PreferencesDialog extends JDialog
 		showSkillModifier.setSelected(SettingsHandler.getShowSkillModifier());
 		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
-		useOutputNames.setSelected(SettingsHandler.guiUsesOutputName());
+		useOutputNamesEquipment.setSelected(SettingsHandler.guiUsesOutputNameEquipment());
+		useOutputNamesSpells.setSelected(SettingsHandler.guiUsesOutputNameSpells());
 		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
 
 		// Look and feel
@@ -1522,7 +1526,8 @@ final class PreferencesDialog extends JDialog
 		options.put(in_showToolTips, toolTipTextShown);
 		options.put(in_singleChoiceOption, cmbChoiceMethods);
 		options.put(in_useAutoWaitCursor, waitCursor);
-		options.put(in_useOutputNames, useOutputNames);
+		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
+		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
 
 		for (final Iterator it = options.entrySet().iterator(); it.hasNext(); )
 		{

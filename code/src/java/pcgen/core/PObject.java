@@ -4580,7 +4580,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		String aString = toString();
 
-		if (SettingsHandler.guiUsesOutputName())
+		if (SettingsHandler.guiUsesOutputNameEquipment())
 		{
 			aString = getOutputName();
 		}

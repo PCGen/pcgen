@@ -365,7 +365,14 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		switch (column)
 		{
 			case COL_NAME:
-				return fn.toString();
+				if (SettingsHandler.guiUsesOutputNameSpells())
+				{
+					return (aSpell != null) ? aSpell.getOutputName(): fn.toString();
+				}
+				else
+				{
+					return fn.toString();
+				}
 
 			case COL_SCHOOL:
 				return (aSpell != null) ? aSpell.getSchool() : null;
