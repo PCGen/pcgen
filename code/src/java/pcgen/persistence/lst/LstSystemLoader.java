@@ -93,7 +93,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 	/**
 	 * TODO: Convert remaining items to new persistence framework
-	 * 
+	 *
 	 * Define the order in which the file types are ordered
 	 * so we don't have to keep renumbering them
 	 */
@@ -338,7 +338,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	{
 		loadGameModes();
 		loadSponsorsLstFile();
-		
+
 		// Load the initial campaigns
 		loadPCCFilesInDirectory(SettingsHandler.getPccFilesLocation().getAbsolutePath());
 		loadPCCFilesInDirectory(SettingsHandler.getPcgenVendorDataDir().getAbsolutePath());
@@ -1242,16 +1242,17 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			if (aLine.startsWith("SOURCE") && (fileType != LstConstants.CAMPAIGN_TYPE))
 			{
-				final StringTokenizer sTok = new StringTokenizer(aLine, "|");
-
-				while (sTok.hasMoreTokens())
-				{
-					final String arg = sTok.nextToken();
-					final String key = arg.substring(6, arg.indexOf(":"));
-					final String val = arg.substring(arg.indexOf(":") + 1);
-					sourceMap.put(key, val);
-				}
-
+				sourceMap.putAll(SourceLoader.parseLine(aLine, argFileName));
+//				final StringTokenizer sTok = new StringTokenizer(aLine, "|");
+//
+//				while (sTok.hasMoreTokens())
+//				{
+//					final String arg = sTok.nextToken();
+//					final String key = arg.substring(6, arg.indexOf(":"));
+//					final String val = arg.substring(arg.indexOf(":") + 1);
+//					sourceMap.put(key, val);
+//				}
+//
 				continue;
 			}
 
@@ -2286,6 +2287,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		for (int j = 0; j < lineList.size(); ++j)
 		{
 			final Object o = lineList.get(j);
+			CampaignSourceEntry campaign = null;
 			final String aLine;
 
 			if (o instanceof String)
@@ -2294,7 +2296,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			}
 			else
 			{
-				aLine = ((CampaignSourceEntry) o).getFile();
+				campaign = (CampaignSourceEntry) o;
+				aLine = campaign.getFile();
 			}
 
 			final StringTokenizer lineTokenizer = new StringTokenizer(aLine, "|");
@@ -2493,7 +2496,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		showD20 = false;
 		showLicensed = false;
 	}
-	
+
 	private void showSponsorsIfNeeded()
 	{
 		// Only worry about it if we're using the GUI
@@ -2517,23 +2520,23 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		int i;
 		Campaign aCamp;
 
-		Collections.sort(aSelectedCampaignsList, new Comparator() 
+		Collections.sort(aSelectedCampaignsList, new Comparator()
 		{
-      public int compare(Object o1, Object o2) 
-      {
-      	Campaign c1 = (Campaign) o1;
-      	Campaign c2 = (Campaign) o2;
-      	return new Integer(c1.getRank()).compareTo(new Integer(c2.getRank()));
-      }
-    });
-		
+	  public int compare(Object o1, Object o2)
+	  {
+		  Campaign c1 = (Campaign) o1;
+		  Campaign c2 = (Campaign) o2;
+		  return new Integer(c1.getRank()).compareTo(new Integer(c2.getRank()));
+	  }
+	});
+
 		// Loop through, performing a swap sort
 		for (i = 0; i < aSelectedCampaignsList.size(); ++i)
 		{
 			aCamp = (Campaign) aSelectedCampaignsList.get(i);
 			sourcesSet.add(SourceUtilities.returnSourceInForm(aCamp, Constants.SOURCELONG, true));
 		}
-		
+
 //			int aCampRank = aCamp.getRank();
 //
 //			for (int j = i + 1; j < aSelectedCampaignsList.size(); ++j)
