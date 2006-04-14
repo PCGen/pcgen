@@ -35,6 +35,7 @@ import pcgen.util.PropertyFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.prereq.PrerequisiteOperator;
 
 /**
  * @author wardc
@@ -68,6 +69,7 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 
 
 		boolean foundMatch = false;
+		boolean foundSkill = false;
 		final List sList = (ArrayList) character.getSkillList().clone();
 		for (Iterator e1 = sList.iterator(); e1.hasNext() && !foundMatch ;)
 		{
@@ -93,6 +95,7 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 				}
 
 				if (foundMatch) {
+					foundSkill = foundMatch;
 					if (prereq.isTotalValues())
 					{
 						runningTotal += aSkill.getTotalRank(character).intValue();
@@ -112,6 +115,7 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 			else if (aSkillName.equals(skillName) ||
 					((percentageSignPosition >= 0) && aSkillName.startsWith(skillName.substring(0, percentageSignPosition))))
 			{
+				foundSkill = true;
 				if (prereq.isTotalValues())
 				{
 					runningTotal += aSkill.getTotalRank(character).intValue();
@@ -135,6 +139,15 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 			}
 		}
 
+		// If we are looking for a negative test i.e. !PRESKILL and the PC
+		// doesn't have the skill we have to return a match
+		if (foundSkill == false)
+		{
+			if (prereq.getOperator() == PrerequisiteOperator.LT)
+			{
+				runningTotal++;
+			}
+		}
 		return countedTotal(prereq, runningTotal);
 	}
 
