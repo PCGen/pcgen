@@ -201,6 +201,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	// Whether one can trust the most recently calculated virtualFeatList
 	private boolean virtualFeatsStable = false;
 
+	// whether to adjust the feat pool when requested
+	private boolean allowFeatPoolAdjustment = true;
+	
 	// pool of feats remaining to distribute
 	private double feats = 0;
 	private int    age   = 0;
@@ -1640,13 +1643,19 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public void adjustFeats(final double arg)
 	{
-		feats += arg;
+		if (allowFeatPoolAdjustment)
+		{
+			feats += arg;
+		}
 		setDirty(true);
 	}
 
 	public void setFeats(final double arg)
 	{
-		feats = arg;
+		if (allowFeatPoolAdjustment)
+		{
+			feats = arg;
+		}
 		setDirty(true);
 	}
 
@@ -15689,6 +15698,17 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		return processLevelAbilities;
 	}
+
+	/**
+	 * Whether to allow adjustment of the Global Feat pool
+	 * 
+	 * @param allow 
+	 */
+	public void setAllowFeatPoolAdjustment(boolean allow) {
+		this.allowFeatPoolAdjustment = allow;
+	}
+
+	
 /*
  * For debugging purposes
  * Dumps contents of spellbooks to System.err

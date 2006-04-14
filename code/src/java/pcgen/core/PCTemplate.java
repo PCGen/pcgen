@@ -931,7 +931,7 @@ public final class PCTemplate extends PObject implements HasCost
 	/**
 	 * Set the override that this template applies to subracetype
 	 *
-	 * @param  argSubRace The new subracetype
+	 * @param  argSubRace The new subrace type
 	 */
 	public void setSubRace(final String argSubRace)
 	{
@@ -996,7 +996,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Query whether this Template is removable.  Factors in the visability of
+	 * Query whether this Template is removable.  Factors in the visibility of
 	 * the Template
 	 *
 	 * @return  whether this Template is removable
@@ -1121,7 +1121,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Manipulate the list of subTypes that this Template add or removes from
 	 * the creature it is applied to.
 	 *
-	 * Takes a | separated list of subtypes to add.  may opttionally be prefaced
+	 * Takes a | separated list of subtypes to add.  may optionally be prefaced
 	 * with .REMOVE. in which case the subtype is removed.
 	 *
 	 * @param  aString the string to process
@@ -1893,7 +1893,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 
 	/**
-	 * Get a list of subsidiary Templates taht will be added by this template
+	 * Get a list of subsidiary Templates that will be added by this template
 	 *
 	 * @return  a list of Templates
 	 */
@@ -2043,7 +2043,9 @@ public final class PCTemplate extends PObject implements HasCost
 		final String          featKey,
 		final PlayerCharacter aPC)
 	{
-		if (contains(levelString, "FEAT:"))
+
+
+        if (contains(levelString, "FEAT:"))
 		{
 			String featName = getStringAfter("FEAT:", levelString);
 
@@ -2092,8 +2094,14 @@ public final class PCTemplate extends PObject implements HasCost
 
 				break;
 			}
+			
+		final LevelAbility la = LevelAbility.createAbility(this, lvl, "FEAT(" + featName + ")");
 
-			addChosenFeat(featKey, featName);
+		aPC.setAllowFeatPoolAdjustment(false);
+		la.process(null, aPC, null);
+		aPC.setAllowFeatPoolAdjustment(true);
+		
+		addChosenFeat(featKey, featName);
 		}
 	}
 
