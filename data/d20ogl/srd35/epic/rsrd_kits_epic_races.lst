@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 13 01:09:47 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Apr 14 00:45:43 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Default Abomination (Anaxim)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Anaxim)]
@@ -35,11 +35,12 @@ SKILL:Listen			RANK:69
 SKILL:Search			RANK:69
 SKILL:Sense Motive		RANK:69
 SKILL:Spot				RANK:69
-SKILL:Concentration		RANK:85
-SKILL:Diplomacy			RANK:77
+SKILL:Concentration		RANK:69
+SKILL:Diplomacy			RANK:69
 SKILL:Jump				RANK:3
-SKILL:Intimidate			RANK:73
-SKILL:Spellcraft			RANK:73
+SKILL:Intimidate			RANK:69
+SKILL:Spellcraft			RANK:66
+SKILL:Spellcraft			RANK:3	FREE:YES
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Expertise
@@ -69,7 +70,6 @@ STARTPACK:Default Abomination (Chichimec)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[
 RACE:Abomination (Chichimec)	!PRERACE:%
 NAME:Abomination (Chichimec)
 ALIGN:NE
-SKILL:Jump				RANK:3
 SKILL:Hide				RANK:30
 SKILL:Intimidate			RANK:30
 SKILL:Knowledge (Religion)	RANK:30
@@ -79,7 +79,6 @@ SKILL:Move Silently		RANK:30
 SKILL:Search			RANK:30
 SKILL:Sense Motive		RANK:30
 SKILL:Spot				RANK:30
-SKILL:Diplomacy			RANK:2
 FEAT:Alertness
 FEAT:Blinding Speed
 FEAT:Dodge
@@ -95,7 +94,7 @@ STARTPACK:Default Abomination (Dream Larva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1
 RACE:Abomination (Dream Larva)	!PRERACE:%
 NAME:Abomination (Dream Larva)
 ALIGN:CE
-SKILL:Diplomacy			RANK:45
+SKILL:Diplomacy			RANK:43
 SKILL:Concentration		RANK:43
 SKILL:Craft (Dreamweaving)	RANK:43
 SKILL:Escape Artist		RANK:43
@@ -105,7 +104,7 @@ SKILL:Move Silently		RANK:43
 SKILL:Search			RANK:43
 SKILL:Sense Motive		RANK:43
 SKILL:Spot				RANK:43
-SKILL:Hide				RANK:47
+SKILL:Hide				RANK:43
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Epic Toughness
@@ -126,18 +125,19 @@ STARTPACK:Default Abomination (Hecatoncheires)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMUL
 RACE:Abomination (Hecatoncheires)	!PRERACE:%
 NAME:Abomination (Hecatoncheires)
 ALIGN:CE
-SKILL:Diplomacy			RANK:4
 SKILL:Sense Motive		RANK:50
 SKILL:Intimidate			RANK:33
-SKILL:Knowledge (History)	RANK:33
-SKILL:Jump				RANK:41
+SKILL:Jump				RANK:55
 SKILL:Climb				RANK:55
 SKILL:Listen			RANK:55
 SKILL:Search			RANK:55
 SKILL:Spot				RANK:55
 SKILL:Survival			RANK:55
+SKILL:Knowledge (History)	RANK:27
+SKILL:Knowledge (History)	RANK:6	EE:YES
 FEAT:Cleave
 FEAT:Combat Reflexes
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Epic Weapon Focus(Boulder)
 FEAT:Epic Weapon Focus(Greatsword)
@@ -149,6 +149,7 @@ FEAT:Improved Sunder
 FEAT:Multiweapon Fighting
 FEAT:Multiweapon Rend
 FEAT:Power Attack
+FEAT:Superior Initiative
 FEAT:Weapon Focus(Boulder)
 FEAT:Weapon Focus(Greatsword)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
@@ -269,11 +270,12 @@ SKILL:Search			RANK:43
 SKILL:Sense Motive		RANK:43
 SKILL:Spot				RANK:43
 SKILL:Tumble			RANK:43
-SKILL:Balance			RANK:41
-SKILL:Diplomacy			RANK:41
-SKILL:Spellcraft			RANK:41
-SKILL:Hide				RANK:47
+SKILL:Balance			RANK:39
+SKILL:Diplomacy			RANK:39
+SKILL:Spellcraft			RANK:39
+SKILL:Hide				RANK:43
 FEAT:Alertness
+FEAT:Blinding Speed
 FEAT:Blinding Speed
 FEAT:Cleave
 FEAT:Epic Toughness
@@ -301,12 +303,19 @@ SKILL:Knowledge (Geography)	RANK:65
 SKILL:Listen			RANK:65
 SKILL:Move Silently		RANK:65
 SKILL:Search			RANK:65
-SKILL:Spot				RANK:65
+SKILL:Spot				RANK:46
+SKILL:Spot				RANK:19	FREE:YES
 FEAT:Alertness
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Blinding Speed
 FEAT:Blinding Speed
 FEAT:Cleave
 FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Slam)
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Weapon Focus(Pseudopod Slam)
 FEAT:Epic Will
 FEAT:Great Cleave
 FEAT:Great Fortitude
@@ -316,7 +325,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Superior Initiative
-FEAT:Weapon Focus(Slam)
+FEAT:Weapon Focus(Pseudopod Slam)
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Default Abomination (Phane)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Abomination (Phane)]
@@ -374,7 +383,7 @@ FEAT:Dodge
 FEAT:Epic Toughness
 FEAT:Epic Weapon Focus(Bite)
 FEAT:Epic Weapon Focus(Claw)
-FEAT:Epic Weapon Focus(Stomp)
+FEAT:Epic Weapon Focus(Stamp)
 FEAT:Great Cleave
 FEAT:Great Fortitude
 FEAT:Improved Critical(Claw)
@@ -387,7 +396,7 @@ FEAT:Power Attack
 FEAT:Spell Stowaway(Invisibility (Greater))
 FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Stomp)
+FEAT:Weapon Focus(Stamp)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Behemoth (Eagle)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Behemoth (Eagle)]
@@ -479,7 +488,7 @@ STAT:DEX=11|INT=11|STR=10|CON=10|WIS=10|CHA=10
 STARTPACK:Default Demilich	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Demilich]
 RACE:Demilich	!PRERACE:%
 NAME:Demilich
-SKILL:Concentration		RANK:25
+SKILL:Concentration		RANK:24
 SKILL:Knowledge (History)	RANK:12
 SKILL:Craft (Alchemy)		RANK:20
 SKILL:Knowledge (Arcana)	RANK:20
@@ -544,7 +553,8 @@ STARTPACK:Default Elemental (Air Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!
 RACE:Elemental (Air Primal)	!PRERACE:%
 NAME:Elemental (Air Primal)
 SKILL:Listen	RANK:45
-SKILL:Spot		RANK:54
+SKILL:Spot		RANK:22
+SKILL:Spot		RANK:32	FREE:YES
 FEAT:Alertness
 FEAT:Blinding Speed
 FEAT:Blinding Speed
@@ -573,7 +583,8 @@ STARTPACK:Default Elemental (Earth Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,
 RACE:Elemental (Earth Primal)	!PRERACE:%
 NAME:Elemental (Earth Primal)
 SKILL:Spot		RANK:45
-SKILL:Listen	RANK:54
+SKILL:Listen	RANK:22
+SKILL:Listen	RANK:32	FREE:YES
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
@@ -602,7 +613,8 @@ STARTPACK:Default Elemental (Fire Primal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[
 RACE:Elemental (Fire Primal)	!PRERACE:%
 NAME:Elemental (Fire Primal)
 SKILL:Listen	RANK:45
-SKILL:Spot		RANK:54
+SKILL:Spot		RANK:22
+SKILL:Spot		RANK:32	FREE:YES
 FEAT:Alertness
 FEAT:Blinding Speed
 FEAT:Combat Reflexes
@@ -632,7 +644,8 @@ RACE:Elemental (Water Primal)	!PRERACE:%
 NAME:Elemental (Water Primal)
 SKILL:Swim		RANK:3
 SKILL:Spot		RANK:45
-SKILL:Listen	RANK:54
+SKILL:Listen	RANK:22
+SKILL:Listen	RANK:32	FREE:YES
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
@@ -1039,6 +1052,9 @@ FEAT:Dodge
 FEAT:Endurance
 FEAT:Epic Endurance
 FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Weapon Focus(Bite)
 FEAT:Epic Weapon Focus(Tail)
 FEAT:Great Cleave
@@ -1055,7 +1071,7 @@ STARTPACK:Default Pseudonatural Troll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRE
 RACE:Pseudonatural Troll	!PRERACE:%
 NAME:Pseudonatural Troll
 ALIGN:CE
-SKILL:Hide			RANK:13
+SKILL:Hide			RANK:9
 SKILL:Climb			RANK:9
 SKILL:Jump			RANK:9
 SKILL:Listen		RANK:9
@@ -1076,11 +1092,11 @@ STARTPACK:Default Shadow of the Void	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRER
 RACE:Shadow of the Void	!PRERACE:%
 NAME:Shadow of the Void
 ALIGN:LE
-SKILL:Hide			RANK:42
+SKILL:Hide			RANK:38
 SKILL:Intimidate		RANK:38
 SKILL:Search		RANK:38
 SKILL:Sense Motive	RANK:38
-SKILL:Diplomacy		RANK:36
+SKILL:Diplomacy		RANK:34
 SKILL:Listen		RANK:36
 SKILL:Spot			RANK:36
 FEAT:Alertness
@@ -1094,16 +1110,16 @@ FEAT:Improved Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Spellcasting Harrier
-FEAT:Spring Attack
 FEAT:Superior Initiative
-FEAT:Whirlwind Attack
+FEAT:Spring Attack		FREE:YES
+FEAT:Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
 STARTPACK:Default Shape of Fire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Shape of Fire]
 RACE:Shape of Fire	!PRERACE:%
 NAME:Shape of Fire
 ALIGN:LE
-SKILL:Hide			RANK:42
+SKILL:Hide			RANK:38
 SKILL:Intimidate		RANK:38
 SKILL:Search		RANK:38
 SKILL:Sense Motive	RANK:38
@@ -1122,8 +1138,8 @@ FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Spellcasting Harrier
 FEAT:Spring Attack
-FEAT:Superior Initiative
-FEAT:Whirlwind Attack
+FEAT:Superior Initiative	FREE:YES
+FEAT:Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
 STARTPACK:Default Sirrush	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sirrush]
@@ -1135,7 +1151,10 @@ SKILL:Listen		RANK:43
 SKILL:Move Silently	RANK:43
 SKILL:Spot			RANK:43
 SKILL:Survival		RANK:43
-SKILL:Hide			RANK:47
+SKILL:Hide			RANK:43
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Blinding Speed
 FEAT:Blinding Speed
 FEAT:Cleave
 FEAT:Great Cleave
@@ -1152,7 +1171,7 @@ STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 STARTPACK:Default Sirrush (Three Headed)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Sirrush (Three Headed)]
 RACE:Sirrush (Three Headed)	!PRERACE:%
 NAME:Sirrush (Three Headed)
-SKILL:Hide			RANK:52
+SKILL:Hide			RANK:48
 SKILL:Balance		RANK:48
 SKILL:Climb			RANK:48
 SKILL:Intimidate		RANK:48
@@ -1162,6 +1181,11 @@ SKILL:Move Silently	RANK:48
 SKILL:Search		RANK:48
 SKILL:Spot			RANK:48
 SKILL:Survival		RANK:48
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Blinding Speed
+FEAT:Blinding Speed
 FEAT:Blinding Speed
 FEAT:Cleave
 FEAT:Great Cleave
@@ -1185,6 +1209,7 @@ SKILL:Move Silently	RANK:37
 SKILL:Spot			RANK:37
 FEAT:Combat Reflexes
 FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Weapon Focus(Bite)
 FEAT:Epic Weapon Focus(Claw)
 FEAT:Improved Initiative
@@ -1206,8 +1231,8 @@ SKILL:Hide			RANK:32
 SKILL:Listen		RANK:32
 SKILL:Move Silently	RANK:32
 SKILL:Spot			RANK:32
-SKILL:Diplomacy		RANK:26
-SKILL:Intimidate		RANK:26
+SKILL:Diplomacy		RANK:24
+SKILL:Intimidate		RANK:24
 SKILL:Survival		RANK:16
 FEAT:Blinding Speed
 FEAT:Combat Expertise
@@ -1232,8 +1257,8 @@ SKILL:Decipher Script		RANK:73
 SKILL:Listen			RANK:73
 SKILL:Sense Motive		RANK:73
 SKILL:Spot				RANK:73
-SKILL:Gather Information	RANK:79
-SKILL:Spellcraft			RANK:79
+SKILL:Gather Information	RANK:73
+SKILL:Spellcraft			RANK:73
 SKILL:Intimidate			RANK:48
 FEAT:Automatic Silent Spell(3)
 FEAT:Automatic Still Spell(3)
@@ -1256,6 +1281,8 @@ FEAT:Still Spell
 FEAT:Weapon Focus(Javelin)
 FEAT:Weapon Focus(Warhammer)
 STAT:STR=11|CON=11|INT=11|WIS=11|DEX=10|CHA=10
+GEAR:Warhammer	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS5W
+GEAR:Javelin	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS5W
 
 STARTPACK:Default Treant (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Treant (Elder)]
 RACE:Treant (Elder)	!PRERACE:%
@@ -1266,12 +1293,16 @@ SKILL:Listen		RANK:50
 SKILL:Survival		RANK:40
 SKILL:Spot			RANK:30
 SKILL:Sense Motive	RANK:45
-SKILL:Diplomacy		RANK:47
+SKILL:Diplomacy		RANK:43
 SKILL:Hide			RANK:5
+SKILL:TYPE=Knowledge	RANK:53
 FEAT:Alertness
 FEAT:Endurance
 FEAT:Epic Endurance
 FEAT:Epic Reflexes
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Epic Weapon Focus(Slam)
 FEAT:Epic Will
@@ -1288,19 +1319,25 @@ STARTPACK:Default Umbral Blot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],
 RACE:Umbral Blot	!PRERACE:%
 NAME:Umbral Blot
 ALIGN:TN
-SKILL:Sense Motive	RANK:27
+SKILL:Sense Motive	RANK:20
 SKILL:Move Silently	RANK:50
-SKILL:Listen		RANK:37
-SKILL:Spot			RANK:37
+SKILL:Listen		RANK:30
+SKILL:Spot			RANK:30
 SKILL:Survival		RANK:30
-SKILL:Hide			RANK:47
+SKILL:Hide			RANK:40
 FEAT:Alertness
 FEAT:Combat Reflexes
+FEAT:Epic Prowess
+FEAT:Epic Prowess
 FEAT:Epic Prowess
 FEAT:Epic Skill Focus(Listen)
 FEAT:Epic Skill Focus(Hide)
 FEAT:Epic Skill Focus(Sense Motive)
 FEAT:Epic Skill Focus(Spot)
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
+FEAT:Epic Toughness
 FEAT:Epic Toughness
 FEAT:Improved Initiative
 FEAT:Skill Focus(Sense Motive)
@@ -1314,8 +1351,8 @@ RACE:Uvuudaum	!PRERACE:%
 NAME:Uvuudaum
 SKILL:Jump				RANK:33
 SKILL:Climb				RANK:18
-SKILL:Spellcraft			RANK:43
-SKILL:Tumble			RANK:43
+SKILL:Spellcraft			RANK:41
+SKILL:Tumble			RANK:41
 SKILL:Balance			RANK:2
 SKILL:Diplomacy			RANK:2
 SKILL:Gather Information	RANK:2
@@ -1383,8 +1420,8 @@ NAME:Winterwight
 ALIGN:CE
 SKILL:Intimidate			RANK:35
 SKILL:Knowledge (Religion)	RANK:35
-SKILL:Listen			RANK:37
-SKILL:Spot				RANK:37
+SKILL:Listen			RANK:35
+SKILL:Spot				RANK:35
 FEAT:Blinding Speed
 FEAT:Cleave
 FEAT:Epic Fortitude
@@ -1397,6 +1434,7 @@ FEAT:Weapon Focus(Claw)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Default Worm That Walks	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Worm That Walks]
+STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
 RACE:Worm That Walks	!PRERACE:%
 NAME:Worm That Walks
 SKILL:Concentration		RANK:21
@@ -1421,4 +1459,30 @@ FEAT:Quicken Spell
 FEAT:Scribe Scroll
 FEAT:Spell Penetration
 FEAT:Toughness
-STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
+GEAR:Amulet of Natural Armor +2	LOCATION:EQUIPPED
+GEAR:Bracers of Armor +8		LOCATION:EQUIPPED
+GEAR:Ring (Protection +3)		LOCATION:EQUIPPED
+GEAR:Gloves of Dexterity +4		LOCATION:EQUIPPED
+GEAR:Headband of Intellect +6		LOCATION:EQUIPPED
+GEAR:Wings of Flying			LOCATION:EQUIPPED
+GEAR:Rod (Absorption)			LOCATION:CARRIED
+GEAR:Ioun Stone (Pink)			LOCATION:EQUIPPED
+
+GEAR:Scroll (Fireball)			LOCATION:CARRIED
+GEAR:Scroll (Teleport/Greater)	LOCATION:CARRIED
+GEAR:Scroll (Acid Fog)			LOCATION:CARRIED
+GEAR:Scroll (Incendiary Cloud)	LOCATION:CARRIED
+GEAR:Scroll (Shapechange/Arcane)	LOCATION:CARRIED
+GEAR:Scroll (Wail of the Banshee)	LOCATION:CARRIED
+GEAR:Scroll (Clenched Fist)		LOCATION:CARRIED
+GEAR:Scroll (Horrid Wilting)		LOCATION:CARRIED
+GEAR:Scroll (Maze)			LOCATION:CARRIED
+GEAR:Scroll (Summon Monster IX)	LOCATION:CARRIED
+
+GEAR:Potion (Cure Serious Wounds)	LOCATION:CARRIED
+GEAR:Potion (Haste)			LOCATION:CARRIED
+GEAR:Potion (Fly)				LOCATION:CARRIED
+GEAR:Potion					LOCATION:CARRIED	EQMOD:SPL_1USE|SPELLNAME[Alter Self]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[2]CASTERLEVEL[3]
+
+
+
