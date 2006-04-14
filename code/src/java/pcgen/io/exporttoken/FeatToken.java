@@ -61,7 +61,7 @@ public class FeatToken extends Token {
 		cachedPC = pc;
 		lastMode = fString;
 
-		String typeStr = "";
+		List types = new ArrayList();
 		String featType = null;
 
 		// i holds the number of the feat we want, is decremented
@@ -69,6 +69,7 @@ public class FeatToken extends Token {
 		// if the current feat matches the desired feat
 		int i = -1;
 
+		boolean notTypes = false;
 
 		if ("FEAT".equals(fString) || "VFEAT".equals(fString) || "FEATALL".equals(fString) || "FEATAUTO".equals(fString)) {
 			while (aTok.hasMoreTokens()) {
@@ -92,13 +93,21 @@ public class FeatToken extends Token {
 						featType = bString;
 					}
 				}
+
 			}
 
-			if (aTok.hasMoreTokens()) {
-				typeStr = aTok.nextToken();
+			while (aTok.hasMoreTokens())
+			{
+				final String typeStr = aTok.nextToken();
 
-				if (!(typeStr.startsWith("TYPE") || typeStr.startsWith("!TYPE"))) {
-					typeStr = "";
+				int typeInd = typeStr.indexOf("TYPE");
+				if (typeInd != -1)
+				{
+					types.add(typeStr.substring(typeInd + 5));
+				}
+				if (typeInd > 0)
+				{
+					notTypes = true;
 				}
 			}
 		}
@@ -123,10 +132,17 @@ public class FeatToken extends Token {
 				matchTypeDef = true;
 			}
 
-			if ((tokenSource.indexOf(".!TYPE") >= 0) && (typeStr.length() > 6)) {
-				matchTypeDef = !aFeat.isType(typeStr.substring(6));
-			} else if ((tokenSource.indexOf(".TYPE") >= 0) && (typeStr.length() > 5)) {
-				matchTypeDef = aFeat.isType(typeStr.substring(5));
+			for (Iterator j = types.iterator(); j.hasNext(); )
+			{
+				final String typeStr = (String)j.next();
+				if (notTypes)
+				{
+					matchTypeDef = !aFeat.isType(typeStr);
+				}
+				else
+				{
+					matchTypeDef = aFeat.isType(typeStr);
+				}
 			}
 
 			if ((aFeat.getVisible() == Ability.VISIBILITY_HIDDEN) || (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY)) {

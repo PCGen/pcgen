@@ -5,6 +5,7 @@ import java.util.List;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.FeatToken;
+import java.util.ArrayList;
 
 /**
  * @author karianna
@@ -35,6 +36,10 @@ public class DFeatAllToken extends FeatToken
 	 */
 	protected List getFeatList(PlayerCharacter pc)
 	{
-		return pc.featAutoList();
+		List ret = new ArrayList();
+		ret.addAll(pc.getRealFeatsList());
+		ret.addAll(pc.featAutoList());
+		ret.addAll(pc.getVirtualFeatList());
+		return ret;
 	}
 }
