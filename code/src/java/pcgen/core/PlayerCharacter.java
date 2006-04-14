@@ -6241,7 +6241,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		String aRange = aSpell.getRange();
 		final String aSpellClass = "CLASS:" + aName;
-		int rangeInFeet;
+		int rangeInFeet = 0;
 		String aString = Globals.getGameModeSpellRangeFormula(aRange.toUpperCase());
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
@@ -6259,9 +6259,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 		if (aString != null)
 		{
-			final List metaFeats = si.getFeatList();
-			rangeInFeet = getVariableValue(aSpell, aString, aSpellClass).intValue();
-
+			List metaFeats = null;
+			if(si != null) {
+				metaFeats = si.getFeatList();
+				rangeInFeet = getVariableValue(aSpell, aString, aSpellClass).intValue();
+			}
 			if ((metaFeats != null) && !metaFeats.isEmpty())
 			{
 				for (Iterator e = metaFeats.iterator(); e.hasNext();)
