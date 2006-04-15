@@ -40,8 +40,10 @@ public class PreDefaultMonsterTester extends AbstractPrerequisiteTest implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		return character.isMonsterDefault() == ("Y".equalsIgnoreCase(prereq.getKey())) ? 1 : 0; //$NON-NLS-1$
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc)
+	{
+		final char key = prereq.getKey().toUpperCase().charAt(0);
+		return pc.isMonsterDefault() == (key == 'Y') ? 1 : 0; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)

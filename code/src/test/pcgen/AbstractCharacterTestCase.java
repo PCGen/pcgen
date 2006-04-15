@@ -75,6 +75,30 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 		cha.setAbb("CHA");
 		gamemode.addToStatList(cha);
 
+		SizeAdjustment aSize = new SizeAdjustment();
+		aSize.setName("Fine");
+		aSize.setAbbreviation("F");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
+
+		aSize = new SizeAdjustment();
+		aSize.setName("Diminutive");
+		aSize.setAbbreviation("D");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
+
+		aSize = new SizeAdjustment();
+		aSize.setName("Tiny");
+		aSize.setAbbreviation("T");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
+
+		aSize = new SizeAdjustment();
+		aSize.setName("Small");
+		aSize.setAbbreviation("S");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
+
 		final SizeAdjustment sizeM = new SizeAdjustment();
 		sizeM.setName("Medium");
 		sizeM.setAbbreviation("M");
@@ -85,6 +109,24 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 		sizeL.setAbbreviation("L");
 		sizeL.setIsDefaultSize(false);
 		gamemode.addToSizeAdjustmentList(sizeL);
+
+		aSize = new SizeAdjustment();
+		aSize.setName("Huge");
+		aSize.setAbbreviation("H");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
+
+		aSize = new SizeAdjustment();
+		aSize.setName("Gargantuan");
+		aSize.setAbbreviation("G");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
+
+		aSize = new SizeAdjustment();
+		aSize.setName("Colossal");
+		aSize.setAbbreviation("C");
+		aSize.setIsDefaultSize(false);
+		gamemode.addToSizeAdjustmentList(aSize);
 
 		gamemode.addToAlignmentList(createAlignment("Lawful Good", "LG"));
 		gamemode.addToAlignmentList(createAlignment("Lawful Neutral", "LN"));
@@ -121,7 +163,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String) 
+	 * @see PCGenTestCase#PCGenTestCase(String)
 	 */
 	public AbstractCharacterTestCase(final String name)
 	{

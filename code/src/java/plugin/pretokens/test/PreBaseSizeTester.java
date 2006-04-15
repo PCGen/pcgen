@@ -49,7 +49,8 @@ public class PreBaseSizeTester extends AbstractPrerequisiteTest implements Prere
 
 		if ((character.getRace() != null) && !character.getRace().equals(Globals.s_EMPTYRACE))
 		{
-			final int targetSize = Globals.sizeInt(prereq.getOperand(), -1);
+			final String key = String.valueOf(prereq.getOperand().toUpperCase().charAt(0));
+			final int targetSize = Globals.sizeInt(key, -1);
 			if (targetSize < 0)
 			{
 				throw new PrerequisiteException(PropertyFactory.getFormattedString("PreBaseSize.error.bad_size", prereq.getOperand() )); //$NON-NLS-1$
