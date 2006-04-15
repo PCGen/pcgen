@@ -41,7 +41,7 @@
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
 			<li>CAUTION: Some trouble has been found when attempting to add two of the same item.</li>
-			<li>CAUTION: You should not use items which have math operators (such as + and -) in thier names.</li>
+			<li>CAUTION: You should not use items which have math operators (such as + and -) in their names.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
@@ -62,7 +62,7 @@
 			<li>You can specify individual armor or all armor of an armor proficiency type.</li>
 			<li>You may have one TYPE with multiple &quot;.&quot; period delimited armor types. This will grant the character proficiency with 
 					only armor that meet all off the listed choices.</li>
-			<li>If multiple armor or types, etc, are listed type will ALL be given as free proficiences.</li>
+			<li>If multiple armor or types, etc, are listed type will ALL be given as free proficiencies.</li>
 			<li>You can now have multiple AUTO: tags (before you could only have 1).</li>
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
@@ -85,7 +85,7 @@
 			<li>You can specify individual shields or all shields of a shield proficiency type.</li>
 			<li>You may have one TYPE with multiple &quot;.&quot; period delimited shield types. This will grant the character proficiency with 
 					only shields that meet all off the listed choices.</li>
-			<li>If multiple shield or types, etc, are listed type will ALL be given as free proficiences.</li>
+			<li>If multiple shield or types, etc, are listed type will ALL be given as free proficiencies.</li>
 			<li>You can now have multiple AUTO: tags (before you could only have 1).</li>
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
@@ -110,7 +110,7 @@
 			<li>You may have one TYPE with multiple &quot;.&quot; period delimited weapon types. This will grant the character proficiency with 
 					only those weapons that meet all off the listed choices.</li>
 			<li>If multiple weapons or types, etc, are listed type will ALL be 
-					given as free proficiences.</li>
+					given as free proficiencies.</li>
 			<li>You can now have multiple AUTO: tags (before you could only have 1).</li>
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
@@ -246,7 +246,7 @@
 		
 		<p></p><a name="MOVE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MOVE:x,y,x,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Momement Mode)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement Mode)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Rate per round)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
 		<p class="indent2">Determines the Type and Speed of the different movement types the race has.</p>
@@ -265,7 +265,7 @@
 			<li>Creates a new type of movement based on another type.</li>
 			<li>&quot;z&quot; is applied to the original movement rate, then it is copied to the new movement type 
 					and the second modifier is applied. </li>
-			<li>If no symbol is in the matematical expression then addition is assumed</li>
+			<li>If no symbol is in the mathematical expression then addition is assumed</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>MOVECLONE:Walk,0,Fly,*2</code></p>
@@ -357,8 +357,8 @@
 			ability &quot;Sneak Attack&quot; at +5d6.</p>
 		<p class="indent2"><code>SA:.CLEAR.+1d6 to natural weapons SA:.+1d8 to natural weapons </code></p>
 		<p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
-		<p class="indent2"><code>SA:Bananna toss|PRERACE:monkey</code></p>
-		<p class="indent3">Grants the special ability &quot;Bananna toss&quot; if the characters race is &quot;monkey&quot;.</p>
+		<p class="indent2"><code>SA:Banana toss|PRERACE:monkey</code></p>
+		<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the characters race is &quot;monkey&quot;.</p>
 		
 		<p></p><a name="SOURCELONG"></a><hr>
 		<p class="new">*** Updated 4.3.10</p>
@@ -392,7 +392,7 @@
 		
 		<p></p><a name="SPELL"></a><hr>
 		
-<p class="new">*** Deprecated, use <a href="#SPELLS">SPELLS</a></p>
+		<p class="new">*** Deprecated, use <a href="#SPELLS">SPELLS</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELL:x|y|z|x|y|z</p>
 		<p><strong> Variables Used (x):</strong>Text (name of spell)</p>
 		<p><strong> Variables Used (y):</strong>Number (number of times per day)</p>
@@ -594,12 +594,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> MediumArmor</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> HeavyArmor</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a global tag that allows the character to ignore encumberance penalties to movement.</p>
+		<p class="indent2">This is a global tag that allows the character to ignore encumbrance penalties to movement.</p>
 		<p class="indent2">This tag is backwards inclusive, so if you have UNENCUMBEREDMOVE:MediumLoad it means you also have UNENCUMBEREDMOVE:LightLoad.</p>
-		<p class="indent2">This can be | (pipe) delimited in order to negate both the encumberance and armor penalties.</p>
+		<p class="indent2">This can be | (pipe) delimited in order to negate both the encumbrance and armor penalties.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor</code></p>
-		<p class="indent3">This is used in the Race entry for Dwarves, Dwarves ignore encumberance penalties to movement
+		<p class="indent3">This is used in the Race entry for Dwarves, Dwarves ignore encumbrance penalties to movement
 			for heavy armor and heavy loads.</p>
 		
 		<p></p><a name="VFEAT"></a><hr>
@@ -623,7 +623,7 @@
 		
 		<p></p><a name="VISION"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> VISION:x (y)|x (y)</p>
-		<p class="indent1"><strong> Variables Used:</strong>Text, | deliminated</p>
+		<p class="indent1"><strong> Variables Used:</strong>Text, | delimited</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This tag is &quot;|&quot; pipe delimited. This grants the specified vision to the character 
 											 and formulas can be used to determine the distance.</p>
@@ -679,7 +679,7 @@
 		<p class="indent2"><code>CLASS:Ranger.MOD</code></p>
 		<p class="indent3">Modifies the Ranger class (in class.lst)</p>
 		<p class="indent2"><code>Skill Focus.MOD</code></p> 
-		<p class="indent3">Modifes the Skill Focus feat (in feat.lst)</p>
+		<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
 		
 		<p></p><a name="COPY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;name&gt;.COPY=&lt;new name&gt;</p>
