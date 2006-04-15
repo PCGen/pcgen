@@ -109,7 +109,7 @@ final class MainPrint extends JPanel
 
 		this.parentFrame = pf;
 		this.timer = new Timer(5,
-			    new ActionListener()
+				new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
 					{
@@ -262,7 +262,7 @@ final class MainPrint extends JPanel
 		{
 			final String pcName = partyMode ? "Entire Party" : (String) pcList.getModel().getElementAt(pcExports[loop]);
 			fcExport.setSelectedFile(new File(SettingsHandler.getPcgPath().toString() + File.separator + pcName
-			        + extension));
+					+ extension));
 			fcExport.setDialogTitle("Export " + pcName);
 
 			try
@@ -302,8 +302,8 @@ final class MainPrint extends JPanel
 				if (outFile.exists() && SettingsHandler.getAlwaysOverwrite() == false)
 				{
 					int reallyClose = JOptionPane.showConfirmDialog(this,
-						    "The file " + outFile.getName() + " already exists, " + "are you sure you want "
-						    + "to overwrite it?", "Confirm overwriting " + outFile.getName(), JOptionPane.YES_NO_OPTION);
+							"The file " + outFile.getName() + " already exists, " + "are you sure you want "
+							+ "to overwrite it?", "Confirm overwriting " + outFile.getName(), JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -330,7 +330,7 @@ final class MainPrint extends JPanel
 					printToXMLFile(tmpFile, pcExports[loop]);
 
 					File template = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator
-						    + (String) templateList.getSelectedValue());
+							+ (String) templateList.getSelectedValue());
 					fh.setInputFile(tmpFile, template);
 					SettingsHandler.setSelectedCharacterPDFOutputSheet(template
 						.getAbsolutePath(), (PlayerCharacter) Globals
@@ -405,7 +405,7 @@ final class MainPrint extends JPanel
 					else
 					{
 						ShowMessageDelegate.showMessageDialog(throwable.getClass().getName() + ": " + throwable.getMessage(), "PCGen",
-					    MessageType.ERROR);
+						MessageType.ERROR);
 					}
 				}
 
@@ -531,8 +531,8 @@ final class MainPrint extends JPanel
 		centerPane.add(buttonPane, BorderLayout.SOUTH);
 
 		this.add(centerPane, BorderLayout.CENTER);
-        	this.add(progressPanel, BorderLayout.SOUTH);
-        	this.setSize(new Dimension(500, 400));
+			this.add(progressPanel, BorderLayout.SOUTH);
+			this.setSize(new Dimension(500, 400));
 		this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 	}
 
@@ -580,7 +580,7 @@ final class MainPrint extends JPanel
 					printToXMLFile(tmpFile, pcExports[loop]);
 
 					File template = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator
-						    + (String) templateList.getSelectedValue());
+							+ (String) templateList.getSelectedValue());
 					fh.setInputFile(tmpFile, template);
 				}
 				else
@@ -650,7 +650,7 @@ final class MainPrint extends JPanel
 					else
 					{
 						ShowMessageDelegate.showMessageDialog(throwable.getClass().getName() + ": " + throwable.getMessage(), "PCGen",
-					    MessageType.ERROR);
+						MessageType.ERROR);
 					}
 				}
 
@@ -694,7 +694,7 @@ final class MainPrint extends JPanel
 		//final BufferedWriter bw = new BufferedWriter(new FileWriter(outFile));
 		final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 		final File template = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator
-			    + (String) templateList.getSelectedValue());
+				+ (String) templateList.getSelectedValue());
 
 		if (partyMode)
 		{
@@ -822,6 +822,9 @@ final class MainPrint extends JPanel
 				setPartyMode(cboxParty.isSelected());
 				pcList.setEnabled(!cboxParty.isSelected());
 				templateList.updateUI();
+				boolean enable = ((TemplateListModel)templateList.getModel()).getNumFiles() > 0;
+				exportButton.setEnabled(enable);
+				printButton.setEnabled(enable);
 				setDefaultTemplateSelection();
 			}
 			else if (src.equals(templatePathButton))

@@ -53,7 +53,7 @@ class TemplateListModel extends AbstractListModel
 	 * @param argFileType
 	 */
 	public TemplateListModel(CsheetFilter argCsheetFilter, CsheetFilter argPsheetFilter, boolean argPartyMode,
-	    String argFileType)
+		String argFileType)
 	{
 		super();
 		csheetFilter = argCsheetFilter;
@@ -70,18 +70,36 @@ class TemplateListModel extends AbstractListModel
 		{
 			if (index >= pSheets.length)
 			{
-				return null;
+				return "No templates found";
 			}
 			return pSheets[index];
 		}
 		if (index >= cSheets.length)
 		{
-			return null;
+			return "No templates found";
 		}
 		return cSheets[index];
 	}
 
+	/**
+	 * Returns number of list elements.  Will always be at least one since we
+	 * add the message.
+	 * @return int
+	 */
 	public int getSize()
+	{
+		if (partyMode)
+		{
+			return Math.max(1,pSheets.length);
+		}
+		return Math.max(1,cSheets.length);
+	}
+
+	/**
+	 * Returns the actual number of files managed
+	 * @return int number of files
+	 */
+	public int getNumFiles()
 	{
 		if (partyMode)
 		{
@@ -91,9 +109,9 @@ class TemplateListModel extends AbstractListModel
 	}
 
 	/**
-	 * Retuirn the index of 
+	 * Retuirn the index of
 	 * @param o
-	 * @return the index of 
+	 * @return the index of
 	 */
 	public int indexOf(Object o)
 	{
@@ -119,12 +137,12 @@ class TemplateListModel extends AbstractListModel
 			Object[] options = { "OK", "CANCEL" };
 
 			if (JOptionPane.showOptionDialog(null,
-			        "No templates found. Attempt to change to " + Globals.getDefaultPath() + File.separator
-			        + "outputsheets ?", "Warning", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options,
-			        options[0]) == JOptionPane.YES_OPTION)
+					"No templates found. Attempt to change to " + Globals.getDefaultPath() + File.separator
+					+ "outputsheets ?", "Warning", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options,
+					options[0]) == JOptionPane.YES_OPTION)
 			{
 				SettingsHandler.setPcgenOutputSheetDir(new File(Globals.getDefaultPath() + File.separator
-				        + "outputsheets"));
+						+ "outputsheets"));
 				attempts = 1;
 				aList = csheetFilter.getAccepted();
 			}
@@ -162,7 +180,7 @@ class TemplateListModel extends AbstractListModel
 
 	/**
 	 * Set the party mode flag, true means we will be exporting the full party.
-	 * 
+	 *
 	 * @param b
 	 */
 	public void setPartyMode(boolean b)

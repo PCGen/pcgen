@@ -231,7 +231,7 @@ final class MainExport extends JPanel
 		{
 			final String pcName = partyMode ? "Entire Party" : (String) pcList.getModel().getElementAt(pcExports[loop]);
 			fcExport.setSelectedFile(new File(SettingsHandler.getPcgPath().toString() + File.separator + pcName + "."
-			        + extension));
+					+ extension));
 			fcExport.setDialogTitle("Export " + pcName);
 
 			if (fcExport.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
@@ -262,8 +262,8 @@ final class MainExport extends JPanel
 				if (outFile.exists() && SettingsHandler.getAlwaysOverwrite() == false)
 				{
 					int reallyClose = JOptionPane.showConfirmDialog(this,
-						    "The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?",
-						    "Confirm overwriting " + outFile.getName(), JOptionPane.YES_NO_OPTION);
+							"The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?",
+							"Confirm overwriting " + outFile.getName(), JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -345,6 +345,8 @@ final class MainExport extends JPanel
 					setPartyMode(cboxParty.isSelected());
 					pcList.setEnabled(!cboxParty.isSelected());
 					templateList.updateUI();
+					boolean enable = ((TemplateListModel)templateList.getModel()).getNumFiles() > 0;
+					exportButton.setEnabled(enable);
 
 					//templateList.revalidate();
 					setDefaultTemplateSelection();
@@ -388,7 +390,7 @@ final class MainExport extends JPanel
 		this.add(contentPane, BorderLayout.CENTER);
 		this.add(buttonPane, BorderLayout.SOUTH);
 
-        	this.setSize(new Dimension(500, 400));
+			this.setSize(new Dimension(500, 400));
 		this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 	}
 
@@ -397,7 +399,7 @@ final class MainExport extends JPanel
 	{
 		final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 		final File template = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator
-			    + (String) templateList.getSelectedValue());
+				+ (String) templateList.getSelectedValue());
 
 		if (partyMode)
 		{
