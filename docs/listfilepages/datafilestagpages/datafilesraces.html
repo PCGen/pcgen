@@ -77,7 +77,7 @@
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>FAVCLASS:Wizard</code></p>
-		<p class="indent3">Race's favoured class is Wizard.</p>
+		<p class="indent3">Race's favored class is Wizard.</p>
 
 		<p></p><a name="FEAT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>
@@ -130,7 +130,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HITDICEADVANCEMENT:4,6,8</code></p>
 		<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+ 
-			it is Medium. 8 Hit Dice is the maximum it can erver raise to.</p>
+			it is Medium. 8 Hit Dice is the maximum it can ever raise to.</p>
 		<p class="indent2"><code>HITDICEADVANCEMENT:4,16,32,99</code></p>
 		<p class="indent3">Assassin Vine: starts out as Large, with 4 HD. 5-16 it is Huge, 
 			17-32 it is Gargantuan, 33+ it is Colossal. 99 HD is the maximum 
@@ -153,7 +153,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> LEGS:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to determine encumbrace and carrying capacity for creatures/characters 
+		<p class="indent2">Used to determine encumbrance and carrying capacity for creatures/characters 
 			with a nonstandard amount of legs. (i.e. more than/less than 2).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>LEGS:4</code></p>
@@ -193,7 +193,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Grants the listed skills as monster cross class skills.</p>
-		<p class="indent2">Monster cross class skills are onlycross class skills for monster classes such as Giant, Outsider, Undead etc.</p>
+		<p class="indent2">Monster cross class skills are only cross class skills for monster classes such as Giant, Outsider, Undead etc.</p>
 		<p class="indent2">If a monster takes levels in a base class only those skill defined as cross class skills in that class count as 
 			cross class skills for that level, the monster cross class skills will not apply.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -271,16 +271,16 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Subtype)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Defines the Subtypes of creature posseses.</li>
+			<li>Defines the Subtypes of creature possesses.</li>
 			<li>Additional Subtypes can be added and/or removed with a RACESUBTYPE in a template or other file type</li>
 			<li>Examples include:<br />
 				Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar, 
 				Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water 
-				as well as Humaniod subraces such as Elf, Orc, Dwarf, etc..</li> 
+				as well as Humanoid subraces such as Elf, Orc, Dwarf, etc..</li> 
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>
-		<p class="indent3">The race posseses the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>
+		<p class="indent3">The race possesses the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>
 
 		<p></p><a name="RACETYPE"></a><hr>
 		<p class="new">*** New 5.9.4</p>
@@ -307,7 +307,7 @@
 		<p class="indent2">Determines the reach of the Race.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>REACH:10</code></p>
-		<p class="indent3">The race has a reach of tem feet.</p>
+		<p class="indent3">The race has a reach of ten feet.</p>
 
 		<p></p><a name="SIZE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
@@ -337,7 +337,7 @@
 		<p></p><a name="SOURCEPAGE"></a><hr>
 		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> SOURCEPAGE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Numbar)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Number)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is used to show where in the source the race information is listed. 
 			SOURCEPAGE should always be used, since display of any of the SOURCE information requires 
@@ -349,7 +349,7 @@
 		<p></p><a name="STARTFEATS"></a><hr>
 		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> STARTFEATS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Numbar)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Number)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Grants a number of free feats to the race at first level. These are 
 		unrestricted feats. To restrict choice (such as &quot;only Fighter feats&quot;) use 
@@ -373,7 +373,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">CHOOSE will supply a popup window of the choices presented in the tag 
-			that are | (pipe) delimted. Allowing the user to pick ONE from the list.</p>
+			that are | (pipe) delimited. Allowing the user to pick ONE from the list.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
 		<p class="indent3">The race can choose either the &quot;Celestial&quot; or &quot;Outsider&quot;
@@ -387,7 +387,7 @@
 			to the list presented by the original TEMPLATE:CHOOSE tag found here or in other lst files.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
-		<p class="indent3">The race can choose previouly defined templates plus the 
+		<p class="indent3">The race can choose previously defined templates plus the 
 			&quot;Demihuman&quot; or &quot;Beast&quot; templates.</p>
 
 		<p></p><a name="TYPE"></a><hr>
