@@ -4669,7 +4669,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		if (profName == null || profName.length() == 0)
 		{
 			return this.getName();
-		}		
+		}
 		return profName;
 	}
 
@@ -7251,13 +7251,13 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		WieldCategory wCat = null;
 
 		WeaponProf wp = getExpandedWeaponProf(aPC);
-		if (hasWield())
-		{
-			// Get this equipments WieldCategory from gameMode
-			wCat = WieldCategory.findByName(getWield());
 
+		// Get this equipments WieldCategory from gameMode
+		wCat = WieldCategory.findByName(getWield());
+
+		if (hasWield() && !Globals.checkRule(RuleConstants.SIZEOBJ))
+		{
 			// Get the starting effective wield category
-			// TODO Fix this nonsense
 			wCat = wCat.adjustForSize(aPC, this);
 		}
 		else
@@ -7329,6 +7329,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		// or a bonus from the weapon itself
 		aBump += (int) bonusTo(aPC, "WEAPON", "WIELDCATEGORY", true);
+
+		if (aBump == 0)
+		{
+			return wCat;
+		}
 
 		return wCat.getWieldCategoryStep(aBump);
 	}
