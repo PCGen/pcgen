@@ -59,7 +59,7 @@ public class PreCheckBaseTester extends AbstractPrerequisiteTest implements Prer
 		final int characterCheckVal = SettingsHandler.getGame().getIndexOfCheck(checkName);
 		if (characterCheckVal>=0) {
 			final int characterCheckBonus = (int) character.getBonus(characterCheckVal + 1, false);
-			runningTotal = prereq.getOperator().compare(characterCheckBonus, operand);
+			runningTotal = prereq.getOperator().compare(characterCheckBonus, operand) > 0 ? 1 : 0;
 		}
 		return countedTotal(prereq, runningTotal);
 	}
