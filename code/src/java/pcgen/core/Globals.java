@@ -536,7 +536,12 @@ public final class Globals
 
 		for (int i = 0; i < loopMax; ++i)
 		{
-			final StringTokenizer tTok = new StringTokenizer((String) getCustColumnWidth().get(i), "|", false);
+			final String colWidth = (String)getCustColumnWidth().get(i);
+			if (colWidth == null || colWidth.length() == 0)
+			{
+				continue;
+			}
+			final StringTokenizer tTok = new StringTokenizer(colWidth, "|", false);
 			final String tabName = tTok.nextToken();
 
 			if (cName.equals(tabName))
