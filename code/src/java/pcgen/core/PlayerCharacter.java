@@ -8658,8 +8658,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		final int atl = getTotalLevels();
-		final int thd = totalHitDice();
+//		final int atl = getTotalLevels();
+//		final int thd = totalHitDice();
 
 		for (Iterator i = templateList.iterator(); i.hasNext();)
 		{
