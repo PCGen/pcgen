@@ -315,21 +315,19 @@
 		<p class="indent3">If the character is level 10 this would output as &quot;Magic Sword +2&quot;.</p>
 		
 		<p></p><a name="REGION"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong>REGION</p>
-		<p><strong> Variables Used:</strong> Text or Yes</p>
+		<p class="indent0"><strong>Tag Name:</strong> REGION:x|y|y</p>
+		<p><strong> Variables Used (x):</strong> Number (Number of selections to allow)</p>
+		<p><strong> Variables Used (y):</strong> Text (Region name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This sets the name of the region the character is from, the default is none.</li>
-			<li>If Yes is specified then it will place the name of the template in parenthesis
-				after the race on character output sheet.</li> 
-			<li>You have to specify <code>REGION:Yes</code> first, then <code>REGION:&lt;region
-					name&gt;</code> - IN THAT ORDER - to achieve the desired effect.</li>
+			<li>Allows a choice of the character's region.</li>
+			<li>The first parameter is the number of selections to allow. &nbsp;This should always be
+			one.</li> 
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>REGION:Yes</code></p>
-		<p class="indent3">Will place the name of the template in parentesis after the
-			race on the character output sheet.</p>
-		<p class="indent2"><code>REGION:Timbuktu</code></p>
+		<p class="indent2"><code>REGION:1|Region1|Region2|Region3</code></p>
+		<p class="indent3">Will allow the choice of Region1, Region2, or Region3 as the character's region.</p>
+		<p class="indent2"><code>REGION:1|Timbuktu</code></p>
 		<p class="indent3">The PC is from the &quot;Timbuktu&quot; region.</p>
 		
 		<p></p><a name="SA"></a><hr>
