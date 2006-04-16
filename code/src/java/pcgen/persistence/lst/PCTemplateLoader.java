@@ -55,8 +55,6 @@ final class PCTemplateLoader
 		{
 			return;
 		}
-		template.setName("None");
-
 		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
