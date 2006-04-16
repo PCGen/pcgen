@@ -164,7 +164,10 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 			PlayerCharacter aPC,
 			List            selected)
 	{
-		// TODO Some work here?
+		// Nothing to do here.  The method this class replaces specifically checked
+		// that it wasn't part of a SpeelList chooser before it adjusted the Feat
+		// Pool.  This empty method ensures the mthod is the super class is not
+		// invoked.
 	}
 
 	/**
