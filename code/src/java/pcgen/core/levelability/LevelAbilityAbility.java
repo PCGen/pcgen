@@ -602,15 +602,13 @@ public class LevelAbilityAbility extends LevelAbility
 				previousChoices.add(ab);
 
 				List aList = aPC.getVirtualFeatList();
-				aList = AbilityUtilities.addVirtualFeat(
+				final Ability pcAbility = AbilityUtilities.addVirtualAbility(
 						ab,
 					    choiceList,
 					    aList,
-					    aPC,
 					    pcLevelInfo);
 
-				final Ability pcAbility = AbilityUtilities.getMatchingFeatInList(aList, ab);
-//				final Ability pcAbility = AbilityUtilities.getAbilityFromList(aList, ab);
+				aPC.setDirty(true);
 
 				if (pcAbility != null)
 				{
@@ -668,7 +666,7 @@ public class LevelAbilityAbility extends LevelAbility
 						aBonusList.add(bonusIt.next());
 					}
 				}
-				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true, false);
+				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true);
 
 				if (spellLevelProcess && (ab != null))
 				{

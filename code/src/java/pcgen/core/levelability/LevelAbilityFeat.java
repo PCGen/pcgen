@@ -187,10 +187,8 @@ class LevelAbilityFeat extends LevelAbility
 				final String featName = selectedList.get(index).toString();
 				previousChoices.add(featName);
 
-				List aList = aPC.getVirtualFeatList();
-				aList      = AbilityUtilities.addVirtualFeat(featName, aList, pcLevelInfo, aPC);
-
-				final Ability aFeat = AbilityUtilities.getAbilityFromList(aList, "FEAT", featName, -1);
+				final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT", featName, aPC.getVirtualFeatList(), pcLevelInfo);
+				aPC.setDirty(true);
 
 				if (aFeat != null)
 				{

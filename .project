@@ -15,9 +15,15 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.teaminabox.eclipse.metrics.MetricsBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>com.ibm.etools.ctc.javaprojectnature</nature>
+		<nature>com.teaminabox.eclipse.metrics.MetricsNature</nature>
 	</natures>
 </projectDescription>

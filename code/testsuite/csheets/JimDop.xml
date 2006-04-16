@@ -1209,8 +1209,8 @@
 			<name>Armor Proficiency (Heavy)</name>
 			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
 			<type>GENERAL</type>
-			<associated>Heavy</associated>
-			<count>1</count>
+			<associated></associated>
+			<count>0</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1219,8 +1219,8 @@
 			<name>Armor Proficiency (Light)</name>
 			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
 			<type>GENERAL</type>
-			<associated>Light</associated>
-			<count>1</count>
+			<associated></associated>
+			<count>0</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1229,8 +1229,8 @@
 			<name>Armor Proficiency (Medium)</name>
 			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
 			<type>GENERAL</type>
-			<associated>Medium</associated>
-			<count>1</count>
+			<associated></associated>
+			<count>0</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>

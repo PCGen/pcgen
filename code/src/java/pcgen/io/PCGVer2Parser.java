@@ -3399,9 +3399,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			AbilityUtilities.addVirtualFeat(abilityKey, aPC.getVirtualFeatList(), null, aPC);
-			anAbility = AbilityUtilities.getAbilityFromList(aPC.getVirtualFeatList(), "FEAT", abilityKey, -1);
+			anAbility = AbilityUtilities.addVirtualAbility("FEAT", abilityKey, aPC.getVirtualFeatList(), null);
 			anAbility.setNeedsSaving(true);
+			aPC.setDirty(true);
 		}
 
 		parseFeatsHandleAppliedToAndSaveTags(it, anAbility, line);
