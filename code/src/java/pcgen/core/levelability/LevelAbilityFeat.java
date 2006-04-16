@@ -335,7 +335,7 @@ class LevelAbilityFeat extends LevelAbility
 			}
 		}
 
-		addAllToAssociated(selectedList);
+//		addAllToAssociated(selectedList);
 		return true;
 	}
 
@@ -390,7 +390,8 @@ class LevelAbilityFeat extends LevelAbility
 
 			if (!featName.equalsIgnoreCase(anAbility.getName()))
 			{
-				subName = adjustNames(featName, anAbility);
+				subName  = adjustNames(featName, anAbility);
+				featName = anAbility.getName();
 			}
 
 			if (allowDups)
@@ -463,6 +464,7 @@ class LevelAbilityFeat extends LevelAbility
 			return featList;
 		}
 		ArrayList featList = new ArrayList();
+		
 		featList.add(aToken);
 		return featList;
 	}

@@ -336,30 +336,27 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	 */
 	public void testExoticWpnProf()
 	{
-		Ability profA = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
-		profA.setMultiples("YES");
-		profA.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
-		profA.addAutoArray("AUTO:WEAPONPROF|%LIST");
-		
-		final PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		character.incrementClassLevel(1, pcClass);
-
+		
 		assertFalse("Not yet proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
 		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
 		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
 
-		AbilityUtilities.modFeat(character, null, "Exotic Weapon Proficiency (Weapon A)", true, false);
+		character.incrementClassLevel(1, pcClass);
+
 		assertTrue("First Proficient in Weapon A",    character.hasWeaponProfNamed("Weapon A"));
 		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
 		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
 
-		AbilityUtilities.modFeat(character, null, "Exotic Weapon Proficiency (Weapon B)", true, false);
+		character.incrementClassLevel(1, pcClass);
+
 		assertTrue("Second Proficient in Weapon A",   character.hasWeaponProfNamed("Weapon A"));
 		assertTrue("Proficient in Weapon B",          character.hasWeaponProfNamed("Weapon B"));
 		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
 
-		AbilityUtilities.modFeat(character, null, "Exotic Weapon Proficiency (Weapon C)", true, false);
+		character.incrementClassLevel(1, pcClass);
+
 		assertTrue("Third Proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
 		assertTrue("Proficient in Weapon B",       character.hasWeaponProfNamed("Weapon B"));
 		assertTrue("Proficient in Weapon C",       character.hasWeaponProfNamed("Weapon C"));
@@ -416,12 +413,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		toughness.setCategory("FEAT");
 		Globals.addAbility(toughness);
 
-		Ability exoticWpnProf = new Ability();
-		exoticWpnProf.setName("Exotic Weapon Proficiency");
-		exoticWpnProf.setMultiples("Y");
-		exoticWpnProf.setChoiceString("Exotic");
-		exoticWpnProf.setCategory("FEAT");
-		Globals.addAbility(exoticWpnProf);
+		Ability exoticWpnProf = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
+		exoticWpnProf.setMultiples("YES");
+		exoticWpnProf.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		exoticWpnProf.addAutoArray("WEAPONPROF|%LIST");
 
 		WeaponProf wpnProfTestA = new WeaponProf();
 		wpnProfTestA.setName("Weapon A");
@@ -440,6 +435,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		wpnProfTestC.setKeyName("Weapon C");
 		wpnProfTestC.setTypeInfo("Exotic");
 		Globals.addWeaponProf(wpnProfTestC);
+		
+		
+		SettingsHandler	.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+
+		pcClass.addAddList(1, "FEAT(Exotic Weapon Proficiency (Weapon A))");
+		pcClass.addAddList(2, "FEAT(Exotic Weapon Proficiency (Weapon B))");
+		pcClass.addAddList(3, "FEAT(Exotic Weapon Proficiency (Weapon C))");
 	}
 
 	public void testGetClassVar() throws Exception
