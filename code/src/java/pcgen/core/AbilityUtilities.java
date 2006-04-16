@@ -819,7 +819,7 @@ public class AbilityUtilities
 
 						if (wp != null)
 						{
-							if (addIt) // TODO: condition always true
+							if (addIt)
 							{
 								anAbility.addAssociated(wp.getName());
 							}
@@ -831,7 +831,7 @@ public class AbilityUtilities
 					}
 					else
 					{
-						if (addIt) // TODO: condition always true
+						if (addIt)
 						{
 							anAbility.addAssociated(aString);
 						}
@@ -916,7 +916,7 @@ public class AbilityUtilities
 				}
 				catch (NumberFormatException exc)
 				{
-					i = 9999; //TODO: Replace magic value with an appropriate constant. Constants.INVALID_LEVEL perhaps?
+					continue;
 				}
 
 				if (i > aClass.getLevel())
