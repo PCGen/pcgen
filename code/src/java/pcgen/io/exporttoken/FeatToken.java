@@ -9,6 +9,7 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.util.Logging;
 
 /**
  * @author karianna
@@ -61,15 +62,14 @@ public class FeatToken extends Token {
 		cachedPC = pc;
 		lastMode = fString;
 
-		List types = new ArrayList();
+		List types  = new ArrayList();
+		List negate = new ArrayList();
 		String featType = null;
 
 		// i holds the number of the feat we want, is decremented
 		// as we iterate through the list. It is only decremented
 		// if the current feat matches the desired feat
 		int i = -1;
-
-		boolean notTypes = false;
 
 		if ("FEAT".equals(fString) || "VFEAT".equals(fString) || "FEATALL".equals(fString) || "FEATAUTO".equals(fString)) {
 			while (aTok.hasMoreTokens()) {
@@ -101,13 +101,16 @@ public class FeatToken extends Token {
 				final String typeStr = aTok.nextToken();
 
 				int typeInd = typeStr.indexOf("TYPE");
-				if (typeInd != -1)
+				if (typeInd != -1 && typeStr.length() > 4)
 				{
-					types.add(typeStr.substring(typeInd + 5));
-				}
-				if (typeInd > 0)
-				{
-					notTypes = true;
+					if (typeInd > 0)
+					{
+						types.add(typeStr.substring(typeInd + 5));						
+					}
+					else
+					{
+						negate.add(typeStr.substring(typeInd + 5));
+					}
 				}
 			}
 		}
@@ -121,7 +124,7 @@ public class FeatToken extends Token {
 		for (Iterator e = feat.iterator(); e.hasNext();) {
 			aFeat = (Ability) e.next();
 
-			boolean matchTypeDef = false;
+			boolean matchTypeDef       = false;
 			boolean matchVisibilityDef = false;
 
 			if (featType != null) {
@@ -132,19 +135,32 @@ public class FeatToken extends Token {
 				matchTypeDef = true;
 			}
 
-			for (Iterator j = types.iterator(); j.hasNext(); )
+			boolean istype   = false;
+			boolean isnttype = true;
+
+			// is at leas one of the types we've asked for
+			if (types.size() > 0)
 			{
-				final String typeStr = (String)j.next();
-				if (notTypes)
+				for (Iterator j = types.iterator(); j.hasNext();)
 				{
-					matchTypeDef = !aFeat.isType(typeStr);
-				}
-				else
-				{
-					matchTypeDef = aFeat.isType(typeStr);
+					final String typeStr = (String) j.next();
+					istype |= aFeat.isType(typeStr);
 				}
 			}
+			else
+			{
+				istype = true;
+			}
 
+			// isn't all the types we've said it's not
+			for (Iterator j = negate.iterator(); j.hasNext(); )
+			{
+				final String typeStr = (String)j.next();
+				isnttype &= !aFeat.isType(typeStr);
+			}
+
+			matchTypeDef = matchTypeDef && istype && isnttype;
+			
 			if ((aFeat.getVisible() == Ability.VISIBILITY_HIDDEN) || (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY)) {
 				// never display hidden feats unless asked for directly
 				if (visibility == FEAT_HIDDEN) {
