@@ -26,10 +26,12 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
@@ -49,6 +51,18 @@ public class PreSizeTester  extends AbstractPrerequisiteTest implements Prerequi
 		return countedTotal(prereq, runningTotal);
 	}
 
+	public int passes(
+			final Prerequisite prereq,
+			final Equipment    equipment,
+			PlayerCharacter    character) throws PrerequisiteException
+	{
+		final int targetSize = Globals.sizeInt(prereq.getOperand());
+
+		final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(), targetSize);
+
+		return countedTotal(prereq, runningTotal);
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
