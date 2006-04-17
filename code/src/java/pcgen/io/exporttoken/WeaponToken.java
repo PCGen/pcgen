@@ -782,7 +782,15 @@ public class WeaponToken extends Token
 		{
 			sb.append("Natural");
 		}
-		else if (eq.isType("Both"))
+		
+		// If we're going to add another type then seperate with a ','
+		// and set non standard to false
+		if (appendSeperator(eq)) {
+			sb.append(",");
+		}
+		
+		// Check if Both or Melee or Ranged 
+		if (eq.isType("Both"))
 		{
 			if (eq.isMelee())
 			{
@@ -801,7 +809,8 @@ public class WeaponToken extends Token
 		{
 			sb.append("Ranged");
 		}
-		else
+		
+		if (isNonStandard(eq))
 		{
 			sb.append("Non-Standard");
 		}
@@ -2704,9 +2713,32 @@ public class WeaponToken extends Token
 	 * @return      The unarmed attack string with number and size of attacks
 	 *              affected by BAB and bonus
 	 */
-
 	private static String getUnarmedAttackString(PlayerCharacter pc, int bonus, int BABBonus)
 	{
 		return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, bonus, BABBonus);
+	}
+	
+	/**
+	 * If the equipment has a type beyond natural then we need a 
+	 * seperator
+	 * @param eq
+	 * @return true if we need a sepearator
+	 */
+	private static boolean appendSeperator(Equipment eq) {
+		if (eq.isType("Natural") && (eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged"))) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * If none of the four types are true then it's non standard
+	 * @return true if non standard
+	 */
+	private static boolean isNonStandard(Equipment eq) {
+		if (eq.isType("Natural") || eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged")) {
+			return false;
+		}
+		return true;
 	}
 }
