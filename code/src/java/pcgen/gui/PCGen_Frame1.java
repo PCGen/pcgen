@@ -1067,7 +1067,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-	void addKit_actionPerformed()
+	public void addKit_actionPerformed()
 	{
 		toolBar.addKit.requestFocus();
 		pcgenMenuBar.addKit.requestFocus();

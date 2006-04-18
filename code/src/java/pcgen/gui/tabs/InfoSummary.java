@@ -434,6 +434,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	private JButton abilitiesButton;
 	private JButton btnAddHD = new JButton("+"); //$NON-NLS-1$
 	private JButton btnRemoveHD = new JButton("-"); //$NON-NLS-1$
+	private JButton btnAddKit = new JButton("Create Monster/Add Kit"); //$NON-NLS-1$
 	private JButton randName;
 	private JButton rollStatsButton;
 	private JLabel lblHDModify = new JLabel();
@@ -1677,6 +1678,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		levelPanel.add(levelText);
 		levelPanel.add(lvlUpButton);
 		levelPanel.add(lvlDownButton);
+		levelPanel.add(btnAddKit);
 		gridbag.setConstraints(levelPanel, c);
 		northPanel.add(levelPanel);
 
@@ -1722,6 +1724,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					addMonsterHD(-1);
 				}
 			});
+
+		btnAddKit.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e)
+					{
+						addKit();
+					}
+				});
 
 /////////////////////////
 		// Layout the Stats table
@@ -1945,6 +1955,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			});
 	}
 
+	private void addKit()
+	{
+		PCGen_Frame1.getInst().addKit_actionPerformed();
+	}
+	
 	/**
 	 * This method converts the global alignment list into an array of Strings
 	 * to be used on the alignment menu.
