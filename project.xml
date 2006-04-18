@@ -3,7 +3,7 @@
     <pomVersion>3</pomVersion>
     <id>pcgen</id>
     <name>PCGen</name>
-    <currentVersion>5.9.5</currentVersion>
+    <currentVersion>5.9.8</currentVersion>
     <organization>
         <name>PCGen</name>
         <url>http://pcgen.sourceforge.net/</url>
