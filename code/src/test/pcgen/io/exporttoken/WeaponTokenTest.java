@@ -111,6 +111,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Race
 		Race testRace = new Race();
 		testRace.setName("TestRace");
+		testRace.setSize("M");
 		character.setRace(testRace);
 
 		// Class
