@@ -54,7 +54,7 @@ public class PreDeityParser extends AbstractPrerequisiteParser implements Prereq
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		String[] tokens = formula.split(",");
-		
+
 		if (tokens.length != 1)
 		{
 			prereq.setKind(null);		// PREMULT
@@ -76,18 +76,27 @@ public class PreDeityParser extends AbstractPrerequisiteParser implements Prereq
 				prereq.addPrerequisite(subprereq);
 			}
 			subprereq.setOperator(PrerequisiteOperator.EQ);
-			subprereq.setOperand(token);
 
-			if (token.equalsIgnoreCase("y") || token.equalsIgnoreCase("n"))
+			if (token.equalsIgnoreCase("y") || token.equalsIgnoreCase("n")
+			|| token.equalsIgnoreCase("yes") || token.equalsIgnoreCase("no"))
 			{
+				if (token.toLowerCase().startsWith("y"))
+				{
+					subprereq.setOperand("Y");
+				}
+				else
+				{
+					subprereq.setOperand("N");
+				}
 				subprereq.setKind("has.deity");
 			}
 			else
 			{
+				subprereq.setOperand(token);
 				subprereq.setKind("deity");
 			}
 		}
-		
+
 		if (invertResult) {
 			prereq.setOperator( prereq.getOperator().invert());
 		}

@@ -586,6 +586,24 @@ public class DamageReduction implements Comparable
 	}
 
 	/**
+	 * Returns a list of merged DamageReduction objects "and" values are not
+	 * merged.
+	 * @param aPC The PC the DR rating is being calculated for.
+	 * @param drList List of DamageReduction objects to combine
+	 * @return List of combined DamageReduction objects without merging "ands"
+	 */
+	public static List getDRList(final PlayerCharacter aPC, List drList)
+	{
+		List inList = new ArrayList(drList);
+		List orList = parseOrList(aPC, inList);
+		List andList = parseAndList(inList);
+
+		List resultList = processList(andList, orList);
+
+		return resultList;
+	}
+
+	/**
 	 * Returns a single String representing all DRs applicible to the passed in
 	 * PC.
 	 * @param aPC PlayerCharacter these DRs apply to.
@@ -594,11 +612,7 @@ public class DamageReduction implements Comparable
 	 */
 	public static String getDRString(final PlayerCharacter aPC, List drList)
 	{
-		List inList = new ArrayList(drList);
-		List orList = parseOrList(aPC, inList);
-		List andList = parseAndList(inList);
-
-		List resultList = processList(andList, orList);
+		List resultList = getDRList(aPC, drList);
 		mergeAnds(resultList);
 
 		StringBuffer buffer = new StringBuffer();

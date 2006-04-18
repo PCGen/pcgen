@@ -3240,7 +3240,8 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
-		String DR = stringChar.getCharacteristic(StringKey.DR_FORMULA);
+//		String DR = stringChar.getCharacteristic(StringKey.DR_FORMULA);
+		final String DR = DamageReduction.getDRString(null, drList);
 		if (!(this instanceof PCClass) && (DR != null) && (DR.length() != 0))
 		{
 			txt.append("\tDR:").append(DR);
@@ -4211,10 +4212,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	/**
 	 * Remove the bonus from this objects list of bonuses.
-	 * 
+	 *
 	 * @param bonusString The string representing the bonus
 	 * @param chooseString The choice that was made.
-	 * @param aPC The player character to remove th bonus from. 
+	 * @param aPC The player character to remove th bonus from.
 	 */
 	public final void removeBonus(final String bonusString, final String chooseString, final PlayerCharacter aPC)
 	{

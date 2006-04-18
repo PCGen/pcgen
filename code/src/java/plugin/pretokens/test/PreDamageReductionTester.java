@@ -32,6 +32,9 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 import java.util.StringTokenizer;
+import java.util.List;
+import java.util.Iterator;
+import pcgen.core.DamageReduction;
 
 /**
  * @author wardc
@@ -46,24 +49,15 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest implement
 		int runningTotal = 0;
 
 		// Parse the character's DR into a lookup map
-		final String aDR = character.calcDR(); // Silver/10;Good/5;Magic/15
-		if (aDR != null)
+		List drList = character.getDRList();
+		final int target = Integer.parseInt(prereq.getOperand());
+		for (Iterator i = drList.iterator(); i.hasNext(); )
 		{
-			final StringTokenizer characterDRTokenizer = new StringTokenizer(aDR, ";"); //$NON-NLS-1$
-
-			while (characterDRTokenizer.hasMoreTokens())
+			DamageReduction dr = (DamageReduction)i.next();
+			if (dr.getBypass().equalsIgnoreCase(prereq.getKey()))
 			{
-				final StringTokenizer drTokenizer = new StringTokenizer(characterDRTokenizer.nextToken(), "/"); //$NON-NLS-1$
-				final String aValue = drTokenizer.nextToken();
-				final String aType = drTokenizer.nextToken();
-
-				if (aType.equalsIgnoreCase( prereq.getKey())) {
-					final int characterValue = Integer.parseInt(aValue);
-					final int targetValue = Integer.parseInt( prereq.getOperand() );
-
-					runningTotal = prereq.getOperator().compare(characterValue, targetValue);
-					break;
-				}
+				runningTotal = prereq.getOperator().compare(dr.getReductionValue(), target);
+				break;
 			}
 		}
 

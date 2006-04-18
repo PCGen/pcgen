@@ -203,7 +203,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	// whether to adjust the feat pool when requested
 	private boolean allowFeatPoolAdjustment = true;
-	
+
 	// pool of feats remaining to distribute
 	private double feats = 0;
 	private int    age   = 0;
@@ -8585,128 +8585,27 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
+	 * Gets a list of all sources of DRs.
+	 * @return List of DRs
+	 */
+	public List getDRList()
+	{
+		List drList = new ArrayList();
+		for (Iterator i = getPObjectList().iterator(); i.hasNext(); )
+		{
+			PObject obj = (PObject)i.next();
+			drList.addAll(obj.getDRList());
+		}
+		return DamageReduction.getDRList(this, drList);
+	}
+
+	/**
 	 * Get all possible sources of Damage Resistance and calculate
 	 * @return DR
 	 **/
 	public String calcDR()
 	{
-		List drList = new ArrayList();
-		drList.addAll(race.getDRList());
-
-		if (deity != null)
-		{
-			drList.addAll(deity.getDRList());
-		}
-
-		for (Iterator i = classList.iterator(); i.hasNext();)
-		{
-			final PCClass aClass = (PCClass) i.next();
-			drList.addAll(aClass.getDRList());
-		}
-
-		for (Iterator i = aggregateFeatList().iterator(); i.hasNext();)
-		{
-			final Ability aFeat = (Ability) i.next();
-			drList.addAll(aFeat.getDRList());
-		}
-
-		for (Iterator i = getSkillList().iterator(); i.hasNext();)
-		{
-			final Skill aSkill = (Skill) i.next();
-			drList.addAll(aSkill.getDRList());
-		}
-
-		for (Iterator i = characterDomainList.iterator(); i.hasNext();)
-		{
-			final CharacterDomain aCD = (CharacterDomain) i.next();
-
-			if (aCD.getDomain() != null)
-			{
-				drList.addAll(aCD.getDomain().getDRList());
-			}
-		}
-
-		for (Iterator e = equipmentList.iterator(); e.hasNext();)
-		{
-			final Equipment eq = (Equipment) e.next();
-
-			if (eq.isEquipped())
-			{
-				drList.addAll(eq.getDRList());
-
-				List aList = eq.getEqModifierList(true);
-
-				if (!aList.isEmpty())
-				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
-					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-						drList.addAll(eqMod.getDRList());
-					}
-				}
-
-				aList = eq.getEqModifierList(false);
-
-				if (!aList.isEmpty())
-				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
-					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-						drList.addAll(eqMod.getDRList());
-					}
-				}
-			}
-		}
-
-//		final int atl = getTotalLevels();
-//		final int thd = totalHitDice();
-
-		for (Iterator i = templateList.iterator(); i.hasNext();)
-		{
-			final PCTemplate aTemplate = (PCTemplate) i.next();
-			drList.addAll(aTemplate.getDRList());
-//			drMap = addStringToDRMap(drMap, aTemplate.getDR(atl, thd));
-		}
-
-//		final StringBuffer DR = new StringBuffer();
-//
-//		for (Iterator i = drMap.keySet().iterator(); i.hasNext();)
-//		{
-//			final String damageType = i.next().toString();
-//			String symbol = "";
-//			int protectionValue = Integer.parseInt(drMap.get(damageType).toString());
-//			int damageTypeAsInteger = 0;
-//
-//			try
-//			{
-//				damageTypeAsInteger = Integer.parseInt(damageType);
-//			}
-//			catch (NumberFormatException ignore)
-//			{
-//				 //Do nothing, the damage type is some kind of special value like 'Silver'
-//			}
-//
-//			if (damageTypeAsInteger > 0)
-//			{
-//				symbol = "+";
-//			}
-//
-//			//
-//			// For some reason '+1' is coming out simply as '1', so need to tack on the
-//			// '+' again
-//			//
-//			protectionValue += (int) getTotalBonusTo("DR", symbol + damageType);
-//
-//			if (DR.length() > 0)
-//			{
-//				DR.append(';');
-//			}
-//
-//			DR.append(protectionValue).append('/').append(symbol).append(damageType);
-//		}
-//
-//		return DR.toString();
-		return DamageReduction.getDRString(this, drList);
+		return DamageReduction.getDRString(this, getDRList());
 	}
 
 	public double calcMoveMult(final double move, final int index)
@@ -12089,8 +11988,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 						listindex++;
 
 						aList.add(ab.toString().toUpperCase());
-						
-						// If we have processed all of the entriues, or this is not 
+
+						// If we have processed all of the entriues, or this is not
 						// a LIST bonus, don't add any more copies.
 						if (aTok.countTokens() > 0 || listindex >= cnt
 							|| !bonusInfo.equals("LIST"))
@@ -15701,14 +15600,14 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * Whether to allow adjustment of the Global Feat pool
-	 * 
-	 * @param allow 
+	 *
+	 * @param allow
 	 */
 	public void setAllowFeatPoolAdjustment(boolean allow) {
 		this.allowFeatPoolAdjustment = allow;
 	}
 
-	
+
 /*
  * For debugging purposes
  * Dumps contents of spellbooks to System.err
