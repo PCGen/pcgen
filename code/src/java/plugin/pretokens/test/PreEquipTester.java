@@ -120,7 +120,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = targetEquip.indexOf('%');
-						final String substring = targetEquip.substring(0, percentPos);
+						final String substring = targetEquip.substring(0, percentPos).toUpperCase();
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;

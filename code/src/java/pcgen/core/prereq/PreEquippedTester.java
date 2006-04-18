@@ -51,6 +51,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 	 */
 	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final int equippedType) throws PrerequisiteException
 	{
+		// TODO refactor this code with PreEquipTester
 		boolean isEquipped = false;
 
 		if (!character.getEquipmentList().isEmpty())
@@ -105,17 +106,20 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 				}
 				else	 //not a TYPE string
 				{
+					final String eqName = eq.getName().toUpperCase();
 					if (aString.indexOf('%') >= 0)
 					{
 						//handle wildcards (always assume they
 						// end the line)
-						if (eq.getName().startsWith(aString.substring(0, aString.indexOf('%'))))
+						final int percentPos = aString.indexOf('%');
+						final String substring = aString.substring(0, percentPos).toUpperCase();
+						if ((eqName.startsWith(substring)))
 						{
 							isEquipped = true;
 							break;
 						}
 					}
-					else if (eq.getName().equalsIgnoreCase(aString))
+					else if (eqName.equalsIgnoreCase(aString))
 					{
 						//just a straight String compare
 						isEquipped = true;

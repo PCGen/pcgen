@@ -139,4 +139,10 @@ public class PreDefaultMonsterTest extends AbstractCharacterTestCase
 		assertTrue("Should be case insensitive",
 				   PrereqHandler.passes(prereq, pc, null));
 	}
+
+	protected void setUp()
+		throws Exception
+	{
+		super.setUp();
+	}
 }

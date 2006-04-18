@@ -1,6 +1,6 @@
 /*
- * PreEquipTest.java
- * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
+ * PreEquipBothTest.java
+ * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22-Nov-2004
  */
 package pcgen.core.prereq;
 
@@ -24,11 +23,18 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
+ * <code>PreEquipBothTest</code> tests that the PREEQUIPBOTH tag is
+ * working correctly.
+ *
+ * Last Editor: $Author: $
+ * Last Edited: $Date$
+ *
+ * @author Aaron Divinsky <boomer70@yahoo.com>
+ * @version $Revision$
  */
-public class PreEquipTest extends AbstractCharacterTestCase
+public class PreEquipBothTest extends AbstractCharacterTestCase
 {
 
 	/*
@@ -43,9 +49,10 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		longsword.setLocation(Equipment.EQUIPPED_BOTH);
 
 		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equip");
+		prereq.setKind("equipboth");
 		prereq.setKey("LONGSWORD");
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
@@ -53,14 +60,14 @@ public class PreEquipTest extends AbstractCharacterTestCase
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 
-		longsword.setName("Longsword (Masterwork)");
+		longsword.setName("Longsword (Large/Masterwork)");
 
 		assertFalse("Should be an exact match only",
 					PrereqHandler.passes(prereq, character, null));
 
-		prereq.setKey("LONGSWORD%");
+		prereq.setKey("LONGSWORD (LARGE%");
 
-		assertTrue("Should be allow wildcard match",
+		assertTrue("Should allow wildcard match",
 				   PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -78,9 +85,10 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		longsword.setLocation(Equipment.EQUIPPED_BOTH);
 
 		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equip");
+		prereq.setKind("equipboth");
 		prereq.setKey("TYPE=Weapon");
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
@@ -97,22 +105,6 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		assertFalse("Equipment is not armor",
 					PrereqHandler.passes(prereq, character, null));
-
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREEQUIP:2,TYPE=Armor,Longsword%");
-
-		assertFalse("Doesn't have armor equipped",
-					PrereqHandler.passes(prereq, character, null));
-
-		final Equipment leather = new Equipment();
-		leather.setName("Leather");
-		leather.typeList().add("ARMOR");
-
-		character.addEquipment(leather);
-		leather.setIsEquipped(true, character);
-
-		assertTrue("Armor and sword equipped",
-				   PrereqHandler.passes(prereq, character, null));
 	}
 
 	/**
@@ -135,9 +127,10 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		longsword.setLocation(Equipment.EQUIPPED_BOTH);
 
 		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equip");
+		prereq.setKind("equipboth");
 		prereq.setKey("WIELDCATEGORY=OneHanded");
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);

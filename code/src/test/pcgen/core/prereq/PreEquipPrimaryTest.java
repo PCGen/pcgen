@@ -1,6 +1,6 @@
 /*
- * PreEquipTest.java
- * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
+ * PreEquipPrimaryTest.java
+ * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22-Nov-2004
  */
 package pcgen.core.prereq;
 
@@ -24,11 +23,18 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
+ * <code>PreEquipPrimaryTest</code> tests that the PREEQUIPPRIMARY tag is
+ * working correctly.
+ *
+ * Last Editor: $Author: $
+ * Last Edited: $Date$
+ *
+ * @author Aaron Divinsky <boomer70@yahoo.com>
+ * @version $Revision$
  */
-public class PreEquipTest extends AbstractCharacterTestCase
+public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 {
 
 	/*
@@ -38,29 +44,30 @@ public class PreEquipTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+		final Equipment dagger = new Equipment();
+		dagger.setName("Dagger");
 
-		character.addEquipment(longsword);
-		longsword.setIsEquipped(true, character);
+		character.addEquipment(dagger);
+		dagger.setIsEquipped(true, character);
+		dagger.setLocation(Equipment.EQUIPPED_PRIMARY);
 
 		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equip");
-		prereq.setKey("LONGSWORD");
+		prereq.setKind("equipprimary");
+		prereq.setKey("DAGGER");
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 
-		longsword.setName("Longsword (Masterwork)");
+		dagger.setName("Dagger (Masterwork)");
 
 		assertFalse("Should be an exact match only",
 					PrereqHandler.passes(prereq, character, null));
 
-		prereq.setKey("LONGSWORD%");
+		prereq.setKey("DAGGER%");
 
-		assertTrue("Should be allow wildcard match",
+		assertTrue("Should allow wildcard match",
 				   PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -78,41 +85,26 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		longsword.setLocation(Equipment.EQUIPPED_PRIMARY);
 
 		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equip");
-		prereq.setKey("TYPE=Weapon");
+		prereq.setKind("equipprimary");
+		prereq.setKey("TYPE=Slashing");
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		assertFalse("Equipment has no type",
 					PrereqHandler.passes(prereq, character, null));
 
-		longsword.typeList().add("WEAPON");
+		longsword.typeList().add("SLASHING");
 
-		assertTrue("Equipment is weapon",
+		assertTrue("Equipment is slashing",
 				   PrereqHandler.passes(prereq, character, null));
 
 		prereq.setKey("TYPE.Armor");
 
 		assertFalse("Equipment is not armor",
 					PrereqHandler.passes(prereq, character, null));
-
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREEQUIP:2,TYPE=Armor,Longsword%");
-
-		assertFalse("Doesn't have armor equipped",
-					PrereqHandler.passes(prereq, character, null));
-
-		final Equipment leather = new Equipment();
-		leather.setName("Leather");
-		leather.typeList().add("ARMOR");
-
-		character.addEquipment(leather);
-		leather.setIsEquipped(true, character);
-
-		assertTrue("Armor and sword equipped",
-				   PrereqHandler.passes(prereq, character, null));
 	}
 
 	/**
@@ -131,13 +123,14 @@ public class PreEquipTest extends AbstractCharacterTestCase
 		character.setRace(race);
 
 		final Equipment longsword = new Equipment();
-		longsword.setName("Longsword");
+		longsword.setName("Dagger");
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		longsword.setLocation(Equipment.EQUIPPED_PRIMARY);
 
 		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("equip");
+		prereq.setKind("equipprimary");
 		prereq.setKey("WIELDCATEGORY=OneHanded");
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);

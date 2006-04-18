@@ -7320,12 +7320,12 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			{
 				wCat = wCat.getWieldCategoryStep(1);
 			}
+
+			// See if there is a bonus associated with just this weapon
+			final String expProfName = wp.getName();
+			aBump += (int) aPC.getTotalBonusTo("WEAPONPROF=" + expProfName,
+											   "WIELDCATEGORY");
 		}
-		// See if there is a bonus associated with just this weapon
-		// Make sure this is profName(0) else you'll be sorry!
-		final String expProfName = wp.getName();
-		aBump += (int) aPC.getTotalBonusTo("WEAPONPROF=" + expProfName,
-										   "WIELDCATEGORY");
 
 		// or a bonus from the weapon itself
 		aBump += (int) bonusTo(aPC, "WEAPON", "WIELDCATEGORY", true);
