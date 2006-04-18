@@ -732,7 +732,11 @@ final class MainPrint extends JPanel
 		throws IOException
 	{
 		final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-		final File template = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator + "base.xml");
+		
+		File template = new File(SettingsHandler.getPcgenSystemDir() + File.separator + "gameModes" + File.separator + SettingsHandler.getGame() + File.separator + "base.xml");
+		if(!template.exists()) {
+			template = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator + "base.xml");
+		}
 		PlayerCharacter aPC;
 
 		if (partyMode)
