@@ -350,13 +350,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	}
 
 	/**
-	 * Load a game mode file.
+	 * Load a sponsors lst file.
 	 * First try the game mode directory. If that fails, try
 	 * reading the file from the default game mode directory.
-	 * @param lstFileLoader the Loader object for the type of file.
-	 * @param gameModeName the game mode
-	 * @param lstFileName the lst file to load
-	 * @param showMissing show the missing file as a warning. Some files are optional and shouldn't generate a warning
 	 */
 	private void loadSponsorsLstFile()
 	{

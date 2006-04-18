@@ -59,13 +59,21 @@ import java.util.StringTokenizer;
  */
 interface LstConverterConstants
 {
+	/** CONVERT_CLASSTYPE = 2 */
 	int CONVERT_CLASSTYPE = 2;
+	/** CONVERT_DEITYTYPE = 4 */
 	int CONVERT_DEITYTYPE = 4;
+	/** CONVERT_DOMAINTYPE = 5 */
 	int CONVERT_DOMAINTYPE = 5;
+	/** CONVERT_FEATTYPE = 7 */
 	int CONVERT_FEATTYPE = 7;
+	/** CONVERT_RACETYPE = 1 */
 	int CONVERT_RACETYPE = 1;
+	/** CONVERT_SKILLTYPE = 6 */
 	int CONVERT_SKILLTYPE = 6;
+	/** CONVERT_SPELLTYPE = 3 */
 	int CONVERT_SPELLTYPE = 3;
+	/** CONVERT_TEMPLATETYPE = 8 */
 	int CONVERT_TEMPLATETYPE = 8;
 }
 
@@ -112,6 +120,10 @@ final class LstConverter extends JFrame
 		}
 	}
 
+	/**
+	 * Get the base path
+	 * @return the base path
+	 */
 	public String getBasePath()
 	{
 		return basePath;

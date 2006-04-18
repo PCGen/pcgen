@@ -2733,6 +2733,7 @@ public class WeaponToken extends Token
 	
 	/**
 	 * If none of the four types are true then it's non standard
+	 * @param eq 
 	 * @return true if non standard
 	 */
 	private static boolean isNonStandard(Equipment eq) {

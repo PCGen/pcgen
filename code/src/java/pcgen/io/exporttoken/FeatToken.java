@@ -9,7 +9,6 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.util.Logging;
 
 /**
  * @author karianna

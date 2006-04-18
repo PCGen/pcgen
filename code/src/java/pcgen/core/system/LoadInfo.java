@@ -54,6 +54,11 @@ public class LoadInfo {
 		loadScoreMultiplier = value;
 	}
 
+	/**
+	 * Add a load score/value pair
+	 * @param score
+	 * @param value
+	 */
 	public void addLoadScoreValue(int score, Float value)
 	{
 		loadScoreList.add(score, value);
@@ -67,6 +72,11 @@ public class LoadInfo {
 		}
 	}
 
+	/**
+	 * Get the value for a load score
+	 * @param score
+	 * @return the value for a load score
+	 */
 	public Float getLoadScoreValue(int score)
 	{
 		if (score < minScore)
@@ -88,11 +98,21 @@ public class LoadInfo {
 		return (Float)loadScoreList.get(score);
 	}
 
+	/**
+	 * Add a size adjustment
+	 * @param size
+	 * @param value
+	 */
 	public void addSizeAdjustment(String size, Float value)
 	{
 		sizeAdjustmentMap.put(size, value);
 	}
 
+	/**
+	 * Get the size adjustment
+	 * @param size
+	 * @return the size adjustment
+	 */
 	public Float getSizeAdjustment(String size)
 	{
 		if (sizeAdjustmentMap.containsKey(size))
@@ -102,12 +122,24 @@ public class LoadInfo {
 		return null;
 	}
 
+	/**
+	 * Add load multiplier
+	 * @param encumbranceType
+	 * @param value
+	 * @param formula
+	 * @param checkPenalty
+	 */
 	public void addLoadMultiplier(String encumbranceType, Float value, String formula, Integer checkPenalty)
 	{
 		LoadMapEntry newEntry = new LoadMapEntry(value, formula, checkPenalty);
 		loadMultiplierMap.put(encumbranceType, newEntry);
 	}
 
+	/**
+	 * Get the load multiplier
+	 * @param encumbranceType
+	 * @return load multiplier
+	 */
 	public Float getLoadMultiplier(String encumbranceType)
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
@@ -117,6 +149,11 @@ public class LoadInfo {
 		return null;
 	}
 
+	/**
+	 * Get the load move formula
+	 * @param encumbranceType
+	 * @return the load move formula
+	 */
 	public String getLoadMoveFormula(String encumbranceType)
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
@@ -126,6 +163,11 @@ public class LoadInfo {
 		return "";
 	}
 
+	/**
+	 * Get the load check penalty
+	 * @param encumbranceType
+	 * @return the load check penalty
+	 */
 	public int getLoadCheckPenalty(String encumbranceType)
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
@@ -135,16 +177,28 @@ public class LoadInfo {
 		return 0;
 	}
 
+	/**
+	 * Set the load modifier formula
+	 * @param argFormula
+	 */
 	public void setLoadModifierFormula(final String argFormula)
 	{
 		modifyFormula = argFormula;
 	}
 
+	/**
+	 * Get the load modifier formula
+	 * @return the load modifier formula
+	 */
 	public String getLoadModifierFormula()
 	{
 		return modifyFormula;
 	}
 
+	/**
+	 * Get the load multiplier count
+	 * @return the load multiplier count
+	 */
 	public int getLoadMultiplierCount()
 	{
 		return loadMultiplierMap.size();
@@ -156,6 +210,12 @@ public class LoadInfo {
 		private String moveFormula;
 		private Integer checkPenalty;
 
+		/**
+		 * Constructor
+		 * @param argMultiplier
+		 * @param argFormula
+		 * @param argPenalty
+		 */
 		public LoadMapEntry(Float argMultiplier, String argFormula,Integer argPenalty)
 		{
 			multiplier  = argMultiplier;
@@ -163,16 +223,28 @@ public class LoadInfo {
 			checkPenalty = argPenalty;
 		}
 
+		/**
+		 * Get multiplier
+		 * @return multiplier
+		 */
 		public Float getMuliplier()
 		{
 			return multiplier;
 		}
 
+		/**
+		 * Get the formula
+		 * @return formula
+		 */
 		public String getFormula()
 		{
 			return moveFormula;
 		}
 
+		/**
+		 * Get the check penalty
+		 * @return the check penalty
+		 */
 		public int getCheckPenalty()
 		{
 			return checkPenalty.intValue();
