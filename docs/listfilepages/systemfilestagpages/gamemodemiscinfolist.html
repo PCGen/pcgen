@@ -20,6 +20,11 @@
 			<title>Game Mode: Misc Info List File</title>
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+	        <style type="text/css">
+<!--
+.style1 {color: #000000}
+-->
+            </style>
 	</head>
 	
 	<body>
@@ -339,8 +344,18 @@
 		<p class="indent3">The damage multiplier becomes 1.5 if wielded two handed.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">After a WIELDCATEGORY tag.</p>
-		
-		<p></p><a name="DEFAULTUNITSET"></a><hr>
+				
+		<p><a name="DISPLAYORDER"></a></p>
+		<hr>
+        <p><span class="new style1"><strong>Tag Name:</strong> </span><span class="style1">DISPLAYORDER:x</span></p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used to determine order of display in summary.</p>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISPLAYORDER:1</code></p>
+        <p class="indent3">The file will show this as the first file.</p>
+        <a name="DEFAULTUNITSET"></a>
+        <hr>
 		<p class="new">*** New 5.9.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> DEFAULTUNITSET:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Default unit Set)</p>
@@ -351,8 +366,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFAULTUNITSET:Imperial</code></p>
 		<p class="indent3">Set Imperial as the Unit Set used by the game mode.</p>
-		
-		<p></p><a name="DISTANCEFACTOR"></a><hr>
+		<a name="DISTANCEFACTOR"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEFACTOR:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance factor).</p>
@@ -365,7 +379,21 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEFACTOR:0.3</code></p>
 		<p class="indent3">Defines the distance factor as &quot;0.3&quot;.</p>
-		
+		<p class="indent3">&nbsp;</p>
+		<p></p>
+		<a name="DISTANCEPATTERN"></a>
+		<hr>
+        <p class="new">*** New 5.9.5</p>
+        <p class="indent0"><strong>Tag Name:</strong> DISTANCEPATTERN:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (Distance unit pattern).</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in UNITSET lines to define the distance unit pattern of the unit set. The 'pattern' string is a pattern for formatting the output of the value, so you can specify e.g. how many decimal digits are printed. The pattern follows the definition of the Java class DecimaFormat and can be found <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html" target="_blank">here</a>.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+        <p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISTANCEPATTERN:#</code></p>
+        <p class="indent3">Defines the distance unit abbreviation as &quot;#&quot;.</p>
+        <p class="indent3">&nbsp;</p>
 		<p></p><a name="DISTANCEPATTERN"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEPATTERN:x</p>
@@ -785,8 +813,42 @@
 		<p class="indent2"><code>SKILLMULTIPLIER:10|4</code></p>
 		<p class="indent3">Character get 10x the normal amount of skills at 1st level and 4x the normal 
 			amount of skills at 2nd level.</p>
-
-		<p></p><a name="SQUARESIZE"></a><hr>
+		<a name="SPELLBASEDC" id="SPELLBASEDC"></a>	
+		<hr>
+        <p><strong>Tag Name:</strong> SPELLBASEDC:x</p>
+        <blockquote>
+          <p><strong class="indent1">Variables Used (x):</strong> Formula (used to determine a spells base DC)</p>
+          <p class="indent1"><strong>What it does:</strong></p>
+          <p class="indent2">This formula is used to determine the starting BASE DC for a spell.</p>
+          <p class="indent1"><strong>Example:</strong></p>
+          <p class="indent2">SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT</p>
+          <p class="indent3">Takes the number 10 as the starting point, then it adds the spells level and finally the primary stat bonus of the caster to come to the total.
+            <!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+          </p>
+        </blockquote>
+        <p id="SPELLRANGE" name="SPELLRANGE"><a name="SPELLRANGE" id="SPELLRANGE"></a>
+    </p>
+        <hr>
+        <p class="indent0"><strong>Tag Name:</strong> SPELLRANGE:x</p>
+        <p class="indent1"><strong>Variables Used (x)|(y):</strong> Text Name|Formula</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Takes the defined name and uses the formula to replace the name in the Spells.lst under the range. </p>
+        <p class="indent2">Each value is a seperate TAG </p>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2">SPELLRANGE:CLOSE|floor(CASTERLEVEL/2)*5+25</p>
+        <p class="indent3">Range value would be the caster's level divided by 2 with then times by 5 and add 25 to come to the final value entered</p>
+        <p class="indent3">Example: Caster level 2 would return a value of 30</p>
+        <p class="indent2">SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100</p>
+        <p class="indent3">Formula would determine medium to be the caster's level times 10 + 100 </p>
+        <p class="indent2">SPELLRANGE:LONG|(CASTERLEVEL*40)+400</p>
+        <p class="indent3">Formula returns a long value based upon the caster level times 40 plus 400 <br>
+                </p>
+        <p class="indent2">&nbsp;</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+        <p class="indent2">Miscinfo file .</p>
+        <!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+        <a name="SQUARESIZE"></a>
+        <hr>
 		<p class="new">*** New 5.9</p>
 		<p class="indent0"><strong>Tag Name:</strong> SQUARESIZE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (in feet).</p>
@@ -817,27 +879,30 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Tab Name).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Indicates which tab the options following it will affect. Must be first on 
-				the line, to be followed by NAME and CONTEXT (and optionally VISIBLE).</li>
-			<li>Tab Name may be one of:
-				<ul>
-					<li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>					
-					<li>CAMPAIGNS - The tab where source materials are displayed.</li>					
-					<li>CLASS - The tab where classes are displayed.</li>					
-					<li>DESCRIPTION - The tab where character descriptive information is displayed.</li>					
-					<li>DOMAINS - The tab where deity/domain information is displayed.</li>					
-					<li>FEATS - The tab where feat information is displayed.</li>					
-					<li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>					
-					<li>RACE - The tab where races are displayed.</li>					
-					<li>SKILLS - The tab where skills are displayed.</li>					
-					<li>SPELLS - The tab where spells are displayed.</li>					
-					<li>SUMMARY - The tab with summary information.</li>					
-				</ul> 
-			</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
+		  <li>This indicates what &quot;TABS&quot; will be displayed in the graphic user interface of the PCGen program.</li>
+          <li>Indicates which tab the options following it will affect. Must be first on 
+				  the line, to be followed by NAME and CONTEXT (and optionally VISIBLE).</li>
+          <li>Tab Name may be one of:
+		  <ul>
+			  <li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>					
+			  <li>CAMPAIGNS - The tab where source materials are displayed.</li>					
+			  <li>CLASS - The tab where classes are displayed.</li>					
+			  <li>DESCRIPTION - The tab where character descriptive information is displayed.</li>					
+			  <li>DOMAINS - The tab where deity/domain information is displayed.</li>					
+			  <li>FEATS - The tab where feat information is displayed.</li>					
+			  <li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>					
+			  <li>RACE - The tab where races are displayed.</li>					
+			  <li>SKILLS - The tab where skills are displayed.</li>					
+			  <li>SPELLS - The tab where spells are displayed.</li>					
+			  <li>SUMMARY - The tab with summary information</li>					
+	        </ul> 
+	      </li>
+        </ul>
+        <p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TAB:SUMMARY</code></p>
 		<p class="indent3">Indicates that the line will effect the &quot;Summary&quot; tab.</p>
+		<p align="left" class="indent1"><strong>Note:</strong></p>
+		<p align="left" class="indent2">If the game mode doesn't support the TAB, you must use the Tag VISIBLE:NO.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
 
@@ -921,9 +986,8 @@
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTPATTERN:#.##</code></p>
-		<p class="indent3">Defines the weight unit pattern as &quot;ft.&quot;.</p>
-		
-		<p></p><a name="WEIGHTUNIT"></a><hr>
+		<p class="indent3">Will display a numerical value using fractions after the decimal point. </p>
+		<a name="WEIGHTUNIT"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEIGHTUNIT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weight unit abbreviation).</p>
