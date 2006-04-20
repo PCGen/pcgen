@@ -333,6 +333,7 @@ public class ChooserUtilities
 		classLookup.put("CCSKILLIST",           SkillListCrossClassChoiceManager.class.getName());
 		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
 		classLookup.put("NONCLASSSKILLLIST",    SkillListNonClassChoiceManager.class.getName());
+		classLookup.put("PROFICIENCY",          ProficiencyChoiceManager.class.getName());
 		classLookup.put("SKILLS",               SkillsChoiceManager.class.getName());
 		classLookup.put("SKILLSNAMED",          SkillsNamedChoiceManager.class.getName());
 		classLookup.put("SKILLSNAMEDTOCCSKILL", SkillsNamedToCCSkillChoiceManager.class.getName());
@@ -349,7 +350,7 @@ public class ChooserUtilities
 		classLookup.put("ARMORPROF",            SimpleArmorProfChoiceManager.class.getName());
 		classLookup.put("FEAT",                 SimpleFeatChoiceManager.class.getName());
 		classLookup.put("SHIELDPROF",           SimpleShieldProfChoiceManager.class.getName());
-		classLookup.put("SPELLLEVEL",           SimpleSpellLevelChoiceManager.class.getName());
+		//classLookup.put("SPELLLEVEL",           SimpleSpellLevelChoiceManager.class.getName());
 		classLookup.put("WEAPONPROF",           SimpleWeaponProfChoiceManager.class.getName());
 		mapconstructed = true;
 	}

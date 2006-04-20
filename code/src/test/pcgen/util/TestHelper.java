@@ -135,6 +135,7 @@ public class TestHelper {
 					final Field f = (Field) it.next();
 					if (f.getName().equals(fieldName))
 					{
+						f.setAccessible(true);
 						return f;
 					}
 				}
