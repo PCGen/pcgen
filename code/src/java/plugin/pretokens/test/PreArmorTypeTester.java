@@ -26,39 +26,71 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Iterator;
+import java.util.StringTokenizer;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import java.util.Iterator;
-
-
 /**
  * @author wardc
  *
  */
-public class PreArmorTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
+	PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		int runningTotal=0;
+
+	// TODO All the equipment related PRE tag code should be refactored into a
+	// common base class.
+	public int passes(final Prerequisite prereq,
+					  final PlayerCharacter character)
+	{
+		int runningTotal = 0;
 
 		if (!character.getEquipmentList().isEmpty())
 		{
 			final String desiredType = prereq.getKey();
-			for (Iterator e1 = character.getEquipmentList().iterator(); e1.hasNext();)
+			for (Iterator e1 = character.getEquipmentList().iterator();
+				 e1.hasNext(); )
 			{
 				// For every item of equipment the character has.
 				final Equipment eq = (Equipment) e1.next();
+				if (!eq.isEquipped() || !eq.isArmor())
+				{
+					continue;
+				}
 
 				// Match against a TYPE of armour
-				if (desiredType.startsWith("TYPE=") || desiredType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
+				if (desiredType.startsWith("TYPE=")
+					|| desiredType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 				{
-					if ((eq.getType().indexOf("ARMOR." + desiredType.substring(5).toUpperCase()) >= 0) && eq.isEquipped()) //$NON-NLS-1$
+					StringTokenizer tok = new StringTokenizer(desiredType.
+						substring(5).toUpperCase(), ".");
+					boolean match = false;
+					if (tok.hasMoreTokens())
+					{
+						match = true;
+					}
+					//
+					// Must match all listed types to qualify
+					//
+					while (tok.hasMoreTokens())
+					{
+						final String type = tok.nextToken();
+						if (!eq.isType(type))
+						{
+							match = false;
+							break;
+						}
+					}
+					if (match)
 					{
 						runningTotal++;
 						break;
@@ -66,9 +98,15 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 				}
 				else
 				{ //not a TYPE string
-					if (desiredType.indexOf('%') >= 0) //handle wildcards (always assume they end the line)
+					final String eqName = eq.getName().toUpperCase();
+					if (desiredType.indexOf('%') >= 0)
 					{
-						if ((eq.getName().startsWith(desiredType.substring(0, desiredType.indexOf('%')))) && (eq.isEquipped()))
+						//handle wildcards (always assume they
+						// end the line)
+						final int percentPos = desiredType.indexOf('%');
+						final String substring = desiredType.substring(0,
+							percentPos).toUpperCase();
+						if (eqName.startsWith(substring))
 						{
 							runningTotal++;
 							break;
@@ -76,19 +114,13 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 					}
 					else if (desiredType.indexOf("LIST") >= 0) //$NON-NLS-1$
 					{
-						for (Iterator e2 = character.getArmorProfList().iterator(); e2.hasNext();)
+						if (character.isProficientWith(eq))
 						{
-							String aprof = (String) e2.next();
-							aprof = "ARMOR." + aprof; //$NON-NLS-1$
-
-							if ((eq.getType().indexOf(aprof) >= 0) && eq.isEquipped())
-							{
-								runningTotal++;
-								break;
-							}
+							runningTotal++;
+							break;
 						}
 					}
-					else if ((eq.getName().equalsIgnoreCase(desiredType)) && (eq.isEquipped())) //just a straight String compare
+					else if (eqName.equals(desiredType)) //just a straight String compare
 					{
 						runningTotal++;
 						break;
@@ -102,7 +134,8 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "ARMORTYPE"; //$NON-NLS-1$
 	}
 
