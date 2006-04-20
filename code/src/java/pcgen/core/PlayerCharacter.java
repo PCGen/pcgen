@@ -9973,20 +9973,28 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/*
-	 * Figure the:
-	 *  MAXDEX
-	 *  ACCHECK
-	 *  SPELLFAILURE
-	 *  AC
-	 * bonus from all currently equiped items
+	 * Figure the: MAXDEX ACCHECK SPELLFAILURE AC bonus from all currently
+	 * equipped items
 	 */
-	public int modToFromEquipment(final String typeName)
+	public int modToFromEquipment (final String typeName)
 	{
-		if      (typeName.equals("AC")) 		{ return modToACFromEquipment(); }
-		else if (typeName.equals("ACCHECK")) 		{ return modToACCHECKFromEquipment(); }
-		else if (typeName.equals("MAXDEX")) 		{ return modToMaxDexFromEquipment(); }
-		else if (typeName.equals("SPELLFAILURE")) 	{ return modToSpellFailureFromEquipment(); }
-		else						{ return 0; }
+		if (typeName.equals("AC"))
+		{
+			return modToACFromEquipment();
+		}
+		if (typeName.equals("ACCHECK"))
+		{
+			return modToACCHECKFromEquipment();
+		}
+		if (typeName.equals("MAXDEX"))
+		{
+			return modToMaxDexFromEquipment();
+		}
+		if (typeName.equals("SPELLFAILURE"))
+		{
+			return modToSpellFailureFromEquipment();
+		}
+		return 0;
 	}
 
 	/**
