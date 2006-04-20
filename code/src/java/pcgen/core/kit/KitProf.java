@@ -153,15 +153,12 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 			// Search for a class that has bonusWeaponProfs.
 			PCClass pcClass = null;
-			// TODO:  Never used!
-			boolean found = false;
 			for (Iterator i = pcClasses.iterator(); i.hasNext(); )
 			{
 				pcClass = (PCClass)i.next();
 				bonusList = pcClass.getWeaponProfBonus();
 				if (bonusList != null && bonusList.size() > 0)
 				{
-					found = true;
 					break;
 				}
 			}

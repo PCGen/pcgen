@@ -226,7 +226,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 												 warnings);
 				if (sta != null)
 				{
-					final KitWrapper tta = new KitWrapper(sta, false);
+					final KitWrapper tta = new KitWrapper(sta);
 					tta.setPObject(pcClass);
 					skillsToAdd.add(tta);
 					ranksLeftToAdd -= sta.getRanks();

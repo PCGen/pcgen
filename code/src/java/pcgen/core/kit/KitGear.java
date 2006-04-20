@@ -402,7 +402,6 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			aPC.setGold(aPC.getGold().subtract(theCost).toString());
 		}
 
-		// TODO Need to use this variable with some sort of message like
 		boolean outOfFunds = false;
 		if (theQty != origQty)
 		{

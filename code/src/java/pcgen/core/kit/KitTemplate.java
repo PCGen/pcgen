@@ -82,7 +82,6 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 	 * @param aPC PlayerCharacter
 	 * @param aKit Kit
 	 * @param warnings List
-	 * TODO Implement this pcgen.core.kit.BaseKit method
 	 */
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
 	{

@@ -32,18 +32,15 @@ public final class KitWrapper
 {
 	private Object obj = null;
 	private PObject aPObject = null;
-	// TODO This variable is never read
-	private boolean free = false;
 
 	/**
 	 * Constructor
 	 * @param argObj
 	 * @param argFree
 	 */
-	public KitWrapper(final Object argObj, final boolean argFree)
+	public KitWrapper(final Object argObj)
 	{
 		obj = argObj;
-		free = argFree;
 	}
 
 	/**
