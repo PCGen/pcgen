@@ -4,6 +4,11 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 
 ###Block:Special Mount
 ### TODO: This requires the Animal tricks change to the SRD
+#FOLLOWER:SarSMLevel=1		BONUS:VAR|TricksQty|2
+#FOLLOWER:SarSMLevel=3		BONUS:VAR|TricksQty|1
+#FOLLOWER:SarSMLevel=6		BONUS:VAR|TricksQty|1
+#FOLLOWER:SarSMLevel=8		BONUS:VAR|TricksQty|1
+#FOLLOWER:SarSMLevel=8		BONUS:VAR|TricksQty|1
 # Class of the Master		Type				Hit Dice	Virtual Feat		Special Ability		Combat bonus						Add to base move			Stat bonus					Modify VAR			SWITCHRACE
 FOLLOWER:SarSMLevel=1		TYPE:Special Mount							SA:Devotion (Ex)															BONUS:STAT|STR|2				BONUS:VAR|TricksQty|2
 FOLLOWER:SarSMLevel=3		TYPE:Special Mount	HD:2										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1	SWITCHRACE:Animal|Magical Beast

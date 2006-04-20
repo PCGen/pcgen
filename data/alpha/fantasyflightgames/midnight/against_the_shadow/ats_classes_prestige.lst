@@ -54,7 +54,9 @@ CLASS:Aradil's Eye	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disguise
 1																			FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																			FEATAUTO:The Drop
 2																			FEATAUTO:Security Breach
-3	BONUS:VAR|SneakAttack|CL/3										VFEAT:Improved Feint	FEATAUTO:Sneak Attack
+3	BONUS:VAR|SneakAttack|CL/3														FEATAUTO:Sneak Attack
+# TODO Improved Feint doesn't exist in 3.0
+#3															VFEAT:Improved Feint	
 4																			FEATAUTO:Target Study
 5																			FEATAUTO:Fast Hands
 6																			FEATAUTO:Cover Story
