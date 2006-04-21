@@ -25,31 +25,45 @@
 		
 		<p class="center"><img src="../../../images/preferences/displayoptions.png" alt="Appearance Display Options"/></p>
 		
-		<p>The <strong>Display Options</strong> menu option will allow you to:</p>
+		<p>The <strong>Display Options</strong> menu option will allow you to set these options:</p>
 		
 		<ul>
-			<li><strong>Show Tooltips Text</strong>.  Shows different tips on what each screen, tab, and option does. It displays helpful 
-			hints and guides for what each part of PCGen does when the mouse cursor is on top of an option. Deselecting this 
-			option will cause the tips to not be displayed.</li>
+			<li><strong>Chooser single choice behavior</strong> This sets PCGens behavior when a pop up chooser has but a single choice.
+				<ul>
+					<li><strong>None</strong> - Default setting, user must add the choice and click the Close button.</li>
+					<li><strong>Add the single choice to the selection</strong> - user must click the Close button.</li>
+					<li><strong>Add the single choice and close</strong> - the pop up chooser window is bypassed entirely.</li>
+				</ul> 
+			</li><br>
+			
+			<li><strong>Display &quot;OutputName&quot; for equipment</strong>. 
+			This will display equipment by the name set by it's OUTPUTNAME tag (if it has one) in the gear list.</li><br>
+			
+			<li><strong>Display &quot;OutputName&quot; for spells</strong>. 
+			This will display spells by the name set by it's OUTPUTNAME tag (if it has one) in the spell lists.</li><br>
+			
+			<li><strong>Display Feat Description</strong>.  This sets the  description field to display the short &quot;flavor text&quot; 
+			of the feat rather than the longer benefit text. If there is no benefit text it will display the short description.</li><br>
 
 			<li><strong>Show the Toolbar</strong>.  This allows the user to have a toolbar beneath the menus to help provide quick one 
 			click solutions to common tasks within PCGen such as: save, print, open folder, etc. If this option is deselected 
-			than the toolbar will not appear beneath the menus.</li>
+			than the toolbar will not appear beneath the menus.</li><br>
 
-			<li><strong>Use Automatic Busy Cursor</strong>.  Displayed whenever PCGen is busy performing a task.</li>
-
-			<li><strong>Display &quot;OutputName&quot; for items</strong>. This is for displaying specially named items that you create.</li>
+			<li><strong>Show Tooltips Text</strong>.  Shows different tips on what each screen, tab, and option does. It displays helpful 
+			hints and guides for what each part of PCGen does when the mouse cursor is on top of an option. Deselecting this 
+			option will cause the tips to not be displayed.</li><br>
 			
-			<li><strong>Display Feat Description</strong>.  This sets the  description field to display the short &quot;flavor text&quot; 
-			of the feat rather than the longer benefit text. If there is no benefit text it will display the short description.</li>
+			<li><strong>Show memory use in the status bar</strong>. 
+			Displays information on memory usage on the lower right edge of PCGens main window.</li><br>
 
-			<li><strong>Chooser single choice behavior</strong>, e.g.  You gain an ability for level x, this
-			ability is the only one you can choose in the chooser, so you have the choice of the chooser automatically
-			selecting that item and the user manually closing it, the chooser selecting the item and closing itself or
-			complete manual intervention by the user. You should use caution when using this feature as it can have unintended 
-			and unexpected behaviors. For example, with this feature turned on if you choose the feat Toughness the program will select 
-			the one choice offered for as many times as you have feat points left in your feat pool. Further more you cannot remove 
-			these feat choices until this feature is deselected.</li>
+			<li><strong>Show portrait preview on PCG open/save</strong>. 
+			If the character has a portrait set in the description tab it will be displayed on the left side of the open/save dialog window.</li><br>
+
+			<li><strong>Show skill modifier breakdown</strong>. Displays a breakdown of bonuses to a skill in the skill info window on the Skill Tab.</li><br>
+
+			<li><strong>Use Automatic Busy Cursor</strong>.  Displayed whenever PCGen is busy performing a task.</li><br>
+
+			
 		</ul>
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/menupages/settings/appearance/appearancedisplay.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
