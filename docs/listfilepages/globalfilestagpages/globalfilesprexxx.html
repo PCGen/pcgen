@@ -38,7 +38,7 @@
 		<p><strong>NOTE:</strong>
 		Any PRExxx tag may be prefixed with a &quot;!&quot; character (i.e., !PRExxx) in order to
 		invert the requirement logic. The PRExxx tag will be evaluated like normal, then
-		the result inverted (by inverted, this means you CAN NOT have the things listed
+		the result inverted (meaning you CAN NOT have the things listed
 		in this tag) when determining whether the prerequisite is passed or not.</p>
 		
 		<p><strong>USAGE:</strong> PRExxx tags are used in two different manners. A PRExxx 
@@ -74,7 +74,6 @@
 		<p class="indent3">Requires Lawful Good or the characters chosen Deities alignment.</p>
 		
 		<p></p><a name="PREAPPLY"></a><hr>
-		<p class="new">*** Updated 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREAPPLY:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> ANYPC (Apply to any character).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> PC (Apply to the character).</p>
@@ -107,7 +106,6 @@
 		<p class="indent3">This would apply the bonus to Wooden Blunt weapons.</p>
 		
 		<p></p><a name="PREARMORPROF"></a><hr>
-		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREARMORPROF:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of armor proficiencies needed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a Armor Prof).</p>
@@ -350,7 +348,6 @@
 		<p class="indent3">Character must have 1 of the two listed domains.</p>
 		
 		<p></p><a name="PREDR"></a><hr>
-		<p class="new">*** New 5.3.3</p>
 		<p class="indent0"><strong>Tag Name:</strong>PREDR:x,y=z,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the DR conditions that must be met).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The type of DR).</p>
@@ -474,7 +471,6 @@
 		<p class="indent3">Must have a light weapon equipped for two weapon fighting.</p>
 		
 		<p></p><a name="PREFEAT"></a><hr>
-		<p class="new">*** Updated 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREFEAT:x,y,z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number 
 			(The number of feats from the list that the character must have).</p>
@@ -510,13 +506,13 @@
 		
 		<p></p><a name="PREGENDER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREGENDER:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> M (Male gender).</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> F (Female gender).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Gender to require).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets gender requirement.</p>
+		<p class="indent2">Sets gender requirement. &nbsp;The character's gender must start with the text specified.  The test is case sensitive so &quot;male&quot; is 
+		not the same as &quot;Male&quot;. &nbsp;The PCGen GUI allows the following genders by default: Male, Female, Neuter, None, and Other.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREGENDER:M</code></p>
-		<p class="indent3">Character must be male.</p>
+		<p class="indent3">Character's gender must start with &quot;M&quot;.</p>
 		
 		<p></p><a name="PREHANDS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREHANDSx:y</p>
@@ -532,6 +528,43 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREHANDSGT:2</code></p>
 		<p class="indent3">Character must have a number of hands greater than 2.</p>
+		
+		<p></p><a name="PREHASDEITY"></a><hr>
+		<p class="new">*** New 5.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> PREDEITY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Y (Has deity).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> N (Does not have deity).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Checks to see if the character has a deity selected.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PREDEITY:Y</code></p>
+		<p class="indent3">Character must have selected a deity.</p>
+		
+		<p></p><a name="PREHD"></a><hr>
+		<p class="new">*** New 5.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> PREHD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Calculation (range or minimum natural Hit Dice)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>The numeric values supplied are a range (1-3) or minimum (4+) hit dice the character must have
+				to qualify.</li>
+			<li>This test looks at a character's race's HD attribute and any levels of Monster Classes.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>PREHD:1-3</code></p>
+		<p class="indent3">The character must have one, two, or three racial hit die.</p>
+		<p class="indent2"><code>PREHD:4+</code></p>
+		<p class="indent3">The character must have four or more racial hit die.</p>
+
+		<p></p><a name="PREHP"></a><hr>
+		<p class="new">*** New 5.10</p>
+		<p class="indent0"><strong>Tag Name:</strong> PREHP:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (minimum Hitpoints)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Makes the amount of hitpoints a character has a prerequisite.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>PREHP:50</code></p>
+		<p class="indent3">The character must have at least 50 hp.</p>
 		
 		<p></p><a name="PREITEM"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREITEM:x,y,y</p>
@@ -583,7 +616,8 @@
 		<p class="indent0"><strong>Tag Name:</strong> PRELEVEL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The minimum level).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Makes the character have a minimum amount of levels, regardless of class.</p>
+		<p class="indent2">Makes the character have a minimum amount of levels, regardless of class. &nbsp;This
+		check also includes racial hit dice and monster class levels.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRELEVEL:5</code></p>
 		<p class="indent3">Character must be 5th level.</p>
@@ -592,7 +626,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> PRELEVELMAX:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum level).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Makes the character be under a maximum amount of levels, regardless of class.</p>
+		<p class="indent2">Requires that a character have a maximum number of character (non-monster) levels.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRELEVELMAX:10</code></p>
 		<p class="indent3">Character cannot be over level 10.</p>
@@ -615,7 +649,6 @@
 		<p class="indent3">Character must be able to walk at speed 30 AND climb at speed 15</p>
 		
 		<p></p><a name="PREMULT"></a><hr>
-		<p class="new">*** New 5.3.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREMULT:x,[PRExxx 1],[PRExxx 2]</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of listed PRExxx tags that must be met).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text - [ ] (imbedded PRExxx tags that must be met).</p>
@@ -679,7 +712,6 @@
 		<p class="indent3">Character must hail from the &quot;Slithe&quot; region and &quot;Barrows&quot; subregion.</p>
 		
 		<p></p><a name="PRERULE"></a><hr>
-		<p class="new">*** New 5.5.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRERULE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Rule name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -703,7 +735,6 @@
 			&quot;Rebuke Undead&quot; or &quot;Smite Evil&quot;.</p>
 		
 		<p></p><a name="PRESHIELDPROF"></a><hr>
-		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESHIELDPROF:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of shield proficiencies needed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a shield proficiency).</p>
@@ -1014,7 +1045,6 @@
 			AND be able to rage more than four time per day.</p>
 		
 		<p></p><a name="PREVISION"></a><hr>
-		<p class="new">*** New 5.3.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREVISION:x,y,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number 
 			(The number of vision types that must match the specified requirements).</p>
@@ -1049,7 +1079,6 @@
 		<p class="indent3">Weapon Prof in question must be one of the chosen deity's favored weapons.</p>
 		
 		<p></p><a name="PREWIELD"></a><hr>
-		<p class="new">*** New 5.5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREWIELD:x,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the wield categories that must match)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Light,OneHanded or TwoHanded)</p>
