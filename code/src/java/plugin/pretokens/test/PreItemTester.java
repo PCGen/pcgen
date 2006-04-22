@@ -47,6 +47,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	// TODO Refactor this with all the equipment tests.
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		final int number;
 		try
@@ -95,16 +96,25 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 				}
 				else
 				{ //not a TYPE string
-					if (aString.indexOf('%') >= 0) //handle wildcards (always assume they end the line)
+					final String eqName = eq.getName().toUpperCase();
+
+					if (aString.indexOf('%') >= 0)
 					{
-						if (eq.getName().toUpperCase().startsWith(aString.substring(0, aString.indexOf('%'))))
+						//handle wildcards (always assume
+						// they end the line)
+						final int percentPos = aString.indexOf('%');
+						final String substring = aString.substring(0, percentPos).toUpperCase();
+						if ((eqName.startsWith(substring)))
 						{
-							runningTotal++;
+							++runningTotal;
+							break;
 						}
 					}
-					else if (eq.getName().equalsIgnoreCase(aString)) //just a straight String compare
+					else if (eqName.equalsIgnoreCase(aString))
 					{
-						runningTotal++;
+						//just a straight String compare
+						++runningTotal;
+						break;
 					}
 				}
 			}

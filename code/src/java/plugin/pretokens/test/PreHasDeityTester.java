@@ -38,21 +38,26 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreHasDeityTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreHasDeityTester extends AbstractPrerequisiteTest implements
+	PrerequisiteTest
+{
 
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq,
+					  final PlayerCharacter character)
+	{
 		int runningTotal;
 		final boolean charHasDeity = character.getDeity() != null;
 
 		final String ucOp = prereq.getOperand().toUpperCase();
-		final boolean flag = (("Y".equals(ucOp)) && (charHasDeity)) || (("N".equals(ucOp)) && (!charHasDeity)); //$NON-NLS-1$ //$NON-NLS-2$
-		if (prereq.getOperator().equals( PrerequisiteOperator.EQ ))
+		final boolean flag = (ucOp.startsWith("Y") && charHasDeity)
+			|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$ //$NON-NLS-2$
+		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 		{
-			runningTotal = flag==true ? 1 : 0;
+			runningTotal = flag == true ? 1 : 0;
 		}
 		else
 		{
-			runningTotal = flag==false ? 1 : 0;
+			runningTotal = flag == false ? 1 : 0;
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -61,7 +66,8 @@ public class PreHasDeityTester extends AbstractPrerequisiteTest implements Prere
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "HAS.DEITY"; //$NON-NLS-1$
 	}
 }

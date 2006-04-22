@@ -67,12 +67,6 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		
-		// Convert all of the key="feat (subfeat)" to key="feat" subkey="subfeat"
-		convertKeysToSubKeys(prereq, "feat");
-
-		//Removed invert stuff because super.parse already does this, and these lines re-invert.
-		prereq.setOverrideQualify(overrideQualify);
 
 		//
 		// Negate the feat names wrapped in []'s. Then need to bump up the required number of matches
@@ -82,15 +76,21 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 			negateFeatChoice(prereq);
 		}
 
+		// Convert all of the key="feat (subfeat)" to key="feat" subkey="subfeat"
+		convertKeysToSubKeys(prereq, "feat");
+
+		//Removed invert stuff because super.parse already does this, and these lines re-invert.
+		prereq.setOverrideQualify(overrideQualify);
+
 		return prereq;
 	}
 
 	/**
-	 * Process prereq keys wrapped in []. If the key is wrapped in [], the 
-	 * prereq will be negated to check that the prereq is not passed, and 
-	 * the number of required matches is increased by the number of negated 
-	 * tests. Can handle nested prereqs. 
-	 *  
+	 * Process prereq keys wrapped in []. If the key is wrapped in [], the
+	 * prereq will be negated to check that the prereq is not passed, and
+	 * the number of required matches is increased by the number of negated
+	 * tests. Can handle nested prereqs.
+	 *
 	 * @param prereq The prereq to be negated.
 	 */
 	private void negateFeatChoice(Prerequisite prereq)
@@ -130,5 +130,5 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 			prereq.setOperand(oper);
 		}
 	}
-	
+
 }
