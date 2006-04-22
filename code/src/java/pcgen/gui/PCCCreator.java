@@ -143,6 +143,10 @@ final class PCCCreator extends JFrame
 				{
 					extractLSTTypes(children[i]);
 				}
+				else if (PCGFile.isPCGenCampaignFile(children[i]))
+				{
+					extractLSTTypes(children[i]);
+				}
 			}
 
 			if (addThis)
@@ -213,8 +217,11 @@ final class PCCCreator extends JFrame
 				int start = line.indexOf(":");
 
 				if (!line.startsWith("LSTEXCLUDE") && !line.startsWith("PCC") && !line.startsWith("CAMPAIGN")
-				    && !line.startsWith("GAME") && !line.startsWith("RANK") && !line.startsWith("SOURCE")
-				    && !line.startsWith("#") && (start >= 0))
+					&& !line.startsWith("GAME") && !line.startsWith("RANK") && !line.startsWith("SOURCE")
+					&& !line.startsWith("#") && !line.startsWith("GENRE") && !line.startsWith("BOOKTYPE")
+					&& !line.startsWith("SETTING") && !line.startsWith("TYPE") && !line.startsWith("PUBNAME")
+					&& !line.startsWith("ISD20") && !line.startsWith("ISOGL") && !line.startsWith("COPYRIGHT")
+					&& (start >= 0))
 				{
 					String lstType = line.substring(0, start);
 
@@ -333,7 +340,7 @@ final class PCCCreator extends JFrame
 			PrintStream pr = new PrintStream(fout);
 			pr.println("CAMPAIGN: Custom Source Materials (" + name + ")");
 
-			pr.println("GAME:" + SettingsHandler.getGame().getName());
+			pr.println("GAMEMODE:" + SettingsHandler.getGame().getName());
 			pr.println("TYPE:Custom");
 			pr.println("RANK:5");
 			pr.println("SOURCELONG:Custom - " + name);
@@ -428,7 +435,7 @@ final class PCCCreator extends JFrame
 			{
 				combo.setEnabled(true);
 				label.setForeground((getSelectedState() == MIXED) ? Color.black
-				                                                  : ((getSelectedState() == ALL) ? Color.green : Color.red));
+																  : ((getSelectedState() == ALL) ? Color.green : Color.red));
 			}
 			else
 			{
@@ -500,7 +507,7 @@ final class PCCCreator extends JFrame
 		}
 
 		public Component getTreeCellEditorComponent(JTree tree, Object value, boolean isSelected, boolean expanded,
-		    boolean leaf, int row)
+			boolean leaf, int row)
 		{
 			SourceNode sNode = (SourceNode) value;
 
@@ -513,7 +520,7 @@ final class PCCCreator extends JFrame
 		}
 
 		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded,
-		    boolean leaf, int row, boolean hasFocus)
+			boolean leaf, int row, boolean hasFocus)
 		{
 			SourceNode sNode = (SourceNode) value;
 
