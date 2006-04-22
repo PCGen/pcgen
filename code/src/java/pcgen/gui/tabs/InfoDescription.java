@@ -96,19 +96,6 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			{
 				if ((genderComboBox != null) && (genderComboBox.getSelectedItem() != null))
 				{
-					/*
-					 * TODO (Tom Parker August 25, 2005)
-					 * This THINKS it can set the gender of the PlayerCharacter, but it
-					 * is possible for a template to disallow that.  So setGender should
-					 * probably return a boolean so that this method can tell whether it
-					 * worked...
-					 *   If it didn't, then genderComboBox should be set BACK to the gender
-					 * fixed by the template.  An even better solution would be to simply
-					 * disable those genders that are not valid for the GENDERLOCK defined
-					 * by the template, but that is more complicated (and there are more
-					 * fundamental problems for me to spend time on than subtle quirks in
-					 * the GUI)
-					 */
 					pc.setGender(genderComboBox.getSelectedItem().toString());
 				}
 			}
@@ -424,13 +411,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 					pc.getDescription());
 			nodesToBeAddedList.add(order++, descriptionNote);
 			companionNote = new NoteItem(COMPANION_NOTEID, -1, PropertyFactory.getString("in_companions"),
-				    (String) pc.getMiscList().get(1));
+					(String) pc.getMiscList().get(1));
 			nodesToBeAddedList.add(order++, companionNote);
 			otherAssetsNote = new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory.getString("in_otherAssets"),
-				    (String) pc.getMiscList().get(0));
+					(String) pc.getMiscList().get(0));
 			nodesToBeAddedList.add(order++, otherAssetsNote);
 			magicItemsNote = new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory.getString("in_magicItems"),
-				    (String) pc.getMiscList().get(2));
+					(String) pc.getMiscList().get(2));
 			nodesToBeAddedList.add(order++, magicItemsNote);
 		}
 		else
@@ -563,7 +550,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		else
 		{
 			labelHeight = new JLabel(PropertyFactory.getString("in_height") + " ("
-				    + Globals.getGameModeUnitSet().getHeightUnit() + "): ");
+					+ Globals.getGameModeUnitSet().getHeightUnit() + "): ");
 		}
 
 		gridbag.setConstraints(labelHeight, c);
@@ -585,7 +572,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelWeight = new JLabel(PropertyFactory.getString("in_weight") + " (" + Globals.getGameModeUnitSet().getWeightUnit()
-			    + "): ");
+				+ "): ");
 		gridbag.setConstraints(labelWeight, c);
 		northPanel.add(labelWeight);
 
@@ -1298,7 +1285,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 					++newNodeId;
 
 					NoteItem a = new NoteItem(newNodeId, parentId, PropertyFactory.getString("in_newItem"),
-						    PropertyFactory.getString("in_newValue"));
+							PropertyFactory.getString("in_newValue"));
 					NoteTreeNode aNode = new NoteTreeNode(a);
 
 					if (parentTreeNode != null)
@@ -1362,11 +1349,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 					//The following line should be taken out and shot!
 					reallyDelete = JOptionPane.showConfirmDialog(null,
-						    PropertyFactory.getString("in_delNote1") + " " + aNode.toString()
-						    + ((numChildren > 0)
-						    ? (" " + PropertyFactory.getString("in_delNote2") + " " + (numChildren) + " "
-						    + PropertyFactory.getString("in_delNote3")) : " ") + "?",
-						    PropertyFactory.getString("in_delNote4"), JOptionPane.OK_CANCEL_OPTION);
+							PropertyFactory.getString("in_delNote1") + " " + aNode.toString()
+							+ ((numChildren > 0)
+							? (" " + PropertyFactory.getString("in_delNote2") + " " + (numChildren) + " "
+							+ PropertyFactory.getString("in_delNote3")) : " ") + "?",
+							PropertyFactory.getString("in_delNote4"), JOptionPane.OK_CANCEL_OPTION);
 
 					if (reallyDelete == JOptionPane.OK_OPTION)
 					{
@@ -1424,7 +1411,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 					}
 
 					String selectedValue = JOptionPane.showInputDialog(null, PropertyFactory.getString("in_idEnNewName"),
-						    Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+							Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 					if ((selectedValue != null) && (selectedValue.trim().length() > 0))
 					{
@@ -1439,7 +1426,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			{
 				public void actionPerformed(ActionEvent evt)
 				{
-				    // TODO This method currently does nothing?
+					// TODO This method currently does nothing?
 				}
 			});
 		Utility.setDescription(revertButton, PropertyFactory.getString("in_idLoseChan"));
@@ -1696,6 +1683,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		{
 			handedComboBox.setSelectedItem(pc.getHanded());
 			genderComboBox.setSelectedItem(pc.getGender());
+			genderComboBox.setEnabled(pc.canSetGender());
 			wtText.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(pc.getWeight()));
 			htText.setText(Globals.getGameModeUnitSet().displayHeightInUnitSet(pc.getHeight()));
 
@@ -1706,11 +1694,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			else
 			{
 				labelHeight.setText(PropertyFactory.getString("in_height") + " ("
-				    + Globals.getGameModeUnitSet().getHeightUnit() + "): ");
+					+ Globals.getGameModeUnitSet().getHeightUnit() + "): ");
 			}
 
 			labelWeight.setText(PropertyFactory.getString("in_weight") + " (" + Globals.getGameModeUnitSet().getWeightUnit()
-			    + "): ");
+				+ "): ");
 		}
 
 		updateDisplayedAge();
@@ -2110,27 +2098,27 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddNoteActionListener(), PropertyFactory.getString("in_add"),
-			    (char) 0, accelerator, PropertyFactory.getString("in_add"), "Add16.gif", true);
+				(char) 0, accelerator, PropertyFactory.getString("in_add"), "Add16.gif", true);
 		}
 
 		private JMenuItem createMoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new MoveNoteActionListener(), PropertyFactory.getString("in_move"),
-			    (char) 0, accelerator, PropertyFactory.getString("in_move"), "Add16.gif", true);
+				(char) 0, accelerator, PropertyFactory.getString("in_move"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RemoveNoteActionListener(),
-			    PropertyFactory.getString("in_delete"), (char) 0, accelerator, PropertyFactory.getString("in_delete"),
-			    "Remove16.gif", true);
+				PropertyFactory.getString("in_delete"), (char) 0, accelerator, PropertyFactory.getString("in_delete"),
+				"Remove16.gif", true);
 		}
 
 		private JMenuItem createRenameMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RenameNoteActionListener(),
-			    PropertyFactory.getString("in_rename"), (char) 0, accelerator, PropertyFactory.getString("in_rename"),
-			    "Add16.gif", true);
+				PropertyFactory.getString("in_rename"), (char) 0, accelerator, PropertyFactory.getString("in_rename"),
+				"Add16.gif", true);
 		}
 
 		private class AddNoteActionListener extends NoteActionListener
@@ -2169,7 +2157,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			public void actionPerformed(ActionEvent evt)
 			{
-			    // TODO This method currently does nothing?
+				// TODO This method currently does nothing?
 			}
 		}
 
