@@ -51,6 +51,8 @@ import pcgen.util.chooser.ChooserInterface;
 /**
  * Modify an Ability object for a given PC (or remove an Ability
  * Object from a given PC)
+ * @deprecated delete this early in the 5.12 cycle.  This is all handled by
+ * ChooserUtilities.modChoices
  */
 public class PObjectUtilities
 {

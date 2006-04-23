@@ -368,16 +368,16 @@ public class AbilityUtilities
 			int                   retVal)
 	{
 		// how many sub-choices to make
-		double featCount = (ability.getAssociatedCount() * ability.getCost(aPC)) + aPC.getFeats();
+		double featCount = (ability.getAssociatedCount() * ability.getCost(aPC));
 
-		boolean canSetFeats = true;
+		boolean didntModifyAbility = true;
 
 		if (singleChoice && (addIt || ability.isMultiples()))
 		{
 			if ("".equals(choice))
 			{
 				// Allow sub-choices
-				canSetFeats = !ability.modChoices(aPC, addIt);
+				didntModifyAbility = !ability.modChoices(aPC, addIt);
 			}
 			else if (addIt)
 			{
@@ -423,8 +423,8 @@ public class AbilityUtilities
 			}
 			ability.subAddsForLevel(-9, aPC);
 		}
-
-		if (singleChoice && canSetFeats)
+		
+		if (singleChoice && didntModifyAbility)
 		{
 			if (!addIt && !ability.isMultiples() && removed)
 			{
@@ -450,8 +450,8 @@ public class AbilityUtilities
 
 				featCount -= (listSize * ability.getCost(aPC));
 			}
-			
-			aPC.adjustFeats(featCount - aPC.getFeats());
+
+			aPC.adjustFeats(featCount);
 		}
 
 		aPC.setAutomaticFeatsStable(false);
@@ -705,7 +705,7 @@ public class AbilityUtilities
 		{
 			return result;
 		}
-
+		
 		return finaliseAbility(anAbility, subName, aPC, addIt, singleChoice1, result);
 	}
 

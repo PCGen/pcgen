@@ -158,19 +158,17 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 
 	/**
 	 * Remove a choice
-	 *
+	 * @param aPC
 	 * @param availableList
 	 * @param selectedList
-	 * @param selectedBonusList
-	 * @param aPC
 	 */
 	public void doChooserRemove (
+		    PlayerCharacter       aPC,
 		    final List            availableList,
-		    final List            selectedList,
-		    final List            selectedBonusList,
-		    PlayerCharacter       aPC)
+		    final List            selectedList)
 	{
 		remove = true;
+
 		final List newSelections = doChooser (
 				aPC,
 				availableList,

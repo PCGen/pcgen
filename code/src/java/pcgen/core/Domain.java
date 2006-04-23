@@ -26,6 +26,7 @@
 package pcgen.core;
 
 import pcgen.core.character.CharacterSpell;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
@@ -181,7 +182,7 @@ public final class Domain extends PObject
 			    !aPC.isImporting() &&
 			    !choiceString.startsWith("FEAT|"))
 			{
-				PObjectUtilities.modChoices(
+				ChooserUtilities.modChoices(
 				    this,
 				    new ArrayList(),
 				    new ArrayList(),

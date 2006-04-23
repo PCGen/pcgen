@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.IntegerKey;
@@ -788,7 +789,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final PlayerCharacter aPC,
 		final boolean         addIt)
 	{
-		return PObjectUtilities.modChoices(
+		return ChooserUtilities.modChoices(
 				this,
 				availableList,
 				selectedList,

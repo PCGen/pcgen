@@ -26,10 +26,13 @@ package pcgen.core.chooser;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
+import java.awt.Choice;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import org.omg.CORBA.portable.Streamable;
 
 /**
  * This is the chooser that deals with choosing a spell level.
@@ -56,6 +59,22 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 		title          = "Spell Level choice";
 		chooserHandled = "SPELLLEVEL";
 
+		if (((String) choices.get(0)).equals("SPELLLEVEL") ) 
+		{
+			try
+			{
+				numberOfChoices = new Integer((String) choices.get(1)).intValue();				
+			}
+			catch (NumberFormatException e)
+			{
+				numberOfChoices = 1;
+			}
+		}
+		else
+		{
+			numberOfChoices = 1;
+		}
+		
 		/* reconstruct a suitable choiceString to pass to buildSpellTypeChoices.  This is
 		 * not necessarily the same as the choiceString that was passed in because we may
 		 * have removed some | separated elements from the front of it in the constructor

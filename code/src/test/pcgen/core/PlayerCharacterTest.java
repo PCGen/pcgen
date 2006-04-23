@@ -327,7 +327,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		}
 		catch(HeadlessException e)
 		{
-			Logging.debugPrint("Ignoring Headless excpetion.");
+			Logging.debugPrint("Ignoring Headless exception.");
 		}
 	}
 
@@ -409,7 +409,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		toughness.setName("Toughness");
 		toughness.setMultiples("Y");
 		toughness.setStacks("Y");
-		toughness.setChoiceString("foo");
+		toughness.setChoiceString("NOCHOICE");
 		toughness.setCategory("FEAT");
 		Globals.addAbility(toughness);
 

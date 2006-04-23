@@ -264,6 +264,53 @@ public class ChooserUtilities
 	}
 
 	/**
+	 * Deal with CHOOSE tag processing
+	 *
+	 * @param aPObject
+	 * @param availableList
+	 * @param selectedList
+	 * @param process
+	 * @param aPC
+	 * @param addIt
+	 * 
+	 * @return true if aPObject was modified
+	 */
+	public static final boolean modChoices(
+			final PObject         aPObject,
+				  List            availableList,
+			final List            selectedList,
+			final boolean         process,
+			final PlayerCharacter aPC,
+			final boolean         addIt)
+	{
+		availableList.clear();
+		selectedList.clear();
+		
+		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
+		
+		if (aMan == null) {return false;}
+
+		aMan.getChoices(aPC, availableList, selectedList);
+
+		if (!process) {return false;}
+		
+		if (availableList.size() > 0 || selectedList.size() > 0)
+		{	
+			if (addIt)
+			{
+				final List newSelections = aMan.doChooser(aPC, availableList, selectedList);
+				aMan.applyChoices(aPC, newSelections);
+			}
+			else
+			{
+				aMan.doChooserRemove(aPC, availableList, selectedList);
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Creates a list of choices based on aChoice, or if aChoice is blank, the
 	 * choiceString property of aPObject.  If process is true, a chooser will be
 	 * presented to the user.  Otherwise, availableList will be populated.
@@ -374,18 +421,22 @@ public class ChooserUtilities
 		{
 			constructMap();
 		}
-
+		
 		final String choiceString;
-		if(theChoices!= null && theChoices.length() > 0)
+		if(theChoices != null && theChoices.length() > 0)
 		{
 			choiceString = theChoices;
 		}
 		else
 		{
 			choiceString = aPObject.getChoiceString();
-			theChoices   = "";
 		}
 
+		if (choiceString == null || choiceString.length() == 0)
+		{
+			return null;
+		}
+		
 		List mainList = Arrays.asList(choiceString.split("[|]"));
 
 		/* Find the first element of the array that does not contain an

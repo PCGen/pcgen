@@ -166,6 +166,22 @@ public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 	 * @param selectedBonusList
 	 */
 
+
+	/**
+	 *
+	 * @param aPc
+	 * @param availableList
+	 * @param selectedList
+	 */
+	public void doChooserRemove (
+			PlayerCharacter aPc,
+			List availableList,
+			List selectedList)
+	{
+		// Nothing to do here
+	}
+
+	
 	/**
 	 * 
 	 * @param aPC

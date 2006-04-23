@@ -61,6 +61,17 @@ public interface ChoiceManagerList {
 			final List availableList,
 			final List selectedList);
 
+	/**
+	 * Do chooser for removing a choice
+	 * @param aPc
+	 * @param availableList
+	 * @param selectedList
+	 */
+	public abstract void doChooserRemove (
+			PlayerCharacter aPc,
+			final List availableList,
+			final List selectedList);
+
 	
 	/**
 	 * Apply the choices to the Pc

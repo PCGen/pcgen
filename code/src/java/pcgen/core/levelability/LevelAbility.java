@@ -524,8 +524,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			{
 				if (owner instanceof PCClass)
 				{
-					// is this necessary?
-					// is initMod even used?
+					// is this necessary? is initMod even used?
 					((PCClass) owner).addInitMod(
 						-Integer.parseInt(thisString.substring(5)));
 				}
