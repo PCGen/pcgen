@@ -368,7 +368,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * Retrieve those skills in the character's skill list that match the
-	 * supplied visibiility level.
+	 * supplied visibility level.
 	 *
 	 * @param   visibility  What level of visibility skills are desired.
 	 *
@@ -613,7 +613,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		Collections.sort(pcEquipSetList);
 
 		// loop through all the EquipSet's and create equipment
-		// then set status to equipped and add to PC's eq list
+		// then set status to equipped and add to PC's equipment list
 		for (Iterator e = pcEquipSetList.iterator(); e.hasNext();)
 		{
 			final EquipSet es = (EquipSet) e.next();
@@ -879,7 +879,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Get the class givena key
+	 * Get the class given a key
 	 * @param aString
 	 * @return PCClass
 	 */
@@ -966,7 +966,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	/**
 	 * Get a list of types that apply to this character
 	 *
-	 * @return  a List&lt;String&gt; where each String is a type that the
+	 * @return  a List of Strings where each String is a type that the
 	 *          character has. The list returned will never be null
 	 */
 	public List getTypes()
@@ -1814,13 +1814,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return tGender.equals(Constants.s_NONE) ? gender : tGender;
 	}
 
-	public boolean canSetGender()
-	{
-		final String tGender = findTemplateGender();
-
-		return tGender.equals(Constants.s_NONE);
-	}
-
 	public void setGold(final String aString)
 	{
 		gold = new BigDecimal(aString);
@@ -1880,7 +1873,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * 0-level feat count (racial, templates, etc.), excluding any
-	 * feats from leveling.
+	 * feats from levelling.
 	 *
 	 * @return count of initial, non-leveling feats
 	 */
@@ -1986,9 +1979,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			setDirty(true);
 		}
 
-		//
-		// Get total wizard + sorcer levels as they stack like a mother
-		// Doh!!
+		// Get total wizard + sorcerer levels as they stack like a mother
 		int mTotalLevel = 0;
 		int addHD = 0;
 
@@ -2173,15 +2164,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 						if (mSkill.getRank().intValue() > fSkill.getRank().intValue())
 						{
 							// first zero current
-//							fSkill.setZeroRanks(newClass, this);
-//							fSkill.modRanks(mSkill.getRank().doubleValue(), newClass, true, this);
 							fSkill.setZeroRanks(aClass, this);
 							fSkill.modRanks(mSkill.getRank().doubleValue(), aClass, true, this);
 						}
 					}
 
 					// build a list of all skills a master
-					// posesses, but the familiar does not
+					// Possesses, but the familiar does not
 					if (!hasSkill(mSkill.getName()) && !sNameList.contains(mSkill.getName()))
 					{
 						sNameList.add(mSkill.getName());
@@ -2204,7 +2193,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					continue;
 				}
 
-//				newSkill.modRanks(sr, newClass, true, this);
 				newSkill.modRanks(sr, aClass, true, this);
 				getSkillList().add(newSkill);
 			}
@@ -3297,7 +3285,14 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * @param decrement
 	 * @return Float
 	 */
-	public Float getVariable(final String variableString, final boolean isMax, boolean includeBonus, final String matchSrc, final String matchSubSrc, final boolean recurse, int decrement)
+	public Float getVariable(
+			final String variableString,
+			final boolean isMax,
+			boolean includeBonus,
+			final String matchSrc,
+			final String matchSubSrc,
+			final boolean recurse,
+			int decrement)
 	{
 		double value = 0.0;
 		boolean found = false;
@@ -3306,7 +3301,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			if (lastVariable.equals(variableString))
 			{
-				Logging.debugPrint("This is a deliberate warning message, not an error - Avoiding infinite loop in getVariable: repeated lookup of \"" + lastVariable + "\" at " + value);
+				StringBuffer sb = new StringBuffer(256);
+				sb.append("This is a deliberate warning message, not an error - ");
+				sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
+				sb.append("of \"").append(lastVariable).append("\" at ").append(value);
+				Logging.debugPrint(sb.toString());
 				lastVariable = null;
 				return new Float(value);
 			}
@@ -3341,18 +3340,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					value = getMinMaxFirstValue(found, isMax, value, newValue);
 
 					found = true;
-					//Note: These are never actually set to a non empty/zero value. Code will be removed after 5.9.7
-//					if (!"".equals(loopVariable))
-//					{
-//						while (loopValue > decrement)
-//						{
-//							loopValue -= decrement;
-//							value += getVariableValue(sString, src).doubleValue();
-//						}
-//
-//						loopValue = 0;
-//						loopVariable = "";
-//					}
 				}
 			}
 		}
@@ -3630,7 +3617,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	public void setXP(final int xp)
 	{
 		// Remove the effect of LEVELADJ when storing our
-		// internal notion of experiene
+		// internal notion of experience
 		int realXP = xp - getLAXP();
 
 		if (realXP < 0)
@@ -3850,8 +3837,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		// Some vfeats rely on variables as prereqs, hence the need to
-		// recalc them after we get all vars.
+		// Some virtual feats rely on variables as prereqs, hence the need to
+		// Recalculate them after we get all vars.
 		setVirtualFeatsStable(false);
 
 	}
@@ -3941,8 +3928,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			for (Iterator e = variableList.iterator(); e.hasNext();)
 			{
 				final StringTokenizer aTok = new StringTokenizer((String) e.next(), "|");
-				aTok.nextToken(); //src
-				aTok.nextToken(); //subSrc
+				aTok.nextToken(); //source
+				aTok.nextToken(); //subSource
 
 				if ((aTok.nextToken()).equalsIgnoreCase(variableString)) //nString
 				{
@@ -3965,7 +3952,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 *
 	 * @param aKey The bonus key
 	 * @param aVal The value of the bonus
-	 * @param bonusMap The map of bonuses bieng built.
+	 * @param bonusMap The map of bonuses being built.
 	 */
 	private void putActiveBonusMap(final String aKey, final String aVal, Map bonusMap)
 	{
@@ -4044,10 +4031,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * begin breakdown of getAC info Arknight 08-09-02
-	 * rework by Arknight 01-02-03
-	 * rework by fdiniz 08-19-03
-	 * Now we use the ACTYPE tag on miscinfo to determine the formula
+	 * Now we use the ACTYPE tag on misc info to determine the formula
 	 * @return ac total
 	 */
 	public int getACTotal()
@@ -4074,12 +4058,14 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			if ((bLoading) && (index != SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE)))
 			{
-				ShowMessageDelegate.showMessageDialog("Invalid alignment. Setting to <none selected>", Constants.s_APPNAME, MessageType.INFORMATION);
+				ShowMessageDelegate.showMessageDialog(
+						"Invalid alignment. Setting to <none selected>",
+						Constants.s_APPNAME, MessageType.INFORMATION);
 				alignment = SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE);
 			}
 
-			//TODO raise an exception, once I define one. Maybe
-			//ArrayIndexOutOfBounds?
+			// TODO raise an exception, once I define one. Maybe
+			// ArrayIndexOutOfBounds?
 		}
 		setDirty(true);
 	}
@@ -4122,9 +4108,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public String getAttackString(final int index, final int TOHITBonus, int BABBonus)
 	{
-		final String cacheLookup = "AttackString:" + index      + ","
-											   + TOHITBonus + ","
-							   + BABBonus;
+		final String cacheLookup = "AttackString:" + index + "," + TOHITBonus + "," + BABBonus;
 		final String cached = getVariableProcessor().getCachedString(cacheLookup);
 
 		if (cached != null)
@@ -4134,7 +4118,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 		// index: 0 = melee; 1 = ranged; 2 = unarmed
 		// now we see if this PC is a Familiar
-		// initialize to some large negative number
+		// Initialise to some large negative number
 		int masterBAB = -9999;
 		int masterTotal = -9999;
 		final PlayerCharacter nPC = getMasterPC();
@@ -4284,7 +4268,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	public SortedSet getAutoLanguages()
 	{
-		// find list of all possible langauges
+		// find list of all possible languages
 		boolean clearRacials = false;
 
 		final SortedSet autoLangs = new TreeSet();
@@ -5183,10 +5167,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/*
-	 * renaming to standard convetion
+	 * renaming to standard convention
 	 * due to refactoring of export
 	 *
-	 * Build on-the-fly so removing templates doesn't mess up favored list
+	 * Build on-the-fly so removing templates doesn't mess up favoured list
 	 *
 	 * author: Thomas Behr 08-03-02
 	 */
@@ -5386,16 +5370,16 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * @param src
+	 * @param source
 	 * @param aPC
 	 * @return the number of Character Domains possible
-	 * and check the level of the src class if the result is 0.
+	 * and check the level of the source class if the result is 0.
 	 */
-	public int getMaxCharacterDomains(final PCClass src, final PlayerCharacter aPC)
+	public int getMaxCharacterDomains(final PCClass source, final PlayerCharacter aPC)
 	{
 		int i = getMaxCharacterDomains();
 		if (i == 0 && domainSourceMap.size()==0)
-			i = (int) src.getBonusTo("DOMAIN", "NUMBER", src.getLevel(), aPC);
+			i = (int) source.getBonusTo("DOMAIN", "NUMBER", source.getLevel(), aPC);
 		return i;
 	}
 
@@ -5481,7 +5465,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * @param moveIdx
-	 * @return the integer movement speed for Idx
+	 * @return the integer movement speed for Index
 	 */
 	public Double getMovement(final int moveIdx)
 	{
@@ -5635,7 +5619,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	public void setRace(final Race aRace)
 	{
 		final Race oldRace = getRace();
-		final boolean raceIsNull = (oldRace == null); // needed because race is nulled later
+		final boolean raceIsNull = (oldRace == null); // needed because race is set to null later
 		final boolean firstLevel = getTotalClassLevels()==1;
 
 		// remove current race attributes
@@ -6076,7 +6060,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * and see if they are a spell caster of the desired type and of the
 	 * desired caster level.
 	 *
-	 * @param spellType The type of spellcaster (i.e. "ARCANE" or "devine")
+	 * @param spellType The type of spellcaster (i.e. "ARCANE" or "Divine")
 	 * @param minLevel The desired caster level
 	 * @return boolean
 	 */
@@ -6090,7 +6074,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * and see if they are a spell caster of the desired type and of the
 	 * desired caster level.
 	 *
-	 * @param spellType The type of spellcaster (i.e. "ARCANE" or "devine")
+	 * @param spellType The type of spellcaster (i.e. "Arcane" or "Divine")
 	 * @param minLevel The desired caster level
 	 * @param sumLevels True if all of the character caster levels should be
 	 * added together before the comparison.
@@ -6411,7 +6395,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Parses through all templates to calc total bonus
+	 * Parses through all templates to calculate total bonus
 	 * @param aType
 	 * @param aName
 	 * @param subSearch
@@ -6920,7 +6904,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					continue;
 				}
 
-				//if both end in ".REPLACE", add togther and save for later comparison
+				//if both end in ".REPLACE", add together and save for later comparison
 				if (zReplace && kReplace)
 				{
 					kBonus.setBonus(zBonus.getBonus() + kBonus.getBonus());
@@ -6977,41 +6961,40 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			final String aKey = i.next().toString();
 
-			final String rString = aKey;
-			String tString = aKey;
+			String aString = aKey;
 
 			// rString could be something like:
 			//  COMBAT.AC:Armor.REPLACE
 			// So need to remove the .STACK or .REPLACE
 			// to get a match for prefix like: COMBAT.AC:Armor
-			if (rString.endsWith(".STACK"))
+			if (aKey.endsWith(".STACK"))
 			{
-				tString = rString.substring(0, rString.length() - 6);
+				aString = aKey.substring(0, aKey.length() - 6);
 			}
-			else if (rString.endsWith(".REPLACE"))
+			else if (aKey.endsWith(".REPLACE"))
 			{
-				tString = rString.substring(0, rString.length() - 8);
+				aString = aKey.substring(0, aKey.length() - 8);
 			}
 
 			// if prefix is of the form:
 			// COMBAT.AC
-			// then is must match rstring:
+			// then it must match
 			//  COMBAT.AC
 			//  COMBAT.AC:Luck
 			//  COMBAT.AC:Armor.REPLACE
 			// However, it must not match
 			//  COMBAT.ACCHECK
-			if ((tString.length() > prefix.length()) && !tString.startsWith(prefix + ":"))
+			if ((aString.length() > prefix.length()) && !aString.startsWith(prefix + ":"))
 			{
 				continue;
 			}
 
-			if (tString.startsWith(prefix))
+			if (aString.startsWith(prefix))
 			{
-				final int typeIndex = tString.indexOf(":");
+				final int typeIndex = aString.indexOf(":");
 				if (typeIndex > 0)
 				{
-					return(rString.substring(typeIndex+1)); //use rString to get .REPLACE or .STACK
+					return(aKey.substring(typeIndex+1)); //use aKey to get .REPLACE or .STACK
 				}
 				return(""); //no type;
 			}
@@ -7106,7 +7089,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					{
 						final Ability aFeat = (Ability) e1.next();
 
-						// TODO Check for dups?
+						// TODO Check for duplicates?
 						if(PrereqHandler.passesAll(aFeat.getPreReqList(), this, aFeat)) {
 							vFeatList.add(aFeat);
 						}
@@ -7121,7 +7104,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			{
 				final Ability aFeat = (Ability) e.next();
 
-				// TODO Check for dups?
+				// TODO Check for duplicates?
 				if(PrereqHandler.passesAll(aFeat.getPreReqList(), this, aFeat)) {
 					vFeatList.add(aFeat);
 				}
@@ -7523,19 +7506,25 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * acs is the CharacterSpell object containing the spell which is to be modified
-	 * @param acs
-	 *
-	 * @param aFeatList     is the list of feats to be added to the SpellInfo object added to acs
-	 * @param className     is the name of the class whose list of characterspells will be modified
+	 * @param acs 			is the CharacterSpell object containing the spell which is to be modified
+	 * @param aFeatList     is the list of feats to be added to the SpellInfo object
+	 * @param className     is the name of the class whose list of character spells will be modified
 	 * @param bookName      is the name of the book for the SpellInfo object
-	 * @param spellLevel    is the original (unadjusted) level of the spell not including feat adjustments
-	 * @param adjSpellLevel is the adjustedLevel (including feat adjustments) of this spell, it may be higher if the user chooses a higher level.
+	 * @param spellLevel    is the original (unadjusted) level of the spell not including
+	 *                      feat adjustments
+	 * @param adjSpellLevel is the adjustedLevel (including feat adjustments) of this spell,
+	 *                      it may be higher if the user chooses a higher level.
+	 * 
 	 * @return an empty string on successful completion, otherwise
 	 *         the return value indicates the reason the add function failed.
 	 */
-	public String addSpell(CharacterSpell acs, final List aFeatList, final String className, final String bookName, final int adjSpellLevel,
-		final int spellLevel)
+	public String addSpell(
+			CharacterSpell acs,
+			final List aFeatList,
+			final String className,
+			final String bookName,
+			final int adjSpellLevel,
+			final int spellLevel)
 	{
 		if (acs == null)
 		{
@@ -7566,7 +7555,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 		}
 
-		// If this is a spellbook, the class doesn;t have to be one the PC has already.
+		// If this is a spellbook, the class doesn't have to be one the PC has already.
 		if (aClass == null && spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
 			aClass = Globals.getClassNamed(className);
@@ -7623,7 +7612,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 		// don't allow adding spells which are prohibited to known
 		// or prepared lists
-		// But if a spell is both prohibited and in a specialty
+		// But if a spell is both prohibited and in a speciality
 		// which can be the case for some spells, then allow it.
 		if (spellBook.getType() != SpellBook.TYPE_SPELL_BOOK
 			&& !acs.isSpecialtySpell() && aClass.isProhibited(aSpell, this))
@@ -7678,7 +7667,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			// If this were a specialty spell, would there be room?
 			if (!acs.isSpecialtySpell() && availableSpells(adjSpellLevel, aClass, bookName, true, true))
 			{
-				ret = "Your remaining slot(s) must be filled with your specialty.";
+				ret = "Your remaining slot(s) must be filled with your speciality.";
 				maxAllowed = known;
 			}
 			else
@@ -7706,7 +7695,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			if (!acs.isSpecialtySpell()
 				&& availableSpells(adjSpellLevel, aClass, bookName, false, true))
 			{
-				ret = "Your remaining slot(s) must be filled with your specialty or domain.";
+				ret = "Your remaining slot(s) must be filled with your speciality or domain.";
 				maxAllowed = aClass.getCastForLevel(aClass.getLevel(),
 					adjSpellLevel, bookName, false, true, this);
 			}
@@ -7765,7 +7754,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			// ok, we already known this spell, so if they are
 			// trying to add it to the default spellBook, barf
-			// otherwise increment the number of times memorized
+			// otherwise increment the number of times memorised
 			if (isDefault)
 			{
 				return "The Known Spells spellbook contains all spells of this level that you know. You cannot place spells in multiple times.";
@@ -8078,23 +8067,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		setDirty(true);
 	}
 
-	/**
-	 * Add all of the Abilities in aList which the PC does not have to the
-	 * chosen Ability store.
-	 * @param aList the list of Abilities to test
-	 */
-	private void addNonDuplicateAbilities(ArrayList aList) {
-		Iterator it = aList.iterator();
-		while (it.hasNext())
-		{
-			Ability ab = (Ability) it.next();
-			if (!this.hasRealFeat(ab))
-			{
-				this.addRealFeat(ab);
-			}
-		}
-	}
-
 	public void adjustGold(final double delta)
 	{
 		//I don't really like this hack, but setScale just won't work right...
@@ -8173,7 +8145,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		   }
 		 */
 
-		// tempmods
+		// temp mods
 		if (!getTempBonusList().isEmpty() && getUseTempMods())
 		{
 			setMoveFromList(getTempBonusList());
@@ -8412,7 +8384,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		// Get the original value of the map.
 		String origMapVal = activeBonusMap.toString();
 
-		// ensure that the values for the looked up varaibles are the most up to date
+		// ensure that the values for the looked up variables are the most up to date
 		setDirty(true);
 		calcActiveBonusLoop();
 
@@ -8756,7 +8728,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			final PCClass aClass = (PCClass) iter.next();
 
-			// Check for Constants.s_NONE just incase
+			// Check for Constants.s_NONE just in case
 			// a programmer sends in a "" string
 			if (aClass.getSpellType().equalsIgnoreCase(spellType)
 				&& !aClass.getSpellType().equalsIgnoreCase(Constants.s_NONE))
@@ -8777,7 +8749,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					return true;
 				}
 
-				// If they don't memorize spells and don't have
+				// If they don't memorise spells and don't have
 				// a CastList then they use something funky
 				// like Power Points (psionic)
 				if (!aClass.getMemorizeSpells() && aClass.getKnownList().isEmpty() && aClass.zeroCastSpells())
@@ -8794,7 +8766,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		if (aDeity == null)
 		{
-			// deity = null;  Removed 11/3/2002 - dhibbs
 			return false;
 		}
 
@@ -8832,7 +8803,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		// yes, you can remove spells from the default spellbook,
 		// but they will just get added back in when the character
 		// is re-loaded. But, allow them to do it anyway, just in case
-		// there is some wierd spell that keeps getting loaded by
+		// there is some weird spell that keeps getting loaded by
 		// accident (or is saved in the .pcg file)
 		if (isDefault && aClass.isAutoKnownSpell(acs.getSpell().getName(), si.getActualLevel(), this))
 		{
@@ -8980,7 +8951,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Calculate different kinds of boni to saves.
+	 * Calculate different kinds of bonuses to saves.
 	 * possible tokens are
 	 * save
 	 * save.TOTAL
@@ -9004,7 +8975,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * (This means save.MAGIC.NOMAGIC equals 0
 	 * whereas save.RACE.RACE equals 2 times the racial bonus)
 	 * <p/>
-	 * If you use unrecognized terminals, their value will amount to 0
+	 * If you use unrecognised terminals, their value will amount to 0
 	 * This means save.BLABLA equals 0
 	 * whereas save.MAGIC.BLABLA equals save.MAGIC
 	 * <p/>
@@ -9276,7 +9247,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Checks for existance of source in domainSourceMap
+	 * Checks for existence of source in domainSourceMap
 	 * @param aType
 	 * @param aName
 	 * @param aLevel
@@ -9405,7 +9376,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Check to see if this PC should ignore Encumberance
+	 * Check to see if this PC should ignore Encumbrance
 	 * for a specified armor (Constants.HEAVY_LOAD, etc)
 	 * If the check is more than the testing type, return true
 	 * @param armorInt
@@ -9433,7 +9404,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Check to see if this PC should ignore Encumberance
+	 * Check to see if this PC should ignore Encumbrance
 	 * for a specified load (Constants.HEAVY_LOAD, etc)
 	 * If the check is more than the testing type, return true
 	 * @param loadInt
@@ -9464,7 +9435,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * Change the number of levels a character has in a particular class.
 	 * Note: It is assumed that this method is not used as part of loading
 	 * a previously saved character.  there is no way to bypass the
-	 * prerequisties with this method, also this method does not print
+	 * prerequisites with this method, also this method does not print
 	 * warning messages
 	 * see: incrementClassLevel(int, PCClass, boolean, boolean);
 	 *
@@ -9849,7 +9820,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * Figure out if Load should affect AC and Skills, if so, set the load
-	 * appropiately, otherwise set a light load to eliminate the effects of
+	 * appropriately, otherwise set a light load to eliminate the effects of
 	 * heavier loads
 	 * @return a loadType appropriate for this Pc
 	 */
@@ -9944,7 +9915,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 					 (load == Constants.OVER_LOAD)   ? 0 : statBonus;
 
 		// If this is still true after all the equipment has been
-		// examined, then we should use the Maximum - Maxium Dex modifier.
+		// examined, then we should use the Maximum - Maximum Dex modifier.
 		boolean useMax = (load == Constants.LIGHT_LOAD);
 
 		for (Iterator e = equipmentList.iterator(); e.hasNext();)
@@ -9980,11 +9951,15 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/*
-	 * Figure the: MAXDEX ACCHECK SPELLFAILURE AC bonus from all currently
-	 * equipped items
-	 */
+	 * Figure the:
+	 *  MAXDEX
+	 *  ACCHECK
+	 *  SPELLFAILURE
+	 *  AC
+	 * bonus from all currently equipped items
+ 	 */
 	public int modToFromEquipment (final String typeName)
-	{
+ 	{
 		if (typeName.equals("AC"))
 		{
 			return modToACFromEquipment();
@@ -10051,7 +10026,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		postMove += getTotalBonusTo("POSTMOVEADD", "TYPE.ALL");
 
 		// because POSTMOVE is magical movement which should not be
-		// multiplied by magial items, etc, we now see which is larger,
+		// multiplied by magical items, etc, we now see which is larger,
 		// (baseMove + postMove)  or  (baseMove * moveMultiplier)
 		// and keep the larger one, discarding the other
 		moveInFeet = Math.max(calcMove, postMove);
@@ -10434,7 +10409,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 
 		// It is hard to tell if removeTemplate() modifies
-		// inTmpl.templatesAdded(), so not safe to optimize
+		// inTmpl.templatesAdded(), so not safe to optimise
 		// the call to .size().	 XXX
 		for (int i = 0; i < inTmpl.templatesAdded().size(); ++i)
 		{
@@ -10884,7 +10859,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
 	 * @param moveIdx
-	 * @return the integer movement speed multiplier for Idx
+	 * @return the integer movement speed multiplier for Index
 	 */
 	Double getMovementMult(final int moveIdx)
 	{
@@ -11117,7 +11092,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Scan through the list of doains the character has to ensure that
+	 * Scan through the list of domains the character has to ensure that
 	 * they are all still valid. Any invalid domains will be removed from
 	 * the character.
 	 */
@@ -11222,7 +11197,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	private synchronized void setClassLevelsBrazenlyTo(final Map lvlMap)
 	{
-		// set class levels to classname,lvl pair
+		// set class levels to class name,level pair
 		for (Iterator i = classList.iterator(); i.hasNext();)
 		{
 			final PCClass aClass = (PCClass) i.next();
@@ -11549,7 +11524,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 			if (!aClass.isMonster()) {
 				// If the class level was not a monster level then it counts
-				// towards the total number of chracter levels
+				// towards the total number of character levels
 				characterLevels++;
 			}
 		}
@@ -11779,7 +11754,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			}
 			else
 			{
-				// All TYPE profs are at the begining of the list
+				// All TYPE profs are at the beginning of the list
 				break;
 			}
 		}
@@ -11823,7 +11798,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			for (;;)
 			{
-				final String classChoice = Globals.chooseFromList("Select favored class", rfc.substring(7),
+				final String classChoice = Globals.chooseFromList("Select favoured class", rfc.substring(7),
 						null, 1);
 
 				if (classChoice != null)
@@ -12004,7 +11979,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 						aList.add(ab.toString().toUpperCase());
 
-						// If we have processed all of the entriues, or this is not
+						// If we have processed all of the entries, or this is not
 						// a LIST bonus, don't add any more copies.
 						if (aTok.countTokens() > 0 || listindex >= cnt
 							|| !bonusInfo.equals("LIST"))
@@ -12334,7 +12309,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 
 		// Add all weapons of type aString
-		// (eg: Simple, Martial, Exotic, Ranged, etc.)
+		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
 		else if (Globals.weaponTypesContains(aString))
 		{
 			final Collection weaponProfs = Globals.getAllWeaponProfsOfType(aString);
@@ -12389,7 +12364,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 							&& !Constants.s_INTERNAL_WEAPON_PROF.equalsIgnoreCase(featName))
 						{
 							//
-							// Only use catch-all if haven't taken feat that supercedes it
+							// Only use catch-all if haven't taken feat that supersedes it
 							//
 							if(hasRealFeatNamed(featName))
 							{
@@ -12500,7 +12475,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				// Can this be done?
 				final Equipment eq = EquipmentList.getEquipmentKeyed(aString);
 
-				//Equipment eq = Globals.getEquipmentNamed(aString);
 				if (eq != null)
 				{
 					// Found an exact equipment match; use it
@@ -12673,7 +12647,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	private ArrayList getPObjectList()
 	{
-		// Posible object types include:
+		// Possible object types include:
 		//  Alignment (PCAlignment)
 		//  ArmorProf
 		//  BioSet (ageSet)
@@ -12872,7 +12846,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * @param aClass       the class under consideration
 	 * @param bookName       the name of the spellbook
 	 * @param knownLearned       "true" if this is learning a spell, "false" if prepping
-	 * @param isSpecialtySpell "true" iff this is a specialty for the given class
+	 * @param isSpecialtySpell "true" if this is a speciality for the given class
 	 * @return         true or false, a new spell can be added
 	 */
 	public boolean availableSpells(final int level, final PCClass aClass,
@@ -12917,7 +12891,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				knownSpec = knownTot - knownNon;
 			}
 
-			// Now get the number of spells memorized, total and specialties
+			// Now get the number of spells memorised, total and specialities
 			memTot = aClass.memorizedSpellForLevelBook(i, bookName);
 			memSpec = aClass.memorizedSpecialtiesForLevelBook(i, bookName);
 			memNon = memTot - memSpec;
@@ -12943,7 +12917,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			if (!isDivine || knownLearned)
 			{
 				// If I'm not divine, I can use non-specialty slots of this level
-				// to take up the slack of my excess specialty spells from
+				// to take up the slack of my excess speciality spells from
 				// lower levels.
 				while ((excNon > 0) && (lowExcSpec < 0))
 				{
@@ -12952,7 +12926,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				}
 
 				// And I can use non-specialty slots of this level to take
-				// up the slack of my excess specialty spells of this level.
+				// up the slack of my excess speciality spells of this level.
 				//
 				while ((excNon > 0) && (excSpec < 0))
 				{
@@ -13003,7 +12977,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				break;
 			}
 
-			// Now get the number of spells memorized, total and specialties
+			// Now get the number of spells memorised, total and specialities
 			memTot = aClass.memorizedSpellForLevelBook(i, bookName);
 			memSpec = aClass.memorizedSpecialtiesForLevelBook(i, bookName);
 			memNon = memTot - memSpec;
@@ -13041,7 +13015,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 			if (!isDivine)
 			{
 				// If I'm not divine, I can use non-specialty slots of this level
-				// to take up the slack of my excess specialty spells from
+				// to take up the slack of my excess speciality spells from
 				// lower levels.
 				while ((excNon > 0) && (lowExcSpec < 0))
 				{
@@ -13059,7 +13033,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				}
 
 				// And finally use non-specialty slots of this level to take
-				// up the slack of excess specialty spells of this level.
+				// up the slack of excess speciality spells of this level.
 				//
 				while ((excNon > 0) && (excSpec < 0))
 				{
@@ -13197,7 +13171,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 		final List tempList = new ArrayList();
 		final StringTokenizer aTok = new StringTokenizer(ageSetLine, "\t");
-		aTok.nextToken(); // name of ageSet, eg: Middle Aged
+		aTok.nextToken(); // name of ageSet, e.g.: Middle Aged
 
 		while (aTok.hasMoreTokens())
 		{
@@ -13239,33 +13213,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Currently unused
-	 * But needed when ArmorProf's get converted to BonusObj's
-	 * isntead of just a List of String
-	 */
-	/*private void calcArmorProfBonuses()
-	{
-		if (getArmorProfList().isEmpty())
-		{
-			return;
-		}
-
-		for (Iterator e = getArmorProfList().iterator(); e.hasNext();)
-		{
-			final ArmorProf ap = (ArmorProf) e.next();
-			ap.activateBonuses(this);
-
-			final List tempList = ap.getActiveBonuses(this);
-
-			if (!tempList.isEmpty())
-			{
-				addListToActiveBonuses(tempList);
-			}
-		}
-	}*/
-
-
-	/**
 	 * Compute total bonus from a List of BonusObj's Use cost of bonus to adjust
 	 * total bonus up or down This method takes a list of bonus objects.
 	 *
@@ -13276,10 +13223,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * bonus is multiplied by the number of times this bonus appears in the list.
 	 *
 	 * Note: This COST seems to be used for several different things
-	 * in the codebase, in feats for instance, it is used to modify the feat
+	 * in the code base, in feats for instance, it is used to modify the feat
 	 * pool by amounts other than 1 when selecting a given feat.  Here it is
 	 * used as a multiplier to say how effective a given bonus is i.e. a bonus
-	 * with a COST of 0.5 counts for half its normal value.  The COST is limitied
+	 * with a COST of 0.5 counts for half its normal value.  The COST is limited
 	 * to a max of 1, so it can only make bonuses less effective.
 	 *
 	 * @param   aList a list of bonus objects
@@ -13520,35 +13467,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * Currently unused
-	 * But needed when WeaponProf's get converted to BonusObj's
-	 * isntead of just a List of String
-	 */
-	/*private void calcWeaponProfBonuses()
-	{
-		if (getWeaponProfList().isEmpty())
-		{
-			return;
-		}
-
-		for (Iterator e = getWeaponProfList().iterator(); e.hasNext();)
-		{
-			final WeaponProf wp = (WeaponProf) e.next();
-			wp.activateBonuses(this);
-
-			final List tempList = wp.getActiveBonuses(this);
-
-			if (!tempList.isEmpty())
-			{
-				addListToActiveBonuses(tempList);
-			}
-		}
-	}*/
-
-	/**
 	 * calculate the total racial modifier to save:
-	 * racial boni like the standard halfling's +1 on all saves
-	 * template boni like the lightfoot halfling's +1 on all saves
+	 * racial bonuses like the standard halfling's +1 on all saves
+	 * template bonuses like the Lightfoot halfling's +1 on all saves
 	 * racial base modifiers for certain monsters
 	 * @param saveIndex
 	 * @return int
@@ -13660,11 +13581,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
 	/**
-	 * returns the number of times a spell is memorized
+	 * returns the number of times a spell is memorised
 	 * Tag looks like: (SPELLTIMES%class&period;%book&period;%level&period;%spell)
 	 * aString looks like: SPELLTIMES2&period;-1&period;4&period;15
 	 *
-	 * where &period; is a fullstop (or period if you are from USA ;p)
+	 * where &period; is a full stop (or period if you are from USA ;p)
 	 *
 	 * heavily stolen from replaceTokenSpellMem in ExportHandler.java
 	 * @param aString
@@ -13841,7 +13762,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		// Why +1?  Adjustments are deltas, not absolute
 		// levels, so are not subject to the "back off one"
-		// element of the * algorightm in minXPForLevel.  This
+		// element of the * algorithm in minXPForLevel.  This
 		// still means that levelAdjustment of 0 gives you 0
 		// XP, but we need LA of 1 to give us 1,000 XP.
 		return PlayerCharacterUtilities.minXPForLevel(getLevelAdjustment(this) + 1,this);
@@ -13950,19 +13871,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 				found = true;
 				flag = true;
-
-				//Note: These are never actually set to a non empty/zero value. Code will be removed after 5.9.7
-//				if (!"".equals(loopVariable))
-//				{
-//					while (loopValue > decrement)
-//					{
-//						loopValue -= decrement;
-//						value += getVariableValue(sString, src).doubleValue();
-//					}
-//
-//					loopValue = 0;
-//					loopVariable = "";
-//				}
 			}
 		}
 
@@ -14041,13 +13949,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 * Change the number of levels a character has in a particular class.
 	 * Note: It is assumed that this method is not used as part of loading
 	 * a previously saved character.  there is no way to bypass the
-	 * prerequisties with this method,
+	 * prerequisites with this method,
 	 * see: incrementClassLevel(int, PCClass, boolean, boolean);
 	 *
 	 *
 	 * @param numberOfLevels number of levels to add
 	 * @param globalClass the class to add the levels to
-	 * @param bSilent whether or not to dispaly warning messages
+	 * @param bSilent whether or not to display warning messages
 	 */
 	public void incrementClassLevel(
 			final int numberOfLevels,
@@ -14068,7 +13976,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 *            of levels passed in is negative then that many levels will be
 	 *            removed from the specified class.
 	 * @param globalClass
-	 *            The global class from the datastore. The class as stored in
+	 *            The global class from the data store. The class as stored in
 	 *            the character will be compared to this one using the
 	 *            getClassNamed() method
 	 * @param bSilent
@@ -14196,7 +14104,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	/**
 	 * - Get's a list of dependencies from aBonus
 	 * - Finds all active bonuses that add to those dependencies and
-	 * have not been processed and recursivly calls itself
+	 * have not been processed and recursively calls itself
 	 * - Once recursed in, it adds the computed bonus to activeBonusMap
 	 * @param aBonus
 	 */
@@ -14227,7 +14135,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		{
 			final BonusObj newBonus = (BonusObj) ab.next();
 
-			// recursivly call itself
+			// Recursively call itself
 			processBonus(newBonus);
 		}
 
@@ -14735,7 +14643,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	}
 
   /**
-   * Retrieve the bonus for the stat excluding either temporary bonues,
+   * Retrieve the bonus for the stat excluding either temporary bonuses,
    * equipment bonuses or both. This method ensure stacking rules are
    * applied to all included bonuses. If not excluding either, it is
    * quicker to use getTotalBonusTo.
@@ -14819,7 +14727,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 	/**
    * Retrieve the stat as it was at a particular level excluding either
-   * temporary bonues, equipment bonuses or both. This method ensures
+   * temporary bonuses, equipment bonuses or both. This method ensures
    * stacking rules are applied to all included bonuses. If not excluding
    * either, it is quicker to use getTotalStatAtLevel.
    *
@@ -15625,7 +15533,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 /*
  * For debugging purposes
- * Dumps contents of spellbooks to System.err
+ * Dumps contents of spell books to System.err
  *
 	static public void dumpSpells(final PlayerCharacter pc)
 	{
