@@ -1814,6 +1814,13 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return tGender.equals(Constants.s_NONE) ? gender : tGender;
 	}
 
+	public boolean canSetGender()
+	{
+		final String tGender = findTemplateGender();
+
+		return tGender.equals(Constants.s_NONE);
+	}
+
 	public void setGold(final String aString)
 	{
 		gold = new BigDecimal(aString);
