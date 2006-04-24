@@ -49,7 +49,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	/** Indicator that the choice definition is valid. */ 
 	protected boolean valid               = true;
 
-	protected int     requestedSelections = 0;
+	protected int     requestedSelections = -1;
 	protected int     maxNewSelections    = 0;
 	protected int     maxSelections       = 0;
 	protected boolean remove              = false;
