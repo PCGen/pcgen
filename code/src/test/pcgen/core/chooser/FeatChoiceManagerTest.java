@@ -85,7 +85,7 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase {
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(0));
+			is (aField.get(choiceManager), eq(-1));
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
