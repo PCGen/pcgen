@@ -28,6 +28,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.RaceLoader;
@@ -167,6 +168,68 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertEquals("Should get 3 bonus known spells", 3, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 
+	}
+
+	
+	/**
+	 * Test the function of adding an ability multiple times which has  
+	 * no choices and adds a static bonus.
+	 */
+	public void testNoChoiceBonus() throws Exception
+	{
+		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
+			getClass().getName() + ".java");
+		AbilityLoader loader = new AbilityLoader();
+		loader.setCurrentSource(source);
+		Ability pObj = new Ability();
+		loader
+			.parseLine(
+				pObj,
+				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3",
+				source);
+		
+		PlayerCharacter aPC  = getCharacter();
+		int baseHP = aPC.hitPoints();
+		pObj.addAssociated("");
+		aPC.addFeat(pObj, null);
+		aPC.calcActiveBonuses();
+		assertEquals("Should have added 3 HPs", baseHP+3, aPC.hitPoints());
+
+		pObj.addAssociated("");
+		aPC.calcActiveBonuses();
+		assertEquals("2 instances should have added 6 HPs", baseHP+6, aPC.hitPoints());
+		
+	}
+
+	
+	/**
+	 * Test the function of adding an ability multiple times which has  
+	 * a single choice and adds a static bonus.
+	 */
+	public void testNoSubsChoiceBonus() throws Exception
+	{
+		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
+			getClass().getName() + ".java");
+		AbilityLoader loader = new AbilityLoader();
+		loader.setCurrentSource(source);
+		Ability pObj = new Ability();
+		loader
+			.parseLine(
+				pObj,
+				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3",
+				source);
+		
+		PlayerCharacter aPC  = getCharacter();
+		int baseHP = aPC.hitPoints();
+		pObj.addAssociated("+3 HP");
+		aPC.addFeat(pObj, null);
+		aPC.calcActiveBonuses();
+		assertEquals("Should have added 3 HPs", baseHP+3, aPC.hitPoints());
+
+		pObj.addAssociated("+3 HP");
+		aPC.calcActiveBonuses();
+		assertEquals("2 instances should have added 6 HPs", baseHP+6, aPC.hitPoints());
+		
 	}
 	
 	protected void setUp() throws Exception
