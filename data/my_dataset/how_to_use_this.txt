@@ -20,3 +20,8 @@ Source. It is here because the examples in the *.lst files were mostly drawn fro
 Document. It is not needed for your dataset to function.
 
 Frank Kliewe, 2005-12-07
+
+PS.
+If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
+different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
+your existing installation of PCGen, your changes would get overwritten and thus be lost.
