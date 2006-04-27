@@ -101,7 +101,7 @@ final class MainAbout extends JPanel
 
 		setLayout(new BorderLayout());
 
-		add(BorderLayout.CENTER, mainPane);
+		add(mainPane, BorderLayout.CENTER);
 		mainPane.setPreferredSize(new Dimension(640, 480));
 	}
 
@@ -322,7 +322,7 @@ final class MainAbout extends JPanel
 		otherLibrariesField.setBorder(BorderFactory
 			.createBevelBorder(BevelBorder.LOWERED));
 
-		iPanel.add(BorderLayout.CENTER, otherLibrariesField);
+		iPanel.add(otherLibrariesField, BorderLayout.CENTER);
 
 		return iPanel;
 	}
@@ -369,7 +369,7 @@ final class MainAbout extends JPanel
 		}
 
 		sp.setViewportView(aPanel);
-		panel.add(BorderLayout.CENTER, sp);
+		panel.add(sp, BorderLayout.CENTER);
 		return panel;
 	}
 
@@ -383,7 +383,7 @@ final class MainAbout extends JPanel
 		sp.setBorder(title);
 		JPanel panel = new JPanel(new BorderLayout());
 		sponsorLabel.setBackground(panel.getBackground());
-		panel.add(BorderLayout.CENTER, sp);
+		panel.add(sp, BorderLayout.CENTER);
 		
 		List sponsors = Globals.getSponsors();
 		StringBuffer sb = new StringBuffer();
@@ -442,7 +442,7 @@ final class MainAbout extends JPanel
 		}
 
 		license.setViewportView(LGPLArea);
-		lPanel.add(BorderLayout.CENTER, license);
+		lPanel.add(license, BorderLayout.CENTER);
 
 		return lPanel;
 	}

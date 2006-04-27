@@ -65,13 +65,13 @@ public class ErrorListDialog extends EnhancedDialog
 		Box iconBox = new Box(BoxLayout.Y_AXIS);
 		iconBox.add(new JLabel(UIManager.getIcon("OptionPane.errorIcon")));
 		iconBox.add(Box.createGlue());
-		content.add(BorderLayout.WEST, iconBox);
+		content.add(iconBox, BorderLayout.WEST);
 
 		JPanel centerPanel = new JPanel(new BorderLayout());
 
 		JLabel label = new JLabel(caption);
 		label.setBorder(new EmptyBorder(0, 0, 6, 0));
-		centerPanel.add(BorderLayout.NORTH, label);
+		centerPanel.add(label, BorderLayout.NORTH);
 
 		JList errors = new JList(messages);
 		errors.setCellRenderer(new ErrorListCellRenderer());
@@ -85,9 +85,9 @@ public class ErrorListDialog extends EnhancedDialog
 		size.width = Math.min(size.width, 400);
 		scrollPane.setPreferredSize(size);
 
-		centerPanel.add(BorderLayout.CENTER, scrollPane);
+		centerPanel.add(scrollPane, BorderLayout.CENTER);
 
-		content.add(BorderLayout.CENTER, centerPanel);
+		content.add(centerPanel, BorderLayout.CENTER);
 
 		Box buttons = new Box(BoxLayout.X_AXIS);
 		buttons.add(Box.createGlue());
@@ -106,7 +106,7 @@ public class ErrorListDialog extends EnhancedDialog
 		buttons.add(ok);
 
 		buttons.add(Box.createGlue());
-		content.add(BorderLayout.SOUTH, buttons);
+		content.add(buttons, BorderLayout.SOUTH);
 
 		getRootPane().setDefaultButton(ok);
 
