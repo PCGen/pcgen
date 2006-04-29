@@ -23,14 +23,14 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import pcgen.core.Ability;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 
 /**
  * This is one of the choosers that deals with choosing from among a set 
@@ -60,9 +60,8 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager {
 
 			if (mat.find()) {
 				ArrayList newChoice = new ArrayList();
-				newChoice.addAll(choices);
-				newChoice.remove(0);
 				newChoice.add(mat.replaceFirst(""));
+				newChoice.addAll(choices.subList(1,choices.size()));
 				choices = newChoice;
 			}
 		}
