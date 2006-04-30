@@ -81,7 +81,7 @@ TEMPLATE:pgta_templates.lst
 BIOSET:pgta_bio.lst
 
 # RSRD Imports - Basics
-CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric|Fighter|Monk|Paladin|Ranger|Rogue|Sorcerer)
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric|Fighter|Monk|Paladin|Ranger|Rogue|Sorcerer|Wizard)
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
@@ -123,7 +123,7 @@ EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic_enhancing.lst
 EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_psionic.lst
 EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_weap_psionic.lst
-FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst
+FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst|(EXCLUDE:Speed of Thought)
 FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic_hidden.lst
 SKILL:@/d20ogl/srd35/psionics/rsrd_skills_psionic.lst
 SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst

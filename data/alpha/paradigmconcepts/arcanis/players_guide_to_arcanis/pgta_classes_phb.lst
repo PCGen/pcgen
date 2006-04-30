@@ -16,8 +16,8 @@ CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		HASSUBCLASS:YES	SOURCEPAGE:pg. 51	LANGA
 CLASS:Cleric	!PRETEMPLATE:Black Talon Male,Ashen Hide Male
 # Class Name	Skill Pts/Lvl
 CLASS:Cleric	STARTSKILLPTS:2
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
-CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 #
 SUBCLASS:Cleric of Althares		PREDEITY:Althares		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
 SUBCLASSLEVEL:1	SA:Right to Carry																																																																													ADD:FEAT(TYPE=TurnUndead)												VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))																							FEATAUTO:Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
@@ -279,8 +279,8 @@ CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:pg. 70	LANGAUTO:Literacy		
 CLASS:Sorcerer	!PRERACE:1,Human
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
-# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:1|Wizard
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
+CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL	SPELLLIST:1|Wizard
 1	CAST:5,3				KNOWN:4,2				SA:Summon Familiar	SA:Hunted	FEATAUTO:Simple Weapon Proficiency|Eschew Materials
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
@@ -343,10 +343,54 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 20	CAST:0,3,3,3,3																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
 
 
-# Class Name	Class Skill
-CLASS:Wizard.MOD	CSKILL:Research
-1	SA:Hunted
 
+# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page				Automatic Languages	Bonus Languages		Define		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Research|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+#
+SUBCLASS:Wizard		COST:0
+SUBCLASS:Abjurer		COST:2	PROHIBITCOST:1	CHOICE:Abjuration		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Abjuration
+SUBCLASS:Conjurer		COST:2	PROHIBITCOST:1	CHOICE:Conjuration	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Conjuration
+SUBCLASS:Diviner		COST:1	PROHIBITCOST:0	CHOICE:Divination		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Divination
+SUBCLASS:Enchanter	COST:2	PROHIBITCOST:1	CHOICE:Enchantment	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Enchantment
+SUBCLASS:Evoker		COST:2	PROHIBITCOST:1	CHOICE:Evocation		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Evocation
+SUBCLASS:Illusionist	COST:2	PROHIBITCOST:1	CHOICE:Illusion		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Illusion
+SUBCLASS:Necromancer	COST:2	PROHIBITCOST:1	CHOICE:Necromancy		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Necromancy
+SUBCLASS:Transmuter	COST:2	PROHIBITCOST:1	CHOICE:Transmutation	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Transmutation
+###Block:Proficiencies
+1	FEATAUTO:Wizard Weapon Proficiencies|All Automatic Proficiencies
+###Block: Level progression
+1	CAST:3,1				SA:Summon Familiar	SA:Hunted											FEATAUTO:Scribe Scroll
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1									ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2									ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1								ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 #
 # End
 #

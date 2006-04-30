@@ -2,10 +2,10 @@
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
-# Feat Name				Type				Visible	Required AL		Required Deity	Required Feat		Prohibited Feat		Multiple Requirements						Req. Weapond Prof.	Prohibited Weapond Prof.	Special Ability																												Define									Description				Multiple?	Choose																		Virtual Feat						Choose a Feat		Save checks bonus						Combat bonus																																																																										Bonus to skill					Stat bonus													Modify VAR
+# Feat Name				Type				Visible	Required AL		Required Deity	Required Feat		Prohibited Feat		Multiple Requirements						Req. Weapond Prof.	Prohibited Weapond Prof.	Special Ability																												Define									Description				Multiple?	Choose																		Virtual Feat						Choose a Feat		Save checks bonus						Combat bonus																																																																												Bonus to skill					Stat bonus													Modify VAR
 Rebuke Undead.MOD									PREALIGN:LG,NG,CG
 
-Knowledge of the Ages		TYPE:Special		VISIBLE:NO				PREDEITY:Althares																											SA:Knowledge of the Ages (Ex) (+%)|AgesKnowledge																						DEFINE:AgesKnowledge|0																																																																																																																																																						BONUS:VAR|AgesKnowledge|INT
+Knowledge of the Ages		TYPE:Special		VISIBLE:NO				PREDEITY:Althares																											SA:Knowledge of the Ages (Ex) (+%)|AgesKnowledge																						DEFINE:AgesKnowledge|0																																																																																																																																																								BONUS:VAR|AgesKnowledge|INT
 
 WineDrinkerSchoolAccess		TYPE:WineDrinker																																				SA:School Access (%CHOICE) (Ex)																																								MULT:YES	CHOOSE:NUMCHOICES=1|Abjuration|Conjuration|Divination|Enchantment|Evocation|Illusion|Necromancy|Transmutation
 
@@ -20,11 +20,11 @@ GladiusNo				TYPE:GladiusProf																															!PREWEAPONPROF:1,Gla
 Init Bonus				TYPE:Special.Bowman	VISIBLE:NO							PREFEAT:1,Quick Draw																																																																																																													BONUS:COMBAT|INITIATIVE|2
 QuickDraw				TYPE:Special.Bowman	VISIBLE:NO											!PREFEAT:1,Quick Draw																																																																																													ADD:FEAT(Quick Draw)
 
-Subject Specialization		TYPE:Special		VISIBLE:NO																																																																																CHOOSE:SKILLSNAMED|TYPE.Knowledge|1																																																																																																														BONUS:SKILL|LIST|3|TYPE=Circumstance
+Subject Specialization		TYPE:Special		VISIBLE:NO																																																																																CHOOSE:SKILLSNAMED|TYPE.Knowledge|1																																																																																																																BONUS:SKILL|LIST|3|TYPE=Circumstance
 Emerald Proficiency		TYPE:Special		VISIBLE:NO																																																																																CHOOSE:WEAPONPROF|1|Gladius|Longsword|Whip
 
-Twisted Form			TYPE:Special		VISIBLE:NO																																	SA:Twisted Form (Su)	SA:Bonuses when twisted (STR +%, CON +%, Willpower +%, AC -%, HP %)|RageStrBonus+2|RageConBonus+2|RageMorale+2|RageACPenalty+2|((RageConBonus+2)/2)*(TL+HD)	DEFINE:Twisted|0																																														BONUS:CHECKS|Will|RageMorale+2|PREAPPLY:PC	BONUS:COMBAT|AC|-1*(RageACPenalty+2)|PREAPPLY:PC																																																																											BONUS:STAT|CON|RageConBonus+2|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus+2|PREAPPLY:PC	BONUS:VAR|RageDuration|-((RageConBonus+2)/2)|PREAPPLY:PC	BONUS:VAR|Twisted|1|PREAPPLY:PC
-Burst of Strength			TYPE:Special		VISIBLE:NO																																	SA:Burst of Strength (Su) +% STR|BurstBonus																							DEFINE:BurstBonus|0																																																																																																																																																						BONUS:VAR|BurstBonus|CL	BONUS:VAR|RageStrBonus|BurstBonus|PREAPPLY:PC
+Twisted Form			TYPE:Special		VISIBLE:NO																																	SA:Twisted Form (Su)	SA:Bonuses when twisted (STR +%, CON +%, Willpower +%, AC -%, HP %)|RageStrBonus+2|RageConBonus+2|RageMorale+2|RageACPenalty+2|((RageConBonus+2)/2)*(TL+HD)	DEFINE:Twisted|0																																														BONUS:CHECKS|Will|RageMorale+2|PREAPPLY:PC	BONUS:COMBAT|AC|-1*(RageACPenalty+2)|PREAPPLY:PC																																																																													BONUS:STAT|CON|RageConBonus+2|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus+2|PREAPPLY:PC	BONUS:VAR|RageDuration|-((RageConBonus+2)/2)|PREAPPLY:PC	BONUS:VAR|Twisted|1|PREAPPLY:PC
+Burst of Strength			TYPE:Special		VISIBLE:NO																																	SA:Burst of Strength (Su) +% STR|BurstBonus																							DEFINE:BurstBonus|0																																																																																																																																																								BONUS:VAR|BurstBonus|CL	BONUS:VAR|RageStrBonus|BurstBonus|PREAPPLY:PC
 
 
 ###Block: Turning Stuff

@@ -160,14 +160,14 @@ HolrynVirdan	NAMEISPI:YES	FAVOREDCLASS:Fighter		SUBRACE:Holryn
 
 
 ###Block: Bloodrank Levels
-# Template Name	Visible		Special Ability			Define		Required Race	Required Template			Modify VAR			Choose a Feat													Removable?
-First Bloodrank	VISIBLE:DISPLAY	SA:Val Bloorank %|ValBlood	DEFINE:ValBlood|0	PRERACE:1,Val						BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne)											REMOVABLE:NO
-Second Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:First Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne)											REMOVABLE:NO
-Third Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Second Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo)								REMOVABLE:NO
-Fourth Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Third Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo)								REMOVABLE:NO
-Fifth Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Fourth Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree)					REMOVABLE:NO
-Sixth Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Fifth Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree)					REMOVABLE:NO
-Seventh Bloodrank	VISIBLE:DISPLAY									PRERACE:1,Val	PRETEMPLATE:Sixth Bloodrank	BONUS:VAR|ValBlood|1	ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree,TYPE=BloodRankFour)	REMOVABLE:NO
+# Template Name	Visible		Special Ability			Define										Required Race	Required Template			Modify VAR																Choose a Feat													Removable?
+First Bloodrank	VISIBLE:DISPLAY	SA:Val Bloorank %|ValBlood	DEFINE:ValBlood|0	DEFINE:BloodBonus|0	DEFINE:BloodTotal|0	PRERACE:1,Val						BONUS:VAR|ValBlood|1	BONUS:VAR|BloodTotal|ValBlood+BloodBonus	BONUS:VAR|BonusPowerPoints|ValBlood	ADD:FEAT(TYPE=BloodRankOne)											REMOVABLE:NO
+Second Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:First Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT(TYPE=BloodRankOne)											REMOVABLE:NO
+Third Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:Second Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo)								REMOVABLE:NO
+Fourth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:Third Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo)								REMOVABLE:NO
+Fifth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:Fourth Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree)					REMOVABLE:NO
+Sixth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:Fifth Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree)					REMOVABLE:NO
+Seventh Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:Sixth Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT(TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree,TYPE=BloodRankFour)	REMOVABLE:NO
 
 
 
