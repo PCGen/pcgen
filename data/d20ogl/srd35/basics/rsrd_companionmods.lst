@@ -67,9 +67,9 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 #
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Stat bonus
+# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Stat bonus					BONUS:SIZEMOD
 FOLLOWER:CompLevel=1	TYPE:Animal Companion									SA:Link (Ex)	SA:Share Spells (Ex)
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
 FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SA:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
@@ -82,25 +82,25 @@ FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|
 #
 # These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
-
-# Class of the Master	Type				BONUS:SIZEMOD
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
+# It was discovered that with version 5.9.5 and later multiple FOLLOWER lines do not get loaded
+# These bonuses have all been moved to the one FOLLOWER line so that the 5.10 companions come out with the correct numbers - Eddy
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
+#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
 
 
 ###Block:Shadowdancer summoned Shadow
