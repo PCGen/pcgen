@@ -44,7 +44,7 @@ These files can be renamed and used for releases.
 -->
 
 <project name="pcgen" default="main" basedir=".">
-	<import file="code/pluginbuild.xml"/>
+	<import file="code/pluginbuild.xml" />
 
 
 	<property name="bin.dir" value="${basedir}/code/bin" />
@@ -78,11 +78,10 @@ These files can be renamed and used for releases.
 
 	<!-- For writing the jar -->
 	<property name="jar.bin.file" value="pcgen.jar" />
-	<property name="jar.extra.jars" value="xercesImpl-2.5.0.jar avalon-framework-cvs-20020806.jar xml-apis.jar xalan-2.5.2.jar batik.jar fop.jar kunststoff.jar skinlf.jar wraplf.jar jep-2.24.jar jdom.jar MRJ141Stubs.jar djep-2.24.jar RngPack-1.1a.jar tracerapi.jar" />
 	<property name="manifest.file" value="code/manifest" />
 	<property name="manifest.main.class" value="pcgen.core.Main" />
 	<property name="default.main.class" value="pcgen.gui.pcGenGUI" />
-	<property name="manifest.extra.jars" value="${lib.dir}/xercesImpl-2.5.0.jar ${lib.dir}/avalon-framework-cvs-20020806.jar ${lib.dir}/xml-apis.jar ${lib.dir}/xalan-2.5.2.jar ${lib.dir}/batik.jar ${lib.dir}/fop.jar ${lib.dir}/kunststoff.jar ${lib.dir}/skinlf.jar ${lib.dir}/wraplf.jar ${lib.dir}/jep-2.24.jar ${lib.dir}/jdom.jar ${lib.dir}/MRJ141Stubs.jar ${lib.dir}/djep-2.24.jar ${lib.dir}/RngPack-1.1a.jar ${lib.dir}/tracerapi.jar" />
+	<property name="manifest.extra.jars" value="${lib.dir}/fop/xercesImpl-2.5.0.jar ${lib.dir}/fop/avalon-framework-cvs-20020806.jar ${lib.dir}/fop/xml-apis.jar ${lib.dir}/fop/xalan-2.5.2.jar ${lib.dir}/fop/batik.jar ${lib.dir}/fop/fop.jar ${lib.dir}/lnf/kunststoff.jar ${lib.dir}/lnf/skinlf.jar ${lib.dir}/lnf/wraplf.jar ${lib.dir}/jep/jep-2.24.jar ${lib.dir}/jdom.jar ${lib.dir}/MRJ141Stubs.jar ${lib.dir}/jep/djep-2.24.jar ${lib.dir}/jep/RngPack-1.1a.jar ${lib.dir}/tracerapi.jar" />
 
 	<!-- Text files always shipped along -->
 	<property name="project.install.file" value="INSTALL" />
@@ -103,18 +102,22 @@ These files can be renamed and used for releases.
 	<property name="zip.resources.file" value="data.zip" />
 	<property name="zip.jars.file" value="jars.zip" />
 	<property name="zip.manual.file" value="manual.zip" />
-	<property name="zip.autobuild.file" value="autobuild.zip"/>
+	<property name="zip.autobuild.file" value="autobuild.zip" />
+
+	<path id="project.jars">
+		<fileset dir="${lib.dir}" includes="**/*.jar" excludes="**/test/**,javacc.jar,**/javancss/**,**/emma/**" />
+	</path>
 
 	<path id="project.classpath">
 		<pathelement path="${build.classes.dir}" />
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
-		<fileset dir="${lib.dir}" includes="${jar.extra.jars}" />
+		<path refid="project.jars" />
 	</path>
 
 	<path id="javadoc.classpath">
-		<pathelement path="${build.classes.dir} ${lib.dir}/junit.jar" />
+		<pathelement path="${build.classes.dir} ${lib.dir}/lib/junit.jar" />
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
-		<fileset dir="${lib.dir}" includes="${jar.extra.jars}" />
+		<path refid="project.jars" />
 	</path>
 
 
@@ -122,21 +125,24 @@ These files can be renamed and used for releases.
 	<property name="test.jar.file" value="pcgen-tests.jar" />
 	<property name="test.manifest.file" value="code/manifest-tests" />
 	<property name="test.framework.class" value="AllJUnitTests" />
-	<property name="test.jar.extra.jars" value="${jar.extra.jars} junit.jar xmlunit1.0.jar" />
-	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${lib.dir}/junit.jar ${lib.dir}/xmlunit1.0.jar" />
+	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${s}/test/junit.jar ${lib.dir}/test/xmlunit1.0.jar" />
 	<property name="test.all-output.file" value="TEST-test.AllJUnitTests.txt" />
 
 	<property name="test.bin.pcgen.bat" value="pcgen-tests.bat" />
 	<property name="test.bin.pcgen.sh" value="pcgen-tests.sh" />
+
+	<path id="project.test.jars">
+		<path refid="project.jars" />
+		<fileset dir="${lib.dir}" includes="**/test/*.jar" />
+	</path>
 
 	<path id="test.project.classpath">
 		<pathelement path="${build.classes.dir}" />
 		<pathelement path="${build.testclasses.dir}" />
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
 		<pathelement location="${bin.dir}/${test.jar.file}" />
-		<fileset dir="${lib.dir}" includes="${test.jar.extra.jars}" />
+		<path refid="project.test.jars" />
 	</path>
-
 
 	<!-- Internal targets:
 	   init, init-release, compile, jar (link), staging
@@ -155,6 +161,7 @@ These files can be renamed and used for releases.
 	<target name="compile-compile" depends="init, properties" description="Compile JavaCC sources">
 		<javacc target="${src.java.dir}/pcgen/util/DiceExpression.jj" javacchome="${lib.dir}" outputdirectory="${build.src.dir}/pcgen/util" />
 	</target>
+
 
 	<target name="compile" depends="compile-compile" description="Compile Java sources">
 		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.4" target="1.4" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
@@ -294,15 +301,8 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 		<chmod file="${bin.dir}/${bin.pcgen.sh}" perm="+x" />
 
 		<!-- Correct the EOL for the scripts -->
-		<fixcrlf srcdir="${bin.dir}"
-			eol="crlf"
-			includes="*.bat"
-		/>
-		<fixcrlf srcdir="${bin.dir}"
-			eol="lf"
-			eof="remove"
-			includes="*.sh"
-		/>
+		<fixcrlf srcdir="${bin.dir}" eol="crlf" includes="*.bat" />
+		<fixcrlf srcdir="${bin.dir}" eol="lf" eof="remove" includes="*.sh" />
 	</target>
 
 	<target name="build-extra" depends="scripts" description="Extra build steps" />
@@ -420,6 +420,11 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 		<zip zipfile="${dist.dir}/${zip.jars.file}">
 			<fileset dir=".">
 				<include name="lib/**" />
+				<include name="lib/emma/**" />
+				<include name="lib/fop/**" />
+				<include name="lib/jep/**" />
+				<include name="lib/lnf/**" />
+				<include name="lib/test/**" />
 				<exclude name="**/CVS/*, **/.svn/*" />
 			</fileset>
 		</zip>
@@ -432,44 +437,49 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 		</zip>
 	</target>
 
-  <target name="zip.autobuild">
-	<mkdir dir="${dist.dir}"/>
-	<zip zipfile="${dist.dir}/${zip.autobuild.file}">
-	  <fileset dir="." includes="${project.dist.files}"/>
-	  <fileset dir="${bin.dir}">
-		<include name="pcgen.jar" />
-		<include name="pcgen.sh" />
-		<include name="pcgen.bat" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="outputsheets/**" />
-		<exclude name="**/CVS/*, **/.svn*" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="lib/**" />
-		<exclude name="**/CVS/*, **/.svn*" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="data/**"/>
-		<exclude name="**/CVS/*, **/.svn*" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="${docs.manual.dir}" />
-		<exclude name="**/CVS/*, **/.svn*" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="plugins/**" />
-		<exclude name="**/CVS/*, **/.svn*" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="system/**" />
-		<exclude name="**/CVS/*, **/.svn*" />
-	  </fileset>
-	  <fileset dir=".">
-		<include name="characters/CodeMonkey.pcg" />
-	  </fileset>
-	</zip>
-  </target>
+	<target name="zip.autobuild">
+		<mkdir dir="${dist.dir}" />
+		<zip zipfile="${dist.dir}/${zip.autobuild.file}">
+			<fileset dir="." includes="${project.dist.files}" />
+			<fileset dir="${bin.dir}">
+				<include name="pcgen.jar" />
+				<include name="pcgen.sh" />
+				<include name="pcgen.bat" />
+			</fileset>
+			<fileset dir=".">
+				<include name="outputsheets/**" />
+				<exclude name="**/CVS/*, **/.svn*" />
+			</fileset>
+			<fileset dir=".">
+				<include name="lib/**" />
+				<include name="lib/emma/**" />
+				<include name="lib/fop/**" />
+				<include name="lib/jep/**" />
+				<include name="lib/lnf/**" />
+				<include name="lib/test/**" />
+				<exclude name="**/CVS/*, **/.svn*" />
+			</fileset>
+			<fileset dir=".">
+				<include name="data/**" />
+				<exclude name="**/CVS/*, **/.svn*" />
+			</fileset>
+			<fileset dir=".">
+				<include name="${docs.manual.dir}" />
+				<exclude name="**/CVS/*, **/.svn*" />
+			</fileset>
+			<fileset dir=".">
+				<include name="plugins/**" />
+				<exclude name="**/CVS/*, **/.svn*" />
+			</fileset>
+			<fileset dir=".">
+				<include name="system/**" />
+				<exclude name="**/CVS/*, **/.svn*" />
+			</fileset>
+			<fileset dir=".">
+				<include name="characters/CodeMonkey.pcg" />
+			</fileset>
+		</zip>
+	</target>
 
 	<target name="gzip" depends="gzip.bins, gzip.resources" description="Ship the jars, wars, whatever to the execution system.">
 	</target>
@@ -588,9 +598,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 
 		<echo message="Creating JavaNCSS report for ${ant.project.name}" />
 
-		<javancss srcdir="${src.java.dir}" includes="**/*.java"
-				  abortOnFail="false" ccnPerFuncMax="10" generateReport="true"
-				  outputfile="${ncssLog}" format="xml" />
+		<javancss srcdir="${src.java.dir}" includes="**/*.java" abortOnFail="false" ccnPerFuncMax="10" generateReport="true" outputfile="${ncssLog}" format="xml" />
 
 		<style in="${ncssLog}" out="${ncssHtml}" style="${lib.ncss}/javancss2html.xsl">
 			<classpath>
@@ -610,8 +618,8 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 
 	-->
 	<path id="emma.lib">
-		<pathelement location="${lib.dir}/emma.jar" />
-		<pathelement location="${lib.dir}/emma_ant.jar" />
+		<pathelement location="${lib.dir}/emma/emma.jar" />
+		<pathelement location="${lib.dir}/emma/emma_ant.jar" />
 	</path>
 	<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
 
@@ -640,12 +648,9 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 	<path id="instrument.path">
 		<pathelement location="${build.classes.dir}" />
 	</path>
-	<target name="instrument" depends="emma, compile"
-			description="instruments all of the class files">
+	<target name="instrument" depends="emma, compile" description="instruments all of the class files">
 		<emma enabled="${emma.enabled}">
-			<instr instrpathref="instrument.path" destdir="${build.classes.dir}"
-				   metadatafile="${coverage.dir}/metadata.emma" merge="true"
-				   mode="overwrite" />
+			<instr instrpathref="instrument.path" destdir="${build.classes.dir}" metadatafile="${coverage.dir}/metadata.emma" merge="true" mode="overwrite" />
 		</emma>
 	</target>
 
@@ -695,7 +700,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 		 the CLASSPATH. This is a lot better than the way that
 		 the clvoer docs say to do this. -->
 	<path id="clover.lib">
-		<pathelement location="${lib.dir}/clover.jar" />
+		<pathelement location="${lib.dir}/test/clover.jar" />
 	</path>
 	<taskdef resource="clovertasks" classpathref="clover.lib" />
 	<typedef resource="clovertypes" classpathref="clover.lib" />
@@ -720,8 +725,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 			</current>
 		</clover-report>
 		<clover-report>
-			<current outfile="${clover.dir}/clover_html" title="My Project"
-					 summary="true">
+			<current outfile="${clover.dir}/clover_html" title="My Project" summary="true">
 				<format type="html" />
 			</current>
 		</clover-report>
@@ -729,8 +733,7 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 
 
 	<!-- Testing targets -->
-	<target name="test" depends="dotest, failure.notice, success.notice"
-		description="Run test suite (include lib/junit.jar and xmlunit1.0.jar in CLASSPATH)">
+	<target name="test" depends="dotest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
 	</target>
 
 	<target name="dotest" depends="testclean, test.jar">
@@ -762,23 +765,23 @@ exec java -DBROWSER="$$BROWSER" $$javaargs -jar ./${jar.bin.file} $$pcgenargs
 			<report format="frames" todir="${build.rpt.dir}/test-results" />
 		</junitreport>
 
-		<echo message="JUnit report output to ${basedir}/${build.rpt.dir}/test-results"/>
+		<echo message="JUnit report output to ${basedir}/${build.rpt.dir}/test-results" />
 	</target>
 
 	<target name="failure.notice" if="junitfailure">
-	  <tstamp>
-		<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z"/>
-	  </tstamp>
-	  <echo message="Finished at ${finish.time}"/>
-	  <echo message="One or more JUnit tests failed."/>
+		<tstamp>
+			<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z" />
+		</tstamp>
+		<echo message="Finished at ${finish.time}" />
+		<echo message="One or more JUnit tests failed." />
 	</target>
 
 	<target name="success.notice" unless="junitfailure">
-	  <tstamp>
-		<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z"/>
-	  </tstamp>
-	  <echo message="Finished at ${finish.time}"/>
-	  <echo message="Success! All JUnit tests passed."/>
+		<tstamp>
+			<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z" />
+		</tstamp>
+		<echo message="Finished at ${finish.time}" />
+		<echo message="Success! All JUnit tests passed." />
 	</target>
 
 	<target name="testclean">
@@ -809,10 +812,10 @@ Class-Path: ${test.manifest.extra.jars}
 
 	<target name="test.scripts" depends="init">
 		<echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
-java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit1.0.jar;lib/xercesImpl-2.2.1.jar;lib/avalon-framework-cvs-20020806.jar;lib/xml-apis.jar;lib/xalan-2.4.1.jar;lib/batik.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/wraplf.jar;lib/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.4.1.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
 		<echo file="${bin.dir}/${test.bin.pcgen.sh}">#!/bin/sh
-java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/junit.jar:lib/xmlunit1.0.jar:lib/xercesImpl-2.2.1.jar:lib/avalon-framework-cvs-20020806.jar:lib/xml-apis.jar:lib/xalan-2.4.1.jar:lib/batik.jar:lib/fop.jar:lib/kunststoff.jar:lib/skinlf.jar:lib/wraplf.jar:lib/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit.jar:lib/test/xmlunit1.0.jar:lib/fop/xercesImpl-2.2.1.jar:lib/fop/avalon-framework-cvs-20020806.jar:lib/fop/xml-apis.jar:lib/fop/xalan-2.4.1.jar:lib/fop/batik.jar:lib/fop/fop.jar:lib/lnf/kunststoff.jar:lib/lnf/skinlf.jar:lib/lnf/wraplf.jar:lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
 		<chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
 	</target>
