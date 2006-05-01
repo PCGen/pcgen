@@ -61,7 +61,7 @@ implements PrerequisiteTest {
 			for (Iterator e1 = classList.iterator(); e1.hasNext();)
 			{
 				final PCClass aClass = (PCClass) e1.next();
-				if (prereqSpellType.equals(aClass.getSpellType()))
+				if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
 				{
 					runningTotal++;
 				}
