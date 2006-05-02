@@ -1203,7 +1203,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					aCampaign = Globals.getCampaignNamed(((PCGElement) it2.next()).getText());
 
-					if (aCampaign != null)
+					if (aCampaign != null
+						&& aCampaign
+							.isGameMode(SettingsHandler.getGame().getName()))
 					{
 						if (!aCampaign.isLoaded())
 						{

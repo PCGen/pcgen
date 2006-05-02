@@ -230,7 +230,9 @@ final class PCGVer0Parser implements PCGParser
 				{
 					Campaign aCamp = Globals.getCampaignNamed(aTok.nextToken());
 
-					if (aCamp != null)
+					if (aCamp != null
+						&& aCamp
+							.isGameMode(SettingsHandler.getGame().getName()))
 					{
 						if (!aCamp.isLoaded())
 						{
