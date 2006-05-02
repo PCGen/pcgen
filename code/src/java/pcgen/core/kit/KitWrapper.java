@@ -36,7 +36,6 @@ public final class KitWrapper
 	/**
 	 * Constructor
 	 * @param argObj
-	 * @param argFree
 	 */
 	public KitWrapper(final Object argObj)
 	{

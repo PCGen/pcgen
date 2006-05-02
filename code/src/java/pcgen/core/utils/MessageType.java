@@ -28,8 +28,24 @@
  */
 package pcgen.core.utils;
 
+/**
+ * Types of messages
+ */
 public class MessageType {
-    private final String name;
+
+	/** Singleton instance of Information message */
+	public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$
+
+	/** Singleton instance of Warning message */
+    public static final MessageType WARNING = new MessageType("Warning"); //$NON-NLS-1$
+
+    /** Singleton instance of Error message */
+    public static final MessageType ERROR = new MessageType("Error"); //$NON-NLS-1$
+
+    /** Singleton instance of Question message */
+    public static final MessageType QUESTION = new MessageType("Question"); //$NON-NLS-1$
+
+	private final String name;
 
     private MessageType(final String name) {
         this.name = name;
@@ -48,11 +64,4 @@ public class MessageType {
         return super.hashCode();
     }
 
-    public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$
-
-    public static final MessageType WARNING = new MessageType("Warning"); //$NON-NLS-1$
-
-    public static final MessageType ERROR = new MessageType("Error"); //$NON-NLS-1$
-
-    public static final MessageType QUESTION = new MessageType("Question"); //$NON-NLS-1$
 }

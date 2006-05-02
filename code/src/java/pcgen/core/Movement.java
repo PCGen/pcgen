@@ -144,46 +144,77 @@ public class Movement
 		return moveRatesFlag;
 	}
 
-	/*
-	 * REFACTOR Some of these methods might need to be rebuilt - should this be
+	/**
+	 * TODO REFACTOR Some of these methods might need to be rebuilt - should this be
 	 * dependent upon an index, or keyed off of a String name of a movementType?
+	 * @return movement as a Double
 	 */
-
 	public Double getDoubleMovement()
 	{
 		return movement;
 	}
 
+	/**
+	 * Get a movement multiplier
+	 * @param index
+	 * @return a movement multiplier
+	 */
 	public Double getMovementMult(int index)
 	{
 		return movementMult[index];
 	}
 
+	/**
+	 * a movement multiplier operator
+	 * @param index
+	 * @return a movement multiplier operator
+	 */
 	public String getMovementMultOp(int index)
 	{
 		return movementMultOp[index];
 	}
 
+	/**
+	 * Get all of the movement multipliers
+	 * @return clone of the movement multipliers array
+	 */
 	public Double[] getMovementMult()
 	{
 		return (Double[]) movementMult.clone();
 	}
 
+	/**
+	 * Get all of the movement multiplier operators
+	 * @return clone of the movement multiplier operators array
+	 */
 	public String[] getMovementMultOp()
 	{
 		return (String[]) movementMultOp.clone();
 	}
 
+	/**
+	 * Get the number of movement types
+	 * @return the number of movement types
+	 */
 	public int getNumberOfMovementTypes()
 	{
 		return (movementTypes != null) ? movementTypes.length : 0;
 	}
 
+	/**
+	 * Set the movement types
+	 * @param arrayString
+	 */
 	public void setMovementTypes(String[] arrayString)
 	{
 		movementTypes = arrayString;
 	}
 
+	/**
+	 * Get the movement type from the array 
+	 * @param i
+	 * @return movement type
+	 */
 	public String getMovementType(int i)
 	{
 		if ((movementTypes != null) && (i < movementTypes.length))
@@ -194,21 +225,40 @@ public class Movement
 		return "";
 	}
 
+	/**
+	 * Get a movement type at a particular index
+	 * @param x
+	 * @return a movement type
+	 */
 	public String getMovementTypeAt(int x)
 	{
 		return movementTypes[x];
 	}
 
+	/**
+	 * Get the movement types
+	 * @return the movement types
+	 */
 	public String[] getMovementTypes()
 	{
 		return (String[]) movementTypes.clone();
 	}
 
+	/**
+	 * Get the movement at index x
+	 * @param x
+	 * @return the movement at index x
+	 */
 	public double getMovementAt(int x)
 	{
 		return movements[x].doubleValue();
 	}
 
+	/**
+	 * Get the movement at index i
+	 * @param i
+	 * @return the movement at index i or 0
+	 */
 	public Double getMovement(int i)
 	{
 		if ((movements != null) && (i < movements.length))
@@ -219,16 +269,28 @@ public class Movement
 		return new Double(0);
 	}
 
+	/**
+	 * Get the number of movements
+	 * @return number of movements
+	 */
 	public int getNumberOfMovements()
 	{
 		return (movements != null) ? movements.length : 0;
 	}
 
+	/**
+	 * True if movements is not null
+	 * @return True if movements is not null
+	 */
 	public boolean isInitialized()
 	{
 		return movements != null;
 	}
 
+	/**
+	 * Get movements
+	 * @return movements
+	 */
 	public Double[] getMovements()
 	{
 		return (Double[]) movements.clone();
