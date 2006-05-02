@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 21 10:06:51 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue May  2 08:55:58 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
@@ -34,21 +34,21 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 #
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP		USEMASTERSKILL		Special Ability									Define						Combat bonus						SWITCHRACE
-FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast
-FOLLOWER:FMLevel=3	TYPE:Familiar																			SA:Deliver touch spells								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=5	TYPE:Familiar																			SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=7	TYPE:Familiar																			SA:Speak with animals of its kind						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=9	TYPE:Familiar																														DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																													DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP			USEMASTERSKILL		Special Ability									Define						Combat bonus						SWITCHRACE
+FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SA:Empathic Link	SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast
+FOLLOWER:FMLevel=3	TYPE:Familiar																				SA:Deliver touch spells								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=5	TYPE:Familiar																				SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=7	TYPE:Familiar																				SA:Speak with animals of its kind						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=9	TYPE:Familiar																															DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																														DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																		SA:Scry on familiar								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																			SA:Scry on familiar								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																													DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																														DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																													DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																														DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																													DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 #
 
@@ -67,14 +67,14 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 #
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						Stat bonus					BONUS:SIZEMOD
+# Class of the Master	Type				Hit Dice	Virtual Feat				Special Ability					Define			Combat bonus						BONUS:SIZEMOD																																																																																																																																																																																																																																																									Stat bonus
 FOLLOWER:CompLevel=1	TYPE:Animal Companion									SA:Link (Ex)	SA:Share Spells (Ex)
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
-FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SA:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2								SA:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2								SA:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolverine|PREVARGT:TL,3|PREVARLT:TL,6	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Tiger|PREVARGT:TL,12|PREVARLT:TL,19	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37	BONUS:SIZEMOD|NUMBER|-1|PRERACE:Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2								SA:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																												BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SA:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																												BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																												BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2								SA:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																												BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																																																																																																																																																																																																																																												BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 #
 
 
