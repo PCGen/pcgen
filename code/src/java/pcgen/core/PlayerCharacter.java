@@ -7521,7 +7521,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 *                      feat adjustments
 	 * @param adjSpellLevel is the adjustedLevel (including feat adjustments) of this spell,
 	 *                      it may be higher if the user chooses a higher level.
-	 * 
+	 *
 	 * @return an empty string on successful completion, otherwise
 	 *         the return value indicates the reason the add function failed.
 	 */
@@ -9964,9 +9964,9 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	 *  SPELLFAILURE
 	 *  AC
 	 * bonus from all currently equipped items
- 	 */
+	  */
 	public int modToFromEquipment (final String typeName)
- 	{
+	 {
 		if (typeName.equals("AC"))
 		{
 			return modToACFromEquipment();
@@ -11986,7 +11986,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 
 						aList.add(ab.toString().toUpperCase());
 
-						// If we have processed all of the entries, or if this object 
+						// If we have processed all of the entries, or if this object
 						// has multiple bonuses, don't add any more copies.
 						if (aTok.countTokens() > 0
 							|| listindex >= cnt
@@ -14791,7 +14791,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
 		aClone.shieldProfList.addAll(getShieldProfList());
-		aClone.skillList.addAll(getSkillList());
+		for (Iterator i = getSkillList().iterator(); i.hasNext(); )
+		{
+			aClone.skillList.add(((Skill)i.next()).clone());
+		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		aClone.templateList.addAll(getTemplateList());
 		aClone.variableList.addAll(this.variableList);
