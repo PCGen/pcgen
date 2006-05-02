@@ -33,7 +33,7 @@ public final class JEPResourceChecker
 {
 	private static int missingResourceCount;
 	private static StringBuffer resourceBuffer;
-	private static final String whereToGetIt = "<a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/pcgen/lib/jep-2.24.jar?rev=HEAD&content-type=text/plain\">jep-2.24.jar</a>";
+	private static final String whereToGetIt = "<a href=\"http://svn.sourceforge.net/viewcvs.cgi/*checkout*/pcgen/Trunk/pcgen/lib/jep/jep-2.3.1.jar\">jep-2.3.1.jar</a>";
 
 	static
 	{
@@ -70,7 +70,7 @@ public final class JEPResourceChecker
 
 	private static void checkResource()
 	{
-		if (!FOPResourceChecker.hasResource("org.nfunk.jep.JEP", "jep-2.24.jar", resourceBuffer))
+		if (!FOPResourceChecker.hasResource("org.nfunk.jep.JEP", "jep-2.3.1.jar", resourceBuffer))
 		{
 			++missingResourceCount;
 		}
