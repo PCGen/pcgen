@@ -14781,7 +14781,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		aClone.addArmorProfs(getArmorProfList());
 
 		Iterator it = this.getRealFeatsIterator();
-		while (it.hasNext()) {aClone.addRealFeat((Ability) it.next()); }
+		while (it.hasNext()) {aClone.addRealFeat(((Ability)((Ability) it.next()).clone())); }
 
 		aClone.miscList.addAll(getMiscList());
 		for (Iterator i = getNotesList().iterator(); i.hasNext(); )
@@ -14797,7 +14797,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		aClone.templateList.addAll(getTemplateList());
-		aClone.variableList.addAll(this.variableList);
+		for (Iterator i = this.variableList.iterator(); i.hasNext(); )
+		{
+			aClone.variableList.add(new String((String)i.next()));
+		}
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
@@ -14926,6 +14929,8 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		aClone.pointBuyPoints = pointBuyPoints;
 
 		aClone.setDirty(true);
+		aClone.setAutomaticFeatsStable(false);
+		aClone.setVirtualFeatsStable(false);
 		aClone.setQualifyListStable(false);
 		aClone.adjustMoveRates();
 		aClone.calcActiveBonuses();

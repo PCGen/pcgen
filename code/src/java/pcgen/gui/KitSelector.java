@@ -222,6 +222,7 @@ final class KitSelector extends JFrame
 			addKit(aKit);
 			requestFocus();
 		}
+		btnAdd.setEnabled(true);
 	}
 
 	private void btnOKActionPerformed()
@@ -587,17 +588,17 @@ final class KitSelector extends JFrame
 		{
 			theList = new ArrayList(aList);
 		}
-		
+
 		public Object getElementAt(int index)
 		{
 			return theList.get(index);
 		}
-		
+
 		public int getSize()
 		{
 			return theList.size();
 		}
-		
+
 		/**
 		 * Add an item to the list model
 		 * @param anObj
@@ -607,7 +608,7 @@ final class KitSelector extends JFrame
 			theList.add(anObj);
 			Collections.sort(theList);
 		}
-		
+
 		/**
 		 * Remove an item from hte list model
 		 * @param item
@@ -616,7 +617,7 @@ final class KitSelector extends JFrame
 		{
 			theList.remove(item);
 		}
-		
+
 		private ArrayList theList = null;
 	}
 

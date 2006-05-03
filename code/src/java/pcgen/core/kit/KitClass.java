@@ -26,6 +26,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import pcgen.core.*;
+import pcgen.core.prereq.PrereqHandler;
 
 /**
  * <code>KitClass</code> <strong>needs documentation</strong>.
@@ -125,6 +126,14 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		{
 			// try and set a subclass too.
 			theClass.setSubClassName(getSubClass());
+		}
+
+		if (!PrereqHandler.passesAll(theClass.getPreReqList(), aPC, aKit))
+		{
+			PrereqHandler.toHtmlString(theClass.getPreReqList());
+			warnings.add("CLASS: Not qualified for class \"" + getClassName() +
+						 "\".");
+			return false;
 		}
 
 		doLevelAbilities = aKit.doLevelAbilities();
