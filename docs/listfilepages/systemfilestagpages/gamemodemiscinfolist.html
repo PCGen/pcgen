@@ -23,6 +23,11 @@
 	        <style type="text/css">
 <!--
 .style1 {color: #000000}
+.style2 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style3 {color: #FF0000}
 -->
             </style>
 	</head>
@@ -189,8 +194,44 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BABMINVAL:1</code></p>
 		<p class="indent3">Sets the starting minimum value for the BAB progressions to 1.</p>
-
-		<p></p><a name="BONUSFEATLEVELSTARTINTERVAL"></a><hr>
+		<p class="indent3">&nbsp;</p>
+		<a name="BASEDICE" id="BASEDICE"></a>
+		<hr>
+	    <span class="style2">*** NEW 5.10.1 </span>	
+	    <p><strong class="indent0"> Tag Name:</strong> BASEDICE:x </p>
+		 <p class="indent1"><strong>Variables Used:</strong> (x) die format </p>
+	     <p><strong class="indent1">Uses the following sub tags: </strong> UP DOWN    </p>
+	     <p class="indent1"><strong>What it does:</strong></p>
+	     <p class="indent2">Determines the next higher or lower value die in a progression set </p>
+         <p class="indent1"><strong>Example: </strong></p>
+         <span class="indent2">BASEDICE:1d6 UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6 DOWN:1d4,1d3,1d2,1 </span>    
+         <p class="indent3">This states the base die is a d6 and determines that the next lowest die would be a d4, then a d3 and the next highest would be a d8, then 2d. </p>
+         <p class="indent3">&nbsp;</p>
+         <p class="indent1"><strong>NOTE:</strong> This uses the UP and DOWN tags with comma (,) separators and tabs to separate the tags themselves.</p>
+         <p class="indent1"><a name="BONUS_ACFLAT" id="BONUS_ACFLAT"></a></p>
+         <hr>
+         <p class="indent0 style3"><strong>*** NEW 5.10.1  </strong></p>
+         <p class="indent0"><strong>Tag Name:</strong> BONUS_ACFLAT </p>
+         <p class="indent0"><strong class="indent1">Variables used: </strong> (x) formula<strong></strong></p>
+         <p class="indent1"><strong>What it does: </strong> </p>
+         <p class="indent2">This period (.) separator value makes the Flat AC display correctly based upon the set formula </p>
+         <p class="indent1"><strong>Example: </strong> </p>
+         <p class="indent2">BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0 </p>
+         <p class="indent3">The codes takes the entire AC value and removes the Dex (ability) to result in the Flat Footed AC but does not remove the Dex bonus if the class has the uncanny dodge special ability. </p>
+         <p class="indent3">&nbsp;</p>
+         <p class="indent3">&nbsp;</p>
+         <p></p>
+         <a name="BONUS_ACTOUCH" id="BONUS_ACTOUCH"></a>
+         <hr>
+         <p class="indent0"><strong><span class="style3">*** NEW 5.10.1 </span></strong></p>
+         <p class="indent0"> <strong> Tag Name:</strong> BONUS_ACTOUCH:x </p>
+         <p class="indent1"><strong>Variables used: </strong> (x) formula<strong></strong></p>
+         <p class="indent1"><strong>What it does: </strong> </p>
+         <p class="indent2">It makes the Touch AC display correctly based up formulas </p>
+         <p class="indent1"><strong>Example: </strong> </p>
+         <p class="indent2">BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor </p>
+         <p class="indent3">The codes takes the entire AC value and removes the Armor and Natural armor to result in the Touch AC          </p>
+        <p></p><a name="BONUSFEATLEVELSTARTINTERVAL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUSFEATLEVELSTARTINTERVAL:x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where bonus feats would begin 
 			(first bonus feat awarded at this level).</p>
@@ -345,17 +386,8 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">After a WIELDCATEGORY tag.</p>
 				
-		<p><a name="DISPLAYORDER"></a></p>
+		<p><a name="DEFAULTUNITSET"></a>        </p>
 		<hr>
-        <p><span class="new style1"><strong>Tag Name:</strong> </span><span class="style1">DISPLAYORDER:x</span></p>
-        <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
-        <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used to determine order of display in summary.</p>
-        <p class="indent1"><strong>Example:</strong></p>
-        <p class="indent2"><code>DISPLAYORDER:1</code></p>
-        <p class="indent3">The file will show this as the first file.</p>
-        <a name="DEFAULTUNITSET"></a>
-        <hr>
 		<p class="new">*** New 5.9.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> DEFAULTUNITSET:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Default unit Set)</p>
@@ -366,6 +398,18 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFAULTUNITSET:Imperial</code></p>
 		<p class="indent3">Set Imperial as the Unit Set used by the game mode.</p>
+		<p class="indent3">&nbsp;</p>
+		<p><a name="DISPLAYORDER"></a></p>
+		<hr>
+        <p><strong><span class="style3">*** New 5.10.1 </span></strong></p>
+        <p><span class="new style1"><strong>Tag Name:</strong> </span><span class="style1">DISPLAYORDER:x</span></p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used to determine order of display in summary.</p>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISPLAYORDER:1</code></p>
+        <p class="indent3">The file will show this as the first file.</p>
+        <p class="indent3">&nbsp;</p>
 		<a name="DISTANCEFACTOR"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEFACTOR:x</p>
@@ -423,7 +467,19 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEUNIT:ft.</code></p>
 		<p class="indent3">Defines the distance unit abbreviation as &quot;ft.&quot;.</p>
-		
+		<p class="indent3">&nbsp;</p>
+		<a name="DOWN" id="DOWN"></a>
+		<hr>
+		<p class="indent0 style3"><strong>*** NEW 5.10.1  </strong></p>
+		<p class="indent0"><strong>Tag Name:</strong> DOWN:x,x </p>
+		<p class="indent1"><strong>Varibles used:</strong> (x) alpha numerical </p>
+		<p class="indent1"><strong>What it does: </strong> </p>
+		<p class="indent2">This comma (,) delimited value determines the next die value in an incremental set </p>
+		<p class="indent1"><strong>Example: </strong> </p>
+		<p class="indent2">DOWN:1d4,1d3,1d2,1 </p>
+		<p class="indent3">The next die in the progression will be 1d4, then 1d3 if chosen again, etc. </p>
+		<p class="indent1"><strong>Where it is used: </strong> </p>
+		<p class="indent2">BASEDICE Line </p>
 		<p></p><a name="FINESSEABLE"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> FINESSEABLE:x</p>
@@ -655,8 +711,26 @@
 		<p class="indent3">Defines tab name as &quot;Overview&quot;.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
-
-		<p></p><a name="POINTPOOLNAME"></a><hr>
+		<p class="indent2">&nbsp;</p>
+		<p class="indent2">&nbsp;</p>
+		<p></p>
+		<a name="PLUSCOST" id="PLUSCOST"></a>
+		<hr>
+        <p class="indent0"><strong><span class="style3">*** New 5.10.1 </span></strong></p> 
+        <p><strong class="indent0">Tag Name:</strong><span class="indent0"> PLUSCOST:x </span></p>
+		 <p><span class="indent1"><strong>Variables used:</strong> (x) formula</span></p>
+		 <p class="indent1"> <strong class=""> What it does: </strong> </p>
+		 <p class="indent2">Defines base item costs and modifier costs based upon the formula entered. </p>
+		 <p class="indent1"><strong>Example: </strong></p>
+		 <p class="indent2">PLUSCOST:AMMUNITION|BASEQTY*40*PLUS*PLUS </p>
+		 <p class="indent3">Ammunition will be based upon quantity times 40 times the plus value desired and times the plus value desired again to result in the final cost. </p>
+		 <p class="indent2">PLUSCOST:ARMOR|1000*PLUS*PLUS </p>
+		 <p class="indent3">Takes the armor cost and then takes 1000 times the plus value and then times the plus value to come up with the resulting cost. </p>
+		 <p class="indent2">PLUSCOST:SHIELD|1000*PLUS*PLUS </p>
+		 <p class="indent3">Takes the shield cost and then takes 1000 times the plus value and then times the plus value to come up with the resulting cost. </p>
+		 <p class="indent2">PLUSCOST:WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS) </p>
+		 <p class="indent3">Takes the weapon cost and then takes 2000 times the plus value and then times the plus value to come up with the resulting cost, if the weapon has an alternate head (double weapon) it also calculates the cost using the same formula. </p>
+	    <p></p><a name="POINTPOOLNAME"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> POINTPOOLNAME:x</p>
 		<p class="indent1">
 			<strong>Variables Used (x):</strong> Text (Name of the point buy 
@@ -815,20 +889,19 @@
 			amount of skills at 2nd level.</p>
 		<a name="SPELLBASEDC" id="SPELLBASEDC"></a>	
 		<hr>
-        <p><strong>Tag Name:</strong> SPELLBASEDC:x</p>
-        <blockquote>
-          <p><strong class="indent1">Variables Used (x):</strong> Formula (used to determine a spells base DC)</p>
-          <p class="indent1"><strong>What it does:</strong></p>
-          <p class="indent2">This formula is used to determine the starting BASE DC for a spell.</p>
-          <p class="indent1"><strong>Example:</strong></p>
-          <p class="indent2">SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT</p>
-          <p class="indent3">Takes the number 10 as the starting point, then it adds the spells level and finally the primary stat bonus of the caster to come to the total.
-            <!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-          </p>
-        </blockquote>
+        <p><strong><span class="style3">*** New 5.10.1 </span></strong></p>
+        <p><strong>Tag Name:</strong> SPELLBASEDC:x</p>    <p><strong class="indent1">Variables Used (x):</strong> Formula (used to determine a spells base DC)</p>
+    <p class="indent1"><strong>What it does:</strong></p>
+    <p class="indent2">This formula is used to determine the starting BASE DC for a spell.</p>
+    <p class="indent1"><strong>Example:</strong></p>
+    <p class="indent2">SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT</p>
+    <p class="indent3">Takes the number 10 as the starting point, then it adds the spells level and finally the primary stat bonus of the caster to come to the total.
+      <!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
+    </p>
         <p id="SPELLRANGE" name="SPELLRANGE"><a name="SPELLRANGE" id="SPELLRANGE"></a>
     </p>
         <hr>
+        <p class="indent0"><strong><span class="style3">*** New 5.10.1 </span></strong></p>
         <p class="indent0"><strong>Tag Name:</strong> SPELLRANGE:x</p>
         <p class="indent1"><strong>Variables Used (x)|(y):</strong> Text Name|Formula</p>
         <p class="indent1"><strong>What it does:</strong></p>
@@ -841,13 +914,8 @@
         <p class="indent2">SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100</p>
         <p class="indent3">Formula would determine medium to be the caster's level times 10 + 100 </p>
         <p class="indent2">SPELLRANGE:LONG|(CASTERLEVEL*40)+400</p>
-        <p class="indent3">Formula returns a long value based upon the caster level times 40 plus 400 <br>
-                </p>
-        <p class="indent2">&nbsp;</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-        <p class="indent2">Miscinfo file .</p>
-        <!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-        <a name="SQUARESIZE"></a>
+        <p class="indent3">Formula returns a long value based upon the caster level times 40 plus 400 </p>
+        <p class="indent1"><a name="SQUARESIZE"></a>        </p>
         <hr>
 		<p class="new">*** New 5.9</p>
 		<p class="indent0"><strong>Tag Name:</strong> SQUARESIZE:x</p>
@@ -930,7 +998,19 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>UNITSET:Imperial</code></p>
 		<p class="indent3">Defines a Unit Set named Imperial.</p>
-		
+		<p class="indent3">&nbsp;</p>
+		<a name="UP" id="UP"></a>
+		<hr>
+		<p class="indent0 style3"><strong>*** New 5.10.1 </strong></p>
+		<p class="indent0"><strong>Tag Name:</strong> UP:x,x </p>
+		<p class="indent1"><strong>Varibles used:</strong> (x) alpha numerical </p>
+		<p class="indent1"><strong>What it does: </strong> </p>
+		<p class="indent2">This comma (,) delimited value determines the next die value in an incremental set </p>
+		<p class="indent1"><strong>Example: </strong> </p>
+		<p class="indent2">UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6 </p>
+		<p class="indent3">Determines the next die in the progression will be 1d8, then 2d6 if chosen again, etc. </p>
+		<p class="indent1"><strong>Where it is used: </strong> </p>
+		<p class="indent2">BASEDICE Line </p>
 		<p></p><a name="VISIBLE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like displayed as 
@@ -947,8 +1027,26 @@
 		<p class="indent3">Used to keep the tab from displaying in the GUI.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
-
-		<p></p><a name="WEAPONNONPROFPENALTY"></a><hr>
+		<p class="indent2">&nbsp;</p>
+		<p></p>
+		<a name="WEAPONCATEGORY" id="WEAPONCATEGORY"></a>
+		<hr>
+        <p class="new style2"></p>
+        <p class="style2">*** NEW 5.10.1  </p>
+        <p><strong>Tag Name:</strong> WEAPONCATEGORY:x </p>
+        <p><strong class="indent1">Variables used:</strong> (x) text </p>
+        <p class="indent1"><strong>What it does: </strong> </p>
+        <p class="indent2">Defines valid weapon types. </p>
+        <p class="indent1"><strong>Example: </strong> </p>
+        <p class="indent2">WEAPONCATEGORY:Simple </p>
+        <p class="indent3">Defines Simple weapons </p>
+        <p class="indent2">WEAPONCATEGORY:Martial </p>
+        <p class="indent3">Defines Martial weapons </p>
+        <p class="indent2">WEAPONCATEGORY:Exotic </p>
+        <p class="indent3">Defines Exotic weapons </p>
+        <p class="indent2">WEAPONCATEGORY:Natural </p>
+        <p class="indent3">Defines Natural weapons </p>
+        <p></p><a name="WEAPONNONPROFPENALTY"></a><hr>
 		<p class="new">*** New 5.8.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEAPONNONPROFPENALTY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The penalty to be applied)</p>
@@ -957,7 +1055,24 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEAPONNONPROFPENALTY:-4</code></p>
 		<p class="indent3">Defines a -4 penalty to attack for not being proficient in a weapon.</p>
-
+		<p class="indent3">&nbsp;</p>
+		<p></p>
+		<a name="WEAPONTYPE" id="WEAPONTYPE"></a>
+		<hr>
+        <p class="new">*** New 5.10.1 </p>
+        <p><strong> Tag Name:</strong> WEAPONTYPE:x|y </p>
+		<p><strong class="indent1">Variables used:</strong> (x) text | (y) letter to define type </p>
+		<p class="indent1"><strong>What it does: </strong> </p>
+		<p class="indent2">Defines a weapon type and gives it a defined letter(s) for output sheets. </p>
+		<p class="indent1">Example: </p>
+		<p class="indent2">WEAPONTYPE:Bludgeoning|B </p>
+		<p class="indent3">Bludgeoning weapons will be represented by a letter &ldquo;B&rdquo; on the preview and output sheets. </p>
+		<p class="indent2">WEAPONTYPE:Slashing|S </p>
+		<p class="indent3">Slashing weapons will be represented by a letter &ldquo;S&rdquo; on the preview and output sheets. </p>
+		<p class="indent2">WEAPONTYPE:Electricity|E </p>
+		<p class="indent3">Electricity weapons/attacks will be represented by a letter &ldquo;E&rdquo; on the preview and output sheets. </p>
+		<p class="indent2">WEAPONTYPE:Sonic|So </p>
+		<p class="indent3">Sonic weapons/attacks will be represented by a letter &ldquo;So&rdquo; on the preview and output sheets. </p>
 		<p></p><a name="WEIGHTFACTOR"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEIGHTFACTOR:x</p>
