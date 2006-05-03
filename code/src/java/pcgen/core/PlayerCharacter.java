@@ -8580,7 +8580,10 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		for (Iterator i = getPObjectList().iterator(); i.hasNext(); )
 		{
 			PObject obj = (PObject)i.next();
-			drList.addAll(obj.getDRList());
+			if (obj != null)
+			{
+				drList.addAll(obj.getDRList());
+			}
 		}
 		return DamageReduction.getDRList(this, drList);
 	}
