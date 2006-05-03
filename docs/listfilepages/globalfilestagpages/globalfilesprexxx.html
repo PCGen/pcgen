@@ -909,22 +909,28 @@
 			to meet the requirement.</p>
 		
 		<p></p><a name="PRESPELLTYPE"></a><hr>
+		<p class="new">*** Updated 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLTYPE:x,y,z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Arcane (Arcane type spells).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Divine (Divine type spells).</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Arcane|Divine (Arcane OR Divine type spells).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Psionic (Psionic type spells).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Any (Any type of spell).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number 
 			(The quantity of spells of the proper type and level the character must know).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number 
 			(The spell level of the type of spells a character must know).</p>
-		<p class="indent2"><strong>Note(s):</strong> use two PRESPELLTYPE tags if more than one spell type is required</p>
+		<p class="indent2"><strong>Note:</strong> Use two PRESPELLTYPE tags if more than one spell type is required</p>
+		<p class="indent2"><strong>Note:</strong> The syntax for this tag a recently changed to match the standard for 
+			PRExxx tags.  The new syntax is: <br/><code>PRESPELLTYPE:</code>&lt;number of matches&gt;,&lt;spell type&gt;=&lt;spell level&gt;
+			,&lt;spell type&gt;=&lt;spell level&gt;...</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets spell type requirements. Loremaster is a good example of this kind of pre-requisite</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESPELLTYPE:Arcane,4,5</code></p>
 		<p class="indent3">Character must have at least four 5th level arcane spells to meet the requirement.</p>
+		<p class="indent2"><code>PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3</code></p>
+		<p class="indent3">Character must have at least one 3rd level spell from any of the Arcane, Divine, or 
+			Psionic types.</p>
 		
 		<p></p><a name="PRESR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESRx:y</p>
