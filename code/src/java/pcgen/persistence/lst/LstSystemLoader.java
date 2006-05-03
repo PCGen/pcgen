@@ -325,10 +325,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		loadedFiles.clear();
 		chosenCampaignSourcefiles.clear();
 		licensesToDisplayString = new StringBuffer();
-		Globals.getBioSet().clearUserMap();
+		//Globals.getBioSet().clearUserMap();
 
 		releaseFileData();
-		bioSet.clearUserMap();
+		//bioSet.clearUserMap();
 
 		skillReq = "";
 		customItemsLoaded = false;
