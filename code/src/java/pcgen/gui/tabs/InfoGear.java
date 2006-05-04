@@ -3654,6 +3654,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		}
 
 		private void addChildSourceName(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
+			String sourceString = eq.getSourceWithKey("LONG");
 			if(fireEvent) {
 				//Add custom node if it does not exist
 				if (eq.isType(Constants.s_CUSTOM)) {
@@ -3661,14 +3662,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 
 				//Add Type
-				String source = eq.getSourceWithKey("LONG");
-				addChild(source, sourceRoot, true);
+				addChild(sourceString, sourceRoot, true);
 			}
 
 			//Add Equipment
 			int length = rootAsPObjectNode.getChildCount(); // seperated out for performance reasons
 			for (int i = 0; i < length; i++) {
-				if (eq.getSourceWithKey("LONG").equals(rootAsPObjectNode.getChild(i).toString())) {
+				if (sourceString == null)
+				{
+					Logging.errorPrint("Gear " + eq.getName()
+						+ " has no source long entry.");
+				}
+				else if (sourceString.equals(rootAsPObjectNode.getChild(i).toString())) {
 					addChild(eq, rootAsPObjectNode.getChild(i), fireEvent);
 				}
 			}

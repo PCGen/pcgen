@@ -1360,15 +1360,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
-		createModelAvailable();
-
-		if (availableSort != null)
-		{
-			availableSort.sortNodeOnColumn();
+		if(availableTable != null) {
+			List pathList = availableTable.getExpandedPaths();
+			createModelAvailable();
+	
+			if (availableSort != null)
+			{
+				availableSort.sortNodeOnColumn();
+			}
+			availableTable.updateUI();
+			availableTable.expandPathList(pathList);
 		}
-		availableTable.updateUI();
-		availableTable.expandPathList(pathList);
 	}
 
 	/**
@@ -1401,8 +1403,9 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		updateSelectedModel();
 
 //		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + pc.getUsedFeatCount() + ")");
-		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(pc.getUsedFeatCount())).toString() + ")");
-
+		if(selectedTable != null) {
+			selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(pc.getUsedFeatCount())).toString() + ")");
+		}
 		//selectedTable.getTableHeader().resizeAndRepaint();
 //		numFeatsField.setText(String.valueOf(pc.getFeats()));
 		showRemainingFeatPoints();
@@ -1411,15 +1414,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
-		createModelSelected();
-
-		if (selectedSort != null)
-		{
-			selectedSort.sortNodeOnColumn();
+		if(selectedTable != null) {
+			List pathList = selectedTable.getExpandedPaths();
+			createModelSelected();
+	
+			if (selectedSort != null)
+			{
+				selectedSort.sortNodeOnColumn();
+			}
+			selectedTable.updateUI();
+			selectedTable.expandPathList(pathList);
 		}
-		selectedTable.updateUI();
-		selectedTable.expandPathList(pathList);
 	}
 
 	private void viewAvailComboBoxActionPerformed()
@@ -2190,12 +2195,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				// feats for selectedModel, use virtual, auto and chosen
 				PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-				if ((available && ((hasIt == HASABILITY_VIRTUAL) || (hasIt == HASABILITY_NO) || aFeat.isMultiples()))
+				if (rootAsPObjectNode != null && (available && ((hasIt == HASABILITY_VIRTUAL) || (hasIt == HASABILITY_NO) || aFeat.isMultiples()))
 					|| (!available))
 				{
 					for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 					{
-						if (aFeat.getSourceWithKey("LONG").equals(rootAsPObjectNode.getChild(i).toString()))
+						
+						String sourceString = aFeat.getSourceWithKey("LONG");
+						if (sourceString != null && sourceString.equals(rootAsPObjectNode.getChild(i).toString()))
 						{
 							PObjectNode aFN = new PObjectNode();
 
@@ -2215,6 +2222,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 								PrereqHandler.passesAll( aFeat.getPreReqList(), pc, aFeat );
 							}
 							rootAsPObjectNode.getChild(i).addChild(aFN);
+						} else {
+							Logging.errorPrint("In InfoFeats.buildTreeSourceName the feat " + aFeat + " has no source long entry.");
 						}
 					}
 				}

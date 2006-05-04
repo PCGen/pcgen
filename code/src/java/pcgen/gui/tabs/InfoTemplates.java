@@ -299,15 +299,15 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				}
 
 			}
-			final String aString = template.getSourceWithKey("LONG");
-			if (aString == null)
+			final String sourceString = template.getSourceWithKey("LONG");
+			if (sourceString == null)
 			{
 				Logging.errorPrint("PC template " + template.getName()
 					+ " has no source long entry.");
 			}
-			else if (!sourceList.contains(aString))
+			else if (!sourceList.contains(sourceString))
 			{
-				sourceList.add(aString);
+				sourceList.add(sourceString);
 			}
 		}
 
@@ -1273,16 +1273,22 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 				{
-					if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-						|| template.getSourceWithKey("LONG").equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
-							.toString()))
-					{
-						PObjectNode aFN = new PObjectNode();
-						aFN.setParent(rootAsPObjectNode.getChild(i));
-						aFN.setItem(template);
-						PrereqHandler.passesAll(template.getPreReqList(), pc, template );
-						rootAsPObjectNode.getChild(i).addChild(aFN);
-						added = true;
+					String sourceString = template.getSourceWithKey("LONG");
+					if(sourceString != null) {
+						if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
+							|| sourceString.equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+								.toString()))
+						{
+							PObjectNode aFN = new PObjectNode();
+							aFN.setParent(rootAsPObjectNode.getChild(i));
+							aFN.setItem(template);
+							PrereqHandler.passesAll(template.getPreReqList(), pc, template );
+							rootAsPObjectNode.getChild(i).addChild(aFN);
+							added = true;
+						}
+					} else {
+						Logging.errorPrint("PC template " + template.getName()
+								+ " has no source long entry.");
 					}
 				}
 			}

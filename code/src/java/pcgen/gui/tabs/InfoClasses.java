@@ -1919,8 +1919,14 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
-							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| aClass.getSourceWithKey("LONG").equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+							String sourceString = aClass.getSourceWithKey("LONG");
+							if (sourceString == null)
+							{
+								Logging.errorPrint("PC class " + aClass.getName()
+									+ " has no source long entry.");
+							}
+							else if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
+								|| sourceString.equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
 									.toString()))
 							{
 								PObjectNode aFN = new PObjectNode();
