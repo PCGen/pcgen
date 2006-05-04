@@ -162,9 +162,8 @@ These files can be renamed and used for releases.
 		<javacc target="${src.java.dir}/pcgen/util/DiceExpression.jj" javacchome="${lib.dir}" outputdirectory="${build.src.dir}/pcgen/util" />
 	</target>
 
-
 	<target name="compile" depends="compile-compile" description="Compile Java sources">
-		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.4" target="1.4" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
+		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
