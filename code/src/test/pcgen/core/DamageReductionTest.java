@@ -53,20 +53,20 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		DamageReduction dr1 = new DamageReduction("5", "magic");
 		DamageReduction dr2 = new DamageReduction("5", "-");
 
-		is(new Boolean(false), eq(dr1.equals(dr2)));
+		is(false, eq(dr1.equals(dr2)));
 
 		dr2 = new DamageReduction("5", "Magic");
-		is(new Boolean(true), eq(dr1.equals(dr2)));
+		is(true, eq(dr1.equals(dr2)));
 
 		dr2 = new DamageReduction("10", "magic");
-		is(new Boolean(false), eq(dr1.equals(dr2)));
+		is(false, eq(dr1.equals(dr2)));
 
 		dr1 = new DamageReduction("10", "magic and good");
 		dr2 = new DamageReduction("10", "good and magic");
-		is(new Boolean(true), eq(dr1.equals(dr2)));
+		is(true, eq(dr1.equals(dr2)));
 
 		dr2 = new DamageReduction("10", "Good and magic");
-		is(new Boolean(true), eq(dr1.equals(dr2)));
+		is(true, eq(dr1.equals(dr2)));
 	}
 
 	/**
@@ -78,13 +78,13 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		DamageReduction dr2 = new DamageReduction("10", "good");
 		DamageReduction result = DamageReduction.addDRs(dr1, dr2);
 
-		assertEquals(new DamageReduction("10", "magic and good"), result);
+		is(result.toString(), strEq(new DamageReduction("10", "magic and good").toString()));
 
 		dr1 = new DamageReduction("10", "magic");
 		dr2 = new DamageReduction("5", "good");
 
 		result = DamageReduction.addDRs(dr1, dr2);
-		assertEquals(true, result == null);
+		is(result, eq(null));
 	}
 
 	/**
@@ -100,27 +100,27 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 
 		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:Natural Lycanthrope");
 		dr1.addPreReq(prereqNE);
-		assertEquals("", dr1.toString());
+		is(dr1.toString(), strEq(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		getCharacter().addTemplate(template);
-		assertEquals("10/magic", dr1.toString());
+		is(dr1.toString(), strEq("10/magic"));
 
 		DamageReduction dr2 = new DamageReduction("10", "good");
 		dr2.setPC(getCharacter());
 
 		String result = DamageReduction.combineDRs(dr1, dr2);
-		assertEquals("10/magic and good", result);
+		is(result.toString(), strEq("10/magic and good"));
 
 		getCharacter().removeTemplate(template);
 
 		result = DamageReduction.combineDRs(dr1, dr2);
-		assertEquals("10/good", result);
+		is(result, strEq("10/good"));
 	}
 
 	/**
-	 * Test combinign DRs
+	 * Test combining DRs
 	 */
 	public void testCombineDRs()
 	{
@@ -129,126 +129,109 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 
 		// Add two unrelated DRs
 		String result = DamageReduction.combineDRs(dr1, dr2);
-		assertEquals("10/magic and good", result);
+		is(result, strEq("10/magic and good"));
 
 		// Add two related DRs
 		dr1 = new DamageReduction("10", "good");
 		dr2 = new DamageReduction("5", "good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/good", result);
+		is(result, strEq("10/good"));
 
 		// Add two unrelated DRs with different values
 		dr1 = new DamageReduction("10", "magic");
 		dr2 = new DamageReduction("5", "good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic; 5/good", result);
+		is(result, strEq("10/magic; 5/good"));
 
 		// Make sure case is NOT significant
 		dr1 = new DamageReduction("15", "Good");
 		dr2 = new DamageReduction("10", "good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("15/Good", result);
+		is(result, strEq("15/Good"));
 
 		// Check DRs with "and" in them
 		dr1 = new DamageReduction("15", "Good");
 		dr2 = new DamageReduction("10", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("15/Good; 10/magic and good", result);
+		is(result, strEq("15/Good; 10/magic and good"));
 
 		// Check DRs with "and" in them
 		dr1 = new DamageReduction("10", "Good");
 		dr2 = new DamageReduction("10", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic and good", result);
+		is(result, strEq("10/magic and good"));
 
 		// Check DRs with "and" in them
 		dr1 = new DamageReduction("10", "Evil");
 		dr2 = new DamageReduction("10", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/Evil and magic and good", result);
+		is(result, strEq("10/Evil and magic and good"));
 
 		// Check DRs with "and" in them
 		dr1 = new DamageReduction("10", "magic and good");
 		dr2 = new DamageReduction("5", "evil");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic and good; 5/evil", result);
+		is(result, strEq("10/magic and good; 5/evil"));
 
 		// Make sure order isn't significant i.e. A+B = B+A
 		dr1 = new DamageReduction("5", "good");
 		dr2 = new DamageReduction("10", "magic");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic; 5/good", result);
+		is(result, strEq("10/magic; 5/good"));
 
 		// Check "or" cases.
 		dr1 = new DamageReduction("10", "magic or good");
 		dr2 = new DamageReduction("10", "good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/good", result);
+		is(result, strEq("10/good"));
 
 		// Check "or" cases.
 		dr1 = new DamageReduction("10", "magic or good");
 		dr2 = new DamageReduction("5", "good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic or good; 5/good", result);
+		is(result, strEq("10/magic or good; 5/good"));
 
 		// Check 2 ands
 		dr1 = new DamageReduction("10", "magic and good");
 		dr2 = new DamageReduction("5", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic and good", result);
+		is(result, strEq("10/magic and good"));
 
 		// Check ANDs and ORs together
 		dr1 = new DamageReduction("10", "magic or good");
 		dr2 = new DamageReduction("5", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic or good; 5/magic and good", result);
+		is(result, strEq("10/magic or good; 5/magic and good"));
 
 		// Order test for ORs
 		dr1 = new DamageReduction("10", "magic or good");
 		dr2 = new DamageReduction("15", "magic");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("15/magic", result);
+		is(result, strEq("15/magic"));
 
 		// order test for ANDs and ORs
 		dr1 = new DamageReduction("10", "magic or good");
 		dr2 = new DamageReduction("15", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("15/magic and good", result);
+		is(result, strEq("15/magic and good"));
 
 		// Unrelated bypass values in OR
 		dr1 = new DamageReduction("10", "magic or lawful");
 		dr2 = new DamageReduction("15", "magic and good");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("15/magic and good", result);
+		is(result, strEq("15/magic and good"));
 
 		// Combine ANDs
 		dr1 = new DamageReduction("10", "magic and good");
 		dr2 = new DamageReduction("10", "magic and lawful");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/magic and good and lawful", result);
+		is(result, strEq("10/magic and good and lawful"));
 
 		// Sanity check we don't have anything hardcoded.
 		dr1 = new DamageReduction("10", "lawful");
 		dr2 = new DamageReduction("5", "evil");
 		result = DamageReduction.combineDRs(dr1, dr2);
-//		System.out.println(dr1.toString() + " + " + dr2.toString() + " = " + result);
-		assertEquals("10/lawful; 5/evil", result);
+		is(result, strEq("10/lawful; 5/evil"));
 	}
 
 	/**
@@ -258,166 +241,135 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 	{
 		ArrayList drList = new ArrayList();
 		String listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("", listResult);
+		is(listResult, strEq(""));
 
 		drList.add(new DamageReduction("10", "magic"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("10/magic", listResult);
+		is(listResult, strEq("10/magic"));
 
 		drList.add(new DamageReduction("10", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("10/magic and good", listResult);
+		is(listResult, strEq("10/magic and good"));
 
 		drList.add(new DamageReduction("10", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("10/magic and good", listResult);
+		is(listResult, strEq("10/magic and good"));
 
 		drList.add(new DamageReduction("5", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("10/magic and good", listResult);
+		is(listResult, strEq("10/magic and good"));
 
 		drList.add(new DamageReduction("10", "magic"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("10/magic and good", listResult);
+		is(listResult, strEq("10/magic and good"));
 
 		drList.add(new DamageReduction("5", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("10/magic and good", listResult);
+		is(listResult, strEq("10/magic and good"));
 
 		drList.add(new DamageReduction("15", "Good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic", listResult);
+		is(listResult, strEq("15/Good; 10/magic"));
 
 		drList.add(new DamageReduction("10", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic", listResult);
+		is(listResult, strEq("15/Good; 10/magic"));
 
 		drList.add(new DamageReduction("10", "magic"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic", listResult);
+		is(listResult, strEq("15/Good; 10/magic"));
 
 		drList.add(new DamageReduction("5", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic", listResult);
+		is(listResult, strEq("15/Good; 10/magic"));
 
 		drList.add(new DamageReduction("10", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic", listResult);
+		is(listResult, strEq("15/Good; 10/magic"));
 
 		drList.add(new DamageReduction("5", "evil"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic or good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("10", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic or good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("5", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("5", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic or good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("5", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic or good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/Good; 10/magic; 5/evil", listResult);
+		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
 
 		drList.add(new DamageReduction("15", "magic"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic or good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 5/evil"));
 
 		drList.add(new DamageReduction("15", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic or lawful"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 5/evil"));
 
 		drList.add(new DamageReduction("15", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic and good"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 5/evil"));
 
 		drList.add(new DamageReduction("10", "magic and lawful"));
 		listResult = DamageReduction.getDRString(null, drList);
-//		System.out.println("DR List: " + drList.toString() + " = " + listResult);
-		assertEquals("15/magic and Good; 10/lawful; 5/evil", listResult);
+		is(listResult, strEq("15/magic and Good; 10/lawful; 5/evil"));
 
 		ArrayList drList1 = new ArrayList();
 		drList1.add(new DamageReduction("10", "epic"));
 		drList1.add(new DamageReduction("10", "lawful or good"));
 		listResult = DamageReduction.getDRString(null, drList1);
-//		System.out.println("DR List: " + drList1.toString() + " = " + listResult);
-		assertEquals("10/epic; 10/lawful or good", listResult);
+		is(listResult, strEq("10/epic; 10/lawful or good"));
 
 		drList1.clear();
 		drList1.add(new DamageReduction("10", "epic and good or epic and lawful"));
 		listResult = DamageReduction.getDRString(null, drList1);
-//		System.out.println("DR List: " + drList1.toString() + " = " + listResult);
-		assertEquals("10/epic and good or epic and lawful", listResult);
+		is(listResult, strEq("10/epic and good or epic and lawful"));
 
 		// Can't handle this case at the moment.
 //		drList1.add(new DamageReduction("10", "lawful"));
 //		listResult = DamageReduction.getDRString(null, drList1);
 //		System.out.println("DR List: " + drList1.toString() + " = " + listResult);
-//		assertEquals("10/epic and good", listResult);
+//		is(listResult, strEq("10/epic and good"));
 	}
 }

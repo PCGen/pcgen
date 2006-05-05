@@ -319,11 +319,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		is(new Integer((int) character.getFeats()), eq(2), "Start with 2 feats");
+		is((int) character.getFeats(), eq(2), "Start with 2 feats");
 		try
 		{
 			AbilityUtilities.modFeat(character, null, "Toughness", true, false);
-			is(new Integer((int) character.getFeats()), eq(1), "Only 1 feat used");
+			is((int) character.getFeats(), eq(1), "Only 1 feat used");
 		}
 		catch(HeadlessException e)
 		{

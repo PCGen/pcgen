@@ -91,7 +91,7 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(3));
+			is (choices.size(), eq(3));
 			is (choices.get(0), strEq("Foo"));
 			is (choices.get(1), strEq("Bar"));
 			is (choices.get(2), strEq("Baz"));
@@ -128,8 +128,8 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
 		Collections.sort(available);
 		Collections.sort(selected);
 
-		is(new Integer(available.size()), eq(3), "size of available list");
-		is(new Integer(selected.size()),  eq(1), "size of selected list");
+		is(available.size(), eq(3), "size of available list");
+		is(selected.size(),  eq(1), "size of selected list");
 
 		is(available.get(0), strEq("Bar"), "first entry of available");
 		is(available.get(1), strEq("Baz"), "second entry of available");

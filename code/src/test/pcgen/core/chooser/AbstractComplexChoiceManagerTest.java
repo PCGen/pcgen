@@ -83,7 +83,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		is( new Boolean(((AbstractComplexChoiceManager) choiceManager).isValid()), 
+		is(((AbstractComplexChoiceManager) choiceManager).isValid(), 
 				eq(true), "chooser is valid");
 		
 		try
@@ -98,7 +98,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer(choices.size()), eq(3), "There are three elements in the chooser");
+			is (choices.size(), eq(3), "There are three elements in the chooser");
 			is (choices.get(0), strEq("Foo"));
 			is (choices.get(1), strEq("Bar"));
 			is (choices.get(2), strEq("Baz"));
@@ -129,7 +129,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		is( new Boolean(((AbstractComplexChoiceManager) choiceManager).isValid()), 
+		is(((AbstractComplexChoiceManager) choiceManager).isValid(), 
 				eq(true), "chooser is valid");
 		
 		try
@@ -168,7 +168,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		is( new Boolean(((AbstractComplexChoiceManager) choiceManager).isValid()), 
+		is(((AbstractComplexChoiceManager) choiceManager).isValid(), 
 				eq(false), "chooser is not valid");
 		
 		try
@@ -180,7 +180,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer(choices.size()), eq(0), "Choices list is empty");
+			is (choices.size(), eq(0), "Choices list is empty");
 		}
 		catch (IllegalAccessException e) {
 			System.out.println(e);

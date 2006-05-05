@@ -43,13 +43,13 @@ public class FeatParserTest extends AbstractCharacterTestCase {
         Globals.addAbility(twf);
 
         List feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
-        is(new Integer(feats.size()), eq(1), "size of list");
+        is(feats.size(), eq(1), "size of list");
         Ability feat = (Ability)feats.get(0);
 
         is(feat.getName(), strEq("Two Weapon Fighting"));
 
         List prereqs = feat.getPreReqList();
-        is(new Integer(prereqs.size()), eq(1), "there is only one Prerequisite.");
+        is(prereqs.size(), eq(1), "there is only one Prerequisite.");
         Prerequisite prereq = (Prerequisite) prereqs.get(0);
         assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n" +
         		"<prereq kind=\"var\" key=\"RangerCombatTree\" operator=\"gteq\" operand=\"1\" >\n" +
@@ -82,13 +82,13 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 
 
         List feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
-        is(new Integer(feats.size()), eq(1), "parsed one feat");
+        is(feats.size(), eq(1), "parsed one feat");
         Ability feat = (Ability)feats.get(0);
 
         is(feat.getName(), strEq("Two Weapon Fighting"));
 
         List prereqs = feat.getPreReqList();
-        is(new Integer(prereqs.size()), eq(1), "there is only one Prerequisite.");
+        is(prereqs.size(), eq(1), "there is only one Prerequisite.");
         prereq = (Prerequisite) prereqs.get(0);
         assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n" +
         		"<prereq kind=\"var\" key=\"RangerCombatTree\" operator=\"gteq\" operand=\"1\" >\n" +
@@ -113,7 +113,7 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 		TestHelper.makeAbility("Random Ability 1", "FEAT", "Fighter");
 
         List feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|Weapon Finesse (Bite, Claws)");
-        is(new Integer(feats.size()), eq(2), "size of list");
+        is(feats.size(), eq(2), "size of list");
 
         is(((Ability)feats.get(0)).getName(), strEq("Two Weapon Fighting"), "First feat is correct");
         is(((Ability)feats.get(1)).getName(), strEq("Weapon Finesse"),      "Second feat is correct");

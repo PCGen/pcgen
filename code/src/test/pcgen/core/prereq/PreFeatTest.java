@@ -65,7 +65,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		prePA.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prePA, character, null);
-		is(new Boolean(passes), eq(true), "Has Power Attack Feat");
+		is(passes, eq(true), "Has Power Attack Feat");
 
 		final Prerequisite preCleave = new Prerequisite();
 		preCleave.setKind("FEAT");
@@ -74,7 +74,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		preCleave.setOperator(PrerequisiteOperator.EQ);
 
 		passes = PrereqHandler.passes(preCleave, character, null);
-		is(new Boolean(passes), eq(true), "Has Cleave Feat");
+		is(passes, eq(true), "Has Cleave Feat");
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind(null);
@@ -84,7 +84,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		prereq.addPrerequisite(preCleave);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		is(new Boolean(passes), eq(true),
+		is(passes, eq(true),
 		   "Has both Power Attack and Cleave Feats");
 	}
 

@@ -89,10 +89,10 @@ public class AbilityTest extends PCGenTestCase {
 		is (ab6.getName(), strEq("Weapon Throwing"),           "Ability6 name is correct");
 		is (ab7.getName(), strEq("Weapon Throwing (Tantrum)"), "Ability7 name is correct");
 
-		is (new Boolean(ab1.isSameBaseAbility(ab2)), eq(false), "Abilities 1 & 2 are not the same");
-		is (new Boolean(ab1.isSameBaseAbility(ab3)), eq(false), "Abilities 1 & 3 are not the same");	
-		is (new Boolean(ab1.isSameBaseAbility(ab4)), eq(false), "Abilities 1 & 4 are not the same");	
-		is (new Boolean(ab5.isSameBaseAbility(ab6)), eq(true),  "Abilities 5 & 6 are the same");	
-		is (new Boolean(ab5.isSameBaseAbility(ab7)), eq(true),  "Abilities 5 & 7 are the same");	
+		is (ab1.isSameBaseAbility(ab2), eq(false), "Abilities 1 & 2 are not the same");
+		is (ab1.isSameBaseAbility(ab3), eq(false), "Abilities 1 & 3 are not the same");	
+		is (ab1.isSameBaseAbility(ab4), eq(false), "Abilities 1 & 4 are not the same");	
+		is (ab5.isSameBaseAbility(ab6), eq(true),  "Abilities 5 & 6 are the same");	
+		is (ab5.isSameBaseAbility(ab7), eq(true),  "Abilities 5 & 7 are the same");	
 	}
 }

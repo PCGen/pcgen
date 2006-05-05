@@ -59,10 +59,10 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(0), "Name map is empty");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is empty");
 			
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(0), "Category map is empty");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Category map is empty");
 
 			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
 			is (aField.get(choiceManager), eq(true), "using name map");
@@ -81,10 +81,10 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(0), "Name map is still empty");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is still empty");
 			
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(0), "Category map is still empty");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Category map is still empty");
 
 			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
 			is (aField.get(choiceManager), eq(true), "using name map (2)");
@@ -97,7 +97,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		ab.setName("bar");
 		ab.setCategory("foo");
 
-		is (new Boolean(Globals.addAbility(ab)), eq(true), "First ability added correctly");
+		is (Globals.addAbility(ab), eq(true), "First ability added correctly");
 		
 		choiceManager.addToMaps(abInfo);
 		
@@ -106,10 +106,10 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(1), "Name map is not empty");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Name map is not empty");
 			
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(1), "Category map is not empty");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Category map is not empty");
 
 			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
 			is (aField.get(choiceManager), eq(true), "using name map (3)");
@@ -124,7 +124,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		ab.setName("bar");
 		ab.setCategory("baz");
 
-		is (new Boolean(Globals.addAbility(ab)), eq(true), "Second ability added correctly");
+		is (Globals.addAbility(ab), eq(true), "Second ability added correctly");
 		
 		choiceManager.addToMaps(abInfo);
 
@@ -143,11 +143,11 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			/* these next two only have one entry because the first entry is discarded
 			 * when the the second is added (which is why we also have cat maps!) */
 			
-			is (new Integer(sName.size()), eq(1), "Name key set has only one entry");
-			is (new Integer(name.size()), eq(1), "Name map has only one entry");
+			is (sName.size(), eq(1), "Name key set has only one entry");
+			is (name.size(), eq(1), "Name map has only one entry");
 			
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (new Integer(((HashMap) aField.get(choiceManager)).size()), eq(2), "Category map has two entries");
+			is (((HashMap) aField.get(choiceManager)).size(), eq(2), "Category map has two entries");
 
 			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
 			is (aField.get(choiceManager), eq(false), "using name map (4)");

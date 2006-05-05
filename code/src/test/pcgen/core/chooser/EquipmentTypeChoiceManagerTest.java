@@ -92,7 +92,7 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(5));
+			is (choices.size(), eq(5));
 			is (choices.get(0), strEq("one"));
 			is (choices.get(1), strEq("two"));
 			is (choices.get(2), strEq("three"));

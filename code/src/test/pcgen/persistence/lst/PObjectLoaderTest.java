@@ -84,7 +84,7 @@ public class PObjectLoaderTest extends PCGenTestCase {
 		
 		try 
 		{
-			is(new Boolean(PObjectLoader.parseTag(feat, "DEFINE:Foo")), eq(false), "Parse fails for badly formed define");
+			is(PObjectLoader.parseTag(feat, "DEFINE:Foo"), eq(false), "Parse fails for badly formed define");
 		}
 		catch (PersistenceLayerException ple)
 		{

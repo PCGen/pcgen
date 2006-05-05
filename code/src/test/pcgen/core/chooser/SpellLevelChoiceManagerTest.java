@@ -90,7 +90,7 @@ public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(4));
+			is (choices.size(), eq(4));
 			is (choices.get(0), strEq("SPELLLEVEL"));
 			is (choices.get(1), strEq("Foo"));
 			is (choices.get(2), strEq("Bar"));

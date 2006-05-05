@@ -85,8 +85,8 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
 		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(Bluff,Listen,Move Silently)2");
-		is (new Integer(ability.level()),      eq(1),    "Is level correct");
-		is (new Boolean(ability.canProcess()), eq(true), "Can we process this LevelAbility");
+		is (ability.level(),      eq(1),    "Is level correct");
+		is (ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
 
 		try
@@ -94,10 +94,10 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
 			ability.setType(getCharacter());
 			final String bString = ability.prepareChooser(c, getCharacter());
-			is (new Integer(c.getPool()), eq(2), "Ar two choices being offered");
+			is (c.getPool(), eq(2), "Ar two choices being offered");
 
 			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
-			is (new Integer(choicesList.size()), eq(3), "Ar there three choices available");
+			is (choicesList.size(), eq(3), "Ar there three choices available");
 
 			String s = (String) choicesList.get(0);
 			is(s, strEq("Bluff"), "Is First choice correct");
@@ -119,8 +119,8 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
 		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(Bluff,Listen,Knowledge (Arcana))2");
-		is (new Integer(ability.level()),      eq(1),    "Is level correct");
-		is (new Boolean(ability.canProcess()), eq(true), "Can we process this LevelAbility");
+		is (ability.level(),      eq(1),    "Is level correct");
+		is (ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
 		Skill mySkill = new Skill();
 		mySkill.setName("");
@@ -133,10 +133,10 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
 			ability.setType(getCharacter());
 			final String bString = ability.prepareChooser(c, getCharacter());
-			is (new Integer(c.getPool()), eq(2), "Ar two choices being offered");
+			is (c.getPool(), eq(2), "Ar two choices being offered");
 
 			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
-			is (new Integer(choicesList.size()), eq(3), "Ar there three choices available");
+			is (choicesList.size(), eq(3), "Ar there three choices available");
 
 			String s = (String) choicesList.get(0);
 			is(s, strEq("Bluff"), "Is First choice correct");
@@ -158,8 +158,8 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
 		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(Bluff,Listen,Knowledge (Arcana),Knowledge (Dungeoneering))2");
-		is (new Integer(ability.level()),      eq(1),    "Is level correct");
-		is (new Boolean(ability.canProcess()), eq(true), "Can we process this LevelAbility");
+		is (ability.level(),      eq(1),    "Is level correct");
+		is (ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
 		Skill mySkill = new Skill();
 		mySkill.setName("");
@@ -172,10 +172,10 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
 			ability.setType(getCharacter());
 			final String bString = ability.prepareChooser(c, getCharacter());
-			is (new Integer(c.getPool()), eq(2), "Ar two choices being offered");
+			is (c.getPool(), eq(2), "Ar two choices being offered");
 
 			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
-			is (new Integer(choicesList.size()), eq(4), "Are there four choices available");
+			is (choicesList.size(), eq(4), "Are there four choices available");
 
 			String s = (String) choicesList.get(0);
 			is(s, strEq("Bluff"), "Is First choice correct");

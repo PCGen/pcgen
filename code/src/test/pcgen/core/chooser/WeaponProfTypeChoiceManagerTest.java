@@ -95,7 +95,7 @@ public class WeaponProfTypeChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(1));
+			is (choices.size(), eq(1));
 			is (choices.get(0), strEq("Martial"));
 		}
 		catch (IllegalAccessException e) {

@@ -73,9 +73,9 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		is(new Integer(eq1.sizeInt()), eq(3), "Item one is expected size");
-		is(new Integer(eq2.sizeInt()), eq(4), "Item two is expected size");
-		is(new Integer(eq3.sizeInt()), eq(5), "Item three is expected size");
+		is(eq1.sizeInt(), eq(3), "Item one is expected size");
+		is(eq2.sizeInt(), eq(4), "Item two is expected size");
+		is(eq3.sizeInt(), eq(5), "Item three is expected size");
 
 		Prerequisite prereq;
 
@@ -83,14 +83,14 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRESIZEEQ:L");
 
-		is(new Boolean(PrereqHandler.passes(prereq, eq1, character)), eq(false), "Item one is not Large");
-		is(new Boolean(PrereqHandler.passes(prereq, eq2, character)), eq(false), "Item two is not Large");
-		is(new Boolean(PrereqHandler.passes(prereq, eq3, character)), eq(true), "Item three Large");
+		is(PrereqHandler.passes(prereq, eq1, character), eq(false), "Item one is not Large");
+		is(PrereqHandler.passes(prereq, eq2, character), eq(false), "Item two is not Large");
+		is(PrereqHandler.passes(prereq, eq3, character), eq(true), "Item three Large");
 
 		prereq = factory.parse("PRESIZEGT:S");
 
-		is(new Boolean(PrereqHandler.passes(prereq, eq1, character)), eq(false), "Item one is not larger than Small");
-		is(new Boolean(PrereqHandler.passes(prereq, eq2, character)), eq(true),  "Item two is larger than Small");
-		is(new Boolean(PrereqHandler.passes(prereq, eq3, character)), eq(true),  "Item three larger than Small");
-}
+		is(PrereqHandler.passes(prereq, eq1, character), eq(false), "Item one is not larger than Small");
+		is(PrereqHandler.passes(prereq, eq2, character), eq(true),  "Item two is larger than Small");
+		is(PrereqHandler.passes(prereq, eq3, character), eq(true),  "Item three larger than Small");
+	}
 }

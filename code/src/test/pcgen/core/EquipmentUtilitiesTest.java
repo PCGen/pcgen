@@ -74,7 +74,7 @@ public class EquipmentUtilitiesTest extends PCGenTestCase {
 		specifics.add("quxx");
 		
 		is(EquipmentUtilities.getUndecoratedName(name, specifics), strEq("foo"), "Got correct undecorated name");
-		is(new Integer(specifics.size()), eq(2), "First extracted decoration is correct");
+		is(specifics.size(), eq(2), "First extracted decoration is correct");
 		is(specifics.get(0), strEq("bar"), "First extracted decoration is correct");
 		is(specifics.get(1), strEq("baz"), "Second extracted decoration is correct");
 	}

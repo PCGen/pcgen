@@ -105,14 +105,14 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 		TestHelper.makeEquipment("Armor two\tKEY:Arm002\tTYPE:Armor.Light");
 		TestHelper.makeEquipment("Armor three\tKEY:Arm003\tTYPE:Armor.Medium");
 		Equipment eq = EquipmentList.getEquipmentKeyed("Arm001");
-		is(new Boolean(eq.isArmor()), eq(true));
-		is(new Boolean(eq.isType("Light")), eq(true));
+		is(eq.isArmor(), eq(true));
+		is(eq.isType("Light"), eq(true));
 		eq = EquipmentList.getEquipmentKeyed("Arm002");
-		is(new Boolean(eq.isArmor()), eq(true));
-		is(new Boolean(eq.isType("Light")), eq(true));
+		is(eq.isArmor(), eq(true));
+		is(eq.isType("Light"), eq(true));
 		eq = EquipmentList.getEquipmentKeyed("Arm003");
-		is(new Boolean(eq.isArmor()), eq(true));
-		is(new Boolean(eq.isType("Light")), eq(false));
+		is(eq.isArmor(), eq(true));
+		is(eq.isType("Light"), eq(false));
 		
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
@@ -125,11 +125,11 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		choiceManager.getChoices(aPC, Lone, Ltwo);
 
-		is(new Integer(Lone.size()), eq(2), "Available list has 2 elements");
-		is(new Integer(Ltwo.size()), eq(0), "Selected list has no elements");
+		is(Lone.size(), eq(2), "Available list has 2 elements");
+		is(Ltwo.size(), eq(0), "Selected list has no elements");
 
-		is(new Boolean(Lone.contains("Armor one")), eq(true), "First Available list test");
-		is(new Boolean(Lone.contains("Armor two")), eq(true), "Second Available list test");
-		is(new Boolean(Lone.contains("Armor three")), eq(false), "Third Available list test");
+		is(Lone.contains("Armor one"), eq(true), "First Available list test");
+		is(Lone.contains("Armor two"), eq(true), "Second Available list test");
+		is(Lone.contains("Armor three"), eq(false), "Third Available list test");
 	}
 }

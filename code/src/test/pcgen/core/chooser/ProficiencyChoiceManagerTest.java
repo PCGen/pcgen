@@ -90,7 +90,7 @@ public class ProficiencyChoiceManagerTest extends AbstractCharacterTestCase
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(3));
+			is (choices.size(), eq(3));
 			is (choices.get(0), strEq("WEAPON"));
 			is (choices.get(1), strEq("UNIQUE"));
 			is (choices.get(2), strEq("TYPE=Martial"));

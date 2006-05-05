@@ -115,7 +115,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(0));
+			is (choices.size(), eq(0));
 		}
 		catch (IllegalAccessException e) {
 			System.out.println(e);
@@ -148,15 +148,15 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(0));
+			is (choices.size(), eq(0));
 
 			ArrayList avail    = new ArrayList();
 			ArrayList selected = new ArrayList();
 			
 			choiceManager.getChoices(myChar, avail, selected);
 
-			is (new Integer (avail.size()),    eq(4), "Available choices is correct size");
-			is (new Integer (selected.size()), eq(0), "Selected choices is correct size");
+			is (avail.size(),    eq(4), "Available choices is correct size");
+			is (selected.size(), eq(0), "Selected choices is correct size");
 		}
 		catch (IllegalAccessException e) {
 			System.out.println(e);
@@ -189,15 +189,15 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (new Integer (choices.size()), eq(0));
+			is (choices.size(), eq(0));
 
 			ArrayList avail    = new ArrayList();
 			ArrayList selected = new ArrayList();
 			
 			choiceManager.getChoices(myChar, avail, selected);
 
-			is (new Integer (avail.size()),    eq(4), "Available choices is correct size");
-			is (new Integer (selected.size()), eq(0), "Selected choices is correct size");
+			is (avail.size(),    eq(4), "Available choices is correct size");
+			is (selected.size(), eq(0), "Selected choices is correct size");
 
 			is (avail.get(0), strEq("Bluff"));
 			is (avail.get(1), strEq("Listen"));
