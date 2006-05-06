@@ -914,7 +914,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 					aString.append(" (").append(info).append(')');
 				}
 
-				if (metaFeats.size() != 0)
+				if (!metaFeats.isEmpty())
 				{
 					aString.append('/').append(CoreUtility.join(metaFeats, "/"));
 				}

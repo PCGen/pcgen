@@ -509,10 +509,14 @@ public final class CoreUtility
 	 * @param  separator  The separator that separates the string.
 	 * @return            a List of Strings
 	 */
-	public static List split(final String aString, final char separator)
+	public static List<String> split(final String aString, final char separator)
 	{
-		ArrayList temp = new ArrayList();
+		ArrayList<String> temp = new ArrayList<String>();
 		String sepStr = "\\" + String.valueOf(separator);
+		if (aString.trim().length() == 0)
+		{
+			return temp;
+		}
 		
 		for (Iterator iter = Arrays.asList(aString.split(sepStr)).iterator(); iter
 			.hasNext();)
