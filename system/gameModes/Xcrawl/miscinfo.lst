@@ -95,7 +95,7 @@ SQUARESIZE:5
 
 #SPELLRANGExxx specifies the formula used to compute spell ranges
 #The formula is evaluated by the PlayerCharacter.getVariableValue() routine
-SPELLRANGE:CLOSE|(((CASTERLEVEL/2).TRUNC)*5)+25
+SPELLRANGE:CLOSE|((floor(CASTERLEVEL/2))*5)+25
 SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
 SPELLRANGE:LONG|(CASTERLEVEL*40)+400
 
