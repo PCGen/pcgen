@@ -1967,23 +1967,26 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				comboStrings[i] = sb.toString();
 				i++;
 			}
-			ActionListener[] listeners = currCharacterClass.getActionListeners();
-			for(int j = 0; j < listeners.length; ++j)
+			if (currCharacterClass != null)
 			{
-				currCharacterClass.removeActionListener(listeners[j]);
-			}
-			currCharacterClass.removeAllItems();
-			currCharacterClass.setAllItems(comboStrings);
-
-			resetSelectedModel = true;
-
-			if (currCharacterClass.getItemCount() > 0)
-			{
-				setCurrentClassCombo();
-			}
-			for(int j = 0; j < listeners.length; ++j)
-			{
-				currCharacterClass.addActionListener(listeners[j]);
+				ActionListener[] listeners = currCharacterClass.getActionListeners();
+				for(int j = 0; j < listeners.length; ++j)
+				{
+					currCharacterClass.removeActionListener(listeners[j]);
+				}
+				currCharacterClass.removeAllItems();
+				currCharacterClass.setAllItems(comboStrings);
+	
+				resetSelectedModel = true;
+	
+				if (currCharacterClass.getItemCount() > 0)
+				{
+					setCurrentClassCombo();
+				}
+				for(int j = 0; j < listeners.length; ++j)
+				{
+					currCharacterClass.addActionListener(listeners[j]);
+				}
 			}
 		}
 	}
