@@ -69,6 +69,8 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.DialogInputInterface;
 import pcgen.gui.utils.Hyperactive;
 import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.NonGuiChooser;
+import pcgen.gui.utils.NonGuiChooserRadio;
 import pcgen.gui.utils.ShowMessageGuiObserver;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.gui.utils.SwingChooserRadio;
@@ -395,6 +397,8 @@ public class pcGenGUI
 		else
 		{
 			messageObserver = new ShowMessageConsoleObserver();
+			ChooserFactory.setInterfaceClassname(NonGuiChooser.class.getName());
+			ChooserFactory.setRadioInterfaceClassname(NonGuiChooserRadio.class.getName());
 		}
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
 
