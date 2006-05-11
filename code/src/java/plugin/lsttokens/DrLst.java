@@ -14,6 +14,7 @@ import pcgen.persistence.PersistenceLayerException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.Iterator;
+import pcgen.core.PCClass;
 
 /**
  * @author djones4
@@ -31,7 +32,13 @@ public class DrLst implements GlobalLstToken {
 		if (anInt > -9) {
 			try {
 				PreParserFactory factory = PreParserFactory.getInstance();
-				Prerequisite r = factory.parse("PRELEVEL:" + anInt);
+				String preLevelString = "PRELEVEL:" + anInt;
+				if (obj instanceof PCClass)
+				{
+					// Classes handle this differently
+					preLevelString = "PRECLASS:1," + obj.getKeyName() + "=" + anInt;
+				}
+				Prerequisite r = factory.parse(preLevelString);
 				preReqs.add(r);
 			}
 			catch (PersistenceLayerException notUsed) {
