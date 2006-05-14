@@ -22,6 +22,7 @@ INFOTEXT:This is a subset of the RSRD which excludes Psionics, this should not b
 # Basics
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
 COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
 DEITY:@/d20ogl/srd35/basics/rsrd_deities.lst
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains_divine.lst
@@ -74,7 +75,6 @@ HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryToo
 
 
 # Advanced
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_npc.lst
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst

@@ -19,6 +19,7 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 # Basics
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal|Magical Beast)
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
 COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
 DEITY:@/d20ogl/srd35/basics/rsrd_deities.lst
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst
@@ -64,7 +65,6 @@ HIDETYPE:EQUIP|Starting
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
 
 # Advanced
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_npc.lst
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst

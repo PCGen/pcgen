@@ -19,7 +19,6 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 INFOTEXT:This will load the Advanced RSRD options such as Prestige Classes and Magic Items. Requires the RSRD Basics set.
 
-CLASS:rsrd_classes_npc.lst
 CLASS:rsrd_classes_prestige.lst
 
 EQUIPMENT:rsrd_equip_armorshields_specific.lst

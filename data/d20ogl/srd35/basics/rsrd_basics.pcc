@@ -22,6 +22,7 @@ INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
 CLASS:rsrd_classes_base.lst
 CLASS:rsrd_classes_monsters.lst
+CLASS:rsrd_classes_npc.lst
 COMPANIONMOD:rsrd_companionmods.lst
 DEITY:rsrd_deities.lst
 DOMAIN:rsrd_domains_divine.lst
