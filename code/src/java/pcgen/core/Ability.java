@@ -404,6 +404,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @return  a string representation that can be parsed to rebuild the
 	 *          Ability
 	 */
+	@Override
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
@@ -521,7 +522,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return aStrBuf.toString();
 	}
 
-	// Overridden from PObject
+	@Override
 	protected List addSpecialAbilitiesToList(final List aList, final PlayerCharacter aPC)
 	{
 		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
@@ -578,15 +579,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * TODO Documents this 
-	 *
 	 * @param addIt
 	 * @param pc
 	 * 
 	 * @deprecated no longer used ADD is processed by PObject there is no
 	 * (reachable) code in the system to set addString
 	 */
-	void modAdds(final boolean addIt, final PlayerCharacter pc)
+	@Deprecated void modAdds(final boolean addIt, final PlayerCharacter pc)
 	{
 //		String addString = getAddString();
 //		if (addString.length() == 0)
@@ -808,7 +807,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @return  enhanced containsAssociated, which parses the input parameter
 	 *          for "=", "+num" and "-num" to extract the value to look for.
 	 */
-	int numberInList(String aType)
+	@Override int numberInList(String aType)
 	{
 		int iCount = 0;
 		final String numString = "0123456789";
@@ -862,6 +861,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 *
 	 * @return  The new LevelAbility object if one was created.
 	 */
+	@Override
 	public LevelAbility addAddList(final int aLevel, final String aString)
 	{
 		if (aString.startsWith("TEMPLATE|"))
@@ -872,7 +872,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return super.addAddList(aLevel, aString);
 	}
 
-	boolean isTypeHidden(final int idx)
+	@Override boolean isTypeHidden(final int idx)
 	{
 		return Globals.isAbilityTypeHidden(getMyType(idx));
 	}
@@ -917,7 +917,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			return false;
 		}
 
-		ArrayList abilityList  = new ArrayList();
+		ArrayList<String> abilityList = new ArrayList<String>();
 		ArrayList selectedList = new ArrayList();
 
 		Ability anAbility;
@@ -951,7 +951,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 					return false; // no ability to modify
 
 				case 1:
-					abilityName = (String) abilityList.get(0);
+					abilityName = abilityList.get(0);
 					break;
 
 				default:
@@ -1052,6 +1052,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return true;
 	}
 
+	@Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)

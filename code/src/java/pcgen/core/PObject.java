@@ -118,7 +118,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	private int encumberedLoadMoveInt = Constants.LIGHT_LOAD;
 
 	private ArrayList drList = new ArrayList();
-
+	
 	/* ************
 	 * Methods
 	 * ************/

@@ -85,6 +85,7 @@ public class AbilityFromTemplateChoiceManager extends
 	 *  
 	 * @param categorisableObj
 	 */
+	@Override
 	protected void addToMaps(Categorisable categorisableObj)
 	{
 		AbilityInfo abInfo = (AbilityInfo) categorisableObj;
