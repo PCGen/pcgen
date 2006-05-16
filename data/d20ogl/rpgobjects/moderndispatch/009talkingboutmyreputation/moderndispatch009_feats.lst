@@ -16,7 +16,7 @@ Well Connected	OUTPUTNAME:Well-Connected	TYPE:General.Charismatic												PRE
 ###Block:Bonus Feats
 # Feat Name					Type
 Acrobatic.MOD				TYPE:MysteryMan
-Advanced Martial Arts.MOD		TYPE:MysteryMan
+Advanced Combat Martial Arts.MOD	TYPE:MysteryMan
 Alertness.MOD				TYPE:MysteryMan
 Blind-Fight.MOD				TYPE:MysteryMan
 Combat Expertise.MOD			TYPE:MysteryMan
