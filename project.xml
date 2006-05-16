@@ -2,8 +2,9 @@
 <project>
     <pomVersion>3</pomVersion>
     <id>pcgen</id>
+    <groupId>pcgen</groupId>
     <name>PCGen</name>
-    <currentVersion>5.9.8</currentVersion>
+    <currentVersion>5.10.0</currentVersion>
     <organization>
         <name>PCGen</name>
         <url>http://pcgen.sourceforge.net/</url>
@@ -15,12 +16,10 @@
     <description>PCGen RPG character generator.</description>
     <shortDescription>PCGen PRG character generator.</shortDescription>
 
-	<!--
-	<repository>
-        <connection>scm:cvs:ext:cvs.sourceforge.net:/cvsroot/pcgen:.</connection>
-        <url>http://cvs.sourceforge.net/viewcvs.py/pcgen/</url>
+    <repository>
+        <connection>scm:svn:https://svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</connection>
+        <url>https://svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</url>
     </repository>
-    -->
 
     <developers>
         <developer>
@@ -86,7 +85,7 @@
                 <role>Code Gibbon</role>
             </roles>
             <url>http://perrenland.org</url>
-            <timezone>+11</timezone>
+            <timezone>+10</timezone>
         </developer>
     </developers>
 
