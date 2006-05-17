@@ -158,7 +158,7 @@ public class CampaignSourceEntry implements Comparable
 		{
 			StringBuffer sBuff = new StringBuffer();
 			sBuff.append("Campaign: ");
-			sBuff.append(campaign.getName());
+			sBuff.append(campaign.getDisplayName());
 			sBuff.append("; SourceFile: ");
 			sBuff.append(file);
 

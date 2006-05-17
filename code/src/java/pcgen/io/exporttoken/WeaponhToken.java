@@ -30,6 +30,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 
 import java.util.StringTokenizer;
+import pcgen.core.Globals;
+import pcgen.core.WeaponProf;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>WeaponhToken</code>.
@@ -95,9 +98,20 @@ public class WeaponhToken extends WeaponToken
 	{
 		// Creating a fake Unarmed Strike equipment so we
 		// don't need it in the .lst files anymore
+		WeaponProf wp = Globals.getWeaponProfKeyed("Unarmed Strike");
+		if (wp == null)
+		{
+			wp = new WeaponProf();
+			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
+			wp.setKeyName("Unarmed Strike");
+			wp.setTypeInfo("Simple");
+			Globals.addWeaponProf(wp);
+		}
 		Equipment eq = new Equipment();
-		eq.setName("Unarmed Strike");
-		eq.setOutputName("Unarmed Strike");
+		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
+		eq.setKeyName("KEY_Unarmed Strike");
+		eq.setProfName("Unarmed Strike");
+		eq.setOutputName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
 		eq.setWield("Light");
 		eq.setCost("0", true);

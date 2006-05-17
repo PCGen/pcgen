@@ -18,7 +18,7 @@
  *
  * Created on Oct 7, 2005
  *
- * $Author: nuance $ 
+ * $Author: nuance $
  * $Date: 2006-03-26 08:00:03 +0100 (Sun, 26 Mar 2006) $
  * $Revision: 471 $
  *
@@ -38,6 +38,8 @@ import java.lang.Class;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.ArrayList;
+import pcgen.core.Globals;
+import pcgen.core.Ability;
 
 /**
  * {@code ArmorTypeChoiceManagerTest} test that the ArmorTypeChoiceManager class is functioning correctly.
@@ -49,9 +51,9 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase {
 
 	PCClass pcClass;
 	Race    emptyRace = new Race();
-    boolean firstTime = true;
+	boolean firstTime = true;
 	PlayerCharacter myChar;
-    
+
 	/**
 	 * Constructs a new {@code ArmorTypeChoiceManagerTest}.
 	 */
@@ -64,22 +66,28 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase {
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		
+
 		if (firstTime) {
 			firstTime = false;
 
-			
+
 			TestHelper.makeAbility("Ability One",               "FEAT", "General");
 			TestHelper.makeAbility("Armor Proficiency (Light)", "FEAT", "General.Fighter");
+			Ability a = Globals.getAbilityKeyed("FEAT", "KEY_Armor Proficiency (Light)");
+			a.addAutoArray("ARMORPROF|TYPE.Light");
 			TestHelper.makeAbility("Armor Proficiency (Medium)","FEAT", "General.Fighter");
+			a = Globals.getAbilityKeyed("FEAT", "KEY_Armor Proficiency (Medium)");
+			a.addAutoArray("ARMORPROF|TYPE.Medium");
 			TestHelper.makeAbility("Armor Proficiency (Heavy)", "FEAT", "General.Fighter");
+			a = Globals.getAbilityKeyed("FEAT", "KEY_Armor Proficiency (Heavy)");
+			a.addAutoArray("ARMORPROF|TYPE.Heavy");
 			TestHelper.makeAbility("Armor Proficiency (Heavy)", "FOO",  "General.Fighter");
 		}
 
 		myChar = getCharacter();
-		AbilityUtilities.modFeat(myChar, null, "Armor Proficiency (Light)", true, true);
+		AbilityUtilities.modFeat(myChar, null, "KEY_Armor Proficiency (Light)", true, true);
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -87,7 +95,7 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase {
 	}
 
 	/**
-	 * Test the constructor 
+	 * Test the constructor
 	 */
 	public void test001()
 	{
@@ -97,19 +105,19 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase {
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|ARMORTYPE"));
 
 		PlayerCharacter aPC  = getCharacter();
-		
+
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("ARMORTYPE"), "got expected chooser");
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2));
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
 			is (choices.size(), eq(0));
@@ -130,26 +138,26 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase {
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|ARMORTYPE"));
 
 		PlayerCharacter aPC  = getCharacter();
-		
+
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("ARMORTYPE"), "got expected chooser");
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2));
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
 			is (choices.size(), eq(0));
 
 			ArrayList avail    = new ArrayList();
 			ArrayList selected = new ArrayList();
-			
+
 			choiceManager.getChoices(myChar, avail, selected);
 
 			is (avail.size(),    eq(1), "Available choices is correct size");
@@ -170,31 +178,31 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase {
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|ARMORTYPE"));
 
 		PlayerCharacter aPC  = getCharacter();
-		
+
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("ARMORTYPE"), "got expected chooser");
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2));
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
 			is (choices.size(), eq(0));
 
 			ArrayList avail    = new ArrayList();
 			ArrayList selected = new ArrayList();
-			
+
 			choiceManager.getChoices(myChar, avail, selected);
 
 			is (avail.size(),    eq(1), "Available choices is correct size");
 			is (selected.size(), eq(0), "Selected choices is correct size");
-			
+
 			is (avail.get(0), strEq("Light"));
 		}
 		catch (IllegalAccessException e) {

@@ -18,7 +18,7 @@
  *
  * Created on Oct 7, 2005
  *
- * $Author: nuance $ 
+ * $Author: nuance $
  * $Date: 2006-03-26 08:00:03 +0100 (Sun, 26 Mar 2006) $
  * $Revision: 471 $
  *
@@ -56,7 +56,7 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase {
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -64,37 +64,37 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase {
 	}
 
 	/**
-	 * Test the constructor 
+	 * Test the constructor
 	 */
 	public void test001()
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=4|DOMAIN|Foo|Bar|Baz|Qux|Quux");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=4|DOMAIN|Foo|Bar|Baz|Qux|Quux"));
+		pObj.setChoiceString("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+		is(pObj.getChoiceString(), strEq("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
 
 		PlayerCharacter aPC  = getCharacter();
-		
+
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("DOMAIN"), "got expected chooser");
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(4));
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
 			is (choices.size(), eq(5));
-			is (choices.get(0), strEq("Foo"));
-			is (choices.get(1), strEq("Bar"));
-			is (choices.get(2), strEq("Baz"));
-			is (choices.get(3), strEq("Qux"));
-			is (choices.get(4), strEq("Quux"));
+			is (choices.get(0), strEq("KEY_Foo"));
+			is (choices.get(1), strEq("KEY_Bar"));
+			is (choices.get(2), strEq("KEY_Baz"));
+			is (choices.get(3), strEq("KEY_Qux"));
+			is (choices.get(4), strEq("KEY_Quux"));
 		}
 		catch (IllegalAccessException e) {
 			System.out.println(e);

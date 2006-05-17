@@ -89,7 +89,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	private HashMap pluginDataMap = new HashMap();
 
 	protected String keyName = "";
-	protected String name = "";
+	protected String displayName = "";
 
 	/** Indicates if this object should be displayed to the user in the UI. */
 	protected boolean visible = true;
@@ -119,6 +119,8 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	private ArrayList drList = new ArrayList();
 	
+	private String chooseLanguageAutos = "";
+
 	/* ************
 	 * Methods
 	 * ************/
@@ -242,7 +244,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 						if (toClear)
 						{
-							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getName());
+							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 						}
 					}
 				}
@@ -260,7 +262,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 				if (skill.isType(entry.substring(5)))
 				{
-					listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getName());
+					listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 				}
 			}
 		}
@@ -269,7 +271,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
 				skill = (Skill) e1.next();
-				listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getName());
+				listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 			}
 		}
 		else
@@ -479,7 +481,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 						if (toClear)
 						{
-							listChar.removeFromListFor(ListKey.CLASS_SKILLS, skill.getName());
+							listChar.removeFromListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 						}
 					}
 				}
@@ -497,7 +499,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 				if (skill.isType(entry.substring(5)))
 				{
-					listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getName());
+					listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 				}
 			}
 		}
@@ -506,7 +508,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
 				skill = (Skill) e1.next();
-				listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getName());
+				listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 			}
 		}
 		else
@@ -712,7 +714,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \"" + getName() + "\".",
+				ShowMessageDelegate.showMessageDialog("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \"" + getDisplayName() + "\".",
 					"PCGen", MessageType.ERROR);
 			}
 		}
@@ -780,7 +782,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				{
 					for (Iterator e = weaponProfsOfType.iterator(); e.hasNext();)
 					{
-						final String cString = ((WeaponProf) e.next()).getName();
+						final String cString = ((WeaponProf) e.next()).getKeyName();
 
 						if (!containsInList(weaponProfListKey, cString))
 						{
@@ -1157,7 +1159,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				// need to get all items of this TYPE
 				for (Iterator eq = EquipmentList.getEquipmentOfType(aKey.substring(5), "").iterator(); eq.hasNext();)
 				{
-					final String aName = ((Equipment) eq.next()).profName(character);
+					final String aName = ((Equipment) eq.next()).profKey(character);
 					aList.add(aName + "|" + newProfType);
 				}
 			}
@@ -1170,7 +1172,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 					continue;
 				}
 
-				final String aName = aEq.profName(character);
+				final String aName = aEq.profKey(character);
 				aList.add(aName + "|" + newProfType);
 			}
 		}
@@ -1642,7 +1644,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		// because the saveList is based on user selections (merton_monk@yahoo.com)
 		retVal.listChar.removeListFor(ListKey.SAVE);
 
-		retVal.setName(name);
+		retVal.setName(displayName);
 		retVal.visible = visible;
 		retVal.setKeyName(keyName);
 		retVal.spellSupport = (SpellSupport) spellSupport.clone();
@@ -1706,7 +1708,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		if (obj != null)
 		{
 			//this should throw a ClassCastException for non-PObjects, like the Comparable interface calls for
-			return this.name.compareToIgnoreCase(((PObject) obj).name);
+			return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
 		}
 		return 1;
 	}
@@ -1884,7 +1886,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Set the Key Name
 	 * @param aString
 	 */
-	public final void setKeyName(final String aString)
+	public void setKeyName(final String aString)
 	{
 		keyName = aString;
 	}
@@ -1906,8 +1908,8 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		if (!aString.endsWith(".MOD"))
 		{
-			fireNameChanged(name, aString);
-			name = aString;
+			fireNameChanged(displayName, aString);
+			displayName = aString;
 			this.setKeyName(aString);
 		}
 	}
@@ -1916,9 +1918,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get name
 	 * @return name
 	 */
-	public String getName()
+	public String getDisplayName()
 	{
-		return name;
+		return displayName;
 	}
 
 	/**
@@ -1979,7 +1981,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		// if no OutputName has been defined, just return the regular name
 		if (outputName == null || outputName.length() == 0)
 		{
-			return name;
+			return displayName;
 		}
 
 		return outputName;
@@ -2206,11 +2208,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Get the SA by name
-	 * @param aName
+	 * Get the SA by key
+	 * @param aKey
 	 * @return the SA
 	 */
-	public final SpecialAbility getSpecialAbilityNamed(final String aName)
+	public final SpecialAbility getSpecialAbilityKeyed(final String aKey)
 	{
 		List l = getListFor(ListKey.SPECIAL_ABILITY);
 		if (l != null)
@@ -2219,7 +2221,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			{
 				final SpecialAbility sa = (SpecialAbility) i.next();
 
-				if (sa.getName().equalsIgnoreCase(aName))
+				if (sa.getKeyName().equalsIgnoreCase(aKey))
 				{
 					return sa;
 				}
@@ -2235,34 +2237,34 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public String getSpellKey()
 	{
-		return "POBJECT|" + name;
+		return "POBJECT|" + getKeyName();
 	}
 
 	/**
 	 * Add automatic languages
 	 * @param aString
 	 */
-	public final void addLanguageAuto(final String langName)
+	public final void addLanguageAuto(final String aLangKey)
 	{
 		ListKey autoLanguageListKey = ListKey.AUTO_LANGUAGES;
-		if (".CLEAR".equals(langName))
+		if (".CLEAR".equals(aLangKey))
 		{
 			listChar.removeListFor(autoLanguageListKey);
 		}
-		else if ("ALL".equals(langName))
+		else if ("ALL".equals(aLangKey))
 		{
 			listChar.addAllToListFor(autoLanguageListKey, Globals.getLanguageList());
 		}
-		else if (langName.startsWith("TYPE=") || langName.startsWith("TYPE."))
+		else if (aLangKey.startsWith("TYPE=") || aLangKey.startsWith("TYPE."))
 		{
-			final String type = langName.substring(5);
+			final String type = aLangKey.substring(5);
 			List langList = Globals.getLanguageList();
 			langList = Globals.getLanguagesFromListOfType(langList, type);
 			listChar.addAllToListFor(autoLanguageListKey, langList);
 		}
 		else
 		{
-			final Language lang = Globals.getLanguageNamed(langName);
+			final Language lang = Globals.getLanguageKeyed(aLangKey);
 
 			if (lang != null)
 			{
@@ -2695,13 +2697,13 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 			else if (arg.startsWith("CLASS."))
 			{
-				PCClass aClass = aPC.getClassNamed(arg.substring(6));
+				PCClass aClass = aPC.getClassKeyed(arg.substring(6));
 				if (aClass != null)
 				{
 					for (Iterator iter = aPC.getLevelInfo().iterator(); iter.hasNext();)
 					{
 						final PCLevelInfo element = (PCLevelInfo) iter.next();
-						if (element.getClassKeyName().equalsIgnoreCase(aClass.getName()))
+						if (element.getClassKeyName().equalsIgnoreCase(aClass.getKeyName()))
 						{
 							for (Iterator fi = element.getObjects().iterator(); fi.hasNext();)
 							{
@@ -2783,7 +2785,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			for (int ix = theFeatList.size() - 1; ix >= 0; ix--)
 			{
 				Ability aFeat = (Ability) theFeatList.get(ix);
-				AbilityUtilities.modFeat(aPC, null, aFeat.getName(), false, false);
+				AbilityUtilities.modFeat(aPC, null, aFeat.getKeyName(), false, false);
 				if (ix > theFeatList.size())
 					ix = theFeatList.size();
 			}
@@ -3098,7 +3100,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	public String toString()
 	{
-		return name;
+		return displayName;
 	}
 
 	protected int getSR(final PlayerCharacter aPC)
@@ -3159,7 +3161,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		if (saveName)
 		{
-			txt.append(getName());
+			txt.append(getDisplayName());
 		}
 
 		if (getNameIsPI())
@@ -3168,7 +3170,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 
 		String outputName = stringChar.getCharacteristic(StringKey.OUTPUT_NAME);
-		if ((outputName != null) && (outputName.length() > 0) && !outputName.equals(getName()))
+		if ((outputName != null) && (outputName.length() > 0) && !outputName.equals(getDisplayName()))
 		{
 			txt.append("\tOUTPUTNAME:").append(outputName);
 		}
@@ -3185,10 +3187,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
-		if (!getName().equals(getKeyName()))
-		{
+//		if (!getDisplayName().equals(getKeyName()))
+//		{
 			txt.append("\tKEY:").append(getKeyName());
-		}
+//		}
 
 		for (e = getSafeListFor(ListKey.AUTO_ARRAY).iterator(); e.hasNext();)
 		{
@@ -3425,7 +3427,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 					for (Iterator fe = featList.iterator(); fe.hasNext();)
 					{
-						final Ability anAbility = Globals.getAbilityNamed(
+						final Ability anAbility = Globals.getAbilityKeyed(
 								"FEAT",
 								(String) fe.next());
 
@@ -3826,7 +3828,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 								if (obj instanceof Equipment)
 								{
-									wprof = ((Equipment) obj).profName(aPC);
+									wprof = ((Equipment) obj).profKey(aPC);
+								}
+								else if (obj instanceof WeaponProf)
+								{
+									wprof = ((WeaponProf)obj).getKeyName();
 								}
 								else
 								{
@@ -3855,7 +3861,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 									if (obj instanceof Equipment)
 									{
-										wprof2 = ((Equipment) obj).profName(aPC);
+										wprof2 = ((Equipment) obj).profKey(aPC);
 									}
 									else
 									{
@@ -4268,13 +4274,13 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	private String getPreFormatedOutputName()
 	{
 		//if there are no () to pull from, just return the name
-		if ((name.indexOf('(') < 0) || (name.indexOf(')') < 0))
+		if ((displayName.indexOf('(') < 0) || (displayName.indexOf(')') < 0))
 		{
-			return name;
+			return displayName;
 		}
 
 		//we just take from the first ( to the first ), typically there should only be one of each
-		final String subName = name.substring(name.indexOf('(') + 1, name.indexOf(')')); //the stuff inside the ()
+		final String subName = displayName.substring(displayName.indexOf('(') + 1, displayName.indexOf(')')); //the stuff inside the ()
 		final StringTokenizer tok = new StringTokenizer(subName, "/");
 		final StringBuffer newNameBuff = new StringBuffer();
 
@@ -4674,29 +4680,18 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		{
 			for (Iterator e = getTemplateList().iterator(); e.hasNext();)
 			{
-				String templateName = (String) e.next();
+				String templateKey = (String) e.next();
 
-				if (templateName.startsWith("CHOOSE:"))
+				if (templateKey.startsWith("CHOOSE:"))
 				{
-					for (; ;)
-					{
-						final String newTemplate = Globals.chooseFromList("Template Choice (" + getName() + ")",
-							templateName.substring(7), null, 1);
-
-						if (newTemplate != null)
-						{
-							templateName = newTemplate;
-
-							break;
-						}
-					}
+					templateKey = PCTemplate.chooseTemplate(this, templateKey.substring(7), true, aPC);
 				}
 
-				if (templateName.length() != 0)
+				if (templateKey.length() != 0)
 				{
-					newTemplates.add(templateName);
-					listChar.addToListFor(ListKey.TEMPLATES_ADDED, templateName);
-					aPC.addTemplateNamed(templateName);
+					newTemplates.add(templateKey);
+					listChar.addToListFor(ListKey.TEMPLATES_ADDED, templateKey);
+					aPC.addTemplateKeyed(templateKey);
 
 				}
 			}
@@ -4807,6 +4802,59 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		return listChar.getElementInList(key, i);
 	}
+
+	/**
+	 * Set a list of languages that the character this Template is applied to
+	 * automatically knows.
+	 *
+	 * @param  argChooseLanguageAutos  a comma separated list of languages to add
+	 */
+	public void setChooseLanguageAutos(final String argChooseLanguageAutos)
+	{
+		chooseLanguageAutos = argChooseLanguageAutos;
+	}
+
+	/**
+	 * Get a list of languages that the character this Template is applied to
+	 * automatically knows.
+	 *
+	 * @return  a comma separated list of languages automatically known
+	 */
+	public String getChooseLanguageAutos()
+	{
+		return chooseLanguageAutos;
+	}
+
+	/**
+	 * Adds one chosen language.
+	 *
+	 * @param  flag
+	 * @param  aPC
+	 */
+	void chooseLanguageAutos(final boolean flag, final PlayerCharacter aPC)
+	{
+		if (!flag && !"".equals(chooseLanguageAutos))
+		{
+			final List            selectedList; // selected list of choices
+
+			final ChooserInterface c = ChooserFactory.getChooserInstance();
+			c.setPool(1);
+			c.setPoolFlag(false);
+			c.setTitle("Pick a Language: ");
+
+			Set list = Globals.getLanguagesFromString(chooseLanguageAutos);
+			c.setAvailableList(new ArrayList(list));
+			c.setVisible(true);
+			selectedList = c.getSelectedList();
+
+			if ((selectedList != null) && (selectedList.size() != 0))
+			{
+				aPC.addFreeLanguage((Language) selectedList.get(0));
+			}
+		}
+	}
+
+
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/

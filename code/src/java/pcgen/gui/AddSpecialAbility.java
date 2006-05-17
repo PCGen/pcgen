@@ -153,7 +153,7 @@ public final class AddSpecialAbility extends JFrame
 		{
 			PCClass aClass = (PCClass) aPC.getClassList().get(0);
 			String aString = (selectedValue).trim();
-			SpecialAbility sa = new SpecialAbility(aString, "PCCLASS|" + aClass.getName() + "|0");
+			SpecialAbility sa = new SpecialAbility(aString, "PCCLASS|" + aClass.getKeyName() + "|0");
 			aClass.addSpecialAbilityToList(sa);
 			aClass.addSave(aString);
 
@@ -298,7 +298,7 @@ public final class AddSpecialAbility extends JFrame
 			switch (columnIndex)
 			{
 				case 0: // Name
-					return sa.getName();
+					return sa.getDisplayName();
 
 				case 1: // Source
 					return sa.getSASource();

@@ -42,7 +42,7 @@ public final class PCStatLoader extends LstLineFileLoader
 	/** Creates a new instance of PCStatLoader */
 	public PCStatLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -76,7 +76,7 @@ public final class PCStatLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, stat, value);
 				if (!token.parse(stat, value))
 				{
-					Logging.errorPrint("Error parsing check " + stat.getName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing check " + stat.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(stat, colString))

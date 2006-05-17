@@ -55,7 +55,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Weapon Focus Choice";
 		chooserHandled = "WEAPONFOCUS";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -64,7 +64,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
@@ -89,7 +89,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
 				{
 					final Object aObj = e.next();
 					final WeaponProf wp;
-					wp = Globals.getWeaponProfNamed(aObj.toString());
+					wp = Globals.getWeaponProfKeyed(aObj.toString());
 
 					if (wp == null)
 					{

@@ -43,7 +43,7 @@ public final class SubClassLoader
 	/** Creates a new instance of PCClassLoader */
 	private SubClassLoader()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	/**
@@ -93,7 +93,7 @@ public final class SubClassLoader
 				LstUtils.deprecationCheck(token, subclass, value);
 				if (!token.parse(subclass, value))
 				{
-					Logging.errorPrint("Error parsing ability " + subclass.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability " + subclass.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else

@@ -121,11 +121,11 @@ public class SkillToken extends Token
 		catch (NumberFormatException exc)
 		{
 			//Allowing SKILL.Spot.<subtoken>
-			skill = pc.getSkillNamed(details.skillId);
+			skill = pc.getSkillKeyed(details.skillId);
 
 			if (skill == null)
 			{
-				skill = Globals.getSkillNamed(details.skillId);
+				skill = Globals.getSkillKeyed(details.skillId);
 			}
 		}
 		return skill;

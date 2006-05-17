@@ -105,7 +105,7 @@ public class SpellLst implements GlobalLstToken, Deprecated {
 
 			// Get the name/key out of the string
 			spell.setName(aTok.nextToken());
-			spell.setKeyName(spell.getName());
+			spell.setKeyName(spell.getKeyName());
 
 			// Get the number of times per day (default is 1)
 			if (aTok.hasMoreTokens()) {

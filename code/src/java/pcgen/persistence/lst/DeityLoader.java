@@ -84,7 +84,7 @@ public class DeityLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, deity, value);
 				if (!token.parse(deity, value))
 				{
-					Logging.errorPrint("Error parsing ability " + deity.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing deity " + deity.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(deity, colString))
@@ -97,7 +97,7 @@ public class DeityLoader extends LstObjectFileLoader
 				{
 					case 0:
 
-						if ((!colString.equals(deity.getName())) && (colString.indexOf(".MOD") < 0))
+						if ((!colString.equals(deity.getKeyName())) && (colString.indexOf(".MOD") < 0))
 						{
 							finishObject(deity);
 							deity = new Deity();
@@ -128,9 +128,9 @@ public class DeityLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getDeityNamed(baseName);
+		return Globals.getDeityKeyed(aKey);
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class DeityLoader extends LstObjectFileLoader
 	{
 		if (includeObject(target))
 		{
-			if (Globals.getDeityNamed(target.getName()) == null)
+			if (Globals.getDeityKeyed(target.getKeyName()) == null)
 			{
 				Globals.getDeityList().add(target);
 			}

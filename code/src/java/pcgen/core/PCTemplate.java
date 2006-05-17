@@ -80,7 +80,6 @@ public final class PCTemplate extends PObject implements HasCost
 	private ArrayList    weaponProfBonus     = null;
 	private HashMap      chosenFeatStrings   = null;
 	private List         templatesAdded      = null;
-	private String       chooseLanguageAutos = "";
 	private String       cost                = "1";
 
 	private String favoredClass = "";
@@ -88,7 +87,7 @@ public final class PCTemplate extends PObject implements HasCost
 	// If set these two will override any other choices.
 	private String  gender                = Constants.s_NONE;
 	private String  handed                = Constants.s_NONE;
-	
+
 	private String  levelAdjustment       = "0"; // now a string so that we can handle
 												 // formulae
 	private String  region                = Constants.s_NONE;
@@ -225,29 +224,6 @@ public final class PCTemplate extends PObject implements HasCost
 		return localCR;
 	}
 
-
-	/**
-	 * Set a list of languages that the character this Template is applied to
-	 * automatically knows.
-	 *
-	 * @param  argChooseLanguageAutos  a comma separated list of languages to add
-	 */
-	public void setChooseLanguageAutos(final String argChooseLanguageAutos)
-	{
-		chooseLanguageAutos = argChooseLanguageAutos;
-	}
-
-
-	/**
-	 * Get a list of languages that the character this Template is applied to
-	 * automatically knows.
-	 *
-	 * @return  a comma separated list of languages automatically known
-	 */
-	public String getChooseLanguageAutos()
-	{
-		return chooseLanguageAutos;
-	}
 
 
 	/**
@@ -480,7 +456,7 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 			else
 			{
-				final Language aLang = Globals.getLanguageNamed(token);
+				final Language aLang = Globals.getLanguageKeyed(token);
 
 				if (aLang != null)
 				{
@@ -647,7 +623,7 @@ public final class PCTemplate extends PObject implements HasCost
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getName());
+		txt.append(getDisplayName());
 
 		if (bonusInitialFeats != 0)
 		{
@@ -659,9 +635,9 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tBONUSSKILLPOINTS:").append(bonusSkillsPerLevel);
 		}
 
-		if ((chooseLanguageAutos != null) && (chooseLanguageAutos.length() > 0))
+		if ((getChooseLanguageAutos() != null) && (getChooseLanguageAutos().length() > 0))
 		{
-			txt.append("\tCHOOSE:LANGAUTO:").append(chooseLanguageAutos);
+			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
 
 		if (!CoreUtility.doublesEqual(getCost(), 1.0d))
@@ -684,7 +660,7 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tABILITY:");
 			txt.append(abilityCatStore.getParsableStringRepresentation());
 		}
-		
+
 		if (getListSize(featStrings) > 0)
 		{
 			final StringBuffer buffer = new StringBuffer();
@@ -779,7 +755,7 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			txt.append("\tREGION:");
 
-			if (region.equals(getName()))
+			if (region.equals(getDisplayName()))
 			{
 				txt.append("Yes");
 			}
@@ -798,7 +774,7 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			txt.append("\tSUBRACE:");
 
-			if (subRace.equals(getName()))
+			if (subRace.equals(getDisplayName()))
 			{
 				txt.append("Yes");
 			}
@@ -812,7 +788,7 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			txt.append("\tSUBREGION:");
 
-			if (subregion.equals(getName()))
+			if (subregion.equals(getDisplayName()))
 			{
 				txt.append("Yes");
 			}
@@ -1605,7 +1581,7 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			aTemp.featStrings = (ArrayList) featStrings.clone();
 		}
-		
+
 		if (chosenFeatStrings != null)
 		{
 			aTemp.chosenFeatStrings = (HashMap) chosenFeatStrings.clone();
@@ -1726,17 +1702,17 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			for (Iterator e = templates.iterator(); e.hasNext();)
 			{
-				String templateName = (String) e.next();
+				String templateKey = (String) e.next();
 
-				if (templateName.startsWith("CHOOSE:"))
+				if (templateKey.startsWith("CHOOSE:"))
 				{
-					templateName = chooseTemplate(templateName.substring(7), true, aPC);
+					templateKey = chooseTemplate(this, templateKey.substring(7), true, aPC);
 				}
 
-				if (templateName.length() != 0)
+				if (templateKey.length() != 0)
 				{
-					newTemplates.add(templateName);
-					templatesAdded.add(templateName);
+					newTemplates.add(templateKey);
+					templatesAdded.add(templateKey);
 				}
 			}
 		}
@@ -1769,48 +1745,6 @@ public final class PCTemplate extends PObject implements HasCost
 	}
 
 
-	/**
-	 * Adds one chosen language.
-	 *
-	 * TODO: Identical method in Race.java. Refactor.
-	 *
-	 * @param  flag
-	 * @param  aPC
-	 */
-	void chooseLanguageAutos(final boolean flag, final PlayerCharacter aPC)
-	{
-		if (!flag && !"".equals(chooseLanguageAutos))
-		{
-			final StringTokenizer tokens       = new StringTokenizer(
-					chooseLanguageAutos,
-					"|",
-					false);
-			final List            selectedList; // selected list of choices
-
-			final ChooserInterface c = ChooserFactory.getChooserInstance();
-			c.setPool(1);
-			c.setPoolFlag(false);
-			c.setTitle("Pick a Language: ");
-
-			SortedSet list = new TreeSet();
-
-			while (tokens.hasMoreTokens())
-			{
-				list.add(tokens.nextToken());
-			}
-
-			list = Globals.extractLanguageListNames(list);
-			c.setAvailableList(new ArrayList(list));
-			c.setVisible(true);
-			selectedList = c.getSelectedList();
-
-			if ((selectedList != null) && (selectedList.size() != 0))
-			{
-				aPC.addFreeLanguage((String) selectedList.get(0));
-			}
-		}
-	}
-
 
 	/**
 	 * Choose a template from template list, allow the chooser to be closed without
@@ -1821,10 +1755,10 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  the chosen template
 	 */
-	static String chooseTemplate(final String templateList, final PlayerCharacter aPC)
-	{
-		return chooseTemplate(templateList, false, aPC);
-	}
+//	static String chooseTemplate(final String templateList, final PlayerCharacter aPC)
+//	{
+//		return chooseTemplate(templateList, false, aPC);
+//	}
 
 
 	/**
@@ -1837,40 +1771,37 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @return  the chosen template
 	 */
 	static String chooseTemplate(
+		   final PObject anOwner,
 		final String          templateList,
 		final boolean         forceChoice,
 		final PlayerCharacter aPC)
 	{
-		final List choiceTemplates = CoreUtility.split(templateList, '|');
-
-		for (int i = choiceTemplates.size() - 1; i >= 0; i--)
+		final List availableList = new ArrayList();
+		final StringTokenizer strTok = new StringTokenizer(templateList.substring(7), "|");
+		while (strTok.hasMoreTokens())
 		{
-			final String     templateName = (String) choiceTemplates.get(i);
-			final PCTemplate template     = Globals.getTemplateNamed(templateName);
-
-			if (
-				(template == null) ||
-				!PrereqHandler.passesAll(template.getPreReqList(), aPC, template))
+			PCTemplate template = Globals.getTemplateKeyed(strTok.nextToken());
+			if (template != null && PrereqHandler.passesAll(template.getPreReqList(), aPC, template))
 			{
-				choiceTemplates.remove(i);
+				availableList.add(template);
 			}
 		}
 
-		//
-		// If only 1 choice, use it without asking
-		//
-		if (choiceTemplates.size() == 1)
+		final List selectedList = new ArrayList(1);
+		String title = "Template Choice";
+		if (anOwner != null)
 		{
-			return (String) choiceTemplates.get(0);
+			title += " (" + anOwner.getDisplayName() + ")";
 		}
-		else if (choiceTemplates.size() > 0)
+
+		if (availableList.size() == 1)
 		{
-			return Globals.chooseFromList(
-					"Template Choice",
-					choiceTemplates,
-					null,
-					1,
-					forceChoice);
+			return ((PCTemplate) availableList.get(0)).getKeyName();
+		}
+		Globals.getChoiceFromList(title, availableList, selectedList, 1, forceChoice);
+		if (selectedList != null && selectedList.size() == 1)
+		{
+			return ((PCTemplate) selectedList.get(0)).getKeyName();
 		}
 
 		return "";
@@ -2030,7 +1961,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * This is the function that implements a chooser for Feats granted by level
-	 * and/or HD by Templates. 
+	 * and/or HD by Templates.
 	 *
 	 * @param  levelString  The string to be parsed for the choices to offer
 	 * @param  lvl          The level this is being added at
@@ -2045,7 +1976,7 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 
 
-        if (contains(levelString, "FEAT:"))
+		if (contains(levelString, "FEAT:"))
 		{
 			String featName = getStringAfter("FEAT:", levelString);
 
@@ -2094,13 +2025,13 @@ public final class PCTemplate extends PObject implements HasCost
 
 				break;
 			}
-			
+
 			final LevelAbility la = LevelAbility.createAbility(this, lvl, "FEAT(" + featName + ")");
 
 			aPC.setAllowFeatPoolAdjustment(false);
 			la.process(null, aPC, null);
 			aPC.setAllowFeatPoolAdjustment(true);
-		
+
 			addChosenFeat(featKey, featName);
 		}
 	}
@@ -2127,31 +2058,31 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Add a | separated list of available abilities that this Template may
 	 * grant.  This is the function called by the Lst parser to make the
 	 * Abilities available to this Template.
-	 * 
+	 *
 	 * See AbilityStore.addAbilityInfo for details of the string
-	 * 
+	 *
 	 * @param abilityString
 	 */
 	public void addAbilityString (final String abilityString) {
-		
+
 		if (".CLEAR".equals(abilityString))
 		{
 			abilityCatStore = null;
 			return;
 		}
-		
+
 		if (abilityString == null || "".equals(abilityString))
 		{
 			return;
 		}
-		
+
 		if (abilityCatStore == null) {
 			abilityCatStore = new AbilityStore();
 		}
-		
+
 		abilityCatStore.addAbilityInfo(abilityString, "", "|", false, false);
 	}
-	
+
 	/**
 	 * Add a | separated list of available feats that this Template may grant.
 	 * This is the function called by the Lst parser to make the feats
@@ -2166,7 +2097,7 @@ public final class PCTemplate extends PObject implements HasCost
 			abilityCatStore = null;
 			return;
 		}
-		
+
 		addAbilityString("CATEGORY=FEAT|" + abilityString);
 	}
 
@@ -2199,18 +2130,18 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		/* This is very, very temporary.
-		 * 
+		 *
 		 * This needs to be changed very soon so that this entire routine uses
 		 * AbilityInfo objects instead of the names of abilities.
 		 */
 		if (abilityCatStore != null) {
 			Iterator it = abilityCatStore.getKeyIterator("ALL");
-			
+
 			while (it.hasNext()) {
 				feats.add(((AbilityInfo) it.next()).getKeyName());
 			}
 		}
-		
+
 		// arknight modified this back in 1.27 with the comment: Added support for
 		// Spycraft Game Mode we no longer support Spycraft (at this time), and this
 		// breaks other modes, so I've reverting back to the old method. I am also fixing

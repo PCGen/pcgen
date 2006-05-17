@@ -52,11 +52,11 @@ public class DomainLoader extends LstObjectFileLoader
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Domain obj = (Domain) target;
+		Domain domain = (Domain) target;
 
-		if (obj == null)
+		if (domain == null)
 		{
-			obj = new Domain();
+			domain = new Domain();
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
@@ -80,30 +80,30 @@ public class DomainLoader extends LstObjectFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, obj, value);
-				if (!token.parse(obj, value))
+				LstUtils.deprecationCheck(token, domain, value);
+				if (!token.parse(domain, value))
 				{
-					Logging.errorPrint("Error parsing ability " + obj.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing domain " + domain.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
-			else if (PObjectLoader.parseTag(obj, colString))
+			else if (PObjectLoader.parseTag(domain, colString))
 			{
 				continue;
 			}
 			else if (col == 0)
 			{
-				if ((!colString.equals(obj.getName())) && (colString.indexOf(".MOD") < 0))
+				if ((!colString.equals(domain.getKeyName())) && (colString.indexOf(".MOD") < 0))
 				{
-					finishObject(obj);
-					obj = new Domain();
-					obj.setName(colString);
-					obj.setSourceCampaign(source.getCampaign());
-					obj.setSourceFile(source.getFile());
+					finishObject(domain);
+					domain = new Domain();
+					domain.setName(colString);
+					domain.setSourceCampaign(source.getCampaign());
+					domain.setSourceFile(source.getFile());
 				}
 			}
 			else if (col == 1) //TODO (DJ)[tok]: This is crap, make this into a tag before in 6.0
 			{
-				obj.setDescription(EntityEncoder.decode(colString));
+				domain.setDescription(EntityEncoder.decode(colString));
 			}
 			else
 			{
@@ -113,15 +113,15 @@ public class DomainLoader extends LstObjectFileLoader
 			++col;
 		}
 
-		return obj;
+		return domain;
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getDomainNamed(baseName);
+		return Globals.getDomainKeyed(aKey);
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class DomainLoader extends LstObjectFileLoader
 	{
 		if (includeObject(target))
 		{
-			if (Globals.getDomainNamed(target.getName()) == null)
+			if (Globals.getDomainKeyed(target.getKeyName()) == null)
 			{
 				Globals.addDomain((Domain) target);
 			}

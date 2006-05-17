@@ -3958,7 +3958,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			else if (_creator instanceof PObject)
 			{
-				return ((PObject) _creator).getName();
+				return ((PObject) _creator).getKeyName();
 			}
 			return "";
 		}
@@ -3975,7 +3975,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			else if (_target instanceof PObject)
 			{
-				return ((PObject) _target).getName();
+				return ((PObject) _target).getKeyName();
 			}
 			return "";
 		}

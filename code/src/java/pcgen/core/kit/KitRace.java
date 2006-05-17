@@ -80,7 +80,7 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 		{
 			return false;
 		}
-		theRace = Globals.getRaceNamed(raceStr);
+		theRace = Globals.getRaceKeyed(raceStr);
 
 		if (theRace == null)
 		{

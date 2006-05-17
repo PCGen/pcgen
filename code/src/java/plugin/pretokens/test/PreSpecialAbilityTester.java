@@ -67,7 +67,7 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 			{
 				//final String e1String = ((SpecialAbility)e1.next()).getName();
 				final Object obj = e1.next();
-				String e1String = ((SpecialAbility) obj).getName();
+				String e1String = ((SpecialAbility) obj).getKeyName();
 				e1String = e1String.toUpperCase();
 				if (e1String.startsWith(aString))
 				{
@@ -99,7 +99,7 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 						}
 						else
 						{
-							e1String = ((SpecialAbility) obj).getName();
+							e1String = ((SpecialAbility) obj).getKeyName();
 						}
 						e1String = e1String.toUpperCase();
 						if (e1String.startsWith(aString))

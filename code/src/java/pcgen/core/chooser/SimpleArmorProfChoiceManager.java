@@ -49,9 +49,9 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC
 	 */
 	public SimpleArmorProfChoiceManager(
-	    PObject         aPObject,
-	    String          theChoices,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          theChoices,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, theChoices, aPC);
 		if (!typeHandled().equals("ARMORPROF"))
@@ -67,9 +67,9 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selectedList
 	 */
 	public void getChoices(
-	    PlayerCharacter aPc,
-	    List            availableList,
-	    List            selectedList)
+		PlayerCharacter aPc,
+		List            availableList,
+		List            selectedList)
 	{
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_ARMOR_PROF));
 
@@ -90,11 +90,11 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 					final Equipment eq    = (Equipment) entry.getValue();
 
 					if (
-					    eq.isArmor() &&
-					    eq.isType(tempString) &&
-					    !availableList.contains(eq.profName(aPc)))
+						eq.isArmor() &&
+						eq.isType(tempString) &&
+						!availableList.contains(eq.profKey(aPc)))
 					{
-						availableList.add(eq.profName(aPc));
+						availableList.add(eq.profKey(aPc));
 					}
 				}
 			}
@@ -103,11 +103,11 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 				final Equipment eq = EquipmentList.getEquipmentNamed(tempString);
 
 				if (
-				    (eq != null) &&
-				    eq.isArmor() &&
-				    !availableList.contains(eq.profName(aPc)))
+					(eq != null) &&
+					eq.isArmor() &&
+					!availableList.contains(eq.profKey(aPc)))
 				{
-					availableList.add(eq.profName(aPc));
+					availableList.add(eq.profKey(aPc));
 				}
 			}
 		}
@@ -120,15 +120,15 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selected          a List of the choices to apply
 	 */
 	public void applyChoices(
-	    final PlayerCharacter  aPC,
-	    final List             selected)
+		final PlayerCharacter  aPC,
+		final List             selected)
 	{
 		pobject.addSelectedArmorProfs(selected);
 	}
 
 	/**
 	 * what type of chooser does this handle
-	 * 
+	 *
 	 * @return type of chooser
 	 */
 	public String typeHandled() {

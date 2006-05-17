@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.prereq.Prerequisite;
 
 /**
  * <code>ClassLevelPanel</code>
@@ -240,30 +241,49 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					levelTagList.add(lt);
 				}
 			}
-			
+
 		}
 
+		List drList = obj.getDRList();
+		for (Iterator i = drList.iterator(); i.hasNext(); )
+		{
+			DamageReduction dr = (DamageReduction)i.next();
+			List preList = dr.getPreReqList();
+			for (Iterator j = preList.iterator(); j.hasNext(); )
+			{
+				Prerequisite prereq = (Prerequisite)j.next();
+				if (prereq.getKind().equals("class"))
+				{
+					if (prereq.getKey().equals(obj.getKeyName()))
+					{
+						String src = dr.getReduction() + "/" + dr.getBypass();
+						LevelTag lt = new LevelTag(src, LevelTag.TAG_DR, prereq.getOperand());
+						levelTagList.add(lt);
+					}
+				}
+			}
+		}
 		boolean flag = true;
 		index = 0;
-
-		while (flag)
-		{
-			String src = obj.getDRListString(index++, "|");
-
-			if (src != null)
-			{
-				int y = src.indexOf('|');
-				String lev = src.substring(y + 1);
-				src = src.substring(0, y);
-
-				LevelTag lt = new LevelTag(src, LevelTag.TAG_DR, lev);
-				levelTagList.add(lt);
-			}
-			else
-			{
-				flag = false;
-			}
-		}
+//
+//		while (flag)
+//		{
+//			String src = obj.getDRListString(index++, "|");
+//
+//			if (src != null)
+//			{
+//				int y = src.indexOf('|');
+//				String lev = src.substring(y + 1);
+//				src = src.substring(0, y);
+//
+//				LevelTag lt = new LevelTag(src, LevelTag.TAG_DR, lev);
+//				levelTagList.add(lt);
+//			}
+//			else
+//			{
+//				flag = false;
+//			}
+//		}
 
 		aList = obj.getListFor(ListKey.SPECIAL_ABILITY);
 
@@ -340,13 +360,13 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		   aCol = obj.vFeatList();
 		   if (aCol != null)
 		   {
-		       for (Iterator se = aCol.iterator(); se.hasNext();)
-		       {
-		           String c = (String) se.next();
-		           int y = c.indexOf(':');
-		           LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_VFEAT, c.substring(y + 1));
-		           levelTagList.add(lt);
-		       }
+			   for (Iterator se = aCol.iterator(); se.hasNext();)
+			   {
+				   String c = (String) se.next();
+				   int y = c.indexOf(':');
+				   LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_VFEAT, c.substring(y + 1));
+				   levelTagList.add(lt);
+			   }
 		   }
 		 */
 
@@ -549,7 +569,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					{
 						InputInterface ii = InputFactory.getInputInstance();
 						Object selectedValue = ii.showInputDialog(null, "Enter the value for " + tag,
-							    Constants.s_APPNAME, MessageType.INFORMATION, null, "");
+								Constants.s_APPNAME, MessageType.INFORMATION, null, "");
 
 						if (selectedValue == null)
 						{
@@ -637,10 +657,10 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				if (!bRemoved)
 				{
 					Logging.errorPrint("This tag " + lt.getTag() + ":" + lt.getValue()
-					    + " needs to be hand-deleted from customClasses.lst");
+						+ " needs to be hand-deleted from customClasses.lst");
 					ShowMessageDelegate.showMessageDialog("This tag " + lt.getTag() + ":" + lt.getValue()
-                    + " needs to be hand-deleted from customClasses.lst",
-					    Constants.s_APPNAME, MessageType.ERROR);
+					+ " needs to be hand-deleted from customClasses.lst",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
@@ -712,18 +732,18 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 	}
 
 	/**
-	 * <code>MatrixFrame</code> is a dialog for the gathering of 
-	 * a number of fields at once form a user. It is used for 
-	 * things like spells known or castable information. It 
-	 * allows the caller to define a number of labelled text 
-	 * fields which the user may enter a value into. None of the 
-	 * fields are mandatory however.     
+	 * <code>MatrixFrame</code> is a dialog for the gathering of
+	 * a number of fields at once form a user. It is used for
+	 * things like spells known or castable information. It
+	 * allows the caller to define a number of labelled text
+	 * fields which the user may enter a value into. None of the
+	 * fields are mandatory however.
 	 */
 	static final class MatrixFrame extends JDialog
 	{
 		/** The values entered by the user into the fields. */
 		public String[] fields;
-		
+
 		/** The names of each field. */
 		private String[] colNames;
 		/** The text fields being displayed on the dialog. */
@@ -734,9 +754,9 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		private int columns;
 
 		/**
-		 * Construct a new MatrixFrame instance, display the dialog and 
+		 * Construct a new MatrixFrame instance, display the dialog and
 		 * block processing until the user closes the dialog.
-		 * 
+		 *
 		 * @param colNs The names of each field.
 		 * @param colNum The number of fields to be displayed.
 		 * @param vals The initial values of the fields.
@@ -756,7 +776,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		/**
 		 * Update and return the supplied GridBagConstraints object.
-		 * 
+		 *
 		 * @param gridBagConstraints The GridBagConstraints object to be udpated.
 		 * @param gridx The new horizontal coordinate.
 		 * @param gridy The new vertical coordinate.
@@ -764,7 +784,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		 * @return The updated GridBagConstraints object.
 		 */
 		private GridBagConstraints buildConstraints(GridBagConstraints gridBagConstraints, int gridx, int gridy,
-		    boolean useInsets)
+			boolean useInsets)
 		{
 			gridBagConstraints.gridx = gridx;
 			gridBagConstraints.gridy = gridy;
@@ -778,7 +798,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		}
 
 		/**
-		 * Initialise the display of the dialog. 
+		 * Initialise the display of the dialog.
 		 */
 		private void initComponents()
 		{
@@ -848,7 +868,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		private LevelModel()
 		{
-		    // Empty Constructor
+			// Empty Constructor
 		}
 
 		/**
@@ -914,7 +934,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 					default:
 						Logging.errorPrint("In ClassLevelPanel.LevelModel.getValueAt the column " + columnIndex
-						    + " is not supported.");
+							+ " is not supported.");
 
 						break;
 				}

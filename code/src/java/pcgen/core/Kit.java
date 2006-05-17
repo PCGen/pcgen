@@ -166,7 +166,7 @@ public final class Kit extends PObject implements Comparable
 	{
 		if (!argName.endsWith(".MOD"))
 		{
-			name    = argName;
+			displayName = argName;
 			keyName = region + "|" + argName;
 		}
 	}
@@ -276,21 +276,12 @@ public final class Kit extends PObject implements Comparable
 	 */
 	public int compareTo(final Object other)
 	{
-		// this should throw a ClassCastException for non-Kit, like the Comparable
-		// interface calls for
 		if (!(other instanceof Kit))
 		{
 			throw new ClassCastException();
 		}
-		final Kit oKit   = (Kit) other;
-		int       retVal = region.compareToIgnoreCase(oKit.getRegion());
-
-		if (retVal == 0)
-		{
-			retVal = getName().compareToIgnoreCase(oKit.getName());
-		}
-
-		return retVal;
+		final Kit oKit = (Kit) other;
+		return getKeyName().compareToIgnoreCase(oKit.getKeyName());
 	}
 
 	/**
@@ -582,7 +573,7 @@ public final class Kit extends PObject implements Comparable
 	{
 		StringBuffer info = new StringBuffer(255);
 		info.append("<html>");
-		info.append("<b>").append(getName()).append("</b> - ");
+		info.append("<b>").append(getDisplayName()).append("</b> - ");
 
 		String aString = getPreReqHTMLStrings(aPC);
 

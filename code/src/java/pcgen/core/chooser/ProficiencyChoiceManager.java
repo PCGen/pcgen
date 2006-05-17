@@ -66,7 +66,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
-		
+
 		if (choices.size() < 3)
 		{
 			Logging.errorPrint("CHOOSE:PROFICIENCY - Incorrect format, not enough tokens. " + choiceString);
@@ -115,7 +115,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 		Iterator It = choices.subList(2, choices.size()).iterator();
 		if ("WEAPON".equals(typeOfProf))
 		{
-			Set profStrings = new TreeSet();
+			Set profs = new TreeSet();
 			while (It.hasNext())
 			{
 				final String prof = (String) It.next();
@@ -124,68 +124,61 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 					String typeString = prof.substring(5);
 					for (Iterator i = Globals.getWeaponProfs(typeString, aPc).iterator();i.hasNext();)
 					{
-						profStrings.add(i.next().toString());
+						profs.add(i.next());
 					}
 				}
 				else
 				{
-					WeaponProf aProf = Globals.getWeaponProfNamed(prof);
+					WeaponProf aProf = Globals.getWeaponProfKeyed(prof);
 					if (aProf != null)
 					{
-						profStrings.add(aProf.toString());
+						profs.add(aProf);
 					}
 				}
 			}
-			
+
 			if (intScope == SCOPE_ALL)
 			{
-				availableList.addAll(profStrings);
+				availableList.addAll(profs);
 			}
 			else
 			{
-				
+
 				Set pcProfs = aPc.getWeaponProfList();
-				Set pcProfStrings = new TreeSet();
-				
-				for (Iterator profIt = pcProfs.iterator(); profIt.hasNext();)
-				{
-					pcProfStrings.add(profIt.next());
-				}
-				
+
 				if (intScope == SCOPE_PC)
 				{
-					profStrings.retainAll(pcProfStrings);
-					availableList.addAll(profStrings);
+					profs.retainAll(pcProfs);
+					availableList.addAll(profs);
 				}
 				else if (intScope == SCOPE_UNIQUE)
 				{
-					
+
 					// Get a new set which is the intersection of all the Weapon profs
 					// specified by the chooser and the Weapon profs that the Pc has
 					Set pcHas = new TreeSet();
-					pcHas.addAll(profStrings);
-					pcHas.retainAll(pcProfStrings);
-					
+					pcHas.addAll(profs);
+					pcHas.retainAll(pcProfs);
+
 					for (Iterator i = pcHas.iterator(); i.hasNext();)
 					{
-						String     profName = (String) i.next();
-						WeaponProf wp       = Globals.getWeaponProfNamed(profName);
-						
+						WeaponProf wp       = (WeaponProf)i.next();
+
 						// may have martial and exotic, etc.
 						if (wp.getSafeListFor(ListKey.TYPE).size() != 1)
 						{
-							availableList.add(profName);
+							availableList.add(wp);
 						}
 					}
-					
+
 					// since this is a unique list, add all the ones the pc hasn't got
-					profStrings.removeAll(pcProfStrings);
-					availableList.addAll(profStrings);
+					profs.removeAll(pcProfs);
+					availableList.addAll(profs);
 				}
 			}
-			
+
 		}
-			
+
 		else if ("ARMOR".equals(typeOfProf))
 		{
 //			List checkList = null;
@@ -228,7 +221,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 //				{
 //					availableList.add(prof);
 //				}
-//				
+//
 //			}
 		}
 		else if ("SHIELD".equals(typeOfProf))
@@ -273,7 +266,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 //				{
 //					availableList.add(prof);
 //				}
-//				
+//
 //			}
 		}
 		else

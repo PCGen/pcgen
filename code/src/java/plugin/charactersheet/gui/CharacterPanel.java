@@ -269,7 +269,7 @@ public class CharacterPanel extends FlippingSplitPane {
 				}
 			}
 		}
-		String title = pc.getRace().getName();
+		String title = pc.getRace().getDisplayName();
 		if(pc.getRace().getSpellSupport().getCharacterSpellCount() > 0 && mainTabs.indexOfTab(title) == -1) {
 			SpellPage spellPage = new SpellPage(20);
 			spellPage.setPc(pc, pcProperties);

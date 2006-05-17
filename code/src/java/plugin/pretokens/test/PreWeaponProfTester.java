@@ -50,20 +50,20 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		int runningTotal=0;
 
 		final int number;
-        try {
-            number = Integer.parseInt(prereq.getOperand());
-        }
-        catch (NumberFormatException exceptn) {
-            throw new PrerequisiteException(PropertyFactory.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
-        }
+		try {
+			number = Integer.parseInt(prereq.getOperand());
+		}
+		catch (NumberFormatException exceptn) {
+			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
+		}
 
-        final String aString = prereq.getKey();
+		final String aString = prereq.getKey();
 		if ("DEITYWEAPON".equals(aString) && character.getDeity() != null) //$NON-NLS-1$
 		{
 			for (Iterator weapIter = CoreUtility.split(character.getDeity().getFavoredWeapon(), '|').iterator(); weapIter.hasNext();)
 			{
-				final String weaponName = (String) weapIter.next();
-				if (character.hasWeaponProfNamed(weaponName))
+				final String weaponKey = (String) weapIter.next();
+				if (character.hasWeaponProfKeyed(weaponKey))
 					runningTotal++;
 			}
 		}
@@ -72,8 +72,8 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 			final String requiredType = aString.substring(5);
 			for (Iterator e = character.getWeaponProfList().iterator(); e.hasNext();)
 			{
-				final String profName = (String) e.next();
-				final WeaponProf wp = Globals.getWeaponProfNamed(profName);
+				final String profKey = (String) e.next();
+				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
 				if (wp == null)
 				{
 					continue;
@@ -84,7 +84,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 				}
 				else
 				{
-					final Equipment eq = EquipmentList.getEquipmentNamed(profName);
+					final Equipment eq = EquipmentList.getEquipmentNamed(profKey);
 					if (eq != null)
 					{
 						if (eq.isType(requiredType))
@@ -97,11 +97,11 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		}
 		else
 		{
-			if (character.hasWeaponProfNamed(aString))
+			if (character.hasWeaponProfKeyed(aString))
 				runningTotal++;
 		}
 
-        runningTotal = prereq.getOperator().compare(runningTotal, number);
+		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);
 	}
 

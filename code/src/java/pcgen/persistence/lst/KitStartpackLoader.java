@@ -84,7 +84,7 @@ public class KitStartpackLoader
 				if (!token.parse(kit, value))
 				{
 					Logging.errorPrint("Error parsing Kit Startpack tag "
-							+ kit.getName() + ':' + colString + "\"");
+							+ kit.getDisplayName() + ':' + colString + "\"");
 				}
 			}
 			else

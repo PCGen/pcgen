@@ -204,8 +204,8 @@ public final class CustomData
 	}
 
 	/**
-	 * This method will check for the system specific custom directory 
-	 * and will create it if it exists. 
+	 * This method will check for the system specific custom directory
+	 * and will create it if it exists.
 	 */
 	private static void ensureCustomDirExists()
 	{
@@ -237,7 +237,7 @@ public final class CustomData
 		}
 
 		ensureCustomDirExists();
-		
+
 		final BufferedWriter bw = getCustomEquipmentWriter();
 
 		if (bw == null)
@@ -453,8 +453,8 @@ public final class CustomData
 						region = Constants.s_NONE;
 					}
 
-					final String name = pobj.getName();
-					bw.write(Globals.getBioSet().getRacePCCText(region, name));
+					final String key = pobj.getKeyName();
+					bw.write(Globals.getBioSet().getRacePCCText(region, key));
 					bw.newLine();
 				}
 			}

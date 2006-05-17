@@ -77,6 +77,11 @@ public class ChooserTableModel extends AbstractTableModel
 		return mColumnNames[column];
 	}
 
+	public void setColumnNames(String[] names)
+	{
+		mColumnNames = names;
+	}
+
 	/**
 	 * Gets the number of rows
 	 *

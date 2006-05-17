@@ -88,7 +88,7 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 		for (iter = tArrayList.iterator(); iter.hasNext();)
 		{
 			tempProf = (WeaponProf) iter.next();
-			availableList.add(tempProf.getName());
+			availableList.add(tempProf.getKeyName());
 		}
 
 		pobject.addAssociatedTo(selectedList);

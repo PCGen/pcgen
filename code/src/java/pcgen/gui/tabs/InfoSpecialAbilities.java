@@ -162,10 +162,10 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 	public void refresh()
 	{
-	    if(pc.getSerial() > serial)
-	    {
-	        serial = pc.getSerial();
-	        forceRefresh();
+		if(pc.getSerial() > serial)
+		{
+			serial = pc.getSerial();
+			forceRefresh();
 		}
 	}
 
@@ -264,7 +264,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				final CharacterDomain aCD = (CharacterDomain) e.next();
 
 				if ((aCD.isFromPCClass() || aCD.isFromFeat()) && (aCD.toString().length() != 0)
-				    && aCD.getDomain().getChoiceString().startsWith("WEAPONPROF|"))
+					&& aCD.getDomain().getChoiceString().startsWith("WEAPONPROF|"))
 				{
 					bonusCategory.add(aCD);
 				}
@@ -468,7 +468,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			for (Iterator e = lc.getSelectedList().iterator(); e.hasNext();)
 			{
 				String aString = (String) e.next();
-				Language aLang = Globals.getLanguageNamed(aString);
+				Language aLang = Globals.getLanguageKeyed(aString);
 
 				if (aLang != null)
 				{
@@ -529,7 +529,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			final Language aLang = (Language) langIter.next();
 			boolean addLang = false;
 
-			if ((speakLanguage != null) && speakLanguage.containsAssociated(aLang.getName()))
+			if ((speakLanguage != null) && speakLanguage.containsAssociated(aLang.getKeyName()))
 			{
 				addLang = false;
 			}
@@ -540,7 +540,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 			if (addLang)
 			{
-				selectedLangNames.add(aLang.getName());
+				selectedLangNames.add(aLang.getKeyName());
 			}
 			else
 			{
@@ -566,7 +566,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 				if (sa.getSASource().endsWith("|0"))
 				{
-					aList.add(sa.getName());
+					aList.add(sa.getKeyName());
 					cList.add(sa);
 				}
 			}
@@ -594,14 +594,14 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 			SpecialAbility sa = (SpecialAbility) cList.get(ix);
 			final String bString = sa.getSASource();
-			PCClass aClass = pc.getClassNamed(bString.substring(bString.indexOf("|") + 1, bString.lastIndexOf("|")));
+			PCClass aClass = pc.getClassKeyed(bString.substring(bString.indexOf("|") + 1, bString.lastIndexOf("|")));
 
 			if (aClass == null)
 			{
 				continue;
 			}
 
-			aClass.removeSave(sa.getName());
+			aClass.removeSave(sa.getKeyName());
 			aClass.removeSpecialAbility(sa);
 		}
 
@@ -620,11 +620,30 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			weaponButton.setEnabled((bonusCategory != null) && (bonusCategory.size() > 0));
 		}
 
+		// This is now going to be sorted on key
 		SortedSet weaponProfs = pc.getWeaponProfList();
-
+		StringBuffer buf;
 		if (weaponProfs.size() > 0)
 		{
-			weaponText.setText(CoreUtility.commaDelimit(weaponProfs));
+			buf	= new StringBuffer();
+			boolean first = true;
+
+			for (Iterator i = weaponProfs.iterator(); i.hasNext(); )
+			{
+				final String key = (String) i.next();
+				WeaponProf wp = Globals.getWeaponProfKeyed(key);
+				if (wp == null)
+				{
+					continue;
+				}
+				if (first == false)
+				{
+					buf.append(", ");
+				}
+				buf.append(wp.toString());
+				first = false;
+			}
+			weaponText.setText(buf.toString());
 		}
 		else
 		{
@@ -680,9 +699,9 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 					{
 						InputInterface ii = InputFactory.getInputInstance();
 						Object selectedValue = ii.showInputDialog(null,
-							    PropertyFactory.getString("in_iaMultiChoice1") + Constants.s_LINE_SEP
-							    + PropertyFactory.getString("in_iaMultiChoice2"), Constants.s_APPNAME,
-							    MessageType.INFORMATION, bonusCategory.toArray(), bonusCategory.get(selIdx));
+								PropertyFactory.getString("in_iaMultiChoice1") + Constants.s_LINE_SEP
+								+ PropertyFactory.getString("in_iaMultiChoice2"), Constants.s_APPNAME,
+								MessageType.INFORMATION, bonusCategory.toArray(), bonusCategory.get(selIdx));
 
 						if (selectedValue != null)
 						{
@@ -711,22 +730,22 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 					{
 						profWeapons = ((PCClass) profBonusObject).getWeaponProfBonus();
 						((PCClass) profBonusObject).getChoices("WEAPONPROF|1|"
-						    + CoreUtility.join(profWeapons, "[WEAPONPROF]|")
-						    + PropertyFactory.getString("in_proficiency"), pc);
+							+ CoreUtility.join(profWeapons, "[WEAPONPROF]|")
+							+ PropertyFactory.getString("in_proficiency"), pc);
 					}
 					else if (profBonusObject instanceof Race)
 					{
 						profWeapons = ((Race) profBonusObject).getWeaponProfBonus();
 						((Race) profBonusObject).getChoices("WEAPONPROF|1|"
-						    + CoreUtility.join(profWeapons, "[WEAPONPROF]|")
-						    + PropertyFactory.getString("in_proficiency"), pc);
+							+ CoreUtility.join(profWeapons, "[WEAPONPROF]|")
+							+ PropertyFactory.getString("in_proficiency"), pc);
 					}
 					else if (profBonusObject instanceof PCTemplate)
 					{
 						profWeapons = ((PCTemplate) profBonusObject).getWeaponProfBonus();
 						((PCTemplate) profBonusObject).getChoices("WEAPONPROF|1|"
-						    + CoreUtility.join(profWeapons, "[WEAPONPROF]|")
-						    + PropertyFactory.getString("in_proficiency"), pc);
+							+ CoreUtility.join(profWeapons, "[WEAPONPROF]|")
+							+ PropertyFactory.getString("in_proficiency"), pc);
 					}
 				}
 

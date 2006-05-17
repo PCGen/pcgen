@@ -370,7 +370,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	{
 		return 	this.isStacks() || (this.isMultiples() && !this.containsAssociated(newAssociation));
 	}
-	
+
 	/**
 	 * Bog standard clone method
 	 *
@@ -408,7 +408,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getName());
+		txt.append(getDisplayName());
 		txt.append("\tCATEGORY:").append(getCategory());
 		txt.append("\tCOST:").append(String.valueOf(getCost()));
 
@@ -483,7 +483,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final StringBuffer aStrBuf = new StringBuffer(getOutputName());
 
 		if ((getAssociatedCount() > 0)
-				&& !name.startsWith("Armor Proficiency")
+				&& !getKeyName().startsWith("Armor Proficiency")
 				)
 		{
 			if ((getChoiceString().length() == 0) || (multiples && stacks))
@@ -534,13 +534,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			for (Iterator it = specialAbilityList.iterator(); it.hasNext();)
 			{
 				SpecialAbility sa = (SpecialAbility) it.next();
-				final String aName = sa.getName();
-				final int idx = aName.indexOf("%CHOICE");
+				final String key = sa.getKeyName();
+				final int idx = key.indexOf("%CHOICE");
 
 				if (idx >= 0)
 				{
 					sb.setLength(0);
-					sb.append(aName.substring(0, idx));
+					sb.append(key.substring(0, idx));
 
 					if (getAssociatedCount() != 0)
 					{
@@ -559,7 +559,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 						sb.append("<undefined>");
 					}
 
-					sb.append(aName.substring(idx + 7));
+					sb.append(key.substring(idx + 7));
 					sa = new SpecialAbility(
 							sb.toString(),
 							sa.getSASource(),
@@ -581,7 +581,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	/**
 	 * @param addIt
 	 * @param pc
-	 * 
+	 *
 	 * @deprecated no longer used ADD is processed by PObject there is no
 	 * (reachable) code in the system to set addString
 	 */
@@ -771,16 +771,16 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * based on this.choiceString, as applied to current character. Choices already
 	 * made (getAssociatedList) are indicated in the selectedList.  This method
 	 * may also be used to build a list of choices available and choices
-	 * already made by passing false in the process parameter 
+	 * already made by passing false in the process parameter
 	 *
 	 * @param availableList
 	 * @param selectedList
 	 * @param process
 	 * @param aPC
 	 * @param addIt
-	 * 
+	 *
 	 * @return true if we processed the list of choices, false if we used the routine to
-	 * build the list of choices without processing them. 
+	 * build the list of choices without processing them.
 	 */
 	public boolean modChoices(
 		final List            availableList,
@@ -936,7 +936,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 				if (anAbility.isType(anAbilityType))
 				{
-					abilityList.add(anAbility.getName());
+					abilityList.add(anAbility.getKeyName());
 				}
 			}
 
@@ -1074,9 +1074,14 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 			// this should throw a ClassCastException for non-PObjects, like the
 			// Comparable interface calls for
-			return this.name.compareToIgnoreCase(((PObject) obj).name);
+			return this.keyName.compareToIgnoreCase(((PObject) obj).keyName);
 		}
 		return 1;
+	}
+
+	public boolean equals(Object other)
+	{
+		return this.compareTo(other) == 0;
 	}
 
 	/**

@@ -42,7 +42,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	/** Prevent creation of a new instance of SizeAdjustmentLoader */
 	public SizeAdjustmentLoader()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	public void loadLstFile(String fileName, String gameModeIn) throws PersistenceLayerException
@@ -95,7 +95,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, sa, value);
 				if (!token.parse(sa, value))
 				{
-					Logging.errorPrint("Error parsing size adjustment " + sa.getName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing size adjustment " + sa.getDisplayName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(sa, colString))

@@ -91,7 +91,7 @@ final class MainHP extends JPanel
 	}
 
 	/**
-	 * Set the preferred size of the HP Pane to 1 more 
+	 * Set the preferred size of the HP Pane to 1 more
 	 * row than it contains (including header)
 	 */
 	public void setPSize()
@@ -558,9 +558,9 @@ final class MainHP extends JPanel
 
 						if (aClass == null)
 						{
-							return (aRace == null) ? Constants.s_NONESELECTED : aRace.getName();
+							return (aRace == null) ? Constants.s_NONESELECTED : aRace.getKeyName();
 						}
-						return aClass.getName();
+						return aClass.getDisplayName();
 
 					case 1: // Sides
 						return new Integer(iSides);

@@ -48,7 +48,7 @@ public class HPChoiceManager extends AbstractComplexChoiceManager {
 	{
 		super(aPObject, choiceString, aPC);
 		chooserHandled = "HP";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -67,10 +67,10 @@ public class HPChoiceManager extends AbstractComplexChoiceManager {
 			final List            selectedList)
 	{
 		Iterator choiceIt = choices.iterator();
-		
+
 		String choiceSec = (String) (choiceIt.hasNext()
 				? choiceIt.next()
-				: pobject.getName());
+				: pobject.getKeyName());
 
 		availableList.add(choiceSec);
 

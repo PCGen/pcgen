@@ -141,7 +141,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 
 		final Ability mediumProf = TestHelper.makeAbility("Armor Proficiency (Medium)", "FEAT", "General");
 		mediumProf.addAutoArray("ARMORPROF|TYPE.Medium");
-		AbilityUtilities.modFeat(character, null, "Armor Proficiency (Medium)", true, false);
+		AbilityUtilities.modFeat(character, null, "KEY_Armor Proficiency (Medium)", true, false);
 
 		final Equipment chainmail = new Equipment();
 		chainmail.typeList().add("ARMOR");

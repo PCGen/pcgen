@@ -86,8 +86,8 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
 /**
- * <code>InfoPreparedSpells</code> is responsible for the display of the 
- * list of a character's prepared spell lists and the provision of an 
+ * <code>InfoPreparedSpells</code> is responsible for the display of the
+ * list of a character's prepared spell lists and the provision of an
  * interface to let the user create and update lists of prepared spells.
  *
  * Last Editor: $Author$
@@ -114,7 +114,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	private JTextField spellBookNameText = new JTextField();
 	private JButton addSpellListButton;
 	private JButton delSpellListButton;
-	
+
 	private JComboBoxEx primaryViewComboBox = new JComboBoxEx();
 	private JComboBoxEx secondaryViewComboBox = new JComboBoxEx();
 	private JComboBoxEx primaryViewSelectComboBox = new JComboBoxEx();
@@ -124,14 +124,14 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		.getString("InfoPreparedSpells.canUseHigherSlots")); //$NON-NLS-1$
 
 	private List characterMetaMagicFeats = new ArrayList();
-	
+
 	private JPanel botPane = new JPanel();
 	private JPanel topPane = new JPanel();
 	private boolean hasBeenSized = false;
 
 	/**
 	 *  Constructor for the InfoKnownSpells object
-	 * 
+	 *
 	 * @param pc The character this tab is being created to display.
 	 */
 	public InfoPreparedSpells(PlayerCharacter pc)
@@ -145,7 +145,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			addSpellWithMetaMagicTitle = PropertyFactory
 				.getString("InfoSpells.add.with.metamagic"); //$NON-NLS-1$
 		}
-		
+
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run()
@@ -234,12 +234,12 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 			if (aFeat.isType("Metamagic")) //$NON-NLS-1$
 			{
-				characterMetaMagicFeats.add(aFeat.getName());
+				characterMetaMagicFeats.add(aFeat.getKeyName());
 			}
 		}
 
 	}
-	
+
 	/**
 	 * This is called when the tab is shown.
 	 */
@@ -263,7 +263,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			divLocVert = SettingsHandler.getPCGenOption("InfoSpells.bsplit", //$NON-NLS-1$
 				(int) (this.getSize().getHeight() - 101));
 			divLocHoriz = SettingsHandler.getPCGenOption("InfoSpells.asplit", //$NON-NLS-1$
-				(int) (this.getSize().getWidth() - 408)); 
+				(int) (this.getSize().getWidth() - 408));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
@@ -563,7 +563,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		leftPane.add(buildAddSpellPanel(), BorderLayout.SOUTH);
-		
+
 		//
 		// now build the right pane
 		// for the selected (SpellBooks) table
@@ -579,7 +579,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		// Prepared spell lists panel
 		JPanel slPanel = buildSpellListPanel();
 		rightPane.add(slPanel);
-		
+
 		// List of known spells Panel
 		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -597,9 +597,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build the panel with the controls to add a spell to a 
+	 * Build the panel with the controls to add a spell to a
 	 * prepared list.
-	 *  
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildAddSpellPanel()
@@ -618,7 +618,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		addSpellMMButton = new JButton(addSpellWithMetaMagicTitle);
 		createFeatList();
 		asPanel.add(addSpellMMButton);
-		
+
 		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
 		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
@@ -629,9 +629,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build the panel with the controls to select a 
+	 * Build the panel with the controls to select a
 	 * prepared list.
-	 *  
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildSpellListPanel()
@@ -675,7 +675,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build Bottom Panel. 
+	 * Build Bottom Panel.
 	 * botPane will contain a bLeftPane and a bRightPane
 	 * bLeftPane will contain a scrollregion (spell info)
 	 * bRightPane will contain a scrollregion (character Info)
@@ -755,7 +755,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				selectedBookList.add(bookName);
 			}
 		}
-		
+
 	}
 
 	/**
@@ -866,7 +866,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				delSpellButton.setEnabled(false);
 				delSpellMenu.setEnabled(false);
 			}
-			
+
 			if (fNode.getItem() instanceof SpellBook)
 			{
 				SpellBook book = (SpellBook) fNode.getItem();
@@ -941,8 +941,8 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	/**
 	 * Check if the default spell book is present and if not then
 	 * add it to the character. Used so that the spellbook is only added if
-	 * it is used. 
-	 * @return false if an error occurs and the book can't be added. 
+	 * it is used.
+	 * @return false if an error occurs and the book can't be added.
 	 */
 	private boolean ensureDefaultBookPresent()
 	{
@@ -973,7 +973,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		return true;
 	}
 
-	
+
 	/**
 	 * memorize a spell with metamagic feats applied.
 	 */
@@ -1019,7 +1019,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		CharacterSpell spellA = si.getOwner();
 		if (!(spellA.getOwner() instanceof PCClass))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoSpells.unable.to.metamagic")+spellA.getOwner().getName(), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoSpells.unable.to.metamagic")+spellA.getOwner().getDisplayName(), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1049,11 +1049,11 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			// this spell.
 			//
 
-			final String aName = spellA.getSpell().getName();
+			final String aKey = spellA.getSpell().getKeyName();
 			List metamagicFeats = new ArrayList();
 			for(Iterator cmeta = characterMetaMagicFeats.iterator(); cmeta.hasNext(); )
 			{
-				final Ability anAbility = Globals.getAbilityNamed("FEAT", (String) cmeta.next());
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", (String) cmeta.next());
 				if (anAbility == null)
 				{
 					continue;
@@ -1075,7 +1075,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 						{
 							final String aBI = aTok.nextToken();
 
-							if (aBI.equalsIgnoreCase(aName) || aBI.equalsIgnoreCase("ALL"))
+							if (aBI.equalsIgnoreCase(aKey) || aBI.equalsIgnoreCase("ALL"))
 							{
 								canAdd = true;
 								break;
@@ -1152,7 +1152,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		for (int index = selCPaths.length - 1; index >= 0; --index)
 		{
 			TreePath selCPath = selCPaths[index];
-	
+
 			Object endComp = selCPath.getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) endComp;
 			List aList = getInfoFromNode(fNode);
@@ -1166,23 +1166,24 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 			if (cs != null)
 			{
-		
+
 				String bookName = selCPath.getPathComponent(1).toString();
 				SpellInfo si = (SpellInfo) fNode.getItem();
-		
-				PCClass aClass = pc.getClassNamed(className);
+
+				// TODO Check this
+				PCClass aClass = pc.getClassKeyed(className);
 				if (aClass == null)
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR); 
+						Constants.s_APPNAME, MessageType.ERROR);
 				}
 				else
 				{
 					bookName = currSpellBook = bookName;
-			
+
 					final String aString = pc.delSpell(si, aClass, bookName);
-			
+
 					if (aString.length() > 0)
 					{
 						ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
@@ -1215,7 +1216,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			PCClass current = (PCClass) i.next();
 
-			if ((aString.equals(current.getName())))
+			if ((aString.equals(current.getKeyName())))
 			{
 				JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_spellbook_name_error"), //$NON-NLS-1$
 					Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
@@ -1277,5 +1278,5 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			return;
 		}
 	}
-	
+
 }

@@ -92,7 +92,7 @@ final class LevelAbilityLanguage extends LevelAbility
 
 		for (int index = 0; index < selectedList.size(); ++index)
 		{
-			aPC.addLanguage(selectedList.get(index).toString());
+			aPC.addLanguageKeyed(selectedList.get(index).toString());
 		}
 		return true;
 	}
@@ -120,13 +120,13 @@ final class LevelAbilityLanguage extends LevelAbility
 
 				if (aLang.isType(aToken))
 				{
-					anArrayList.add(aLang.getName());
+					anArrayList.add(aLang.getKeyName());
 				}
 			}
 		}
 		else
 		{
-			final Language aLang = Globals.getLanguageNamed(aToken);
+			final Language aLang = Globals.getLanguageKeyed(aToken);
 			if (aLang != null)
 			{
 				if (!aPC.getLanguagesList().contains(aLang))

@@ -254,7 +254,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 				PCClass pcClass = (PCClass) classComboBox.getSelectedItem();
 
-				if (pcClass.getName().equals(Constants.s_NONESELECTED))
+				if (pcClass.getDisplayName().equals(Constants.s_NONESELECTED))
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR);
 
@@ -269,7 +269,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 				if (!pcClass.isQualified(pc))
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getName() + ".",
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getDisplayName() + ".",
 						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
@@ -303,7 +303,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			{
 				final Race race = (Race) raceComboBox.getSelectedItem();
 
-				if (race.getName().equals(Constants.s_NONESELECTED)) {
+				if (race.getDisplayName().equals(Constants.s_NONESELECTED)) {
 					enableClassControls(false);
 				}
 				else if (race != null){
@@ -668,7 +668,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			//
 			// Class must exist in Global list
 			//
-			final PCClass aClass = Globals.getClassNamed(monsterClass);
+			final PCClass aClass = Globals.getClassKeyed(monsterClass);
 
 			if (aClass != null)
 			{
@@ -678,7 +678,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				if (numHD < 0)
 				{
 					final int minHD = pc.getRace().getMonsterClassLevels(pc) + pc.getRace().hitDice(pc);
-					final PCClass pcClass = pc.getClassNamed(monsterClass);
+					final PCClass pcClass = pc.getClassKeyed(monsterClass);
 					int currentHD = pc.getRace().hitDice(pc);
 
 					if (pcClass != null)
@@ -786,9 +786,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		StringBuffer b = new StringBuffer();
 		b.append("<html>"); //$NON-NLS-1$
 
-		if ((aRace != null) && !aRace.getName().startsWith("<none")) //$NON-NLS-1$
+		if ((aRace != null) && !aRace.getDisplayName().startsWith("<none")) //$NON-NLS-1$
 		{
-			b.append("<b>").append(PropertyFactory.getString("in_sumRace")).append(aRace.getName()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-2$
+			b.append("<b>").append(PropertyFactory.getString("in_sumRace")).append(aRace.getDisplayName()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-2$
 			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aRace.getType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			final String cString = aRace.preReqHTMLStrings(pc, false);
@@ -855,8 +855,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 			if (aRace.getFavoredClass().length() != 0)
 			{
-				b.append(" &nbsp;<b>").append("FAVORED CLASS:").append("</b>").append((!aRace.getFavoredClass().equals(".")) //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-4$
-					? aRace.getFavoredClass() : PropertyFactory.getString("in_sumVarious")); //$NON-NLS-1$
+				final String favClassKey = aRace.getFavoredClass();
+				String favClassName = PropertyFactory.getString("in_sumVarious");
+				PCClass favClass = Globals.getClassKeyed(favClassKey);
+				if (favClass != null)
+				{
+					favClassName = favClass.getDisplayName();
+				}
+				b.append(" &nbsp;<b>").append("FAVORED CLASS:").append("</b>").append(favClassName); //$NON-NLS-1$
 			}
 
 			if (aRace.getLevelAdjustment(pc) > 0)
@@ -879,7 +885,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		if (aClass != null)
 		{
 			StringBuffer b = new StringBuffer();
-			b.append("<html><b>").append(PropertyFactory.getString("in_sumClass")).append(aClass.getName()).append("</b>"); //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-2$
+			b.append("<html><b>").append(PropertyFactory.getString("in_sumClass")).append(aClass.getDisplayName()).append("</b>"); //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-2$
 			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aClass.getType());
 
 			final String cString = aClass.preReqHTMLStrings(pc, false);
@@ -1034,7 +1040,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			levels = 1;
 		}
 
-		final PCClass aClass = pc.getClassNamed(theClass.getName());
+		final PCClass aClass = pc.getClassKeyed(theClass.getKeyName());
 
 		if (!Globals.checkRule(RuleConstants.LEVELCAP) //$NON-NLS-1$
 			&& ((levels > theClass.getMaxLevel())
@@ -1111,84 +1117,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		//
 		if (levels > 0)
 		{
-			if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((pc.totalNonMonsterLevels()) == 1)) //$NON-NLS-1$
-			{
-				//
-				// See what the PC is already carrying
-				//
-				List clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic"); //$NON-NLS-1$ //$NON-NLS-2$
-
-				//
-				// Check to see if any of the clothing the PC
-				// is carrying will actually fit and
-				// has a zero price attached
-				//
-				boolean hasClothes = false;
-				final String pcSize = pc.getSize();
-
-				if (clothes.size() != 0)
-				{
-					for (Iterator e = clothes.iterator(); e.hasNext();)
-					{
-						final Equipment eq = (Equipment) e.next();
-
-						if ((CoreUtility.doublesEqual(eq.getCost(pc).doubleValue(), 0.0)) && pcSize.equals(eq.getSize()))
-						{
-							hasClothes = true;
-
-							break;
-						}
-					}
-				}
-
-				//
-				// If the PC has no clothing items, or none that
-				// are sized to fit, then allow them to pick
-				// a free set
-				//
-				if (!hasClothes)
-				{
-					clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
-					if (clothes.isEmpty())
-					{
-						clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
-					}
-
-					List selectedClothes = new ArrayList();
-					Globals.chooseFromList(PropertyFactory.getString("in_sumSelectAFreeSetOfClothing"), clothes, selectedClothes, 1); //$NON-NLS-1$
-
-					if (selectedClothes.size() != 0)
-					{
-						String aString = (String) selectedClothes.get(0);
-						Equipment eq = EquipmentList.getEquipmentNamed(aString);
-
-						if (eq != null)
-						{
-							eq = (Equipment) eq.clone();
-							eq.setQty(new Float(1));
-
-							//
-							// Need to resize to fit?
-							//
-							if (!pcSize.equals(eq.getSize()))
-							{
-								eq.resizeItem(pc, pcSize);
-							}
-
-							eq.setCostMod('-' + eq.getCost(pc).toString()); // make cost 0
-
-							if (pc.getEquipmentNamed(eq.nameItemFromModifiers(pc)) == null)
-							{
-								pc.addEquipment(eq);
-							}
-							else
-							{
-								Logging.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
-							}
-						}
-					}
-				}
-			}
+			TabUtils.selectClothes(pc);
 		}
 
 		forceRefresh();
@@ -1296,7 +1225,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						unqualified.append(", "); //$NON-NLS-1$
 					}
 
-					unqualified.append(aClass.getName());
+					unqualified.append(aClass.getKeyName());
 					exclassList.add(aClass);
 				}
 			}
@@ -1418,7 +1347,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	{
 		raceComboBox.setEnabled(enable);
 		// tests if the race selection is valid and enables the class controls
-		if (!(((Race)raceComboBox.getSelectedItem()).getName().equals(Constants.s_NONESELECTED))) {
+		// TODO if (raceComboBox.getSelectedItem().equals(Race.NONE))
+		if (!(((Race)raceComboBox.getSelectedItem()).getDisplayName().equals(Constants.s_NONESELECTED))) {
 			enableClassControls(true);
 		}
 		else {
@@ -1959,7 +1889,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	{
 		PCGen_Frame1.getInst().addKit_actionPerformed();
 	}
-	
+
 	/**
 	 * This method converts the global alignment list into an array of Strings
 	 * to be used on the alignment menu.
@@ -2435,7 +2365,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				monsterHD = pc.getRace().hitDice(pc);
 				minLevel = pc.getRace().hitDice(pc) + pc.getRace().getMonsterClassLevels(pc);
 
-				final PCClass aClass = pc.getClassNamed(monsterClass);
+				final PCClass aClass = pc.getClassKeyed(monsterClass);
 
 				if (aClass != null)
 				{
@@ -2618,7 +2548,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 					if (monsterClass != null)
 					{
-						final PCClass aClass = pc.getClassNamed(monsterClass);
+						final PCClass aClass = pc.getClassKeyed(monsterClass);
 
 						if (aClass != null)
 						{
@@ -2748,7 +2678,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 							if (rowIndex-- == 0)
 							{
-								retStr = aClass.getName();
+								retStr = aClass.getDisplayName();
 
 								final String subClass = aClass.getDisplayClassName();
 
@@ -3267,7 +3197,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			if (value != null) {
 				final PCClass aClass = (PCClass)value;
-				setText(aClass.getName());
+				setText(aClass.getDisplayName());
 				if (isSelected)
 				{
 					if (aClass.isQualified(pc)) {

@@ -15,7 +15,7 @@ public class SubraceToken implements PCTemplateLstToken {
 
 	public boolean parse(PCTemplate template, String value) {
 		if (value.toUpperCase().startsWith("Y")) {
-			value = template.getName();
+			value = template.getDisplayName();
 		}
 
 		template.setSubRace(value);

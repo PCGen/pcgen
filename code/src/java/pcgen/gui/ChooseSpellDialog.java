@@ -282,7 +282,7 @@ final class ChooseSpellDialog extends JDialog
 					try
 					{
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(aFile),
-							        "UTF-8"));
+									"UTF-8"));
 
 						String line = reader.readLine();
 
@@ -298,7 +298,7 @@ final class ChooseSpellDialog extends JDialog
 									final String cost = aTok.nextToken();
 									final String className = aTok.nextToken();
 									List aList = new ArrayList(5);
-									aList.add(aClass.getName());
+									aList.add(aClass.getKeyName());
 									aList.add(specialty);
 									aList.add(cost);
 
@@ -411,7 +411,7 @@ final class ChooseSpellDialog extends JDialog
 		}
 		else
 		{
-			final PCClass aClass = Globals.getClassNamed(castingClass.getAssociated(0));
+			final PCClass aClass = Globals.getClassKeyed(castingClass.getAssociated(0));
 
 			if (aClass != null)
 			{
@@ -428,7 +428,7 @@ final class ChooseSpellDialog extends JDialog
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{
-			Logging.errorPrint("Spell: " + aSpell.getName() + "(" + aSpell.getSource() + ") has no home");
+			Logging.errorPrint("Spell: " + aSpell.getKeyName() + "(" + aSpell.getSource() + ") has no home");
 
 			return;
 		}
@@ -442,7 +442,7 @@ final class ChooseSpellDialog extends JDialog
 			{
 				sub = key.substring(6);
 
-				final PCClass aClass = Globals.getClassNamed(sub);
+				final PCClass aClass = Globals.getClassKeyed(sub);
 
 				if (aClass != null)
 				{
@@ -475,7 +475,7 @@ final class ChooseSpellDialog extends JDialog
 
 				sub = key.substring(7);
 
-				final Domain aDomain = Globals.getDomainNamed(sub);
+				final Domain aDomain = Globals.getDomainKeyed(sub);
 
 				if (aDomain != null)
 				{
@@ -593,16 +593,16 @@ final class ChooseSpellDialog extends JDialog
 
 				if (cName.length() == 0)
 				{
-					cName = castingClass.getName();
+					cName = castingClass.getKeyName();
 				}
 			}
 			else if (castingClass instanceof Domain)
 			{
-				dName = castingClass.getName();
+				dName = castingClass.getKeyName();
 			}
 			else
 			{
-				cName = castingClass.getName();
+				cName = castingClass.getKeyName();
 			}
 
 			classSpells = new ArrayList();
@@ -653,7 +653,7 @@ final class ChooseSpellDialog extends JDialog
 		}
 
 		if ((trigger == TRIGGER_ALL) || (trigger == TRIGGER_CLASS) || (trigger == TRIGGER_BASELEVEL)
-		    || (trigger == TRIGGER_CASTERLEVEL) || (trigger == TRIGGER_METAMAGIC))
+			|| (trigger == TRIGGER_CASTERLEVEL) || (trigger == TRIGGER_METAMAGIC))
 		{
 			//
 			// No variants yet
@@ -674,11 +674,12 @@ final class ChooseSpellDialog extends JDialog
 			}
 			else if (castingClass instanceof Domain)
 			{
-				aClass = Globals.getClassNamed("Cleric");
+				// TODO this is wrong
+				aClass = Globals.getClassKeyed("Cleric");
 			}
 			else
 			{
-				aClass = Globals.getClassNamed(castingClass.getName());
+				aClass = Globals.getClassKeyed(castingClass.getKeyName());
 			}
 
 			if (aClass != null)
@@ -699,7 +700,7 @@ final class ChooseSpellDialog extends JDialog
 			}
 
 			if (!Globals.checkRule(RuleConstants.LEVELCAP) && (casterLevel != Constants.INVALID_LEVEL)
-			    && (casterLevel > maxClassLevel))
+				&& (casterLevel > maxClassLevel))
 			{
 				casterLevel = maxClassLevel;
 				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_csdEr4"), Constants.s_APPNAME, MessageType.INFORMATION);
@@ -732,19 +733,19 @@ final class ChooseSpellDialog extends JDialog
 
 					if (casterName.length() == 0)
 					{
-						casterName = castingClass.getName();
+						casterName = castingClass.getKeyName();
 					}
 
 					caster = "CLASS";
 				}
 				else if (castingClass instanceof Domain)
 				{
-					casterName = castingClass.getName();
+					casterName = castingClass.getKeyName();
 					caster = "DOMAIN";
 				}
 				else
 				{
-					casterName = castingClass.getName();
+					casterName = castingClass.getKeyName();
 					caster = "CLASS";
 				}
 
@@ -781,7 +782,7 @@ final class ChooseSpellDialog extends JDialog
 		}
 
 		if ((trigger == TRIGGER_ALL) || (trigger == TRIGGER_CLASS) || (trigger == TRIGGER_BASELEVEL)
-		    || (trigger == TRIGGER_SPELLNAME))
+			|| (trigger == TRIGGER_SPELLNAME))
 		{
 			if (cmbSpellName.getSelectedIndex() >= 0)
 			{
@@ -1146,12 +1147,12 @@ final class ChooseSpellDialog extends JDialog
 		{
 			for (Iterator i = classList.iterator(); i.hasNext();)
 			{
-				final String className = (String) i.next();
-				PObject obj = Globals.getClassNamed(className);
+				final String classKey = (String) i.next();
+				PObject obj = Globals.getClassKeyed(classKey);
 
 				if (obj == null)
 				{
-					obj = Globals.getDomainNamed(className);
+					obj = Globals.getDomainKeyed(classKey);
 				}
 
 				if (obj != null)
@@ -1162,7 +1163,7 @@ final class ChooseSpellDialog extends JDialog
 					}
 
 					if (!("".equals(spellType)) && obj instanceof PCClass
-					    && (spellType.indexOf(((PCClass) obj).getSpellType()) >= 0))
+						&& (spellType.indexOf(((PCClass) obj).getSpellType()) >= 0))
 					{
 						classWithSpell.add(obj);
 					}

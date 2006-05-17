@@ -51,7 +51,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Spellcaster Classes";
 		chooserHandled = "SPELLCLASSES";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -60,7 +60,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
@@ -79,7 +79,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager {
 
 			if (!aClass.getSpellBaseStat().equals(Constants.s_NONE))
 			{
-				availableList.add(aClass.getName());
+				availableList.add(aClass.getKeyName());
 			}
 		}
 

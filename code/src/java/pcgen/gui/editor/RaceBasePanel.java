@@ -499,7 +499,7 @@ public class RaceBasePanel extends BasePanel
 
 			if (aClass.isMonster())
 			{
-				availableList.add(aClass.getName());
+				availableList.add(aClass.getKeyName());
 			}
 		}
 

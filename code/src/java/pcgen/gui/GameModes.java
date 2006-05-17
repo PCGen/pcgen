@@ -203,7 +203,7 @@ final class GameModes extends JMenu
 				final Campaign aCamp = (Campaign) campaignIterator.next();
 
 				if (aCamp.canShowInMenu()
-				    && aCamp.isGameMode(((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
+					&& aCamp.isGameMode(((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
 				{
 					if (firstSubMenu == null)
 					{
@@ -224,7 +224,7 @@ final class GameModes extends JMenu
 						firstSubMenu.addSeparator();
 					}
 
-					JRadioButtonMenuItem campaignMenuItem = new JRadioButtonMenuItem(aCamp.getName());
+					JRadioButtonMenuItem campaignMenuItem = new JRadioButtonMenuItem(aCamp.getDisplayName());
 					gameModeGroup.add(firstSubMenu.add(campaignMenuItem));
 					Utility.setDescription(campaignMenuItem, aCamp.getInfoText());
 					campaigns.add(aCamp);
@@ -254,7 +254,7 @@ final class GameModes extends JMenu
 				for (int i = 0; i < in_modeName.length; ++i)
 				{
 					if (Globals.isInGameMode(
-					        ((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
+							((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
 					{
 						gameModeNames[i].setSelected(true);
 						bFound = true;
@@ -342,7 +342,7 @@ final class GameModes extends JMenu
 					if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_campaignChangeError"),
-						    Constants.s_APPNAME, MessageType.INFORMATION);
+							Constants.s_APPNAME, MessageType.INFORMATION);
 
 						return;
 					}

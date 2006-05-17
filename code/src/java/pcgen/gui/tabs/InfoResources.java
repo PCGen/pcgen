@@ -457,7 +457,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			String nName;
 			String aType;
 
-			Logging.debugPrint("addButton:race: " + aRace.getName() + " -> " + target);
+			Logging.debugPrint("addButton:race: " + aRace.getDisplayName() + " -> " + target);
 
 			// first ask for the name of the new object
 			Object nValue = JOptionPane.showInputDialog(null, "Please enter a name for new " + target + ":",
@@ -527,7 +527,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			newPC.setMaster(newMaster);
 
 			Follower newFollower = new Follower(file.getAbsolutePath(), nName, aType);
-			newFollower.setRace(newPC.getRace().getName());
+			newFollower.setRace(newPC.getRace().getKeyName());
 			pc.addFollower(newFollower);
 			pc.setDirty(true);
 			pc.setCalcFollowerBonus(pc);
@@ -647,7 +647,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		newPC.setMaster(newMaster);
 
 		Follower newFollower = new Follower(file.getAbsolutePath(), newPC.getName(), aType);
-		newFollower.setRace(newPC.getRace().getName());
+		newFollower.setRace(newPC.getRace().getKeyName());
 		oldPC.addFollower(newFollower);
 		oldPC.setDirty(true);
 		newPC.setDirty(true);
@@ -745,7 +745,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		topSplit.setBorder(BorderFactory.createEtchedBorder());
 
 		leftPane.add(InfoTabUtils.createFilterPane(sortLabel, viewSortBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
-		
+
 		// the available table panel
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		Utility.setDescription(scrollPane, "Right click to add");
@@ -956,14 +956,14 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			Race aRace = (Race) obj;
 
-			if (aRace.getName().startsWith("<none"))
+			if (aRace.getKeyName().startsWith("<none"))
 			{
 				return;
 			}
 
 			StringBuffer b = new StringBuffer();
 			String bString = "";
-			b.append("<html><font size=+1><b>").append(aRace.getName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aRace.getDisplayName()).append("</b></font>");
 			b.append("  <b>Type:</b>").append(aRace.getType());
 
 			if (aRace.getMovement() != null) {
@@ -1065,7 +1065,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			addButton();
@@ -1081,7 +1081,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			addFileButton();

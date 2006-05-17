@@ -324,7 +324,7 @@ final class PreferencesDialog extends JDialog
 	private JRadioButton langIt;
 	private JRadioButton langEs;
 	private JRadioButton langPt;
-    private JRadioButton langSystem;
+	private JRadioButton langSystem;
 	private JRadioButton noAutoEquipCreate;
 	private JRadioButton pcgenFilesDirRadio;
 	private JRadioButton selectFilesDirRadio;
@@ -612,7 +612,7 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (mainTabPlacementCombo) the index "
-				    + mainTabPlacementCombo.getSelectedIndex() + " is unsupported.");
+					+ mainTabPlacementCombo.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -641,7 +641,7 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (charTabPlacementCombo) the index "
-				    + charTabPlacementCombo.getSelectedIndex() + " is unsupported.");
+					+ charTabPlacementCombo.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -675,7 +675,7 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (tabLabelsCombo) the index "
-				    + tabLabelsCombo.getSelectedIndex() + " is unsupported.");
+					+ tabLabelsCombo.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -741,7 +741,7 @@ final class PreferencesDialog extends JDialog
 						SettingsHandler.setLookAndFeel(0);
 						UIFactory.setLookAndFeel(0);
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_skinSetError") + e.toString(),
-						    in_pcgen, MessageType.ERROR);
+							in_pcgen, MessageType.ERROR);
 					}
 				}
 			}
@@ -909,7 +909,7 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (sourceOptions) the index "
-				    + sourceOptions.getSelectedIndex() + " is unsupported.");
+					+ sourceOptions.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -918,7 +918,7 @@ final class PreferencesDialog extends JDialog
 		CharacterInfo ci = PCGen_Frame1.getCharacterPane();
 		if (ci != null)
 		{
-		    ci.refresh();
+			ci.refresh();
 		}
 	}
 
@@ -962,6 +962,7 @@ final class PreferencesDialog extends JDialog
 				else
 				{
 					abilitiesRolledButton.setSelected(true);
+					abilityRolledModeCombo.setSelectedItem(gameMode.getRollMethodExpressionName());
 				}
 
 				break;
@@ -1068,7 +1069,7 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls (tab placement) the tab option "
-				    + SettingsHandler.getTabPlacement() + " is unsupported.");
+					+ SettingsHandler.getTabPlacement() + " is unsupported.");
 
 				break;
 		}
@@ -1097,8 +1098,8 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint(
-				    "In PreferencesDialog.applyOptionValuesToControls (cha tab placement) the tab option "
-				    + SettingsHandler.getChaTabPlacement() + " is unsupported.");
+					"In PreferencesDialog.applyOptionValuesToControls (cha tab placement) the tab option "
+					+ SettingsHandler.getChaTabPlacement() + " is unsupported.");
 
 				break;
 		}
@@ -1132,8 +1133,8 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint(
-				    "In PreferencesDialog.applyOptionValuesToControls (name display style) the tab option "
-				    + SettingsHandler.getNameDisplayStyle() + " is unsupported.");
+					"In PreferencesDialog.applyOptionValuesToControls (name display style) the tab option "
+					+ SettingsHandler.getNameDisplayStyle() + " is unsupported.");
 
 				break;
 		}
@@ -1308,7 +1309,7 @@ final class PreferencesDialog extends JDialog
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls (source display) the option "
-				    + Globals.getSourceDisplay() + " is unsupported.");
+					+ Globals.getSourceDisplay() + " is unsupported.");
 
 				break;
 		}
@@ -2742,7 +2743,7 @@ final class PreferencesDialog extends JDialog
 		outputPanel.add(label);
 		Utility.buildConstraints(c, 1, 11, 1, 1, 0, 0);
 		skillChoice.setModel(new DefaultComboBoxModel(
-		        new String[]{ in_skillChoiceNone, in_skillChoiceUntrained, in_skillChoiceAll, in_skillChoiceAsUI }));
+				new String[]{ in_skillChoiceNone, in_skillChoiceUntrained, in_skillChoiceAll, in_skillChoiceAsUI }));
 		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
 		gridbag.setConstraints(skillChoice, c);
 		outputPanel.add(skillChoice);
@@ -2862,7 +2863,7 @@ final class PreferencesDialog extends JDialog
 		settingsTree.setShowsRootHandles(true);
 		settingsTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		settingsScroll = new JScrollPane(settingsTree, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-			    ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
 		// Turn off the icons
 		DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
@@ -3021,7 +3022,7 @@ final class PreferencesDialog extends JDialog
 					if (((JCheckBox) evt.getSource()).isSelected())
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_urlBlocked"), Constants.s_APPNAME,
-						    MessageType.WARNING);
+							MessageType.WARNING);
 					}
 				}
 			});
@@ -3067,9 +3068,9 @@ final class PreferencesDialog extends JDialog
 		tabsPanel.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
 		mainTabPlacementCombo = new JComboBoxEx(new String[]
-			    {
-				    in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight
-			    });
+				{
+					in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight
+				});
 		gridbag.setConstraints(mainTabPlacementCombo, c);
 		tabsPanel.add(mainTabPlacementCombo);
 
@@ -3079,9 +3080,9 @@ final class PreferencesDialog extends JDialog
 		tabsPanel.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		charTabPlacementCombo = new JComboBoxEx(new String[]
-			    {
-				    in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight
-			    });
+				{
+					in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight
+				});
 		gridbag.setConstraints(charTabPlacementCombo, c);
 		tabsPanel.add(charTabPlacementCombo);
 
@@ -3091,9 +3092,9 @@ final class PreferencesDialog extends JDialog
 		tabsPanel.add(label);
 		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
 		tabLabelsCombo = new JComboBoxEx(new String[]
-			    {
-				    in_tabLabelPlain, in_tabLabelEpic, in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull
-			    });
+				{
+					in_tabLabelPlain, in_tabLabelEpic, in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull
+				});
 		gridbag.setConstraints(tabLabelsCombo, c);
 		tabsPanel.add(tabLabelsCombo);
 
@@ -3189,7 +3190,7 @@ final class PreferencesDialog extends JDialog
 						SettingsHandler.setLookAndFeel(0);
 						UIFactory.setLookAndFeel(0);
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_skinSetError") + e.toString(),
-						    in_pcgen, MessageType.ERROR);
+							in_pcgen, MessageType.ERROR);
 					}
 				}
 			}
@@ -3326,11 +3327,11 @@ final class PreferencesDialog extends JDialog
 				showPurchaseModeConfiguration();
 			}
 			else if ((source == prereqQualifyColor) || (source == prereqFailColor) || (source == featAutoColor)
-			    || (source == featVirtualColor))
+				|| (source == featVirtualColor))
 			{
 				final Color newColor = JColorChooser.showDialog(Globals.getRootFrame(),
-					    PropertyFactory.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(),
-					    source.getForeground());
+						PropertyFactory.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(),
+						source.getForeground());
 
 				if (newColor != null)
 				{
@@ -3373,8 +3374,8 @@ final class PreferencesDialog extends JDialog
 				}
 
 				final int choice = JOptionPane.showConfirmDialog(null,
-					    PropertyFactory.getString("in_Prefs_clearBrowserWarn"),
-					    PropertyFactory.getString("in_Prefs_clearBrowserTitle"), JOptionPane.YES_NO_OPTION);
+						PropertyFactory.getString("in_Prefs_clearBrowserWarn"),
+						PropertyFactory.getString("in_Prefs_clearBrowserTitle"), JOptionPane.YES_NO_OPTION);
 
 				if (choice == JOptionPane.YES_OPTION)
 				{
@@ -3464,10 +3465,10 @@ final class PreferencesDialog extends JDialog
 					File newTemplate = fc.getSelectedFile();
 
 					if (newTemplate.isDirectory()
-					    || (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
+						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_outputSheetDefaultError"),
-						    in_pcgen, MessageType.ERROR);
+							in_pcgen, MessageType.ERROR);
 					}
 					else
 					{
@@ -3497,10 +3498,10 @@ final class PreferencesDialog extends JDialog
 					File newTemplate = fc.getSelectedFile();
 
 					if (newTemplate.isDirectory()
-					    || (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
+						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_outputSheetDefaultError"),
-						    in_pcgen, MessageType.ERROR);
+							in_pcgen, MessageType.ERROR);
 					}
 					else
 					{
@@ -3532,7 +3533,7 @@ final class PreferencesDialog extends JDialog
 					if (newTemplate.isDirectory() || !newTemplate.getName().startsWith("eqsheet"))
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_templateEqSetError"), in_pcgen,
-						    MessageType.ERROR);
+							MessageType.ERROR);
 					}
 					else
 					{
@@ -3557,7 +3558,7 @@ final class PreferencesDialog extends JDialog
 					if (newTemplate.isDirectory() || !newTemplate.getName().startsWith("csheet"))
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Prefs_outputSheetDefaultError"),
-						    in_pcgen, MessageType.ERROR);
+							in_pcgen, MessageType.ERROR);
 					}
 					else
 					{
@@ -3652,12 +3653,12 @@ final class PreferencesDialog extends JDialog
 				final File fieldFile = new File(fieldValue);
 
 				if ((!fieldFile.exists()) && (!fieldValue.equalsIgnoreCase("null")) && (fieldValue.trim().length() > 0)
-				    && (!dialogOpened))
+					&& (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;
 					ShowMessageDelegate.showMessageDialog("File does not exist; preferences were not set.",
-					    "Invalid Path", MessageType.ERROR);
+						"Invalid Path", MessageType.ERROR);
 					((JTextField) source).setText(initialValue);
 				}
 			}

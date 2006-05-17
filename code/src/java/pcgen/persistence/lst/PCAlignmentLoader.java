@@ -42,7 +42,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 	/** Creates a new instance of PCAlignmentLoader */
 	public PCAlignmentLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -76,7 +76,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, alignment, value);
 				if (!token.parse(alignment, value))
 				{
-					Logging.errorPrint("Error parsing alignment " + alignment.getName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing alignment " + alignment.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(alignment, colString))

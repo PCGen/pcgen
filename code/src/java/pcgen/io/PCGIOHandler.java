@@ -161,7 +161,7 @@ public final class PCGIOHandler extends IOHandler
 
 			for (Iterator e1 = aSAList.iterator(); e1.hasNext();)
 			{
-				String aSA = ((SpecialAbility) (e1.next())).getName();
+				String aSA = ((SpecialAbility) (e1.next())).getKeyName();
 
 				if (aSA.startsWith(aString))
 				{
@@ -290,7 +290,7 @@ public final class PCGIOHandler extends IOHandler
 		catch (PCGParseException pcgex)
 		{
 			errors.add(pcgex.getMessage() + Constants.s_LINE_SEP + "Method: " + pcgex.getMethod() + '\n' + "Line: "
-			    + pcgex.getLine());
+				+ pcgex.getLine());
 		}
 
 		warnings.addAll(parser.getWarnings());
@@ -399,7 +399,7 @@ public final class PCGIOHandler extends IOHandler
 				}
 
 				warnings.add(
-				    "Character was saved with \"Use Default Monsters\" off. Random hit points added for race hit dice.");
+					"Character was saved with \"Use Default Monsters\" off. Random hit points added for race hit dice.");
 				bFixMade = true;
 			}
 
@@ -473,14 +473,14 @@ public final class PCGIOHandler extends IOHandler
 							 */
 							while (true)
 							{
-								final String message = aFeat.getName() + " has been modified and PCGen is unable to "
+								final String message = aFeat.getDisplayName() + " has been modified and PCGen is unable to "
 									+ "determine your previous selection(s)." + Constants.s_LINE_SEP
 									+ Constants.s_LINE_SEP + "This box will pop up once for each time you "
 									+ "have taken the feat.";
 
 								InputInterface ii = InputFactory.getInputInstance();
 								Object selectedValue = ii.showInputDialog(null, message, Constants.s_APPNAME,
-								        MessageType.INFORMATION, aAvailable.toArray(), aAvailable.get(0));
+										MessageType.INFORMATION, aAvailable.toArray(), aAvailable.get(0));
 
 								if (selectedValue != null)
 								{
@@ -518,8 +518,8 @@ public final class PCGIOHandler extends IOHandler
 			if (aFeat.isMultiples() && (aFeat.getAssociatedCount() == 0))
 			{
 				aFeat.addAssociated("PLEASE MAKE APPROPRIATE SELECTION");
-				warnings.add("Multiple selection feat found with no selections (" + aFeat.getName()
-				    + "). Correct on Feat tab.");
+				warnings.add("Multiple selection feat found with no selections (" + aFeat.getDisplayName()
+					+ "). Correct on Feat tab.");
 			}
 		}
 

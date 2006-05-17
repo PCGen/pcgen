@@ -70,11 +70,11 @@ final class LevelAbilityClassSkills extends LevelAbility
 		final List aArrayList = new ArrayList();
 
 		final StringTokenizer aTok       = new StringTokenizer(
-			    rawTagData.substring(
-			        rawTagData.indexOf('(') + 1,
-			        rawTagData.lastIndexOf(')')),
-			    ",",
-			    false);
+				rawTagData.substring(
+					rawTagData.indexOf('(') + 1,
+					rawTagData.lastIndexOf(')')),
+				",",
+				false);
 		int                   choiceType;
 		String                skillType  = "";
 		Skill                 aSkill;
@@ -139,7 +139,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 			}
 			else
 			{
-				aSkill = Globals.getSkillNamed(toAdd);
+				aSkill = Globals.getSkillKeyed(toAdd);
 
 				if ((aSkill != null) && !aSkill.isClassSkill(theClass, aPC))
 				{
@@ -225,9 +225,9 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					default:
 						Logging.errorPrint(
-						    "Impossible choice in LevelAbilityClassSkills." +
-						    "getChoicesList() :" +
-						    choiceType);
+							"Impossible choice in LevelAbilityClassSkills." +
+							"getChoicesList() :" +
+							choiceType);
 
 						break;
 				}
@@ -287,10 +287,10 @@ final class LevelAbilityClassSkills extends LevelAbility
 	 * @param  aArrayList
 	 */
 	public boolean processChoice(
-	    final List            aArrayList,
-	    final List            selectedList,
-	    final PlayerCharacter aPC,
-	    final PCLevelInfo     pcLevelInfo)
+		final List            aArrayList,
+		final List            selectedList,
+		final PlayerCharacter aPC,
+		final PCLevelInfo     pcLevelInfo)
 	{
 		for (int index = 0; index < selectedList.size(); ++index)
 		{

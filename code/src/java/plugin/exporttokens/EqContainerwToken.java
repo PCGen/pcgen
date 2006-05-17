@@ -38,7 +38,7 @@ import java.util.StringTokenizer;
 
 /**
  * Deals with EQCONTAINERW Token
- *  
+ *
  * EQCONTAINERW.x.ACCHECK
  * EQCONTAINERW.x.ACMOD
  * EQCONTAINERW.x.ALTCRIT
@@ -100,7 +100,7 @@ public class EqContainerwToken extends Token
 				eq = getContainer(pc, containerNo);
 			}
 			catch (NumberFormatException e) {
-			    // TODO - This exception needs to be handled
+				// TODO - This exception needs to be handled
 			}
 		}
 
@@ -488,7 +488,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static String getProfToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.profName(pc);
+		return eq.profKey(pc);
 	}
 
 	/**
@@ -573,7 +573,7 @@ public class EqContainerwToken extends Token
 			}
 			catch (NumberFormatException e)
 			{
-			    // TODO - This exception needs to be handled
+				// TODO - This exception needs to be handled
 			}
 		}
 		else

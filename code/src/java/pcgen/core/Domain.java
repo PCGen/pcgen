@@ -93,14 +93,14 @@ public final class Domain extends PObject
 		if (aBool)
 		{
 			final PlayerCharacter aPC    = pc;
-			final CharacterDomain aCD    = aPC.getCharacterDomainForDomain(name);
+			final CharacterDomain aCD    = aPC.getCharacterDomainForDomain(keyName);
 			PCClass               aClass = null;
 
 			if (aCD != null)
 			{
 				if (aCD.isFromPCClass())
 				{
-					aClass = aPC.getClassNamed(aCD.getObjectName());
+					aClass = aPC.getClassKeyed(aCD.getObjectName());
 
 					if (aClass != null)
 					{
@@ -121,13 +121,13 @@ public final class Domain extends PObject
 
 						if ((maxLevel > 1) && (aClass.getNumSpellsFromSpecialty() == 0))
 						{
-							final List aList = Globals.getSpellsIn(-1, "", name);
+							final List aList = Globals.getSpellsIn(-1, "", keyName);
 
 							for (Iterator i = aList.iterator(); i.hasNext();)
 							{
 								final Spell gcs = (Spell) i.next();
 
-								if (gcs.levelForKey("DOMAIN", name, aPC) < maxLevel)
+								if (gcs.levelForKey("DOMAIN", keyName, aPC) < maxLevel)
 								{
 									if (aClass.getNumSpellsFromSpecialty() == 0)
 									{
@@ -148,7 +148,7 @@ public final class Domain extends PObject
 				{
 					final PCSpell pcSpell = (PCSpell) ri.next();
 
-					final Spell aSpell = Globals.getSpellNamed(pcSpell.getKeyName());
+					final Spell aSpell = Globals.getSpellKeyed(pcSpell.getKeyName());
 
 					if (aSpell == null)
 					{
@@ -178,17 +178,17 @@ public final class Domain extends PObject
 			String choiceString = getChoiceString();
 
 			if (
-			    (choiceString.length() > 0) &&
-			    !aPC.isImporting() &&
-			    !choiceString.startsWith("FEAT|"))
+				(choiceString.length() > 0) &&
+				!aPC.isImporting() &&
+				!choiceString.startsWith("FEAT|"))
 			{
 				ChooserUtilities.modChoices(
-				    this,
-				    new ArrayList(),
-				    new ArrayList(),
-				    true,
-				    aPC,
-				    true);
+					this,
+					new ArrayList(),
+					new ArrayList(),
+					true,
+					aPC,
+					true);
 			}
 
 			if (!aPC.isImporting())
@@ -201,7 +201,7 @@ public final class Domain extends PObject
 
 	public String getSpellKey()
 	{
-		return "DOMAIN|" + name;
+		return "DOMAIN|" + keyName;
 	}
 
 	public Object clone()
@@ -225,9 +225,9 @@ public final class Domain extends PObject
 		catch (CloneNotSupportedException exc)
 		{
 			ShowMessageDelegate.showMessageDialog(
-			    exc.getMessage(),
-			    Constants.s_APPNAME,
-			    MessageType.ERROR);
+				exc.getMessage(),
+				Constants.s_APPNAME,
+				MessageType.ERROR);
 		}
 
 		return aObj;
@@ -246,7 +246,7 @@ public final class Domain extends PObject
 		{
 			if (obj.getClass() == this.getClass())
 			{
-				return ((Domain) obj).getName().equals(this.getName());
+				return ((Domain) obj).getKeyName().equals(this.getKeyName());
 			}
 		}
 
@@ -261,7 +261,7 @@ public final class Domain extends PObject
 	public int hashCode()
 	{
 		final int result;
-		result = ((getName() != null) ? getName().hashCode() : 0);
+		result = ((getKeyName() != null) ? getKeyName().hashCode() : 0);
 
 		return result;
 	}
@@ -297,9 +297,9 @@ public final class Domain extends PObject
 	}
 
 	void addSpellsToClassForLevels(
-	    final PCClass aClass,
-	    final int     minLevel,
-	    final int     maxLevel)
+		final PCClass aClass,
+		final int     minLevel,
+		final int     maxLevel)
 	{
 		if (aClass == null)
 		{
@@ -308,7 +308,7 @@ public final class Domain extends PObject
 
 		for (int aLevel = minLevel; aLevel <= maxLevel; aLevel++)
 		{
-			final List domainSpells = Globals.getSpellsIn(aLevel, "", name);
+			final List domainSpells = Globals.getSpellsIn(aLevel, "", keyName);
 
 			if (!domainSpells.isEmpty())
 			{
@@ -371,7 +371,7 @@ public final class Domain extends PObject
 						bFirst = false;
 					}
 					final int spellLevel = ss.getInfo("DOMAIN", spellName).level;
-					txt.append('|').append(getName()).append('=').append(spellLevel).append('|').append(obj.toString());
+					txt.append('|').append(getKeyName()).append('=').append(spellLevel).append('|').append(obj.toString());
 				}
 			}
 		}

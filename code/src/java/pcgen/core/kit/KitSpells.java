@@ -202,7 +202,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 				if (!aClass.getMemorizeSpells() &&
 					!bookName.equals(Globals.getDefaultSpellBook()))
 				{
-					warnings.add("SPELLS: " + aClass.getName()
+					warnings.add("SPELLS: " + aClass.getDisplayName()
 								 + " can only add to " +
 								 Globals.getDefaultSpellBook());
 					return false;
@@ -219,19 +219,19 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 						{
 							List allSpells = Globals.getSpellsIn(
 								Integer.parseInt(spellName.substring(6)),
-								aClass.getName(),
+								aClass.getKeyName(),
 								"");
 							for (Iterator s = allSpells.iterator();
 								 s.hasNext(); )
 							{
 								aSpellList.add(new KitSpellBookEntry(aClass.
-									getName(), sbe.getBookName(),
+									getKeyName(), sbe.getBookName(),
 									(String) s.next(), null));
 							}
 						}
 						else
 						{
-							final Spell aSpell = Globals.getSpellNamed(
+							final Spell aSpell = Globals.getSpellKeyed(
 								spellName);
 
 							if (aSpell != null)
@@ -364,7 +364,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			}
 			return null;
 		}
-		return aPC.getClassNamed(aClassName);
+		return aPC.getClassKeyed(aClassName);
 	}
 	/**
 	 * Add spells from this Kit to the PC
@@ -378,7 +378,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		final KitSpellBookEntry           aSpell,
 		final PCClass         pcClass)
 	{
-		Spell spell = Globals.getSpellNamed(aSpell.getName());
+		Spell spell = Globals.getSpellKeyed(aSpell.getName());
 
 		int spLevel = 99;
 
@@ -410,7 +410,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		if (spLevel < 0)
 		{
 			Logging.errorPrint(
-				"SPELLS: " + pcClass.getName() + " cannot cast spell \"" +
+				"SPELLS: " + pcClass.getDisplayName() + " cannot cast spell \"" +
 				aSpell.getName() + "\"");
 
 			return;
@@ -439,7 +439,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 		for (int numTimes = 0; numTimes < aSpell.getCopies(); numTimes++)
 		{
-			final String aString = pc.addSpell(cs, metamagicFeatList, pcClass.getName(),
+			final String aString = pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(),
 											   aSpell.getBookName(), adjustedLevel,
 											   spLevel);
 			if (aString.length() != 0)

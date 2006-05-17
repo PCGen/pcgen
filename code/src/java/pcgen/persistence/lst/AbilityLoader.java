@@ -97,7 +97,7 @@ public class AbilityLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, anAbility, value);
 				if (!token.parse(anAbility, value))
 				{
-					Logging.errorPrint("Error parsing ability " + anAbility.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability " + anAbility.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			//
@@ -134,9 +134,9 @@ public class AbilityLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getAbilityNamed("ALL", baseName);
+		return Globals.getAbilityKeyed("ALL", aKey);
 	}
 
 	/**

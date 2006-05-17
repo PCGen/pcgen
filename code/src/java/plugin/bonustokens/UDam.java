@@ -46,8 +46,8 @@ public final class UDam extends BonusObj
 	{
 		if (token.startsWith("CLASS=") || token.startsWith("CLASS."))
 		{
-			final String className = token.substring(6);
-			final PCClass aClass = Globals.getClassNamed(className);
+			final String classKey = token.substring(6);
+			final PCClass aClass = Globals.getClassKeyed(classKey);
 
 			if (aClass != null)
 			{
@@ -55,8 +55,8 @@ public final class UDam extends BonusObj
 
 				return true;
 			}
-			addBonusInfo(className);
-			Logging.errorPrint("Could not find class '" + className + "' for UDAM token");
+			addBonusInfo(classKey);
+			Logging.errorPrint("Could not find class '" + classKey + "' for UDAM token");
 		}
 
 		return false;
@@ -66,14 +66,14 @@ public final class UDam extends BonusObj
 	{
 		if (obj instanceof String)
 		{
-			final PCClass aClass = Globals.getClassNamed((String) obj);
+			final PCClass aClass = Globals.getClassKeyed((String) obj);
 			if (aClass != null)
 			{
 				replaceBonusInfo(obj, aClass);
 			}
 			return "CLASS." + obj;
 		}
-		return "CLASS." + ((PCClass) obj).getName();
+		return "CLASS." + ((PCClass) obj).getKeyName();
 	}
 
 	protected String[] getBonusesHandled()

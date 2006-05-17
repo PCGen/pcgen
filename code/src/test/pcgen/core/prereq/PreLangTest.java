@@ -41,6 +41,10 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  */
 public class PreLangTest extends AbstractCharacterTestCase
 {
+	final Language elven = new Language();
+	final Language dwarven = new Language();
+	final Language halfling = new Language();
+
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreLangTest.class);
@@ -62,27 +66,27 @@ public class PreLangTest extends AbstractCharacterTestCase
 		throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.addLanguage("Elven");
+		character.addLanguage(elven);
 
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRELANG:1,Elven");
+		prereq = factory.parse("PRELANG:1,KEY_Elven");
 
 		assertTrue("Character should have elven",
 				   PrereqHandler.passes(prereq, character, null));
 
-		prereq = factory.parse("PRELANG:1,Elven,Dwarven");
+		prereq = factory.parse("PRELANG:1,KEY_Elven,KEY_Dwarven");
 
 		assertTrue("Character should have elven",
 				   PrereqHandler.passes(prereq, character, null));
 
-		prereq = factory.parse("PRELANG:2,Elven,Dwarven");
+		prereq = factory.parse("PRELANG:2,KEY_Elven,KEY_Dwarven");
 
 		assertFalse("Character doesn't have Dwarven",
 					PrereqHandler.passes(prereq, character, null));
 
-		character.addLanguage("Dwarven");
+		character.addLanguage(dwarven);
 
 		assertTrue("Character has Elven and Dwarven",
 				   PrereqHandler.passes(prereq, character, null));
@@ -92,10 +96,15 @@ public class PreLangTest extends AbstractCharacterTestCase
 		assertFalse("Character doesn't have 3 langs",
 					PrereqHandler.passes(prereq, character, null));
 
-		character.addLanguage("Halfling");
+		character.addLanguage(halfling);
 
 		assertTrue("Character has Elven, Dwarven, and Halfling",
 				   PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("PRELANG:3,Elven");
+
+		assertFalse("PRE test should look at keys",
+					PrereqHandler.passes(prereq, character, null));
 	}
 
 	protected void setUp()
@@ -103,21 +112,18 @@ public class PreLangTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		final Language elven = new Language();
 		elven.setName("Elven");
-		elven.setKeyName("Elven");
+		elven.setKeyName("KEY_Elven");
 		elven.setTypeInfo("Spoken.Written");
 		Globals.getLanguageList().add(elven);
 
-		final Language dwarven = new Language();
 		dwarven.setName("Dwarven");
-		dwarven.setKeyName("Dwarven");
+		dwarven.setKeyName("KEY_Dwarven");
 		dwarven.setTypeInfo("Spoken.Written");
 		Globals.getLanguageList().add(dwarven);
 
-		final Language halfling = new Language();
 		halfling.setName("Halfling");
-		halfling.setKeyName("Halfling");
+		halfling.setKeyName("KEY_Halfling");
 		halfling.setTypeInfo("Spoken");
 		Globals.getLanguageList().add(halfling);
 	}

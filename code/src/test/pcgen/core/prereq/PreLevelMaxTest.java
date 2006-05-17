@@ -70,7 +70,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
 
-		myClass = character.getClassNamed("My Class");
+		myClass = character.getClassKeyed("MY_CLASS");
 
 		Prerequisite prereq;
 
@@ -96,7 +96,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
 
-		myClass = character.getClassNamed("My Class");
+		myClass = character.getClassKeyed("MY_CLASS");
 
 		Prerequisite prereq;
 
@@ -123,7 +123,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
 
-		myClass = character.getClassNamed("My Class");
+		myClass = character.getClassKeyed("MY_CLASS");
 
 		character.setRace(race);
 
@@ -133,7 +133,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRELEVELMAX:5");
 
-		final BonusObj levelBonus = Bonus.newBonus("PCLEVEL|My Class|2");
+		final BonusObj levelBonus = Bonus.newBonus("PCLEVEL|MY_CLASS|2");
 		levelBonus.setCreatorObject(myClass);
 		myClass.addBonusList(levelBonus);
 		character.calcActiveBonuses();
@@ -151,6 +151,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		race.setHitDice(2);
 
 		myClass.setName("My Class");
+		myClass.setKeyName("MY_CLASS");
 		myClass.setAbbrev("Myc");
 		myClass.setSkillPointFormula("3");
 		Globals.getClassList().add(myClass);

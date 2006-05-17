@@ -46,18 +46,18 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		int runningTotal = 0;
 
 		// Compute the skill name from the Prerequisite
-		String requiredSkillName = prereq.getKey().toUpperCase();
+		String requiredSkillKey = prereq.getKey().toUpperCase();
 
 		if (prereq.getSubKey()!=null) {
-			requiredSkillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		final boolean isType = (requiredSkillName.startsWith("TYPE.") || requiredSkillName.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType = (requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
-			requiredSkillName = requiredSkillName.substring(5).toUpperCase();
+			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
 		}
-		final String skillName = requiredSkillName.toUpperCase();
+		final String skillKey = requiredSkillKey.toUpperCase();
 
 		if (isType)
 		{
@@ -70,7 +70,7 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 			for (Iterator i = skillList.iterator(); i.hasNext();)
 			{
 				Skill aSkill = (Skill) i.next();
-				if ( aSkill.isType(skillName) && isClassSkill(aSkill,character) )
+				if ( aSkill.isType(skillKey) && isClassSkill(aSkill,character) )
 				{
 					runningTotal++;
 				}
@@ -78,7 +78,7 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		}
 		else
 		{
-			Skill aSkill = Globals.getSkillNamed(skillName);
+			Skill aSkill = Globals.getSkillKeyed(skillKey);
 			if ( isClassSkill(aSkill,character) )
 			{
 				runningTotal++;

@@ -80,7 +80,7 @@ public final class Stat extends BonusObj
 			}
 			else
 			{
-				final PCClass aClass = Globals.getClassNamed(token);
+				final PCClass aClass = Globals.getClassKeyed(token);
 
 				if (aClass != null)
 				{
@@ -110,7 +110,7 @@ public final class Stat extends BonusObj
 		}
 		else if (obj instanceof PCClass)
 		{
-			return ((PCClass) obj).getName();
+			return ((PCClass) obj).getKeyName();
 		}
 		else if (obj instanceof MissingObject)
 		{

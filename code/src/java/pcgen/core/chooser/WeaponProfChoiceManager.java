@@ -35,6 +35,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.Collection;
 
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
@@ -80,22 +81,28 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 		while (choicesIt.hasNext())
 		{
 			final String aString = (String) choicesIt.next();
+			final String ucString = aString.toUpperCase();
 
-			if ("LIST".equals(aString))
+			if ("LIST".equals(ucString))
 			{
 				String bString;
 
 				for (Iterator setIter = aPc.getWeaponProfList().iterator(); setIter.hasNext();)
 				{
 					bString = (String) setIter.next();
-
-					if (!availableList.contains(bString))
+					WeaponProf wp = Globals.getWeaponProfKeyed(bString);
+					if (wp == null)
 					{
-						availableList.add(bString);
+						continue;
+					}
+
+					if (!availableList.contains(wp))
+					{
+						availableList.add(wp);
 					}
 				}
 			}
-			else if (aString.equals("DEITYWEAPON"))
+			else if (ucString.equals("DEITYWEAPON"))
 			{
 				if (aPc.getDeity() != null)
 				{
@@ -103,28 +110,37 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 
 					if ("ALL".equalsIgnoreCase(weaponList) || "ANY".equalsIgnoreCase(weaponList))
 					{
-						weaponList = Globals.getWeaponProfNames("|", false);
+						Collection wpList = Globals.getAllWeaponProfs();
+						availableList.addAll(wpList);
 					}
-
-					final StringTokenizer bTok = new StringTokenizer(weaponList, "|");
-
-					while (bTok.hasMoreTokens())
+					else
 					{
-						final String bString = bTok.nextToken();
-						availableList.add(bString);
+						final StringTokenizer bTok = new StringTokenizer(weaponList, "|");
+
+						while (bTok.hasMoreTokens())
+						{
+							final String bString = bTok.nextToken();
+							final WeaponProf wp = Globals.getWeaponProfKeyed(bString);
+							availableList.add(wp);
+						}
+					}
+
+				}
+			}
+			else if (ucString.startsWith("SIZE."))
+			{
+				final String profKey = aString.substring(7);
+				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
+					&& aPc.getWeaponProfList().contains(profKey))
+				{
+					final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+					if (!availableList.contains(wp))
+					{
+						availableList.add(wp);
 					}
 				}
 			}
-			else if (aString.startsWith("Size."))
-			{
-				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
-					&& aPc.getWeaponProfList().contains(aString.substring(7))
-					&& !availableList.contains(aString.substring(7)))
-				{
-					availableList.add(aString.substring(7));
-				}
-			}
-			else if (aString.startsWith("WSize."))
+			else if (ucString.startsWith("WSIZE."))
 			{
 				String bString;
 				WeaponProf wp;
@@ -143,7 +159,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 				for (Iterator setIter = aPc.getWeaponProfList().iterator(); setIter.hasNext();)
 				{
 					bString = (String) setIter.next();
-					wp = Globals.getWeaponProfNamed(bString);
+					wp = Globals.getWeaponProfKeyed(bString);
 
 					if (wp == null)
 					{
@@ -153,7 +169,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 					//
 					// get an Equipment object based on the named WeaponProf
 					//
-					Equipment eq = EquipmentList.getEquipmentNamed(wp.getName());
+					Equipment eq = EquipmentList.getEquipmentNamed(wp.getKeyName());
 
 					if (eq == null)
 					{
@@ -200,7 +216,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 
 								if (tempEq.isWeapon())
 								{
-									if (tempEq.profName(aPc).equals(wp.getName()))
+									if (tempEq.profKey(aPc).equals(wp.getKeyName()))
 									{
 										eq = tempEq;
 
@@ -243,40 +259,40 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 						continue;
 					}
 
-					if (!availableList.contains(bString))
+					if (!availableList.contains(wp))
 					{
 						if ("Light".equals(sString) && eq.isWeaponLightForPC(aPc))
 						{
-							availableList.add(bString);
+							availableList.add(wp);
 						}
 
 						if ("1 handed".equals(sString) && eq.isWeaponOneHanded(aPc))
 						{
-							availableList.add(bString);
+							availableList.add(wp);
 						}
 
 						if ("2 handed".equals(sString) && eq.isWeaponTwoHanded(aPc))
 						{
-							availableList.add(bString);
+							availableList.add(wp);
 						}
 					}
 				}
 			}
-			else if (aString.startsWith("SpellCaster."))
+			else if (ucString.startsWith("SPELLCASTER."))
 			{
-				if (aPc.isSpellCaster(1) && !availableList.contains(aString.substring(12)))
+				// TODO this should not be hardcoded.
+				String profKey = aString.substring(12);
+				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+				if (wp == null)
 				{
-					availableList.add(aString.substring(12));
+					continue;
+				}
+				if (aPc.isSpellCaster(1) && !availableList.contains(wp))
+				{
+					availableList.add(wp);
 				}
 			}
-			else if (aString.startsWith("ADD."))
-			{
-				if (!availableList.contains(aString.substring(4)))
-				{
-					availableList.add(aString.substring(4));
-				}
-			}
-			else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE="))
+			else if (ucString.startsWith("TYPE.") || ucString.startsWith("TYPE="))
 			{
 				String sString = aString.substring(5);
 				boolean adding = true;
@@ -296,7 +312,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 				while (setIter.hasNext())
 				{
 					bString = (String) setIter.next();
-					wp = Globals.getWeaponProfNamed(bString);
+					wp = Globals.getWeaponProfKeyed(bString);
 
 					if (wp == null)
 					{
@@ -312,37 +328,37 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 							continue;
 						}
 
-						if (adding && !availableList.contains(wp.getName()))
+						if (adding && !availableList.contains(wp))
 						{
-							availableList.add(wp.getName());
+							availableList.add(wp);
 						}
 					}
 					else if (eq.typeStringContains(sString))
 					{
 						// if this item is of the desired type, add it to the list
-						if (adding && !availableList.contains(wp.getName()))
+						if (adding && !availableList.contains(wp))
 						{
-							availableList.add(wp.getName());
+							availableList.add(wp);
 						}
 
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getName()))
+						else if (!adding && availableList.contains(wp.getKeyName()))
 						{
-							availableList.remove(wp.getName());
+							availableList.remove(wp);
 							setIter = availableList.iterator();
 						}
 					}
 					else if (sString.equalsIgnoreCase("LIGHT"))
 					{
 						// if this item is of the desired type, add it to the list
-						if (adding && !availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPc))
+						if (adding && !availableList.contains(wp) && eq.isWeaponLightForPC(aPc))
 						{
-							availableList.add(wp.getName());
+							availableList.add(wp);
 						}
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPc))
+						else if (!adding && availableList.contains(wp) && eq.isWeaponLightForPC(aPc))
 						{
-							availableList.remove(wp.getName());
+							availableList.remove(wp);
 							setIter = availableList.iterator();
 						}
 					}
@@ -350,14 +366,19 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 			}
 			else
 			{
-				if (aPc.getWeaponProfList().contains(aString) && !availableList.contains(aString))
+				String profKey = aString;
+				if (ucString.startsWith("ADD."))
 				{
-					availableList.add(aString);
+					profKey = aString.substring(4);
+				}
+				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+				if (aPc.getWeaponProfList().contains(profKey) && !availableList.contains(wp))
+				{
+					availableList.add(wp);
 				}
 			}
 		}
 
 		pobject.addAssociatedTo(selectedList);
 	}
-
 }

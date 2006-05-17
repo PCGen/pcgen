@@ -204,7 +204,7 @@ final class PCGVer0Parser implements PCGParser
 			{
 				Logging.errorPrint("Insufficient campaign information to load character file.");
 				throw new PCGParseException("checkCampaignLine", line,
-				    "Insufficient campaign information to load character file.");
+					"Insufficient campaign information to load character file.");
 			}
 
 			return true;
@@ -228,7 +228,7 @@ final class PCGVer0Parser implements PCGParser
 
 				while (aTok.hasMoreTokens())
 				{
-					Campaign aCamp = Globals.getCampaignNamed(aTok.nextToken());
+					Campaign aCamp = Globals.getCampaignKeyed(aTok.nextToken());
 
 					if (aCamp != null
 						&& aCamp
@@ -423,7 +423,7 @@ final class PCGVer0Parser implements PCGParser
 
 									if ((pcgVersion > 270) && cTok.hasMoreTokens())
 									{
-										sa.setSASource("PCCLASS|" + aClass.getName() + "|" + cTok.nextToken());
+										sa.setSASource("PCCLASS|" + aClass.getKeyName() + "|" + cTok.nextToken());
 									}
 
 									aClass.addSpecialAbilityToList(sa);
@@ -507,7 +507,7 @@ final class PCGVer0Parser implements PCGParser
 			if ((aClass == null) && aName.equalsIgnoreCase("Domain"))
 			{
 				Logging.errorPrint("Domain class found and ignored. "
-				    + "Please check character to verify conversion is successful.");
+					+ "Please check character to verify conversion is successful.");
 				ignoreDomainClassLine = x;
 			}
 			else if (aClass == null)
@@ -519,7 +519,7 @@ final class PCGVer0Parser implements PCGParser
 
 			// ClassName:SubClassName:ProhibitedString:Level:[hp1:[hp2:...[hpn:]]]skillPool:SpellBaseStat:
 			// If the class wasn't found we will parse through the data anyway, but just toss it
-			String subClassName = aTok.nextToken().trim();
+			String subClassKey = aTok.nextToken().trim();
 			String prohibitedString = aTok.nextToken().trim();
 			int k = Integer.parseInt(aTok.nextToken());
 
@@ -531,7 +531,7 @@ final class PCGVer0Parser implements PCGParser
 					aPC.getClassList().add(aClass);
 				}
 
-				aClass.setSubClassName(subClassName);
+				aClass.setSubClassKey(subClassKey);
 				aClass.setProhibitedString(prohibitedString);
 			}
 
@@ -546,7 +546,7 @@ final class PCGVer0Parser implements PCGParser
 
 				if (aClass != null)
 				{
-				    PCLevelInfo levelInfo = aPC.saveLevelInfo(aClass.getKeyName());
+					PCLevelInfo levelInfo = aPC.saveLevelInfo(aClass.getKeyName());
 					aClass.addLevel(levelInfo, false, aPC);
 					aClass.setHitPoint(i, new Integer(iHp));
 					aPC.saveLevelInfo(aClass.getKeyName());
@@ -565,8 +565,8 @@ final class PCGVer0Parser implements PCGParser
 				aString = aTok.nextToken();
 
 				if ((SettingsHandler.getGame().getStatFromAbbrev(aString.toUpperCase()) > -1)
-				    || aString.equalsIgnoreCase(Constants.s_NONE) || "Any".equalsIgnoreCase(aString)
-				    || "SPELL".equalsIgnoreCase(aString))
+					|| aString.equalsIgnoreCase(Constants.s_NONE) || "Any".equalsIgnoreCase(aString)
+					|| "SPELL".equalsIgnoreCase(aString))
 				{
 					if (aClass != null)
 					{
@@ -787,8 +787,8 @@ final class PCGVer0Parser implements PCGParser
 			String customName = "";
 
 			if ((aName.indexOf(";NAME=") > -1) || (aName.indexOf(";SIZE=") > -1) || (aName.indexOf(";EQMOD=") > -1)
-			    || (aName.indexOf(";ALTEQMOD=") > -1) || (aName.indexOf(";SPROP=") > -1)
-			    || (aName.indexOf(";COSTMOD=") > -1) || (aName.indexOf(";WEIGHTMOD=") > -1))
+				|| (aName.indexOf(";ALTEQMOD=") > -1) || (aName.indexOf(";SPROP=") > -1)
+				|| (aName.indexOf(";COSTMOD=") > -1) || (aName.indexOf(";WEIGHTMOD=") > -1))
 			{
 				final int idx = aName.indexOf(';');
 				final String baseItemKey = aName.substring(0, idx);
@@ -870,7 +870,7 @@ final class PCGVer0Parser implements PCGParser
 					eq = (Equipment) aEq.clone();
 
 					if ((customName.length() == 0)
-					    && ((eq.getEqModifierList(true).size() + eq.getEqModifierList(false).size()) != 0))
+						&& ((eq.getEqModifierList(true).size() + eq.getEqModifierList(false).size()) != 0))
 					{
 						customName = aName;
 					}
@@ -885,8 +885,8 @@ final class PCGVer0Parser implements PCGParser
 				eq.addEqModifiers(head2, false);
 
 				if (((sized.length() != 0) && !eq.getSize().equals(sized))
-				    || ((eq.getEqModifierList(true).size() + eq.getEqModifierList(false).size()) != 0)
-				    || (customProp.length() != 0))
+					|| ((eq.getEqModifierList(true).size() + eq.getEqModifierList(false).size()) != 0)
+					|| (customProp.length() != 0))
 				{
 					if (sized.length() == 0)
 					{
@@ -1069,7 +1069,7 @@ final class PCGVer0Parser implements PCGParser
 
 						default:
 							Logging.errorPrint("In PCGVer0Parser.parseExperienceAndMiscLine the i value " + i
-							    + " is not handled.");
+								+ " is not handled.");
 
 							break;
 					}
@@ -1122,7 +1122,7 @@ final class PCGVer0Parser implements PCGParser
 					AbilityUtilities.modFeat(aPC, null, anAbility.getKeyName(), true, !anAbility.isMultiples());
 
 					if (anAbility.isMultiples() && (anAbility.getAssociatedCount() == 0)
-					    && (aPC.getFeatKeyed(anAbility.getKeyName()) == null))
+						&& (aPC.getFeatKeyed(anAbility.getKeyName()) == null))
 					{
 						aPC.addFeat(anAbility, null);
 					}
@@ -1301,7 +1301,7 @@ final class PCGVer0Parser implements PCGParser
 
 						default:
 							Logging.errorPrint("In PCGVer0Parser.parseGoldBioValue the i value " + i
-							    + " is not handled.");
+								+ " is not handled.");
 
 							break;
 					}
@@ -1320,7 +1320,7 @@ final class PCGVer0Parser implements PCGParser
 		catch (NumberFormatException ex)
 		{
 			throw new PCGParseException("parseGoldBioDescriptionLine", Integer.toString(i) + ":" + lines[current],
-			    ex.getMessage());
+				ex.getMessage());
 		}
 
 		return current;
@@ -1332,7 +1332,7 @@ final class PCGVer0Parser implements PCGParser
 
 		while (aTok.hasMoreTokens())
 		{
-			aPC.addLanguage(aTok.nextToken());
+			aPC.addLanguageKeyed(aTok.nextToken());
 		}
 	}
 
@@ -1518,34 +1518,34 @@ final class PCGVer0Parser implements PCGParser
 			i++;
 			aString = lines[i];
 
-			String name = aTok.nextToken();
-			Spell aSpell = Globals.getSpellNamed(name);
+			String spellKey = aTok.nextToken();
+			Spell aSpell = Globals.getSpellKeyed(spellKey);
 
 			if (aSpell == null)
 			{
-				final String message = "Unable to find spell named: " + name;
+				final String message = "Unable to find spell keyed: " + spellKey;
 				warnings.add(message);
 
 				continue;
 			}
 
 			final int times = Integer.parseInt(aTok.nextToken());
-			final String pdName = aTok.nextToken();
-			final String className = aTok.nextToken();
+			final String domainKey = aTok.nextToken();
+			final String classKey = aTok.nextToken();
 			final String book = aTok.nextToken();
-			final PCClass aClass = aPC.getClassNamed(className);
+			final PCClass aClass = aPC.getClassKeyed(classKey);
 			PObject aObject;
 
 			if (aClass == null)
 			{
-				final String message = "Bad spell info - no class named " + className;
+				final String message = "Bad spell info - no class keyed " + classKey;
 				warnings.add(message);
 
 				continue;
 			}
 
 			// first, let's see if the spell is a domain spell
-			aObject = aPC.getCharacterDomainNamed(pdName);
+			aObject = aPC.getCharacterDomainKeyed(domainKey);
 
 			// if it's not a domain spell, check to see if
 			// it's a class spell,  ie: (bard == bard)
@@ -1556,7 +1556,7 @@ final class PCGVer0Parser implements PCGParser
 
 			if (aObject == null)
 			{
-				final String message = "Bad spell info - no class or domain named " + pdName;
+				final String message = "Bad spell info - no class or domain named " + domainKey;
 				warnings.add(message);
 
 				continue;
@@ -1566,8 +1566,8 @@ final class PCGVer0Parser implements PCGParser
 
 			if (sLevel == -1)
 			{
-				final String message = "Bad spell info -" + aSpell.getName() + " doesn't have valid level info for "
-					+ pdName;
+				final String message = "Bad spell info -" + aSpell.getKeyName() + " doesn't have valid level info for "
+					+ domainKey;
 				warnings.add(message);
 
 				continue;
@@ -1599,8 +1599,8 @@ final class PCGVer0Parser implements PCGParser
 
 			while (aTok.hasMoreTokens())
 			{
-				final String bString = aTok.nextToken();
-				final Ability anAbility = Globals.getAbilityNamed("FEAT", bString);
+				final String key = aTok.nextToken();
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", key);
 
 				if (anAbility != null)
 				{
@@ -1891,12 +1891,12 @@ final class PCGVer0Parser implements PCGParser
 			i++;
 			aString = lines[i];
 
-			String name = aTok.nextToken();
-			Spell aSpell = Globals.getSpellNamed(name);
+			String spellKey = aTok.nextToken();
+			Spell aSpell = Globals.getSpellKeyed(spellKey);
 
 			if (aSpell == null)
 			{
-				final String message = "Unable to find spell named: " + name;
+				final String message = "Unable to find spell named: " + spellKey;
 				warnings.add(message);
 
 				continue;
@@ -1904,16 +1904,16 @@ final class PCGVer0Parser implements PCGParser
 
 			int times = Integer.parseInt(aTok.nextToken());
 			String typeName = aTok.nextToken(); // e.g. DOMAIN or CLASS
-			String objName = aTok.nextToken(); // e.g. Animal or Commoner
-			String className = aTok.nextToken(); // could be same as objName... class to which list this spell is added
+			String objKey = aTok.nextToken(); // e.g. Animal or Commoner
+			String classKey = aTok.nextToken(); // could be same as objName... class to which list this spell is added
 			String book = aTok.nextToken();
 			int sLevel = Integer.parseInt(aTok.nextToken()); // e.g. level of spell (user may select higher than minimum)
-			PCClass aClass = aPC.getClassNamed(className);
+			PCClass aClass = aPC.getClassKeyed(classKey);
 			PObject aObject;
 
 			if (aClass == null)
 			{
-				final String message = "Bad spell info - no class named " + className;
+				final String message = "Bad spell info - no class named " + classKey;
 				warnings.add(message);
 
 				continue;
@@ -1921,11 +1921,11 @@ final class PCGVer0Parser implements PCGParser
 
 			if ("DOMAIN".equals(typeName))
 			{
-				aObject = aPC.getCharacterDomainNamed(objName);
+				aObject = aPC.getCharacterDomainKeyed(objKey);
 
 				if (aObject == null)
 				{
-					final String message = "No Domain named " + objName + " (" + aString + ")";
+					final String message = "No Domain named " + objKey + " (" + aString + ")";
 					warnings.add(message);
 
 					continue;
@@ -1935,7 +1935,7 @@ final class PCGVer0Parser implements PCGParser
 			{
 				// it's either the class, sub-class or a cast-as class
 				// first see if it's the class
-				aObject = aPC.getClassNamed(objName);
+				aObject = aPC.getClassKeyed(objKey);
 
 				if (aObject == null)
 				{
@@ -1947,8 +1947,8 @@ final class PCGVer0Parser implements PCGParser
 
 			if (level == -1)
 			{
-				final String message = "Bad spell info - no spell for " + aSpell.getName() + " in " + typeName + " "
-					+ objName;
+				final String message = "Bad spell info - no spell for " + aSpell.getKeyName() + " in " + typeName + " "
+					+ objKey;
 				warnings.add(message);
 
 				continue;
@@ -1956,7 +1956,7 @@ final class PCGVer0Parser implements PCGParser
 
 			// do not load auto knownspells into default spellbook
 			if (book.equals(Globals.getDefaultSpellBook()) && aClass.isAutoKnownSpell(aSpell.getKeyName(), level, aPC)
-			    && aPC.getAutoSpells())
+				&& aPC.getAutoSpells())
 			{
 				continue;
 			}
@@ -1965,8 +1965,8 @@ final class PCGVer0Parser implements PCGParser
 
 			while (aTok.hasMoreTokens())
 			{
-				final String fName = aTok.nextToken();
-				final Ability anAbility = Globals.getAbilityNamed("FEAT", fName);
+				final String fKey = aTok.nextToken();
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", fKey);
 
 				if (anAbility != null)
 				{
@@ -1990,7 +1990,7 @@ final class PCGVer0Parser implements PCGParser
 
 			SpellInfo si = null;
 
-			if (objName.equals(className) || !book.equals(Globals.getDefaultSpellBook()))
+			if (objKey.equals(classKey) || !book.equals(Globals.getDefaultSpellBook()))
 			{
 				si = cs.getSpellInfoFor(book, sLevel, -1);
 
@@ -2086,7 +2086,7 @@ final class PCGVer0Parser implements PCGParser
 
 		while (tokens.hasMoreTokens())
 		{
-			aTemplate = Globals.getTemplateNamed(tokens.nextToken());
+			aTemplate = Globals.getTemplateKeyed(tokens.nextToken());
 
 			/**
 			 * bug fix:
@@ -2173,7 +2173,7 @@ final class PCGVer0Parser implements PCGParser
 			{
 				iState = 2;
 				aString = aString.substring(6);
-				aClass = aPC.getClassNamed(aString);
+				aClass = aPC.getClassKeyed(aString);
 
 				continue;
 			}
@@ -2181,7 +2181,7 @@ final class PCGVer0Parser implements PCGParser
 			{
 				iState = 3;
 				aString = aString.substring(7);
-				aDomain = aPC.getCharacterDomainNamed(aString);
+				aDomain = aPC.getCharacterDomainKeyed(aString);
 
 				continue;
 			}
@@ -2248,7 +2248,7 @@ final class PCGVer0Parser implements PCGParser
 		{
 			final String aString = (String) e.next();
 
-			if (!aPC.hasWeaponProfNamed(aString))
+			if (!aPC.hasWeaponProfKeyed(aString))
 			{
 				nonproficient.add(aString);
 			}

@@ -33,14 +33,14 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Deal with Dieties via Kits 
+ * Deal with Dieties via Kits
  */
 public class KitDeity extends BaseKit implements Serializable, Cloneable
 {
 	// Only change the UID when the serialized form of the class has also changed
 	private static final long serialVersionUID = 1;
 
-	private String theDeityName = null;
+	private String theDeityKey = null;
 	private String countFormula = "";
 	private List theDomains = null;
 
@@ -53,18 +53,18 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	 * Constructor
 	 * @param aDeityName
 	 */
-	public KitDeity(final String aDeityName)
+	public KitDeity(final String aDeityKey)
 	{
-		theDeityName = aDeityName;
+		theDeityKey = aDeityKey;
 	}
 
 	/**
 	 * Get the deityName
 	 * @return the deityName
 	 */
-	public String getDeityName()
+	public String getDeityKey()
 	{
-		return theDeityName;
+		return theDeityKey;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 
 		return Collections.unmodifiableList(theDomains);
 	}
-	
+
 	/**
 	 * Set the COUNT formula
 	 * @param argCountFormula
@@ -116,7 +116,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	{
 		StringBuffer buf = new StringBuffer();
 
-		buf.append(theDeityName);
+		buf.append(theDeityKey);
 
 		if (theDomains != null && theDomains.size() > 0)
 		{
@@ -144,21 +144,21 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	{
 		theDeity = null;
 		domainsToAdd = null;
-		if (theDeityName == null)
+		if (theDeityKey == null)
 		{
 			return false;
 		}
 
-		theDeity = Globals.getDeityNamed(theDeityName);
+		theDeity = Globals.getDeityKeyed(theDeityKey);
 		if (theDeity == null)
 		{
-			warnings.add("DEITY: Could not find deity '" + getDeityName()
+			warnings.add("DEITY: Could not find deity '" + getDeityKey()
 						 + "'");
 			return false;
 		}
 		if (!aPC.canSelectDeity(theDeity))
 		{
-			warnings.add("DEITY: Cannot select deity \"" + theDeity.getName() +
+			warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() +
 						 "\"");
 			return false;
 		}
@@ -232,18 +232,18 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		//
 		for (Iterator e = xs.iterator(); e.hasNext();)
 		{
-			final String domainName = (String)e.next();
+			final String domainKey = (String)e.next();
 
-			Domain domain = Globals.getDomainNamed(domainName);
+			Domain domain = Globals.getDomainKeyed(domainKey);
 			if (domain != null)
 			{
 				if (!domain.qualifiesForDomain(aPC))
 				{
 					warnings.add("DEITY: Not qualified for domain \"" +
-								 domainName + "\"");
+								 domain.getDisplayName() + "\"");
 					continue;
 				}
-				CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getName());
+				CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
 
 				if (aCD == null)
 				{
@@ -270,7 +270,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			else
 			{
 				warnings.add("DEITY: Non-existant domain \""
-							 + domainName + "\"");
+							 + domainKey + "\"");
 			}
 		}
 		aPC.calcActiveBonuses();
@@ -292,7 +292,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		for (Iterator i = domainsToAdd.iterator(); i.hasNext(); )
 		{
 			Domain domain = (Domain) i.next();
-			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getName());
+			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
 
 			if (aCD == null)
 			{
@@ -319,7 +319,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	{
 		KitDeity aClone = (KitDeity)super.clone();
 
-		aClone.theDeityName = theDeityName;
+		aClone.theDeityKey = theDeityKey;
 		aClone.countFormula = countFormula;
 		aClone.theDomains = theDomains;
 

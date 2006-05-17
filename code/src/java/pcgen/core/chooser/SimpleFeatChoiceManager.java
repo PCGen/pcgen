@@ -58,9 +58,9 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selectedList
 	 */
 	public void getChoices(
-	    final PlayerCharacter aPc,
-	    final List            availableList,
-	    final List            selectedList)
+		final PlayerCharacter aPc,
+		final List            availableList,
+		final List            selectedList)
 	{
 		if (pobject.getAssociatedCount() != 0)
 		{
@@ -73,18 +73,18 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 		{
 			String featName = (String) it.next();
 
-			final Ability anAbility = Globals.getAbilityNamed("FEAT", featName);
+			final Ability anAbility = Globals.getAbilityKeyed("FEAT", featName);
 
 			if (
-			    (anAbility != null) &&
-			    PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
+				(anAbility != null) &&
+				PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
 			{
-				availableList.add(featName);
+				availableList.add(anAbility);
 
-				if (aPc.hasRealFeatNamed(featName) &&
-				    !selectedList.contains(featName))
+				if (aPc.hasRealFeat(anAbility) &&
+					!selectedList.contains(anAbility))
 				{
-					selectedList.add(featName);
+					selectedList.add(anAbility);
 				}
 			}
 		}
@@ -92,7 +92,7 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 
 	/**
 	 * Apply the choices made to the PObject this choiceManager is associated with
-	 * 
+	 *
 	 * @param aPC
 	 * @param selected
 	 */
@@ -103,7 +103,8 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 		Iterator i = selected.iterator();
 		while (i.hasNext())
 		{
-			final String tempString = (String) i.next();
+			Ability ability = (Ability)i.next();
+			final String tempString = ability.getKeyName();
 			AbilityUtilities.modFeat(aPC, null, tempString, true, false);
 			pobject.addAssociated(tempString);
 		}
@@ -111,7 +112,7 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 
 	/**
 	 * what type of chooser does this handle
-	 * 
+	 *
 	 * @return type of chooser
 	 */
 	public String typeHandled() {

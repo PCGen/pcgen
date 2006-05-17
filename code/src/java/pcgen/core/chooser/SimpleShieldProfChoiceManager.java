@@ -48,9 +48,9 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC
 	 */
 	public SimpleShieldProfChoiceManager(
-	    PObject         aPObject,
-	    String          theChoices,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          theChoices,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, theChoices, aPC);
 	}
@@ -62,9 +62,9 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selectedList
 	 */
 	public void getChoices(
-	    PlayerCharacter aPc,
-	    List            availableList,
-	    List            selectedList)
+		PlayerCharacter aPc,
+		List            availableList,
+		List            selectedList)
 	{
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_SHIELD_PROFS));
 
@@ -85,11 +85,11 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 					final Equipment eq    = (Equipment) entry.getValue();
 
 					if (
-					    eq.isShield() &&
-					    eq.isType(tempString) &&
-					    !availableList.contains(eq.profName(aPc)))
+						eq.isShield() &&
+						eq.isType(tempString) &&
+						!availableList.contains(eq.profKey(aPc)))
 					{
-						availableList.add(eq.profName(aPc));
+						availableList.add(eq.profKey(aPc));
 					}
 				}
 			}
@@ -98,11 +98,11 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 				final Equipment eq = EquipmentList.getEquipmentNamed(tempString);
 
 				if (
-				    (eq != null) &&
-				    eq.isShield() &&
-				    !availableList.contains(eq.profName(aPc)))
+					(eq != null) &&
+					eq.isShield() &&
+					!availableList.contains(eq.profKey(aPc)))
 				{
-					availableList.add(eq.profName(aPc));
+					availableList.add(eq.profKey(aPc));
 				}
 			}
 		}
@@ -115,15 +115,15 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selected
 	 */
 	public void applyChoices(
-	    PlayerCharacter  aPC,
-	    List selected)
+		PlayerCharacter  aPC,
+		List selected)
 	{
 		pobject.addSelectedShieldProfs(selected);
 	}
 
 	/**
 	 * what type of chooser does this handle
-	 * 
+	 *
 	 * @return type of chooser
 	 */
 	public String typeHandled() {

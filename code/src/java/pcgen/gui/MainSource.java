@@ -197,8 +197,8 @@ public class MainSource extends FilterAdapterPanel
 		catch (Exception e)
 		{
 			ShowMessageDelegate.showMessageDialog("Error in MainSource whilst initialising:\n " + e.toString() + "\n"
-            + "PCGen may not operate correctly as a result of this error. ",
-			    Constants.s_APPNAME, MessageType.ERROR);
+			+ "PCGen may not operate correctly as a result of this error. ",
+				Constants.s_APPNAME, MessageType.ERROR);
 			Logging.errorPrint("Error initialising MainSource: " + e.toString(), e);
 		}
 
@@ -369,7 +369,7 @@ public class MainSource extends FilterAdapterPanel
 
 				StringBuffer sb = new StringBuffer();
 				sb.append("<b>")
-					.append(aCamp.getName())
+					.append(aCamp.getDisplayName())
 					.append("</b><br>");
 				sb.append("<html>");
 				if(aCamp.getCoverFiles().size() > 0) {
@@ -429,7 +429,7 @@ public class MainSource extends FilterAdapterPanel
 				String path = pathNode.getItem().toString();
 
 				while ((pathNode.getParent() != availableTable.getTree().getModel().getRoot())
-				    && (pathNode.getParent() != selectedTable.getTree().getModel().getRoot()))
+					&& (pathNode.getParent() != selectedTable.getTree().getModel().getRoot()))
 				{
 					pathNode = pathNode.getParent();
 					path = pathNode.getItem().toString() + "." + path;
@@ -967,9 +967,9 @@ public class MainSource extends FilterAdapterPanel
 	}
 
 	/**
-	 * Build the panel with the controls to add a spell to a 
+	 * Build the panel with the controls to add a spell to a
 	 * prepared list.
-	 * @param button 
+	 * @param button
 	 * @param title
 	 * @return The panel.
 	 */
@@ -1022,8 +1022,8 @@ public class MainSource extends FilterAdapterPanel
 				else
 				{
 					final String type = isProductNotHelp ? "web" : "help";
-					ShowMessageDelegate.showMessageDialog("No "+type+" information found for Source: " + theCamp.getName(), Constants.s_APPNAME,
-					    MessageType.WARNING);
+					ShowMessageDelegate.showMessageDialog("No "+type+" information found for Source: " + theCamp.getDisplayName(), Constants.s_APPNAME,
+						MessageType.WARNING);
 				}
 			}
 		}
@@ -1398,8 +1398,8 @@ public class MainSource extends FilterAdapterPanel
 		if (Logging.isDebugMode()) //don't force PC closure if we're in debug mode, per request
 		{
 			ShowMessageDelegate.showMessageDialog("PC's are not closed in debug mode.  " + "Please be aware that they may not function correctly "
-            + "until campaign data is loaded again.",
-			    Constants.s_APPNAME, MessageType.WARNING);
+			+ "until campaign data is loaded again.",
+				Constants.s_APPNAME, MessageType.WARNING);
 		}
 		else
 		{
@@ -1408,7 +1408,7 @@ public class MainSource extends FilterAdapterPanel
 			if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
 			{
 				ShowMessageDelegate.showMessageDialog("Can't unload campaigns until all PC's are closed.", Constants.s_APPNAME,
-				    MessageType.INFORMATION);
+					MessageType.INFORMATION);
 
 				return;
 			}
@@ -1563,7 +1563,7 @@ public class MainSource extends FilterAdapterPanel
 
 				default:
 					Logging.errorPrint("In MainSource.CampaignModel.getColumnClass the column " + column
-					    + " is not handled.");
+						+ " is not handled.");
 
 					break;
 			}
@@ -1669,7 +1669,7 @@ public class MainSource extends FilterAdapterPanel
 
 					default:
 						Logging.errorPrint("In MainSource.CampaignModel.getValueAt the column " + column
-						    + " is not handled.");
+							+ " is not handled.");
 
 						break;
 				}
@@ -1734,7 +1734,7 @@ public class MainSource extends FilterAdapterPanel
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 						{
 							if (aCamp.isType(rootAsPObjectNode.getChild(i).getItem().toString())
-							    || (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
+								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 							{
 								// Items with less than 2 types will not show up unless we do this
 								List d;
@@ -1761,7 +1761,7 @@ public class MainSource extends FilterAdapterPanel
 								for (int j = 0; (d != null) && (j < d.size()); ++j)
 								{
 									if (aCamp.isType(((PObjectNode) d.get(j)).getItem().toString())
-									    || (!added && (j == (d.size() - 1))))
+										|| (!added && (j == (d.size() - 1))))
 									{
 										// Items with less than 3 types will not show up unless we do this
 										List e;
@@ -1784,7 +1784,7 @@ public class MainSource extends FilterAdapterPanel
 										for (int k = 0; (e != null) && (k < e.size()); ++k)
 										{
 											if (aCamp.isType(((PObjectNode) e.get(k)).getItem().toString())
-											    || (!added && (k == (e.size() - 1))))
+												|| (!added && (k == (e.size() - 1))))
 											{
 												PObjectNode aFN = new PObjectNode(aCamp);
 												PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
@@ -1825,7 +1825,7 @@ public class MainSource extends FilterAdapterPanel
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 						{
 							if (aCamp.isType(rootAsPObjectNode.getChild(i).getItem().toString())
-							    || (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
+								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 							{
 								// Items with less than 3 types will not show up unless we do this
 								List d;
@@ -1846,7 +1846,7 @@ public class MainSource extends FilterAdapterPanel
 									if (!(((PObjectNode) d.get(k)).getItem() instanceof PObject))
 									{
 										if (aCamp.isType(((PObjectNode) d.get(k)).getItem().toString())
-										    || (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
+											|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 										{
 											PObjectNode aFN = new PObjectNode(aCamp);
 											PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
@@ -1887,7 +1887,7 @@ public class MainSource extends FilterAdapterPanel
 						{
 							//if we've matched Publisher, or we've reached the last node ("Other") then add it here
 							if (aCamp.isType(rootAsPObjectNode.getChild(i).getItem().toString())
-							    || (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
+								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 							{
 								PObjectNode aFN = new PObjectNode();
 								aFN.setParent(rootAsPObjectNode.getChild(i));
@@ -1922,8 +1922,8 @@ public class MainSource extends FilterAdapterPanel
 							continue;
 						}
 
-						if (qFilter == null || 
-								( aCamp.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+						if (qFilter == null ||
+								( aCamp.getKeyName().toLowerCase().indexOf(qFilter) >= 0 ||
 								  aCamp.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 						{
 							PObjectNode aFN = new PObjectNode();
@@ -1959,7 +1959,7 @@ public class MainSource extends FilterAdapterPanel
 		 */
 		private boolean shouldDisplayThis(final Campaign aCamp, final PlayerCharacter aPC)
 		{
-			if (aCamp.getName().length() == 0)
+			if (aCamp.getDisplayName().length() == 0)
 			{
 				return false;
 			}
@@ -2106,25 +2106,25 @@ public class MainSource extends FilterAdapterPanel
 		private JMenuItem createAddAllMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddAllCampaignActionListener(), "selectall", (char) 0,
-			    accelerator, "Select All Source material to load", "Add16.gif", true);
+				accelerator, "Select All Source material to load", "Add16.gif", true);
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddCampaignActionListener(), "select", (char) 0, accelerator,
-			    "Select Source material to load", "Add16.gif", true);
+				"Select Source material to load", "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveAllMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RemoveAllCampaignActionListener(), "deselectall", (char) 0,
-			    accelerator, "Remove All Source material from loading", "Remove16.gif", true);
+				accelerator, "Remove All Source material from loading", "Remove16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RemoveCampaignActionListener(), "deselect", (char) 0, accelerator,
-			    "Remove Source material from loading", "Remove16.gif", true);
+				"Remove Source material from loading", "Remove16.gif", true);
 		}
 
 		private JMenuItem createHelpFileMenuItem(String label, String accelerator, boolean fromAvail)
@@ -2135,7 +2135,7 @@ public class MainSource extends FilterAdapterPanel
 		private JMenuItem createWebMenuItem(String label, String accelerator, boolean fromAvail)
 		{
 			return Utility.createMenuItem(label, new WebActionListener(fromAvail), "website", (char) 0, accelerator,
-			    "Launch browser to product's website", "Bookmarks16.gif", true);
+				"Launch browser to product's website", "Bookmarks16.gif", true);
 		}
 
 		private class AddAllCampaignActionListener implements ActionListener

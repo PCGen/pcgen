@@ -103,7 +103,7 @@ final class LevelAbilitySpecial extends LevelAbility
 
 			if (this.owner instanceof PCClass)
 			{
-				String source = "PCCLASS|" + this.owner.getName() + "|" + level();
+				String source = "PCCLASS|" + this.owner.getKeyName() + "|" + level();
 				sa = new SpecialAbility(selection, source);
 			}
 			else
@@ -153,8 +153,8 @@ final class LevelAbilitySpecial extends LevelAbility
 		}
 		else if (aToken.startsWith("FEAT=") || aToken.startsWith("FEAT."))
 		{
-			String anAbilityName  = aToken.substring(5);
-			final Ability anAbility = Globals.getAbilityNamed("FEAT", anAbilityName);
+			String anAbilityKey  = aToken.substring(5);
+			final Ability anAbility = Globals.getAbilityKeyed("FEAT", anAbilityKey);
 
 			if (aPC.canSelectAbility(anAbility))
 			{

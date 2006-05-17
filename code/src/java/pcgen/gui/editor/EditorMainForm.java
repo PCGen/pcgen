@@ -515,7 +515,7 @@ public final class EditorMainForm extends JDialog
 			entry = entry.substring(idx+2);
 		}
 
-		return Globals.getSpellNamed(entry);
+		return Globals.getSpellKeyed(entry);
 	}
 
 	private String encodeFollowerEntry(String newEntry)
@@ -694,7 +694,7 @@ public final class EditorMainForm extends JDialog
 				List raceArray = new ArrayList(sel.length);
 				for (int i = 0; i < sel.length; i++)
 				{
-					raceArray.add( ((Race)sel[i]).getName() );
+					raceArray.add( ((Race)sel[i]).getKeyName() );
 				}
 				((Deity) thisPObject).setRacePantheonList(raceArray);
 
@@ -712,13 +712,13 @@ public final class EditorMainForm extends JDialog
 				{
 					aString = sel[i].toString();
 					final int idx = aString.indexOf('=');
-					final String domainName = thisPObject.getName(), spellName, spellLevel;
+					final String domainKey = thisPObject.getKeyName(), spellName, spellLevel;
 					if (idx > 0)
 					{
 						spellName = aString.substring(idx+2);
 						spellLevel = aString.substring(idx-1,idx);
-						spellSupport.putLevel("DOMAIN", domainName, spellName, spellLevel);
-						spellSupport.putInfo("DOMAIN", spellName, domainName, spellLevel);
+						spellSupport.putLevel("DOMAIN", domainKey, spellName, spellLevel);
+						spellSupport.putInfo("DOMAIN", spellName, domainKey, spellLevel);
 					}
 				}
 
@@ -828,7 +828,7 @@ public final class EditorMainForm extends JDialog
 						final String skillName = aTok.nextToken();
 						final String skillRank = aTok.nextToken();
 						StringBuffer sb = new StringBuffer(50);
-						sb.append("SKILL|").append(thisPObject.getName());
+						sb.append("SKILL|").append(thisPObject.getKeyName());
 						sb.append('|').append(aTok.nextToken());
 						sb.append("|PRESKILL:1,").append(skillName).append('=').append(skillRank);
 						sb.append("|TYPE=Synergy.STACK");
@@ -1150,7 +1150,7 @@ public final class EditorMainForm extends JDialog
 		Map vision;
 		List naturalAttacks;
 
-		pnlMainTab.setNameText(thisPObject.getName());
+		pnlMainTab.setNameText(thisPObject.getKeyName());
 		pnlMainTab.setProductIdentity(thisPObject.getNameIsPI());
 		pnlMainTab.setSourceText(SourceUtilities.returnSourceInForm(thisPObject, Constants.SOURCEPAGE, false));
 
@@ -1178,7 +1178,7 @@ public final class EditorMainForm extends JDialog
 
 					if (anAlignment.isValidForFollower())
 					{
-						availableList.add(anAlignment.getName());
+						availableList.add(anAlignment.getKeyName());
 					}
 				}
 
@@ -1222,7 +1222,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getRaceMap().values().iterator(); e.hasNext();)
 				{
 					final Race aRace = (Race) e.next();
-					final String raceName = aRace.getName();
+					final String raceName = aRace.getKeyName();
 
 					if (!raceName.equals(Constants.s_NONESELECTED))
 					{
@@ -1312,7 +1312,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getTemplateList().iterator(); e.hasNext();)
 				{
 					final PCTemplate aTemplate = (PCTemplate) e.next();
-					aString = aTemplate.getName();
+					aString = aTemplate.getKeyName();
 
 					if (!availableList.contains(aString))
 					{
@@ -1339,7 +1339,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getClassList().iterator(); e.hasNext();)
 				{
 					final PCClass aClass = (PCClass) e.next();
-					availableList.add(aClass.getName());
+					availableList.add(aClass.getKeyName());
 				}
 
 				availableList.add("Any");
@@ -1379,7 +1379,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
 					final Ability anAbility = (Ability) e.next();
-					availableList.add(anAbility.getName());
+					availableList.add(anAbility.getKeyName());
 				}
 
 				aString = ((Race) thisPObject).getFeatList(null, false);
@@ -1423,13 +1423,13 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
 					final Ability anAbility = (Ability) e.next();
-					availableList.add(anAbility.getName());
+					availableList.add(anAbility.getKeyName());
 				}
 
 				for (e = ((Race) thisPObject).getVirtualFeatList().iterator(); e.hasNext();)
 				{
 					final Ability aFeat = (Ability) e.next();
-					String featName = aFeat.getName();
+					String featName = aFeat.getKeyName();
 
 					if (!selectedList.contains(featName))
 					{
@@ -1616,7 +1616,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getClassList().iterator(); e.hasNext();)
 				{
 					final PCClass aClass = (PCClass) e.next();
-					availableList.add(aClass.getName());
+					availableList.add(aClass.getKeyName());
 				}
 
 				boolean negate;
@@ -1686,17 +1686,17 @@ public final class EditorMainForm extends JDialog
 
 					if (lvlInfo != null)
 					{
-						lvl = (Integer) lvlInfo.get("DOMAIN|" + aDomain.getName());
+						lvl = (Integer) lvlInfo.get("DOMAIN|" + aDomain.getKeyName());
 					}
 
 					if (lvl != null)
 					{
-						selectedList.add(encodeDomainEntry(aDomain.getName(), lvl.toString()));
+						selectedList.add(encodeDomainEntry(aDomain.getKeyName(), lvl.toString()));
 						++iCount;
 					}
 					else
 					{
-						availableList.add(aDomain.getName());
+						availableList.add(aDomain.getKeyName());
 					}
 				}
 
@@ -1716,17 +1716,17 @@ public final class EditorMainForm extends JDialog
 
 					if (lvlInfo != null)
 					{
-						lvl = (Integer) lvlInfo.get("CLASS|" + aClass.getName());
+						lvl = (Integer) lvlInfo.get("CLASS|" + aClass.getKeyName());
 					}
 
 					if (lvl != null)
 					{
-						selectedList.add(encodeDomainEntry(aClass.getName(), lvl.toString()));
+						selectedList.add(encodeDomainEntry(aClass.getKeyName(), lvl.toString()));
 						++iCount;
 					}
 					else
 					{
-						availableList.add(aClass.getName());
+						availableList.add(aClass.getKeyName());
 					}
 				}
 
@@ -1756,7 +1756,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getTemplateList().iterator(); e.hasNext();)
 				{
 					final PCTemplate aTemplate = (PCTemplate) e.next();
-					aString = aTemplate.getName();
+					aString = aTemplate.getKeyName();
 
 					if (!availableList.contains(aString))
 					{
@@ -1783,7 +1783,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getClassList().iterator(); e.hasNext();)
 				{
 					final PCClass aClass = (PCClass) e.next();
-					availableList.add(aClass.getName());
+					availableList.add(aClass.getKeyName());
 				}
 
 				availableList.add("Any");
@@ -1822,7 +1822,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
 					final Ability anAbility = (Ability) e.next();
-					availableList.add(anAbility.getName());
+					availableList.add(anAbility.getKeyName());
 				}
 
 				List featList = ((PCTemplate) thisPObject).feats(-1, -1, null, false);
@@ -1972,7 +1972,7 @@ public final class EditorMainForm extends JDialog
 
 				while (aTok.hasMoreTokens())
 				{
-					final Language aLang = Globals.getLanguageNamed(aTok.nextToken());
+					final Language aLang = Globals.getLanguageKeyed(aTok.nextToken());
 
 					if (aLang != null)
 					{
@@ -2112,9 +2112,9 @@ public final class EditorMainForm extends JDialog
 				{
 					final Skill aSkill = (Skill) e.next();
 
-					if (!aSkill.getName().equals(thisPObject.getName()))
+					if (!aSkill.getKeyName().equals(thisPObject.getKeyName()))
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 
@@ -2210,7 +2210,7 @@ public final class EditorMainForm extends JDialog
 			for (e = Globals.getSkillList().iterator(); e.hasNext();)
 			{
 				final Skill aSkill = (Skill) e.next();
-				aString = aSkill.getName();
+				aString = aSkill.getKeyName();
 
 				if (!availableList.contains(aString))
 				{
@@ -2290,7 +2290,7 @@ public final class EditorMainForm extends JDialog
 		}
 		else
 		{
-			final WeaponProf wp = Globals.getWeaponProfNamed(profName);
+			final WeaponProf wp = Globals.getWeaponProfKeyed(profName);
 
 			if (wp != null)
 			{

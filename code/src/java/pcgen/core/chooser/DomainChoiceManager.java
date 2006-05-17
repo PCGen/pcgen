@@ -53,7 +53,7 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Domain Choice";
 		chooserHandled = "DOMAIN";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -83,7 +83,7 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 				for (Iterator i = domains.iterator(); i.hasNext(); )
 				{
 					Domain domain = (Domain)i.next();
-					availableList.add(domain.getName());
+					availableList.add(domain);
 				}
 				break;
 			}
@@ -110,7 +110,7 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 						}
 						if (found == false)
 						{
-							availableList.add(domain.getName());
+							availableList.add(domain);
 						}
 					}
 				}
@@ -123,7 +123,7 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 				for (Iterator i = pcDomainList.iterator(); i.hasNext();)
 				{
 					CharacterDomain cd = (CharacterDomain)i.next();
-					availableList.add(cd.getDomain().getName());
+					availableList.add(cd.getDomain());
 				}
 				break;
 			}
@@ -131,14 +131,14 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 			{
 				// returns a list of Domains granted by specified Diety.
 				String deityName = option.substring(6);
-				Deity deity = Globals.getDeityNamed(deityName);
+				Deity deity = Globals.getDeityKeyed(deityName);
 				if (deity != null)
 				{
 					List domainList = deity.getDomainList();
 					for (Iterator i = domainList.iterator(); i.hasNext();)
 					{
 						Domain domain = (Domain)i.next();
-						availableList.add(domain.getName());
+						availableList.add(domain);
 					}
 				}
 				break;
@@ -146,10 +146,10 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 			else
 			{
 				// returns a list of the specified domains.
-				Domain domain = Globals.getDomainNamed(option);
+				Domain domain = Globals.getDomainKeyed(option);
 				if (domain != null)
 				{
-					availableList.add(option);
+					availableList.add(domain);
 				}
 			}
 		}

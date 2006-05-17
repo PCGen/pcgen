@@ -35,7 +35,7 @@ public class GameModeRollMethod
 {
 	private String methodName;
 	private String methodRoll;
-	
+
 	/**
 	 * Constructor
 	 * @param argName
@@ -55,7 +55,7 @@ public class GameModeRollMethod
 	{
 		return methodName;
 	}
-	
+
 	/**
 	 * Get the roll method for this game mode
 	 * @return the roll method for this game mode
@@ -63,5 +63,14 @@ public class GameModeRollMethod
 	public String getMethodRoll()
 	{
 		return methodRoll;
+	}
+
+	/**
+	 * Get a human readable representation of this roll method
+	 * @return The method name
+	 */
+	public String toString()
+	{
+		return methodName;
 	}
 }

@@ -514,11 +514,12 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		gridbag.setConstraints(genderComboBox, c);
 		northPanel.add(genderComboBox);
 
-		genderComboBox.addItem(PropertyFactory.getString("in_genderMale"));
-		genderComboBox.addItem(PropertyFactory.getString("in_genderFemale"));
-		genderComboBox.addItem(PropertyFactory.getString("in_genderNeuter"));
-		genderComboBox.addItem(PropertyFactory.getString("in_comboNone"));
-		genderComboBox.addItem(PropertyFactory.getString("in_comboOther"));
+		genderComboBox.setAllItems(Globals.getAllGenders().toArray());
+//		genderComboBox.addItem(PropertyFactory.getString("in_genderMale"));
+//		genderComboBox.addItem(PropertyFactory.getString("in_genderFemale"));
+//		genderComboBox.addItem(PropertyFactory.getString("in_genderNeuter"));
+//		genderComboBox.addItem(PropertyFactory.getString("in_comboNone"));
+//		genderComboBox.addItem(PropertyFactory.getString("in_comboOther"));
 
 		Utility.buildConstraints(c, 7, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;

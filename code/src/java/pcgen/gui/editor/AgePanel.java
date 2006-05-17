@@ -89,7 +89,7 @@ final class AgePanel extends JPanel implements PObjectUpdater
 			region = defaultRegionName;
 		}
 
-		raceName = race.getName();
+		raceName = race.getKeyName();
 
 		ageModel.saveValues(region, raceName);
 	}
@@ -104,7 +104,7 @@ final class AgePanel extends JPanel implements PObjectUpdater
 	{
 		Race race;
 		String region;
-		String raceName;
+		String raceKey;
 
 		if (!(obj instanceof Race))
 		{
@@ -120,9 +120,9 @@ final class AgePanel extends JPanel implements PObjectUpdater
 			region = defaultRegionName;
 		}
 
-		raceName = race.getName();
+		raceKey = race.getKeyName();
 
-		ageModel.reset(region, raceName);
+		ageModel.reset(region, raceKey);
 	}
 
 	/**

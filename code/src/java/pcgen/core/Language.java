@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created on November 18, 2001, 9:15 PM
- * 
+ *
  * Current Ver: $Revision$
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -36,23 +36,23 @@ public final class Language extends PObject implements Comparable
 {
 	/** Does this language indicate access to all languages. */
 	private boolean isAllLang = false;
-	
-	/** The language instance representing access to all bonus languages. 
-	 * We keep this outside of the global language list so that it does 
+
+	/** The language instance representing access to all bonus languages.
+	 * We keep this outside of the global language list so that it does
 	 * not appear as a real language. */
 	private static Language allLanguage;
-	
+
 	/**
-	 * Default constructor. 
+	 * Default constructor.
 	 */
 	public Language()
 	{
 		super();
 	}
-	
+
 	/**
 	 * Constructor for use when creating the ALL placehoder language.
-	 * 
+	 *
 	 * @param isAllLang Is this the access to all languages placeholder.
 	 */
 	public Language(boolean isAllLang)
@@ -60,7 +60,7 @@ public final class Language extends PObject implements Comparable
 		super();
 		this.isAllLang = isAllLang;
 	}
-	
+
 	/**
 	 * Retrieve the language instance representing access to all bonus languages.
 	 * @return Returns the allLanguage.
@@ -75,7 +75,7 @@ public final class Language extends PObject implements Comparable
 		}
 		return allLanguage;
 	}
-	
+
 	/**
 	 * Compares keyName only
 	 * @param o1
@@ -125,7 +125,7 @@ public final class Language extends PObject implements Comparable
 	{
 		return isAllLang;
 	}
-	
+
 	/**
 	 * Hashcode of the keyName
 	 * @return hash code

@@ -347,7 +347,7 @@ public final class ExportHandler
 	{
 		return templateFile;
 	}
-	
+
 	private int getVarValue(String var, PlayerCharacter aPC)
 	{
 		char chC;
@@ -881,7 +881,7 @@ public final class ExportHandler
 					return true;
 				}
 
-				if (cs.equalsIgnoreCase(aClass.getName()))
+				if (cs.equalsIgnoreCase(aClass.getKeyName()))
 				{
 					return true;
 				}
@@ -912,7 +912,7 @@ public final class ExportHandler
 						return true;
 					}
 
-					if (fString.equalsIgnoreCase(aClass.getName()))
+					if (fString.equalsIgnoreCase(aClass.getKeyName()))
 					{
 						return true;
 					}
@@ -1224,7 +1224,7 @@ public final class ExportHandler
 	/**
 	 * Math Mode - Most of the code logic was copied from PlayerCharacter.getVariableValue
 	 * included a treatment for math with attack routines (for example +6/+1 - 2 = +4/-1)
-	 * 
+	 *
 	 * @param aString
 	 * @param aPC
 	 * @return String
@@ -2481,19 +2481,18 @@ public final class ExportHandler
 						i = Integer.parseInt(bTok.nextToken());
 					}
 
-					PCClass aClass = aPC.getClassNamed(bString);
-					PCClass bClass = Globals.getClassNamed(bString);
-					found = bClass != null;
+					PCClass aClass = aPC.getClassKeyed(bString);
+					found = aClass != null;
 
-					if ((bClass != null) && (aClass != null))
+					if ((aClass != null))
 					{
 						canWrite = (aClass.getLevel() >= i);
 					}
-					else if ((bClass != null) && (aClass == null))
+					else if ((aClass == null))
 					{
 						canWrite = false;
 					}
-					else if (bString.startsWith("SPELLLISTCLASS"))
+					if (bString.startsWith("SPELLLISTCLASS"))
 					{
 						// New token syntax |%SPELLLISTCLASS.x| instead of |%SPELLLISTCLASSx|
 						// To remove old syntax, keep the if and remove the else
@@ -2672,7 +2671,7 @@ public final class ExportHandler
 	 * Take an old format tag, one without a 'full stop' separating the token from
 	 * the first value and put it into a format that can be used with the
 	 * export tokens
-	 * 
+	 *
 	 * @param aString The tag to be checked
 	 * @return The reformatted tag, if needed or the original tag if it was OK
 	 */
@@ -2772,7 +2771,7 @@ public final class ExportHandler
 
 	/**
 	 * See the PCGen Docs on Token Syntax
-	 * 
+	 *
 	 * @param aString
 	 * @param len
 	 * @param output

@@ -122,7 +122,7 @@ public final class BioSet extends PObject
 	public int getPCAgeSet(final PlayerCharacter pc)
 	{
 		final List values = getValueInMaps(pc.getRegion()+ ".", pc.getRace()
-			.getName().trim(), ".BASEAGE");
+			.getKeyName().trim(), ".BASEAGE");
 
 		if (values == null)
 		{
@@ -674,7 +674,7 @@ public final class BioSet extends PObject
 		// Can't find a base age for the category,
 		// then there's nothing to do
 		final String age = getTokenNumberInMaps(".BASEAGE", ageCategory, pc
-			.getRegion(), pc.getRace().getName().trim());
+			.getRegion(), pc.getRace().getKeyName().trim());
 
 		if (age == null)
 		{
@@ -686,7 +686,7 @@ public final class BioSet extends PObject
 		int ageAdd = -1;
 
 		String aClass = getTokenNumberInMaps(".CLASS", ageCategory, pc
-			.getRegion(), pc.getRace().getName().trim());
+			.getRegion(), pc.getRace().getKeyName().trim());
 
 		if (aClass != null && !aClass.equals("0"))
 		{
@@ -721,7 +721,7 @@ public final class BioSet extends PObject
 				{
 					final String tClass = bTok.nextToken();
 
-					if (pc.getClassNamed(tClass) != null)
+					if (pc.getClassKeyed(tClass) != null)
 					{
 						ageAdd = RollingMethods.roll(dieString);
 					}
@@ -734,7 +734,7 @@ public final class BioSet extends PObject
 		if ((ageAdd < 0) && !useClassOnly)
 		{
 			aClass = getTokenNumberInMaps(".AGEDIEROLL", ageCategory, pc
-				.getRegion(), pc.getRace().getName().trim());
+				.getRegion(), pc.getRace().getKeyName().trim());
 
 			if (aClass != null)
 			{
@@ -745,7 +745,7 @@ public final class BioSet extends PObject
 		if ((ageAdd >= 0) && (baseAge > 0))
 		{
 			final String maxage = getTokenNumberInMaps(".MAXAGE", ageCategory, pc
-				.getRegion(), pc.getRace().getName().trim());
+				.getRegion(), pc.getRace().getKeyName().trim());
 			if (maxage != null)
 			{
 				final int maxAge = Integer.parseInt(maxage);
@@ -761,7 +761,7 @@ public final class BioSet extends PObject
 	private String generateBioValue(final String addKey, final PlayerCharacter pc)
 	{
 		final String line = getTokenNumberInMaps(addKey, 0, pc.getRegion(), pc
-			.getRace().getName().trim());
+			.getRace().getKeyName().trim());
 		final String rv;
 
 		if (line != null)
@@ -793,7 +793,7 @@ public final class BioSet extends PObject
 		int wtAdd = 0;
 		String totalWeight = null;
 		final String htwt = getTokenNumberInMaps(".SEX", 0, pc.getRegion(), pc
-			.getRace().getName().trim());
+			.getRace().getKeyName().trim());
 
 		if (htwt == null)
 		{
@@ -855,7 +855,7 @@ public final class BioSet extends PObject
 	}
 
 	private List mapFind(final Map argMap, final String argRegionName, final String argRaceName, final String addKey,
-	    final String altRaceName)
+		final String altRaceName)
 	{
 		// First check for region.racename.key
 		String regionName = argRegionName;

@@ -43,7 +43,7 @@ public class WeaponProfDataStore
 
 	/**
 	 * Gets all weapons proficiencies of a particular type.
-	 * 
+	 *
 	 * @see 		PObjectDataStore#getAllOfType(String)
 	 * @param type	Type of proficency to get.
 	 * @return		A collection of proficiencies.
@@ -53,9 +53,14 @@ public class WeaponProfDataStore
 		return store.getAllOfType(type);
 	}
 
+	public Collection getAll()
+	{
+		return store.getAll();
+	}
+
 	/**
 	 * Retrieve a list of the types in the data store.
-	 * 
+	 *
 	 * @see 	PObjectDataStore#getTypes()
 	 * @return	Set of type names (as Strings)
 	 */
@@ -89,7 +94,7 @@ public class WeaponProfDataStore
 
 	/**
 	 * Searches for an exact name match
-	 * 
+	 *
 	 * @see			PObjectDataStore#getNamed(String)
 	 * @param name	Name to seek.  Compare is caseless.
 	 * @return 		WeaponProf matching the name.
@@ -101,7 +106,7 @@ public class WeaponProfDataStore
 
 	/**
 	 * Retrieve the names from the list, with optional delimiters.
-	 * 
+	 *
 	 * @see						PObjectDataStore#getNames(String, boolean)
 	 * @param delim				The delimiter to seperate the items.
 	 * @param addArrayMarkers	If true, will add [ and ] to the output.
@@ -114,7 +119,7 @@ public class WeaponProfDataStore
 
 	/**
 	 * Add a weapon proficiency to the list
-	 * 
+	 *
 	 * @see			PObjectDataStore#add(PObject)
 	 * @param wp	Weapon proficiency to add.
 	 */
@@ -125,7 +130,7 @@ public class WeaponProfDataStore
 
 	/**
 	 * Add any items to this array which are not already there.
-	 * 
+	 *
 	 * @see			PObjectDataStore#addUniqueAsStringTo(List)
 	 * @param dest	Array to be augmented by the WeaponProfs.
 	 */
@@ -136,7 +141,7 @@ public class WeaponProfDataStore
 
 	/**
 	 * Clear the data store.
-	 * 
+	 *
 	 * @see	PObjectDataStore#clear()
 	 */
 	public final void clear()
@@ -147,7 +152,7 @@ public class WeaponProfDataStore
 	/**
 	 * Return true if any PObject in this list whose name is
 	 * in collectionOfNames has a variable with the desired name
-	 * 
+	 *
 	 * @see 					PObjectDataStore#hasVariableNamed(Collection, String)
 	 * @param collectionOfNames	Collection of names to seek in the list.
 	 * @param variableString	Variable to seek in the list.
@@ -165,9 +170,9 @@ public class WeaponProfDataStore
 	 * @see 		PObjectDataStore#removeNamed(String)
 	 * @param name	Name to be looked up.
 	 */
-	public final void removeNamed(final String name)
+	public final void removeKeyed(final String aKey)
 	{
-		store.removeNamed(name);
+		store.removeNamed(aKey);
 	}
 
 	/**

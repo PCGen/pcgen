@@ -38,7 +38,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	/** Constructor */
 	public TextProperty()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -47,7 +47,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	 */
 	public TextProperty(final String name)
 	{
-		this.name = name;
+		setName(name);
 	}
 
 	/**
@@ -57,7 +57,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	 */
 	public TextProperty(final String name, final String propDesc)
 	{
-		this.name = name;
+		setName(name);
 		this.propDesc = propDesc;
 	}
 
@@ -74,18 +74,24 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	{
 		if (obj instanceof TextProperty)
 		{
-			if (name.equals(obj.toString()))
+			TextProperty tp = (TextProperty)obj;
+			if (keyName.equalsIgnoreCase(tp.getKeyName()))
 			{
-				return propDesc.compareToIgnoreCase(((SpecialAbility) obj).propDesc);
+				return propDesc.compareToIgnoreCase(((TextProperty) obj).propDesc);
 			}
 		}
+		else if (obj instanceof PObject)
+		{
+			PObject pObj = (PObject)obj;
+			return keyName.compareToIgnoreCase(pObj.getKeyName());
+		}
 
-		return name.compareToIgnoreCase(obj.toString());
+		return keyName.compareToIgnoreCase(obj.toString());
 	}
 
 	public String toString()
 	{
-		return name;
+		return displayName;
 	}
 
 	String getPropDesc()
@@ -111,17 +117,17 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		final String text;
 		if ((getPropDesc() == null) || "".equals(getPropDesc()))
 		{
-			text = getName();
+			text = getDisplayName();
 		}
 		else
 		{
-			text = getName() + " (" + getPropDesc() + ")";
+			text = getDisplayName() + " (" + getPropDesc() + ")";
 		}
 		return text;
 	}
-	
+
 	/**
-	 * Parse the property, replace the %CHOICE 
+	 * Parse the property, replace the %CHOICE
 	 * @param text
 	 * @return Parsed property, with replaced the %CHOICE
 	 */
@@ -153,16 +159,16 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 
 	protected String getParsedText(final PlayerCharacter pc, final String fullDesc)
 	{
-	    if (fullDesc==null || fullDesc.equals("")) {
-	        return "";
-	    }
+		if (fullDesc==null || fullDesc.equals("")) {
+			return "";
+		}
 
 		String retString = "";
 		if(pcQualifiesFor(pc))
 		{
-		    // full desc will look like "description|var1|var2|var3|..."
+			// full desc will look like "description|var1|var2|var3|..."
 			StringTokenizer varTok = new StringTokenizer(fullDesc, "|");
-		    // take the description as the first token
+			// take the description as the first token
 			final String description = varTok.nextToken();
 			if(varTok.hasMoreTokens()) {
 				// Create an array of all of the variables
@@ -178,7 +184,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 						final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
 						if (value != 0)
 						{
-						    atLeastOneNonZero = true;
+							atLeastOneNonZero = true;
 						}
 						varValue[j] = value;
 					}
@@ -213,7 +219,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 					retString = newAbility.toString();
 				}
 				else {
-				    retString = "";
+					retString = "";
 				}
 			}
 			else {

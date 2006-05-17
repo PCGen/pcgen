@@ -84,9 +84,9 @@ import pcgen.util.PropertyFactory;
  * It is the home for common code shared with the three sub tabs related to
  * being a CharacterInfoTab and displaying the available and selected spell
  * lists. <br/>
- * The sub tabs themselves are responsible for populating the lists and 
- * dealing with selection events, as well as the layout of the tab and the 
- * management of any extra fucntions. 
+ * The sub tabs themselves are responsible for populating the lists and
+ * dealing with selection events, as well as the layout of the tab and the
+ * management of any extra fucntions.
  *
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -213,7 +213,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		return accept(pc, spell);
 	}
 
-	// -- Methods from CharacterInfoTab that have common implementations -- 
+	// -- Methods from CharacterInfoTab that have common implementations --
 
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#setPc(pcgen.core.PlayerCharacter)
@@ -292,7 +292,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		return game.getTabShown(tabID);
 	}
 
-	// -- Abstract methods that the subtabs must implement -- 
+	// -- Abstract methods that the subtabs must implement --
 
 	/**
 	 * This recalculates the states of everything based
@@ -316,13 +316,13 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	protected abstract void updateBookList();
 
 	/**
-	 * Create the Available Spell Model, being the spells that the user 
+	 * Create the Available Spell Model, being the spells that the user
 	 * can choose from.
 	 */
 	protected abstract void createAvailableModel();
 
 	/**
-	 * Create the Selected Spell Model, being the spells that the user 
+	 * Create the Selected Spell Model, being the spells that the user
 	 * has already chosen.
 	 */
 	protected abstract void createSelectedModel();
@@ -336,17 +336,17 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 	protected void addSpellMMButton()
 	{
-		// We ignore this but allow child classes to override it if 
+		// We ignore this but allow child classes to override it if
 		// there is a required action.
 	}
 
 	protected void setAutoBookButton()
 	{
-		// We ignore this but allow child classes to override it if 
+		// We ignore this but allow child classes to override it if
 		// there is a required action.
 	}
 
-	// -- Common implementations to support the twin lists of spells -- 
+	// -- Common implementations to support the twin lists of spells --
 
 	/**
 	 * Updates the Available table
@@ -431,7 +431,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 								//className may have HTML encoding, so get rid of it
 								className = Utility.stripHTML(className);
 
-								PCClass aClass = pc.getClassNamed(className);
+								// TODO Check this
+								PCClass aClass = pc.getClassKeyed(className);
 
 								if (!className.equalsIgnoreCase(lastClass)
 									&& (className.length() > 0)
@@ -495,8 +496,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 	/**
 	 * Create and activate a new popup menu and listener for the treeTable.
-	 *  
-	 * @param treeTable The JTreeTable to have a popup menu. 
+	 *
+	 * @param treeTable The JTreeTable to have a popup menu.
 	 */
 	protected final void hookupPopupMenu(JTreeTable treeTable)
 	{
@@ -540,7 +541,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	protected final List getInfoFromNode(PObjectNode fNode)
 	{
 		Spell aSpell;
-		String className = ""; //$NON-NLS-1$
+		String classKey = ""; //$NON-NLS-1$
 		int spLevel = -1;
 		ArrayList returnList = new ArrayList(); // 0 = CharacterSpell; 1 = className; 2 = spellLevel
 
@@ -561,7 +562,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		if (theOwner == null) // should only be true for multi-spellcasting-classed characters not sorted by class/level
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("InfoSpells.only.by.class.level"), //$NON-NLS-1$ 
+				.getString("InfoSpells.only.by.class.level"), //$NON-NLS-1$
 				Constants.s_APPNAME, MessageType.ERROR);
 			return null; // need to select class/level or level/class as sorters
 		}
@@ -571,11 +572,11 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		if (theOwner instanceof Domain)
 		{
 			CharacterDomain cd = pc.getCharacterDomainForDomain(theOwner
-				.getName());
+				.getKeyName());
 			if ((cd != null) && cd.isFromPCClass())
 			{
-				className = cd.getObjectName();
-				aClass = pc.getClassNamed(className);
+				classKey = cd.getObjectName();
+				aClass = pc.getClassKeyed(classKey);
 			}
 			else
 			{
@@ -585,12 +586,12 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		else
 		{
 			aClass = (PCClass) theOwner;
-			className = aClass.getCastAs();
+			classKey = aClass.getCastAs();
 		}
 		List aList = aClass.getSpellSupport().getCharacterSpell(aSpell,
 			"", spLevel); //$NON-NLS-1$
 		returnList.add(spellA);
-		returnList.add(className);
+		returnList.add(classKey);
 		returnList.add(String.valueOf(spLevel));
 		for (Iterator ai = aList.iterator(); ai.hasNext();)
 		{
@@ -669,14 +670,14 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	{
 		if (aClass != null)
 		{
-			lastClass = aClass.getName();
+			lastClass = aClass.getKeyName();
 
 			int highestSpellLevel = aClass.getHighestLevelSpell();
 			StringBuffer b = new StringBuffer();
 			b.append("<html><table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
 			b.append(aClass.piSubString()).append(" ["); //$NON-NLS-1$
 			b.append(String.valueOf(aClass.getLevel()
-				+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getName()))); //$NON-NLS-1$
+				+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName()))); //$NON-NLS-1$
 			b.append("]</b></font></td>"); //$NON-NLS-1$
 
 			for (int i = 0; i <= highestSpellLevel; ++i)
@@ -693,7 +694,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 				b.append("<td><font size=-1><center>"); //$NON-NLS-1$
 				b.append(getNumCast(aClass, i, pc));
-				b.append("</center></font></td>"); //$NON-NLS-1$ 
+				b.append("</center></font></td>"); //$NON-NLS-1$
 			}
 			// Making sure KnownList can be handled safely and produces the correct behaviour
 			if (((aClass.getKnownList().size() > 0) && aClass.getKnownList() != null)
@@ -716,7 +717,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 					b.append("<td><font size=-1><center>"); //$NON-NLS-1$
 					b.append(a).append(bString);
-					b.append("</center></font></td>"); //$NON-NLS-1$ 
+					b.append("</center></font></td>"); //$NON-NLS-1$
 				}
 			}
 
@@ -733,10 +734,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 			b.append(PropertyFactory.getString("InfoSpells.caster.type")); //$NON-NLS-1$
 			b.append("<b>").append(aClass.getSpellType()); //$NON-NLS-1$
-			b.append("</b><br>"); //$NON-NLS-1$ 
+			b.append("</b><br>"); //$NON-NLS-1$
 			b.append(PropertyFactory.getString("InfoSpells.stat.bonus")); //$NON-NLS-1$
 			b.append("<b>"); //$NON-NLS-1$
-			b.append(aClass.getSpellBaseStat()).append("</b><br>"); //$NON-NLS-1$ 
+			b.append(aClass.getSpellBaseStat()).append("</b><br>"); //$NON-NLS-1$
 
 			if (aClass.getSpecialtyListString(pc).length() != 0)
 			{
@@ -750,7 +751,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				b.append(PropertyFactory
 					.getString("InfoSpells.prohibited.school")); //$NON-NLS-1$
 				b.append("<b>"); //$NON-NLS-1$
-				b.append(aClass.getProhibitedString()).append("</b><br>"); //$NON-NLS-1$ 
+				b.append(aClass.getProhibitedString()).append("</b><br>"); //$NON-NLS-1$
 			}
 
 			String bString = aClass.getSource();
@@ -770,7 +771,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	/**
 	 * Set the spell Info text in the Spell Info panel to the
 	 * currently selected spell.
-	 * 
+	 *
 	 * @param si The info to be displayed.
 	 */
 	protected final void setInfoLabelText(SpellInfo si)
@@ -789,7 +790,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			StringBuffer b = new StringBuffer();
 			b.append("<html><font size=+1><b>"); //$NON-NLS-1$
-			b.append(aSpell.piSubString()).append("</b></font>"); //$NON-NLS-1$ 
+			b.append(aSpell.piSubString()).append("</b></font>"); //$NON-NLS-1$
 
 			final String addString = si.toString(); // would add [featList]
 
@@ -866,7 +867,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	/**
 	 * Set the spell Info text in the Spell Info panel to the
 	 * currently selected spell book.
-	 * 
+	 *
 	 * @param book The book to be displayed.
 	 */
 	protected final void setInfoLabelText(SpellBook book)
@@ -878,7 +879,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 		StringBuffer b = new StringBuffer();
 		b.append("<html><font size=+1><b>"); //$NON-NLS-1$
-		b.append(book.getName()).append("</b></font>"); //$NON-NLS-1$ 
+		b.append(book.getName()).append("</b></font>"); //$NON-NLS-1$
 
 		b.append(" ("); //$NON-NLS-1$
 		b.append(book.getTypeName());
@@ -916,9 +917,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	}
 
 	/**
-	 * Populate a spell sort combo box with the various sorting options 
+	 * Populate a spell sort combo box with the various sorting options
 	 * and set its intial state.
-	 * 
+	 *
 	 * @param combo The combo box to be populated
 	 * @param initialIndex The intial state of the combox box.
 	 * @param includeNothing Should the nothing entry be included
@@ -943,11 +944,11 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	}
 
 	/**
-	 * Check and set the mode selected for viewing the list of available 
-	 * spells. The supplied value will be used as the primary sort order 
-	 * but the secondary sort order will only be changed if it is the same 
+	 * Check and set the mode selected for viewing the list of available
+	 * spells. The supplied value will be used as the primary sort order
+	 * but the secondary sort order will only be changed if it is the same
 	 * as the new sort order.
-	 *  
+	 *
 	 * @param iView The new primary sort oder.
 	 */
 	protected final void sanityCheckAvailableSpellMode(int iView)
@@ -971,11 +972,11 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	}
 
 	/**
-	 * Check and set the mode selected for viewing the list of selected 
-	 * spells. The supplied value will be used as the primary sort order 
-	 * but the secondary sort order will only be changed if it is the same 
+	 * Check and set the mode selected for viewing the list of selected
+	 * spells. The supplied value will be used as the primary sort order
+	 * but the secondary sort order will only be changed if it is the same
 	 * as the new sort order.
-	 *  
+	 *
 	 * @param iView The new primary sort oder.
 	 */
 	protected final void sanityCheckSelectedSpellMode(int iView)
@@ -1210,7 +1211,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				if (addSpellWithMetaMagicTitle != null)
 				{
 					SpellPopupMenu.this.add(createAddMetaMagicMenuItem(
-						addSpellWithMetaMagicTitle, "alt C")); //$NON-NLS-1$ 
+						addSpellWithMetaMagicTitle, "alt C")); //$NON-NLS-1$
 
 				}
 				this.addSeparator();

@@ -88,7 +88,7 @@ public final class Skill extends PObject
 
 	public Skill()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	public void setACheck(final String aString)
@@ -169,32 +169,32 @@ public final class Skill extends PObject
 			return false;
 		}
 
-		if (aPC.getRace().hasCSkill(name))
+		if (aPC.getRace().hasCSkill(keyName))
 		{
 			return true;
 		}
 
 		// hasSkill is a LevelAbility skill
-		if (aClass.hasSkill(name))
+		if (aClass.hasSkill(keyName))
 		{
 			return true;
 		}
 
 		// hasCSkill is a class.lst loader skill
-		if (aClass.hasCSkill(name))
+		if (aClass.hasCSkill(keyName))
 		{
 			return true;
 		}
 
 		// test for SKILLLIST skill
-		if (aClass.hasClassSkillList(name))
+		if (aClass.hasClassSkillList(keyName))
 		{
 			return true;
 		}
 
 		if (aClass.isMonster())
 		{
-			if (aPC.getRace().hasMonsterCSkill(name))
+			if (aPC.getRace().hasMonsterCSkill(keyName))
 			{
 				return true;
 			}
@@ -205,15 +205,15 @@ public final class Skill extends PObject
 			final String aString = i.next().toString();
 
 			if ((aString.length() > 0) && (aString.charAt(0) == '!')
-			    && (aString.substring(1).equalsIgnoreCase(aClass.getName())
-			    || aString.substring(1).equalsIgnoreCase(aClass.getSubClassName())))
+				&& (aString.substring(1).equalsIgnoreCase(aClass.getKeyName())
+				|| aString.substring(1).equalsIgnoreCase(aClass.getSubClassKey())))
 			{
 				return false; // this is an excluded-from-class-skill list
 			}
 
-			if ("ALL".equals(aString) || aString.equalsIgnoreCase(aClass.getName())
-			    || aString.equalsIgnoreCase(aClass.getSubClassName())
-			    || ((aClass.getClassSkillList() != null) && aClass.getClassSkillList().contains(aString)))
+			if ("ALL".equals(aString) || aString.equalsIgnoreCase(aClass.getKeyName())
+				|| aString.equalsIgnoreCase(aClass.getSubClassKey())
+				|| ((aClass.getClassSkillList() != null) && aClass.getClassSkillList().contains(aString)))
 			{
 				return true;
 			}
@@ -225,13 +225,13 @@ public final class Skill extends PObject
 		{
 			aCD = (CharacterDomain) e.next();
 
-			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getName()) && aCD.getDomain().hasCSkill(name))
+			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCSkill(keyName))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCSkill(name))
+		if ((aPC.getDeity() != null) && aPC.getDeity().hasCSkill(keyName))
 		{
 			return true;
 		}
@@ -240,7 +240,7 @@ public final class Skill extends PObject
 		{
 			final Ability aFeat = (Ability) i.next();
 
-			if (aFeat.hasCSkill(name))
+			if (aFeat.hasCSkill(keyName))
 			{
 				return true;
 			}
@@ -250,7 +250,7 @@ public final class Skill extends PObject
 		{
 			final Skill aSkill = (Skill) i.next();
 
-			if (aSkill.hasCSkill(name))
+			if (aSkill.hasCSkill(keyName))
 			{
 				return true;
 			}
@@ -262,7 +262,7 @@ public final class Skill extends PObject
 
 			if (eq.isEquipped())
 			{
-				if (eq.hasCSkill(name))
+				if (eq.hasCSkill(keyName))
 				{
 					return true;
 				}
@@ -275,7 +275,7 @@ public final class Skill extends PObject
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
 
-						if (eqMod.hasCSkill(name))
+						if (eqMod.hasCSkill(keyName))
 						{
 							return true;
 						}
@@ -290,7 +290,7 @@ public final class Skill extends PObject
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
 
-						if (eqMod.hasCSkill(name))
+						if (eqMod.hasCSkill(keyName))
 						{
 							return true;
 						}
@@ -303,7 +303,7 @@ public final class Skill extends PObject
 		{
 			final PCTemplate aTemplate = (PCTemplate) i.next();
 
-			if (aTemplate.hasCSkill(name))
+			if (aTemplate.hasCSkill(keyName))
 			{
 				return true;
 			}
@@ -375,7 +375,7 @@ public final class Skill extends PObject
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getName());
+		txt.append(getDisplayName());
 
 		if (keyStat.length() != 0)
 		{
@@ -567,7 +567,7 @@ public final class Skill extends PObject
 	/**
 	 * Returns the total ranks of a skill
 	 *  rank + bonus ranks (racial, class, etc bonuses)
-	 *  
+	 *
 	 * @param aPC
 	 * @return rank + bonus ranks (racial, class, etc. bonuses)
 	 */
@@ -608,7 +608,7 @@ public final class Skill extends PObject
 			return;
 		}
 
-		final String aCName = aClass.getName();
+		final String aCName = aClass.getKeyName();
 		String bSkill = "";
 		int idx;
 
@@ -736,9 +736,9 @@ public final class Skill extends PObject
 			for (Iterator e = selectedLangNames.iterator(); e.hasNext();)
 			{
 				final String aString = (String) e.next();
-				final Language aLang = Globals.getLanguageNamed(aString, reqType);
+				final Language aLang = Globals.getLanguageKeyed(aString);
 
-				if (aLang != null)
+				if (aLang != null && aLang.isType(reqType))
 				{
 					selected.add(aLang);
 				}
@@ -798,9 +798,9 @@ public final class Skill extends PObject
 			for (Iterator e = lc.getSelectedList().iterator(); e.hasNext();)
 			{
 				final String aString = (String) e.next();
-				final Language aLang = Globals.getLanguageNamed(aString, reqType);
+				final Language aLang = Globals.getLanguageKeyed(aString);
 
-				if (aLang != null)
+				if (aLang != null && aLang.isType(reqType))
 				{
 					selLangs.add(aLang);
 				}
@@ -931,7 +931,7 @@ public final class Skill extends PObject
 				return "You do not have enough skill points.";
 			}
 
-			final double maxRank = aPC.getMaxRank(getName(), aClass).doubleValue();
+			final double maxRank = aPC.getMaxRank(keyName, aClass).doubleValue();
 
 			if (!Globals.checkRule(RuleConstants.SKILLMAX) && (rankMod > 0.0))
 			{
@@ -954,11 +954,11 @@ public final class Skill extends PObject
 			return "Cannot lower rank below 0";
 		}
 
-		String aCName = "None";
+		String classKey = "None";
 
 		if (aClass != null)
 		{
-			aCName = aClass.getName();
+			classKey = aClass.getKeyName();
 		}
 
 		String bSkill = "";
@@ -967,13 +967,13 @@ public final class Skill extends PObject
 		//
 		// Find the skill and class in question
 		//
-		final String aCNameString = aCName + ":";
+		final String classKeyString = classKey + ":";
 
 		for (idx = 0; idx < rankList.size(); idx++)
 		{
 			bSkill = (String) rankList.get(idx);
 
-			if (bSkill.startsWith(aCNameString))
+			if (bSkill.startsWith(classKeyString))
 			{
 				break;
 			}
@@ -1001,7 +1001,7 @@ public final class Skill extends PObject
 
 			if (idx >= rankList.size())
 			{
-				bSkill = aCName + ":0";
+				bSkill = classKey + ":0";
 			}
 		}
 
@@ -1010,7 +1010,7 @@ public final class Skill extends PObject
 
 		if (CoreUtility.doublesEqual(curRank, 0.0) && (rankMod < 0.0))
 		{
-			return "No more ranks found for class: " + aCName + ". Try a different one.";
+			return "No more ranks found for class: " + classKey + ". Try a different one.";
 		}
 
 		if (idx >= rankList.size())
@@ -1047,7 +1047,7 @@ public final class Skill extends PObject
 			bonus = aPC.getStatList().getStatModFor(keyStat);
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + keyStat);
 		}
-		bonus += aPC.getTotalBonusTo("SKILL", name);
+		bonus += aPC.getTotalBonusTo("SKILL", keyName);
 
 		/*
 		// This should be handled in the data files
@@ -1074,7 +1074,7 @@ public final class Skill extends PObject
 		//these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to function
 		if (isClassSkill(aPC.getClassList(), aPC))
 		{
-			bonus += aPC.getTotalBonusTo("CSKILL", name);
+			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
 
 			//loop through all current skill types checking for boni
 			for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
@@ -1088,7 +1088,7 @@ public final class Skill extends PObject
 
 		if (!isClassSkill(aPC.getClassList(), aPC) && !isExclusive())
 		{
-			bonus += aPC.getTotalBonusTo("CCSKILL", name);
+			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
 
 			//loop through all current skill types checking for boni
 			for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
@@ -1103,7 +1103,7 @@ public final class Skill extends PObject
 		// the above two if-blocks try to get
 		// BONUS:[C]CSKILL|TYPE=xxx|y to function
 		// now check for a racial bonus
-		bonus += aPC.getRace().bonusForSkill(getName());
+		bonus += aPC.getRace().bonusForSkill(getKeyName());
 
 		final int aCheckBonus = calcACheckBonus(aPC);
 		bonus += aCheckBonus;
@@ -1173,7 +1173,7 @@ public final class Skill extends PObject
 						break;
 
 					default:
-						Logging.errorPrint(getName()
+						Logging.errorPrint(getDisplayName()
 							+ ":in Skill.modifier the load " + load	+ " is not supported.");
 						break;
 				}
@@ -1216,11 +1216,11 @@ public final class Skill extends PObject
 	{
 		if (getAssociatedCount() == 0)
 		{
-			return name;
+			return displayName;
 		}
 
 		final StringBuffer buffer = new StringBuffer(getAssociatedCount() * 20);
-		buffer.append(name).append("(");
+		buffer.append(displayName).append("(");
 
 		for (int i = 0; i < getAssociatedCount(); i++)
 		{
@@ -1322,7 +1322,7 @@ public final class Skill extends PObject
 			return false;
 		}
 
-		if (aPC.getRace().hasCcSkill(name))
+		if (aPC.getRace().hasCcSkill(keyName))
 		{
 			return true;
 		}
@@ -1331,25 +1331,25 @@ public final class Skill extends PObject
 		{
 			final CharacterDomain aCD = (CharacterDomain) e.next();
 
-			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getName()) && aCD.getDomain().hasCcSkill(name))
+			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCcSkill(keyName))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(name))
+		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(keyName))
 		{
 			return true;
 		}
 
-		if (aClass.hasCcSkill(name))
+		if (aClass.hasCcSkill(keyName))
 		{
 			return true;
 		}
 
 		if (aClass.isMonster())
 		{
-			if (aPC.getRace().hasMonsterCCSkill(name))
+			if (aPC.getRace().hasMonsterCCSkill(keyName))
 			{
 				return true;
 			}
@@ -1359,7 +1359,7 @@ public final class Skill extends PObject
 		{
 			final Ability aFeat = (Ability) i.next();
 
-			if (aFeat.hasCcSkill(name))
+			if (aFeat.hasCcSkill(keyName))
 			{
 				return true;
 			}
@@ -1369,7 +1369,7 @@ public final class Skill extends PObject
 		{
 			final Skill aSkill = (Skill) i.next();
 
-			if (aSkill.hasCcSkill(name))
+			if (aSkill.hasCcSkill(keyName))
 			{
 				return true;
 			}
@@ -1381,7 +1381,7 @@ public final class Skill extends PObject
 
 			if (eq.isEquipped())
 			{
-				if (eq.hasCcSkill(name))
+				if (eq.hasCcSkill(keyName))
 				{
 					return true;
 				}
@@ -1394,7 +1394,7 @@ public final class Skill extends PObject
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
 
-						if (eqMod.hasCcSkill(name))
+						if (eqMod.hasCcSkill(keyName))
 						{
 							return true;
 						}
@@ -1409,7 +1409,7 @@ public final class Skill extends PObject
 					{
 						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
 
-						if (eqMod.hasCcSkill(name))
+						if (eqMod.hasCcSkill(keyName))
 						{
 							return true;
 						}
@@ -1422,7 +1422,7 @@ public final class Skill extends PObject
 		{
 			final PCTemplate aTemplate = (PCTemplate) i.next();
 
-			if (aTemplate.hasCcSkill(name));
+			if (aTemplate.hasCcSkill(keyName));
 			{
 				return true;
 			}
@@ -1438,8 +1438,6 @@ public final class Skill extends PObject
 	 */
 	private Float getRankAdj(final PlayerCharacter currentPC)
 	{
-		getName();
-
 		if (currentPC == null)
 		{
 			return new Float(0);
@@ -1462,7 +1460,7 @@ public final class Skill extends PObject
 		{
 			String choiceString = getChoiceString();
 			if ((choiceString.length() > 0) && !CoreUtility.doublesEqual(g, 0)
-			    && !CoreUtility.doublesEqual(curRank, (int) newRank))
+				&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 			{
 				final List aArrayList = new ArrayList();
 				final double rankAdjustment = 0.0;
@@ -1581,7 +1579,7 @@ public final class Skill extends PObject
 		}
 
 		// The catch-all for non-bonusObj modifiers.
-		bonus = aPC.getTotalBonusTo("SKILL", name) - bonusObjTotal;
+		bonus = aPC.getTotalBonusTo("SKILL", keyName) - bonusObjTotal;
 		appendBonusDesc(bonusDetails, bonus, "OTHER");
 
 		// loop through all current skill types checking for boni
@@ -1603,7 +1601,7 @@ public final class Skill extends PObject
 		//these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to function
 		if (isClassSkill(aPC.getClassList(), aPC))
 		{
-			bonus = aPC.getTotalBonusTo("CSKILL", name);
+			bonus = aPC.getTotalBonusTo("CSKILL", keyName);
 			appendBonusDesc(bonusDetails, bonus, "CSKILL");
 
 			//loop through all current skill types checking for boni
@@ -1620,7 +1618,7 @@ public final class Skill extends PObject
 
 		if (!isClassSkill(aPC.getClassList(), aPC) && !isExclusive())
 		{
-			bonus = aPC.getTotalBonusTo("CCSKILL", name);
+			bonus = aPC.getTotalBonusTo("CCSKILL", keyName);
 			appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 
 			//loop through all current skill types checking for boni
@@ -1636,7 +1634,7 @@ public final class Skill extends PObject
 		}
 
 		// Race
-		bonus = aPC.getRace().bonusForSkill(getName());
+		bonus = aPC.getRace().bonusForSkill(getKeyName());
 		appendBonusDesc(bonusDetails, bonus, "RACE");
 
 		// Encumbrance
@@ -1685,7 +1683,7 @@ public final class Skill extends PObject
 
 	public double getSkillRankBonusTo(PlayerCharacter aPC)
 	{
-		double bonus = aPC.getTotalBonusTo("SKILLRANK", getName());
+		double bonus = aPC.getTotalBonusTo("SKILLRANK", getKeyName());
 		for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); ++typesForBonus)
 		{
 			final String singleType = getMyType(typesForBonus);

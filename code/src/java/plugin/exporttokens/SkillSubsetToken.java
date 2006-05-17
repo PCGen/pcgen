@@ -115,7 +115,7 @@ public class SkillSubsetToken extends SkillToken
 		{
 			Skill bSkill = (Skill) iter.next();
 
-			if (bSkill.getName().toUpperCase().startsWith(skillPrefix))
+			if (bSkill.getKeyName().toUpperCase().startsWith(skillPrefix))
 			{
 				skillSubset.add(bSkill);
 			}

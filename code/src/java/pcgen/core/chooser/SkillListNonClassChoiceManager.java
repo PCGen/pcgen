@@ -52,7 +52,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skill Choice";
 		chooserHandled = "NONCLASSSKILLLIST";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -74,7 +74,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 
 		final String choiceVal = choices.get(0) != null
 				? (String) choices.get(0)
-				: pobject.getName();
+				: pobject.getKeyName();
 
 		if ((choiceVal.length() > 0) && !"LIST".equals(choiceVal))
 		{
@@ -85,7 +85,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 				availableList.add(choiceTok.nextToken());
 			}
 		}
-		
+
 		else // if it was LIST
 		{
 			Skill aSkill;
@@ -102,9 +102,9 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 				final int rootNameLength = aSkill.getRootName().length();
 
 				 //all skills have ROOTs now, so go ahead and add it if the name and root are identical
-				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getName()))
+				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getKeyName()))
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 
 				final boolean rootArrayContainsRootName = rootArrayList.contains(aSkill.getRootName());
@@ -116,7 +116,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 
 				if ((rootNameLength > 0) && rootArrayContainsRootName)
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 		}

@@ -48,11 +48,11 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	protected String    category;
 	private   Ability   realThing;
 	private   List      prereqList;
-	private   ArrayList decorations; 
+	private   ArrayList decorations;
 	protected char      delim       = '<';
 
-	private static final String split1 = "[<>\\|]"; 
-	private static final String split2 = "[\\[\\]\\|]"; 
+	private static final String split1 = "[<>\\|]";
+	private static final String split2 = "[\\[\\]\\|]";
 
 
 	/**
@@ -111,8 +111,8 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 				decorations.iterator() :
 					Collections.EMPTY_LIST.iterator();
 	}
-	
-	
+
+
 	/**
 	 * Get the category of the Ability this AbilityInfo object represents
 	 *
@@ -148,8 +148,8 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	/**
 	 * Extract the key and any prerequisites that this Ability has, store them
 	 * in the object's fields
-	 * 
-	 * @param unparsed 
+	 *
+	 * @param unparsed
 	 */
 	protected void extractPrereqs(String unparsed)
 	{
@@ -259,7 +259,7 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	 *
 	 * @return  the name of the object
 	 */
-	public String getName()
+	public String getDisplayName()
 	{
 		return this.getKeyName();
 	}

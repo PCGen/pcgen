@@ -101,7 +101,7 @@ public class EquipmentListTest extends PCGenTestCase
 	public void testGetEquipmentOfType()
 	{
 		EquipmentList.addEquipment(eq);
-		
+
 		List results = EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
 		assertEquals("Should get a single result", 1, results.size());
 		assertEquals("Should find the DUmmy equipment object.", eq, results.get(0));

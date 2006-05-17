@@ -41,7 +41,7 @@ public final class EquipmentModifierLoader
 	/** Creates a new instance of EquipmentModifierLoader */
 	private EquipmentModifierLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -97,7 +97,7 @@ public final class EquipmentModifierLoader
 				LstUtils.deprecationCheck(token, obj, value);
 				if (!token.parse(obj, value))
 				{
-					Logging.errorPrint("Error parsing ability " + obj.getName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability " + obj.getDisplayName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(obj, colString))
@@ -111,7 +111,7 @@ public final class EquipmentModifierLoader
 			else
 			{
 				Logging.errorPrint("Illegal equipment modifier info " + sourceURL.toString() + ":"
-				    + Integer.toString(lineNum) + " \"" + colString + "\"");
+					+ Integer.toString(lineNum) + " \"" + colString + "\"");
 			}
 		}
 	}

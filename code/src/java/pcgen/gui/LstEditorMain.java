@@ -153,7 +153,7 @@ public final class LstEditorMain extends JFrame
 				break;
 
 			case EditorConstants.EDIT_SPELL:
-				Globals.getSpellMap().put(editObject.getName(), editObject);
+				Globals.getSpellMap().put(editObject.getKeyName(), editObject);
 				//Globals.sortPObjectList(Globals.getSpellMap());
 				break;
 
@@ -185,7 +185,7 @@ public final class LstEditorMain extends JFrame
 			try
 			{
 				final PObject newItem = (PObject) lstItem.clone();
-				final String nameEnding = " of " + lstItem.getName();
+				final String nameEnding = " of " + lstItem.getKeyName();
 
 				//
 				// Check for a pre-existing item named "Copy of blah". Generate "Copy# of blah" until we find
@@ -208,7 +208,7 @@ public final class LstEditorMain extends JFrame
 								region = Constants.s_NONE;
 							}
 
-							Globals.getBioSet().copyRaceTags(region, lstItem.getName(), region, newItem.getName());
+							Globals.getBioSet().copyRaceTags(region, lstItem.getKeyName(), region, newItem.getKeyName());
 						}
 
 						editIt(newItem);
@@ -230,7 +230,7 @@ public final class LstEditorMain extends JFrame
 		// Popup "Are you sure?"
 		//
 		if (JOptionPane.showConfirmDialog(null, "Are you sure?", Constants.s_APPNAME, JOptionPane.YES_NO_OPTION,
-		        JOptionPane.QUESTION_MESSAGE) != JOptionPane.NO_OPTION)
+				JOptionPane.QUESTION_MESSAGE) != JOptionPane.NO_OPTION)
 		{
 			final PObject lstItem = (PObject) lstLstFileContent.getSelectedValue();
 
@@ -275,7 +275,7 @@ public final class LstEditorMain extends JFrame
 			}
 			else
 			{
-				oldObject = findObject(editItem.getName());
+				oldObject = findObject(editItem.getKeyName());
 
 				//
 				// Remove the pre-existing object (so renaming won't mess us up)
@@ -309,7 +309,7 @@ public final class LstEditorMain extends JFrame
 				//
 				// Make sure we aren't over-writing a pre-existing element
 				//
-				if (findObject(editItem.getName()) != null)
+				if (findObject(editItem.getKeyName()) != null)
 				{
 					ShowMessageDelegate.showMessageDialog("Cannot save; already exists.", Constants.s_APPNAME, MessageType.ERROR);
 
@@ -333,34 +333,34 @@ public final class LstEditorMain extends JFrame
 		switch (editType)
 		{
 			case EditorConstants.EDIT_CLASS:
-				return Globals.getClassNamed(aName);
+				return Globals.getClassKeyed(aName);
 
 			case EditorConstants.EDIT_DEITY:
-				return Globals.getDeityNamed(aName);
+				return Globals.getDeityKeyed(aName);
 
 			case EditorConstants.EDIT_DOMAIN:
-				return Globals.getDomainNamed(aName);
+				return Globals.getDomainKeyed(aName);
 
 			case EditorConstants.EDIT_FEAT:
-				return Globals.getAbilityNamed("FEAT", aName);
+				return Globals.getAbilityKeyed("FEAT", aName);
 
 			case EditorConstants.EDIT_LANGUAGE:
-				return Globals.getLanguageNamed(aName);
+				return Globals.getLanguageKeyed(aName);
 
 			case EditorConstants.EDIT_RACE:
-				return Globals.getRaceNamed(aName);
+				return Globals.getRaceKeyed(aName);
 
 			case EditorConstants.EDIT_SKILL:
-				return Globals.getSkillNamed(aName);
+				return Globals.getSkillKeyed(aName);
 
 			case EditorConstants.EDIT_SPELL:
-				return Globals.getSpellNamed(aName); // will return 1st entry in ArrayList
+				return Globals.getSpellKeyed(aName); // will return 1st entry in ArrayList
 
 			case EditorConstants.EDIT_TEMPLATE:
-				return Globals.getTemplateNamed(aName);
+				return Globals.getTemplateKeyed(aName);
 
 			case EditorConstants.EDIT_CAMPAIGN:
-				return Globals.getCampaignNamed(aName);
+				return Globals.getCampaignKeyed(aName);
 
 			default:
 				break;
@@ -844,7 +844,7 @@ public final class LstEditorMain extends JFrame
 
 				case EditorConstants.EDIT_SPELL:
 
-					Object obj = Globals.getSpellMap().get(editObject.getName());
+					Object obj = Globals.getSpellMap().get(editObject.getKeyName());
 
 					if (obj instanceof ArrayList)
 					{
@@ -852,7 +852,7 @@ public final class LstEditorMain extends JFrame
 					}
 					else
 					{
-						removed = Globals.getSpellMap().remove(editObject.getName()) != null;
+						removed = Globals.getSpellMap().remove(editObject.getKeyName()) != null;
 					}
 
 					break;
@@ -901,11 +901,11 @@ public final class LstEditorMain extends JFrame
 		 */
 		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 		{
-      //Get the selected index. (The index param isn't
-      //always valid, so just use the value.)
+	  //Get the selected index. (The index param isn't
+	  //always valid, so just use the value.)
 			boolean isCustom = (value != null && value instanceof PObject) ? (((PObject) value).isType("CUSTOM")) : false;
 
-      if (isSelected)
+	  if (isSelected)
 			{
 				setBackground(list.getSelectionBackground());
 				setForeground(list.getSelectionForeground());
@@ -923,8 +923,8 @@ public final class LstEditorMain extends JFrame
 			this.setEnabled(list.isEnabled());
 			this.setFont(list.getFont());
 
-      setText(String.valueOf(value));
-      return this;
+	  setText(String.valueOf(value));
+	  return this;
 		}
 
 

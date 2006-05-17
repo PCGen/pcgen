@@ -76,7 +76,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		for (int i = 0; i < statCount; i++)
 		{
 			PCStat stat = (PCStat) statList.get(i);
-			SettingsHandler.getGame().setAttribLong(i, stat.getName());
+			SettingsHandler.getGame().setAttribLong(i, stat.getDisplayName());
 			SettingsHandler.getGame().setAttribShort(i, stat.getAbb());
 		}
 	}

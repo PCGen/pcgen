@@ -171,25 +171,16 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-		ArrayList skillChoices = new ArrayList();
-		if (skillNameInstance.startsWith("TYPE=") || skillNameInstance.startsWith("TYPE.") || skillNameInstance.indexOf("|") > -1)
-		{
-			getSkillChoices(skillNameInstance, skillChoices);
-		}
-		else
-		{
-			skillChoices.add(skillNameInstance);
-		}
+		List skillChoices = getSkillChoices(skillNameInstance);
 
-		if (skillChoices.size() == 0)
+		if (skillChoices == null || skillChoices.size() == 0)
 		{
 			// They didn't make a choice so don't add any ranks.
 			return false;
 		}
 		for (Iterator i = skillChoices.iterator(); i.hasNext(); )
 		{
-			String curSkill = (String) i.next();
-			Skill skill = Globals.getSkillNamed(curSkill);
+			Skill skill = (Skill)i.next();
 
 			if (skill == null)
 			{
@@ -204,7 +195,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			{
 				// Make sure if they specified a class to add from we try that
 				// class first.
-				PCClass pcClass = aPC.getClassNamed(getClassName());
+				PCClass pcClass = aPC.getClassKeyed(getClassName());
 				if (pcClass != null)
 				{
 					classList.add(pcClass);
@@ -212,7 +203,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 				else
 				{
 					warnings.add("SKILL: Could not find specified class " +
-								 pcClass.getName() + " to add ranks from.");
+								 getClassName() + " to add ranks from.");
 				}
 			}
 			classList.addAll(aPC.getClassList());
@@ -239,7 +230,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			if (ranksLeftToAdd > 0.0)
 			{
 				warnings.add("SKILL: Could not add " + ranksLeftToAdd
-							 + " ranks to " + skill.getName()
+							 + " ranks to " + skill.getKeyName()
 							 + ". Not enough points.");
 			}
 		}
@@ -292,7 +283,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			for (Iterator i = pcLvlInfo.iterator(); i.hasNext(); )
 			{
 				PCLevelInfo info = (PCLevelInfo) i.next();
-				if (info.getClassKeyName().equals(pcClass.getName()))
+				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
 					// We are spending this class' points.
 					int remaining = info.getSkillPointsRemaining();
@@ -322,18 +313,18 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		return "Skills";
 	}
 
-	private String getSkillChoices(String aSkillStr, List skillChoices)
+	private List getSkillChoices(final String aSkillKey)
 	{
 		final List skillsOfType = new ArrayList();
 
-		final StringTokenizer aTok = new StringTokenizer(aSkillStr,	"|");
+		final StringTokenizer aTok = new StringTokenizer(aSkillKey,	"|");
 		while (aTok.hasMoreTokens())
 		{
-			String skill = aTok.nextToken();
-			if (skill.startsWith("TYPE=") ||
-				skill.startsWith("TYPE."))
+			String skillKey = aTok.nextToken();
+			if (skillKey.startsWith("TYPE=") ||
+				skillKey.startsWith("TYPE."))
 			{
-				final String skillType = skill.substring(5);
+				final String skillType = skillKey.substring(5);
 
 				for (Iterator e = Globals.getSkillList().iterator();
 					 e.hasNext(); )
@@ -342,12 +333,13 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 
 					if (checkSkill.isType(skillType))
 					{
-						skillsOfType.add(checkSkill.getName());
+						skillsOfType.add(checkSkill);
 					}
 				}
 			}
 			else
 			{
+				Skill skill = Globals.getSkillKeyed(skillKey);
 				skillsOfType.add(skill);
 			}
 		}
@@ -358,11 +350,14 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		}
 		else if (skillsOfType.size() == 1)
 		{
-			return (String) skillsOfType.get(0);
+			return skillsOfType;
 		}
 
-		return Globals.chooseFromList("Select skill", skillsOfType,
-									  skillChoices, this.getChoiceCount());
+		List skillChoices = new ArrayList();
+		Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
+								  this.getChoiceCount());
+
+		return skillChoices;
 	}
 
 	private KitSkillAdd addRanks(PlayerCharacter pc, PCClass pcClass,
@@ -374,7 +369,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			return null;
 		}
 
-		final Skill pcSkill = pc.getSkillNamed(aSkill.getName());
+		final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
 		double curRank = 0.0;
 		if (pcSkill != null)
 		{
@@ -383,7 +378,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		double ranksToAdd = ranksLeftToAdd;
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && (ranksToAdd > 0.0))
 		{
-			ranksToAdd = Math.min(pc.getMaxRank(aSkill.getName(),
+			ranksToAdd = Math.min(pc.getMaxRank(aSkill.getKeyName(),
 												pcClass).doubleValue(),
 								  curRank + ranksLeftToAdd);
 			ranksToAdd -= curRank;
@@ -391,8 +386,9 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			{
 				warnings.add("SKILL: Could not add "
 							 + (ranksLeftToAdd - ranksToAdd) + " to "
-							 + aSkill.getName() + ". Excedes MAXRANK of "
-							 + pc.getMaxRank(aSkill.getName(), pcClass) + ".");
+							 + aSkill.getDisplayName() + ". Excedes MAXRANK of "
+							 + pc.getMaxRank(aSkill.getDisplayName(), pcClass)
+							 + ".");
 			}
 		}
 		int ptsToSpend = 0;
@@ -405,7 +401,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			for (int i = 0; i < pcLvlInfo.size(); i++ )
 			{
 				PCLevelInfo info = (PCLevelInfo)pcLvlInfo.get(i);
-				if (info.getClassKeyName().equals(pcClass.getName()))
+				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
 					// We are spending this class' points.
 					points[i] = info.getSkillPointsRemaining();

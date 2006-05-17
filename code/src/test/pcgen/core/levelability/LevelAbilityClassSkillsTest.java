@@ -15,11 +15,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  * $$Revision$$
  * $$Date$$
  * $$Time$$
- * 
+ *
  * $$id$$
  */
 package pcgen.core.levelability;
@@ -46,14 +46,14 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 
 	PCClass pcClass;
 	Race    emptyRace = new Race();
-    boolean firstTime = true;
+	boolean firstTime = true;
 
-    /*
+	/*
 	 * @see TestCase#setUp()
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		
+
 		if (firstTime) {
 			firstTime = false;
 
@@ -84,7 +84,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 	public void testGetChoicesList1() {
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(Bluff,Listen,Move Silently)2");
+		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(KEY_Bluff,KEY_Listen,KEY_Move Silently)2");
 		is (ability.level(),      eq(1),    "Is level correct");
 		is (ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
@@ -100,11 +100,11 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			is (choicesList.size(), eq(3), "Ar there three choices available");
 
 			String s = (String) choicesList.get(0);
-			is(s, strEq("Bluff"), "Is First choice correct");
+			is(s, strEq("KEY_Bluff"), "Is First choice correct");
 			s = (String) choicesList.get(1);
-			is(s, strEq("Listen"), "Is Second Choice");
+			is(s, strEq("KEY_Listen"), "Is Second Choice");
 			s = (String) choicesList.get(2);
-			is(s, strEq("Move Silently"), "Is Third Choice");
+			is(s, strEq("KEY_Move Silently"), "Is Third Choice");
 		}
 		catch(HeadlessException e)
 		{
@@ -118,7 +118,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 	public void testGetChoicesList2() {
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(Bluff,Listen,Knowledge (Arcana))2");
+		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana))2");
 		is (ability.level(),      eq(1),    "Is level correct");
 		is (ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
@@ -127,7 +127,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		Globals.getSkillList().add(mySkill);
 
 
-		
+
 		try
 		{
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
@@ -139,25 +139,25 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			is (choicesList.size(), eq(3), "Ar there three choices available");
 
 			String s = (String) choicesList.get(0);
-			is(s, strEq("Bluff"), "Is First choice correct");
+			is(s, strEq("KEY_Bluff"), "Is First choice correct");
 			s = (String) choicesList.get(1);
-			is(s, strEq("Listen"), "Is Second Choice");
+			is(s, strEq("KEY_Listen"), "Is Second Choice");
 			s = (String) choicesList.get(2);
-			is(s, strEq("Knowledge (Arcana)"), "Is Third Choice");
+			is(s, strEq("KEY_Knowledge (Arcana)"), "Is Third Choice");
 		}
 		catch(HeadlessException e)
 		{
 			Logging.debugPrint("Ignoring Headless excpetion.");
 		}
 	}
-	
+
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	public void testGetChoicesList3() {
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(Bluff,Listen,Knowledge (Arcana),Knowledge (Dungeoneering))2");
+		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "CLASSSKILLS(KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana),KEY_Knowledge (Dungeoneering))2");
 		is (ability.level(),      eq(1),    "Is level correct");
 		is (ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
@@ -166,7 +166,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		Globals.getSkillList().add(mySkill);
 
 
-		
+
 		try
 		{
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
@@ -178,13 +178,13 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			is (choicesList.size(), eq(4), "Are there four choices available");
 
 			String s = (String) choicesList.get(0);
-			is(s, strEq("Bluff"), "Is First choice correct");
+			is(s, strEq("KEY_Bluff"), "Is First choice correct");
 			s = (String) choicesList.get(1);
-			is(s, strEq("Listen"), "Is Second Choice");
+			is(s, strEq("KEY_Listen"), "Is Second Choice");
 			s = (String) choicesList.get(2);
-			is(s, strEq("Knowledge (Arcana)"), "Is Third Choice");
+			is(s, strEq("KEY_Knowledge (Arcana)"), "Is Third Choice");
 			s = (String) choicesList.get(3);
-			is(s, strEq("Knowledge (Dungeoneering)"), "Is Fourth Choice");
+			is(s, strEq("KEY_Knowledge (Dungeoneering)"), "Is Fourth Choice");
 		}
 		catch(HeadlessException e)
 		{

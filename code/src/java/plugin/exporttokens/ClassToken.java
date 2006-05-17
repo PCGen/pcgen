@@ -32,6 +32,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 import java.util.StringTokenizer;
+import pcgen.core.Globals;
 
 /**
  * Deal with tokens below
@@ -108,14 +109,14 @@ public class ClassToken extends Token
 		{
 			PCClass pcClass = (PCClass) pc.getClassList().get(classNumber);
 
-			if (Constants.s_NONE.equals(pcClass.getSubClassName()) || "".equals(pcClass.getSubClassName()))
+			if (Constants.s_NONE.equals(pcClass.getSubClassKey()) || "".equals(pcClass.getSubClassKey()))
 			{
 				//FileAccess.encodeWrite(output, aClass.getName());
 				retString = pcClass.getOutputName();
 			}
 			else
 			{
-				retString = pcClass.getSubClassName();
+				retString = pcClass.getSubClassKeyed(pcClass.getSubClassKey()).getDisplayName();
 			}
 		}
 

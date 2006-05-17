@@ -55,7 +55,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skill Choice";
 		chooserHandled = "SKILLIST";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -77,7 +77,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 
 		final String choiceVal = choices.get(0) != null
 				? (String) choices.get(0)
-				: pobject.getName();
+				: pobject.getKeyName();
 
 		if ((choiceVal.length() > 0) && !"LIST".equals(choiceVal))
 		{
@@ -88,7 +88,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 				availableList.add(choiceTok.nextToken());
 			}
 		}
-		
+
 		else // if it was LIST
 		{
 			Skill aSkill;
@@ -100,9 +100,9 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 				final int rootNameLength = aSkill.getRootName().length();
 
 				 //all skills have ROOTs now, so go ahead and add it if the name and root are identical
-				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getName()))
+				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getKeyName()))
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 
 				final boolean rootArrayContainsRootName = rootArrayList.contains(aSkill.getRootName());
@@ -114,7 +114,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 
 				if ((rootNameLength > 0) && rootArrayContainsRootName)
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 		}
@@ -124,10 +124,10 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -147,7 +147,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 
 					if (skill.getRootName().equalsIgnoreCase(item))
 					{
-						ability.addCSkill(skill.getName());
+						ability.addCSkill(skill.getKeyName());
 					}
 				}
 			}

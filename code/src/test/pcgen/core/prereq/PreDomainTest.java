@@ -82,7 +82,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 					PrereqHandler.passes(prereq, character, null));
 
 		CharacterDomain cd = new CharacterDomain();
-		cd.setDomain(Globals.getDomainNamed("Good"), character);
+		cd.setDomain(Globals.getDomainKeyed("Good"), character);
 		character.addCharacterDomain(cd);
 
 		assertTrue("Character has Good domain",
@@ -113,7 +113,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 					PrereqHandler.passes(prereq, character, null));
 
 		CharacterDomain cd = new CharacterDomain();
-		cd.setDomain(Globals.getDomainNamed("Good"), character);
+		cd.setDomain(Globals.getDomainKeyed("Good"), character);
 		character.addCharacterDomain(cd);
 
 		assertTrue("Character has Good domain",
@@ -127,7 +127,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		prereq = factory.parse("PREDOMAIN:2,Good,Animal");
 
 		CharacterDomain cd1 = new CharacterDomain();
-		cd1.setDomain(Globals.getDomainNamed("Animal"), character);
+		cd1.setDomain(Globals.getDomainKeyed("Animal"), character);
 		character.addCharacterDomain(cd1);
 
 		assertTrue("Character's deity has Good and animal domains",

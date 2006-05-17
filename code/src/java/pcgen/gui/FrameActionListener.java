@@ -106,7 +106,7 @@ final class FrameActionListener
 				main.exportToTextItem_actionPerformed();
 			}
 		};
-	
+
 	ActionListener gmgenActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -127,6 +127,19 @@ final class FrameActionListener
 			}
 		};
 
+		/**
+		 * Handle File|New NPC in the menubar or the New NPC button on the
+		 * toolbar.
+		 */
+// WIP please leave boomer70
+//		ActionListener newNPCActionListener = new ActionListener()
+//			{
+//				public void actionPerformed(ActionEvent e)
+//				{
+//					main.newNPCItem_actionPerformed();
+//				}
+//			};
+
 	/**
 	 * Handle New in the tab popup
 	 */
@@ -137,6 +150,18 @@ final class FrameActionListener
 				main.newPopupItem_actionPerformed();
 			}
 		};
+
+		/**
+		 * Handle New NPC in the tab popup
+		 */
+// WIP please leave boomer70
+//		ActionListener newNPCPopupActionListener = new ActionListener()
+//			{
+//				public void actionPerformed(ActionEvent e)
+//				{
+//					main.newNPCPopupItem_actionPerformed();
+//				}
+//			};
 
 	/**
 	 * Handle File|Open in the menubar or the Open button on the

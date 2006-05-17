@@ -59,7 +59,7 @@ public class EncounterModel extends DefaultListModel
 
 		for (i = 0; i < size(); i++)
 		{
-			Race aRace = Globals.getRaceNamed((String) elementAt(i));
+			Race aRace = Globals.getRaceKeyed((String) elementAt(i));
 			float curCR = aRace.getCR();
 
 			if (curCR < 0)

@@ -75,7 +75,7 @@ final class KitLoader
 			LstUtils.deprecationCheck(token, obj, value);
 			if (!token.parse(obj, value))
 			{
-				Logging.errorPrint("Error parsing Kit tag " + obj.getName() + ':' + sourceURL.getFile() + ':' + inputLine + "\"");
+				Logging.errorPrint("Error parsing Kit tag " + obj.getDisplayName() + ':' + sourceURL.getFile() + ':' + inputLine + "\"");
 			}
 		}
 		else

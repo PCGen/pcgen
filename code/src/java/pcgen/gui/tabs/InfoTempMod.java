@@ -191,7 +191,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			serial = pc.getSerial();
 			forceRefresh();
 			// Commented out for [ 1461012 ] EquipSet temp bonuses setting
-			// as the currently selected equipset controls if temp mods 
+			// as the currently selected equipset controls if temp mods
 			// are applied or not.
 			//pc.setUseTempMods(true);
 		}
@@ -334,14 +334,14 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		/* commented out until we fix temp mods, do not delete
 		useTempMods.setSelected(pc.getUseTempMods());
 		*/
-		
+
 		updateTempModDisabledWarning();
 
 		needsUpdate = false;
 	}
 
 	/**
-	 * Update the warning message displayed if temporary 
+	 * Update the warning message displayed if temporary
 	 * mods are turned off in the equipset.
 	 */
 	private void updateTempModDisabledWarning()
@@ -508,7 +508,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (aClass != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aClass.getName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aClass.getDisplayName()).append("</b></font>");
 
 			String bString = aClass.getSource();
 
@@ -651,7 +651,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (aSkill != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aSkill.getName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aSkill.getDisplayName()).append("</b></font>");
 
 			String bString = aSkill.getSource();
 
@@ -699,7 +699,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (aTemp != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aTemp.getName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aTemp.getDisplayName()).append("</b></font>");
 
 			String bString = aTemp.getSource();
 
@@ -725,7 +725,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			applyBonusButton();
@@ -741,7 +741,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			removeBonusButton();
@@ -997,11 +997,11 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				}
 				// We need to remove the [] from the old name
-				aEq.setAppliedName(currAppName.substring(2, currAppName.length()-1) + ", " + aMod.getName());
+				aEq.setAppliedName(currAppName.substring(2, currAppName.length()-1) + ", " + aMod.getKeyName());
 			}
 			else
 			{
-				aEq.setAppliedName(aMod.getName());
+				aEq.setAppliedName(aMod.getKeyName());
 			}
 		}
 
@@ -1446,7 +1446,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		removeBonusButton = new JButton("Remove");
 		removeBonusButton.setEnabled(false);
 
-		tempModsDisabledWarning = new JLabel("");		
+		tempModsDisabledWarning = new JLabel("");
 		/* commented out until we fix temp mods, do not delete
 		iPanel.add(useTempMods, BorderLayout.WEST);
 		*/
@@ -1672,7 +1672,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		/**
-		 * Get the level 
+		 * Get the level
 		 * @return level
 		 */
 		public int getLevel()
@@ -1692,7 +1692,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		public String toString()
 		{
 			StringBuffer b = new StringBuffer();
-			b.append(_class.getName());
+			b.append(_class.getDisplayName());
 			b.append(" (").append(_level).append(")");
 
 			return b.toString();

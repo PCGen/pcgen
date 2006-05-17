@@ -252,7 +252,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		{
 //System.err.println("before: " + naturalWeapons);
 			Collections.sort(naturalWeapons,
-			    new Comparator()
+				new Comparator()
 				{
 					public final int compare(final Object o1, final Object o2)
 					{
@@ -290,7 +290,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		{
 			eq = (Equipment) naturalWeapons.get(i);
 
-			final int wpBonus = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profName(pc), "TOHIT");
+			final int wpBonus = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc), "TOHIT");
 
 			Object[] newRow = new Object[7];
 			newRow[0] = eq.getName(); // Attack
@@ -381,10 +381,10 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 		tblNaturalAttacks.setBackground(getBackground());
 		tblNaturalAttacks.setModel(new DefaultTableModel(
-		        new String[]
-		        {
-			        "Attack", "#", "To-Hit Modifier", "Damage/Attack", "Excludes Weapons", "Iterative BAB", "Enabled"
-		        }, 0)
+				new String[]
+				{
+					"Attack", "#", "To-Hit Modifier", "Damage/Attack", "Excludes Weapons", "Iterative BAB", "Enabled"
+				}, 0)
 			{
 				Class[] types = new Class[]
 					{

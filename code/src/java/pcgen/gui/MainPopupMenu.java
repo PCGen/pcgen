@@ -39,6 +39,8 @@ import java.awt.Component;
 final class MainPopupMenu extends JPopupMenu
 {
 	JMenuItem newItem;
+// WIP please leave boomer70
+//	JMenuItem newNPCItem;
 	private JMenuItem pleaseLoadItem;
 
 	/**
@@ -48,9 +50,13 @@ final class MainPopupMenu extends JPopupMenu
 	public MainPopupMenu(FrameActionListener frameActionListener)
 	{
 		pleaseLoadItem = Utility.createMenuItem("Please load campaigns", null, "mainPopupMenu.pleaseLoad", (char) 0,
-			    null, "You must load one or more campaigns before creating new characters", null, false);
+				null, "You must load one or more campaigns before creating new characters", null, false);
 		newItem = Utility.createMenuItem("New", frameActionListener.newPopupActionListener, "mainPopupMenu.new", 'N',
-			    null, "Create a new character", "New16.gif", true);
+				null, "Create a new character", "New16.gif", true);
+
+// WIP please leave boomer70
+//		newNPCItem = Utility.createMenuItem("New NPC", frameActionListener.newNPCPopupActionListener, "mainPopupMenu.newNPC", (char)0,
+//			null, "Create a new random NPC", "New16.gif", true);
 	}
 
 	public void show(Component invoker, int x, int y)

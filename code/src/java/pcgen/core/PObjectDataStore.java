@@ -54,6 +54,11 @@ public class PObjectDataStore
 		containedType = inContainedType;
 	}
 
+	public Collection getAll()
+	{
+		return byKey.values();
+	}
+
 	/**
 	 * Get every entry for a given type.
 	 *
@@ -145,7 +150,7 @@ public class PObjectDataStore
 			}
 
 			final PObject object = (PObject) ii.next();
-			ret.append(object.getName());
+			ret.append(object.getDisplayName());
 		}
 
 		if (addArrayMarkers)
@@ -167,7 +172,7 @@ public class PObjectDataStore
 		final String key = obj.getKeyName().toUpperCase();
 		byKey.put(key, obj);
 
-		final String upperName = obj.getName().toUpperCase();
+		final String upperName = obj.getDisplayName().toUpperCase();
 		byUpperName.put(upperName, obj);
 
 		// We used to add all types together here.
@@ -280,14 +285,14 @@ public class PObjectDataStore
 	public void removeNamed(final String name)
 	{
 		final PObject object = getNamed(name);
-		byUpperName.remove(object.getName().toUpperCase());
+		byUpperName.remove(object.getDisplayName().toUpperCase());
 		byKey.remove(object.getKeyName().toUpperCase());
 
 		final SortedMap typedByName = (TreeMap) byType.get(object.getType().toUpperCase());
 
 		if (typedByName != null)
 		{
-			typedByName.remove(object.getName().toUpperCase());
+			typedByName.remove(object.getDisplayName().toUpperCase());
 		}
 
 		clearVariableNameCache();

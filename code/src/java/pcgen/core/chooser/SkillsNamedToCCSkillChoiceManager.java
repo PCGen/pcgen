@@ -51,7 +51,7 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 		super(aPObject, choiceString, aPC);
 		title = "Skills Choice";
 		chooserHandled = "SKILLSNAMEDTOCCSKILL";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -60,10 +60,10 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -81,7 +81,7 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 
 				if (aSkill.getRootName().equalsIgnoreCase(item))
 				{
-					anAbility.addCcSkill(aSkill.getName());
+					anAbility.addCcSkill(aSkill.getKeyName());
 				}
 			}
 		}

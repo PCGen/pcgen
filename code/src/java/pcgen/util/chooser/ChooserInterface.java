@@ -34,7 +34,7 @@ import java.util.List;
  */
 public interface ChooserInterface
 {
-	/** 
+	/**
 	 * set allow duplicates flag
 	 * @param aBool
 	 */
@@ -122,4 +122,6 @@ public interface ChooserInterface
 	 * Show
 	 */
 	void show();
+
+	public void setAvailableColumnNames(List availableColumnNames);
 }

@@ -113,7 +113,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
 	{
 		theClass = null;
-		theClass = Globals.getClassNamed(getClassName());
+		theClass = Globals.getClassKeyed(getClassName());
 
 		if (theClass == null)
 		{
@@ -125,7 +125,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		if (getSubClass() != null)
 		{
 			// try and set a subclass too.
-			theClass.setSubClassName(getSubClass());
+			theClass.setSubClassKey(getSubClass());
 		}
 
 		if (!PrereqHandler.passesAll(theClass.getPreReqList(), aPC, aKit))

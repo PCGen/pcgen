@@ -375,7 +375,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	{
 		//final String aString =
 		// availableTable.getTree().getLastSelectedPathComponent().toString();
-		String aString = null;
+		String aKey = null;
 		Object temp = availableTable.getTree().getLastSelectedPathComponent();
 
 		if (temp == null)
@@ -391,7 +391,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 			if (temp instanceof Ability)
 			{
-				aString = ((Ability) temp).getName();
+				aKey = ((Ability) temp).getKeyName();
 			}
 		}
 
@@ -429,7 +429,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				break;
 
 			default:
-				Logging.errorPrint(getSingularTabName() + " " + ((Ability) temp).getName() + " is somehow in state " + fq
+				Logging.errorPrint(getSingularTabName() + " " + ((Ability) temp).getDisplayName() + " is somehow in state " + fq
 					+ " which is not handled" + " in InfoFeats.addFeat()");
 
 				break;
@@ -441,7 +441,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			pc.setDirty(true);
 
 			// modFeat(featName, adding_feat, adding_all_selections)
-			AbilityUtilities.modFeat(pc, null, aString, true, false);
+			AbilityUtilities.modFeat(pc, null, aKey, true, false);
 		}
 		catch (Exception exc)
 		{
@@ -471,8 +471,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	private int checkFeatQualify(Ability anAbility)
 	{
-		String aString = anAbility.getName();
-		anAbility = pc.getRealFeatNamed(aString);
+		String aKey = anAbility.getKeyName();
+		anAbility = pc.getRealFeatKeyed(aKey);
 
 		final boolean pcHasIt = (anAbility != null);
 
@@ -483,7 +483,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		if (!pcHasIt)
 		{
-			anAbility = Globals.getAbilityNamed("FEAT", aString);
+			anAbility = Globals.getAbilityKeyed("FEAT", aKey);
 			if (
 				anAbility != null &&
 				!PrereqHandler.passesAll( anAbility.getPreReqList(), pc, anAbility ) &&
@@ -552,7 +552,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			// We run this after the event has been processed so that
@@ -576,7 +576,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			// We run this after the event has been processed so that
@@ -1260,11 +1260,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	}
 
 	/**
-	 * Build the panel with the controls to add a spell to a 
+	 * Build the panel with the controls to add a spell to a
 	 * prepared list.
-	 * @param button 
-	 * @param title 
-	 *  
+	 * @param button
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildModSpellPanel(JButton button, String title)
@@ -1280,11 +1280,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	}
 
 	/**
-	 * Build the panel with the controls to add a spell to a 
+	 * Build the panel with the controls to add a spell to a
 	 * prepared list.
-	 * @param button 
-	 * @param title 
-	 *  
+	 * @param button
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildDelSpellPanel(JButton button, String title)
@@ -1305,7 +1305,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	private void removeFeat()
 	{
-		String aString = null;
+		String aKey = null;
 		Object temp = selectedTable.getTree().getLastSelectedPathComponent();
 
 		if (temp == null)
@@ -1321,7 +1321,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 			if (temp instanceof Ability)
 			{
-				aString = ((Ability) temp).getName();
+				aKey = ((Ability) temp).getKeyName();
 			}
 		}
 
@@ -1330,7 +1330,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			pc.setDirty(true);
 
 			// modFeat(featName, adding_feat, adding_all_selections)
-			AbilityUtilities.modFeat(pc, null, aString, false, false);
+			AbilityUtilities.modFeat(pc, null, aKey, false, false);
 		}
 		catch (Exception exc)
 		{
@@ -1482,7 +1482,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		private static final int COL_DESCRIPTION = 6;
 		private static final int COL_CHOICES = 7;
 		private static final int COL_SRC = 8;
-		
+
 		private static final int MODEL_TYPE_AVAIL = 0;
 		private static final int MODEL_TYPE_SELECTED = 1;
 
@@ -1599,7 +1599,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			PObjectNode fn = (PObjectNode) node;
 			Object retVal = null;
-			
+
 			Ability feat = null;
 			Object temp = fn.getItem();
 			if (temp instanceof Ability)
@@ -1678,7 +1678,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 			return retVal;
 		}
-	
+
 		/**
 		 * There must be a root object, though it can be hidden
 		 * to make it's existence basically a convenient way to
@@ -1714,21 +1714,21 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (aFeat.isMultiples())
 				{
-					final String featName = aFeat.getName();
+					final String featKey = aFeat.getKeyName();
 
-					if (pc.hasRealFeatNamed(featName))
+					if (pc.hasRealFeat(aFeat))
 					{
-						returnValue.add(pc.getRealFeatNamed(featName));
+						returnValue.add(pc.getRealFeatKeyed(featKey));
 					}
 
-					/*else*/ if (pc.hasFeatAutomatic(featName))
+					/*else*/ if (pc.hasFeatAutomatic(featKey))
 					{
-						returnValue.add(pc.getFeatAutomaticNamed(featName));
+						returnValue.add(pc.getFeatAutomaticKeyed(featKey));
 					}
 
-					/*else*/ if (pc.hasFeatVirtual(featName))
+					/*else*/ if (pc.hasFeatVirtual(featKey))
 					{
-						returnValue.add(AbilityUtilities.getAbilityFromList(pc.getVirtualFeatList(), "FEAT", featName, -1));
+						returnValue.add(AbilityUtilities.getAbilityFromList(pc.getVirtualFeatList(), "FEAT", featKey, -1));
 					}
 				}
 				else
@@ -1788,19 +1788,19 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				}
 
 				int hasIt = HASABILITY_NO;
-				final String featName = aFeat.getName();
+				final String featKey = aFeat.getKeyName();
 
 				if (available)
 				{
-					if (pc.hasRealFeatNamed(featName))
+					if (pc.hasRealFeat(aFeat))
 					{
 						hasIt = HASABILITY_CHOSEN;
 					}
-					else if (pc.hasFeatAutomatic(featName))
+					else if (pc.hasFeatAutomatic(featKey))
 					{
 						hasIt = HASABILITY_AUTOMATIC;
 					}
-					else if (pc.hasFeatVirtual(featName))
+					else if (pc.hasFeatVirtual(featKey))
 					{
 						hasIt = HASABILITY_VIRTUAL;
 					}
@@ -1825,8 +1825,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 					//Does anyone know why we don't call
 					//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
-					if (qFilter == null || 
-							( aFeat.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+					if (qFilter == null ||
+							( aFeat.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 							  aFeat.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 					{
 						((PObjectNode) super.getRoot()).addChild(aFN);
@@ -2069,19 +2069,19 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				}
 
 				int hasIt = HASABILITY_NO;
-				final String featName = aFeat.getName();
+				final String featKey = aFeat.getKeyName();
 
 				if (available)
 				{
-					if (pc.hasRealFeatNamed(featName))
+					if (pc.hasRealFeat(aFeat))
 					{
 						hasIt = HASABILITY_CHOSEN;
 					}
-					else if (pc.hasFeatAutomatic(featName))
+					else if (pc.hasFeatAutomatic(featKey))
 					{
 						hasIt = HASABILITY_AUTOMATIC;
 					}
-					else if (pc.hasFeatVirtual(featName))
+					else if (pc.hasFeatVirtual(featKey))
 					{
 						hasIt = HASABILITY_VIRTUAL;
 					}
@@ -2173,19 +2173,19 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				}
 
 				int hasIt = HASABILITY_NO;
-				final String featName = aFeat.getName();
+				final String featKey = aFeat.getKeyName();
 
 				if (available)
 				{
-					if (pc.hasRealFeatNamed(featName))
+					if (pc.hasRealFeat(aFeat))
 					{
 						hasIt = HASABILITY_CHOSEN;
 					}
-					else if (pc.hasFeatAutomatic(featName))
+					else if (pc.hasFeatAutomatic(featKey))
 					{
 						hasIt = HASABILITY_AUTOMATIC;
 					}
-					else if (pc.hasFeatVirtual(featName))
+					else if (pc.hasFeatVirtual(featKey))
 					{
 						hasIt = HASABILITY_VIRTUAL;
 					}
@@ -2241,7 +2241,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				Prerequisite prereq = (Prerequisite) it.next();
 				String pString = prereq.getKey();
 
-				if (pString.equalsIgnoreCase(bFeat.getName()))
+				if (pString.equalsIgnoreCase(bFeat.getKeyName()))
 				{
 					thisisit = true;
 				}
@@ -2382,14 +2382,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoFeats.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoFeats.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 
@@ -2575,7 +2575,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 							default:
 								Logging.errorPrint(getSingularTabName() + " " +
-												   aFeat.getName() +
+												   aFeat.getDisplayName() +
 												   " is somehow in state " + ok
 												   + " which is not handled" +
 												   " in InfoFeats.FeatPopupMenu.show()");

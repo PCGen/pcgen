@@ -191,7 +191,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 				continue;
 			}
 
-			final WeaponProf aProf = Globals.getWeaponProfNamed(profName);
+			final WeaponProf aProf = Globals.getWeaponProfKeyed(profName);
 
 			if (aProf != null)
 			{
@@ -251,7 +251,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		for (Iterator e = xs.iterator(); e.hasNext();)
 		{
 			final String     profName = (String) e.next();
-			final WeaponProf aProf    = Globals.getWeaponProfNamed(profName);
+			final WeaponProf aProf    = Globals.getWeaponProfKeyed(profName);
 
 			if (aProf != null)
 			{
@@ -270,7 +270,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		for (Iterator i = weaponProfs.iterator(); i.hasNext(); )
 		{
 			WeaponProf prof = (WeaponProf)i.next();
-			thePObject.addSelectedWeaponProfBonus(prof.getName());
+			thePObject.addSelectedWeaponProfBonus(prof.getKeyName());
 		}
 	}
 

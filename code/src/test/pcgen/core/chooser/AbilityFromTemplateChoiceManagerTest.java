@@ -18,7 +18,7 @@
  *
  * Created on 17 March 2005
  *
- * $Author: nuance $ 
+ * $Author: nuance $
  * $Date: 2006-03-22 00:25:03 +0000 (Wed, 22 Mar 2006) $
  * $Revision: 362 $
  */
@@ -51,7 +51,8 @@ public class AbilityFromTemplateChoiceManagerTest extends
 	public void testAddToMaps() {
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 1");
-		
+		tem.setKeyName("KEY_Test Template 1");
+
 		AbilityFromTemplateChoiceManager choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		try
@@ -60,7 +61,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is empty");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Category map is empty");
 
@@ -72,17 +73,17 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			System.out.println(e);
 		}
 
-		AbilityInfo abInfo = new AbilityInfo("foo", "bar");
+		AbilityInfo abInfo = new AbilityInfo("foo", "KEY_bar");
 
 		choiceManager.addToMaps(abInfo);
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is still empty");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Category map is still empty");
 
@@ -92,22 +93,23 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		catch (IllegalAccessException e) {
 			System.out.println(e);
 		}
-		
+
 		Ability ab = new Ability();
 		ab.setName("bar");
+		ab.setKeyName("KEY_bar");
 		ab.setCategory("foo");
 
 		is (Globals.addAbility(ab), eq(true), "First ability added correctly");
-		
+
 		choiceManager.addToMaps(abInfo);
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Name map is not empty");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Category map is not empty");
 
@@ -117,15 +119,16 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		catch (IllegalAccessException e) {
 			System.out.println(e);
 		}
-		
-		abInfo = new AbilityInfo("baz", "bar");
+
+		abInfo = new AbilityInfo("baz", "KEY_bar");
 
 		ab = new Ability();
 		ab.setName("bar");
+		ab.setKeyName("KEY_bar");
 		ab.setCategory("baz");
 
 		is (Globals.addAbility(ab), eq(true), "Second ability added correctly");
-		
+
 		choiceManager.addToMaps(abInfo);
 
 		try
@@ -138,14 +141,14 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 			Object st[]   = sName.toArray();
 
-			is (st[0], strEq("bar"), "One");
-			
+			is (st[0], strEq("KEY_bar"), "One");
+
 			/* these next two only have one entry because the first entry is discarded
 			 * when the the second is added (which is why we also have cat maps!) */
-			
+
 			is (sName.size(), eq(1), "Name key set has only one entry");
 			is (name.size(), eq(1), "Name map has only one entry");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "catMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(2), "Category map has two entries");
 
@@ -164,21 +167,21 @@ public class AbilityFromTemplateChoiceManagerTest extends
 	public void testInitialise() {
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 2");
-		
+
 		ChoiceManagerCategorisable choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		choiceManager.initialise(1,2,3);
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
-			
+
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(1), "Number of choices is set correctly");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
 			is (aField.get(choiceManager), eq(2), "Requested selections is set correctly");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "maxNewSelections");
 			is (aField.get(choiceManager), eq(3), "Max new Selections is set correctly");
 		}
@@ -187,17 +190,17 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		}
 
 		choiceManager.initialise(23,17,7);
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
-			
+
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(23), "Number of choices is set correctly");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
 			is (aField.get(choiceManager), eq(17), "Requested selections is set correctly");
-			
+
 			aField  = (Field) TestHelper.findField(cMClass, "maxNewSelections");
 			is (aField.get(choiceManager), eq(7), "Max new Selections is set correctly");
 		}
@@ -212,21 +215,21 @@ public class AbilityFromTemplateChoiceManagerTest extends
 	public void testAbilityFromTemplateChoiceManager() {
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 3");
-		
+
 		ChoiceManagerCategorisable choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		try
 		{
 			Class cMClass = choiceManager.getClass();
-			
+
 			Field aField  = (Field) TestHelper.findField(cMClass, "pobject");
 			PObject pobject = (PObject) aField.get(choiceManager);
-			is(pobject.getName(), strEq("Test Template 3"));
+			is(pobject.getKeyName(), strEq("Test Template 3"));
 
 			aField  = (Field) TestHelper.findField(cMClass, "pc");
 			PlayerCharacter aPc = (PlayerCharacter) aField.get(choiceManager);
 			is(aPc.getName(), strEq(getCharacter().getName()));
-			
+
 		}
 		catch (IllegalAccessException e) {
 			System.out.println(e);

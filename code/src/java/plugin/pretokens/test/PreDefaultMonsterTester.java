@@ -30,6 +30,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.core.SettingsHandler;
 
 /**
  * @author wardc
@@ -43,7 +44,7 @@ public class PreDefaultMonsterTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter pc)
 	{
 		final char key = prereq.getKey().toUpperCase().charAt(0);
-		return pc.isMonsterDefault() == (key == 'Y') ? 1 : 0; //$NON-NLS-1$
+		return SettingsHandler.isMonsterDefault() == (key == 'Y') ? 1 : 0; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)

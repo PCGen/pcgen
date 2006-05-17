@@ -51,7 +51,7 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skill Choice";
 		chooserHandled = "CCSKILLIST";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -60,10 +60,10 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -83,7 +83,7 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 
 					if (skill.getRootName().equalsIgnoreCase(item))
 					{
-						ability.addCcSkill(skill.getName());
+						ability.addCcSkill(skill.getKeyName());
 					}
 				}
 			}

@@ -22,7 +22,7 @@ public class ChecknameToken implements PCCheckLstToken {
 		while (iter.hasNext()) {
 			final PObject testObj = (PObject) iter.next();
 
-			if (testObj.getName().equals(obj.getName())) {
+			if (testObj.getKeyName().equals(obj.getKeyName())) {
 				return true; //we already have this object in our list, so just return
 			}
 		}

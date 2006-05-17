@@ -90,7 +90,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, prof, value);
 				if (!token.parse(prof, value))
 				{
-					Logging.errorPrint("Error parsing skill " + prof.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing skill " + prof.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(prof, colString))
@@ -115,17 +115,17 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getWeaponProfNamed(baseName);
+		return Globals.getWeaponProfKeyed(aKey);
 	}
 
 	protected void finishObject(PObject target)
 	{
-		if (includeObject(target) && (target.getName().length() > 0))
+		if (includeObject(target) && (target.getKeyName().length() > 0))
 		{
 			final WeaponProf wpFromFile = (WeaponProf) target;
-			final WeaponProf wp = Globals.getWeaponProfNamed(wpFromFile.getName());
+			final WeaponProf wp = Globals.getWeaponProfKeyed(wpFromFile.getKeyName());
 
 			if (wp == null)
 			{
@@ -140,6 +140,6 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 	 */
 	protected void performForget(PObject objToForget)
 	{
-		Globals.removeWeaponProfNamed(objToForget.getName());
+		Globals.removeWeaponProfKeyed(objToForget.getKeyName());
 	}
 }

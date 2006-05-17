@@ -29,9 +29,9 @@ import java.util.List;
 import pcgen.util.chooser.ChooserInterface;
 
 /**
- * <code>NonGuiChooser</code> is quick fix for running chooser dependant code 
+ * <code>NonGuiChooser</code> is quick fix for running chooser dependant code
  * in a non-GUI environment. It is assumed that this will only be created
- * when the answer is already known. 
+ * when the answer is already known.
  *
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
@@ -169,7 +169,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param b
 	 */
-	public void setVisible(boolean b) 
+	public void setVisible(boolean b)
 	{
 		throw new UnsupportedOperationException("NonGuiCHooser cannot be shown.");
 	}
@@ -187,5 +187,12 @@ public final class NonGuiChooser implements ChooserInterface
 	public void show()
 	{
 		setVisible(true);
+	}
+
+	/**
+	 * @see pcgen.util.chooser.ChooserInterface#setAvailableColumnNames(java.util.List)
+	 */
+	public void setAvailableColumnNames(List availableColumnNames)
+	{
 	}
 }

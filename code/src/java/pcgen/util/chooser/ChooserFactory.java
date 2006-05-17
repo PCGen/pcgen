@@ -30,16 +30,16 @@ package pcgen.util.chooser;
  */
 public final class ChooserFactory
 {
-    private static String interfaceClassname = null;
-    private static String radioInterfaceClassname = null;
-    
-    
+	private static String interfaceClassname = null;
+	private static String radioInterfaceClassname = null;
+
+
 	/**
 	 * Deliberately private so it can't be instantiated.
 	 */
 	private ChooserFactory()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -48,21 +48,21 @@ public final class ChooserFactory
 	 */
 	public static ChooserInterface getChooserInstance()
 	{
-        try {
-    	    Class c = Class.forName(interfaceClassname);
-            ChooserInterface ci = (ChooserInterface) c.newInstance();
-    		return ci;
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-        catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+		try {
+			Class c = Class.forName(interfaceClassname);
+			ChooserInterface ci = (ChooserInterface) c.newInstance();
+			return ci;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (InstantiationException e) {
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
@@ -71,32 +71,40 @@ public final class ChooserFactory
 	 */
 	public static ChooserRadio getRadioInstance()
 	{
-        try {
-    	    Class c = Class.forName(radioInterfaceClassname);
-    	    ChooserRadio ci = (ChooserRadio) c.newInstance();
-    		return ci;
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-        catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+		try {
+			Class c = Class.forName(radioInterfaceClassname);
+			ChooserRadio ci = (ChooserRadio) c.newInstance();
+			return ci;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (InstantiationException e) {
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
-    /**
-     * @param interfaceClassname The interfaceClassname to set.
-     */
-    public static void setInterfaceClassname(String interfaceClassname) {
-        ChooserFactory.interfaceClassname = interfaceClassname;
-    }
-    /**
-     * @param radioInterfaceClassname The radioInterfaceClassname to set.
-     */
-    public static void setRadioInterfaceClassname(String radioInterfaceClassname) {
-        ChooserFactory.radioInterfaceClassname = radioInterfaceClassname;
-    }
+	/**
+	 * @param interfaceClassname The interfaceClassname to set.
+	 */
+	public static void setInterfaceClassname(String interfaceClassname) {
+		ChooserFactory.interfaceClassname = interfaceClassname;
+	}
+	/**
+	 * @param radioInterfaceClassname The radioInterfaceClassname to set.
+	 */
+	public static void setRadioInterfaceClassname(String radioInterfaceClassname) {
+		ChooserFactory.radioInterfaceClassname = radioInterfaceClassname;
+	}
+	public static String getInterfaceClassname()
+	{
+		return ChooserFactory.interfaceClassname;
+	}
+	public static String getRadioInterfaceClassname()
+	{
+		return ChooserFactory.radioInterfaceClassname;
+	}
 }

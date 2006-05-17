@@ -56,12 +56,12 @@ public class CampaignLoader extends LstLineFileLoader
 	 */
 	public CampaignLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
 	 * This method initializes any campaigns that include other campaigns,
-	 * avoiding an infinite loop in the event of recursive, for example 
+	 * avoiding an infinite loop in the event of recursive, for example
 	 * interdependent campaigns
 	 *
 	 * @throws PersistenceLayerException if an error occurs reading a
@@ -111,7 +111,7 @@ public class CampaignLoader extends LstLineFileLoader
 			LstUtils.deprecationCheck(token, campaign, value);
 			if (!token.parse(campaign, value, sourceUrl))
 			{
-				Logging.errorPrint("Error parsing campaign " + campaign.getName() + ':' + inputLine);
+				Logging.errorPrint("Error parsing campaign " + campaign.getDisplayName() + ':' + inputLine);
 			}
 		}
 		else if (PObjectLoader.parseTag(campaign, inputLine))
@@ -296,9 +296,9 @@ public class CampaignLoader extends LstLineFileLoader
 
 	/**
 	 * This method initializes any campaigns that include other campaigns,
-	 * avoiding an infinite loop in the event of recursive (for example 
+	 * avoiding an infinite loop in the event of recursive (for example
 	 * interdependent campaigns)
-	 * 
+	 *
 	 * This specific overloading will recurse down a the given
 	 * campaign object dependency tree, then return
 	 *

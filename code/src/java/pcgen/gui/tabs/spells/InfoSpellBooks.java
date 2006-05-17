@@ -78,7 +78,7 @@ import pcgen.util.PropertyFactory;
 
 /**
  * <code>InfoSpellBooks</code> is responsible for the display of the list of
- * a character's spell books and the provision of an interface to let the 
+ * a character's spell books and the provision of an interface to let the
  * user create and update spell books for their character.
  *
  * Last Editor: $Author$
@@ -102,7 +102,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	private JButton delSpellButton;
 
 	private JTextField spellBookNameText = new JTextField();
-	
+
 	private JComboBoxEx primaryViewComboBox = new JComboBoxEx();
 	private JComboBoxEx secondaryViewComboBox = new JComboBoxEx();
 	private JComboBoxEx primaryViewSelectComboBox = new JComboBoxEx();
@@ -117,7 +117,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 	/**
 	 *  Constructor for the InfoSpellBooks object
-	 * 
+	 *
 	 * @param pc The character this tab is being created to display.
 	 */
 	public InfoSpellBooks(PlayerCharacter pc)
@@ -183,7 +183,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		needsUpdate = false;
 	}
-	
+
 	/**
 	 * This is called when the tab is shown.
 	 */
@@ -207,7 +207,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			divLocVert = SettingsHandler.getPCGenOption("InfoSpellBooks.bsplit", //$NON-NLS-1$
 				(int) (this.getSize().getHeight() - 101));
 			divLocHoriz = SettingsHandler.getPCGenOption("InfoSpellBooks.asplit", //$NON-NLS-1$
-				(int) (this.getSize().getWidth() - 300)); 
+				(int) (this.getSize().getWidth() - 300));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
@@ -409,7 +409,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		// create tables associated with the above trees
 		createTreeTables();
-		
+
 		List colNameList = new ArrayList();
 		colNameList.add("School");
 		colNameList.add("Descriptor");
@@ -418,8 +418,8 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		colActiveList.add(new Boolean(true));
 		colActiveList.add(new Boolean(true));
 		colActiveList.add(new Boolean(true));
-		
- 		// Build the Top Panel
+
+		 // Build the Top Panel
 		buildTopPanel();
 
 		// Build Bottom Panel
@@ -499,7 +499,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		leftPane.add(buildModSpellPanel(addSpellButton, "InfoSpells.add.selected"), BorderLayout.SOUTH);
-		
+
 		JPanel sPanel = new JPanel();
 		sPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
 		sPanel.add(selLabel);
@@ -522,11 +522,11 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build the panel with the controls to add a spell to a 
+	 * Build the panel with the controls to add a spell to a
 	 * prepared list.
-	 * @param button 
-	 * @param title 
-	 *  
+	 * @param button
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildModSpellPanel(JButton button, String title)
@@ -542,7 +542,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build Bottom Panel. 
+	 * Build Bottom Panel.
 	 * botPane will contain a bLeftPane and a bRightPane
 	 * bLeftPane will contain a scrollregion (spell info)
 	 * bRightPane will contain a scrollregion (character Info)
@@ -622,7 +622,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 				selectedBookList.add(bookName);
 			}
 		}
-		
+
 	}
 
 	/**
@@ -728,7 +728,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 				delSpellButton.setEnabled(false);
 				delSpellMenu.setEnabled(false);
 			}
-			
+
 			if (fNode.getItem() instanceof SpellBook)
 			{
 				SpellBook book = (SpellBook) fNode.getItem();
@@ -795,11 +795,11 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		// reset selected spellbook model
 		updateSelectedModel();
 	}
-	
+
 	/**
-	 * Set the current book as the one to automatically add known 
+	 * Set the current book as the one to automatically add known
 	 * spells to.
-	 *  
+	 *
 	 * @see pcgen.gui.tabs.spells.InfoSpellsSubTab#setAutoBookButton()
 	 */
 	protected void setAutoBookButton()
@@ -825,7 +825,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 			return; // need to select a spellbook
 		}
-		
+
 		if (bookName.equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
 			pc.setSpellBookNameToAutoAddKnown("");
@@ -870,7 +870,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		for (int index = selCPaths.length - 1; index >= 0; --index)
 		{
 			TreePath selCPath = selCPaths[index];
-	
+
 			Object endComp = selCPath.getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) endComp;
 			List aList = getInfoFromNode(fNode);
@@ -884,24 +884,25 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 			if (cs != null)
 			{
-		
+
 				String bookName = getBookName((PObjectNode) selCPath
 					.getPathComponent(1));
 				SpellInfo si = (SpellInfo) fNode.getItem();
-		
-				PCClass aClass = pc.getClassNamed(className);
+
+				// TODO Check this
+				PCClass aClass = pc.getClassKeyed(className);
 				if (aClass == null)
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR); 
+						Constants.s_APPNAME, MessageType.ERROR);
 				}
 				else
 				{
 					bookName = currSpellBook = bookName;
-			
+
 					final String aString = pc.delSpell(si, aClass, bookName);
-			
+
 					if (aString.length() > 0)
 					{
 						ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
@@ -915,10 +916,10 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Process a change in the available spells 'select from' mode. This 
-	 * determines the source of the spells in the available list. 
+	 * Process a change in the available spells 'select from' mode. This
+	 * determines the source of the spells in the available list.
 	 * (e.g. Known Spells.)
-	 * 
+	 *
 	 * @param selectedIndex The index of the new select from mode.
 	 */
 	private void selectFromComboBoxActionPerformed(int selectedIndex)
@@ -929,5 +930,5 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			updateAvailableModel();
 		}
 	}
-	
+
 }

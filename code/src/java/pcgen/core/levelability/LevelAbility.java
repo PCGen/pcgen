@@ -315,7 +315,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 			final SpecialAbility sa = new SpecialAbility(
 					zString,
-					"PCCLASS|" + owner.getName() + '|' + level);
+					"PCCLASS|" + owner.getKeyName() + '|' + level);
 			owner.addSpecialAbilityToList(sa);
 			owner.addSave(zString);
 		}
@@ -331,7 +331,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	{
 		int aLevel;
 
-		String className = null;
+		String classKey = null;
 
 		int dnum = aPC.getMaxCharacterDomains() -
 			aPC.getCharacterDomainUsed();
@@ -343,7 +343,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 		if (owner instanceof PCClass)
 		{
-			className = owner.getName();
+			classKey = owner.getKeyName();
 			aLevel    = ((PCClass) owner).getLevel();
 
 			if (dnum <= 0)
@@ -367,11 +367,11 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 		while ((dnum > 0) && i.hasNext())
 		{
-			final String domName = (String) i.next();
+			final String domainKey = (String) i.next();
 
-			if (aPC.getCharacterDomainIndex(domName) == -1)
+			if (aPC.getCharacterDomainIndex(domainKey) == -1)
 			{
-				Domain aDom = Globals.getDomainNamed(domName);
+				Domain aDom = Globals.getDomainKeyed(domainKey);
 
 				if (aDom == null)
 				{
@@ -381,7 +381,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 				aDom = (Domain) aDom.clone();
 
 				final CharacterDomain aCD = aPC.getNewCharacterDomain(
-						className);
+						classKey);
 				aCD.setDomain(aDom, aPC);
 				aPC.addCharacterDomain(aCD);
 				aDom.setIsLocked(true, aPC);
@@ -558,7 +558,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 				if (race.getType().equalsIgnoreCase(aString))
 				{
-					aArrayList.add(race.getName());
+					aArrayList.add(race.getKeyName());
 				}
 			}
 
@@ -566,9 +566,9 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			{
 				final PCClass aClass = (PCClass) e.next();
 
-				if (aClass.isType(aString) && !aArrayList.contains(aClass.getName()))
+				if (aClass.isType(aString) && !aArrayList.contains(aClass.getKeyName()))
 				{
-					aArrayList.add(aClass.getName());
+					aArrayList.add(aClass.getKeyName());
 				}
 			}
 

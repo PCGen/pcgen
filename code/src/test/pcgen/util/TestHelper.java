@@ -19,7 +19,7 @@
  * Current Version: $Revision$
  * Last Editor:     $Author$
  * Last Edited:     $Date$
- * 
+ *
  */
 
 package pcgen.util;
@@ -72,7 +72,7 @@ public class TestHelper {
 			String abb  = name.substring(0, 1);
 
 			SizeAdjustment sa = new SizeAdjustment();
-			
+
 			sa.setName(name);
 			sa.setAbbreviation(abb);
 
@@ -172,6 +172,7 @@ public class TestHelper {
 	{
 		Skill  aSkill = new Skill();
 		aSkill.setName(name);
+		aSkill.setKeyName("KEY_"+name);
 		aSkill.setTypeInfo(type);
 		aSkill.setKeyStat(stat);
 		aSkill.setUntrained(untrained);
@@ -193,6 +194,7 @@ public class TestHelper {
 	{
 		Ability  anAbility = new Ability();
 		anAbility.setName(name);
+		anAbility.setKeyName("KEY_"+name);
 		anAbility.setCategory(cat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);

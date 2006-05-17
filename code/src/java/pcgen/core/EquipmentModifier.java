@@ -62,7 +62,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	private static final int NAMINGOPTION_NOTHING = 3;
 	private static final int NAMINGOPTION_SPELL   = 4;
 	private static final int NAMINGOPTION_TEXT    = 5;
-	
+
 	private static final String s_CHARGES           = "CHARGES";
 	private List                ignores             = new ArrayList();
 	private List                itemType            = new ArrayList();
@@ -183,8 +183,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 				for (int j = getAssociatedCount() - 1; j >= 0; j--)
 				{
 					final BonusObj newBonus = Bonus.newBonus(
-						    aString.substring(0, idx) + getAssociated(j) +
-						    aString.substring(idx + 7));
+							aString.substring(0, idx) + getAssociated(j) +
+							aString.substring(idx + 7));
 					newBonus.setCreatorObject(this);
 
 					if (aBonus.hasPreReqs())
@@ -228,9 +228,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 			final BonusObj aBonus = (BonusObj) ab.next();
 
 			if (
-			    (aBonus.getTypeOfBonus().indexOf(aType) >= 0) &&
-			    (aBonus.getBonusInfo().indexOf(aName) >= 0) &&
-			    (!willIgnore(getKeyName())))
+				(aBonus.getTypeOfBonus().indexOf(aType) >= 0) &&
+				(aBonus.getBonusInfo().indexOf(aName) >= 0) &&
+				(!willIgnore(getKeyName())))
 			{
 				aList.add(aBonus);
 			}
@@ -360,8 +360,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 	public void setIgnores(final String aString)
 	{
 		final StringTokenizer aTok = new StringTokenizer(
-			    aString.toUpperCase().trim(),
-			    ",");
+				aString.toUpperCase().trim(),
+				",");
 		ignores.clear();
 
 		while (aTok.hasMoreTokens())
@@ -431,7 +431,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 		return itemType.contains(myType);
 	}
 
-	
+
 	/**
 	 * Get the maximum number of charges added by this object
 	 *
@@ -470,7 +470,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 */
 	public void setNamingOption(final String option)
 	{
-		namingOptionText = ""; 
+		namingOptionText = "";
 		if ("NOLIST".equalsIgnoreCase(option))
 		{
 			namingOption = NAMINGOPTION_NOLIST;
@@ -490,7 +490,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 		else if (option != null && option.toUpperCase().startsWith("TEXT="))
 		{
 			namingOption = NAMINGOPTION_TEXT;
-			namingOptionText = option.substring(5); 
+			namingOptionText = option.substring(5);
 		}
 		else
 		{
@@ -525,7 +525,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 	/**
 	 * Set pre cost
-	 * 
+	 *
 	 * @param aString
 	 */
 	public void setPreCost(final String aString)
@@ -558,8 +558,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 	public void setReplacement(final String aString)
 	{
 		final StringTokenizer aTok = new StringTokenizer(
-			    aString.toUpperCase().trim(),
-			    ",");
+				aString.toUpperCase().trim(),
+				",");
 		replaces.clear();
 
 		while (aTok.hasMoreTokens())
@@ -655,18 +655,18 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * @param  charges              how many times can it be cast
 	 */
 	public void setSpellInfo(
-	    final PObject spellCastingClass,
-	    final Spell   theSpell,
-	    final String  spellVariant,
-	    final String  spellType,
-	    final int     spellLevel,
-	    final int     spellCasterLevel,
-	    final Object  spellMetamagicFeats[],
-	    final int     charges)
+		final PObject spellCastingClass,
+		final Spell   theSpell,
+		final String  spellVariant,
+		final String  spellType,
+		final int     spellLevel,
+		final int     spellCasterLevel,
+		final Object  spellMetamagicFeats[],
+		final int     charges)
 	{
 		final StringBuffer spellInfo = new StringBuffer(100);
-		spellInfo.append("SPELLNAME[").append(theSpell.getName()).append("] ");
-		spellInfo.append("CASTER[").append(spellCastingClass.getName()).append("] ");
+		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append("] ");
+		spellInfo.append("CASTER[").append(spellCastingClass.getKeyName()).append("] ");
 
 		if (spellVariant.length() != 0)
 		{
@@ -756,10 +756,10 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * @return bonus
 	 */
 	public double bonusTo(
-	    final PlayerCharacter aPC,
-	    final String          aType,
-	    final String          aName,
-	    final Object          obj)
+		final PlayerCharacter aPC,
+		final String          aType,
+		final String          aName,
+		final Object          obj)
 	{
 		return super.bonusTo(aType, aName, obj, getBonusList(), aPC);
 	}
@@ -789,8 +789,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 				for (int j = 0; j < getAssociatedCount(); j++)
 				{
 					final BonusObj newBonus = Bonus.newBonus(
-						    aString.substring(0, idx) + getAssociated(j) +
-						    aString.substring(idx + 7));
+							aString.substring(0, idx) + getAssociated(j) +
+							aString.substring(idx + 7));
 					newBonus.setCreatorObject(this);
 					addList.add(newBonus);
 				}
@@ -838,9 +838,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 		catch (CloneNotSupportedException exc)
 		{
 			ShowMessageDelegate.showMessageDialog(
-			    exc.getMessage(),
-			    Constants.s_APPNAME,
-			    MessageType.ERROR);
+				exc.getMessage(),
+				Constants.s_APPNAME,
+				MessageType.ERROR);
 		}
 
 		return aObj;
@@ -859,18 +859,18 @@ public final class EquipmentModifier extends PObject implements Comparable
 	/**
 	 * Return a string representation of the EquipmentModifier
 	 * TODO: This needs to call getEquipNamePortion until after 5.10, when it can be changed to a programmer useful string as per normal.
-	 * 
+	 *
 	 * @return  a String representation of the EquipmentModifier
 	 */
 	public String toString()
 	{
 		return getEquipNamePortion();
 	}
-	
+
 	/**
-	 * Returns the name that should be added to the equipment item as 
+	 * Returns the name that should be added to the equipment item as
 	 * a result of the presence of this equipment modifier.
-	 *  
+	 *
 	 * @return The text to be added to the equipment name.
 	 */
 	public String getEquipNamePortion()
@@ -884,7 +884,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 			return namingOptionText;
 		}
 
-		final StringBuffer aString = new StringBuffer(getName().length());
+		final StringBuffer aString = new StringBuffer(getDisplayName().length());
 
 		if (namingOption == NAMINGOPTION_SPELL)
 		{
@@ -897,7 +897,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 				if (SettingsHandler.guiUsesOutputNameSpells())
 				{
-					final Spell aSpell = Globals.getSpellNamed(spellName);
+					final Spell aSpell = Globals.getSpellKeyed(spellName);
 
 					if (aSpell != null)
 					{
@@ -921,14 +921,14 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 				aString.append('/').append(getSpellCaster(listEntry));
 				aString.append('/').append(
-				    CoreUtility.ordinal(getSpellCasterLevel(listEntry)));
+					CoreUtility.ordinal(getSpellCasterLevel(listEntry)));
 			}
 		}
 		else
 		{
 			if (namingOption != NAMINGOPTION_NONAME)
 			{
-				aString.append(getName());
+				aString.append(getDisplayName());
 			}
 
 			if ((namingOption != NAMINGOPTION_NOLIST) && (getAssociatedCount() > 0))
@@ -1006,11 +1006,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 		addAssociatedTo(selectedList);
 
 		final EquipmentChoice equipChoice = buildEquipmentChoice(
-			    pool,
-			    parent,
-			    bAdd,
-			    forEqBuilder,
-			    selectedList.size());
+				pool,
+				parent,
+				bAdd,
+				forEqBuilder,
+				selectedList.size());
 
 		if (!equipChoice.isBAdd())
 		{
@@ -1023,7 +1023,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 		chooser.setAllowsDups(equipChoice.isAllowDuplicates());
 		chooser.setSelectedListTerminator("|");
-		chooser.setTitle("Select " + equipChoice.getTitle() + " (" + getName() + ")");
+		chooser.setTitle("Select " + equipChoice.getTitle() + " (" + getDisplayName() + ")");
 		Globals.sortChooserLists(equipChoice.getAvailableList(), selectedList);
 		chooser.setAvailableList(equipChoice.getAvailableList());
 		chooser.setSelectedList(selectedList);
@@ -1059,9 +1059,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 					final List secondaryChoice = new ArrayList();
 
 					for (
-					    int j = equipChoice.getMinValue();
-					    j <= equipChoice.getMaxValue();
-					    j += equipChoice.getIncValue())
+						int j = equipChoice.getMinValue();
+						j <= equipChoice.getMaxValue();
+						j += equipChoice.getIncValue())
 					{
 						if (j != 0)
 						{
@@ -1106,11 +1106,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * @return  A populated EquipmentChoice object
 	 */
 	EquipmentChoice buildEquipmentChoice(
-	    final int       pool,
-	    final Equipment parent,
-	    final boolean   bAdd,
-	    final boolean   forEqBuilder,
-	    final int       numSelected)
+		final int       pool,
+		final Equipment parent,
+		final boolean   bAdd,
+		final boolean   forEqBuilder,
+		final int       numSelected)
 	{
 		final EquipmentChoice equipChoice  = new EquipmentChoice(bAdd, pool);
 		String                choiceString = getChoiceString();
@@ -1121,11 +1121,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 		}
 
 		equipChoice.constructFromChoiceString(
-		    choiceString,
-		    parent,
-		    pool,
-		    numSelected,
-		    forEqBuilder);
+			choiceString,
+			parent,
+			pool,
+			numSelected,
+			forEqBuilder);
 
 		return equipChoice;
 	}
@@ -1175,11 +1175,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 				//
 				// Tack on the item creation multiplier, if there is one
 				//
-				final String castClassName = getSpellCaster(listEntry);
+				final String castClassKey = getSpellCaster(listEntry);
 
-				if (castClassName.length() != 0)
+				if (castClassKey.length() != 0)
 				{
-					final PCClass castClass = Globals.getClassNamed(castClassName);
+					final PCClass castClass = Globals.getClassKeyed(castClassKey);
 
 					if (castClass != null)
 					{
@@ -1190,9 +1190,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 						if (aString.length() != 0)
 						{
 							final StringTokenizer aTok = new StringTokenizer(
-								    aString,
-								    "+-*/()",
-								    true);
+									aString,
+									"+-*/()",
+									true);
 
 							//
 							// This is to support older versions of the
@@ -1265,7 +1265,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 			if (modChoice.length() == 0)
 			{
 				final String spellName = getSpellName(listEntry);
-				final Spell  aSpell    = Globals.getSpellNamed(spellName);
+				final Spell  aSpell    = Globals.getSpellKeyed(spellName);
 
 				if (aSpell != null)
 				{
@@ -1323,7 +1323,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 			if (modChoice.length() == 0)
 			{
 				final String spellName = getSpellName(listEntry);
-				final Spell  aSpell    = Globals.getSpellNamed(spellName);
+				final Spell  aSpell    = Globals.getSpellKeyed(spellName);
 
 				if (aSpell != null)
 				{
@@ -1375,13 +1375,13 @@ public final class EquipmentModifier extends PObject implements Comparable
 				final Prerequisite preReq = getPreReq(i);
 
 				if (
-				    "TYPE".equalsIgnoreCase(preReq.getKind()) &&
-				    (
-				        (preReq.getKey().equalsIgnoreCase(
-				                "EQMODTYPE=MagicalEnhancement")) ||
-				        (preReq.getKey().equalsIgnoreCase(
-				                "EQMODTYPE.MagicalEnhancement"))
-				    ))
+					"TYPE".equalsIgnoreCase(preReq.getKind()) &&
+					(
+						(preReq.getKey().equalsIgnoreCase(
+								"EQMODTYPE=MagicalEnhancement")) ||
+						(preReq.getKey().equalsIgnoreCase(
+								"EQMODTYPE.MagicalEnhancement"))
+					))
 				{
 					return true;
 				}
@@ -1480,8 +1480,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 		for (int z = 0; z < armorType.size(); z++)
 		{
 			final StringTokenizer aTok = new StringTokenizer(
-				    (String) armorType.get(z),
-				    "|");
+					(String) armorType.get(z),
+					"|");
 
 			if (aTok.hasMoreTokens())
 			{
@@ -1545,8 +1545,8 @@ public final class EquipmentModifier extends PObject implements Comparable
 	}
 
 	private static String getSpellInfoString(
-	    final String listEntry,
-	    final String desiredInfo)
+		final String listEntry,
+		final String desiredInfo)
 	{
 		final int offs  = listEntry.indexOf(desiredInfo + "[");
 		final int offs2 = listEntry.indexOf(']', offs + 1);
@@ -1598,10 +1598,10 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * @return added cost
 	 */
 	public BigDecimal addItemCosts(
-	    final PlayerCharacter aPC,
-	    final String          bonusType,
-	    final int             qty,
-	    final Equipment       parent)
+		final PlayerCharacter aPC,
+		final String          bonusType,
+		final int             qty,
+		final Equipment       parent)
 	{
 		double val = 0;
 
@@ -1615,9 +1615,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 			if (aBonus.getBonusName().equals(bonusType))
 			{
 				StringTokenizer aTok  = new StringTokenizer(
-					    aBonus.toString().substring(bonusType.length()),
-					    "|",
-					    false);
+						aBonus.toString().substring(bonusType.length()),
+						"|",
+						false);
 				final String    bType = aTok.nextToken();
 				aTok = new StringTokenizer(bType.substring(5), ".", false);
 

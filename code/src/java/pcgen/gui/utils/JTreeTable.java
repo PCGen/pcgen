@@ -450,7 +450,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 				if (theObj instanceof PObject)
 				{
-					if (((PObject) theObj).getName().equals(name))
+					if (((PObject) theObj).getDisplayName().equals(name))
 					{
 						//expand that node
 						List path = new ArrayList();
@@ -908,9 +908,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		private int timeToWait;
 		private long lastMSecs;
 
-		
+
 		/**
-		 * Constructor 
+		 * Constructor
 		 * @param msecs
 		 */
 		public TimedKeyBuffer(int msecs)

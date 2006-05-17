@@ -103,23 +103,23 @@ public class LevelAbilitySpellCaster extends LevelAbility
 	{
 		if (selectedList.size() > 0)
 		{
-			final String className = selectedList.get(0).toString();
-			PCClass      theClass  = aPC.getClassNamed(className);
+			final String classKey = selectedList.get(0).toString();
+			PCClass      theClass  = aPC.getClassKeyed(classKey);
 
 			if (theClass == null)
 			{
-				theClass = Globals.getClassNamed(className);
+				theClass = Globals.getClassKeyed(classKey);
 
 				if (theClass == null)
 				{
 					Logging.errorPrint(
-						"ERROR:Expected PC to have a class named " + className);
+						"ERROR:Expected PC to have a class named " + classKey);
 
 					return true;
 				}
 
 				aPC.incrementClassLevel(0, theClass);
-				theClass = aPC.getClassNamed(className);
+				theClass = aPC.getClassKeyed(classKey);
 			}
 
 			owner.addBonusList("0|PCLEVEL|" + theClass.getKeyName() + "|1");
@@ -150,21 +150,21 @@ public class LevelAbilitySpellCaster extends LevelAbility
 		final PlayerCharacter aPC)
 	{
 		String token = aToken;
-		final String  casterName = token.substring(
+		final String  casterKey = token.substring(
 				token.indexOf('(') + 1,
 				token.lastIndexOf(')'));
 
 		// If the SPELLCASTER bit is still there, strip it off
 		if (aToken.startsWith("SPELLCASTER("))
 		{
-			token = casterName;
+			token = casterKey;
 		}
 
-		final PCClass namedClass = Globals.getClassNamed(casterName);
+		final PCClass selectedClass = Globals.getClassKeyed(casterKey);
 
-		if (namedClass != null)
+		if (selectedClass != null)
 		{
-			token = namedClass.getName();
+			token = selectedClass.getKeyName();
 		}
 
 		PCClass aClass;
@@ -219,7 +219,7 @@ public class LevelAbilitySpellCaster extends LevelAbility
 				anArrayList.remove(aString.substring(8));
 			}
 
-			aClass = Globals.getClassNamed(aString);
+			aClass = Globals.getClassKeyed(aString);
 
 			if (aClass != null)
 			{

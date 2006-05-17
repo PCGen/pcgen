@@ -85,13 +85,15 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 
 		testSpell = new Spell();
 		testSpell.setName("Test Spell");
+		testSpell.setKeyName("TEST_SPELL");
 		testSpell.setLevelInfo("CLASS|TestArcane", 1);
 		testSpell.setLevelInfo("DOMAIN|Fire", 0);
 		testSpell.setLevelInfo("CLASS|TestDivine", 0);
-		Globals.getSpellMap().put(testSpell.getName(), testSpell);
+		Globals.getSpellMap().put(testSpell.getKeyName(), testSpell);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
+		arcaneClass.setKeyName("KEY_TEST_ARCANE");
 		arcaneClass.setAbbrev("TA");
 		arcaneClass.setSpellType("ARCANE");
 		arcaneClass.setSpellBaseStat("CHA");
@@ -107,6 +109,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
+		divineClass.setKeyName("KEY_TEST_DIVINE");
 		divineClass.setAbbrev("TD");
 		divineClass.setSpellType("DIVINE");
 		divineClass.setSpellBaseStat("WIS");
@@ -148,7 +151,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		CharacterSpell charSpell = (CharacterSpell) spellList.get(0);
 
 		String result = character.addSpell(charSpell, null, arcaneClass
-			.getName(), Globals.getDefaultSpellBook(), 1, 1);
+			.getKeyName(), Globals.getDefaultSpellBook(), 1, 1);
 		assertEquals("No CHA, so should reject attempt to add spell",
 			"You can only learn 0 spells for level 1"
 				+ "\nand there are no higher-level slots available.", result);
@@ -177,11 +180,11 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		CharacterSpell charSpell = (CharacterSpell) spellList.get(0);
 
 		String result = character.addSpell(charSpell, null, divineClass
-			.getName(), Globals.getDefaultSpellBook(), 1, 1);
+			.getKeyName(), Globals.getDefaultSpellBook(), 1, 1);
 		assertEquals("Known spells already has all spells, should reject.",
 			"The Known Spells spellbook contains all spells of this level that you "
 				+ "know. You cannot place spells in multiple times.", result);
-		result = character.addSpell(charSpell, null, divineClass.getName(),
+		result = character.addSpell(charSpell, null, divineClass.getKeyName(),
 			spellBook, 1, 1);
 		assertEquals("No WIS, so should reject attempt to add spell",
 			"You can only prepare 0 spells for level 1"
@@ -189,7 +192,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 
 		setPCStat(character, "WIS", 12);
 		character.calcActiveBonuses();
-		result = character.addSpell(charSpell, null, divineClass.getName(),
+		result = character.addSpell(charSpell, null, divineClass.getKeyName(),
 			spellBook, 1, 1);
 		assertEquals("Should be no error messages from adding spell", "",
 			result);

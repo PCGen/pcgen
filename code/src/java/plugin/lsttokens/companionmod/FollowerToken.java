@@ -25,15 +25,15 @@ public class FollowerToken implements CompanionModLstToken {
 		final StringTokenizer bTok = new StringTokenizer(someClasses, ",");
 
 		while (bTok.hasMoreTokens()) {
-			final String cN = bTok.nextToken();
-			final PCClass nc = Globals.getClassNamed(cN);
+			final String classKey = bTok.nextToken();
+			final PCClass pcClass = Globals.getClassKeyed(classKey);
 
-			if (nc != null) {
-				cmpMod.getClassMap().put(cN, aLev);
+			if (pcClass != null) {
+				cmpMod.getClassMap().put(classKey, aLev);
 			}
 			else {
 				// Now we accept VARiable names here.
-				cmpMod.getVarMap().put(cN, aLev);
+				cmpMod.getVarMap().put(classKey, aLev);
 			}
 		}
 		return true;

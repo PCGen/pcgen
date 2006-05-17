@@ -52,7 +52,7 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skill Choice";
 		chooserHandled = "SKILLS";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -74,7 +74,7 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager {
 		for (iter = aPc.getSkillList().iterator(); iter.hasNext();)
 		{
 			final Skill aSkill = (Skill) iter.next();
-			availableList.add(aSkill.getName());
+			availableList.add(aSkill.getKeyName());
 		}
 
 		pobject.addAssociatedTo(selectedList);

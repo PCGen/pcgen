@@ -50,21 +50,21 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 		final int requiredRanks = Integer.parseInt( prereq.getOperand());
 
 		// Compute the skill name from the Prerequisite
-		String requiredSkillName = prereq.getKey().toUpperCase();
+		String requiredSkillKey = prereq.getKey().toUpperCase();
 		if (prereq.getSubKey()!=null) {
-			requiredSkillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		final boolean isType = (requiredSkillName.startsWith("TYPE.") || requiredSkillName.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType = (requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
-			requiredSkillName = requiredSkillName.substring(5).toUpperCase();
+			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
 		}
-		final String skillName = requiredSkillName.toUpperCase();
+		final String skillKey = requiredSkillKey.toUpperCase();
 
 
 		// Now locate all instances of this skillname and test them
-		final int percentageSignPosition = skillName.lastIndexOf('%');
+		final int percentageSignPosition = skillKey.lastIndexOf('%');
 		int runningTotal = 0;
 
 
@@ -75,7 +75,7 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 		{
 			final Skill aSkill = (Skill) e1.next();
 
-			final String aSkillName = aSkill.getName().toUpperCase();
+			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
 			{
 				if (percentageSignPosition >= 0)
@@ -83,13 +83,13 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 					final int maxCount = aSkill.getMyTypeCount();
 					for (int k=0; k < maxCount && !foundMatch; k++)
 					{
-						if (aSkill.getMyType(k).startsWith(skillName.substring(0, percentageSignPosition)))
+						if (aSkill.getMyType(k).startsWith(skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;
 						}
 					}
 				}
-				else if (aSkill.isType(skillName))
+				else if (aSkill.isType(skillKey))
 				{
 					foundMatch=true;
 				}
@@ -112,8 +112,8 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 					}
 				}
 			}
-			else if (aSkillName.equals(skillName) ||
-					((percentageSignPosition >= 0) && aSkillName.startsWith(skillName.substring(0, percentageSignPosition))))
+			else if (aSkillKey.equals(skillKey) ||
+					((percentageSignPosition >= 0) && aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
 			{
 				foundSkill = true;
 				if (prereq.isTotalValues())

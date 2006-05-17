@@ -285,7 +285,7 @@ public final class Deity extends PObject
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getName());
+		txt.append(getDisplayName());
 
 		List domainList = getListFor(ListKey.DOMAIN);
 		if (domainList != null && domainList.size()!= 0)
@@ -295,7 +295,7 @@ public final class Deity extends PObject
 			while (iter.hasNext())
 			{
 				final Domain domain = (Domain) iter.next();
-				txt.append(domain.getName());
+				txt.append(domain.getKeyName());
 				if (iter.hasNext())
 				{
 					txt.append(",");
@@ -379,9 +379,9 @@ public final class Deity extends PObject
 	 * @param domainName
 	 * @return true if the deity has the passed-in domain
 	 */
-	public boolean hasDomainNamed(final String domainName)
+	public boolean hasDomainKeyed(final String domainKey)
 	{
-		final Domain testDomain = Globals.getDomainNamed(domainName);
+		final Domain testDomain = Globals.getDomainKeyed(domainKey);
 		return hasDomain(testDomain);
 	}
 
@@ -608,7 +608,7 @@ public final class Deity extends PObject
 			for (Iterator iter = deityList.iterator(); iter.hasNext();)
 			{
 				final String deity = (String) iter.next();
-				if ("ANY".equals(deity) || "ALL".equals(deity) || getName().equals(deity))
+				if ("ANY".equals(deity) || "ALL".equals(deity) || getKeyName().equals(deity))
 				{
 					flag = true;
 				}

@@ -302,7 +302,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			final String sourceString = template.getSourceWithKey("LONG");
 			if (sourceString == null)
 			{
-				Logging.errorPrint("PC template " + template.getName()
+				Logging.errorPrint("PC template " + template.getDisplayName()
 					+ " has no source long entry.");
 			}
 			else if (!sourceList.contains(sourceString))
@@ -811,7 +811,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		pc.setDirty(true);
 
-		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
+		PCTemplate pcTemplate = pc.getTemplateKeyed(template.getKeyName());
 
 		if (pcTemplate == null)
 		{
@@ -844,7 +844,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		pc.setDirty(true);
 
-		PCTemplate pcTemplate = pc.getTemplateNamed(template.getName());
+		PCTemplate pcTemplate = pc.getTemplateKeyed(template.getKeyName());
 
 		if (pcTemplate != null)
 		{
@@ -1106,7 +1106,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			if ((fn != null) && (fn.getItem() instanceof PCTemplate))
 			{
 				template = (PCTemplate) fn.getItem();
-				pcTemplate = pc.getTemplateNamed(template.toString());
+				pcTemplate = pc.getTemplateKeyed(template.getKeyName());
 			}
 
 			if (pcTemplate != null)
@@ -1207,7 +1207,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				}
 
 				if (qFilter == null ||
-						( template.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+						( template.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 								template.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 				{
 					PObjectNode aFN = new PObjectNode();
@@ -1287,7 +1287,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 							added = true;
 						}
 					} else {
-						Logging.errorPrint("PC template " + template.getName()
+						Logging.errorPrint("PC template " + template.getDisplayName()
 								+ " has no source long entry.");
 					}
 				}

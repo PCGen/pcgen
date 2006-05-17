@@ -58,7 +58,7 @@ public class AbilityUtilities
 	 * @param choices
 	 */
 	private static void addChoicesToAbility(
-			final Ability ability, 
+			final Ability ability,
 			final List    choices)
 	{
 		final Iterator choiceIt = choices.iterator();
@@ -91,7 +91,7 @@ public class AbilityUtilities
 		final List    addList)
 	{
 		Ability newAbility = null;
-		
+
 		if (anAbility != null && (anAbility.isMultiples() || getAbilityFromList(addList, anAbility) == null))
 		{
 			newAbility = (Ability) anAbility.clone();
@@ -116,7 +116,7 @@ public class AbilityUtilities
 	 * @param  theAbilityList  A list of abilities to add to
 	 * @param category The category of Ability to add
 	 * @param  abilityName     The name of the Ability to Add
-	 * 
+	 *
 	 * @return The Ability processed
 	 */
 	private static Ability addCloneOfGlobalAbilityToListWithChoices(
@@ -166,9 +166,9 @@ public class AbilityUtilities
 		{
 			return null;
 		}
-		
+
 		final Ability newAbility = addCloneOfAbilityToListwithChoices(anAbility, choices, addList);
-		
+
 		if (newAbility != null)
 		{
 			newAbility.setFeatType(Ability.ABILITY_VIRTUAL);
@@ -186,28 +186,28 @@ public class AbilityUtilities
 	 * Add a virtual Ability to abilityList by category and name.  Any choices made
 	 * (by including in parenthesis e.g. "Weapon Focus (Longsword)", are extracted
 	 * from the name and added appropriately
-	 * 
+	 *
 	 * @param   category
 	 * @param   featName
 	 * @param   abilityList
 	 * @param   levelInfo
-	 * 
+	 *
 	 * @return  the Ability added
 	 */
 	public static Ability addVirtualAbility(
 		final String          category,
-		final String          featName,
+		final String          aFeatKey,
 		final List            abilityList,
 		final PCLevelInfo     levelInfo)
 	{
 		final ArrayList choices     = new ArrayList();
-		final String    abilityName = EquipmentUtilities.getUndecoratedName(featName, choices);
-		final Ability   anAbility   = Globals.getAbilityNamed(category, abilityName);
+		final String    abilityKey = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
+		final Ability   anAbility   = Globals.getAbilityKeyed(category, abilityKey);
 
 		return addVirtualAbility(anAbility, choices, abilityList, levelInfo);
 	}
 
-	
+
 	/**
 	 * Do the Categorisable objects passed in represent the same ability?
 	 *
@@ -280,8 +280,8 @@ public class AbilityUtilities
 	/**
 	 * Do the strings passed in represent the same Ability object in the
 	 * Category category?
-	 * 
-	 * @param category 
+	 *
+	 * @param category
 	 * @param first
 	 * @param second
 	 * @return true if the same object is represented
@@ -302,7 +302,7 @@ public class AbilityUtilities
 	/**
 	 * If an ability in Global storage matches the category and name passed
 	 * in, then return a clone of that Ability.
-	 * 
+	 *
 	 * @param category
 	 * @param abilityName
 	 *
@@ -310,37 +310,37 @@ public class AbilityUtilities
 	 */
 	private static Ability cloneGlobalAbility(
 			final String category,
-			final String abilityName)
+			final String anAbilityKey)
 	{
-		      Ability   anAbility;
+		Ability   anAbility;
 		final ArrayList choices  = new ArrayList();
-		final String    baseName = EquipmentUtilities.getUndecoratedName(abilityName, choices);
+		final String    baseKey = EquipmentUtilities.getUndecoratedName(anAbilityKey, choices);
 
-		anAbility = Globals.getAbilityNamed(category, abilityName);
+		anAbility = Globals.getAbilityKeyed(category, anAbilityKey);
 
-		if ((anAbility == null) && (baseName.length() != 0))
+		if ((anAbility == null) && (baseKey.length() != 0))
 		{
-			anAbility = Globals.getAbilityNamed(category, baseName);
+			anAbility = Globals.getAbilityKeyed(category, baseKey);
 		}
 
 		if (anAbility == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-					"Adding unknown feat: " + abilityName,
+					"Adding unknown feat: " + anAbilityKey,
 					Constants.s_APPNAME,
 					MessageType.INFORMATION);
 		}
 		else
 		{
 			anAbility = (Ability) anAbility.clone();
-			
+
 			if (choices.size() > 0)
 			{
 				addChoicesToAbility(anAbility, choices);
 			}
-			
+
 		}
-		
+
 		return anAbility;
 	}
 
@@ -419,11 +419,11 @@ public class AbilityUtilities
 
 			for (int x = 0; x < ability.templatesAdded().size(); ++x)
 			{
-				aPC.removeTemplate(aPC.getTemplateNamed((String) ability.templatesAdded().get(x)));
+				aPC.removeTemplate(aPC.getTemplateKeyed((String) ability.templatesAdded().get(x)));
 			}
 			ability.subAddsForLevel(-9, aPC);
 		}
-		
+
 		if (singleChoice && didntModifyAbility)
 		{
 			if (!addIt && !ability.isMultiples() && removed)
@@ -442,7 +442,7 @@ public class AbilityUtilities
 				{
 					final Ability myAbility = (Ability) e1.next();
 
-					if (myAbility.getName().equalsIgnoreCase(ability.getName()))
+					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 					{
 						listSize = myAbility.getAssociatedCount();
 					}
@@ -469,10 +469,10 @@ public class AbilityUtilities
 	/**
 	 * Find an ability in a list that matches a given Ability or AbilityInfo
 	 * Object.
-	 * 
+	 *
 	 * @param anAbilityList
 	 * @param abilityInfo
-	 * 
+	 *
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
@@ -488,11 +488,11 @@ public class AbilityUtilities
 	 * Object. Also takes an integer representing a type, -1 always matches,
 	 * otherwise an ability will only be returned if its type is the same as
 	 * abilityType
-	 * 
+	 *
 	 * @param anAbilityList
 	 * @param abilityInfo
 	 * @param abilityType
-	 * 
+	 *
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
@@ -522,19 +522,19 @@ public class AbilityUtilities
 	 * Find an ability in a list that matches a given AbilityInfo Object. Also
 	 * takes an integer representing a type, -1 always matches, otherwise an
 	 * ability will only be returned if its type is the same as abilityType
-	 * 
+	 *
 	 * @param anAbilityList
 	 * @param aCat
 	 * @param aName
 	 * @param abilityType
-	 * 
+	 *
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
 			final List   anAbilityList,
 			final String aCat,
 			final String aName,
-			final int    abilityType) 
+			final int    abilityType)
 	{
 		final AbilityInfo abInfo = new AbilityInfo(aCat, aName);
 		return getAbilityFromList(anAbilityList, abInfo, abilityType);
@@ -543,7 +543,7 @@ public class AbilityUtilities
 	/**
 	 * Find out if this Categorisable Object can be applied to a character
 	 * multiple times
-	 * 
+	 *
 	 * @param aCatObj
 	 * @return true if can be applied multiple times
 	 */
@@ -620,7 +620,7 @@ public class AbilityUtilities
 	 * Add a Feat to a character, allowing sub-choices if necessary. Always adds
 	 * weapon proficiencies, either a single choice if addAll is false, or all
 	 * possible choices if addAll is true.
-	 * 
+	 *
 	 * @param   aPC                       the PC to add or remove the Feat from
 	 * @param   LevelInfo
 	 * @param   featName                  the name of the Feat to add.
@@ -637,7 +637,7 @@ public class AbilityUtilities
 	public static int modFeat(
 		final PlayerCharacter aPC,
 		final PCLevelInfo     LevelInfo,
-		final String          featName,
+		final String          aFeatKey,
 		final boolean         addIt,
 		final boolean         singleChoice)
 	{
@@ -649,20 +649,20 @@ public class AbilityUtilities
 
 		final ArrayList choices        = new ArrayList();
 		final int       result         = addIt ? 1 : 0;
-		final String    undoctoredName = featName;
-		final String    baseName       = EquipmentUtilities.getUndecoratedName(featName, choices);
-		      String    subName        = choices.size() > 0 ? (String) choices.get(0) : "";
+		final String    undoctoredKey = aFeatKey;
+		final String    baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
+			  String    subKey        = choices.size() > 0 ? (String) choices.get(0) : "";
 
 		// See if our choice is not auto or virtual
-		Ability anAbility = aPC.getRealFeatNamed(undoctoredName);
+		Ability anAbility = aPC.getRealFeatKeyed(undoctoredKey);
 
-		// if a feat named featName doesn't exist, and featName
+		// if a feat keyed aFeatKey doesn't exist, and aFeatKey
 		// contains a (blah) descriptor, try removing it.
 		if (anAbility == null)
 		{
-			anAbility = aPC.getRealFeatNamed(baseName);
+			anAbility = aPC.getRealFeatKeyed(baseKey);
 
-			if (!singleChoice1 && (anAbility != null) && (subName.length() != 0))
+			if (!singleChoice1 && (anAbility != null) && (subKey.length() != 0))
 			{
 				singleChoice1 = true;
 			}
@@ -672,25 +672,25 @@ public class AbilityUtilities
 		if ((anAbility == null) && addIt)
 		{
 			// Adding feat for first time
-			anAbility = Globals.getAbilityNamed("FEAT", baseName);
+			anAbility = Globals.getAbilityKeyed("FEAT", baseKey);
 
 			if (anAbility == null)
 			{
-				anAbility = Globals.getAbilityNamed("FEAT", undoctoredName);
+				anAbility = Globals.getAbilityKeyed("FEAT", undoctoredKey);
 
 				if (anAbility != null)
 				{
-					subName  = "";
+					subKey  = "";
 				}
 			}
 
 			if (anAbility == null)
 			{
-				Logging.errorPrint("Feat not found: " + undoctoredName);
+				Logging.errorPrint("Feat not found: " + undoctoredKey);
 
 				return result;
 			}
-			
+
 			anAbility = (Ability) anAbility.clone();
 
 			aPC.addFeat(anAbility, LevelInfo);
@@ -705,8 +705,8 @@ public class AbilityUtilities
 		{
 			return result;
 		}
-		
-		return finaliseAbility(anAbility, subName, aPC, addIt, singleChoice1, result);
+
+		return finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1, result);
 	}
 
 	/**
@@ -738,7 +738,7 @@ public class AbilityUtilities
 			}
 
 			// Get ability from global storage by Name
-			anAbility = Globals.getAbilityNamed("FEAT", aString);
+			anAbility = Globals.getAbilityKeyed("FEAT", aString);
 
 			if (anAbility == null)
 			{
@@ -768,7 +768,7 @@ public class AbilityUtilities
 			}
 			else
 			{
-				final Ability tempAbility = aPC.getFeatNamed(anAbility.getName());
+				final Ability tempAbility = aPC.getFeatKeyed(anAbility.getKeyName());
 				if (tempAbility != null)
 				{
 					anAbility = tempAbility;
@@ -789,7 +789,7 @@ public class AbilityUtilities
 					return;
 				}
 
-				anAbility = Globals.getAbilityNamed("FEAT", aString);
+				anAbility = Globals.getAbilityKeyed("FEAT", aString);
 
 				if (anAbility == null)
 				{
@@ -814,18 +814,18 @@ public class AbilityUtilities
 
 						if (aPC.getDeity() != null)
 						{
-							wp = Globals.getWeaponProfNamed(aPC.getDeity().getFavoredWeapon());
+							wp = Globals.getWeaponProfKeyed(aPC.getDeity().getFavoredWeapon());
 						}
 
 						if (wp != null)
 						{
 							if (addIt)
 							{
-								anAbility.addAssociated(wp.getName());
+								anAbility.addAssociated(wp.getKeyName());
 							}
 							else
 							{
-								anAbility.removeAssociated(wp.getName());
+								anAbility.removeAssociated(wp.getKeyName());
 							}
 						}
 					}
@@ -871,7 +871,7 @@ public class AbilityUtilities
 	 * @return a List of the Abilities this Character has
 	 */
 
-	static public List rebuildAutoAbilityList(PlayerCharacter aPc) 
+	static public List rebuildAutoAbilityList(PlayerCharacter aPc)
 	{
 		final List autoFeatList;
 		autoFeatList = new ArrayList();
@@ -966,7 +966,7 @@ public class AbilityUtilities
 					}
 				}
 
-				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", autoFeat); 
+				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", autoFeat);
 				added.setFeatType(Ability.ABILITY_AUTOMATIC);
 			}
 		}

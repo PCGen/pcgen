@@ -65,7 +65,7 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 
 			if (cString.startsWith("PCFEAT=") || cString.startsWith("PCFEAT."))
 			{
-				final Ability aFeat = aPC.getFeatNamed(cString.substring(7));
+				final Ability aFeat = aPC.getFeatKeyed(cString.substring(7));
 
 				if (aFeat != null)
 				{
@@ -80,11 +80,11 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 			}
 			else if (cString.startsWith("FEAT=") || cString.startsWith("FEAT."))
 			{
-				final Ability anAbility = Globals.getAbilityNamed("FEAT", cString.substring(5));
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", cString.substring(5));
 
 				if (anAbility != null)
 				{
-					final StringTokenizer aTok = new StringTokenizer(anAbility.getName(), " ", false);
+					final StringTokenizer aTok = new StringTokenizer(anAbility.getKeyName(), " ", false);
 					final String aName = aTok.nextToken(); // first word of name should match type of weaponprof
 					final Collection weaponProfsOfType = Globals.getAllWeaponProfsOfType(aName);
 
@@ -92,9 +92,9 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 					{
 						final WeaponProf wp = (WeaponProf) ii.next();
 
-						if (!aArrayList.contains(wp.getName()))
+						if (!aArrayList.contains(wp.getKeyName()))
 						{
-							aArrayList.add(wp.getName());
+							aArrayList.add(wp.getKeyName());
 						}
 					}
 				}
@@ -117,7 +117,7 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 			}
 			else
 			{
-				final WeaponProf wp = Globals.getWeaponProfNamed(cString);
+				final WeaponProf wp = Globals.getWeaponProfKeyed(cString);
 
 				if ((wp != null) && !aArrayList.contains(cString))
 				{

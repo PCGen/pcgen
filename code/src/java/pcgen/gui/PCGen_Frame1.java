@@ -66,6 +66,8 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.*;
 import java.util.List;
+// WIP please leave boomer70
+//import pcgen.core.npcgen.NPCGenerator;
 
 /**
  * Main screen of the application. Some of the custom JPanels created
@@ -538,6 +540,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		toolBar.newItem.setEnabled(itemState);
 		mainPopupMenu.newItem.setEnabled(itemState);
 		pcPopupMenu.getNewItem().setEnabled(itemState);
+
+// WIP please leave boomer70
+//		pcgenMenuBar.newNPCItem.setEnabled(itemState);
+//		toolBar.newNPCItem.setEnabled(itemState);
+//		mainPopupMenu.newNPCItem.setEnabled(itemState);
+//		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
 	}
 
 	/**
@@ -1188,10 +1196,54 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		GMBus.send(new NewMessage(this));
 	}
 
+// WIP please leave boomer70
+//	void doNewNPC()
+//	{
+//		NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
+//		genDlg.pack();
+//		genDlg.setVisible(true);
+//
+//		getCurrentPC().setDirty(false);
+//		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
+//		{
+//			NPCGenerator npcgen = NPCGenerator.getInst();
+//			npcgen.generate(getCurrentPC(), genDlg.getAlignment(),
+//								  genDlg.getRace(), genDlg.getGender(),
+//								  genDlg.getClassList(), genDlg.getLevels(),
+//									  genDlg.getRollMethod());
+//
+//			getCurrentPC().setDirty(true);
+//
+//			this.featList_Changed();
+//			this.hpTotal_Changed();
+//			forceUpdate_PlayerTabs();
+//			CharacterInfo pane = getCharacterPane();
+//			pane.setPaneForUpdate(pane.infoSkills());
+//			pane.setPaneForUpdate(pane.infoSpells());
+//			pane.setPaneForUpdate(pane.infoDomain());
+//			pane.setPaneForUpdate(pane.infoInventory());
+//			pane.setPaneForUpdate(pane.infoSummary());
+//			pane.refresh();
+//		}
+//	}
+//
+//	void newNPCItem_actionPerformed()
+//	{
+//		GMBus.send(new NewMessage(this));
+//		doNewNPC();
+//	}
+
 	void newPopupItem_actionPerformed()
 	{
 		doNewItem();
 	}
+
+// WIP please leave boomer70
+//	void newNPCPopupItem_actionPerformed()
+//	{
+//		doNewItem();
+//		doNewNPC();
+//	}
 
 	/**
 	 * Launches GMGen.
@@ -2226,7 +2278,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	protected void resetUI() {
 		mainSource.resetUI();
 	}
-	
+
 	private void removeTemporaryFiles()
 	{
 		final boolean cleanUp = SettingsHandler.getCleanupTempFiles();
@@ -2399,6 +2451,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		JMenuItem exportPDFItem;
 		JMenuItem listEditor;
 		JMenuItem newItem;
+// WIP please leave boomer70
+//		JMenuItem newNPCItem;
 		JMenuItem openItem;
 		JMenuItem partyCloseItem;
 		JMenuItem partyOpenItem;
@@ -2430,6 +2484,11 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			newItem = Utility.createMenuItem("mnuFileNew", frameActionListener.newActionListener, "file.new",
 					"shortcut N", "New16.gif", false);
 			fileMenu.add(newItem);
+
+// WIP please leave boomer70
+//			newNPCItem = Utility.createMenuItem("mnuFileNewNPC", frameActionListener.newNPCActionListener, "file.newNPC",
+//					null, "New16.gif", false);
+//			fileMenu.add(newNPCItem);
 
 			openItem = Utility.createMenuItem("mnuFileOpen", frameActionListener.openActionListener, "file.open",
 					"shortcut O", "Open16.gif", true);

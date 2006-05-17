@@ -42,7 +42,7 @@ public final class CampaignOutput
 	 */
 	private CampaignOutput()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -51,13 +51,13 @@ public final class CampaignOutput
 	public static void output(Campaign campaign)
 	{
 		final File outFile = new File(SettingsHandler.getPccFilesLocation().getAbsolutePath() + File.separator
-			    + campaign.getDestination());
+				+ campaign.getDestination());
 		BufferedWriter out = null;
 
 		try
 		{
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-			FileAccess.write(out, "CAMPAIGN:" + campaign.getName());
+			FileAccess.write(out, "CAMPAIGN:" + campaign.getKeyName());
 			FileAccess.newLine(out);
 			FileAccess.write(out, "RANK:" + campaign.getRank());
 			FileAccess.newLine(out);

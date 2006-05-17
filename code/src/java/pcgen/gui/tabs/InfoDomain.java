@@ -352,7 +352,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 
 			infoText.append(" &nbsp;<b>").append(PropertyFactory.getString("in_descrip")).append("</b>:").append(aDeity
-				    .piDescString());
+					.piDescString());
 
 			aString = aDeity.preReqHTMLStrings(pc, false);
 
@@ -473,8 +473,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					while (domainTok.hasMoreTokens())
 					{
-						final String prestigeName = domainTok.nextToken();
-						Domain prestigeDomain = Globals.getDomainNamed(prestigeName);
+						final String prestigeKey = domainTok.nextToken();
+						Domain prestigeDomain = Globals.getDomainKeyed(prestigeKey);
 
 						if (prestigeDomain != null)
 						{
@@ -500,8 +500,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					while (domainTok.hasMoreTokens())
 					{
-						final String prestigeName = domainTok.nextToken();
-						Domain prestigeDomain = Globals.getDomainNamed(prestigeName);
+						final String prestigeKey = domainTok.nextToken();
+						Domain prestigeDomain = Globals.getDomainKeyed(prestigeKey);
 
 						if (prestigeDomain != null)
 						{
@@ -539,9 +539,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 			final double thisWidth = this.getSize().getWidth();
 			splitPaneDividerLocation = SettingsHandler.getPCGenOption("InfoDomain.splitPane",
-				    (int) ((thisWidth * 4) / 10));
+					(int) ((thisWidth * 4) / 10));
 			bSplitDividerLocation = SettingsHandler.getPCGenOption("InfoDomain.bSplit",
-				    (int) ((this.getSize().getHeight() * 75) / 100));
+					(int) ((this.getSize().getHeight() * 75) / 100));
 			aSplitDividerLocation = SettingsHandler.getPCGenOption("InfoDomain.aSplit", (int) ((thisWidth * 5) / 10));
 
 			// set the prefered width on deityTable
@@ -556,7 +556,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(deityTable,
-				        PropertyFactory.getString("in_deity"), i));
+						PropertyFactory.getString("in_deity"), i));
 			}
 
 			// set the prefered width on domainTable
@@ -571,7 +571,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(domainTable,
-				        PropertyFactory.getString("in_domains"), i));
+						PropertyFactory.getString("in_domains"), i));
 			}
 		}
 
@@ -754,7 +754,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		bLeftPane.add(deityScroll, BorderLayout.CENTER);
 		deityInfo.setBackground(bLeftPane.getBackground());
 		Utility.setDescription(bLeftPane, PropertyFactory.getString("in_infoScrollTip"));
-		
+
 		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_domainInfo"));
 		title2.setTitleJustification(TitledBorder.CENTER);
 		JScrollPane domainScroll = new JScrollPane(domainInfo);
@@ -762,7 +762,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		bRightPane.add(domainScroll, BorderLayout.CENTER);
 		domainInfo.setBackground(bRightPane.getBackground());
 		Utility.setDescription(bRightPane, PropertyFactory.getString("in_infoScrollTip"));
-		
+
 		aSplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
 		aSplit.setOneTouchExpandable(true);
 		aSplit.setDividerSize(10);
@@ -829,7 +829,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		leftBottom.add(deitySelect);
 		leftPane.add(leftBottom, BorderLayout.SOUTH);
 
-		
+
 		rightPane.setLayout(new BorderLayout());
 
 		rightPane.add(InfoTabUtils.createFilterPane(null, null, new JLabel("Filter:"), textDomainQFilter, clearDomainQFilterButton), BorderLayout.NORTH);
@@ -889,7 +889,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		FilterFactory.restoreFilterSettings(this);
 
-		textDeityQFilter.getDocument().addDocumentListener(new DocumentListener() 
+		textDeityQFilter.getDocument().addDocumentListener(new DocumentListener()
 				{
 					public void changedUpdate(DocumentEvent evt)
 					{
@@ -912,7 +912,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			});
 
-		textDomainQFilter.getDocument().addDocumentListener(new DocumentListener() 
+		textDomainQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
 				public void changedUpdate(DocumentEvent evt)
 				{
@@ -1003,8 +1003,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (!pc.canSelectDeity(aDeity))
 		{
 			final ListSelectionModel lsm = deityTable.getSelectionModel();
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_reqMess") + aDeity.getName() + ".", Constants.s_APPNAME,
-			    MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_reqMess") + aDeity.getDisplayName() + ".", Constants.s_APPNAME,
+				MessageType.INFORMATION);
 			lsm.clearSelection();
 
 			return;
@@ -1032,9 +1032,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (!allDomainsAvailable)
 		{
 			final int areYouSure = JOptionPane.showConfirmDialog(null,
-				    PropertyFactory.getString("in_confDomLost1") + " " + aDeity.getName()
-				    + System.getProperty("line.separator") + PropertyFactory.getString("in_confDomLost2"),
-				    Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION);
+					PropertyFactory.getString("in_confDomLost1") + " " + aDeity.getDisplayName()
+					+ System.getProperty("line.separator") + PropertyFactory.getString("in_confDomLost2"),
+					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION);
 
 			if (areYouSure != JOptionPane.OK_OPTION)
 			{
@@ -1149,7 +1149,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		domChosen.setText(Integer.toString(pc.getCharacterDomainUsed()) + "*");
 
 		domainModel.resetModel();
-		
+
 		// Notify the table and sorter that the table data has changed
 		domainSorter.tableChanged(null);
 		domainModel.fireTableDataChanged();
@@ -1185,13 +1185,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Make sure a valid domain was selected
 		if (!addedDomain.qualifiesForDomain(pc))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_qualifyMess") + addedDomain.getName(), Constants.s_APPNAME,
-			    MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_qualifyMess") + addedDomain.getDisplayName(), Constants.s_APPNAME,
+				MessageType.INFORMATION);
 
 			return;
 		}
 
-		CharacterDomain aCD = pc.getCharacterDomainForDomain(addedDomain.getName());
+		CharacterDomain aCD = pc.getCharacterDomainForDomain(addedDomain.getKeyName());
 
 		if (aCD == null)
 		{
@@ -1288,8 +1288,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (aDeity.isType(Constants.s_CUSTOM))
 			{
 				final int areYouSure = JOptionPane.showConfirmDialog(null,
-					    PropertyFactory.getString("in_delDeity") + aDeity.getName() + "?", Constants.s_APPNAME,
-					    JOptionPane.OK_CANCEL_OPTION);
+						PropertyFactory.getString("in_delDeity") + aDeity.getDisplayName() + "?", Constants.s_APPNAME,
+						JOptionPane.OK_CANCEL_OPTION);
 
 				if (areYouSure != JOptionPane.OK_OPTION)
 				{
@@ -1488,25 +1488,25 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddDeityActionListener(), PropertyFactory.getString("in_select"),
-			    '\0', accelerator, PropertyFactory.getString("in_irSelDeityTip"), "Add16.gif", true);
+				'\0', accelerator, PropertyFactory.getString("in_irSelDeityTip"), "Add16.gif", true);
 		}
 
 		private JMenuItem createEditMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new EditDeityActionListener(), PropertyFactory.getString("in_editDeity"),
-				    '\0', accelerator, null, null, true);
+					'\0', accelerator, null, null, true);
 		}
 
 		private JMenuItem createCreateMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new CreateDeityActionListener(), PropertyFactory.getString("in_createDeity"),
-				    '\0', accelerator, null, null, true);
+					'\0', accelerator, null, null, true);
 		}
 
 		private JMenuItem createDeleteMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new DeleteDeityActionListener(), PropertyFactory.getString("in_delDeity"),
-				    '\0', accelerator, null, null, true);
+					'\0', accelerator, null, null, true);
 		}
 
 		private class AddDeityActionListener extends DeityActionListener
@@ -1545,7 +1545,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
-			    // TODO This method currently does nothing?
+				// TODO This method currently does nothing?
 			}
 		}
 	}
@@ -1666,15 +1666,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RemoveClassActionListener(),
-			    PropertyFactory.getString("in_select"), (char) 0, accelerator,
-			    PropertyFactory.getString("in_selDomain"), "Add16.gif", true);
+				PropertyFactory.getString("in_select"), (char) 0, accelerator,
+				PropertyFactory.getString("in_selDomain"), "Add16.gif", true);
 		}
 
 		private class ClassActionListener implements ActionListener
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
-			    // TODO This method currently does nothing?
+				// TODO This method currently does nothing?
 			}
 		}
 
@@ -1875,7 +1875,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				final Deity aDeity = (Deity) it.next();
 
 				if(accept(pc, aDeity)) {
-					if (qFilter == null || aDeity.getName().toLowerCase().indexOf(qFilter) >= 0)
+					if (qFilter == null || aDeity.getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 					{
 						deityList.add(aDeity);
 					}
@@ -1963,11 +1963,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
 				final Deity aDeity = (Deity) it.next();
 
-				if(accept(pc, aDeity) && !aDeity.getName().equalsIgnoreCase("NONE")) {
+				if(accept(pc, aDeity) && !aDeity.getKeyName().equalsIgnoreCase("NONE")) {
 					List deityDomains = aDeity.getDomainList();
 					for (Iterator fD = deityDomains.iterator(); fD.hasNext(); ) {
 						Domain aDomain = (Domain) fD.next();
-						String aString = aDomain.getName();
+						String aString = aDomain.getKeyName();
 						if(aString != null && !domainList.contains(aString) && aString.length() > 0)
 						{
 							domainList.add(aString);
@@ -1989,14 +1989,14 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				for (Iterator fI = Globals.getDeityList().iterator(); fI.hasNext(); ) {
 					final Deity aDeity = (Deity) fI.next();
 
-					if (aDeity == null || aDeity.getName().equalsIgnoreCase("NONE")) {
+					if (aDeity == null || aDeity.getKeyName().equalsIgnoreCase("NONE")) {
 						continue;
 					}
 
 					List deityDomains = aDeity.getDomainList();
 					for (Iterator fD = deityDomains.iterator(); fD.hasNext(); ) {
 						Domain aDomain = (Domain) fD.next();
-						String aString = aDomain.getName();
+						String aString = aDomain.getKeyName();
 						if (aString != null && !aString.equals(sDomain)) {
 							continue;
 						}
@@ -2162,18 +2162,18 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDefaultWidth(int col, int width) {
 			SettingsHandler.setPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col], width);
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoDomain.deity.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoDomain.deity.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 
@@ -2191,11 +2191,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			PropertyFactory.getString("in_domains"),
 			PropertyFactory.getString("in_sourceLabel")
 		};
-		
+
 		private final int[] domainWidthList = new int[] {
 				200, 100
 		};
-		
+
 		private DomainModel()
 		{
 			displayList = new ArrayList();
@@ -2233,7 +2233,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				Domain dom = (Domain) availDomainList.get(i);
 				//TODO Does anyone know why we don't call
 				//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
-				if (qFilter == null || dom.getName().toLowerCase().indexOf(qFilter) >= 0)
+				if (qFilter == null || dom.getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 				{
 					displayDomainList.add(dom);
 				}
@@ -2312,7 +2312,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging.errorPrint(PropertyFactory.getString("in_domIDEr1") + " " + col + " "
-					    + PropertyFactory.getString("in_domIDEr3"));
+						+ PropertyFactory.getString("in_domIDEr3"));
 
 					break;
 			}
@@ -2333,7 +2333,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		 * Set theQuickFilter
 		 * @param quickFilter
 		 */
-		public void setQFilter(String quickFilter) 
+		public void setQFilter(String quickFilter)
 		{
 			if(quickFilter != null) {
 				this.qFilter = quickFilter.toLowerCase();
@@ -2346,7 +2346,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		/**
 		 * Clear the QuickFilter
 		 */
-		public void clearQFilter() 
+		public void clearQFilter()
 		{
 			this.qFilter = null;
 		}
@@ -2377,18 +2377,18 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDefaultWidth(int col, int width) {
 			SettingsHandler.setPCGenOption("InfoDomain.domain.sizecol." + domainColList[col], width);
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoDomain.domain.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoDomain.domain.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 
@@ -2416,11 +2416,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				case (1):
 
-					final String domainName = domainModel.getValueAt(selectedRow, -1).toString();
+					final String domainKey = domainModel.getValueAt(selectedRow, -1).toString();
 
-					if (domainName != null)
+					if (domainKey != null)
 					{
-						final Domain aDomain = Globals.getDomainNamed(domainName);
+						final Domain aDomain = Globals.getDomainKeyed(domainKey);
 						setDomainInfoText(aDomain);
 					}
 

@@ -197,7 +197,7 @@ public class DeityToken extends Token
 
 			firstLine = false;
 
-			retString += ((Domain) deity.getDomainList().get(i)).getName();
+			retString += ((Domain) deity.getDomainList().get(i)).getDisplayName();
 		}
 
 		return retString;
@@ -256,7 +256,7 @@ public class DeityToken extends Token
 	 */
 	public static String getNameToken(Deity deity)
 	{
-		return deity.getName();
+		return deity.getDisplayName();
 	}
 
 	/**

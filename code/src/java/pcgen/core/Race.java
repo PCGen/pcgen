@@ -52,7 +52,6 @@ public final class Race extends PObject
 	private String hitDieLock = "";
 	private String ageString = "";
 	private String bonusSkillList = "";
-	private String chooseLanguageAutos = "";
 	private String displayName = "None";
 
 	//private String face = "5 ft. by 5 ft.";
@@ -142,16 +141,6 @@ public final class Race extends PObject
 	public int getCR()
 	{
 		return CR;
-	}
-
-	public void setChooseLanguageAutos(final String chooseLanguageAutos)
-	{
-		this.chooseLanguageAutos = chooseLanguageAutos;
-	}
-
-	public String getChooseLanguageAutos()
-	{
-		return this.chooseLanguageAutos;
 	}
 
 	public void setDisplayName(final String displayName)
@@ -280,7 +269,7 @@ public final class Race extends PObject
 	{
 		if (newHitDice < 0)
 		{
-			ShowMessageDelegate.showMessageDialog("Invalid number of hit dice in race " + name, "PCGen", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Invalid number of hit dice in race " + displayName, "PCGen", MessageType.ERROR);
 
 			return;
 		}
@@ -388,7 +377,7 @@ public final class Race extends PObject
 			}
 			else
 			{
-				final Language aLang = Globals.getLanguageNamed(token);
+				final Language aLang = Globals.getLanguageKeyed(token);
 
 				if (aLang != null)
 				{
@@ -485,7 +474,7 @@ public final class Race extends PObject
 
 					if (aSkill.isType(bString.substring(5)))
 					{
-						monCCSkillList.add(aSkill.getName());
+						monCCSkillList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -523,7 +512,7 @@ public final class Race extends PObject
 
 					if (aSkill.isType(bString.substring(5)))
 					{
-						monCSkillList.add(aSkill.getName());
+						monCSkillList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -666,9 +655,9 @@ public final class Race extends PObject
 			txt.append("\tREACH:").append(reach);
 		}
 
-		if ((chooseLanguageAutos != null) && (chooseLanguageAutos.length() > 0))
+		if ((getChooseLanguageAutos() != null) && (getChooseLanguageAutos().length() > 0))
 		{
-			txt.append("\tCHOOSE:LANGAUTO:").append(chooseLanguageAutos);
+			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
 
 		if ((languageBonus != null) && !languageBonus.isEmpty())
@@ -1000,7 +989,7 @@ public final class Race extends PObject
 	 */
 	public int hashCode()
 	{
-		return getName().hashCode();
+		return getKeyName().hashCode();
 	}
 
 	public int hitDice(final PlayerCharacter aPC)
@@ -1031,7 +1020,7 @@ public final class Race extends PObject
 
 			for (int x = 0; x < hitDice; ++x)
 			{
-				setHitPoint(x, new Integer(Globals.rollHP(min, max, getName(), x + 1)));
+				setHitPoint(x, new Integer(Globals.rollHP(min, max, getKeyName(), x + 1)));
 			}
 		}
 
@@ -1189,42 +1178,6 @@ public final class Race extends PObject
 		}
 
 		return true;
-	}
-
-	/** Adds one chosen language.
-	 * TODO: Identical method in PCTemplate.java. Refactor. XXX
-	 * @param flag
-	 * @param aPC TODO
-	 */
-	void chooseLanguageAutos(final boolean flag, final PlayerCharacter aPC)
-	{
-		if (!flag && !"".equals(chooseLanguageAutos))
-		{
-			final StringTokenizer tokens = new StringTokenizer(chooseLanguageAutos, "|", false);
-			final List selectedList; // selected list of choices
-
-			final ChooserInterface c = ChooserFactory.getChooserInstance();
-			c.setPool(1);
-			c.setPoolFlag(false);
-			c.setTitle("Pick a Language: ");
-
-			SortedSet list = new TreeSet();
-
-			while (tokens.hasMoreTokens())
-			{
-				list.add(tokens.nextToken());
-			}
-
-			list = Globals.extractLanguageListNames(list);
-			c.setAvailableList(new ArrayList(list));
-			c.setVisible(true);
-			selectedList = c.getSelectedList();
-
-			if ((selectedList != null) && (selectedList.size() != 0))
-			{
-				aPC.addFreeLanguage((String) selectedList.get(0));
-			}
-		}
 	}
 
 	boolean hasMonsterCCSkill(final String aName)

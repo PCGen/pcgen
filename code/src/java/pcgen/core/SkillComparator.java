@@ -76,11 +76,11 @@ public final class SkillComparator implements Comparator
 				}
 				else
 				{
-					return s1.getName().compareToIgnoreCase(s2.getName());
+					return s1.getDisplayName().compareToIgnoreCase(s2.getDisplayName());
 				}
 
 			case RESORT_NAME:default:
-				return s1.getName().compareToIgnoreCase(s2.getName());
+				return s1.getDisplayName().compareToIgnoreCase(s2.getDisplayName());
 		}
 	}
 }

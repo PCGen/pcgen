@@ -50,7 +50,7 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skills Choice";
 		chooserHandled = "SKILLSNAMEDTOCSKILL";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -60,7 +60,7 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 	/**
 	 * If pobject is an Ability object, clean up the list of Class skill associated
 	 * with it.
-     *
+	 *
 	 * @param aPc
 	 */
 	protected void cleanUpAssociated(
@@ -69,15 +69,15 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 		if (pobject != null && pobject instanceof Ability)
 		{
 			Ability anAbility = (Ability) pobject;
-			
+
 			for (Iterator cSkillIt = anAbility.getCSkillList().iterator(); cSkillIt.hasNext();)
 			{
 				final String tempString = (String) cSkillIt.next();
 
 				if (!"LIST".equals(tempString))
 				{
-					String tempName = pobject.getName();
-					final Ability tempAbility = Globals.getAbilityNamed("FEAT", tempName);
+					String tempKey = pobject.getKeyName();
+					final Ability tempAbility = Globals.getAbilityKeyed("FEAT", tempKey);
 
 					if (tempAbility != null)
 					{
@@ -94,16 +94,16 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 
 			anAbility.clearCcSkills();
 		}
-		
+
 		super.cleanUpAssociated(aPc, size);
 	}
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,

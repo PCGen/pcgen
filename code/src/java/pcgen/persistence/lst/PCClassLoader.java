@@ -70,7 +70,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
 				final String n = lstLine.substring(9, lstLine.indexOf("\t"));
-				subClass = pcClass.getSubClassNamed(n);
+				subClass = pcClass.getSubClassKeyed(n);
 
 				if (subClass == null)
 				{
@@ -133,7 +133,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 
 				String name = colString.substring(6);
 
-				if ((!name.equals(pcClass.getName())) && (name.indexOf(".MOD") < 0))
+				if ((!name.equals(pcClass.getKeyName())) && (name.indexOf(".MOD") < 0))
 				{
 					finishObject(pcClass);
 					pcClass = new PCClass();
@@ -144,7 +144,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 				// need to grab PCClass instance for this .MOD minus the .MOD part of the name
 				else if (name.endsWith(".MOD"))
 				{
-					pcClass = Globals.getClassNamed(name.substring(0, name.length()-4));
+					pcClass = Globals.getClassKeyed(name.substring(0, name.length()-4));
 				}
 			}
 			else if (!(pcClass instanceof SubClass) && (isNumber))
@@ -191,7 +191,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, pcClass, value);
 				if (!token.parse(pcClass, value, iLevel))
 				{
-					Logging.errorPrint("Error parsing ability " + pcClass.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability " + pcClass.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTagLevel(pcClass, colString, iLevel))
@@ -290,11 +290,11 @@ public final class PCClassLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		if (baseName.startsWith("CLASS:"))
-			baseName = baseName.substring(6);
-		return Globals.getClassNamed(baseName);
+		if (aKey.startsWith("CLASS:"))
+			aKey = aKey.substring(6);
+		return Globals.getClassKeyed(aKey);
 	}
 
 	/**
@@ -307,7 +307,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 			// This class already exists, so lets
 			// compare source files to see if its
 			// a duplicate named entry
-			final PCClass bClass = Globals.getClassNamed(target.getName());
+			final PCClass bClass = Globals.getClassKeyed(target.getKeyName());
 
 			if (bClass == null)
 			{
@@ -328,7 +328,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 					else
 					{
 						// Duplicate loading error
-						Logging.errorPrint("WARNING: Duplicate class name: " + target.getName());
+						Logging.errorPrint("WARNING: Duplicate class name: " + target.getKeyName());
 						Logging.errorPrint("Original : " + bClass.getSourceFile());
 						Logging.errorPrint("Duplicate: " + target.getSourceFile());
 						Logging.errorPrint("WARNING: Not loading duplicate");
@@ -336,7 +336,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 				}
 			}
 		}
-		
+
 		List preReqList = target.getPreReqList();
 		if (preReqList != null)
 		{
@@ -345,9 +345,9 @@ public final class PCClassLoader extends LstObjectFileLoader
 				Prerequisite preReq = (Prerequisite) iter.next();
 				if ("VAR".equalsIgnoreCase(preReq.getKind()))
 				{
-					preReq.setSubKey("CLASS:" + target.getName());
+					preReq.setSubKey("CLASS:" + target.getKeyName());
 				}
-				
+
 			}
 		}
 	}

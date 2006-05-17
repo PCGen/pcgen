@@ -90,7 +90,7 @@ public final class CharacterSpell implements Comparable
 			final SpellInfo s = (SpellInfo) x.next();
 
 			if (("".equals(bookName) || bookName.equals(s.getBook()))
-			    && (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp))
+				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp))
 			{
 				return i;
 			}
@@ -198,11 +198,11 @@ public final class CharacterSpell implements Comparable
 			final SpellInfo s = (SpellInfo) x.next();
 
 			if (("".equals(bookName) || bookName.equals(s.getBook()))
-			    && (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp)
-			    && (featList == null
-			    || featList.isEmpty() && (s.getFeatList() == null || s
+				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp)
+				&& (featList == null
+				|| featList.isEmpty() && (s.getFeatList() == null || s
 					.getFeatList().isEmpty())
-			    || s.getFeatList() != null && featList.toString()
+				|| s.getFeatList() != null && featList.toString()
 					.equals(s.getFeatList().toString())))
 			{
 				return s;
@@ -316,7 +316,7 @@ public final class CharacterSpell implements Comparable
 		}
 		else
 		{
-			result = spell.getName();
+			result = spell.getDisplayName();
 		}
 
 		return result;
@@ -332,7 +332,7 @@ public final class CharacterSpell implements Comparable
 
 		if (spell != null)
 		{
-			buf.append(':').append(spell.getName());
+			buf.append(':').append(spell.getDisplayName());
 		}
 		return buf.toString();
 	}

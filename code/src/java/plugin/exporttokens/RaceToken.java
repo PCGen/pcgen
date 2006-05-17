@@ -86,7 +86,7 @@ public class RaceToken extends Token
 
 			firstLine = false;
 
-			retString += ((SpecialAbility) saList.get(i)).getName();
+			retString += ((SpecialAbility) saList.get(i)).getDisplayName();
 		}
 
 		return retString;
@@ -116,7 +116,7 @@ public class RaceToken extends Token
 
 			if (monsterClass != null)
 			{
-				final PCClass aClass = pc.getClassNamed(monsterClass);
+				final PCClass aClass = pc.getClassKeyed(monsterClass);
 
 				if (aClass != null)
 				{

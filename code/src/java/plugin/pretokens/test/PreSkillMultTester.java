@@ -49,17 +49,17 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 		int runningTotal=0;
 		final int requiredRanks = Integer.parseInt( prereq.getOperand());
 
-		String requiredSkillName = prereq.getKey().toUpperCase();
+		String requiredSkillKey = prereq.getKey().toUpperCase();
 
 
-		final boolean isType = (requiredSkillName.startsWith("TYPE.") || requiredSkillName.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType = (requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
-			requiredSkillName = requiredSkillName.substring(5).toUpperCase();
+			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
 		}
-		final String skillName = requiredSkillName.toUpperCase();
+		final String skillKey = requiredSkillKey.toUpperCase();
 
-		final int percentageSignPosition = skillName.lastIndexOf('%');
+		final int percentageSignPosition = skillKey.lastIndexOf('%');
 
 		boolean foundMatch = false;
 		final List sList = (ArrayList) character.getSkillList().clone();
@@ -67,7 +67,7 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 		{
 			final Skill aSkill = (Skill) e1.next();
 
-			final String aSkillName = aSkill.getName().toUpperCase();
+			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
 			{
 				if (percentageSignPosition >= 0)
@@ -75,13 +75,13 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 					final int maxCount = aSkill.getMyTypeCount();
 					for (int k=0; k < maxCount && !foundMatch; k++)
 					{
-						if (aSkill.getMyType(k).startsWith(skillName.substring(0, percentageSignPosition)))
+						if (aSkill.getMyType(k).startsWith(skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;
 						}
 					}
 				}
-				else if (aSkill.isType(skillName))
+				else if (aSkill.isType(skillKey))
 				{
 					foundMatch=true;
 				}
@@ -96,8 +96,8 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 					}
 				}
 			}
-			else if (aSkillName.equals(skillName) ||
-					((percentageSignPosition >= 0) && aSkillName.startsWith(skillName.substring(0, percentageSignPosition))))
+			else if (aSkillKey.equals(skillKey) ||
+					((percentageSignPosition >= 0) && aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
 			{
 				final int result = prereq.getOperator().compare(aSkill.getTotalRank(character).intValue() , requiredRanks);
 				if (result>0) {

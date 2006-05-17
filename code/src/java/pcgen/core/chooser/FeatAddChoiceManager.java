@@ -37,13 +37,13 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * This is one of the choosers that deals with choosing from among a set 
+ * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
 public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 
 	Ability  anAbility = null;
-	
+
 	/**
 	 * Make a Feat chooser.
 	 *
@@ -59,7 +59,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Add a Feat";
 		chooserHandled = "FEATADD";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -95,10 +95,10 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 					if (
 						ability.isType(featType) &&
 						aPc.canSelectAbility(ability) &&
-						!availableList.contains(ability.getName())
+						!availableList.contains(ability)
 					   ) {
 
-						availableList.add(ability.getName());
+						availableList.add(ability);
 					}
 				}
 			}
@@ -106,21 +106,21 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 			else
 			{
 				final StringTokenizer bTok = new StringTokenizer(aString, ",");
-				String featName = bTok.nextToken().trim();
+				String featKey = bTok.nextToken().trim();
 				String subName = "";
-				anAbility = Globals.getAbilityNamed("FEAT", featName);
+				anAbility = Globals.getAbilityKeyed("FEAT", featKey);
 
 				if (anAbility == null)
 				{
-					Logging.errorPrint("Feat not found: " + featName);
+					Logging.errorPrint("Feat not found: " + featKey);
 
 					//return false;
 				}
 
-				if (!featName.equalsIgnoreCase(anAbility.getName()))
+				if (!featKey.equalsIgnoreCase(anAbility.getKeyName()))
 				{
-					subName = featName.substring(anAbility.getName().length());
-					featName = anAbility.getName();
+					subName = featKey.substring(anAbility.getKeyName().length());
+					featKey = anAbility.getKeyName();
 
 					final int si = subName.indexOf('(');
 
@@ -138,7 +138,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 						// If already have taken the feat, use it so we can remove
 						// any choices already selected
 						//
-						final Ability pcFeat = aPc.getFeatNamed(featName);
+						final Ability pcFeat = aPc.getFeatKeyed(featKey);
 
 						if (pcFeat != null)
 						{
@@ -210,12 +210,12 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 
 						for (Iterator e = aavailableList.iterator(); e.hasNext();)
 						{
-							availableList.add(featName + "(" + (String) e.next() + ")");
+							availableList.add(featKey + "(" + (String) e.next() + ")");
 						}
 
 						//return false;
 					}
-					else if (!aPc.hasRealFeatNamed(featName) && !aPc.hasFeatAutomatic(featName))
+					else if (!aPc.hasRealFeat(Globals.getAbilityKeyed("FEAT", featKey)) && !aPc.hasFeatAutomatic(featKey))
 					{
 						availableList.add(aString);
 					}
@@ -226,10 +226,10 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -237,7 +237,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 			final String          prefix)
 	{
 		super.associateChoice(aPc, item, prefix);
-		
+
 		if (anAbility != null)
 		{
 			if (!aPc.hasRealFeatNamed(item))

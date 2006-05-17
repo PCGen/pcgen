@@ -60,7 +60,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else
 		{
-			final PCClass aClass = character.getClassNamed(aString);
+			final PCClass aClass = character.getClassKeyed(aString);
 			if (aClass != null)
 			{
 				runningTotal += aClass.getLevel();

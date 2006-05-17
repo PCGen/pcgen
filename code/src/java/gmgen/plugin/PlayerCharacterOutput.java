@@ -66,7 +66,7 @@ public class PlayerCharacterOutput
 		for (int i = 0; i < classList.size(); i++)
 		{
 			PCClass mClass = (PCClass) classList.get(i);
-			sb.append(mClass.getName() + mClass.getLevel() + " ");
+			sb.append(mClass.getDisplayName() + mClass.getLevel() + " ");
 		}
 
 		return sb.toString();
@@ -91,7 +91,7 @@ public class PlayerCharacterOutput
 
 	public String getDomainName(Domain domain)
 	{
-		return domain.getName();
+		return domain.getDisplayName();
 	}
 
 	public String getDomainPower(Domain domain)
@@ -140,7 +140,7 @@ public class PlayerCharacterOutput
 			}
 			catch (IOException e)
 			{
-			    // TODO - Handle Exception
+				// TODO - Handle Exception
 			}
 
 			return retWriter.toString();
@@ -223,9 +223,9 @@ public class PlayerCharacterOutput
 		return pc.getName();
 	}
 
-	public String getRace()
+	public String getRaceName()
 	{
-		return pc.getRace().getName();
+		return pc.getRace().getDisplayName();
 	}
 
 	public String getRangedTotal()

@@ -175,7 +175,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 
 				if (race != null)
 				{
-					return race.getName();
+					return race.getKeyName();
 				}
 				return fn.toString();
 
@@ -199,7 +199,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 
 			default:
 				Logging.errorPrint("In InfoResources.FollowerModel.getValueAt the column " + column
-				    + " is not handled.");
+					+ " is not handled.");
 
 				break;
 		}
@@ -319,7 +319,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 				final CompanionMod aComp = (CompanionMod) iComp.next();
 				final String compType = CoreUtility.capitalizeFirstLetter(aComp.getType());
 
-				if ((aComp.getClassMap().containsKey(aClass.getName())) && (!selectedList.contains(compType)))
+				if ((aComp.getClassMap().containsKey(aClass.getKeyName())) && (!selectedList.contains(compType)))
 				{
 					selectedList.add(compType);
 				}
@@ -357,17 +357,17 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	public void setMColumnDefaultWidth(int col, int width) {
 		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], width);
 	}
-	
+
 	private boolean getColumnViewOption(String colName, boolean defaultVal) {
 		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.viewcol." + colName, defaultVal);
 	}
-	
+
 	private void setColumnViewOption(String colName, boolean val) {
 		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.viewcol." + colName, val);
 	}
 
 	public void resetMColumn(int col, TableColumn column) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

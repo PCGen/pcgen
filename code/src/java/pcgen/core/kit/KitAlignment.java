@@ -133,8 +133,13 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 			String align = null;
 			while (true)
 			{
-				align = Globals.chooseFromList("Choose alignment", choices, new ArrayList(), 1);
-				if (align.length() != 0)
+				List sel = new ArrayList(1);
+				Globals.getChoiceFromList("Choose alignment", choices, sel, 1);
+				if (sel.size() == 1)
+				{
+					align = (String)sel.get(0);
+				}
+				else
 				{
 					break;
 				}

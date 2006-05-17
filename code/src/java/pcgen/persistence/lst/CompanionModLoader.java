@@ -47,7 +47,7 @@ public class CompanionModLoader
 	/** Creates a new instance of CompanionModLoader */
 	private CompanionModLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class CompanionModLoader
 				LstUtils.deprecationCheck(token, cmpMod, value);
 				if (!token.parse(cmpMod, value))
 				{
-					Logging.errorPrint("Error parsing ability " + cmpMod.getName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability " + cmpMod.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(cmpMod, colString))

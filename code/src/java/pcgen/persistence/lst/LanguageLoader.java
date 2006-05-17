@@ -90,7 +90,7 @@ final class LanguageLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, lang, value);
 				if (!token.parse(lang, value))
 				{
-					Logging.errorPrint("Error parsing language " + lang.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing language " + lang.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else
@@ -113,9 +113,9 @@ final class LanguageLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getLanguageNamed(baseName);
+		return Globals.getLanguageKeyed(aKey);
 	}
 
 	/**
@@ -125,7 +125,7 @@ final class LanguageLoader extends LstObjectFileLoader
 	{
 		if (includeObject(target))
 		{
-			final Language lang = Globals.getLanguageNamed(target.getName());
+			final Language lang = Globals.getLanguageKeyed(target.getKeyName());
 
 			if (lang == null || !lang.getType().equals(target.getType()))
 			{

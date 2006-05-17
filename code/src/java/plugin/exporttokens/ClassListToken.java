@@ -30,6 +30,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.core.Globals;
 
 /**
  * Deal with CLASSLIST token
@@ -76,13 +77,13 @@ public class ClassListToken extends Token
 
 			firstLine = false;
 
-			if (Constants.s_NONE.equals(pcClass.getSubClassName()) || "".equals(pcClass.getSubClassName()))
+			if (Constants.s_NONE.equals(pcClass.getSubClassKey()) || "".equals(pcClass.getSubClassKey()))
 			{
 				retString += pcClass.getOutputName();
 			}
 			else
 			{
-				retString += pcClass.getSubClassName();
+				retString += Globals.getClassKeyed(pcClass.getSubClassKey()).getDisplayName();
 			}
 
 			retString += pcClass.getLevel();

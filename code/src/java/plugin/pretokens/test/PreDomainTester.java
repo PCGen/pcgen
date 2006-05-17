@@ -53,7 +53,7 @@ public class PreDomainTester  extends AbstractPrerequisiteTest implements Prereq
 			Logging.errorPrintLocalised("PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
 		}
 
-		final boolean hasDomain = character.getCharacterDomainNamed(prereq.getKey()) != null;
+		final boolean hasDomain = character.getCharacterDomainKeyed(prereq.getKey()) != null;
 
 		runningTotal = hasDomain ? 1 : 0;
 

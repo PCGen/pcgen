@@ -94,7 +94,7 @@ final class PCTemplateLoader
 				LstUtils.deprecationCheck(token, template, value);
 				if (!token.parse(template, value))
 				{
-					Logging.errorPrint("Error parsing template " + template.getName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing template " + template.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(template, colString))

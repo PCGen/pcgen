@@ -141,11 +141,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	private List mUniqueList = new ArrayList();
 	private String mSelectedTerminator = "";
 
-	/** The available data memory structure */
-	private Object[][] mAvailableData;
-
-	/** The selected data memory structure */
-	private Object[][] mSelectedData;
+	/** Will this chooser allow more choices than in the pool? */
 	private boolean canGoNegative = false;
 
 	/** Whether or not to allow duplicate choices */
@@ -180,42 +176,6 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	public void setAllowsDups(boolean aBool)
 	{
 		mAllowDuplicates = aBool;
-	}
-
-	/**
-	 * Sets the AvailableList attribute of the Chooser object
-	 *
-	 * @param availableList  The new AvailableList value
-	 * author               Matt Woodard
-	 */
-	public void setAvailableList(List availableList)
-	{
-		List columnList = null;
-
-		// Check for embedded column names in the list
-		if ((availableList != null) && (availableList.size() >= 2))
-		{
-			// Check for a blank line in the #2 spot
-			String line = availableList.get(1).toString();
-
-			if (line.length() == 0)
-			{
-				// Make a new copy of the input list to avoid changing original
-				availableList = new ArrayList(availableList);
-
-				// Remove the blank line
-				availableList.remove(1);
-
-				// Remove the column name line
-				line = (String) availableList.remove(0);
-
-				// Extract the column list
-				columnList = Arrays.asList(parseString(line));
-			}
-		}
-
-		// Set the list and (possibly) columns
-		setAvailableList(availableList, columnList);
 	}
 
 	/**
@@ -290,17 +250,6 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	}
 
 	/**
-	 * Sets the SelectedList attribute of the Chooser object
-	 *
-	 * @param selectedList  The new SelectedList value
-	 * author              Matt Woodard
-	 */
-	public void setSelectedList(List selectedList)
-	{
-		setSelectedList(selectedList, null);
-	}
-
-	/**
 	 * Returns the selected item list
 	 *
 	 * @return   java.util.ArrayList
@@ -342,7 +291,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		//
 		// Only do this if 1 entry and can add...
 		//
-		if ((mAvailableData != null) && (mAvailableData.length == 1) && b)
+		if ((mAvailableList != null) && (mAvailableList.size() == 1) && b)
 		{
 			final int method = SettingsHandler.getSingleChoicePreference();
 
@@ -404,13 +353,13 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param availableColumnNames  The new AvailableColumnNames value
 	 * author                      Matt Woodard
 	 */
-	private void setAvailableColumnNames(List availableColumnNames)
+	public void setAvailableColumnNames(List availableColumnNames)
 	{
 		mAvailableColumnNames = availableColumnNames;
 
 		mAvailableModel.setColumnsNames(availableColumnNames == null
 				? Globals.EMPTY_STRING_ARRAY
-		        : (String[]) availableColumnNames.toArray(
+				: (String[]) availableColumnNames.toArray(
 						new String[availableColumnNames.size()]));
 	}
 
@@ -418,20 +367,11 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * Sets the AvailableList attribute of the Chooser object
 	 *
 	 * @param availableList  The new AvailableList value
-	 * @param columnNames    The new AvailableList value
 	 * author               Matt Woodard
 	 */
-	private void setAvailableList(List availableList, List columnNames)
+	public void setAvailableList(List availableList)
 	{
-		mAvailableList = createInputList(mAvailableColumnNames,
-				AVAILABLE_COLUMN_NAMES, availableList, columnNames,
-				new ColumnSetter()
-				{
-					public void setColumnNames(List columnNamesIn)
-					{
-						setAvailableColumnNames(columnNamesIn);
-					}
-				});
+		mAvailableList = availableList;
 	}
 
 	/**
@@ -439,13 +379,13 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param selectedColumnNames  java.util.List
 	 * author                     Matt Woodard
 	 */
-	private void setSelectedColumnNames(List selectedColumnNames)
+	public void setSelectedColumnNames(List selectedColumnNames)
 	{
 		mSelectedColumnNames = selectedColumnNames;
 
 		mSelectedModel.setColumnsNames(selectedColumnNames == null
 				? Globals.EMPTY_STRING_ARRAY
-		        : (String[]) selectedColumnNames.toArray(
+				: (String[]) selectedColumnNames.toArray(
 						new String[selectedColumnNames.size()]));
 	}
 
@@ -456,17 +396,9 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param columnNames   The new SelectedList value
 	 * author              Matt Woodard
 	 */
-	private void setSelectedList(List selectedList, List columnNames)
+	public void setSelectedList(List selectedList)
 	{
-		mSelectedList = createInputList(mSelectedColumnNames,
-				SELECTED_COLUMN_NAMES, selectedList, columnNames,
-				new ColumnSetter()
-				{
-					public void setColumnNames(List columnNamesIn)
-					{
-						setSelectedColumnNames(columnNamesIn);
-					}
-				});
+		mSelectedList = selectedList;
 	}
 
 	private void windowCloseEvent()
@@ -515,10 +447,10 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
-		    public void windowClosing(java.awt.event.WindowEvent we)
-		    {
-		    	windowCloseEvent();
-		    }
+			public void windowClosing(java.awt.event.WindowEvent we)
+			{
+				windowCloseEvent();
+			}
 		});
 
 		// Initialize basic dialog settings
@@ -726,6 +658,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		constraints.weighty = 0.01;
 		constraints.insets = new Insets(0, 4, 4, 4);
 		contentPane.add(mCloseButton, constraints);
+		this.getRootPane().setDefaultButton(mCloseButton);
 	}
 
 	/**
@@ -795,11 +728,12 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 		final TableModel availableModel = mAvailableTable.getModel();
 
-		final String addString = availableModel.getValueAt(selectedRow, 0).toString();
+		final Object selectedObj = availableModel.getValueAt(selectedRow, 0);
 
-		if (mUniqueList.contains(addString))
+		if (mUniqueList.contains(selectedObj))
 		{
-			setMessageText(in_selectPartA + " " + addString + " " + in_selectPartB);
+			// TODO Don't compose messages by concat I18N
+			setMessageText(in_selectPartA + " " + selectedObj.toString() + " " + in_selectPartB);
 
 			return;
 		}
@@ -808,11 +742,12 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 		for (int i = 0, count = selectedModel.getRowCount(); i < count; i++)
 		{
-			String aString = selectedModel.getValueAt(i, 0).toString();
+			Object obj = selectedModel.getValueAt(i, 0);
 
-			if (addString.equals(aString) && !mAllowDuplicates)
+			if (selectedObj.equals(obj) && !mAllowDuplicates)
 			{
-				setMessageText(addString + " " + in_alreadySelected);
+				// TODO Don't compose messages by concat I18N
+				setMessageText(selectedObj + " " + in_alreadySelected);
 
 				return;
 			}
@@ -833,22 +768,36 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 			}
 		}
 
-		final StringBuffer buffer = new StringBuffer();
-
 		final int selectedColumns = selectedModel.getColumnCount();
 
-		if (selectedColumns > 0)
+		if (selectedColumns > 1)
 		{
-			buffer.append(availableModel.getValueAt(selectedRow, 0));
-
-			for (int i = 1; i < selectedColumns; i++)
+			// Find the available row this corrisponds to
+			// We will be optimistic and try the selected row first
+			List columns = (List)mAvailableList.get(selectedRow-1);
+			Object selCol1 = availableModel.getValueAt(selectedRow, 0);
+			if (columns.get(0).equals(selCol1))
 			{
-				buffer.append('\t');
-				buffer.append(availableModel.getValueAt(selectedRow, i));
+				mSelectedList.add(columns);
+			}
+			else
+			{
+				// Well we will have to search for it
+				for (Iterator i = mAvailableList.iterator(); i.hasNext(); )
+				{
+					columns = (List)i.next();
+					if (columns.get(0).equals(selCol1))
+					{
+						mSelectedList.add(columns);
+						break;
+					}
+				}
 			}
 		}
-
-		mSelectedList.add(buffer.toString());
+		else
+		{
+			mSelectedList.add(selectedObj);
+		}
 
 		updateSelectedTable();
 
@@ -892,29 +841,32 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 				if ((availableRow >= 0) && (availableRow < mAvailableTable.getRowCount()))
 				{
-					TableModel tableModel = mAvailableTable.getModel();
+					TableModel availTableModel = mAvailableTable.getModel();
 
-					String addString = tableModel.getValueAt(availableRow, 0).toString();
+					final Object availObj = availTableModel.getValueAt(availableRow, 0);
 
-					if (!mUniqueList.contains(addString))
+					if (!mUniqueList.contains(availObj))
 					{
 						addEnabled = true;
-						addToolTip = in_pressToAdd + " " + addString;
+						// TODO Don't compose messages by concat I18N
+						addToolTip = in_pressToAdd + " " + availObj.toString();
 
 						for (int i = 0, length = mSelectedTable.getRowCount(); i < length; i++)
 						{
-							String string = mSelectedModel.getValueAt(i, 0).toString();
+							final Object selectedObj = mSelectedModel.getValueAt(i, 0);
 
-							if (addString.equals(string) && !mAllowDuplicates)
+							if (availObj.equals(selectedObj) && !mAllowDuplicates)
 							{
 								addEnabled = false;
-								addToolTip = addString + " " + in_alreadySelected;
+								// TODO Don't compose messages by concat I18N
+								addToolTip = availObj + " " + in_alreadySelected;
 							}
 						}
 					}
 					else
 					{
-						addToolTip = in_selectPartA + " " + addString + " " + in_selectPartB;
+						// TODO Don't compose messages by concat I18N
+						addToolTip = in_selectPartA + " " + availObj + " " + in_selectPartB;
 					}
 				}
 				else
@@ -947,6 +899,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 			if ((selectedRow >= 0) && (selectedRow < mSelectedTable.getRowCount()))
 			{
 				removeEnabled = true;
+				// TODO Don't compose messages by concat I18N
 				removeToolTip = in_pressToRemove + " " + mSelectedTable.getModel().getValueAt(selectedRow, 0) + ".";
 			}
 			else
@@ -985,8 +938,9 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 			setAvailableColumnNames(AVAILABLE_COLUMN_NAMES);
 		}
 
-		mAvailableData = updateTable(mAvailableTable, mAvailableModel, mAvailableData,
-				mAvailableList, "");
+		updateTable(mAvailableTable, mAvailableModel, mAvailableList, "");
+//		mAvailableData = updateTable(mAvailableTable, mAvailableModel, mAvailableData,
+//				mAvailableList, "");
 	}
 
 	/**
@@ -1006,8 +960,9 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 							: mAvailableColumnNames);
 		}
 
-		mSelectedData = updateTable(mSelectedTable, mSelectedModel,
-				mSelectedData, mSelectedList, mSelectedTerminator);
+		updateTable(mSelectedTable, mSelectedModel, mSelectedList, mSelectedTerminator);
+//		mSelectedData = updateTable(mSelectedTable, mSelectedModel,
+//				mSelectedData, mSelectedList, mSelectedTerminator);
 	}
 
 	private static interface ColumnSetter
@@ -1060,47 +1015,70 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		return inputList;
 	}
 
-	private static Object[][] updateTable(final JTableEx table,
-			final ChooserTableModel tableModel, final Object[][] tableData,
-			final List inputList, final String lineTerminator)
+	private static void updateTable(final JTableEx aTable, final ChooserTableModel aTableModel,
+									final List anInputList, final String aLineTerminator)
 	{
-		String selectedValue = null;
+//		if (anInputList.size() <= 0)
+//		{
+//			return;
+//		}
+
+		Object selectedValue = null;
 
 		// Find the previous selected value.
-		if ((tableData != null) && (tableData.length > 0))
-		{
-			int selected = table.getSelectedRow();
+		int selectedInd = aTable.getSelectedRow();
 
-			if (selected >= 0)
-			{
-				selectedValue = tableData[selected][0].toString();
-			}
+		if (selectedInd >= 0)
+		{
+			selectedValue = anInputList.get(selectedInd);
 		}
 
 		// Clear the previous selected value.
-		final ListSelectionModel selectionModel = table.getSelectionModel();
+		final ListSelectionModel selectionModel = aTable.getSelectionModel();
 		selectionModel.clearSelection();
 
 		// Update the table data from the input list.
-		final Object[][] newTableData = new Object[inputList.size()][];
+		final Object[][] newTableData = new Object[anInputList.size()][];
 
 		int row = 0;
 
-		for (Iterator it = inputList.iterator(); it.hasNext();)
+		for (Iterator it = anInputList.iterator(); it.hasNext();)
 		{
-			newTableData[row++] = parseString(it.next().toString());
+			final Object rowData = it.next();
+			if (rowData instanceof String)
+			{
+				newTableData[row++] = parseString(rowData.toString());
+			}
+			else if (rowData instanceof Collection)
+			{
+				Collection columns = (Collection)rowData;
+				final int numColumns = columns.size();
+				newTableData[row] = new Object[numColumns];
+				int curCol = 0;
+				final Iterator colIter = columns.iterator();
+				while (colIter.hasNext())
+				{
+					newTableData[row][curCol++] = colIter.next();
+				}
+				row++;
+			}
+			else
+			{
+				newTableData[row] = new Object[1];
+				newTableData[row++][0] = rowData;
+			}
 		}
 
-		tableModel.setData(newTableData, lineTerminator);
+		aTableModel.setData(newTableData, aLineTerminator);
 
 		// Restore the previous selected value if possible.
 		if (selectedValue != null)
 		{
-			for (int i = 0, length = tableModel.getRowCount(); i < length; i++)
+			for (int i = 0, length = aTableModel.getRowCount(); i < length; i++)
 			{
-				final String string = tableModel.getValueAt(i, 0).toString();
+				final Object val = aTableModel.getValueAt(i, 0);
 
-				if (selectedValue.equals(string))
+				if (selectedValue.equals(val))
 				{
 					selectionModel.setSelectionInterval(i, i);
 
@@ -1108,8 +1086,6 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 				}
 			}
 		}
-
-		return newTableData;
 	}
 
 	/**

@@ -115,7 +115,7 @@ public class PCClass extends PObject
 	private String specialsString = "";
 	private String spellType = Constants.s_NONE;
 	private String stableSpellKey = null;
-	private String subClassName = Constants.s_NONE;
+	private String subClassKey = Constants.s_NONE;
 	private String subClassString = Constants.s_NONE;
 	private TreeSet languageBonus = new TreeSet();
 	private boolean hasSubClass = false;
@@ -136,6 +136,8 @@ public class PCClass extends PObject
 	private String skillPointFormula = "0";
 
 	private boolean hasSpellFormulas = false;
+
+	private String classKey = "";
 
 	/**
 	 *
@@ -160,6 +162,12 @@ public class PCClass extends PObject
 	public final String getAbbrev()
 	{
 		return abbrev;
+	}
+
+	public void setKeyName(final String aKey)
+	{
+		super.setKeyName(aKey);
+		classKey = "CLASS:" + keyName;
 	}
 
 	/* addDomains is the prestige domains this class has access to */
@@ -219,7 +227,7 @@ public class PCClass extends PObject
 	public final String getCastAs()
 	{
 		if (castAs == null || castAs.equals(""))
-			return name;
+			return keyName;
 		return castAs;
 	}
 
@@ -313,7 +321,7 @@ public class PCClass extends PObject
 					// Should we be passing in the BonusObj here to allow it to be referenced in Qualifies statements?
 					if (PrereqHandler.passesAll(localPreReqList, aPC, null))
 					{
-						final double j = aPC.getVariableValue(aString, "CLASS:" + name).doubleValue();
+						final double j = aPC.getVariableValue(aString, classKey).doubleValue();
 						i += j;
 					}
 				}
@@ -371,7 +379,7 @@ public class PCClass extends PObject
 		final String levelSpellLevel = ";LEVEL." + spellLevel;
 		final String allSpellLevel = ";LEVEL.All";
 
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", name);
+		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
 		if (getNumFromCastList(pcLevel, spellLevel, aPC) < 0)
@@ -407,7 +415,7 @@ public class PCClass extends PObject
 
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "CAST." + statString)
 			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT")
-			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS." + name);
+			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS." + keyName);
 
 		if ((index > -2) && limitByStat)
 		{
@@ -448,9 +456,9 @@ public class PCClass extends PObject
 						{
 							final CharacterDomain aCD = (CharacterDomain) i.next();
 
-							if (aCD.isFromPCClass(getName()) && (aCD.getDomain() != null))
+							if (aCD.isFromPCClass(getKeyName()) && (aCD.getDomain() != null))
 							{
-								bList = Globals.getSpellsIn(ix, "", aCD.getDomain().getName());
+								bList = Globals.getSpellsIn(ix, "", aCD.getDomain().getKeyName());
 							}
 						}
 					}
@@ -528,7 +536,7 @@ public class PCClass extends PObject
 	{
 		classSkillString = aString;
 	}
-	
+
 	/**
 	 * Return the value set by the SKILLLIST token
 	 *
@@ -849,26 +857,19 @@ public class PCClass extends PObject
 
 	public String getDisplayClassName()
 	{
-		if ((subClassName.length() > 0) && !subClassName.equals(Constants.s_NONE))
+		if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
 		{
-			return subClassName;
+			return getSubClassKeyed(subClassKey).getDisplayName();
 		}
 
-		return name;
+		return displayName;
 	}
 
 	public String getFullDisplayClassName()
 	{
 		final StringBuffer buf = new StringBuffer();
 
-		if ((subClassName.length() > 0) && !subClassName.equals(Constants.s_NONE))
-		{
-			buf.append(subClassName);
-		}
-		else
-		{
-			buf.append(name);
-		}
+		buf.append(getDisplayClassName());
 
 		return buf.append(" ").append(level).toString();
 	}
@@ -961,7 +962,7 @@ public class PCClass extends PObject
 			}
 			else if (prereq.startsWith("CLASS="))
 			{
-				if (!getName().equals(prereq.substring(prereq.indexOf("="),prereq.length())))
+				if (!getKeyName().equals(prereq.substring(prereq.indexOf("="),prereq.length())))
 				{
 					return currDie;
 				}
@@ -1086,11 +1087,11 @@ public class PCClass extends PObject
 
 	public final int getLevelHitDieUnadjusted(final PlayerCharacter aPC, final int classLevel)
 	{
-		if ("None".equals(subClassName))
+		if ("None".equals(subClassKey))
 		{
 			return hitDie;
 		}
-		final SubClass aSubClass = getSubClassNamed(subClassName);
+		final SubClass aSubClass = getSubClassKeyed(subClassKey);
 		if (aSubClass != null)
 		{
 			return aSubClass.getLevelHitDie(aPC, classLevel);
@@ -1162,7 +1163,7 @@ public class PCClass extends PObject
 						retString.append(',');
 					}
 
-					retString.append(aCD.getDomain().getName());
+					retString.append(aCD.getDomain().getKeyName());
 				}
 			}
 		}
@@ -1193,7 +1194,7 @@ public class PCClass extends PObject
 
 			if (classSpellList == null)
 			{
-				stableSpellKey = "CLASS|" + name;
+				stableSpellKey = "CLASS|" + keyName;
 
 				return stableSpellKey;
 			}
@@ -1260,12 +1261,12 @@ public class PCClass extends PObject
 	 */
 	public Map getCastMap()
 	{
-		if ("".equals(castAs) || getName().equals(castAs))
+		if ("".equals(castAs) || getKeyName().equals(castAs))
 		{
 			return castMap;
 		}
 
-		final PCClass aClass = Globals.getClassNamed(castAs);
+		final PCClass aClass = Globals.getClassKeyed(castAs);
 
 		if (aClass != null)
 		{
@@ -1376,12 +1377,12 @@ public class PCClass extends PObject
 	 */
 	public List getKnownList()
 	{
-		if ("".equals(castAs) || getName().equals(castAs))
+		if ("".equals(castAs) || getKeyName().equals(castAs))
 		{
 			return knownList;
 		}
 
-		final PCClass aClass = Globals.getClassNamed(castAs);
+		final PCClass aClass = Globals.getClassKeyed(castAs);
 
 		if (aClass != null)
 		{
@@ -1399,7 +1400,7 @@ public class PCClass extends PObject
 	public String getKnownStringForLevel(int aInt)
 	{
 		List known = getKnownList();
-		
+
 		if (aInt > maxKnownLevel)
 		{
 			aInt = maxKnownLevel;
@@ -1512,7 +1513,7 @@ public class PCClass extends PObject
 				{
 					final CharacterDomain aCD = (CharacterDomain) i.next();
 
-					if (aCD.isFromPCClass(getName()))
+					if (aCD.isFromPCClass(getKeyName()))
 					{
 						return "+1";
 					}
@@ -1550,7 +1551,7 @@ public class PCClass extends PObject
 		total = (int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "CLASS." + getKeyName() + ";LEVEL." + spellLevel);
 		total += (int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "TYPE." + getSpellType() + ";LEVEL." + spellLevel);
 
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", name);
+		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
 		final int index = baseSpellIndex();
@@ -1615,13 +1616,13 @@ public class PCClass extends PObject
 		return total;
 	}
 
-	public void setSubClassName(final String aString)
+	public void setSubClassKey(final String aKey)
 	{
-		subClassName = aString;
+		subClassKey = aKey;
 
-		if (!aString.equals(name))
+		if (!aKey.equals(getKeyName()))
 		{
-			final SubClass a = getSubClassNamed(aString);
+			final SubClass a = getSubClassKeyed(aKey);
 
 			if (a != null)
 			{
@@ -1633,17 +1634,17 @@ public class PCClass extends PObject
 		getSpellKey();
 	}
 
-	public String getSubClassName()
+	public String getSubClassKey()
 	{
-		if (subClassName == null)
+		if (subClassKey == null)
 		{
-			subClassName = "";
+			subClassKey = "";
 		}
 
-		return subClassName;
+		return subClassKey;
 	}
 
-	public final SubClass getSubClassNamed(final String arg)
+	public final SubClass getSubClassKeyed(final String aKey)
 	{
 		if (subClassList == null)
 		{
@@ -1654,7 +1655,7 @@ public class PCClass extends PObject
 		{
 			final SubClass a = (SubClass) i.next();
 
-			if (a.getName().equals(arg))
+			if (a.getKeyName().equals(aKey))
 			{
 				return a;
 			}
@@ -1702,7 +1703,7 @@ public class PCClass extends PObject
 	//}
 	/**
 	 * Identify if this class should be displayed to the user in the UI.
-	 * @return true if the class should be displayed to the user. 
+	 * @return true if the class should be displayed to the user.
 	 */
 	public final boolean isVisible()
 	{
@@ -1788,7 +1789,7 @@ public class PCClass extends PObject
 			}
 			else
 			{
-				final Language aLang = Globals.getLanguageNamed(token);
+				final Language aLang = Globals.getLanguageKeyed(token);
 
 				if (aLang != null)
 				{
@@ -1917,6 +1918,7 @@ public class PCClass extends PObject
 	 * Assumption: DR list is sorted by level.
 	 * @return DR
 	 */
+/*
 	public String getDR()
 	{
 		LevelProperty lp = null;
@@ -1943,13 +1945,14 @@ public class PCClass extends PObject
 
 		return null;
 	}
-
+*/
 	/**
 	 * needed for Class Editor - returns contents of DR(index).
 	 * @param index
 	 * @param delimiter
 	 * @return String
 	 */
+/*
 	public String getDRListString(final int index, final String delimiter)
 	{
 		if ((DR != null) && (DR.size() > index))
@@ -1961,6 +1964,7 @@ public class PCClass extends PObject
 
 		return null;
 	}
+*/
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
 	{
@@ -2109,7 +2113,7 @@ public class PCClass extends PObject
 				{
 					aCD = (CharacterDomain) i.next();
 
-					if ((aCD.getDomain() != null) && aCD.isFromPCClass(getName()))
+					if ((aCD.getDomain() != null) && aCD.isFromPCClass(getKeyName()))
 					{
 						aCD.getDomain().addSpellsToClassForLevels(this, 0, _maxLevel);
 					}
@@ -2373,7 +2377,7 @@ public class PCClass extends PObject
 	public String getPCCText()
 	{
 		final StringBuffer pccTxt = new StringBuffer(200);
-		pccTxt.append("CLASS:").append(getName());
+		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append(super.getPCCText(false));
 		pccTxt.append("\tABB:").append(getAbbrev());
 		checkAdd(pccTxt, "", "EXCLASS:", exClass);
@@ -2577,7 +2581,7 @@ public class PCClass extends PObject
 					pccTxt.append(lineSep).append(i).append("\tSPELLS:").append(spell.getPCCText());
 				}
 			}
-			
+
 		}
 
 		for (int x = 0; x < templates.size(); ++x)
@@ -3003,20 +3007,20 @@ public class PCClass extends PObject
 			}
 		}
 
-		return aPC.getVariableValue(wCRFormula, "CLASS:" + getName()).intValue();
+		return aPC.getVariableValue(wCRFormula, classKey).intValue();
 	}
 
 	public String classLevelString()
 	{
 		StringBuffer aString = new StringBuffer();
 
-		if (!getSubClassName().equals(Constants.s_NONE) && !"".equals(getSubClassName()))
+		if (!getSubClassKey().equals(Constants.s_NONE) && !"".equals(getSubClassKey()))
 		{
-			aString.append(getSubClassName());
+			aString.append(getSubClassKey());
 		}
 		else
 		{
-			aString.append(getName());
+			aString.append(getKeyName());
 		}
 
 		aString = aString.append(' ').append(level);
@@ -3031,7 +3035,7 @@ public class PCClass extends PObject
 		try
 		{
 			aClass = (PCClass) super.clone();
-			aClass.setSubClassName(getSubClassName());
+			aClass.setSubClassKey(getSubClassKey());
 
 //			aClass.setSubClassString(getSubClassString());
 			aClass.setProhibitedString(getProhibitedString());
@@ -3128,7 +3132,7 @@ public class PCClass extends PObject
 
 	public final String toString()
 	{
-		return name;
+		return displayName;
 	}
 
 	public void setName(final String newName)
@@ -3254,10 +3258,10 @@ public class PCClass extends PObject
 
 		for (Iterator i = classSkillList.iterator(); i.hasNext();)
 		{
-			final String aClassName = i.next().toString();
-			final PCClass aClass = Globals.getClassNamed(aClassName);
+			final String classKey = i.next().toString();
+			final PCClass pcClass = Globals.getClassKeyed(classKey);
 
-			if ((aClass != null) && aClass.hasCSkill(aString))
+			if ((pcClass != null) && pcClass.hasCSkill(aString))
 			{
 				return true;
 			}
@@ -3415,30 +3419,31 @@ public class PCClass extends PObject
 		for (Iterator i = specialAbilityList.iterator(); i.hasNext();)
 		{
 			final SpecialAbility sa = (SpecialAbility) i.next();
+			final String saKey = sa.getKeyName();
 
 			if (sa.pcQualifiesFor(aPC))
 			{
-				if (sa.getName().startsWith(".CLEAR"))
+				if (saKey.startsWith(".CLEAR"))
 				{
-					if (".CLEARALL".equals(sa.getName()))
+					if (".CLEARALL".equals(saKey))
 					{
 						bList.clear();
 					}
-					else if (sa.getName().startsWith(".CLEAR."))
+					else if (saKey.startsWith(".CLEAR."))
 					{
-						final String saToRemove = sa.getName().substring(7);
+						final String saToRemove = saKey.substring(7);
 
 						for (int itIdx = bList.size() - 1; itIdx >= 0; --itIdx)
 						{
-							final String saName = ((SpecialAbility) bList.get(itIdx)).getName();
+							final String subKey = ((SpecialAbility) bList.get(itIdx)).getKeyName();
 
-							if (saName.equals(saToRemove))
+							if (subKey.equals(saToRemove))
 							{
 								bList.remove(itIdx);
 							}
-							else if (saName.indexOf('(') >= 0)
+							else if (subKey.indexOf('(') >= 0)
 							{
-								if (saName.substring(0, saName.indexOf('(')).trim().equals(saToRemove))
+								if (subKey.substring(0, subKey.indexOf('(')).trim().equals(saToRemove))
 								{
 									bList.remove(itIdx);
 								}
@@ -3488,14 +3493,14 @@ public class PCClass extends PObject
 		final String levelSpellLevel = ";LEVEL." + spellLevel;
 		final String allSpellLevel = ";LEVEL.All";
 
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", name);
+		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
 		if ((getCastMap().size() > 0) && (getNumFromCastList(pcLevel, spellLevel, aPC) < 0))
 		{
 			// Don't know any spells of this level
-            // however, character might have a bonus spells e.g. from certain feats
-            return (int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName + levelSpellLevel);
+			// however, character might have a bonus spells e.g. from certain feats
+			return (int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName + levelSpellLevel);
 		}
 		if (pcLevel > maxKnownLevel)
 		{
@@ -3527,7 +3532,7 @@ public class PCClass extends PObject
 
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "KNOWN." + statString)
 			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT")
-			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS." + name);
+			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS." + keyName);
 
 		if (index > -2)
 		{
@@ -3729,10 +3734,10 @@ public class PCClass extends PObject
 		//
 		String aDamage;
 
-		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + name);
+		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
 
 		int iLevel = aLevel;
-		final Equipment eq = EquipmentList.getEquipmentKeyed("Unarmed Strike");
+		final Equipment eq = EquipmentList.getEquipmentKeyed("KEY_Unarmed Strike");
 
 		if (eq != null)
 		{
@@ -3757,7 +3762,7 @@ public class PCClass extends PObject
 		//
 		// Check the UDAM list for monk-like damage
 		//
-		List udamList = Globals.getClassNamed(name).getListFor(ListKey.UDAM);
+		List udamList = Globals.getClassKeyed(keyName).getListFor(ListKey.UDAM);
 
 		if ((udamList != null) && !udamList.isEmpty())
 		{
@@ -3767,14 +3772,14 @@ public class PCClass extends PObject
 
 				if (aString.startsWith("CLASS=") || aString.startsWith("CLASS."))
 				{
-					final PCClass aClass = Globals.getClassNamed(aString.substring(6));
+					final PCClass aClass = Globals.getClassKeyed(aString.substring(6));
 
 					if (aClass != null)
 					{
 						return aClass.getUdamForLevel(aLevel, includeCrit, includeStrBonus, aPC, adjustForPCSize);
 					}
 
-					Logging.errorPrint(name + " refers to " + aString.substring(6) + " which isn't loaded.");
+					Logging.errorPrint(keyName + " refers to " + aString.substring(6) + " which isn't loaded.");
 
 					return aDamage;
 				}
@@ -3927,18 +3932,18 @@ public class PCClass extends PObject
 		final List templateList = getTemplates(aPC.isImporting(), aPC);
 		for (int x = 0; x < templateList.size(); ++x)
 		{
-			aPC.addTemplateNamed((String) templateList.get(x));
+			aPC.addTemplateKeyed((String) templateList.get(x));
 		}
 
 		// Make sure that if this Class adds a new domain that
 		// we record where that domain came from
 		final int dnum = aPC.getMaxCharacterDomains(this, aPC) - aPC.getCharacterDomainUsed();
 
-		if (!aPC.hasDomainSource("PCClass", getName(), newLevel))
+		if (!aPC.hasDomainSource("PCClass", getKeyName(), newLevel))
 		{
 			if (dnum > 0)
 			{
-				aPC.addDomainSource("PCClass", getName(), newLevel, dnum);
+				aPC.addDomainSource("PCClass", getKeyName(), newLevel, dnum);
 			}
 		}
 
@@ -4132,12 +4137,12 @@ public class PCClass extends PObject
 		{
 			try
 			{
-				final String sClass = aTok.nextToken(); // Class to get levels from
+				final String classKey = aTok.nextToken(); // Class to get levels from
 				final int iMinLevel = Integer.parseInt(aTok.nextToken()); // Minimum level required in donating class
 				int iMaxDonation = Integer.parseInt(aTok.nextToken()); // Maximum levels donated from class
 				final int iLowest = Integer.parseInt(aTok.nextToken()); // Lowest that donation can lower donating class level to
 
-				final PCClass aClass = aPC.getClassNamed(sClass);
+				final PCClass aClass = aPC.getClassKeyed(classKey);
 
 				if (aClass != null)
 				{
@@ -4163,7 +4168,7 @@ public class PCClass extends PObject
 							// Get number of levels to exchange for this class
 							//
 							final ChooserInterface c = ChooserFactory.getChooserInstance();
-							c.setTitle("Select number of levels to convert from " + sClass + " to " + getName());
+							c.setTitle("Select number of levels to convert from " + aClass.getDisplayName() + " to " + getDisplayName());
 							c.setPool(1);
 							c.setPoolFlag(false);
 							c.setAvailableList(choiceNames);
@@ -4202,7 +4207,7 @@ public class PCClass extends PObject
 		}
 
 		subAddsForLevel(oldLevel, aPC);
-		aPC.removeVariable("CLASS:" + getName() + "|" + Integer.toString(oldLevel));
+		aPC.removeVariable("CLASS:" + getKeyName() + "|" + Integer.toString(oldLevel));
 	}
 
 	void doPlusLevelMods(final int newLevel, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
@@ -4249,7 +4254,7 @@ public class PCClass extends PObject
 
 				if (sa.getSource().length() != 0)
 				{
-					sa = new SpecialAbility(sa.getName(), sa.getSASource(), sa.getSADesc());
+					sa = new SpecialAbility(sa.getKeyName(), sa.getSASource(), sa.getSADesc());
 					sa.setQualificationClass(oldClass, newClass);
 					specialAbilityList.set(idx, sa);
 				}
@@ -4381,7 +4386,7 @@ public class PCClass extends PObject
 			}
 
 			int spMod = 0;
-			final PCLevelInfo pcl = aPC.getLevelInfoFor(name, level);
+			final PCLevelInfo pcl = aPC.getLevelInfoFor(keyName, level);
 
 			if (pcl != null)
 			{
@@ -4389,7 +4394,7 @@ public class PCClass extends PObject
 			}
 			else
 			{
-				Logging.errorPrint("ERROR: could not find class/level info for " + name + "/" + level);
+				Logging.errorPrint("ERROR: could not find class/level info for " + displayName + "/" + level);
 			}
 
 			// XXX Why is the feat decrementing done twice (here and in
@@ -4427,7 +4432,7 @@ public class PCClass extends PObject
 
 			if (newLevel == 0)
 			{
-				setSubClassName(Constants.s_NONE);
+				setSubClassKey(Constants.s_NONE);
 
 				//
 				// Remove all skills associated with this class
@@ -4559,14 +4564,14 @@ public class PCClass extends PObject
 		return Math.max(0, hdTotal - ehdMod);
 	}
 
-	private boolean isAutoKnownSpell(final String spellName, final int spellLevel, final boolean useMap, final PlayerCharacter aPC)
+	private boolean isAutoKnownSpell(final String aSpellKey, final int spellLevel, final boolean useMap, final PlayerCharacter aPC)
 	{
 		if (knownSpellsList.isEmpty())
 		{
 			return false;
 		}
 
-		final Spell aSpell = Globals.getSpellNamed(spellName);
+		final Spell aSpell = Globals.getSpellKeyed(aSpellKey);
 
 		if (useMap)
 		{
@@ -4617,7 +4622,7 @@ public class PCClass extends PObject
 				// otherwise it must be the spell's name
 				else
 				{
-					flag = bString.equals(spellName);
+					flag = bString.equals(aSpellKey);
 				}
 			}
 
@@ -4661,7 +4666,7 @@ public class PCClass extends PObject
 			if (getExtraHD(aPC, total) > 0)
 			{
 //				spMod = getSkillPoints();
-				spMod = aPC.getVariableValue(getSkillPointFormula(), "CLASS:" + name).intValue();
+				spMod = aPC.getVariableValue(getSkillPointFormula(), classKey).intValue();
 				if (lockedMonsterSkillPoints == 0)
 				{
 					spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
@@ -4692,7 +4697,7 @@ public class PCClass extends PObject
 	{
 //		int spMod = getSkillPoints();
 		int lockedMonsterSkillPoints;
-		int spMod = aPC.getVariableValue(getSkillPointFormula(), "CLASS:" + name).intValue();
+		int spMod = aPC.getVariableValue(getSkillPointFormula(), classKey).intValue();
 
 		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
 
@@ -4800,7 +4805,7 @@ public class PCClass extends PObject
 
 			if (tString.startsWith("CHOOSE:") && !flag)
 			{
-				newTemplates.add(PCTemplate.chooseTemplate(template.substring(template.indexOf("CHOOSE:") + 7), aPC));
+				newTemplates.add(PCTemplate.chooseTemplate(this, template.substring(template.indexOf("CHOOSE:") + 7), true, aPC));
 				templatesAdded.add(newTemplates.get(newTemplates.size() - 1));
 			}
 			else if (!flag)
@@ -4877,7 +4882,7 @@ public class PCClass extends PObject
 			addVariablesForLevel(0, aPC);
 		}
 
-		final String prefix = "CLASS:" + name + '|';
+		final String prefix = classKey + '|';
 
 		for (Iterator i = getVariableIterator(); i.hasNext();)
 		{
@@ -4951,7 +4956,7 @@ public class PCClass extends PObject
 				{
 					final PCStat aStat = (PCStat) i.next();
 
-					if (aStat.getName().equalsIgnoreCase(selectedValue.toString()))
+					if (aStat.getDisplayName().equalsIgnoreCase(selectedValue.toString()))
 					{
 						aPC.saveStatIncrease(aStat.getAbb(), 1, isPre);
 						aStat.setBaseScore(aStat.getBaseScore() + 1);
@@ -4983,18 +4988,15 @@ public class PCClass extends PObject
 	 * Build a list of Sub-Classes for the user to choose from. The two lists
 	 * passed in will be populated.
 	 *
-	 * @param choiceNames The list of sub-classes to choose from.
-	 * @param removeNames The list of sub-classes that cannot be chosen
+	 * @param choiceList The list of sub-classes to choose from.
+	 * @param removeList The list of sub-classes that cannot be chosen
 	 * @param useProhibitCost SHould the prohibited cost be used rather
 	 *         than the cost of the sub-class.
 	 * @param aPC
 	 */
-	private void buildSubClassChoiceList(final List choiceNames, final List removeNames, final boolean useProhibitCost, final PlayerCharacter aPC)
+	private void buildSubClassChoiceList(final List choiceList, final List removeList, final boolean useProhibitCost, final PlayerCharacter aPC)
 	{
 		int displayedCost;
-
-		choiceNames.add("Name\tCost\tOther");
-		choiceNames.add("");
 
 		boolean subClassSelected = false;
 		for (Iterator i = subClassList.iterator(); i.hasNext();)
@@ -5006,13 +5008,15 @@ public class PCClass extends PObject
 				continue;
 			}
 
+			final List columnList = new ArrayList(3);
+
 			if (useProhibitCost)
 			{
 				displayedCost = sc.getProhibitCost();
 			}
 			else
 			{
-				if (!this.getSubClassName().equals("None"))
+				if (!this.getSubClassKey().equals("None"))
 				{
 					// We already have a subclass requested.
 					// If it is legal we will return that.
@@ -5022,50 +5026,51 @@ public class PCClass extends PObject
 			}
 
 			boolean added = false;
-			final StringBuffer buf = new StringBuffer();
-			buf.append(sc.getName()).append('\t').append(displayedCost).append('\t');
+			columnList.add(sc);
+			columnList.add(String.valueOf(displayedCost));
 
+			StringBuffer otherColumn = new StringBuffer();
 			if (sc.getNumSpellsFromSpecialty() != 0)
 			{
-				buf.append("SPECIALTY SPELLS:").append(sc.getNumSpellsFromSpecialty());
+				otherColumn.append("SPECIALTY SPELLS:").append(sc.getNumSpellsFromSpecialty());
 				added = true;
 			}
 
 			if (sc.getSpellBaseStat() != null)
 			{
-				buf.append("SPELL BASE STAT:").append(sc.getSpellBaseStat());
+				if (otherColumn.length() > 0)
+				{
+					otherColumn.append(" ");
+				}
+				otherColumn.append("SPELL BASE STAT:").append(sc.getSpellBaseStat());
 				added = true;
 			}
 
 			if (!added)
 			{
-				buf.append(' ');
+				otherColumn.append(' ');
 			}
+			columnList.add(otherColumn.toString());
 
 			if (displayedCost == 0)
 			{
-				removeNames.add(buf.toString());
+				removeList.add(columnList);
 			}
 
-			choiceNames.add(buf.toString());
+			choiceList.add(columnList);
 		}
 		if (useProhibitCost == false && subClassSelected == true)
 		{
 			// We want to return just the selected class.
 			String mySubClassStr = null;
-			for (Iterator i = choiceNames.iterator(); i.hasNext(); )
+			for (Iterator i = choiceList.iterator(); i.hasNext(); )
 			{
-				String astr = (String)i.next();
-				if (astr.startsWith(this.getSubClassName()))
+				List columns = (List)i.next();
+				SubClass sc = (SubClass)columns.get(0);
+				if (!sc.getKeyName().equals(this.getSubClassKey()))
 				{
-					mySubClassStr = astr;
-					break;
+					i.remove();
 				}
-			}
-			if (mySubClassStr != null)
-			{
-				choiceNames.clear();
-				choiceNames.add(mySubClassStr);
 			}
 		}
 	}
@@ -5102,7 +5107,7 @@ public class PCClass extends PObject
 
 		if (anObj instanceof PlayerCharacter)
 		{
-			iBonus = ((PlayerCharacter) anObj).getVariableValue(aVal, "CLASS:" + name).doubleValue();
+			iBonus = ((PlayerCharacter) anObj).getVariableValue(aVal, classKey).doubleValue();
 		}
 		else
 		{
@@ -5182,9 +5187,14 @@ public class PCClass extends PObject
 			return;
 		}
 
-		List choiceNames = new ArrayList();
-		List removeNames = new ArrayList();
-		buildSubClassChoiceList(choiceNames, removeNames, false, aPC);
+		List columnNames = new ArrayList(3);
+		columnNames.add("Name");
+		columnNames.add("Cost");
+		columnNames.add("Other");
+
+		List choiceList = new ArrayList();
+		List removeList = new ArrayList();
+		buildSubClassChoiceList(choiceList, removeList, false, aPC);
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("School Choice (Specialisation)");
@@ -5195,13 +5205,14 @@ public class PCClass extends PObject
 		c.setPoolFlag(false);
 
 		//c.setCostColumnNumber(1);		// Allow 1 choice, regardless of cost...cost will be applied in second phase
-		c.setAvailableList(choiceNames);
+		c.setAvailableColumnNames(columnNames);
+		c.setAvailableList(choiceList);
 
-		if (choiceNames.size() == 1)
+		if (choiceList.size() == 1)
 		{
-			c.setSelectedList(choiceNames);
+			c.setSelectedList(choiceList);
 		}
-		else if (choiceNames.size() != 0)
+		else if (choiceList.size() != 0)
 		{
 			c.setVisible(true);
 		}
@@ -5213,27 +5224,26 @@ public class PCClass extends PObject
 			setProhibitedString("");
 			specialtyList.clear();
 
-			StringTokenizer aTok = new StringTokenizer((String) selectedList.get(0), "\t", false);
-			SubClass sc = getSubClassNamed(aTok.nextToken());
-			choiceNames = new ArrayList();
-			removeNames = new ArrayList();
-			buildSubClassChoiceList(choiceNames, removeNames, true, aPC);
+			SubClass sc = (SubClass)((List)selectedList.get(0)).get(0);
+			choiceList = new ArrayList();
+			removeList = new ArrayList();
+			buildSubClassChoiceList(choiceList, removeList, true, aPC);
 
 			// Remove the specialist school
-			for (Iterator iter = choiceNames.iterator(); iter.hasNext();)
+			for (Iterator iter = choiceList.iterator(); iter.hasNext();)
 			{
-				final String element = (String) iter.next();
+				final List columns = (List) iter.next();
 
-				if (element.startsWith(sc.getName()))
+				if (columns.get(0).equals(sc))
 				{
-					choiceNames.remove(element);
+					iter.remove();
 
 					break;
 				}
 			}
 
-			choiceNames.removeAll(removeNames);
-			setSubClassName(sc.getName());
+			choiceList.removeAll(removeList);
+			setSubClassKey(sc.getKeyName());
 
 			if (sc.getChoice().length() > 0)
 			{
@@ -5244,7 +5254,8 @@ public class PCClass extends PObject
 			{
 				final ChooserInterface c1 = ChooserFactory.getChooserInstance();
 				c1.setTitle("School Choice (Prohibited)");
-				c1.setAvailableList(choiceNames);
+				c1.setAvailableColumnNames(columnNames);
+				c1.setAvailableList(choiceList);
 				c1.setMessageText("Make a selection.  You must make as many selections "
 					+ "necessary to cover the cost of your previous selections.");
 				c1.setPool(sc.getCost());
@@ -5256,8 +5267,8 @@ public class PCClass extends PObject
 
 				for (Iterator i = selectedList.iterator(); i.hasNext();)
 				{
-					aTok = new StringTokenizer((String) i.next(), "\t", false);
-					sc = getSubClassNamed(aTok.nextToken());
+					final List columns = (List)i.next();
+					sc = (SubClass)columns.get(0);
 
 					if (prohibitedString.length() > 0)
 					{
@@ -5470,16 +5481,16 @@ public class PCClass extends PObject
 
 		for (Iterator i = domainList.iterator(); i.hasNext();)
 		{
-			final String aString = (String) i.next();
-			final StringTokenizer aTok = new StringTokenizer(aString, "|");
+			final String domainKey = (String) i.next();
+			final StringTokenizer aTok = new StringTokenizer(domainKey, "|");
 			final int bLevel = Integer.parseInt(aTok.nextToken());
 			int d = c;
 
 			if (aLevel == bLevel)
 			{
-				final StringTokenizer bTok = new StringTokenizer(aString.substring(c), "[]|", true);
+				final StringTokenizer bTok = new StringTokenizer(domainKey.substring(c), "[]|", true);
 				boolean addNow = true;
-				String aName = "";
+				String subKey = "";
 				boolean inPreReqs = false;
 
 				while (bTok.hasMoreTokens())
@@ -5488,14 +5499,14 @@ public class PCClass extends PObject
 
 					if (!inPreReqs && !"[".equals(bString) && !"|".equals(bString))
 					{
-						aName = bString;
+						subKey = bString;
 					}
 
 					d += bString.length();
 
 					if (bTok.hasMoreTokens())
 					{
-						if ("[".equals(aString.substring(d, d + 1)))
+						if ("[".equals(domainKey.substring(d, d + 1)))
 						{
 							addNow = false;
 						}
@@ -5517,24 +5528,25 @@ public class PCClass extends PObject
 
 					if (addNow && !adding)
 					{
-						final int l = aPC.getCharacterDomainIndex(aName);
+						final int l = aPC.getCharacterDomainIndex(subKey);
 
 						if (l > -1)
 						{
 							aPC.getCharacterDomainList().remove(l);
 						}
 					}
-					else if (adding && addNow && (aName.length() > 0))
+					else if (adding && addNow && (subKey.length() > 0))
 					{
-						if (aPC.getCharacterDomainIndex(aName) == -1)
+						if (aPC.getCharacterDomainIndex(subKey) == -1)
 						{
-							Domain aDomain = Globals.getDomainNamed(aName);
+//							Domain aDomain = Globals.getDomainNamed(aName);
+							Domain aDomain = Globals.getDomainKeyed(subKey);
 
 							if (aDomain != null)
 							{
 								aDomain = (Domain) aDomain.clone();
 
-								final CharacterDomain aCD = aPC.getNewCharacterDomain(getName());
+								final CharacterDomain aCD = aPC.getNewCharacterDomain(getKeyName());
 								aCD.setDomain(aDomain, aPC);
 								aPC.addCharacterDomain(aCD);
 								aDomain = aCD.getDomain();
@@ -5542,7 +5554,7 @@ public class PCClass extends PObject
 							}
 						}
 
-						aName = "";
+						subKey = "";
 					}
 				}
 			}
@@ -5573,9 +5585,9 @@ public class PCClass extends PObject
 		int roll = 0;
 
 		final int min = 1 + (int) aPC.getTotalBonusTo("HD", "MIN")
-			+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + name);
+			+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + keyName);
 		final int max = getLevelHitDie(aPC, aLevel) + (int) aPC.getTotalBonusTo("HD", "MAX")
-			+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + name);
+			+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + keyName);
 
 		if (Globals.getGameModeHPFormula().length() == 0)
 		{
@@ -5587,7 +5599,7 @@ public class PCClass extends PObject
 			{
 				if (!aPC.isImporting())
 				{
-					roll = Globals.rollHP(min, max, getName(), aLevel);
+					roll = Globals.rollHP(min, max, getDisplayName(), aLevel);
 				}
 			}
 		}
@@ -5677,10 +5689,10 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Retrieve the list of spells for the class. Warning this overrides the 
-	 * PObject method getSpellList and obnly returns the spells up to the 
+	 * Retrieve the list of spells for the class. Warning this overrides the
+	 * PObject method getSpellList and obnly returns the spells up to the
 	 * level held in the class. This may not be what you expect.
-	 *  
+	 *
 	 * @see pcgen.core.PObject#getSpellList()
 	 */
 	public List getSpellList()
@@ -5689,11 +5701,11 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Retrieve the full list of spells for the class. This will return all 
-	 * spells defined for the class irrespective of the level in the class 
+	 * Retrieve the full list of spells for the class. This will return all
+	 * spells defined for the class irrespective of the level in the class
 	 * currently held.
-	 * 
-	 * @return The full list of spells for the class. 
+	 *
+	 * @return The full list of spells for the class.
 	 */
 	public List getFullSpellList()
 	{

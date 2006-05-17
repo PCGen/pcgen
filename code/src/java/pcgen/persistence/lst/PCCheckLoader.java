@@ -41,7 +41,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 	/** Creates a new instance of PCCheckLoader */
 	public PCCheckLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -74,7 +74,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, obj, value);
 				if (!token.parse(obj, value))
 				{
-					Logging.errorPrint("Error parsing check " + obj.getName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing check " + obj.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(obj, colString))

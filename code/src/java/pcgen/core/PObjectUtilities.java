@@ -72,7 +72,7 @@ public class PObjectUtilities
 		for (int j = 0; j < anAbility.getAssociatedCount(); ++j)
 		{
 			fmc = (FeatMultipleChoice) anAbility.getAssociatedList().get(j);
-			sb.append(anAbility.getName()).append(" (");
+			sb.append(anAbility.getKeyName()).append(" (");
 			sb.append(fmc.getChoiceCount());
 			sb.append(" of ").append(fmc.getMaxChoices()).append(") ");
 
@@ -441,7 +441,7 @@ public class PObjectUtilities
 		chooser.setVisible(false);
 		chooser.setPool(requestedSelections);
 
-		title = title + " (" + obj.getName() + ')';
+		title = title + " (" + obj.getDisplayName() + ')';
 		chooser.setTitle(title);
 		Globals.sortChooserLists(availableList, selectedList);
 
@@ -517,7 +517,7 @@ public class PObjectUtilities
 			for (int e = 0; e < obj.getAssociatedCount(); ++e)
 			{
 				final String aString = obj.getAssociated(e);
-				
+
 				for (Iterator bonusIter = aBonusList.iterator(); bonusIter
 					.hasNext();)
 				{
@@ -526,7 +526,7 @@ public class PObjectUtilities
 				}
 			}
 			obj.clearAssociated();
-			
+
 		}
 
 		if ("SKILLSNAMEDTOCSKILL".equals(choiceType))
@@ -537,8 +537,8 @@ public class PObjectUtilities
 
 				if (!"LIST".equals(tempString))
 				{
-					String tempName = obj.getName();
-					final Ability tempAbility = Globals.getAbilityNamed("FEAT", tempName);
+					String tempKey = obj.getKeyName();
+					final Ability tempAbility = Globals.getAbilityKeyed("FEAT", tempKey);
 
 					if (tempAbility != null)
 					{
@@ -650,7 +650,7 @@ public class PObjectUtilities
 
 							if (skill.getRootName().equalsIgnoreCase(chosenItem))
 							{
-								ability.addCSkill(skill.getName());
+								ability.addCSkill(skill.getKeyName());
 							}
 						}
 					}
@@ -669,7 +669,7 @@ public class PObjectUtilities
 
 							if (skill.getRootName().equalsIgnoreCase(chosenItem))
 							{
-								ability.addCcSkill(skill.getName());
+								ability.addCcSkill(skill.getKeyName());
 							}
 						}
 					}
@@ -744,13 +744,13 @@ public class PObjectUtilities
 		for (Iterator it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
 			final Ability tempAbility = (Ability) it.next();
 
-			if (tempAbility.getName().startsWith("Armor Proficiency ("))
+			if (tempAbility.getKeyName().startsWith("Armor Proficiency ("))
 			{
-				final int idxbegin = tempAbility.getName().indexOf("(");
-				final int idxend = tempAbility.getName().indexOf(")");
-				temptype = tempAbility.getName().substring((idxbegin + 1), idxend);
+				final int idxbegin = tempAbility.getKeyName().indexOf("(");
+				final int idxend = tempAbility.getKeyName().indexOf(")");
+				temptype = tempAbility.getKeyName().substring((idxbegin + 1), idxend);
 
-				if (aPC.getFeatNamed(tempAbility.getName()) != null)
+				if (aPC.getFeatKeyed(tempAbility.getKeyName()) != null)
 				{
 					availableList.add(temptype);
 				}
@@ -781,7 +781,7 @@ public class PObjectUtilities
 
 			if (aSkill.costForPCClassList(aPC.getClassList(), aPC) == Globals.getGameModeSkillCost_Class())
 			{
-				availableList.add(aSkill.getName());
+				availableList.add(aSkill.getKeyName());
 			}
 		}
 
@@ -831,7 +831,7 @@ public class PObjectUtilities
 					Race race = (Race) i.next();
 					if (checkRace(race, raceTypes, raceSubTypes, types))
 					{
-						availableList.add(race.getName());
+						availableList.add(race.getKeyName());
 					}
 				}
 			}
@@ -843,7 +843,7 @@ public class PObjectUtilities
 					Race race = (Race) i.next();
 					if (race.getRaceType().equals(choice.substring(9)))
 					{
-						availableList.add(race.getName());
+						availableList.add(race.getKeyName());
 					}
 				}
 			}
@@ -855,7 +855,7 @@ public class PObjectUtilities
 					Race race = (Race) i.next();
 					if (race.getRacialSubTypes().contains(choice.substring(9)))
 					{
-						availableList.add(race.getName());
+						availableList.add(race.getKeyName());
 					}
 				}
 			}
@@ -867,16 +867,16 @@ public class PObjectUtilities
 					Race race = (Race) i.next();
 					if (race.getType().equals(choice.substring(5)))
 					{
-						availableList.add(race.getName());
+						availableList.add(race.getKeyName());
 					}
 				}
 			}
 			else
 			{
-				Race race = Globals.getRaceNamed(choice);
+				Race race = Globals.getRaceKeyed(choice);
 				if (race != null)
 				{
-					availableList.add(race.getName());
+					availableList.add(race.getKeyName());
 				}
 			}
 		}
@@ -928,7 +928,7 @@ public class PObjectUtilities
 				for (Iterator i = domains.iterator(); i.hasNext(); )
 				{
 					Domain domain = (Domain)i.next();
-					availableList.add(domain.getName());
+					availableList.add(domain.getKeyName());
 				}
 				break;
 			}
@@ -955,7 +955,7 @@ public class PObjectUtilities
 						}
 						if (found == false)
 						{
-							availableList.add(domain.getName());
+							availableList.add(domain.getKeyName());
 						}
 					}
 				}
@@ -968,22 +968,22 @@ public class PObjectUtilities
 				for (Iterator i = pcDomainList.iterator(); i.hasNext();)
 				{
 					CharacterDomain cd = (CharacterDomain)i.next();
-					availableList.add(cd.getDomain().getName());
+					availableList.add(cd.getDomain().getKeyName());
 				}
 				break;
 			}
 			else if (option.startsWith("DEITY"))
 			{
 				// returns a list of Domains granted by specified Diety.
-				String deityName = option.substring(6);
-				Deity deity = Globals.getDeityNamed(deityName);
+				String deityKey = option.substring(6);
+				Deity deity = Globals.getDeityKeyed(deityKey);
 				if (deity != null)
 				{
 					List domainList = deity.getDomainList();
 					for (Iterator i = domainList.iterator(); i.hasNext();)
 					{
 						Domain domain = (Domain)i.next();
-						availableList.add(domain.getName());
+						availableList.add(domain.getKeyName());
 					}
 				}
 				break;
@@ -991,7 +991,7 @@ public class PObjectUtilities
 			else
 			{
 				// returns a list of the specified domains.
-				Domain domain = Globals.getDomainNamed(option);
+				Domain domain = Globals.getDomainKeyed(option);
 				if (domain != null)
 				{
 					availableList.add(option);
@@ -1015,7 +1015,7 @@ public class PObjectUtilities
 	{
 		String choiceSec = (aTok.hasMoreTokens())
 				? aTok.nextToken()
-				: obj.getName();
+				: obj.getKeyName();
 
 		availableList.addAll(EquipmentList.getEquipmentOfType(choiceSec, ""));
 		obj.addAssociatedTo(selectedList);
@@ -1050,10 +1050,10 @@ public class PObjectUtilities
 					if (
 						ability.isType(featType) &&
 						aPC.canSelectAbility(ability) &&
-						!availableList.contains(ability.getName())
+						!availableList.contains(ability.getKeyName())
 					   ) {
 
-						availableList.add(ability.getName());
+						availableList.add(ability.getKeyName());
 					}
 				}
 			}
@@ -1061,21 +1061,21 @@ public class PObjectUtilities
 			else
 			{
 				final StringTokenizer bTok = new StringTokenizer(aString, ",");
-				String featName = bTok.nextToken().trim();
+				String featKey = bTok.nextToken().trim();
 				String subName = "";
-				anAbility = Globals.getAbilityNamed("FEAT", featName);
+				anAbility = Globals.getAbilityKeyed("FEAT", featKey);
 
 				if (anAbility == null)
 				{
-					Logging.errorPrint("Feat not found: " + featName);
+					Logging.errorPrint("Feat not found: " + featKey);
 
 					//return false;
 				}
 
-				if (!featName.equalsIgnoreCase(anAbility.getName()))
+				if (!featKey.equalsIgnoreCase(anAbility.getKeyName()))
 				{
-					subName = featName.substring(anAbility.getName().length());
-					featName = anAbility.getName();
+					subName = featKey.substring(anAbility.getKeyName().length());
+					featKey = anAbility.getKeyName();
 
 					final int si = subName.indexOf('(');
 
@@ -1093,7 +1093,7 @@ public class PObjectUtilities
 						// If already have taken the feat, use it so we can remove
 						// any choices already selected
 						//
-						final Ability pcFeat = aPC.getFeatNamed(featName);
+						final Ability pcFeat = aPC.getFeatKeyed(featKey);
 
 						if (pcFeat != null)
 						{
@@ -1165,12 +1165,12 @@ public class PObjectUtilities
 
 						for (Iterator e = aavailableList.iterator(); e.hasNext();)
 						{
-							availableList.add(featName + "(" + (String) e.next() + ")");
+							availableList.add(featKey + "(" + (String) e.next() + ")");
 						}
 
 						//return false;
 					}
-					else if (!aPC.hasRealFeatNamed(featName) && !aPC.hasFeatAutomatic(featName))
+					else if (!aPC.hasRealFeat(Globals.getAbilityKeyed("FEAT", featKey)) && !aPC.hasFeatAutomatic(featKey))
 					{
 						availableList.add(aString);
 					}
@@ -1216,9 +1216,9 @@ public class PObjectUtilities
 					final Ability theFeat = (Ability) e1.next();
 
 					if (theFeat.isType(aString)
-						&& (stacks || (!stacks && !availableList.contains(theFeat.getName()))))
+						&& (stacks || (!stacks && !availableList.contains(theFeat.getKeyName()))))
 					{
-						availableList.add(theFeat.getName());
+						availableList.add(theFeat.getKeyName());
 					}
 				}
 			}
@@ -1292,26 +1292,26 @@ public class PObjectUtilities
 					final Ability ability = (Ability) it.next();
 
 					if (ability.isType(aString) &&
-							(stacks || !availableList.contains(ability.getName()
+							(stacks || !availableList.contains(ability.getKeyName()
 							  )))
 
 					{
-						availableList.add(ability.getName());
+						availableList.add(ability.getKeyName());
 					}
 				}
 			}
 			else
 			{
-				Ability theAbility = Globals.getAbilityNamed("ALL", aString);
+				Ability theAbility = Globals.getAbilityKeyed("ALL", aString);
 
 				if (theAbility != null)
 				{
 					String subName = "";
 
-					if (!aString.equalsIgnoreCase(theAbility.getName()))
+					if (!aString.equalsIgnoreCase(theAbility.getKeyName()))
 					{
-						subName = aString.substring(theAbility.getName().length());
-						aString = theAbility.getName();
+						subName = aString.substring(theAbility.getKeyName().length());
+						aString = theAbility.getKeyName();
 
 						final int idx = subName.indexOf('(');
 
@@ -1425,7 +1425,7 @@ public class PObjectUtilities
 	{
 		String choiceSec = (aTok.hasMoreTokens())
 				? aTok.nextToken()
-				: obj.getName();
+				: obj.getKeyName();
 
 		availableList.add(choiceSec);
 
@@ -1520,7 +1520,7 @@ public class PObjectUtilities
 				}
 				else
 				{
-					WeaponProf aProf = Globals.getWeaponProfNamed(prof);
+					WeaponProf aProf = Globals.getWeaponProfKeyed(prof);
 					if (aProf != null)
 					{
 						profs.add(aProf);
@@ -1549,7 +1549,7 @@ public class PObjectUtilities
 				}
 				else if (intScope == SCOPE_UNIQUE)
 				{
-					WeaponProf wp = Globals.getWeaponProfNamed(profName);
+					WeaponProf wp = Globals.getWeaponProfKeyed(profName);
 					List types = wp.getSafeListFor(ListKey.TYPE);
 					if (types.size() == 1 && pcProfs.contains(profName))
 					{
@@ -1712,7 +1712,7 @@ public class PObjectUtilities
 
 		final String choiceSec = (aTok.hasMoreTokens())
 				? aTok.nextToken()
-				: obj.getName();
+				: obj.getKeyName();
 
 		if ((choiceSec.length() > 0) && !"LIST".equals(choiceSec))
 		{
@@ -1739,9 +1739,9 @@ public class PObjectUtilities
 
 				final int rootNameLength = aSkill.getRootName().length();
 
-				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getName())) //all skills have ROOTs now, so go ahead and add it if the name and root are identical
+				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getKeyName())) //all skills have ROOTs now, so go ahead and add it if the name and root are identical
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 
 				final boolean rootArrayContainsRootName = rootArrayList.contains(aSkill.getRootName());
@@ -1753,7 +1753,7 @@ public class PObjectUtilities
 
 				if ((rootNameLength > 0) && rootArrayContainsRootName)
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 		}
@@ -1790,7 +1790,7 @@ public class PObjectUtilities
 
 					if (aSkill.isType(aString.substring(5)))
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -1802,7 +1802,7 @@ public class PObjectUtilities
 				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 				{
 					aSkill = (Skill) e1.next();
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 
@@ -1816,7 +1816,7 @@ public class PObjectUtilities
 
 					if (aSkill.costForPCClassList(aPC.getClassList(), aPC) == Globals.getGameModeSkillCost_Class())
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -1831,7 +1831,7 @@ public class PObjectUtilities
 
 					if (aSkill.costForPCClassList(aPC.getClassList(), aPC) > Globals.getGameModeSkillCost_Class())
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -1846,7 +1846,7 @@ public class PObjectUtilities
 
 					if (aSkill.costForPCClassList(aPC.getClassList(), aPC) == Globals.getGameModeSkillCost_Exclusive())
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -1859,11 +1859,11 @@ public class PObjectUtilities
 				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 				{
 					aSkill = (Skill) e1.next();
-					pcSkill = aPC.getSkillNamed(aSkill.getName());
+					pcSkill = aPC.getSkillKeyed(aSkill.getKeyName());
 
 					if (pcSkill == null || Double.compare(pcSkill.getRank().doubleValue(), 0.0) == 0)
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -1882,7 +1882,7 @@ public class PObjectUtilities
 
 				if (aSkill.getKeyName().equals(aString) || (startsWith && aSkill.getKeyName().startsWith(aString)))
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 		}
@@ -1906,7 +1906,7 @@ public class PObjectUtilities
 		for (iter = aPC.getSkillList().iterator(); iter.hasNext();)
 		{
 			final Skill aSkill = (Skill) iter.next();
-			availableList.add(aSkill.getName());
+			availableList.add(aSkill.getKeyName());
 		}
 
 		obj.addAssociatedTo(selectedList);
@@ -1933,7 +1933,7 @@ public class PObjectUtilities
 
 			if (!aClass.getSpellBaseStat().equals(Constants.s_NONE))
 			{
-				availableList.add(aClass.getName());
+				availableList.add(aClass.getKeyName());
 			}
 		}
 
@@ -2067,9 +2067,9 @@ public class PObjectUtilities
 
 					if (!obj.containsAssociated(aSpell.getKeyName()))
 					{
-						if (!availableList.contains(aSpell.getName()))
+						if (!availableList.contains(aSpell.getKeyName()))
 						{
-							availableList.add(aSpell.getName());
+							availableList.add(aSpell.getKeyName());
 						}
 					}
 				}
@@ -2215,7 +2215,7 @@ public class PObjectUtilities
 				{
 					final Object aObj = e.next();
 					final WeaponProf wp;
-					wp = Globals.getWeaponProfNamed(aObj.toString());
+					wp = Globals.getWeaponProfKeyed(aObj.toString());
 
 					if (wp == null)
 					{
@@ -2325,7 +2325,7 @@ public class PObjectUtilities
 				for (Iterator setIter = aPC.getWeaponProfList().iterator(); setIter.hasNext();)
 				{
 					bString = (String) setIter.next();
-					wp = Globals.getWeaponProfNamed(bString);
+					wp = Globals.getWeaponProfKeyed(bString);
 
 					if (wp == null)
 					{
@@ -2335,7 +2335,7 @@ public class PObjectUtilities
 					//
 					// get an Equipment object based on the named WeaponProf
 					//
-					Equipment eq = EquipmentList.getEquipmentNamed(wp.getName());
+					Equipment eq = EquipmentList.getEquipmentNamed(wp.getKeyName());
 
 					if (eq == null)
 					{
@@ -2382,7 +2382,7 @@ public class PObjectUtilities
 
 								if (tempEq.isWeapon())
 								{
-									if (tempEq.profName(aPC).equals(wp.getName()))
+									if (tempEq.profKey(aPC).equals(wp.getKeyName()))
 									{
 										eq = tempEq;
 
@@ -2478,7 +2478,7 @@ public class PObjectUtilities
 				while (setIter.hasNext())
 				{
 					bString = (String) setIter.next();
-					wp = Globals.getWeaponProfNamed(bString);
+					wp = Globals.getWeaponProfKeyed(bString);
 
 					if (wp == null)
 					{
@@ -2494,37 +2494,37 @@ public class PObjectUtilities
 							continue;
 						}
 
-						if (adding && !availableList.contains(wp.getName()))
+						if (adding && !availableList.contains(wp.getKeyName()))
 						{
-							availableList.add(wp.getName());
+							availableList.add(wp.getKeyName());
 						}
 					}
 					else if (eq.typeStringContains(sString))
 					{
 						// if this item is of the desired type, add it to the list
-						if (adding && !availableList.contains(wp.getName()))
+						if (adding && !availableList.contains(wp.getKeyName()))
 						{
-							availableList.add(wp.getName());
+							availableList.add(wp.getKeyName());
 						}
 
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getName()))
+						else if (!adding && availableList.contains(wp.getKeyName()))
 						{
-							availableList.remove(wp.getName());
+							availableList.remove(wp.getKeyName());
 							setIter = availableList.iterator();
 						}
 					}
 					else if (sString.equalsIgnoreCase("LIGHT"))
 					{
 						// if this item is of the desired type, add it to the list
-						if (adding && !availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPC))
+						if (adding && !availableList.contains(wp.getKeyName()) && eq.isWeaponLightForPC(aPC))
 						{
-							availableList.add(wp.getName());
+							availableList.add(wp.getKeyName());
 						}
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getName()) && eq.isWeaponLightForPC(aPC))
+						else if (!adding && availableList.contains(wp.getKeyName()) && eq.isWeaponLightForPC(aPC))
 						{
-							availableList.remove(wp.getName());
+							availableList.remove(wp.getKeyName());
 							setIter = availableList.iterator();
 						}
 					}
@@ -2563,7 +2563,7 @@ public class PObjectUtilities
 		for (iter = tArrayList.iterator(); iter.hasNext();)
 		{
 			tempProf = (WeaponProf) iter.next();
-			availableList.add(tempProf.getName());
+			availableList.add(tempProf.getKeyName());
 		}
 
 		obj.addAssociatedTo(selectedList);

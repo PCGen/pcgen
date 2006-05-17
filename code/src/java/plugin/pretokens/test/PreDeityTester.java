@@ -29,7 +29,7 @@ public class PreDeityTester  extends AbstractPrerequisiteTest implements Prerequ
 	{
 		int runningTotal;
 
-		final String charDeity = character.getDeity()!=null ? character.getDeity().getName() : ""; //$NON-NLS-1$
+		final String charDeity = character.getDeity()!=null ? character.getDeity().getKeyName() : ""; //$NON-NLS-1$
 
 		if (prereq.getOperator().equals( PrerequisiteOperator.EQ ))
 		{

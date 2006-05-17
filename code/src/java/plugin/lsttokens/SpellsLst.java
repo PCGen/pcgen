@@ -79,7 +79,7 @@ public class SpellsLst implements GlobalLstToken {
 				}
 				PCSpell spell = new PCSpell();
 				spell.setName(name);
-				spell.setKeyName(spell.getName());
+				spell.setKeyName(spell.getKeyName());
 				spell.setSpellbook(spellBook);
 				spell.setCasterLevelFormula(casterLevel);
 				spell.setTimesPerDay(times);

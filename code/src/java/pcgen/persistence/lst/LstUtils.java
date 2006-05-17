@@ -7,7 +7,7 @@ import pcgen.util.Logging;
  * Utility class to assist with LST files
  */
 public class LstUtils {
-	
+
 	/**
 	 * Checks a LST token to see if it's deprecated
 	 * @param token
@@ -21,7 +21,7 @@ public class LstUtils {
 			sb.append(" deprecated. Tag was ");
 			sb.append(value);
 			sb.append(" in ");
-			sb.append(obj.getName());
+			sb.append(obj.getDisplayName());
 			sb.append(" of ");
 			sb.append(obj.getSource());
 			sb.append(". ");
@@ -52,7 +52,7 @@ public class LstUtils {
 			deprecationWarning(sb.toString());
 		}
 	}
-	
+
 	/**
 	 * Log the deprecation warning
 	 * @param warning

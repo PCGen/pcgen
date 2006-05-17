@@ -51,7 +51,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skills Choice";
 		chooserHandled = "SKILLSNAMED";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -70,7 +70,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 			final List            selectedList)
 	{
 		Iterator choiceIt = choices.iterator();
-		
+
 		while (choiceIt.hasNext())
 		{
 			String token = (String) choiceIt.next();
@@ -86,7 +86,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 
 					if (aSkill.isType(token.substring(5)))
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -98,7 +98,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 				{
 					aSkill = (Skill) e1.next();
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 
@@ -112,7 +112,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 
 					if (aSkill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class())
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -127,7 +127,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 
 					if (aSkill.costForPCClassList(aPc.getClassList(), aPc) > Globals.getGameModeSkillCost_Class())
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -142,7 +142,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 
 					if (aSkill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Exclusive())
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -155,11 +155,11 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 				{
 					aSkill = (Skill) e1.next();
-					pcSkill = aPc.getSkillNamed(aSkill.getName());
+					pcSkill = aPc.getSkillKeyed(aSkill.getKeyName());
 
 					if (pcSkill == null || Double.compare(pcSkill.getRank().doubleValue(), 0.0) == 0)
 					{
-						availableList.add(aSkill.getName());
+						availableList.add(aSkill.getKeyName());
 					}
 				}
 			}
@@ -178,7 +178,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 
 				if (aSkill.getKeyName().equals(token) || (startsWith && aSkill.getKeyName().startsWith(token)))
 				{
-					availableList.add(aSkill.getName());
+					availableList.add(aSkill.getKeyName());
 				}
 			}
 		}

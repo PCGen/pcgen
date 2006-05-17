@@ -674,7 +674,7 @@ public class DetailsPane extends javax.swing.JPanel {
 	// End of variables declaration//GEN-END:variables
 
 	private static final String SPACE = " ";
-	
+
 	/**
 	 * setColor
 	 */
@@ -796,18 +796,18 @@ public class DetailsPane extends javax.swing.JPanel {
 		playerName.setText(pc.getPlayersName() + ' ');
 		if (pc.getSubRace().equals(Constants.s_NONE))
 		{
-			race.setText(pc.getRace().getName() + ' ');
+			race.setText(pc.getRace().getDisplayName() + ' ');
 		}
 		else
 		{
-			race.setText(pc.getRace().getName() + " (" + pc.getSubRace() + ") ");
+			race.setText(pc.getRace().getDisplayName() + " (" + pc.getSubRace() + ") ");
 		}
 		age.setText(pc.getAge() + " ");
 		size.setText(SizeLongToken.getSizeLongToken(pc) + ' ');
 		gender.setText(pc.getGender() + ' ');
 
 		if (pc.getDeity() != null) {
-			deity.setText(pc.getDeity().getName() + ' ');
+			deity.setText(pc.getDeity().getDisplayName() + ' ');
 		}
 		height.setText(HeightToken.getHeightToken(pc) + ' ');
 		eyes.setText(pc.getEyeColor() + ' ');

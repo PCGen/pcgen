@@ -129,6 +129,16 @@ public class DamageReduction implements Comparable
 	}
 
 	/**
+	 * Return the prereqs for this DR.
+	 *
+	 * @return List of prereqs
+	 */
+	public List getPreReqList()
+	{
+		return Collections.unmodifiableList(thePreReqs);
+	}
+
+	/**
 	 * Gets the actual reduction this DR will apply.  If a PC has been set on
 	 * the DR object it will evaluate any formulas in the DR and apply any
 	 * bonuses to this DR type that are appropriate.

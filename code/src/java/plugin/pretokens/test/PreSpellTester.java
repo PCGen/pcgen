@@ -77,15 +77,15 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
 		{
-		    Race pcRace = character.getRace();
-		    List raceList = pcRace.getSpellList();
-		    if (raceList != null)
-		    {
-		        for (Iterator e = raceList.iterator(); e.hasNext();)
-		        {
-		            aArrayList.add(Globals.getSpellNamed(e.next().toString()));
-		        }
-		    }
+			Race pcRace = character.getRace();
+			List raceList = pcRace.getSpellList();
+			if (raceList != null)
+			{
+				for (Iterator e = raceList.iterator(); e.hasNext();)
+				{
+					aArrayList.add(Globals.getSpellKeyed(e.next().toString()));
+				}
+			}
 		}
 
 
@@ -97,7 +97,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 			for (Iterator e1 = aArrayList.iterator(); e1.hasNext();)
 			{
 				final Spell aSpell = (Spell) e1.next();
-				if (aSpell.getName().equalsIgnoreCase(spellName))
+				if (aSpell.getKeyName().equalsIgnoreCase(spellName))
 				{
 					runningTotal++;
 				}

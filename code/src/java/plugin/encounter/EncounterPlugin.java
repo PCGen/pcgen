@@ -326,7 +326,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 					continue;
 				}
 
-				PCClass monsterClass = Globals.getClassNamed(aPC.getRace().getMonsterClass(aPC, false));
+				PCClass monsterClass = Globals.getClassKeyed(aPC.getRace().getMonsterClass(aPC, false));
 
 				if (monsterClass != null)
 				{
@@ -580,7 +580,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 		Vector toReturn = new Vector();
 		toReturn.addElement(num);
-		toReturn.addElement(Globals.getRaceNamed(tableEntry));
+		toReturn.addElement(Globals.getRaceKeyed(tableEntry));
 
 		return toReturn;
 	}
@@ -812,8 +812,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			monsterClass.setMonsterFlag("YES");
 
 			int levels = race.getMonsterClassLevels(aPC, false);
-			Logging.debugPrint("Monster Class: " + monsterClass.getName() + " Level: " + levels);
-			int currentLevels = aPC.getClassNamed(monsterClass.getName()).getLevel();
+			Logging.debugPrint("Monster Class: " + monsterClass.getDisplayName() + " Level: " + levels);
+			int currentLevels = aPC.getClassKeyed(monsterClass.getKeyName()).getLevel();
 			if (currentLevels < levels)
 			{
 				aPC.incrementClassLevel(levels - currentLevels, monsterClass);
@@ -826,11 +826,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	private void handleNonMonster(PlayerCharacter aPC)
 	{
-		PCClass mclass = Globals.getClassNamed("Warrior");
+		PCClass mclass = Globals.getClassKeyed("Warrior");
 
 		if (mclass != null)
 		{
-			Logging.debugPrint("Class: " + mclass.getName() + " Level: 1");
+			Logging.debugPrint("Class: " + mclass.getDisplayName() + " Level: 1");
 			aPC.incrementClassLevel(1, mclass);
 			rollHP(aPC);
 		}
@@ -838,7 +838,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	private boolean handleRace(PlayerCharacter aPC, int number)
 	{
-		Race race = Globals.getRaceNamed((String) theModel.getElementAt(number));
+		Race race = Globals.getRaceKeyed((String) theModel.getElementAt(number));
 
 		if (race == null)
 		{
@@ -1209,7 +1209,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 			for (int j = 0; j < pcclass.getLevel(); j++)
 			{
-				int bonus = (int) aPC.getTotalBonusTo("HD", "MIN") + (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + pcclass.getName());
+				int bonus = (int) aPC.getTotalBonusTo("HD", "MIN") + (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + pcclass.getKeyName());
 				int size = pcclass.getLevelHitDie(aPC, j + 1);
 				pcclass.setHitPoint(j, new Integer(new Dice(1, size, bonus).roll()));
 			}

@@ -90,10 +90,10 @@ public class LevelAbilityAbility extends LevelAbility
 	boolean       useNameMap = true;
 
 	LevelAbilityAbility(
-	    final PObject aowner,
-	    final int     aLevel,
-	    final String  aString,
-	    final boolean virtual)
+		final PObject aowner,
+		final int     aLevel,
+		final String  aString,
+		final boolean virtual)
 	{
 		super(aowner, aLevel, aString);
 		this.isVirtual = virtual;
@@ -125,9 +125,9 @@ public class LevelAbilityAbility extends LevelAbility
 	 */
 
 	public void process(
-	    final List            availableList,
-	    final PlayerCharacter aPC,
-	    final PCLevelInfo     pcLevelInfo)
+		final List            availableList,
+		final PlayerCharacter aPC,
+		final PCLevelInfo     pcLevelInfo)
 	{
 		nameMap.clear();
 		catMap.clear();
@@ -159,10 +159,10 @@ public class LevelAbilityAbility extends LevelAbility
 			if (chooser.getPool() == Integer.MIN_VALUE)
 			{
 				processChoice(
-				    choicesList,
-				    choicesList,
-				    aPC,
-				    pcLevelInfo);
+					choicesList,
+					choicesList,
+					aPC,
+					pcLevelInfo);
 			}
 			else
 			{
@@ -175,10 +175,10 @@ public class LevelAbilityAbility extends LevelAbility
 					{
 						chooser.setVisible(true);
 						if (processChoice(
-						    choicesList,
-						    chooser.getSelectedList(),
-						    aPC,
-						    pcLevelInfo))
+							choicesList,
+							chooser.getSelectedList(),
+							aPC,
+							pcLevelInfo))
 						{
 							break;
 						}
@@ -207,9 +207,9 @@ public class LevelAbilityAbility extends LevelAbility
 
 		// The private state variable useNameMap is set whenever a choice is added
 		// to the lists of those available, if it becomes necessary to use the
-		// category to uniquely identify a choice it will be set false 
+		// category to uniquely identify a choice it will be set false
 		final List aList = useNameMap ? Arrays.asList(nameMap.keySet().toArray())
-			                          : Arrays.asList(catMap.keySet().toArray());
+									  : Arrays.asList(catMap.keySet().toArray());
 
 		Collections.sort(aList);
 
@@ -225,9 +225,9 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @param  aPC          the PC this Level ability is adding to.
 	 */
 	void processToken(
-	    final String          aToken,
-	    final List            anArrayList,
-	    final PlayerCharacter aPC)
+		final String          aToken,
+		final List            anArrayList,
+		final PlayerCharacter aPC)
 	{
 		if ("STACKS".equals(aToken))
 		{
@@ -260,16 +260,16 @@ public class LevelAbilityAbility extends LevelAbility
 			Ability anAbility = (Ability) abLIt.next();
 
 			if (
-			    allowDups &&
-			    (dupChoices > 0) &&
-			    (dupChoices <= timesChoiceHasBeenTaken(anAbility)))
+				allowDups &&
+				(dupChoices > 0) &&
+				(dupChoices <= timesChoiceHasBeenTaken(anAbility)))
 			{
 				continue;
 			}
 
 			if (
-			    isVirtual ||
-			    PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
+				isVirtual ||
+				PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
 			{
 				if (anAbility.isMultiples())
 				{
@@ -316,9 +316,9 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @param  anAbility
 	 */
 	private void addMultiplySelectableAbility(
-	    final List            anArrayList,
-	    final PlayerCharacter aPC,
-	    Ability               anAbility)
+		final List            anArrayList,
+		final PlayerCharacter aPC,
+		Ability               anAbility)
 	{
 		// If already have taken the feat, use it so we can remove
 		// any choices already selected
@@ -329,20 +329,20 @@ public class LevelAbilityAbility extends LevelAbility
 			anAbility = pcAbility;
 		}
 
-		String    subName        = getSubName(anAbility.getName());
-		final int indexOfPercent = subName.indexOf('%');
+		String    subKey        = getSubKey(anAbility.getKeyName());
+		final int indexOfPercent = subKey.indexOf('%');
 
 		if (indexOfPercent > -1)
 		{
-			subName = subName.substring(0, indexOfPercent).trim();
+			subKey = subKey.substring(0, indexOfPercent).trim();
 		}
-		else if (subName.length() != 0)
+		else if (subKey.length() != 0)
 		{
-			final int idx = subName.lastIndexOf(')');
+			final int idx = subKey.lastIndexOf(')');
 
 			if (idx > -1)
 			{
-				subName = subName.substring(0, idx);
+				subKey = subKey.substring(0, idx);
 			}
 		}
 
@@ -352,15 +352,15 @@ public class LevelAbilityAbility extends LevelAbility
 		final String choiceString = anAbility.getChoiceString();
 
 		if (
-		    (choiceString.indexOf("NUMCHOICES=") < 0) &&
-		    (choiceString.indexOf("COUNT=") < 0))
+			(choiceString.indexOf("NUMCHOICES=") < 0) &&
+			(choiceString.indexOf("COUNT=") < 0))
 		{
 			anAbility.modChoices(
-			    availableList,
-			    selectedList,
-			    false,
-			    aPC,
-			    true);
+				availableList,
+				selectedList,
+				false,
+				aPC,
+				true);
 		}
 		else
 		{
@@ -369,7 +369,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 		// Remove any that don't match
 
-		if (subName.length() != 0)
+		if (subKey.length() != 0)
 		{
 			Iterator it = availableList.iterator();
 
@@ -377,7 +377,7 @@ public class LevelAbilityAbility extends LevelAbility
 			{
 				final String choice = (String) it.next();
 
-				if (!choice.startsWith(subName))
+				if (!choice.startsWith(subKey))
 				{
 					it.remove();
 				}
@@ -394,7 +394,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 			if ((indexOfPercent == -1) && (availableList.size() == 0))
 			{
-				availableList.add(subName);
+				availableList.add(subKey);
 			}
 		}
 
@@ -423,8 +423,8 @@ public class LevelAbilityAbility extends LevelAbility
 			{
 				String choice = (String) it.next();
 				addToAvailableLists(
-				    anAbility,
-				    (!choice.equalsIgnoreCase("NOCHOICE")) ? choice : null);
+					anAbility,
+					(!choice.equalsIgnoreCase("NOCHOICE")) ? choice : null);
 			}
 		}
 		else
@@ -441,7 +441,7 @@ public class LevelAbilityAbility extends LevelAbility
 	 */
 	private void addToAvailableLists(Ability anAbility, String choice)
 	{
-		String theName    = anAbility.getName();
+		String theName    = anAbility.getKeyName();
 		AbilityChoice abC = new AbilityChoice(anAbility, choice);
 
 		Ability abNull = (Ability) nameMap.put(theName, abC);
@@ -466,14 +466,14 @@ public class LevelAbilityAbility extends LevelAbility
 	 *
 	 * @return  the subname
 	 */
-	private static String getSubName(String name)
+	private static String getSubKey(String aKey)
 	{
-		int start = name.indexOf('(');
-		int end   = name.lastIndexOf(')');
+		int start = aKey.indexOf('(');
+		int end   = aKey.lastIndexOf(')');
 
 		if ((start > -1) && (end > -1))
 		{
-			return name.substring(start + 1, end);
+			return aKey.substring(start + 1, end);
 		}
 
 		return null;
@@ -491,9 +491,9 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @return  a list of AbilityInfo Objects
 	 */
 	private ArrayList getAbilityList(
-	    final String          acategory,
-	    String                abilityToken,
-	    final PlayerCharacter aPC)
+		final String          acategory,
+		String                abilityToken,
+		final PlayerCharacter aPC)
 	{
 		ArrayList featList = new ArrayList();
 
@@ -517,15 +517,15 @@ public class LevelAbilityAbility extends LevelAbility
 			else
 			{
 				featList.addAll(
-				    aPC.getAvailableAbilities(acategory, abilityType, isVirtual));
+					aPC.getAvailableAbilities(acategory, abilityType, isVirtual));
 			}
 
 			return featList;
 		}
 
 		final Ability anAbility = AbilityUtilities.retrieveAbilityKeyed(
-			    acategory,
-			    abilityToken);
+				acategory,
+				abilityToken);
 
 		if (anAbility != null)
 		{
@@ -545,10 +545,10 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @param  abilityType
 	 */
 	private void addAbilitiesForSubRegion(
-	    final PlayerCharacter aPC,
-	    ArrayList             abilityList,
-	    String                category,
-	    String                abilityType)
+		final PlayerCharacter aPC,
+		ArrayList             abilityList,
+		String                category,
+		String                abilityType)
 	{
 		abilityType = getAbilityTypeFromRegion(aPC, abilityType, false);
 		abilityList.addAll(aPC.getAvailableAbilities(category, abilityType, isVirtual));
@@ -563,10 +563,10 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @param  abilityType
 	 */
 	private void addAbilitiesForRegion(
-	    final PlayerCharacter aPC,
-	    ArrayList             abilityList,
-	    String                category,
-	    String                abilityType)
+		final PlayerCharacter aPC,
+		ArrayList             abilityList,
+		String                category,
+		String                abilityType)
 	{
 		abilityType = getAbilityTypeFromRegion(aPC, abilityType, true);
 		abilityList.addAll(aPC.getAvailableAbilities(category, abilityType, isVirtual));
@@ -580,10 +580,10 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @param  aArrayList
 	 */
 	public boolean processChoice(
-	    final List            aArrayList,
-	    final List            selectedList,
-	    final PlayerCharacter aPC,
-	    final PCLevelInfo     pcLevelInfo)
+		final List            aArrayList,
+		final List            selectedList,
+		final PlayerCharacter aPC,
+		final PCLevelInfo     pcLevelInfo)
 	{
 		Map translation = (useNameMap) ? nameMap : catMap;
 
@@ -594,7 +594,7 @@ public class LevelAbilityAbility extends LevelAbility
 			while (it.hasNext())
 			{
 				final String  abilityKey = (String) it.next();
-                final List    choiceList = new ArrayList();
+				final List    choiceList = new ArrayList();
 
 				final Ability ab = ((AbilityChoice) translation.get(abilityKey)).getAbility();
 				choiceList.add(((AbilityChoice) translation.get(abilityKey)).getChoice());
@@ -604,9 +604,9 @@ public class LevelAbilityAbility extends LevelAbility
 				List aList = aPC.getVirtualFeatList();
 				final Ability pcAbility = AbilityUtilities.addVirtualAbility(
 						ab,
-					    choiceList,
-					    aList,
-					    pcLevelInfo);
+						choiceList,
+						aList,
+						pcLevelInfo);
 
 				aPC.setDirty(true);
 
@@ -625,8 +625,8 @@ public class LevelAbilityAbility extends LevelAbility
 				else
 				{
 					Logging.errorPrint(
-					    "Error:" + abilityKey +
-					    " not added, aPC.getFeatNamedInList() == NULL");
+						"Error:" + abilityKey +
+						" not added, aPC.getFeatNamedInList() == NULL");
 				}
 			}
 		}
@@ -645,7 +645,7 @@ public class LevelAbilityAbility extends LevelAbility
 				final String        abK    = (String) it.next();
 				final AbilityChoice abC    = (AbilityChoice) translation.get(abK);
 				final Ability       ab     = abC.getAbility();
-                final String        choice = abC.getChoice();
+				final String        choice = abC.getChoice();
 
 				previousChoices.add(ab);
 
@@ -706,9 +706,9 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @return  String
 	 */
 	private static String getAbilityTypeFromRegion(
-	    final PlayerCharacter aPC,
-	    String                abilityType,
-	    boolean               region)
+		final PlayerCharacter aPC,
+		String                abilityType,
+		boolean               region)
 	{
 		final Iterator iterator = aPC.getTemplateList().iterator();
 
@@ -716,7 +716,7 @@ public class LevelAbilityAbility extends LevelAbility
 		{
 			final PCTemplate templ      = (PCTemplate) e.next();
 			final String     regionType = (region) ? templ.getRegion()
-				                                   : templ.getSubRegion();
+												   : templ.getSubRegion();
 
 			if (!regionType.equals(Constants.s_NONE))
 			{

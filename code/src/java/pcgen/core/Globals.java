@@ -59,6 +59,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.PropertyFactory;
 
 /**
  * This is like the top level model container. However,
@@ -202,7 +203,7 @@ public final class Globals
 		{
 			public int compare(final Object o1, final Object o2)
 			{
-				return ((PObject) o1).getName().compareToIgnoreCase(((PObject) o2).getName());
+				return ((PObject) o1).getDisplayName().compareToIgnoreCase(((PObject) o2).getDisplayName());
 			}
 		};
 
@@ -255,6 +256,11 @@ public final class Globals
 	public static Set getWeaponProfTypes()
 	{
 		return weaponProfs.getTypes();
+	}
+
+	public static Collection getAllWeaponProfs()
+	{
+		return Collections.unmodifiableCollection(weaponProfs.getAll());
 	}
 
 	/**
@@ -340,11 +346,11 @@ public final class Globals
 	}
 
 	/**
-	 * Get campaign by name
-	 * @param aName
+	 * Get campaign by key
+	 * @param aKey
 	 * @return Campaign
 	 */
-	public static Campaign getCampaignNamed(final String aName)
+	public static Campaign getCampaignKeyed(final String aKey)
 	{
 		Campaign currCampaign;
 		final Iterator e = getCampaignList().iterator();
@@ -353,13 +359,13 @@ public final class Globals
 		{
 			currCampaign = (Campaign) e.next();
 
-			if (currCampaign.getName().equalsIgnoreCase(aName))
+			if (currCampaign.getKeyName().equalsIgnoreCase(aKey))
 			{
 				return currCampaign;
 			}
 		}
 
-		Logging.errorPrint("Could not find campaign: " + aName);
+		Logging.errorPrint("Could not find campaign: " + aKey);
 
 		return null;
 	}
@@ -392,38 +398,42 @@ public final class Globals
 		return classList;
 	}
 
-	/**
-	 * Get class by name
-	 * @param aName
-	 * @return Class
-	 */
-	public static PCClass getClassNamed(final String aName)
+	public static List getClassesByType(final String aType)
 	{
-		return getClassNamed(aName, getClassList());
-	}
+		ArrayList ret = new ArrayList(getClassList().size());
 
-	/**
-	 * Get class by name
-	 * @param aName
-	 * @param aList
-	 * @return class by name
-	 */
-	public static PCClass getClassNamed(final String aName, final List aList)
-	{
-		PCClass currClass;
-		final Iterator e = aList.iterator();
-
-		while (e.hasNext())
+		List typeList = new ArrayList();
+		StringTokenizer tok = new StringTokenizer(aType, ".");
+		while (tok.hasMoreTokens())
 		{
-			currClass = (PCClass) e.next();
-
-			if (currClass.getName().equalsIgnoreCase(aName))
-			{
-				return currClass;
-			}
+			typeList.add(tok.nextToken());
 		}
 
-		return null;
+		final Iterator c = getClassList().iterator();
+		while (c.hasNext())
+		{
+			final PCClass aClass = (PCClass)c.next();
+			boolean match = false;
+			for (Iterator i = typeList.iterator(); i.hasNext(); )
+			{
+				final String type = (String)i.next();
+				if (aClass.isType(type))
+				{
+					match = true;
+				}
+				else
+				{
+					match = false;
+					break;
+				}
+			}
+			if (match)
+			{
+				ret.add(aClass);
+			}
+		}
+		ret.trimToSize();
+		return ret;
 	}
 
 	/**
@@ -642,22 +652,12 @@ public final class Globals
 	}
 
 	/**
-	 * Get deity by name
-	 * @param name
-	 * @return Deity
-	 */
-	public static Deity getDeityNamed(final String name)
-	{
-		return getDeityNamed(name, getDeityList());
-	}
-
-	/**
-	 * Get Deity by nmae in list
-	 * @param name
+	 * Get Deity by key in list
+	 * @param aKey
 	 * @param aList
 	 * @return Deity
 	 */
-	public static Deity getDeityNamed(final String name, final List aList)
+	public static Deity getDeityKeyed(final String aKey, final List aList)
 	{
 		Deity currDeity;
 		final Iterator e = aList.iterator();
@@ -666,7 +666,7 @@ public final class Globals
 		{
 			currDeity = (Deity) e.next();
 
-			if (currDeity.getName().equalsIgnoreCase(name))
+			if (currDeity.getKeyName().equalsIgnoreCase(aKey))
 			{
 				return currDeity;
 			}
@@ -719,16 +719,6 @@ public final class Globals
 	public static Map getDomainMap()
 	{
 		return domainMap;
-	}
-
-	/**
-	 * Get domain by name
-	 * @param name
-	 * @return Domain
-	 */
-	public static Domain getDomainNamed(final String name)
-	{
-		return (Domain) domainMap.get(name);
 	}
 
 	/**
@@ -826,10 +816,10 @@ public final class Globals
 	 *         the ability was never there, this will return false (since
 	 *         it was not removed).
 	 */
-	public static boolean removeAbilityNamed (final String category, String aName)
-	{
-		return abilityStore.removeNamed(category, aName);
-	}
+//	public static boolean removeAbilityNamed (final String category, String aName)
+//	{
+//		return abilityStore.removeNamed(category, aName);
+//	}
 
 	/**
 	 * Get the Ability whose Key matches the String passed in
@@ -848,10 +838,10 @@ public final class Globals
 	 * @param aName the Name of the Ability to return
 	 * @return Ability
 	 */
-	public static Ability getAbilityNamed (final String category, String aName)
-	{
-		return (Ability) abilityStore.getNamed(category, aName);
-	}
+//	public static Ability getAbilityNamed (final String category, String aName)
+//	{
+//		return (Ability) abilityStore.getNamed(category, aName);
+//	}
 
 	/**
 	 * Get an iterator for the Abilities in the chosen category.  If
@@ -1232,47 +1222,21 @@ public final class Globals
 		return languageList;
 	}
 
-	/**
-	 * Retrieve a language object based on the name. Matches on name
-	 * and type are case insensitive.
-	 *
-	 * @param name The name of the language to be found.
-	 * @return The matching language, or null if none exists.
-	 */
-	public static Language getLanguageNamed(final String name)
+	public static Language getLanguageKeyed(final String aKey)
 	{
-		return getLanguageNamed(name, null);
-	}
-
-	/**
-	 * Retrieve a language object based on the name and type. Matches on name
-	 * and type are case insensitive. If there is no type restriction, then
-	 * null should be used for the type.
-	 *
-	 * @param name The name of the language to be found.
-	 * @param langType The type of the language to be found.
-	 * @return The matching language, or null if none exists.
-	 */
-	public static Language getLanguageNamed(final String name, final String langType)
-	{
-		if (name.equalsIgnoreCase("ALL") || name.equalsIgnoreCase("ANY"))
+		if (aKey.equalsIgnoreCase("ALL") || aKey.equalsIgnoreCase("ANY"))
 		{
 			return Language.getAllLanguage();
 		}
-
 		for (Iterator i = getLanguageList().iterator(); i.hasNext();)
 		{
 			final Language aLang = (Language) i.next();
 
-			if (aLang.getName().equalsIgnoreCase(name))
+			if (aLang.getKeyName().equalsIgnoreCase(aKey))
 			{
-				if (langType == null || aLang.isType(langType))
-				{
-					return aLang;
-				}
+				return aLang;
 			}
 		}
-
 		return null;
 	}
 
@@ -1405,10 +1369,10 @@ public final class Globals
 	 * @param aName
 	 * @return named race
 	 */
-	public static Race getRaceNamed(final String aName)
-	{
-		return (Race) getRaceMap().get(aName);
-	}
+//	public static Race getRaceNamed(final String aName)
+//	{
+//		return (Race) getRaceMap().get(aName);
+//	}
 
 	/**
 	 * This method gets the available race types as a set.
@@ -1569,21 +1533,59 @@ public final class Globals
 	 * @param name
 	 * @return Skill
 	 */
-	public static Skill getSkillNamed(final String name)
+//	public static Skill getSkillNamed(final String name)
+//	{
+//		Skill currSkill;
+//
+//		for (Iterator skillIter = getSkillList().iterator(); skillIter.hasNext();)
+//		{
+//			currSkill = (Skill) skillIter.next();
+//
+//			if (currSkill.getName().equalsIgnoreCase(name))
+//			{
+//				return currSkill;
+//			}
+//		}
+//
+//		return null;
+//	}
+
+	public static List getSkillsByType(final String aType)
 	{
-		Skill currSkill;
+		ArrayList ret = new ArrayList(getSkillList().size());
 
-		for (Iterator skillIter = getSkillList().iterator(); skillIter.hasNext();)
+		List typeList = new ArrayList();
+		StringTokenizer tok = new StringTokenizer(aType, ".");
+		while (tok.hasMoreTokens())
 		{
-			currSkill = (Skill) skillIter.next();
-
-			if (currSkill.getName().equalsIgnoreCase(name))
-			{
-				return currSkill;
-			}
+			typeList.add(tok.nextToken());
 		}
 
-		return null;
+		final Iterator s = getSkillList().iterator();
+		while (s.hasNext())
+		{
+			final Skill aSkill = (Skill)s.next();
+			boolean match = false;
+			for (Iterator i = typeList.iterator(); i.hasNext(); )
+			{
+				final String type = (String)i.next();
+				if (aSkill.isType(type))
+				{
+					match = true;
+				}
+				else
+				{
+					match = false;
+					break;
+				}
+			}
+			if (match)
+			{
+				ret.add(aSkill);
+			}
+		}
+		ret.trimToSize();
+		return ret;
 	}
 
 	/**
@@ -1656,7 +1658,7 @@ public final class Globals
 		{
 			if (obj instanceof Spell)
 			{
-				return (Spell) getSpellMap().get(aKey);
+				return (Spell)obj;
 			}
 
 			if (obj instanceof ArrayList)
@@ -1682,10 +1684,10 @@ public final class Globals
 	 * @param name
 	 * @return spell
 	 */
-	public static Spell getSpellNamed(final String name)
-	{
-		return getSpellKeyed(name);
-	}
+//	public static Spell getSpellNamed(final String name)
+//	{
+//		return getSpellKeyed(name);
+//	}
 
 	/**
 	 * Get spell points
@@ -1700,30 +1702,30 @@ public final class Globals
 	 * Returns a List of Spell with following criteria:
 	 *
 	 * @param level      (optional, ignored if < 0),
-	 * @param className  (optional, ignored if "")
-	 * @param domainName (optional, ignored if "")
-	 *                   at least one of className and domainName must not be ""
+	 * @param classKey  (optional, ignored if "")
+	 * @param domainKey (optional, ignored if "")
+	 *                   at least one of classKey and domainKey must not be ""
 	 * @return a List of Spell
 	 */
-	public static List getSpellsIn(final int level, final String className, final String domainName)
+	public static List getSpellsIn(final int level, final String classKey, final String domainKey)
 	{
 		final List aList = new ArrayList();
 		final StringBuffer aBuf = new StringBuffer();
 		String spellType = "";
 
-		if (className.length() > 0)
+		if (classKey.length() > 0)
 		{
 			final PCClass aClass;
 
-			if (className.indexOf('|') < 0)
+			if (classKey.indexOf('|') < 0)
 			{
-				aClass = getClassNamed(className);
-				aBuf.append("CLASS|").append(className);
+				aClass = getClassKeyed(classKey);
+				aBuf.append("CLASS|").append(classKey);
 			}
 			else
 			{
-				aClass = getClassNamed(className.substring(className.indexOf("|") + 1));
-				aBuf.append(className);
+				aClass = getClassKeyed(classKey.substring(classKey.indexOf("|") + 1));
+				aBuf.append(classKey);
 			}
 
 			if (aClass != null)
@@ -1732,20 +1734,20 @@ public final class Globals
 			}
 		}
 
-		if (domainName.length() > 0)
+		if (domainKey.length() > 0)
 		{
 			if (aBuf.length() > 0)
 			{
 				aBuf.append('|');
 			}
 
-			if (domainName.indexOf('|') < 0)
+			if (domainKey.indexOf('|') < 0)
 			{
-				aBuf.append("DOMAIN|").append(domainName);
+				aBuf.append("DOMAIN|").append(domainKey);
 			}
 			else
 			{
-				aBuf.append(domainName);
+				aBuf.append(domainKey);
 			}
 
 			spellType = "DIVINE";
@@ -1839,28 +1841,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get a template by name
-	 * @param name
-	 * @return Template
-	 */
-	public static PCTemplate getTemplateNamed(final String name)
-	{
-		PCTemplate currTemp;
-
-		for (Iterator e = getTemplateList().iterator(); e.hasNext();)
-		{
-			currTemp = (PCTemplate) e.next();
-
-			if (currTemp.getName().equalsIgnoreCase(name))
-			{
-				return currTemp;
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Get type for spells set
 	 * @return type for spells set
 	 */
@@ -1931,10 +1911,10 @@ public final class Globals
 	 * @param name
 	 * @return an exact match or null
 	 */
-	public static WeaponProf getWeaponProfNamed(final String name)
-	{
-		return weaponProfs.getNamed(name);
-	}
+//	public static WeaponProf getWeaponProfNamed(final String name)
+//	{
+//		return weaponProfs.getNamed(name);
+//	}
 
 	/**
 	 * Get weapon prof names
@@ -2223,42 +2203,6 @@ public final class Globals
 	}
 
 	/**
-	 * Choose from a list
-	 * @param title
-	 * @param choiceList
-	 * @param selectedList
-	 * @param pool
-	 * @return a Choice
-	 */
-	public static String chooseFromList(final String title, final List choiceList, final List selectedList,
-			final int pool)
-	{
-		return chooseFromList(title, choiceList, selectedList, pool, false);
-	}
-
-	/**
-	 * Choose from a list
-	 * @param title
-	 * @param choiceList
-	 * @param selectedList
-	 * @param pool
-	 * @param forceChoice
-	 * @return chosen item
-	 */
-	public static String chooseFromList(final String title, final List choiceList, final List selectedList,
-		final int pool, final boolean forceChoice)
-	{
-		final List justSelectedList = getChoiceFromList(title, choiceList, selectedList, pool, forceChoice);
-
-		if (justSelectedList.size() != 0)
-		{
-			return (String) justSelectedList.get(0);
-		}
-
-		return null;
-	}
-
-	/**
 	 * This method is called by the persistence layer to
 	 * clear the global campaigns for a refresh.
 	 */
@@ -2339,6 +2283,7 @@ public final class Globals
 		//traitList.clear();
 		//unitSet.clear();
 		//////////////////////////////////////
+		abilityStore = new CategorisableStore();
 		armorProfList = new ArrayList();
 		classList = new ArrayList();
 		companionModList = new ArrayList();
@@ -2649,12 +2594,12 @@ public final class Globals
 	}
 
 	/**
-	 * Remove a weapon prof by name
+	 * Remove a weapon prof by key
 	 * @param name
 	 */
-	public static void removeWeaponProfNamed(final String name)
+	public static void removeWeaponProfKeyed(final String aKey)
 	{
-		weaponProfs.removeNamed(name);
+		weaponProfs.removeKeyed(aKey);
 	}
 
 	/**
@@ -2917,7 +2862,7 @@ public final class Globals
 		{
 			obj = (PObject) pobjArray[i];
 
-			if (keyName.equals(obj.getKeyName()))
+			if (keyName.equalsIgnoreCase(obj.getKeyName()))
 			{
 				return obj;
 			}
@@ -3018,22 +2963,22 @@ public final class Globals
 		return expandRelativePath(aPath);
 	}
 
-	static Kit getKitNamed(final String aName)
-	{
-		final Iterator e = kitList.iterator();
-
-		while (e.hasNext())
-		{
-			final Kit aKit = (Kit) e.next();
-
-			if (aKit.getName().equals(aName))
-			{
-				return aKit;
-			}
-		}
-
-		return null;
-	}
+//	static Kit getKitNamed(final String aName)
+//	{
+//		final Iterator e = kitList.iterator();
+//
+//		while (e.hasNext())
+//		{
+//			final Kit aKit = (Kit) e.next();
+//
+//			if (aKit.getName().equals(aName))
+//			{
+//				return aKit;
+//			}
+//		}
+//
+//		return null;
+//	}
 
 	static List getLanguagesFromListOfType(final List langList, final String aType)
 	{
@@ -3129,7 +3074,7 @@ public final class Globals
 			//
 			final String eqName = aTok.nextToken();
 			final String wpType = aTok.nextToken();
-			tempProf = getWeaponProfNamed(eqName);
+			tempProf = getWeaponProfKeyed(eqName);
 
 			if (tempProf == null)
 			{
@@ -3345,55 +3290,38 @@ public final class Globals
 	}
 
 	// Methods
-	static String chooseFromList(final String title, final String choiceList, final List selectedList, final int pool)
-	{
-		final StringTokenizer tokens = new StringTokenizer(choiceList, "|");
-
-		if (tokens.countTokens() != 0)
-		{
-			final List choices = new ArrayList();
-
-			while (tokens.hasMoreTokens())
-			{
-				choices.add(tokens.nextToken());
-			}
-
-			return chooseFromList(title, choices, selectedList, pool);
-		}
-
-		return null;
-	}
 
 	/**
-	 * Takes a SortedSet of language names and extracts the cases
-	 * of ALL and TYPE=x and
-	 * returns a larger SortedSet of Strings (language names)
-	 * @param langNames
-	 * @return SortedSet
+	 * Returns a list of Language objects from a string of choices.  The method
+	 * will expand "ALL" or "ANY" into all languages and TYPE= into all
+	 * languages of that type
+	 * @param stringList Pipe separated list of language choices
+	 * @return Sorted list of Language objects
 	 */
-	static SortedSet extractLanguageListNames(final SortedSet langNames)
+	public static SortedSet getLanguagesFromString(final String stringList)
 	{
-		final SortedSet newSet = new TreeSet();
+		SortedSet list = new TreeSet();
 
-		for (Iterator bI = langNames.iterator(); bI.hasNext();)
+		final StringTokenizer tokens = new StringTokenizer(stringList,	"|", false);
+
+		while (tokens.hasMoreTokens())
 		{
-			final String aLang = (String) bI.next();
-
+			final String aLang = tokens.nextToken();
 			if ("ALL".equals(aLang))
 			{
-				newSet.addAll(getLanguageSetNames());
+				list.addAll(getLanguageList());
+				return list;
 			}
 			else if (aLang.startsWith("TYPE=") || aLang.startsWith("TYPE."))
 			{
-				newSet.addAll(getLanguageNamesFromListOfType(getLanguageList(), aLang.substring(5)));
+				list.addAll(getLanguagesOfType(aLang.substring(5)));
 			}
 			else
 			{
-				newSet.add(aLang);
+				list.add(getLanguageKeyed(aLang));
 			}
 		}
-
-		return newSet;
+		return list;
 	}
 
 	static void initCustColumnWidth(final List l)
@@ -3506,36 +3434,58 @@ public final class Globals
 		}
 	}
 
-	private static List getLanguageNamesFromListOfType(final List langList, final String aType)
+	public static List getLanguagesOfType(final String aType)
 	{
-		final List retSet = new ArrayList();
+		final List ret = new ArrayList();
 
-		for (Iterator i = langList.iterator(); i.hasNext();)
+		if (aType.length() == 0)
 		{
-			final Language aLang = (Language) i.next();
-
-			if ((aLang != null)
-				&& (((aType.length() > 0) && (aType.charAt(0) == '!') && !aLang.isType(aType)) || aLang.isType(aType)))
-			{
-				retSet.add(aLang.getName());
-			}
+			return ret;
 		}
-
-		return retSet;
-	}
-
-	private static List getLanguageSetNames()
-	{
-		final List aList = new ArrayList();
 
 		for (Iterator i = getLanguageList().iterator(); i.hasNext();)
 		{
 			final Language aLang = (Language) i.next();
-			aList.add(aLang.getName());
-		}
 
-		return aList;
+			if ((aLang != null)
+				&& (((aType.charAt(0) == '!') && !aLang.isType(aType)) || aLang.isType(aType)))
+			{
+				ret.add(aLang);
+			}
+		}
+		return ret;
 	}
+
+//	private static List getLanguageNamesFromListOfType(final List langList, final String aType)
+//	{
+//		final List retSet = new ArrayList();
+//
+//		for (Iterator i = langList.iterator(); i.hasNext();)
+//		{
+//			final Language aLang = (Language) i.next();
+//
+//			if ((aLang != null)
+//				&& (((aType.length() > 0) && (aType.charAt(0) == '!') && !aLang.isType(aType)) || aLang.isType(aType)))
+//			{
+//				retSet.add(aLang.getName());
+//			}
+//		}
+//
+//		return retSet;
+//	}
+
+//	private static List getLanguageSetNames()
+//	{
+//		final List aList = new ArrayList();
+//
+//		for (Iterator i = getLanguageList().iterator(); i.hasNext();)
+//		{
+//			final Language aLang = (Language) i.next();
+//			aList.add(aLang.getName());
+//		}
+//
+//		return aList;
+//	}
 
 	private static double getLoadMultForSize(final PlayerCharacter aPC)
 	{
@@ -3669,5 +3619,21 @@ public final class Globals
 	 */
 	public static Map getSponsor(String name) {
 		return (Map)sponsors.get(name);
+	}
+
+	/**
+	 * Returns a list of default genders used by the system.
+	 * @return List of gender strings
+	 */
+	public static List getAllGenders()
+	{
+		ArrayList ret = new ArrayList();
+		ret.add(PropertyFactory.getString("in_genderMale"));
+		ret.add(PropertyFactory.getString("in_genderFemale"));
+		ret.add(PropertyFactory.getString("in_genderNeuter"));
+		ret.add(PropertyFactory.getString("in_comboNone"));
+		ret.add(PropertyFactory.getString("in_comboOther"));
+
+		return ret;
 	}
 }

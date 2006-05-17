@@ -620,7 +620,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 							break;
 
 						case LstConstants.TEMPLATE_TYPE:
-							anObj = Globals.getTemplateNamed(aString);
+							anObj = Globals.getTemplateKeyed(aString);
 							PCTemplateLoader.parseLine((PCTemplate) anObj, modLines.get(i).toString(), null, 0);
 							modLines.remove(i);
 							modFileType.remove(i);
@@ -680,7 +680,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 							break;
 
 						case LstConstants.TEMPLATE_TYPE:
-							anObj = Globals.getTemplateNamed(aString);
+							anObj = Globals.getTemplateKeyed(aString);
 							Globals.getTemplateList().remove(anObj);
 
 							break;
@@ -1218,7 +1218,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			if (aLine.startsWith("CAMPAIGN:") && (fileType != LstConstants.CAMPAIGN_TYPE)) // && fileType != -1 sage_sam 10 Sept 2003
 			{
-				sourceCampaign = Globals.getCampaignNamed(aLine.substring(9));
+				sourceCampaign = Globals.getCampaignKeyed(aLine.substring(9));
 
 				continue;
 			}
@@ -1538,13 +1538,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		return anObj;
 	}
 
-	private PObject initFileTypeTemplate(boolean forgetItem, String nameString, int fileType, boolean modItem,
+	private PObject initFileTypeTemplate(boolean forgetItem, String aKey, int fileType, boolean modItem,
 		PObject anObj, Campaign sourceCampaign, Map sourceMap, List aList, String aLine, final URL aURL)
 		throws PersistenceLayerException
 	{
 		if (forgetItem)
 		{
-			forgetItem(Globals.getTemplateNamed(nameString), nameString, fileType);
+			forgetItem(Globals.getTemplateKeyed(aKey), aKey, fileType);
 
 			return anObj;
 		}
@@ -1558,7 +1558,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		}
 		else
 		{
-			anObj = Globals.getTemplateNamed(nameString);
+			anObj = Globals.getTemplateKeyed(aKey);
 		}
 
 		if (anObj == null)
@@ -1887,39 +1887,39 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		}
 	}
 
-	private static String parseClassSpellFrom(String aLine, String aName)
+	private static String parseClassSpellFrom(String aLine, String aKey)
 	{
 		StringTokenizer aTok = new StringTokenizer(aLine, "\t");
 		final String aString = aTok.nextToken();
 
 		if (aString.startsWith("DOMAIN:"))
 		{
-			aName = aString.substring(7);
+			aKey = aString.substring(7);
 
-			final Domain aDom = Globals.getDomainKeyed(aName);
+			final Domain aDom = Globals.getDomainKeyed(aKey);
 
 			if (aDom != null)
 			{
-				aName = "DOMAIN|" + aName;
+				aKey = "DOMAIN|" + aKey;
 			}
 			else
 			{
-				aName = "";
+				aKey = "";
 			}
 		}
 
 		if (aString.startsWith("CLASS:"))
 		{
 			boolean isClass = true;
-			aName = "";
+			aKey = "";
 
 			if (aString.length() > 6)
 			{
-				aName = aString.substring(6);
+				aKey = aString.substring(6);
 			}
 
 			// first look for an actual class
-			PObject aClass = Globals.getClassKeyed(aName);
+			PObject aClass = Globals.getClassKeyed(aKey);
 
 			//
 			// If the class does not have any spell-casting, then it must either
@@ -1936,7 +1936,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			// then look for a domain
 			if (aClass == null)
 			{
-				aClass = Globals.getDomainKeyed(aName);
+				aClass = Globals.getDomainKeyed(aKey);
 
 				if (aClass != null)
 				{
@@ -1947,54 +1947,55 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			// if it's not one of those, leave it since it might be a subclass
 			if (aClass != null)
 			{
-				aName = aClass.getKeyName();
+				aKey = aClass.getKeyName();
 			}
 
 			if (isClass)
 			{
-				aName = "CLASS|" + aName;
+				aKey = "CLASS|" + aKey;
 			}
 			else
 			{
-				aName = "DOMAIN|" + aName;
+				aKey = "DOMAIN|" + aKey;
 			}
 		}
 		else if (aTok.hasMoreTokens())
 		{
-			PObject aClass;
-			final String name = aName.substring(aName.indexOf('|') + 1);
+			PObject owner;
+			final String key = aKey.substring(aKey.indexOf('|') + 1);
 
-			if (aName.startsWith("DOMAIN|"))
+			if (aKey.startsWith("DOMAIN|"))
 			{
-				aClass = Globals.getDomainNamed(name);
+				owner = Globals.getDomainKeyed(key);
 			}
-			else if (aName.startsWith("CLASS|"))
+			else if (aKey.startsWith("CLASS|"))
 			{
-				aClass = Globals.getClassNamed(name);
+				owner = Globals.getClassKeyed(key);
 			}
 			else
 			{
-				return aName;
+				return aKey;
 			}
 
-			if (aClass == null) // then it must be a subclass
+			if (owner == null) // then it must be a subclass
 			{
 				for (Iterator i = pList.iterator(); i.hasNext();)
 				{
-					aClass = (PObject) i.next();
+					owner = (PObject) i.next();
 
-					if (aClass.getName().equals(name))
+					if (owner.getKeyName().equals(key))
 					{
 						break;
 					}
-					aClass = null;
+					owner = null;
 				}
 
-				if (aClass == null)
+				if (owner == null)
 				{
-					aClass = new PObject();
-					aClass.setName(name);
-					pList.add(aClass);
+					owner = new PObject();
+					owner.setName(key);
+					owner.setKeyName(key);
+					pList.add(owner);
 				}
 			}
 
@@ -2008,12 +2009,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 				if (aSpell != null)
 				{
-					aSpell.setLevelInfo(aName, level);
+					aSpell.setLevelInfo(aKey, level);
 				}
 			}
 		}
 
-		return aName;
+		return aKey;
 	}
 
 	/**

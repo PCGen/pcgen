@@ -234,7 +234,7 @@ public final class Spell extends PObject
 		String bonDomain = "";
 		String bonClass = "";
 		String spellType = "";
-		String aClassName = "";
+		String classKey = "";
 		int metaDC = 0;
 		int spellIndex = 0;
 
@@ -270,14 +270,14 @@ public final class Spell extends PObject
 
 		if (ow instanceof Domain)
 		{
-			bonDomain = "DOMAIN." + ow.getName();
+			bonDomain = "DOMAIN." + ow.getKeyName();
 
-			final CharacterDomain aCD = aPC.getCharacterDomainForDomain(ow.getName());
+			final CharacterDomain aCD = aPC.getCharacterDomainForDomain(ow.getKeyName());
 
 			if ((aCD != null) && aCD.isFromPCClass())
 			{
 				final String a = aCD.getObjectName();
-				aClass = aPC.getClassNamed(a);
+				aClass = aPC.getClassKeyed(a);
 			}
 		}
 
@@ -288,8 +288,8 @@ public final class Spell extends PObject
 				aClass = (PCClass) ow;
 			}
 
-			bonClass = "CLASS." + aClass.getName();
-			aClassName = "CLASS:" + aClass.getName();
+			bonClass = "CLASS." + aClass.getKeyName();
+			classKey = "CLASS:" + aClass.getKeyName();
 			spellType = aClass.getSpellType();
 			spellIndex = aClass.baseSpellIndex();
 		}
@@ -304,7 +304,7 @@ public final class Spell extends PObject
 		aPC.setSpellLevelTemp(spellLevel);
 
 		// must be done after spellLevel is set above
-		int dc = aPC.getVariableValue(Globals.getGameModeBaseSpellDC(), aClassName).intValue() + metaDC;
+		int dc = aPC.getVariableValue(Globals.getGameModeBaseSpellDC(), classKey).intValue() + metaDC;
 		dc += (int) aPC.getTotalBonusTo("DC", "ALLSPELLS");
 
 		if (spellIndex == -2)
@@ -318,9 +318,9 @@ public final class Spell extends PObject
 			}
 		}
 
-		if (getName().length() > 0)
+		if (getKeyName().length() > 0)
 		{
-			dc += (int) aPC.getTotalBonusTo("DC", "SPELL." + getName());
+			dc += (int) aPC.getTotalBonusTo("DC", "SPELL." + getKeyName());
 		}
 
 		// DOMAIN.name
@@ -509,8 +509,8 @@ public final class Spell extends PObject
 				wLevelInfo = new HashMap();
 			}
 
-			wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getName()));
-			wLevelInfo.putAll(aPC.getSpellInfoMap("DOMAIN", getName()));
+			wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getKeyName()));
+			wLevelInfo.putAll(aPC.getSpellInfoMap("DOMAIN", getKeyName()));
 		}
 
 		return wLevelInfo;
@@ -522,7 +522,7 @@ public final class Spell extends PObject
 		String aString;
 
 		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getName());
+		txt.append(getDisplayName());
 
 		appendPCCText(txt, castingTime, "CASTTIME");
 
@@ -1020,11 +1020,11 @@ public final class Spell extends PObject
 			//If it's not regularly on the list, check if some SPELLLEVEL tag added it.
 			if (aPC != null)
 			{
-				temp[0] = aPC.getSpellLevelforKey(key + "|" + getName(), -1);
+				temp[0] = aPC.getSpellLevelforKey(key + "|" + getKeyName(), -1);
 			}
 			else
 			{
-			    temp[0] = -1;
+				temp[0] = -1;
 			}
 			return temp;
 		}
@@ -1075,7 +1075,7 @@ public final class Spell extends PObject
 		//If it's not regularly on the list, check if some SPELLLEVEL tag added it.
 		if (aPC != null)
 		{
-			return (aPC.isSpellLevelforKey(key + "|" + getName(), levelMatch));
+			return (aPC.isSpellLevelforKey(key + "|" + getKeyName(), levelMatch));
 		}
 		return false;
 	}

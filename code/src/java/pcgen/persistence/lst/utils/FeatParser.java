@@ -43,7 +43,7 @@ import java.util.*;
  * Parses Feats
  */
 public class FeatParser {
-	
+
 	/**
 	 * Must be of the form:
 	 * Feat1|Feat2|PRExx:abx
@@ -78,9 +78,9 @@ public class FeatParser {
 				ArrayList choices     = new ArrayList();
 				String    abilityName = EquipmentUtilities.getUndecoratedName(aPart, choices);
 				Ability   anAbility   = AbilityUtilities.getAbilityFromList(aList, "FEAT", abilityName, -1);
-				
+
 				if (anAbility == null) {
-					anAbility = Globals.getAbilityNamed("FEAT", abilityName);					
+					anAbility = Globals.getAbilityKeyed("FEAT", abilityName);
 					if (anAbility != null) {
 						anAbility = (Ability) anAbility.clone();
 						anAbility.setFeatType(Ability.ABILITY_VIRTUAL);
@@ -91,7 +91,7 @@ public class FeatParser {
 				if (anAbility != null)
 				{
 					Iterator choiceIt = choices.iterator();
-					
+
 					while (choiceIt.hasNext()) {
 						anAbility.addAssociated((String) choiceIt.next());
 					}

@@ -178,7 +178,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final BioSet currBioSet = Globals.getBioSet();
 		final PlayerCharacter pc = getCharacter();
 		final Race human = new Race();
-		human.setName("Human");
+		human.setName("NAME_Human");
+		human.setKeyName("Human");
 		pc.setRace(human);
 		Globals.setCurrentPC(pc);
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
@@ -207,7 +208,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertTrue("Generated skin colour " + pc.getSkinColor() + " is not valid.",
 			("Pasty".equals(pc.getSkinColor()) || "Tanned".equals(pc.getSkinColor())));
 	}
-	
+
 	/**
 	 * Test the age set
 	 */
@@ -218,7 +219,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		human.setName("Human");
 		pc.setRace(human);
 		Globals.setCurrentPC(pc);
-		
+
 		pc.setAge(12);
 		int idx = Globals.getBioSet().getPCAgeSet(pc);
 		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
@@ -239,8 +240,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 		idx = Globals.getBioSet().getPCAgeSet(pc);
 		assertEquals("Ageset for " + pc.getAge() + ".", 3, idx);
 
-		
+
 		Globals.getBioSet().getAgeMapIndex(pc.getRegion(), idx);
-		
+
 	}
 }

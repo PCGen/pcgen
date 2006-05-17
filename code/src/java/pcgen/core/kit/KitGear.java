@@ -90,7 +90,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		}
 		catch (NumberFormatException exc)
 		{
-			Logging.errorPrint("Invalid max cost \"" + argMaxCost + "\" in KitGear.setMaxCost");
+			Logging.errorPrint("Invalid max cost \"" + argMaxCost
+							   + "\" in KitGear.setMaxCost");
 		}
 	}
 
@@ -141,7 +142,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	 */
 	public void setSize(final String aSize)
 	{
-		size =  aSize;
+		size = aSize;
 	}
 
 	/**
@@ -200,7 +201,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 					info.append('/');
 				}
 
-				info.append((String) eqMods.get(i));
+				info.append( (String) eqMods.get(i));
 			}
 
 			info.append(')');
@@ -213,7 +214,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	{
 		for (Iterator i = getLookups().iterator(); i.hasNext(); )
 		{
-			final String lookup = (String)i.next();
+			final String lookup = (String) i.next();
 			final String colString = aKit.lookup(aPC, lookup);
 			processLookup(aKit, aPC, colString);
 		}
@@ -225,7 +226,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		processLookup(aKit, aPC, colString);
 	}
 
-	private void processLookup(Kit aKit, PlayerCharacter aPC, final String lookupStr)
+	private void processLookup(Kit aKit, PlayerCharacter aPC,
+							   final String lookupStr)
 	{
 		final StringTokenizer tok = new StringTokenizer(lookupStr, "[]");
 		while (tok.hasMoreTokens())
@@ -275,7 +277,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		if (name.startsWith("TYPE=") || name.startsWith("TYPE."))
 		{
 			final List eqList = EquipmentList.getEquipmentOfType(
-													eqName.substring(5), "");
+				eqName.substring(5), "");
 			//
 			// Remove any that are too expensive
 			//
@@ -283,28 +285,34 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 
 			if (maximumCost != 0)
 			{
-				final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(maximumCost));
+				final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(
+					maximumCost));
 
 				for (Iterator i = eqList.iterator(); i.hasNext(); )
 				{
-					if (((Equipment)i.next()).getCost(aPC).compareTo(bdMaxCost) > 0)
+					if ( ( (Equipment) i.next()).getCost(aPC).compareTo(
+						bdMaxCost) > 0)
 					{
 						i.remove();
 					}
 				}
 			}
-			eqName = Globals.chooseFromList(
-					"Choose equipment",
-					eqList,
-					new ArrayList(),
-					1);
+			List selected = new ArrayList(1);
+			Globals.getChoiceFromList("Choose equipment", eqList, selected, 1);
+			if (selected.size() == 1)
+			{
+				theEquipment = (Equipment) selected.get(0);
+			}
 
 			//
 			// TODO: Check to see if the user has selected an item that
 			// requires modification (MOD:R)
 		}
+		else
+		{
+			theEquipment = EquipmentList.getEquipmentKeyed(eqName);
+		}
 
-		theEquipment = EquipmentList.getEquipmentNamed(eqName);
 		if (theEquipment == null)
 		{
 			warnings.add("GEAR: Non-existant gear \"" + eqName + "\"");
@@ -313,7 +321,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		}
 
 //		theEquipment.typeList();
-		theEquipment = (Equipment)theEquipment.clone();
+		theEquipment = (Equipment) theEquipment.clone();
 
 		//
 		// Resize item for character--never resize weapons or ammo, unless it's a
@@ -321,11 +329,12 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		boolean tryResize = false;
 
 		String sizeToSet = SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-				aPC.sizeInt()).getAbbreviation();
+			aPC.sizeInt()).getAbbreviation();
 
 		if (getSize() == null)
 		{
-			if (theEquipment.isType("Natural") || (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
+			if (theEquipment.isType("Natural")
+				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
 				tryResize = Globals.canResizeHaveEffect(aPC, theEquipment, null);
 			}
@@ -385,7 +394,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			// Check to see if the PC can afford to buy this equipment. If
 			// not, then decrement the quantity and try again.
 			theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty)))
-								 .multiply(bdBuyRate);
+				.multiply(bdBuyRate);
 
 			while (theQty > 0)
 			{
@@ -395,7 +404,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 				}
 
 				theCost = eqCost.multiply(
-						new BigDecimal(Integer.toString(--theQty))).multiply(
+					new BigDecimal(Integer.toString(--theQty))).multiply(
 						bdBuyRate);
 			}
 
@@ -428,7 +437,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		if (getLocation() != null)
 		{
 			theLocation = getLocation();
-			if (!(theLocation.equalsIgnoreCase("DEFAULT") || theLocation.equalsIgnoreCase("Equipped")))
+			if (! (theLocation.equalsIgnoreCase("DEFAULT")
+				   || theLocation.equalsIgnoreCase("Equipped")))
 			{
 				theTarget = aPC.getEquipmentNamed(theLocation);
 			}
@@ -437,10 +447,14 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 				theLocation = "";
 			}
 
-			EquipSet eqSet = aPC.addEquipToTarget(aPC.getEquipSetByIdPath("0.1"), theTarget, theLocation, theEquipment, new Float(-1.0f));
+			EquipSet eqSet = aPC.addEquipToTarget(aPC.getEquipSetByIdPath("0.1"),
+												  theTarget, theLocation,
+												  theEquipment,
+												  new Float( -1.0f));
 			if (eqSet == null)
 			{
-				warnings.add("GEAR: Could not equip " + theEquipment.getName() + " to " + theLocation);
+				warnings.add("GEAR: Could not equip " + theEquipment.getName()
+							 + " to " + theLocation);
 			}
 		}
 		return true;
@@ -465,7 +479,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		//
 		// Equip the item to the default EquipSet.
 		//
-		aPC.addEquipToTarget(aPC.getEquipSetByIdPath("0.1"), theTarget, theLocation, theEquipment, new Float(theQty));
+		aPC.addEquipToTarget(aPC.getEquipSetByIdPath("0.1"), theTarget,
+							 theLocation, theEquipment, new Float(theQty));
 
 		aPC.setGold(aPC.getGold().subtract(theCost).toString());
 	}

@@ -58,9 +58,9 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	 * @param  aPC
 	 */
 	public SpellListChoiceManager(
-	    PObject         aPObject,
-	    String          choiceString,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          choiceString,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
 		title          = "Spell choice";
@@ -80,9 +80,9 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	 * @param  selectedList
 	 */
 	public void getChoices(
-	    final PlayerCharacter aPc,
-	    final List            availableList,
-	    final List            selectedList)
+		final PlayerCharacter aPc,
+		final List            availableList,
+		final List            selectedList)
 	{
 		if (Ability.class.isInstance(pobject) && chooseAbility())
 		{
@@ -126,7 +126,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 		{
 			aPc.adjustFeats(-1);
 		}
-		
+
 		/* nulling this out because we can't do it in apply choices but we want
 		 * it done before applyChoices calls associateChoice */
 		fmc = null;
@@ -135,10 +135,10 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	/**
 	 * Associate a choice with the pobject.  Only here so we can override part
 	 * of the behaviour of applyChoices
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -192,7 +192,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 		for (int j = 0; j < anAbility.getAssociatedCount(); ++j)
 		{
 			fmc = (FeatMultipleChoice) anAbility.getAssociatedList().get(j);
-			sb.append(anAbility.getName()).append(" (");
+			sb.append(anAbility.getKeyName()).append(" (");
 			sb.append(fmc.getChoiceCount());
 			sb.append(" of ").append(fmc.getMaxChoices()).append(") ");
 
@@ -216,14 +216,14 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 		{
 			final InputInterface ii = InputFactory.getInputInstance();
 			selectedValue = ii.showInputDialog(
-				    null,
-				    "Please select the instance of the feat you wish to" +
-				    Constants.s_LINE_SEP +
-				    "modify, or New, from the list below.",
-				    Constants.s_APPNAME,
-				    MessageType.INFORMATION,
-				    aList.toArray(),
-				    aList.get(0));
+					null,
+					"Please select the instance of the feat you wish to" +
+					Constants.s_LINE_SEP +
+					"modify, or New, from the list below.",
+					Constants.s_APPNAME,
+					MessageType.INFORMATION,
+					aList.toArray(),
+					aList.get(0));
 		}
 		else
 		{
@@ -250,9 +250,9 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	 * @param  selectedList
 	 */
 	private void setSpellListSelections(
-	    final PlayerCharacter aPC,
-	    final List            availableList,
-	    final List            selectedList)
+		final PlayerCharacter aPC,
+		final List            availableList,
+		final List            selectedList)
 	{
 		Iterator choicesIt = choices.iterator();
 
@@ -285,8 +285,8 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 			}
 
 			if (
-			    (aClass instanceof PCClass) &&
-			    (((PCClass) aClass).getSpellBookUsed() == needSpellbook))
+				(aClass instanceof PCClass) &&
+				(((PCClass) aClass).getSpellBookUsed() == needSpellbook))
 			{
 				if (classes == null)
 				{
@@ -310,9 +310,9 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 				final PObject aClass = (PObject) classes.get(j);
 
 				final List aList = aClass.getSpellSupport().getCharacterSpell(
-					    null,
-					    Globals.getDefaultSpellBook(),
-					    -1);
+						null,
+						Globals.getDefaultSpellBook(),
+						-1);
 
 				for (iter = aList.iterator(); iter.hasNext();)
 				{
@@ -321,9 +321,9 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 
 					if (!pobject.containsAssociated(aSpell.getKeyName()))
 					{
-						if (!availableList.contains(aSpell.getName()))
+						if (!availableList.contains(aSpell.getKeyName()))
 						{
-							availableList.add(aSpell.getName());
+							availableList.add(aSpell.getKeyName());
 						}
 					}
 				}

@@ -33,7 +33,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * This is one of the choosers that deals with choosing from among a set 
+ * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
 public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
@@ -53,7 +53,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Choose a Feat";
 		chooserHandled = "FEATSELECT";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -90,26 +90,26 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 					final Ability ability = (Ability) it.next();
 
 					if (ability.isType(aString) &&
-							(dupsAllowed || !availableList.contains(ability.getName()
+							(dupsAllowed || !availableList.contains(ability.getKeyName()
 							  )))
 
 					{
-						availableList.add(ability.getName());
+						availableList.add(ability);
 					}
 				}
 			}
 			else
 			{
-				Ability theAbility = Globals.getAbilityNamed("ALL", aString);
+				Ability theAbility = Globals.getAbilityKeyed("ALL", aString);
 
 				if (theAbility != null)
 				{
 					String subName = "";
 
-					if (!aString.equalsIgnoreCase(theAbility.getName()))
+					if (!aString.equalsIgnoreCase(theAbility.getKeyName()))
 					{
-						subName = aString.substring(theAbility.getName().length());
-						aString = theAbility.getName();
+						subName = aString.substring(theAbility.getKeyName().length());
+						aString = theAbility.getKeyName();
 
 						final int idx = subName.indexOf('(');
 
@@ -125,7 +125,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 						// If already have taken the feat, use it so we can remove
 						// any choices already selected
 						//
-						final Ability pcFeat = aPc.getFeatNamed(aString);
+						final Ability pcFeat = aPc.getFeatKeyed(aString);
 
 						if (pcFeat != null)
 						{

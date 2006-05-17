@@ -268,7 +268,7 @@ final class EquipmentChoice
 		for (Iterator e = Globals.getSkillList().iterator(); e.hasNext();)
 		{
 			final Skill aSkill = (Skill) e.next();
-			this.getAvailableList().add(aSkill.getName());
+			this.getAvailableList().add(aSkill.getKeyName());
 		}
 	}
 
@@ -304,7 +304,7 @@ final class EquipmentChoice
 	}
 
 	/**
-     *
+	 *
 	 * @param incString a string with the increment value
 	 */
 	public void setIncrementValueFromString(String incString)
@@ -354,24 +354,24 @@ final class EquipmentChoice
 	 * @param aCategory   the Category of Ability to add to the chooser
 	 */
 	public void addSelectableAbilities(
-	    final String          typeString,
-	    final String          aCategory)
+		final String          typeString,
+		final String          aCategory)
 	{
 		for (Iterator e = Globals.getAbilityKeyIterator(aCategory); e.hasNext();)
 		{
 			final Ability anAbility = (Ability) e.next();
 
 			boolean matchesType = (
-				    typeString.equalsIgnoreCase("ALL") ||
-				    anAbility.isType(typeString)
-				                  );
+					typeString.equalsIgnoreCase("ALL") ||
+					anAbility.isType(typeString)
+								  );
 
 			if ((anAbility.getVisible() == Ability.VISIBILITY_DEFAULT)
-					&& !this.getAvailableList().contains(anAbility.getName()))
+					&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
 				if (matchesType && (anAbility.getChoiceString().length() == 0))
 				{
-					this.getAvailableList().add(anAbility.getName());
+					this.getAvailableList().add(anAbility.getKeyName());
 				}
 			}
 		}
@@ -383,7 +383,7 @@ final class EquipmentChoice
 	 * @param typeString  the type of Equipment to add to the chooser
 	 */
 	public void addSelectableEquipment(
-	    final String          typeString)
+		final String          typeString)
 	{
 		for (Iterator i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
 		{
@@ -391,8 +391,8 @@ final class EquipmentChoice
 			final Equipment aEquip = (Equipment) entry.getValue();
 
 			if (
-			    aEquip.isType(typeString) &&
-			    !this.getAvailableList().contains(aEquip.getName()))
+				aEquip.isType(typeString) &&
+				!this.getAvailableList().contains(aEquip.getName()))
 			{
 				this.getAvailableList().add(aEquip.getName());
 			}
@@ -405,18 +405,18 @@ final class EquipmentChoice
 	 * @param typeString the type of Skill to add to the chooser
 	 */
 	public void addSelectableSkills(
-	    final String          typeString)
+		final String          typeString)
 	{
 		for (Iterator e = Globals.getSkillList().iterator(); e.hasNext();)
 		{
 			final Skill aSkill = (Skill) e.next();
 
 			if (
-			    (typeString.equalsIgnoreCase("ALL") ||
-			        aSkill.isType(typeString)) &&
-			    !this.getAvailableList().contains(aSkill.getName()))
+				(typeString.equalsIgnoreCase("ALL") ||
+					aSkill.isType(typeString)) &&
+				!this.getAvailableList().contains(aSkill.getKeyName()))
 			{
-				this.getAvailableList().add(aSkill.getName());
+				this.getAvailableList().add(aSkill.getKeyName());
 			}
 		}
 	}
@@ -426,16 +426,16 @@ final class EquipmentChoice
 	 * @param choiceType the type of Skill to add to the chooser
 	 */
 	public void addParentsExistingEquipmentModifiersToChooser(
-	    final Equipment       parent,
-	    String                choiceType)
+		final Equipment       parent,
+		String                choiceType)
 	{
 		for (Iterator e = parent.getEqModifierList(true).iterator(); e.hasNext();)
 		{
 			final EquipmentModifier sibling = (EquipmentModifier) e.next();
 
 			if (
-			    !(sibling.equals(this)) &&
-			    sibling.getChoiceString().startsWith(choiceType))
+				!(sibling.equals(this)) &&
+				sibling.getChoiceString().startsWith(choiceType))
 			{
 				sibling.addAssociatedTo(this.getAvailableList());
 			}
@@ -457,12 +457,12 @@ final class EquipmentChoice
 	 *                     of ability to add
 	 */
 	public void addChoicesByType(
-	    final Equipment       parent,
-	    final int             numOfChoices,
-	    final int             numChosen,
-	    String                filterBy,
-	    String                kindToAdd,
-	    String                category)
+		final Equipment       parent,
+		final int             numOfChoices,
+		final int             numChosen,
+		String                filterBy,
+		String                kindToAdd,
+		String                category)
 	{
 		if ((numOfChoices > 0) && (getMaxSelect() == 0))
 		{
@@ -474,8 +474,8 @@ final class EquipmentChoice
 		if (type.startsWith("LASTCHOICE"))
 		{
 			addParentsExistingEquipmentModifiersToChooser(
-			    parent,
-			    kindToAdd);
+				parent,
+				kindToAdd);
 		}
 		else if ("SKILL".equalsIgnoreCase(kindToAdd))
 		{
@@ -502,7 +502,7 @@ final class EquipmentChoice
 		else
 		{
 			Logging.errorPrint(
-			    "Unknown option in CHOOSE '" + filterBy + "'");
+				"Unknown option in CHOOSE '" + filterBy + "'");
 		}
 	}
 
@@ -513,7 +513,7 @@ final class EquipmentChoice
 		for (int x = 0; x < SettingsHandler.getGame().s_ATTRIBSHORT.length; x++)
 		{
 			this.getAvailableList().add(
-			    SettingsHandler.getGame().s_ATTRIBSHORT[x]);
+				SettingsHandler.getGame().s_ATTRIBSHORT[x]);
 		}
 	}
 
@@ -523,9 +523,9 @@ final class EquipmentChoice
 	 */
 	public void adjustPool(final int available, final int numSelected) {
 		if (
-		    (available > 0) &&
-		    (this.getMaxSelect() > 0) &&
-		    (this.getMaxSelect() != Integer.MAX_VALUE))
+			(available > 0) &&
+			(this.getMaxSelect() > 0) &&
+			(this.getMaxSelect() != Integer.MAX_VALUE))
 		{
 			this.setPool(this.getMaxSelect() - numSelected);
 		}
@@ -543,11 +543,11 @@ final class EquipmentChoice
 	 *                      or for interaction with the user.
 	 */
 	public void constructFromChoiceString(
-	    String                choiceString,
-	    final Equipment       parent,
-	    final int             available,
-	    final int             numSelected,
-	    final boolean         forEqBuilder)
+		String                choiceString,
+		final Equipment       parent,
+		final int             available,
+		final int             numSelected,
+		final boolean         forEqBuilder)
 	{
 		final StringTokenizer aTok       = new StringTokenizer(choiceString, "|", false);
 		String                choiceType = aTok.nextToken();
@@ -574,15 +574,15 @@ final class EquipmentChoice
 				this.setTitle(kind.substring(6));
 			}
 			else if (kind.startsWith("TYPE=") ||
-			    kind.startsWith("TYPE."))
+				kind.startsWith("TYPE."))
 			{
 				this.addChoicesByType(
-				    parent,
-				    available,
-				    numSelected,
-				    kind,
-				    choiceType,
-				    category);
+					parent,
+					available,
+					numSelected,
+					kind,
+					choiceType,
+					category);
 			}
 			else if ("STAT".equals(kind))
 			{
@@ -633,13 +633,13 @@ final class EquipmentChoice
 		}
 
 		if (
-		    (this.getAvailableList().size() == 0) &&
-		    (this.getMinValue() < this.getMaxValue()))
+			(this.getAvailableList().size() == 0) &&
+			(this.getMinValue() < this.getMaxValue()))
 		{
 			for (
-			    int j = this.getMinValue();
-			    j <= this.getMaxValue();
-			    j += this.getIncValue())
+				int j = this.getMinValue();
+				j <= this.getMaxValue();
+				j += this.getIncValue())
 			{
 				if (j != 0)
 				{

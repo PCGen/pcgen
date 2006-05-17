@@ -636,7 +636,7 @@ final class KitSelector extends JFrame
 				Kit kit = (Kit)value;
 				if (!kitPassesPrereqs(kit))
 				{
-					dispString = "<html>" + SettingsHandler.getPrereqFailColorAsHtmlStart() + kit.getName()
+					dispString = "<html>" + SettingsHandler.getPrereqFailColorAsHtmlStart() + kit.getDisplayName()
 						+ SettingsHandler.getPrereqFailColorAsHtmlStart() + "</html>";
 				}
 				else
@@ -646,7 +646,7 @@ final class KitSelector extends JFrame
 					{
 						dispString = "<html><font color=\"" + SettingsHandler.getFeatVirtualColor() + "\">";
 					}
-					dispString += kit.getName();
+					dispString += kit.getDisplayName();
 					if (kit.getApplyMode() == Kit.APPLY_INSTANT)
 					{
 						dispString += "<html></font>";

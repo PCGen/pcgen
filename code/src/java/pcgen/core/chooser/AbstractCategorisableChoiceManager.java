@@ -51,7 +51,7 @@ public abstract class AbstractCategorisableChoiceManager extends
 	HashMap catMap     = new HashMap();
 	boolean useNameMap = true;
 
-	
+
 	/**
 	 * @param aPObject
 	 * @param aPC
@@ -64,7 +64,7 @@ public abstract class AbstractCategorisableChoiceManager extends
 
 
 	/**
-	 * 
+	 *
 	 * @param inNumberOfChoices
 	 * @param inRequestedSelections
 	 * @param inMaxNewSelections
@@ -82,16 +82,16 @@ public abstract class AbstractCategorisableChoiceManager extends
 
 	/**
 	 * Override Do chooser from the superclass, make sure it does nothing.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 * @return an empty list
 	 */
 	public List doChooser (
-		    PlayerCharacter aPc,
-		    final List      availableList,
-		    final List      selectedList)
+			PlayerCharacter aPc,
+			final List      availableList,
+			final List      selectedList)
 	{
 		Logging.errorPrint("Wrong doChooser called, there is a bug somewhere" );
 		return Collections.EMPTY_LIST;
@@ -101,7 +101,7 @@ public abstract class AbstractCategorisableChoiceManager extends
 	 * Choose one or more object from a CategorisableStore.  You may pass in a
 	 * list of previous choices, but if it is passed, each item in that list
 	 * must be an object in the categorisable store
-	 * 
+	 *
 	 * @param store
 	 * @param previousSelections
 	 * @return a list of the categorisable objects chosen
@@ -138,43 +138,43 @@ public abstract class AbstractCategorisableChoiceManager extends
 		{
 			addToMaps((Categorisable) abIt.next());
 		}
-		
-		List availableList = this.useNameMap ? 
+
+		List availableList = this.useNameMap ?
 				new ArrayList(this.nameMap.keySet()) :
 					new ArrayList(this.catMap.keySet());
-				
-		List selectedList = new ArrayList(); 
-					
+
+		List selectedList = new ArrayList();
+
 
 		/* Convert the list of previous choice objects into a list of keys to
-		 * access those in the relevant name or category map.  That is, 
+		 * access those in the relevant name or category map.  That is,
 		 * convert them into the format that will be returned by the chooser */
-		
+
 		for (Iterator abIt = previousSelections.iterator(); abIt.hasNext();)
 		{
 			Categorisable Info = (Categorisable) abIt.next();
 
 			if (store.getKeyed(Info.getCategory(), Info.getKeyName()) != null) {
 				selectedList.add(
-						this.useNameMap ? 
-								Info.getName() : 
-									Info.getCategory() + " " + Info.getName());
+						this.useNameMap ?
+								Info.getKeyName() :
+									Info.getCategory() + " " + Info.getKeyName());
 			}
 			else
 			{
 				Logging.errorPrint("alleged previous choice is not valid, Category = " +
-						Info.getCategory() + ", Key = " + Info.getName());	
+						Info.getCategory() + ", Key = " + Info.getKeyName());
 			}
 		}
 
-					
+
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setPoolFlag(false);
 		chooser.setAllowsDups(this.dupsAllowed);
 		chooser.setVisible(false);
 		chooser.setPool(this.requestedSelections);
 
-		title = title + " (" + pobject.getName() + ')';
+		title = title + " (" + pobject.getDisplayName() + ')';
 		chooser.setTitle(title);
 		Globals.sortChooserLists(availableList, selectedList);
 
@@ -199,9 +199,9 @@ public abstract class AbstractCategorisableChoiceManager extends
 
 			break;
 		}
-		
+
 		List chosen = new ArrayList();
-		
+
 		for (Iterator abIt = chooser.getSelectedList().iterator(); abIt.hasNext();)
 		{
 			final String  choice = (String) abIt.next();
@@ -219,17 +219,17 @@ public abstract class AbstractCategorisableChoiceManager extends
 	/**
 	 * Add the Categorisable object to the maps that will be used to put strings
 	 * in the chooser and translate back to the chosen object.
-	 * 
+	 *
 	 * @param categorisableObj
 	 */
 	protected void addToMaps(
 			Categorisable categorisableObj)
 	{
-		Categorisable current = (Categorisable) nameMap.put(categorisableObj.getName(), categorisableObj);
-		catMap.put(categorisableObj.getCategory() + " " + categorisableObj.getName(), categorisableObj);
+		Categorisable current = (Categorisable) nameMap.put(categorisableObj.getKeyName(), categorisableObj);
+		catMap.put(categorisableObj.getCategory() + " " + categorisableObj.getKeyName(), categorisableObj);
 
 		if (current != null) { useNameMap = false; }
 	}
 
-	
+
 }

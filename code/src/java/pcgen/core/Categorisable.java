@@ -51,5 +51,5 @@ public interface Categorisable
 	 *
 	 * @return  The name
 	 */
-	public abstract String getName();
+	public abstract String getDisplayName();
 }

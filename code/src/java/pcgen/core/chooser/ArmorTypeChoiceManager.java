@@ -52,7 +52,7 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Armor Type Choice";
 		chooserHandled = "ARMORTYPE";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -70,22 +70,15 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 			final List            availableList,
 			final List            selectedList)
 	{
-		String temptype;
-
-		for (Iterator it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
-			final Ability tempAbility = (Ability) it.next();
-
-			if (tempAbility.getName().startsWith("Armor Proficiency ("))
+		List armorProfs = aPc.getArmorProfList();
+		for (Iterator i = armorProfs.iterator(); i.hasNext(); )
+		{
+			String profKey = (String)i.next();
+			if (profKey.startsWith("TYPE"))
 			{
-				final int idxbegin = tempAbility.getName().indexOf("(");
-				final int idxend   = tempAbility.getName().indexOf(")");
-				temptype = tempAbility.getName().substring((idxbegin + 1), idxend);
-
-				if (aPc.getFeatNamed(tempAbility.getName()) != null)
-				{
-					availableList.add(temptype);
-				}
+				profKey = profKey.substring(5);
 			}
+			availableList.add(profKey);
 		}
 
 		pobject.addAssociatedTo(selectedList);
@@ -93,10 +86,10 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -109,7 +102,7 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 		 * any such mechanism in the code ever.  I believe that this
 		 * ChoiceManager is replacing a chooser which has never worked.
 		 * It is currently unused in the data repository.
-		 * Andrew Wilson 30 March 2006 
+		 * Andrew Wilson 30 March 2006
 		 */
 		//		for (Iterator e = aBonusList.iterator(); e.hasNext();)
 		//		{

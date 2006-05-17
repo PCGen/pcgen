@@ -33,8 +33,8 @@ import java.util.*;
  * <code>FilterFactory</code>
  * <br>
  * Factory class for creating standard PObjectFilter objects
- * 
- * Wherever possible, this factory will hand out references to shared 
+ *
+ * Wherever possible, this factory will hand out references to shared
  * PObjectFilter instances
  *
  * @author Thomas Behr
@@ -106,7 +106,7 @@ public final class FilterFactory implements FilterConstants
 		return buffer.toString();
 	}
 
-	/** 
+	/**
 	 * Register all class filters
 	 * @param fap
 	 */
@@ -173,7 +173,7 @@ public final class FilterFactory implements FilterConstants
 				if (!"DROW".equals(tmp.toUpperCase()))
 				{
 					deityFilters.add(FilterFactory.createPantheonFilter(tmp,
-					        (tmp.indexOf(" (") > -1) ? PantheonFilter.HIGH : PantheonFilter.LOW));
+							(tmp.indexOf(" (") > -1) ? PantheonFilter.HIGH : PantheonFilter.LOW));
 				}
 				else
 				{
@@ -302,7 +302,7 @@ public final class FilterFactory implements FilterConstants
 
 				if (aPCClass.isVisible() && filter.accept(null, aPCClass))
 				{
-					raceFilters.add(FilterFactory.createFavoredClassFilter(aPCClass.getName()));
+					raceFilters.add(FilterFactory.createFavoredClassFilter(aPCClass.getKeyName()));
 				}
 			}
 
@@ -500,9 +500,9 @@ public final class FilterFactory implements FilterConstants
 		filterSettings.clear();
 
 		List customAvailable = preprocessFilterList("available",
-			    SettingsHandler.retrieveFilterSettings(name + ".available"));
+				SettingsHandler.retrieveFilterSettings(name + ".available"));
 		List customSelected = preprocessFilterList("selected",
-			    SettingsHandler.retrieveFilterSettings(name + ".selected"));
+				SettingsHandler.retrieveFilterSettings(name + ".selected"));
 		List customRemoved = preprocessFilterList("removed", SettingsHandler.retrieveFilterSettings(name + ".removed"));
 
 		/*
@@ -537,9 +537,9 @@ public final class FilterFactory implements FilterConstants
 		 * restore the custom filters
 		 */
 		FilterParser fp = new FilterParser(new List[]
-			    {
-				    filterable.getAvailableFilters(), filterable.getSelectedFilters(), filterable.getRemovedFilters()
-			    });
+				{
+					filterable.getAvailableFilters(), filterable.getSelectedFilters(), filterable.getRemovedFilters()
+				});
 
 		parseCustomFilterList(fp, filterable.getAvailableFilters(), customAvailable);
 		parseCustomFilterList(fp, filterable.getSelectedFilters(), customSelected);
@@ -911,7 +911,7 @@ public final class FilterFactory implements FilterConstants
 			 * we restore the custom filters
 			 */
 			if (className.endsWith("CompoundFilter") || className.endsWith("InverseFilter")
-			    || className.endsWith("NamedFilter"))
+				|| className.endsWith("NamedFilter"))
 			{
 				customFilters.add(new String[]{ classDef, filterName, filterDesc });
 			}
@@ -1130,7 +1130,7 @@ final class DeityAlignmentFilter extends AlignmentFilter
 			String deityAlign = ((Deity) pObject).getAlignment();
 
 			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
-			    || deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
+				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
 			{
 				return true;
 			}
@@ -1166,7 +1166,7 @@ final class DomainFilter extends AbstractPObjectFilter
 
 	DomainFilter(Domain domain)
 	{
-		super(PropertyFactory.getString("in_domains"), domain.getName());
+		super(PropertyFactory.getString("in_domains"), domain.getKeyName());
 		this.domain = domain;
 	}
 
@@ -1209,12 +1209,12 @@ final class PantheonFilter extends AbstractPObjectFilter
 		this.pantheon = ((this.detailLevel == LOW) ? normalizePantheon(pantheon) : pantheon);
 		this.pantheon = ((this.pantheon.equalsIgnoreCase(ALL)) ? ALL : pantheon);
 		setCategory(PropertyFactory.getString("in_pantheon")
-		    + ((detailLevel == LOW) ? (" (" + PropertyFactory.getString("in_general") + ")")
-		                            : (" (" + PropertyFactory.getString("in_specific") + ")")));
+			+ ((detailLevel == LOW) ? (" (" + PropertyFactory.getString("in_general") + ")")
+									: (" (" + PropertyFactory.getString("in_specific") + ")")));
 		setName(this.pantheon);
 		setDescription((this.pantheon.equalsIgnoreCase(ALL)) ? PropertyFactory.getString("in_acceptPantAll")
-		                                                     : (PropertyFactory.getString("in_acceptPantOne")
-		    + pantheon + " " + PropertyFactory.getString("in_acceptPantTwo")));
+															 : (PropertyFactory.getString("in_acceptPantOne")
+			+ pantheon + " " + PropertyFactory.getString("in_acceptPantTwo")));
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
@@ -1323,7 +1323,7 @@ final class PCAlignmentFilter extends AlignmentFilter
 			String deityAlign = ((Deity) pObject).getAlignment();
 
 			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
-			    || deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
+				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
 			{
 				return true;
 			}
@@ -1369,7 +1369,7 @@ final class AutomaticFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasFeatAutomatic(pObject.getName());
+			return aPC.hasFeatAutomatic(pObject.getKeyName());
 		}
 
 		return true;
@@ -1393,7 +1393,7 @@ final class NormalFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasRealFeatNamed(pObject.getName());
+			return aPC.hasRealFeat((Ability)pObject);
 		}
 
 		return true;
@@ -1402,13 +1402,13 @@ final class NormalFeatFilter extends AbstractPObjectFilter
 
 
 /**
- * <code>VirtualFeatFilter</code> is a filter object which allows 
+ * <code>VirtualFeatFilter</code> is a filter object which allows
  * through feats that are allocated as virtual feats to the PC.
  */
 final class VirtualFeatFilter extends AbstractPObjectFilter
 {
-	/** 
-	 * Create a new VirtualFeatFilter instance. 
+	/**
+	 * Create a new VirtualFeatFilter instance.
 	 */
 	VirtualFeatFilter()
 	{
@@ -1427,7 +1427,7 @@ final class VirtualFeatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Ability)
 		{
-			return aPC.hasFeatVirtual(pObject.getName());
+			return aPC.hasFeatVirtual(pObject.getKeyName());
 		}
 
 		return true;
@@ -1504,7 +1504,7 @@ final class PCSizeFilter extends AbstractPObjectFilter
 			final SizeAdjustment sizeAdj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(aPC.sizeInt());
 			if (sizeAdj != null)
 			{
-				pcName += sizeAdj.getName();
+				pcName += sizeAdj.getDisplayName();
 			}
 			pcName += ')';
 		}
@@ -1521,7 +1521,7 @@ final class PCSizeFilter extends AbstractPObjectFilter
 		if (pObject instanceof Equipment)
 		{
 			return ((Equipment) pObject).getSize().toUpperCase().equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-			        aPC.sizeInt()).getAbbreviation());
+					aPC.sizeInt()).getAbbreviation());
 		}
 
 		return true;
@@ -1541,7 +1541,7 @@ final class TypeFilter extends AbstractPObjectFilter
 	TypeFilter(String argType, boolean capitalize)
 	{
 		super(PropertyFactory.getString("in_type"),
-		    (capitalize) ? (argType.substring(0, 1).toUpperCase() + argType.substring(1).toLowerCase()) : argType);
+			(capitalize) ? (argType.substring(0, 1).toUpperCase() + argType.substring(1).toLowerCase()) : argType);
 		this.type = argType.toUpperCase();
 	}
 
@@ -1590,7 +1590,7 @@ final class WeaponFilter extends AbstractPObjectFilter
 	WeaponFilter(String argType)
 	{
 		super(PropertyFactory.getString("in_weapon"),
-		    argType.substring(0, 1).toUpperCase() + argType.substring(1).toLowerCase());
+			argType.substring(0, 1).toUpperCase() + argType.substring(1).toLowerCase());
 		this.type = argType.toUpperCase();
 	}
 
@@ -1664,7 +1664,7 @@ final class RankModifierFilter extends AbstractPObjectFilter
 	RankModifierFilter(double min)
 	{
 		super(PropertyFactory.getString("in_skills"),
-		    PropertyFactory.getString("in_rank") + " + " + PropertyFactory.getString("in_modifier") + " > " + min);
+			PropertyFactory.getString("in_rank") + " + " + PropertyFactory.getString("in_modifier") + " > " + min);
 		this.min = min;
 	}
 
@@ -2230,7 +2230,7 @@ final class SizeFilter extends AbstractPObjectFilter
 
 	SizeFilter(int size)
 	{
-		super(PropertyFactory.getString("in_size"), SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getName());
+		super(PropertyFactory.getString("in_size"), SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());
 		this.size = size;
 	}
 
@@ -2246,14 +2246,14 @@ final class SizeFilter extends AbstractPObjectFilter
 			final String aEquipSize = ((Equipment) pObject).getSize();
 
 			return aEquipSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getAbbreviation())
-			|| aEquipSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getName());
+			|| aEquipSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());
 		}
 		else if (pObject instanceof Race)
 		{
 			final String aRaceSize = ((Race) pObject).getSize();
 
 			return aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getAbbreviation())
-			|| aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getName());
+			|| aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());
 		}
 
 		return true;

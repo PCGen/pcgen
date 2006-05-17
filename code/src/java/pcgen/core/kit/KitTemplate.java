@@ -108,7 +108,7 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 				if (subStr.startsWith("TEMPLATE:"))
 				{
 					final String ownedTemplateName = subStr.substring(9);
-					PCTemplate ownedTemplate = Globals.getTemplateNamed(ownedTemplateName);
+					PCTemplate ownedTemplate = Globals.getTemplateKeyed(ownedTemplateName);
 					if (ownedTemplate != null)
 					{
 						templateToAdd.addTemplateName(ownedTemplateName);
@@ -125,7 +125,7 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 				}
 				else
 				{
-					PCTemplate potentialTemplate = Globals.getTemplateNamed(subStr);
+					PCTemplate potentialTemplate = Globals.getTemplateKeyed(subStr);
 					if (potentialTemplate != null)
 					{
 						try

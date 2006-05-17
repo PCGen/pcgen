@@ -111,7 +111,7 @@ final class SkillBasePanel extends BasePanel
 
 				if (aStat.getAbb().equals(aString))
 				{
-					cmbKeyStat.setSelectedItem(aStat.getName());
+					cmbKeyStat.setSelectedItem(aStat.getKeyName());
 
 					break;
 				}
@@ -226,7 +226,7 @@ final class SkillBasePanel extends BasePanel
 
 		for (Iterator e = SettingsHandler.getGame().getUnmodifiableStatList().iterator(); e.hasNext();)
 		{
-			availableList.add(((PCStat) e.next()).getName());
+			availableList.add(((PCStat) e.next()).getKeyName());
 		}
 
 		cmbKeyStat.setModel(new DefaultComboBoxModel(availableList.toArray()));

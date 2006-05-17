@@ -77,7 +77,7 @@ final class DeityBasePanel extends BasePanel
 			{
 				if (anAlignment.getKeyName().equals(aString))
 				{
-					cmbDeityAlignment.setSelectedItem(anAlignment.getName());
+					cmbDeityAlignment.setSelectedItem(anAlignment.getKeyName());
 				}
 			}
 		}
@@ -251,7 +251,7 @@ final class DeityBasePanel extends BasePanel
 				break;
 			}
 
-			final WeaponProf wp = Globals.getWeaponProfNamed(deityWeap);
+			final WeaponProf wp = Globals.getWeaponProfKeyed(deityWeap);
 			if (wp != null)
 			{
 				selectedList.add(wp);
@@ -276,7 +276,7 @@ final class DeityBasePanel extends BasePanel
 
 			if (anAlignment.isValidForDeity())
 			{
-				availableList.add(anAlignment.getName());
+				availableList.add(anAlignment.getKeyName());
 			}
 		}
 

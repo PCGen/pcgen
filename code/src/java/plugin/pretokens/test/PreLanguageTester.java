@@ -53,7 +53,7 @@ public class PreLanguageTester  extends AbstractPrerequisiteTest implements Prer
 			runningTotal = character.getLanguagesList().size();
 		}
 		else {
-			final Language aLang = Globals.getLanguageNamed(requiredLang);
+			final Language aLang = Globals.getLanguageKeyed(requiredLang);
 			if (aLang != null)
 			{
 				if (character.getLanguagesList().contains(aLang))

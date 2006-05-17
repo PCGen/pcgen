@@ -82,7 +82,7 @@ class LevelAbilitySkill extends LevelAbility
 		while (aTok.hasMoreTokens())
 		{
 			final String toAdd = aTok.nextToken();
-			final Skill aSkill = Globals.getSkillNamed(toAdd);
+			final Skill aSkill = Globals.getSkillKeyed(toAdd);
 
 			if ((aSkill != null))
 			{

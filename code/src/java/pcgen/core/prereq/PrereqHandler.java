@@ -75,7 +75,7 @@ public class PrereqHandler {
 		if ((character != null) && (caller != null))
 		{
 			// Check for QUALIFY:
-			if (character.checkQualifyList(caller.getName()))
+			if (character.checkQualifyList(caller.getKeyName()))
 			{
 				return true;
 			}
@@ -210,7 +210,7 @@ public class PrereqHandler {
 		boolean autoQualifies = false;
 		int total = 0;
 
-		if ((caller != null) && character.checkQualifyList(caller.getName()) && (!overrideQualify))
+		if ((caller != null) && character.checkQualifyList(caller.getKeyName()) && (!overrideQualify))
 		{
 			autoQualifies = true;
 		}

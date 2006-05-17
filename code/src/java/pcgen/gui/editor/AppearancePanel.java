@@ -115,7 +115,7 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 			region = defaultRegionName;
 		}
 
-		raceName = race.getName();
+		raceName = race.getKeyName();
 
 		sel = pnlHairColor.getSelectedList();
 		aString = EditUtil.delimitArray(sel, '|');
@@ -156,7 +156,7 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 			region = defaultRegionName;
 		}
 
-		raceName = race.getName();
+		raceName = race.getKeyName();
 
 		List aList = Globals.getBioSet().getTagForRace(region, raceName, "HAIR");
 		pnlHairColor.setSelectedList(aList, true);
@@ -168,7 +168,7 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 
 	private void initComponentContents()
 	{
-	    // TODO This method currently does nothing?
+		// TODO This method currently does nothing?
 	}
 
 	/**
@@ -180,11 +180,11 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 		GridBagConstraints gridBagConstraints;
 
 		pnlHairColor = new TypePanel(PropertyFactory.getString("in_appNewHairColor"),
-			    PropertyFactory.getString("in_appHairColor"));
+				PropertyFactory.getString("in_appHairColor"));
 		pnlEyeColor = new TypePanel(PropertyFactory.getString("in_appNewEyeColor"),
-			    PropertyFactory.getString("in_appEyeColor"));
+				PropertyFactory.getString("in_appEyeColor"));
 		pnlSkinTone = new TypePanel(PropertyFactory.getString("in_appNewSkintoneColor"),
-			    PropertyFactory.getString("in_appSkintoneColor"));
+				PropertyFactory.getString("in_appSkintoneColor"));
 
 		this.setLayout(new GridBagLayout());
 

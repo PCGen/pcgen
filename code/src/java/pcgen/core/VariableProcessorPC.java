@@ -217,14 +217,14 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @param countHidden Count hidden feats
 	 * @return  An int containing the number of matching feats in the list
 	 */
-	private int countVisibleFeatNames(final List argFeatList, final String featName, final boolean countVisible, final boolean countHidden) {
+	private int countVisibleFeatsOfKey(final List argFeatList, final String featKey, final boolean countVisible, final boolean countHidden) {
 		int count = 0;
 
 		for (Iterator e1 = argFeatList.iterator(); e1.hasNext();)
 		{
 			final Ability aFeat = (Ability) e1.next();
 
-			if (aFeat.getName().equalsIgnoreCase(featName))
+			if (aFeat.getKeyName().equalsIgnoreCase(featKey))
 			{
 				count += countVisibleFeat(aFeat, countVisible, countHidden, false);
 
@@ -287,7 +287,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("SPELLBASESTATSCORE".equals(valString))
 		{
-			final PCClass aClass = getPc().getClassNamed(src.substring(6));
+			final PCClass aClass = getPc().getClassKeyed(src.substring(6));
 
 			if (aClass != null)
 			{
@@ -305,7 +305,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("SPELLBASESTAT".equals(valString))
 		{
-			final PCClass aClass = getPc().getClassNamed(src.substring(6));
+			final PCClass aClass = getPc().getClassKeyed(src.substring(6));
 
 			if (aClass != null)
 			{
@@ -333,7 +333,7 @@ public class VariableProcessorPC extends VariableProcessor
 			else
 			{
 				// src should be CLASS. something
-				aClass = getPc().getClassNamed(src.substring(6));
+				aClass = getPc().getClassKeyed(src.substring(6));
 			}
 
 			if (aClass != null)
@@ -396,23 +396,23 @@ public class VariableProcessorPC extends VariableProcessor
 
 				if (aClass.getSpellType() != Constants.s_NONE)
 				{
-					final String className = aClass.getName();
+					final String classKey = aClass.getKeyName();
 					String spellType = Constants.s_NONE;
-					final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", className);
+					final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", classKey);
 
 					if ((aClass != null) && (aClass.getSpellType() != Constants.s_NONE))
 					{
 						spellType = aClass.getSpellType();
 					}
 
-					if (CoreUtility.doublesEqual(getPc().getTotalBonusTo("CASTERLEVEL", className), 0.0))
+					if (CoreUtility.doublesEqual(getPc().getTotalBonusTo("CASTERLEVEL", classKey), 0.0))
 					{
-						final int iClass = Integer.parseInt(getPc().getClassLevelString(className, false));
-						iLev += getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, className, iClass + pcBonusLevel);
+						final int iClass = Integer.parseInt(getPc().getClassLevelString(classKey, false));
+						iLev += getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, classKey, iClass + pcBonusLevel);
 					}
 					else
 					{
-						iLev += getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, className, pcBonusLevel);
+						iLev += getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, classKey, pcBonusLevel);
 					}
 				}
 			}
@@ -421,16 +421,16 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("CASTERLEVEL".equals(valString) && src.startsWith("CLASS:"))
 		{
-			String className = src.substring(6);
+			String classKey = src.substring(6);
 
 			// check if this is a domain spell
-			final CharacterDomain aCD = getPc().getCharacterDomainForDomain(className);
+			final CharacterDomain aCD = getPc().getCharacterDomainForDomain(classKey);
 			if (aCD != null)  //yup, it's a domain alright
 			{
-				className = aCD.getObjectName(); //returns Domain source (e.g, "Cleric")
+				classKey = aCD.getObjectName(); //returns Domain source (e.g, "Cleric")
 			}
 
-			final PCClass spClass = Globals.getClassNamed(className);
+			final PCClass spClass = Globals.getClassKeyed(classKey);
 
 			String spellType = Constants.s_NONE;
 			if ((spClass != null) && (spClass.getSpellType() != Constants.s_NONE))
@@ -438,21 +438,21 @@ public class VariableProcessorPC extends VariableProcessor
 				spellType = spClass.getSpellType();
 			}
 
-			final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", className);
+			final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", classKey);
 
-			int iLev = (int) getPc().getTotalBonusTo("CASTERLEVEL", className);
+			int iLev = (int) getPc().getTotalBonusTo("CASTERLEVEL", classKey);
 
 			if (iLev == 0)
 			{
 				// If no CASTERLEVEL has been
 				// defined for this class then
 				// use total class level instead
-				iLev = Integer.parseInt(getPc().getClassLevelString(className, false));
-				iLev = getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, className, iLev + pcBonusLevel);
+				iLev = Integer.parseInt(getPc().getClassLevelString(classKey, false));
+				iLev = getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, classKey, iLev + pcBonusLevel);
 			}
 			else
 			{
-				iLev = getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, className, pcBonusLevel);
+				iLev = getPc().getTotalCasterLevelWithSpellBonus(aSpell, spellType, classKey, pcBonusLevel);
 			}
 
 			valString = Integer.toString(iLev);
@@ -496,7 +496,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 			if (valString.length() > 6)
 			{
-				aClass = getPc().getClassNamed(valString.substring(6));
+				aClass = getPc().getClassKeyed(valString.substring(6));
 			}
 			else
 			{
@@ -514,7 +514,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if (valString.startsWith("SKILLRANK=") || valString.startsWith("SKILLRANK."))
 		{
-			final Skill aSkill = getPc().getSkillNamed(valString.substring(10).replace('{', '(').replace('}', ')'));
+			final Skill aSkill = getPc().getSkillKeyed(valString.substring(10).replace('{', '(').replace('}', ')'));
 			if (aSkill != null)
 			{
 				valString = aSkill.getRank().toString();
@@ -526,7 +526,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if (valString.startsWith("SKILLTOTAL=") || valString.startsWith("SKILLTOTAL."))
 		{
-			final Skill aSkill = getPc().getSkillNamed(valString.substring(11).replace('{', '(').replace('}', ')'));
+			final Skill aSkill = getPc().getSkillKeyed(valString.substring(11).replace('{', '(').replace('}', ')'));
 			if (aSkill != null)
 			{
 				valString = Integer.toString(aSkill.getTotalRank(getPc()).intValue() + aSkill.modifier(getPc()).intValue());
@@ -799,26 +799,26 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ((valString.startsWith("COUNT[FEATNAME=") || valString.startsWith("COUNT[FEATNAME."))
 		&& valString.endsWith(".ALL]"))
 		{
-			final String featName = valString.substring(15, valString.length() - 5);
-			valString = Integer.toString(countVisibleFeatNames(getPc().aggregateFeatList(), featName, true, true));
+			final String featKey = valString.substring(15, valString.length() - 5);
+			valString = Integer.toString(countVisibleFeatsOfKey(getPc().aggregateFeatList(), featKey, true, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATNAME=") || valString.startsWith("COUNT[FEATNAME."))
 		&& valString.endsWith(".HIDDEN]"))
 		{
-			final String featName = valString.substring(15, valString.length() - 8);
-			valString = Integer.toString(countVisibleFeatNames(getPc().aggregateFeatList(), featName, false, true));
+			final String featKey = valString.substring(15, valString.length() - 8);
+			valString = Integer.toString(countVisibleFeatsOfKey(getPc().aggregateFeatList(), featKey, false, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATNAME=") || valString.startsWith("COUNT[FEATNAME."))
 		&& valString.endsWith(".VISIBLE]"))
 		{
-			final String featName = valString.substring(15, valString.length() - 9);
-			valString = Integer.toString(countVisibleFeatNames(getPc().aggregateFeatList(), featName, true, false));
+			final String featKey = valString.substring(15, valString.length() - 9);
+			valString = Integer.toString(countVisibleFeatsOfKey(getPc().aggregateFeatList(), featKey, true, false));
 		}
 		else if ((valString.startsWith("COUNT[FEATNAME=") || valString.startsWith("COUNT[FEATNAME."))
 		&& valString.endsWith("]"))
 		{
-			final String featName = valString.substring(15, valString.length() - 1);
-			valString = Integer.toString(countVisibleFeatNames(getPc().aggregateFeatList(), featName, true, false));
+			final String featKey = valString.substring(15, valString.length() - 1);
+			valString = Integer.toString(countVisibleFeatsOfKey(getPc().aggregateFeatList(), featKey, true, false));
 		}
 		else if (valString.startsWith("COUNT[SPELLSKNOWN") && valString.endsWith("]"))
 		{
@@ -1312,7 +1312,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 				if (eq != null)
 				{
-					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + eq.profName(getPc()), "PCSIZE");
+					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + eq.profKey(getPc()), "PCSIZE");
 					List aList = eq.typeList();
 					Iterator itera = aList.iterator();
 					// loops for each equipment type

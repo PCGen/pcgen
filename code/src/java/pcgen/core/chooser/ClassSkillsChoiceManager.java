@@ -51,14 +51,14 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Skill Choice";
 		chooserHandled = "CSKILLS";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
 
-	
+
 	/**
 	 * Parse the Choice string and build a list of available choices.
 	 * @param aPc
@@ -77,11 +77,11 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager {
 		{
 			aSkill = (Skill) iter.next();
 
-			int sCost = aSkill.costForPCClassList(aPc.getClassList(), aPc); 
+			int sCost = aSkill.costForPCClassList(aPc.getClassList(), aPc);
 
 			if (sCost == Globals.getGameModeSkillCost_Class())
 			{
-				availableList.add(aSkill.getName());
+				availableList.add(aSkill);
 			}
 		}
 

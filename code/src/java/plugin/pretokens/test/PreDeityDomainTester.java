@@ -47,7 +47,7 @@ public class PreDeityDomainTester  extends AbstractPrerequisiteTest implements P
 
 		if (character.getDeity() != null)
 		{
-			if (character.getDeity().hasDomainNamed(prereq.getKey()))
+			if (character.getDeity().hasDomainKeyed(prereq.getKey()))
 			{
 				runningTotal++;
 			}

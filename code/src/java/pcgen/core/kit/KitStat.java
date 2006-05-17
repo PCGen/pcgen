@@ -31,7 +31,7 @@ import java.util.List;
 
 /**
  * KitStat
- * 
+ *
  * @author boomer70
  */
 public class KitStat extends BaseKit implements Serializable, Cloneable
@@ -138,7 +138,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 					for (int j = 0; j < pclList.size(); j++)
 					{
 						final PCLevelInfo pcl = (PCLevelInfo)pclList.get(j);
-						if (pcl.getClassKeyName().equals(aClass.getName()))
+						if (pcl.getClassKeyName().equals(aClass.getKeyName()))
 						{
 							final int spMod = aClass.recalcSkillPointMod(aPC,
 								j + 1);

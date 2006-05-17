@@ -231,7 +231,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		List toDoList = new ArrayList();
 		if (pc.getRace() == null
-			|| Constants.s_NONESELECTED.equals(pc.getRace().getName()))
+			|| Constants.s_NONESELECTED.equals(pc.getRace().getKeyName()))
 		{
 			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
 		}
@@ -273,7 +273,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		needsUpdate = b;
 	}
-	
+
 	/**
 	 * specifies whether the "match any" option should be available
 	 * @return true
@@ -344,7 +344,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			selButton();
@@ -411,7 +411,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		StringBuffer b = new StringBuffer();
 		b.append("<html>");
 
-		if ((aRace != null) && !aRace.getName().startsWith("<none"))
+		if ((aRace != null) && !aRace.getKeyName().startsWith("<none"))
 		{
 			b.append("<b>").append(aRace.piSubString()).append("</b>");
 			b.append("<br><b>RACE TYPE</b>: ").append(aRace.getRaceType());
@@ -579,7 +579,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 					clearQFilter();
 				}
 			});
-		
+
 		// Monster HD Panel Listeners
 		btnAddHD.addActionListener(new ActionListener()
 			{
@@ -856,7 +856,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 				monsterHD = pc.getRace().hitDice(pc);
 				minLevel = pc.getRace().hitDice(pc) + pc.getRace().getMonsterClassLevels(pc);
 
-				final PCClass aClass = pc.getClassNamed(monsterClass);
+				final PCClass aClass = pc.getClassKeyed(monsterClass);
 
 				if (aClass != null)
 				{
@@ -1198,8 +1198,8 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 				final Race aRace = (Race) it.next();
 
 				if(accept(pc, aRace)) {
-					if (qFilter == null || 
-							( aRace.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+					if (qFilter == null ||
+							( aRace.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 							  aRace.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 					raceList.add(aRace);
 				}
@@ -1605,18 +1605,18 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDefaultWidth(int col, int width) {
 			SettingsHandler.setPCGenOption("InfoRaces.sizecol." + raceNameList[col], width);
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoRaces.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoRaces.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 

@@ -54,10 +54,10 @@ class LevelAbilityFeat extends LevelAbility
 	private   boolean	hasPrereqs		= false;
 
 	LevelAbilityFeat(
-	    final PObject aowner,
-	    final int     aLevel,
-	    final String  aString,
-	    final boolean aVFeat)
+		final PObject aowner,
+		final int     aLevel,
+		final String  aString,
+		final boolean aVFeat)
 	{
 		super(aowner, aLevel, aString);
 		isVirtual = aVFeat;
@@ -90,21 +90,21 @@ class LevelAbilityFeat extends LevelAbility
 		{
 			for (int j = 0; j < getAssociatedCount(); ++j)
 			{
-				String        featName  = getAssociatedList().get(j).toString();
-				final Ability anAbility = Globals.getAbilityNamed("FEAT", featName);
+				String        featKey  = getAssociatedList().get(j).toString();
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);
 
 				if (anAbility == null)
 				{
 					aPC.adjustFeats(-1);
-					Logging.debugPrint("There is no feat '" + featName + "'. Adjusting feat count by -1");
+					Logging.debugPrint("There is no feat '" + featKey + "'. Adjusting feat count by -1");
 				}
 				else
 				{
-					featName = anAbility.getName();
+					featKey = anAbility.getKeyName();
 					aPC.adjustFeats(-anAbility.getCost());
 				}
 
-				AbilityUtilities.modFeat(aPC, null, featName, false, false);
+				AbilityUtilities.modFeat(aPC, null, featKey, false, false);
 			}
 
 			clearAssociated();
@@ -173,10 +173,10 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param  aArrayList
 	 */
 	public boolean processChoice(
-	    final List            aArrayList,
-	    final List            selectedList,
-	    final PlayerCharacter aPC,
-	    final PCLevelInfo     pcLevelInfo)
+		final List            aArrayList,
+		final List            selectedList,
+		final PlayerCharacter aPC,
+		final PCLevelInfo     pcLevelInfo)
 	{
 		if (isVirtual)
 		{
@@ -205,8 +205,8 @@ class LevelAbilityFeat extends LevelAbility
 				else
 				{
 					Logging.errorPrint(
-					    "Error:" + featName +
-					    " not added, aPC.getFeatNamedInList() == NULL");
+						"Error:" + featName +
+						" not added, aPC.getFeatNamedInList() == NULL");
 				}
 			}
 		}
@@ -234,7 +234,7 @@ class LevelAbilityFeat extends LevelAbility
 				for (int n = 0; n < aArrayList.size(); ++n)
 				{
 					final String availItem = aArrayList.get(n).toString();
-					final Ability anAbility = Globals.getAbilityNamed("ALL", availItem);
+					final Ability anAbility = Globals.getAbilityKeyed("ALL", availItem);
 					double c;
 					if (anAbility == null)
 					{
@@ -274,21 +274,21 @@ class LevelAbilityFeat extends LevelAbility
 				String chosenItem = selectedList.get(n).toString();
 				previousChoices.add(chosenItem);
 
-				final String featString        = chosenItem;
+				final String featKey        = chosenItem;
 				final List   aBonusList        = new ArrayList();
-				Ability      anAbility         = Globals.getAbilityNamed("FEAT", featString);
+				Ability      anAbility         = Globals.getAbilityKeyed("FEAT", featKey);
 				boolean      spellLevelProcess = false;
 
 				if (
-				    (anAbility != null) &&
-				    anAbility.getChoiceString().startsWith("SPELLLEVEL"))
+					(anAbility != null) &&
+					anAbility.getChoiceString().startsWith("SPELLLEVEL"))
 				{
 					spellLevelProcess = true;
 
 					final StringTokenizer sTok = new StringTokenizer(
-						    anAbility.getChoiceString(),
-						    "[]",
-						    false);
+							anAbility.getChoiceString(),
+							"[]",
+							false);
 					sTok.nextToken();
 
 					while (sTok.hasMoreTokens())
@@ -307,19 +307,19 @@ class LevelAbilityFeat extends LevelAbility
 				else
 				{
 					aPC.adjustFeats(1);
-					Logging.debugPrint("There is no feat '" + featString + "'. Adjusting feat count by 1");
+					Logging.debugPrint("There is no feat '" + featKey + "'. Adjusting feat count by 1");
 				}
 
-				AbilityUtilities.modFeat(aPC, pcLevelInfo, featString, true, false);
+				AbilityUtilities.modFeat(aPC, pcLevelInfo, featKey, true, false);
 
 				if (spellLevelProcess && (anAbility != null))
 				{
 					if (chosenItem.indexOf('(') > 0)
 					{
 						final StringTokenizer cTok = new StringTokenizer(
-							    chosenItem,
-							    "()",
-							    false);
+								chosenItem,
+								"()",
+								false);
 						anAbility  = aPC.getFeatNamed(cTok.nextToken());
 						chosenItem = cTok.nextToken();
 					}
@@ -348,9 +348,9 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param  aPC           the PC this Level ability is adding to.
 	 */
 	void processToken(
-	    final String          aToken,
-	    final List            anArrayList,
-	    final PlayerCharacter aPC)
+		final String          aToken,
+		final List            anArrayList,
+		final PlayerCharacter aPC)
 	{
 		if ("STACKS".equals(aToken))
 		{
@@ -378,20 +378,20 @@ class LevelAbilityFeat extends LevelAbility
 		{
 			String                theChoice = (String) fi.next();
 			final StringTokenizer aTok      = new StringTokenizer(theChoice, ",", false);
-			String                featName  = aTok.nextToken().trim();
-			String                subName   = "";
-			Ability               anAbility = Globals.getAbilityNamed("FEAT", featName);
+			String                featKey  = aTok.nextToken().trim();
+			String                subKey   = "";
+			Ability               anAbility = AbilityUtilities.retrieveAbilityKeyed("FEAT", featKey);
 
 			if (anAbility == null)
 			{
-				Logging.errorPrint("LevelAbilityFeat: Feat not found: " + featName);
+				Logging.errorPrint("LevelAbilityFeat: Feat not found: " + featKey);
 				continue;
 			}
 
-			if (!featName.equalsIgnoreCase(anAbility.getName()))
+			if (!featKey.equalsIgnoreCase(anAbility.getKeyName()))
 			{
-				subName  = adjustNames(featName, anAbility);
-				featName = anAbility.getName();
+				subKey  = adjustNames(featKey, anAbility);
+				featKey = anAbility.getKeyName();
 			}
 
 			if (allowDups)
@@ -403,26 +403,26 @@ class LevelAbilityFeat extends LevelAbility
 			}
 
 			if (
-			    allowDups &&
-			    (dupChoices > 0) &&
-			    (dupChoices <= timesChoiceHasBeenTaken(featName)))
+				allowDups &&
+				(dupChoices > 0) &&
+				(dupChoices <= timesChoiceHasBeenTaken(featKey)))
 			{
 				continue;
 			}
 
 			if (
-			    isVirtual ||
-			    PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
+				isVirtual ||
+				PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
 			{
 				if (anAbility.isMultiples())
 				{
-					addMultiplySelectableAbility(anArrayList, aPC, featName, subName, anAbility);
+					addMultiplySelectableAbility(anArrayList, aPC, featKey, subKey, anAbility);
 				}
 				else if (
-				    !aPC.hasRealFeatNamed(featName) &&
-				    !aPC.hasFeatAutomatic(featName))
+					!aPC.hasRealFeat(Globals.getAbilityKeyed("FEAT", featKey)) &&
+					!aPC.hasFeatAutomatic(featKey))
 				{
-					anArrayList.add(featName);
+					anArrayList.add(featKey);
 				}
 			}
 		}
@@ -464,7 +464,7 @@ class LevelAbilityFeat extends LevelAbility
 			return featList;
 		}
 		ArrayList featList = new ArrayList();
-		
+
 		featList.add(aToken);
 		return featList;
 	}
@@ -532,13 +532,13 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param anAbility
 	 * @return the subName after any necessary truncation
 	 */
-	private String adjustNames(String featName, Ability anAbility) {
-		String subName = featName.substring(anAbility.getName().length());
-		featName       = anAbility.getName();
+	private String adjustNames(String aFeatKey, Ability anAbility) {
+		String subKey = aFeatKey.substring(anAbility.getKeyName().length());
+		aFeatKey       = anAbility.getKeyName();
 
-		final int i = subName.indexOf('(');
+		final int i = subKey.indexOf('(');
 
-		return (i > -1) ? subName.substring(i + 1) : subName;
+		return (i > -1) ? subKey.substring(i + 1) : subKey;
 	}
 
 	/**
@@ -586,15 +586,15 @@ class LevelAbilityFeat extends LevelAbility
 		final String choiceString = anAbility.getChoiceString();
 
 		if (
-		    (choiceString.indexOf("NUMCHOICES=") < 0) &&
-		    (choiceString.indexOf("COUNT=") < 0))
+			(choiceString.indexOf("NUMCHOICES=") < 0) &&
+			(choiceString.indexOf("COUNT=") < 0))
 		{
 			anAbility.modChoices(
-			    availableList,
-			    selectedList,
-			    false,
-			    aPC,
-			    true);
+				availableList,
+				selectedList,
+				false,
+				aPC,
+				true);
 		}
 		else
 		{
@@ -705,9 +705,9 @@ class LevelAbilityFeat extends LevelAbility
 	 *                        level to add them to.
 	 */
 	public void process(
-	    final List            availableList,
-	    final PlayerCharacter aPC,
-	    final PCLevelInfo     pcLevelInfo)
+		final List            availableList,
+		final PlayerCharacter aPC,
+		final PCLevelInfo     pcLevelInfo)
 	{
 		aText = rawTagData;
 
@@ -778,10 +778,10 @@ class LevelAbilityFeat extends LevelAbility
 					{
 						ch.setVisible(true);
 						if (processChoice(
-						    choicesList,
-						    ch.getSelectedList(),
-						    aPC,
-						    pcLevelInfo))
+							choicesList,
+							ch.getSelectedList(),
+							aPC,
+							pcLevelInfo))
 						{
 							break;
 						}

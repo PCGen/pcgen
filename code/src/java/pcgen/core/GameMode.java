@@ -319,7 +319,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Set the alternative HP Text 
+	 * Set the alternative HP Text
 	 * @param aString
 	 */
 	public void setAltHPText(final String aString)
@@ -337,7 +337,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Get the allow auto resize flag 
+	 * Get the allow auto resize flag
 	 * @return true if allowed to auto resize
 	 */
 	public boolean getAllowAutoResize()
@@ -356,7 +356,7 @@ public final class GameMode implements Comparable
 
 	/**
 	 * Get BAB Abbreviation
-	 * @return BAB Abbreviation 
+	 * @return BAB Abbreviation
 	 */
 	public String getBabAbbrev()
 	{
@@ -382,7 +382,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Set Level at which you gain a bonus stat 
+	 * Set Level at which you gain a bonus stat
 	 * @param aString
 	 */
 	public void setBonusStatLevels(final String aString)
@@ -409,17 +409,17 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Get the class type by name 
+	 * Get the class type by name
 	 * @param aClassName
 	 * @return ClassType
 	 */
-	public ClassType getClassTypeByName(final String aClassName)
+	public ClassType getClassTypeByName(final String aClassKey)
 	{
 		for (Iterator i = classTypeList.iterator(); i.hasNext();)
 		{
 			final ClassType aClassType = (ClassType) i.next();
 
-			if (aClassType.getName().equalsIgnoreCase(aClassName))
+			if (aClassType.getKeyName().equalsIgnoreCase(aClassKey))
 			{
 				return aClassType;
 			}
@@ -534,7 +534,7 @@ public final class GameMode implements Comparable
 	/* *************************
 	 * FLP WEAPONSIZEPENALTY3.5
 	 * *************************/
-	
+
 	/**
 	 * Get the equipment size penalty object
 	 * @return PObject representing the equipment size penalty
@@ -750,7 +750,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Return true if a RuleCheck exists for a key 
+	 * Return true if a RuleCheck exists for a key
 	 * @param aKey
 	 * @return true if a RuleCheck exists for a key
 	 */
@@ -908,7 +908,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Get the singular (e.g. No 's') verson of the tab name 
+	 * Get the singular (e.g. No 's') verson of the tab name
 	 * @param iTab
 	 * @return the singular (e.g. No 's') verson of the tab name
 	 */
@@ -1751,7 +1751,7 @@ public final class GameMode implements Comparable
 	{
 		s_ATTRIBSHORT[index] = s;
 	}
-	
+
 	/**
 	 * Returns the index of the requested attribute abbreviation,
 	 * The attributes used are loaded from a lst file
@@ -1818,7 +1818,7 @@ public final class GameMode implements Comparable
 
 		return check;
 	}
-	
+
 	/**
 	 * Get the Index of a Check
 	 * @param check
@@ -1903,7 +1903,7 @@ public final class GameMode implements Comparable
 
 			if (useLongForm)
 			{
-				al[x++] = alignment.getName();
+				al[x++] = alignment.getDisplayName();
 			}
 			else
 			{
@@ -1925,7 +1925,7 @@ public final class GameMode implements Comparable
 			final PCAlignment alignment = (PCAlignment) alignmentList.get(i);
 
 			// if long name or short name of alignment matches, return index
-			if (alignment.getName().equalsIgnoreCase(anAlignmentName)
+			if (alignment.getDisplayName().equalsIgnoreCase(anAlignmentName)
 					|| alignment.getKeyName().equalsIgnoreCase(anAlignmentName))
 			{
 				return i;
@@ -1951,7 +1951,7 @@ public final class GameMode implements Comparable
 		}
 		else
 		{
-			alName = al.getName();
+			alName = al.getDisplayName();
 		}
 
 		return alName;
@@ -1983,25 +1983,25 @@ public final class GameMode implements Comparable
 		return Collections.unmodifiableList(alignmentList);
 	}
 
-    /**
-     * Set the range increment penalty for ranged weapons.
-     *
-     * @param value
-     *            For penalties set this to be a negative number, for bonuses to
-     *            long range set this to be a positive number, for no range
-     *            penalty set this to be 0
-     */
-    public void setRangePenalty(int value) {
-        rangePenalty = value;
-    }
+	/**
+	 * Set the range increment penalty for ranged weapons.
+	 *
+	 * @param value
+	 *            For penalties set this to be a negative number, for bonuses to
+	 *            long range set this to be a positive number, for no range
+	 *            penalty set this to be 0
+	 */
+	public void setRangePenalty(int value) {
+		rangePenalty = value;
+	}
 
 	/**
-	 * Get the range penalty 
+	 * Get the range penalty
 	 * @return range penalty
 	 */
-    public int getRangePenalty() {
-        return rangePenalty;
-    }
+	public int getRangePenalty() {
+		return rangePenalty;
+	}
 
 
 	/**
@@ -2132,7 +2132,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * Add to the bonus spell map 
+	 * Add to the bonus spell map
 	 * @param level
 	 * @param baseStatScore
 	 * @param statRange
@@ -2508,7 +2508,7 @@ public final class GameMode implements Comparable
 	{
 		// Can't have purchase mode if no costs specified
 		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.size() == 0)
-		    || (getRollMethod() != Constants.CHARACTERSTATMETHOD_PURCHASE) || (purchaseMethodName.length() == 0))
+			|| (getRollMethod() != Constants.CHARACTERSTATMETHOD_PURCHASE) || (purchaseMethodName.length() == 0))
 		{
 			return false;
 		}
@@ -2758,7 +2758,7 @@ public final class GameMode implements Comparable
 		{
 			final SizeAdjustment s = (SizeAdjustment) i.next();
 
-			if (s.getName().equalsIgnoreCase(aName) || s.getAbbreviation().equalsIgnoreCase(aName))
+			if (s.getDisplayName().equalsIgnoreCase(aName) || s.getAbbreviation().equalsIgnoreCase(aName))
 			{
 				return s;
 			}
@@ -2859,6 +2859,16 @@ public final class GameMode implements Comparable
 			return (GameModeRollMethod)rollingMethods.get(idx);
 		}
 		return null;
+	}
+
+	/**
+	 * Returns the currently set rolling method for character stats.
+	 *
+	 * @return GameModeRollMethod the current rolling method
+	 */
+	public GameModeRollMethod getCurrentRollingMethod()
+	{
+		return getRollingMethod(rollingMethodIndex);
 	}
 
 	/**
@@ -2983,7 +2993,7 @@ public final class GameMode implements Comparable
 	}
 
 	/**
-	 * True if the summary tab's stat column is visible 
+	 * True if the summary tab's stat column is visible
 	 * @param columnIndex
 	 * @return True if the summary tab's stat column is visible
 	 */

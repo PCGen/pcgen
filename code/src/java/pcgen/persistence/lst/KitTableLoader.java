@@ -78,7 +78,7 @@ public class KitTableLoader
 				if (!token.parse(kit, tableName, value))
 				{
 					Logging.errorPrint("Error parsing Kit Table tag "
-							+ kit.getName() + ':' + colString + "\"");
+							+ kit.getDisplayName() + ':' + colString + "\"");
 				}
 			}
 			else

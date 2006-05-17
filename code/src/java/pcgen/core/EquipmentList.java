@@ -47,7 +47,7 @@ public class EquipmentList {
 	private static boolean autoGeneration = false;
 	private static List modifierList = new ArrayList(MODIFIERLISTSIZE);
 	private static TreeMap equipmentNameMap = new TreeMap();
-    private static TreeMap equipmentKeyMap = new TreeMap();
+	private static TreeMap equipmentKeyMap = new TreeMap();
 
 	/**
 	 * Private to ensure utility object can't be instantiated.
@@ -352,7 +352,7 @@ public class EquipmentList {
 	 * @return the Equipment object matching the key
 	 */
 	public static Equipment getEquipmentKeyed(final String aKey) {
-	    return (Equipment) equipmentKeyMap.get(aKey);
+		return (Equipment) equipmentKeyMap.get(aKey);
 	}
 
 	/**
@@ -365,10 +365,10 @@ public class EquipmentList {
 	public static Equipment getEquipmentKeyedNoCustom(final String aKey) {
 		final Equipment eq = getEquipmentKeyed(aKey);
 		if (eq==null) {
-		    return null;
+			return null;
 		}
 		if (eq.isType(Constants.s_CUSTOM)) {
-		    return null;
+			return null;
 		}
 		return eq;
 	}
@@ -379,7 +379,7 @@ public class EquipmentList {
 	 * @return the equipment list
 	 */
 	public static Collection getEquipmentList() {
-	    return equipmentNameMap.values();
+		return equipmentNameMap.values();
 	}
 
 	/**
@@ -387,7 +387,7 @@ public class EquipmentList {
 	 * @return Equipment List Iterator
 	 */
 	public static Iterator getEquipmentListIterator() {
-	    return equipmentKeyMap.entrySet().iterator();
+		return equipmentKeyMap.entrySet().iterator();
 	}
 
 	/**
@@ -439,8 +439,8 @@ public class EquipmentList {
 
 		if (desiredTypeList.size() != 0) {
 			for ( ; eqIterator.hasNext(); ) {
-			    final Entry entry = (Entry) eqIterator.next();
-			    final Equipment eq = (Equipment) entry.getValue();
+				final Entry entry = (Entry) eqIterator.next();
+				final Equipment eq = (Equipment) entry.getValue();
 				boolean addIt = true;
 
 				//
@@ -478,7 +478,7 @@ public class EquipmentList {
 
 	/**
 	 * Get a list of equipment of a particular type
-	 * 
+	 *
 	 * @param desiredTypes
 	 * @param excludedTypes
 	 * @return list of equipment of a particular type
@@ -508,7 +508,7 @@ public class EquipmentList {
 	public static boolean addEquipment(final Equipment aEq) {
 		if (getEquipmentKeyed(aEq.getKeyName()) != null)
 		{
-		    return false;
+			return false;
 		}
 
 
@@ -519,7 +519,7 @@ public class EquipmentList {
 
 		// Keep a reference to the equipment by name and key
 		equipmentNameMap.put(aEq.getName(), aEq);
-	    equipmentKeyMap.put(aEq.getKeyName(), aEq);
+		equipmentKeyMap.put(aEq.getKeyName(), aEq);
 
 		return true;
 	}
@@ -664,7 +664,7 @@ public class EquipmentList {
 
 			//
 			// Go through all loaded races and flag whether or not to make equipment
-			// sized for them.  Karianna, changed the array length by 1 as Collosal 
+			// sized for them.  Karianna, changed the array length by 1 as Collosal
 			// creatures weren't being catered for (and therefore an OutOfBounds exception
 			// was being thrown) - Bug 937586
 			//
@@ -720,7 +720,7 @@ public class EquipmentList {
 		for (Iterator e = getModifierList().iterator(); e.hasNext();) {
 			final EquipmentModifier aEqMod = (EquipmentModifier) e.next();
 
-			if (aEqMod.getName().equals(aName)) {
+			if (aEqMod.getDisplayName().equals(aName)) {
 				if (aEqMod.isType("All")) { return aEqMod; }
 
 				for (Iterator e2 = aType.iterator(); e2.hasNext();) {
@@ -738,7 +738,7 @@ public class EquipmentList {
 		for (Iterator e = getModifierList().iterator(); e.hasNext();) {
 			final EquipmentModifier aEqMod = (EquipmentModifier) e.next();
 
-			if (aEqMod.getName().equals(aName)) { return aEqMod; }
+			if (aEqMod.getDisplayName().equals(aName)) { return aEqMod; }
 		}
 
 		return null;
@@ -748,7 +748,7 @@ public class EquipmentList {
 		for (Iterator e = getModifierList().iterator(); e.hasNext();) {
 			final EquipmentModifier aEqMod = (EquipmentModifier) e.next();
 
-			if (aEqMod.getName().startsWith(aName)) {
+			if (aEqMod.getDisplayName().startsWith(aName)) {
 				for (Iterator e2 = eq.typeList().iterator(); e2.hasNext();) {
 					final String t = (String) e2.next();
 
@@ -803,7 +803,7 @@ public class EquipmentList {
 			// Armor without an armor bonus is an exception
 			//
 			if (!eq.getModifiersAllowed()
-					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getName()
+					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getDisplayName()
 							.equalsIgnoreCase("MASTERWORK")))) { return; }
 
 			eq = (Equipment) eq.clone();
@@ -823,7 +823,7 @@ public class EquipmentList {
 			}
 
 			if ((iSize >= 0) && (iSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1))) {
-				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getName());
+				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getDisplayName());
 			}
 
 			//
@@ -890,22 +890,22 @@ public class EquipmentList {
 		return eq;
 	}
 
-    /**
-     * @return size
-     */
-    public static int size() {
-        return equipmentKeyMap.size();
-    }
+	/**
+	 * @return size
+	 */
+	public static int size() {
+		return equipmentKeyMap.size();
+	}
 
-    /**
-     * @param eq
-     */
-    public static void remove(final Equipment eq) {
-        if (eq == null)
-        {
-            return;
-        }
-        equipmentKeyMap.remove(eq.getKeyName());
-        equipmentNameMap.remove(eq.getName());
-    }
+	/**
+	 * @param eq
+	 */
+	public static void remove(final Equipment eq) {
+		if (eq == null)
+		{
+			return;
+		}
+		equipmentKeyMap.remove(eq.getKeyName());
+		equipmentNameMap.remove(eq.getName());
+	}
 }

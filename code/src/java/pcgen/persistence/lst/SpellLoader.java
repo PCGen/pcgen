@@ -68,7 +68,7 @@ public final class SpellLoader extends LstObjectFileLoader
 
 		int i = 0;
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		
+
 		Map tokenMap = TokenStore.inst().getTokenMap(SpellLstToken.class);
 
 		while (colToken.hasMoreElements())
@@ -88,7 +88,7 @@ public final class SpellLoader extends LstObjectFileLoader
 			// The very first one is the Name
 			if (i == 0)
 			{
-				if ((!colString.equals(spell.getName())) && (colString.indexOf(".MOD") < 0))
+				if ((!colString.equals(spell.getKeyName())) && (colString.indexOf(".MOD") < 0))
 				{
 					finishObject(spell);
 					spell = new Spell();
@@ -108,7 +108,7 @@ public final class SpellLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, spell, value);
 				if (!token.parse(spell, value))
 				{
-					Logging.errorPrint("Error parsing spell " + spell.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing spell " + spell.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(spell, colString))
@@ -127,9 +127,9 @@ public final class SpellLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getSpellNamed(baseName);
+		return Globals.getSpellKeyed(aKey);
 	}
 
 	/**
@@ -139,10 +139,10 @@ public final class SpellLoader extends LstObjectFileLoader
 	{
 		if (includeObject(target))
 		{
-			Object obj = Globals.getSpellMap().get(target.getName());
+			Object obj = Globals.getSpellMap().get(target.getKeyName());
 			if (obj == null)
 			{
-				Globals.getSpellMap().put(target.getName(), target);
+				Globals.getSpellMap().put(target.getKeyName(), target);
 			}
 			else
 			{
@@ -171,7 +171,7 @@ public final class SpellLoader extends LstObjectFileLoader
 					if (aSpell == null)
 					{
 						aList.add(target);
-						Globals.getSpellMap().put(target.getName(), aList);
+						Globals.getSpellMap().put(target.getKeyName(), aList);
 					}
 					else if (!target.equals(aSpell))
 					{
@@ -180,7 +180,7 @@ public final class SpellLoader extends LstObjectFileLoader
 							if (target.getSourceDateValue() > aSpell.getSourceDateValue())
 							{
 								Globals.getSpellMap().remove(aSpell.getKeyName());
-								Globals.getSpellMap().put(target.getName(), target);
+								Globals.getSpellMap().put(target.getKeyName(), target);
 							}
 						}
 					}
@@ -194,7 +194,7 @@ public final class SpellLoader extends LstObjectFileLoader
 	 */
 	protected void performForget(PObject objToForget)
 	{
-		Globals.getSpellMap().remove(objToForget.getName());
+		Globals.getSpellMap().remove(objToForget.getKeyName());
 	}
 
 	/**

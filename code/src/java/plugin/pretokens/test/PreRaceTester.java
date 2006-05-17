@@ -97,7 +97,7 @@ public class PreRaceTester extends AbstractPrerequisiteTest implements Prerequis
 		}
 		else
 		{
-			final String characterRace = character.getRace().getName();
+			final String characterRace = character.getRace().getKeyName();
 			final int wild = requiredRace.indexOf('%');
 			if (wild == 0)
 			{

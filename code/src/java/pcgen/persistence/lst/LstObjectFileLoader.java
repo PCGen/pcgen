@@ -168,8 +168,8 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	protected final boolean includeObject(PObject parsedObject)
 	{
 		// Null check; never add nulls or objects without a name/key name
-		if ((parsedObject == null) || (parsedObject.getName() == null) || (parsedObject.getName().trim().length() == 0)
-		    || (parsedObject.getKeyName() == null) || (parsedObject.getKeyName().trim().length() == 0))
+		if ((parsedObject == null) || (parsedObject.getDisplayName() == null) || (parsedObject.getDisplayName().trim().length() == 0)
+			|| (parsedObject.getKeyName() == null) || (parsedObject.getKeyName().trim().length() == 0))
 		{
 			return false;
 		}
@@ -185,27 +185,27 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		if (!includeItems.isEmpty())
 		{
-			return includeItems.contains(parsedObject.getName());
+			return includeItems.contains(parsedObject.getKeyName());
 		}
 		// If excludes were present, check excludes for given object
 		List excludeItems = currentSource.getExcludeItems();
 
 		if (!excludeItems.isEmpty())
 		{
-			return !excludeItems.contains(parsedObject.getName());
+			return !excludeItems.contains(parsedObject.getKeyName());
 		}
 
 		return true;
 	}
 
 	/**
-	 * This method retrieves a PObject from globals by its name.
+	 * This method retrieves a PObject from globals by its key.
 	 * This is used to avoid duplicate loads, get objects to forget or
 	 * modify, etc.
-	 * @param baseName String name of PObject to retrieve
+	 * @param aKey String key of PObject to retrieve
 	 * @return PObject from Globals
 	 */
-	protected abstract PObject getObjectNamed(String baseName);
+	protected abstract PObject getObjectKeyed(String aKey);
 
 	/**
 	 * This method loads a single LST formatted file.
@@ -417,15 +417,15 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * @param baseName String name of the object to copy
 	 * @param copyName String name of the target object
 	 */
-	private void performCopy(String baseName, String copyName)
+	private void performCopy(String baseKey, String copyName)
 	{
-		PObject object = getObjectNamed(baseName);
+		PObject object = getObjectKeyed(baseKey);
 
 		try
 		{
 			if (object == null)
 			{
-				logError("PObject '" + baseName + "' not found; .COPY skipped.");
+				logError("PObject '" + baseKey + "' not found; .COPY skipped.");
 
 				return;
 			}
@@ -437,8 +437,8 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		}
 		catch (CloneNotSupportedException e)
 		{
-			logError(object.getClass().getName() + " clone error; .COPY of " + baseName + " to " + copyName
-			    + " skipped.");
+			logError(object.getClass().getName() + " clone error; .COPY of " + baseKey + " to " + copyName
+				+ " skipped.");
 		}
 	}
 
@@ -470,22 +470,22 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	{
 		// get the name of the object to modify, trimming off the .MOD
 		int nameEnd = entry.getLstLine().indexOf(".MOD");
-		String name = entry.getLstLine().substring(0, nameEnd);
+		String key = entry.getLstLine().substring(0, nameEnd);
 
 		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
-		int nameStart = name.indexOf(':');
+		int nameStart = key.indexOf(':');
 
 		if (nameStart > 0)
 		{
-			name = name.substring(nameStart + 1);
+			key = key.substring(nameStart + 1);
 		}
 
 		// get the actual object to modify
-		PObject object = getObjectNamed(name);
+		PObject object = getObjectKeyed(key);
 
 		if (object == null)
 		{
-			logError("Cannot apply .MOD; PObject '" + name + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
+			logError("Cannot apply .MOD; PObject '" + key + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
 			return;
 		}
 
@@ -498,7 +498,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError("Unable to MOD the object '" + name + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
+			logError("Unable to MOD the object '" + key + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
 		}
 	}
 
@@ -515,22 +515,22 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		ModEntry entry = (ModEntry) entryList.get(0);
 		// get the name of the object to modify, trimming off the .MOD
 		int nameEnd = entry.getLstLine().indexOf(".MOD");
-		String name = entry.getLstLine().substring(0, nameEnd);
+		String key = entry.getLstLine().substring(0, nameEnd);
 
 		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
-		int nameStart = name.indexOf(':');
+		int nameStart = key.indexOf(':');
 
 		if (nameStart > 0)
 		{
-			name = name.substring(nameStart + 1);
+			key = key.substring(nameStart + 1);
 		}
 
 		// get the actual object to modify
-		PObject object = getObjectNamed(name);
+		PObject object = getObjectKeyed(key);
 
 		if (object == null)
 		{
-			logError("Cannot apply .MOD; PObject '" + name + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
+			logError("Cannot apply .MOD; PObject '" + key + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
 			return;
 		}
 
@@ -547,7 +547,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError("Unable to MOD the object '" + name + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
+			logError("Unable to MOD the object '" + key + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
 		}
 	}
 
@@ -574,13 +574,13 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		while (forgetIter.hasNext())
 		{
-			String forgetName = (String) forgetIter.next();
-			forgetName = forgetName.substring(0, forgetName.indexOf(".FORGET"));
+			String forgetKey = (String) forgetIter.next();
+			forgetKey = forgetKey.substring(0, forgetKey.indexOf(".FORGET"));
 
 			// Commented out so that deprcated method no longer used
 			// performForget(forgetName);
 
-			PObject objToForget = getObjectNamed(forgetName);
+			PObject objToForget = getObjectKeyed(forgetKey);
 			if (objToForget != null)
 			{
 				performForget(objToForget);

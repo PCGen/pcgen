@@ -204,24 +204,24 @@ public final class CharacterDomain
 
 		if (domain != null)
 		{
-			final StringBuffer name = new StringBuffer(domain.getName());
+			final StringBuffer name = new StringBuffer(domain.getDisplayName());
 
 			if (fromPCClass)
 			{
-				final PCClass aClass = Globals.getClassNamed(domainName);
+				final PCClass aClass = Globals.getClassKeyed(domainName);
 
 				if (aClass != null)
 				{
-					name.insert(0, aClass.getName() + ":");
+					name.insert(0, aClass.getDisplayName() + ":");
 				}
 			}
 			else if (fromFeat)
 			{
-				final Ability aFeat = Globals.getAbilityNamed("FEAT", domainName);
+				final Ability aFeat = Globals.getAbilityKeyed("FEAT", domainName);
 
 				if (aFeat != null)
 				{
-					name.insert(0, aFeat.getName() + ":");
+					name.insert(0, aFeat.getDisplayName() + ":");
 				}
 			}
 
@@ -247,7 +247,7 @@ public final class CharacterDomain
 
 		if (fromPCClass)
 		{
-			final PCClass aClass = aPC.getClassNamed(domainName);
+			final PCClass aClass = aPC.getClassKeyed(domainName);
 			valid = ((aClass != null) && (aClass.getLevel() >= level));
 		}
 
@@ -256,7 +256,7 @@ public final class CharacterDomain
 		// merton_monk@yahoo.com
 		if (fromFeat)
 		{
-			valid = (aPC.hasRealFeatNamed(domainName) || aPC.hasFeatAutomatic(domainName) || aPC.hasFeatVirtual(domainName));
+			valid = (aPC.hasRealFeat(Globals.getAbilityKeyed("FEAT", domainName)) || aPC.hasFeatAutomatic(domainName) || aPC.hasFeatVirtual(domainName));
 		}
 
 		return valid;
@@ -286,7 +286,7 @@ public final class CharacterDomain
 
 		if ((aPC != null) && (aDomain != null))
 		{
-			final String aString = "DOMAIN:" + aDomain.getName() + '|';
+			final String aString = "DOMAIN:" + aDomain.getKeyName() + '|';
 
 			for (int i = 0; i < aDomain.getVariableCount(); i++)
 			{

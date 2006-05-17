@@ -62,7 +62,7 @@ public class PreSubClassTester  extends AbstractPrerequisiteTest implements Prer
 		for (Iterator it = character.getClassList().iterator(); it.hasNext(); )
 		{
 			final PCClass aClass = (PCClass) it.next();
-			final String subClassName = aClass.getSubClassName();
+			final String subClassName = aClass.getSubClassKey();
 			if (subClassName.length() != 0)
 			{
 				if (thisClass.equalsIgnoreCase(subClassName))

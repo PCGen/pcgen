@@ -11,7 +11,7 @@ import pcgen.util.PCGenCommand;
 
 /**
  * Deals with skill() JEP commands
- * 
+ *
  * eg. skill("rank", "Swim")
  * eg. skill("total", "Swim")
  * eg. skill("modifier", "Swim")
@@ -61,10 +61,10 @@ public class SkillInfoCommand extends PCGenCommand {
 				throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 			}
 
-    		final Skill aSkill = pc.getSkillNamed((String)param2);
+			final Skill aSkill = pc.getSkillKeyed((String)param2);
 
 			Object result = null;
-    		if (aSkill != null) {
+			if (aSkill != null) {
 				if (((String) param1).equalsIgnoreCase("modifier")) {
 					result = new Double(aSkill.modifier(pc).intValue());		// aSkill.modifier() returns Integer
 				}

@@ -112,7 +112,7 @@ public abstract class VariableProcessor
 		String cacheString = aString+"#"+src;
 		if (aSpell != null)
 		{
-			cacheString += aSpell.getName();
+			cacheString += aSpell.getKeyName();
 		}
 
 		if (spellLevelTemp > 0)

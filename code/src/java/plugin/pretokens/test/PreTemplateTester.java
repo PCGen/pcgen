@@ -49,38 +49,38 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		int runningTotal = 0;
 
-        final int number;
-        try {
-            number = Integer.parseInt(prereq.getOperand());
-        }
-        catch (NumberFormatException exceptn) {
-            throw new PrerequisiteException(PropertyFactory.getFormattedString("PreTemplate.error", prereq.toString())); //$NON-NLS-1$
-        }
+		final int number;
+		try {
+			number = Integer.parseInt(prereq.getOperand());
+		}
+		catch (NumberFormatException exceptn) {
+			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreTemplate.error", prereq.toString())); //$NON-NLS-1$
+		}
 
-        if (!character.getTemplateList().isEmpty())
+		if (!character.getTemplateList().isEmpty())
 		{
 
-			String templateName = prereq.getKey().toUpperCase();
-			final int wildCard = templateName.indexOf('%');
+			String templateKey = prereq.getKey().toUpperCase();
+			final int wildCard = templateKey.indexOf('%');
 			//handle wildcards (always assume they end the line)
 			if (wildCard >= 0)
 			{
-				templateName = templateName.substring(0, wildCard);
+				templateKey = templateKey.substring(0, wildCard);
 				for (Iterator ti = character.getTemplateList().iterator(); ti.hasNext();)
 				{
 					final PCTemplate aTemplate = (PCTemplate) ti.next();
-					if (aTemplate.getName().toUpperCase().startsWith(templateName))
+					if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
 					{
 						runningTotal++;
 					}
 				}
 			}
-			else if (character.getTemplateNamed(templateName) != null)
+			else if (character.getTemplateKeyed(templateKey) != null)
 			{
 				runningTotal++;
 			}
 		}
-        runningTotal = prereq.getOperator().compare(runningTotal, number);
+		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);
 	}
 

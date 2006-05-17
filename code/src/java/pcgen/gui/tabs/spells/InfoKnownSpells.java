@@ -88,7 +88,7 @@ import pcgen.util.PropertyFactory;
 
 /**
  * <code>InfoKnownSpells</code> is responsible for the display of the list of
- * a character's known spells and the provision of an interface to let the 
+ * a character's known spells and the provision of an interface to let the
  * user update their character's known spell list.
  *
  * Last Editor: $Author$
@@ -132,7 +132,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 	/**
 	 *  Constructor for the InfoKnownSpells object
-	 * 
+	 *
 	 * @param pc The character this tab is being created to display.
 	 */
 	public InfoKnownSpells(PlayerCharacter pc)
@@ -248,7 +248,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			divLocVert = SettingsHandler.getPCGenOption("InfoSpells.bsplit", //$NON-NLS-1$
 				(int) (this.getSize().getHeight() - 101));
 			divLocHoriz = SettingsHandler.getPCGenOption("InfoSpells.asplit", //$NON-NLS-1$
-				(int) (this.getSize().getWidth() - 408)); 
+				(int) (this.getSize().getWidth() - 408));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
@@ -581,9 +581,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	}
 
 	/**
-	 * Build the panel with the controls to add a spell to a 
+	 * Build the panel with the controls to add a spell to a
 	 * prepared list.
-	 *  
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildAddSpellPanel()
@@ -611,7 +611,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 	/**
 	 * Build the Spell sheet selection and output panel
-	 * 
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildOutputSpellsPanel()
@@ -664,7 +664,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		return ssPanel;	}
 
 	/**
-	 * Build Bottom Panel. 
+	 * Build Bottom Panel.
 	 * botPane will contain a bLeftPane and a bRightPane
 	 * bLeftPane will contain a scrollregion (spell info)
 	 * bRightPane will contain a scrollregion (character Info)
@@ -730,7 +730,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	protected void updateBookList()
 	{
 		availableBookList.clear();
-		
+
 		selectedBookList.clear();
 		selectedBookList.add(Globals.INNATE_SPELL_BOOK_NAME);
 		selectedBookList.add(Globals.getDefaultSpellBook());
@@ -906,7 +906,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		for (int index = selCPaths.length - 1; index >= 0; --index)
 		{
 			TreePath selCPath = selCPaths[index];
-	
+
 			Object endComp = selCPath.getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) endComp;
 			List aList = getInfoFromNode(fNode);
@@ -920,23 +920,24 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 			if (cs != null)
 			{
-		
+
 				String bookName = selCPath.getPathComponent(1).toString();
 				SpellInfo si = (SpellInfo) fNode.getItem();
-		
-				PCClass aClass = pc.getClassNamed(className);
+
+				// TODO Check this
+				PCClass aClass = pc.getClassKeyed(className);
 				if (aClass == null)
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR); 
+						Constants.s_APPNAME, MessageType.ERROR);
 				}
 				else
 				{
 					bookName = currSpellBook = bookName;
-			
+
 					final String aString = pc.delSpell(si, aClass, bookName);
-			
+
 					if (aString.length() > 0)
 					{
 						ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,

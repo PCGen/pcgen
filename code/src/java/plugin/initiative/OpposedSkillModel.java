@@ -90,21 +90,21 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 * @param aSkillName
 		 * @return skillBonus
 		 */
-		public Integer getSkillBonus(String aSkillName)
+		public Integer getSkillBonus(String aSkillKey)
 		{
 			Integer returnValue = null;
-			if (initiative != null && aSkillName != null)
+			if (initiative != null && aSkillKey != null)
 			{
 				PlayerCharacter pc = initiative.getPC();
 				Globals.setCurrentPC(pc);
-				Skill skill = pc.getSkillNamed(aSkillName);
+				Skill skill = pc.getSkillKeyed(aSkillKey);
 				if (skill != null)
 				{
 					returnValue = new Integer(skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue());
 				}
 				else
 				{
-					skill = Globals.getSkillNamed(aSkillName);
+					skill = Globals.getSkillKeyed(aSkillKey);
 					if (skill != null
 							&& skill.isUntrained()
 							&& skill.getKeyStat().compareToIgnoreCase(

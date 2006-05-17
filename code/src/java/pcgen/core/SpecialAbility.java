@@ -74,12 +74,12 @@ public final class SpecialAbility extends TextProperty
 		{
 			final StringTokenizer aTok = new StringTokenizer(saSource, "|=", false);
 			final String typeString = aTok.nextToken();
-			final String className = aTok.nextToken();
+			final String classKey = aTok.nextToken();
 			final String levelString = aTok.nextToken();
 
-			if (className.equals(oldClass))
+			if (classKey.equals(oldClass))
 			{
-				Logging.errorPrint("Source class changed from " + oldClass + " to " + newClass + " for " + name);
+				Logging.errorPrint("Source class changed from " + oldClass + " to " + newClass + " for " + displayName);
 
 				setSASource(typeString + "=" + newClass + "|" + levelString);
 			}
@@ -114,18 +114,19 @@ public final class SpecialAbility extends TextProperty
 	{
 		if (obj instanceof SpecialAbility)
 		{
-			if (name.equals(obj.toString()))
+			SpecialAbility sa = (SpecialAbility)obj;
+			if (keyName.equals(sa.getKeyName()))
 			{
-				return saSource.compareToIgnoreCase(((SpecialAbility) obj).saSource);
+				return saSource.compareToIgnoreCase(sa.saSource);
 			}
 		}
 
-		return name.compareToIgnoreCase(obj.toString());
+		return keyName.compareToIgnoreCase(obj.toString());
 	}
 
 	public String toString()
 	{
-		return name;
+		return displayName;
 	}
 
 	boolean pcQualifiesFor(final PlayerCharacter aPC)
@@ -140,12 +141,12 @@ public final class SpecialAbility extends TextProperty
 		}
 
 		// currently source is either empty or
-		// PCCLASS|classname|classlevel (means it's a chosen special ability)
-		// PCCLASS=classname|classlevel (means it's a defined special ability)
-		// DEITY=deityname|totallevels
+		// PCCLASS|classKey|classlevel (means it's a chosen special ability)
+		// PCCLASS=classKey|classlevel (means it's a defined special ability)
+		// DEITY=deityKey|totallevels
 		final StringTokenizer aTok = new StringTokenizer(saSource, "|=", false);
 		final String aString = aTok.nextToken();
-		final String aName = aTok.nextToken();
+		final String aKey = aTok.nextToken();
 		final PCClass aClass;
 		final int anInt;
 
@@ -162,7 +163,7 @@ public final class SpecialAbility extends TextProperty
 
 		if ("PCCLASS".equals(aString))
 		{
-			aClass = aPC.getClassNamed(aName);
+			aClass = aPC.getClassKeyed(aKey);
 
 			if (aClass == null)
 			{

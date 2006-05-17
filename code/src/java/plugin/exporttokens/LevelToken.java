@@ -150,10 +150,10 @@ public class LevelToken extends Token
 		PCClass aClass = pc.getClassKeyed(classKeyName);
 		if (aClass == null)
 		{
-			aClass = Globals.getClassNamed(classKeyName);
+			aClass = Globals.getClassKeyed(classKeyName);
 			if (aClass != null)
 			{
-				aClass = pc.getClassNamed(aClass.getExClass());
+				aClass = pc.getClassKeyed(aClass.getExClass());
 			}
 		}
 		if (aClass != null)

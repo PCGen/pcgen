@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * A class to handle generating a suitable list of choices, selecting from
@@ -46,7 +47,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 {
 	protected boolean multiples           = false;
 	protected double  cost                = 1.0;
-	/** Indicator that the choice definition is valid. */ 
+	/** Indicator that the choice definition is valid. */
 	protected boolean valid               = true;
 
 	protected int     requestedSelections = -1;
@@ -61,8 +62,8 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 * @param  aPC
 	 */
 	public AbstractComplexChoiceManager(
-	    PObject         aPObject,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, aPC);
 	}
@@ -75,9 +76,9 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 * @param  aPC
 	 */
 	public AbstractComplexChoiceManager(
-	    PObject         aPObject,
-	    String          choiceString,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          choiceString,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, aPC);
 		initialise(choiceString, aPC);
@@ -149,7 +150,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 
 	/**
 	 * Identify if the choice definition is valid.
-	 * @return true if the choice definition is valid, false otherwise. 
+	 * @return true if the choice definition is valid, false otherwise.
 	 */
 	final boolean isValid()
 	{
@@ -163,9 +164,9 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 * @param selectedList
 	 */
 	public void doChooserRemove (
-		    PlayerCharacter       aPC,
-		    final List            availableList,
-		    final List            selectedList)
+			PlayerCharacter       aPC,
+			final List            availableList,
+			final List            selectedList)
 	{
 		remove = true;
 
@@ -175,21 +176,21 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 				selectedList);
 
 		applyChoices(aPC, newSelections);
-		
+
 		remove = false;
 	}
 
 	/**
-	 * Do chooser.  
-	 * 
+	 * Do chooser.
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 */
 	public List doChooser (
-		    PlayerCharacter       aPc,
-		    final List            availableList,
-		    final List            selectedList)
+			PlayerCharacter       aPc,
+			final List            availableList,
+			final List            selectedList)
 	{
 
 		if (requestedSelections < 0)
@@ -240,7 +241,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 		chooser.setVisible(false);
 		chooser.setPool(requestedSelections);
 
-		title = title + " (" + pobject.getName() + ')';
+		title = title + " (" + pobject.getDisplayName() + ')';
 		chooser.setTitle(title);
 		Globals.sortChooserLists(availableList, selectedList);
 
@@ -265,13 +266,36 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 
 			break;
 		}
-		
+
+		List selected = chooser.getSelectedList();
+		if (availableList.get(0) instanceof PObject && (selected.size() > 0
+			&& !(selected.get(0) instanceof PObject)))
+		{
+			List newSelected = new ArrayList();
+			// We started with an PObject list and got back a string list
+			// Find the corresponding PObjects and return them instead.
+			for (Iterator sel = selected.iterator(); sel.hasNext(); )
+			{
+				final String name = (String)sel.next();
+				for (Iterator avail = availableList.iterator(); avail.hasNext();)
+				{
+					PObject pObj = (PObject)avail.next();
+					if (name.equalsIgnoreCase(pObj.getDisplayName()))
+					{
+						newSelected.add(pObj);
+						continue;
+					}
+				}
+			}
+			chooser.setSelectedList(newSelected);
+		}
+
 		return chooser.getSelectedList();
 	}
 
 	/**
 	 * what type of chooser does this handle
-	 * 
+	 *
 	 * @return type of chooser
 	 */
 	public String typeHandled() {
@@ -290,24 +314,30 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 			List             selected)
 	{
 		cleanUpAssociated(aPC, selected.size());
-	
+
 		String objPrefix = (pobject instanceof Domain)
 				? chooserHandled + '?'
 				: "";
-	
+
 		if (pobject instanceof Ability)
 		{
-		    ((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
+			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
 		}
-	
+
 		Iterator it = selected.iterator();
 		while (it.hasNext())
 		{
-			associateChoice(aPC, (String) it.next(), objPrefix);	
+			Object choice = it.next();
+			String strChoice = choice.toString();
+			if (choice instanceof PObject)
+			{
+				strChoice = ((PObject)choice).getKeyName();
+			}
+			associateChoice(aPC, strChoice, objPrefix);
 		}
-	
+
 		adjustFeats(aPC, selected);
-	
+
 		if (objPrefix.length() != 0)
 		{
 			aPC.setAutomaticFeatsStable(false);
@@ -329,10 +359,10 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -365,14 +395,14 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 			List            selected)
 	{
 		double featCount = aPC.getFeats();
-	
+
 		if (cost > 0)
 		{
 			featCount = (numberOfChoices > 0)
 					? featCount - cost
 					: ((maxSelections - selected.size()) * cost);
 		}
-	
+
 		aPC.adjustFeats(featCount - aPC.getFeats());
 	}
 

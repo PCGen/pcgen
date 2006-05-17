@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * This is one of the choosers that deals with choosing from among a set 
+ * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
 public class FeatListChoiceManager extends AbstractComplexChoiceManager {
@@ -50,7 +50,7 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager {
 	{
 		super(aPObject, choiceString, aPC);
 		chooserHandled = "FEATLIST";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -72,7 +72,7 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager {
 		Iterator choiceIt = choices.iterator();
 
 		while (choiceIt.hasNext()){
-			
+
 			aString = (String) choiceIt.next();
 
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
@@ -89,17 +89,22 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager {
 					final Ability theFeat = (Ability) e1.next();
 
 					if (theFeat.isType(aString)
-						&& (dupsAllowed || (!dupsAllowed && !availableList.contains(theFeat.getName()))))
+						&& (dupsAllowed || (!dupsAllowed && !availableList.contains(theFeat))))
 					{
-						availableList.add(theFeat.getName());
+						availableList.add(theFeat);
 					}
 				}
 			}
-			else if (aPc.getFeatNamed(aString) != null)
+			else
 			{
-				if (dupsAllowed || (!dupsAllowed && !availableList.contains(aString)))
+				Ability feat = aPc.getFeatKeyed(aString);
+				if (feat != null)
 				{
-					availableList.add(aString);
+					if (dupsAllowed
+						|| (!dupsAllowed && !availableList.contains(feat)))
+					{
+						availableList.add(feat);
+					}
 				}
 			}
 		}

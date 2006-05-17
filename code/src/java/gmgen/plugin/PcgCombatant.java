@@ -62,7 +62,7 @@ public class PcgCombatant extends Combatant
 
 		StatList sl = pc.getStatList();
 		this.hitPoints = new SystemHP(new SystemAttribute("Constitution", sl.getTotalStatFor("CON")), pc.hitPoints(),
-			    pc.hitPoints());
+				pc.hitPoints());
 		setCombatantType("PC");
 	}
 
@@ -91,7 +91,7 @@ public class PcgCombatant extends Combatant
 
 			StatList sl = pc.getStatList();
 			this.hitPoints = new SystemHP(new SystemAttribute("Constitution", sl.getTotalStatFor("CON")),
-				    pc.hitPoints(), pc.hitPoints());
+					pc.hitPoints(), pc.hitPoints());
 
 			setStatus(combatant.getAttribute("status").getValue());
 			setCombatantType(combatant.getAttribute("type").getValue());
@@ -967,7 +967,7 @@ public class PcgCombatant extends Combatant
 						{
 							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
 						}
-						statBuf.append("<font class='type'>" + aObject.getName() + ":</font><br> ");
+						statBuf.append("<font class='type'>" + aObject.getDisplayName() + ":</font><br> ");
 						printedFirst = true;
 					}
 
@@ -989,7 +989,7 @@ public class PcgCombatant extends Combatant
 							Spell spell = ((CharacterSpell) spellList.get(j)).getSpell();
 							CharacterSpell cs = (CharacterSpell) spellList.get(j);
 							statBuf.append("<a href=" + '"' + "spell:");
-							statBuf.append(spell.getName());
+							statBuf.append(spell.getDisplayName());
 							statBuf.append("\\");
 							statBuf.append(aPC.parseSpellString(spell, spell.getDescription(), cs.getOwner()));
 							statBuf.append("\\");
@@ -1004,7 +1004,7 @@ public class PcgCombatant extends Combatant
 							statBuf.append(aPC.parseSpellString(spell, spell.getTarget(), cs.getOwner()));
 							statBuf.append('"' + " class=" + '"' + "dialog" + '"' + ">");
 
-							statBuf.append(spell.getName());
+							statBuf.append(spell.getDisplayName());
 							statBuf.append("</a>");
 						}
 
@@ -1026,7 +1026,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(", ");
 			statBuf.append(pcOut.getGender()); //|GENDER|
 			statBuf.append(" ");
-			statBuf.append(pcOut.getRace()); //|RACE|
+			statBuf.append(pcOut.getRaceName()); //|RACE|
 
 			String region = pcOut.getRegion(); //|REGION|.|%|
 

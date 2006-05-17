@@ -124,7 +124,7 @@ final class EqBuilder extends JPanel
 	private ArrayList[] newTypeList = { null, null };
 	private int eqType = EQTYPE_NONE;
 	private int iListCount = 0;
-    private PlayerCharacter aPC;
+	private PlayerCharacter aPC;
 
 	/**
 	 * Creates new form EqBuilder
@@ -132,7 +132,7 @@ final class EqBuilder extends JPanel
 	 */
 	EqBuilder(PlayerCharacter apc)
 	{
-	    this.aPC = apc;
+		this.aPC = apc;
 		initComponents();
 	}
 
@@ -150,15 +150,15 @@ final class EqBuilder extends JPanel
 	/**
 	 * Set the equipment
 	 * @param aEq
-	 * @return TRUE if OK 
+	 * @return TRUE if OK
 	 */
 	public boolean setEquipment(Equipment aEq)
 	{
 		if (aEq.isWeapon() && aEq.isDouble()) {
-		    dataModel = new EquipmentModModelDouble();
+			dataModel = new EquipmentModModelDouble();
 		}
 		else {
-		    dataModel = new EquipmentModModelSingle();
+			dataModel = new EquipmentModModelSingle();
 		}
 		sorter.setModel(dataModel);
 		return setEquipment(aEq, false);
@@ -249,7 +249,7 @@ final class EqBuilder extends JPanel
 			{
 				final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 
-				if (!eqMod.getName().startsWith("EXCLUDEEQ"))
+				if (!eqMod.getDisplayName().startsWith("EXCLUDEEQ"))
 				{
 					continue;
 				}
@@ -328,7 +328,7 @@ final class EqBuilder extends JPanel
 		// Set item size
 		final String eqSize = aEq.getSize();
 		final int iSize = Globals.sizeInt(eqSize);
-		setItemSize(SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getName());
+		setItemSize(SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getDisplayName());
 
 		if (!bReloading)
 		{
@@ -374,7 +374,7 @@ final class EqBuilder extends JPanel
 
 			for (int i = 0; i <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1); i++)
 			{
-				if (SettingsHandler.getGame().getSizeAdjustmentAtIndex(i).getName().equalsIgnoreCase(aSize))
+				if (SettingsHandler.getGame().getSizeAdjustmentAtIndex(i).getDisplayName().equalsIgnoreCase(aSize))
 				{
 					return i;
 				}
@@ -993,7 +993,7 @@ final class EqBuilder extends JPanel
 
 		for (int i = 0; i < SettingsHandler.getGame().getSizeAdjustmentListSize(); i++)
 		{
-			sizeStrings[i] = SettingsHandler.getGame().getSizeAdjustmentAtIndex(i).getName();
+			sizeStrings[i] = SettingsHandler.getGame().getSizeAdjustmentAtIndex(i).getDisplayName();
 		}
 
 		return sizeStrings;
@@ -1142,7 +1142,7 @@ final class EqBuilder extends JPanel
 		aNewEq.removeType("AUTO_GEN");
 		aNewEq.removeType("STANDARD");
 		if (!aNewEq.isType(Constants.s_CUSTOM)) {
-		    aNewEq.addMyType(Constants.s_CUSTOM);
+			aNewEq.addMyType(Constants.s_CUSTOM);
 		}
 
 
@@ -1285,7 +1285,7 @@ final class EqBuilder extends JPanel
 
 		ChooseSpellDialog csd = new ChooseSpellDialog(
 									(JFrame) Utility.getParentNamed(getParent(), EQFrame.class.getName()),
-			    					aPC,
+									aPC,
 									eqType,
 									metaAllowed, classList, levelList, spellBooks, eqMod.getChoiceString());
 		csd.setVisible(true);
@@ -1316,7 +1316,7 @@ final class EqBuilder extends JPanel
 					Object selectedValue = ii.showInputDialog(null,
 											toPrint,
 											Constants.s_APPNAME,
-						    				MessageType.INFORMATION,
+											MessageType.INFORMATION,
 											null,
 											Integer.toString(eqMod.getMaxCharges()));
 
@@ -1352,13 +1352,13 @@ final class EqBuilder extends JPanel
 			if (existingEqMod != null)
 			{
 				existingEqMod.setSpellInfo((PObject) castingClass, theSpell, variant, spellType, baseSpellLevel,
-				    casterLevel, metamagicFeats, charges);
+					casterLevel, metamagicFeats, charges);
 			}
 			else
 			{
 				eqMod = (EquipmentModifier) eqMod.clone();
 				eqMod.setSpellInfo((PObject) castingClass, theSpell, variant, spellType, baseSpellLevel, casterLevel,
-				    metamagicFeats, charges);
+					metamagicFeats, charges);
 
 				aNewEq.addEqModifier(eqMod, true, aPC);
 			}
@@ -1513,13 +1513,13 @@ final class EqBuilder extends JPanel
 
 	private void loadScreenInfo()
 	{
-	    String tbl = "EqBuilder";
-	    if (dataModel instanceof EquipmentModModelDouble) {
-	        tbl = tbl + "A";
-	    }
-	    else {
-	        tbl = tbl + "C";
-	    }
+		String tbl = "EqBuilder";
+		if (dataModel instanceof EquipmentModModelDouble) {
+			tbl = tbl + "A";
+		}
+		else {
+			tbl = tbl + "C";
+		}
 		int i = jListAvailable.getColumnCount();
 		int width = 0;
 
@@ -1662,13 +1662,13 @@ final class EqBuilder extends JPanel
 
 	private void saveScreenInfo()
 	{
-	    String tbl = "EqBuilder";
-	    if (dataModel instanceof EquipmentModModelDouble) {
-	        tbl = tbl + "A";
-	    }
-	    else {
-	        tbl = tbl + "C";
-	    }
+		String tbl = "EqBuilder";
+		if (dataModel instanceof EquipmentModModelDouble) {
+			tbl = tbl + "A";
+		}
+		else {
+			tbl = tbl + "C";
+		}
 
 		SettingsHandler.setCustomizerSplit1(jSplitPane2.getDividerLocation());
 		SettingsHandler.setCustomizerSplit2(jSplitPane3.getDividerLocation());
@@ -1736,10 +1736,10 @@ final class EqBuilder extends JPanel
 				while (aNewEq.getRange(aPlayerCharacter).intValue() == 0)
 				{
 					InputInterface ii = InputFactory.getInputInstance();
-                    Object selectedValue = ii.showInputDialog(null,
+					Object selectedValue = ii.showInputDialog(null,
 											"Enter the range",
 											Constants.s_APPNAME,
-                            				MessageType.INFORMATION,
+											MessageType.INFORMATION,
 											null,
 											null);
 
@@ -1998,7 +1998,7 @@ final class EqBuilder extends JPanel
 	 * For the actual data, this class relies on the global
 	 * equipment modifier list from <code>Globals</code>.
 	 */
-    private abstract class EquipmentModModel extends AbstractTableModel
+	private abstract class EquipmentModModel extends AbstractTableModel
 	{
 		static final long serialVersionUID = -369105812700996734L;
 		private Object[] lastColValue = new Object[6];
@@ -2044,8 +2044,8 @@ final class EqBuilder extends JPanel
 			}
 			else if (lastColValue[column] != null)
 			{
-			    // If we are looking at the same row as last time then if
-			    // we have a cached value for the column return the cached value.
+				// If we are looking at the same row as last time then if
+				// we have a cached value for the column return the cached value.
 				return lastColValue[column];
 			}
 
@@ -2054,13 +2054,13 @@ final class EqBuilder extends JPanel
 
 			try
 			{
-			    // Set the cached value of the column
+				// Set the cached value of the column
 				lastColValue[column] = sRet;
 			}
 			catch (Exception exc)
 			{
-			    // We do not care if we have a problem caching the value
-			    // because we can just get it again next time around
+				// We do not care if we have a problem caching the value
+				// because we can just get it again next time around
 			}
 
 			return sRet;
@@ -2069,141 +2069,141 @@ final class EqBuilder extends JPanel
 		protected abstract Object getEqModTableValueAt(PlayerCharacter aPlayerCharacter, int row, int column);
 
 		/**
-         * @param e
-         * @return Object
-         */
+		 * @param e
+		 * @return Object
+		 */
 		protected Object getSourceValue(EquipmentModifier e) {
-            Object sRet;
-            sRet = e.getSource();
-            return sRet;
-        }
+			Object sRet;
+			sRet = e.getSource();
+			return sRet;
+		}
 
-        /**
-         * @param e
-         * @return Object
-         */
-        protected Object getSaValue(EquipmentModifier e) {
-            Object sRet;
-            final List aSA = e.getRawSpecialProperties();
-            StringBuffer aBuf = new StringBuffer(aSA.size() * 50);
+		/**
+		 * @param e
+		 * @return Object
+		 */
+		protected Object getSaValue(EquipmentModifier e) {
+			Object sRet;
+			final List aSA = e.getRawSpecialProperties();
+			StringBuffer aBuf = new StringBuffer(aSA.size() * 50);
 
-            for (Iterator e2 = aSA.iterator(); e2.hasNext();)
-            {
-            	if (aBuf.length() > 0)
-            	{
-            		aBuf.append(", ");
-            	}
+			for (Iterator e2 = aSA.iterator(); e2.hasNext();)
+			{
+				if (aBuf.length() > 0)
+				{
+					aBuf.append(", ");
+				}
 
-            	aBuf.append((String) e2.next());
-            }
+				aBuf.append((String) e2.next());
+			}
 
-            sRet = aBuf.toString();
-            return sRet;
-        }
+			sRet = aBuf.toString();
+			return sRet;
+		}
 
-        /**
-         * @param e
-         * @return Object
-         */
-        protected Object getCostValue(EquipmentModifier e) {
-            Object sRet;
-            int iPlus = e.getPlus();
-            StringBuffer eCost = new StringBuffer(20);
+		/**
+		 * @param e
+		 * @return Object
+		 */
+		protected Object getCostValue(EquipmentModifier e) {
+			Object sRet;
+			int iPlus = e.getPlus();
+			StringBuffer eCost = new StringBuffer(20);
 
-            if (iPlus != 0)
-            {
-            	eCost.append("Plus:").append(iPlus);
-            }
+			if (iPlus != 0)
+			{
+				eCost.append("Plus:").append(iPlus);
+			}
 
-            String sCost = e.getPreCost();
+			String sCost = e.getPreCost();
 
-            if (!"0".equals(sCost))
-            {
-            	if (eCost.length() != 0)
-            	{
-            		eCost.append(", ");
-            	}
+			if (!"0".equals(sCost))
+			{
+				if (eCost.length() != 0)
+				{
+					eCost.append(", ");
+				}
 
-            	eCost.append("Precost:").append(sCost);
-            }
+				eCost.append("Precost:").append(sCost);
+			}
 
-            sCost = e.getCost();
+			sCost = e.getCost();
 
-            if (!"0".equals(sCost))
-            {
-            	if (eCost.length() != 0)
-            	{
-            		eCost.append(", ");
-            	}
+			if (!"0".equals(sCost))
+			{
+				if (eCost.length() != 0)
+				{
+					eCost.append(", ");
+				}
 
-            	eCost.append("Cost:").append(sCost);
-            }
+				eCost.append("Cost:").append(sCost);
+			}
 
-            sRet = eCost.toString();
-            return sRet;
-        }
+			sRet = eCost.toString();
+			return sRet;
+		}
 
-        /**
-         * @param aPlayerCharacter
-         * @param e
-         * @return Object
-         */
-        protected Object getPrereqValue(PlayerCharacter aPlayerCharacter, EquipmentModifier e) {
-            Object sRet;
-            sRet = e.preReqHTMLStrings(aPlayerCharacter, aNewEq);
-            return sRet;
-        }
+		/**
+		 * @param aPlayerCharacter
+		 * @param e
+		 * @return Object
+		 */
+		protected Object getPrereqValue(PlayerCharacter aPlayerCharacter, EquipmentModifier e) {
+			Object sRet;
+			sRet = e.preReqHTMLStrings(aPlayerCharacter, aNewEq);
+			return sRet;
+		}
 
-        /**
-         * @param e
-         * @return Object
-         */
-        protected Object getNameValue(EquipmentModifier e) {
-            Object sRet;
-            sRet = e.getName();
+		/**
+		 * @param e
+		 * @return Object
+		 */
+		protected Object getNameValue(EquipmentModifier e) {
+			Object sRet;
+			sRet = e.getDisplayName();
 
-            if (e.isType("BaseMaterial"))
-            {
-            	sRet = "*" + sRet;
-            }
-            return sRet;
-        }
+			if (e.isType("BaseMaterial"))
+			{
+				sRet = "*" + sRet;
+			}
+			return sRet;
+		}
 
-        /**
-         * @param e
-         * @return Object
-         */
-        protected Object getHead2QualifiesValue(EquipmentModifier e) {
-            Object sRet;
-            if ((aNewEq != null) && aNewEq.canAddModifier(e, false))
-            {
-            	sRet = "Y";
-            }
-            else
-            {
-            	sRet = "N";
-            }
-            return sRet;
-        }
+		/**
+		 * @param e
+		 * @return Object
+		 */
+		protected Object getHead2QualifiesValue(EquipmentModifier e) {
+			Object sRet;
+			if ((aNewEq != null) && aNewEq.canAddModifier(e, false))
+			{
+				sRet = "Y";
+			}
+			else
+			{
+				sRet = "N";
+			}
+			return sRet;
+		}
 
-        /**
-         * @param e
-         * @return Object
-         */
-        protected Object getHead1QualifiesValue(EquipmentModifier e) {
-            Object sRet;
-            if ((aNewEq != null) && aNewEq.canAddModifier(e, true))
-            {
-            	sRet = "Y";
-            }
-            else
-            {
-            	sRet = "N";
-            }
-            return sRet;
-        }
+		/**
+		 * @param e
+		 * @return Object
+		 */
+		protected Object getHead1QualifiesValue(EquipmentModifier e) {
+			Object sRet;
+			if ((aNewEq != null) && aNewEq.canAddModifier(e, true))
+			{
+				sRet = "Y";
+			}
+			else
+			{
+				sRet = "N";
+			}
+			return sRet;
+		}
 
-        private void setFilter(Equipment anEq, int listCount)
+		private void setFilter(Equipment anEq, int listCount)
 		{
 			List aFilter = anEq.typeList();
 			int currentRowCount = getRowCount();
@@ -2246,26 +2246,26 @@ final class EqBuilder extends JPanel
 			fireTableStructureChanged();
 		}
 
-        /**
-         * Get the display modfiers
-         * @return display modfiers
-         */
-        public List getDisplayModifiers() {
-            return displayModifiers;
-        }
+		/**
+		 * Get the display modfiers
+		 * @return display modfiers
+		 */
+		public List getDisplayModifiers() {
+			return displayModifiers;
+		}
 	}
-    /**
-     */
-    public class EquipmentModModelSingle extends EquipmentModModel {
+	/**
+	 */
+	public class EquipmentModModelSingle extends EquipmentModModel {
 		private static final int COL_Q1 = 0;
-        private static final int COL_NAME = 1;
-        private static final int COL_SA = 2;
-        private static final int COL_COST = 3;
-        private static final int COL_PREREQ = 4;
-        private static final int COL_SOURCE = 5;
-        private static final int COL_COUNT = 6;
+		private static final int COL_NAME = 1;
+		private static final int COL_SA = 2;
+		private static final int COL_COST = 3;
+		private static final int COL_PREREQ = 4;
+		private static final int COL_SOURCE = 5;
+		private static final int COL_COUNT = 6;
 
-        protected Object getEqModTableValueAt(PlayerCharacter aPlayerCharacter, int row, int column)
+		protected Object getEqModTableValueAt(PlayerCharacter aPlayerCharacter, int row, int column)
 		{
 			EquipmentModifier e;
 
@@ -2281,15 +2281,15 @@ final class EqBuilder extends JPanel
 				case COL_Q1:
 					return getHead1QualifiesValue(e);
 				case COL_NAME:
-				    return getNameValue(e);
+					return getNameValue(e);
 				case COL_PREREQ:
-				    return getPrereqValue(aPlayerCharacter, e);
+					return getPrereqValue(aPlayerCharacter, e);
 				case COL_COST:
-				    return getCostValue(e);
+					return getCostValue(e);
 				case COL_SA:
-				    return getSaValue(e);
+					return getSaValue(e);
 				case COL_SOURCE:
-				    return getSourceValue(e);
+					return getSourceValue(e);
 				default:
 					Logging.errorPrint("In EqBuilder.getEqModTableValueAt the column " + column + " is not handled.");
 					return "";
@@ -2309,35 +2309,35 @@ final class EqBuilder extends JPanel
 		 */
 		public String getColumnName(int column)
 		{
-		    switch(column) {
-		    case COL_Q1: return "Q";
-		    case COL_NAME: return "Name";
-		    case COL_PREREQ: return "Prereqs";
-		    case COL_COST: return "Cost";
-		    case COL_SA: return "Special Properties";
-		    case COL_SOURCE: return "Source";
-		    default:
-		        return "";
-		    }
+			switch(column) {
+			case COL_Q1: return "Q";
+			case COL_NAME: return "Name";
+			case COL_PREREQ: return "Prereqs";
+			case COL_COST: return "Cost";
+			case COL_SA: return "Special Properties";
+			case COL_SOURCE: return "Source";
+			default:
+				return "";
+			}
 		}
-        public int getColumnCount() {
-            return COL_COUNT;
-        }
-        public String toString() {
-            return "EquipmentModModelSingle";
-        }
+		public int getColumnCount() {
+			return COL_COUNT;
+		}
+		public String toString() {
+			return "EquipmentModModelSingle";
+		}
    }
-    /**
-     */
-    public class EquipmentModModelDouble extends EquipmentModModel {
+	/**
+	 */
+	public class EquipmentModModelDouble extends EquipmentModModel {
 		private static final int COL_Q1 = 0;
-        private static final int COL_Q2 = 1;
-        private static final int COL_NAME = 2;
-        private static final int COL_SA = 3;
-        private static final int COL_COST = 4;
-        private static final int COL_PREREQ = 5;
-        private static final int COL_SOURCE = 6;
-        private static final int COL_COUNT = 7;
+		private static final int COL_Q2 = 1;
+		private static final int COL_NAME = 2;
+		private static final int COL_SA = 3;
+		private static final int COL_COST = 4;
+		private static final int COL_PREREQ = 5;
+		private static final int COL_SOURCE = 6;
+		private static final int COL_COUNT = 7;
 
 		protected Object getEqModTableValueAt(PlayerCharacter aPlayerCharacter, int row, int column)
 		{
@@ -2355,17 +2355,17 @@ final class EqBuilder extends JPanel
 				case COL_Q1:
 					return getHead1QualifiesValue(e);
 				case COL_Q2:
-				    return getHead2QualifiesValue(e);
+					return getHead2QualifiesValue(e);
 				case COL_NAME:
-				    return getNameValue(e);
+					return getNameValue(e);
 				case COL_PREREQ:
-				    return getPrereqValue(aPlayerCharacter, e);
+					return getPrereqValue(aPlayerCharacter, e);
 				case COL_COST:
-				    return getCostValue(e);
+					return getCostValue(e);
 				case COL_SA:
-				    return getSaValue(e);
+					return getSaValue(e);
 				case COL_SOURCE:
-				    return getSourceValue(e);
+					return getSourceValue(e);
 				default:
 					Logging.errorPrint("In EqBuilder.getEqModTableValueAt the column " + column + " is not handled.");
 					return "";
@@ -2399,17 +2399,17 @@ final class EqBuilder extends JPanel
 		 */
 		public String getColumnName(int column)
 		{
-		    switch(column) {
-		    case COL_Q1: return "Q1";
-		    case COL_Q2: return "Q2";
-		    case COL_NAME: return "Name";
-		    case COL_PREREQ: return "Prereqs";
-		    case COL_COST: return "Cost";
-		    case COL_SA: return "Special Properties";
-		    case COL_SOURCE: return "Source";
-		    default:
-		        return "";
-		    }
+			switch(column) {
+			case COL_Q1: return "Q1";
+			case COL_Q2: return "Q2";
+			case COL_NAME: return "Name";
+			case COL_PREREQ: return "Prereqs";
+			case COL_COST: return "Cost";
+			case COL_SA: return "Special Properties";
+			case COL_SOURCE: return "Source";
+			default:
+				return "";
+			}
 		}
-    }
+	}
 }

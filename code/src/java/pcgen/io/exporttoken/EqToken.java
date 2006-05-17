@@ -772,7 +772,7 @@ public class EqToken extends Token
 	 */
 	public static String getProfToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.profName(pc);
+		return eq.profKey(pc);
 	}
 
 	/**
@@ -823,7 +823,7 @@ public class EqToken extends Token
 	 */
 	public static String getSizeLongToken(Equipment eq)
 	{
-		return SettingsHandler.getGame().getSizeAdjustmentAtIndex(Globals.sizeInt(eq.getSize())).getName();
+		return SettingsHandler.getGame().getSizeAdjustmentAtIndex(Globals.sizeInt(eq.getSize())).getDisplayName();
 	}
 
 	/**
@@ -1091,7 +1091,7 @@ public class EqToken extends Token
 				}
 				catch(NumberFormatException e)
 				{
-				    // TODO - This exception needs to be handled
+					// TODO - This exception needs to be handled
 				}
 			}
 			return getTypeToken(eq);

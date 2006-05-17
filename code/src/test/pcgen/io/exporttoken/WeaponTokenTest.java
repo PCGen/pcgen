@@ -111,12 +111,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Race
 		Race testRace = new Race();
 		testRace.setName("TestRace");
+		testRace.setKeyName("KEY_TEST_RACE");
 		testRace.setSize("M");
 		character.setRace(testRace);
 
 		// Class
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
+		myClass.setKeyName("KEY_MY_CLASS");
 			myClass.setAbbrev("Myc");
 		myClass.setSkillPointFormula("3");
 			final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
@@ -129,6 +131,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		dblWpn = new Equipment();
 		dblWpn.setName("DoubleWpn");
+		dblWpn.setKeyName("KEY_DOUBLE_WPN");
 		dblWpn.setTypeInfo("Weapon.Melee.Martial.Double.Standard.Bludgeoning.Flail");
 		dblWpn.setDamage("1d10");
 		dblWpn.setAltDamage("1d6");
@@ -142,14 +145,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.addEquipment(dblWpn);
 		EquipSet def = new EquipSet("0.1", "Default");
 		character.addEquipSet(def);
-		EquipSet es = new EquipSet("0.1.1", "Double Weapon", dblWpn.getName(), dblWpn);
+		EquipSet es = new EquipSet("0.1.1", "Double Weapon", dblWpn.getKeyName(), dblWpn);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
 		bastardSword = new Equipment();
-		bastardSword.setName("Sword (Bastard)");
-		bastardSword.setOutputName("Sword, Bastard");
-		bastardSword.setProfName("Sword (Bastard/[Hands])");
+		bastardSword.setName("Sword, Bastard");
+		bastardSword.setKeyName("BASTARD_SWORD");
+		bastardSword.setProfName("KEY_Sword (Bastard/[Hands])");
 		bastardSword.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
 		bastardSword.setDamage("1d10");
 		bastardSword.setCritMult(2);
@@ -164,20 +167,23 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard/Martial)");
+		wp.setKeyName("KEY_Sword (Bastard/Martial)");
 		wp.setTypeInfo("MARTIAL");
 		wp.setHands("2");
 		Globals.addWeaponProf(wp);
-		character.addWeaponProf(wp.getName());
+		character.addWeaponProf(wp.getKeyName());
 
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard/Exotic)");
+		wp.setKeyName("KEY_Sword (Bastard/Exotic)");
 		wp.setTypeInfo("EXOTIC");
 		Globals.addWeaponProf(wp);
 
 		largeSword = new Equipment();
 		largeSword.setName("Longsword (Large)");
+		largeSword.setKeyName("KEY_LONGSWORD_LARGE");
 		largeSword.setOutputName("Longsword (Large)");
-		largeSword.setProfName("Longsword");
+		largeSword.setProfName("KEY_Longsword");
 		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
 		largeSword.setDamage("1d10");
 		largeSword.setCritMult(2);
@@ -187,14 +193,16 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		wp = new WeaponProf();
 		wp.setName("Longsword");
+		wp.setKeyName("KEY_LONGSWORD");
 		wp.setTypeInfo("MARTIAL");
 		Globals.addWeaponProf(wp);
-		character.addWeaponProf(wp.getName());
+		character.addWeaponProf(wp.getKeyName());
 
 		fineSword = new Equipment();
 		fineSword.setName("Longsword (Fine)");
+		fineSword.setKeyName("KEY_LONGSWORD_FINE");
 		fineSword.setOutputName("Longsword (Fine)");
-		fineSword.setProfName("Longsword");
+		fineSword.setProfName("KEY_Longsword");
 		fineSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
 		fineSword.setDamage("1d10");
 		fineSword.setCritMult(2);
@@ -229,12 +237,12 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.setProfName("SillyBite");
 
 		wp = new WeaponProf();
-		wp.setName("SillyBite");
-		//wp.setKeyName("SillyBite");
+		wp.setName("Silly Bite");
+		wp.setKeyName("SillyBite");
 		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		wp.setTypeInfo("Natural");
 		Globals.addWeaponProf(wp);
-		character.addWeaponProf(wp.getName());
+		character.addWeaponProf(wp.getKeyName());
 
 		// Weild categories
 		WieldCategory wCat1h = new WieldCategory("OneHanded");
@@ -429,7 +437,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("2-handed prof should be martial",
-			"Sword (Bastard/Martial)", bastardSword.profName(character));
+			"KEY_Sword (Bastard/Martial)", bastardSword.profKey(character));
 
 		EquipSet es = new EquipSet("0.1.2", "Sword (Bastard)", bastardSword
 			.getName(), bastardSword);
@@ -453,8 +461,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testLargeLongSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "Longsword", largeSword
-			.profName(character));
+		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
+			.profKey(character));
 
 		EquipSet es = new EquipSet("0.1.3", "Longsword (Large)", largeSword
 			.getName(), largeSword);
@@ -479,8 +487,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testLargeWpnBonus()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "Longsword", largeSword
-			.profName(character));
+		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
+			.profKey(character));
 
 		PCTemplate longswordTemplate = new PCTemplate();
 		longswordTemplate.setName("LS Bonus");
@@ -518,7 +526,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be SillyBite", "SillyBite", bite
-			.profName(character));
+			.profKey(character));
 
 		EquipSet es = new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
 		character.addEquipSet(es);
@@ -541,8 +549,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testWpnFinesse()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "Longsword", fineSword
-			.profName(character));
+		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
+			.profKey(character));
 
 		character.addEquipment(fineSword);
 		EquipSet es = new EquipSet("0.1.3", "Longsword (Fine)", fineSword

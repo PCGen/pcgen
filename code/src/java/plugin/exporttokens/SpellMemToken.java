@@ -208,7 +208,7 @@ public class SpellMemToken extends Token
 					{
 						if ("RANGE".equals(aLabel))
 						{
-							retValue.append(aPC.getSpellRange(aSpell, cs.getOwner().getName(), si));
+							retValue.append(aPC.getSpellRange(aSpell, cs.getOwner().getKeyName(), si));
 						}
 						else if ("BASEPPCOST".equals(aLabel))
 						{
@@ -216,7 +216,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("CASTERLEVEL".equals(aLabel))
 						{
-							retValue.append(aPC.getCasterLevelForSpell(aSpell, cs.getOwner().getName()));
+							retValue.append(aPC.getCasterLevelForSpell(aSpell, cs.getOwner().getKeyName()));
 						}
 						else if ("CASTINGTIME".equals(aLabel))
 						{
@@ -287,7 +287,7 @@ public class SpellMemToken extends Token
 							String aTemp = aSpell.getSchool();
 
 							if ((aSpell.getSubschool().length() > 0)
-							    && (!"NONE".equals(aSpell.getSubschool().trim().toUpperCase())))
+								&& (!"NONE".equals(aSpell.getSubschool().trim().toUpperCase())))
 							{
 								aTemp += (" (" + aSpell.getSubschool() + ')');
 							}
@@ -332,7 +332,7 @@ public class SpellMemToken extends Token
 						else if (aLabel.startsWith("DESCRIPTION"))
 						{
 							final String sString = ExportHandler
-								.getItemDescription("SPELL", aSpell.getName(),
+								.getItemDescription("SPELL", aSpell.getKeyName(),
 									aSpell.getDescription(), aPC);
 
 							if (altLabel.length() > 0)
@@ -401,16 +401,16 @@ public class SpellMemToken extends Token
 		StringBuffer retValue = new StringBuffer();
 
 		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell()
-		    && (aObject instanceof PCClass))
+			&& (aObject instanceof PCClass))
 		{
 			for (Iterator ip = aPC.getCharacterDomainList().iterator(); ip.hasNext();)
 			{
 				final CharacterDomain aCD = (CharacterDomain) ip.next();
 
 				if ((aCD != null) && (aCD.getDomain() != null)
-				    && aCD.isFromPCClass(aObject.getName()))
+					&& aCD.isFromPCClass(aObject.getKeyName()))
 				{
-					dList.add(aCD.getDomain().getName());
+					dList.add(aCD.getDomain().getKeyName());
 				}
 			}
 
@@ -454,32 +454,32 @@ public class SpellMemToken extends Token
 
 		for (Iterator e = tempHash.keySet().iterator(); e.hasNext();)
 		{
-			String className = (String) e.next();
-			Integer classLevel = (Integer) tempHash.get(className);
+			String classKey = (String) e.next();
+			Integer classLevel = (Integer) tempHash.get(classKey);
 
-			if (className.startsWith("CLASS|"))
+			if (classKey.startsWith("CLASS|"))
 			{
-				className = className.substring(6);
-				if (! "ALL".equals(className))
+				classKey = classKey.substring(6);
+				if (! "ALL".equals(classKey))
 				{
-					if (Globals.getClassNamed(className) != null)
+					if (Globals.getClassKeyed(classKey) != null)
 					{
-						className = Globals.getClassNamed(className).getAbbrev();
+						classKey = Globals.getClassKeyed(classKey).getAbbrev();
 					}
 					else
 					{
-						className = null;
+						classKey = null;
 					}
 				}
 			}
 			else
 			{
-				className = className.substring(7);
+				classKey = classKey.substring(7);
 			}
 
-			if (className != null)
+			if (classKey != null)
 			{
-				levelSet.add(className + classLevel.toString());
+				levelSet.add(classKey + classLevel.toString());
 			}
 		}
 

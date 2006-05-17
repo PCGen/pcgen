@@ -20,7 +20,7 @@ public class BonusLst implements GlobalLstToken {
 
 	public boolean parse(PObject obj, String value, int anInt) {
 		boolean result = false;
-		value = CoreUtility.replaceAll(value, "<this>", obj.getName());
+		value = CoreUtility.replaceAll(value, "<this>", obj.getKeyName());
 		if (anInt > -9) {
 			result = obj.addBonusList(anInt + "|" + value);
 		}

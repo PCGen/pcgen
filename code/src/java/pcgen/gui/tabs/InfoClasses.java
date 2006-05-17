@@ -454,7 +454,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		pc.setDirty(true);
 
-		final PCClass aClass = pc.getClassNamed(theClass.getName());
+		final PCClass aClass = pc.getClassKeyed(theClass.getKeyName());
 
 		//
 		// TODO:
@@ -492,84 +492,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		//
 		if (levels > 0)
 		{
-			if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((pc.totalNonMonsterLevels()) == 1))
-			{
-				//
-				// See what the PC is already carrying
-				//
-				List clothes = EquipmentList.getEquipmentOfType(pc.getEquipmentList().iterator(), "Clothing.Resizable", "Magic");
-
-				//
-				// Check to see if any of the clothing the PC
-				// is carrying will actually fit and
-				// has a zero price attached
-				//
-				boolean hasClothes = false;
-				final String pcSize = pc.getSize();
-
-				if (clothes.size() != 0)
-				{
-					for (Iterator e = clothes.iterator(); e.hasNext();)
-					{
-						final Equipment eq = (Equipment) e.next();
-
-						if ((CoreUtility.doublesEqual(eq.getCost(pc).doubleValue(), 0.0)) && pcSize.equals(eq.getSize()))
-						{
-							hasClothes = true;
-
-							break;
-						}
-					}
-				}
-
-				//
-				// If the PC has no clothing items, or none that
-				// are sized to fit, then allow them to pick
-				// a free set
-				//
-				if (!hasClothes)
-				{
-					clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
-					if (clothes.isEmpty())
-					{
-						clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
-					}
-
-					List selectedClothes = new ArrayList();
-					Globals.chooseFromList(PropertyFactory.getString("in_clCloSet"), clothes, selectedClothes, 1);
-
-					if (selectedClothes.size() != 0)
-					{
-						String aString = (String) selectedClothes.get(0);
-						Equipment eq = EquipmentList.getEquipmentNamed(aString);
-
-						if (eq != null)
-						{
-							eq = (Equipment) eq.clone();
-							eq.setQty(new Float(1));
-
-							//
-							// Need to resize to fit?
-							//
-							if (!pcSize.equals(eq.getSize()))
-							{
-								eq.resizeItem(pc, pcSize);
-							}
-
-							eq.setCostMod("-" + eq.getCost(pc).toString()); // make cost 0
-
-							if (pc.getEquipmentNamed(eq.nameItemFromModifiers(pc)) == null)
-							{
-								pc.addEquipment(eq);
-							}
-							else
-							{
-								Logging.errorPrint(PropertyFactory.getString("in_clEqEr"));
-							}
-						}
-					}
-				}
-			}
+			TabUtils.selectClothes(pc);
 		}
 
 		pc.setDirty(true);
@@ -891,7 +814,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			final String aString = aClass.getSourceWithKey("LONG");
 			if (aString == null)
 			{
-				Logging.errorPrint("PC class " + aClass.getName()
+				Logging.errorPrint("PC class " + aClass.getDisplayName()
 					+ " has no source long entry.");
 			}
 			else if (!sourceList.contains(aString))
@@ -975,7 +898,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		infoLabel.setBackground(bLeftPane.getBackground());
 		bLeftPane.add(infoScroll, BorderLayout.CENTER);
 		Utility.setDescription(bLeftPane, PropertyFactory.getString("in_infoScrollTip"));
-		
+
 		//  Bottom Right Pane - Character Info
 		initSEPanel(bRightPane);
 
@@ -1040,7 +963,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
-		
+
 		JPanel rightBottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
 		Utility.setDescription(removeButton, PropertyFactory.getString("in_clRemoveTip"));
@@ -1430,7 +1353,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			for (int i = 0; i < countChecks; ++i)
 			{
 				final PObject obj = (PObject) checkList.get(i);
-				lblCheck[i].setText(obj.getName());
+				lblCheck[i].setText(obj.getDisplayName());
 				lCheck[i].setText(Delta.toString((int) pc.getBonus(i + 1, true)));
 			}
 		}
@@ -1566,7 +1489,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				PropertyFactory.getString("in_baseStat"),
 				PropertyFactory.getString("in_sourceLabel")
 			};
-		
+
 		private final int[] colDefaultWidth = {
 				200, 100, 35, 70, 35, 40, 60, 60, 100
 		};
@@ -1603,7 +1526,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[7], false)));
 			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[8], true)));
 		}
-		
+
 		public boolean isCellEditable(Object node, int column)
 		{
 			return (column == COL_NAME);
@@ -1690,7 +1613,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 			final Integer c = new Integer(0);
 			String retString = "";
-			
+
 			switch (column)
 			{
 				case COL_NAME: // Name
@@ -1723,14 +1646,14 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case COL_TYPE:
 					if (pcclass != null)
 					{
-						retString = pcclass.getType(); 
+						retString = pcclass.getType();
 					}
 					return retString;
-					
+
 				case COL_BAB:
 					if (pcclass != null)
 					{
-						retString = pcclass.getAttackBonusType(); 
+						retString = pcclass.getAttackBonusType();
 					}
 					return retString;
 
@@ -1738,21 +1661,21 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					if (pcclass != null)
 					{
 						int hitDie = pcclass.getBaseHitDie();
-						retString = "1d" + hitDie; 
+						retString = "1d" + hitDie;
 					}
 					return retString;
 
 				case COL_SPELLTYPE:
 					if (pcclass != null)
 					{
-						retString = pcclass.getSpellType(); 
+						retString = pcclass.getSpellType();
 					}
 					return retString;
 
 				case COL_SPELLSTAT:
 					if (pcclass != null)
 					{
-						retString = pcclass.getSpellBaseStat(); 
+						retString = pcclass.getSpellBaseStat();
 					}
 					return retString;
 
@@ -1841,8 +1764,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 							continue;
 						}
 
-						if (qFilter == null || 
-								( aClass.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+						if (qFilter == null ||
+								( aClass.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 								  aClass.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 						{
 							PObjectNode aFN = new PObjectNode();
@@ -1922,7 +1845,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 							String sourceString = aClass.getSourceWithKey("LONG");
 							if (sourceString == null)
 							{
-								Logging.errorPrint("PC class " + aClass.getName()
+								Logging.errorPrint("PC class " + aClass.getDisplayName()
 									+ " has no source long entry.");
 							}
 							else if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
@@ -2005,18 +1928,18 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		public void setMColumnDefaultWidth(int col, int width) {
 			SettingsHandler.setPCGenOption("InfoClasses.sizecol." + colNameList[col], width);
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoClasses.viewcol." + colName, defaultVal);
 		}
-		
+
 		private void setColumnViewOption(String colName, boolean val) {
 			SettingsHandler.setPCGenOption("InfoClasses.viewcol." + colName, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 
@@ -2427,8 +2350,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() { 
-			// Do Nothing 
+		public void singleClickEvent() {
+			// Do Nothing
 		}
 
 		public void doubleClickEvent()
@@ -2454,7 +2377,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		public void singleClickEvent() {
 			// Do nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			// We run this after the event has been processed so that

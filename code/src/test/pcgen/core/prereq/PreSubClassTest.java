@@ -71,9 +71,10 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
+		pcClass.setKeyName("KEY_MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-		pcClass.setSubClassName("MySubClass");
+		pcClass.setSubClassKey("MySubClass");
 
 
 		final PlayerCharacter character = getCharacter();
@@ -105,7 +106,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
-		pcClass2.setSubClassName("OtherSubClass");
+		pcClass2.setSubClassKey("OtherSubClass");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -133,12 +134,12 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-		pcClass.setSubClassName("MySubClass");
+		pcClass.setSubClassKey("MySubClass");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
-		pcClass2.setSubClassName("OtherSubClass");
+		pcClass2.setSubClassKey("OtherSubClass");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -192,7 +193,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-		pcClass.setSubClassName("MySubClass");
+		pcClass.setSubClassKey("MySubClass");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);

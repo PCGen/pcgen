@@ -67,7 +67,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
 
-		myClass = character.getClassNamed("My Class");
+		myClass = character.getClassKeyed("My Class");
 
 		Prerequisite prereq;
 

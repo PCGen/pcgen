@@ -61,7 +61,7 @@ public class SaLst implements GlobalLstToken {
 					if (obj instanceof PCClass
 						&& "var".equals(prereq.getKind()))
 					{
-						prereq.setSubKey("CLASS:" + obj.getName());
+						prereq.setSubKey("CLASS:" + obj.getKeyName());
 					}
 					sa.addPreReq(prereq);
 				} catch (PersistenceLayerException ple) {
@@ -80,7 +80,7 @@ public class SaLst implements GlobalLstToken {
 		sa.setName(saName);
 
 		if (obj instanceof PCClass) {
-			sa.setSASource("PCCLASS=" + obj.getName() + "|" + level);
+			sa.setSASource("PCCLASS=" + obj.getKeyName() + "|" + level);
 		}
 
 		if (!aString.equals(".CLEAR")) {

@@ -194,7 +194,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 
 				if (race != null)
 				{
-					return race.getName();
+					return race.getKeyName();
 				}
 				return fn.toString();
 
@@ -323,8 +323,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 				{
 					final Race aRace = (Race) iRace.next();
 
-					if (qFilter == null || 
-							( aRace.getName().toLowerCase().indexOf(qFilter) >= 0 ||
+					if (qFilter == null ||
+							( aRace.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 							  aRace.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 					{
 						if (aRace != null)
@@ -480,7 +480,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
 		}
 	}
-	
+
 	public List getMColumnList() {
 		List retList = new ArrayList();
 		for(int i = 1; i < avaNameList.length; i++) {
@@ -509,17 +509,17 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	public void setMColumnDefaultWidth(int col, int width) {
 		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], width);
 	}
-	
+
 	private boolean getColumnViewOption(String colName, boolean defaultVal) {
 		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, defaultVal);
 	}
-	
+
 	private void setColumnViewOption(String colName, boolean val) {
 		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, val);
 	}
 
 	public void resetMColumn(int col, TableColumn column) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

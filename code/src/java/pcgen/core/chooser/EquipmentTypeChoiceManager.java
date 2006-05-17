@@ -50,7 +50,7 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Equipment Choice";
 		chooserHandled = "EQUIPTYPE";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -72,7 +72,7 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
 
 		String choiceSec = (String) ((choiceIt.hasNext())
 				? choiceIt.next()
-				: pobject.getName());
+				: pobject.getKeyName());
 
 		availableList.addAll(EquipmentList.getEquipmentOfType(choiceSec, ""));
 		pobject.addAssociatedTo(selectedList);

@@ -161,14 +161,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (sourceStr.startsWith("FEAT="))
 		{
 			sourceStr = sourceStr.substring(5);
-			oSource = aPC.getFeatNamed(sourceStr);
+			oSource = aPC.getFeatKeyed(sourceStr);
 		}
 		else if (sourceStr.startsWith("SPELL="))
 		{
 			sourceStr = sourceStr.substring(6);
 
 			//oSource = aPC.getSpellNamed(sourceStr);
-			oSource = Globals.getSpellNamed(sourceStr);
+			oSource = Globals.getSpellKeyed(sourceStr);
 		}
 		else if (sourceStr.startsWith("EQUIPMENT="))
 		{
@@ -178,17 +178,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		else if (sourceStr.startsWith("CLASS="))
 		{
 			sourceStr = sourceStr.substring(6);
-			oSource = aPC.getClassNamed(sourceStr);
+			oSource = aPC.getClassKeyed(sourceStr);
 		}
 		else if (sourceStr.startsWith("TEMPLATE="))
 		{
 			sourceStr = sourceStr.substring(9);
-			oSource = aPC.getTemplateNamed(sourceStr);
+			oSource = aPC.getTemplateKeyed(sourceStr);
 		}
 		else if (sourceStr.startsWith("SKILL="))
 		{
 			sourceStr = sourceStr.substring(6);
-			oSource = aPC.getSkillNamed(sourceStr);
+			oSource = aPC.getSkillKeyed(sourceStr);
 		}
 		else
 		{
@@ -197,7 +197,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (oSource != null)
 		{
-			sourceStr = ((PObject) oSource).getName();
+			sourceStr = ((PObject) oSource).getKeyName();
 		}
 
 		if (targetStr.equals("PC"))
@@ -207,7 +207,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		else
 		{
 			oTarget = aPC.getEquipmentNamed(targetStr);
-			targetStr = ((PObject) oTarget).getName();
+			targetStr = ((PObject) oTarget).getDisplayName();
 		}
 
 		List aList = aPC.getTempBonusList(sourceStr, targetStr);
@@ -215,9 +215,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return aList;
 	}
 
-	private PCTemplate addNamedTemplate(final String templateName)
+	private PCTemplate addKeyedTemplate(final String templateKey)
 	{
-		PCTemplate aPCTemplate = Globals.getTemplateNamed(EntityEncoder.decode(templateName));
+		PCTemplate aPCTemplate = Globals.getTemplateKeyed(EntityEncoder.decode(templateKey));
 
 		if (aPCTemplate != null)
 		{
@@ -338,7 +338,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_CLASS))
 		{
-			PCClass aClass = aPC.getClassNamed(objectname);
+			PCClass aClass = aPC.getClassKeyed(objectname);
 
 			if (aClass != null)
 			{
@@ -364,7 +364,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_SKILL))
 		{
-			Skill aSkill = aPC.getSkillNamed(objectname);
+			Skill aSkill = aPC.getSkillKeyed(objectname);
 
 			if (aSkill != null)
 			{
@@ -377,7 +377,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_DOMAIN))
 		{
-			Domain aDomain = aPC.getCharacterDomainNamed(objectname);
+			Domain aDomain = aPC.getCharacterDomainKeyed(objectname);
 
 			if (aDomain != null)
 			{
@@ -403,7 +403,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_TEMPLATE))
 		{
-			PCTemplate aTemplate = aPC.getTemplateNamed(objectname);
+			PCTemplate aTemplate = aPC.getTemplateKeyed(objectname);
 
 			if (aTemplate != null)
 			{
@@ -1201,7 +1201,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				for (Iterator it2 = tokens.getElements().iterator(); it2.hasNext();)
 				{
-					aCampaign = Globals.getCampaignNamed(((PCGElement) it2.next()).getText());
+					aCampaign = Globals.getCampaignKeyed(((PCGElement) it2.next()).getText());
 
 					if (aCampaign != null
 						&& aCampaign
@@ -1440,12 +1440,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					{
 						specialAbilityName = specialAbilityName.substring(0, specialAbilityName.length() - 3);
 						specialAbility = new SpecialAbility(specialAbilityName);
-						specialAbility.setSASource("PCClass|" + aPCClass.getName() + '|' + 0);
+						specialAbility.setSASource("PCClass|" + aPCClass.getKeyName() + '|' + 0);
 					}
 					else
 					{
 						specialAbility = new SpecialAbility(specialAbilityName);
-						specialAbility.setSASource("PCCLASS|" + aPCClass.getName() + '|' + level);
+						specialAbility.setSASource("PCCLASS|" + aPCClass.getKeyName() + '|' + level);
 					}
 
 					if (!aPC.hasSpecialAbility(specialAbilityName))
@@ -1594,7 +1594,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (TAG_SUBCLASS.equals(tag))
 			{
-				aPCClass.setSubClassName(EntityEncoder.decode(element.getText()));
+				aPCClass.setSubClassKey(EntityEncoder.decode(element.getText()));
 			}
 
 			if (TAG_LEVEL.equals(tag))
@@ -1682,19 +1682,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			return;
 		}
 
-		final String deityName = EntityEncoder.decode(((PCGElement) tokens.getElements().get(0)).getText());
-		final Deity aDeity = Globals.getDeityNamed(deityName);
+		final String deityKey = EntityEncoder.decode(((PCGElement) tokens.getElements().get(0)).getText());
+		final Deity aDeity = Globals.getDeityKeyed(deityKey);
 
 		if (aDeity != null)
 		{
 			aPC.setDeity(aDeity);
 		}
-		else if (!Constants.s_NONE.equals(deityName))
+		else if (!Constants.s_NONE.equals(deityKey))
 		{
 			// TODO
 			// create Deity object from information contained in pcg
 			// for now issue a warning
-			final String message = "Deity not found: " + deityName + "." + Constants.s_LINE_SEP
+			final String message = "Deity not found: " + deityKey + "." + Constants.s_LINE_SEP
 				+ PCGParser.s_CHECKLOADEDCAMPAIGNS;
 			warnings.add(message);
 		}
@@ -1727,20 +1727,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			element = (PCGElement) it.next();
 
 			// the first element defines the domain name
-			final String domainName = EntityEncoder.decode(element.getText());
-			Domain aDomain = Globals.getDomainKeyed(domainName);
+			final String domainKey = EntityEncoder.decode(element.getText());
+			Domain aDomain = Globals.getDomainKeyed(domainKey);
 
-			if ((aDomain == null) && (!Constants.s_NONE.equals(domainName)))
+			if ((aDomain == null) && (!Constants.s_NONE.equals(domainKey)))
 			{
 				// TODO
 				// create Domain object from
 				// information contained in pcg
 				// But for now just issue a warning
-				final String message = "Global domain not found: " + domainName + "." + Constants.s_LINE_SEP
+				final String message = "Global domain not found: " + domainKey + "." + Constants.s_LINE_SEP
 					+ PCGParser.s_CHECKLOADEDCAMPAIGNS;
 				warnings.add(message);
 			}
-			else if ((aPC.getCharacterDomainNamed(domainName) == null) && (!Constants.s_NONE.equals(domainName)))
+			else if ((aPC.getCharacterDomainKeyed(domainKey) == null) && (!Constants.s_NONE.equals(domainKey)))
 			{
 				// PC doesn't have the domain, so create a new
 				// one and add it to the PC domain list
@@ -1772,7 +1772,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else
 			{
 				// PC already has this domain
-				Logging.errorPrint("Duplicate domain found: " + domainName);
+				Logging.errorPrint("Duplicate domain found: " + domainKey);
 			}
 		}
 	}
@@ -2245,7 +2245,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		for (Iterator it = tokens.getElements().iterator(); it.hasNext();)
 		{
 			element = (PCGElement) it.next();
-			aPC.addLanguage(EntityEncoder.decode(element.getText()));
+			aPC.addLanguage(Globals.getLanguageKeyed(EntityEncoder.decode(element.getText())));
 		}
 	}
 
@@ -2907,12 +2907,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_CLASS.equals(tag))
 			{
-				final String className = EntityEncoder.decode(element.getText());
-				aPCClass = aPC.getClassNamed(className);
+				final String classKey = EntityEncoder.decode(element.getText());
+				aPCClass = aPC.getClassKeyed(classKey);
 
 				if (aPCClass == null)
 				{
-					final String message = "Invalid class specification: " + className;
+					final String message = "Invalid class specification: " + classKey;
 					warnings.add(message);
 
 					return;
@@ -2958,7 +2958,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else if (TAG_SOURCE.equals(tag))
 			{
 				String typeName = "";
-				String objectName = "";
+				String objectKey = "";
 
 				for (Iterator it2 = element.getChildren().iterator(); it2.hasNext();)
 				{
@@ -2971,17 +2971,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else if (TAG_NAME.equals(tag))
 					{
-						objectName = element.getText();
+						objectKey = element.getText();
 					}
 				}
 
 				if ("DOMAIN".equals(typeName))
 				{
-					source = aPC.getCharacterDomainNamed(objectName);
+					source = aPC.getCharacterDomainKeyed(objectKey);
 
 					if (source == null)
 					{
-						final String message = "Could not find domain: " + objectName;
+						final String message = "Could not find domain: " + objectKey;
 						warnings.add(message);
 
 						return;
@@ -2991,14 +2991,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					// it's either the class, sub-class or a cast-as class
 					// first see if it's the class
-					if (((aPCClass != null) && objectName.equals(aPCClass.getName()))
-						|| (aPCClass.getSpellKey().indexOf(typeName + '|' + objectName) >= 0))
+					if (((aPCClass != null) && objectKey.equals(aPCClass.getKeyName()))
+						|| (aPCClass.getSpellKey().indexOf(typeName + '|' + objectKey) >= 0))
 					{
 						source = aPCClass;
 					}
 					else
 					{
-						source = aPC.getClassNamed(objectName); // see if PC has the class
+						source = aPC.getClassKeyed(objectKey); // see if PC has the class
 					}
 				}
 			}
@@ -3006,8 +3006,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				for (Iterator it2 = element.getChildren().iterator(); it2.hasNext();)
 				{
-					final String featName = EntityEncoder.decode(((PCGElement) it2.next()).getText());
-					final Ability anAbility = Globals.getAbilityNamed("FEAT", featName);
+					final String featKey = EntityEncoder.decode(((PCGElement) it2.next()).getText());
+					final Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);
 
 					if (anAbility != null)
 					{
@@ -3078,7 +3078,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						continue;
 					}
 
-					found = (aSpell.getName().equals(pcSpell.getName()) && pcSpell.getSpellbook().equals(spellBook));
+					found = (aSpell.getKeyName().equals(pcSpell.getKeyName())
+							 && pcSpell.getSpellbook().equals(spellBook));
 
 					if (found)
 					{
@@ -3090,7 +3091,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 
 			found = true;
-			
+
 			// do not load auto knownspells into default spellbook
 			if (spellBook.equals(Globals.getDefaultSpellBook())
 				&& aPCClass.isAutoKnownSpell(aSpell.getKeyName(), level, aPC) && aPC.getAutoSpells())
@@ -3142,8 +3143,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (!found)
 		{
-			final String message = "Could not find spell " + aSpell.getName() + " in " + shortClassName(source)
-				+ " " + source.getName();
+			final String message = "Could not find spell " + aSpell.getDisplayName() + " in " + shortClassName(source)
+				+ " " + source.getDisplayName();
 			warnings.add(message);
 		}
 	}
@@ -3164,14 +3165,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 //		try
 //		{
-			final String className = stok.nextToken();
-			final PCClass aClass = aPC.getClassNamed(className);
+			final String classKey = stok.nextToken();
+			final PCClass aClass = aPC.getClassKeyed(classKey);
 
 			while ((aClass != null) && stok.hasMoreTokens())
 			{
 				final String tok = stok.nextToken();
 				aClass.addClassSpellList(tok);
-				PCClass spellClass = Globals.getClassNamed(tok);
+				PCClass spellClass = Globals.getClassKeyed(tok);
 				if (spellClass != null)
 				{
 					aClass.getSpellSupport().addSpells(-1,spellClass.getSpellList());
@@ -3293,7 +3294,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (TAG_NAME.equals(tag))
 					{
-						aPCTemplate = addNamedTemplate(element.getText());
+						aPCTemplate = addKeyedTemplate(element.getText());
 
 						if (aPCTemplate == null)
 						{
@@ -3334,11 +3335,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 							if (TAG_NAME.equals(tag))
 							{
-								final String ownedTemplateName = EntityEncoder.decode(element.getText());
-								final PCTemplate ownedTemplate = Globals.getTemplateNamed(ownedTemplateName);
+								final String ownedTemplateKey = EntityEncoder.decode(element.getText());
+								final PCTemplate ownedTemplate = Globals.getTemplateKeyed(ownedTemplateKey);
 								if (ownedTemplate != null)
 								{
-									aPCTemplate.addTemplateName(ownedTemplateName);
+									aPCTemplate.addTemplate(ownedTemplateKey);
 								}
 							}
 						}
@@ -3348,7 +3349,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else
 		{
-			addNamedTemplate(line.substring(TAG_TEMPLATESAPPLIED.length() + 1));
+			addKeyedTemplate(line.substring(TAG_TEMPLATESAPPLIED.length() + 1));
 		}
 	}
 
@@ -3474,7 +3475,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (TAG_SOURCE.equals(element.getName()))
 			{
 				String type = "";
-				String name = "";
+				String key = "";
 
 				for (Iterator it2 = element.getChildren().iterator(); it2.hasNext();)
 				{
@@ -3487,11 +3488,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else if (TAG_NAME.equals(tag))
 					{
-						name = element.getText();
+						key = element.getText();
 					}
 				}
 
-				if ("".equals(type) || "".equals(name))
+				if ("".equals(type) || "".equals(key))
 				{
 					final String message = "Illegal Weapon proficiencies line ignored: " + line;
 					warnings.add(message);
@@ -3505,20 +3506,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else if ("PCCLASS".equals(type))
 				{
-					source = aPC.getClassNamed(name);
+					source = aPC.getClassKeyed(key);
 				}
 				else if ("DOMAIN".equals(type))
 				{
-					source = aPC.getCharacterDomainNamed(name);
+					source = aPC.getCharacterDomainKeyed(key);
 				}
 				else if ("FEAT".equals(type))
 				{
-					source = aPC.getFeatNamed(name);
+					source = aPC.getFeatKeyed(key);
 				}
 				// Fix for bug 1185344
 				else if ("ABILITY".equals(type))
 				{
-					source = aPC.getFeatAutomaticNamed(name);
+					source = aPC.getFeatAutomaticKeyed(key);
 				}
 				// End of Fix
 
@@ -3578,7 +3579,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			aString = EntityEncoder.decode(aString);
 		}
 
-		if (Globals.getWeaponProfNamed(aString) == null)
+		if (Globals.getWeaponProfKeyed(aString) == null)
 		{
 			int idx = aString.indexOf("1-H");
 
@@ -3607,7 +3608,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		for (Iterator it = weaponprofs.iterator(); it.hasNext();)
 		{
-			if (aPC.hasWeaponProfNamed((String) it.next()))
+			if (aPC.hasWeaponProfKeyed((String) it.next()))
 			{
 				it.remove();
 			}
@@ -4000,7 +4001,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		String tName = null;
 		String bonus;
 		String cType;
-		String cName;
+		String cKey;
 
 		PCGElement element;
 		String tag;
@@ -4044,7 +4045,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		cType = aTok.nextToken();
-		cName = aTok.nextToken();
+		cKey = aTok.nextToken();
 
 		Equipment aEq = null;
 
@@ -4088,12 +4089,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// type of object to set as the creator
 			if (cType.equals("FEAT"))
 			{
-				aFeat = Globals.getAbilityKeyed("FEAT", cName);
+				aFeat = Globals.getAbilityKeyed("FEAT", cKey);
 
-				if (aFeat == null)
-				{
-					aFeat = Globals.getAbilityNamed("FEAT", cName);
-				}
+//				if (aFeat == null)
+//				{
+//					aFeat = Globals.getAbilityNamed("FEAT", cKey);
+//				}
 
 				if (aFeat != null)
 				{
@@ -4103,11 +4104,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals("EQUIPMENT"))
 			{
-				aEquip = aPC.getEquipmentNamed(cName);
+				aEquip = aPC.getEquipmentNamed(cKey);
 
 				if (aEquip == null)
 				{
-					aEquip = EquipmentList.getEquipmentNamed(cName);
+					aEquip = EquipmentList.getEquipmentNamed(cKey);
 				}
 
 				if (aEquip != null)
@@ -4118,7 +4119,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals("CLASS"))
 			{
-				aClass = aPC.getClassNamed(cName);
+				aClass = aPC.getClassKeyed(cKey);
 
 				if (aClass == null)
 				{
@@ -4131,11 +4132,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals("TEMPLATE"))
 			{
-				aTemplate = aPC.getTemplateNamed(cName);
+				aTemplate = aPC.getTemplateKeyed(cKey);
 
 				if (aTemplate == null)
 				{
-					aTemplate = Globals.getTemplateNamed(cName);
+					aTemplate = Globals.getTemplateKeyed(cKey);
 				}
 
 				if (aTemplate != null)
@@ -4146,11 +4147,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals("SKILL"))
 			{
-				aSkill = aPC.getSkillNamed(cName);
+				aSkill = aPC.getSkillKeyed(cKey);
 
 				if (aSkill == null)
 				{
-					aSkill = Globals.getSkillNamed(cName);
+					aSkill = Globals.getSkillKeyed(cKey);
 				}
 
 				if (aSkill != null)
@@ -4161,7 +4162,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals("SPELL"))
 			{
-				aSpell = Globals.getSpellNamed(cName);
+				aSpell = Globals.getSpellKeyed(cKey);
 
 				if (aSpell != null)
 				{
@@ -4193,7 +4194,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (aEq != null)
 		{
-			aEq.setAppliedName(cName);
+			aEq.setAppliedName(cKey);
 			aPC.addTempBonusItemList(aEq);
 		}
 	}
@@ -4591,7 +4592,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (la == null)
 				{
-					warnings.add(pObj.getName() + "(" + pObj.getClass().getName() + ")\nCould not find LevelAbility: " + dString);
+					warnings.add(pObj.getDisplayName() + "(" + pObj.getClass().getName() + ")\nCould not find LevelAbility: " + dString);
 					//
 					// Couldn't find it, so add it and hope for the best...
 					//

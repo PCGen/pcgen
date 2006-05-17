@@ -123,7 +123,8 @@ public class ChooserUtilities
 
 				if (aClass != null)
 				{
-					final String prefix = aClass.getName() + " ";
+					// TODO check this
+					final String prefix = aClass.getKeyName() + " ";
 
 					for (int j = minLevel; j <= maxLevel; ++j)
 					{
@@ -161,7 +162,8 @@ public class ChooserUtilities
 						}
 						maxLevel = aPC.getVariableValue(mString, "").intValue();
 
-						final String prefix = aClass.getName() + " ";
+						// TODO check this
+						final String prefix = aClass.getKeyName() + " ";
 
 						for (int i = minLevel; i <= maxLevel; ++i)
 						{
@@ -184,12 +186,12 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Calculate the maximum level of spell that is castable by the 
-	 * PC for the supplied Class. If the class is not restricted in 
+	 * Calculate the maximum level of spell that is castable by the
+	 * PC for the supplied Class. If the class is not restricted in
 	 * what spells can be cast, its limits on known spells will be checked instead.
-	 * 
+	 *
 	 * @param aClass The class to be checked.
-	 * @return The highest level spell castable 
+	 * @return The highest level spell castable
 	 */
 	private static int calcMaxSpellLevel(final PCClass aClass)
 	{
@@ -217,14 +219,14 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Calculate the maximum level of spell that is castable by the 
-	 * PC for the supplied Class. If the class is not restricted in 
+	 * Calculate the maximum level of spell that is castable by the
+	 * PC for the supplied Class. If the class is not restricted in
 	 * what spells can be cast, its limits on known spells will be checked instead.
-	 * 
+	 *
 	 * @param aClass The class to be checked.
 	 * @param aType The class type to be checked.
 	 * @param aPC The character to be checked.
-	 * @return The highest level spell castable 
+	 * @return The highest level spell castable
 	 */
 	private static int calcMaxSpellLevel(final PCClass aClass,
 		final String aType, PlayerCharacter aPC)
@@ -236,14 +238,14 @@ public class ChooserUtilities
 
 		int maxLevel = -1;
 		int aLevel = aClass.getLevel();
-		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getName());
+		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getKeyName());
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
 
 		String bString = "0";
 
-		if (aLevel >= 0) 
+		if (aLevel >= 0)
 		{  // some classes, like "Domain" are level 0,
- 		   // so this index would be -1
+			// so this index would be -1
 			bString = aClass.getCastStringForLevel(aLevel);
 			if (bString == null || bString.length() == 0)
 			{
@@ -272,7 +274,7 @@ public class ChooserUtilities
 	 * @param process
 	 * @param aPC
 	 * @param addIt
-	 * 
+	 *
 	 * @return true if aPObject was modified
 	 */
 	public static final boolean modChoices(
@@ -285,17 +287,17 @@ public class ChooserUtilities
 	{
 		availableList.clear();
 		selectedList.clear();
-		
+
 		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
-		
+
 		if (aMan == null) {return false;}
 
 		aMan.getChoices(aPC, availableList, selectedList);
 
 		if (!process) {return false;}
-		
+
 		if (availableList.size() > 0 || selectedList.size() > 0)
-		{	
+		{
 			if (addIt)
 			{
 				final List newSelections = aMan.doChooser(aPC, availableList, selectedList);
@@ -309,7 +311,7 @@ public class ChooserUtilities
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Creates a list of choices based on aChoice, or if aChoice is blank, the
 	 * choiceString property of aPObject.  If process is true, a chooser will be
@@ -351,8 +353,8 @@ public class ChooserUtilities
 		}
 
 		final List newSelections = aMan.doChooser(aPC,
-				                                  availableList,
-				                                  selectedList);
+												  availableList,
+												  selectedList);
 
 		aMan.applyChoices(aPC, newSelections);
 	}
@@ -421,7 +423,7 @@ public class ChooserUtilities
 		{
 			constructMap();
 		}
-		
+
 		final String choiceString;
 		if(theChoices != null && theChoices.length() > 0)
 		{
@@ -436,7 +438,7 @@ public class ChooserUtilities
 		{
 			return null;
 		}
-		
+
 		List mainList = Arrays.asList(choiceString.split("[|]"));
 
 		/* Find the first element of the array that does not contain an
@@ -455,12 +457,12 @@ public class ChooserUtilities
 		 * class name of the ChoiceManager that handles that type of chooser
 		 */
 		String type = (i >= mainList.size()) ? "MISC" : (String) mainList.get(i);
-		
+
 		if (type.startsWith("FEAT=") || type.startsWith("FEAT."))
 		{
 			type = "SINGLEFEAT";
 		}
-		
+
 		String className = (String) classLookup.get(type);
 
 		if (className == null)

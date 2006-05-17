@@ -99,7 +99,7 @@ public class EqContainerToken extends Token
 				eq = getContainer(pc, containerNo);
 			}
 			catch (NumberFormatException e) {
-			    // TODO - This exception needs to be handled
+				// TODO - This exception needs to be handled
 			}
 		}
 
@@ -487,7 +487,7 @@ public class EqContainerToken extends Token
 	 */
 	public static String getProfToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.profName(pc);
+		return eq.profKey(pc);
 	}
 
 	/**
@@ -572,7 +572,7 @@ public class EqContainerToken extends Token
 			}
 			catch (NumberFormatException e)
 			{
-			    // TODO - This exception needs to be handled
+				// TODO - This exception needs to be handled
 			}
 		}
 		else

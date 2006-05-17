@@ -98,12 +98,13 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
-		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:Natural Lycanthrope");
+		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:KEY_Natural Lycanthrope");
 		dr1.addPreReq(prereqNE);
 		is(dr1.toString(), strEq(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
+		template.setKeyName("KEY_Natural Lycanthrope");
 		getCharacter().addTemplate(template);
 		is(dr1.toString(), strEq("10/magic"));
 

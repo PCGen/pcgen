@@ -279,7 +279,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	}
 
 	/**
-	 * Test out the caching of variable values. 
+	 * Test out the caching of variable values.
 	 */
 	public void testGetVariableCaching()
 	{
@@ -301,10 +301,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 				break;
 			}
 		}
-		
+
 		assertFalse("Roll function should not be cached.", match);
 	}
-	
+
 	/**
 	 * Test the processing of modFeat. Checks that when in select single and
 	 * close mode, only one instance of a feat with a sub-choice is added.
@@ -338,28 +338,28 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	{
 		PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		
-		assertFalse("Not yet proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
-		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
+
+		assertFalse("Not yet proficient in Weapon A", character.hasWeaponProfKeyed("Weapon A"));
+		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfKeyed("Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfKeyed("Weapon C"));
 
 		character.incrementClassLevel(1, pcClass);
 
-		assertTrue("First Proficient in Weapon A",    character.hasWeaponProfNamed("Weapon A"));
-		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfNamed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
+		assertTrue("First Proficient in Weapon A",    character.hasWeaponProfKeyed("Weapon A"));
+		assertFalse("Not yet proficient in Weapon B", character.hasWeaponProfKeyed("Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfKeyed("Weapon C"));
 
 		character.incrementClassLevel(1, pcClass);
 
-		assertTrue("Second Proficient in Weapon A",   character.hasWeaponProfNamed("Weapon A"));
-		assertTrue("Proficient in Weapon B",          character.hasWeaponProfNamed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfNamed("Weapon C"));
+		assertTrue("Second Proficient in Weapon A",   character.hasWeaponProfKeyed("Weapon A"));
+		assertTrue("Proficient in Weapon B",          character.hasWeaponProfKeyed("Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", character.hasWeaponProfKeyed("Weapon C"));
 
 		character.incrementClassLevel(1, pcClass);
 
-		assertTrue("Third Proficient in Weapon A", character.hasWeaponProfNamed("Weapon A"));
-		assertTrue("Proficient in Weapon B",       character.hasWeaponProfNamed("Weapon B"));
-		assertTrue("Proficient in Weapon C",       character.hasWeaponProfNamed("Weapon C"));
+		assertTrue("Third Proficient in Weapon A", character.hasWeaponProfKeyed("Weapon A"));
+		assertTrue("Proficient in Weapon B",       character.hasWeaponProfKeyed("Weapon B"));
+		assertTrue("Proficient in Weapon C",       character.hasWeaponProfKeyed("Weapon C"));
 	}
 
 	/* (non-Javadoc)
@@ -380,7 +380,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		giantRace.setBonusInitialFeats(1);
 		giantRace.setMonsterClass("Giant");
 		giantRace.setMonsterClassLevels(4);
-		final BonusObj babBonus = Bonus.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y");
+		giantRace.setHitDiceAdvancement(new int[] {100});
+		final BonusObj babBonus = Bonus.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
 		giantRace.addBonusList(babBonus);
 		Globals.getRaceMap().put("Ogre", giantRace);
 
@@ -435,14 +436,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		wpnProfTestC.setKeyName("Weapon C");
 		wpnProfTestC.setTypeInfo("Exotic");
 		Globals.addWeaponProf(wpnProfTestC);
-		
-		
+
+
 		SettingsHandler	.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		pcClass.addAddList(1, "FEAT(Exotic Weapon Proficiency (Weapon A))");
-		pcClass.addAddList(2, "FEAT(Exotic Weapon Proficiency (Weapon B))");
-		pcClass.addAddList(3, "FEAT(Exotic Weapon Proficiency (Weapon C))");
+		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
+		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
+		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
 	}
 
 	public void testGetClassVar() throws Exception
@@ -459,7 +460,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	}
 
 	/**
-	 * Test the processing of the MAX function with respect to character stats. 
+	 * Test the processing of the MAX function with respect to character stats.
 	 */
 	public void testMaxValue()
 	{
@@ -563,36 +564,36 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 			.size());
 
 	}
-	
+
 	public void testAddSpells()
 	{
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass);
 
-		String response = character.addSpell(null, new ArrayList(), pcClass.getName(), null, 1, 1);
+		String response = character.addSpell(null, new ArrayList(), pcClass.getKeyName(), null, 1, 1);
 		assertEquals("Add spell should be rejected due to no spell",
 			"Invalid parameter to add spell", response);
 
 		Spell spell = new Spell();
 		spell.setName("test spell 1");
 		CharacterSpell charSpell = new CharacterSpell(pcClass, spell);
-		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), null, 1, 1);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getKeyName(), null, 1, 1);
 		assertEquals("Add spell should be rejected due to no book",
 			"Invalid spell list/book name.", response);
-		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), "", 1, 1);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getKeyName(), "", 1, 1);
 		assertEquals("Add spell should be rejected due to no book",
 			"Invalid spell list/book name.", response);
-		
+
 		// Add a non existant spell to a non existant spellbook
 		String spellBookName = "Test book";
-		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getKeyName(), spellBookName, 1, 1);
 		assertEquals("Add spell should be rejected due to book not existing",
 			"Could not find spell list/book Test book", response);
 
-		
+
 		character.addSpellBook(spellBookName);
-		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getKeyName(), spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to no levels.",
 			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available.",
@@ -600,12 +601,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		response = character.addSpell(charSpell, new ArrayList(), "noclass", spellBookName, 1, 1);
 		assertEquals("Add spell should be rejected due to no matching class",
-			"No class named noclass", response);
-		
+			"No class keyed noclass", response);
+
 		SpellBook book = character.getSpellBookByName(spellBookName);
 		book.setType(SpellBook.TYPE_PREPARED_LIST);
 		character.addSpellBook(spellBookName);
-		response = character.addSpell(charSpell, new ArrayList(), pcClass.getName(), spellBookName, 1, 1);
+		response = character.addSpell(charSpell, new ArrayList(), pcClass.getKeyName(), spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to no levels.",
 			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available.",
@@ -616,23 +617,23 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		book.setNumPages(3);
 		character.addSpellBook(spellBookName);
 		response = character.addSpell(charSpell, new ArrayList(), pcClass
-			.getName(), spellBookName, 1, 1);
+			.getKeyName(), spellBookName, 1, 1);
 		assertEquals("Add spell should not be rejected.", "", response);
 		// Add a second time to cover multiples
 		response = character.addSpell(charSpell, new ArrayList(), pcClass
-			.getName(), spellBookName, 1, 1);
+			.getKeyName(), spellBookName, 1, 1);
 		assertEquals("Add spell should not be rejected.", "", response);
 		response = character.addSpell(charSpell, new ArrayList(), giantClass
-			.getName(), spellBookName, 1, 1);
+			.getKeyName(), spellBookName, 1, 1);
 		assertEquals("Add spell should not be rejected.", "", response);
 		response = character.addSpell(charSpell, new ArrayList(), giantClass
-			.getName(), spellBookName, 1, 1);
+			.getKeyName(), spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to the book being full.",
 			"There are not enough pages left to add this spell to the spell book.",
 			response);
-		
-		PCClass c = character.getClassNamed(pcClass.getName());
+
+		PCClass c = character.getClassKeyed(pcClass.getKeyName());
 		List aList = c.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
 		CharacterSpell addedSpell = (CharacterSpell) (aList.get(0));
 		response = character.delSpell(addedSpell.getSpellInfoFor(spellBookName,

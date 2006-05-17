@@ -128,7 +128,7 @@ public final class PObjectLoader {
 				}
 				else
 				{
-					aTag = CoreUtility.replaceAll(aTag, "<this>", obj.getName());
+					aTag = CoreUtility.replaceAll(aTag, "<this>", obj.getKeyName());
 					try
 					{
 						PreParserFactory factory = PreParserFactory.getInstance();

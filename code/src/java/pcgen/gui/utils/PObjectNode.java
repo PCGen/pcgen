@@ -79,7 +79,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	/** Constructor for PObjectNode */
 	public PObjectNode()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/** Constructor for PObjectNode with an item
@@ -343,7 +343,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			}
 			else
 			{
-				name = ((PObject) item).getName();
+				name = ((PObject) item).getDisplayName();
 			}
 		}
 		else if (item != null)
@@ -585,7 +585,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 						return "|" + SettingsHandler.getFeatVirtualColor() + "|" + itemName;
 
 					default:
-						Logging.errorPrint("Default getFeatType:"+aFeat.getName());
+						Logging.errorPrint("Default getFeatType:"+aFeat.getDisplayName());
 						return "|" + SettingsHandler.getPrereqFailColor() + "|" + itemName;
 				}
 			}
@@ -605,8 +605,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 					/* TODO  this is very slow because it checks if the PC is
 					 * proficient with the object each time the GUI requires a
 					 * refresh (very frequent condition) */
-				    if (aPC==null || !aPC.isProficientWith(e))
-				    {
+					if (aPC==null || !aPC.isProficientWith(e))
+					{
 						// indicates to LabelTreeCellRenderer to change text color
 						// to a user-preference (default is red)
 						Color aColor = Color.red;
@@ -617,7 +617,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 						}
 
 						return "|" + aColor.getRGB() + "|" + itemName;
-				    }
+					}
 				}
 
 				return itemName;
@@ -656,7 +656,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			{
 				final String subClass = ((PCClass) item).getDisplayClassName();
 
-				if (!((PCClass) item).getName().equals(subClass))
+				if (!((PCClass) item).getDisplayName().equals(subClass))
 				{
 					itemName = itemName + "/" + subClass;
 				}
@@ -696,7 +696,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			if (isSpecial && (spellA.getOwner() instanceof Domain))
 			{
 				//val.append(" [").append(spellA.getSpell().getDescriptor(", ")).append(']');
-				val.append(" [").append(spellA.getOwner().getName()).append(']');
+				val.append(" [").append(spellA.getOwner().getKeyName()).append(']');
 			}
 
 			// Finally add on the number of times

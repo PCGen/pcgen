@@ -65,7 +65,7 @@ public class SizeLongToken extends Token
 		final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(pc.sizeInt());
 		if (sadj != null)
 		{
-			return sadj.getName();
+			return sadj.getDisplayName();
 		}
 		return "";
 	}

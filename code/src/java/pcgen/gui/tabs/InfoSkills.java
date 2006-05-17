@@ -445,7 +445,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		PCLevelInfo pcl = getSelectedLevelInfo(pc);
 		if (pcl != null)
 		{
-			return pc.getClassNamed(pcl.getClassKeyName());
+			return pc.getClassKeyed(pcl.getClassKeyName());
 		}
 		return null;
 	}
@@ -476,7 +476,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcl.getSkillPointsRemaining() > 0)
 			{
-				aClass = pc.getClassNamed(pcl.getClassKeyName());
+				aClass = pc.getClassKeyed(pcl.getClassKeyName());
 
 				break;
 			}
@@ -544,11 +544,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * Build the panel with the controls to add an item to the 
+	 * Build the panel with the controls to add an item to the
 	 * selected list.
 	 * @param button
-	 * @param title 
-	 *  
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildModPanel(JButton button, String title)
@@ -564,11 +564,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * Build the panel with the controls to add an item to the 
+	 * Build the panel with the controls to add an item to the
 	 * selected list.
-	 * @param button 
-	 * @param title 
-	 *  
+	 * @param button
+	 * @param title
+	 *
 	 * @return The panel.
 	 */
 	private JPanel buildDelPanel(JButton button, String title)
@@ -644,7 +644,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			addSkill(1);
@@ -660,7 +660,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		public void singleClickEvent() {
 			// Do Nothing
 		}
-		
+
 		public void doubleClickEvent()
 		{
 			// We run this after the event has been processed so that
@@ -828,7 +828,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (theSkill.isReadOnly())
 		{
 			ShowMessageDelegate.showMessageDialog("You cannot " + (points < 0 ? "remove" : "add") +
-					" ranks for this skill: " + theSkill.getName(), Constants.s_APPNAME, MessageType.ERROR);
+					" ranks for this skill: " + theSkill.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
 			return;
 		}
 
@@ -913,7 +913,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		// in the selectedTable if you've just added skill points
 		if (points > 0)
 		{
-			selectedTable.expandByPObjectName(theSkill.getName());
+			selectedTable.expandByPObjectName(theSkill.getKeyName());
 		}
 
 		if (Globals.getGameModeHasPointPool())
@@ -960,7 +960,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			currCharClassSkillPnts.setValue(pcl.getSkillPointsRemaining());
 			totalSkillPointsLeft.setValue(pc.getSkillPoints());
-			aClass = pc.getClassNamed(pcl.getClassKeyName());
+			aClass = pc.getClassKeyed(pcl.getClassKeyName());
 			resetSelectedModel = !(aClass == previouslySelectedClass);
 		}
 		else
@@ -1275,7 +1275,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(availableTable, columnButton, availableModel);
-		
+
 		// Right Pane - Selected
 		rightPane.setLayout(new BorderLayout());
 
@@ -2013,7 +2013,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append("<html><b>").append(aSkill.piSubString()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK")).append(pc.getMaxRank(aSkill.getName(),
+				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK")).append(pc.getMaxRank(aSkill.getKeyName(),
 					getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
 			}
 			b.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(aSkill.getTypeUsingFlag(true)); //$NON-NLS-1$
@@ -2036,7 +2036,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.getShowSkillModifier())
 			{
-				final Skill pcSkill = pc.getSkillNamed(aSkill.getName());
+				final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
 				if (pcSkill != null)
 				{
 					bString = pcSkill.getModifierExplanation(pc, false);
@@ -2156,7 +2156,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		clearAvailableQFilterButton.setEnabled(true);
 		viewComboBox.setEnabled(false);
 		forceRefresh();
-		
+
 	}
 
 	private void setSelectedQFilter()
@@ -2822,8 +2822,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				Skill skill = (Skill) skillsIt.next();
 
-				if (qFilter == null || 
-						( skill.getName().toLowerCase().indexOf(qFilter) >= 0 || 
+				if (qFilter == null ||
+						( skill.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 						  skill.getType().toLowerCase().indexOf(qFilter) >= 0 ))
 				{
 					if (!sorter.nodeGoHere(node, skill))
@@ -2876,7 +2876,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 */
 		protected void resetModel(int mode, boolean available)
 		{
-			
+
 			switch (mode)
 			{
 				case GuiConstants.INFOSKILLS_VIEW_STAT_TYPE_NAME: // KeyStat/SubType/Name
@@ -2925,9 +2925,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		/**
-		 * Return a boolean to indicate if the item should be 
+		 * Return a boolean to indicate if the item should be
 		 * included in the list
-		 * 
+		 *
 		 * @param aSkill
 		 * @return true if it should be displayed
 		 */
@@ -2939,11 +2939,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		/**
 		 * In the availableTable, if filtering out unqualified
 		 * items ignore any skill the PC doesn't qualify for
-		 * 
-		 * TODO: This class implements the java.util.Iterator interface 
-		 * However, its next() method is not capable of throwing 
-		 * java.util.NoSuchElementException 
-		 * The next() method should be changed so it throws NoSuchElementException 
+		 *
+		 * TODO: This class implements the java.util.Iterator interface
+		 * However, its next() method is not capable of throwing
+		 * java.util.NoSuchElementException
+		 * The next() method should be changed so it throws NoSuchElementException
 		 * if is called when there are no more elements to return.
 		 */
 		private class DisplayableSkillsIterator implements ResetableListIterator
@@ -3084,7 +3084,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDefaultWidth(int col, int width) {
 			SettingsHandler.setPCGenOption("InfoSkills.sizecol." + names[col], width);
 		}
-		
+
 		public List getMColumnList()
 		{
 			List retList = new ArrayList();
@@ -3093,16 +3093,16 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			return retList;
 		}
-		
+
 		private boolean getColumnViewOption(String colName, boolean defaultVal) {
 			return SettingsHandler.getPCGenOption("InfoSkills.viewcol." + colName, defaultVal);
 		}
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-			
+
 		}
-	
+
 	}
 
 	private class ClassSkillFilter extends AbstractPObjectFilter
@@ -3123,7 +3123,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcClass != null)
 			{
-				return super.getName(aPC) + " (" + pcClass.getName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+				return super.getName(aPC) + " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
 			return super.getName(aPC);
@@ -3165,7 +3165,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcClass != null)
 			{
-				return super.getName(aPC) + " (" + pcClass.getName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+				return super.getName(aPC) + " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
 			return super.getName(aPC);
@@ -3208,7 +3208,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcClass != null)
 			{
-				return super.getName(aPC) + " (" + pcClass.getName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+				return super.getName(aPC) + " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
 			return super.getName(aPC);
@@ -3503,7 +3503,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PropertyFactory.getString("in_iskReset_to_zero_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
-		/** 
+		/**
 		 * Return the re-sorting menu
 		 * @return the re-sorting menu
 		 */
@@ -3576,7 +3576,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				currentPC.setDirty(true);
 
 				//if the PC already has this skill, then link to it so that we get accurate existing rank info
-				Skill bSkill = currentPC.getSkillNamed(aSkill.getName());
+				Skill bSkill = currentPC.getSkillKeyed(aSkill.getKeyName());
 
 				if (bSkill != null)
 				{
@@ -3590,7 +3590,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				if (aClass != null)
 				{
-					maxRank = currentPC.getMaxRank(aSkill.getName(), aClass).doubleValue();
+					maxRank = currentPC.getMaxRank(aSkill.getKeyName(), aClass).doubleValue();
 					if (Globals.getGameModeHasPointPool())
 					{
 						skillPool = pc.getSkillPoints();
@@ -3675,7 +3675,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public void actionPerformed(ActionEvent evt)
 			{
-				Skill aSkill = pc.getSkillNamed(getSelectedSkill().getName());
+				Skill aSkill = pc.getSkillKeyed(getSelectedSkill().getKeyName());
 
 				if (aSkill != null)
 				{

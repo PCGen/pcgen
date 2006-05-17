@@ -46,8 +46,8 @@ public class CategorisableStore implements Cloneable
 		{
 			public int compare(final Object o1, final Object o2)
 			{
-				String s1 = ((Categorisable) o1).getName();
-				String s2 = ((Categorisable) o2).getName();
+				String s1 = ((Categorisable) o1).getDisplayName();
+				String s2 = ((Categorisable) o2).getDisplayName();
 				return (s1.compareToIgnoreCase(s2));
 			}
 		};
@@ -90,7 +90,7 @@ public class CategorisableStore implements Cloneable
 			objMap = new HashMap();
 			categoryMap.put(aCatObj.getCategory(), objMap);
 		}
-		
+
 		String key = aCatObj.getKeyName().toLowerCase();
 
 		/* Keys absolutely must be unique */
@@ -157,7 +157,7 @@ public class CategorisableStore implements Cloneable
 		{
 			return null;
 		}
-		
+
 		String key = aKey.toLowerCase();
 
 		return (Categorisable) objMap.get(key);
@@ -211,8 +211,8 @@ public class CategorisableStore implements Cloneable
 			final Categorisable itCatObj = (Categorisable) it.next();
 
 			if (
-			    itCatObj.getName().equalsIgnoreCase(aName) ||
-			    itCatObj.getName().equalsIgnoreCase(strippedName))
+				itCatObj.getKeyName().equalsIgnoreCase(aName) ||
+				itCatObj.getKeyName().equalsIgnoreCase(strippedName))
 			{
 				return itCatObj;
 			}
@@ -272,8 +272,8 @@ public class CategorisableStore implements Cloneable
 	 * @return  An Iterator
 	 */
 	private TreeSet getSortedSet(
-	    final String     aCategory,
-	    final Comparator aComp)
+		final String     aCategory,
+		final Comparator aComp)
 	{
 		final HashSet aggregate;
 
@@ -376,7 +376,7 @@ public class CategorisableStore implements Cloneable
 		{
 			return false;
 		}
-		
+
 		String key = aKey.toLowerCase();
 
 		final Categorisable aCatObj = (Categorisable) objMap.remove(key);
@@ -413,8 +413,8 @@ public class CategorisableStore implements Cloneable
 			final Categorisable itCatObj = (Categorisable) it.next();
 
 			if (
-			    itCatObj.getName().equalsIgnoreCase(aName) ||
-			    itCatObj.getName().equalsIgnoreCase(strippedName))
+				itCatObj.getKeyName().equalsIgnoreCase(aName) ||
+				itCatObj.getKeyName().equalsIgnoreCase(strippedName))
 			{
 				final String        aKey    = itCatObj.getKeyName().toLowerCase();
 				final HashMap       objMap  = (HashMap) categoryMap.get(aCategory);

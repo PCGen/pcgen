@@ -94,16 +94,16 @@ public final class KitUtilities
 
 		while (aTok.hasMoreTokens())
 		{
-			final String kitName = aTok.nextToken();
-			final Kit aKit = Globals.getKitNamed(kitName);
+			final String kitKey = aTok.nextToken();
+			final Kit aKit = Globals.getKitKeyed(kitKey);
 			if (aKit == null)
 			{
-				Logging.errorPrint("Nonexistant kit: " + kitName);
+				Logging.errorPrint("Nonexistant kit: " + kitKey);
 				return;
 			}
 			if (PrereqHandler.passesAll(aKit.getPreReqList(), aPC, aKit))
 			{
-				aList.add(kitName);
+				aList.add(kitKey);
 			}
 		}
 
@@ -122,8 +122,8 @@ public final class KitUtilities
 		{
 			for (Iterator i = aList.iterator(); i.hasNext();)
 			{
-				final String aString = (String) i.next();
-				final Kit theKit = Globals.getKitNamed(aString);
+				final String key = (String) i.next();
+				final Kit theKit = Globals.getKitKeyed(key);
 
 				if ((theKit == null) || ((aPC.getKitInfo() != null) && (aPC.getKitInfo().indexOf(theKit) >= 0)))
 				{

@@ -87,7 +87,7 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	private void loadDefaultFeats(CampaignSourceEntry firstSource)
 	{
-		if (Globals.getAbilityNamed("FEAT", Constants.s_INTERNAL_WEAPON_PROF) == null)
+		if (Globals.getAbilityKeyed("FEAT", Constants.s_INTERNAL_WEAPON_PROF) == null)
 		{
 
 			/* Add catch-all feat for weapon proficiencies that cannot be granted as part
@@ -99,7 +99,7 @@ public final class FeatLoader extends AbilityLoader
 				"\tOUTPUTNAME:Weapon Proficiency\tTYPE:General\tCATEGORY:FEAT" +
 				"\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tDESC:You attack with this" +
 				" specific weapon normally, non-proficiency incurs a -4 to"    +
-			        " hit penalty.\tSOURCE:PCGen Internal";
+					" hit penalty.\tSOURCE:PCGen Internal";
 			try
 			{
 				parseLine(null, aLine, firstSource);
@@ -117,9 +117,9 @@ public final class FeatLoader extends AbilityLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getAbilityNamed("FEAT", baseName);
+		return Globals.getAbilityKeyed("FEAT", aKey);
 	}
 
 	/**

@@ -64,6 +64,8 @@ public class PToolBar extends JToolBar
 	JButton closeItem;
 	JButton gmgenItem;
 	JButton newItem;
+// WIP please leave boomer70
+//	JButton newNPCItem;
 	JButton openItem;
 	JButton printItem;
 	JButton printPreviewItem;
@@ -410,35 +412,40 @@ public class PToolBar extends JToolBar
 	private void init(PCGen_Frame1 main)
 	{
 		newItem = Utility.createButton(main.frameActionListener.newActionListener, "file.new",
-			    PropertyFactory.getString("in_mnuFileNewTip"), "New16.gif", false);
+				PropertyFactory.getString("in_mnuFileNewTip"), "New16.gif", false);
 		add(newItem);
 
+// WIP please leave boomer70
+//		newNPCItem = Utility.createButton(main.frameActionListener.newNPCActionListener, "file.newNPC",
+//				PropertyFactory.getString("in_mnuFileNewNPCTip"), "New16.gif", false);
+//		add(newNPCItem);
+
 		openItem = Utility.createButton(main.frameActionListener.openActionListener, "file.open",
-			    PropertyFactory.getString("in_mnuFileOpenTip"), "Open16.gif", true);
+				PropertyFactory.getString("in_mnuFileOpenTip"), "Open16.gif", true);
 		add(openItem);
 
 		closeItem = Utility.createButton(main.frameActionListener.closeActionListener, "file.close",
-			    PropertyFactory.getString("in_mnuFileCloseTip"), "Close16.gif", false);
+				PropertyFactory.getString("in_mnuFileCloseTip"), "Close16.gif", false);
 		add(closeItem);
 
 		saveItem = Utility.createButton(main.frameActionListener.saveActionListener, "file.save",
-			    PropertyFactory.getString("in_mnuFileSaveTip"), "Save16.gif", false);
+				PropertyFactory.getString("in_mnuFileSaveTip"), "Save16.gif", false);
 		add(saveItem);
 
 		addSeparator();
 
 		printPreviewItem = Utility.createButton(main.frameActionListener.printPreviewActionListener,
-			    "file.printpreview", PropertyFactory.getString("in_mnuFilePrintPreviewTip"), "PrintPreview16.gif", false);
+				"file.printpreview", PropertyFactory.getString("in_mnuFilePrintPreviewTip"), "PrintPreview16.gif", false);
 		add(printPreviewItem);
 
 		printItem = Utility.createButton(main.frameActionListener.printActionListener, "file.print",
-			    PropertyFactory.getString("in_mnuFilePrintTip"), "Print16.gif", false);
+				PropertyFactory.getString("in_mnuFilePrintTip"), "Print16.gif", false);
 		add(printItem);
 
 		addSeparator();
 
 		openFilters = new FilterToolTipButton(IconUtilitities.getImageIcon("Zoom16.gif"),
-			    IconUtilitities.getImageIcon("ZoomHighlightBlue16.gif"));
+				IconUtilitities.getImageIcon("ZoomHighlightBlue16.gif"));
 		openFilters.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -479,19 +486,19 @@ public class PToolBar extends JToolBar
 		addSeparator();
 
 		addKit = Utility.createButton(main.frameActionListener.addKitActionListener, "assign.kit",
-			    PropertyFactory.getString("in_mnuFileAddKitTip"), "Information16.gif", false);
+				PropertyFactory.getString("in_mnuFileAddKitTip"), "Information16.gif", false);
 		add(addKit);
 
 		addSeparator();
 
 		preferencesItem = Utility.createButton(main.frameActionListener.preferencesActionListener,
-			    "settings.preferences", PropertyFactory.getString("in_mnuSettingsPreferencesTip"), "Preferences16.gif",
-			    true);
+				"settings.preferences", PropertyFactory.getString("in_mnuSettingsPreferencesTip"), "Preferences16.gif",
+				true);
 		add(preferencesItem);
 
 		addSeparator();
 		gmgenItem = Utility.createButton(main.frameActionListener.gmgenActionListener, "gmgen.load",
-			    PropertyFactory.getString("in_launchGMGen"), "gmgen_icon.png", true);
+				PropertyFactory.getString("in_launchGMGen"), "gmgen_icon.png", true);
 		add(gmgenItem);
 		addSeparator();
 

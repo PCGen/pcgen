@@ -47,9 +47,9 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 * @param  aPC
 	 */
 	public RaceChoiceManager(
-	    PObject         aPObject,
-	    String          choiceString,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          choiceString,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
 		title          = "Choose Race";
@@ -70,9 +70,9 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 * @param  selectedList
 	 */
 	public void getChoices(
-	    final PlayerCharacter aPc,
-	    final List            availableList,
-	    final List            selectedList)
+		final PlayerCharacter aPc,
+		final List            availableList,
+		final List            selectedList)
 	{
 		// CHOOSE:RACE|RACETYPE=x,RACESUBTYPE=y,<racename>,TYPE=z
 		// or CHOOSE:RACE|[RACETYPE=x,RACESUBTYPE=y]
@@ -99,13 +99,13 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 
 					if (race.getRaceType().equals(choice.substring(9)))
 					{
-						availableList.add(race.getName());
+						availableList.add(race);
 					}
 				}
 			}
 			else if (
-			    choice.startsWith("RACESUBTYPE=") ||
-			    choice.startsWith("RACESUBTYPE."))
+				choice.startsWith("RACESUBTYPE=") ||
+				choice.startsWith("RACESUBTYPE."))
 			{
 				// Add all races matching this racetype
 				for (Iterator i = races.iterator(); i.hasNext();)
@@ -114,7 +114,7 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 
 					if (race.getRacialSubTypes().contains(choice.substring(9)))
 					{
-						availableList.add(race.getName());
+						availableList.add(race);
 					}
 				}
 			}
@@ -127,17 +127,17 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 
 					if (race.getType().equals(choice.substring(5)))
 					{
-						availableList.add(race.getName());
+						availableList.add(race);
 					}
 				}
 			}
 			else
 			{
-				Race race = Globals.getRaceNamed(choice);
+				Race race = Globals.getRaceKeyed(choice);
 
 				if (race != null)
 				{
-					availableList.add(race.getName());
+					availableList.add(race);
 				}
 			}
 		}
@@ -154,9 +154,9 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 * @param  choice
 	 */
 	private void processTokenWithBrackets(
-	    final List availableList,
-	    Collection races,
-	    String     choice)
+		final List availableList,
+		Collection races,
+		String     choice)
 	{
 		ArrayList raceTypes    = new ArrayList();
 		ArrayList raceSubTypes = new ArrayList();
@@ -175,8 +175,8 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 				raceTypes.add(option.substring(9));
 			}
 			else if (
-			    option.startsWith("RACESUBTYPE=") ||
-			    option.startsWith("RACESUBTYPE."))
+				option.startsWith("RACESUBTYPE=") ||
+				option.startsWith("RACESUBTYPE."))
 			{
 				raceSubTypes.add(option.substring(12));
 			}
@@ -192,7 +192,7 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 
 			if (checkRace(race, raceTypes, raceSubTypes, types))
 			{
-				availableList.add(race.getName());
+				availableList.add(race);
 			}
 		}
 	}
@@ -208,10 +208,10 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 * @return  true if race matches
 	 */
 	private static boolean checkRace(
-	    Race race,
-	    List raceTypes,
-	    List raceSubTypes,
-	    List types)
+		Race race,
+		List raceTypes,
+		List raceSubTypes,
+		List types)
 	{
 		for (Iterator i = raceTypes.iterator(); i.hasNext();)
 		{

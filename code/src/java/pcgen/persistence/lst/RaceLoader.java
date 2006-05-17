@@ -104,7 +104,7 @@ public final class RaceLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, race, value);
 				if (!token.parse(race, value))
 				{
-					Logging.errorPrint("Error parsing race " + race.getName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing race " + race.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(race, colString))
@@ -135,9 +135,9 @@ public final class RaceLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectNamed(String baseName)
+	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getRaceNamed(baseName);
+		return Globals.getRaceKeyed(aKey);
 	}
 
 	/**
@@ -171,6 +171,6 @@ public final class RaceLoader extends LstObjectFileLoader
 	 */
 	protected void performForget(PObject objToForget)
 	{
-		Globals.getRaceMap().remove(objToForget.getName());
+		Globals.getRaceMap().remove(objToForget.getKeyName());
 	}
 }

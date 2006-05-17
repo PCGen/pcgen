@@ -29,7 +29,7 @@ import java.util.*;
 
 /**
  * <code>SimpleWeaponProfChoiceManager</code>
- * 
+ *
  * Deal with choosing a weapon proficiency
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
@@ -39,7 +39,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 {
 	/**
 	 * <code>weaponToProf</code>
-	 * 
+	 *
 	 * Inner class storing weapon proficency.
 	 */
 	public class weaponToProf implements Categorisable
@@ -70,7 +70,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 			return keyName;
 		}
 
-		public String getName()
+		public String getDisplayName()
 		{
 			return keyName;
 		}
@@ -91,9 +91,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC			The Player Character.
 	 */
 	public SimpleWeaponProfChoiceManager(
-	    PObject         aPObject,
-	    String          theChoices,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          theChoices,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, theChoices, aPC);
 	}
@@ -105,9 +105,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selectedList   Contains all entries for a weapon proficency key.
 	 */
 	public void getChoices(
-	    PlayerCharacter aPc,
-	    List            availableList,
-	    List            selectedList)
+		PlayerCharacter aPc,
+		List            availableList,
+		List            selectedList)
 	{
 		weaponToProfMap.clear();
 
@@ -172,17 +172,17 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC				The Player Character.
 	 */
 	private void buildWeaponProfDeityChoices(
-	    final String          unparsed,
-	    final List            availableList,
-	    boolean               adding,
-	    final PlayerCharacter aPC)
+		final String          unparsed,
+		final List            availableList,
+		boolean               adding,
+		final PlayerCharacter aPC)
 	{
 		if (aPC.getDeity() != null)
 		{
 			String weaponList = aPC.getDeity().getFavoredWeapon();
 
 			if ("ALL".equalsIgnoreCase(weaponList) ||
-			    "ANY".equalsIgnoreCase(weaponList))
+				"ANY".equalsIgnoreCase(weaponList))
 			{
 				weaponList = Globals.getWeaponProfNames("|", false);
 			}
@@ -217,10 +217,10 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC				The Player Character.
 	 */
 	private void buildWeaponProfTypeChoices(
-	    final String          unparsed,
-	    final List            availableList,
-	    String                parsed,
-	    final PlayerCharacter aPC)
+		final String          unparsed,
+		final List            availableList,
+		String                parsed,
+		final PlayerCharacter aPC)
 	{
 		final String          types    = parsed.substring(5);
 		final StringTokenizer aTok     = new StringTokenizer(types, ".");
@@ -269,7 +269,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 
 				if (bOk)
 				{
-					String wpName = aEq.profName(aPC);
+					String wpName = aEq.profKey(aPC);
 					addtoToAvailableAndMap(unparsed, availableList, wpName);
 				}
 			}
@@ -285,10 +285,10 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC				The Player Character.
 	 */
 	private void buildWeaponProfWeildChoices(
-	    final String          unparsed,
-	    final List            availableList,
-	    String                parsed,
-	    final PlayerCharacter aPC)
+		final String          unparsed,
+		final List            availableList,
+		String                parsed,
+		final PlayerCharacter aPC)
 	{
 		final StringTokenizer bTok      = new StringTokenizer(parsed.substring(6), ".");
 		final List            wieldList = new ArrayList();
@@ -311,13 +311,13 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 			for (Iterator wi = wieldList.iterator(); wi.hasNext();)
 			{
 				if (
-				    !aEq.hasWield() ||
-				    !aEq.getWield().equalsIgnoreCase((String) wi.next()))
+					!aEq.hasWield() ||
+					!aEq.getWield().equalsIgnoreCase((String) wi.next()))
 				{
 					break;
 				}
 
-				String wpName = aEq.profName(aPC);
+				String wpName = aEq.profKey(aPC);
 				addtoToAvailableAndMap(unparsed, availableList, wpName);
 			}
 		}
@@ -333,15 +333,15 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  wpName			Name of the weapon proficiency.
 	 */
 	private void addtoToAvailableAndMap(
-	    final String unparsed,
-	    final List   availableList,
-	    String       wpName)
+		final String unparsed,
+		final List   availableList,
+		String       wpKey)
 	{
-		final WeaponProf wp = Globals.getWeaponProfNamed(wpName);
+		final WeaponProf wp = Globals.getWeaponProfKeyed(wpKey);
 
-		if ((wp != null) && !availableList.contains(wp.getName()))
+		if ((wp != null) && !availableList.contains(wp.getKeyName()))
 		{
-			final String bString = wp.getName();
+			final String bString = wp.getKeyName();
 			availableList.add(bString);
 
 			final StringTokenizer cTok = new StringTokenizer(unparsed, "[]");
@@ -366,9 +366,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC				The Player Character.
 	 */
 	private void removeExcludedWeaponProfTypeChoices(
-	    String                parsed,
-	    final List            availableList,
-	    final PlayerCharacter aPC)
+		String                parsed,
+		final List            availableList,
+		final PlayerCharacter aPC)
 	{
 		final StringTokenizer bTok     = new StringTokenizer(parsed.substring(6), ".");
 		final List            typeList = new ArrayList();
@@ -395,11 +395,11 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 					break;
 				}
 
-				final WeaponProf wp = Globals.getWeaponProfNamed(aEq.profName(aPC));
+				final WeaponProf wp = Globals.getWeaponProfKeyed(aEq.profKey(aPC));
 
-				if ((wp != null) && availableList.contains(wp.getName()))
+				if ((wp != null) && availableList.contains(wp.getKeyName()))
 				{
-					final String bString = wp.getName();
+					final String bString = wp.getKeyName();
 					availableList.remove(bString);
 				}
 			}
@@ -413,8 +413,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selected				List of the choices made
 	 */
 	public void applyChoices(
-	    final PlayerCharacter  aPC,
-	    final List             selected)
+		final PlayerCharacter  aPC,
+		final List             selected)
 	{
 		pobject.clearSelectedWeaponProfBonus();
 		aPC.setAutomaticFeatsStable(false);
@@ -449,7 +449,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 				// TODO: This needs to be added to the automatic feat list
 				//
 				else if (featOrProf.startsWith("FEAT=") ||
-				    featOrProf.startsWith("FEAT."))
+					featOrProf.startsWith("FEAT."))
 				{
 					if (pobject instanceof Domain)
 					{
@@ -463,7 +463,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 						if (anAbility != null)
 						{
 							pobject.addAssociated(
-							    "FEAT?" + anAbility.getName() + "(" + aChoice + ")");
+								"FEAT?" + anAbility.getKeyName() + "(" + aChoice + ")");
 						}
 					}
 					else
@@ -483,7 +483,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 						}
 
 						if ((anAbility != null) &&
-						    !anAbility.containsAssociated(aChoice))
+							!anAbility.containsAssociated(aChoice))
 						{
 							anAbility.addAssociated(aChoice);
 						}
@@ -498,7 +498,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 
 	/**
 	 * what type of chooser does this handle
-	 * 
+	 *
 	 * @return type of chooser
 	 */
 	public String typeHandled() {
