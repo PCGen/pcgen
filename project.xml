@@ -11,7 +11,7 @@
     </organization>
     <inceptionYear>2003</inceptionYear>
     <package>pcgen</package>
-    <logo>http://maven.apache.org/images/maven.jpg</logo>
+    <logo>http://pcgen.sourceforge.net/banners/PCGen_FullBanner_486x60.png</logo>
 
     <description>PCGen RPG character generator.</description>
     <shortDescription>PCGen PRG character generator.</shortDescription>
