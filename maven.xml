@@ -19,4 +19,57 @@
     <preGoal name="maven-javadoc-plugin:report">
     	<attainGoal name="javacc:javacc-generate"/>
     </preGoal>
+    
+    
+    <goal name="pcgen:package-clean">
+    	<ant:mkdir dir="${basedir}/target/distributions" />
+    	<ant:delete>
+    		<fileset dir="${basedir}/target/distributions" includes="*.zip, *.tgz"/>
+    	</ant:delete>
+    </goal>
+    
+    <goal name="pcgen:package" prereqs="pcgen:package-clean">
+    	<ant:mkdir dir="${basedir}/target/distributions" />
+    	
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-all.zip" 
+    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**, data/**, outputsheets/**, docs/**, system/**, lib/**" 
+    		excludes="lib/emma/**, lib/test/**" />
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-code.zip" 
+    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**" />
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-content.zip" 
+    		includes="data/**, outputsheets/**, docs/**, system/**" />
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries.zip" 
+    		includes="lib/**" 
+    		excludes="lib/emma/**, lib/test/**"/>
+    		
+    	<ant:tar compression="gzip" longfile="gnu" 
+    		destfile="target/distributions/pcgen-all.tgz">
+		  <tarfileset dir="${basedir}" mode="755">
+		    <include name="pcgen.sh"/>
+		  </tarfileset>
+		  <tarfileset dir="${basedir}" >
+		    <include name="pcgen.jar"/>
+		    <include name="pcgen.bat"/>
+		    <include name="pcgen_low_mem.bat"/>
+		    <include name="plugins/**"/>
+		    <include name="data/**"/>
+		    <include name="outputsheets/**"/>
+		    <include name="docs/**"/>
+		    <include name="system/**"/>
+		    <include name="lib/**"/>
+		  </tarfileset>
+      	</ant:tar>
+    		 
+    	<ant:tar basedir="${basedir}" compression="gzip"  longfile="gnu"
+    		destfile="target/distributions/pcgen-code.tgz" 
+    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**" />
+    	<ant:tar basedir="${basedir}" compression="gzip" longfile="gnu" 
+    		destfile="target/distributions/pcgen-content.tgz" 
+    		includes="data/**, outputsheets/**, docs/**, system/**" />
+    	<ant:tar basedir="${basedir}" compression="gzip" longfile="gnu" 
+    		destfile="target/distributions/pcgen-libraries.tgz" 
+    		includes="lib/**" 
+    		excludes="lib/emma/**, lib/test/**"/>
+    </goal>
+    
 </project>    
