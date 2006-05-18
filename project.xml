@@ -215,6 +215,7 @@
     </reports>
 
     <build>
+        <nagEmailAddress>jdempsey@acslink.net.au</nagEmailAddress>
         <sourceDirectory>code/src/java</sourceDirectory>
         <unitTestSourceDirectory>code/src/test</unitTestSourceDirectory>
         <unitTest>
