@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 03:33:45 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri May 19 00:41:17 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Entries by: Tir Gwaith, Doug Mcmillan, and Ian Dale
 
@@ -103,20 +103,20 @@ Wand of Web			TYPE:FX.Wand.Magic.Arcane	COST:0	WT:1		BASEITEM:Wand		EQMOD:SPL_CH
 
 ###Block: Wondrous Items
 
-# Equipment Name					Type							Cost		Weight	Slot Needed	Base Item for EQMOD	Damage	Modifier					Range		Size		Source Page				Spells											Save checks bonus							Damage reduction	Special Property
-Chemical Light Stick of Revealing		TYPE:FX.Wondrous.Magic.Consumable		COST:29	WT:1																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:As normal chemical light stick plus reveals invisible creatures and objects
-Crystal Pistol					TYPE:FX.Wondrous.Psionic.Weapon.Ranged	COST:29	WT:2								DAMAGE:3d6	EQMOD:CHARGED_ITEM_50|CHARGES[50]	RANGE:130	SIZE:S	SOURCEPAGE:msrdfxitems.rtf																									SPROP:50 charges. Cannot be recharged
-Duct Tape of Repair				TYPE:FX.Wondrous.Magic.Consumable		COST:31	WT:1										EQMOD:CHARGED_ITEM_14|CHARGES[14]					SOURCEPAGE:msrdfxitems.rtf																									SPROP:5ft strip applied repairs 1d8+5 object damage, 14 uses per roll
-Gauntlet of Lightning				TYPE:FX.Wondrous.Magic.Glove			COST:32	WT:1																				SOURCEPAGE:msrdfxitems.rtf	SPELLS:Gauntlet of Lightning|TIMES=3|CASTERLEVEL=5|Lightning Bolt,14
-Icethrower						TYPE:FX.Wondrous.Magic				COST:35	WT:50										EQMOD:CHARGED_ITEM_10|CHARGES[10]					SOURCEPAGE:msrdfxitems.rtf																									SPROP:Looks like a flamethrower but shoots a Cone of COld(Reflex DC17) 10 shots,
-Jade Crocodile					TYPE:FX.Wondrous.Magic				COST:33	WT:0																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:Stone turns into crocodile see text
-Leather Jacket of Damage Reduction		TYPE:FX.Wondrous.Magic.Shirt			COST:31	WT:4				BASEITEM:Leather Jacket													SOURCEPAGE:msrdfxitems.rtf																						BONUS:DR|-|1	SPROP:This BONUS stacks
-Running Shoes of Striding and Springing	TYPE:FX.Wondrous.Magic.Boot			COST:33	WT:1		SLOTS:2																	SOURCEPAGE:msrdfxitems.rtf																									SPROP:Wearer moves at double her normal speed
-Screaming Amulet					TYPE:FX.Wondrous.Psionic.Amulet		COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:need 10 power points to activate, see text
-Six-Demon Bag					TYPE:FX.Wondrous.Magic				COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:see text
-Windbreaker of Resistance +1			TYPE:FX.Wondrous.Magic.Shirt			COST:22	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance				SPROP:restistance BONUS to all saves
-Windbreaker of Resistance +2			TYPE:FX.Wondrous.Magic.Shirt			COST:25	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance				SPROP:restistance BONUS to all saves
-Windbreaker of Resistance +3			TYPE:FX.Wondrous.Magic.Shirt			COST:28	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance				SPROP:restistance BONUS to all saves
+# Equipment Name					Required Proficiency		Type							Cost		Weight	Slot Needed	Base Item for EQMOD	Damage	Modifier					Range		Size		Source Page				Spells											Save checks bonus							Damage reduction	Special Property
+Chemical Light Stick of Revealing							TYPE:FX.Wondrous.Magic.Consumable		COST:29	WT:1																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:As normal chemical light stick plus reveals invisible creatures and objects
+Crystal Pistol					PROFICIENCY:Crystal Pistol	TYPE:FX.Wondrous.Psionic.Weapon.Ranged	COST:29	WT:2								DAMAGE:3d6	EQMOD:CHARGED_ITEM_50|CHARGES[50]	RANGE:130	SIZE:S	SOURCEPAGE:msrdfxitems.rtf																									SPROP:50 charges. Cannot be recharged
+Duct Tape of Repair									TYPE:FX.Wondrous.Magic.Consumable		COST:31	WT:1										EQMOD:CHARGED_ITEM_14|CHARGES[14]					SOURCEPAGE:msrdfxitems.rtf																									SPROP:5ft strip applied repairs 1d8+5 object damage, 14 uses per roll
+Gauntlet of Lightning									TYPE:FX.Wondrous.Magic.Glove			COST:32	WT:1																				SOURCEPAGE:msrdfxitems.rtf	SPELLS:Gauntlet of Lightning|TIMES=3|CASTERLEVEL=5|Lightning Bolt,14
+Icethrower											TYPE:FX.Wondrous.Magic				COST:35	WT:50										EQMOD:CHARGED_ITEM_10|CHARGES[10]					SOURCEPAGE:msrdfxitems.rtf																									SPROP:Looks like a flamethrower but shoots a Cone of COld(Reflex DC17) 10 shots,
+Jade Crocodile										TYPE:FX.Wondrous.Magic				COST:33	WT:0																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:Stone turns into crocodile see text
+Leather Jacket of Damage Reduction							TYPE:FX.Wondrous.Magic.Shirt			COST:31	WT:4				BASEITEM:Leather Jacket													SOURCEPAGE:msrdfxitems.rtf																						BONUS:DR|-|1	SPROP:This BONUS stacks
+Running Shoes of Striding and Springing						TYPE:FX.Wondrous.Magic.Boot			COST:33	WT:1		SLOTS:2																	SOURCEPAGE:msrdfxitems.rtf																									SPROP:Wearer moves at double her normal speed
+Screaming Amulet										TYPE:FX.Wondrous.Psionic.Amulet		COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:need 10 power points to activate, see text
+Six-Demon Bag										TYPE:FX.Wondrous.Magic				COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																									SPROP:see text
+Windbreaker of Resistance +1								TYPE:FX.Wondrous.Magic.Shirt			COST:22	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +2								TYPE:FX.Wondrous.Magic.Shirt			COST:25	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +3								TYPE:FX.Wondrous.Magic.Shirt			COST:28	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf													BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance				SPROP:restistance BONUS to all saves
 
 ###Block: Base Items
 
