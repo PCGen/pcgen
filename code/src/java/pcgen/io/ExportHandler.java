@@ -29,7 +29,6 @@ import pcgen.core.*;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.exporttoken.*;
-import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.io.exporttoken.SkillToken;
