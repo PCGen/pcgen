@@ -1603,7 +1603,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		if (aCamp.isLicensed())
 		{
 			List licenseList = aCamp.getLicenses();
-			if (licenseList != null)
+			if (licenseList != null && licenseList.size() > 0)
 			{
 				licensesToDisplayString.append(aCamp.getLicenses());
 			}
