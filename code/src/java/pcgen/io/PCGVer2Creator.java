@@ -1832,10 +1832,10 @@ final class PCGVer2Creator implements IOConstants
 		if (SettingsHandler.getSaveOutputSheetWithPC())
 		{
 			buffer.append(TAG_HTMLOUTPUTSHEET).append(':');
-			buffer.append(EntityEncoder.encode(SettingsHandler.getSelectedCharacterHTMLOutputSheet(aPC)));
+			buffer.append(EntityEncoder.encode(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
 			buffer.append(LINE_SEP);
 			buffer.append(TAG_PDFOUTPUTSHEET).append(':');
-			buffer.append(EntityEncoder.encode(SettingsHandler.getSelectedCharacterPDFOutputSheet(aPC)));
+			buffer.append(EntityEncoder.encode(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
 			buffer.append(LINE_SEP);
 		}
 	}
