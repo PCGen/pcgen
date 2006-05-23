@@ -106,7 +106,7 @@ public final class JTreeTableSorter
 	}
 
 	/**
-	 * Sort the node on the column 
+	 * Sort the node on the column
 	 * @return a PObject
 	 */
 	public PObjectNode sortNodeOnColumn()
@@ -144,10 +144,10 @@ public final class JTreeTableSorter
 				Logging.errorPrint("", exc);
 			}
 
-			if (pir == null)
-			{
-				continue;
-			}
+//			if (pir == null)
+//			{
+//				continue;
+//			}
 
 			if (pir instanceof String)
 			{
@@ -161,13 +161,18 @@ public final class JTreeTableSorter
 
 		isAscending = ascending == 0;
 		Collections.sort(itemsToSort,
-		    new Comparator()
+			new Comparator()
 			{
 				public int compare(Object obj1, Object obj2)
 				{
 					final Object o1 = ((ArrayList) obj1).get(1);
 					final Object o2 = ((ArrayList) obj2).get(1);
 					int iRet = -1;
+
+					if (o1 == null || o2 == null)
+					{
+						return 0;
+					}
 
 					//Globals.debugPrint("obj1:" + o1.getClass().getName() + ":" + o1 + "  obj2:" + o2.getClass().getName() + ":" + o2);
 					if (o1 instanceof Integer)
@@ -201,7 +206,7 @@ public final class JTreeTableSorter
 					return iRet;
 				}
 
-		        private String stripHTML(String string) {
+				private String stripHTML(String string) {
 					int index = string.indexOf('<');
 					int endIndex = string.indexOf('>');
 					while (index != -1 && endIndex != -1) {
@@ -210,7 +215,7 @@ public final class JTreeTableSorter
 						endIndex = string.indexOf('>');
 					}
 					return string;
-		        }
+				}
 			});
 
 		for (int i = 0; i < itemsToSort.size(); i++)
