@@ -41,35 +41,6 @@
     	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries.zip" 
     		includes="lib/**" 
     		excludes="lib/emma/**, lib/test/**"/>
-    		
-    	<ant:tar compression="gzip" longfile="gnu" 
-    		destfile="target/distributions/pcgen-all.tgz">
-		  <tarfileset dir="${basedir}" mode="755">
-		    <include name="pcgen.sh"/>
-		  </tarfileset>
-		  <tarfileset dir="${basedir}" >
-		    <include name="pcgen.jar"/>
-		    <include name="pcgen.bat"/>
-		    <include name="pcgen_low_mem.bat"/>
-		    <include name="plugins/**"/>
-		    <include name="data/**"/>
-		    <include name="outputsheets/**"/>
-		    <include name="docs/**"/>
-		    <include name="system/**"/>
-		    <include name="lib/**"/>
-		  </tarfileset>
-      	</ant:tar>
-    		 
-    	<ant:tar basedir="${basedir}" compression="gzip"  longfile="gnu"
-    		destfile="target/distributions/pcgen-code.tgz" 
-    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**" />
-    	<ant:tar basedir="${basedir}" compression="gzip" longfile="gnu" 
-    		destfile="target/distributions/pcgen-content.tgz" 
-    		includes="data/**, outputsheets/**, docs/**, system/**" />
-    	<ant:tar basedir="${basedir}" compression="gzip" longfile="gnu" 
-    		destfile="target/distributions/pcgen-libraries.tgz" 
-    		includes="lib/**" 
-    		excludes="lib/emma/**, lib/test/**"/>
     </goal>
     
 </project>    
