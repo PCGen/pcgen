@@ -3,13 +3,13 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ####Block: Simple Weapons
 #-----unarmed------
-# Equipment Name		Required Proficiency			Type														Cost		Weight	Var. Min. Value			Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	MODS		Size		Source Page				Weapon prop. bonus														Special Property
-Gauntlet			PROFICIENCY:Gauntlet			TYPE:Weapon.Melee.Simple.Unarmed.Standard.Metal.Bludgeoning.Finesseable.Gauntlet	COST:2	WT:1							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light				SIZE:M
-Unarmed Strike		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning		COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO	SIZE:M
-Flurry of Blows		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Monk.Bludgeoning					COST:0	WT:0		PREVARGTEQ:FlurryOfBlows,1	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SOURCEPAGE:CombatII.rtf		BONUS:WEAPON|ATTACKS|1+(MonkLvl>=11)	BONUS:WEAPON|TOHIT|if(MonkLvl<=4,-2,if(MonkLvl<=8,-1,0))
-Grapple			PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Unarmed.Subdual								COST:0																DAMAGE:0	WIELD:Light		MODS:NO			SOURCEPAGE:CombatII.rtf
-Shieldbash (Light)	PROFICIENCY:Shieldbash (Light)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash			COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light				SIZE:M	SOURCEPAGE:Equipment.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
-Shieldbash (Heavy)	PROFICIENCY:Shieldbash (Heavy)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash					COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded			SIZE:M	SOURCEPAGE:Equipment.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+# Equipment Name		Required Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	MODS		Size		Source Page				Weapon prop. bonus														Special Property
+Gauntlet			PROFICIENCY:Gauntlet			TYPE:Weapon.Melee.Simple.Unarmed.Standard.Metal.Bludgeoning.Finesseable.Gauntlet	COST:2	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light				SIZE:M
+Unarmed Strike		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning		COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO	SIZE:M
+Flurry of Blows		PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Monk.Bludgeoning.Finesseable			COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SOURCEPAGE:CombatII.rtf		BONUS:WEAPON|ATTACKS|1+(MonkLvl>=11)	BONUS:WEAPON|TOHIT|if(MonkLvl<=4,-2,if(MonkLvl<=8,-1,0))
+Grapple			PROFICIENCY:Unarmed Strike		TYPE:Weapon.Natural.Melee.Unarmed.Subdual								COST:0											DAMAGE:0	WIELD:Light		MODS:NO			SOURCEPAGE:CombatII.rtf
+Shieldbash (Light)	PROFICIENCY:Shieldbash (Light)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash			COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light				SIZE:M	SOURCEPAGE:Equipment.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+Shieldbash (Heavy)	PROFICIENCY:Shieldbash (Heavy)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash					COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded			SIZE:M	SOURCEPAGE:Equipment.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
 
 
 #Special ---->(Flurry of Blows)
