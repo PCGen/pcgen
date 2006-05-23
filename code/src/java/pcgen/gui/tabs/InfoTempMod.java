@@ -1038,7 +1038,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					for (Iterator iter = aBonus.getPrereqList().iterator(); iter.hasNext();)
 					{
 						Prerequisite prereq = (Prerequisite) iter.next();
-						if (!prereq.getKind().equalsIgnoreCase("apply"))
+						if (prereq.getKind() == null || !prereq.getKind().equalsIgnoreCase("apply"))
 						{
 							newB.addPreReq(new Prerequisite(prereq));
 						}
@@ -2611,7 +2611,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 							for (Iterator iter = aBonus.getPrereqList().iterator(); iter.hasNext() && passesApply;)
 							{
 								Prerequisite element = (Prerequisite) iter.next();
-								if (element.getKind().equalsIgnoreCase("APPLY"))
+								if (element.getKind() != null && element.getKind().equalsIgnoreCase("APPLY"))
 								{
 									if (!PrereqHandler.passes(element, aEq, pc))
 										passesApply = false;
