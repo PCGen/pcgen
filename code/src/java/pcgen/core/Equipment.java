@@ -69,7 +69,7 @@ import pcgen.util.PjepPool;
  * @author 2001
  * @version $Revision$
  */
-public final class Equipment extends PObject implements Serializable, EquipmentCollection, Comparable
+public final class Equipment extends PObject implements Serializable, EquipmentCollection, Comparable, VariableContainer
 {
 	private static final String EQMOD_WEIGHT = "_WEIGHTADD";
 	private static final String EQMOD_DAMAGE = "_DAMAGE";
@@ -3074,7 +3074,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		for(int i = 0; i < 	specialPropertyList.size(); i++)
 		{
 			final SpecialProperty sprop = (SpecialProperty)specialPropertyList.get(i);
-			final String text = sprop.getParsedText(aPC);
+			final String text = sprop.getParsedText(aPC, this);
 			if(!text.equals(""))
 			{
 				if(!first)

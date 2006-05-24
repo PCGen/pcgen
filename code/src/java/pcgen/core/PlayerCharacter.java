@@ -56,7 +56,7 @@ import pcgen.core.system.GameModeRollMethod;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class PlayerCharacter extends Observable implements Cloneable
+public final class PlayerCharacter extends Observable implements Cloneable, VariableContainer
 {
 	// Constants for use in getBonus
 	/** ATTACKBONUS = 0 */
@@ -2765,7 +2765,7 @@ public final class PlayerCharacter extends Observable implements Cloneable
 				{
 					continue;
 				}
-				final String saText = sa.getParsedText(this);
+				final String saText = sa.getParsedText(this, this);
 				if (saText!=null && !saText.equals(""))
 				{
 					bList.add(saText);
@@ -6617,6 +6617,11 @@ public final class PlayerCharacter extends Observable implements Cloneable
 		return getVariableValue(null, aString, src);
 	}
 
+	public Float getVariableValue(final String varName, final String src, final PlayerCharacter aPC)
+	{
+		return getVariableValue(null, varName, src);
+	}
+
 	/**
 	 * Evaluates a variable for this character
 	 * e.g: getVariableValue("3+CHA","CLASS:Cleric") for Turn Undead
@@ -6640,11 +6645,6 @@ public final class PlayerCharacter extends Observable implements Cloneable
 	{
 		return variableProcessor;
 	}
-
-
-
-
-
 
 	int getTotalCasterLevelWithSpellBonus(final Spell aSpell, final String spellType, final String classOrRace, final int casterLev)
 	{

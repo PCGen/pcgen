@@ -152,12 +152,12 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	 * @param pc
 	 * @return Get the parsed text (%CHOICEs replaced)
 	 */
-	public String getParsedText(final PlayerCharacter pc)
+	public String getParsedText(final PlayerCharacter pc, final VariableContainer anOwner)
 	{
-		return getParsedText(pc, parse(getText()));
+		return getParsedText(pc, parse(getText()), anOwner);
 	}
 
-	protected String getParsedText(final PlayerCharacter pc, final String fullDesc)
+	protected String getParsedText(final PlayerCharacter pc, final String fullDesc, final VariableContainer anOwner)
 	{
 		if (fullDesc==null || fullDesc.equals("")) {
 			return "";
@@ -181,7 +181,8 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 					for (int j = 0; j < varValue.length; ++j)
 					{
 						final String varToken = varTok.nextToken();
-						final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
+//						final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
+						final int value = anOwner.getVariableValue(varToken, "", pc).intValue();
 						if (value != 0)
 						{
 							atLeastOneNonZero = true;

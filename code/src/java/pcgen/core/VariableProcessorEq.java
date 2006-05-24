@@ -41,7 +41,6 @@ public class VariableProcessorEq extends VariableProcessor
 	private Equipment eq;
 	private boolean primaryHead;
 
-
 	/**
 	 * Create a new VariableProcessorEq instance for an equipment item, and pc. It
 	 * also allows splitting of the processing of the heads of double weapons.
@@ -50,7 +49,9 @@ public class VariableProcessorEq extends VariableProcessor
 	 * @param pc The player character being processed.
 	 * @param primaryHead Is this the primary head of a double weapon?
 	 */
-	public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead) {
+	public VariableProcessorEq(Equipment eq, PlayerCharacter pc,
+							   boolean primaryHead)
+	{
 		super(pc);
 		this.eq = eq;
 		this.primaryHead = primaryHead;
@@ -64,16 +65,19 @@ public class VariableProcessorEq extends VariableProcessor
 		Float retVal = null;
 		if (getPc().hasVariable(element))
 		{
-			final Float value = getPc().getVariable(element, true, true, src, "", decrement);
-			Logging.debugPrint(jepIndent + "variable for: '" + element + "' = " + value);
+			final Float value = getPc().getVariable(element, true, true, src,
+				"", decrement);
+			Logging.debugPrint(jepIndent + "variable for: '" + element + "' = "
+							   + value);
 			retVal = new Float(value.doubleValue());
 		}
 
-		if (retVal==null) {
+		if (retVal == null)
+		{
 			final String foo = getInternalVariable(spell, element, src);
 			if (foo != null)
 			{
-				Float d=null;
+				Float d = null;
 				try
 				{
 					d = new Float(foo);
@@ -82,21 +86,43 @@ public class VariableProcessorEq extends VariableProcessor
 				{
 					// What we got back was not a number
 				}
-				if (d != null) {
+				if (d != null)
+				{
 					if (!d.isNaN())
 					{
 						retVal = d;
-						Logging.debugPrint(jepIndent + "internal variable for: '" + element + "' = " + d);
+						Logging.debugPrint(jepIndent
+										   + "internal variable for: '"
+										   + element + "' = " + d);
+					}
+				}
+				else
+				{
+					try
+					{
+						d = new Float(foo.substring(1));
+						if (!d.isNaN())
+						{
+							retVal = d;
+							Logging.debugPrint(jepIndent
+											   + "internal variable for: '"
+											   + element + "' = " + d);
+						}
+					}
+					catch (NumberFormatException nfe)
+					{
+						// What we got back was not a number
 					}
 				}
 			}
 		}
 
-		if (retVal==null) {
+		if (retVal == null)
+		{
 			final String foo = getExportVariable(element);
 			if (foo != null)
 			{
-				Float d=null;
+				Float d = null;
 				try
 				{
 					d = new Float(foo);
@@ -105,11 +131,13 @@ public class VariableProcessorEq extends VariableProcessor
 				{
 					// What we got back was not a number
 				}
-				if (d != null) {
+				if (d != null)
+				{
 					if (!d.isNaN())
 					{
 						retVal = d;
-						Logging.debugPrint(jepIndent + "export variable for: '" + element + "' = " + d);
+						Logging.debugPrint(jepIndent + "export variable for: '"
+										   + element + "' = " + d);
 					}
 				}
 			}
@@ -117,7 +145,6 @@ public class VariableProcessorEq extends VariableProcessor
 
 		return retVal;
 	}
-
 
 	/**
 	 * Retrieve a pre-coded variable for a piece of equipment. These are known properties of
@@ -129,7 +156,8 @@ public class VariableProcessorEq extends VariableProcessor
 	 * @param src The source within which the variable is evaluated
 	 * @return The value of the variable
 	 */
-	public String getInternalVariable(final Spell aSpell, String valString, final String src)
+	public String getInternalVariable(final Spell aSpell, String valString,
+									  final String src)
 	{
 		String retVal = null;
 		if ("SIZE".equals(valString))
@@ -157,7 +185,8 @@ public class VariableProcessorEq extends VariableProcessor
 			{
 				if (eq.isCalculatingCost() && eq.isAmmunition())
 				{
-					final Float unitWeight = new Float(eq.getWeightInPounds() / eq.getBaseQty());
+					final Float unitWeight = new Float(eq.getWeightInPounds()
+						/ eq.getBaseQty());
 					retVal = unitWeight.toString();
 				}
 				else
@@ -165,7 +194,7 @@ public class VariableProcessorEq extends VariableProcessor
 					retVal = String.valueOf(eq.getWeightInPounds());
 				}
 
-				eq.setWeightAlreadyUsed( true );
+				eq.setWeightAlreadyUsed(true);
 			}
 		}
 		else if ("BASECOST".equals(valString))
@@ -211,17 +240,19 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else
 		{
-			for (int j = 0; j < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++j)
+			for (int j = 0; j < SettingsHandler.getGame().s_ATTRIBSHORT.length;
+				 ++j)
 			{
 				if (valString.equals(SettingsHandler.getGame().s_ATTRIBSHORT[j]))
 				{
-					retVal = String.valueOf(getPc().getStatList().getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[j]));
+					retVal = String.valueOf(getPc().getStatList().getStatModFor(
+						SettingsHandler.getGame().s_ATTRIBSHORT[j]));
 
 					break;
 				}
 			}
 		}
-		if (retVal==null)
+		if (retVal == null)
 		{
 			// we have not managed to find an internal variable for the equipment, so try to find
 			// one for the character.
