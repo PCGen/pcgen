@@ -493,7 +493,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			}
 		}
 
-		if (!pcHasIt && (anAbility != null))
+		if ((anAbility != null))
 		{
 			if (anAbility.getCost(pc) > pc.getFeats())
 			{
@@ -1363,7 +1363,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		if(availableTable != null) {
 			List pathList = availableTable.getExpandedPaths();
 			createModelAvailable();
-	
+
 			if (availableSort != null)
 			{
 				availableSort.sortNodeOnColumn();
@@ -1417,7 +1417,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		if(selectedTable != null) {
 			List pathList = selectedTable.getExpandedPaths();
 			createModelSelected();
-	
+
 			if (selectedSort != null)
 			{
 				selectedSort.sortNodeOnColumn();
@@ -2200,7 +2200,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				{
 					for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 					{
-						
+
 						String sourceString = aFeat.getSourceWithKey("LONG");
 						if (sourceString != null && sourceString.equals(rootAsPObjectNode.getChild(i).toString()))
 						{
