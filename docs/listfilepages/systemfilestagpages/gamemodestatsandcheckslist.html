@@ -101,6 +101,24 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">STATNAME Line.</p>
 
+		<p></p><a name="BONUSHP"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:HP|x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (A defined HP type).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Formula (Amount to add to the HP type).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets a bonus to the HP type specified.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:HP|WOUNDPOINTS|CON</code></p>
+		<p class="indent3">Adds a characters CON bonus to the WOUNDPOINTS total at each level.</p>
+		<p class="indent2"><code>BONUS:HP|ALTHP|CONSCORE</code></p>
+		<p class="indent3">Adds a characters CONSCORE to the ALTHP total as defined in miscinfo.lst.</p>
+		<p class="indent2"><code>BONUS:HP|BONUS|CON</code></p>
+		<p class="indent3">Adds a characters CON bonus to the Primary HP total as defined in miscinfo.lst.</p>
+		<p class="indent2"><code>BONUS:HP|CON</code></p>
+		<p class="indent3">Adds a characters CON bonus to the Primary HP total as defined in miscinfo.lst.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">STATNAME Line.</p>
+
 		<p></p>
 		<p class="indent1"><strong>Complete Line Example:</strong></p>
 		<p class="indent2"><code>STATNAME:Charisma ABB:CHA STATRANGE:-100|100 STATMOD:(SCORE/2).TRUNC-5
