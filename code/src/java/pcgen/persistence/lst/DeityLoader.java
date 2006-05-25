@@ -138,12 +138,20 @@ public class DeityLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			if (Globals.getDeityKeyed(target.getKeyName()) == null)
 			{
 				Globals.getDeityList().add(target);
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

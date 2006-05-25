@@ -122,7 +122,11 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 
 	protected void finishObject(PObject target)
 	{
-		if (includeObject(target) && (target.getKeyName().length() > 0))
+		if (target == null)
+		{
+			return;
+		}
+		if (includeObject(target))
 		{
 			final WeaponProf wpFromFile = (WeaponProf) target;
 			final WeaponProf wp = Globals.getWeaponProfKeyed(wpFromFile.getKeyName());
@@ -132,6 +136,10 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 				Globals.addWeaponProf(wpFromFile);
 				target.setNewItem(false);
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

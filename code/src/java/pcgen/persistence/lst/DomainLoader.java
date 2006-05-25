@@ -129,12 +129,20 @@ public class DomainLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			if (Globals.getDomainKeyed(target.getKeyName()) == null)
 			{
 				Globals.addDomain((Domain) target);
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

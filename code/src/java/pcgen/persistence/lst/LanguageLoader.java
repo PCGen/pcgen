@@ -123,6 +123,10 @@ final class LanguageLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			final Language lang = Globals.getLanguageKeyed(target.getKeyName());
@@ -131,6 +135,10 @@ final class LanguageLoader extends LstObjectFileLoader
 			{
 				Globals.getLanguageList().add(target);
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

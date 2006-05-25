@@ -54,6 +54,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	private List forgetLineList = new ArrayList();
 	private List modEntryList = new ArrayList();
 	private Map sourceMap = null;
+	protected List excludedObjects = new ArrayList();
 
 	/**
 	 * LstObjectFileLoader constructor.
@@ -525,6 +526,10 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			key = key.substring(nameStart + 1);
 		}
 
+		if (excludedObjects.contains(key))
+		{
+			return;
+		}
 		// get the actual object to modify
 		PObject object = getObjectKeyed(key);
 
@@ -560,7 +565,11 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		while (copyIter.hasNext())
 		{
-			performCopy((String) copyIter.next());
+			final String objKey = (String)copyIter.next();
+			if (!excludedObjects.contains(objKey))
+			{
+				performCopy( (String) copyIter.next());
+			}
 		}
 		copyLineList.clear();
 	}
@@ -577,6 +586,10 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			String forgetKey = (String) forgetIter.next();
 			forgetKey = forgetKey.substring(0, forgetKey.indexOf(".FORGET"));
 
+			if (excludedObjects.contains(forgetKey))
+			{
+				continue;
+			}
 			// Commented out so that deprcated method no longer used
 			// performForget(forgetName);
 
@@ -601,7 +614,12 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			Object modEntry = modIter.next();
 			if (modEntry instanceof ModEntry)
 			{
-				performMod((ModEntry) modEntry);
+				final ModEntry me = (ModEntry)modEntry;
+				final String objKey = me.getLstLine().substring(0, me.getLstLine().indexOf(".MOD"));
+				if (!excludedObjects.contains(objKey))
+				{
+					performMod(me);
+				}
 			}
 			else if (modEntry instanceof List)
 			{

@@ -302,6 +302,10 @@ public final class PCClassLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			// This class already exists, so lets
@@ -335,20 +339,24 @@ public final class PCClassLoader extends LstObjectFileLoader
 					}
 				}
 			}
-		}
 
-		List preReqList = target.getPreReqList();
-		if (preReqList != null)
-		{
-			for (Iterator iter = preReqList.iterator(); iter.hasNext();)
+			List preReqList = target.getPreReqList();
+			if (preReqList != null)
 			{
-				Prerequisite preReq = (Prerequisite) iter.next();
-				if ("VAR".equalsIgnoreCase(preReq.getKind()))
+				for (Iterator iter = preReqList.iterator(); iter.hasNext();)
 				{
-					preReq.setSubKey("CLASS:" + target.getKeyName());
-				}
+					Prerequisite preReq = (Prerequisite) iter.next();
+					if ("VAR".equalsIgnoreCase(preReq.getKind()))
+					{
+						preReq.setSubKey("CLASS:" + target.getKeyName());
+					}
 
+				}
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

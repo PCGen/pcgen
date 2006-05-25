@@ -127,6 +127,10 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			final Ability anAbility = Globals.getAbilityKeyed("FEAT", target.getKeyName());
@@ -145,6 +149,10 @@ public final class FeatLoader extends AbilityLoader
 					}
 				}
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 }

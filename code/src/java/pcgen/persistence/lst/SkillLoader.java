@@ -120,6 +120,10 @@ public final class SkillLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			Skill skill = (Skill) target;
@@ -129,6 +133,10 @@ public final class SkillLoader extends LstObjectFileLoader
 			{
 				Globals.getSkillList().add(skill);
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

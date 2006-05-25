@@ -144,6 +144,10 @@ public class AbilityLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			Ability searchFor = (Ability) target;
@@ -153,6 +157,10 @@ public class AbilityLoader extends LstObjectFileLoader
 			{
 				Globals.addAbility(searchFor);
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

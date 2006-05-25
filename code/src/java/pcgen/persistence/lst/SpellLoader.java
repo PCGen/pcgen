@@ -137,6 +137,10 @@ public final class SpellLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			Object obj = Globals.getSpellMap().get(target.getKeyName());
@@ -186,6 +190,10 @@ public final class SpellLoader extends LstObjectFileLoader
 					}
 				}
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 

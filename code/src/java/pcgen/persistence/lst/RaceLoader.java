@@ -145,6 +145,10 @@ public final class RaceLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
+		if (target == null)
+		{
+			return;
+		}
 		if (includeObject(target))
 		{
 			final Race aRace = Globals.getRaceKeyed(target.getKeyName());
@@ -163,6 +167,10 @@ public final class RaceLoader extends LstObjectFileLoader
 					}
 				}
 			}
+		}
+		else
+		{
+			excludedObjects.add(target.getKeyName());
 		}
 	}
 
