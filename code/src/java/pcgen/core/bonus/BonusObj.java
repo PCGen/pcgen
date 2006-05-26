@@ -845,7 +845,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 			// and comparison strings: > = <
 			// remember, a StringTokenizer will tokenize
 			// on any of the found delimiters
-			final StringTokenizer mTok = new StringTokenizer(controlString, "+-/*>=<");
+			final StringTokenizer mTok = new StringTokenizer(controlString, "+-/*>=<\"");
 
 			while (mTok.hasMoreTokens())
 			{

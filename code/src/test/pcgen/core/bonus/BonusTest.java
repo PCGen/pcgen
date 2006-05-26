@@ -161,5 +161,9 @@ public class BonusTest extends AbstractCharacterTestCase
 		maxDexStr.setValue("VAR|NegLevels|max(STR,DEX)-STR");
 		assertTrue("Should have flagged a dependancy on DEX", maxDexStr.getDependsOn("DEX"));
 		assertTrue("Should have flagged a dependancy on STR", maxDexStr.getDependsOn("STR"));
+
+		BonusObj monkMove = new Var();
+		monkMove.setValue("VAR|MonkMove|floor(var(\"monkLvl\")/3)*10");
+		assertTrue("Should have flagged a dependancy on monkLvl", monkMove.getDependsOn("MONKLVL"));
 	}
 }
