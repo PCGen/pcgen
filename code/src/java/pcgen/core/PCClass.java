@@ -1297,6 +1297,11 @@ public class PCClass extends PObject
 		return "";
 	}
 
+	/**
+	 * Return the level of the highest level spell offered by the class. 
+	 *  
+	 * @return The level of the highest level spell available.
+	 */
 	public int getHighestLevelSpell()
 	{
 		// check to see if we have a cached value first
@@ -1338,6 +1343,35 @@ public class PCClass extends PObject
 		return highest;
 	}
 
+	/**
+	 * Return the level of the highest level spell the character 
+	 * could possibly cast in this class. This can return a higher 
+	 * level than the class allows if the character has feats 
+	 * which give a bonus to casting.
+	 *  
+	 * @param pc The character to be checked.
+	 * @return The level of the highest level spell available.
+	 */
+	public int getHighestLevelSpell(PlayerCharacter pc)
+	{
+		final String classKeyName = "CLASS." + getKeyName();
+		int mapHigh = getHighestLevelSpell();
+		int high = mapHigh;
+		for (int i = mapHigh; i < mapHigh + 30; i++)
+		{
+			final String levelSpellLevel = ";LEVEL." + i;
+			if (pc.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel) > 0)
+			{
+				high = i;
+			}
+			else if (pc.getTotalBonusTo("SPELLKNOWN", classKeyName
+				+ levelSpellLevel) > 0)
+			{
+				high = i;
+			}
+		}
+		return high;
+	}
 
 
 	/**

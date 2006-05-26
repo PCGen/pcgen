@@ -40,6 +40,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import plugin.pretokens.parser.PreVariableParser;
 
@@ -326,6 +327,61 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 	}
 
+	/**
+	 * Test the function of the getHighestLevelSpell method.
+	 * @throws PersistenceLayerException
+	 */
+	public void testGetHighestLevelSpell() throws PersistenceLayerException
+	{
+		PCClass megaCasterClass = new PCClass();
+		megaCasterClass.setName("MegaCaster");
+		megaCasterClass.setAbbrev("MC");
+		megaCasterClass.setSpellType("ARCANE");
+		megaCasterClass.setSpellBaseStat("CHA");
+		megaCasterClass.setSpellBookUsed(false);
+		megaCasterClass.setMemorizeSpells(false);
+		megaCasterClass.addKnown(1, "4,2,2,3,4,5");
+		megaCasterClass.setCastMap(1, "3,1,2,3,4,5");
+		megaCasterClass.addKnown(2, "4,2,2,3,4,5,6,7,8,9,10");
+		megaCasterClass.setCastMap(2, "3,1,2,3,4,5,6,7,8,9,10");
+		Globals.getClassList().add(megaCasterClass);
+		
+		assertEquals("Highest spell level for class", 10, megaCasterClass.getHighestLevelSpell());
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, megaCasterClass);
+		PCClass charClass = character.getClassKeyed(megaCasterClass.getKeyName());
+		assertEquals("Highest spell level for character's class", 10, charClass.getHighestLevelSpell());
+
+		String sbook = Globals.getDefaultSpellBook();
+
+		String cast = charClass.getCastForLevel(1, 10, sbook, true,
+			false, character)
+			+ charClass.getBonusCastForLevelString(1, 10, sbook, character);
+		assertEquals("Should not be able to cast 10th level spells at 1st level", "0", cast);
+		cast = charClass.getCastForLevel(1, 5, sbook, true,
+			false, character)
+			+ charClass.getBonusCastForLevelString(1, 5, sbook, character);
+		assertEquals("Should be able to cast 5th level spells at 1st level", "5", cast);
+		
+		Ability casterFeat = new Ability();
+		FeatLoader featLoader = new FeatLoader();
+		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
+				PCClassTest.class.getName() + ".java");
+		featLoader.setCurrentSource(source);
+		featLoader.parseLine(casterFeat,
+				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
+		casterFeat.setCategory("FEAT");
+		Globals.addAbility(casterFeat);
+		
+		AbilityUtilities.modFeat(character, null, "CasterBoost", true, false);
+		cast = charClass.getCastForLevel(1, 11, sbook, true,
+			false, character)
+			+ charClass.getBonusCastForLevelString(1, 11, sbook, character);
+		assertEquals("Should be able to cast 11th level spells with feat", "1", cast);
+		assertEquals("Should be able to cast 11th level spells with feat", 11, charClass.getHighestLevelSpell(character));
+	}
+	
 	/**
 	 * Parse a class definition and return the populated PCClass object.
 	 *

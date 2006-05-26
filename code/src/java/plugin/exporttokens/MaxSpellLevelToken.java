@@ -89,7 +89,7 @@ public class MaxSpellLevelToken extends Token
 
 			if (aClass != null)
 			{
-				retValue.append(aClass.getHighestLevelSpell());
+				retValue.append(aClass.getHighestLevelSpell(pc));
 			}
 		}
 

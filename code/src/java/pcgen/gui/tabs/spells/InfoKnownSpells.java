@@ -180,7 +180,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 			if (((aClass.getKnownList().size() > 0) && aClass.getKnownList()!= null) || aClass.hasKnownSpells(pc) )
 			{
-				int highestSpellLevel = aClass.getHighestLevelSpell();
+				int highestSpellLevel = aClass.getHighestLevelSpell(pc);
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
 					if (pc.availableSpells(i, aClass, Globals.getDefaultSpellBook(), true, true))

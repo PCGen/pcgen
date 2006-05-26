@@ -672,7 +672,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			lastClass = aClass.getKeyName();
 
-			int highestSpellLevel = aClass.getHighestLevelSpell();
+			int highestSpellLevel = aClass.getHighestLevelSpell(pc);
 			StringBuffer b = new StringBuffer();
 			b.append("<html><table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
 			b.append(aClass.piSubString()).append(" ["); //$NON-NLS-1$
