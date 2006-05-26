@@ -568,7 +568,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			final String objKey = (String)copyIter.next();
 			if (!excludedObjects.contains(objKey))
 			{
-				performCopy( (String) copyIter.next());
+				performCopy( objKey);
 			}
 		}
 		copyLineList.clear();
